@@ -10,6 +10,7 @@ gem 'turbolinks'
 gem 'bcrypt'
 gem 'swagger-blocks'
 gem 'eve_online'
+gem 'bullet'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
@@ -33,5 +34,4 @@ end
 
 # gem 'brakeman'
 # gem 'rubocop'
-# gem 'bullet'
 # gem 'pry-rails'

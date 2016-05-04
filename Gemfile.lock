@@ -39,6 +39,9 @@ GEM
     arel (6.0.3)
     bcrypt (3.1.11)
     builder (3.2.2)
+    bullet (5.0.0)
+      activesupport (>= 3.0.0)
+      uniform_notifier (~> 1.9.0)
     coffee-rails (4.1.1)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.1.x)
@@ -155,12 +158,14 @@ GEM
       thread_safe (~> 0.1)
     uglifier (3.0.0)
       execjs (>= 0.3.0, < 3)
+    uniform_notifier (1.9.0)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   bcrypt
+  bullet
   coffee-rails (~> 4.1.0)
   eve_online
   jquery-rails
