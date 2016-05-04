@@ -26,6 +26,9 @@ end
 
 group :development do
   gem 'quiet_assets'
+  gem 'pry-rails'
+  gem 'brakeman'
+  gem 'rubocop'
 end
 
 group :test do
@@ -35,7 +38,3 @@ group :test do
   gem 'simplecov', require: false
   gem 'codeclimate-test-reporter', require: false
 end
-
-# gem 'brakeman'
-# gem 'rubocop'
-# gem 'pry-rails'
