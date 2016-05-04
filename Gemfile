@@ -29,3 +29,8 @@ group :test do
   gem 'rspec-its'
   gem 'rspec-activemodel-mocks'
 end
+
+# gem 'brakeman'
+# gem 'rubocop'
+# gem 'bullet'
+# gem 'pry-rails'
