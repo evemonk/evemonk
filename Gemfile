@@ -32,6 +32,7 @@ end
 group :development, :test do
   gem 'sqlite3'
   gem 'rspec-rails'
+  gem 'awesome_print', require: 'ap'
 end
 
 group :development do

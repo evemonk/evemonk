@@ -40,6 +40,7 @@ GEM
       tzinfo (~> 1.1)
     arel (6.0.3)
     ast (2.2.0)
+    awesome_print (1.6.1)
     bcrypt (3.1.11)
     brakeman (3.2.1)
       erubis (~> 2.6)
@@ -244,6 +245,7 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord-colored_log_subscriber
+  awesome_print
   bcrypt
   brakeman
   bullet
