@@ -31,6 +31,7 @@ group :test do
   gem 'shoulda-matchers'
   gem 'rspec-its'
   gem 'rspec-activemodel-mocks'
+  gem 'codeclimate-test-reporter', require: false
 end
 
 # gem 'brakeman'
