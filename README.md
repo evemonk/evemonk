@@ -1,5 +1,7 @@
 # EveMonk back-end and web front-end
 
+[![Dependency Status](https://gemnasium.com/badges/github.com/biow0lf/evemonk.svg)](https://gemnasium.com/github.com/biow0lf/evemonk)
+
 EveMonk is helper software for EveOnline MMORPG.
 
 ## Features
