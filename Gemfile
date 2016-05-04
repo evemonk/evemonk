@@ -16,6 +16,7 @@ gem 'good_migrations'
 gem 'rack-cors', require: 'rack/cors'
 gem 'kaminari'
 gem 'draper'
+gem 'rails-observers'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
