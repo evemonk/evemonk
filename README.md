@@ -1,6 +1,10 @@
 # EveMonk back-end and web front-end
 
-EveMonk back-end and web front-end.
+EveMonk is helper software for EveOnline MMORPG.
+
+## Features
+
+* nothing yet
 
 ## Environment
 
