@@ -76,6 +76,9 @@ GEM
     execjs (2.6.0)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
+    good_migrations (0.0.2)
+      activerecord (>= 3.1)
+      railties (>= 3.1)
     haml (4.0.7)
       tilt
     has_secure_token (1.0.0)
@@ -231,6 +234,7 @@ DEPENDENCIES
   codeclimate-test-reporter
   coffee-rails (~> 4.1.0)
   eve_online
+  good_migrations
   has_secure_token
   jquery-rails
   pg
