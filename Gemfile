@@ -11,6 +11,7 @@ gem 'swagger-blocks'
 gem 'eve_online'
 gem 'bullet'
 gem 'has_secure_token'
+gem 'activerecord-colored_log_subscriber'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
