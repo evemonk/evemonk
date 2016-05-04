@@ -26,6 +26,7 @@ gem 'rails-observers'
 
 group :production do
   gem 'pg'
+  gem 'lograge'
 end
 
 group :development, :test do
