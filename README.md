@@ -15,7 +15,7 @@ EveMonk is helper software for EveOnline MMORPG.
 
 ## Author
 
-* Igor Zubkov (aka @biow0lf)
+* Igor Zubkov (@biow0lf)
 
 ## License
 
