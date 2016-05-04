@@ -19,6 +19,7 @@ gem 'bullet'
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
+  gem 'sqlite3'
   gem 'rspec-rails'
 end
 
