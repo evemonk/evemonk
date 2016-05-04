@@ -13,4 +13,6 @@
 /tmp
 
 /.idea/*
+/coverage/*
+/db/*.sqlite3
 
