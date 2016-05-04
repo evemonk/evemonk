@@ -31,6 +31,7 @@ group :test do
   gem 'shoulda-matchers'
   gem 'rspec-its'
   gem 'rspec-activemodel-mocks'
+  gem 'simplecov', require: false
   gem 'codeclimate-test-reporter', require: false
 end
 

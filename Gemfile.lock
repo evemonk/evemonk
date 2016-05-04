@@ -187,6 +187,7 @@ DEPENDENCIES
   rspec-rails
   sass-rails (~> 5.0)
   shoulda-matchers
+  simplecov
   sqlite3
   swagger-blocks
   turbolinks
