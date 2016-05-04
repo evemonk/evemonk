@@ -15,6 +15,7 @@ gem 'activerecord-colored_log_subscriber'
 gem 'good_migrations'
 gem 'rack-cors', require: 'rack/cors'
 gem 'kaminari'
+gem 'draper'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
