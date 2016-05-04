@@ -36,8 +36,8 @@ end
 group :development do
   gem 'quiet_assets'
   gem 'pry-rails'
-  gem 'brakeman'
-  gem 'rubocop'
+  gem 'brakeman', require: false
+  gem 'rubocop', require: false
 end
 
 group :test do
