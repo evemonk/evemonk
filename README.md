@@ -15,6 +15,7 @@ EveMonk is helper software for EveOnline MMORPG.
 * RubyGems 2.6.4
 * Bundler 1.12.1
 * Ruby on Rails 4.2.6
+* PostgreSQL 9.5.2
 
 ## Author
 
