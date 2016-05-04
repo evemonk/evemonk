@@ -9,6 +9,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'bcrypt'
 gem 'swagger-blocks'
+gem 'eve_online'
 
 # Use Unicorn as the app server
 # gem 'unicorn'

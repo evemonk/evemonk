@@ -49,6 +49,10 @@ GEM
     concurrent-ruby (1.0.2)
     diff-lcs (1.2.5)
     erubis (2.7.0)
+    eve_online (0.7.0)
+      activesupport (>= 3.0.0)
+      json
+      nori (~> 2.6)
     execjs (2.6.0)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
@@ -69,6 +73,7 @@ GEM
     minitest (5.8.4)
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
+    nori (2.6.0)
     pg (0.18.4)
     rack (1.6.4)
     rack-test (0.6.3)
@@ -155,6 +160,7 @@ PLATFORMS
 DEPENDENCIES
   bcrypt
   coffee-rails (~> 4.1.0)
+  eve_online
   jquery-rails
   pg
   rails (= 4.2.6)
