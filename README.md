@@ -1,5 +1,6 @@
 # EveMonk back-end and web front-end
 
+[![Build Status](https://travis-ci.org/biow0lf/evemonk.svg?branch=master)](https://travis-ci.org/biow0lf/evemonk)
 [![Dependency Status](https://gemnasium.com/badges/github.com/biow0lf/evemonk.svg)](https://gemnasium.com/github.com/biow0lf/evemonk)
 [![Code Climate](https://codeclimate.com/github/biow0lf/evemonk/badges/gpa.svg)](https://codeclimate.com/github/biow0lf/evemonk)
 [![Test Coverage](https://codeclimate.com/github/biow0lf/evemonk/badges/coverage.svg)](https://codeclimate.com/github/biow0lf/evemonk/coverage)
