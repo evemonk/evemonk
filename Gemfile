@@ -22,9 +22,6 @@ gem 'puma'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
-
 group :production do
   gem 'pg'
   gem 'lograge'
