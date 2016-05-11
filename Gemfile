@@ -41,6 +41,8 @@ group :development do
   gem 'pry-rails'
   gem 'brakeman', require: false
   gem 'rubocop', require: false
+  gem 'capistrano'
+  gem 'capistrano-rails'
 end
 
 group :test do
