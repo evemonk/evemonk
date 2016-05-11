@@ -43,6 +43,7 @@ group :development do
   gem 'rubocop', require: false
   gem 'capistrano'
   gem 'capistrano-rails'
+  gem 'capistrano-faster-assets'
 end
 
 group :test do
