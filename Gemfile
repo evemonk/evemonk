@@ -22,9 +22,6 @@ gem 'puma'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
-
 group :production do
   gem 'pg'
   gem 'lograge'
@@ -41,6 +38,11 @@ group :development do
   gem 'pry-rails'
   gem 'brakeman', require: false
   gem 'rubocop', require: false
+  gem 'capistrano'
+  gem 'capistrano-rails'
+  gem 'capistrano-faster-assets'
+  gem 'capistrano-rbenv'
+  gem 'capistrano-rbenv-install'
 end
 
 group :test do
