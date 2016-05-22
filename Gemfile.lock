@@ -93,7 +93,7 @@ GEM
       activesupport (>= 3.0.0)
       json
       nori (~> 2.6)
-    execjs (2.6.0)
+    execjs (2.7.0)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     good_migrations (0.0.2)
