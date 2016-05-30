@@ -19,6 +19,9 @@ gem 'draper'
 gem 'rails-observers'
 gem 'puma'
 
+# for testing ony
+gem 'sqlite3'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
