@@ -3,11 +3,12 @@ require 'rails_helper'
 describe Api::BaseController do
   it { should be_a ActionController::Base }
 
+  it { should_not use_before_action(:verify_authenticity_token) }
+
+  it { should use_before_action(:authenticate) }
+
+
   # TODO: spec all this
-  #
-  # skip_before_action :verify_authenticity_token
-  #
-  # before_action :authenticate
   #
   # attr_reader :current_user
   #
@@ -28,22 +29,17 @@ describe Api::BaseController do
   #
   #   head :ok
   # end
-  #
-  # rescue_from ActionController::ParameterMissing do |exception|
-  #   @exception = exception
-  #
-  #   render :exception, status: :unprocessable_entity
-  # end
-  #
-  # rescue_from ActiveRecord::RecordInvalid, ActiveModel::StrictValidationFailed do
-  #   render :errors, status: :unprocessable_entity
-  # end
-  #
-  # rescue_from ActiveRecord::RecordNotFound do |exception|
-  #   @exception = exception
-  #
-  #   render :exception, status: :not_found
-  # end
+
+
+  it { should rescue_from(ActionController::ParameterMissing) }
+
+  it { should rescue_from(ActiveRecord::RecordInvalid) }
+
+  it { should rescue_from(ActiveModel::StrictValidationFailed) }
+
+  it { should rescue_from(ActiveRecord::RecordNotFound) }
+
+  # TODO: spec this
   #
   # private
   #
