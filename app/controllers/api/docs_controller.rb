@@ -32,10 +32,10 @@ module Api
 
       self,
     ].freeze
+    # :nocov:
 
     def index
       render json: Swagger::Blocks.build_root_json(SWAGGERED_CLASSES)
     end
-    # :nocov:
   end
 end
