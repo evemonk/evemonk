@@ -4,6 +4,16 @@ module Api
 
     private
 
+    def build_resource
+      @resource = Api::Session.new(resource_params)
+    end
 
+    def resource
+      @resource
+    end
+
+    def resource_params
+      params.require(:session).permit(:email, :password)
+    end
   end
 end
