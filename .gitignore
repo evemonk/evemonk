@@ -16,3 +16,5 @@
 /coverage/*
 /db/*.sqlite3
 
+.env
+

@@ -18,6 +18,7 @@ gem 'kaminari'
 gem 'draper'
 gem 'rails-observers'
 gem 'puma'
+gem 'dotenv'
 
 # for testing ony
 gem 'sqlite3'
