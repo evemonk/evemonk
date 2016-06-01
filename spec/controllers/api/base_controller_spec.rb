@@ -13,12 +13,6 @@ describe Api::BaseController do
   #
   # helper_method :parent, :collection, :resource, :current_user
   #
-  # def create
-  #   build_resource
-  #
-  #   resource.save!
-  # end
-  #
   # def update
   #   resource.update!(resource_params)
   # end
