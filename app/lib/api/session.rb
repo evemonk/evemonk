@@ -4,6 +4,9 @@ module Api
 
     attr_reader :email, :password
 
+    # TODO: spec this
+    validate :user_presence
+
     validate :user_password
 
     def initialize(params = {})
@@ -25,6 +28,11 @@ module Api
 
     def user
       @user ||= User.find_by(email: email)
+    end
+
+    # TODO: spec this
+    def user_presence
+      errors.add(:email, 'not found') unless user
     end
 
     def user_password
