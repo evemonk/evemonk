@@ -28,7 +28,7 @@ module Api
     SWAGGERED_CLASSES = [
       Api::Docs::Signups,
 
-      Api::Docs::Models::User,
+      Api::Docs::Models::OutputUser,
 
       self,
     ].freeze
