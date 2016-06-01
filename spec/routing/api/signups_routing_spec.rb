@@ -5,7 +5,8 @@ describe Api::SignupsController do
     it 'should route POST /api/signups to api/signups#create' do
       expect(post: '/api/signups').to route_to(
         controller: 'api/signups',
-        action: 'create')
+        action: 'create',
+        format: 'json')
     end
   end
 end
