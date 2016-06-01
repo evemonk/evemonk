@@ -10,7 +10,7 @@ module Api
         key :title, 'EveMonk back-end API'
       end
       key :schemes, ['http']
-      key :host, 'evemonk.com'
+      key :host, (ENV['API_BACKEND_HOST'] || 'localhost:3000')
       key :basePath, '/api'
       key :consumes, ['application/json']
       key :produces, ['application/json']
