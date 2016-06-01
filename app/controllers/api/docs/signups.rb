@@ -1,7 +1,7 @@
+# :nocov:
 module Api
   module Docs
     class Signups
-      # :nocov:
       include Swagger::Blocks
 
       swagger_path '/signups' do
@@ -39,7 +39,7 @@ module Api
           end
         end
       end
-      # :nocov:
     end
   end
 end
+# :nocov:

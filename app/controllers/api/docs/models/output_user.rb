@@ -1,8 +1,8 @@
+# :nocov:
 module Api
   module Docs
     module Models
       class OutputUser
-        # :nocov:
         include Swagger::Blocks
 
         swagger_schema :OutputUser do
@@ -21,8 +21,8 @@ module Api
             key :description, 'User auth token. e.g. "AAkoMiLatQHMngyuUU1vnh5b"'
           end
         end
-        # :nocov:
       end
     end
   end
 end
+# :nocov:
