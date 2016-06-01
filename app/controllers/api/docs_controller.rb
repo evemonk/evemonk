@@ -19,13 +19,14 @@ module Api
         key :description, 'Signups operations'
       end
       tag do
-        key :name, 'session'
+        key :name, 'sessions'
         key :description, 'Session operation'
       end
     end
 
     # A list of all classes that have swagger_* declarations.
     SWAGGERED_CLASSES = [
+      Api::Docs::Sessions,
       Api::Docs::Signups,
 
       Api::Docs::Models::OutputUser,
