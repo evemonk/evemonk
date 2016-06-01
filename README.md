@@ -11,7 +11,7 @@ EveMonk is helper software for EveOnline MMORPG.
 
 ## Features
 
-* nothing yet
+* API signup
 
 ## Environment
 
