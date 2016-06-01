@@ -34,7 +34,7 @@ module Api
           response 200 do
             key :description, 'Account created'
             schema do
-              key :'$ref', :User
+              key :'$ref', :OutputUser
             end
           end
         end

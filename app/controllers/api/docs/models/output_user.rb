@@ -1,11 +1,11 @@
 module Api
   module Docs
     module Models
-      class User
+      class OutputUser
         # :nocov:
         include Swagger::Blocks
 
-        swagger_schema :User do
+        swagger_schema :OutputUser do
           key :required, [:id, :email, :token]
           property :id do
             key :type, :integer
@@ -14,11 +14,11 @@ module Api
           end
           property :email do
             key :type, :string
-            key :description, 'User email'
+            key :description, 'User email. e.g. "me@example.com"'
           end
           property :token do
             key :type, :string
-            key :description, 'User auth token'
+            key :description, 'User auth token. e.g. "AAkoMiLatQHMngyuUU1vnh5b"'
           end
         end
         # :nocov:
