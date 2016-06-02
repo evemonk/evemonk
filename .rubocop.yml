@@ -2,6 +2,7 @@ AllCops:
   TargetRubyVersion: 2.3
   Exclude:
     - 'Capfile'
+  Exclude:
     - 'db/schema.rb'
     - 'bin/brakeman'
     - 'bin/rspec'
