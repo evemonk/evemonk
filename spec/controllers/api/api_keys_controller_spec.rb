@@ -58,11 +58,11 @@ describe Api::ApiKeysController do
 
     before do
       #
-      # current_user.api_keys.find(42)
+      # current_user.api_keys.find(params[:id])
       #
       expect(current_user).to receive(:api_keys) do
         double.tap do |a|
-          expect(a).to receive(:find).with('42')
+          expect(a).to receive(:find).with(params[:id])
         end
       end
     end
