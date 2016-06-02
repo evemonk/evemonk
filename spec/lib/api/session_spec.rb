@@ -22,7 +22,7 @@ describe Api::Session do
     context 'not valid' do
       before { expect(subject).to receive(:valid?).and_return(false) }
 
-      it { expect { subject.save! }.to raise_error ActiveModel::StrictValidationFailed }
+      specify { expect { subject.save! }.to raise_error ActiveModel::StrictValidationFailed }
     end
 
     context 'valid' do
@@ -53,7 +53,27 @@ describe Api::Session do
 
     before { expect(User).to receive(:find_by).with(email: email).and_return(user) }
 
-    it { expect { subject.send(:user) }.not_to raise_error }
+    specify { expect { subject.send(:user) }.not_to raise_error }
+  end
+
+  describe '#user_presence' do
+    context 'user not found' do
+      before { expect(subject).to receive(:user).and_return(nil) }
+
+      before { subject.send(:user_presence) }
+
+      specify { expect(subject.errors[:email]).to eq(['not found']) }
+    end
+
+    context 'user found' do
+      let(:user) { double }
+
+      before { expect(subject).to receive(:user).and_return(user) }
+
+      before { subject.send(:user_presence) }
+
+      specify { expect(subject.errors[:email]).to eq([]) }
+    end
   end
 
   describe '#user_password' do
