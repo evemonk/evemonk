@@ -42,10 +42,12 @@ module Api
 
     private
 
+    # rubocop:disable Lint/UnusedBlockArgument
     def authenticate
       authenticate_or_request_with_http_token do |token, options| # rubocop:disable Lint/UnusedBlockArgument
         @current_user = User.find_by(token: token)
       end
     end
+    # rubocop:enable Lint/UnusedBlockArgument
   end
 end

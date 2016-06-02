@@ -3,6 +3,7 @@ AllCops:
   Exclude:
     - 'Capfile'
   Exclude:
+    - 'Capfile'
     - 'db/schema.rb'
     - 'bin/brakeman'
     - 'bin/rspec'
