@@ -6,16 +6,43 @@ describe Api::SessionsController do
   it { should_not use_before_action(:authenticate) }
 
   describe '#create.json' do
-    before do
-      post :create, session: {
-        email: 'me@example.com',
-        password: 'password'
-      }, format: :json
+    context 'successful authorization' do
+      before do
+        expect(subject).to receive(:build_resource).and_return(true)
+      end
+
+      before do
+        expect(subject).to receive(:resource) do
+          double.tap do |a|
+            expect(a).to receive(:save!).and_return(true)
+          end
+        end
+      end
+
+      before do
+        post :create, session: {
+          email: 'me@example.com',
+          password: 'password'
+        }, format: :json
+      end
+
+      it { should render_template(:create) }
+
+      it { should respond_with(:ok) }
     end
 
-    it { should render_template(:create) }
+    context 'failed authorization' do
+      before do
+        post :create, session: {
+          email: 'me@example.com',
+          password: 'password'
+        }, format: :json
+      end
 
-    it { should respond_with(:ok) }
+      it { should render_template(:errors) }
+
+      it { should respond_with(:unprocessable_entity) }
+    end
   end
 
   # private methods
