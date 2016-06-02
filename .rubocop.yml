@@ -1,5 +1,7 @@
 AllCops:
+  TargetRubyVersion: 2.3
   Exclude:
+    - 'Capfile'
     - 'db/schema.rb'
     - 'bin/brakeman'
     - 'bin/rspec'
@@ -13,4 +15,8 @@ Metrics/LineLength:
   Enabled: false
 
 Style/Documentation:
+  Enabled: false
+
+# Enable this cop later
+Style/FrozenStringLiteralComment:
   Enabled: false

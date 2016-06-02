@@ -1,6 +1,7 @@
 class UserDecorator < Draper::Decorator
   delegate_all
 
+  # rubocop:disable Lint/UnusedMethodArgument
   def as_json(*args)
     {
       id: id,
@@ -8,4 +9,5 @@ class UserDecorator < Draper::Decorator
       token: token
     }
   end
+  # rubocop:enable Lint/UnusedMethodArgument
 end

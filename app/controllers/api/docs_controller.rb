@@ -31,7 +31,7 @@ module Api
 
       Api::Docs::Models::OutputUser,
 
-      self,
+      self
     ].freeze
     # :nocov:
 
