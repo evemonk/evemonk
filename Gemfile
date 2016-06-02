@@ -19,6 +19,7 @@ gem 'draper'
 gem 'rails-observers'
 gem 'puma'
 gem 'dotenv'
+gem 'pundit'
 
 # for testing ony
 gem 'sqlite3'
