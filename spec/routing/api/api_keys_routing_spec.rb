@@ -24,22 +24,6 @@ describe Api::ApiKeysController do
         format: 'json')
     end
 
-    it 'should route PUT /api/api_keys/:id to api/api_keys#update' do
-      expect(put: '/api/api_keys/42').to route_to(
-        controller: 'api/api_keys',
-        action: 'update',
-        id: '42',
-        format: 'json')
-    end
-
-    it 'should route PATCH /api/api_keys/:id to api/api_keys#update' do
-      expect(patch: '/api/api_keys/42').to route_to(
-        controller: 'api/api_keys',
-        action: 'update',
-        id: '42',
-        format: 'json')
-    end
-
     it 'should route DELETE /api/api_keys/:id to api/api_keys#destroy' do
       expect(delete: '/api/api_keys/42').to route_to(
         controller: 'api/api_keys',
