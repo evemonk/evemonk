@@ -1,0 +1,16 @@
+AllCops:
+  Exclude:
+    - 'db/schema.rb'
+    - 'bin/brakeman'
+    - 'bin/rspec'
+    - 'bin/rubocop'
+    - 'bin/setup'
+
+Rails:
+  Enabled: true
+
+Metrics/LineLength:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
