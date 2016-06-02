@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     resources :signups, only: :create
 
     resources :sessions, only: :create
+
+    resources :api_keys, only: [:index, :create, :show, :update, :destroy]
   end
 
   # You can have the root of your site routed with "root"
