@@ -3,6 +3,24 @@ require 'rails_helper'
 describe Api::ApiKeysController do
   it { should be_a Api::BaseController }
 
+  describe '#index' do
+    context 'authorized' do
+      before { sign_in }
+
+      before { get :index, format: :json }
+
+      it { should render_template(:index) }
+
+      it { should respond_with(:ok) }
+    end
+
+    context 'not authorized' do
+      before { get :index, format: :json }
+
+      it { should respond_with(:unauthorized) }
+    end
+  end
+
   # private methods
 
   describe '#resource_params' do
