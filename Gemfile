@@ -36,11 +36,11 @@ group :development, :test do
   gem 'sqlite3'
   gem 'rspec-rails'
   gem 'awesome_print', require: 'ap'
+  gem 'pry-rails'
 end
 
 group :development do
   gem 'quiet_assets'
-  gem 'pry-rails'
   gem 'brakeman', require: false
   gem 'rubocop', require: false
   gem 'capistrano'
