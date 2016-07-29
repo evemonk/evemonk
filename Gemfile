@@ -25,16 +25,13 @@ gem 'pundit'
 # for testing ony
 gem 'sqlite3'
 
-# Use Unicorn as the app server
-# gem 'unicorn'
-
 group :production do
   gem 'pg'
   gem 'lograge'
 end
 
 group :development, :test do
-  gem 'sqlite3'
+  # gem 'sqlite3'
   gem 'rspec-rails'
   gem 'awesome_print', require: 'ap'
   gem 'pry-rails'
