@@ -79,17 +79,30 @@ describe ApiKeyPolicy do
 end
 
 describe ApiKeyPolicy::Scope do
-  #   class Scope
-  #     attr_reader :user, :scope
-  #
-  #     def initialize(user, scope)
-  #       @user = user
-  #       @scope = scope
-  #     end
-  #
-  #     def resolve
-  #       scope.where(user: user)
-  #     end
-  #   end
-  # end
+  let(:user) { double }
+
+  let(:scope) { double }
+
+  subject { described_class.new(user, scope) }
+
+  describe '#initialize' do
+    its(:user) { should eq(user) }
+
+    its(:scope) { should eq(scope) }
+  end
+
+  describe '#resolve' do
+    before do
+      #
+      # subject.scope.where(user: user)
+      #
+      expect(subject).to receive(:scope) do
+        double.tap do |a|
+          expect(a).to receive(:where).with(user: user).and_return(scope)
+        end
+      end
+    end
+
+    specify { expect(subject.resolve).to eq(scope) }
+  end
 end
