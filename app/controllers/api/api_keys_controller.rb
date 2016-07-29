@@ -11,11 +11,11 @@ module Api
     end
 
     def resource
-      @resource ||= current_user.api_keys.find(params[:id])
+      @resource ||= ApiKey.find(params[:id])
     end
 
     def collection
-      current_user.api_keys.order(created_at: :asc)
+      @api_keys ||= policy_scope(ApiKey).order(created_at: :asc).page(params[:page])
     end
   end
 end

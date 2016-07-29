@@ -5,6 +5,8 @@ describe Api::ApiKeysController do
 
   describe '#index' do
     context 'authorized' do
+      before { expect(subject).to receive(:verify_policy_scoped).and_return(true) }
+
       before { sign_in }
 
       before { get :index, format: :json }
@@ -68,38 +70,30 @@ describe Api::ApiKeysController do
   describe '#resource' do
     let(:params) { { id: '42' } }
 
-    let(:current_user) { double }
-
     before { expect(subject).to receive(:params).and_return(params) }
-
-    before { expect(subject).to receive(:current_user).and_return(current_user) }
 
     before do
       #
-      # current_user.api_keys.find(params[:id])
+      # ApiKey.find(params[:id])
       #
-      expect(current_user).to receive(:api_keys) do
-        double.tap do |a|
-          expect(a).to receive(:find).with(params[:id])
-        end
-      end
+      expect(ApiKey).to receive(:find).with(params[:id])
     end
 
     specify { expect { subject.send(:resource) }.not_to raise_error }
   end
 
   describe '#collection' do
-    let(:current_user) { double }
-
-    before { expect(subject).to receive(:current_user).and_return(current_user) }
-
     before do
       #
-      # current_user.api_keys.order(created_at: :asc)
+      # subject.policy_scope(ApiKey).order(created_at: :asc).page(params[:page])
       #
-      expect(current_user).to receive(:api_keys) do
+      expect(subject).to receive(:policy_scope).with(ApiKey) do
         double.tap do |a|
-          expect(a).to receive(:order).with(created_at: :asc)
+          expect(a).to receive(:order).with(created_at: :asc) do
+            double.tap do |b|
+              expect(b).to receive(:page).with(nil)
+            end
+          end
         end
       end
     end
