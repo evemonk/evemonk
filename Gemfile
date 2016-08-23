@@ -21,7 +21,7 @@ gem 'good_migrations'
 gem 'rack-cors', require: 'rack/cors'
 gem 'kaminari'
 gem 'rectify'
-gem 'draper'
+gem 'draper', '3.0.0.pre1'
 gem 'dotenv'
 gem 'pundit'
 

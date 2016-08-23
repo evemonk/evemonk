@@ -29,6 +29,11 @@ GEM
       globalid (>= 0.3.6)
     activemodel (5.0.0.1)
       activesupport (= 5.0.0.1)
+    activemodel-serializers-xml (1.0.1)
+      activemodel (> 5.x)
+      activerecord (> 5.x)
+      activesupport (> 5.x)
+      builder (~> 3.1)
     activerecord (5.0.0.1)
       activemodel (= 5.0.0.1)
       activesupport (= 5.0.0.1)
@@ -92,10 +97,11 @@ GEM
     diff-lcs (1.2.5)
     docile (1.1.5)
     dotenv (2.1.1)
-    draper (2.1.0)
-      actionpack (>= 3.0)
-      activemodel (>= 3.0)
-      activesupport (>= 3.0)
+    draper (3.0.0.pre1)
+      actionpack (~> 5.0)
+      activemodel (~> 5.0)
+      activemodel-serializers-xml (~> 1.0)
+      activesupport (~> 5.0)
       request_store (~> 1.0)
     equalizer (0.0.11)
     erubis (2.7.0)
@@ -296,7 +302,7 @@ DEPENDENCIES
   codeclimate-test-reporter
   coffee-rails (~> 4.2)
   dotenv
-  draper
+  draper (= 3.0.0.pre1)
   eve_online
   good_migrations
   has_secure_token
