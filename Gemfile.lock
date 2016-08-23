@@ -147,7 +147,7 @@ GEM
     pg (0.18.4)
     pkg-config (1.1.7)
     powerpack (0.1.1)
-    pry (0.10.3)
+    pry (0.10.4)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
