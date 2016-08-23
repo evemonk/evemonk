@@ -2,6 +2,14 @@ module Api
   class SessionsController < BaseController
     skip_before_action :authenticate
 
+    def create
+      build_resource
+
+      resource.save!
+
+      skip_authorization
+    end
+
     private
 
     def build_resource

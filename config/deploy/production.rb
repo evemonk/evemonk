@@ -1,3 +1,3 @@
-server 'evemonk.com', user: 'evemonkapp', roles: %w{app db web}
+server 'evemonk.com', user: 'evemonkapp', roles: %w(app db web)
 
-set :ssh_options, { port: 22 }
+set :ssh_options, port: 22

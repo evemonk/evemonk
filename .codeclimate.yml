@@ -3,3 +3,8 @@ languages:
 exclude_paths:
 - "app/controllers/api/docs/sessions.rb"
 - "app/controllers/api/docs/signups.rb"
+- "spec/controllers/api/sessions_controller_spec.rb"
+- "spec/controllers/api/signups_controller_spec.rb"
+- "spec/routing/api/docs_routing_spec.rb"
+- "spec/routing/api/sessions_routing_spec.rb"
+- "spec/routing/api/signups_routing_spec.rb"

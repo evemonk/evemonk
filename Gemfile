@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.2.6'
+gem 'rails', '~> 4.2'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
@@ -15,16 +15,14 @@ gem 'activerecord-colored_log_subscriber'
 gem 'good_migrations'
 gem 'rack-cors', require: 'rack/cors'
 gem 'kaminari'
+gem 'rectify'
 gem 'draper'
-gem 'rails-observers'
 gem 'puma'
 gem 'dotenv'
+gem 'pundit'
 
 # for testing ony
 gem 'sqlite3'
-
-# Use Unicorn as the app server
-# gem 'unicorn'
 
 group :production do
   gem 'pg'
@@ -32,14 +30,14 @@ group :production do
 end
 
 group :development, :test do
-  gem 'sqlite3'
+  # gem 'sqlite3'
   gem 'rspec-rails'
   gem 'awesome_print', require: 'ap'
+  gem 'pry-rails'
 end
 
 group :development do
   gem 'quiet_assets'
-  gem 'pry-rails'
   gem 'brakeman', require: false
   gem 'rubocop', require: false
   gem 'capistrano'
