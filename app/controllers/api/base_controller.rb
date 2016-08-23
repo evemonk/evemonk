@@ -40,25 +40,33 @@ module Api
       head :ok
     end
 
+    # :nocov:
     rescue_from ActionController::ParameterMissing do |exception|
       @exception = exception
 
       render :exception, status: :unprocessable_entity
     end
+    # :nocov:
 
+    # :nocov:
     rescue_from ActiveRecord::RecordInvalid, ActiveModel::StrictValidationFailed do
       render :errors, status: :unprocessable_entity
     end
+    # :nocov:
 
+    # :nocov:
     rescue_from ActiveRecord::RecordNotFound do |exception|
       @exception = exception
 
       render :exception, status: :not_found
     end
+    # :nocov:
 
+    # :nocov:
     rescue_from Pundit::NotAuthorizedError do
       head :forbidden
     end
+    # :nocov:
 
     private
 
