@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe Api::BaseController do
-  it { should be_a ActionController::Base }
+  it { should be_a ApplicationController }
 
   it { should be_a Pundit }
 
