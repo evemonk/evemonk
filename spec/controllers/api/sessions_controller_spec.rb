@@ -7,23 +7,21 @@ describe Api::SessionsController do
 
   describe '#create.json' do
     context 'successful authorization' do
-      before do
-        expect(subject).to receive(:build_resource).and_return(true)
-      end
+      before { expect(subject).to receive(:build_resource) }
 
       before do
         expect(subject).to receive(:resource) do
           double.tap do |a|
-            expect(a).to receive(:save!).and_return(true)
+            expect(a).to receive(:save!)
           end
         end
       end
 
       before do
-        post :create, session: {
+        post :create, params: { session: {
           email: 'me@example.com',
           password: 'password'
-        }, format: :json
+        }, format: :json }
       end
 
       it { should render_template(:create) }
@@ -33,13 +31,13 @@ describe Api::SessionsController do
 
     context 'failed authorization' do
       before do
-        post :create, session: {
+        post :create, params: { session: {
           email: 'me@example.com',
           password: 'password'
-        }, format: :json
+        }, format: :json }
       end
 
-      pending { should render_template(:errors) }
+      it { should render_template(:errors) }
 
       it { should respond_with(:unprocessable_entity) }
     end
