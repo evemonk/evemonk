@@ -5,8 +5,6 @@ describe Api::BaseController do
 
   it { should be_a Pundit }
 
-  it { should_not use_before_action(:verify_authenticity_token) }
-
   it { should use_before_action(:authenticate) }
 
   pending { should use_after_action(:verify_authorized).except(:index) }
