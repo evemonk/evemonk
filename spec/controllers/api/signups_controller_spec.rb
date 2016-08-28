@@ -7,11 +7,11 @@ describe Api::SignupsController do
 
   describe '#create.json' do
     before do
-      post :create, user: {
+      post :create, params: { user: {
         email: 'me@example.com',
         password: 'password',
         password_confirmation: 'password'
-      }, format: :json
+      }, format: :json }
     end
 
     it { should render_template(:create) }
