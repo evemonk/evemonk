@@ -24,9 +24,7 @@ describe Api::SignupsController do
   describe '#build_resource' do
     let(:resource_params) { double }
 
-    before do
-      expect(subject).to receive(:resource_params).and_return(resource_params)
-    end
+    before { expect(subject).to receive(:resource_params).and_return(resource_params) }
 
     before { expect(User).to receive(:new).with(resource_params) }
 
