@@ -24,7 +24,7 @@ describe Api::BaseController do
   describe '#create' do
     let(:resource) { double }
 
-    before { expect(subject).to receive(:build_resource).and_return(true) }
+    before { expect(subject).to receive(:build_resource) }
 
     before { expect(subject).to receive(:resource).and_return(resource).twice }
 
