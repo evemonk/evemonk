@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 describe User do
+  it { should be_a(ApplicationRecord) }
+
   it { should have_secure_password }
 
   pending { should have_secure_token }

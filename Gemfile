@@ -1,23 +1,26 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~> 4.2'
+gem 'rails', '~> 5.0.0'
+gem 'puma', '~> 3.0'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.1.0'
+gem 'coffee-rails', '~> 4.2'
+
 gem 'jquery-rails'
-gem 'turbolinks'
+gem 'turbolinks', '~> 5'
+
+# Use Redis adapter to run Action Cable in production
+# gem 'redis', '~> 3.0'
+
 gem 'bcrypt'
 gem 'swagger-blocks'
 gem 'eve_online'
 gem 'bullet'
-gem 'has_secure_token'
-gem 'activerecord-colored_log_subscriber'
 gem 'good_migrations'
 gem 'rack-cors', require: 'rack/cors'
 gem 'kaminari'
 gem 'rectify'
-gem 'draper'
-gem 'puma'
+gem 'draper', '3.0.0.pre1'
 gem 'dotenv'
 gem 'pundit'
 
@@ -37,7 +40,7 @@ group :development, :test do
 end
 
 group :development do
-  gem 'quiet_assets'
+  gem 'listen', '~> 3.0.5'
   gem 'brakeman', require: false
   gem 'rubocop', require: false
   gem 'capistrano'
@@ -48,6 +51,7 @@ group :development do
 end
 
 group :test do
+  gem 'rails-controller-testing'
   gem 'shoulda-matchers'
   gem 'rspec-its'
   gem 'rspec-activemodel-mocks'

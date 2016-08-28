@@ -1,5 +1,5 @@
 module Api
-  class BaseController < ActionController::Base
+  class BaseController < ApplicationController
     include Pundit
 
     skip_before_action :verify_authenticity_token
