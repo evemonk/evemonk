@@ -81,6 +81,10 @@ paths:
 
 definitions:
   OutputUser:
+    required:
+      - id
+      - email
+      - token
     type: object
     properties:
       id:
