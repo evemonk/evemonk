@@ -106,6 +106,8 @@ paths:
       responses:
         200:
           description: API Keys collection
+          schema:
+            $ref: '#/definitions/OutputApiKeyCollection'
 
 definitions:
   OutputUser:
@@ -135,6 +137,27 @@ definitions:
         type: integer
         format: int64
         description: ApiKey ID. e.g. "123"
+
+  OutputApiKeyCollection:
+    required:
+      - collection
+      - total_pages
+      - current_page
+    type: object
+    properties:
+      collection:
+        type: array
+        items:
+          $ref: '#/definitions/OutputApiKey'
+      total_pages:
+        type: integer
+        format: int64
+        description: Total pages counter
+      current_page:
+        type: integer
+        format: int64
+        description: Current page number
+
 
   Error:
     type: object
