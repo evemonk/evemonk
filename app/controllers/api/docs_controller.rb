@@ -26,9 +26,6 @@ module Api
 
     # A list of all classes that have swagger_* declarations.
     SWAGGERED_CLASSES = [
-      Api::Docs::Sessions,
-      Api::Docs::Signups,
-
       Api::Docs::Models::OutputUser,
 
       self
