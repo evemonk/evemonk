@@ -10,6 +10,11 @@ schemes:
 basePath: /api
 produces:
   - application/json
+tags:
+  - name: signups
+    description: Signups operations
+  - name: sessions
+    description: Session operations
 paths:
   /signups:
     post:
