@@ -2,7 +2,7 @@ swagger: '2.0'
 info:
   title: 'EveMonk API'
   description: 'EveMonk REST API documentation'
-  version: '1.0.0'
+  version: '0.1.0'
 host: localhost:3000
 schemes:
   - http
@@ -40,6 +40,10 @@ paths:
           description: Signup
           schema:
             $ref: '#/definitions/OutputUser'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
 
   /sessions:
     post:
@@ -57,17 +61,17 @@ paths:
           description: User password
           type: string
           format: password
-        tags:
-          - sessions
-        responses:
-          200:
-            description: Response with User model with token
-            schema:
-              $ref: '#/definitions/OutputUser'
-          default:
-            description: Unexpected error
-            schema:
-              $ref: '#/definitions/Error'
+      tags:
+        - sessions
+      responses:
+        200:
+          description: Response with User model with token
+          schema:
+            $ref: '#/definitions/OutputUser'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
 
 definitions:
   OutputUser:
