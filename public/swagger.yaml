@@ -16,57 +16,31 @@ paths:
       description: |
         Signup endpoint.
       parameters:
-        - name: 'user[email]'
+        - name: user[email]
           in: formData
           description: User email
           required: true
           type: string
-        - name: 'user[password]'
+        - name: user[password]
           in: formData
           description: User password
           required: true
           type: string
-        - name: 'user[password_confirmation]'
+          format: password
+        - name: user[password_confirmation]
           in: formData
           description: User password confirmation
           required: true
           type: string
-
-
-  /products:
-    get:
-      summary: Product Types
-      description: |
-        The Products endpoint returns information about the *Uber* products
-        offered at a given location. The response includes the display name
-        and other details about each product, and lists the products in the
-        proper display order.
-      parameters:
-        - name: latitude
-          in: query
-          description: Latitude component of location.
-          required: true
-          type: number
-          format: double
-        - name: longitude
-          in: query
-          description: Longitude component of location.
-          required: true
-          type: number
-          format: double
+          format: password
       tags:
-        - Products
+        - signups
       responses:
         200:
-          description: An array of products
+          description: Signup
           schema:
-            type: array
-            items:
-              $ref: '#/definitions/Product'
-        default:
-          description: Unexpected error
-          schema:
-            $ref: '#/definitions/Error'
+            $ref: '#/definitions/OutputUser'
+
   /estimates/price:
     get:
       summary: Price Estimates
@@ -283,6 +257,19 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/Activity'
+  OutputUser:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int64
+        description: User ID. e.g. "42"
+      email:
+        type: string
+        description: User email. e.g. "me@example.com"
+      token:
+        type: string
+        description: User auth token. e.g. "AAkoMiLatQHMngyuUU1vnh5b"
   Error:
     type: object
     properties:
