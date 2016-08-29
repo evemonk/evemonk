@@ -7,11 +7,11 @@ describe Api::SignupsController do
 
   describe '#create.json' do
     before do
-      post :create, user: {
+      post :create, params: { user: {
         email: 'me@example.com',
         password: 'password',
         password_confirmation: 'password'
-      }, format: :json
+      }, format: :json }
     end
 
     it { should render_template(:create) }
@@ -24,9 +24,7 @@ describe Api::SignupsController do
   describe '#build_resource' do
     let(:resource_params) { double }
 
-    before do
-      expect(subject).to receive(:resource_params).and_return(resource_params)
-    end
+    before { expect(subject).to receive(:resource_params).and_return(resource_params) }
 
     before { expect(User).to receive(:new).with(resource_params) }
 

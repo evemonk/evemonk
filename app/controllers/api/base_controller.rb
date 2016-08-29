@@ -2,8 +2,6 @@ module Api
   class BaseController < ApplicationController
     include Pundit
 
-    skip_before_action :verify_authenticity_token
-
     before_action :authenticate
 
     after_action :verify_authorized, except: :index

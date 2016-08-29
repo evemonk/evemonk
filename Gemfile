@@ -15,7 +15,6 @@ gem 'turbolinks', '~> 5'
 gem 'bcrypt'
 gem 'swagger-blocks'
 gem 'eve_online'
-gem 'bullet'
 gem 'good_migrations'
 gem 'rack-cors', require: 'rack/cors'
 gem 'kaminari'
@@ -37,6 +36,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'awesome_print', require: 'ap'
   gem 'pry-rails'
+  gem 'bullet'
 end
 
 group :development do
