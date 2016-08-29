@@ -6,6 +6,7 @@ info:
 host: localhost:3000
 schemes:
   - http
+  - https
 basePath: /api
 produces:
   - application/json
