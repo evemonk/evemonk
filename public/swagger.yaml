@@ -8,6 +8,9 @@ schemes:
   - http
   - https
 basePath: /api
+consumes:
+  - application/json
+  - application/x-www-form-urlencoded
 produces:
   - application/json
 tags:
