@@ -3,8 +3,6 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   namespace :api, defaults: { format: 'json' } do
-    resources :docs, only: :index
-
     resources :signups, only: :create
 
     resources :sessions, only: :create
