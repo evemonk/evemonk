@@ -7,6 +7,8 @@ describe Api::SessionsController do
 
   describe '#create.json' do
     context 'successful authorization' do
+      before { expect(subject).to receive(:verify_authorized).and_return(true) }
+
       before { expect(subject).to receive(:build_resource) }
 
       before do
@@ -16,6 +18,8 @@ describe Api::SessionsController do
           end
         end
       end
+
+      before { expect(subject).to receive(:skip_authorization) }
 
       before do
         post :create, params: { session: {
