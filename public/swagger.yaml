@@ -1,7 +1,7 @@
 swagger: '2.0'
 info:
-  title: 'EveMonk API'
-  description: 'EveMonk REST API documentation'
+  title: 'EveMonk back-end API'
+  description: 'EveMonk back-end REST API documentation'
   version: '0.1.0'
 host: localhost:3000
 schemes:
@@ -43,7 +43,7 @@ paths:
         - signups
       responses:
         200:
-          description: Signup
+          description: Account created
           schema:
             $ref: '#/definitions/OutputUser'
         default:
