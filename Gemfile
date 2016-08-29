@@ -13,7 +13,6 @@ gem 'turbolinks', '~> 5'
 # gem 'redis', '~> 3.0'
 
 gem 'bcrypt'
-gem 'swagger-blocks'
 gem 'eve_online'
 gem 'good_migrations'
 gem 'rack-cors', require: 'rack/cors'
