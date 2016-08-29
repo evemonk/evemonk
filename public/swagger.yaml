@@ -18,6 +18,8 @@ tags:
     description: Signups operations
   - name: sessions
     description: Session operations
+  - name: api keys
+    description: API Keys operations
 paths:
   /signups:
     post:
@@ -82,6 +84,29 @@ paths:
           schema:
             $ref: '#/definitions/Error'
 
+  /api_keys:
+    get:
+      summary: Get list of User API Keys
+      description: |
+        Get list of User API Keys.
+      parameters:
+        - name: Authorization
+          in: header
+          description: 'User auth token. Example: Token token="value"'
+          default: Token token="ACCESS_TOKEN"
+          required: true
+          type: string
+        - name: page
+          in: query
+          description: Page number for pagination
+          type: integer
+          format: int64
+      tags:
+        - api keys
+      responses:
+        200:
+          description: API Keys collection
+
 definitions:
   OutputUser:
     required:
@@ -100,6 +125,17 @@ definitions:
       token:
         type: string
         description: User auth token. e.g. "AAkoMiLatQHMngyuUU1vnh5b"
+
+  OutputApiKey:
+    required:
+      - id
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int64
+        description: ApiKey ID. e.g. "123"
+
   Error:
     type: object
     properties:
