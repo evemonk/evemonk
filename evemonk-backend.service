@@ -1,0 +1,14 @@
+[Service]
+WorkingDirectory=/home/evemonkapp/www/current
+PIDFile=/home/evemonkapp/www/current/tmp/pids/evemonk.pid
+ExecStart = /var/www/.rvm/gems/ruby-2.3.1@evemonk/wrappers/bundle exec unicorn -c config/unicorn/production.rb
+ExecReload = /bin/kill -s USR2 $MAINPID
+Restart=always
+StandardOutput=journal
+StandardError=journal
+User=www-data
+Group=www-data
+Environment='RAILS_ENV=production'
+
+[Install]
+WantedBy=multi-user.target
