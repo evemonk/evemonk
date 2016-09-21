@@ -151,7 +151,7 @@ GEM
       mini_portile2 (~> 2.1.0)
       pkg-config (~> 1.1.7)
     nori (2.6.0)
-    parser (2.3.1.2)
+    parser (2.3.1.4)
       ast (~> 2.2)
     pg (0.18.4)
     pkg-config (1.1.7)
