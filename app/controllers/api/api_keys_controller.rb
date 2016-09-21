@@ -15,7 +15,8 @@ module Api
     end
 
     def collection
-      @api_keys ||= policy_scope(ApiKey).order(created_at: :asc).page(params[:page])
+      @api_keys ||= policy_scope(ApiKey).order(created_at: :asc)
+                                        .page(params[:page])
     end
   end
 end
