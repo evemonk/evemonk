@@ -12,7 +12,8 @@ Rails:
   Enabled: true
 
 Metrics/LineLength:
-  Enabled: false
+  Enabled: true
+  Max: 80
 
 Style/Documentation:
   Enabled: false
