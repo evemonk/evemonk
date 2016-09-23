@@ -23,3 +23,6 @@
 /.idea/*
 /coverage/*
 .env
+
+db/schema.rb
+
