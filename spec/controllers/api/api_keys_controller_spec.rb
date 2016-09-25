@@ -54,6 +54,9 @@ describe Api::ApiKeysController do
     end
 
     context 'not authorized' do
+      before { post :create, params: { api_key: { key_id: 1234567, v_code: 'abc' }, format: :json } }
+
+      it { should respond_with(:unauthorized) }
     end
   end
 
