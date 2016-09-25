@@ -20,6 +20,7 @@ tags:
     description: Session operations
   - name: api keys
     description: API Keys operations
+
 paths:
   /signups:
     post:
@@ -108,6 +109,43 @@ paths:
           description: API Keys collection
           schema:
             $ref: '#/definitions/OutputApiKeyCollection'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+
+    post:
+      summary: Add EveOnline API Key
+      description: |
+        Create api key for user.
+      parameters:
+        - name: Authorization
+          in: header
+          description: 'User auth token. Example: Token token="value"'
+          default: Token token="ACCESS_TOKEN"
+          required: true
+          type: string
+        - name: api_key[key_id]
+          in: formData
+          description: EveOnline API Key ID
+          required: true
+          type: string
+        - name: api_key[v_code]
+          in: formData
+          description: EveOnline API Key code
+          required: true
+          type: string
+      tags:
+        - api keys
+      responses:
+        200:
+          description: API Key response
+          schema:
+            $ref: '#/definitions/OutputApiKey'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
 
 definitions:
   OutputUser:
