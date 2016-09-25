@@ -233,6 +233,16 @@ paths:
           required: true
           type: integer
           format: int64
+        - name: api_key[key_id]
+          in: formData
+          description: EveOnline API Key ID
+          required: true
+          type: string
+        - name: api_key[v_code]
+          in: formData
+          description: EveOnline API Key code
+          required: true
+          type: string
       tags:
         - api keys
       responses:
@@ -270,6 +280,16 @@ paths:
           required: true
           type: integer
           format: int64
+        - name: api_key[key_id]
+          in: formData
+          description: EveOnline API Key ID
+          required: false
+          type: string
+        - name: api_key[v_code]
+          in: formData
+          description: EveOnline API Key code
+          required: false
+          type: string
       tags:
         - api keys
       responses:
