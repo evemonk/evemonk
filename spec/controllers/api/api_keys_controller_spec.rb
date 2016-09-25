@@ -3,7 +3,7 @@ require 'rails_helper'
 describe Api::ApiKeysController do
   it { should be_a Api::BaseController }
 
-  describe '#index' do
+  describe '#index.json' do
     context 'authorized' do
       before { expect(subject).to receive(:verify_policy_scoped).and_return(true) }
 
@@ -23,7 +23,7 @@ describe Api::ApiKeysController do
     end
   end
 
-  describe '#show' do
+  describe '#show.json' do
     context 'authorized' do
       before { expect(subject).to receive(:verify_authorized).and_return(true) }
 
@@ -46,6 +46,32 @@ describe Api::ApiKeysController do
       before { get :show, params: { id: 42, format: :json } }
 
       it { should respond_with(:unauthorized) }
+    end
+  end
+
+  describe '#create.json' do
+  end
+
+  describe '#update.json' do
+  end
+
+  describe '#destroy.json' do
+    context 'authorized' do
+      before { expect(subject).to receive(:verify_authorized).and_return(true) }
+
+      let(:api_key) { double }
+
+      before { expect(subject).to receive(:authorize).with(api_key).and_return(true) }
+
+      before { sign_in }
+
+      before { subject.instance_variable_set(:@resource, api_key) }
+
+      before { expect(api_key).to receive(:destroy!) }
+
+      before { delete :destroy, params: { id: 42, format: :json } }
+
+      it { should respond_with(:ok) }
     end
   end
 
