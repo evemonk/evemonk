@@ -73,6 +73,12 @@ describe Api::ApiKeysController do
 
       it { should respond_with(:ok) }
     end
+
+    context 'not authorized' do
+      before { delete :destroy, params: { id: 42, format: :json } }
+
+      it { should respond_with(:unauthorized) }
+    end
   end
 
   # private methods
