@@ -23,6 +23,32 @@ describe Api::ApiKeysController do
     end
   end
 
+  describe '#show' do
+    context 'authorized' do
+      before { expect(subject).to receive(:verify_authorized).and_return(true) }
+
+      let(:api_key) { stub_model ApiKey, id: 42 }
+
+      before { expect(ApiKey).to receive(:find).with('42').and_return(api_key) }
+
+      before { expect(subject).to receive(:authorize).with(api_key).and_return(true) }
+
+      before { sign_in }
+
+      before { get :show, params: { id: 42, format: :json } }
+
+      it { should render_template(:show) }
+
+      it { should respond_with(:ok) }
+    end
+
+    context 'not authorized' do
+      before { get :show, params: { id: 42, format: :json } }
+
+      it { should respond_with(:unauthorized) }
+    end
+  end
+
   # private methods
 
   describe '#resource_params' do
