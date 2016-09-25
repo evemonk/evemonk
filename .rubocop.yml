@@ -7,6 +7,8 @@ AllCops:
     - 'bin/rspec'
     - 'bin/rubocop'
     - 'bin/setup'
+    - 'spec/spec_helper.rb'
+    - 'spec/rails_helper.rb'
 
 Rails:
   Enabled: true

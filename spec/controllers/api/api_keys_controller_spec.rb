@@ -3,7 +3,7 @@ require 'rails_helper'
 describe Api::ApiKeysController do
   it { should be_a Api::BaseController }
 
-  describe '#index' do
+  describe '#index.json' do
     context 'authorized' do
       before { expect(subject).to receive(:verify_policy_scoped).and_return(true) }
 
@@ -18,6 +18,93 @@ describe Api::ApiKeysController do
 
     context 'not authorized' do
       before { get :index, format: :json }
+
+      it { should respond_with(:unauthorized) }
+    end
+  end
+
+  describe '#show.json' do
+    context 'authorized' do
+      before { expect(subject).to receive(:verify_authorized).and_return(true) }
+
+      let(:api_key) { double }
+
+      before { expect(subject).to receive(:resource).and_return(api_key) }
+
+      before { expect(subject).to receive(:authorize).with(api_key).and_return(true) }
+
+      before { sign_in }
+
+      before { get :show, params: { id: 42, format: :json } }
+
+      it { should render_template(:show) }
+
+      it { should respond_with(:ok) }
+    end
+
+    context 'not authorized' do
+      before { get :show, params: { id: 42, format: :json } }
+
+      it { should respond_with(:unauthorized) }
+    end
+  end
+
+  describe '#create.json' do
+    context 'authorized' do
+    end
+
+    context 'not authorized' do
+      before { post :create, params: { api_key: { key_id: 1234567, v_code: 'abc' }, format: :json } }
+
+      it { should respond_with(:unauthorized) }
+    end
+  end
+
+  describe '#update.json' do
+    context 'PUT' do
+      context 'authorized' do
+      end
+
+      context 'not authorized' do
+        before { put :update, params: { id: 42, format: :json } }
+
+        it { should respond_with(:unauthorized) }
+      end
+    end
+
+    context 'PATCH' do
+      context 'authorized' do
+      end
+
+      context 'not authorized' do
+        before { patch :update, params: { id: 42, format: :json } }
+
+        it { should respond_with(:unauthorized) }
+      end
+    end
+  end
+
+  describe '#destroy.json' do
+    context 'authorized' do
+      before { expect(subject).to receive(:verify_authorized).and_return(true) }
+
+      let(:api_key) { double }
+
+      before { expect(subject).to receive(:resource).and_return(api_key).twice }
+
+      before { expect(subject).to receive(:authorize).with(api_key).and_return(true) }
+
+      before { expect(api_key).to receive(:destroy!) }
+
+      before { sign_in }
+
+      before { delete :destroy, params: { id: 42, format: :json } }
+
+      it { should respond_with(:ok) }
+    end
+
+    context 'not authorized' do
+      before { delete :destroy, params: { id: 42, format: :json } }
 
       it { should respond_with(:unauthorized) }
     end

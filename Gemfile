@@ -5,7 +5,6 @@ gem 'puma', '~> 3.0'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
-
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 
@@ -21,6 +20,7 @@ gem 'rectify'
 gem 'draper', '3.0.0.pre1'
 gem 'dotenv'
 gem 'pundit'
+gem 'sidekiq'
 
 # for testing ony
 gem 'sqlite3'

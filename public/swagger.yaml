@@ -20,6 +20,7 @@ tags:
     description: Session operations
   - name: api keys
     description: API Keys operations
+
 paths:
   /signups:
     post:
@@ -108,6 +109,206 @@ paths:
           description: API Keys collection
           schema:
             $ref: '#/definitions/OutputApiKeyCollection'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+
+    post:
+      summary: Add EveOnline API Key
+      description: |
+        Create api key for user.
+      parameters:
+        - name: Authorization
+          in: header
+          description: 'User auth token. Example: Token token="value"'
+          default: Token token="ACCESS_TOKEN"
+          required: true
+          type: string
+        - name: api_key[key_id]
+          in: formData
+          description: EveOnline API Key ID
+          required: true
+          type: string
+        - name: api_key[v_code]
+          in: formData
+          description: EveOnline API Key code
+          required: true
+          type: string
+      tags:
+        - api keys
+      responses:
+        200:
+          description: API Key response
+          schema:
+            $ref: '#/definitions/OutputApiKey'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+
+  /api_keys/{id}:
+    get:
+      summary: Get EveOnline API Key
+      description: |
+        Get EveOnine API Key by ID.
+      parameters:
+        - name: Authorization
+          in: header
+          description: 'User auth token. Example: Token token="value"'
+          default: Token token="ACCESS_TOKEN"
+          required: true
+          type: string
+        - name: id
+          in: path
+          description: API Key ID
+          required: true
+          type: integer
+          format: int64
+      tags:
+        - api keys
+      responses:
+        200:
+          description: API Key response
+          schema:
+            $ref: '#/definitions/OutputApiKey'
+        401:
+          description: Unauthorized
+        403:
+          description: Forbidden
+        404:
+          description: API Key not found
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+
+    delete:
+      summary: Delete EveOnline API Key
+      description: |
+        Delete EveOnine API Key by ID.
+      parameters:
+        - name: Authorization
+          in: header
+          description: 'User auth token. Example: Token token="value"'
+          default: Token token="ACCESS_TOKEN"
+          required: true
+          type: string
+        - name: id
+          in: path
+          description: API Key ID
+          required: true
+          type: integer
+          format: int64
+      tags:
+        - api keys
+      responses:
+        200:
+          description: API Key removed
+        401:
+          description: Unauthorized
+        403:
+          description: Forbidden
+        404:
+          description: API Key not found
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+
+    put:
+      summary: Update EveOnline API Key
+      description: |
+        Update EveOnine API Key by ID.
+      parameters:
+        - name: Authorization
+          in: header
+          description: 'User auth token. Example: Token token="value"'
+          default: Token token="ACCESS_TOKEN"
+          required: true
+          type: string
+        - name: id
+          in: path
+          description: API Key ID
+          required: true
+          type: integer
+          format: int64
+        - name: api_key[key_id]
+          in: formData
+          description: EveOnline API Key ID
+          required: true
+          type: string
+        - name: api_key[v_code]
+          in: formData
+          description: EveOnline API Key code
+          required: true
+          type: string
+      tags:
+        - api keys
+      responses:
+        200:
+          description: API Key response
+          schema:
+            $ref: '#/definitions/OutputApiKey'
+        401:
+          description: Unauthorized
+        403:
+          description: Forbidden
+        404:
+          description: API Key not found
+        422:
+          description: Unprocessable Entity
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+
+    patch:
+      summary: Update EveOnline API Key
+      description: |
+        Update EveOnine API Key by ID.
+      parameters:
+        - name: Authorization
+          in: header
+          description: 'User auth token. Example: Token token="value"'
+          default: Token token="ACCESS_TOKEN"
+          required: true
+          type: string
+        - name: id
+          in: path
+          description: API Key ID
+          required: true
+          type: integer
+          format: int64
+        - name: api_key[key_id]
+          in: formData
+          description: EveOnline API Key ID
+          required: false
+          type: string
+        - name: api_key[v_code]
+          in: formData
+          description: EveOnline API Key code
+          required: false
+          type: string
+      tags:
+        - api keys
+      responses:
+        200:
+          description: API Key response
+          schema:
+            $ref: '#/definitions/OutputApiKey'
+        401:
+          description: Unauthorized
+        403:
+          description: Forbidden
+        404:
+          description: API Key not found
+        422:
+          description: Unprocessable Entity
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
 
 definitions:
   OutputUser:
@@ -131,12 +332,21 @@ definitions:
   OutputApiKey:
     required:
       - id
+      - key_id
+      - v_code
     type: object
     properties:
       id:
         type: integer
         format: int64
-        description: ApiKey ID. e.g. "123"
+        description: APIKey ID. e.g. "123"
+      key_id:
+        type: integer
+        format: int64
+        description: APIKey Key ID. e.g. "1234567"
+      v_code:
+        type: string
+        description: APIKey Code. e.g. "4a66f384d27c59af02f16746d480689ee3674b58a0d822518eb57bddd4e904f7"
 
   OutputApiKeyCollection:
     required:
