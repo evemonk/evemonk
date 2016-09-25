@@ -6,7 +6,9 @@ class ApiKeyDecorator < Draper::Decorator
     {
       id: id,
       key_id: key_id,
-      v_code: v_code
+      v_code: v_code,
+      created_at: created_at,
+      updated_at: updated_at
     }
   end
   # rubocop:enable Lint/UnusedMethodArgument
