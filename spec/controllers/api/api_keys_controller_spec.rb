@@ -27,9 +27,9 @@ describe Api::ApiKeysController do
     context 'authorized' do
       before { expect(subject).to receive(:verify_authorized).and_return(true) }
 
-      let(:api_key) { stub_model ApiKey, id: 42 }
+      let(:api_key) { double }
 
-      before { expect(ApiKey).to receive(:find).with('42').and_return(api_key) }
+      before { subject.instance_variable_set(:@resource, api_key) }
 
       before { expect(subject).to receive(:authorize).with(api_key).and_return(true) }
 
@@ -57,17 +57,17 @@ describe Api::ApiKeysController do
 
   describe '#destroy.json' do
     context 'authorized' do
-      before { expect(subject).to receive(:verify_authorized).and_return(true) }
-
       let(:api_key) { double }
 
-      before { expect(subject).to receive(:authorize).with(api_key).and_return(true) }
-
-      before { sign_in }
+      before { expect(subject).to receive(:verify_authorized).and_return(true) }
 
       before { subject.instance_variable_set(:@resource, api_key) }
 
+      before { expect(subject).to receive(:authorize).with(api_key).and_return(true) }
+
       before { expect(api_key).to receive(:destroy!) }
+
+      before { sign_in }
 
       before { delete :destroy, params: { id: 42, format: :json } }
 
