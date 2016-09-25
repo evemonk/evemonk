@@ -29,7 +29,7 @@ describe Api::ApiKeysController do
 
       let(:api_key) { double }
 
-      before { subject.instance_variable_set(:@resource, api_key) }
+      before { expect(subject).to receive(:resource).and_return(api_key) }
 
       before { expect(subject).to receive(:authorize).with(api_key).and_return(true) }
 
@@ -57,11 +57,11 @@ describe Api::ApiKeysController do
 
   describe '#destroy.json' do
     context 'authorized' do
-      let(:api_key) { double }
-
       before { expect(subject).to receive(:verify_authorized).and_return(true) }
 
-      before { subject.instance_variable_set(:@resource, api_key) }
+      let(:api_key) { double }
+
+      before { expect(subject).to receive(:resource).and_return(api_key).twice }
 
       before { expect(subject).to receive(:authorize).with(api_key).and_return(true) }
 
