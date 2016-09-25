@@ -50,9 +50,35 @@ describe Api::ApiKeysController do
   end
 
   describe '#create.json' do
+    context 'authorized' do
+    end
+
+    context 'not authorized' do
+    end
   end
 
   describe '#update.json' do
+    context 'PUT' do
+      context 'authorized' do
+      end
+
+      context 'not authorized' do
+        before { put :update, params: { id: 42, format: :json } }
+
+        it { should respond_with(:unauthorized) }
+      end
+    end
+
+    context 'PATCH' do
+      context 'authorized' do
+      end
+
+      context 'not authorized' do
+        before { patch :update, params: { id: 42, format: :json } }
+
+        it { should respond_with(:unauthorized) }
+      end
+    end
   end
 
   describe '#destroy.json' do
