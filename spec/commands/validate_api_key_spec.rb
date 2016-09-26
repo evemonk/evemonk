@@ -16,20 +16,20 @@ describe ValidateApiKey do
 
     before { expect(ApiKey).to receive(:find).with(api_key_id).and_return(api_key) }
 
-    let(:api_key_info) { double }
+    let(:json) { double }
 
     before do
       #
-      # EveOnline::Account::ApiKeyInfo.new(api_key.key_id, api_key.v_code)
+      # EveOnline::Account::ApiKeyInfo.new(api_key.key_id, api_key.v_code).as_json => json
       #
-      expect(EveOnline::Account::ApiKeyInfo).to receive(:new).with(api_key.key_id, api_key.v_code).and_return(api_key_info)
+      expect(EveOnline::Account::ApiKeyInfo).to receive(:new).with(api_key.key_id, api_key.v_code) do
+        double.tap do |a|
+          expect(a).to receive(:as_json).and_return(json)
+        end
+      end
     end
 
-    let(:as_json) { double }
-
-    before { expect(api_key_info).to receive(:as_json).and_return(as_json) }
-
-    before { expect(api_key).to receive(:update!).with(as_json) }
+    before { expect(api_key).to receive(:update!).with(json) }
 
     before { expect(subject).to receive(:broadcast).with(:ok) }
 
