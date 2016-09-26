@@ -12,7 +12,8 @@ gem 'turbolinks', '~> 5'
 # gem 'redis', '~> 3.0'
 
 gem 'bcrypt'
-gem 'eve_online', git: 'https://github.com/biow0lf/eve_online.git', branch: 'master'
+gem 'eve_online', git: 'https://github.com/biow0lf/eve_online.git',
+                  branch: 'master'
 gem 'good_migrations'
 gem 'rack-cors', require: 'rack/cors'
 gem 'kaminari'
@@ -54,7 +55,8 @@ group :test do
   gem 'shoulda-matchers'
   gem 'rspec-its'
   gem 'rspec-activemodel-mocks'
-  gem 'shoulda-callback-matchers', git: 'https://github.com/jdliss/shoulda-callback-matchers.git', branch: 'master'
+  gem 'shoulda-callback-matchers', git: 'https://github.com/jdliss/shoulda-callback-matchers.git',
+                                   branch: 'master'
   gem 'simplecov', require: false
   gem 'codeclimate-test-reporter', require: false
 end
