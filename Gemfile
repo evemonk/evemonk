@@ -54,7 +54,7 @@ group :test do
   gem 'shoulda-matchers'
   gem 'rspec-its'
   gem 'rspec-activemodel-mocks'
-  gem 'shoulda-callback-matchers'
+  gem 'shoulda-callback-matchers', git: 'https://github.com/jdliss/shoulda-callback-matchers.git', branch: 'master'
   gem 'simplecov', require: false
   gem 'codeclimate-test-reporter', require: false
 end
