@@ -5,6 +5,8 @@ class ApiKey < ApplicationRecord
 
   validates :key_id, presence: true
 
+  validates :key_id, numericality: { only_integer: true }
+
   validates :v_code, presence: true
 
   after_commit :validate_api_key, on: [:create, :update]

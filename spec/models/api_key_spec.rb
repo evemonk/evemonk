@@ -9,6 +9,8 @@ describe ApiKey do
 
   it { should validate_presence_of(:key_id) }
 
+  it { should validate_numericality_of(:key_id).only_integer }
+
   it { should validate_presence_of(:v_code) }
 
   it { should callback(:validate_api_key).after(:commit).on([:create, :update]) }
