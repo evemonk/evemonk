@@ -10,7 +10,7 @@ class ValidateApiKey < Rectify::Command
 
     json = EveOnline::Account::ApiKeyInfo.new(api_key.key_id, api_key.v_code).as_json
 
-    api_key.update!(json)
+    api_key.update_columns(json)
 
     broadcast(:ok)
   end

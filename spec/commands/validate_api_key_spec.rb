@@ -29,7 +29,7 @@ describe ValidateApiKey do
       end
     end
 
-    before { expect(api_key).to receive(:update!).with(json) }
+    before { expect(api_key).to receive(:update_columns).with(json) }
 
     before { expect(subject).to receive(:broadcast).with(:ok) }
 
