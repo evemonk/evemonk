@@ -29,6 +29,7 @@ gem 'sqlite3'
 group :production do
   gem 'pg'
   gem 'lograge'
+  gem 'newrelic_rpm'
 end
 
 group :development, :test do
