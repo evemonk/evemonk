@@ -334,6 +334,8 @@ definitions:
       - id
       - key_id
       - v_code
+      - created_at
+      - updated_at
     type: object
     properties:
       id:
@@ -347,6 +349,12 @@ definitions:
       v_code:
         type: string
         description: APIKey Code. e.g. "4a66f384d27c59af02f16746d480689ee3674b58a0d822518eb57bddd4e904f7"
+      created_at:
+        type: string
+        description: Created at in ISO8601 format
+      updated_at:
+        type: string
+        description: Updated at in ISO8601 format
 
   OutputApiKeyCollection:
     required:

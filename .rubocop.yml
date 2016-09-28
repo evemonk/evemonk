@@ -7,6 +7,11 @@ AllCops:
     - 'bin/rspec'
     - 'bin/rubocop'
     - 'bin/setup'
+    - 'config/initializers/assets.rb'
+    - 'config/initializers/backtrace_silencers.rb'
+    - 'config/initializers/new_framework_defaults.rb'
+    - 'config/initializers/rack-cors.rb'
+    - 'config/initializers/wrap_parameters.rb'
     - 'spec/spec_helper.rb'
     - 'spec/rails_helper.rb'
 
