@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/biow0lf/eve_online.git
-  revision: e6419427bbad10811e49d76ad8474769de2682db
+  revision: 3773d935261e00bbe2697d372e074c6d275dce85
   branch: master
   specs:
     eve_online (0.9.0)
@@ -64,7 +64,7 @@ GEM
       tzinfo (~> 1.1)
     airbrussh (1.1.1)
       sshkit (>= 1.6.1, != 1.7.0)
-    arel (7.1.2)
+    arel (7.1.4)
     ast (2.3.0)
     awesome_print (1.7.0)
     axiom-types (0.1.1)
@@ -285,7 +285,7 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    sqlite3 (1.3.11)
+    sqlite3 (1.3.12)
     sshkit (1.11.3)
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
