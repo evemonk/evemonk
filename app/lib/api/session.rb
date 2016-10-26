@@ -20,13 +20,17 @@ module Api
     end
 
     def decorate
-      UserDecorator.new(user)
+      SecureTokenDecorator.new(secure_token)
     end
 
     private
 
     def user
       @user ||= User.find_by(email: email)
+    end
+
+    def secure_token
+      @secure_token ||= user.secure_tokens.create!
     end
 
     def user_presence

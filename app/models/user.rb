@@ -1,11 +1,11 @@
 class User < ApplicationRecord
-  has_secure_password
+  has_many :secure_tokens, dependent: :destroy
 
-  has_secure_token
+  has_many :api_keys, dependent: :destroy
 
   validates :email, presence: true
 
   validates :email, uniqueness: { case_sensitive: false }
 
-  has_many :api_keys, dependent: :destroy
+  has_secure_password
 end
