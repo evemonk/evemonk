@@ -7,10 +7,8 @@ set :repo_url, 'git@github.com:biow0lf/evemonk.git'
 set :rbenv_type, :user
 set :rbenv_ruby, File.read('.ruby-version').strip
 
-# Default deploy_to directory is /var/www/my_app_name
 set :deploy_to, '/home/evemonkapp/www'
 
-# Default value for keep_releases is 5
 set :keep_releases, 2
 
 namespace :deploy do
