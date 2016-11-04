@@ -10,4 +10,4 @@ before_script:
 
 script:
   - bundle exec rake
-
+  - bundle exec codeclimate-test-reporter
