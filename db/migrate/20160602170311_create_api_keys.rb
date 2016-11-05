@@ -8,6 +8,6 @@ class CreateApiKeys < ActiveRecord::Migration[4.2]
       t.timestamps null: false
     end
 
-    add_foreign_key :users, :api_keys
+    add_foreign_key :api_keys, :users
   end
 end
