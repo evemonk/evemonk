@@ -22,8 +22,6 @@ AllCops:
 Rails:
   Enabled: true
 
-# Override default enabled cops
-
 # Allow block comments
 Style/BlockComments:
   Enabled: false
@@ -82,6 +80,40 @@ Style/StringLiterals:
 Metrics/LineLength:
   Enabled: false
 
+# TimeZone stuff
 Rails/TimeZone:
   EnforcedStyle: strict
+  Enabled: true
+
+# Identifies possible cases where Active Record save! or related should be used.
+Rails/SaveBang:
+  Enabled: true
+
+# Suggests the usage of an auto resource cleanup version of a method (if available)
+Style/AutoResourceCleanup:
+  Enabled: true
+
+# Preferred collection methods
+Style/CollectionMethods:
+  Enabled: true
+
+# Use UTF-8 as the source file encoding
+Style/Encoding:
+  Enabled: true
+
+# Use `raise` or `fail` with an explicit exception class and
+# message, rather than just a message.
+Style/ImplicitRuntimeError:
+  Enabled: true
+
+# Avoid chaining a method call on a do...end block
+Style/MethodCalledOnDoEndBlock:
+  Enabled: true
+
+# Check for a newline after the assignment operator in multi-line assignments
+Style/MultilineAssignmentLayout:
+  Enabled: true
+
+# Use %i or %I for arrays of symbols
+Style/SymbolArray:
   Enabled: true
