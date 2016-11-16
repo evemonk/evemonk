@@ -9,6 +9,8 @@ AllCops:
     - 'bin/setup'
     - 'bin/cap'
     - 'bin/capify'
+    - 'bin/sidekiq'
+    - 'bin/sidekiqctl'
     - 'config/initializers/assets.rb'
     - 'config/initializers/backtrace_silencers.rb'
     - 'config/initializers/new_framework_defaults.rb'
