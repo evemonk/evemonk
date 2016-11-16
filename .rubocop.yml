@@ -7,6 +7,8 @@ AllCops:
     - 'bin/rspec'
     - 'bin/rubocop'
     - 'bin/setup'
+    - 'bin/cap'
+    - 'bin/capify'
     - 'config/initializers/assets.rb'
     - 'config/initializers/backtrace_silencers.rb'
     - 'config/initializers/new_framework_defaults.rb'
@@ -14,17 +16,72 @@ AllCops:
     - 'config/initializers/wrap_parameters.rb'
     - 'spec/spec_helper.rb'
     - 'spec/rails_helper.rb'
+  DisplayCopNames: true
+  DisplayStyleGuide: true
 
 Rails:
   Enabled: true
 
-Metrics/LineLength:
-  Enabled: true
-  Max: 80
+# Override default enabled cops
 
+# Allow block comments
+Style/BlockComments:
+  Enabled: false
+
+# Disable
 Style/Documentation:
   Enabled: false
 
-# Enable this cop later
+# Recheck this cop later
+Style/DotPosition:
+  Description: 'Checks the position of the dot in multi-line method calls.'
+  StyleGuide: '#consistent-multi-line-chains'
+  Enabled: true
+
+# Disable magic
 Style/FrozenStringLiteralComment:
   Enabled: false
+
+# Recheck this cop later
+Style/FlipFlop:
+  Description: 'Checks for flip flops'
+  StyleGuide: '#no-flip-flops'
+  Enabled: true
+
+# Recheck this cop later
+Style/RedundantException:
+  Description: "Checks for an obsolete RuntimeException argument in raise/fail."
+  StyleGuide: '#no-explicit-runtimeerror'
+  Enabled: true
+
+# Recheck this cop later
+Style/SafeNavigation:
+  Description: >-
+                  This cop transforms usages of a method call safeguarded by
+                  a check for the existance of the object to
+                  safe navigation (`&.`).
+  Enabled: true
+
+# Recheck this cop later
+Style/SignalException:
+  Description: 'Checks for proper usage of fail and raise.'
+  StyleGuide: '#prefer-raise-over-fail'
+  Enabled: true
+
+# Enable with EnforcedStyle is space
+Style/SpaceInsideStringInterpolation:
+  EnforcedStyle: space
+  Enabled: true
+
+# Enable with EnforcedStyle is single_quotes
+Style/StringLiterals:
+  EnforcedStyle: single_quotes
+  Enabled: true
+
+# Limit lines to 80 characters
+Metrics/LineLength:
+  Enabled: false
+
+Rails/TimeZone:
+  EnforcedStyle: strict
+  Enabled: true
