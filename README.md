@@ -6,7 +6,6 @@
 [![Test Coverage](https://codeclimate.com/github/biow0lf/evemonk/badges/coverage.svg)](https://codeclimate.com/github/biow0lf/evemonk/coverage)
 [![security](https://hakiri.io/github/biow0lf/evemonk/master.svg)](https://hakiri.io/github/biow0lf/evemonk/master)
 [![Issue Count](https://codeclimate.com/github/biow0lf/evemonk/badges/issue_count.svg)](https://codeclimate.com/github/biow0lf/evemonk)
-[![git.legal](https://git.legal/projects/1973/badge.svg?key=44e532a0659967fcbeb4 "Number of libraries approved")](https://git.legal/projects/1973)
 
 EveMonk is helper software for EveOnline MMORPG.
 
