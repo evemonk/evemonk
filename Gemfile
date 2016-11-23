@@ -8,9 +8,6 @@ gem 'coffee-rails', '~> 4.2'
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 
-# Use Redis adapter to run Action Cable in production
-# gem 'redis', '~> 3.0'
-
 gem 'bcrypt'
 gem 'eve_online', git: 'https://github.com/biow0lf/eve_online.git',
                   branch: 'master'
