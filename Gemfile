@@ -19,7 +19,7 @@ gem 'rack-cors', require: 'rack/cors'
 gem 'kaminari'
 gem 'rectify'
 gem 'draper', '3.0.0.pre1'
-gem 'dotenv'
+gem 'dotenv-rails'
 gem 'pundit'
 gem 'sidekiq'
 
