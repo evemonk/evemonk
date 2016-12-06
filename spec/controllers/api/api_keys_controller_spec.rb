@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe Api::ApiKeysController do
-  it { should be_a Api::BaseController }
+  it { should be_a(Api::BaseController) }
 
   describe '#index.json' do
     context 'authorized' do
