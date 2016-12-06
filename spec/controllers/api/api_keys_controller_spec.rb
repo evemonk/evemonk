@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe Api::ApiKeysController do
-  it { should be_a Api::BaseController }
+  it { should be_a(Api::BaseController) }
 
   describe '#index.json' do
     context 'authorized' do
@@ -35,7 +35,7 @@ describe Api::ApiKeysController do
 
       before { sign_in }
 
-      before { get :show, params: { id: 42, format: :json } }
+      before { get :show, params: { id: '42' }, format: :json }
 
       it { should render_template(:show) }
 
@@ -43,7 +43,7 @@ describe Api::ApiKeysController do
     end
 
     context 'not authorized' do
-      before { get :show, params: { id: 42, format: :json } }
+      before { get :show, params: { id: '42' }, format: :json }
 
       it { should respond_with(:unauthorized) }
     end
@@ -51,10 +51,42 @@ describe Api::ApiKeysController do
 
   describe '#create.json' do
     context 'authorized' do
+      before { expect(subject).to receive(:verify_authorized).and_return(true) }
+
+      let(:api_key) { double }
+
+      let(:params) { { api_key: { key_id: '1234567', v_code: 'abc' } } }
+
+      before do
+        #
+        # subject.current_user.api_keys.build(params)
+        #
+        expect(subject).to receive(:current_user) do
+          double.tap do |a|
+            expect(a).to receive(:api_keys) do
+              double.tap do |b|
+                expect(b).to receive(:build).with(permit!(params[:api_key])).and_return(api_key)
+              end
+            end
+          end
+        end
+      end
+
+      before { expect(subject).to receive(:authorize).with(api_key) }
+
+      before { expect(api_key).to receive(:save!) }
+
+      before { sign_in }
+
+      before { post :create, params: params, format: :json }
+
+      it { should render_template(:create) }
+
+      it { should respond_with(:ok) }
     end
 
     context 'not authorized' do
-      before { post :create, params: { api_key: { key_id: 1_234_567, v_code: 'abc' }, format: :json } }
+      before { post :create, params: { api_key: { key_id: '1234567', v_code: 'abc' } }, format: :json }
 
       it { should respond_with(:unauthorized) }
     end
@@ -63,10 +95,29 @@ describe Api::ApiKeysController do
   describe '#update.json' do
     context 'PUT' do
       context 'authorized' do
+        before { expect(subject).to receive(:verify_authorized).and_return(true) }
+
+        let(:api_key) { double }
+
+        let(:params) { { id: '42', api_key: { key_id: '1234567', v_code: 'abc' } } }
+
+        before { subject.instance_variable_set(:@resource, api_key) }
+
+        before { expect(subject).to receive(:authorize).with(api_key) }
+
+        before { expect(api_key).to receive(:update!).with(permit!(params[:api_key])) }
+
+        before { sign_in }
+
+        before { put :update, params: params, format: :json }
+
+        it { should render_template(:update) }
+
+        it { should respond_with(:ok) }
       end
 
       context 'not authorized' do
-        before { put :update, params: { id: 42, format: :json } }
+        before { put :update, params: { id: '42' }, format: :json }
 
         it { should respond_with(:unauthorized) }
       end
@@ -74,10 +125,29 @@ describe Api::ApiKeysController do
 
     context 'PATCH' do
       context 'authorized' do
+        before { expect(subject).to receive(:verify_authorized).and_return(true) }
+
+        let(:api_key) { double }
+
+        let(:params) { { id: '42', api_key: { key_id: '1234567', v_code: 'abc' } } }
+
+        before { subject.instance_variable_set(:@resource, api_key) }
+
+        before { expect(subject).to receive(:authorize).with(api_key) }
+
+        before { expect(api_key).to receive(:update!).with(permit!(params[:api_key])) }
+
+        before { sign_in }
+
+        before { patch :update, params: params, format: :json }
+
+        it { should render_template(:update) }
+
+        it { should respond_with(:ok) }
       end
 
       context 'not authorized' do
-        before { patch :update, params: { id: 42, format: :json } }
+        before { patch :update, params: { id: '42' }, format: :json }
 
         it { should respond_with(:unauthorized) }
       end
@@ -98,13 +168,13 @@ describe Api::ApiKeysController do
 
       before { sign_in }
 
-      before { delete :destroy, params: { id: 42, format: :json } }
+      before { delete :destroy, params: { id: '42' }, format: :json }
 
       it { should respond_with(:ok) }
     end
 
     context 'not authorized' do
-      before { delete :destroy, params: { id: 42, format: :json } }
+      before { delete :destroy, params: { id: '42' }, format: :json }
 
       it { should respond_with(:unauthorized) }
     end

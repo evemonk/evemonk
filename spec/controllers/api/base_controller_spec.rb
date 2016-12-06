@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 describe Api::BaseController do
-  it { should be_a ApplicationController }
+  it { should be_a(ApplicationController) }
 
-  it { should be_a Pundit }
+  it { should be_a(Pundit) }
 
   it { should use_before_action(:authenticate) }
 
