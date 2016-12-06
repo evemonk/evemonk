@@ -6,14 +6,16 @@ describe Api::ApiKeysController do
       expect(get: '/api/api_keys').to route_to(
         controller: 'api/api_keys',
         action: 'index',
-        format: 'json')
+        format: 'json'
+      )
     end
 
     it 'should route POST /api/api_keys to api/api_keys#create' do
       expect(post: '/api/api_keys').to route_to(
         controller: 'api/api_keys',
         action: 'create',
-        format: 'json')
+        format: 'json'
+      )
     end
 
     it 'should route GET /api/api_keys/:id to api/api_keys#show' do
@@ -21,7 +23,8 @@ describe Api::ApiKeysController do
         controller: 'api/api_keys',
         action: 'show',
         id: '42',
-        format: 'json')
+        format: 'json'
+      )
     end
 
     it 'should route PUT /api/api_keys/:id to api/api_keys#update' do
@@ -29,7 +32,8 @@ describe Api::ApiKeysController do
         controller: 'api/api_keys',
         action: 'update',
         id: '42',
-        format: 'json')
+        format: 'json'
+      )
     end
 
     it 'should route PATCH /api/api_keys/:id to api/api_keys#update' do
@@ -37,7 +41,8 @@ describe Api::ApiKeysController do
         controller: 'api/api_keys',
         action: 'update',
         id: '42',
-        format: 'json')
+        format: 'json'
+      )
     end
 
     it 'should route DELETE /api/api_keys/:id to api/api_keys#destroy' do
@@ -45,7 +50,8 @@ describe Api::ApiKeysController do
         controller: 'api/api_keys',
         action: 'destroy',
         id: '42',
-        format: 'json')
+        format: 'json'
+      )
     end
   end
 end

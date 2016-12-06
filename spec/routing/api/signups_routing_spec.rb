@@ -6,7 +6,8 @@ describe Api::SignupsController do
       expect(post: '/api/signups').to route_to(
         controller: 'api/signups',
         action: 'create',
-        format: 'json')
+        format: 'json'
+      )
     end
   end
 end

@@ -1,8 +1,7 @@
 class ApiKeyDecorator < Draper::Decorator
   delegate_all
 
-  # rubocop:disable Lint/UnusedMethodArgument
-  def as_json(*args)
+  def as_json(*)
     {
       id: id,
       key_id: key_id,
@@ -11,7 +10,6 @@ class ApiKeyDecorator < Draper::Decorator
       updated_at: updated_at
     }
   end
-  # rubocop:enable Lint/UnusedMethodArgument
 
   private
 
