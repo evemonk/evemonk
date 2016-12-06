@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe Api::Session do
-  it { should be_a ActiveModel::Validations }
+  it { should be_a(ActiveModel::Validations) }
 
   describe '#initialize' do
     let(:params) do
