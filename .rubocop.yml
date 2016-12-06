@@ -7,10 +7,13 @@ AllCops:
     - 'bin/rspec'
     - 'bin/rubocop'
     - 'bin/setup'
+    - 'bin/update'
     - 'bin/cap'
     - 'bin/capify'
     - 'bin/sidekiq'
     - 'bin/sidekiqctl'
+    - 'bin/whenever'
+    - 'bin/wheneverize'
     - 'config/initializers/assets.rb'
     - 'config/initializers/backtrace_silencers.rb'
     - 'config/initializers/new_framework_defaults.rb'
@@ -39,6 +42,7 @@ Style/DotPosition:
   Enabled: true
 
 # Disable magic
+# TODO: change to Enabled: true with EnforcedStyle never after next rubocop update
 Style/FrozenStringLiteralComment:
   Enabled: false
 
@@ -119,3 +123,7 @@ Style/MultilineAssignmentLayout:
 # Use %i or %I for arrays of symbols
 Style/SymbolArray:
   Enabled: true
+
+# Just ignore order of gems in Gemfile
+Bundler/OrderedGems:
+  Enabled: false
