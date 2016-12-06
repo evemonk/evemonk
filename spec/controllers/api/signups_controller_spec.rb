@@ -26,7 +26,7 @@ describe Api::SignupsController do
 
     before { expect(subject).to receive(:resource_params).and_return(resource_params) }
 
-    before { expect(User).to receive(:new).with(resource_params) }
+    before { expect(Api::Signup).to receive(:new).with(resource_params) }
 
     specify { expect { subject.send(:build_resource) }.not_to raise_error }
   end
