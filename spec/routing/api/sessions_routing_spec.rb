@@ -6,7 +6,8 @@ describe Api::SessionsController do
       expect(post: '/api/sessions').to route_to(
         controller: 'api/sessions',
         action: 'create',
-        format: 'json')
+        format: 'json'
+      )
     end
   end
 end
