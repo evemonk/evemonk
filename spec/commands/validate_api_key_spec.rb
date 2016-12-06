@@ -12,7 +12,7 @@ describe ValidateApiKey do
   end
 
   describe '#call' do
-    let(:api_key) { stub_model ApiKey, key_id: 1234567, v_code: 'abc' }
+    let(:api_key) { stub_model ApiKey, key_id: 1_234_567, v_code: 'abc' }
 
     before { expect(ApiKey).to receive(:find).with(api_key_id).and_return(api_key) }
 
