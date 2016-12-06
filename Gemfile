@@ -19,6 +19,7 @@ gem 'draper', '3.0.0.pre1'
 gem 'dotenv-rails'
 gem 'pundit'
 gem 'sidekiq'
+gem 'rpush'
 
 # for testing ony
 gem 'sqlite3'
