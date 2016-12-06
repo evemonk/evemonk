@@ -95,6 +95,25 @@ describe Api::ApiKeysController do
   describe '#update.json' do
     context 'PUT' do
       context 'authorized' do
+        before { expect(subject).to receive(:verify_authorized).and_return(true) }
+
+        let(:api_key) { double }
+
+        let(:params) { { id: '42', api_key: { key_id: '1234567', v_code: 'abc' } } }
+
+        before { subject.instance_variable_set(:@resource, api_key) }
+
+        before { expect(subject).to receive(:authorize).with(api_key) }
+
+        before { expect(api_key).to receive(:update!).with(permit!(params[:api_key])) }
+
+        before { sign_in }
+
+        before { put :update, params: params, format: :json }
+
+        it { should render_template(:update) }
+
+        it { should respond_with(:ok) }
       end
 
       context 'not authorized' do
@@ -106,6 +125,25 @@ describe Api::ApiKeysController do
 
     context 'PATCH' do
       context 'authorized' do
+        before { expect(subject).to receive(:verify_authorized).and_return(true) }
+
+        let(:api_key) { double }
+
+        let(:params) { { id: '42', api_key: { key_id: '1234567', v_code: 'abc' } } }
+
+        before { subject.instance_variable_set(:@resource, api_key) }
+
+        before { expect(subject).to receive(:authorize).with(api_key) }
+
+        before { expect(api_key).to receive(:update!).with(permit!(params[:api_key])) }
+
+        before { sign_in }
+
+        before { patch :update, params: params, format: :json }
+
+        it { should render_template(:update) }
+
+        it { should respond_with(:ok) }
       end
 
       context 'not authorized' do
