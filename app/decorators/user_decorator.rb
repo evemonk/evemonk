@@ -5,7 +5,18 @@ class UserDecorator < Draper::Decorator
     {
       id: id,
       email: email,
-      token: token
+      created_at: created_at,
+      updated_at: updated_at
     }
+  end
+
+  private
+
+  def created_at
+    model.created_at.iso8601
+  end
+
+  def updated_at
+    model.updated_at.iso8601
   end
 end
