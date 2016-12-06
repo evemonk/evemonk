@@ -26,9 +26,9 @@ describe Api::Session do
     end
 
     context 'valid' do
-      before { expect(subject).to receive(:valid?).and_return(true).twice }
+      before { expect(subject).to receive(:valid?).and_return(true) }
 
-      specify { expect(subject.save!).to eq(true) }
+      specify { expect { subject.save! }.not_to raise_error }
     end
   end
 

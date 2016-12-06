@@ -15,8 +15,6 @@ module Api
 
     def save!
       raise ActiveModel::StrictValidationFailed unless valid?
-
-      valid?
     end
 
     def decorate
