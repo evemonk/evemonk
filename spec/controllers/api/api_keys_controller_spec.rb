@@ -35,7 +35,7 @@ describe Api::ApiKeysController do
 
       before { sign_in }
 
-      before { get :show, params: { id: 42 }, format: :json }
+      before { get :show, params: { id: '42' }, format: :json }
 
       it { should render_template(:show) }
 
@@ -43,7 +43,7 @@ describe Api::ApiKeysController do
     end
 
     context 'not authorized' do
-      before { get :show, params: { id: 42 }, format: :json }
+      before { get :show, params: { id: '42' }, format: :json }
 
       it { should respond_with(:unauthorized) }
     end
@@ -98,7 +98,7 @@ describe Api::ApiKeysController do
       end
 
       context 'not authorized' do
-        before { put :update, params: { id: 42 }, format: :json }
+        before { put :update, params: { id: '42' }, format: :json }
 
         it { should respond_with(:unauthorized) }
       end
@@ -109,7 +109,7 @@ describe Api::ApiKeysController do
       end
 
       context 'not authorized' do
-        before { patch :update, params: { id: 42 }, format: :json }
+        before { patch :update, params: { id: '42' }, format: :json }
 
         it { should respond_with(:unauthorized) }
       end
@@ -130,13 +130,13 @@ describe Api::ApiKeysController do
 
       before { sign_in }
 
-      before { delete :destroy, params: { id: 42 }, format: :json }
+      before { delete :destroy, params: { id: '42' }, format: :json }
 
       it { should respond_with(:ok) }
     end
 
     context 'not authorized' do
-      before { delete :destroy, params: { id: 42 }, format: :json }
+      before { delete :destroy, params: { id: '42' }, format: :json }
 
       it { should respond_with(:unauthorized) }
     end
