@@ -12,6 +12,7 @@ gem 'bcrypt'
 gem 'eve_online', git: 'https://github.com/biow0lf/eve_online.git',
                   branch: 'master'
 gem 'good_migrations'
+gem 'zero_downtime_migrations'
 gem 'rack-cors', require: 'rack/cors'
 gem 'kaminari'
 gem 'rectify'
