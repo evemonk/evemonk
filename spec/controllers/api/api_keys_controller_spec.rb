@@ -31,7 +31,7 @@ describe Api::ApiKeysController do
 
       before { expect(subject).to receive(:resource).and_return(api_key) }
 
-      before { expect(subject).to receive(:authorize).with(api_key).and_return(true) }
+      before { expect(subject).to receive(:authorize).with(api_key) }
 
       before { sign_in }
 
@@ -162,7 +162,7 @@ describe Api::ApiKeysController do
 
       before { expect(subject).to receive(:resource).and_return(api_key).twice }
 
-      before { expect(subject).to receive(:authorize).with(api_key).and_return(true) }
+      before { expect(subject).to receive(:authorize).with(api_key) }
 
       before { expect(api_key).to receive(:destroy!) }
 
