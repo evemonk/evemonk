@@ -22,22 +22,31 @@ describe Api::Session do
     context 'not valid' do
       before { expect(subject).to receive(:valid?).and_return(false) }
 
+      before { expect(subject).not_to receive(:create_secure_token!) }
+
       specify { expect { subject.save! }.to raise_error ActiveModel::StrictValidationFailed }
     end
 
     context 'valid' do
       before { expect(subject).to receive(:valid?).and_return(true) }
 
+      before { expect(subject).to receive(:create_secure_token!) }
+
       specify { expect { subject.save! }.not_to raise_error }
     end
   end
 
   describe '#decorate' do
-    let(:user) { double }
-
-    before { expect(subject).to receive(:user).and_return(user) }
-
-    before { expect(UserDecorator).to receive(:new).with(user) }
+    before do
+      #
+      # subject.secure_token.decorate
+      #
+      expect(subject).to receive(:secure_token) do
+        double.tap do |a|
+          expect(a).to receive(:decorate)
+        end
+      end
+    end
 
     specify { expect { subject.decorate }.not_to raise_error }
   end
@@ -62,7 +71,7 @@ describe Api::Session do
 
       before { subject.send(:user_presence) }
 
-      specify { expect(subject.errors[:email]).to eq(['not found']) }
+      specify { expect(subject.errors[:base]).to eq(['Email and/or password is invalid']) }
     end
 
     context 'user found' do
@@ -72,7 +81,7 @@ describe Api::Session do
 
       before { subject.send(:user_presence) }
 
-      specify { expect(subject.errors[:email]).to eq([]) }
+      specify { expect(subject.errors[:base]).to eq([]) }
     end
   end
 
@@ -96,7 +105,7 @@ describe Api::Session do
 
       before { subject.send(:user_password) }
 
-      specify { expect(subject.errors[:password]).to eq(['is invalid']) }
+      specify { expect(subject.errors[:base]).to eq(['Email and/or password is invalid']) }
     end
 
     context 'user found and password is valid' do
@@ -112,7 +121,36 @@ describe Api::Session do
 
       before { subject.send(:user_password) }
 
-      specify { expect(subject.errors[:password]).to eq([]) }
+      specify { expect(subject.errors[:base]).to eq([]) }
+    end
+  end
+
+  describe '#create_secure_token!' do
+    context '@secure_token is set' do
+      let(:secure_token) { double }
+
+      before { subject.instance_variable_set(:@secure_token, secure_token) }
+
+      specify { expect(subject.send(:create_secure_token!)).to eq(secure_token) }
+    end
+
+    context '@secure_token not set' do
+      before do
+        #
+        # subject.user.secure_tokens.create!
+        #
+        expect(subject).to receive(:user) do
+          double.tap do |a|
+            expect(a).to receive(:secure_tokens) do
+              double.tap do |b|
+                expect(b).to receive(:create!)
+              end
+            end
+          end
+        end
+      end
+
+      specify { expect { subject.send(:create_secure_token!) }.not_to raise_error }
     end
   end
 end
