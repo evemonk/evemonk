@@ -11,9 +11,9 @@ module Api
     end
 
     def destroy
-      secure_token.destroy!
+      authorize(secure_token)
 
-      skip_authorization
+      secure_token.destroy!
 
       head :ok
     end

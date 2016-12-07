@@ -53,11 +53,11 @@ describe Api::SessionsController do
 
       let(:secure_token) { stub_model SecureToken }
 
-      before { expect(subject).to receive(:secure_token).and_return(secure_token) }
+      before { expect(subject).to receive(:secure_token).and_return(secure_token).twice }
+
+      before { expect(subject).to receive(:authorize).with(secure_token) }
 
       before { expect(secure_token).to receive(:destroy!) }
-
-      before { expect(subject).to receive(:skip_authorization) }
 
       before { sign_in }
 
