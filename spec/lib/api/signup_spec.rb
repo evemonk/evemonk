@@ -30,7 +30,7 @@ describe Api::Signup do
       specify { expect { subject.save! }.not_to raise_error }
     end
 
-    context 'user not valid'  do
+    context 'user not valid' do
       let(:user) { double }
 
       before { expect(subject).to receive(:user).and_return(user) }

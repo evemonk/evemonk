@@ -31,7 +31,7 @@ describe Api::ApiKeysController do
 
       before { expect(subject).to receive(:resource).and_return(api_key) }
 
-      before { expect(subject).to receive(:authorize).with(api_key).and_return(true) }
+      before { expect(subject).to receive(:authorize).with(api_key) }
 
       before { sign_in }
 
@@ -59,7 +59,7 @@ describe Api::ApiKeysController do
 
       before do
         #
-        # subject.current_user.api_keys.build(params)
+        # subject.current_user.api_keys.build(params) => api_key
         #
         expect(subject).to receive(:current_user) do
           double.tap do |a|
@@ -101,7 +101,7 @@ describe Api::ApiKeysController do
 
         let(:params) { { id: '42', api_key: { key_id: '1234567', v_code: 'abc' } } }
 
-        before { subject.instance_variable_set(:@resource, api_key) }
+        before { subject.instance_variable_set(:@api_key, api_key) }
 
         before { expect(subject).to receive(:authorize).with(api_key) }
 
@@ -131,7 +131,7 @@ describe Api::ApiKeysController do
 
         let(:params) { { id: '42', api_key: { key_id: '1234567', v_code: 'abc' } } }
 
-        before { subject.instance_variable_set(:@resource, api_key) }
+        before { subject.instance_variable_set(:@api_key, api_key) }
 
         before { expect(subject).to receive(:authorize).with(api_key) }
 
@@ -162,7 +162,7 @@ describe Api::ApiKeysController do
 
       before { expect(subject).to receive(:resource).and_return(api_key).twice }
 
-      before { expect(subject).to receive(:authorize).with(api_key).and_return(true) }
+      before { expect(subject).to receive(:authorize).with(api_key) }
 
       before { expect(api_key).to receive(:destroy!) }
 
@@ -206,55 +206,85 @@ describe Api::ApiKeysController do
 
     let(:current_user) { double }
 
+    let(:api_key) { double }
+
     before { expect(subject).to receive(:resource_params).and_return(resource_params) }
 
     before { expect(subject).to receive(:current_user).and_return(current_user) }
 
     before do
       #
-      # current_user.api_keys.build(resource_params)
+      # current_user.api_keys.build(resource_params) => api_key
       #
       expect(current_user).to receive(:api_keys) do
         double.tap do |a|
-          expect(a).to receive(:build).with(resource_params)
+          expect(a).to receive(:build).with(resource_params).and_return(api_key)
         end
       end
     end
 
     specify { expect { subject.send(:build_resource) }.not_to raise_error }
+
+    specify do
+      expect { subject.send(:build_resource) }.to change { subject.instance_variable_get(:@api_key) }.from(nil).to(api_key)
+    end
   end
 
   describe '#resource' do
-    let(:params) { { id: '42' } }
+    context '@resource is set' do
+      let(:api_key) { double }
 
-    before { expect(subject).to receive(:params).and_return(params) }
+      before { subject.instance_variable_set(:@api_key, api_key) }
 
-    before do
-      #
-      # ApiKey.find(params[:id])
-      #
-      expect(ApiKey).to receive(:find).with(params[:id])
+      specify { expect(subject.send(:resource)).to eq(api_key) }
     end
 
-    specify { expect { subject.send(:resource) }.not_to raise_error }
+    context '@resource not set' do
+      let(:params) { { id: '42' } }
+
+      before { expect(subject).to receive(:params).and_return(params) }
+
+      before do
+        #
+        # ApiKey.find(params[:id])
+        #
+        expect(ApiKey).to receive(:find).with(params[:id])
+      end
+
+      specify { expect { subject.send(:resource) }.not_to raise_error }
+    end
   end
 
   describe '#collection' do
-    before do
-      #
-      # subject.policy_scope(ApiKey).order(created_at: :asc).page(params[:page])
-      #
-      expect(subject).to receive(:policy_scope).with(ApiKey) do
-        double.tap do |a|
-          expect(a).to receive(:order).with(created_at: :asc) do
-            double.tap do |b|
-              expect(b).to receive(:page).with(nil)
+    context '@api_keys is set' do
+      let(:api_keys) { double }
+
+      before { subject.instance_variable_set(:@api_keys, api_keys) }
+
+      specify { expect(subject.send(:collection)).to eq(api_keys) }
+    end
+
+    context '@api_keys not set' do
+      let(:api_keys) { double }
+
+      before do
+        #
+        # subject.policy_scope(ApiKey).order(created_at: :asc).page(params[:page]) => api_keys
+        #
+        expect(subject).to receive(:policy_scope).with(ApiKey) do
+          double.tap do |a|
+            expect(a).to receive(:order).with(created_at: :asc) do
+              double.tap do |b|
+                expect(b).to receive(:page).with(nil).and_return(api_keys)
+              end
             end
           end
         end
       end
-    end
 
-    specify { expect { subject.send(:collection) }.not_to raise_error }
+      specify { expect { subject.send(:collection) }.not_to raise_error }
+
+      specify { expect { subject.send(:collection) }.to change { subject.instance_variable_get(:@api_keys) }.from(nil).to(api_keys) }
+    end
   end
 end

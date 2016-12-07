@@ -7,11 +7,11 @@ module Api
     end
 
     def build_resource
-      @resource = current_user.api_keys.build(resource_params)
+      @api_key = current_user.api_keys.build(resource_params)
     end
 
     def resource
-      @resource ||= ApiKey.find(params[:id])
+      @api_key ||= ApiKey.find(params[:id])
     end
 
     def collection

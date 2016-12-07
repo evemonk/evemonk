@@ -68,7 +68,7 @@ module Api
 
     def authenticate
       authenticate_or_request_with_http_token do |token, options| # rubocop:disable Lint/UnusedBlockArgument
-        @secure_token = SecureToken.find_by(token: token)
+        @secure_token = SecureToken.includes(:user).find_by(token: token)
       end
     end
 
