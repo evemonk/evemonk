@@ -4,8 +4,8 @@ class UserDecorator < Draper::Decorator
   def as_json(*)
     {
       id: id,
-      email: email,
-      token: token
+      email: email
+      # token: token
     }
   end
 end
