@@ -22,7 +22,7 @@ gem 'pundit'
 gem 'sidekiq'
 gem 'rpush'
 
-# for testing ony
+# for testing only
 gem 'sqlite3'
 
 group :production do
