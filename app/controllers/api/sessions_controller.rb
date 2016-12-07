@@ -21,11 +21,11 @@ module Api
     private
 
     def build_resource
-      @resource = Api::Session.new(resource_params)
+      @session = Api::Session.new(resource_params)
     end
 
     def resource
-      @resource
+      @session
     end
 
     def resource_params

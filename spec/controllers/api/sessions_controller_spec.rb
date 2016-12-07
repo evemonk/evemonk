@@ -78,21 +78,25 @@ describe Api::SessionsController do
   describe '#build_resource' do
     let(:resource_params) { double }
 
+    let(:session) { double }
+
     before do
       expect(subject).to receive(:resource_params).and_return(resource_params)
     end
 
-    before { expect(Api::Session).to receive(:new).with(resource_params) }
+    before { expect(Api::Session).to receive(:new).with(resource_params).and_return(session) }
 
     specify { expect { subject.send(:build_resource) }.not_to raise_error }
+
+    specify { expect { subject.send(:build_resource) }.to change { subject.instance_variable_get(:@session) }.from(nil).to(session) }
   end
 
   describe '#resource' do
-    let(:resource) { double }
+    let(:session) { double }
 
-    before { subject.instance_variable_set(:@resource, resource) }
+    before { subject.instance_variable_set(:@session, session) }
 
-    specify { expect(subject.send(:resource)).to eq(resource) }
+    specify { expect(subject.send(:resource)).to eq(session) }
   end
 
   describe '#resource_params' do
