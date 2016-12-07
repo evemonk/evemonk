@@ -3,7 +3,7 @@ require 'rails_helper'
 describe Api::SessionsController do
   it { should be_a(Api::BaseController) }
 
-  it { should_not use_before_action(:authenticate) }
+  pending { should_not use_before_action(:authenticate).only(:create) }
 
   describe '#create.json' do
     context 'successful authorization' do
@@ -44,6 +44,32 @@ describe Api::SessionsController do
       it { should render_template(:errors) }
 
       it { should respond_with(:unprocessable_entity) }
+    end
+  end
+
+  describe '#destroy.json' do
+    context 'authorized' do
+      before { expect(subject).to receive(:verify_authorized).and_return(true) }
+
+      let(:secure_token) { stub_model SecureToken }
+
+      before { expect(subject).to receive(:secure_token).and_return(secure_token) }
+
+      before { expect(secure_token).to receive(:destroy!) }
+
+      before { expect(subject).to receive(:skip_authorization) }
+
+      before { sign_in }
+
+      before { delete :destroy, format: :json }
+
+      it { should respond_with(:ok) }
+    end
+
+    context 'not authorized' do
+      before { delete :destroy, format: :json }
+
+      it { should respond_with(:unauthorized) }
     end
   end
 
