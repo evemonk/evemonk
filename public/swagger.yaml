@@ -387,7 +387,7 @@ definitions:
       id:
         type: integer
         format: int64
-        description: APIKey ID. e.g. "123"
+        description: SecureToken ID. e.g. "123"
       token:
         type: string
         description: User secure auth token. e.g. "AAkoMiLatQHMngyuUU1vnh5b"
