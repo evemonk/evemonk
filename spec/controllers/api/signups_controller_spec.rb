@@ -32,11 +32,11 @@ describe Api::SignupsController do
   end
 
   describe '#resource' do
-    let(:resource) { double }
+    let(:signup) { double }
 
-    before { subject.instance_variable_set(:@resource, resource) }
+    before { subject.instance_variable_set(:@signup, signup) }
 
-    specify { expect(subject.send(:resource)).to eq(resource) }
+    specify { expect(subject.send(:resource)).to eq(signup) }
   end
 
   describe '#resource_params' do

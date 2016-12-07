@@ -13,11 +13,11 @@ module Api
     private
 
     def build_resource
-      @resource = Api::Signup.new(resource_params)
+      @signup = Api::Signup.new(resource_params)
     end
 
     def resource
-      @resource
+      @signup
     end
 
     def resource_params
