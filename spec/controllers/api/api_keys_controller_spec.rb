@@ -206,6 +206,8 @@ describe Api::ApiKeysController do
 
     let(:current_user) { double }
 
+    let(:api_key) { double }
+
     before { expect(subject).to receive(:resource_params).and_return(resource_params) }
 
     before { expect(subject).to receive(:current_user).and_return(current_user) }
@@ -216,12 +218,16 @@ describe Api::ApiKeysController do
       #
       expect(current_user).to receive(:api_keys) do
         double.tap do |a|
-          expect(a).to receive(:build).with(resource_params)
+          expect(a).to receive(:build).with(resource_params).and_return(api_key)
         end
       end
     end
 
     specify { expect { subject.send(:build_resource) }.not_to raise_error }
+
+    specify do
+      expect { subject.send(:build_resource) }.to change { subject.instance_variable_get(:@resource) }.from(nil).to(api_key)
+    end
   end
 
   describe '#resource' do
