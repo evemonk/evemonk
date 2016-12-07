@@ -61,13 +61,13 @@ describe Api::SessionsController do
 
       before { sign_in }
 
-      before { delete :destroy, format: :json }
+      before { delete :destroy, params: { id: '1234' }, format: :json }
 
       it { should respond_with(:ok) }
     end
 
     context 'not authorized' do
-      before { delete :destroy, format: :json }
+      before { delete :destroy, params: { id: '1234' }, format: :json }
 
       it { should respond_with(:unauthorized) }
     end
