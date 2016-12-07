@@ -59,9 +59,9 @@ paths:
 
   /sessions:
     post:
-      summary: Get user auth token
+      summary: Get user secure auth token
       description: |
-        Signin user and return user with token.
+        Signin user and return user secure token.
       parameters:
         - name: session[email]
           in: formData
@@ -78,7 +78,7 @@ paths:
         - sessions
       responses:
         200:
-          description: Response with User model with token
+          description: Response with secure token
           schema:
             $ref: '#/definitions/OutputSecureToken'
         default:
