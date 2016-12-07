@@ -71,6 +71,7 @@ paths:
         - name: session[password]
           in: formData
           description: User password
+          required: true
           type: string
           format: password
       tags:
@@ -79,7 +80,7 @@ paths:
         200:
           description: Response with User model with token
           schema:
-            $ref: '#/definitions/OutputUser'
+            $ref: '#/definitions/OutputSecureToken'
         default:
           description: Unexpected error
           schema:
