@@ -232,11 +232,11 @@ describe Api::ApiKeysController do
 
   describe '#resource' do
     context '@resource is set' do
-      let(:resource) { double }
+      let(:api_key) { double }
 
-      before { subject.instance_variable_set(:@api_key, resource) }
+      before { subject.instance_variable_set(:@api_key, api_key) }
 
-      specify { expect(subject.send(:resource)).to eq(resource) }
+      specify { expect(subject.send(:resource)).to eq(api_key) }
     end
 
     context '@resource not set' do
@@ -256,21 +256,35 @@ describe Api::ApiKeysController do
   end
 
   describe '#collection' do
-    before do
-      #
-      # subject.policy_scope(ApiKey).order(created_at: :asc).page(params[:page])
-      #
-      expect(subject).to receive(:policy_scope).with(ApiKey) do
-        double.tap do |a|
-          expect(a).to receive(:order).with(created_at: :asc) do
-            double.tap do |b|
-              expect(b).to receive(:page).with(nil)
+    context '@api_keys is set' do
+      let(:api_keys) { double }
+
+      before { subject.instance_variable_set(:@api_keys, api_keys) }
+
+      specify { expect(subject.send(:collection)).to eq(api_keys) }
+    end
+
+    context '@api_keys not set' do
+      let(:api_keys) { double }
+
+      before do
+        #
+        # subject.policy_scope(ApiKey).order(created_at: :asc).page(params[:page]) => api_keys
+        #
+        expect(subject).to receive(:policy_scope).with(ApiKey) do
+          double.tap do |a|
+            expect(a).to receive(:order).with(created_at: :asc) do
+              double.tap do |b|
+                expect(b).to receive(:page).with(nil).and_return(api_keys)
+              end
             end
           end
         end
       end
-    end
 
-    specify { expect { subject.send(:collection) }.not_to raise_error }
+      specify { expect { subject.send(:collection) }.not_to raise_error }
+
+      specify { expect { subject.send(:collection) }.to change { subject.instance_variable_get(:@api_keys) }.from(nil).to(api_keys) }
+    end
   end
 end
