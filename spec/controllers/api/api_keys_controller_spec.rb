@@ -59,7 +59,7 @@ describe Api::ApiKeysController do
 
       before do
         #
-        # subject.current_user.api_keys.build(params)
+        # subject.current_user.api_keys.build(params) => api_key
         #
         expect(subject).to receive(:current_user) do
           double.tap do |a|
@@ -214,7 +214,7 @@ describe Api::ApiKeysController do
 
     before do
       #
-      # current_user.api_keys.build(resource_params)
+      # current_user.api_keys.build(resource_params) => api_key
       #
       expect(current_user).to receive(:api_keys) do
         double.tap do |a|
