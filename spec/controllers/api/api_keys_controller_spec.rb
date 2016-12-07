@@ -101,7 +101,7 @@ describe Api::ApiKeysController do
 
         let(:params) { { id: '42', api_key: { key_id: '1234567', v_code: 'abc' } } }
 
-        before { subject.instance_variable_set(:@resource, api_key) }
+        before { subject.instance_variable_set(:@api_key, api_key) }
 
         before { expect(subject).to receive(:authorize).with(api_key) }
 
@@ -131,7 +131,7 @@ describe Api::ApiKeysController do
 
         let(:params) { { id: '42', api_key: { key_id: '1234567', v_code: 'abc' } } }
 
-        before { subject.instance_variable_set(:@resource, api_key) }
+        before { subject.instance_variable_set(:@api_key, api_key) }
 
         before { expect(subject).to receive(:authorize).with(api_key) }
 
@@ -226,7 +226,7 @@ describe Api::ApiKeysController do
     specify { expect { subject.send(:build_resource) }.not_to raise_error }
 
     specify do
-      expect { subject.send(:build_resource) }.to change { subject.instance_variable_get(:@resource) }.from(nil).to(api_key)
+      expect { subject.send(:build_resource) }.to change { subject.instance_variable_get(:@api_key) }.from(nil).to(api_key)
     end
   end
 
@@ -234,7 +234,7 @@ describe Api::ApiKeysController do
     context '@resource is set' do
       let(:resource) { double }
 
-      before { subject.instance_variable_set(:@resource, resource) }
+      before { subject.instance_variable_set(:@api_key, resource) }
 
       specify { expect(subject.send(:resource)).to eq(resource) }
     end
