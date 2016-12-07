@@ -85,6 +85,25 @@ paths:
           description: Unexpected error
           schema:
             $ref: '#/definitions/Error'
+    delete:
+      summary: Ens session
+      description: End session via destroy secure token
+      parameters:
+        - name: Authorization
+          in: header
+          description: 'User auth token. Example: Token token="value"'
+          default: Token token="ACCESS_TOKEN"
+          required: true
+          type: string
+      tags:
+        - sessions
+      responses:
+        200:
+          description: Success
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
 
   /api_keys:
     get:
