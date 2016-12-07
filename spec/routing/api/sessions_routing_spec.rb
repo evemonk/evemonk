@@ -9,5 +9,13 @@ describe Api::SessionsController do
         format: 'json'
       )
     end
+
+    it 'should route DELETE /api/sessions to api/sessions#destroy' do
+      expect(delete: '/api/sessions').to route_to(
+        controller: 'api/sessions',
+        action: 'destroy',
+        format: 'json'
+      )
+    end
   end
 end
