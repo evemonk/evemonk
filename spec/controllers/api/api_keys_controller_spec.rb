@@ -231,18 +231,28 @@ describe Api::ApiKeysController do
   end
 
   describe '#resource' do
-    let(:params) { { id: '42' } }
+    context '@resource is set' do
+      let(:resource) { double }
 
-    before { expect(subject).to receive(:params).and_return(params) }
+      before { subject.instance_variable_set(:@resource, resource) }
 
-    before do
-      #
-      # ApiKey.find(params[:id])
-      #
-      expect(ApiKey).to receive(:find).with(params[:id])
+      specify { expect(subject.send(:resource)).to eq(resource) }
     end
 
-    specify { expect { subject.send(:resource) }.not_to raise_error }
+    context '@resource not set' do
+      let(:params) { { id: '42' } }
+
+      before { expect(subject).to receive(:params).and_return(params) }
+
+      before do
+        #
+        # ApiKey.find(params[:id])
+        #
+        expect(ApiKey).to receive(:find).with(params[:id])
+      end
+
+      specify { expect { subject.send(:resource) }.not_to raise_error }
+    end
   end
 
   describe '#collection' do
