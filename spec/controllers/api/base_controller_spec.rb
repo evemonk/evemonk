@@ -76,7 +76,7 @@ describe Api::BaseController do
   it { should rescue_from(Pundit::NotAuthorizedError) }
 
   describe '#authenticate' do
-    let(:user) { double }
+    let(:secure_token) { double }
 
     let(:token) { double }
 
@@ -86,12 +86,39 @@ describe Api::BaseController do
 
     before do
       #
-      # User.find_by(token: token)
+      # SecureToken.find_by(token: token) => secure_token
       #
-      expect(User).to receive(:find_by).with(token: token).and_return(user)
+      expect(SecureToken).to receive(:find_by).with(token: token).and_return(secure_token)
     end
 
-    its(:authenticate) { should eq(user) }
+    its(:authenticate) { should eq(secure_token) }
+  end
+
+  describe '#current_user' do
+    context '@current_user is already set' do
+      let(:user) { double }
+
+      before { subject.instance_variable_set(:@current_user, user) }
+
+      specify { expect(subject.send(:current_user)).to eq(user) }
+    end
+
+    context '@current_user is not yet set' do
+      let(:user) { double }
+
+      before do
+        #
+        # subject.secure_token.user
+        #
+        expect(subject).to receive(:secure_token) do
+          double.tap do |a|
+            expect(a).to receive(:user).and_return(user)
+          end
+        end
+      end
+
+      specify { expect(subject.send(:current_user)).to eq(user) }
+    end
   end
 
   describe '#resource' do

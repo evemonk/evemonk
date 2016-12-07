@@ -1,18 +1,18 @@
 require 'rails_helper'
 
-describe UserDecorator do
+describe SecureTokenDecorator do
   describe '#as_json' do
+    let(:secure_token) do
+      stub_model SecureToken,
+                 id: 1234,
+                 token: 'token123'
+    end
+
     let(:created_at) { double }
 
     let(:updated_at) { double }
 
-    let(:user) do
-      stub_model User,
-                 id: 42,
-                 email: 'me@example.com'
-    end
-
-    let(:decorated_object) { user.decorate }
+    let(:decorated_object) { secure_token.decorate }
 
     before { expect(decorated_object).to receive(:created_at).and_return(created_at) }
 
@@ -20,9 +20,9 @@ describe UserDecorator do
 
     subject { decorated_object.as_json }
 
-    its([:id]) { should eq(42) }
+    its([:id]) { should eq(1234) }
 
-    its([:email]) { should eq('me@example.com') }
+    its([:token]) { should eq('token123') }
 
     its([:created_at]) { should eq(created_at) }
 
@@ -32,9 +32,9 @@ describe UserDecorator do
   # private methods
 
   describe '#created_at' do
-    let(:user) { stub_model User }
+    let(:secure_token) { stub_model SecureToken }
 
-    subject { user.decorate }
+    subject { secure_token.decorate }
 
     before do
       #
@@ -55,9 +55,9 @@ describe UserDecorator do
   end
 
   describe '#updated_at' do
-    let(:user) { stub_model User }
+    let(:secure_token) { stub_model SecureToken }
 
-    subject { user.decorate }
+    subject { secure_token.decorate }
 
     before do
       #

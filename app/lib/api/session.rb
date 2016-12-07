@@ -2,7 +2,7 @@ module Api
   class Session
     include ActiveModel::Validations
 
-    attr_reader :email, :password
+    attr_reader :email, :password, :secure_token
 
     validate :user_presence
 
@@ -16,11 +16,11 @@ module Api
     def save!
       raise ActiveModel::StrictValidationFailed unless valid?
 
-      valid?
+      create_secure_token!
     end
 
     def decorate
-      UserDecorator.new(user)
+      secure_token.decorate
     end
 
     private
@@ -30,13 +30,17 @@ module Api
     end
 
     def user_presence
-      errors.add(:email, 'not found') unless user
+      errors.add(:base, 'Email and/or password is invalid') unless user
     end
 
     def user_password
       return unless user
 
-      errors.add(:password, 'is invalid') unless user.authenticate(password)
+      errors.add(:base, 'Email and/or password is invalid') unless user.authenticate(password)
+    end
+
+    def create_secure_token!
+      @secure_token ||= user.secure_tokens.create!
     end
   end
 end

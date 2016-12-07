@@ -8,9 +8,9 @@ module Api
 
     after_action :verify_policy_scoped, only: :index
 
-    attr_reader :current_user
+    attr_reader :secure_token
 
-    helper_method :parent, :collection, :resource, :current_user
+    helper_method :parent, :collection, :resource, :current_user, :secure_token
 
     def show
       authorize(resource)
@@ -68,8 +68,12 @@ module Api
 
     def authenticate
       authenticate_or_request_with_http_token do |token, options| # rubocop:disable Lint/UnusedBlockArgument
-        @current_user = User.find_by(token: token)
+        @secure_token = SecureToken.find_by(token: token)
       end
+    end
+
+    def current_user
+      @current_user ||= secure_token.user
     end
 
     def resource

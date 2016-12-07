@@ -51,7 +51,7 @@ paths:
         200:
           description: Account created
           schema:
-            $ref: '#/definitions/OutputUser'
+            $ref: '#/definitions/OutputSecureToken'
         default:
           description: Unexpected error
           schema:
@@ -59,9 +59,9 @@ paths:
 
   /sessions:
     post:
-      summary: Get user auth token
+      summary: Get user secure auth token
       description: |
-        Signin user and return user with token.
+        Signin user and return user secure token.
       parameters:
         - name: session[email]
           in: formData
@@ -71,15 +71,35 @@ paths:
         - name: session[password]
           in: formData
           description: User password
+          required: true
           type: string
           format: password
       tags:
         - sessions
       responses:
         200:
-          description: Response with User model with token
+          description: Response with secure token
           schema:
-            $ref: '#/definitions/OutputUser'
+            $ref: '#/definitions/OutputSecureToken'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    delete:
+      summary: Ens session
+      description: End session via destroy secure token
+      parameters:
+        - name: Authorization
+          in: header
+          description: 'User auth token. Example: Token token="value"'
+          default: Token token="ACCESS_TOKEN"
+          required: true
+          type: string
+      tags:
+        - sessions
+      responses:
+        200:
+          description: Success
         default:
           description: Unexpected error
           schema:
@@ -376,6 +396,27 @@ definitions:
         format: int64
         description: Current page number
 
+  OutputSecureToken:
+    required:
+      - id
+      - token
+      - created_at
+      - updated_at
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int64
+        description: SecureToken ID. e.g. "123"
+      token:
+        type: string
+        description: User secure auth token. e.g. "AAkoMiLatQHMngyuUU1vnh5b"
+      created_at:
+        type: string
+        description: Created at in ISO8601 format
+      updated_at:
+        type: string
+        description: Updated at in ISO8601 format
 
   Error:
     type: object

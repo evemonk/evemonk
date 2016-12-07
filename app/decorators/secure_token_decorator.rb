@@ -1,10 +1,10 @@
-class UserDecorator < Draper::Decorator
+class SecureTokenDecorator < Draper::Decorator
   delegate_all
 
   def as_json(*)
     {
       id: id,
-      email: email,
+      token: token,
       created_at: created_at,
       updated_at: updated_at
     }

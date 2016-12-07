@@ -1,6 +1,6 @@
 module Api
   class SessionsController < BaseController
-    skip_before_action :authenticate
+    skip_before_action :authenticate, only: :create
 
     def create
       build_resource
@@ -8,6 +8,14 @@ module Api
       resource.save!
 
       skip_authorization
+    end
+
+    def destroy
+      secure_token.destroy!
+
+      skip_authorization
+
+      head :ok
     end
 
     private
