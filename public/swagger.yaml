@@ -59,6 +59,8 @@ paths:
           description: Account created
           schema:
             $ref: '#/definitions/OutputSecureToken'
+        422:
+          description: Unprocessable Entity
         default:
           description: Unexpected error
           schema:
@@ -88,10 +90,14 @@ paths:
           description: Response with secure token
           schema:
             $ref: '#/definitions/OutputSecureToken'
+        422:
+          description: Unprocessable Entity
         default:
           description: Unexpected error
           schema:
             $ref: '#/definitions/Error'
+
+  /sessions/{id}:
     delete:
       summary: End session
       description: End session via destroy secure token
@@ -102,6 +108,12 @@ paths:
           default: Token token="ACCESS_TOKEN"
           required: true
           type: string
+        - name: id
+          in: path
+          description: SecureToken ID
+          required: true
+          type: integer
+          format: int64
       tags:
         - sessions
       responses:
@@ -169,6 +181,8 @@ paths:
           description: API Key response
           schema:
             $ref: '#/definitions/OutputApiKey'
+        422:
+          description: Unprocessable Entity
         default:
           description: Unexpected error
           schema:
