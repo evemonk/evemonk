@@ -2,7 +2,7 @@ swagger: '2.0'
 info:
   title: EveMonk back-end API
   description: EveMonk back-end REST API documentation
-  version: "1.0.0"
+  version: 1.0.0
   termsOfService: http://evemonk.com/terms
   contact:
     name: Igor Zubkov
