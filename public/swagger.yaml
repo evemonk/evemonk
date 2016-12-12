@@ -1,8 +1,8 @@
 swagger: '2.0'
 info:
-  title: 'EveMonk back-end API'
-  description: 'EveMonk back-end REST API documentation'
-  version: '0.1.0'
+  title: EveMonk back-end API
+  description: EveMonk back-end REST API documentation
+  version: "1.0.0"
   termsOfService: http://evemonk.com/terms
   contact:
     name: Igor Zubkov
@@ -25,6 +25,8 @@ tags:
     description: Session operations
   - name: api keys
     description: API Keys operations
+  - name: profile
+    description: Profile operations
 
 paths:
   /signups:
@@ -91,7 +93,7 @@ paths:
           schema:
             $ref: '#/definitions/Error'
     delete:
-      summary: Ens session
+      summary: End session
       description: End session via destroy secure token
       parameters:
         - name: Authorization
@@ -335,12 +337,34 @@ paths:
           schema:
             $ref: '#/definitions/Error'
 
+  /profile:
+    get:
+      summary: Get current user profile
+      description: Get current user profile
+      parameters:
+        - name: Authorization
+          in: header
+          description: 'User auth token. Example: Token token="value"'
+          default: Token token="ACCESS_TOKEN"
+          required: true
+          type: string
+      tags:
+        - profile
+      responses:
+        200:
+          description: Response with current user
+          schema:
+            $ref: '#/definitions/OutputUser'
+        401:
+          description: Unauthorized
+
 definitions:
   OutputUser:
     required:
       - id
       - email
-      - token
+      - created_at
+      - updated_at
     type: object
     properties:
       id:
@@ -350,9 +374,12 @@ definitions:
       email:
         type: string
         description: User email. e.g. "me@example.com"
-      token:
+      created_at:
         type: string
-        description: User auth token. e.g. "AAkoMiLatQHMngyuUU1vnh5b"
+        description: Created at in ISO8601 format
+      updated_at:
+        type: string
+        description: Updated at in ISO8601 format
 
   OutputApiKey:
     required:
