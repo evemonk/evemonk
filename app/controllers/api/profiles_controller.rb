@@ -3,7 +3,7 @@ module Api
     private
 
     def resource
-      current_user
+      @profile ||= current_user
     end
   end
 end

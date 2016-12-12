@@ -30,10 +30,22 @@ describe Api::ProfilesController do
   # private methods
 
   describe '#resource' do
-    let(:current_user) { double }
+    context '@profile is set' do
+      let(:profile) { double }
 
-    before { expect(subject).to receive(:current_user).and_return(current_user) }
+      before { subject.instance_variable_set(:@profile, profile) }
 
-    specify { expect(subject.send(:resource)).to eq(current_user) }
+      specify { expect(subject.send(:resource)).to eq(profile) }
+    end
+
+    context '@profile not set' do
+      let(:current_user) { double }
+
+      before { expect(subject).to receive(:current_user).and_return(current_user) }
+
+      specify { expect(subject.send(:resource)).to eq(current_user) }
+
+      specify { expect { subject.send(:resource) }.to change { subject.instance_variable_get(:@profile) }.from(nil).to(current_user) }
+    end
   end
 end
