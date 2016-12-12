@@ -3,6 +3,7 @@ info:
   title: 'EveMonk back-end API'
   description: 'EveMonk back-end REST API documentation'
   version: '0.1.0'
+  termsOfService: http://evemonk.com/terms
 host: localhost:3000
 schemes:
   - http
