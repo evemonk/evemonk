@@ -61,8 +61,6 @@ paths:
             $ref: '#/definitions/OutputSecureToken'
         422:
           description: Unprocessable Entity
-        default:
-          description: Unexpected error
           schema:
             $ref: '#/definitions/Error'
 
