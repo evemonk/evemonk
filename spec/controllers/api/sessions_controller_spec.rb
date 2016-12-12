@@ -117,4 +117,28 @@ describe Api::SessionsController do
 
     specify { expect { subject.send(:resource_params) }.not_to raise_error }
   end
+
+  describe '#collection' do
+    let(:params) { { page: '1' } }
+
+    before { expect(subject).to receive(:params).and_return(params) }
+
+    before do
+      #
+      # subject.policy_scope(SecureToken).order(created_at: :asc)
+      #        .page(params[:page])
+      #
+      expect(subject).to receive(:policy_scope).with(SecureToken) do
+        double.tap do |a|
+          expect(a).to receive(:order).with(created_at: :asc) do
+            double.tap do |b|
+              expect(b).to receive(:page).with(params[:page])
+            end
+          end
+        end
+      end
+    end
+
+    specify { expect { subject.send(:collection) }.not_to raise_error }
+  end
 end
