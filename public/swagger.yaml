@@ -65,6 +65,31 @@ paths:
             $ref: '#/definitions/Error'
 
   /sessions:
+    get:
+      summary: Get all user sessions
+      description: Get all user sessions.
+      parameters:
+        - name: Authorization
+          in: header
+          description: 'User auth token. Example: Token token="value"'
+          default: Token token="ACCESS_TOKEN"
+          required: true
+          type: string
+        - name: page
+          in: query
+          description: Page number for pagination
+          type: integer
+          format: int64
+      tags:
+        - sessions
+      responses:
+        200:
+          description: Response with secure tokens collection
+          schema:
+            $ref: '#/definitions/OutputSecureTokenCollection'
+        401:
+          description: Unauthorized
+
     post:
       summary: Get user secure auth token
       description: |
@@ -90,8 +115,6 @@ paths:
             $ref: '#/definitions/OutputSecureToken'
         422:
           description: Unprocessable Entity
-        default:
-          description: Unexpected error
           schema:
             $ref: '#/definitions/Error'
 
@@ -117,10 +140,12 @@ paths:
       responses:
         200:
           description: Success
-        default:
-          description: Unexpected error
-          schema:
-            $ref: '#/definitions/Error'
+        401:
+          description: Unauthorized
+        403:
+          description: Forbidden
+        404:
+          description: SecureToken not found
 
   /api_keys:
     get:
@@ -450,10 +475,6 @@ definitions:
         type: integer
         format: int64
         description: Current page number
-    example:
-      collection: {}
-      total_pages: 1
-      current_page: 1
 
   OutputSecureToken:
     required:
@@ -481,6 +502,26 @@ definitions:
       token: 'AAkoMiLatQHMngyuUU1vnh5b'
       created_at: '2016-12-12T18:35:59Z'
       updated_at: '2016-12-12T18:36:10Z'
+
+  OutputSecureTokenCollection:
+    required:
+      - collection
+      - total_pages
+      - current_page
+    type: object
+    properties:
+      collection:
+        type: array
+        items:
+          $ref: '#/definitions/OutputSecureToken'
+      total_pages:
+        type: integer
+        format: int64
+        description: Total pages counter
+      current_page:
+        type: integer
+        format: int64
+        description: Current page number
 
   Error:
     type: object
