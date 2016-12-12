@@ -370,16 +370,21 @@ definitions:
       id:
         type: integer
         format: int64
-        description: User ID. e.g. "42"
+        description: User ID
       email:
         type: string
-        description: User email. e.g. "me@example.com"
+        description: User email
       created_at:
         type: string
         description: Created at in ISO8601 format
       updated_at:
         type: string
         description: Updated at in ISO8601 format
+    example:
+      id: 42
+      email: 'me@example.com'
+      created_at: '2016-12-12T18:35:59Z'
+      updated_at: '2016-12-12T18:36:10Z'
 
   OutputApiKey:
     required:
@@ -393,20 +398,26 @@ definitions:
       id:
         type: integer
         format: int64
-        description: APIKey ID. e.g. "123"
+        description: APIKey ID
       key_id:
         type: integer
         format: int64
-        description: APIKey Key ID. e.g. "1234567"
+        description: APIKey Key ID
       v_code:
         type: string
-        description: APIKey Code. e.g. "4a66f384d27c59af02f16746d480689ee3674b58a0d822518eb57bddd4e904f7"
+        description: APIKey Code
       created_at:
         type: string
         description: Created at in ISO8601 format
       updated_at:
         type: string
         description: Updated at in ISO8601 format
+    example:
+      id: 123
+      key_id: 1234567
+      v_code: '4a66f384d27c59af02f16746d480689ee3674b58a0d822518eb57bddd4e904f7'
+      created_at: '2016-12-12T18:35:59Z'
+      updated_at: '2016-12-12T18:36:10Z'
 
   OutputApiKeyCollection:
     required:
@@ -427,6 +438,10 @@ definitions:
         type: integer
         format: int64
         description: Current page number
+    example:
+      collection: {}
+      total_pages: 1
+      current_page: 1
 
   OutputSecureToken:
     required:
@@ -439,16 +454,21 @@ definitions:
       id:
         type: integer
         format: int64
-        description: SecureToken ID. e.g. "123"
+        description: SecureToken ID
       token:
         type: string
-        description: User secure auth token. e.g. "AAkoMiLatQHMngyuUU1vnh5b"
+        description: User secure auth token
       created_at:
         type: string
         description: Created at in ISO8601 format
       updated_at:
         type: string
         description: Updated at in ISO8601 format
+    example:
+      id: 123
+      token: 'AAkoMiLatQHMngyuUU1vnh5b'
+      created_at: '2016-12-12T18:35:59Z'
+      updated_at: '2016-12-12T18:36:10Z'
 
   Error:
     type: object
