@@ -91,7 +91,7 @@ describe UserPolicy::Scope do
 
     before do
       #
-      # subject.scope.where(id: user.id)
+      # subject.scope.where(id: user.id) => scope
       #
       expect(subject).to receive(:scope) do
         double.tap do |a|
