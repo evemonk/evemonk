@@ -4,6 +4,10 @@ info:
   description: 'EveMonk back-end REST API documentation'
   version: '0.1.0'
   termsOfService: http://evemonk.com/terms
+  contact:
+    name: Igor Zubkov
+    url: http://evemonk.com/support
+    email: igor.zubkov@gmail.com
 host: localhost:3000
 schemes:
   - http
