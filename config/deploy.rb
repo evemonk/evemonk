@@ -1,4 +1,4 @@
-lock '3.6.1'
+lock '3.7.0'
 
 set :application, 'evemonk'
 set :repo_url, 'git@github.com:biow0lf/evemonk.git'
