@@ -1,8 +1,13 @@
 swagger: '2.0'
 info:
-  title: 'EveMonk back-end API'
-  description: 'EveMonk back-end REST API documentation'
-  version: '0.1.0'
+  title: EveMonk back-end API
+  description: EveMonk back-end REST API documentation
+  version: 1.0.0
+  termsOfService: http://evemonk.com/terms
+  contact:
+    name: Igor Zubkov
+    url: http://evemonk.com/support
+    email: igor.zubkov@gmail.com
 host: localhost:3000
 schemes:
   - http
@@ -20,6 +25,8 @@ tags:
     description: Session operations
   - name: api keys
     description: API Keys operations
+  - name: profile
+    description: Profile operations
 
 paths:
   /signups:
@@ -52,12 +59,37 @@ paths:
           description: Account created
           schema:
             $ref: '#/definitions/OutputSecureToken'
-        default:
-          description: Unexpected error
+        422:
+          description: Unprocessable Entity
           schema:
             $ref: '#/definitions/Error'
 
   /sessions:
+    get:
+      summary: Get all user sessions
+      description: Get all user sessions.
+      parameters:
+        - name: Authorization
+          in: header
+          description: 'User auth token. Example: Token token="value"'
+          default: Token token="ACCESS_TOKEN"
+          required: true
+          type: string
+        - name: page
+          in: query
+          description: Page number for pagination
+          type: integer
+          format: int64
+      tags:
+        - sessions
+      responses:
+        200:
+          description: Response with secure tokens collection
+          schema:
+            $ref: '#/definitions/OutputSecureTokenCollection'
+        401:
+          description: Unauthorized
+
     post:
       summary: Get user secure auth token
       description: |
@@ -81,12 +113,14 @@ paths:
           description: Response with secure token
           schema:
             $ref: '#/definitions/OutputSecureToken'
-        default:
-          description: Unexpected error
+        422:
+          description: Unprocessable Entity
           schema:
             $ref: '#/definitions/Error'
+
+  /sessions/{id}:
     delete:
-      summary: Ens session
+      summary: End session
       description: End session via destroy secure token
       parameters:
         - name: Authorization
@@ -95,15 +129,23 @@ paths:
           default: Token token="ACCESS_TOKEN"
           required: true
           type: string
+        - name: id
+          in: path
+          description: SecureToken ID
+          required: true
+          type: integer
+          format: int64
       tags:
         - sessions
       responses:
         200:
           description: Success
-        default:
-          description: Unexpected error
-          schema:
-            $ref: '#/definitions/Error'
+        401:
+          description: Unauthorized
+        403:
+          description: Forbidden
+        404:
+          description: SecureToken not found
 
   /api_keys:
     get:
@@ -162,6 +204,8 @@ paths:
           description: API Key response
           schema:
             $ref: '#/definitions/OutputApiKey'
+        422:
+          description: Unprocessable Entity
         default:
           description: Unexpected error
           schema:
@@ -330,24 +374,54 @@ paths:
           schema:
             $ref: '#/definitions/Error'
 
+  /profile:
+    get:
+      summary: Get current user profile
+      description: Get current user profile
+      parameters:
+        - name: Authorization
+          in: header
+          description: 'User auth token. Example: Token token="value"'
+          default: Token token="ACCESS_TOKEN"
+          required: true
+          type: string
+      tags:
+        - profile
+      responses:
+        200:
+          description: Response with current user
+          schema:
+            $ref: '#/definitions/OutputUser'
+        401:
+          description: Unauthorized
+
 definitions:
   OutputUser:
     required:
       - id
       - email
-      - token
+      - created_at
+      - updated_at
     type: object
     properties:
       id:
         type: integer
         format: int64
-        description: User ID. e.g. "42"
+        description: User ID
       email:
         type: string
-        description: User email. e.g. "me@example.com"
-      token:
+        description: User email
+      created_at:
         type: string
-        description: User auth token. e.g. "AAkoMiLatQHMngyuUU1vnh5b"
+        description: Created at in ISO8601 format
+      updated_at:
+        type: string
+        description: Updated at in ISO8601 format
+    example:
+      id: 42
+      email: 'me@example.com'
+      created_at: '2016-12-12T18:35:59Z'
+      updated_at: '2016-12-12T18:36:10Z'
 
   OutputApiKey:
     required:
@@ -361,20 +435,26 @@ definitions:
       id:
         type: integer
         format: int64
-        description: APIKey ID. e.g. "123"
+        description: APIKey ID
       key_id:
         type: integer
         format: int64
-        description: APIKey Key ID. e.g. "1234567"
+        description: APIKey Key ID
       v_code:
         type: string
-        description: APIKey Code. e.g. "4a66f384d27c59af02f16746d480689ee3674b58a0d822518eb57bddd4e904f7"
+        description: APIKey Code
       created_at:
         type: string
         description: Created at in ISO8601 format
       updated_at:
         type: string
         description: Updated at in ISO8601 format
+    example:
+      id: 123
+      key_id: 1234567
+      v_code: '4a66f384d27c59af02f16746d480689ee3674b58a0d822518eb57bddd4e904f7'
+      created_at: '2016-12-12T18:35:59Z'
+      updated_at: '2016-12-12T18:36:10Z'
 
   OutputApiKeyCollection:
     required:
@@ -407,16 +487,41 @@ definitions:
       id:
         type: integer
         format: int64
-        description: SecureToken ID. e.g. "123"
+        description: SecureToken ID
       token:
         type: string
-        description: User secure auth token. e.g. "AAkoMiLatQHMngyuUU1vnh5b"
+        description: User secure auth token
       created_at:
         type: string
         description: Created at in ISO8601 format
       updated_at:
         type: string
         description: Updated at in ISO8601 format
+    example:
+      id: 123
+      token: 'AAkoMiLatQHMngyuUU1vnh5b'
+      created_at: '2016-12-12T18:35:59Z'
+      updated_at: '2016-12-12T18:36:10Z'
+
+  OutputSecureTokenCollection:
+    required:
+      - collection
+      - total_pages
+      - current_page
+    type: object
+    properties:
+      collection:
+        type: array
+        items:
+          $ref: '#/definitions/OutputSecureToken'
+      total_pages:
+        type: integer
+        format: int64
+        description: Total pages counter
+      current_page:
+        type: integer
+        format: int64
+        description: Current page number
 
   Error:
     type: object

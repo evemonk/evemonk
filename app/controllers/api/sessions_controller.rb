@@ -31,5 +31,11 @@ module Api
     def resource_params
       params.require(:session).permit(:email, :password)
     end
+
+    def collection
+      @secure_tokens ||= policy_scope(SecureToken).order(created_at: :asc)
+                                                  .page(params[:page])
+
+    end
   end
 end
