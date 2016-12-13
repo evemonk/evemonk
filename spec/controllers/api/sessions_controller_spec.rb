@@ -152,7 +152,7 @@ describe Api::SessionsController do
 
       specify { expect { subject.send(:collection) }.not_to raise_error }
 
-      specify { expect { subject.send(:collection) }.to change { subject.instance_variable_get(:@secure_tokens)}.from(nil).to(secure_tokens) }
+      specify { expect { subject.send(:collection) }.to change { subject.instance_variable_get(:@secure_tokens) }.from(nil).to(secure_tokens) }
     end
   end
 end
