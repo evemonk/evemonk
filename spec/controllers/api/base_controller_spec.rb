@@ -86,14 +86,9 @@ describe Api::BaseController do
 
     before do
       #
-      # SecureToken.includes(:user).find_by(token: token) => secure_token
+      # SecureToken.find_by(token: token) => secure_token
       #
-      # expect(SecureToken).to receive(:find_by).with(token: token).and_return(secure_token)
-      expect(SecureToken).to receive(:includes).with(:user) do
-        double.tap do |a|
-          expect(a).to receive(:find_by).with(token: token).and_return(secure_token)
-        end
-      end
+      expect(SecureToken).to receive(:find_by).with(token: token).and_return(secure_token)
     end
 
     its(:authenticate) { should eq(secure_token) }
