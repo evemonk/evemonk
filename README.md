@@ -28,6 +28,8 @@ EveMonk is helper software for EveOnline MMORPG.
 * [Ruby coding style guide](https://github.com/bbatsov/ruby-style-guide)
 * [Ruby on Rails style guide](https://github.com/bbatsov/rails-style-guide)
 * [Security Guide for Developers](https://github.com/FallibleInc/security-guide-for-developers)
+* [Rails SQL Injection](http://rails-sqli.org)
+* [Swagger specification](http://swagger.io/specification/)
 
 ## Author
 
