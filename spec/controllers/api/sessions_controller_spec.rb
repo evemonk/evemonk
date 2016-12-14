@@ -134,7 +134,8 @@ describe Api::SessionsController do
 
       before do
         #
-        # subject.policy_scope(SecureToken).order(created_at: :asc)
+        # subject.policy_scope(SecureToken)
+        #        .order(created_at: :asc)
         #        .page(params[:page])
         #
         expect(subject).to receive(:policy_scope).with(SecureToken) do
