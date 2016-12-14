@@ -80,9 +80,7 @@ describe Api::SessionsController do
 
     let(:session) { double }
 
-    before do
-      expect(subject).to receive(:resource_params).and_return(resource_params)
-    end
+    before { expect(subject).to receive(:resource_params).and_return(resource_params) }
 
     before { expect(Api::Session).to receive(:new).with(resource_params).and_return(session) }
 
@@ -102,7 +100,7 @@ describe Api::SessionsController do
   describe '#resource_params' do
     before do
       #
-      # subject.params.require(:session).permit(:email, :password, :password_confirmation)
+      # subject.params.require(:session).permit(:email, :password)
       #
       expect(subject).to receive(:params) do
         double.tap do |a|
