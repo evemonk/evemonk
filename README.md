@@ -26,6 +26,7 @@ EveMonk is helper software for EveOnline MMORPG.
 ## Links
 
 * [EVE Online Third-Party Developer Documentation](https://eveonline-third-party-documentation.readthedocs.io/en/latest/)
+* [ESI Swagger](https://esi.tech.ccp.is/latest/)
 * [Eve Online Static Data Export (SDE) and Image Export Collection (IEC) downloader](https://github.com/biow0lf/eveonline-sde-iec-downloader)
 
 ## Guides
