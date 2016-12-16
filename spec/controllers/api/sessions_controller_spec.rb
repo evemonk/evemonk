@@ -80,9 +80,7 @@ describe Api::SessionsController do
 
     let(:session) { double }
 
-    before do
-      expect(subject).to receive(:resource_params).and_return(resource_params)
-    end
+    before { expect(subject).to receive(:resource_params).and_return(resource_params) }
 
     before { expect(Api::Session).to receive(:new).with(resource_params).and_return(session) }
 
@@ -102,7 +100,7 @@ describe Api::SessionsController do
   describe '#resource_params' do
     before do
       #
-      # subject.params.require(:session).permit(:email, :password, :password_confirmation)
+      # subject.params.require(:session).permit(:email, :password)
       #
       expect(subject).to receive(:params) do
         double.tap do |a|
@@ -136,7 +134,8 @@ describe Api::SessionsController do
 
       before do
         #
-        # subject.policy_scope(SecureToken).order(created_at: :asc)
+        # subject.policy_scope(SecureToken)
+        #        .order(created_at: :asc)
         #        .page(params[:page])
         #
         expect(subject).to receive(:policy_scope).with(SecureToken) do
@@ -152,7 +151,7 @@ describe Api::SessionsController do
 
       specify { expect { subject.send(:collection) }.not_to raise_error }
 
-      specify { expect { subject.send(:collection) }.to change { subject.instance_variable_get(:@secure_tokens)}.from(nil).to(secure_tokens) }
+      specify { expect { subject.send(:collection) }.to change { subject.instance_variable_get(:@secure_tokens) }.from(nil).to(secure_tokens) }
     end
   end
 end

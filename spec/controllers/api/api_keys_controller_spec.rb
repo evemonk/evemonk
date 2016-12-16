@@ -225,9 +225,7 @@ describe Api::ApiKeysController do
 
     specify { expect { subject.send(:build_resource) }.not_to raise_error }
 
-    specify do
-      expect { subject.send(:build_resource) }.to change { subject.instance_variable_get(:@api_key) }.from(nil).to(api_key)
-    end
+    specify { expect { subject.send(:build_resource) }.to change { subject.instance_variable_get(:@api_key) }.from(nil).to(api_key) }
   end
 
   describe '#resource' do
@@ -240,18 +238,22 @@ describe Api::ApiKeysController do
     end
 
     context '@resource not set' do
+      let(:api_key) { double }
+
       let(:params) { { id: '42' } }
 
       before { expect(subject).to receive(:params).and_return(params) }
 
       before do
         #
-        # ApiKey.find(params[:id])
+        # ApiKey.find(params[:id]) => api_key
         #
-        expect(ApiKey).to receive(:find).with(params[:id])
+        expect(ApiKey).to receive(:find).with(params[:id]).and_return(api_key)
       end
 
       specify { expect { subject.send(:resource) }.not_to raise_error }
+
+      specify { expect { subject.send(:resource) }.to change { subject.instance_variable_get(:@api_key) }.from(nil).to(api_key) }
     end
   end
 
