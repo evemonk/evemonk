@@ -23,6 +23,10 @@ EveMonk is helper software for EveOnline MMORPG.
 * Ruby on Rails 5.0.0.1
 * PostgreSQL 9.5.4
 
+## Links
+
+* [Eve Online Static Data Export (SDE) and Image Export Collection (IEC) downloader](https://github.com/biow0lf/eveonline-sde-iec-downloader)
+
 ## Guides
 
 * [Ruby coding style guide](https://github.com/bbatsov/ruby-style-guide)
