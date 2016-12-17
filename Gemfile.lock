@@ -1,15 +1,4 @@
 GIT
-  remote: https://github.com/biow0lf/eve_online.git
-  revision: 3773d935261e00bbe2697d372e074c6d275dce85
-  branch: master
-  specs:
-    eve_online (0.9.0)
-      activesupport (>= 3.0.0)
-      json
-      memoist
-      nori (~> 2.6)
-
-GIT
   remote: https://github.com/jdliss/shoulda-callback-matchers.git
   revision: b8a3680bc1d19ac713e43054a2b33238ce845698
   branch: master
@@ -129,7 +118,15 @@ GEM
       request_store (~> 1.0)
     equalizer (0.0.11)
     erubis (2.7.0)
+    eve_online (0.10.0)
+      activesupport (>= 3.0.0)
+      faraday
+      json
+      memoist
+      nori (~> 2.6)
     execjs (2.7.0)
+    faraday (0.10.0)
+      multipart-post (>= 1.2, < 3)
     ffi (1.9.14)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
@@ -174,6 +171,7 @@ GEM
     mini_portile2 (2.1.0)
     minitest (5.10.1)
     multi_json (1.12.1)
+    multipart-post (2.0.0)
     net-http-persistent (3.0.0)
       connection_pool (~> 2.2)
     net-scp (1.2.1)
@@ -353,7 +351,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   dotenv-rails
   draper (= 3.0.0.pre1)
-  eve_online!
+  eve_online
   good_migrations
   jquery-rails
   kaminari
