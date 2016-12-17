@@ -20,4 +20,15 @@ namespace :eve do
       FlagsImporter.new(file).execute
     end
   end
+
+  desc 'Import EveOnline SDE items'
+  task items: :environment do
+    ActiveRecord::Base.transaction do
+      Eve::Item.destroy_all
+
+      file = 'EVE/invItems.yaml'
+
+      ItemsImporter.new(file).execute
+    end
+  end
 end
