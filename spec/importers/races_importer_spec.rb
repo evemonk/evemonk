@@ -10,9 +10,9 @@ describe RacesImporter do
 
     before do
       #
-      # EveOnline::SDE::Races.new(file) => races
+      # EveOnline::SDE::Base.new(file) => races
       #
-      expect(EveOnline::SDE::Races).to receive(:new).with(file).and_return(races)
+      expect(EveOnline::SDE::Base).to receive(:new).with(file).and_return(races)
     end
 
     specify { expect(subject.races).to eq(races) }

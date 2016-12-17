@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/biow0lf/eve_online.git
-  revision: b4cd343ce0d35e8a3ad18a172b8285613fa0a11b
+  revision: a04ffff3420e9a415cf9199ad12684caf4c77fa4
   branch: sde-chr-races
   specs:
     eve_online (0.10.0)
@@ -112,7 +112,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.12.2)
-    concurrent-ruby (1.0.2)
+    concurrent-ruby (1.0.3)
     connection_pool (2.2.1)
     descendants_tracker (0.0.4)
       thread_safe (~> 0.3, >= 0.3.1)

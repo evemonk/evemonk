@@ -9,4 +9,15 @@ namespace :eve do
       RacesImporter.new(file).execute
     end
   end
+
+  desc 'Import EveOnline SDE flags'
+  task flags: :environment do
+    ActiveRecord::Base.transaction do
+      Eve::Flag.destroy_all
+
+      file = 'EVE/invFlags.yaml'
+
+      FlagsImporter.new(file).execute
+    end
+  end
 end

@@ -2,7 +2,7 @@ class RacesImporter
   attr_reader :races
 
   def initialize(file)
-    @races = EveOnline::SDE::Races.new(file)
+    @races = EveOnline::SDE::Base.new(file)
   end
 
   def execute

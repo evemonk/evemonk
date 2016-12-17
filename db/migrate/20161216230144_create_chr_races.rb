@@ -6,6 +6,8 @@ class CreateChrRaces < ActiveRecord::Migration[5.0]
       t.string :race_name
       t.string :short_description
       t.integer :icon_id
+
+      t.timestamps null: false
     end
   end
 end
