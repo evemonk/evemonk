@@ -31,4 +31,15 @@ namespace :eve do
       ItemsImporter.new(file).execute
     end
   end
+
+  desc 'Import EveOnline SDE names'
+  task names: :environment do
+    ActiveRecord::Base.transaction do
+      Eve::Name.destroy_all
+
+      file = 'EVE/invNames.yaml'
+
+      NamesImporter.new(file).execute
+    end
+  end
 end
