@@ -42,4 +42,15 @@ namespace :eve do
       NamesImporter.new(file).execute
     end
   end
+
+  desc 'Import EveOnline SDE positions'
+  task positions: :environment do
+    ActiveRecord::Base.transaction do
+      Eve::Position.destroy_all
+
+      file = 'EVE/invPositions.yaml'
+
+      PositionsImporter.new(file).execute
+    end
+  end
 end
