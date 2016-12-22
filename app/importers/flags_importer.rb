@@ -2,12 +2,12 @@ class FlagsImporter
   attr_reader :flags
 
   def initialize(file)
-    @flags = EveOnline::SDE::Base.new(file)
+    @flags = EveOnline::SDE::Flags.new(file)
   end
 
   def execute
-    flags.data.each do |flag|
-      Eve::Flag.create!(flag)
+    flags.flags.each do |flag|
+      Eve::Flag.create!(flag.as_json)
     end
   end
 end
