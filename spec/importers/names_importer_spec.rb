@@ -38,12 +38,7 @@ describe NamesImporter do
       end
     end
 
-    before do
-      #
-      # name.as_json => json
-      #
-      expect(name).to receive(:as_json).and_return(json)
-    end
+    before { expect(name).to receive(:as_json).and_return(json) }
 
     before do
       #

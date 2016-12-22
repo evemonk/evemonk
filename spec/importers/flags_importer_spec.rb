@@ -38,12 +38,7 @@ describe FlagsImporter do
       end
     end
 
-    before do
-      #
-      # flag.as_json => json
-      #
-      expect(flag).to receive(:as_json).and_return(json)
-    end
+    before { expect(flag).to receive(:as_json).and_return(json) }
 
     before do
       #

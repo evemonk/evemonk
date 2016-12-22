@@ -38,12 +38,7 @@ describe RacesImporter do
       end
     end
 
-    before do
-      #
-      # race.as_json => json
-      #
-      expect(race).to receive(:as_json).and_return(json)
-    end
+    before { expect(race).to receive(:as_json).and_return(json) }
 
     before do
       #
