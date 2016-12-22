@@ -10,9 +10,9 @@ describe NamesImporter do
 
     before do
       #
-      # EveOnline::SDE::Base.new(file) => names
+      # EveOnline::SDE::Names.new(file) => names
       #
-      expect(EveOnline::SDE::Base).to receive(:new).with(file).and_return(names)
+      expect(EveOnline::SDE::Names).to receive(:new).with(file).and_return(names)
     end
 
     specify { expect(subject.names).to eq(names) }
@@ -23,24 +23,33 @@ describe NamesImporter do
 
     let(:name) { double }
 
+    let(:json) { double }
+
     subject { described_class.new(file) }
 
     before do
       #
-      # subject.names.data => [name]
+      # subject.names.names => [name]
       #
       expect(subject).to receive(:names) do
         double.tap do |a|
-          expect(a).to receive(:data).and_return([name])
+          expect(a).to receive(:names).and_return([name])
         end
       end
     end
 
     before do
       #
-      # Eve::Name.create!(name)
+      # name.as_json => json
       #
-      expect(Eve::Name).to receive(:create!).with(name)
+      expect(name).to receive(:as_json).and_return(json)
+    end
+
+    before do
+      #
+      # Eve::Name.create!(json)
+      #
+      expect(Eve::Name).to receive(:create!).with(json)
     end
 
     specify { expect { subject.execute }.not_to raise_error }
