@@ -10,9 +10,9 @@ describe RacesImporter do
 
     before do
       #
-      # EveOnline::SDE::Base.new(file) => races
+      # EveOnline::SDE::Races.new(file) => races
       #
-      expect(EveOnline::SDE::Base).to receive(:new).with(file).and_return(races)
+      expect(EveOnline::SDE::Races).to receive(:new).with(file).and_return(races)
     end
 
     specify { expect(subject.races).to eq(races) }
@@ -23,24 +23,33 @@ describe RacesImporter do
 
     let(:race) { double }
 
+    let(:json) { double }
+
     subject { described_class.new(file) }
 
     before do
       #
-      # subject.races.data => [race]
+      # subject.races.races => [race]
       #
       expect(subject).to receive(:races) do
         double.tap do |a|
-          expect(a).to receive(:data).and_return([race])
+          expect(a).to receive(:races).and_return([race])
         end
       end
     end
 
     before do
       #
-      # Eve::Race.create!(race)
+      # race.as_json => json
       #
-      expect(Eve::Race).to receive(:create!).with(race)
+      expect(race).to receive(:as_json).and_return(json)
+    end
+
+    before do
+      #
+      # Eve::Race.create!(json)
+      #
+      expect(Eve::Race).to receive(:create!).with(json)
     end
 
     specify { expect { subject.execute }.not_to raise_error }
