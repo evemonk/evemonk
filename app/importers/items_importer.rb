@@ -1,13 +1,13 @@
 class ItemsImporter
-  attr_reader :items
+  attr_reader :inv_items
 
   def initialize(file)
-    @items = EveOnline::SDE::Items.new(file)
+    @inv_items = EveOnline::SDE::InvItems.new(file)
   end
 
   def execute
-    items.items.each do |item|
-      Eve::Item.create!(item.as_json)
+    inv_items.inv_items.each do |inv_item|
+      Eve::Item.create!(inv_item.as_json)
     end
   end
 end

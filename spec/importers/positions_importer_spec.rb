@@ -4,24 +4,24 @@ describe PositionsImporter do
   describe '#initialize' do
     let(:file) { double }
 
-    let(:positions) { double }
+    let(:inv_positions) { double }
 
     subject { described_class.new(file) }
 
     before do
       #
-      # EveOnline::SDE::Positions.new(file) => positions
+      # EveOnline::SDE::InvPositions.new(file) => inv_positions
       #
-      expect(EveOnline::SDE::Positions).to receive(:new).with(file).and_return(positions)
+      expect(EveOnline::SDE::InvPositions).to receive(:new).with(file).and_return(inv_positions)
     end
 
-    specify { expect(subject.positions).to eq(positions) }
+    specify { expect(subject.inv_positions).to eq(inv_positions) }
   end
 
   describe '#execute' do
     let(:file) { double }
 
-    let(:position) { double }
+    let(:inv_position) { double }
 
     let(:json) { double }
 
@@ -29,16 +29,16 @@ describe PositionsImporter do
 
     before do
       #
-      # subject.positions.positions => [position]
+      # subject.inv_positions.inv_positions => [inv_position]
       #
-      expect(subject).to receive(:positions) do
+      expect(subject).to receive(:inv_positions) do
         double.tap do |a|
-          expect(a).to receive(:positions).and_return([position])
+          expect(a).to receive(:inv_positions).and_return([inv_position])
         end
       end
     end
 
-    before { expect(position).to receive(:as_json).and_return(json) }
+    before { expect(inv_position).to receive(:as_json).and_return(json) }
 
     before do
       #

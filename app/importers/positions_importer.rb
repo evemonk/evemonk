@@ -1,13 +1,13 @@
 class PositionsImporter
-  attr_reader :positions
+  attr_reader :inv_positions
 
   def initialize(file)
-    @positions = EveOnline::SDE::Positions.new(file)
+    @inv_positions = EveOnline::SDE::InvPositions.new(file)
   end
 
   def execute
-    positions.positions.each do |position|
-      Eve::Position.create!(position.as_json)
+    inv_positions.inv_positions.each do |inv_position|
+      Eve::Position.create!(inv_position.as_json)
     end
   end
 end

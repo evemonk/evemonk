@@ -4,24 +4,24 @@ describe FlagsImporter do
   describe '#initialize' do
     let(:file) { double }
 
-    let(:flags) { double }
+    let(:inv_flags) { double }
 
     subject { described_class.new(file) }
 
     before do
       #
-      # EveOnline::SDE::Flags.new(file) => flags
+      # EveOnline::SDE::InvFlags.new(file) => inv_flags
       #
-      expect(EveOnline::SDE::Flags).to receive(:new).with(file).and_return(flags)
+      expect(EveOnline::SDE::InvFlags).to receive(:new).with(file).and_return(inv_flags)
     end
 
-    specify { expect(subject.flags).to eq(flags) }
+    specify { expect(subject.inv_flags).to eq(inv_flags) }
   end
 
   describe '#execute' do
     let(:file) { double }
 
-    let(:flag) { double }
+    let(:inv_flag) { double }
 
     let(:json) { double }
 
@@ -29,16 +29,16 @@ describe FlagsImporter do
 
     before do
       #
-      # subject.flags.flags => [flag]
+      # subject.inv_flags.inv_flags => [inv_flag]
       #
-      expect(subject).to receive(:flags) do
+      expect(subject).to receive(:inv_flags) do
         double.tap do |a|
-          expect(a).to receive(:flags).and_return([flag])
+          expect(a).to receive(:inv_flags).and_return([inv_flag])
         end
       end
     end
 
-    before { expect(flag).to receive(:as_json).and_return(json) }
+    before { expect(inv_flag).to receive(:as_json).and_return(json) }
 
     before do
       #

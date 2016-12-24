@@ -4,24 +4,24 @@ describe NamesImporter do
   describe '#initialize' do
     let(:file) { double }
 
-    let(:names) { double }
+    let(:inv_names) { double }
 
     subject { described_class.new(file) }
 
     before do
       #
-      # EveOnline::SDE::Names.new(file) => names
+      # EveOnline::SDE::InvNames.new(file) => inv_names
       #
-      expect(EveOnline::SDE::Names).to receive(:new).with(file).and_return(names)
+      expect(EveOnline::SDE::InvNames).to receive(:new).with(file).and_return(inv_names)
     end
 
-    specify { expect(subject.names).to eq(names) }
+    specify { expect(subject.inv_names).to eq(inv_names) }
   end
 
   describe '#execute' do
     let(:file) { double }
 
-    let(:name) { double }
+    let(:inv_name) { double }
 
     let(:json) { double }
 
@@ -29,16 +29,16 @@ describe NamesImporter do
 
     before do
       #
-      # subject.names.names => [name]
+      # subject.inv_names.inv_names => [inv_name]
       #
-      expect(subject).to receive(:names) do
+      expect(subject).to receive(:inv_names) do
         double.tap do |a|
-          expect(a).to receive(:names).and_return([name])
+          expect(a).to receive(:inv_names).and_return([inv_name])
         end
       end
     end
 
-    before { expect(name).to receive(:as_json).and_return(json) }
+    before { expect(inv_name).to receive(:as_json).and_return(json) }
 
     before do
       #

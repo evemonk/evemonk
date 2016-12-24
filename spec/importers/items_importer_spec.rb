@@ -4,24 +4,24 @@ describe ItemsImporter do
   describe '#initialize' do
     let(:file) { double }
 
-    let(:items) { double }
+    let(:inv_items) { double }
 
     subject { described_class.new(file) }
 
     before do
       #
-      # EveOnline::SDE::Items.new(file) => items
+      # EveOnline::SDE::InvItems.new(file) => inv_items
       #
-      expect(EveOnline::SDE::Items).to receive(:new).with(file).and_return(items)
+      expect(EveOnline::SDE::InvItems).to receive(:new).with(file).and_return(inv_items)
     end
 
-    specify { expect(subject.items).to eq(items) }
+    specify { expect(subject.inv_items).to eq(inv_items) }
   end
 
   describe '#execute' do
     let(:file) { double }
 
-    let(:item) { double }
+    let(:inv_item) { double }
 
     let(:json) { double }
 
@@ -29,16 +29,16 @@ describe ItemsImporter do
 
     before do
       #
-      # subject.items.items => [item]
+      # subject.inv_items.inv_items => [inv_item]
       #
-      expect(subject).to receive(:items) do
+      expect(subject).to receive(:inv_items) do
         double.tap do |a|
-          expect(a).to receive(:items).and_return([item])
+          expect(a).to receive(:inv_items).and_return([inv_item])
         end
       end
     end
 
-    before { expect(item).to receive(:as_json).and_return(json) }
+    before { expect(inv_item).to receive(:as_json).and_return(json) }
 
     before do
       #
