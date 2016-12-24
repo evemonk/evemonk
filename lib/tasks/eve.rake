@@ -53,4 +53,15 @@ namespace :eve do
       PositionsImporter.new(file).execute
     end
   end
+
+  desc 'Import EveOnline SDE Agent Types'
+  task agent_types: :environment do
+    ActiveRecord::Base.transaction do
+      Eve::AgentType.destroy_all
+
+      file = 'EVE/agtAgentTypes.yaml'
+
+      AgentTypesImporter.new(file).execute
+    end
+  end
 end
