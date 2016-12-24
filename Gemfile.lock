@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/biow0lf/eve_online.git
-  revision: b184bc7e628c46a46e083ddd210ab40598dfdb98
-  branch: sde-chr-races
+  revision: ab5e10d7b461bd0578a65851e315bfe00876bd03
+  branch: master
   specs:
     eve_online (0.10.0)
       activesupport (>= 3.0.0)
