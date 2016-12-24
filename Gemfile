@@ -9,7 +9,7 @@ gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 
 gem 'bcrypt'
-gem 'eve_online', git: 'https://github.com/biow0lf/eve_online.git', branch: 'sde-chr-races'
+gem 'eve_online', git: 'https://github.com/biow0lf/eve_online.git', branch: 'master'
 # gem 'eve_online', path: '~/opensource/eve_online'
 gem 'good_migrations'
 gem 'zero_downtime_migrations'
