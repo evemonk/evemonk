@@ -44,6 +44,7 @@ group :development do
   gem 'brakeman', require: false
   # rubocop version locked due config. Update rubocop config on gem update.
   gem 'rubocop', '0.46.0', require: false
+  gem 'rubocop-rspec', '1.8.0'
   gem 'capistrano'
   gem 'capistrano-rails'
   gem 'capistrano-faster-assets'
