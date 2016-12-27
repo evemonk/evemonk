@@ -13,8 +13,6 @@ describe Eve::Agent do
 
   it { should validate_presence_of(:division_id) }
 
-  it { should validate_inclusion_of(:is_locator).in_array([true, false]) }
-
   it { should validate_presence_of(:level) }
 
   it { should validate_presence_of(:location_id) }

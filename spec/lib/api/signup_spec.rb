@@ -61,18 +61,28 @@ describe Api::Signup do
   end
 
   describe '#user' do
-    let(:params) { double }
+    context 'user not set' do
+      let(:params) { double }
 
-    subject { described_class.new(params) }
+      subject { described_class.new(params) }
 
-    before do
-      #
-      # User.new(params)
-      #
-      expect(User).to receive(:new).with(params)
+      before do
+        #
+        # User.new(params)
+        #
+        expect(User).to receive(:new).with(params)
+      end
+
+      specify { expect { subject.user }.not_to raise_error }
     end
 
-    specify { expect { subject.user }.not_to raise_error }
+    context 'user is set' do
+      let(:user) { double }
+
+      before { subject.instance_variable_set(:@user, user) }
+
+      specify { expect(subject.user).to eq(user) }
+    end
   end
 
   describe '#errors' do
@@ -91,21 +101,31 @@ describe Api::Signup do
   end
 
   describe '#build_secure_token' do
-    let(:user) { double }
+    context 'secure_token not set' do
+      let(:user) { double }
 
-    before { expect(subject).to receive(:user).and_return(user) }
+      before { expect(subject).to receive(:user).and_return(user) }
 
-    before do
-      #
-      # user.secure_tokens.build
-      #
-      expect(user).to receive(:secure_tokens) do
-        double.tap do |a|
-          expect(a).to receive(:build)
+      before do
+        #
+        # user.secure_tokens.build
+        #
+        expect(user).to receive(:secure_tokens) do
+          double.tap do |a|
+            expect(a).to receive(:build)
+          end
         end
       end
+
+      specify { expect { subject.build_secure_token }.not_to raise_error }
     end
 
-    specify { expect { subject.build_secure_token }.not_to raise_error }
+    context 'secure_token is set' do
+      let(:secure_token) { double }
+
+      before { subject.instance_variable_set(:@secure_token, secure_token) }
+
+      specify { expect(subject.build_secure_token).to eq(secure_token) }
+    end
   end
 end
