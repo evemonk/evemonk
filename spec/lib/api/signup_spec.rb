@@ -101,21 +101,31 @@ describe Api::Signup do
   end
 
   describe '#build_secure_token' do
-    let(:user) { double }
+    context 'secure_token not set' do
+      let(:user) { double }
 
-    before { expect(subject).to receive(:user).and_return(user) }
+      before { expect(subject).to receive(:user).and_return(user) }
 
-    before do
-      #
-      # user.secure_tokens.build
-      #
-      expect(user).to receive(:secure_tokens) do
-        double.tap do |a|
-          expect(a).to receive(:build)
+      before do
+        #
+        # user.secure_tokens.build
+        #
+        expect(user).to receive(:secure_tokens) do
+          double.tap do |a|
+            expect(a).to receive(:build)
+          end
         end
       end
+
+      specify { expect { subject.build_secure_token }.not_to raise_error }
     end
 
-    specify { expect { subject.build_secure_token }.not_to raise_error }
+    context 'secure_token is set' do
+      let(:secure_token) { double }
+
+      before { subject.instance_variable_set(:@secure_token, secure_token) }
+
+      specify { expect(subject.build_secure_token).to eq(secure_token) }
+    end
   end
 end
