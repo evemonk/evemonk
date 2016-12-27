@@ -60,7 +60,16 @@ describe Api::Session do
 
     before { expect(subject).to receive(:email).and_return(email) }
 
-    before { expect(User).to receive(:find_by).with(email: email).and_return(user) }
+    before do
+      #
+      # User.where('LOWER(email) = LOWER(?)', email).first
+      #
+      expect(User).to receive(:where).with('LOWER(email) = LOWER(?)', email) do
+        double.tap do |a|
+          expect(a).to receive(:first)
+        end
+      end
+    end
 
     specify { expect { subject.send(:user) }.not_to raise_error }
   end
