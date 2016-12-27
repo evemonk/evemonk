@@ -61,18 +61,28 @@ describe Api::Signup do
   end
 
   describe '#user' do
-    let(:params) { double }
+    context 'user not set' do
+      let(:params) { double }
 
-    subject { described_class.new(params) }
+      subject { described_class.new(params) }
 
-    before do
-      #
-      # User.new(params)
-      #
-      expect(User).to receive(:new).with(params)
+      before do
+        #
+        # User.new(params)
+        #
+        expect(User).to receive(:new).with(params)
+      end
+
+      specify { expect { subject.user }.not_to raise_error }
     end
 
-    specify { expect { subject.user }.not_to raise_error }
+    context 'user is set' do
+      let(:user) { double }
+
+      before { subject.instance_variable_set(:@user, user) }
+
+      specify { expect(subject.user).to eq(user) }
+    end
   end
 
   describe '#errors' do
