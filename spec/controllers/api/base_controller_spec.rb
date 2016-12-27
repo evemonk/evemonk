@@ -73,6 +73,8 @@ describe Api::BaseController do
 
   it { should rescue_from(ActiveRecord::RecordNotFound) }
 
+  it { should rescue_from(ActionController::RoutingError) }
+
   it { should rescue_from(Pundit::NotAuthorizedError) }
 
   describe '#authenticate' do
