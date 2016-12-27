@@ -26,7 +26,7 @@ module Api
     private
 
     def user
-      @user ||= User.find_by(email: email)
+      @user ||= User.where('LOWER(email) = LOWER(?)', email).first
     end
 
     def user_presence
