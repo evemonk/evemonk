@@ -49,7 +49,7 @@ module Api
       render :errors, status: :unprocessable_entity
     end
 
-    rescue_from ActiveRecord::RecordNotFound, ActionController::RoutingError do
+    rescue_from ActiveRecord::RecordNotFound do
       head :not_found
     end
 
