@@ -5,7 +5,8 @@ describe SecureTokenDecorator do
     let(:secure_token) do
       stub_model SecureToken,
                  id: 1234,
-                 token: 'token123'
+                 token: 'token123',
+                 name: 'My Computer'
     end
 
     let(:created_at) { double }
@@ -23,6 +24,8 @@ describe SecureTokenDecorator do
     its([:id]) { should eq(1234) }
 
     its([:token]) { should eq('token123') }
+
+    its([:name]) { should eq('My Computer') }
 
     its([:created_at]) { should eq(created_at) }
 
