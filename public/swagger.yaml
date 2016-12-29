@@ -7,7 +7,7 @@ info:
   contact:
     name: Igor Zubkov
     url: http://evemonk.com/support
-    email: igor.zubkov+evemonk@gmail.com
+    email: igor.zubkov@gmail.com
 host: localhost:3000
 schemes:
   - http
