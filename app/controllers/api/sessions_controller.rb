@@ -29,7 +29,7 @@ module Api
     end
 
     def resource_params
-      params.require(:session).permit(:email, :password)
+      params.require(:session).permit(:email, :password, :name)
     end
 
     def collection
