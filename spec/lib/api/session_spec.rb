@@ -7,7 +7,8 @@ describe Api::Session do
     let(:params) do
       {
         email: 'me@example.com',
-        password: 'password'
+        password: 'password',
+        name: 'My Computer'
       }
     end
 
@@ -16,6 +17,8 @@ describe Api::Session do
     its(:email) { should eq('me@example.com') }
 
     its(:password) { should eq('password') }
+
+    its(:name) { should eq('My Computer') }
   end
 
   describe '#save!' do
@@ -154,15 +157,19 @@ describe Api::Session do
     end
 
     context '@secure_token not set' do
+      let(:name) { double }
+
+      before { expect(subject).to receive(:name).and_return(name) }
+
       before do
         #
-        # subject.user.secure_tokens.create!
+        # subject.user.secure_tokens.create!(name: name)
         #
         expect(subject).to receive(:user) do
           double.tap do |a|
             expect(a).to receive(:secure_tokens) do
               double.tap do |b|
-                expect(b).to receive(:create!)
+                expect(b).to receive(:create!).with(name: name)
               end
             end
           end

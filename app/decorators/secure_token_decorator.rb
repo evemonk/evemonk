@@ -5,6 +5,7 @@ class SecureTokenDecorator < Draper::Decorator
     {
       id: id,
       token: token,
+      name: name,
       created_at: created_at,
       updated_at: updated_at
     }

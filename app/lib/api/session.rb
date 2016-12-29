@@ -2,7 +2,7 @@ module Api
   class Session
     include ActiveModel::Validations
 
-    attr_reader :email, :password, :secure_token
+    attr_reader :email, :password, :name, :secure_token
 
     validate :user_presence
 
@@ -11,6 +11,7 @@ module Api
     def initialize(params = {})
       @email = params[:email]
       @password = params[:password]
+      @name = params[:name]
     end
 
     def save!
@@ -40,7 +41,7 @@ module Api
     end
 
     def create_secure_token!
-      @secure_token ||= user.secure_tokens.create!
+      @secure_token ||= user.secure_tokens.create!(name: name)
     end
   end
 end
