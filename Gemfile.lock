@@ -77,7 +77,7 @@ GEM
     bcrypt_pbkdf (1.0.0)
     brakeman (3.4.1)
     builder (3.2.2)
-    bullet (5.4.3)
+    bullet (5.5.0)
       activesupport (>= 3.0.0)
       uniform_notifier (~> 1.10.0)
     capistrano (3.7.1)
