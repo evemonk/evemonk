@@ -4,11 +4,12 @@ class SecureTokenDecorator < Draper::Decorator
   def as_json(*)
     {
       id: id,
-      token: token,
       name: name,
       created_at: created_at,
       updated_at: updated_at
-    }
+    }.tap do |hash|
+      hash[:token] = token if context[:with_token]
+    end
   end
 
   private

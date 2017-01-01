@@ -20,8 +20,8 @@ module Api
       create_secure_token!
     end
 
-    def decorate
-      secure_token.decorate
+    def decorate(*args)
+      secure_token.decorate(*args)
     end
 
     private

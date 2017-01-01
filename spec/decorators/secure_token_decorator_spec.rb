@@ -13,23 +13,39 @@ describe SecureTokenDecorator do
 
     let(:updated_at) { double }
 
-    let(:decorated_object) { secure_token.decorate }
-
     before { expect(decorated_object).to receive(:created_at).and_return(created_at) }
 
     before { expect(decorated_object).to receive(:updated_at).and_return(updated_at) }
 
     subject { decorated_object.as_json }
 
-    its([:id]) { should eq(1234) }
+    context 'with_token: false' do
+      let(:decorated_object) { secure_token.decorate(context: { with_token: false }) }
 
-    its([:token]) { should eq('token123') }
+      its([:id]) { should eq(1234) }
 
-    its([:name]) { should eq('My Computer') }
+      its([:token]) { should eq(nil) }
 
-    its([:created_at]) { should eq(created_at) }
+      its([:name]) { should eq('My Computer') }
 
-    its([:updated_at]) { should eq(updated_at) }
+      its([:created_at]) { should eq(created_at) }
+
+      its([:updated_at]) { should eq(updated_at) }
+    end
+
+    context 'with_token: true' do
+      let(:decorated_object) { secure_token.decorate(context: { with_token: true }) }
+
+      its([:id]) { should eq(1234) }
+
+      its([:token]) { should eq('token123') }
+
+      its([:name]) { should eq('My Computer') }
+
+      its([:created_at]) { should eq(created_at) }
+
+      its([:updated_at]) { should eq(updated_at) }
+    end
   end
 
   # private methods

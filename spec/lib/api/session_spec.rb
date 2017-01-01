@@ -40,18 +40,20 @@ describe Api::Session do
   end
 
   describe '#decorate' do
+    let(:args) { double }
+
     before do
       #
-      # subject.secure_token.decorate
+      # subject.secure_token.decorate(*args)
       #
       expect(subject).to receive(:secure_token) do
         double.tap do |a|
-          expect(a).to receive(:decorate)
+          expect(a).to receive(:decorate).with(*args)
         end
       end
     end
 
-    specify { expect { subject.decorate }.not_to raise_error }
+    specify { expect { subject.decorate(*args) }.not_to raise_error }
   end
 
   # private methods
