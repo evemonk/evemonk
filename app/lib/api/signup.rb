@@ -1,6 +1,6 @@
 module Api
   class Signup
-    attr_reader :params, :secure_token
+    attr_reader :params, :session
 
     def initialize(params = {})
       @params = params
@@ -9,13 +9,13 @@ module Api
     def save!
       raise ActiveModel::StrictValidationFailed unless user.valid?
 
-      build_secure_token
+      build_session
 
       user.save!
     end
 
     def decorate
-      secure_token.decorate
+      session.decorate
     end
 
     def user
@@ -26,8 +26,8 @@ module Api
       user.errors
     end
 
-    def build_secure_token
-      @secure_token ||= user.secure_tokens.build
+    def build_session
+      @session ||= user.sessions.build
     end
   end
 end
