@@ -117,16 +117,16 @@ describe Api::SessionsController do
   end
 
   describe '#collection' do
-    context '@secure_tokens is set' do
-      let(:secure_tokens) { double }
+    context '@sessions is set' do
+      let(:sessions) { double }
 
-      before { subject.instance_variable_set(:@secure_tokens, secure_tokens) }
+      before { subject.instance_variable_set(:@sessions, sessions) }
 
-      specify { expect(subject.send(:collection)).to eq(secure_tokens) }
+      specify { expect(subject.send(:collection)).to eq(sessions) }
     end
 
-    context '@secure_tokens not set' do
-      let(:secure_tokens) { double }
+    context '@sessions not set' do
+      let(:sessions) { double }
 
       let(:params) { { page: '1' } }
 
@@ -134,15 +134,15 @@ describe Api::SessionsController do
 
       before do
         #
-        # subject.policy_scope(SecureToken)
+        # subject.policy_scope(::Session)
         #        .order(created_at: :asc)
         #        .page(params[:page])
         #
-        expect(subject).to receive(:policy_scope).with(SecureToken) do
+        expect(subject).to receive(:policy_scope).with(::Session) do
           double.tap do |a|
             expect(a).to receive(:order).with(created_at: :asc) do
               double.tap do |b|
-                expect(b).to receive(:page).with(params[:page]).and_return(secure_tokens)
+                expect(b).to receive(:page).with(params[:page]).and_return(sessions)
               end
             end
           end
@@ -151,7 +151,7 @@ describe Api::SessionsController do
 
       specify { expect { subject.send(:collection) }.not_to raise_error }
 
-      specify { expect { subject.send(:collection) }.to change { subject.instance_variable_get(:@secure_tokens) }.from(nil).to(secure_tokens) }
+      specify { expect { subject.send(:collection) }.to change { subject.instance_variable_get(:@sessions) }.from(nil).to(sessions) }
     end
   end
 end

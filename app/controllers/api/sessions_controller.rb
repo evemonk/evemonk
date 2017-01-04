@@ -33,8 +33,9 @@ module Api
     end
 
     def collection
-      @secure_tokens ||= policy_scope(SecureToken).order(created_at: :asc)
-                                                  .page(params[:page])
+      # TODO: refactor to remove "::" before Session
+      @sessions ||= policy_scope(::Session).order(created_at: :asc)
+                                           .page(params[:page])
     end
   end
 end
