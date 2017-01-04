@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe SecureTokenPolicy do
+describe SessionPolicy do
   let(:user) { double }
 
   let(:record) { double }
@@ -18,7 +18,7 @@ describe SecureTokenPolicy do
   end
 
   describe '#show?' do
-    let(:record) { stub_model SecureToken, id: 1234 }
+    let(:record) { stub_model Session, id: 1234 }
 
     before do
       #
@@ -69,16 +69,16 @@ describe SecureTokenPolicy do
   describe '#scope' do
     before do
       #
-      # Pundit.policy_scope!(user, SecureToken)
+      # Pundit.policy_scope!(user, Session)
       #
-      expect(Pundit).to receive(:policy_scope!).with(user, SecureToken)
+      expect(Pundit).to receive(:policy_scope!).with(user, Session)
     end
 
     specify { expect { subject.scope }.not_to raise_error }
   end
 end
 
-describe SecureTokenPolicy::Scope do
+describe SessionPolicy::Scope do
   let(:user) { double }
 
   let(:scope) { double }
