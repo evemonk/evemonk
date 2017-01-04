@@ -58,7 +58,7 @@ paths:
         200:
           description: Account created
           schema:
-            $ref: '#/definitions/OutputSecureToken'
+            $ref: '#/definitions/OutputSession'
         422:
           description: Unprocessable Entity
           schema:
@@ -84,16 +84,16 @@ paths:
         - sessions
       responses:
         200:
-          description: Response with secure tokens collection
+          description: Response with sessions collection
           schema:
-            $ref: '#/definitions/OutputSecureTokenCollection'
+            $ref: '#/definitions/OutputSessionCollection'
         401:
           description: Unauthorized
 
     post:
-      summary: Get user secure auth token
+      summary: Get user session with auth token
       description: |
-        Signin user and return user secure token.
+        Signin user and return user session with auth token.
       parameters:
         - name: session[email]
           in: formData
@@ -115,9 +115,9 @@ paths:
         - sessions
       responses:
         200:
-          description: Response with secure token
+          description: Response with session
           schema:
-            $ref: '#/definitions/OutputSecureToken'
+            $ref: '#/definitions/OutputSession'
         422:
           description: Unprocessable Entity
           schema:
@@ -126,7 +126,7 @@ paths:
   /sessions/{id}:
     delete:
       summary: End session
-      description: End session via destroy secure token
+      description: End session
       parameters:
         - name: Authorization
           in: header
@@ -136,7 +136,7 @@ paths:
           type: string
         - name: id
           in: path
-          description: SecureToken ID
+          description: Session ID
           required: true
           type: integer
           format: int64
@@ -150,7 +150,7 @@ paths:
         403:
           description: Forbidden
         404:
-          description: SecureToken not found
+          description: Session not found
 
   /api_keys:
     get:
@@ -481,7 +481,7 @@ definitions:
         format: int64
         description: Current page number
 
-  OutputSecureToken:
+  OutputSession:
     required:
       - id
       - token
@@ -513,7 +513,7 @@ definitions:
       created_at: '2016-12-12T18:35:59Z'
       updated_at: '2016-12-12T18:36:10Z'
 
-  OutputSecureTokenCollection:
+  OutputSessionCollection:
     required:
       - collection
       - total_pages
@@ -523,7 +523,7 @@ definitions:
       collection:
         type: array
         items:
-          $ref: '#/definitions/OutputSecureToken'
+          $ref: '#/definitions/OutputSession'
       total_pages:
         type: integer
         format: int64
