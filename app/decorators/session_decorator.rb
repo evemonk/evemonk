@@ -1,4 +1,4 @@
-class SecureTokenDecorator < Draper::Decorator
+class SessionDecorator < Draper::Decorator
   delegate_all
 
   def as_json(*)

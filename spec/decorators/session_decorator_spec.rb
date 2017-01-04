@@ -1,9 +1,9 @@
 require 'rails_helper'
 
-describe SecureTokenDecorator do
+describe SessionDecorator do
   describe '#as_json' do
-    let(:secure_token) do
-      stub_model SecureToken,
+    let(:session) do
+      stub_model Session,
                  id: 1234,
                  token: 'token123',
                  name: 'My Computer'
@@ -20,7 +20,7 @@ describe SecureTokenDecorator do
     subject { decorated_object.as_json }
 
     context 'with_token: false' do
-      let(:decorated_object) { secure_token.decorate(context: { with_token: false }) }
+      let(:decorated_object) { session.decorate(context: { with_token: false }) }
 
       its([:id]) { should eq(1234) }
 
@@ -34,7 +34,7 @@ describe SecureTokenDecorator do
     end
 
     context 'with_token: true' do
-      let(:decorated_object) { secure_token.decorate(context: { with_token: true }) }
+      let(:decorated_object) { session.decorate(context: { with_token: true }) }
 
       its([:id]) { should eq(1234) }
 
@@ -51,9 +51,9 @@ describe SecureTokenDecorator do
   # private methods
 
   describe '#created_at' do
-    let(:secure_token) { stub_model SecureToken }
+    let(:session) { stub_model Session }
 
-    subject { secure_token.decorate }
+    subject { session.decorate }
 
     before do
       #
@@ -74,9 +74,9 @@ describe SecureTokenDecorator do
   end
 
   describe '#updated_at' do
-    let(:secure_token) { stub_model SecureToken }
+    let(:session) { stub_model Session }
 
-    subject { secure_token.decorate }
+    subject { session.decorate }
 
     before do
       #
