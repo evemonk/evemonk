@@ -64,7 +64,7 @@ module Api
 
     def authenticate
       authenticate_or_request_with_http_token do |token, options| # rubocop:disable Lint/UnusedBlockArgument
-        @session = Session.find_by(token: token)
+        @session = ::Session.find_by(token: token)
       end
     end
 
