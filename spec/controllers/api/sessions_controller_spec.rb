@@ -51,13 +51,13 @@ describe Api::SessionsController do
     context 'authorized' do
       before { expect(subject).to receive(:verify_authorized).and_return(true) }
 
-      let(:secure_token) { stub_model SecureToken }
+      let(:session) { stub_model Session }
 
-      before { expect(subject).to receive(:secure_token).and_return(secure_token).twice }
+      before { expect(subject).to receive(:session).and_return(session).exactly(4).times }
 
-      before { expect(subject).to receive(:authorize).with(secure_token) }
+      before { expect(subject).to receive(:authorize).with(session) }
 
-      before { expect(secure_token).to receive(:destroy!) }
+      before { expect(session).to receive(:destroy!) }
 
       before { sign_in }
 
