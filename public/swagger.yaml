@@ -55,11 +55,11 @@ paths:
       tags:
         - signups
       responses:
-        200:
+        '200':
           description: Account created
           schema:
             $ref: '#/definitions/OutputSession'
-        422:
+        '422':
           description: Unprocessable Entity
           schema:
             $ref: '#/definitions/Error'
@@ -83,11 +83,11 @@ paths:
       tags:
         - sessions
       responses:
-        200:
+        '200':
           description: Response with sessions collection
           schema:
             $ref: '#/definitions/OutputSessionCollection'
-        401:
+        '401':
           description: Unauthorized
 
     post:
@@ -114,11 +114,11 @@ paths:
       tags:
         - sessions
       responses:
-        200:
+        '200':
           description: Response with session
           schema:
             $ref: '#/definitions/OutputSession'
-        422:
+        '422':
           description: Unprocessable Entity
           schema:
             $ref: '#/definitions/Error'
@@ -143,13 +143,13 @@ paths:
       tags:
         - sessions
       responses:
-        200:
+        '200':
           description: Success
-        401:
+        '401':
           description: Unauthorized
-        403:
+        '403':
           description: Forbidden
-        404:
+        '404':
           description: Session not found
 
   /api_keys:
@@ -172,7 +172,7 @@ paths:
       tags:
         - api keys
       responses:
-        200:
+        '200':
           description: API Keys collection
           schema:
             $ref: '#/definitions/OutputApiKeyCollection'
@@ -205,11 +205,11 @@ paths:
       tags:
         - api keys
       responses:
-        200:
+        '200':
           description: API Key response
           schema:
             $ref: '#/definitions/OutputApiKey'
-        422:
+        '422':
           description: Unprocessable Entity
         default:
           description: Unexpected error
@@ -237,15 +237,15 @@ paths:
       tags:
         - api keys
       responses:
-        200:
+        '200':
           description: API Key response
           schema:
             $ref: '#/definitions/OutputApiKey'
-        401:
+        '401':
           description: Unauthorized
-        403:
+        '403':
           description: Forbidden
-        404:
+        '404':
           description: API Key not found
         default:
           description: Unexpected error
@@ -272,13 +272,13 @@ paths:
       tags:
         - api keys
       responses:
-        200:
+        '200':
           description: API Key removed
-        401:
+        '401':
           description: Unauthorized
-        403:
+        '403':
           description: Forbidden
-        404:
+        '404':
           description: API Key not found
         default:
           description: Unexpected error
@@ -524,10 +524,10 @@ definitions:
       id:
         type: integer
         format: int64
-        description: SecureToken ID
+        description: Session ID
       name:
         type: string
-        description: User secure token name
+        description: Session name
       created_at:
         type: string
         description: Created at in ISO8601 format
