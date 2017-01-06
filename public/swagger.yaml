@@ -176,10 +176,8 @@ paths:
           description: API Keys collection
           schema:
             $ref: '#/definitions/OutputApiKeyCollection'
-        default:
-          description: Unexpected error
-          schema:
-            $ref: '#/definitions/Error'
+        '401':
+          description: Unauthorized
 
     post:
       summary: Add EveOnline API Key
@@ -209,10 +207,10 @@ paths:
           description: API Key response
           schema:
             $ref: '#/definitions/OutputApiKey'
+        '401':
+          description: Unauthorized
         '422':
           description: Unprocessable Entity
-        default:
-          description: Unexpected error
           schema:
             $ref: '#/definitions/Error'
 
@@ -247,10 +245,6 @@ paths:
           description: Forbidden
         '404':
           description: API Key not found
-        default:
-          description: Unexpected error
-          schema:
-            $ref: '#/definitions/Error'
 
     delete:
       summary: Delete EveOnline API Key
@@ -280,10 +274,6 @@ paths:
           description: Forbidden
         '404':
           description: API Key not found
-        default:
-          description: Unexpected error
-          schema:
-            $ref: '#/definitions/Error'
 
     put:
       summary: Update EveOnline API Key
@@ -315,20 +305,18 @@ paths:
       tags:
         - api keys
       responses:
-        200:
+        '200':
           description: API Key response
           schema:
             $ref: '#/definitions/OutputApiKey'
-        401:
+        '401':
           description: Unauthorized
-        403:
+        '403':
           description: Forbidden
-        404:
+        '404':
           description: API Key not found
-        422:
+        '422':
           description: Unprocessable Entity
-        default:
-          description: Unexpected error
           schema:
             $ref: '#/definitions/Error'
 
@@ -362,20 +350,18 @@ paths:
       tags:
         - api keys
       responses:
-        200:
+        '200':
           description: API Key response
           schema:
             $ref: '#/definitions/OutputApiKey'
-        401:
+        '401':
           description: Unauthorized
-        403:
+        '403':
           description: Forbidden
-        404:
+        '404':
           description: API Key not found
-        422:
+        '422':
           description: Unprocessable Entity
-        default:
-          description: Unexpected error
           schema:
             $ref: '#/definitions/Error'
 
@@ -393,11 +379,11 @@ paths:
       tags:
         - profile
       responses:
-        200:
+        '200':
           description: Response with current user
           schema:
             $ref: '#/definitions/OutputUser'
-        401:
+        '401':
           description: Unauthorized
 
 definitions:
