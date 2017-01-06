@@ -23,7 +23,7 @@ describe Api::Signup do
 
       before { expect(user).to receive(:valid?).and_return(true) }
 
-      before { expect(subject).to receive(:build_secure_token) }
+      before { expect(subject).to receive(:build_session) }
 
       before { expect(user).to receive(:save!) }
 
@@ -37,7 +37,7 @@ describe Api::Signup do
 
       before { expect(user).to receive(:valid?).and_return(false) }
 
-      before { expect(subject).not_to receive(:build_secure_token) }
+      before { expect(subject).not_to receive(:build_session) }
 
       before { expect(user).not_to receive(:save!) }
 
@@ -48,9 +48,9 @@ describe Api::Signup do
   describe '#decorate' do
     before do
       #
-      # subject.secure_token.decorate
+      # subject.session.decorate
       #
-      expect(subject).to receive(:secure_token) do
+      expect(subject).to receive(:session) do
         double.tap do |a|
           expect(a).to receive(:decorate)
         end
@@ -100,32 +100,32 @@ describe Api::Signup do
     specify { expect { subject.errors }.not_to raise_error }
   end
 
-  describe '#build_secure_token' do
-    context 'secure_token not set' do
+  describe '#build_session' do
+    context 'session not set' do
       let(:user) { double }
 
       before { expect(subject).to receive(:user).and_return(user) }
 
       before do
         #
-        # user.secure_tokens.build
+        # user.sessions.build
         #
-        expect(user).to receive(:secure_tokens) do
+        expect(user).to receive(:sessions) do
           double.tap do |a|
             expect(a).to receive(:build)
           end
         end
       end
 
-      specify { expect { subject.build_secure_token }.not_to raise_error }
+      specify { expect { subject.build_session }.not_to raise_error }
     end
 
-    context 'secure_token is set' do
-      let(:secure_token) { double }
+    context 'session is set' do
+      let(:session) { double }
 
-      before { subject.instance_variable_set(:@secure_token, secure_token) }
+      before { subject.instance_variable_set(:@session, session) }
 
-      specify { expect(subject.build_secure_token).to eq(secure_token) }
+      specify { expect(subject.build_session).to eq(session) }
     end
   end
 end

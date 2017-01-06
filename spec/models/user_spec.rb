@@ -5,7 +5,7 @@ describe User do
 
   it { should have_many(:api_keys).dependent(:destroy) }
 
-  it { should have_many(:secure_tokens).dependent(:destroy) }
+  it { should have_many(:sessions).dependent(:destroy) }
 
   it { should validate_presence_of(:email) }
 

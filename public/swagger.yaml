@@ -55,11 +55,11 @@ paths:
       tags:
         - signups
       responses:
-        200:
+        '200':
           description: Account created
           schema:
-            $ref: '#/definitions/OutputSecureToken'
-        422:
+            $ref: '#/definitions/OutputSession'
+        '422':
           description: Unprocessable Entity
           schema:
             $ref: '#/definitions/Error'
@@ -83,17 +83,17 @@ paths:
       tags:
         - sessions
       responses:
-        200:
-          description: Response with secure tokens collection
+        '200':
+          description: Response with sessions collection
           schema:
-            $ref: '#/definitions/OutputSecureTokenCollection'
-        401:
+            $ref: '#/definitions/OutputSessionCollection'
+        '401':
           description: Unauthorized
 
     post:
-      summary: Get user secure auth token
+      summary: Get user session with auth token
       description: |
-        Signin user and return user secure token.
+        Signin user and return user session with auth token.
       parameters:
         - name: session[email]
           in: formData
@@ -114,11 +114,11 @@ paths:
       tags:
         - sessions
       responses:
-        200:
-          description: Response with secure token
+        '200':
+          description: Response with session
           schema:
-            $ref: '#/definitions/OutputSecureToken'
-        422:
+            $ref: '#/definitions/OutputSession'
+        '422':
           description: Unprocessable Entity
           schema:
             $ref: '#/definitions/Error'
@@ -126,7 +126,7 @@ paths:
   /sessions/{id}:
     delete:
       summary: End session
-      description: End session via destroy secure token
+      description: End session
       parameters:
         - name: Authorization
           in: header
@@ -136,21 +136,21 @@ paths:
           type: string
         - name: id
           in: path
-          description: SecureToken ID
+          description: Session ID
           required: true
           type: integer
           format: int64
       tags:
         - sessions
       responses:
-        200:
+        '200':
           description: Success
-        401:
+        '401':
           description: Unauthorized
-        403:
+        '403':
           description: Forbidden
-        404:
-          description: SecureToken not found
+        '404':
+          description: Session not found
 
   /api_keys:
     get:
@@ -172,14 +172,12 @@ paths:
       tags:
         - api keys
       responses:
-        200:
+        '200':
           description: API Keys collection
           schema:
             $ref: '#/definitions/OutputApiKeyCollection'
-        default:
-          description: Unexpected error
-          schema:
-            $ref: '#/definitions/Error'
+        '401':
+          description: Unauthorized
 
     post:
       summary: Add EveOnline API Key
@@ -205,14 +203,14 @@ paths:
       tags:
         - api keys
       responses:
-        200:
+        '200':
           description: API Key response
           schema:
             $ref: '#/definitions/OutputApiKey'
-        422:
+        '401':
+          description: Unauthorized
+        '422':
           description: Unprocessable Entity
-        default:
-          description: Unexpected error
           schema:
             $ref: '#/definitions/Error'
 
@@ -237,20 +235,16 @@ paths:
       tags:
         - api keys
       responses:
-        200:
+        '200':
           description: API Key response
           schema:
             $ref: '#/definitions/OutputApiKey'
-        401:
+        '401':
           description: Unauthorized
-        403:
+        '403':
           description: Forbidden
-        404:
+        '404':
           description: API Key not found
-        default:
-          description: Unexpected error
-          schema:
-            $ref: '#/definitions/Error'
 
     delete:
       summary: Delete EveOnline API Key
@@ -272,18 +266,14 @@ paths:
       tags:
         - api keys
       responses:
-        200:
+        '200':
           description: API Key removed
-        401:
+        '401':
           description: Unauthorized
-        403:
+        '403':
           description: Forbidden
-        404:
+        '404':
           description: API Key not found
-        default:
-          description: Unexpected error
-          schema:
-            $ref: '#/definitions/Error'
 
     put:
       summary: Update EveOnline API Key
@@ -315,20 +305,18 @@ paths:
       tags:
         - api keys
       responses:
-        200:
+        '200':
           description: API Key response
           schema:
             $ref: '#/definitions/OutputApiKey'
-        401:
+        '401':
           description: Unauthorized
-        403:
+        '403':
           description: Forbidden
-        404:
+        '404':
           description: API Key not found
-        422:
+        '422':
           description: Unprocessable Entity
-        default:
-          description: Unexpected error
           schema:
             $ref: '#/definitions/Error'
 
@@ -362,20 +350,18 @@ paths:
       tags:
         - api keys
       responses:
-        200:
+        '200':
           description: API Key response
           schema:
             $ref: '#/definitions/OutputApiKey'
-        401:
+        '401':
           description: Unauthorized
-        403:
+        '403':
           description: Forbidden
-        404:
+        '404':
           description: API Key not found
-        422:
+        '422':
           description: Unprocessable Entity
-        default:
-          description: Unexpected error
           schema:
             $ref: '#/definitions/Error'
 
@@ -393,11 +379,11 @@ paths:
       tags:
         - profile
       responses:
-        200:
+        '200':
           description: Response with current user
           schema:
             $ref: '#/definitions/OutputUser'
-        401:
+        '401':
           description: Unauthorized
 
 definitions:
@@ -481,7 +467,7 @@ definitions:
         format: int64
         description: Current page number
 
-  OutputSecureToken:
+  OutputSession:
     required:
       - id
       - token
@@ -513,7 +499,34 @@ definitions:
       created_at: '2016-12-12T18:35:59Z'
       updated_at: '2016-12-12T18:36:10Z'
 
-  OutputSecureTokenCollection:
+  OutputSessionWithoutToken:
+    required:
+      - id
+      - name
+      - created_at
+      - updated_at
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int64
+        description: Session ID
+      name:
+        type: string
+        description: Session name
+      created_at:
+        type: string
+        description: Created at in ISO8601 format
+      updated_at:
+        type: string
+        description: Updated at in ISO8601 format
+    example:
+      id: 123
+      name: 'My Computer'
+      created_at: '2016-12-12T18:35:59Z'
+      updated_at: '2016-12-12T18:36:10Z'
+
+  OutputSessionCollection:
     required:
       - collection
       - total_pages
@@ -523,7 +536,7 @@ definitions:
       collection:
         type: array
         items:
-          $ref: '#/definitions/OutputSecureToken'
+          $ref: '#/definitions/OutputSessionWithoutToken'
       total_pages:
         type: integer
         format: int64

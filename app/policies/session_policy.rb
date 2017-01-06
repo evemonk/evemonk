@@ -1,4 +1,4 @@
-class SecureTokenPolicy
+class SessionPolicy
   attr_reader :user, :record
 
   def initialize(user, record)
@@ -35,7 +35,7 @@ class SecureTokenPolicy
   end
 
   def scope
-    Pundit.policy_scope!(user, SecureToken)
+    Pundit.policy_scope!(user, Session)
   end
 
   class Scope

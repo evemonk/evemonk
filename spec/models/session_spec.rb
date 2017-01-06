@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe SecureToken do
+describe Session do
   it { should be_a(ApplicationRecord) }
 
   it { should belong_to(:user) }

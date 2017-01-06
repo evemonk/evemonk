@@ -76,7 +76,7 @@ describe Api::BaseController do
   it { should rescue_from(Pundit::NotAuthorizedError) }
 
   describe '#authenticate' do
-    let(:secure_token) { double }
+    let(:session) { stub_model Session }
 
     let(:token) { double }
 
@@ -86,12 +86,12 @@ describe Api::BaseController do
 
     before do
       #
-      # SecureToken.find_by(token: token) => secure_token
+      # Session.find_by(token: token) => session
       #
-      expect(SecureToken).to receive(:find_by).with(token: token).and_return(secure_token)
+      expect(Session).to receive(:find_by).with(token: token).and_return(session)
     end
 
-    its(:authenticate) { should eq(secure_token) }
+    its(:authenticate) { should eq(session) }
   end
 
   describe '#current_user' do
@@ -108,9 +108,9 @@ describe Api::BaseController do
 
       before do
         #
-        # subject.secure_token.user
+        # subject.session.user
         #
-        expect(subject).to receive(:secure_token) do
+        expect(subject).to receive(:session) do
           double.tap do |a|
             expect(a).to receive(:user).and_return(user)
           end
