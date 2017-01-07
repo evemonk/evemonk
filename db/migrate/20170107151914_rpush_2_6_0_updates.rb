@@ -7,4 +7,3 @@ class Rpush260Updates < ActiveRecord::Migration
     remove_column :rpush_notifications, :content_available
   end
 end
-
