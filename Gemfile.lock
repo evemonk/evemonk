@@ -137,9 +137,6 @@ GEM
     ffi (1.9.14)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
-    good_migrations (0.0.2)
-      activerecord (>= 3.1)
-      railties (>= 3.1)
     i18n (0.7.0)
     ice_nine (0.11.2)
     jquery-rails (4.2.2)
@@ -362,7 +359,6 @@ DEPENDENCIES
   dotenv-rails
   draper (= 3.0.0.pre1)
   eve_online!
-  good_migrations
   jquery-rails
   kaminari
   listen (~> 3.0.5)
