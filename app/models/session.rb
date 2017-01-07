@@ -5,5 +5,7 @@ class Session < ApplicationRecord
 
   validates :user, presence: true
 
+  validates :device_token, presence: true, if: :device?
+
   has_secure_token
 end
