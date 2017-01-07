@@ -1,5 +1,4 @@
 Rpush.configure do |config|
-
   # Supported clients are :active_record, :redis and :mongoid
   config.client = :active_record
 
@@ -28,11 +27,9 @@ Rpush.configure do |config|
 
   # config.apns.feedback_receiver.enabled = true
   # config.apns.feedback_receiver.frequency = 60
-
 end
 
 Rpush.reflect do |on|
-
   # Called with a Rpush::Apns::Feedback instance when feedback is received
   # from the APNs that a notification has failed to be delivered.
   # Further notifications should not be sent to the device.
