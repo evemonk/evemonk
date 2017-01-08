@@ -23,6 +23,20 @@ EveMonk is helper software for EveOnline MMORPG.
 * Ruby on Rails 5.0.0.1
 * PostgreSQL 9.5.4
 
+## Configure
+
+Apple Push notifications:
+
+```ruby
+app = Rpush::Apns::App.new
+app.name = 'ios'
+app.certificate = File.read('/path/to/production.pem')
+app.environment = 'production' # APNs environment.
+app.password = 'certificate password'
+app.connections = 1
+app.save!
+```
+
 ## Links
 
 * [EVE Online Third-Party Developer Documentation](https://eveonline-third-party-documentation.readthedocs.io/en/latest/)
