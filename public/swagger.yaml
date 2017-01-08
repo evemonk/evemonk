@@ -111,6 +111,17 @@ paths:
           description: Session name
           required: false
           type: string
+        - name: session[device]
+          in: formData
+          required: false
+          type: string
+          enum:
+            - ios
+            - android
+        - name: session[device_token]
+          in: formData
+          required: false
+          type: string
       tags:
         - sessions
       responses:
