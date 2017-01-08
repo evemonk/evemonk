@@ -8,7 +8,13 @@ class SessionDecorator < Draper::Decorator
       created_at: created_at,
       updated_at: updated_at
     }.tap do |hash|
-      hash[:token] = token if context[:with_token]
+      if context[:with_token]
+        hash[:token] = token
+
+        hash[:device] = device
+
+        hash[:device_token] = device_token
+      end
     end
   end
 

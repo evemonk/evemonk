@@ -111,6 +111,17 @@ paths:
           description: Session name
           required: false
           type: string
+        - name: session[device]
+          in: formData
+          required: false
+          type: string
+          enum:
+            - ios
+            - android
+        - name: session[device_token]
+          in: formData
+          required: false
+          type: string
       tags:
         - sessions
       responses:
@@ -472,6 +483,8 @@ definitions:
       - id
       - token
       - name
+      - device
+      - device_token
       - created_at
       - updated_at
     type: object
@@ -479,13 +492,22 @@ definitions:
       id:
         type: integer
         format: int64
-        description: SecureToken ID
+        description: Session ID
       token:
         type: string
-        description: User secure auth token
+        description: Session token
       name:
         type: string
-        description: User secure token name
+        description: Session name
+      device:
+        type: string
+        description: Session device type
+        enum:
+          - ios
+          - android
+      device_token:
+        type: string
+        decription: Session device push notification token
       created_at:
         type: string
         description: Created at in ISO8601 format
@@ -496,6 +518,8 @@ definitions:
       id: 123
       token: 'AAkoMiLatQHMngyuUU1vnh5b'
       name: 'My Computer'
+      device: 'ios'
+      device_token: 'ce8be6272e43e85516033e24b4c289220eeda4879c477160b2545e95b68b5969'
       created_at: '2016-12-12T18:35:59Z'
       updated_at: '2016-12-12T18:36:10Z'
 

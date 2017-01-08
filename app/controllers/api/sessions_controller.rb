@@ -29,7 +29,8 @@ module Api
     end
 
     def resource_params
-      params.require(:session).permit(:email, :password, :name)
+      params.require(:session)
+            .permit(:email, :password, :name, :device, :device_token)
     end
 
     def collection
