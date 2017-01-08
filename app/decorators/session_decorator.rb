@@ -5,6 +5,8 @@ class SessionDecorator < Draper::Decorator
     {
       id: id,
       name: name,
+      device: device,
+      device_token: device_token,
       created_at: created_at,
       updated_at: updated_at
     }.tap do |hash|
