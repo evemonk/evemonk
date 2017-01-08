@@ -2,7 +2,7 @@ module Api
   class Session
     include ActiveModel::Validations
 
-    attr_reader :email, :password, :name, :secure_token
+    attr_reader :email, :password, :name, :device, :device_token, :session
 
     validate :user_presence
 
@@ -12,16 +12,18 @@ module Api
       @email = params[:email]
       @password = params[:password]
       @name = params[:name]
+      @device = params[:device]
+      @device_token = params[:device_token]
     end
 
     def save!
       raise ActiveModel::StrictValidationFailed unless valid?
 
-      create_secure_token!
+      create_session!
     end
 
     def decorate(*args)
-      secure_token.decorate(*args)
+      session.decorate(*args)
     end
 
     private
@@ -40,8 +42,8 @@ module Api
       errors.add(:base, 'Email and/or password is invalid') unless user.authenticate(password)
     end
 
-    def create_secure_token!
-      @secure_token ||= user.secure_tokens.create!(name: name)
+    def create_session!
+      @session ||= user.sessions.create!(name: name, device: device, device_token: device_token)
     end
   end
 end

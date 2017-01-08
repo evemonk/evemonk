@@ -8,7 +8,9 @@ describe Api::Session do
       {
         email: 'me@example.com',
         password: 'password',
-        name: 'My Computer'
+        name: 'My Computer',
+        device: 'ios',
+        device_token: 'token123'
       }
     end
 
@@ -19,13 +21,17 @@ describe Api::Session do
     its(:password) { should eq('password') }
 
     its(:name) { should eq('My Computer') }
+
+    its(:device) { should eq('ios') }
+
+    its(:device_token) { should eq('token123') }
   end
 
   describe '#save!' do
     context 'not valid' do
       before { expect(subject).to receive(:valid?).and_return(false) }
 
-      before { expect(subject).not_to receive(:create_secure_token!) }
+      before { expect(subject).not_to receive(:create_session!) }
 
       specify { expect { subject.save! }.to raise_error ActiveModel::StrictValidationFailed }
     end
@@ -33,7 +39,7 @@ describe Api::Session do
     context 'valid' do
       before { expect(subject).to receive(:valid?).and_return(true) }
 
-      before { expect(subject).to receive(:create_secure_token!) }
+      before { expect(subject).to receive(:create_session!) }
 
       specify { expect { subject.save! }.not_to raise_error }
     end
@@ -44,9 +50,9 @@ describe Api::Session do
 
     before do
       #
-      # subject.secure_token.decorate(*args)
+      # subject.session.decorate(*args)
       #
-      expect(subject).to receive(:secure_token) do
+      expect(subject).to receive(:session) do
         double.tap do |a|
           expect(a).to receive(:decorate).with(*args)
         end
@@ -149,36 +155,48 @@ describe Api::Session do
     end
   end
 
-  describe '#create_secure_token!' do
-    context '@secure_token is set' do
-      let(:secure_token) { double }
+  describe '#create_session!' do
+    context '@session is set' do
+      let(:session) { double }
 
-      before { subject.instance_variable_set(:@secure_token, secure_token) }
+      before { subject.instance_variable_set(:@session, session) }
 
-      specify { expect(subject.send(:create_secure_token!)).to eq(secure_token) }
+      specify { expect(subject.send(:create_session!)).to eq(session) }
     end
 
-    context '@secure_token not set' do
+    context '@session not set' do
       let(:name) { double }
+
+      let(:device) { double }
+
+      let(:device_token) { double }
 
       before { expect(subject).to receive(:name).and_return(name) }
 
+      before { expect(subject).to receive(:device).and_return(device) }
+
+      before { expect(subject).to receive(:device_token).and_return(device_token) }
+
       before do
         #
-        # subject.user.secure_tokens.create!(name: name)
+        # subject.user.sessions.create!(name: name,
+        #                               device: device,
+        #                               device_token: device_token)
         #
         expect(subject).to receive(:user) do
           double.tap do |a|
-            expect(a).to receive(:secure_tokens) do
+            expect(a).to receive(:sessions) do
               double.tap do |b|
-                expect(b).to receive(:create!).with(name: name)
+                expect(b).to receive(:create!).with(name: name,
+                                                    device: device,
+                                                    device_token: device_token)
               end
             end
           end
         end
       end
 
-      specify { expect { subject.send(:create_secure_token!) }.not_to raise_error }
+      specify { expect { subject.send(:create_session!) }.not_to raise_error }
     end
   end
 end
