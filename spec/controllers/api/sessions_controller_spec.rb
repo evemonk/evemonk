@@ -100,13 +100,15 @@ describe Api::SessionsController do
   describe '#resource_params' do
     before do
       #
-      # subject.params.require(:session).permit(:email, :password, :name)
+      # subject.params.require(:session)
+      #               .permit(:email, :password, :name, :device,
+      #                       :device_token)
       #
       expect(subject).to receive(:params) do
         double.tap do |a|
           expect(a).to receive(:require).with(:session) do
             double.tap do |b|
-              expect(b).to receive(:permit).with(:email, :password, :name)
+              expect(b).to receive(:permit).with(:email, :password, :name, :device, :device_token)
             end
           end
         end
