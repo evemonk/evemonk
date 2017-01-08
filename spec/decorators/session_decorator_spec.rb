@@ -26,17 +26,17 @@ describe SessionDecorator do
 
       its([:id]) { should eq(1234) }
 
-      its([:token]) { should eq(nil) }
-
       its([:name]) { should eq('My Computer') }
-
-      its([:device]) { should eq('ios') }
-
-      its([:device_token]) { should eq('device-token123') }
 
       its([:created_at]) { should eq(created_at) }
 
       its([:updated_at]) { should eq(updated_at) }
+
+      its([:token]) { should eq(nil) }
+
+      its([:device]) { should eq(nil) }
+
+      its([:device_token]) { should eq(nil) }
     end
 
     context 'with_token: true' do
@@ -46,15 +46,15 @@ describe SessionDecorator do
 
       its([:name]) { should eq('My Computer') }
 
-      its([:device]) { should eq('ios') }
-
-      its([:device_token]) { should eq('device-token123') }
-
       its([:created_at]) { should eq(created_at) }
 
       its([:updated_at]) { should eq(updated_at) }
 
       its([:token]) { should eq('token123') }
+
+      its([:device]) { should eq('ios') }
+
+      its([:device_token]) { should eq('device-token123') }
     end
   end
 
