@@ -12,6 +12,6 @@ describe PushNotifications::NewSignIn do
   specify { expect(subject).to be_a(PushNotifications::Base) }
 
   describe '#alert' do
-    specify { expect(subject.alert).to eq('New sign-in from Location (IP)') }
+    specify { expect(subject.send(:alert)).to eq('New sign-in from Location (IP)') }
   end
 end
