@@ -36,6 +36,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'bullet'
   gem 'factory_girl_rails'
+  gem 'faker'
 end
 
 group :development do

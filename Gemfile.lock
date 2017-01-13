@@ -137,6 +137,8 @@ GEM
     factory_girl_rails (4.8.0)
       factory_girl (~> 4.8.0)
       railties (>= 3.0.0)
+    faker (1.7.2)
+      i18n (~> 0.5)
     faraday (0.11.0)
       multipart-post (>= 1.2, < 3)
     ffi (1.9.17)
@@ -365,6 +367,7 @@ DEPENDENCIES
   draper (= 3.0.0.pre1)
   eve_online!
   factory_girl_rails
+  faker
   jquery-rails
   kaminari
   listen (~> 3.0.5)
