@@ -21,6 +21,28 @@ namespace :eve do
     end
   end
 
+  desc 'Import EveOnline SDE Research Agents'
+  task research_agents: :environment do
+    ActiveRecord::Base.transaction do
+      # Eve::ResearchAgent.destroy_all
+
+      # file = 'EVE/sde/bsd/agtResearchAgents.yaml'
+
+      # ResearchAgentsImporter.new(file).execute
+    end
+  end
+
+  desc 'Import EveOnline SDE Ancestries'
+  task ancestries: :environment do
+    ActiveRecord::Base.transaction do
+      # Eve::Ancestry.destroy_all
+
+      # file = 'EVE/sde/bsd/chrAncestries.yaml'
+
+      # AncestriesImporter.new(file).execute
+    end
+  end
+
   desc 'Import EveOnline SDE races'
   task races: :environment do
     ActiveRecord::Base.transaction do
