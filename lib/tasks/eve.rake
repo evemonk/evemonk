@@ -1,6 +1,6 @@
 namespace :eve do
   desc 'Import EveOnline SDE Agents'
-  task agents: :environment do
+  task agt_agents: :environment do
     ActiveRecord::Base.transaction do
       Eve::Agent.destroy_all
 
@@ -11,7 +11,7 @@ namespace :eve do
   end
 
   desc 'Import EveOnline SDE Agent Types'
-  task agent_types: :environment do
+  task agt_agent_types: :environment do
     ActiveRecord::Base.transaction do
       Eve::AgentType.destroy_all
 
@@ -24,11 +24,11 @@ namespace :eve do
   desc 'Import EveOnline SDE Research Agents'
   task research_agents: :environment do
     ActiveRecord::Base.transaction do
-      # Eve::ResearchAgent.destroy_all
+      Eve::ResearchAgent.destroy_all
 
-      # file = 'EVE/sde/bsd/agtResearchAgents.yaml'
+      file = 'EVE/sde/bsd/agtResearchAgents.yaml'
 
-      # ResearchAgentsImporter.new(file).execute
+      ResearchAgentsImporter.new(file).execute
     end
   end
 
