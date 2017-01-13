@@ -76,19 +76,17 @@ describe Api::BaseController do
   it { should rescue_from(Pundit::NotAuthorizedError) }
 
   describe '#authenticate' do
-    let(:session) { stub_model Session }
-
-    let(:token) { double }
+    let(:session) { create(:session) }
 
     let(:options) { double }
 
-    before { expect(subject).to receive(:authenticate_or_request_with_http_token).and_yield(token, options) }
+    before { expect(subject).to receive(:authenticate_or_request_with_http_token).and_yield(session.token, options) }
 
     before do
       #
-      # Session.find_by(token: token) => session
+      # Session.find_by(token: token)
       #
-      expect(Session).to receive(:find_by).with(token: token).and_return(session)
+      expect(Session).to receive(:find_by).with(token: session.token).and_call_original
     end
 
     its(:authenticate) { should eq(session) }
