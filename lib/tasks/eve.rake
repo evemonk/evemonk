@@ -1,10 +1,54 @@
 namespace :eve do
+  desc 'Import EveOnline SDE Agents'
+  task agents: :environment do
+    ActiveRecord::Base.transaction do
+      Eve::Agent.destroy_all
+
+      file = 'EVE/sde/bsd/agtAgents.yaml'
+
+      AgentsImporter.new(file).execute
+    end
+  end
+
+  desc 'Import EveOnline SDE Agent Types'
+  task agent_types: :environment do
+    ActiveRecord::Base.transaction do
+      Eve::AgentType.destroy_all
+
+      file = 'EVE/sde/bsd/agtAgentTypes.yaml'
+
+      AgentTypesImporter.new(file).execute
+    end
+  end
+
+  desc 'Import EveOnline SDE Research Agents'
+  task research_agents: :environment do
+    ActiveRecord::Base.transaction do
+      # Eve::ResearchAgent.destroy_all
+
+      # file = 'EVE/sde/bsd/agtResearchAgents.yaml'
+
+      # ResearchAgentsImporter.new(file).execute
+    end
+  end
+
+  desc 'Import EveOnline SDE Ancestries'
+  task ancestries: :environment do
+    ActiveRecord::Base.transaction do
+      # Eve::Ancestry.destroy_all
+
+      # file = 'EVE/sde/bsd/chrAncestries.yaml'
+
+      # AncestriesImporter.new(file).execute
+    end
+  end
+
   desc 'Import EveOnline SDE races'
   task races: :environment do
     ActiveRecord::Base.transaction do
       Eve::Race.destroy_all
 
-      file = 'EVE/chrRaces.yaml'
+      file = 'EVE/sde/bsd/chrRaces.yaml'
 
       RacesImporter.new(file).execute
     end
@@ -15,7 +59,7 @@ namespace :eve do
     ActiveRecord::Base.transaction do
       Eve::Flag.destroy_all
 
-      file = 'EVE/invFlags.yaml'
+      file = 'EVE/sde/bsd/invFlags.yaml'
 
       FlagsImporter.new(file).execute
     end
@@ -26,7 +70,7 @@ namespace :eve do
     ActiveRecord::Base.transaction do
       Eve::Item.destroy_all
 
-      file = 'EVE/invItems.yaml'
+      file = 'EVE/sde/bsd/invItems.yaml'
 
       ItemsImporter.new(file).execute
     end
@@ -37,7 +81,7 @@ namespace :eve do
     ActiveRecord::Base.transaction do
       Eve::Name.destroy_all
 
-      file = 'EVE/invNames.yaml'
+      file = 'EVE/sde/bsd/invNames.yaml'
 
       NamesImporter.new(file).execute
     end
@@ -48,31 +92,9 @@ namespace :eve do
     ActiveRecord::Base.transaction do
       Eve::Position.destroy_all
 
-      file = 'EVE/invPositions.yaml'
+      file = 'EVE/sde/bsd/invPositions.yaml'
 
       PositionsImporter.new(file).execute
-    end
-  end
-
-  desc 'Import EveOnline SDE Agent Types'
-  task agent_types: :environment do
-    ActiveRecord::Base.transaction do
-      Eve::AgentType.destroy_all
-
-      file = 'EVE/agtAgentTypes.yaml'
-
-      AgentTypesImporter.new(file).execute
-    end
-  end
-
-  desc 'Import EveOnline SDE Agents'
-  task agents: :environment do
-    ActiveRecord::Base.transaction do
-      Eve::Agent.destroy_all
-
-      file = 'EVE/agtAgents.yaml'
-
-      AgentsImporter.new(file).execute
     end
   end
 end
