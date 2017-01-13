@@ -19,6 +19,9 @@ module Api
     def save!
       raise ActiveModel::StrictValidationFailed unless valid?
 
+      # TODO: add this
+      # PushNotifications::NewSignIn.new(device, device_token, user.notifications_count).execute!
+
       create_session!
     end
 
