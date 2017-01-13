@@ -1,6 +1,6 @@
 namespace :eve do
   desc 'Import EveOnline SDE Agents'
-  task agents: :environment do
+  task agt_agents: :environment do
     ActiveRecord::Base.transaction do
       Eve::Agent.destroy_all
 
@@ -11,7 +11,7 @@ namespace :eve do
   end
 
   desc 'Import EveOnline SDE Agent Types'
-  task agent_types: :environment do
+  task agt_agent_types: :environment do
     ActiveRecord::Base.transaction do
       Eve::AgentType.destroy_all
 
