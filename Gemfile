@@ -63,4 +63,5 @@ group :test do
                                    branch: 'master'
   gem 'simplecov'
   gem 'codeclimate-test-reporter'
+  gem 'database_cleaner'
 end
