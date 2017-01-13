@@ -24,11 +24,11 @@ namespace :eve do
   desc 'Import EveOnline SDE Research Agents'
   task research_agents: :environment do
     ActiveRecord::Base.transaction do
-      # Eve::ResearchAgent.destroy_all
+      Eve::ResearchAgent.destroy_all
 
-      # file = 'EVE/sde/bsd/agtResearchAgents.yaml'
+      file = 'EVE/sde/bsd/agtResearchAgents.yaml'
 
-      # ResearchAgentsImporter.new(file).execute
+      ResearchAgentsImporter.new(file).execute
     end
   end
 
