@@ -35,6 +35,7 @@ group :development, :test do
   gem 'awesome_print', require: 'ap'
   gem 'pry-rails'
   gem 'bullet'
+  gem 'factory_girl_rails'
 end
 
 group :development do
