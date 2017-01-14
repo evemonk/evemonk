@@ -92,7 +92,7 @@ describe Api::BaseController do
 
     before { expect(subject).to receive(:authenticate_or_request_with_http_token).and_yield(session.token, options) }
 
-    its(:authenticate) { should eq(user) }
+    specify { expect(subject.send(:authenticate)).to eq(user) }
   end
 
   describe '#parent' do
