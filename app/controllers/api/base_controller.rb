@@ -60,11 +60,16 @@ module Api
 
     private
 
-    # TODO: refactor this
     def authenticate
       authenticate_or_request_with_http_token do |token, options| # rubocop:disable Lint/UnusedBlockArgument
-        @current_user = User.joins(:sessions).where(sessions: { token: token }).first
+        @current_user = User.joins(:sessions)
+                            .where(sessions: { token: token })
+                            .first
       end
+    end
+
+    def parent
+      raise NotImplementedError
     end
 
     def resource

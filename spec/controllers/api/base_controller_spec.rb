@@ -95,6 +95,10 @@ describe Api::BaseController do
     its(:authenticate) { should eq(user) }
   end
 
+  describe '#parent' do
+    specify { expect { subject.send(:parent) }.to raise_error(NotImplementedError) }
+  end
+
   describe '#resource' do
     specify { expect { subject.send(:resource) }.to raise_error(NotImplementedError) }
   end
