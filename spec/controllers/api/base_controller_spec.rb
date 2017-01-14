@@ -11,6 +11,14 @@ describe Api::BaseController do
 
   pending { should use_after_action(:verify_policy_scoped).only(:index) }
 
+  describe '#current_user' do
+    let!(:user) { create(:user) }
+
+    before { subject.instance_variable_set(:@current_user, user) }
+
+    specify { expect(subject.current_user).to eq(user) }
+  end
+
   describe '#show' do
     let(:resource) { double }
 

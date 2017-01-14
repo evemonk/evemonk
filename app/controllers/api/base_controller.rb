@@ -8,6 +8,8 @@ module Api
 
     after_action :verify_policy_scoped, only: :index
 
+    attr_reader :current_user
+
     helper_method :parent, :collection, :resource, :current_user
 
     def show
