@@ -76,47 +76,15 @@ describe Api::BaseController do
   it { should rescue_from(Pundit::NotAuthorizedError) }
 
   describe '#authenticate' do
-    let(:session) { create(:session) }
+    let!(:user) { create(:user) }
+
+    let!(:session) { create(:session, user: user) }
 
     let(:options) { double }
 
     before { expect(subject).to receive(:authenticate_or_request_with_http_token).and_yield(session.token, options) }
 
-    before do
-      #
-      # Session.find_by(token: token)
-      #
-      expect(Session).to receive(:find_by).with(token: session.token).and_call_original
-    end
-
-    its(:authenticate) { should eq(session) }
-  end
-
-  describe '#current_user' do
-    context '@current_user is already set' do
-      let(:user) { double }
-
-      before { subject.instance_variable_set(:@current_user, user) }
-
-      specify { expect(subject.send(:current_user)).to eq(user) }
-    end
-
-    context '@current_user is not yet set' do
-      let(:user) { double }
-
-      before do
-        #
-        # subject.session.user
-        #
-        expect(subject).to receive(:session) do
-          double.tap do |a|
-            expect(a).to receive(:user).and_return(user)
-          end
-        end
-      end
-
-      specify { expect(subject.send(:current_user)).to eq(user) }
-    end
+    its(:authenticate) { should eq(user) }
   end
 
   describe '#resource' do
