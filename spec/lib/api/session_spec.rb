@@ -66,24 +66,13 @@ describe Api::Session do
 
   describe '#user' do
     context 'user not set' do
-      let(:user) { double }
+      let!(:user) { create(:user, email: 'igor.zubkov@gmail.com') }
 
-      let(:email) { double }
+      let(:params) { { email: 'Igor.Zubkov@gmail.com' } }
 
-      before { expect(subject).to receive(:email).and_return(email) }
+      subject { described_class.new(params) }
 
-      before do
-        #
-        # User.where('LOWER(email) = LOWER(?)', email).first
-        #
-        expect(User).to receive(:where).with('LOWER(email) = LOWER(?)', email) do
-          double.tap do |a|
-            expect(a).to receive(:first)
-          end
-        end
-      end
-
-      specify { expect { subject.send(:user) }.not_to raise_error }
+      specify { expect(subject.send(:user)).to eq(user) }
     end
 
     context 'user is set' do
