@@ -104,15 +104,11 @@ describe Api::Session do
     end
 
     context 'user found but password is invalid' do
-      let(:user) { double }
-
-      let(:password) { double }
+      let!(:user) { create(:user, password: 'password') }
 
       before { expect(subject).to receive(:user).and_return(user).twice }
 
-      before { expect(subject).to receive(:password).and_return(password) }
-
-      before { expect(user).to receive(:authenticate).with(password).and_return(false) }
+      before { expect(subject).to receive(:password).and_return('wrong password') }
 
       before { subject.send(:user_password) }
 
@@ -120,15 +116,11 @@ describe Api::Session do
     end
 
     context 'user found and password is valid' do
-      let(:user) { double }
-
-      let(:password) { double }
+      let(:user) { create(:user, password: 'password') }
 
       before { expect(subject).to receive(:user).and_return(user).twice }
 
-      before { expect(subject).to receive(:password).and_return(password) }
-
-      before { expect(user).to receive(:authenticate).with(password).and_return(true) }
+      before { expect(subject).to receive(:password).and_return('password') }
 
       before { subject.send(:user_password) }
 
