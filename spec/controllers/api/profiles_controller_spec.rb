@@ -3,7 +3,7 @@ require 'rails_helper'
 describe Api::ProfilesController do
   describe '#show.json' do
     context 'authorized' do
-      let(:user) { create(:user) }
+      let!(:user) { create(:user) }
 
       before { sign_in(user) }
 
