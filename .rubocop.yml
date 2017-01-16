@@ -44,10 +44,9 @@ Style/DotPosition:
   StyleGuide: '#consistent-multi-line-chains'
   Enabled: true
 
-# Disable magic
-# TODO: change to Enabled: true with EnforcedStyle never after next rubocop update
 Style/FrozenStringLiteralComment:
-  Enabled: false
+  Enabled: true
+  EnforcedStyle: never
 
 # Recheck this cop later
 Style/FlipFlop:
