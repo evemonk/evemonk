@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 describe Api::Signup do
+  it { should delegate_method(:decorate).to(:session) }
+
+  it { should delegate_method(:errors).to(:user) }
+
   describe '#initialize' do
     context 'without params' do
       specify { expect(subject.params).to eq({}) }
@@ -45,20 +49,7 @@ describe Api::Signup do
     end
   end
 
-  describe '#decorate' do
-    before do
-      #
-      # subject.session.decorate
-      #
-      expect(subject).to receive(:session) do
-        double.tap do |a|
-          expect(a).to receive(:decorate)
-        end
-      end
-    end
-
-    specify { expect { subject.decorate }.not_to raise_error }
-  end
+  # private methods
 
   describe '#user' do
     context 'user not set' do
@@ -66,43 +57,32 @@ describe Api::Signup do
 
       subject { described_class.new(params) }
 
+      let!(:user) { build(:user) }
+
       before do
         #
         # User.new(params)
         #
-        expect(User).to receive(:new).with(params)
+        expect(User).to receive(:new).with(params).and_return(user)
       end
 
-      specify { expect { subject.user }.not_to raise_error }
+      specify { expect { subject.send(:user) }.not_to raise_error }
+
+      specify { expect { subject.send(:user) }.to change { subject.instance_variable_get(:@user) }.from(nil).to(user) }
     end
 
     context 'user is set' do
-      let(:user) { double }
+      let!(:user) { create(:user) }
 
       before { subject.instance_variable_set(:@user, user) }
 
-      specify { expect(subject.user).to eq(user) }
+      specify { expect(subject.send(:user)).to eq(user) }
     end
-  end
-
-  describe '#errors' do
-    before do
-      #
-      # subject.user.errors
-      #
-      expect(subject).to receive(:user) do
-        double.tap do |a|
-          expect(a).to receive(:errors)
-        end
-      end
-    end
-
-    specify { expect { subject.errors }.not_to raise_error }
   end
 
   describe '#build_session' do
     context 'session not set' do
-      let(:user) { double }
+      let!(:user) { create(:user) }
 
       before { expect(subject).to receive(:user).and_return(user) }
 
@@ -117,15 +97,15 @@ describe Api::Signup do
         end
       end
 
-      specify { expect { subject.build_session }.not_to raise_error }
+      specify { expect { subject.send(:build_session) }.not_to raise_error }
     end
 
     context 'session is set' do
-      let(:session) { double }
+      let!(:session) { create(:session) }
 
       before { subject.instance_variable_set(:@session, session) }
 
-      specify { expect(subject.build_session).to eq(session) }
+      specify { expect(subject.send(:build_session)).to eq(session) }
     end
   end
 end
