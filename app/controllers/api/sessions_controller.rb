@@ -10,13 +10,13 @@ module Api
       skip_authorization
     end
 
-    def destroy
-      authorize(session)
-
-      session.destroy!
-
-      head :ok
-    end
+    # def destroy
+    #   authorize(session)
+    #
+    #   session.destroy!
+    #
+    #   head :ok
+    # end
 
     private
 
