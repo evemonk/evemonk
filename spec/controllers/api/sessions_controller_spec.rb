@@ -7,23 +7,11 @@ describe Api::SessionsController do
 
   describe '#create.json' do
     context 'successful authorization' do
-      before { expect(subject).to receive(:verify_authorized).and_return(true) }
-
-      before { expect(subject).to receive(:build_resource) }
-
-      before do
-        expect(subject).to receive(:resource) do
-          double.tap do |a|
-            expect(a).to receive(:save!)
-          end
-        end
-      end
-
-      before { expect(subject).to receive(:skip_authorization) }
+      let!(:user) { create(:user, password: 'password') }
 
       before do
         post :create, params: { session: {
-          email: 'me@example.com',
+          email: user.email,
           password: 'password'
         }, format: :json }
       end
