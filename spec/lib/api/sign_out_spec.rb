@@ -12,7 +12,7 @@ describe Api::SignOut do
   end
 
   describe '#destroy!' do
-    let(:session) { create(:session) }
+    let!(:session) { create(:session) }
 
     let(:options) { double }
 
