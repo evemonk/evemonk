@@ -21,29 +21,23 @@ describe Api::Signup do
 
   describe '#save!' do
     context 'user valid' do
-      let(:user) { double }
+      let!(:user) { build(:user) }
 
-      before { expect(subject).to receive(:user).and_return(user).twice }
+      before { subject.instance_variable_set(:@user, user) }
 
-      before { expect(user).to receive(:valid?).and_return(true) }
-
-      before { expect(subject).to receive(:build_session) }
-
-      before { expect(user).to receive(:save!) }
+      before { expect(user).to receive(:valid?).and_return(true).twice }
 
       specify { expect { subject.save! }.not_to raise_error }
+
+      specify { expect { subject.save! }.to change { user.sessions.count }.from(0).to(1) }
     end
 
     context 'user not valid' do
-      let(:user) { double }
+      let!(:user) { build(:user) }
 
-      before { expect(subject).to receive(:user).and_return(user) }
+      before { subject.instance_variable_set(:@user, user) }
 
       before { expect(user).to receive(:valid?).and_return(false) }
-
-      before { expect(subject).not_to receive(:build_session) }
-
-      before { expect(user).not_to receive(:save!) }
 
       specify { expect { subject.save! }.to raise_error(ActiveModel::StrictValidationFailed) }
     end
