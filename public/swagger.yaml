@@ -21,6 +21,8 @@ produces:
 tags:
   - name: signups
     description: Signups operations
+  - name: sign_outs
+    description: SignOuts operations
   - name: sessions
     description: Session operations
   - name: api keys
@@ -63,6 +65,25 @@ paths:
           description: Unprocessable Entity
           schema:
             $ref: '#/definitions/Error'
+
+  /sign_outs:
+    delete:
+      summary: End session
+      description: End session
+      parameters:
+        - name: Authorization
+          in: header
+          description: 'User auth token. Example: Bearer AAkoMiLatQHMngyuUU1vnh5b'
+          default: Bearer ACCESS_TOKEN
+          required: true
+          type: string
+      tags:
+        - sign_outs
+      responses:
+        '200':
+          description: Success
+        '401':
+          description: Unauthorized
 
   /sessions:
     get:
