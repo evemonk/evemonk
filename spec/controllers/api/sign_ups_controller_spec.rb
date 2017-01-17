@@ -6,16 +6,31 @@ describe Api::SignUpsController do
   it { should_not use_before_action(:authenticate) }
 
   describe '#create.json' do
-    before do
-      post :create, params: { email: 'me@example.com',
-                              password: 'password',
-                              password_confirmation: 'password',
-                              format: :json }
+    context 'user successfully created' do
+      before do
+        post :create, params: { email: 'me@example.com',
+                                password: 'password',
+                                password_confirmation: 'password',
+                                format: :json }
+      end
+
+      it { should render_template(:create) }
+
+      it { should respond_with(:ok) }
     end
 
-    it { should render_template(:create) }
+    context 'unprocessable entity' do
+      before do
+        post :create, params: { email: 'me@example.com',
+                                password: 'password',
+                                password_confirmation: 'wrong confirmation',
+                                format: :json }
+      end
 
-    it { should respond_with(:ok) }
+      it { should render_template(:errors) }
+
+      it { should respond_with(:unprocessable_entity) }
+    end
   end
 
   # private methods
