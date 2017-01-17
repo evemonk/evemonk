@@ -10,10 +10,7 @@ describe Api::SignInsController do
       let!(:user) { create(:user, password: 'password') }
 
       before do
-        post :create, params: { sign_ins: {
-            email: user.email,
-            password: 'password'
-        }, format: :json }
+        post :create, params: { email: user.email, password: 'password', format: :json }
       end
 
       it { should render_template(:create) }
@@ -23,10 +20,7 @@ describe Api::SignInsController do
 
     context 'failed authorization' do
       before do
-        post :create, params: { sign_ins: {
-            email: 'me@example.com',
-            password: 'password'
-        }, format: :json }
+        post :create, params: { email: 'me@example.com', password: 'password', format: :json }
       end
 
       it { should render_template(:errors) }
@@ -62,17 +56,11 @@ describe Api::SignInsController do
   describe '#resource_params' do
     before do
       #
-      # subject.params.require(:sign_ins)
-      #               .permit(:email, :password, :name, :device,
-      #                       :device_token)
+      # subject.params.permit(:email, :password, :name, :device, :device_token)
       #
       expect(subject).to receive(:params) do
         double.tap do |a|
-          expect(a).to receive(:require).with(:sign_ins) do
-            double.tap do |b|
-              expect(b).to receive(:permit).with(:email, :password, :name, :device, :device_token)
-            end
-          end
+          expect(a).to receive(:permit).with(:email, :password, :name, :device, :device_token)
         end
       end
     end
