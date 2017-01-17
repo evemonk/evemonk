@@ -19,8 +19,8 @@ consumes:
 produces:
   - application/json
 tags:
-  - name: signups
-    description: Signups operations
+  - name: sign up
+    description: Sign up operations
   - name: sign_outs
     description: SignOuts operations
   - name: sessions
@@ -31,31 +31,30 @@ tags:
     description: Profile operations
 
 paths:
-  /signups:
+  /sign_up:
     post:
-      summary: Signup
-      description: |
-        Signup endpoint.
+      summary: Sign up
+      description: Sign up endpoint.
       parameters:
-        - name: user[email]
+        - name: email
           in: formData
           description: User email
           required: true
           type: string
-        - name: user[password]
+        - name: password
           in: formData
           description: User password
           required: true
           type: string
           format: password
-        - name: user[password_confirmation]
+        - name: password_confirmation
           in: formData
           description: User password confirmation
           required: true
           type: string
           format: password
       tags:
-        - signups
+        - sign up
       responses:
         '200':
           description: Account created
