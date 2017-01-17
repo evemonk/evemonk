@@ -4,9 +4,9 @@ module Api
 
     def create
       build_resource
-  
+
       resource.save!
-  
+
       skip_authorization
     end
 
