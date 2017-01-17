@@ -21,6 +21,8 @@ produces:
 tags:
   - name: sign up
     description: Sign up operations
+  - name: sign in
+    description: Sign in operations
   - name: sign_outs
     description: SignOuts operations
   - name: sessions
@@ -58,6 +60,50 @@ paths:
       responses:
         '200':
           description: Account created
+          schema:
+            $ref: '#/definitions/OutputSession'
+        '422':
+          description: Unprocessable Entity
+          schema:
+            $ref: '#/definitions/Error'
+
+  /sign_in:
+    post:
+      summary: Get user session with auth token
+      description: Signin user and return user session with auth token.
+      parameters:
+        - name: email
+          in: formData
+          description: User email
+          required: true
+          type: string
+        - name: password
+          in: formData
+          description: User password
+          required: true
+          type: string
+          format: password
+        - name: name
+          in: formData
+          description: Session name
+          required: false
+          type: string
+        - name: device
+          in: formData
+          required: false
+          type: string
+          enum:
+            - ios
+            - android
+        - name: device_token
+          in: formData
+          required: false
+          type: string
+      tags:
+        - sign in
+      responses:
+        '200':
+          description: Response with session
           schema:
             $ref: '#/definitions/OutputSession'
         '422':
@@ -109,50 +155,6 @@ paths:
             $ref: '#/definitions/OutputSessionCollection'
         '401':
           description: Unauthorized
-
-    post:
-      summary: Get user session with auth token
-      description: |
-        Signin user and return user session with auth token.
-      parameters:
-        - name: session[email]
-          in: formData
-          description: User email
-          required: true
-          type: string
-        - name: session[password]
-          in: formData
-          description: User password
-          required: true
-          type: string
-          format: password
-        - name: session[name]
-          in: formData
-          description: Session name
-          required: false
-          type: string
-        - name: session[device]
-          in: formData
-          required: false
-          type: string
-          enum:
-            - ios
-            - android
-        - name: session[device_token]
-          in: formData
-          required: false
-          type: string
-      tags:
-        - sessions
-      responses:
-        '200':
-          description: Response with session
-          schema:
-            $ref: '#/definitions/OutputSession'
-        '422':
-          description: Unprocessable Entity
-          schema:
-            $ref: '#/definitions/Error'
 
   /sessions/{id}:
     delete:
