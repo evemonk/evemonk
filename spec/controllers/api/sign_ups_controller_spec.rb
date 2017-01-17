@@ -1,17 +1,16 @@
 require 'rails_helper'
 
-describe Api::SignupsController do
+describe Api::SignUpsController do
   it { should be_a(Api::BaseController) }
 
   it { should_not use_before_action(:authenticate) }
 
   describe '#create.json' do
     before do
-      post :create, params: { user: {
-        email: 'me@example.com',
-        password: 'password',
-        password_confirmation: 'password'
-      }, format: :json }
+      post :create, params: { email: 'me@example.com',
+                              password: 'password',
+                              password_confirmation: 'password',
+                              format: :json }
     end
 
     it { should render_template(:create) }
@@ -46,15 +45,11 @@ describe Api::SignupsController do
   describe '#resource_params' do
     before do
       #
-      # subject.params.require(:user).permit(:email, :password, :password_confirmation)
+      # subject.params..permit(:email, :password, :password_confirmation)
       #
       expect(subject).to receive(:params) do
         double.tap do |a|
-          expect(a).to receive(:require).with(:user) do
-            double.tap do |b|
-              expect(b).to receive(:permit).with(:email, :password, :password_confirmation)
-            end
-          end
+          expect(a).to receive(:permit).with(:email, :password, :password_confirmation)
         end
       end
     end

@@ -1,5 +1,5 @@
 module Api
-  class SignupsController < BaseController
+  class SignUpsController < BaseController
     skip_before_action :authenticate
 
     def create
@@ -21,7 +21,7 @@ module Api
     end
 
     def resource_params
-      params.require(:user).permit(:email, :password, :password_confirmation)
+      params.permit(:email, :password, :password_confirmation)
     end
   end
 end
