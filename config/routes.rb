@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
   namespace :api, defaults: { format: 'json' } do
-    resources :signups, only: :create
+    resource :sign_up, only: :create
 
     resource :sign_in, only: :create
 
     resource :sign_outs, only: :destroy
 
-    resources :sessions, only: [:index, :create]
+    resources :sessions, only: [:index, :destroy]
 
     resources :api_keys, only: [:index, :create, :show, :update, :destroy]
 
