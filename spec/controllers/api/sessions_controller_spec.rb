@@ -3,107 +3,26 @@ require 'rails_helper'
 describe Api::SessionsController do
   it { should be_a(Api::BaseController) }
 
-  pending { should_not use_before_action(:authenticate).only(:create) }
-
-  describe '#create.json' do
-    context 'successful authorization' do
-      let!(:user) { create(:user, password: 'password') }
-
-      before do
-        post :create, params: { session: {
-          email: user.email,
-          password: 'password'
-        }, format: :json }
-      end
-
-      it { should render_template(:create) }
-
-      it { should respond_with(:ok) }
-    end
-
-    context 'failed authorization' do
-      before do
-        post :create, params: { session: {
-          email: 'me@example.com',
-          password: 'password'
-        }, format: :json }
-      end
-
-      it { should render_template(:errors) }
-
-      it { should respond_with(:unprocessable_entity) }
-    end
-  end
-
-  # describe '#destroy.json' do
-  #   context 'authorized' do
-  #     # before { expect(subject).to receive(:verify_authorized).and_return(true) }
-  #
-  #     let!(:session) { create(:session) }
-  #
-  #     # before { expect(subject).to receive(:session).and_return(session).exactly(4).times }
-  #     #
-  #     # before { expect(subject).to receive(:authorize).with(session) }
-  #
-  #     # before { expect(session).to receive(:destroy!) }
-  #
-  #     before { sign_in(session.user) }
-  #
-  #     before { delete :destroy, params: { id: session.id }, format: :json }
-  #
-  #     it { should respond_with(:ok) }
-  #   end
-  #
-  #   context 'not authorized' do
-  #     before { delete :destroy, params: { id: '1234' }, format: :json }
-  #
-  #     it { should respond_with(:unauthorized) }
-  #   end
-  # end
-
   # private methods
 
-  describe '#build_resource' do
-    let(:resource_params) { double }
-
-    let(:session) { double }
-
-    before { expect(subject).to receive(:resource_params).and_return(resource_params) }
-
-    before { expect(Api::Session).to receive(:new).with(resource_params).and_return(session) }
-
-    specify { expect { subject.send(:build_resource) }.not_to raise_error }
-
-    specify { expect { subject.send(:build_resource) }.to change { subject.instance_variable_get(:@session) }.from(nil).to(session) }
-  end
-
   describe '#resource' do
-    let(:session) { double }
+    context '@session is set' do
+      let!(:session) { create(:session) }
 
-    before { subject.instance_variable_set(:@session, session) }
+      before { subject.instance_variable_set(:@session, session) }
 
-    specify { expect(subject.send(:resource)).to eq(session) }
-  end
-
-  describe '#resource_params' do
-    before do
-      #
-      # subject.params.require(:session)
-      #               .permit(:email, :password, :name, :device,
-      #                       :device_token)
-      #
-      expect(subject).to receive(:params) do
-        double.tap do |a|
-          expect(a).to receive(:require).with(:session) do
-            double.tap do |b|
-              expect(b).to receive(:permit).with(:email, :password, :name, :device, :device_token)
-            end
-          end
-        end
-      end
+      specify { expect(subject.send(:resource)).to eq(session) }
     end
 
-    specify { expect { subject.send(:resource_params) }.not_to raise_error }
+    context '@session not set' do
+      let!(:session) { create(:session) }
+
+      let(:params) { { id: session.id } }
+
+      before { expect(subject).to receive(:params).and_return(params) }
+
+      specify { expect(subject.send(:resource)).to eq(session) }
+    end
   end
 
   describe '#collection' do
@@ -124,7 +43,7 @@ describe Api::SessionsController do
 
       before do
         #
-        # subject.policy_scope(::Session)
+        # subject.policy_scope(Session)
         #        .order(created_at: :asc)
         #        .page(params[:page])
         #
