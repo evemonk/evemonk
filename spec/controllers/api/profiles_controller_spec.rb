@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 describe Api::ProfilesController do
+  it { should use_before_action(:authenticate) }
+
   describe '#show.json' do
     context 'authorized' do
       let!(:user) { create(:user) }
