@@ -5,6 +5,36 @@ describe Api::SessionsController do
 
   it { should use_before_action(:authenticate) }
 
+  describe '#destroy.json' do
+    context 'authorized' do
+      let!(:user) { create(:user) }
+
+      let!(:session) { create(:session, user: user) }
+
+      before { sign_in(user) }
+
+      before { delete :destroy, params: { id: session.id, format: :json } }
+
+      it { should respond_with(:ok) }
+    end
+
+    context 'not authorized' do
+      before { delete :destroy, params: { id: '42', format: :json } }
+
+      it { should respond_with(:unauthorized) }
+    end
+
+    context 'session not found' do
+      let!(:user) { create(:user) }
+
+      before { sign_in(user) }
+
+      before { delete :destroy, params: { id: '9999', format: :json } }
+
+      it { should respond_with(:not_found) }
+    end
+  end
+
   # private methods
 
   describe '#resource' do
