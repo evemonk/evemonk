@@ -5,6 +5,30 @@ describe Api::SessionsController do
 
   it { should use_before_action(:authenticate) }
 
+  describe '#index.json' do
+    context 'authorized' do
+      let!(:user) { create(:user) }
+
+      let!(:session) { create(:session, user: user) }
+
+      before { expect(subject).to receive(:verify_policy_scoped).and_return(true) }
+
+      before { sign_in(user) }
+
+      before { get :index, format: :json }
+
+      it { should render_template(:index) }
+
+      it { should respond_with(:ok) }
+    end
+
+    context 'not authorized' do
+      before { get :index, format: :json }
+
+      it { should respond_with(:unauthorized) }
+    end
+  end
+
   describe '#destroy.json' do
     context 'authorized' do
       let!(:user) { create(:user) }
