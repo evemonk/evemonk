@@ -1,5 +1,5 @@
 module Api
-  class Session
+  class SignIn
     include ActiveModel::Validations
 
     attr_reader :email, :password, :name, :device, :device_token, :session
@@ -7,6 +7,8 @@ module Api
     validate :user_presence
 
     validate :user_password
+
+    delegate :decorate, to: :session, prefix: nil
 
     def initialize(params = {})
       @email = params[:email]
@@ -23,10 +25,6 @@ module Api
       # PushNotifications::NewSignIn.new(device, device_token, user.notifications_count).execute!
 
       create_session!
-    end
-
-    def decorate(*args)
-      session.decorate(*args)
     end
 
     private

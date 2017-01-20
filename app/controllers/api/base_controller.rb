@@ -8,11 +8,9 @@ module Api
 
     after_action :verify_policy_scoped, only: :index
 
-    # TODO: remove attr_reader :session
-    attr_reader :session
+    attr_reader :current_user
 
-    # TODO: remove :session
-    helper_method :parent, :collection, :resource, :current_user, :session
+    helper_method :parent, :collection, :resource, :current_user
 
     def show
       authorize(resource)
@@ -62,16 +60,16 @@ module Api
 
     private
 
-    # TODO: refactor this
     def authenticate
       authenticate_or_request_with_http_token do |token, options| # rubocop:disable Lint/UnusedBlockArgument
-        @session = ::Session.find_by(token: token)
+        @current_user = User.joins(:sessions)
+                            .where(sessions: { token: token })
+                            .first
       end
     end
 
-    # TODO: refactor
-    def current_user
-      @current_user ||= session.user
+    def parent
+      raise NotImplementedError
     end
 
     def resource

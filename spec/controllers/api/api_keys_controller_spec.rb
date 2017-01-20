@@ -3,6 +3,8 @@ require 'rails_helper'
 describe Api::ApiKeysController do
   it { should be_a(Api::BaseController) }
 
+  it { should use_before_action(:authenticate) }
+
   describe '#index.json' do
     context 'authorized' do
       before { expect(subject).to receive(:verify_policy_scoped).and_return(true) }

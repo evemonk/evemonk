@@ -11,6 +11,14 @@ describe Api::BaseController do
 
   pending { should use_after_action(:verify_policy_scoped).only(:index) }
 
+  describe '#current_user' do
+    let!(:user) { create(:user) }
+
+    before { subject.instance_variable_set(:@current_user, user) }
+
+    specify { expect(subject.current_user).to eq(user) }
+  end
+
   describe '#show' do
     let(:resource) { double }
 
@@ -76,49 +84,19 @@ describe Api::BaseController do
   it { should rescue_from(Pundit::NotAuthorizedError) }
 
   describe '#authenticate' do
-    let(:session) { stub_model Session }
+    let!(:user) { create(:user) }
 
-    let(:token) { double }
+    let!(:session) { create(:session, user: user) }
 
     let(:options) { double }
 
-    before { expect(subject).to receive(:authenticate_or_request_with_http_token).and_yield(token, options) }
+    before { expect(subject).to receive(:authenticate_or_request_with_http_token).and_yield(session.token, options) }
 
-    before do
-      #
-      # Session.find_by(token: token) => session
-      #
-      expect(Session).to receive(:find_by).with(token: token).and_return(session)
-    end
-
-    its(:authenticate) { should eq(session) }
+    specify { expect(subject.send(:authenticate)).to eq(user) }
   end
 
-  describe '#current_user' do
-    context '@current_user is already set' do
-      let(:user) { double }
-
-      before { subject.instance_variable_set(:@current_user, user) }
-
-      specify { expect(subject.send(:current_user)).to eq(user) }
-    end
-
-    context '@current_user is not yet set' do
-      let(:user) { double }
-
-      before do
-        #
-        # subject.session.user
-        #
-        expect(subject).to receive(:session) do
-          double.tap do |a|
-            expect(a).to receive(:user).and_return(user)
-          end
-        end
-      end
-
-      specify { expect(subject.send(:current_user)).to eq(user) }
-    end
+  describe '#parent' do
+    specify { expect { subject.send(:parent) }.to raise_error(NotImplementedError) }
   end
 
   describe '#resource' do

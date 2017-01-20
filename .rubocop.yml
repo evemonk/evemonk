@@ -22,8 +22,6 @@ AllCops:
     - 'config/initializers/wrap_parameters.rb'
     - 'spec/spec_helper.rb'
     - 'spec/rails_helper.rb'
-    - 'db/migrate/20170107151911_add_rpush.rb'
-    - 'db/migrate/20170107151912_rpush_2_0_0_updates.rb'
   DisplayCopNames: true
   DisplayStyleGuide: true
 
@@ -44,10 +42,9 @@ Style/DotPosition:
   StyleGuide: '#consistent-multi-line-chains'
   Enabled: true
 
-# Disable magic
-# TODO: change to Enabled: true with EnforcedStyle never after next rubocop update
 Style/FrozenStringLiteralComment:
-  Enabled: false
+  Enabled: true
+  EnforcedStyle: never
 
 # Recheck this cop later
 Style/FlipFlop:

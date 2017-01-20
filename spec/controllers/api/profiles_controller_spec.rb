@@ -1,17 +1,13 @@
 require 'rails_helper'
 
 describe Api::ProfilesController do
+  it { should use_before_action(:authenticate) }
+
   describe '#show.json' do
     context 'authorized' do
-      before { expect(subject).to receive(:verify_authorized).and_return(true) }
+      let!(:user) { create(:user) }
 
-      let(:user) { double }
-
-      before { expect(subject).to receive(:resource).and_return(user) }
-
-      before { expect(subject).to receive(:authorize).with(user) }
-
-      before { sign_in }
+      before { sign_in(user) }
 
       before { get :show, format: :json }
 

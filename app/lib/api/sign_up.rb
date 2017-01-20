@@ -1,6 +1,10 @@
 module Api
-  class Signup
+  class SignUp
     attr_reader :params, :session
+
+    delegate :decorate, to: :session, prefix: nil
+
+    delegate :errors, to: :user, prefix: nil
 
     def initialize(params = {})
       @params = params
@@ -14,16 +18,10 @@ module Api
       user.save!
     end
 
-    def decorate
-      session.decorate
-    end
+    private
 
     def user
       @user ||= User.new(params)
-    end
-
-    def errors
-      user.errors
     end
 
     def build_session

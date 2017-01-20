@@ -10,14 +10,6 @@ describe Api::SessionsController do
       )
     end
 
-    it 'should route POST /api/sessions to api/sessions#create' do
-      expect(post: '/api/sessions').to route_to(
-        controller: 'api/sessions',
-        action: 'create',
-        format: 'json'
-      )
-    end
-
     it 'should route DELETE /api/sessions/:id to api/sessions#destroy' do
       expect(delete: '/api/sessions/1234').to route_to(
         controller: 'api/sessions',
