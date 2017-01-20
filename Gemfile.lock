@@ -101,7 +101,7 @@ GEM
     capistrano-rbenv-install (1.2.0)
       capistrano (>= 3.0)
       capistrano-rbenv (>= 2.0)
-    codeclimate-test-reporter (1.0.4)
+    codeclimate-test-reporter (1.0.5)
       simplecov
     coderay (1.1.1)
     coercible (1.0.0)
