@@ -12,7 +12,7 @@ host: localhost:3000
 schemes:
   - http
   - https
-basePath: /api
+basePath: /api/v1
 consumes:
   - application/json
   - application/x-www-form-urlencoded
