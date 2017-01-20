@@ -23,8 +23,8 @@ tags:
     description: Sign up operations
   - name: sign in
     description: Sign in operations
-  - name: sign_outs
-    description: SignOuts operations
+  - name: sign out
+    description: Sign out operations
   - name: sessions
     description: Session operations
   - name: api keys
@@ -111,7 +111,7 @@ paths:
           schema:
             $ref: '#/definitions/Error'
 
-  /sign_outs:
+  /sign_out:
     delete:
       summary: End session
       description: End session
@@ -123,7 +123,7 @@ paths:
           required: true
           type: string
       tags:
-        - sign_outs
+        - sign out
       responses:
         '200':
           description: Success
