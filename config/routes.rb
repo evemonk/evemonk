@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
     resource :sign_in, only: :create
 
-    resource :sign_outs, only: :destroy
+    resource :sign_out, only: :destroy
 
     resources :sessions, only: [:index, :destroy]
 
