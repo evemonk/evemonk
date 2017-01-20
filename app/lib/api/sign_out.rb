@@ -11,7 +11,7 @@ module Api
     def destroy!
       token, _ = token_and_options(request)
 
-      session = ::Session.find_by!(token: token)
+      session = Session.find_by!(token: token)
 
       session.destroy!
     end

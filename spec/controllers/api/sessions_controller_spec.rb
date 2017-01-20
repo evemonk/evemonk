@@ -103,7 +103,7 @@ describe Api::SessionsController do
         #        .order(created_at: :asc)
         #        .page(params[:page])
         #
-        expect(subject).to receive(:policy_scope).with(::Session) do
+        expect(subject).to receive(:policy_scope).with(Session) do
           double.tap do |a|
             expect(a).to receive(:order).with(created_at: :asc) do
               double.tap do |b|
