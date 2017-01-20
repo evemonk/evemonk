@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-describe Api::ApiKeysController do
-  it { should be_a(Api::BaseController) }
+describe Api::V1::ApiKeysController do
+  it { should be_a(Api::V1::BaseController) }
 
   it { should use_before_action(:authenticate) }
 

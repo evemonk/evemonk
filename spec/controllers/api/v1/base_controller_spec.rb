@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe Api::BaseController do
+describe Api::V1::BaseController do
   it { should be_a(ApplicationController) }
 
   it { should be_a(Pundit) }

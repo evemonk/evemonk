@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-describe Api::SignOutsController do
-  it { should be_a(Api::BaseController) }
+describe Api::V1::SignOutsController do
+  it { should be_a(Api::V1::BaseController) }
 
   it { should use_before_action(:authenticate) }
 

@@ -1,6 +1,8 @@
 require 'rails_helper'
 
-describe Api::ProfilesController do
+describe Api::V1::ProfilesController do
+  it { should be_a(Api::V1::BaseController) }
+
   it { should use_before_action(:authenticate) }
 
   describe '#show.json' do
