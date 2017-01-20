@@ -1,5 +1,5 @@
 module Api
-  class Signup
+  class SignUp
     attr_reader :params, :session
 
     delegate :decorate, to: :session, prefix: nil

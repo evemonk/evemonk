@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe Api::Signup do
+describe Api::SignUp do
   it { should delegate_method(:decorate).to(:session) }
 
   it { should delegate_method(:errors).to(:user) }
