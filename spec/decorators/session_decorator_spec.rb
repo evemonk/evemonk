@@ -34,7 +34,7 @@ describe SessionDecorator do
 
       its([:token]) { should eq(nil) }
 
-      its([:device]) { should eq(nil) }
+      its([:device]) { should eq('ios') }
 
       its([:device_token]) { should eq(nil) }
     end
