@@ -38,23 +38,23 @@ describe Api::V1::SignUpsController do
   describe '#build_resource' do
     let(:resource_params) { double }
 
-    let(:signup) { double }
+    let(:sign_up) { double }
 
     before { expect(subject).to receive(:resource_params).and_return(resource_params) }
 
-    before { expect(Api::SignUp).to receive(:new).with(resource_params).and_return(signup) }
+    before { expect(Api::SignUp).to receive(:new).with(resource_params).and_return(sign_up) }
 
     specify { expect { subject.send(:build_resource) }.not_to raise_error }
 
-    specify { expect { subject.send(:build_resource) }.to change { subject.instance_variable_get(:@signup) }.from(nil).to(signup) }
+    specify { expect { subject.send(:build_resource) }.to change { subject.instance_variable_get(:@sign_up) }.from(nil).to(sign_up) }
   end
 
   describe '#resource' do
-    let(:signup) { double }
+    let(:sign_up) { double }
 
-    before { subject.instance_variable_set(:@signup, signup) }
+    before { subject.instance_variable_set(:@sign_up, sign_up) }
 
-    specify { expect(subject.send(:resource)).to eq(signup) }
+    specify { expect(subject.send(:resource)).to eq(sign_up) }
   end
 
   describe '#resource_params' do
