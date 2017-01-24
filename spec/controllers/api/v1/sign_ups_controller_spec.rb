@@ -60,7 +60,7 @@ describe Api::V1::SignUpsController do
   describe '#resource_params' do
     before do
       #
-      # subject.params..permit(:email, :password, :password_confirmation)
+      # subject.params.permit(:email, :password, :password_confirmation)
       #
       expect(subject).to receive(:params) do
         double.tap do |a|
