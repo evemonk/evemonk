@@ -1,6 +1,8 @@
 class ApiKeySerializer < ActiveModel::Serializer
   attributes :id, :key_id, :v_code, :created_at, :updated_at
 
+  belongs_to :user
+
   def created_at
     object.created_at.iso8601
   end

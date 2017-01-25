@@ -1,10 +1,10 @@
 module Api
   module V1
     class ProfilesController < BaseController
-      private
+      def show
+        skip_authorization
 
-      def resource
-        @profile ||= current_user
+        render json: current_user, serializer: UserSerializer, include: []
       end
     end
   end
