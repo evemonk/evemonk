@@ -54,4 +54,5 @@ Rails.application.configure do
 
   # rack-dev-mark
   config.rack_dev_mark.enable = true
+  config.rack_dev_mark.theme = [:title, Rack::DevMark::Theme::GithubForkRibbon.new(position: 'right', color: 'green')]
 end
