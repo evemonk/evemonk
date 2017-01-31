@@ -19,6 +19,7 @@ gem 'dotenv-rails'
 gem 'pundit'
 gem 'sidekiq'
 gem 'rpush'
+gem 'rack-dev-mark'
 
 # for testing only
 gem 'sqlite3'

@@ -209,6 +209,8 @@ GEM
       activesupport (>= 3.0.0)
     rack (2.0.1)
     rack-cors (0.4.0)
+    rack-dev-mark (0.7.5)
+      rack (>= 1.1)
     rack-protection (1.5.3)
       rack
     rack-test (0.6.3)
@@ -380,6 +382,7 @@ DEPENDENCIES
   puma (~> 3.0)
   pundit
   rack-cors
+  rack-dev-mark
   rails (~> 5.0.0)
   rails-controller-testing
   rbnacl (< 4.0)
