@@ -7,9 +7,11 @@ describe Api::ApiKeysController do # rubocop:disable Metrics/BlockLength
 
   describe '#index.json' do
     context 'authorized' do
-      before { expect(subject).to receive(:verify_policy_scoped).and_return(true) }
+      render_views
 
-      before { sign_in }
+      let!(:session) { create(:session) }
+
+      before { request.env['HTTP_AUTHORIZATION'] = "Bearer #{ session.token }" }
 
       before { get :index, format: :json }
 
