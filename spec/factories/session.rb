@@ -6,7 +6,7 @@ FactoryGirl.define do
   sequence :name do |n|
     "My Device #{ n }"
   end
-  
+
   factory :session do
     user
     token { SecureRandom.base58(24) }

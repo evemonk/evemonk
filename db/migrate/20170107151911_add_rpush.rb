@@ -46,7 +46,7 @@ class AddRpush < ActiveRecord::Migration
       create_table :rapns_notifications do |t|
         t.integer   :badge,                 null: true
         t.string    :device_token,          null: false, limit: 64
-        t.string    :sound,                 null: true,  default: '1.aiff'
+        t.string    :sound,                 null: true,  default: "1.aiff"
         t.string    :alert,                 null: true
         t.text      :attributes_for_device, null: true
         t.integer   :expiry,                null: false, default: 1.day.to_i
@@ -150,8 +150,8 @@ class AddRpush < ActiveRecord::Migration
 
       change_column :rapns_notifications, :type, :string, null: false
       change_column :rapns_apps, :type, :string, null: false
-      change_column :rapns_notifications, :device_token, :string, null: true, limit: 64
-      change_column :rapns_notifications, :expiry, :integer, null: true, default: 1.day.to_i
+      change_column :rapns_notifications, :device_token, :string, { null: true, limit: 64 }
+      change_column :rapns_notifications, :expiry, :integer, { null: true, default: 1.day.to_i }
       change_column :rapns_apps, :environment, :string, null: true
       change_column :rapns_apps, :certificate, :text, null: true, default: nil
 
@@ -181,12 +181,12 @@ class AddRpush < ActiveRecord::Migration
       change_column :rapns_notifications, :app_id, :integer, null: false
       remove_column :rapns_notifications, :app
 
-      if index_name_exists?(:rapns_notifications, 'index_rapns_notifications_multi', true)
-        remove_index :rapns_notifications, name: 'index_rapns_notifications_multi'
-      elsif index_name_exists?(:rapns_notifications, 'index_rapns_notifications_on_delivered_failed_deliver_after', false)
-        remove_index :rapns_notifications, name: 'index_rapns_notifications_on_delivered_failed_deliver_after'
+      if index_name_exists?(:rapns_notifications, "index_rapns_notifications_multi", true)
+        remove_index :rapns_notifications, name: "index_rapns_notifications_multi"
+      elsif index_name_exists?(:rapns_notifications, "index_rapns_notifications_on_delivered_failed_deliver_after", false)
+        remove_index :rapns_notifications, name: "index_rapns_notifications_on_delivered_failed_deliver_after"
       end
-      add_index :rapns_notifications, [:app_id, :delivered, :failed, :deliver_after], name: 'index_rapns_notifications_multi'
+      add_index :rapns_notifications, [:app_id, :delivered, :failed, :deliver_after], name: "index_rapns_notifications_multi"
     end
 
     def self.down
@@ -195,8 +195,8 @@ class AddRpush < ActiveRecord::Migration
       remove_column :rapns_notifications, :type
       remove_column :rapns_apps, :type
 
-      change_column :rapns_notifications, :device_token, :string, null: false, limit: 64
-      change_column :rapns_notifications, :expiry, :integer, null: false, default: 1.day.to_i
+      change_column :rapns_notifications, :device_token, :string, { null: false, limit: 64 }
+      change_column :rapns_notifications, :expiry, :integer, { null: false, default: 1.day.to_i }
       change_column :rapns_apps, :environment, :string, null: false
       change_column :rapns_apps, :certificate, :text, null: false
 
@@ -223,7 +223,7 @@ class AddRpush < ActiveRecord::Migration
       end
 
       if index_name_exists?(:rapns_notifications, :index_rapns_notifications_multi, true)
-        remove_index :rapns_notifications, name: :index_rapns_notifications_multi
+          remove_index :rapns_notifications, name: :index_rapns_notifications_multi
       end
 
       remove_column :rapns_notifications, :app_id

@@ -61,7 +61,7 @@ module Api
     private
 
     def authenticate
-      authenticate_or_request_with_http_token do |token, options| # rubocop:disable Lint/UnusedBlockArgument
+      authenticate_or_request_with_http_token do |token,|
         @current_user = User.joins(:sessions)
                             .where(sessions: { token: token })
                             .first
