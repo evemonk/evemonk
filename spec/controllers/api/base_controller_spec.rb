@@ -88,9 +88,7 @@ describe Api::BaseController do
 
     let!(:session) { create(:session, user: user) }
 
-    let(:options) { double }
-
-    before { expect(subject).to receive(:authenticate_or_request_with_http_token).and_yield(session.token, options) }
+    before { expect(subject).to receive(:authenticate_or_request_with_http_token).and_yield(session.token) }
 
     specify { expect(subject.send(:authenticate)).to eq(user) }
   end
