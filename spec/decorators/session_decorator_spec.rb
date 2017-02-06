@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-describe SessionDecorator do
-  describe '#as_json' do
+describe SessionDecorator do # rubocop:disable Metrics/BlockLength
+  describe '#as_json' do # rubocop:disable Metrics/BlockLength
     let(:session) do
       stub_model Session,
                  id: 1234,

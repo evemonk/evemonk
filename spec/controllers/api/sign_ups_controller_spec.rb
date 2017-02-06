@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe Api::SignUpsController do
+describe Api::SignUpsController do # rubocop:disable Metrics/BlockLength
   it { should be_a(Api::BaseController) }
 
   it { should_not use_before_action(:authenticate) }

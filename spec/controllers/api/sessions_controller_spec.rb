@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe Api::SessionsController do
+describe Api::SessionsController do # rubocop:disable Metrics/BlockLength
   it { should be_a(Api::BaseController) }
 
   it { should use_before_action(:authenticate) }

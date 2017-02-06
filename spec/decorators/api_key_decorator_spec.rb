@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe ApiKeyDecorator do
+describe ApiKeyDecorator do # rubocop:disable Metrics/BlockLength
   describe '#as_json' do
     let(:api_key) do
       stub_model ApiKey,

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe UserDecorator do
+describe UserDecorator do # rubocop:disable Metrics/BlockLength
   describe '#as_json' do
     let(:created_at) { double }
 

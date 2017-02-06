@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe Api::BaseController do
+describe Api::BaseController do # rubocop:disable Metrics/BlockLength
   it { should be_a(ApplicationController) }
 
   it { should be_a(Pundit) }

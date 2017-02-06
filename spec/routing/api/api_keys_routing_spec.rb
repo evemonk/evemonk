@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-describe Api::ApiKeysController do
-  describe 'routing' do
+describe Api::ApiKeysController do # rubocop:disable Metrics/BlockLength
+  describe 'routing' do # rubocop:disable Metrics/BlockLength
     it 'should route GET /api/api_keys to api/api_keys#index' do
       expect(get: '/api/api_keys').to route_to(
         controller: 'api/api_keys',
