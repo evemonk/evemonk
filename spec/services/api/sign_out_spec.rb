@@ -14,14 +14,12 @@ describe Api::SignOut do
   describe '#destroy!' do
     let!(:session) { create(:session) }
 
-    let(:options) { double }
-
     before do
       #
-      # subject.token_and_options(request) => [token, options]
+      # subject.token_and_options(request) => [token]
       #
       expect(subject).to receive(:token_and_options).with(request)
-                                                    .and_return([session.token, options])
+                                                    .and_return([session.token])
     end
 
     specify { expect { subject.destroy! }.to change { Session.count }.from(1).to(0) }
