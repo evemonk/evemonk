@@ -5,9 +5,9 @@ describe Api::ProfilesController do
 
   describe '#show.json' do
     context 'authorized' do
-      let!(:user) { create(:user) }
+      let!(:session) { create(:session) }
 
-      before { sign_in(user) }
+      before { request.env['HTTP_AUTHORIZATION'] = "Bearer #{ session.token }" }
 
       before { get :show, format: :json }
 
@@ -27,7 +27,7 @@ describe Api::ProfilesController do
 
   describe '#resource' do
     context '@profile is set' do
-      let(:profile) { double }
+      let(:profile) { create(:user) }
 
       before { subject.instance_variable_set(:@profile, profile) }
 
@@ -35,7 +35,7 @@ describe Api::ProfilesController do
     end
 
     context '@profile not set' do
-      let(:current_user) { double }
+      let(:current_user) { create(:user) }
 
       before { expect(subject).to receive(:current_user).and_return(current_user) }
 
