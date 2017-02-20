@@ -193,7 +193,7 @@ GEM
       connection_pool (~> 2.2)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
-    net-ssh (4.0.1)
+    net-ssh (4.1.0)
     newrelic_rpm (3.18.1.330)
     nio4r (1.2.1)
     nokogiri (1.7.0.1)
