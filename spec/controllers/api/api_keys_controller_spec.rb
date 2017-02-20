@@ -53,34 +53,15 @@ describe Api::ApiKeysController do # rubocop:disable Metrics/BlockLength
 
   describe '#create.json' do # rubocop:disable Metrics/BlockLength
     context 'authorized' do
-      before { expect(subject).to receive(:verify_authorized).and_return(true) }
+      let!(:user) { create(:user) }
 
-      let(:api_key) { double }
+      let!(:session) { create(:session, user: user) }
 
-      let(:params) { { api_key: { key_id: '1234567', v_code: 'abc' } } }
+      let(:api_key) { attributes_for(:api_key) }
 
-      before do
-        #
-        # subject.current_user.api_keys.build(params) => api_key
-        #
-        expect(subject).to receive(:current_user) do
-          double.tap do |a|
-            expect(a).to receive(:api_keys) do
-              double.tap do |b|
-                expect(b).to receive(:build).with(permit!(params[:api_key])).and_return(api_key)
-              end
-            end
-          end
-        end
-      end
+      before { request.env['HTTP_AUTHORIZATION'] = "Bearer #{ session.token }" }
 
-      before { expect(subject).to receive(:authorize).with(api_key) }
-
-      before { expect(api_key).to receive(:save!) }
-
-      before { sign_in }
-
-      before { post :create, params: params, format: :json }
+      before { post :create, params: { api_key: api_key }, format: :json }
 
       it { should render_template(:create) }
 
