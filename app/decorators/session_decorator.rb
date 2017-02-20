@@ -5,8 +5,8 @@ class SessionDecorator < Draper::Decorator
     {
       id: id,
       name: name,
-      created_at: created_at,
-      updated_at: updated_at
+      created_at: created_at.iso8601,
+      updated_at: updated_at.iso8601
     }.tap do |hash|
       if context[:with_token]
         hash[:token] = token
@@ -16,15 +16,5 @@ class SessionDecorator < Draper::Decorator
         hash[:device_token] = device_token
       end
     end
-  end
-
-  private
-
-  def created_at
-    model.created_at.iso8601
-  end
-
-  def updated_at
-    model.updated_at.iso8601
   end
 end
