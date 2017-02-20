@@ -19,17 +19,17 @@ describe UserPolicy do # rubocop:disable Metrics/BlockLength
 
   describe '#show?' do
     context 'true' do
-      let(:user) { stub_model User, id: 42 }
+      let!(:user) { create(:user) }
 
-      let(:record) { stub_model User, id: 42 }
+      let(:record) { user }
 
       specify { expect(subject.show?).to eq(true) }
     end
 
     context 'false' do
-      let(:user) { stub_model User, id: 1 }
+      let!(:user) { create(:user) }
 
-      let(:record) { stub_model User, id: 42 }
+      let!(:record) { create(:user) }
 
       specify { expect(subject.show?).to eq(false) }
     end
@@ -61,6 +61,7 @@ describe UserPolicy do # rubocop:disable Metrics/BlockLength
     specify { expect { subject.destroy? }.not_to raise_error }
   end
 
+  # TODO: recheck this
   describe '#scope' do
     before do
       #
@@ -73,6 +74,7 @@ describe UserPolicy do # rubocop:disable Metrics/BlockLength
   end
 end
 
+# TODO: recheck this
 describe UserPolicy::Scope do
   let(:user) { double }
 
