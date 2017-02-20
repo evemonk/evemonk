@@ -127,19 +127,15 @@ describe Api::ApiKeysController do # rubocop:disable Metrics/BlockLength
 
   describe '#destroy.json' do
     context 'authorized' do
-      before { expect(subject).to receive(:verify_authorized).and_return(true) }
+      let!(:user) { create(:user) }
 
-      let(:api_key) { double }
+      let!(:session) { create(:session, user: user) }
 
-      before { expect(subject).to receive(:resource).and_return(api_key).twice }
+      let!(:api_key) { create(:api_key, user: user) }
 
-      before { expect(subject).to receive(:authorize).with(api_key) }
+      before { request.env['HTTP_AUTHORIZATION'] = "Bearer #{ session.token }" }
 
-      before { expect(api_key).to receive(:destroy!) }
-
-      before { sign_in }
-
-      before { delete :destroy, params: { id: '42' }, format: :json }
+      before { delete :destroy, params: { id: api_key.id }, format: :json }
 
       it { should respond_with(:ok) }
     end
