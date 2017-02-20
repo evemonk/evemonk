@@ -5,7 +5,7 @@ describe Api::BaseController do # rubocop:disable Metrics/BlockLength
 
   it { should be_a(Pundit) }
 
-  it { should use_before_action(:authenticate) }
+  it { should use_before_action(:authenticate!) }
 
   pending { should use_after_action(:verify_authorized).except(:index) }
 
@@ -83,14 +83,14 @@ describe Api::BaseController do # rubocop:disable Metrics/BlockLength
 
   it { should rescue_from(Pundit::NotAuthorizedError) }
 
-  describe '#authenticate' do
+  describe '#authenticate!' do
     let!(:user) { create(:user) }
 
     let!(:session) { create(:session, user: user) }
 
     before { expect(subject).to receive(:authenticate_or_request_with_http_token).and_yield(session.token) }
 
-    specify { expect(subject.send(:authenticate)).to eq(user) }
+    specify { expect(subject.send(:authenticate!)).to eq(user) }
   end
 
   describe '#parent' do

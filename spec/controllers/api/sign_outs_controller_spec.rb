@@ -3,7 +3,7 @@ require 'rails_helper'
 describe Api::SignOutsController do
   it { should be_a(Api::BaseController) }
 
-  it { should use_before_action(:authenticate) }
+  it { should use_before_action(:authenticate!) }
 
   describe '#destroy.json' do
     context 'authorized' do

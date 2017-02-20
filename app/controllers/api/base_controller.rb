@@ -2,7 +2,7 @@ module Api
   class BaseController < ApplicationController
     include Pundit
 
-    before_action :authenticate
+    before_action :authenticate!
 
     after_action :verify_authorized, except: :index
 
@@ -60,7 +60,7 @@ module Api
 
     private
 
-    def authenticate
+    def authenticate!
       authenticate_or_request_with_http_token do |token,|
         @current_user = User.joins(:sessions)
                             .where(sessions: { token: token })
