@@ -51,7 +51,7 @@ describe Api::ApiKeysController do # rubocop:disable Metrics/BlockLength
     end
   end
 
-  describe '#create.json' do # rubocop:disable Metrics/BlockLength
+  describe '#create.json' do
     context 'authorized' do
       let!(:user) { create(:user) }
 
