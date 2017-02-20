@@ -88,7 +88,9 @@ describe Api::ApiKeysController do # rubocop:disable Metrics/BlockLength
     end
 
     context 'not authorized' do
-      before { post :create, params: { api_key: { key_id: '1234567', v_code: 'abc' } }, format: :json }
+      let(:api_key) { build(:api_key) }
+
+      before { post :create, params: { api_key: api_key }, format: :json }
 
       it { should respond_with(:unauthorized) }
     end
