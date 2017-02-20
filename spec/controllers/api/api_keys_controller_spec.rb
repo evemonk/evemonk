@@ -29,17 +29,15 @@ describe Api::ApiKeysController do # rubocop:disable Metrics/BlockLength
 
   describe '#show.json' do
     context 'authorized' do
-      before { expect(subject).to receive(:verify_authorized).and_return(true) }
+      let!(:user) { create(:user) }
 
-      let(:api_key) { double }
+      let!(:session) { create(:session, user: user) }
 
-      before { expect(subject).to receive(:resource).and_return(api_key) }
+      let!(:api_key) { create(:api_key, user: user) }
 
-      before { expect(subject).to receive(:authorize).with(api_key) }
+      before { request.env['HTTP_AUTHORIZATION'] = "Bearer #{ session.token }" }
 
-      before { sign_in }
-
-      before { get :show, params: { id: '42' }, format: :json }
+      before { get :show, params: { id: api_key.id }, format: :json }
 
       it { should render_template(:show) }
 
