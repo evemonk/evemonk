@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe Api::ProfilesController do # rubocop:disable Metrics/BlockLength
-  it { should use_before_action(:authenticate) }
+  it { should use_before_action(:authenticate!) }
 
   describe '#show.json' do
     context 'authorized' do

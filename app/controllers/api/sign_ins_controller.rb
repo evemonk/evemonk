@@ -1,6 +1,6 @@
 module Api
   class SignInsController < BaseController
-    skip_before_action :authenticate
+    skip_before_action :authenticate!
 
     def create
       build_resource

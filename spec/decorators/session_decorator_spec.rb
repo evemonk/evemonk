@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-describe SessionDecorator do # rubocop:disable Metrics/BlockLength
-  describe '#as_json' do # rubocop:disable Metrics/BlockLength
+describe SessionDecorator do
+  describe '#as_json' do
     let!(:session) { create(:session) }
 
     context 'with_token: false' do
