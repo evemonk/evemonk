@@ -1,3 +1,4 @@
+# rubocop:disable Metrics/BlockLength
 namespace :eve do
   desc 'Import EveOnline SDE Agents'
   task agt_agents: :environment do

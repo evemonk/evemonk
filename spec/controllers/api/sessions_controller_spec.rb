@@ -1,19 +1,17 @@
 require 'rails_helper'
 
-describe Api::SessionsController do
+describe Api::SessionsController do # rubocop:disable Metrics/BlockLength
   it { should be_a(Api::BaseController) }
 
   it { should use_before_action(:authenticate) }
 
   describe '#index.json' do
     context 'authorized' do
-      let!(:user) { create(:user) }
+      render_views
 
-      let!(:session) { create(:session, user: user) }
+      let!(:session) { create(:session) }
 
-      before { expect(subject).to receive(:verify_policy_scoped).and_return(true) }
-
-      before { sign_in(user) }
+      before { request.env['HTTP_AUTHORIZATION'] = "Bearer #{ session.token }" }
 
       before { get :index, format: :json }
 
@@ -31,11 +29,9 @@ describe Api::SessionsController do
 
   describe '#destroy.json' do
     context 'authorized' do
-      let!(:user) { create(:user) }
+      let!(:session) { create(:session) }
 
-      let!(:session) { create(:session, user: user) }
-
-      before { sign_in(user) }
+      before { request.env['HTTP_AUTHORIZATION'] = "Bearer #{ session.token }" }
 
       before { delete :destroy, params: { id: session.id, format: :json } }
 
@@ -49,11 +45,11 @@ describe Api::SessionsController do
     end
 
     context 'session not found' do
-      let!(:user) { create(:user) }
+      let!(:session) { create(:session) }
 
-      before { sign_in(user) }
+      before { request.env['HTTP_AUTHORIZATION'] = "Bearer #{ session.token }" }
 
-      before { delete :destroy, params: { id: '9999', format: :json } }
+      before { delete :destroy, params: { id: 'not-exists', format: :json } }
 
       it { should respond_with(:not_found) }
     end

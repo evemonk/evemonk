@@ -86,4 +86,7 @@ Rails.application.configure do
 
   # squash production log file
   config.lograge.enabled = true
+
+  # Sidekiq
+  config.active_job.queue_adapter = :sidekiq
 end

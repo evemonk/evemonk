@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe AgentsImporter do
+describe AgentsImporter do # rubocop:disable Metrics/BlockLength
   describe '#initialize' do
     let(:file) { double }
 

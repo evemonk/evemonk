@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe UserPolicy do
+describe UserPolicy do # rubocop:disable Metrics/BlockLength
   let(:user) { double }
 
   let(:record) { double }

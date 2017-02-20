@@ -19,7 +19,7 @@ EveMonk is helper software for EveOnline MMORPG.
 
 * Ruby 2.4.0
 * RubyGems 2.6.8
-* Bundler 1.14.3
+* Bundler 1.14.4
 * Ruby on Rails 5.0.1
 * PostgreSQL 9.5.4
 
@@ -51,6 +51,7 @@ app.save!
 * [Rails SQL Injection](http://rails-sqli.org)
 * [Timeouts for popular Ruby gems](https://github.com/ankane/the-ultimate-guide-to-ruby-timeouts)
 * [Swagger specification](http://swagger.io/specification/)
+* [HTTP access control (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS)
 
 ## Author
 

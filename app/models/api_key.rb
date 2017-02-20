@@ -9,11 +9,11 @@ class ApiKey < ApplicationRecord
 
   validates :v_code, presence: true
 
-  after_commit :validate_api_key, on: [:create, :update]
-
-  private
-
-  def validate_api_key
-    ValidateApiKeyJob.perform_later(id)
-  end
+  # after_commit :validate_api_key, on: [:create, :update]
+  #
+  # private
+  #
+  # def validate_api_key
+  #   ValidateApiKeyJob.perform_later(id)
+  # end
 end

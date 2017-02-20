@@ -7,11 +7,7 @@ describe Api::SignOutsController do
 
   describe '#destroy.json' do
     context 'authorized' do
-      let!(:user) { create(:user) }
-
-      let!(:session) { create(:session, user: user) }
-
-      before { sign_in(user) }
+      let!(:session) { create(:session) }
 
       before { request.env['HTTP_AUTHORIZATION'] = "Bearer #{ session.token }" }
 

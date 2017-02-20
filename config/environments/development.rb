@@ -55,4 +55,7 @@ Rails.application.configure do
   # rack-dev-mark
   config.rack_dev_mark.enable = true
   config.rack_dev_mark.theme = [:title, Rack::DevMark::Theme::GithubForkRibbon.new(position: 'right', color: 'green')]
+
+  # Sidekiq
+  config.active_job.queue_adapter = :sidekiq
 end
