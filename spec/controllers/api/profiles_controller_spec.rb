@@ -27,11 +27,11 @@ describe Api::ProfilesController do # rubocop:disable Metrics/BlockLength
 
   describe '#resource' do
     context '@profile is set' do
-      let(:profile) { create(:user) }
+      let(:user) { create(:user) }
 
-      before { subject.instance_variable_set(:@profile, profile) }
+      before { subject.instance_variable_set(:@profile, user) }
 
-      specify { expect(subject.send(:resource)).to eq(profile) }
+      specify { expect(subject.send(:resource)).to eq(user) }
     end
 
     context '@profile not set' do

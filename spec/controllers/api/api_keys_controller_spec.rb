@@ -29,17 +29,15 @@ describe Api::ApiKeysController do # rubocop:disable Metrics/BlockLength
 
   describe '#show.json' do
     context 'authorized' do
-      before { expect(subject).to receive(:verify_authorized).and_return(true) }
+      let!(:user) { create(:user) }
 
-      let(:api_key) { double }
+      let!(:session) { create(:session, user: user) }
 
-      before { expect(subject).to receive(:resource).and_return(api_key) }
+      let!(:api_key) { create(:api_key, user: user) }
 
-      before { expect(subject).to receive(:authorize).with(api_key) }
+      before { request.env['HTTP_AUTHORIZATION'] = "Bearer #{ session.token }" }
 
-      before { sign_in }
-
-      before { get :show, params: { id: '42' }, format: :json }
+      before { get :show, params: { id: api_key.id }, format: :json }
 
       it { should render_template(:show) }
 
@@ -53,36 +51,15 @@ describe Api::ApiKeysController do # rubocop:disable Metrics/BlockLength
     end
   end
 
-  describe '#create.json' do # rubocop:disable Metrics/BlockLength
+  describe '#create.json' do
     context 'authorized' do
-      before { expect(subject).to receive(:verify_authorized).and_return(true) }
+      let!(:user) { create(:user) }
 
-      let(:api_key) { double }
+      let!(:session) { create(:session, user: user) }
 
-      let(:params) { { api_key: { key_id: '1234567', v_code: 'abc' } } }
+      before { request.env['HTTP_AUTHORIZATION'] = "Bearer #{ session.token }" }
 
-      before do
-        #
-        # subject.current_user.api_keys.build(params) => api_key
-        #
-        expect(subject).to receive(:current_user) do
-          double.tap do |a|
-            expect(a).to receive(:api_keys) do
-              double.tap do |b|
-                expect(b).to receive(:build).with(permit!(params[:api_key])).and_return(api_key)
-              end
-            end
-          end
-        end
-      end
-
-      before { expect(subject).to receive(:authorize).with(api_key) }
-
-      before { expect(api_key).to receive(:save!) }
-
-      before { sign_in }
-
-      before { post :create, params: params, format: :json }
+      before { post :create, params: { api_key: attributes_for(:api_key) }, format: :json }
 
       it { should render_template(:create) }
 
@@ -90,7 +67,9 @@ describe Api::ApiKeysController do # rubocop:disable Metrics/BlockLength
     end
 
     context 'not authorized' do
-      before { post :create, params: { api_key: { key_id: '1234567', v_code: 'abc' } }, format: :json }
+      let(:api_key) { build(:api_key) }
+
+      before { post :create, params: { api_key: api_key }, format: :json }
 
       it { should respond_with(:unauthorized) }
     end
@@ -99,21 +78,15 @@ describe Api::ApiKeysController do # rubocop:disable Metrics/BlockLength
   describe '#update.json' do # rubocop:disable Metrics/BlockLength
     context 'PUT' do
       context 'authorized' do
-        before { expect(subject).to receive(:verify_authorized).and_return(true) }
+        let!(:user) { create(:user) }
 
-        let(:api_key) { double }
+        let!(:session) { create(:session, user: user) }
 
-        let(:params) { { id: '42', api_key: { key_id: '1234567', v_code: 'abc' } } }
+        let!(:api_key) { create(:api_key, user: user) }
 
-        before { subject.instance_variable_set(:@api_key, api_key) }
+        before { request.env['HTTP_AUTHORIZATION'] = "Bearer #{ session.token }" }
 
-        before { expect(subject).to receive(:authorize).with(api_key) }
-
-        before { expect(api_key).to receive(:update!).with(permit!(params[:api_key])) }
-
-        before { sign_in }
-
-        before { put :update, params: params, format: :json }
+        before { put :update, params: { id: api_key.id, api_key: attributes_for(:api_key) }, format: :json }
 
         it { should render_template(:update) }
 
@@ -129,21 +102,15 @@ describe Api::ApiKeysController do # rubocop:disable Metrics/BlockLength
 
     context 'PATCH' do
       context 'authorized' do
-        before { expect(subject).to receive(:verify_authorized).and_return(true) }
+        let!(:user) { create(:user) }
 
-        let(:api_key) { double }
+        let!(:session) { create(:session, user: user) }
 
-        let(:params) { { id: '42', api_key: { key_id: '1234567', v_code: 'abc' } } }
+        let!(:api_key) { create(:api_key, user: user) }
 
-        before { subject.instance_variable_set(:@api_key, api_key) }
+        before { request.env['HTTP_AUTHORIZATION'] = "Bearer #{ session.token }" }
 
-        before { expect(subject).to receive(:authorize).with(api_key) }
-
-        before { expect(api_key).to receive(:update!).with(permit!(params[:api_key])) }
-
-        before { sign_in }
-
-        before { patch :update, params: params, format: :json }
+        before { patch :update, params: { id: api_key.id, api_key: attributes_for(:api_key) }, format: :json }
 
         it { should render_template(:update) }
 
@@ -160,19 +127,15 @@ describe Api::ApiKeysController do # rubocop:disable Metrics/BlockLength
 
   describe '#destroy.json' do
     context 'authorized' do
-      before { expect(subject).to receive(:verify_authorized).and_return(true) }
+      let!(:user) { create(:user) }
 
-      let(:api_key) { double }
+      let!(:session) { create(:session, user: user) }
 
-      before { expect(subject).to receive(:resource).and_return(api_key).twice }
+      let!(:api_key) { create(:api_key, user: user) }
 
-      before { expect(subject).to receive(:authorize).with(api_key) }
+      before { request.env['HTTP_AUTHORIZATION'] = "Bearer #{ session.token }" }
 
-      before { expect(api_key).to receive(:destroy!) }
-
-      before { sign_in }
-
-      before { delete :destroy, params: { id: '42' }, format: :json }
+      before { delete :destroy, params: { id: api_key.id }, format: :json }
 
       it { should respond_with(:ok) }
     end
