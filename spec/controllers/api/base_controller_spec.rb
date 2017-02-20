@@ -93,6 +93,16 @@ describe Api::BaseController do # rubocop:disable Metrics/BlockLength
     specify { expect(subject.send(:authenticate!)).to eq(user) }
   end
 
+  describe '#authenticate' do
+    let!(:user) { create(:user) }
+
+    let!(:session) { create(:session, user: user) }
+
+    before { expect(subject).to receive(:authenticate_with_http_token).and_yield(session.token) }
+
+    specify { expect(subject.send(:authenticate)).to eq(user) }
+  end
+
   describe '#parent' do
     specify { expect { subject.send(:parent) }.to raise_error(NotImplementedError) }
   end
