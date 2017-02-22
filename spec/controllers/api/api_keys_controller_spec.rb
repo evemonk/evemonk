@@ -196,7 +196,7 @@ describe Api::ApiKeysController do # rubocop:disable Metrics/BlockLength
   end
 
   describe '#resource' do
-    context '@resource is set' do
+    context '@api_key is set' do
       let(:api_key) { double }
 
       before { subject.instance_variable_set(:@api_key, api_key) }
@@ -204,7 +204,7 @@ describe Api::ApiKeysController do # rubocop:disable Metrics/BlockLength
       specify { expect(subject.send(:resource)).to eq(api_key) }
     end
 
-    context '@resource not set' do
+    context '@api_key not set' do
       let(:api_key) { double }
 
       let(:params) { { id: '42' } }
