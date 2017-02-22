@@ -45,7 +45,9 @@ describe Api::ApiKeysController do # rubocop:disable Metrics/BlockLength
     end
 
     context 'not authorized' do
-      before { get :show, params: { id: '42' }, format: :json }
+      let!(:api_key) { create(:api_key) }
+
+      before { get :show, params: { id: api_key.id }, format: :json }
 
       it { should respond_with(:unauthorized) }
     end
@@ -92,7 +94,9 @@ describe Api::ApiKeysController do # rubocop:disable Metrics/BlockLength
       end
 
       context 'not authorized' do
-        before { put :update, params: { id: '42' }, format: :json }
+        let!(:api_key) { create(:api_key) }
+
+        before { put :update, params: { id: api_key.id }, format: :json }
 
         it { should respond_with(:unauthorized) }
       end
@@ -116,7 +120,9 @@ describe Api::ApiKeysController do # rubocop:disable Metrics/BlockLength
       end
 
       context 'not authorized' do
-        before { patch :update, params: { id: '42' }, format: :json }
+        let!(:api_key) { create(:api_key) }
+
+        before { patch :update, params: { id: api_key.id }, format: :json }
 
         it { should respond_with(:unauthorized) }
       end
@@ -139,7 +145,9 @@ describe Api::ApiKeysController do # rubocop:disable Metrics/BlockLength
     end
 
     context 'not authorized' do
-      before { delete :destroy, params: { id: '42' }, format: :json }
+      let!(:api_key) { create(:api_key) }
+
+      before { delete :destroy, params: { id: api_key.id }, format: :json }
 
       it { should respond_with(:unauthorized) }
     end
