@@ -61,7 +61,6 @@ describe UserPolicy do # rubocop:disable Metrics/BlockLength
     specify { expect { subject.destroy? }.not_to raise_error }
   end
 
-  # TODO: recheck this
   describe '#scope' do
     before do
       #
