@@ -18,24 +18,23 @@ describe ApiKeyPolicy do # rubocop:disable Metrics/BlockLength
   end
 
   describe '#show?' do
-    let(:record) { stub_model ApiKey, id: 42 }
+    context 'true' do
+      let!(:user) { create(:user) }
 
-    before do
-      #
-      # subject.scope.where(id: record.id).exists?
-      #
-      expect(subject).to receive(:scope) do
-        double.tap do |a|
-          expect(a).to receive(:where).with(id: record.id) do
-            double.tap do |b|
-              expect(b).to receive(:exists?)
-            end
-          end
-        end
-      end
+      let!(:record) { create(:api_key, user: user) }
+
+      specify { expect(subject.show?).to eq(true) }
     end
 
-    specify { expect { subject.show? }.not_to raise_error }
+    context 'false' do
+      let!(:user) { create(:user) }
+
+      let!(:another_user) { create(:user) }
+
+      let!(:record) { create(:api_key, user: another_user) }
+
+      specify { expect(subject.show?).to eq(false) }
+    end
   end
 
   describe '#create?' do
@@ -81,7 +80,7 @@ end
 describe ApiKeyPolicy::Scope do
   let(:user) { double }
 
-  let(:scope) { double }
+  let(:scope) { ApiKey }
 
   subject { described_class.new(user, scope) }
 
@@ -92,17 +91,12 @@ describe ApiKeyPolicy::Scope do
   end
 
   describe '#resolve' do
-    before do
-      #
-      # subject.scope.where(user: user)
-      #
-      expect(subject).to receive(:scope) do
-        double.tap do |a|
-          expect(a).to receive(:where).with(user: user).and_return(scope)
-        end
-      end
-    end
+    let!(:user) { create(:user) }
 
-    specify { expect(subject.resolve).to eq(scope) }
+    let!(:api_key1) { create(:api_key, user: user) }
+
+    let!(:api_key2) { create(:api_key, user: user) }
+
+    specify { expect(subject.resolve).to eq([api_key1, api_key2]) }
   end
 end
