@@ -73,11 +73,10 @@ describe UserPolicy do # rubocop:disable Metrics/BlockLength
   end
 end
 
-# TODO: recheck this
 describe UserPolicy::Scope do
   let(:user) { double }
 
-  let(:scope) { double }
+  let(:scope) { User }
 
   subject { described_class.new(user, scope) }
 
@@ -88,19 +87,8 @@ describe UserPolicy::Scope do
   end
 
   describe '#resolve' do
-    let(:user) { stub_model User, id: 42 }
+    let!(:user) { create(:user) }
 
-    before do
-      #
-      # subject.scope.where(id: user.id) => scope
-      #
-      expect(subject).to receive(:scope) do
-        double.tap do |a|
-          expect(a).to receive(:where).with(id: user.id).and_return(scope)
-        end
-      end
-    end
-
-    specify { expect(subject.resolve).to eq(scope) }
+    specify { expect(subject.resolve).to eq([user]) }
   end
 end
