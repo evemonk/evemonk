@@ -18,24 +18,23 @@ describe SessionPolicy do # rubocop:disable Metrics/BlockLength
   end
 
   describe '#show?' do
-    let(:record) { stub_model Session, id: 1234 }
+    context 'true' do
+      let!(:user) { create(:user) }
 
-    before do
-      #
-      # subject.scope.where(id: record.id).exists?
-      #
-      expect(subject).to receive(:scope) do
-        double.tap do |a|
-          expect(a).to receive(:where).with(id: record.id) do
-            double.tap do |b|
-              expect(b).to receive(:exists?)
-            end
-          end
-        end
-      end
+      let!(:record) { create(:session, user: user) }
+
+      specify { expect(subject.show?).to eq(true) }
     end
 
-    specify { expect { subject.show? }.not_to raise_error }
+    context 'false' do
+      let!(:user) { create(:user) }
+
+      let!(:another_user) { create(:user) }
+
+      let!(:record) { create(:session, user: another_user) }
+
+      specify { expect(subject.show?).to eq(false) }
+    end
   end
 
   describe '#create?' do
@@ -81,7 +80,7 @@ end
 describe SessionPolicy::Scope do
   let(:user) { double }
 
-  let(:scope) { double }
+  let(:scope) { Session }
 
   subject { described_class.new(user, scope) }
 
@@ -92,17 +91,12 @@ describe SessionPolicy::Scope do
   end
 
   describe '#resolve' do
-    before do
-      #
-      # subject.scope.where(user: user)
-      #
-      expect(subject).to receive(:scope) do
-        double.tap do |a|
-          expect(a).to receive(:where).with(user: user).and_return(scope)
-        end
-      end
-    end
+    let!(:user) { create(:user) }
 
-    specify { expect(subject.resolve).to eq(scope) }
+    let!(:session1) { create(:session, user: user) }
+
+    let!(:session2) { create(:session, user: user) }
+
+    specify { expect(subject.resolve).to eq([session1, session2]) }
   end
 end

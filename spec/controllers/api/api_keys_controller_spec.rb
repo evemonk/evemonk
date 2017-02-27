@@ -45,7 +45,9 @@ describe Api::ApiKeysController do # rubocop:disable Metrics/BlockLength
     end
 
     context 'not authorized' do
-      before { get :show, params: { id: '42' }, format: :json }
+      let!(:api_key) { create(:api_key) }
+
+      before { get :show, params: { id: api_key.id }, format: :json }
 
       it { should respond_with(:unauthorized) }
     end
@@ -67,9 +69,7 @@ describe Api::ApiKeysController do # rubocop:disable Metrics/BlockLength
     end
 
     context 'not authorized' do
-      let(:api_key) { build(:api_key) }
-
-      before { post :create, params: { api_key: api_key }, format: :json }
+      before { post :create, params: { api_key: attributes_for(:api_key) }, format: :json }
 
       it { should respond_with(:unauthorized) }
     end
@@ -94,7 +94,9 @@ describe Api::ApiKeysController do # rubocop:disable Metrics/BlockLength
       end
 
       context 'not authorized' do
-        before { put :update, params: { id: '42' }, format: :json }
+        let!(:api_key) { create(:api_key) }
+
+        before { put :update, params: { id: api_key.id }, format: :json }
 
         it { should respond_with(:unauthorized) }
       end
@@ -118,7 +120,9 @@ describe Api::ApiKeysController do # rubocop:disable Metrics/BlockLength
       end
 
       context 'not authorized' do
-        before { patch :update, params: { id: '42' }, format: :json }
+        let!(:api_key) { create(:api_key) }
+
+        before { patch :update, params: { id: api_key.id }, format: :json }
 
         it { should respond_with(:unauthorized) }
       end
@@ -141,7 +145,9 @@ describe Api::ApiKeysController do # rubocop:disable Metrics/BlockLength
     end
 
     context 'not authorized' do
-      before { delete :destroy, params: { id: '42' }, format: :json }
+      let!(:api_key) { create(:api_key) }
+
+      before { delete :destroy, params: { id: api_key.id }, format: :json }
 
       it { should respond_with(:unauthorized) }
     end
@@ -196,7 +202,7 @@ describe Api::ApiKeysController do # rubocop:disable Metrics/BlockLength
   end
 
   describe '#resource' do
-    context '@resource is set' do
+    context '@api_key is set' do
       let(:api_key) { double }
 
       before { subject.instance_variable_set(:@api_key, api_key) }
@@ -204,7 +210,7 @@ describe Api::ApiKeysController do # rubocop:disable Metrics/BlockLength
       specify { expect(subject.send(:resource)).to eq(api_key) }
     end
 
-    context '@resource not set' do
+    context '@api_key not set' do
       let(:api_key) { double }
 
       let(:params) { { id: '42' } }
