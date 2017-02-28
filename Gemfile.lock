@@ -388,7 +388,7 @@ DEPENDENCIES
   pundit
   rack-cors
   rack-dev-mark
-  rails (~> 5.0.0)
+  rails (~> 5.0.1)
   rails-controller-testing
   rbnacl (< 4.0)
   rbnacl-libsodium
