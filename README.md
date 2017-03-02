@@ -63,6 +63,7 @@ app.save!
 * [Hypertext Transfer Protocol (HTTP/1.1): Authentication](https://tools.ietf.org/html/rfc7235)
 * [Initial Hypertext Transfer Protocol (HTTP) Authentication Scheme Registrations](https://tools.ietf.org/html/rfc7236)
 * [Initial Hypertext Transfer Protocol (HTTP) Method Registrations](https://tools.ietf.org/html/rfc7237)
+* [HTTP Strict Transport Security (HSTS)](https://tools.ietf.org/html/rfc6797)
 
 ## Author
 
