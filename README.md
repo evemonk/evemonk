@@ -20,7 +20,7 @@ EveMonk is helper software for EveOnline MMORPG.
 * Ruby 2.4.0
 * RubyGems 2.6.10
 * Bundler 1.14.5
-* Ruby on Rails 5.0.1
+* Ruby on Rails 5.0.2
 * PostgreSQL 9.5.4
 
 ## Configure
@@ -63,6 +63,7 @@ app.save!
 * [Hypertext Transfer Protocol (HTTP/1.1): Authentication](https://tools.ietf.org/html/rfc7235)
 * [Initial Hypertext Transfer Protocol (HTTP) Authentication Scheme Registrations](https://tools.ietf.org/html/rfc7236)
 * [Initial Hypertext Transfer Protocol (HTTP) Method Registrations](https://tools.ietf.org/html/rfc7237)
+* [HTTP Strict Transport Security (HSTS)](https://tools.ietf.org/html/rfc6797)
 
 ## Author
 
