@@ -94,13 +94,6 @@ GEM
     coderay (1.1.1)
     coercible (1.0.0)
       descendants_tracker (~> 0.0.1)
-    coffee-rails (4.2.1)
-      coffee-script (>= 2.2.0)
-      railties (>= 4.0.0, < 5.2.x)
-    coffee-script (2.4.1)
-      coffee-script-source
-      execjs
-    coffee-script-source (1.12.2)
     concurrent-ruby (1.0.5)
     connection_pool (2.2.1)
     crack (0.4.3)
@@ -368,7 +361,6 @@ DEPENDENCIES
   capistrano-rbenv
   capistrano-rbenv-install
   codeclimate-test-reporter
-  coffee-rails (~> 4.2)
   database_cleaner
   dotenv-rails
   draper (= 3.0.0.pre1)
