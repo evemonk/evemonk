@@ -28,6 +28,7 @@ AllCops:
     - 'spec/rails_helper.rb'
   DisplayCopNames: true
   DisplayStyleGuide: true
+  TargetRailsVersion: 5.0
 
 Rails:
   Enabled: true
