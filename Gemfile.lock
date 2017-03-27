@@ -65,7 +65,7 @@ GEM
       thread_safe (~> 0.3, >= 0.3.1)
     bcrypt (3.1.11)
     bcrypt_pbkdf (1.0.0)
-    brakeman (3.5.0)
+    brakeman (3.6.1)
     builder (3.2.3)
     bullet (5.5.1)
       activesupport (>= 3.0.0)
