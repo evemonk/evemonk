@@ -44,7 +44,7 @@ group :development do
   gem 'listen', '~> 3.0.5'
   gem 'brakeman', require: false
   # rubocop version locked due config. Update rubocop config on gem update.
-  gem 'rubocop', '0.47.1', require: false
+  gem 'rubocop', '0.48.0', require: false
   gem 'bcrypt_pbkdf' # for rbnacl-libsodium
   gem 'rbnacl', '< 4.0' # for rbnacl-libsodium
   gem 'rbnacl-libsodium' # for ssh-ed25519 support

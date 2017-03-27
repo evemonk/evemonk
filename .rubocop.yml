@@ -28,6 +28,7 @@ AllCops:
     - 'spec/rails_helper.rb'
   DisplayCopNames: true
   DisplayStyleGuide: true
+  TargetRailsVersion: 5.0
 
 Rails:
   Enabled: true
@@ -126,4 +127,8 @@ Style/MultilineAssignmentLayout:
 
 # Just ignore order of gems in Gemfile
 Bundler/OrderedGems:
+  Enabled: false
+
+# Use %i or %I for an array of symbols.
+Style/SymbolArray:
   Enabled: false
