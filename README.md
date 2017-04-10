@@ -53,6 +53,7 @@ app.save!
 * [Swagger specification](http://swagger.io/specification/)
 * [HTTP access control (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS)
 * [The Twelve-Factor App](https://12factor.net/)
+* [HTTP Status Codes](https://httpstatuses.com)
 
 ## Documentation
 
