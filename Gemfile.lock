@@ -330,7 +330,7 @@ GEM
       thread_safe (~> 0.1)
     uglifier (3.2.0)
       execjs (>= 0.3.0, < 3)
-    unicode-display_width (1.2.0)
+    unicode-display_width (1.2.1)
     uniform_notifier (1.10.0)
     virtus (1.0.5)
       axiom-types (~> 0.1)
