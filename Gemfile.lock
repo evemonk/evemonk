@@ -179,7 +179,7 @@ GEM
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (4.1.0)
-    newrelic_rpm (4.0.0.332)
+    newrelic_rpm (4.1.0.333)
     nio4r (2.0.0)
     nokogiri (1.7.1)
       mini_portile2 (~> 2.1.0)
@@ -337,7 +337,7 @@ GEM
       coercible (~> 1.0)
       descendants_tracker (~> 0.0, >= 0.0.3)
       equalizer (~> 0.0, >= 0.0.9)
-    webmock (3.0.0)
+    webmock (3.0.1)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
       hashdiff
