@@ -53,7 +53,7 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.5.1)
       public_suffix (~> 2.0, >= 2.0.2)
-    airbrussh (1.1.2)
+    airbrussh (1.2.0)
       sshkit (>= 1.6.1, != 1.7.0)
     ansi (1.5.0)
     arel (7.1.4)
