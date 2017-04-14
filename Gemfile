@@ -45,6 +45,7 @@ group :development do
   gem 'brakeman', require: false
   # rubocop version locked due config. Update rubocop config on gem update.
   gem 'rubocop', '0.48.1', require: false
+  gem 'rails_best_practices'
   gem 'bcrypt_pbkdf' # for rbnacl-libsodium
   gem 'rbnacl', '< 4.0' # for rbnacl-libsodium
   gem 'rbnacl-libsodium' # for ssh-ed25519 support
