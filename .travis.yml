@@ -6,7 +6,7 @@ rvm:
   - 2.4.1
 
 before_script:
-  - ln -s database.yml.sqlite3 config/database.yml
+  - ln -sf database.yml.sqlite3 config/database.yml
   - bundle exec rake db:create db:migrate
 
 script:
