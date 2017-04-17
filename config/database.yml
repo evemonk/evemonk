@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: evemonk_production
-  username: evemonk
+  database: <%= ENV['EVEMONK_DATABASE_NAME'] %>
+  username: <%= ENV['EVEMONK_DATABASE_USER'] %>
   password: <%= ENV['EVEMONK_DATABASE_PASSWORD'] %>
