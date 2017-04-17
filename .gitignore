@@ -25,5 +25,3 @@
 .env
 
 db/schema.rb
-
-config/database.yml
