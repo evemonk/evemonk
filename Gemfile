@@ -23,9 +23,6 @@ gem 'rack-dev-mark'
 gem 'pghero'
 gem 'pg_query'
 
-# for testing only
-gem 'sqlite3'
-
 group :production do
   gem 'pg'
   gem 'lograge'
@@ -33,7 +30,6 @@ group :production do
 end
 
 group :development, :test do
-  # gem 'sqlite3'
   gem 'rspec-rails'
   gem 'awesome_print', require: 'ap'
   gem 'pry-rails'
