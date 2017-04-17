@@ -100,7 +100,7 @@ GEM
     connection_pool (2.2.1)
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
-    database_cleaner (1.5.3)
+    database_rewinder (0.8.0)
     descendants_tracker (0.0.4)
       thread_safe (~> 0.3, >= 0.3.1)
     diff-lcs (1.3)
@@ -376,7 +376,7 @@ DEPENDENCIES
   capistrano-rbenv
   capistrano-rbenv-install
   codeclimate-test-reporter
-  database_cleaner
+  database_rewinder
   dotenv-rails
   draper (= 3.0.0.pre1)
   eve_online
