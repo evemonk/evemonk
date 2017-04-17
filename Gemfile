@@ -21,6 +21,7 @@ gem 'sidekiq'
 gem 'rpush'
 gem 'rack-dev-mark'
 gem 'pghero'
+gem 'pg_query'
 
 # for testing only
 gem 'sqlite3'
