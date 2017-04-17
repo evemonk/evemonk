@@ -58,7 +58,6 @@ group :test do
   gem 'rails-controller-testing'
   gem 'shoulda-matchers'
   gem 'rspec-its'
-  gem 'rspec-activemodel-mocks'
   gem 'shoulda-callback-matchers', git: 'https://github.com/jdliss/shoulda-callback-matchers.git',
                                    branch: 'master'
   gem 'simplecov'

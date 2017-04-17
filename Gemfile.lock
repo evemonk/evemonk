@@ -272,10 +272,6 @@ GEM
       net-http-persistent
       railties
       thor (>= 0.18.1, < 2.0)
-    rspec-activemodel-mocks (1.0.3)
-      activemodel (>= 3.0)
-      activesupport (>= 3.0)
-      rspec-mocks (>= 2.99, < 4.0)
     rspec-core (3.5.4)
       rspec-support (~> 3.5.0)
     rspec-expectations (3.5.0)
@@ -402,7 +398,6 @@ DEPENDENCIES
   rbnacl-libsodium
   rectify
   rpush
-  rspec-activemodel-mocks
   rspec-its
   rspec-rails
   rubocop (= 0.48.1)
