@@ -20,6 +20,7 @@ gem 'pundit'
 gem 'sidekiq'
 gem 'rpush'
 gem 'rack-dev-mark'
+gem 'pghero'
 
 # for testing only
 gem 'sqlite3'
