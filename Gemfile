@@ -35,6 +35,7 @@ group :development, :test do
   gem 'bullet'
   gem 'factory_girl_rails'
   gem 'faker'
+  gem 'sql_tracker'
 end
 
 group :development do
