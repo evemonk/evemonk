@@ -48,6 +48,7 @@ app.save!
 * [Ruby coding style guide](https://github.com/bbatsov/ruby-style-guide)
 * [Ruby on Rails style guide](https://github.com/bbatsov/rails-style-guide)
 * [Security Guide for Developers](https://github.com/FallibleInc/security-guide-for-developers)
+* [Zen Rails Security Checklist](https://github.com/brunofacca/zen-rails-security-checklist)
 * [Rails SQL Injection](http://rails-sqli.org)
 * [Timeouts for popular Ruby gems](https://github.com/ankane/the-ultimate-guide-to-ruby-timeouts)
 * [Swagger specification](http://swagger.io/specification/)
