@@ -30,9 +30,15 @@ RUN mkdir -p /srv/evemonk
 
 RUN git clone https://github.com/biow0lf/evemonk.git /srv/evemonk
 
-# ENV RAILS_ENV production
+RUN yum install sqlite-devel -y
 
-# RUN bundle install --without development test
+RUN yum install postgresql-devel -y
+
+WORKDIR /srv/evemonk
+
+ENV RAILS_ENV production
+
+RUN bundle install --without development test
 
 CMD ["/bin/bash"]
 
