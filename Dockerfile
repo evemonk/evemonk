@@ -40,5 +40,13 @@ ENV RAILS_ENV production
 
 RUN bundle install --quiet --without development test
 
-CMD ["/bin/bash"]
+RUN yum install epel-release -y
+
+RUN yum install nodejs npm --enablerepo=epel -y
+
+RUN rbenv rehash
+
+EXPOSE 3000
+
+CMD ["rails", "server", "-b", "0.0.0.0"]
 
