@@ -83,6 +83,8 @@ describe Api::BaseController do # rubocop:disable Metrics/BlockLength
 
   it { should rescue_from(Pundit::NotAuthorizedError) }
 
+  it { should rescue_from(ActionView::MissingTemplate) }
+
   describe '#authenticate!' do
     let!(:user) { create(:user) }
 

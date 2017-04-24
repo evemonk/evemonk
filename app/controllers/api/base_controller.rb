@@ -56,6 +56,10 @@ module Api
     rescue_from Pundit::NotAuthorizedError do
       head :forbidden
     end
+
+    rescue_from ActionView::MissingTemplate do
+      head :not_acceptable
+    end
     # :nocov:
 
     private
