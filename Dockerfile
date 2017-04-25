@@ -30,9 +30,9 @@ RUN gem install bundler --version "$BUNDLER_VERSION"
 
 RUN mkdir -p /srv/evemonk
 
-RUN git clone https://github.com/biow0lf/evemonk.git /srv/evemonk
+# RUN git clone -b development https://github.com/biow0lf/evemonk.git /srv/evemonk
 
-RUN yum install sqlite-devel -y -q
+RUN git clone https://github.com/biow0lf/evemonk.git /srv/evemonk
 
 WORKDIR /srv/evemonk
 
