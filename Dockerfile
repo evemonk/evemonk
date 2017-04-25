@@ -4,7 +4,10 @@ MAINTAINER Igor Zubkov <igor.zubkov@gmail.com>
 
 RUN yum upgrade -y -q
 
-RUN yum install git gcc make bzip2 libyaml-devel openssl-devel readline-devel zlib-devel postgresql-devel -y -q
+RUN yum install epel-release -y -q
+
+RUN yum install git gcc make bzip2 libyaml-devel openssl-devel \
+	readline-devel zlib-devel postgresql-devel nodejs npm --enablerepo=epel -y -q
 
 RUN echo 'gem: --no-rdoc --no-ri' > /root/.gemrc
 
@@ -30,8 +33,6 @@ RUN gem install bundler --version "$BUNDLER_VERSION"
 
 RUN mkdir -p /srv/evemonk
 
-# RUN git clone -b development https://github.com/biow0lf/evemonk.git /srv/evemonk
-
 RUN git clone https://github.com/biow0lf/evemonk.git /srv/evemonk
 
 WORKDIR /srv/evemonk
@@ -40,13 +41,8 @@ ENV RAILS_ENV production
 
 RUN bundle install --quiet --without development test
 
-RUN yum install epel-release -y
-
-RUN yum install nodejs npm --enablerepo=epel -y
-
 RUN rbenv rehash
 
 EXPOSE 3000
 
 CMD ["rails", "server", "-b", "0.0.0.0"]
-
