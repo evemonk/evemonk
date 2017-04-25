@@ -158,20 +158,6 @@ describe Api::ApiKeysController do
         it { should respond_with(:ok) }
       end
 
-      # context 'not acceptable' do
-      #   let!(:user) { create(:user) }
-      #
-      #   let!(:session) { create(:session, user: user) }
-      #
-      #   let!(:api_key) { create(:api_key, user: user) }
-      #
-      #   before { request.env['HTTP_AUTHORIZATION'] = "Bearer #{ session.token }" }
-      #
-      #   before { put :update, params: { id: api_key.id, api_key: attributes_for(:api_key) }, format: :html }
-      #
-      #   it { should respond_with(:not_acceptable) }
-      # end
-
       context 'not authorized' do
         let!(:api_key) { create(:api_key) }
 
@@ -198,24 +184,60 @@ describe Api::ApiKeysController do
         it { should respond_with(:ok) }
       end
 
-      # context 'not acceptable' do
-      #   let!(:user) { create(:user) }
-      #
-      #   let!(:session) { create(:session, user: user) }
-      #
-      #   let!(:api_key) { create(:api_key, user: user) }
-      #
-      #   before { request.env['HTTP_AUTHORIZATION'] = "Bearer #{ session.token }" }
-      #
-      #   before { patch :update, params: { id: api_key.id, api_key: attributes_for(:api_key) }, format: :html }
-      #
-      #   it { should respond_with(:not_acceptable) }
-      # end
-
       context 'not authorized' do
         let!(:api_key) { create(:api_key) }
 
         before { patch :update, params: { id: api_key.id }, format: :json }
+
+        it { should respond_with(:unauthorized) }
+      end
+    end
+  end
+
+  describe '#update.html' do
+    context 'PUT' do
+      context 'authorized' do
+        let!(:user) { create(:user) }
+
+        let!(:session) { create(:session, user: user) }
+
+        let!(:api_key) { create(:api_key, user: user) }
+
+        before { request.env['HTTP_AUTHORIZATION'] = "Bearer #{ session.token }" }
+
+        before { put :update, params: { id: api_key.id, api_key: attributes_for(:api_key) }, format: :html }
+
+        it { should respond_with(:not_acceptable) }
+      end
+
+      context 'not authorized' do
+        let!(:api_key) { create(:api_key) }
+
+        before { put :update, params: { id: api_key.id }, format: :html }
+
+        it { should respond_with(:unauthorized) }
+      end
+    end
+
+    context 'PATCH' do
+      context 'authorized' do
+        let!(:user) { create(:user) }
+
+        let!(:session) { create(:session, user: user) }
+
+        let!(:api_key) { create(:api_key, user: user) }
+
+        before { request.env['HTTP_AUTHORIZATION'] = "Bearer #{ session.token }" }
+
+        before { patch :update, params: { id: api_key.id, api_key: attributes_for(:api_key) }, format: :html }
+
+        it { should respond_with(:not_acceptable) }
+      end
+
+      context 'not authorized' do
+        let!(:api_key) { create(:api_key) }
+
+        before { patch :update, params: { id: api_key.id }, format: :html }
 
         it { should respond_with(:unauthorized) }
       end
