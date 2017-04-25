@@ -238,6 +238,30 @@ describe Api::ApiKeysController do
     end
   end
 
+  describe '#destroy.html' do
+    context 'authorized' do
+      let!(:user) { create(:user) }
+
+      let!(:session) { create(:session, user: user) }
+
+      let!(:api_key) { create(:api_key, user: user) }
+
+      before { request.env['HTTP_AUTHORIZATION'] = "Bearer #{ session.token }" }
+
+      before { delete :destroy, params: { id: api_key.id }, format: :html }
+
+      it { should respond_with(:ok) }
+    end
+
+    context 'not authorized' do
+      let!(:api_key) { create(:api_key) }
+
+      before { delete :destroy, params: { id: api_key.id }, format: :html }
+
+      it { should respond_with(:unauthorized) }
+    end
+  end
+
   # private methods
 
   describe '#resource_params' do
