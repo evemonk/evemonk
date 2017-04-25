@@ -5,14 +5,12 @@ describe ValidateApiKey do
 
   subject { described_class.new(api_key_id) }
 
-  it { should be_a(Rectify::Command) }
-
   describe '#initialize' do
     its(:api_key_id) { should eq(api_key_id) }
   end
 
   describe '#call' do
-    let(:api_key) { stub_model ApiKey, key_id: 1_234_567, v_code: 'abc' }
+    let(:api_key) { create(:api_key) }
 
     before { expect(ApiKey).to receive(:find).with(api_key_id).and_return(api_key) }
 
@@ -30,8 +28,6 @@ describe ValidateApiKey do
     end
 
     before { expect(api_key).to receive(:update!).with(json) }
-
-    before { expect(subject).to receive(:broadcast).with(:ok) }
 
     specify { expect { subject.call }.not_to raise_error }
   end

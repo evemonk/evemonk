@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  namespace :backoffice do
+    # TODO: spec this
+    mount PgHero::Engine, at: 'pghero'
+  end
+
   namespace :api, defaults: { format: 'json' } do
     resource :sign_up, only: :create
 

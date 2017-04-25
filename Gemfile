@@ -13,16 +13,14 @@ gem 'eve_online'
 # gem 'eve_online', path: '~/opensource/eve_online'
 gem 'rack-cors', require: 'rack/cors'
 gem 'kaminari'
-gem 'rectify'
 gem 'draper', '3.0.0.pre1'
 gem 'dotenv-rails'
 gem 'pundit'
 gem 'sidekiq'
 gem 'rpush'
 gem 'rack-dev-mark'
-
-# for testing only
-gem 'sqlite3'
+gem 'pghero'
+gem 'pg_query'
 
 group :production do
   gem 'pg'
@@ -31,13 +29,13 @@ group :production do
 end
 
 group :development, :test do
-  # gem 'sqlite3'
   gem 'rspec-rails'
   gem 'awesome_print', require: 'ap'
   gem 'pry-rails'
   gem 'bullet'
   gem 'factory_girl_rails'
   gem 'faker'
+  gem 'sql_tracker'
 end
 
 group :development do
@@ -60,11 +58,10 @@ group :test do
   gem 'rails-controller-testing'
   gem 'shoulda-matchers'
   gem 'rspec-its'
-  gem 'rspec-activemodel-mocks'
   gem 'shoulda-callback-matchers', git: 'https://github.com/jdliss/shoulda-callback-matchers.git',
                                    branch: 'master'
   gem 'simplecov'
   gem 'codeclimate-test-reporter'
-  gem 'database_cleaner'
+  gem 'database_rewinder'
   gem 'webmock'
 end

@@ -11,13 +11,13 @@ describe Session do
 
   describe 'validate device_token presence' do
     context 'device present' do
-      subject { stub_model Session, device: :ios }
+      subject { described_class.new(device: :ios) }
 
       it { should validate_presence_of(:device_token) }
     end
 
     context 'device not present' do
-      subject { stub_model Session }
+      subject { described_class.new(device: nil) }
 
       it { should_not validate_presence_of(:device_token) }
     end

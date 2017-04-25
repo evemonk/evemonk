@@ -1,4 +1,4 @@
-class ValidateApiKey < Rectify::Command
+class ValidateApiKey
   attr_reader :api_key_id
 
   def initialize(api_key_id)
@@ -11,7 +11,5 @@ class ValidateApiKey < Rectify::Command
     json = EveOnline::Account::ApiKeyInfo.new(api_key.key_id, api_key.v_code).as_json
 
     api_key.update!(json)
-
-    broadcast(:ok)
   end
 end
