@@ -1,5 +1,6 @@
 require 'rails_helper'
 
+# rubocop:disable Metrics/BlockLength
 describe Api::SignOutsController do
   it { should be_a(Api::BaseController) }
 
