@@ -1,6 +1,7 @@
 require 'rails_helper'
 
-describe Api::ApiKeysController do # rubocop:disable Metrics/BlockLength
+# rubocop:disable Metrics/BlockLength
+describe Api::ApiKeysController do
   it { should be_a(Api::BaseController) }
 
   it { should use_before_action(:authenticate!) }
@@ -75,7 +76,7 @@ describe Api::ApiKeysController do # rubocop:disable Metrics/BlockLength
     end
   end
 
-  describe '#update.json' do # rubocop:disable Metrics/BlockLength
+  describe '#update.json' do
     context 'PUT' do
       context 'authorized' do
         let!(:user) { create(:user) }
