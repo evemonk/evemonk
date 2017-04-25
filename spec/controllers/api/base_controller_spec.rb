@@ -1,6 +1,7 @@
 require 'rails_helper'
 
-describe Api::BaseController do # rubocop:disable Metrics/BlockLength
+# rubocop:disable Metrics/BlockLength
+describe Api::BaseController do
   it { should be_a(ApplicationController) }
 
   it { should be_a(Pundit) }
@@ -83,7 +84,7 @@ describe Api::BaseController do # rubocop:disable Metrics/BlockLength
 
   it { should rescue_from(Pundit::NotAuthorizedError) }
 
-  it { should rescue_from(ActionView::MissingTemplate) }
+  it { should rescue_from(ActionController::UnknownFormat) }
 
   describe '#authenticate!' do
     let!(:user) { create(:user) }
