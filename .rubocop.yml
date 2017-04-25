@@ -8,6 +8,7 @@ AllCops:
     - 'db/migrate/20170107151914_rpush_2_6_0_updates.rb'
     - 'db/migrate/20170107151915_rpush_2_7_0_updates.rb'
     - 'bin/brakeman'
+    - 'bin/consistency_fail'
     - 'bin/rpush'
     - 'bin/rspec'
     - 'bin/rubocop'
