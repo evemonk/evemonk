@@ -1,6 +1,7 @@
 require 'rails_helper'
 
-describe ApiKeyPolicy do # rubocop:disable Metrics/BlockLength
+# rubocop:disable Metrics/BlockLength
+describe ApiKeyPolicy do
   let(:user) { double }
 
   let(:record) { double }

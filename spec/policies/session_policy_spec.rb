@@ -1,6 +1,7 @@
 require 'rails_helper'
 
-describe SessionPolicy do # rubocop:disable Metrics/BlockLength
+# rubocop:disable Metrics/BlockLength
+describe SessionPolicy do
   let(:user) { double }
 
   let(:record) { double }

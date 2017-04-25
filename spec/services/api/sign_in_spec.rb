@@ -1,6 +1,7 @@
 require 'rails_helper'
 
-describe Api::SignIn do # rubocop:disable Metrics/BlockLength
+# rubocop:disable Metrics/BlockLength
+describe Api::SignIn do
   it { should be_a(ActiveModel::Validations) }
 
   it { should delegate_method(:decorate).to(:session) }

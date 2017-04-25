@@ -1,6 +1,7 @@
 require 'rails_helper'
 
-describe Api::SignUp do # rubocop:disable Metrics/BlockLength
+# rubocop:disable Metrics/BlockLength
+describe Api::SignUp do
   it { should delegate_method(:decorate).to(:session) }
 
   it { should delegate_method(:errors).to(:user) }
