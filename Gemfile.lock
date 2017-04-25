@@ -92,6 +92,7 @@ GEM
     coderay (1.1.1)
     concurrent-ruby (1.0.5)
     connection_pool (2.2.1)
+    consistency_fail (0.3.5)
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
     database_rewinder (0.8.0)
@@ -352,6 +353,7 @@ DEPENDENCIES
   capistrano-rbenv
   capistrano-rbenv-install
   codeclimate-test-reporter
+  consistency_fail
   database_rewinder
   dotenv-rails
   draper (= 3.0.0.pre1)
@@ -391,4 +393,4 @@ DEPENDENCIES
   webmock
 
 BUNDLED WITH
-   1.15.0.pre.1
+   1.15.0.pre.2
