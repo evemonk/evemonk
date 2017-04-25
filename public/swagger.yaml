@@ -62,6 +62,8 @@ paths:
           description: Account created
           schema:
             $ref: '#/definitions/OutputSession'
+        '406':
+          description: Content type not supported
         '422':
           description: Unprocessable Entity
           schema:
@@ -106,6 +108,8 @@ paths:
           description: Response with session
           schema:
             $ref: '#/definitions/OutputSession'
+        '406':
+          description: Content type not supported
         '422':
           description: Unprocessable Entity
           schema:
@@ -153,6 +157,8 @@ paths:
           description: Response with sessions collection
           schema:
             $ref: '#/definitions/OutputSessionCollection'
+        '406':
+          description: Content type not supported
         '401':
           description: Unauthorized
 
@@ -211,6 +217,8 @@ paths:
             $ref: '#/definitions/OutputApiKeyCollection'
         '401':
           description: Unauthorized
+        '406':
+          description: Content type not supported
 
     post:
       summary: Add EveOnline API Key
@@ -242,6 +250,8 @@ paths:
             $ref: '#/definitions/OutputApiKey'
         '401':
           description: Unauthorized
+        '406':
+          description: Content type not supported
         '422':
           description: Unprocessable Entity
           schema:
@@ -278,6 +288,8 @@ paths:
           description: Forbidden
         '404':
           description: API Key not found
+        '406':
+          description: Content type not supported
 
     delete:
       summary: Delete EveOnline API Key
@@ -348,6 +360,8 @@ paths:
           description: Forbidden
         '404':
           description: API Key not found
+        '406':
+          description: Content type not supported
         '422':
           description: Unprocessable Entity
           schema:
@@ -393,6 +407,8 @@ paths:
           description: Forbidden
         '404':
           description: API Key not found
+        '406':
+          description: Content type not supported
         '422':
           description: Unprocessable Entity
           schema:
@@ -418,6 +434,8 @@ paths:
             $ref: '#/definitions/OutputUser'
         '401':
           description: Unauthorized
+        '406':
+          description: Content type not supported
 
 definitions:
   OutputUser:
