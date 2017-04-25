@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170113214508) do
+ActiveRecord::Schema.define(version: 20170425135545) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -179,6 +179,7 @@ ActiveRecord::Schema.define(version: 20170113214508) do
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
     t.integer  "notifications_count", default: 0
+    t.index "lower((email)::text)", name: "index_users_on_LOWER_email", unique: true, using: :btree
   end
 
   add_foreign_key "api_keys", "users"
