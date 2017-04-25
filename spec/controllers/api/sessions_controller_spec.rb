@@ -28,6 +28,26 @@ describe Api::SessionsController do
     end
   end
 
+  describe '#index.html' do
+    context 'authorized' do
+      render_views
+
+      let!(:session) { create(:session) }
+
+      before { request.env['HTTP_AUTHORIZATION'] = "Bearer #{ session.token }" }
+
+      before { get :index, format: :html }
+
+      it { should respond_with(:not_acceptable) }
+    end
+
+    context 'not authorized' do
+      before { get :index, format: :html }
+
+      it { should respond_with(:unauthorized) }
+    end
+  end
+
   describe '#destroy.json' do
     context 'authorized' do
       let!(:session) { create(:session) }
@@ -40,6 +60,7 @@ describe Api::SessionsController do
     end
 
     context 'not authorized' do
+      # TODO: create session and use it in this spec
       before { delete :destroy, params: { id: '42', format: :json } }
 
       it { should respond_with(:unauthorized) }

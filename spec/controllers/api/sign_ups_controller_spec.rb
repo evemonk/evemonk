@@ -34,6 +34,30 @@ describe Api::SignUpsController do
     end
   end
 
+  describe '#create.html' do
+    context 'user successfully created' do
+      before do
+        post :create, params: { email: 'me@example.com',
+                                password: 'password',
+                                password_confirmation: 'password',
+                                format: :html }
+      end
+
+      it { should respond_with(:not_acceptable) }
+    end
+
+    context 'unprocessable entity' do
+      before do
+        post :create, params: { email: 'me@example.com',
+                                password: 'password',
+                                password_confirmation: 'wrong confirmation',
+                                format: :html }
+      end
+
+      pending { should respond_with(:unprocessable_entity) }
+    end
+  end
+
   # private methods
 
   describe '#build_resource' do

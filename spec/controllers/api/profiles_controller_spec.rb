@@ -1,6 +1,7 @@
 require 'rails_helper'
 
-describe Api::ProfilesController do # rubocop:disable Metrics/BlockLength
+# rubocop:disable Metrics/BlockLength
+describe Api::ProfilesController do
   it { should use_before_action(:authenticate!) }
 
   describe '#show.json' do
@@ -18,6 +19,24 @@ describe Api::ProfilesController do # rubocop:disable Metrics/BlockLength
 
     context 'not authorized' do
       before { get :show, format: :json }
+
+      it { should respond_with(:unauthorized) }
+    end
+  end
+
+  describe '#show.html' do
+    context 'authorized' do
+      let!(:session) { create(:session) }
+
+      before { request.env['HTTP_AUTHORIZATION'] = "Bearer #{ session.token }" }
+
+      before { get :show, format: :html }
+
+      it { should respond_with(:not_acceptable) }
+    end
+
+    context 'not authorized' do
+      before { get :show, format: :html }
 
       it { should respond_with(:unauthorized) }
     end

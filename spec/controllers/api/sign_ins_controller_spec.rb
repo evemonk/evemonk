@@ -30,6 +30,26 @@ describe Api::SignInsController do
     end
   end
 
+  describe '#create.html' do
+    context 'successful authorization' do
+      let!(:user) { create(:user, password: 'password') }
+
+      before do
+        post :create, params: { email: user.email, password: 'password', format: :html }
+      end
+
+      it { should respond_with(:not_acceptable) }
+    end
+
+    context 'failed authorization' do
+      before do
+        post :create, params: { email: 'me@example.com', password: 'password', format: :html }
+      end
+
+      pending { should respond_with(:not_acceptable) }
+    end
+  end
+
   # private methods
 
   describe '#build_resource' do
