@@ -60,8 +60,9 @@ describe Api::SessionsController do
     end
 
     context 'not authorized' do
-      # TODO: create session and use it in this spec
-      before { delete :destroy, params: { id: '42', format: :json } }
+      let!(:session) { create(:session) }
+
+      before { delete :destroy, params: { id: session.id, format: :json } }
 
       it { should respond_with(:unauthorized) }
     end
