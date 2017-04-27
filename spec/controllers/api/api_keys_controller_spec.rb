@@ -1,6 +1,7 @@
 require 'rails_helper'
 
-describe Api::ApiKeysController do # rubocop:disable Metrics/BlockLength
+# rubocop:disable Metrics/BlockLength
+describe Api::ApiKeysController do
   it { should be_a(Api::BaseController) }
 
   it { should use_before_action(:authenticate!) }
@@ -22,6 +23,26 @@ describe Api::ApiKeysController do # rubocop:disable Metrics/BlockLength
 
     context 'not authorized' do
       before { get :index, format: :json }
+
+      it { should respond_with(:unauthorized) }
+    end
+  end
+
+  describe '#index.html' do
+    context 'authorized' do
+      render_views
+
+      let!(:session) { create(:session) }
+
+      before { request.env['HTTP_AUTHORIZATION'] = "Bearer #{ session.token }" }
+
+      before { get :index, format: :html }
+
+      it { should respond_with(:not_acceptable) }
+    end
+
+    context 'not authorized' do
+      before { get :index, format: :html }
 
       it { should respond_with(:unauthorized) }
     end
@@ -53,6 +74,30 @@ describe Api::ApiKeysController do # rubocop:disable Metrics/BlockLength
     end
   end
 
+  describe '#show.html' do
+    context 'authorized' do
+      let!(:user) { create(:user) }
+
+      let!(:session) { create(:session, user: user) }
+
+      let!(:api_key) { create(:api_key, user: user) }
+
+      before { request.env['HTTP_AUTHORIZATION'] = "Bearer #{ session.token }" }
+
+      before { get :show, params: { id: api_key.id }, format: :html }
+
+      it { should respond_with(:not_acceptable) }
+    end
+
+    context 'not authorized' do
+      let!(:api_key) { create(:api_key) }
+
+      before { get :show, params: { id: api_key.id }, format: :html }
+
+      it { should respond_with(:unauthorized) }
+    end
+  end
+
   describe '#create.json' do
     context 'authorized' do
       let!(:user) { create(:user) }
@@ -75,7 +120,27 @@ describe Api::ApiKeysController do # rubocop:disable Metrics/BlockLength
     end
   end
 
-  describe '#update.json' do # rubocop:disable Metrics/BlockLength
+  describe '#create.html' do
+    context 'authorized' do
+      let!(:user) { create(:user) }
+
+      let!(:session) { create(:session, user: user) }
+
+      before { request.env['HTTP_AUTHORIZATION'] = "Bearer #{ session.token }" }
+
+      before { post :create, params: { api_key: attributes_for(:api_key) }, format: :html }
+
+      it { should respond_with(:not_acceptable) }
+    end
+
+    context 'not authorized' do
+      before { post :create, params: { api_key: attributes_for(:api_key) }, format: :html }
+
+      it { should respond_with(:unauthorized) }
+    end
+  end
+
+  describe '#update.json' do
     context 'PUT' do
       context 'authorized' do
         let!(:user) { create(:user) }
@@ -129,6 +194,56 @@ describe Api::ApiKeysController do # rubocop:disable Metrics/BlockLength
     end
   end
 
+  describe '#update.html' do
+    context 'PUT' do
+      context 'authorized' do
+        let!(:user) { create(:user) }
+
+        let!(:session) { create(:session, user: user) }
+
+        let!(:api_key) { create(:api_key, user: user) }
+
+        before { request.env['HTTP_AUTHORIZATION'] = "Bearer #{ session.token }" }
+
+        before { put :update, params: { id: api_key.id, api_key: attributes_for(:api_key) }, format: :html }
+
+        it { should respond_with(:not_acceptable) }
+      end
+
+      context 'not authorized' do
+        let!(:api_key) { create(:api_key) }
+
+        before { put :update, params: { id: api_key.id }, format: :html }
+
+        it { should respond_with(:unauthorized) }
+      end
+    end
+
+    context 'PATCH' do
+      context 'authorized' do
+        let!(:user) { create(:user) }
+
+        let!(:session) { create(:session, user: user) }
+
+        let!(:api_key) { create(:api_key, user: user) }
+
+        before { request.env['HTTP_AUTHORIZATION'] = "Bearer #{ session.token }" }
+
+        before { patch :update, params: { id: api_key.id, api_key: attributes_for(:api_key) }, format: :html }
+
+        it { should respond_with(:not_acceptable) }
+      end
+
+      context 'not authorized' do
+        let!(:api_key) { create(:api_key) }
+
+        before { patch :update, params: { id: api_key.id }, format: :html }
+
+        it { should respond_with(:unauthorized) }
+      end
+    end
+  end
+
   describe '#destroy.json' do
     context 'authorized' do
       let!(:user) { create(:user) }
@@ -148,6 +263,30 @@ describe Api::ApiKeysController do # rubocop:disable Metrics/BlockLength
       let!(:api_key) { create(:api_key) }
 
       before { delete :destroy, params: { id: api_key.id }, format: :json }
+
+      it { should respond_with(:unauthorized) }
+    end
+  end
+
+  describe '#destroy.html' do
+    context 'authorized' do
+      let!(:user) { create(:user) }
+
+      let!(:session) { create(:session, user: user) }
+
+      let!(:api_key) { create(:api_key, user: user) }
+
+      before { request.env['HTTP_AUTHORIZATION'] = "Bearer #{ session.token }" }
+
+      before { delete :destroy, params: { id: api_key.id }, format: :html }
+
+      it { should respond_with(:ok) }
+    end
+
+    context 'not authorized' do
+      let!(:api_key) { create(:api_key) }
+
+      before { delete :destroy, params: { id: api_key.id }, format: :html }
 
       it { should respond_with(:unauthorized) }
     end

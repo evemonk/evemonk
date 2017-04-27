@@ -57,7 +57,7 @@ module Api
       head :forbidden
     end
 
-    rescue_from ActionView::MissingTemplate do
+    rescue_from ActionController::UnknownFormat do
       head :not_acceptable
     end
     # :nocov:

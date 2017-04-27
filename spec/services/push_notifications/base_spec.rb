@@ -1,6 +1,7 @@
 require 'rails_helper'
 
-describe PushNotifications::Base do # rubocop:disable Metrics/BlockLength
+# rubocop:disable Metrics/BlockLength
+describe PushNotifications::Base do
   let(:device) { double }
 
   let(:device_token) { double }

@@ -1,6 +1,7 @@
 require 'rails_helper'
 
-describe Api::SessionsController do # rubocop:disable Metrics/BlockLength
+# rubocop:disable Metrics/BlockLength
+describe Api::SessionsController do
   it { should be_a(Api::BaseController) }
 
   it { should use_before_action(:authenticate!) }
@@ -27,6 +28,26 @@ describe Api::SessionsController do # rubocop:disable Metrics/BlockLength
     end
   end
 
+  describe '#index.html' do
+    context 'authorized' do
+      render_views
+
+      let!(:session) { create(:session) }
+
+      before { request.env['HTTP_AUTHORIZATION'] = "Bearer #{ session.token }" }
+
+      before { get :index, format: :html }
+
+      it { should respond_with(:not_acceptable) }
+    end
+
+    context 'not authorized' do
+      before { get :index, format: :html }
+
+      it { should respond_with(:unauthorized) }
+    end
+  end
+
   describe '#destroy.json' do
     context 'authorized' do
       let!(:session) { create(:session) }
@@ -39,7 +60,9 @@ describe Api::SessionsController do # rubocop:disable Metrics/BlockLength
     end
 
     context 'not authorized' do
-      before { delete :destroy, params: { id: '42', format: :json } }
+      let!(:session) { create(:session) }
+
+      before { delete :destroy, params: { id: session.id, format: :json } }
 
       it { should respond_with(:unauthorized) }
     end

@@ -1,6 +1,7 @@
 require 'rails_helper'
 
-describe Api::SignUpsController do # rubocop:disable Metrics/BlockLength
+# rubocop:disable Metrics/BlockLength
+describe Api::SignUpsController do
   it { should be_a(Api::BaseController) }
 
   it { should_not use_before_action(:authenticate!) }
@@ -30,6 +31,30 @@ describe Api::SignUpsController do # rubocop:disable Metrics/BlockLength
       it { should render_template(:errors) }
 
       it { should respond_with(:unprocessable_entity) }
+    end
+  end
+
+  describe '#create.html' do
+    context 'user successfully created' do
+      before do
+        post :create, params: { email: 'me@example.com',
+                                password: 'password',
+                                password_confirmation: 'password',
+                                format: :html }
+      end
+
+      it { should respond_with(:not_acceptable) }
+    end
+
+    context 'unprocessable entity' do
+      before do
+        post :create, params: { email: 'me@example.com',
+                                password: 'password',
+                                password_confirmation: 'wrong confirmation',
+                                format: :html }
+      end
+
+      pending { should respond_with(:unprocessable_entity) }
     end
   end
 

@@ -1,6 +1,7 @@
 require 'rails_helper'
 
-describe Api::SignInsController do # rubocop:disable Metrics/BlockLength
+# rubocop:disable Metrics/BlockLength
+describe Api::SignInsController do
   it { should be_a(Api::BaseController) }
 
   it { should_not use_before_action(:authenticate!) }
@@ -26,6 +27,26 @@ describe Api::SignInsController do # rubocop:disable Metrics/BlockLength
       it { should render_template(:errors) }
 
       it { should respond_with(:unprocessable_entity) }
+    end
+  end
+
+  describe '#create.html' do
+    context 'successful authorization' do
+      let!(:user) { create(:user, password: 'password') }
+
+      before do
+        post :create, params: { email: user.email, password: 'password', format: :html }
+      end
+
+      it { should respond_with(:not_acceptable) }
+    end
+
+    context 'failed authorization' do
+      before do
+        post :create, params: { email: 'me@example.com', password: 'password', format: :html }
+      end
+
+      pending { should respond_with(:not_acceptable) }
     end
   end
 
