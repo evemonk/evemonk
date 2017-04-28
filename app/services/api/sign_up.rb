@@ -16,6 +16,10 @@ module Api
       build_session
 
       user.save!
+    rescue ActiveRecord::RecordNotUnique
+      user.errors.add(:email, I18n.t('errors.messages.taken'))
+
+      raise ActiveModel::StrictValidationFailed
     end
 
     private

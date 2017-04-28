@@ -36,14 +36,15 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'faker'
   gem 'sql_tracker'
+  gem 'bundler-audit'
+  # rubocop version locked due config. Update rubocop config on gem update.
+  gem 'rubocop', '0.48.1', require: false
 end
 
 group :development do
   gem 'listen', '~> 3.0.5'
   gem 'brakeman', require: false
   gem 'consistency_fail', require: false
-  # rubocop version locked due config. Update rubocop config on gem update.
-  gem 'rubocop', '0.48.1', require: false
   gem 'rails_best_practices'
   gem 'active_record_doctor'
   gem 'bcrypt_pbkdf' # for rbnacl-libsodium

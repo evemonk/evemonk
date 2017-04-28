@@ -42,6 +42,33 @@ describe Api::SignUp do
 
       specify { expect { subject.save! }.to raise_error(ActiveModel::StrictValidationFailed) }
     end
+
+    context 'user valid but email has already been taken' do
+      let!(:existed_user) { create(:user, email: 'igor.zubkov@gmail.com') }
+
+      let!(:user) { build(:user, email: 'igor.zubkov@gmail.com') }
+
+      before { subject.instance_variable_set(:@user, user) }
+
+      before { expect(user).to receive(:valid?).and_return(true).twice }
+
+      let(:i18n) { double }
+
+      before { expect(I18n).to receive(:t).with('errors.messages.taken').and_return(i18n) }
+
+      before do
+        #
+        # user.errors.add(:email, I18n.t('errors.messages.taken'))
+        #
+        expect(user).to receive(:errors) do
+          double.tap do |a|
+            expect(a).to receive(:add).with(:email, i18n)
+          end
+        end
+      end
+
+      specify { expect { subject.save! }.to raise_error(ActiveModel::StrictValidationFailed) }
+    end
   end
 
   # private methods
