@@ -9,9 +9,9 @@ rvm:
 before_script:
   - psql -c 'CREATE DATABASE evemonk_test;' -U postgres
   - bundle exec rake db:create db:migrate
-  - bundle exec bundle-audit update
+  - bin/bundle-audit update
 
 script:
   - bundle exec rake
   - bundle exec codeclimate-test-reporter
-  - bundle exec bundle-audit
+  - bin/bundle-audit 
