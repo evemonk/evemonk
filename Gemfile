@@ -24,7 +24,7 @@ gem 'pghero'
 gem 'pg_query'
 
 group :production do
-  # gem 'lograge'
+  gem 'lograge'
   gem 'newrelic_rpm'
 end
 
