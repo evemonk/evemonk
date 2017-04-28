@@ -1,10 +1,11 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~> 5.0.2'
-gem 'puma', '~> 3.0'
+gem 'rails', '~> 5.1.0'
+gem 'pg', '~> 0.18'
+gem 'puma', '~> 3.7'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
-gem 'jquery-rails'
+gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 
 gem 'bcrypt'
@@ -21,9 +22,9 @@ gem 'rpush'
 gem 'rack-dev-mark'
 gem 'pghero'
 gem 'pg_query'
+gem 'timber', '~> 2.0'
 
 group :production do
-  gem 'pg'
   gem 'lograge'
   gem 'newrelic_rpm'
 end
@@ -42,11 +43,11 @@ group :development, :test do
 end
 
 group :development do
-  gem 'listen', '~> 3.0.5'
+  gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'brakeman', require: false
   gem 'consistency_fail', require: false
   gem 'rails_best_practices'
-  gem 'active_record_doctor'
+  # gem 'active_record_doctor'
   gem 'bcrypt_pbkdf' # for rbnacl-libsodium
   gem 'rbnacl', '< 4.0' # for rbnacl-libsodium
   gem 'rbnacl-libsodium' # for ssh-ed25519 support
@@ -65,6 +66,7 @@ group :test do
                                    branch: 'master'
   gem 'simplecov'
   gem 'codeclimate-test-reporter'
-  gem 'database_rewinder'
+  gem 'database_rewinder', git: 'https://github.com/amatsuda/database_rewinder.git',
+                           branch: 'master'
   gem 'webmock'
 end

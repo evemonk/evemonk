@@ -1,4 +1,4 @@
-class Rpush210Updates < ActiveRecord::Migration
+class Rpush210Updates < ActiveRecord::Migration[4.2]
   def self.up
     add_column :rpush_notifications, :url_args, :text, null: true
     add_column :rpush_notifications, :category, :string, null: true
