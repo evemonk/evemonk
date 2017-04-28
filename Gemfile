@@ -66,7 +66,6 @@ group :test do
                                    branch: 'master'
   gem 'simplecov'
   gem 'codeclimate-test-reporter'
-  gem 'database_rewinder', git: 'https://github.com/amatsuda/database_rewinder.git',
-                           branch: 'master'
+  gem 'database_rewinder'
   gem 'webmock'
 end
