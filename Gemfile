@@ -46,6 +46,7 @@ group :development do
   gem 'rubocop', '0.48.1', require: false
   gem 'rails_best_practices'
   gem 'active_record_doctor'
+  gem 'bundler-audit'
   gem 'bcrypt_pbkdf' # for rbnacl-libsodium
   gem 'rbnacl', '< 4.0' # for rbnacl-libsodium
   gem 'rbnacl-libsodium' # for ssh-ed25519 support
