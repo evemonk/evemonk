@@ -1,10 +1,11 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~> 5.0.2'
-gem 'puma', '~> 3.0'
+gem 'rails', '~> 5.1.0'
+gem 'pg', '~> 0.18'
+gem 'puma', '~> 3.7'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
-gem 'jquery-rails'
+gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 
 gem 'bcrypt'
@@ -14,7 +15,7 @@ gem 'eve_online'
 gem 'rack-cors', require: 'rack/cors'
 gem 'kaminari'
 gem 'draper', '3.0.0.pre1'
-gem 'dotenv-rails'
+# gem 'dotenv-rails'
 gem 'pundit'
 gem 'sidekiq'
 gem 'rpush'
@@ -23,8 +24,7 @@ gem 'pghero'
 gem 'pg_query'
 
 group :production do
-  gem 'pg'
-  gem 'lograge'
+  # gem 'lograge'
   gem 'newrelic_rpm'
 end
 
@@ -42,11 +42,11 @@ group :development, :test do
 end
 
 group :development do
-  gem 'listen', '~> 3.0.5'
+  gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'brakeman', require: false
   gem 'consistency_fail', require: false
   gem 'rails_best_practices'
-  gem 'active_record_doctor'
+  # gem 'active_record_doctor'
   gem 'bcrypt_pbkdf' # for rbnacl-libsodium
   gem 'rbnacl', '< 4.0' # for rbnacl-libsodium
   gem 'rbnacl-libsodium' # for ssh-ed25519 support
