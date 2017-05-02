@@ -1,4 +1,16 @@
 GIT
+  remote: https://github.com/biow0lf/eve_online.git
+  revision: 23630e23ecb792bd7c0673bc93a04701a95c85ee
+  branch: master
+  specs:
+    eve_online (0.11.0)
+      activesupport (>= 3.0.0)
+      faraday
+      json
+      memoist
+      nori (~> 2.6)
+
+GIT
   remote: https://github.com/jdliss/shoulda-callback-matchers.git
   revision: b8a3680bc1d19ac713e43054a2b33238ce845698
   branch: master
@@ -113,12 +125,6 @@ GEM
       request_store (~> 1.0)
     erubi (1.6.0)
     erubis (2.7.0)
-    eve_online (0.11.0)
-      activesupport (>= 3.0.0)
-      faraday
-      json
-      memoist
-      nori (~> 2.6)
     execjs (2.7.0)
     factory_girl (4.8.0)
       activesupport (>= 3.0.0)
@@ -363,7 +369,7 @@ DEPENDENCIES
   database_rewinder
   dotenv-rails
   draper (= 3.0.0.pre1)
-  eve_online
+  eve_online!
   factory_girl_rails
   faker
   kaminari
@@ -399,4 +405,4 @@ DEPENDENCIES
   webmock
 
 BUNDLED WITH
-   1.15.0.pre.2
+   1.15.0.pre.3
