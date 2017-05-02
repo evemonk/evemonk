@@ -1,4 +1,6 @@
 class ApiKey < ApplicationRecord
+  enum status: [:fresh, :active, :disabled]
+
   belongs_to :user
 
   validates :user, presence: true
