@@ -4,7 +4,7 @@ describe UserDecorator do
   describe '#as_json' do
     let!(:user) { create(:user) }
 
-    subject { user.decorate.as_json }
+    subject { ActiveDecorator::Decorator.instance.decorate(user).as_json }
 
     its([:id]) { should eq(user.id) }
 
