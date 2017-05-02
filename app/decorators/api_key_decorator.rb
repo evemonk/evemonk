@@ -1,6 +1,4 @@
-class ApiKeyDecorator < Draper::Decorator
-  delegate_all
-
+module ApiKeyDecorator
   def as_json(*)
     {
       id: id,
