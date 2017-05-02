@@ -1,7 +1,5 @@
-class SessionDecorator < Draper::Decorator
-  delegate_all
-
-  def as_json(*)
+module SessionDecorator
+  def as_json(context = {})
     {
       id: id,
       name: name,

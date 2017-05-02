@@ -5,7 +5,7 @@ describe SessionDecorator do
     let!(:session) { create(:session) }
 
     context 'with_token: false' do
-      subject { session.decorate(context: { with_token: false }).as_json }
+      subject { ActiveDecorator::Decorator.instance.decorate(session).as_json(with_token: false) }
 
       its([:id]) { should eq(session.id) }
 
@@ -23,7 +23,7 @@ describe SessionDecorator do
     end
 
     context 'with_token: true' do
-      subject { session.decorate(context: { with_token: true }).as_json }
+      subject { ActiveDecorator::Decorator.instance.decorate(session).as_json(with_token: true) }
 
       its([:id]) { should eq(session.id) }
 
