@@ -13,7 +13,7 @@ gem 'eve_online', git: 'https://github.com/biow0lf/eve_online.git', branch: 'mas
 # gem 'eve_online', path: '~/opensource/eve_online'
 gem 'rack-cors', require: 'rack/cors'
 gem 'kaminari'
-gem 'draper', '3.0.0.pre1'
+gem 'active_decorator'
 gem 'dotenv-rails'
 gem 'pundit'
 gem 'sidekiq'
