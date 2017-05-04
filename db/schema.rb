@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(version: 20170502201400) do
     t.bigint "access_mask"
     t.datetime "current_time"
     t.datetime "cached_until"
-    t.integer "status"
+    t.integer "status", default: 0
     t.index ["status"], name: "index_api_keys_on_status"
   end
 
