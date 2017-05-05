@@ -162,7 +162,7 @@ GEM
     mime-types-data (3.2016.0521)
     mini_portile2 (2.1.0)
     minitest (5.10.1)
-    mry (0.48.1.1)
+    mry (0.48.1.2)
     msgpack (1.1.0)
     multi_json (1.12.1)
     multipart-post (2.0.0)
