@@ -162,6 +162,7 @@ GEM
     mime-types-data (3.2016.0521)
     mini_portile2 (2.1.0)
     minitest (5.10.1)
+    mry (0.48.1.1)
     msgpack (1.1.0)
     multi_json (1.12.1)
     multipart-post (2.0.0)
@@ -364,6 +365,7 @@ DEPENDENCIES
   kaminari
   listen (>= 3.0.5, < 3.2)
   lograge
+  mry
   newrelic_rpm
   pg (~> 0.18)
   pg_query

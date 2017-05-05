@@ -39,6 +39,7 @@ group :development, :test do
   gem 'bundler-audit'
   # rubocop version locked due config. Update rubocop config on gem update.
   gem 'rubocop', '0.48.1', require: false
+  gem 'mry'
 end
 
 group :development do
