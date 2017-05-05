@@ -129,6 +129,8 @@ GEM
     globalid (0.4.0)
       activesupport (>= 4.2.0)
     hashdiff (0.3.4)
+    httparty (0.14.0)
+      multi_xml (>= 0.5.2)
     i18n (0.8.1)
     json (2.1.0)
     kaminari (1.0.1)
@@ -143,6 +145,13 @@ GEM
       activerecord
       kaminari-core (= 1.0.1)
     kaminari-core (1.0.1)
+    license_finder (3.0.0)
+      bundler
+      httparty
+      rubyzip
+      thor
+      with_env (> 1.0)
+      xml-simple
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -165,6 +174,7 @@ GEM
     mry (0.48.1.2)
     msgpack (1.1.0)
     multi_json (1.12.1)
+    multi_xml (0.6.0)
     multipart-post (2.0.0)
     net-http-persistent (3.0.0)
       connection_pool (~> 2.2)
@@ -284,6 +294,7 @@ GEM
       unicode-display_width (~> 1.0, >= 1.0.1)
     ruby-progressbar (1.8.1)
     ruby_dep (1.5.0)
+    rubyzip (1.2.1)
     safe_yaml (1.0.4)
     sass (3.4.23)
     sass-rails (5.0.6)
@@ -338,6 +349,8 @@ GEM
     websocket-driver (0.6.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
+    with_env (1.1.0)
+    xml-simple (1.1.5)
 
 PLATFORMS
   ruby
@@ -363,6 +376,7 @@ DEPENDENCIES
   factory_girl_rails
   faker
   kaminari
+  license_finder
   listen (>= 3.0.5, < 3.2)
   lograge
   mry
