@@ -69,4 +69,5 @@ group :test do
   gem 'codeclimate-test-reporter'
   gem 'database_rewinder'
   gem 'webmock'
+  gem 'vcr'
 end
