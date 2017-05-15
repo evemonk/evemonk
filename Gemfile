@@ -21,7 +21,7 @@ gem 'rpush'
 gem 'rack-dev-mark'
 gem 'pghero'
 gem 'pg_query'
-gem 'timber', '~> 2.0'
+# gem 'timber', '~> 2.0'
 
 group :production do
   gem 'lograge'
