@@ -4,6 +4,7 @@ module ApiKeyDecorator
       id: id,
       key_id: key_id,
       v_code: v_code,
+      status: status,
       created_at: created_at.iso8601,
       updated_at: updated_at.iso8601
     }

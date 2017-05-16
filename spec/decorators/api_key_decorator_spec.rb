@@ -4,13 +4,15 @@ describe ApiKeyDecorator do
   describe '#as_json' do
     let!(:api_key) { create(:api_key) }
 
-    subject { ActiveDecorator::Decorator.instance.decorate(api_key).as_json }
+    subject { api_key.decorate.as_json }
 
     its([:id]) { should eq(api_key.id) }
 
     its([:key_id]) { should eq(api_key.key_id) }
 
     its([:v_code]) { should eq(api_key.v_code) }
+
+    its([:status]) { should eq(api_key.status) }
 
     its([:created_at]) { should eq(api_key.created_at.iso8601) }
 
