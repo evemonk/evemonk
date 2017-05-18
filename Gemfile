@@ -48,7 +48,7 @@ group :development do
   gem 'consistency_fail', require: false
   gem 'rails_best_practices'
   gem 'license_finder'
-  # gem 'active_record_doctor'
+  gem 'active_record_doctor'
   gem 'bcrypt_pbkdf' # for rbnacl-libsodium
   gem 'rbnacl', '< 4.0' # for rbnacl-libsodium
   gem 'rbnacl-libsodium' # for ssh-ed25519 support
