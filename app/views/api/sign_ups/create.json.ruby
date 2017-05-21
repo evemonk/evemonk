@@ -1,1 +1,1 @@
-resource.decorate.as_json(with_token: true).to_json
+resource.decorate(context: { with_token: true }).to_json

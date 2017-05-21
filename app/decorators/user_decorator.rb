@@ -1,4 +1,6 @@
-module UserDecorator
+class UserDecorator < Draper::Decorator
+  delegate_all
+
   def as_json(*)
     {
       id: id,
