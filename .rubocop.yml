@@ -33,7 +33,7 @@ AllCops:
     - 'spec/rails_helper.rb'
   DisplayCopNames: true
   DisplayStyleGuide: true
-  TargetRailsVersion: 5.0
+  TargetRailsVersion: 5.1
 
 Rails:
   Enabled: true
