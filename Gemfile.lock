@@ -322,7 +322,7 @@ GEM
       rspec-mocks (~> 3.6.0)
       rspec-support (~> 3.6.0)
     rspec-support (3.6.0)
-    rubocop (0.49.0)
+    rubocop (0.49.1)
       parallel (~> 1.10)
       parser (>= 2.3.3.1, < 3.0)
       powerpack (~> 0.1)
@@ -451,7 +451,7 @@ DEPENDENCIES
   rpush
   rspec-its
   rspec-rails
-  rubocop (= 0.49.0)
+  rubocop (= 0.49.1)
   rubycritic
   sass-rails (~> 5.0)
   shoulda-callback-matchers!

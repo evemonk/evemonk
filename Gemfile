@@ -39,7 +39,7 @@ group :development, :test do
   gem 'sql_tracker'
   gem 'bundler-audit'
   # rubocop version locked due config. Update rubocop config on gem update.
-  gem 'rubocop', '0.49.0', require: false
+  gem 'rubocop', '0.49.1', require: false
   gem 'mry'
   gem 'squasher'
 end
