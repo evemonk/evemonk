@@ -135,3 +135,7 @@ Bundler/OrderedGems:
 # Use %i or %I for an array of symbols.
 Style/SymbolArray:
   Enabled: false
+
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*.rb'
