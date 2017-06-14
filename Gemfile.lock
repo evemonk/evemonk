@@ -289,7 +289,7 @@ GEM
     rbnacl-libsodium (1.0.11)
       rbnacl (>= 3.0.1)
     redis (3.3.3)
-    reek (4.7.0)
+    reek (4.7.1)
       codeclimate-engine-rb (~> 0.4.0)
       parser (>= 2.4.0.0, < 2.5)
       rainbow (~> 2.0)
