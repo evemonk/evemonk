@@ -282,8 +282,8 @@ GEM
       rake
     rake (12.0.0)
     rb-fsevent (0.9.8)
-    rb-inotify (0.9.8)
-      ffi (>= 0.5.0)
+    rb-inotify (0.9.10)
+      ffi (>= 0.5.0, < 2)
     rbnacl (3.4.0)
       ffi
     rbnacl-libsodium (1.0.11)
