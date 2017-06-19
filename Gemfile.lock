@@ -61,7 +61,7 @@ GEM
     ansi (1.5.0)
     arel (8.0.0)
     ast (2.3.0)
-    awesome_print (1.7.0)
+    awesome_print (1.8.0)
     axiom-types (0.1.1)
       descendants_tracker (~> 0.0.4)
       ice_nine (~> 0.11.0)
