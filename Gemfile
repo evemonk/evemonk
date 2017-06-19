@@ -16,7 +16,7 @@ gem 'kaminari'
 gem 'draper'
 gem 'dotenv-rails'
 gem 'pundit'
-gem 'sidekiq'
+gem 'sidekiq', require: false
 gem 'rpush'
 gem 'rack-dev-mark'
 gem 'pghero'
@@ -37,10 +37,10 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'faker'
   gem 'sql_tracker'
-  gem 'bundler-audit'
+  gem 'bundler-audit', require: false
   # rubocop version locked due config. Update rubocop config on gem update.
   gem 'rubocop', '0.49.1', require: false
-  gem 'mry'
+  gem 'mry', require: false
   gem 'squasher'
 end
 
