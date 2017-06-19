@@ -54,11 +54,11 @@ group :development do
   gem 'bcrypt_pbkdf' # for rbnacl-libsodium
   gem 'rbnacl', '< 4.0' # for rbnacl-libsodium
   gem 'rbnacl-libsodium' # for ssh-ed25519 support
-  gem 'capistrano'
-  gem 'capistrano-rails'
-  gem 'capistrano-faster-assets'
-  gem 'capistrano-rbenv'
-  gem 'capistrano-rbenv-install'
+  gem 'capistrano', require: false
+  gem 'capistrano-rails', require: false
+  gem 'capistrano-faster-assets', require: false
+  gem 'capistrano-rbenv', require: false
+  gem 'capistrano-rbenv-install', require: false
 end
 
 group :test do
