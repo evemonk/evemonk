@@ -15,7 +15,6 @@ gem 'rack-cors', require: 'rack/cors'
 gem 'kaminari'
 gem 'draper'
 gem 'dotenv-rails'
-gem 'pundit'
 gem 'sidekiq', require: false
 gem 'rpush'
 gem 'rack-dev-mark'

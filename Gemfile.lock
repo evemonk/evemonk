@@ -234,8 +234,6 @@ GEM
       pry (>= 0.10.4)
     public_suffix (2.0.5)
     puma (3.9.1)
-    pundit (1.1.0)
-      activesupport (>= 3.0.0)
     rack (2.0.3)
     rack-cors (1.0.1)
     rack-dev-mark (0.7.6)
@@ -446,7 +444,6 @@ DEPENDENCIES
   pghero
   pry-rails
   puma (~> 3.7)
-  pundit
   rack-cors
   rack-dev-mark
   rails (~> 5.1.2)
