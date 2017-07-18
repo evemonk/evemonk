@@ -59,7 +59,7 @@ group :development do
   gem 'capistrano-faster-assets', require: false
   gem 'capistrano-rbenv', require: false
   gem 'capistrano-rbenv-install', require: false
-  gem 'overcommit', require: false
+  # gem 'overcommit', require: false
 end
 
 group :test do
