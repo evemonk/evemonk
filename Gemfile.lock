@@ -237,7 +237,7 @@ GEM
     pundit (1.1.0)
       activesupport (>= 3.0.0)
     rack (2.0.3)
-    rack-cors (1.0.0)
+    rack-cors (1.0.1)
     rack-dev-mark (0.7.6)
       rack (>= 1.1, < 2.1)
     rack-protection (2.0.0)
