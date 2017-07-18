@@ -1,6 +1,5 @@
 require 'rails_helper'
 
-# rubocop:disable Metrics/BlockLength
 describe Api::SessionsController do
   it { should be_a(Api::BaseController) }
 
@@ -118,17 +117,12 @@ describe Api::SessionsController do
 
       before do
         #
-        # subject.policy_scope(Session)
-        #        .order(created_at: :asc)
+        # Session.order(created_at: :asc)
         #        .page(params[:page])
         #
-        expect(subject).to receive(:policy_scope).with(Session) do
+        expect(Session).to receive(:order).with(created_at: :asc) do
           double.tap do |a|
-            expect(a).to receive(:order).with(created_at: :asc) do
-              double.tap do |b|
-                expect(b).to receive(:page).with(params[:page]).and_return(sessions)
-              end
-            end
+            expect(a).to receive(:page).with(params[:page]).and_return(sessions)
           end
         end
       end
