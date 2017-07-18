@@ -41,7 +41,7 @@ group :development, :test do
   # rubocop version locked due config. Update rubocop config on gem update.
   gem 'rubocop', '0.49.1', require: false
   gem 'mry', require: false
-  gem 'squasher'
+  gem 'squasher', require: false
 end
 
 group :development do
