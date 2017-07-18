@@ -1,38 +1,22 @@
 module Api
   class BaseController < ApplicationController
-    include Pundit
-
     before_action :authenticate!
-
-    after_action :verify_authorized, except: :index
-
-    after_action :verify_policy_scoped, only: :index
 
     attr_reader :current_user
 
     helper_method :parent, :collection, :resource, :current_user
 
-    def show
-      authorize(resource)
-    end
-
     def create
       build_resource
-
-      authorize(resource)
 
       resource.save!
     end
 
     def update
-      authorize(resource)
-
       resource.update!(resource_params)
     end
 
     def destroy
-      authorize(resource)
-
       resource.destroy!
 
       head :ok
@@ -53,9 +37,9 @@ module Api
       head :not_found
     end
 
-    rescue_from Pundit::NotAuthorizedError do
-      head :forbidden
-    end
+    # rescue_from Pundit::NotAuthorizedError do
+    #   head :forbidden
+    # end
 
     rescue_from ActionController::UnknownFormat do
       head :not_acceptable
