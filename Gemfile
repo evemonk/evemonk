@@ -21,7 +21,6 @@ gem 'rpush'
 gem 'rack-dev-mark'
 gem 'pghero'
 gem 'pg_query'
-# gem 'timber', '~> 2.0'
 gem 'rubycritic', require: false
 
 group :production do
