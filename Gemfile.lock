@@ -457,7 +457,7 @@ DEPENDENCIES
   rpush
   rspec-its
   rspec-rails
-  rubocop (= 0.49.1)
+  rubocop
   rubycritic
   sass-rails (~> 5.0)
   shoulda-callback-matchers!

@@ -38,8 +38,7 @@ group :development, :test do
   gem 'faker'
   gem 'sql_tracker'
   gem 'bundler-audit', require: false
-  # rubocop version locked due config. Update rubocop config on gem update.
-  gem 'rubocop', '0.49.1', require: false
+  gem 'rubocop', require: false
   gem 'mry', require: false
   gem 'squasher', require: false
 end
