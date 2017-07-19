@@ -24,6 +24,7 @@ AllCops:
     - 'bin/license_finder'
     - 'bin/rubycritic'
     - 'bin/mry'
+    - 'bin/squasher'
     - 'config/initializers/assets.rb'
     - 'config/initializers/backtrace_silencers.rb'
     - 'config/initializers/new_framework_defaults.rb'
