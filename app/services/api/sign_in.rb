@@ -2,7 +2,13 @@ module Api
   class SignIn
     include ActiveModel::Validations
 
-    attr_reader :email, :password, :name, :device, :device_token, :session
+    attr_accessor :email, :password
+
+    attr_reader :name, :device, :device_token, :session
+
+    validates :email, presence: true
+
+    validates :password, presence: true
 
     validate :user_presence
 

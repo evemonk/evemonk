@@ -1,9 +1,13 @@
 require 'rails_helper'
 
-describe Api::SignIn do
+describe Api::SignIn, type: :model do
   it { should be_a(ActiveModel::Validations) }
 
   it { should delegate_method(:decorate).to(:session) }
+
+  it { should validate_presence_of(:email) }
+
+  it { should validate_presence_of(:password) }
 
   describe '#initialize' do
     let(:params) do
