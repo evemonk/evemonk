@@ -59,7 +59,7 @@ module Api
           #     key :'$ref', :SignInsUnprocessableEntity
           #   end
           # end
-          # extend Api::Docs::Shared::NotAcceptable
+          extend Api::Docs::Shared::NotAcceptable
         end
       end
       # :nocov:

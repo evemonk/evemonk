@@ -13,7 +13,7 @@ module Api
           response '200' do
             key :description, 'Success'
           end
-          # extend Api::Docs::Shared::Unauthorized
+          extend Api::Docs::Shared::Unauthorized
         end
       end
       # :nocov:
