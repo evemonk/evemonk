@@ -1,6 +1,5 @@
 require 'rails_helper'
 
-# rubocop:disable Metrics/BlockLength
 describe Api::SignIn do
   it { should be_a(ActiveModel::Validations) }
 

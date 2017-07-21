@@ -1,6 +1,5 @@
 require 'rails_helper'
 
-# rubocop:disable Metrics/BlockLength
 describe Api::ProfilesController do
   it { should use_before_action(:authenticate!) }
 
