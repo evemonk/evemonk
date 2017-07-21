@@ -14,15 +14,15 @@ module Api
       end
       tag do
         key :name, 'sign up'
-        key :description, 'Sign Up operations'
+        key :description, 'Sign up operations'
       end
       tag do
         key :name, 'sign in'
-        key :description, 'Sign In operations'
+        key :description, 'Sign in operations'
       end
       tag do
         key :name, 'sign out'
-        key :description, 'Sign Out operations'
+        key :description, 'Sign out operations'
       end
       tag do
         key :name, 'profile'

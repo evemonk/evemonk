@@ -19,12 +19,6 @@ consumes:
 produces:
   - application/json
 tags:
-  - name: sign up
-    description: Sign up operations
-  - name: sign in
-    description: Sign in operations
-  - name: sign out
-    description: Sign out operations
   - name: sessions
     description: Session operations
   - name: profile
