@@ -71,7 +71,7 @@ describe Api::SignUp do
 
       before do
         #
-        # User.new(params)
+        # User.new(params) => user
         #
         expect(User).to receive(:new).with(params).and_return(user)
       end
