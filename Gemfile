@@ -21,6 +21,7 @@ gem 'rack-dev-mark'
 gem 'pghero'
 gem 'pg_query'
 gem 'rubycritic', require: false
+gem 'swagger-blocks'
 
 group :production do
   gem 'lograge'
