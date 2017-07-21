@@ -1,18 +1,21 @@
 require 'rails_helper'
 
-# rubocop:disable Metrics/BlockLength
 describe Api::SignUpsController do
   it { should be_a(Api::BaseController) }
 
   it { should_not use_before_action(:authenticate!) }
 
-  describe '#create.json' do
+  describe '#create.' do
     context 'user successfully created' do
       before do
-        post :create, params: { email: 'me@example.com',
-                                password: 'password',
-                                password_confirmation: 'password',
-                                format: :json }
+        post :create, params: {
+          sign_up: {
+            email: 'me@example.com',
+            password: 'password',
+            password_confirmation: 'password'
+          },
+          format: :json
+        }
       end
 
       it { should render_template(:create) }
@@ -22,39 +25,34 @@ describe Api::SignUpsController do
 
     context 'unprocessable entity' do
       before do
-        post :create, params: { email: 'me@example.com',
-                                password: 'password',
-                                password_confirmation: 'wrong confirmation',
-                                format: :json }
+        post :create, params: {
+          sign_up: {
+            email: 'me@example.com',
+            password: 'password',
+            password_confirmation: 'wrong confirmation'
+          },
+          format: :json
+        }
       end
 
       it { should render_template(:errors) }
 
       it { should respond_with(:unprocessable_entity) }
     end
-  end
 
-  describe '#create.html' do
-    context 'user successfully created' do
+    context 'not supported accept:' do
       before do
-        post :create, params: { email: 'me@example.com',
-                                password: 'password',
-                                password_confirmation: 'password',
-                                format: :html }
+        post :create, params: {
+          sign_up: {
+            email: 'me@example.com',
+            password: 'password',
+            password_confirmation: 'password'
+          },
+          format: :html
+        }
       end
 
       it { should respond_with(:not_acceptable) }
-    end
-
-    context 'unprocessable entity' do
-      before do
-        post :create, params: { email: 'me@example.com',
-                                password: 'password',
-                                password_confirmation: 'wrong confirmation',
-                                format: :html }
-      end
-
-      pending { should respond_with(:unprocessable_entity) }
     end
   end
 
@@ -85,11 +83,15 @@ describe Api::SignUpsController do
   describe '#resource_params' do
     before do
       #
-      # subject.params.permit(:email, :password, :password_confirmation)
+      # subject.params.require(:sign_up).permit(:email, :password, :password_confirmation)
       #
       expect(subject).to receive(:params) do
         double.tap do |a|
-          expect(a).to receive(:permit).with(:email, :password, :password_confirmation)
+          expect(a).to receive(:require).with(:sign_up) do
+            double.tap do |b|
+              expect(b).to receive(:permit).with(:email, :password, :password_confirmation)
+            end
+          end
         end
       end
     end
