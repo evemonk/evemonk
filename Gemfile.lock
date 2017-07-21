@@ -156,7 +156,7 @@ GEM
     globalid (0.4.0)
       activesupport (>= 4.2.0)
     hashdiff (0.3.4)
-    httparty (0.15.5)
+    httparty (0.15.6)
       multi_xml (>= 0.5.2)
     i18n (0.8.6)
     ice_nine (0.11.2)
