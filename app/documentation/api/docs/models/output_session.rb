@@ -6,7 +6,7 @@ module Api
         include Swagger::Blocks
 
         swagger_schema :OutputSession do
-          key :required, [:id, :token, :name, :devive, :device_token,
+          key :required, [:id, :token, :name, :device, :device_token,
                           :created_at, :updated_at]
           property :id do
             key :type, :integer
