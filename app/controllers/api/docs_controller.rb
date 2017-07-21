@@ -49,15 +49,17 @@ module Api
         key :format, :int64
       end
     end
-  
+
     # A list of all classes that have swagger_* declarations.
     SWAGGERED_CLASSES = [
       Api::Docs::Models::OutputSession,
 
+      Api::Docs::SignIns,
+
       self
     ].freeze
     # :nocov:
-  
+
     def index
       render json: Swagger::Blocks.build_root_json(SWAGGERED_CLASSES)
     end
