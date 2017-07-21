@@ -28,8 +28,8 @@ module Api
           end
           key :example, id: 42,
                         email: 'me@example.com',
-                        created_at: Time.zone.now.iso8601,
-                        updated_at: Time.zone.now.iso8601
+                        created_at: '2016-12-12T18:35:59Z',
+                        updated_at: '2016-12-12T18:36:10Z'
         end
         # :nocov:
       end

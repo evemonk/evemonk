@@ -25,42 +25,6 @@ tags:
     description: Profile operations
 
 paths:
-  /sign_up:
-    post:
-      summary: Sign up
-      description: Sign up endpoint.
-      parameters:
-        - name: email
-          in: formData
-          description: User email
-          required: true
-          type: string
-        - name: password
-          in: formData
-          description: User password
-          required: true
-          type: string
-          format: password
-        - name: password_confirmation
-          in: formData
-          description: User password confirmation
-          required: true
-          type: string
-          format: password
-      tags:
-        - sign up
-      responses:
-        '200':
-          description: Account created
-          schema:
-            $ref: '#/definitions/OutputSession'
-        '406':
-          description: Content type not supported
-        '422':
-          description: Unprocessable Entity
-          schema:
-            $ref: '#/definitions/Error'
-
   /sessions:
     get:
       summary: Get all user sessions
@@ -142,33 +106,6 @@ paths:
           description: Content type not supported
 
 definitions:
-  OutputUser:
-    required:
-      - id
-      - email
-      - created_at
-      - updated_at
-    type: object
-    properties:
-      id:
-        type: integer
-        format: int64
-        description: User ID
-      email:
-        type: string
-        description: User email
-      created_at:
-        type: string
-        description: Created at in ISO8601 format
-      updated_at:
-        type: string
-        description: Updated at in ISO8601 format
-    example:
-      id: 42
-      email: 'me@example.com'
-      created_at: '2016-12-12T18:35:59Z'
-      updated_at: '2016-12-12T18:36:10Z'
-
   OutputSessionWithoutToken:
     required:
       - id
