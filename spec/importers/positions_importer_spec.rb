@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe PositionsImporter do # rubocop:disable Metrics/BlockLength
+describe PositionsImporter do
   describe '#initialize' do
     let(:file) { double }
 
