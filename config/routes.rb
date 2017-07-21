@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   end
 
   namespace :api, defaults: { format: 'json' } do
+    resources :docs, only: :index
+
     resource :sign_up, only: :create
 
     resource :sign_in, only: :create
@@ -12,8 +14,6 @@ Rails.application.routes.draw do
     resource :sign_out, only: :destroy
 
     resources :sessions, only: [:index, :destroy]
-
-    resources :api_keys, only: [:index, :create, :show, :update, :destroy]
 
     resource :profile, only: :show
   end

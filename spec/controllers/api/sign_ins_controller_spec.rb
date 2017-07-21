@@ -1,17 +1,22 @@
 require 'rails_helper'
 
-# rubocop:disable Metrics/BlockLength
 describe Api::SignInsController do
   it { should be_a(Api::BaseController) }
 
   it { should_not use_before_action(:authenticate!) }
 
-  describe '#create.json' do
+  describe '#create' do
     context 'successful authorization' do
-      let!(:user) { create(:user, password: 'password') }
+      let!(:user) { create(:user, email: 'me@example.com', password: 'password') }
 
       before do
-        post :create, params: { email: user.email, password: 'password', format: :json }
+        post :create, params: {
+          sign_in: {
+            email: 'me@example.com',
+            password: 'password'
+          },
+          format: :json
+        }
       end
 
       it { should render_template(:create) }
@@ -19,34 +24,62 @@ describe Api::SignInsController do
       it { should respond_with(:ok) }
     end
 
-    context 'failed authorization' do
+    context 'wrong password' do
+      let!(:user) { create(:user, email: 'me@example.com', password: 'password') }
+
       before do
-        post :create, params: { email: 'me@example.com', password: 'password', format: :json }
+        post :create, params: {
+          sign_in: {
+            email: 'me@example.com',
+            password: 'another-password'
+          },
+          format: :json
+        }
       end
 
       it { should render_template(:errors) }
 
       it { should respond_with(:unprocessable_entity) }
     end
-  end
 
-  describe '#create.html' do
-    context 'successful authorization' do
-      let!(:user) { create(:user, password: 'password') }
+    context 'user not found' do
+      before do
+        post :create, params: {
+          sign_in: {
+            email: 'me@example.com',
+            password: 'password'
+          },
+          format: :json
+        }
+      end
+
+      it { should render_template(:errors) }
+
+      it { should respond_with(:unprocessable_entity) }
+    end
+
+    context 'unprocessable entity due missing key' do
+      before { post :create, params: { format: :json } }
+
+      it { should render_template(:exception) }
+
+      it { should respond_with(:unprocessable_entity) }
+    end
+
+    context 'not supported accept:' do
+      let!(:user) { create(:user, email: 'me@example.com', password: 'password') }
 
       before do
-        post :create, params: { email: user.email, password: 'password', format: :html }
+        post :create, params: {
+          sign_in: {
+            email: 'me@example.com',
+            password: 'password'
+          },
+          format: :html
+        }
       end
 
       it { should respond_with(:not_acceptable) }
-    end
-
-    context 'failed authorization' do
-      before do
-        post :create, params: { email: 'me@example.com', password: 'password', format: :html }
-      end
-
-      pending { should respond_with(:not_acceptable) }
     end
   end
 
@@ -77,11 +110,15 @@ describe Api::SignInsController do
   describe '#resource_params' do
     before do
       #
-      # subject.params.permit(:email, :password, :name, :device, :device_token)
+      # subject.params.require(:sign_in).permit(:email, :password, :name, :device, :device_token)
       #
       expect(subject).to receive(:params) do
         double.tap do |a|
-          expect(a).to receive(:permit).with(:email, :password, :name, :device, :device_token)
+          expect(a).to receive(:require).with(:sign_in) do
+            double.tap do |b|
+              expect(b).to receive(:permit).with(:email, :password, :name, :device, :device_token)
+            end
+          end
         end
       end
     end

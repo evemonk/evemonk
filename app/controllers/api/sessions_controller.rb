@@ -7,8 +7,8 @@ module Api
     end
 
     def collection
-      @sessions ||= policy_scope(Session).order(created_at: :asc)
-                                         .page(params[:page])
+      @sessions ||= Session.order(created_at: :asc)
+                           .page(params[:page])
     end
   end
 end

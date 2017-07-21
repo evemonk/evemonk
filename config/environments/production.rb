@@ -96,8 +96,8 @@ Rails.application.configure do
   config.active_job.queue_adapter = :sidekiq
 
   # Install the Timber.io logger, send logs over HTTP
-  log_device = Timber::LogDevices::HTTP.new(ENV['TIMBER_API_KEY'])
-  logger = Timber::Logger.new(log_device)
-  logger.level = config.log_level
-  config.logger = ActiveSupport::TaggedLogging.new(logger)
+  # log_device = Timber::LogDevices::HTTP.new(ENV['TIMBER_API_KEY'])
+  # logger = Timber::Logger.new(log_device)
+  # logger.level = config.log_level
+  # config.logger = ActiveSupport::TaggedLogging.new(logger)
 end

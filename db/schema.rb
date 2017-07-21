@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170425135545) do
+ActiveRecord::Schema.define(version: 20170718203303) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,19 +40,6 @@ ActiveRecord::Schema.define(version: 20170425135545) do
     t.integer "type_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "api_keys", id: :serial, force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "key_id"
-    t.string "v_code"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.datetime "expires"
-    t.string "api_key_type"
-    t.bigint "access_mask"
-    t.datetime "current_time"
-    t.datetime "cached_until"
   end
 
   create_table "chr_races", id: :serial, force: :cascade do |t|
@@ -182,6 +169,5 @@ ActiveRecord::Schema.define(version: 20170425135545) do
     t.index "lower((email)::text)", name: "index_users_on_LOWER_email", unique: true
   end
 
-  add_foreign_key "api_keys", "users"
   add_foreign_key "sessions", "users"
 end

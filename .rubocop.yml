@@ -21,6 +21,10 @@ AllCops:
     - 'bin/sidekiqctl'
     - 'bin/whenever'
     - 'bin/wheneverize'
+    - 'bin/license_finder'
+    - 'bin/rubycritic'
+    - 'bin/mry'
+    - 'bin/squasher'
     - 'config/initializers/assets.rb'
     - 'config/initializers/backtrace_silencers.rb'
     - 'config/initializers/new_framework_defaults.rb'
@@ -30,7 +34,7 @@ AllCops:
     - 'spec/rails_helper.rb'
   DisplayCopNames: true
   DisplayStyleGuide: true
-  TargetRailsVersion: 5.0
+  TargetRailsVersion: 5.1
 
 Rails:
   Enabled: true
@@ -43,11 +47,9 @@ Style/BlockComments:
 Style/Documentation:
   Enabled: false
 
-# Recheck this cop later
-Style/DotPosition:
-  Description: 'Checks the position of the dot in multi-line method calls.'
-  StyleGuide: '#consistent-multi-line-chains'
+Layout/DotPosition:
   Enabled: true
+  EnforcedStyle: leading
 
 Style/FrozenStringLiteralComment:
   Enabled: true
@@ -80,7 +82,7 @@ Style/SignalException:
   Enabled: true
 
 # Enable with EnforcedStyle is space
-Style/SpaceInsideStringInterpolation:
+Layout/SpaceInsideStringInterpolation:
   EnforcedStyle: space
   Enabled: true
 
@@ -124,7 +126,7 @@ Style/MethodCalledOnDoEndBlock:
   Enabled: true
 
 # Check for a newline after the assignment operator in multi-line assignments
-Style/MultilineAssignmentLayout:
+Layout/MultilineAssignmentLayout:
   Enabled: true
 
 # Just ignore order of gems in Gemfile
@@ -134,3 +136,7 @@ Bundler/OrderedGems:
 # Use %i or %I for an array of symbols.
 Style/SymbolArray:
   Enabled: false
+
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*.rb'

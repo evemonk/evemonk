@@ -1,11 +1,10 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~> 5.1.0'
+gem 'rails', '~> 5.1.2'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.7'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 
 gem 'bcrypt'
@@ -14,15 +13,15 @@ gem 'eve_online'
 # gem 'eve_online', path: '~/opensource/eve_online'
 gem 'rack-cors', require: 'rack/cors'
 gem 'kaminari'
-gem 'draper', '3.0.0.pre1'
+gem 'draper'
 gem 'dotenv-rails'
-gem 'pundit'
-gem 'sidekiq'
+gem 'sidekiq', require: false
 gem 'rpush'
 gem 'rack-dev-mark'
 gem 'pghero'
 gem 'pg_query'
-gem 'timber', '~> 2.0'
+gem 'rubycritic', require: false
+gem 'swagger-blocks'
 
 group :production do
   gem 'lograge'
@@ -37,9 +36,10 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'faker'
   gem 'sql_tracker'
-  gem 'bundler-audit'
-  # rubocop version locked due config. Update rubocop config on gem update.
-  gem 'rubocop', '0.48.1', require: false
+  gem 'bundler-audit', require: false
+  gem 'rubocop', require: false
+  gem 'mry', require: false
+  gem 'squasher', require: false
 end
 
 group :development do
@@ -47,15 +47,17 @@ group :development do
   gem 'brakeman', require: false
   gem 'consistency_fail', require: false
   gem 'rails_best_practices'
-  # gem 'active_record_doctor'
+  gem 'license_finder'
+  gem 'active_record_doctor'
   gem 'bcrypt_pbkdf' # for rbnacl-libsodium
   gem 'rbnacl', '< 4.0' # for rbnacl-libsodium
   gem 'rbnacl-libsodium' # for ssh-ed25519 support
-  gem 'capistrano'
-  gem 'capistrano-rails'
-  gem 'capistrano-faster-assets'
-  gem 'capistrano-rbenv'
-  gem 'capistrano-rbenv-install'
+  gem 'capistrano', require: false
+  gem 'capistrano-rails', require: false
+  gem 'capistrano-faster-assets', require: false
+  gem 'capistrano-rbenv', require: false
+  gem 'capistrano-rbenv-install', require: false
+  # gem 'overcommit', require: false
 end
 
 group :test do
@@ -66,7 +68,7 @@ group :test do
                                    branch: 'master'
   gem 'simplecov'
   gem 'codeclimate-test-reporter'
-  gem 'database_rewinder', git: 'https://github.com/amatsuda/database_rewinder.git',
-                           branch: 'master'
+  gem 'database_rewinder'
   gem 'webmock'
+  gem 'vcr'
 end

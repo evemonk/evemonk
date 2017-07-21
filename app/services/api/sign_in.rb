@@ -8,7 +8,7 @@ module Api
 
     validate :user_password
 
-    delegate :decorate, to: :session, prefix: nil
+    delegate :decorate, to: :session
 
     def initialize(params = {})
       @email = params[:email]

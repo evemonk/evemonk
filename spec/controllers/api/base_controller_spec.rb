@@ -1,16 +1,9 @@
 require 'rails_helper'
 
-# rubocop:disable Metrics/BlockLength
 describe Api::BaseController do
   it { should be_a(ApplicationController) }
 
-  it { should be_a(Pundit) }
-
   it { should use_before_action(:authenticate!) }
-
-  pending { should use_after_action(:verify_authorized).except(:index) }
-
-  pending { should use_after_action(:verify_policy_scoped).only(:index) }
 
   describe '#current_user' do
     let!(:user) { create(:user) }
@@ -20,24 +13,12 @@ describe Api::BaseController do
     specify { expect(subject.current_user).to eq(user) }
   end
 
-  describe '#show' do
-    let(:resource) { double }
-
-    before { expect(subject).to receive(:resource).and_return(resource) }
-
-    before { expect(subject).to receive(:authorize).with(resource) }
-
-    specify { expect { subject.show }.not_to raise_error }
-  end
-
   describe '#create' do
     let(:resource) { double }
 
     before { expect(subject).to receive(:build_resource) }
 
-    before { expect(subject).to receive(:resource).and_return(resource).twice }
-
-    before { expect(subject).to receive(:authorize).with(resource) }
+    before { expect(subject).to receive(:resource).and_return(resource) }
 
     before { expect(resource).to receive(:save!) }
 
@@ -49,9 +30,7 @@ describe Api::BaseController do
 
     let(:resource_params) { double }
 
-    before { expect(subject).to receive(:resource).and_return(resource).twice }
-
-    before { expect(subject).to receive(:authorize).with(resource) }
+    before { expect(subject).to receive(:resource).and_return(resource) }
 
     before { expect(subject).to receive(:resource_params).and_return(resource_params) }
 
@@ -63,9 +42,7 @@ describe Api::BaseController do
   describe '#destroy' do
     let(:resource) { double }
 
-    before { expect(subject).to receive(:resource).and_return(resource).twice }
-
-    before { expect(subject).to receive(:authorize).with(resource) }
+    before { expect(subject).to receive(:resource).and_return(resource) }
 
     before { expect(resource).to receive(:destroy!) }
 
@@ -81,8 +58,6 @@ describe Api::BaseController do
   it { should rescue_from(ActiveModel::StrictValidationFailed) }
 
   it { should rescue_from(ActiveRecord::RecordNotFound) }
-
-  it { should rescue_from(Pundit::NotAuthorizedError) }
 
   it { should rescue_from(ActionController::UnknownFormat) }
 
