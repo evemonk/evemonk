@@ -55,6 +55,7 @@ module Api
       Api::Docs::Models::OutputSession,
 
       Api::Docs::SignIns,
+      Api::Docs::SignOuts,
 
       self
     ].freeze
