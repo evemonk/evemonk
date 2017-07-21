@@ -72,22 +72,6 @@ paths:
       summary: Get user session with auth token
       description: Signin user and return user session with auth token.
       parameters:
-        - name: email
-          in: formData
-          description: User email
-          required: true
-          type: string
-        - name: password
-          in: formData
-          description: User password
-          required: true
-          type: string
-          format: password
-        - name: name
-          in: formData
-          description: Session name
-          required: false
-          type: string
         - name: device
           in: formData
           required: false
