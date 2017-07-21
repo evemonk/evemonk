@@ -34,10 +34,10 @@ describe Api::SignIn, type: :model do
   end
 
   describe '#save!' do
-    let!(:user) { create(:user, password: 'password') }
+    let!(:user) { create(:user, email: 'me@example.com', password: 'password') }
 
     context 'not valid' do
-      let(:params) { { email: user.email, password: 'wrong password' } }
+      let(:params) { { email: 'me@example.com', password: 'wrong password' } }
 
       subject { described_class.new(params) }
 
@@ -45,7 +45,7 @@ describe Api::SignIn, type: :model do
     end
 
     context 'valid' do
-      let(:params) { { email: user.email, password: 'password' } }
+      let(:params) { { email: 'me@example.com', password: 'password' } }
 
       subject { described_class.new(params) }
 
@@ -58,15 +58,29 @@ describe Api::SignIn, type: :model do
   # private methods
 
   describe '#user' do
-    let!(:user) { create(:user, email: 'igor.zubkov@gmail.com') }
+    context 'case sensitive login' do
+      let!(:user) { create(:user, email: 'me@example.com') }
 
-    let(:params) { { email: 'Igor.Zubkov@gmail.com' } }
+      let(:params) { { email: 'me@example.com' } }
 
-    subject { described_class.new(params) }
+      subject { described_class.new(params) }
 
-    specify { expect(subject.send(:user)).to eq(user) }
+      specify { expect(subject.send(:user)).to eq(user) }
 
-    specify { expect { subject.send(:user) }.to change { subject.instance_variable_get(:@user) }.from(nil).to(user) }
+      specify { expect { subject.send(:user) }.to change { subject.instance_variable_get(:@user) }.from(nil).to(user) }
+    end
+
+    context 'case insensitive login' do
+      let!(:user) { create(:user, email: 'me@example.com') }
+
+      let(:params) { { email: 'ME@EXAMPLE.COM' } }
+
+      subject { described_class.new(params) }
+
+      specify { expect(subject.send(:user)).to eq(user) }
+
+      specify { expect { subject.send(:user) }.to change { subject.instance_variable_get(:@user) }.from(nil).to(user) }
+    end
   end
 
   describe '#user_presence' do
