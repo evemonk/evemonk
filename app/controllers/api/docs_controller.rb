@@ -58,6 +58,7 @@ module Api
       Api::Docs::Models::SignInsUnprocessableEntity,
       Api::Docs::Models::SignUpsUnprocessableEntity,
 
+      Api::Docs::Profiles,
       Api::Docs::SignIns,
       Api::Docs::SignOuts,
       Api::Docs::SignUps,

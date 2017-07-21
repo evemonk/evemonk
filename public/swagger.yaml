@@ -82,29 +82,6 @@ paths:
         '404':
           description: Session not found
 
-  /profile:
-    get:
-      summary: Get current user profile
-      description: Get current user profile
-      parameters:
-        - name: Authorization
-          in: header
-          description: 'User auth token. Example: Bearer AAkoMiLatQHMngyuUU1vnh5b'
-          default: Bearer ACCESS_TOKEN
-          required: true
-          type: string
-      tags:
-        - profile
-      responses:
-        '200':
-          description: Response with current user
-          schema:
-            $ref: '#/definitions/OutputUser'
-        '401':
-          description: Unauthorized
-        '406':
-          description: Content type not supported
-
 definitions:
   OutputSessionWithoutToken:
     required:
