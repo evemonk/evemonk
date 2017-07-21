@@ -3,7 +3,7 @@ require 'rails_helper'
 describe Api::ProfilesController do
   it { should use_before_action(:authenticate!) }
 
-  describe '#show.json' do
+  describe '#show' do
     context 'authorized' do
       let!(:session) { create(:session) }
 
@@ -21,10 +21,8 @@ describe Api::ProfilesController do
 
       it { should respond_with(:unauthorized) }
     end
-  end
 
-  describe '#show.html' do
-    context 'authorized' do
+    context 'not supported accept:' do
       let!(:session) { create(:session) }
 
       before { request.env['HTTP_AUTHORIZATION'] = "Bearer #{ session.token }" }
@@ -32,12 +30,6 @@ describe Api::ProfilesController do
       before { get :show, format: :html }
 
       it { should respond_with(:not_acceptable) }
-    end
-
-    context 'not authorized' do
-      before { get :show, format: :html }
-
-      it { should respond_with(:unauthorized) }
     end
   end
 
