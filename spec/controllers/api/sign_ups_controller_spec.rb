@@ -5,7 +5,7 @@ describe Api::SignUpsController do
 
   it { should_not use_before_action(:authenticate!) }
 
-  describe '#create.' do
+  describe '#create' do
     context 'user successfully created' do
       before do
         post :create, params: {
@@ -23,7 +23,7 @@ describe Api::SignUpsController do
       it { should respond_with(:ok) }
     end
 
-    context 'unprocessable entity' do
+    context 'unprocessable entity due validations' do
       before do
         post :create, params: {
           sign_up: {
@@ -36,6 +36,16 @@ describe Api::SignUpsController do
       end
 
       it { should render_template(:errors) }
+
+      it { should respond_with(:unprocessable_entity) }
+    end
+
+    context 'unprocessable entity due missing key' do
+      before do
+        post :create, params: { format: :json }
+      end
+
+      it { should render_template(:exception) }
 
       it { should respond_with(:unprocessable_entity) }
     end
