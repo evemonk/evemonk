@@ -38,6 +38,7 @@ group :development, :test do
   gem 'sql_tracker'
   gem 'bundler-audit', require: false
   gem 'rubocop', require: false
+  gem 'rubocop-thread_safety'
   gem 'mry', require: false
   gem 'squasher', require: false
 end

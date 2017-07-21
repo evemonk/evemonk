@@ -167,6 +167,19 @@ Style/ConditionalAssignment:
 Style/NegatedIf:
   Enabled: false
 
+# rubocop-thread_safety
+ThreadSafety:
+  Enabled: true
+
+Style/GlobalVars:
+  Enabled: true
+
+Style/ClassVars:
+  Enabled: true
+
+Style/MutableConstant:
+  Enabled: true
+
 # rubocop-rspec
 RSpec/NamedSubject:
   Enabled: false
