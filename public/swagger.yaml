@@ -240,51 +240,6 @@ definitions:
       created_at: '2016-12-12T18:35:59Z'
       updated_at: '2016-12-12T18:36:10Z'
 
-  OutputSession:
-    required:
-      - id
-      - token
-      - name
-      - device
-      - device_token
-      - created_at
-      - updated_at
-    type: object
-    properties:
-      id:
-        type: integer
-        format: int64
-        description: Session ID
-      token:
-        type: string
-        description: Session token
-      name:
-        type: string
-        description: Session name
-      device:
-        type: string
-        description: Session device type
-        enum:
-          - ios
-          - android
-      device_token:
-        type: string
-        decription: Session device push notification token
-      created_at:
-        type: string
-        description: Created at in ISO8601 format
-      updated_at:
-        type: string
-        description: Updated at in ISO8601 format
-    example:
-      id: 123
-      token: 'AAkoMiLatQHMngyuUU1vnh5b'
-      name: 'My Computer'
-      device: 'ios'
-      device_token: 'ce8be6272e43e85516033e24b4c289220eeda4879c477160b2545e95b68b5969'
-      created_at: '2016-12-12T18:35:59Z'
-      updated_at: '2016-12-12T18:36:10Z'
-
   OutputSessionWithoutToken:
     required:
       - id
