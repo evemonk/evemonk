@@ -53,9 +53,11 @@ module Api
     # A list of all classes that have swagger_* declarations.
     SWAGGERED_CLASSES = [
       Api::Docs::Models::OutputSession,
+      Api::Docs::Models::OutputUser,
 
       Api::Docs::SignIns,
       Api::Docs::SignOuts,
+      Api::Docs::SignUps,
 
       self
     ].freeze
