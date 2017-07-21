@@ -67,55 +67,6 @@ paths:
           schema:
             $ref: '#/definitions/Error'
 
-  /sign_in:
-    post:
-      summary: Get user session with auth token
-      description: Signin user and return user session with auth token.
-      parameters:
-        - name: device
-          in: formData
-          required: false
-          type: string
-          enum:
-            - ios
-            - android
-        - name: device_token
-          in: formData
-          required: false
-          type: string
-      tags:
-        - sign in
-      responses:
-        '200':
-          description: Response with session
-          schema:
-            $ref: '#/definitions/OutputSession'
-        '406':
-          description: Content type not supported
-        '422':
-          description: Unprocessable Entity
-          schema:
-            $ref: '#/definitions/Error'
-
-  /sign_out:
-    delete:
-      summary: End session
-      description: End session
-      parameters:
-        - name: Authorization
-          in: header
-          description: 'User auth token. Example: Bearer AAkoMiLatQHMngyuUU1vnh5b'
-          default: Bearer ACCESS_TOKEN
-          required: true
-          type: string
-      tags:
-        - sign out
-      responses:
-        '200':
-          description: Success
-        '401':
-          description: Unauthorized
-
   /sessions:
     get:
       summary: Get all user sessions
