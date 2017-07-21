@@ -13,7 +13,7 @@ module Api
     end
 
     def resource_params
-      params.permit(:email, :password, :password_confirmation)
+      params.require(:sign_up).permit(:email, :password, :password_confirmation)
     end
   end
 end
