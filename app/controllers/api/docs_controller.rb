@@ -55,6 +55,9 @@ module Api
       Api::Docs::Models::OutputSession,
       Api::Docs::Models::OutputUser,
 
+      Api::Docs::Models::SignInsUnprocessableEntity,
+      Api::Docs::Models::SignUpsUnprocessableEntity,
+
       Api::Docs::SignIns,
       Api::Docs::SignOuts,
       Api::Docs::SignUps,
