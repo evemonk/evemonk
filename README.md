@@ -28,7 +28,7 @@ EveMonk is helper software for EveOnline MMORPG.
 
 ## Configure
 
-Apple Push notifications:
+Apple iOS Push notifications:
 
 ```ruby
 app = Rpush::Apns::App.new
