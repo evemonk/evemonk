@@ -8,34 +8,6 @@ schemes:
 basePath: /api
 
 paths:
-  /sessions:
-    get:
-      summary: Get all user sessions
-      description: Get all user sessions.
-      parameters:
-        - name: Authorization
-          in: header
-          description: 'User auth token. Example: Bearer AAkoMiLatQHMngyuUU1vnh5b'
-          default: Bearer ACCESS_TOKEN
-          required: true
-          type: string
-        - name: page
-          in: query
-          description: Page number for pagination
-          type: integer
-          format: int64
-      tags:
-        - sessions
-      responses:
-        '200':
-          description: Response with sessions collection
-          schema:
-            $ref: '#/definitions/OutputSessionCollection'
-        '406':
-          description: Content type not supported
-        '401':
-          description: Unauthorized
-
   /sessions/{id}:
     delete:
       summary: End session

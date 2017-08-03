@@ -11,7 +11,6 @@ module Api
           key :tags, ['sessions']
           parameter :authorization
           parameter :page
-
           response '200' do
             key :description, 'Success'
             schema do
@@ -20,7 +19,6 @@ module Api
           end
           extend Api::Docs::Shared::Unauthorized
           extend Api::Docs::Shared::NotAcceptable
-
         end
       end
       # :nocov:
