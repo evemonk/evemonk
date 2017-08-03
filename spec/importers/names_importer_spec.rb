@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe NamesImporter do # rubocop:disable Metrics/BlockLength
+describe NamesImporter do
   describe '#initialize' do
     let(:file) { double }
 

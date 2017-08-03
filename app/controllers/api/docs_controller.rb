@@ -11,6 +11,12 @@ module Api
         key :version, '1.0.0'
         key :title, 'EveMonk back-end REST API'
         key :description, 'EveMonk back-end REST API documentation'
+        key :termsOfService, 'http://evemonk.com/terms'
+        contact do
+          key :name, 'Igor Zubkov'
+          key :url, 'http://evemonk.com/support'
+          key :email, 'igor.zubkov@gmail.com'
+        end
       end
       tag do
         key :name, 'sign up'
@@ -28,9 +34,13 @@ module Api
         key :name, 'profile'
         key :description, 'Profile operations'
       end
+      tag do
+        key :name, 'sessions'
+        key :description, 'Sessions operations'
+      end
       key :host, (ENV['SWAGGER_BLOCKS_HOST'] || 'localhost:3000')
       key :basePath, '/api'
-      key :consumes, ['application/json']
+      key :consumes, %w[application/json application/x-www-form-urlencoded]
       key :produces, ['application/json']
       parameter :authorization do
         key :name, 'Authorization'
@@ -53,8 +63,14 @@ module Api
     # A list of all classes that have swagger_* declarations.
     SWAGGERED_CLASSES = [
       Api::Docs::Models::OutputSession,
+      Api::Docs::Models::OutputSessionWithoutToken,
+      Api::Docs::Models::OutputSessionsCollection,
       Api::Docs::Models::OutputUser,
+      Api::Docs::Models::SignInsUnprocessableEntity,
+      Api::Docs::Models::SignUpsUnprocessableEntity,
 
+      Api::Docs::Profiles,
+      Api::Docs::Sessions,
       Api::Docs::SignIns,
       Api::Docs::SignOuts,
       Api::Docs::SignUps,

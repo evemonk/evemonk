@@ -5,7 +5,7 @@ describe Api::SessionsController do
 
   it { should use_before_action(:authenticate!) }
 
-  describe '#index.json' do
+  describe '#index' do
     context 'authorized' do
       render_views
 
@@ -25,10 +25,8 @@ describe Api::SessionsController do
 
       it { should respond_with(:unauthorized) }
     end
-  end
 
-  describe '#index.html' do
-    context 'authorized' do
+    context 'not supported accept:' do
       render_views
 
       let!(:session) { create(:session) }
@@ -39,15 +37,9 @@ describe Api::SessionsController do
 
       it { should respond_with(:not_acceptable) }
     end
-
-    context 'not authorized' do
-      before { get :index, format: :html }
-
-      it { should respond_with(:unauthorized) }
-    end
   end
 
-  describe '#destroy.json' do
+  describe '#destroy' do
     context 'authorized' do
       let!(:session) { create(:session) }
 
@@ -89,9 +81,13 @@ describe Api::SessionsController do
     end
 
     context '@session not set' do
-      let!(:session) { create(:session) }
+      let!(:user) { create(:user) }
 
-      let(:params) { { id: session.id } }
+      let!(:session) { create(:session, id: 42, user: user) }
+
+      let(:params) { { id: '42' } }
+
+      before { expect(subject).to receive(:current_user).and_return(user) }
 
       before { expect(subject).to receive(:params).and_return(params) }
 
@@ -117,12 +113,21 @@ describe Api::SessionsController do
 
       before do
         #
-        # Session.order(created_at: :asc)
-        #        .page(params[:page])
+        # subject.current_user.sessions
+        #                     .order(created_at: :asc)
+        #                     .page(params[:page])
         #
-        expect(Session).to receive(:order).with(created_at: :asc) do
+        expect(subject).to receive(:current_user) do
           double.tap do |a|
-            expect(a).to receive(:page).with(params[:page]).and_return(sessions)
+            expect(a).to receive(:sessions) do
+              double.tap do |b|
+                expect(b).to receive(:order).with(created_at: :asc) do
+                  double.tap do |c|
+                    expect(c).to receive(:page).with(params[:page]).and_return(sessions)
+                  end
+                end
+              end
+            end
           end
         end
       end

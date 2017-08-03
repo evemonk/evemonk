@@ -1,3 +1,8 @@
+require: rubocop-thread_safety
+#require: rubocop-rspec
+
+inherit_from: .rubocop_todo.yml
+
 AllCops:
   TargetRubyVersion: 2.4
   Exclude:
@@ -7,6 +12,7 @@ AllCops:
     - 'db/migrate/20170107151912_rpush_2_0_0_updates.rb'
     - 'db/migrate/20170107151914_rpush_2_6_0_updates.rb'
     - 'db/migrate/20170107151915_rpush_2_7_0_updates.rb'
+    - 'db/seeds.rb'
     - 'bin/brakeman'
     - 'bin/bundle-audit'
     - 'bin/consistency_fail'
@@ -24,6 +30,7 @@ AllCops:
     - 'bin/license_finder'
     - 'bin/rubycritic'
     - 'bin/mry'
+    - 'bin/iap'
     - 'bin/squasher'
     - 'config/initializers/assets.rb'
     - 'config/initializers/backtrace_silencers.rb'
@@ -139,4 +146,48 @@ Style/SymbolArray:
 
 Metrics/BlockLength:
   Exclude:
+    - 'app/documentation/**/*.rb'
+    - 'config/routes.rb'
     - 'spec/**/*.rb'
+
+Metrics/ClassLength:
+  Exclude:
+    - 'app/documentation/**/*.rb'
+
+Style/GuardClause:
+  Enabled: false
+
+Style/IfUnlessModifier:
+  Enabled: false
+
+Style/ConditionalAssignment:
+  Enabled: true
+  EnforcedStyle: assign_to_condition
+
+Style/NegatedIf:
+  Enabled: false
+
+# rubocop-thread_safety
+ThreadSafety:
+  Enabled: true
+
+Style/GlobalVars:
+  Enabled: true
+
+Style/ClassVars:
+  Enabled: true
+
+Style/MutableConstant:
+  Enabled: true
+
+# rubocop-rspec
+RSpec/NamedSubject:
+  Enabled: false
+
+RSpec/ImplicitExpect:
+  Enabled: true
+  EnforcedStyle: should
+
+RSpec/MessageSpies:
+  Enabled: true
+  EnforcedStyle: receive

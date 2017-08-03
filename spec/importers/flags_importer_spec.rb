@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe FlagsImporter do # rubocop:disable Metrics/BlockLength
+describe FlagsImporter do
   describe '#initialize' do
     let(:file) { double }
 

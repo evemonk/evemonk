@@ -1,6 +1,5 @@
 require 'rails_helper'
 
-# rubocop:disable Metrics/BlockLength
 describe Api::SignUp do
   it { should delegate_method(:decorate).to(:session) }
 
@@ -44,30 +43,19 @@ describe Api::SignUp do
     end
 
     context 'user valid but email has already been taken' do
-      let!(:existed_user) { create(:user, email: 'igor.zubkov@gmail.com') }
+      let!(:existed_user) { create(:user, email: 'me@example.com') }
 
-      let!(:user) { build(:user, email: 'igor.zubkov@gmail.com') }
+      let!(:user) { build(:user, email: 'me@example.com') }
 
       before { subject.instance_variable_set(:@user, user) }
 
       before { expect(user).to receive(:valid?).and_return(true).twice }
 
-      let(:i18n) { double }
-
-      before { expect(I18n).to receive(:t).with('errors.messages.taken').and_return(i18n) }
-
-      before do
-        #
-        # user.errors.add(:email, I18n.t('errors.messages.taken'))
-        #
-        expect(user).to receive(:errors) do
-          double.tap do |a|
-            expect(a).to receive(:add).with(:email, i18n)
-          end
+      specify do
+        expect { subject.save! }.to raise_error(ActiveModel::StrictValidationFailed) do
+          expect(subject.send(:user).errors[:email]).to eq(['has already been taken'])
         end
       end
-
-      specify { expect { subject.save! }.to raise_error(ActiveModel::StrictValidationFailed) }
     end
   end
 
@@ -83,7 +71,7 @@ describe Api::SignUp do
 
       before do
         #
-        # User.new(params)
+        # User.new(params) => user
         #
         expect(User).to receive(:new).with(params).and_return(user)
       end

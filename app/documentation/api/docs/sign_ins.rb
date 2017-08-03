@@ -53,12 +53,12 @@ module Api
               key :'$ref', :OutputSession
             end
           end
-          # response '422' do
-          #   key :description, 'Unprocessable Entity'
-          #   schema do
-          #     key :'$ref', :SignInsUnprocessableEntity
-          #   end
-          # end
+          response '422' do
+            key :description, 'Unprocessable Entity'
+            schema do
+              key :'$ref', :SignInsUnprocessableEntity
+            end
+          end
           extend Api::Docs::Shared::NotAcceptable
         end
       end

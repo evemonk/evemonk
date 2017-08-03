@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe RacesImporter do # rubocop:disable Metrics/BlockLength
+describe RacesImporter do
   describe '#initialize' do
     let(:file) { double }
 

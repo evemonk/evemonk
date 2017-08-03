@@ -2,9 +2,9 @@ module Api
   class SignUp
     attr_reader :params, :session
 
-    delegate :decorate, to: :session, prefix: nil
+    delegate :decorate, to: :session
 
-    delegate :errors, to: :user, prefix: nil
+    delegate :errors, to: :user
 
     def initialize(params = {})
       @params = params

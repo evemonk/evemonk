@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe ItemsImporter do # rubocop:disable Metrics/BlockLength
+describe ItemsImporter do
   describe '#initialize' do
     let(:file) { double }
 
