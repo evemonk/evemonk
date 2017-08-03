@@ -15,6 +15,7 @@ EveMonk is helper software for EveOnline MMORPG.
 * API Sign In
 * API Sign out
 * API Session list
+* API current user profile
 * Multiple sessions for clients
 
 ## Environment
