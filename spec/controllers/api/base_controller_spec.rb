@@ -61,6 +61,8 @@ describe Api::BaseController do
 
   it { should rescue_from(ActionController::UnknownFormat) }
 
+  # private methods
+
   describe '#authenticate!' do
     let!(:user) { create(:user) }
 
