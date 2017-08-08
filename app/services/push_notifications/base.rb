@@ -41,7 +41,7 @@ module PushNotifications
     def app
       case device
       when 'ios'
-        Rpush::Apns::App.find_by_name(device)
+        Rpush::Apns::App.find_by_name(device) # rubocop:disable Rails/DynamicFindBy
       # when 'android'
       #   Rpush::Gcm::App.find_by_name(device)
       else
