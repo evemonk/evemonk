@@ -11,3 +11,21 @@
     :why: 
     :versions: []
     :when: 2017-08-08 20:19:42.379003000 Z
+- - :whitelist
+  - New BSD
+  - :who: 
+    :why: 
+    :versions: []
+    :when: 2017-08-08 20:24:57.346880000 Z
+- - :whitelist
+  - Simplified BSD
+  - :who: 
+    :why: 
+    :versions: []
+    :when: 2017-08-08 20:25:16.091486000 Z
+- - :whitelist
+  - Apache 2.0
+  - :who: 
+    :why: 
+    :versions: []
+    :when: 2017-08-08 20:25:35.361170000 Z
