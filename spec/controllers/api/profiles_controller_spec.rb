@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 describe Api::ProfilesController do
+  it { should be_a(Api::BaseController) }
+
   it { should use_before_action(:authenticate!) }
 
   describe '#show' do
