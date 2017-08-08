@@ -5,7 +5,7 @@ describe Api::DocsController do
 
   it { should be_a(Swagger::Blocks) }
 
-  describe '#index.json' do
+  describe '#index' do
     before { get :index, params: { format: :json } }
 
     it { should respond_with(:ok) }
