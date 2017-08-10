@@ -11,8 +11,12 @@ EveMonk is helper software for EveOnline MMORPG.
 
 ## Features
 
-* API signup
-* API session
+* API Sign Up
+* API Sign In
+* API Sign out
+* API Session list
+* API End session
+* API current user profile
 * Multiple sessions for clients
 
 ## Environment
@@ -20,12 +24,12 @@ EveMonk is helper software for EveOnline MMORPG.
 * Ruby 2.4.1
 * RubyGems 2.6.12
 * Bundler 1.15.3
-* Ruby on Rails 5.1.1
+* Ruby on Rails 5.1.3
 * PostgreSQL 9.5.4
 
 ## Configure
 
-Apple Push notifications:
+Apple iOS Push notifications:
 
 ```ruby
 app = Rpush::Apns::App.new

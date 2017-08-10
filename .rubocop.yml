@@ -32,6 +32,7 @@ AllCops:
     - 'bin/mry'
     - 'bin/iap'
     - 'bin/squasher'
+    - 'bin/spring'
     - 'config/initializers/assets.rb'
     - 'config/initializers/backtrace_silencers.rb'
     - 'config/initializers/new_framework_defaults.rb'

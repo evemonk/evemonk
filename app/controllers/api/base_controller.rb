@@ -37,10 +37,6 @@ module Api
       head :not_found
     end
 
-    # rescue_from Pundit::NotAuthorizedError do
-    #   head :forbidden
-    # end
-
     rescue_from ActionController::UnknownFormat do
       head :not_acceptable
     end
@@ -51,16 +47,14 @@ module Api
     def authenticate!
       authenticate_or_request_with_http_token do |token,|
         @current_user = User.joins(:sessions)
-                            .where(sessions: { token: token })
-                            .first
+                            .find_by(sessions: { token: token })
       end
     end
 
     def authenticate
       authenticate_with_http_token do |token,|
         @current_user = User.joins(:sessions)
-                            .where(sessions: { token: token })
-                            .first
+                            .find_by(sessions: { token: token })
       end
     end
 
