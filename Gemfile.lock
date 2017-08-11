@@ -221,7 +221,7 @@ GEM
       ast (~> 2.2)
     path_expander (1.0.2)
     pg (0.21.0)
-    pg_query (0.13.1)
+    pg_query (0.13.2)
       json (>= 1.8, < 3)
     pghero (2.0.2)
       activerecord
