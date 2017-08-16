@@ -22,6 +22,7 @@ gem 'pghero'
 gem 'pg_query'
 gem 'rubycritic', require: false
 gem 'swagger-blocks'
+gem 'rufus-scheduler'
 
 group :production do
   gem 'lograge'
