@@ -8,6 +8,7 @@ rvm:
 
 before_script:
   - psql -c 'CREATE DATABASE evemonk_test;' -U postgres
+  - gem install bundler
   - bundle exec rake db:create db:migrate
   - bundle exec bundle-audit update
 
