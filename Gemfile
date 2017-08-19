@@ -8,6 +8,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'handlebars_assets'
 gem 'js-routes'
+gem 'bootstrap', '~> 4.0.0.alpha6'
 
 gem 'bcrypt'
 gem 'eve_online'
