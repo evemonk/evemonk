@@ -15,9 +15,16 @@ Rails.application.routes.draw do
 
     resources :sessions, only: [:index, :destroy]
 
-    resource :profile, only: :show
+    resource :profile, only: [:show, :update]
+
+    # namespace :backoffice do
+    #   resources :users, only: [:index, :show, :update, :destroy]
+    # end
   end
 
   # You can have the root of your site routed with "root"
-  root 'welcome#index'
+  # root 'welcome#index'
+  root 'main#index'
+
+  get '*path', to: 'main#index'
 end
