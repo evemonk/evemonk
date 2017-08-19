@@ -6,6 +6,7 @@ gem 'puma', '~> 3.10'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
+gem 'handlebars_assets'
 
 gem 'bcrypt'
 gem 'eve_online'

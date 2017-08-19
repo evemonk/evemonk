@@ -154,6 +154,10 @@ GEM
       sexp_processor (~> 4.8)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
+    handlebars_assets (0.23.2)
+      execjs (~> 2.0)
+      sprockets (>= 2.0.0)
+      tilt (>= 1.2)
     hashdiff (0.3.5)
     httparty (0.15.6)
       multi_xml (>= 0.5.2)
@@ -442,6 +446,7 @@ DEPENDENCIES
   eve_online
   factory_girl_rails
   faker
+  handlebars_assets
   jquery-rails
   kaminari
   license_finder
