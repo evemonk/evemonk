@@ -9,6 +9,7 @@ gem 'jquery-rails'
 gem 'handlebars_assets'
 gem 'js-routes'
 gem 'bootstrap', '~> 4.0.0.alpha6'
+gem 'font-awesome-sass'
 
 gem 'bcrypt'
 gem 'eve_online'
