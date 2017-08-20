@@ -1,3 +1,3 @@
 EvemonkApp.Models.Profile = Backbone.Model.extend({
-    urlRoot: '/api/profile'
+    url: Routes.api_profile_path()
 });
