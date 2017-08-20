@@ -20,4 +20,6 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'main#index'
+
+  get '*path', to: 'main#index'
 end
