@@ -5,6 +5,7 @@ var EvemonkApp = {
     Routers: {},
     initialize: function () {
         new EvemonkApp.Routers.Main();
+
         Backbone.history.start({ pushState: true });
     }
 };

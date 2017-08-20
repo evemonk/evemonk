@@ -4,7 +4,10 @@ EvemonkApp.Routers.Main = Backbone.Router.extend({
     },
 
     index: function () {
-        console.log('aloha');
-        alert('fuck!!');
+        var signIn = new EvemonkApp.Models.SignIn({});
+
+        var signInView = new EvemonkApp.Views.SignInView({ model: signIn });
+
+        $('#content').append(signInView.render().el);
     }
 });

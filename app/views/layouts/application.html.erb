@@ -4,11 +4,25 @@
     <title>Evemonk</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all' %>
-    <%= javascript_include_tag 'application' %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
   </head>
 
   <body>
-    <%= yield %>
+    <div class="container">
+      <%= yield %>
+
+      <div id="content">
+      </div>
+    </div>
+
+    <%= javascript_include_tag 'application' %>
+
+    <script>
+        $(document).ready(function() {
+            EvemonkApp.initialize();
+        });
+    </script>
+
+    <%= yield :javascript %>
   </body>
 </html>
