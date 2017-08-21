@@ -6,7 +6,7 @@ EvemonkApp.Routers.Main = Backbone.Router.extend({
     },
 
     index: function () {
-        var welcomeView = new EvemonkApp.Views.WelcomeView({});
+        var welcomeView = new EvemonkApp.Views.WelcomeView();
 
         $('#content').append(welcomeView.render().el);
     },
