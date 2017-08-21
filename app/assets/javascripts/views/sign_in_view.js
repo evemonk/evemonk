@@ -9,6 +9,20 @@ EvemonkApp.Views.SignInView = Backbone.View.extend({
     },
 
     sign_in: function (event) {
-        console.log('Hello');
+        this.model.save({
+            email: this.$('#email').val(),
+            password: this.$('#password').val()
+        }, {
+            success: function (model, response) {
+                console.log('success');
+                console.log(model);
+                console.log(response);
+            },
+            error: function (model, response) {
+                console.log('error');
+                console.log(model);
+                console.log(response);
+            }
+        });
     }
 });
