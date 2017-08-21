@@ -1,15 +1,14 @@
 EvemonkApp.Routers.Main = Backbone.Router.extend({
     routes: {
         '' : 'index',
-        'sign_up' : 'sign_up'
+        'sign_up' : 'sign_up',
+        'sign_in' : 'sign_in'
     },
 
     index: function () {
-        var signIn = new EvemonkApp.Models.SignIn({});
+        var welcomeView = new EvemonkApp.Views.WelcomeView({});
 
-        var signInView = new EvemonkApp.Views.SignInView({ model: signIn });
-
-        $('#content').append(signInView.render().el);
+        $('#content').append(welcomeView.render().el);
     },
 
     sign_up: function () {
@@ -18,5 +17,13 @@ EvemonkApp.Routers.Main = Backbone.Router.extend({
         var signUpView = new EvemonkApp.Views.SignUpView({ model: signUp });
 
         $('#content').append(signUpView.render().el);
+    },
+
+    sign_in: function () {
+        var signIn = new EvemonkApp.Models.SignIn({});
+
+        var signInView = new EvemonkApp.Views.SignInView({ model: signIn });
+
+        $('#content').append(signInView.render().el);
     }
 });
