@@ -28,6 +28,7 @@ gem 'pghero'
 gem 'pg_query'
 gem 'rubycritic', require: false
 gem 'swagger-blocks'
+gem 'rails-with-backbone', path: '~/opensource/rails-with-backbone'
 
 group :production do
   gem 'lograge'
