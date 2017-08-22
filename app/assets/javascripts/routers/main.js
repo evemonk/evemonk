@@ -16,7 +16,7 @@ EvemonkApp.Routers.Main = Backbone.Router.extend({
 
         var signUpView = new EvemonkApp.Views.SignUpView({ model: signUp });
 
-        $('#content').append(signUpView.render().el);
+        $('#content').empty().append(signUpView.render().el);
     },
 
     sign_in: function () {
@@ -24,6 +24,6 @@ EvemonkApp.Routers.Main = Backbone.Router.extend({
 
         var signInView = new EvemonkApp.Views.SignInView({ model: signIn });
 
-        $('#content').append(signInView.render().el);
+        $('#content').empty().append(signInView.render().el);
     }
 });
