@@ -12,17 +12,26 @@ EvemonkApp.Views.SignInView = Backbone.View.extend({
         this.model.save({
             email: this.$('#email').val(),
             password: this.$('#password').val()
-        }, {
-            success: function (model, response) {
-                console.log('success');
-                console.log(model);
-                console.log(response);
-            },
-            error: function (model, response) {
-                console.log('error');
-                console.log(model);
-                console.log(response);
-            }
+        }).done(function (response) {
+            Cookies.set("auth_token", response.token);
+
+            Backbone.history.navigate('/', { trigger: true });
+
+            var flash = new EvemonkApp.Models.FlashSuccess({ message: 'Successful signed in!' })
+
+            var flashView = new EvemonkApp.Views.FlashView({ model: flash });
+
+            $('#flash').append(flashView.render().el);
+        }).fail(function (response) {
+            _.each(response.responseJSON, function (error) {
+                var flash = new EvemonkApp.Models.FlashError({ message: error })
+
+                var flashView = new EvemonkApp.Views.FlashView({ model: flash });
+
+                $('#flash').append(flashView.render().el);
+            });
         });
+
+        event.preventDefault();
     }
 });
