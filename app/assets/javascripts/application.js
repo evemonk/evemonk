@@ -18,6 +18,7 @@
 //= require js-routes
 //= require popper
 //= require bootstrap
+//= require js.cookie
 //= require evemonk_app
 //= require_tree ./models
 //= require_tree ./collections
