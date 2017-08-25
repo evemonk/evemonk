@@ -4,7 +4,8 @@ EvemonkApp.Views.SignUpView = Backbone.View.extend({
     },
 
     render: function () {
-        this.el.innerHTML = JST['sign_up/show'](this.model.toJSON());
+        this.$el.html(JST['sign_up/show'](this.model.toJSON()));
+
         return this;
     },
 
