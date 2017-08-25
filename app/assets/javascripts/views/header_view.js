@@ -11,8 +11,8 @@ EvemonkApp.Views.HeaderView = Backbone.View.extend({
     },
 
     handleClick: function (event) {
-        Backbone.history.navigate(event.target.getAttribute('href'), { trigger: true });
-
         event.preventDefault();
+
+        Backbone.history.navigate(event.target.getAttribute('href'), { trigger: true });
     }
 });
