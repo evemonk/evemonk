@@ -2,7 +2,8 @@ EvemonkApp.Routers.Main = Backbone.Router.extend({
     routes: {
         '' : 'index',
         'sign_up' : 'sign_up',
-        'sign_in' : 'sign_in'
+        'sign_in' : 'sign_in',
+        'sign_out' : 'sign_out'
     },
 
     index: function () {
@@ -25,5 +26,8 @@ EvemonkApp.Routers.Main = Backbone.Router.extend({
         var signInView = new EvemonkApp.Views.SignInView({ model: signIn });
 
         $('#content').empty().append(signInView.render().el);
+    },
+
+    sign_out: function () {
     }
 });
