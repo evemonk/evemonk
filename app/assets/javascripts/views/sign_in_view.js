@@ -10,6 +10,8 @@ EvemonkApp.Views.SignInView = Backbone.View.extend({
     },
 
     sign_in: function (event) {
+        event.preventDefault();
+
         this.model.save({
             email: this.$('#email').val(),
             password: this.$('#password').val()
@@ -32,7 +34,5 @@ EvemonkApp.Views.SignInView = Backbone.View.extend({
                 $('#flash').append(flashView.render().el);
             });
         });
-
-        event.preventDefault();
     }
 });
