@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/biow0lf/rails-with-backbone.git
-  revision: 45debb0d6fdf3930deef9a1ac63eb2f9fa6520cd
+  revision: 00b8cc9f3d08ce30ab81e13c53dddcab646bf3d4
   branch: master
   specs:
     rails-with-backbone (0.1.0)
