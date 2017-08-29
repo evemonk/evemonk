@@ -10,6 +10,19 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require rails-ujs
-//= require turbolinks
+//= require jquery3
+//= require jquery_ujs
+//= require underscore
+//= require backbone
+//= require handlebars.runtime
+//= require js-routes
+//= require popper
+//= require bootstrap
+//= require js.cookie
+//= require evemonk_app
+//= require_tree ./models
+//= require_tree ./collections
+//= require_tree ./views
+//= require_tree ./routers
+//= require_tree ./templates
 //= require_tree .

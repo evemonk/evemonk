@@ -1,16 +1,22 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~> 5.1.3'
+gem 'rails', '~> 5.1.4.rc1'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.10'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
-gem 'turbolinks', '~> 5'
+gem 'jquery-rails'
+gem 'handlebars_assets'
+gem 'js-routes'
+gem 'bootstrap', '~> 4.0.0.alpha6'
+gem 'font-awesome-sass'
+gem 'rufus-scheduler'
 
 gem 'bcrypt'
 gem 'eve_online'
 # gem 'eve_online', git: 'https://github.com/biow0lf/eve_online.git', branch: 'master'
 # gem 'eve_online', path: '~/opensource/eve_online'
+gem 'omniauth-eve_online-sso'
 gem 'rack-cors', require: 'rack/cors'
 gem 'kaminari'
 gem 'draper'
@@ -22,6 +28,8 @@ gem 'pghero'
 gem 'pg_query'
 gem 'rubycritic', require: false
 gem 'swagger-blocks'
+gem 'rails-with-backbone', git: 'https://github.com/biow0lf/rails-with-backbone.git', branch: 'master'
+# gem 'rails-with-backbone', path: '~/opensource/rails-with-backbone'
 
 group :production do
   gem 'lograge'
