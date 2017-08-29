@@ -9,6 +9,8 @@ rvm:
 before_install:
   - gem update --system
   - gem install bundler
+  - gem --version
+  - bundle --version
 
 before_script:
   - psql -c 'CREATE DATABASE evemonk_test;' -U postgres
