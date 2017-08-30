@@ -1,12 +1,4 @@
 GIT
-  remote: https://github.com/biow0lf/rails-with-backbone.git
-  revision: 00b8cc9f3d08ce30ab81e13c53dddcab646bf3d4
-  branch: master
-  specs:
-    rails-with-backbone (0.1.0)
-      railties (>= 4.2)
-
-GIT
   remote: https://github.com/jdliss/shoulda-callback-matchers.git
   revision: b8a3680bc1d19ac713e43054a2b33238ce845698
   branch: master
@@ -507,7 +499,6 @@ DEPENDENCIES
   rack-dev-mark
   rails (~> 5.1.4.rc1)
   rails-controller-testing
-  rails-with-backbone!
   rails_best_practices
   rbnacl (< 4.0)
   rbnacl-libsodium
