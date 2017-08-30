@@ -18,16 +18,16 @@ EvemonkApp.Views.SignInView = Backbone.View.extend({
         }).done(function (response) {
             Cookies.set("auth_token", response.token);
 
-            Backbone.history.navigate('/', { trigger: true });
-
-            var flash = new EvemonkApp.Models.FlashSuccess({ message: 'Successful signed in!' })
+            var flash = new EvemonkApp.Models.FlashSuccess({ message: 'Successful signed in!' });
 
             var flashView = new EvemonkApp.Views.FlashView({ model: flash });
 
             $('#flash').append(flashView.render().el);
+
+            Backbone.history.navigate('/', { trigger: true });
         }).fail(function (response) {
             _.each(response.responseJSON, function (error) {
-                var flash = new EvemonkApp.Models.FlashError({ message: error })
+                var flash = new EvemonkApp.Models.FlashError({ message: error });
 
                 var flashView = new EvemonkApp.Views.FlashView({ model: flash });
 
