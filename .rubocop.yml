@@ -15,6 +15,7 @@ AllCops:
     - 'db/seeds.rb'
     - 'bin/brakeman'
     - 'bin/bundle-audit'
+    - 'bin/bundler-audit'
     - 'bin/consistency_fail'
     - 'bin/rpush'
     - 'bin/rspec'
