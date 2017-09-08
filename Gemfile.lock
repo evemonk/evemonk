@@ -195,6 +195,7 @@ GEM
       activerecord
       kaminari-core (= 1.0.1)
     kaminari-core (1.0.1)
+    kramdown (1.14.0)
     launchy (2.4.3)
       addressable (~> 2.3)
     license_finder (3.0.2)
@@ -217,6 +218,10 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.6.6)
       mime-types (>= 1.16, < 4)
+    mdl (0.4.0)
+      kramdown (~> 1.12, >= 1.12.0)
+      mixlib-cli (~> 1.7, >= 1.7.0)
+      mixlib-config (~> 2.2, >= 2.2.1)
     memoist (0.16.0)
     method_source (0.8.2)
     mime-types (3.1)
@@ -224,6 +229,8 @@ GEM
     mime-types-data (3.2016.0521)
     mini_portile2 (2.2.0)
     minitest (5.10.3)
+    mixlib-cli (1.7.0)
+    mixlib-config (2.2.4)
     mry (0.49.0.0)
     multi_json (1.12.2)
     multi_xml (0.6.0)
@@ -487,6 +494,7 @@ DEPENDENCIES
   license_finder
   listen (>= 3.0.5, < 3.2)
   lograge
+  mdl
   mry
   newrelic_rpm
   omniauth-eve_online-sso
