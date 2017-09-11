@@ -197,7 +197,7 @@ GEM
       activerecord
       kaminari-core (= 1.0.1)
     kaminari-core (1.0.1)
-    kramdown (1.14.0)
+    kramdown (1.15.0)
     launchy (2.4.3)
       addressable (~> 2.3)
     license_finder (3.0.2)
