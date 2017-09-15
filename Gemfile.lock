@@ -200,7 +200,7 @@ GEM
     kramdown (1.15.0)
     launchy (2.4.3)
       addressable (~> 2.3)
-    license_finder (3.0.2)
+    license_finder (3.0.4)
       bundler
       httparty
       rubyzip
