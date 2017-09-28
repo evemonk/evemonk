@@ -23,6 +23,8 @@ EvemonkApp.Routers.MainRouter = Backbone.Router.extend({
 
         EvemonkApp.currentUser = new EvemonkApp.Models.CurrentUser({ loggedIn: false });
 
+        EvemonkApp.currentSession = new EvemonkApp.Models.Session({});
+
         EvemonkApp.Events.trigger('user:sign_out');
 
         Backbone.history.navigate('sign_in', { trigger: true });
@@ -54,6 +56,8 @@ EvemonkApp.Routers.MainRouter = Backbone.Router.extend({
         Cookies.remove('auth_token');
 
         EvemonkApp.currentUser = new EvemonkApp.Models.CurrentUser({ loggedIn: false });
+
+        EvemonkApp.currentSession = new EvemonkApp.Models.Session({});
 
         EvemonkApp.Events.trigger('user:sign_out');
 
