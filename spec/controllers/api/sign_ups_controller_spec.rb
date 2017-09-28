@@ -9,11 +9,9 @@ describe Api::SignUpsController do
     context 'user successfully created' do
       before do
         post :create, params: {
-          sign_up: {
-            email: 'me@example.com',
-            password: 'password',
-            password_confirmation: 'password'
-          },
+          email: 'me@example.com',
+          password: 'password',
+          password_confirmation: 'password',
           format: :json
         }
       end
@@ -26,11 +24,9 @@ describe Api::SignUpsController do
     context 'unprocessable entity due validations' do
       before do
         post :create, params: {
-          sign_up: {
-            email: 'me@example.com',
-            password: 'password',
-            password_confirmation: 'wrong confirmation'
-          },
+          email: 'me@example.com',
+          password: 'password',
+          password_confirmation: 'wrong confirmation',
           format: :json
         }
       end
@@ -40,24 +36,12 @@ describe Api::SignUpsController do
       it { should respond_with(:unprocessable_entity) }
     end
 
-    context 'unprocessable entity due missing key' do
-      before do
-        post :create, params: { format: :json }
-      end
-
-      it { should render_template(:exception) }
-
-      it { should respond_with(:unprocessable_entity) }
-    end
-
     context 'not supported accept:' do
       before do
         post :create, params: {
-          sign_up: {
-            email: 'me@example.com',
-            password: 'password',
-            password_confirmation: 'password'
-          },
+          email: 'me@example.com',
+          password: 'password',
+          password_confirmation: 'password',
           format: :html
         }
       end
@@ -93,15 +77,11 @@ describe Api::SignUpsController do
   describe '#resource_params' do
     before do
       #
-      # subject.params.require(:sign_up).permit(:email, :password, :password_confirmation)
+      # subject.params.permit(:email, :password, :password_confirmation)
       #
       expect(subject).to receive(:params) do
         double.tap do |a|
-          expect(a).to receive(:require).with(:sign_up) do
-            double.tap do |b|
-              expect(b).to receive(:permit).with(:email, :password, :password_confirmation)
-            end
-          end
+          expect(a).to receive(:permit).with(:email, :password, :password_confirmation)
         end
       end
     end
