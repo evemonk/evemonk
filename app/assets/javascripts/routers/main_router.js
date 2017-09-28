@@ -3,7 +3,8 @@ EvemonkApp.Routers.MainRouter = Backbone.Router.extend({
         '' : 'index',
         'sign_up' : 'sign_up',
         'sign_in' : 'sign_in',
-        'sign_out' : 'sign_out'
+        'sign_out' : 'sign_out',
+        'profile' : 'profile'
     },
 
     initialize: function () {
@@ -70,5 +71,24 @@ EvemonkApp.Routers.MainRouter = Backbone.Router.extend({
         $('#content').empty();
 
         Backbone.history.navigate('/', { trigger: true });
+    },
+
+    profile: function () {
+        var profile = new EvemonkApp.Models.Profile({});
+
+        var self = this;
+
+        profile.fetch({
+            success: function () {
+                var profileView = new EvemonkApp.Views.ProfileView({ model: profile });
+
+                $('#content').html(profileView.render().el);
+            },
+            error: function (model, response, options) {
+                if (response.status === 401) {
+                    self.unauthorized();
+                }
+            }
+        });
     }
 });
