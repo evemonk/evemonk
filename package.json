@@ -6,6 +6,7 @@
     "handlebars": "^4.0.10",
     "jquery": "^3.2.1",
     "js-cookie": "^2.1.4",
+    "popper.js": "^1.12.5",
     "underscore": "^1.8.3"
   },
   "devDependencies": {
