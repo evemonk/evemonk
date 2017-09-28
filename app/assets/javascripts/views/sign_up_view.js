@@ -26,8 +26,6 @@ EvemonkApp.Views.SignUpView = Backbone.View.extend({
 
                 EvemonkApp.currentSession = new EvemonkApp.Models.Session(response);
 
-                console.log(EvemonkApp.currentSession);
-
                 EvemonkApp.Events.trigger('user:sign_in');
 
                 var flash = new EvemonkApp.Models.FlashSuccess({ message: 'Successful signed in!' });
@@ -39,12 +37,18 @@ EvemonkApp.Views.SignUpView = Backbone.View.extend({
                 Backbone.history.navigate('/', { trigger: true });
             },
             error: function (model, response, options) {
-                _.each(response.responseJSON.errors.base, function (error) {
-                    var flash = new EvemonkApp.Models.FlashError({ message: error });
+                $('.invalid-feedback').html('');
 
-                    var flashView = new EvemonkApp.Views.FlashView({ model: flash });
+                $('.is-invalid').removeClass('is-invalid');
 
-                    $('#flash').append(flashView.render().el);
+                _.each(response.responseJSON, function (obj) {
+                    _.each(obj, function (errors, key) {
+                        var form_element = $('#' + key);
+
+                        form_element.addClass('is-invalid');
+
+                        form_element.parent().find('.invalid-feedback').html(errors.join(', '));
+                    });
                 });
             }
         });

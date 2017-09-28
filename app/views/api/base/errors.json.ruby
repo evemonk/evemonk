@@ -1,1 +1,1 @@
-{ errors: resource.errors.full_messages }.to_json
+{ errors: resource.errors }.to_json
