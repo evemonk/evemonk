@@ -1,5 +1,5 @@
-EvemonkApp.Views.FlashView = Backbone.View.extend({
-    template: JST['flash/show'],
+EvemonkApp.Views.ProfileView = Backbone.View.extend({
+    template: JST['profile/show'],
 
     render: function () {
         this.$el.html(this.template(this.model.toJSON()));

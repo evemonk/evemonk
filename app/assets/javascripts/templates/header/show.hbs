@@ -7,23 +7,28 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a href="/" class="nav-link">Dashboard</a>
+                <a href="/" class="nav-link dashboard">Dashboard</a>
             </li>
-            <li class="nav-item">
-                <a href="/profile" class="nav-link">Profile</a>
-            </li>
-            <li class="nav-item">
-                <a href="/characters" class="nav-link">Characters</a>
-            </li>
-            <li class="nav-item">
-                <a href="/sign_in" class="nav-link sign-in">Sign In</a>
-            </li>
-            <li class="nav-item">
-                <a href="/sign_up" class="nav-link sign-up">Sign Up</a>
-            </li>
-            <li class="nav-item">
-                <a href="/sign_out" class="nav-link">Sign Out</a>
-            </li>
+            {{#if loggedIn}}
+                <li class="nav-item">
+                    <a href="/profile" class="nav-link profile">Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/characters" class="nav-link">Characters</a>
+                </li>
+            {{else}}
+                <li class="nav-item">
+                    <a href="/sign_in" class="nav-link sign-in">Sign In</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/sign_up" class="nav-link sign-up">Sign Up</a>
+                </li>
+            {{/if}}
+            {{#if loggedIn}}
+                <li class="nav-item">
+                    <a href="/sign_out" class="nav-link sign-out">Sign Out</a>
+                </li>
+            {{/if}}
         </ul>
     </div>
 </nav>

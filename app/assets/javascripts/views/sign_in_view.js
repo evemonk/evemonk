@@ -3,8 +3,10 @@ EvemonkApp.Views.SignInView = Backbone.View.extend({
         'click .sign-in' : 'sign_in'
     },
 
+    template: JST['sign_in/show'],
+
     render: function () {
-        this.$el.html(JST['sign_in/show'](this.model.toJSON()));
+        this.$el.html(this.template(this.model.toJSON()));
 
         return this;
     },
@@ -15,24 +17,34 @@ EvemonkApp.Views.SignInView = Backbone.View.extend({
         this.model.save({
             email: this.$('#email').val(),
             password: this.$('#password').val()
-        }).done(function (response) {
-            Cookies.set("auth_token", response.token);
+        }, {
+            success: function (model, response, options) {
+                Cookies.set('auth_token', response.token);
 
-            var flash = new EvemonkApp.Models.FlashSuccess({ message: 'Successful signed in!' });
+                EvemonkApp.currentUser = new EvemonkApp.Models.CurrentUser({ loggedIn: true });
 
-            var flashView = new EvemonkApp.Views.FlashView({ model: flash });
+                EvemonkApp.currentSession = new EvemonkApp.Models.Session(response);
 
-            $('#flash').append(flashView.render().el);
+                EvemonkApp.Events.trigger('user:sign_in');
 
-            Backbone.history.navigate('/', { trigger: true });
-        }).fail(function (response) {
-            _.each(response.responseJSON, function (error) {
-                var flash = new EvemonkApp.Models.FlashError({ message: error });
+                var flash = new EvemonkApp.Models.FlashSuccess({ message: 'Successful signed in!' });
 
                 var flashView = new EvemonkApp.Views.FlashView({ model: flash });
 
                 $('#flash').append(flashView.render().el);
-            });
-        });
+
+                Backbone.history.navigate('/', { trigger: true });
+            },
+
+            error: function (model, response, options) {
+                _.each(response.responseJSON.errors.base, function (error) {
+                    var flash = new EvemonkApp.Models.FlashError({ message: error });
+
+                    var flashView = new EvemonkApp.Views.FlashView({ model: flash });
+
+                    $('#flash').append(flashView.render().el);
+                });
+            }
+        })
     }
 });
