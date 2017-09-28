@@ -11,13 +11,14 @@
 // about supported directives.
 //
 //= require jquery3
-//= require underscore
-//= require backbone
 //= require handlebars.runtime
 //= require js-routes
 //= require popper
 //= require bootstrap
-//= require js.cookie
+//= require ./lib/underscore
+//= require ./lib/backbone
+//= require ./lib/js.cookie
+//= require ./lib/backbone.paginator
 //= require evemonk_app
 //= require_tree ./models
 //= require_tree ./collections
