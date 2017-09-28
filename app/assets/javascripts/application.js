@@ -11,7 +11,6 @@
 // about supported directives.
 //
 //= require jquery3
-//= require jquery_ujs
 //= require underscore
 //= require backbone
 //= require handlebars.runtime
