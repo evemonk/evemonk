@@ -10,7 +10,7 @@ EvemonkApp.Views.SignUpView = Backbone.View.extend({
     },
 
     sign_up: function (event) {
-        console.log('Hello');
+        event.preventDefault();
 
         this.model.save({
             email: this.$('#email').val(),

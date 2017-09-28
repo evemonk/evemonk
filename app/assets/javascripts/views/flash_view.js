@@ -1,6 +1,8 @@
 EvemonkApp.Views.FlashView = Backbone.View.extend({
+    template: JST['flash/show'],
+
     render: function () {
-        this.$el.html(JST['flash/show'](this.model.toJSON()));
+        this.$el.html(this.template(this.model.toJSON()));
 
         return this;
     }

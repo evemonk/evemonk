@@ -1,12 +1,12 @@
-var EvemonkApp = {
+window.EvemonkApp = {
     Models: {},
     Collections: {},
     Views: {},
     Routers: {},
-    initialize: function () {
-        new EvemonkApp.Routers.Main();
+    Events: _.clone(Backbone.Events),
 
-        $('#header').append(new EvemonkApp.Views.HeaderView().render().el);
+    initialize: function () {
+        new EvemonkApp.Routers.MainRouter();
 
         Backbone.history.start({ pushState: true });
     }
