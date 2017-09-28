@@ -382,7 +382,7 @@ GEM
       unicode-display_width (~> 1.0, >= 1.0.1)
     rubocop-thread_safety (0.3.3)
       rubocop (>= 0.48.0)
-    ruby-progressbar (1.8.3)
+    ruby-progressbar (1.9.0)
     ruby_dep (1.5.0)
     ruby_parser (3.10.1)
       sexp_processor (~> 4.9)
