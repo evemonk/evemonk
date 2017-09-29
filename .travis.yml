@@ -21,3 +21,4 @@ script:
   - bundle exec rake
   - bundle exec codeclimate-test-reporter
   - bundle exec bundle-audit
+  - bundle exec mdl README.md
