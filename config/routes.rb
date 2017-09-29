@@ -4,6 +4,12 @@ Rails.application.routes.draw do
     mount PgHero::Engine, at: 'pghero'
   end
 
+  namespace :auth do
+    namespace :eve_online_sso do
+      resource :callback, only: :show
+    end
+  end
+
   namespace :api, defaults: { format: 'json' } do
     resources :docs, only: :index
 
