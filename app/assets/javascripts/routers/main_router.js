@@ -54,6 +54,8 @@ EvemonkApp.Routers.MainRouter = Backbone.Router.extend({
     },
 
     sign_out: function () {
+        new EvemonkApp.Models.SignOut({ id: 1 }).destroy();
+
         Cookies.remove('auth_token');
 
         EvemonkApp.currentUser = new EvemonkApp.Models.CurrentUser({ loggedIn: false });
