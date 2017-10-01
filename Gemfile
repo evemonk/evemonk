@@ -70,6 +70,7 @@ group :development do
   gem 'capistrano-rbenv-install', require: false
   # gem 'overcommit', require: false
   gem 'mdl', require: false
+  gem 'cacheflow'
 end
 
 group :test do
