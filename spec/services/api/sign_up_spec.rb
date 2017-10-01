@@ -1,43 +1,48 @@
 require 'rails_helper'
 
-describe Api::SignUp do
+describe Api::SignUp, type: :model do
+  let(:params) do
+    {
+      email: 'me@example.com',
+      password: 'password',
+      password_confirmation: 'password'
+    }
+  end
+
+  subject { described_class.new(params) }
+
+  it { should be_a(ActiveModel::Validations) }
+
   it { should delegate_method(:decorate).to(:session) }
 
-  it { should delegate_method(:errors).to(:user) }
+  it { should validate_presence_of(:email) }
+
+  it { should validate_presence_of(:password) }
+
+  it { should validate_confirmation_of(:password) }
 
   describe '#initialize' do
-    context 'without params' do
-      specify { expect(subject.params).to eq({}) }
-    end
+    specify { expect(subject.email).to eq('me@example.com') }
 
-    context 'with params' do
-      let(:params) { double }
+    specify { expect(subject.password).to eq('password') }
 
-      subject { described_class.new(params) }
-
-      specify { expect(subject.params).to eq(params) }
-    end
+    specify { expect(subject.password_confirmation).to eq('password') }
   end
 
   describe '#save!' do
     context 'user valid' do
-      let!(:user) { build(:user) }
+      specify { expect { subject.save! }.to change { User.count }.from(0).to(1) }
 
-      before { subject.instance_variable_set(:@user, user) }
-
-      before { expect(user).to receive(:valid?).and_return(true).twice }
-
-      specify { expect { subject.save! }.not_to raise_error }
-
-      specify { expect { subject.save! }.to change { user.sessions.count }.from(0).to(1) }
+      specify { expect { subject.save! }.to change { Session.count }.from(0).to(1) }
     end
 
     context 'user not valid' do
-      let!(:user) { build(:user) }
-
-      before { subject.instance_variable_set(:@user, user) }
-
-      before { expect(user).to receive(:valid?).and_return(false) }
+      let(:params) do
+        {
+          email: nil,
+          password: nil
+        }
+      end
 
       specify { expect { subject.save! }.to raise_error(ActiveModel::StrictValidationFailed) }
     end
@@ -45,77 +50,11 @@ describe Api::SignUp do
     context 'user valid but email has already been taken' do
       let!(:existed_user) { create(:user, email: 'me@example.com') }
 
-      let!(:user) { build(:user, email: 'me@example.com') }
-
-      before { subject.instance_variable_set(:@user, user) }
-
-      before { expect(user).to receive(:valid?).and_return(true).twice }
-
       specify do
         expect { subject.save! }.to raise_error(ActiveModel::StrictValidationFailed) do
-          expect(subject.send(:user).errors[:email]).to eq(['has already been taken'])
+          expect(subject.errors[:email]).to eq(['has already been taken'])
         end
       end
-    end
-  end
-
-  # private methods
-
-  describe '#user' do
-    context 'user not set' do
-      let(:params) { double }
-
-      subject { described_class.new(params) }
-
-      let!(:user) { build(:user) }
-
-      before do
-        #
-        # User.new(params) => user
-        #
-        expect(User).to receive(:new).with(params).and_return(user)
-      end
-
-      specify { expect { subject.send(:user) }.not_to raise_error }
-
-      specify { expect { subject.send(:user) }.to change { subject.instance_variable_get(:@user) }.from(nil).to(user) }
-    end
-
-    context 'user is set' do
-      let!(:user) { create(:user) }
-
-      before { subject.instance_variable_set(:@user, user) }
-
-      specify { expect(subject.send(:user)).to eq(user) }
-    end
-  end
-
-  describe '#build_session' do
-    context 'session not set' do
-      let!(:user) { create(:user) }
-
-      before { expect(subject).to receive(:user).and_return(user) }
-
-      before do
-        #
-        # user.sessions.build
-        #
-        expect(user).to receive(:sessions) do
-          double.tap do |a|
-            expect(a).to receive(:build)
-          end
-        end
-      end
-
-      specify { expect { subject.send(:build_session) }.not_to raise_error }
-    end
-
-    context 'session is set' do
-      let!(:session) { create(:session) }
-
-      before { subject.instance_variable_set(:@session, session) }
-
-      specify { expect(subject.send(:build_session)).to eq(session) }
     end
   end
 end
