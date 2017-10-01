@@ -48,6 +48,7 @@ group :development, :test do
   gem 'rubocop-thread_safety'
   gem 'mry', require: false
   gem 'squasher', require: false
+  gem 'mdl', require: false
 end
 
 group :development do
@@ -69,7 +70,6 @@ group :development do
   gem 'capistrano-rbenv', require: false
   gem 'capistrano-rbenv-install', require: false
   # gem 'overcommit', require: false
-  gem 'mdl', require: false
   gem 'cacheflow'
 end
 
