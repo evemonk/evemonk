@@ -238,7 +238,7 @@ GEM
     minitest (5.10.3)
     mixlib-cli (1.7.0)
     mixlib-config (2.2.4)
-    mry (0.49.0.0)
+    mry (0.50.0.0)
     msgpack (1.1.0)
     multi_json (1.12.2)
     multi_xml (0.6.0)
