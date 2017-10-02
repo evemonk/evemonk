@@ -5,6 +5,7 @@ EvemonkApp.Routers.MainRouter = Backbone.Router.extend({
         'sign_in' : 'sign_in',
         'sign_out' : 'sign_out',
         'profile' : 'profile',
+        'characters?page=:page' : 'characters_page',
         'characters' : 'characters'
     },
 
@@ -25,7 +26,7 @@ EvemonkApp.Routers.MainRouter = Backbone.Router.extend({
 
         EvemonkApp.currentUser = new EvemonkApp.Models.CurrentUser({ loggedIn: false });
 
-        EvemonkApp.currentSession = new EvemonkApp.Models.Session({});
+        EvemonkApp.currentSession = new EvemonkApp.Models.Session();
 
         EvemonkApp.Events.trigger('user:sign_out');
 
@@ -39,7 +40,7 @@ EvemonkApp.Routers.MainRouter = Backbone.Router.extend({
     },
 
     sign_up: function () {
-        var signUp = new EvemonkApp.Models.SignUp({});
+        var signUp = new EvemonkApp.Models.SignUp();
 
         var signUpView = new EvemonkApp.Views.SignUpView({ model: signUp });
 
@@ -47,7 +48,7 @@ EvemonkApp.Routers.MainRouter = Backbone.Router.extend({
     },
 
     sign_in: function () {
-        var signIn = new EvemonkApp.Models.SignIn({});
+        var signIn = new EvemonkApp.Models.SignIn();
 
         var signInView = new EvemonkApp.Views.SignInView({ model: signIn });
 
@@ -77,7 +78,7 @@ EvemonkApp.Routers.MainRouter = Backbone.Router.extend({
     },
 
     profile: function () {
-        var profile = new EvemonkApp.Models.Profile({});
+        var profile = new EvemonkApp.Models.Profile();
 
         var self = this;
 
@@ -96,7 +97,7 @@ EvemonkApp.Routers.MainRouter = Backbone.Router.extend({
     },
 
     characters: function () {
-        var characters = new EvemonkApp.Collections.Characters({});
+        var characters = new EvemonkApp.Collections.Characters();
 
         var self = this;
 
@@ -112,5 +113,28 @@ EvemonkApp.Routers.MainRouter = Backbone.Router.extend({
                 }
             }
         })
+    },
+
+    characters_page: function (page) {
+        var characters = new EvemonkApp.Collections.Characters();
+
+        var self = this;
+
+        characters.getPage(parseInt(page), {
+            fetch: true,
+            reset: true,
+
+            success: function () {
+                var charactersView = new EvemonkApp.Views.CharactersView({ collection: characters });
+
+                $('#content').html(charactersView.render().el);
+            },
+
+            error: function (model, response, options) {
+                if (response.status === 401) {
+                    self.unauthorized();
+                }
+            }
+        });
     }
 });
