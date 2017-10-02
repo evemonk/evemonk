@@ -3,6 +3,7 @@ class CharacterDecorator < Draper::Decorator
 
   def as_json(*)
     {
+      id: id,
       uid: uid,
       name: name,
       created_at: created_at.iso8601,

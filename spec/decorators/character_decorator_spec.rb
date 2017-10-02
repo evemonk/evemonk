@@ -4,11 +4,14 @@ describe CharacterDecorator do
   describe '#as_json' do
     let!(:character) do
       create(:character,
+             id: 123,
              uid: 1_337_512_245,
              name: 'Johnn Dillinger')
     end
 
     subject { character.decorate.as_json }
+
+    its([:id]) { should eq(123) }
 
     its([:uid]) { should eq(1_337_512_245) }
 
