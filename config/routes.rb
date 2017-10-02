@@ -22,6 +22,8 @@ Rails.application.routes.draw do
     resources :sessions, only: [:index, :destroy]
 
     resource :profile, only: :show
+
+    resources :characters, only: [:index, :show, :destroy]
   end
 
   # You can have the root of your site routed with "root"
