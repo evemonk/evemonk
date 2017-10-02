@@ -6,7 +6,12 @@ module Api
         include Swagger::Blocks
 
         swagger_schema :OutputCharacter do
-          key :required, [:uid, :name, :created_at, :updated_at]
+          key :required, [:id, :uid, :name, :created_at, :updated_at]
+          property :id do
+            key :type, :integer
+            key :format, :int64
+            key :description, 'Character ID'
+          end
           property :uid do
             key :type, :integer
             key :format, :int64
@@ -26,7 +31,8 @@ module Api
             key :format, :'date-time'
             key :description, 'Updated at in ISO8601 format'
           end
-          key :example, uid: 1337512245,
+          key :example, id: 123,
+                        uid: 1337512245,
                         name: 'Johnn Dillinger',
                         created_at: '2016-12-12T18:35:59Z',
                         updated_at: '2016-12-12T18:36:10Z'
