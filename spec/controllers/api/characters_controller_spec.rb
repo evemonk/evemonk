@@ -36,6 +36,59 @@ describe Api::CharactersController do
   end
 
   describe '#show' do
+    context 'authorized' do
+      let!(:user) { create(:user) }
+
+      let!(:session) { create(:session, user: user) }
+
+      let!(:character) { create(:character, user: user, id: 123) }
+
+      before { request.env['HTTP_AUTHORIZATION'] = "Bearer #{ session.token }" }
+
+      before { get :show, params: { id: '123', format: :json } }
+
+      it { should render_template(:show) }
+
+      it { should respond_with(:ok) }
+    end
+
+    context 'not authorized' do
+      let!(:character) { create(:character, id: 123) }
+
+      before { get :show, params: { id: '123', format: :json } }
+
+      it { should respond_with(:unauthorized) }
+    end
+
+    context 'not supported accept:' do
+      let!(:user) { create(:user) }
+
+      let!(:session) { create(:session, user: user) }
+
+      let!(:character) { create(:character, user: user, id: 123) }
+
+      before { request.env['HTTP_AUTHORIZATION'] = "Bearer #{ session.token }" }
+
+      before { get :show, params: { id: '123', format: :html } }
+
+      it { should respond_with(:not_acceptable) }
+    end
+
+    context 'not found' do
+      render_views
+
+      let!(:user) { create(:user) }
+
+      let!(:session) { create(:session, user: user) }
+
+      let!(:character) { create(:character, id: 123) }
+
+      before { request.env['HTTP_AUTHORIZATION'] = "Bearer #{ session.token }" }
+
+      before { get :show, params: { id: '123', format: :json } }
+
+      it { should respond_with(:not_found) }
+    end
   end
 
   describe '#destroy' do
