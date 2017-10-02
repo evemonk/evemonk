@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :character do
-    user nil
+    user
     uid 1
     name "MyString"
     token "MyString"
