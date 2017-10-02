@@ -6,7 +6,8 @@ EvemonkApp.Routers.MainRouter = Backbone.Router.extend({
         'sign_out' : 'sign_out',
         'profile' : 'profile',
         'characters?page=:page' : 'characters_page',
-        'characters' : 'characters'
+        'characters' : 'characters',
+        'characters/:id' : 'show_character'
     },
 
     initialize: function () {
@@ -133,6 +134,36 @@ EvemonkApp.Routers.MainRouter = Backbone.Router.extend({
             error: function (model, response, options) {
                 if (response.status === 401) {
                     self.unauthorized();
+                }
+            }
+        });
+    },
+
+    show_character: function (id) {
+        var character = new EvemonkApp.Models.Character({ id: id });
+
+        var self = this;
+
+        character.fetch({
+            success: function () {
+                var characterView = new EvemonkApp.Views.CharacterView({ model: character });
+
+                $('#content').html(characterView.render().el);
+            },
+
+            error: function (model, response, options) {
+                if (response.status === 401) {
+                    self.unauthorized();
+                }
+
+                if (response.status === 404) {
+                    var flash = new EvemonkApp.Models.FlashWarning({ message: 'Character not found!' });
+
+                    var flashView = new EvemonkApp.Views.FlashView({ model: flash });
+
+                    $('#flash').append(flashView.render().el);
+
+                    Backbone.history.navigate('characters', { trigger: true });
                 }
             }
         });
