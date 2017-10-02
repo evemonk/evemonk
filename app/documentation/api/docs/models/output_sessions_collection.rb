@@ -6,7 +6,8 @@ module Api
         include Swagger::Blocks
 
         swagger_schema :OutputSessionsCollection do
-          key :required, [:collection, :total_pages, :current_page]
+          key :required, [:collection, :total_pages, :current_page,
+                          :total_entries]
           property :collection do
             key :type, :array
             items do
@@ -22,6 +23,11 @@ module Api
             key :type, :integer
             key :format, :int64
             key :description, 'Current page number'
+          end
+          property :total_entries do
+            key :type, :integer
+            key :format, :int64
+            key :description, 'Total entries'
           end
         end
         # :nocov:
