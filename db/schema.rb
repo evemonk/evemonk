@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170929194611) do
+ActiveRecord::Schema.define(version: 20171002211349) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,6 +54,19 @@ ActiveRecord::Schema.define(version: 20170929194611) do
     t.string "token_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "corporation_id"
+    t.datetime "birthday"
+    t.string "gender"
+    t.integer "race_id"
+    t.integer "bloodline_id"
+    t.text "description"
+    t.integer "alliance_id"
+    t.integer "ancestry_id"
+    t.decimal "security_status", precision: 18, scale: 16
+    t.string "portrait_small"
+    t.string "portrait_medium"
+    t.string "portrait_large"
+    t.string "portrait_huge"
     t.index ["user_id"], name: "index_characters_on_user_id"
   end
 

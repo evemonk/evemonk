@@ -16,6 +16,8 @@ module Api
       character.save!
 
       create_session
+
+      update_character_info
     end
 
     private
@@ -72,6 +74,10 @@ module Api
 
     def create_session
       @session = character.user.sessions.create!
+    end
+
+    def update_character_info
+      Api::UpdateCharacterInfo.new(character, character.token).update!
     end
   end
 end
