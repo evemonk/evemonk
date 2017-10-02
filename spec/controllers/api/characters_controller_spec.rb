@@ -1,6 +1,46 @@
 require 'rails_helper'
 
 describe Api::CharactersController do
+  it { should be_a(Api::BaseController) }
+
+  it { should use_before_action(:authenticate!) }
+
+  describe '#index' do
+    context 'authorized' do
+      let!(:session) { create(:session) }
+
+      before { request.env['HTTP_AUTHORIZATION'] = "Bearer #{ session.token }" }
+
+      before { get :index, format: :json }
+
+      it { should render_template(:index) }
+
+      it { should respond_with(:ok) }
+    end
+
+    context 'not authorized' do
+      before { get :index, format: :json }
+
+      it { should respond_with(:unauthorized) }
+    end
+
+    context 'not supported accept:' do
+      let!(:session) { create(:session) }
+
+      before { request.env['HTTP_AUTHORIZATION'] = "Bearer #{ session.token }" }
+
+      before { get :index, format: :html }
+
+      it { should respond_with(:not_acceptable) }
+    end
+  end
+
+  describe '#show' do
+  end
+
+  describe '#destroy' do
+  end
+
   # private methods
 
   describe '#resource' do
