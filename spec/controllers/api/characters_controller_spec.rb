@@ -92,6 +92,41 @@ describe Api::CharactersController do
   end
 
   describe '#destroy' do
+    context 'authorized' do
+      let!(:user) { create(:user) }
+
+      let!(:session) { create(:session, user: user) }
+
+      let!(:character) { create(:character, user: user, id: 123) }
+
+      before { request.env['HTTP_AUTHORIZATION'] = "Bearer #{ session.token }" }
+
+      before { delete :destroy, params: { id: '123', format: :json } }
+
+      it { should respond_with(:ok) }
+    end
+
+    context 'not authorized' do
+      let!(:character) { create(:character, id: 123) }
+
+      before { delete :destroy, params: { id: '123', format: :json } }
+
+      it { should respond_with(:unauthorized) }
+    end
+
+    context 'not found' do
+      let!(:user) { create(:user) }
+
+      let!(:session) { create(:session, user: user) }
+
+      let!(:character) { create(:character, id: 123) }
+
+      before { request.env['HTTP_AUTHORIZATION'] = "Bearer #{ session.token }" }
+
+      before { delete :destroy, params: { id: '123', format: :json } }
+
+      it { should respond_with(:not_found) }
+    end
   end
 
   # private methods
