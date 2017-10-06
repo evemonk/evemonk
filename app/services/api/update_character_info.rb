@@ -13,6 +13,8 @@ module Api
       character_portrait
     end
 
+    private
+
     def character_info
       info = ::EveOnline::ESI::Character.new(character.uid)
 
