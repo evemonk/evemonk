@@ -19,7 +19,7 @@ describe Api::CharactersController do
       )
     end
 
-    it 'should route DELETE /api/characters/:id to api/characters#show' do
+    it 'should route DELETE /api/characters/:id to api/characters#destroy' do
       expect(delete: '/api/characters/123').to route_to(
         controller: 'api/characters',
         action: 'destroy',
