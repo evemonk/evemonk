@@ -20,6 +20,7 @@ gem 'eve_online'
 gem 'omniauth-eve_online-sso'
 gem 'rack-cors', require: 'rack/cors'
 gem 'kaminari'
+# gem 'pundit'
 gem 'draper'
 gem 'dotenv-rails'
 gem 'sidekiq', require: false
