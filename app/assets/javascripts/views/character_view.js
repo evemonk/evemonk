@@ -11,12 +11,6 @@ EvemonkApp.Views.CharacterView = Backbone.View.extend({
         return this;
     },
 
-    edit: function (event) {
-        event.preventDefault();
-
-        Backbone.history.navigate(event.target.getAttribute('href'), { trigger: true });
-    },
-
     destroy: function (event) {
         event.preventDefault();
 
