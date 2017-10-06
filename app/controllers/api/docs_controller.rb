@@ -38,6 +38,10 @@ module Api
         key :name, 'sessions'
         key :description, 'Sessions operations'
       end
+      tag do
+        key :name, 'characters'
+        key :description, 'Characters operations'
+      end
       key :host, (ENV['SWAGGER_BLOCKS_HOST'] || 'localhost:3000')
       key :basePath, '/api'
       key :consumes, %w[application/json application/x-www-form-urlencoded]
@@ -66,6 +70,8 @@ module Api
       Api::Docs::Models::OutputSessionWithoutToken,
       Api::Docs::Models::OutputSessionsCollection,
       Api::Docs::Models::OutputUser,
+      Api::Docs::Models::OutputCharacter,
+      Api::Docs::Models::OutputCharactersCollection,
       Api::Docs::Models::SignInsUnprocessableEntity,
       Api::Docs::Models::SignUpsUnprocessableEntity,
 
@@ -74,6 +80,7 @@ module Api
       Api::Docs::SignIns,
       Api::Docs::SignOuts,
       Api::Docs::SignUps,
+      Api::Docs::Characters,
 
       self
     ].freeze

@@ -1,17 +1,17 @@
 module Api
   module Docs
     module Models
-      class OutputSessionsCollection
+      class OutputCharactersCollection
         # :nocov:
         include Swagger::Blocks
 
-        swagger_schema :OutputSessionsCollection do
+        swagger_schema :OutputCharactersCollection do
           key :required, [:collection, :total_pages, :current_page,
                           :total_entries]
           property :collection do
             key :type, :array
             items do
-              key :'$ref', :OutputSessionWithoutToken
+              key :'$ref', :OutputCharacter
             end
           end
           property :total_pages do
@@ -31,7 +31,8 @@ module Api
           end
           key :example,
               collection: [{ id: 123,
-                             name: 'My Computer',
+                             uid: 1337512245,
+                             name: 'Johnn Dillinger',
                              created_at: '2016-12-12T18:35:59Z',
                              updated_at: '2016-12-12T18:36:10Z' }],
               total_pages: 4,

@@ -4,6 +4,12 @@ Rails.application.routes.draw do
     mount PgHero::Engine, at: 'pghero'
   end
 
+  namespace :auth do
+    namespace :eve_online_sso do
+      resource :callback, only: :show
+    end
+  end
+
   namespace :api, defaults: { format: 'json' } do
     resources :docs, only: :index
 
@@ -16,6 +22,8 @@ Rails.application.routes.draw do
     resources :sessions, only: [:index, :destroy]
 
     resource :profile, only: :show
+
+    resources :characters, only: [:index, :show, :destroy]
   end
 
   # You can have the root of your site routed with "root"

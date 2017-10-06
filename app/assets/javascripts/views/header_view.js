@@ -1,6 +1,7 @@
 EvemonkApp.Views.HeaderView = Backbone.View.extend({
     events: {
         'click .dashboard' : 'handle_click',
+        'click .characters' : 'handle_click',
         'click .sign-in' : 'handle_click',
         'click .sign-up' : 'handle_click',
         'click .sign-out' : 'handle_click',
