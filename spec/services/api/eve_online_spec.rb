@@ -8,4 +8,6 @@ describe Api::EveOnline do
   describe '#initialize' do
     its(:request) { should eq(request) }
   end
+
+  # TODO: write more specs
 end
