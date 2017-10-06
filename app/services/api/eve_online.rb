@@ -23,41 +23,41 @@ module Api
     private
 
     def uid
-      @uid ||= request.env['omniauth.auth']['info']['character_id']
+      request.env['omniauth.auth']['info']['character_id']
     end
 
     def name
-      @name ||= request.env['omniauth.auth']['info']['name']
+      request.env['omniauth.auth']['info']['name']
     end
 
     def token
-      @token ||= request.env['omniauth.auth']['credentials']['token']
+      request.env['omniauth.auth']['credentials']['token']
     end
 
     def refresh_token
-      @refresh_token ||= request.env['omniauth.auth']['credentials']['refresh_token']
+      request.env['omniauth.auth']['credentials']['refresh_token']
     end
 
     def token_expires_at
-      @token_expires_at ||= Time.zone.at(request.env['omniauth.auth']['credentials']['expires_at'])
+      Time.zone.at(request.env['omniauth.auth']['credentials']['expires_at'])
     end
 
     def token_expires
-      @token_expires ||= request.env['omniauth.auth']['credentials']['expires']
+      request.env['omniauth.auth']['credentials']['expires']
     end
 
     def scopes
-      @scopes ||= request.env['omniauth.auth']['info']['scopes']
+      request.env['omniauth.auth']['info']['scopes']
     end
 
     def token_type
-      @token_type ||= request.env['omniauth.auth']['info']['token_type']
+      request.env['omniauth.auth']['info']['token_type']
     end
 
     def character
       @character ||= Character.find_or_initialize_by(uid: uid)
     end
-    
+
     def update_character_attributes
       character.assign_attributes(name: name,
                                   token: token,
