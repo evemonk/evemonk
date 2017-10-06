@@ -6,9 +6,10 @@ FactoryGirl.define do
 
     name { Faker::Name.name }
 
-    token 'MyString'
-    refresh_token 'MyString'
-    token_expires_at '2017-09-29 22:01:16'
-    token_expires false
+    # TODO: later
+    # token 'MyString'
+    # refresh_token 'MyString'
+    # token_expires_at '2017-09-29 22:01:16'
+    # token_expires false
   end
 end
