@@ -34,6 +34,8 @@ describe Api::UpdateCharacterInfo do
 
     after { VCR.eject_cassette }
 
+    let!(:race) { create(:eve_race, race_id: 2) }
+
     let!(:character) do
       create(:character,
              uid: 1_337_512_245,
