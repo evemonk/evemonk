@@ -72,6 +72,7 @@ module Api
       Api::Docs::Models::OutputUser,
       Api::Docs::Models::OutputCharacter,
       Api::Docs::Models::OutputCharactersCollection,
+      Api::Docs::Models::OutputRace,
       Api::Docs::Models::SignInsUnprocessableEntity,
       Api::Docs::Models::SignUpsUnprocessableEntity,
 
