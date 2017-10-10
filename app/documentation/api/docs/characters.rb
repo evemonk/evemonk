@@ -33,7 +33,7 @@ module Api
             key :in, :path
             key :required, true
             key :type, :integer
-            key :description, 'Session ID'
+            key :description, 'Character ID'
           end
           response '200' do
             key :description, 'Success'
@@ -55,7 +55,7 @@ module Api
             key :in, :path
             key :required, true
             key :type, :integer
-            key :description, 'Session ID'
+            key :description, 'Character ID'
           end
           response '200' do
             key :description, 'Success'
