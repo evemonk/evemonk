@@ -9,6 +9,8 @@ module Api
     def update!
       character_info
 
+      character_wallet
+
       character_portrait
     end
 
@@ -18,6 +20,13 @@ module Api
       info = ::EveOnline::ESI::Character.new(character_id: character.uid)
 
       character.update!(info.as_json)
+    end
+
+    def character_wallet
+      wallet = ::EveOnline::ESI::CharacterWallet.new(character_id: character.uid,
+                                                     token: character.token)
+
+      character.update!(wallet.as_json)
     end
 
     def character_portrait
