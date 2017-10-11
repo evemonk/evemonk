@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171002211349) do
+ActiveRecord::Schema.define(version: 20171011205856) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -67,6 +67,7 @@ ActiveRecord::Schema.define(version: 20171002211349) do
     t.string "portrait_medium"
     t.string "portrait_large"
     t.string "portrait_huge"
+    t.float "wallet"
     t.index ["user_id"], name: "index_characters_on_user_id"
   end
 

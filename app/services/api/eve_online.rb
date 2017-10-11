@@ -77,7 +77,7 @@ module Api
     end
 
     def update_character_info
-      Api::UpdateCharacterInfo.new(character, character.token).update!
+      Api::UpdateCharacterInfo.new(character).update!
     end
   end
 end
