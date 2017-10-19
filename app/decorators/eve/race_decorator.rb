@@ -1,7 +1,7 @@
 module Eve
   class RaceDecorator < Draper::Decorator
     delegate_all
-  
+
     def as_json(*)
       {
         description: description,

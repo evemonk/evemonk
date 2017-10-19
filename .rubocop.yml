@@ -1,5 +1,5 @@
 require: rubocop-thread_safety
-#require: rubocop-rspec
+require: rubocop-rspec
 
 inherit_from: .rubocop_todo.yml
 
@@ -172,20 +172,19 @@ Style/ConditionalAssignment:
 Style/NegatedIf:
   Enabled: false
 
-# rubocop-thread_safety
-ThreadSafety:
+# rubocop-thread_safety cops
+ThreadSafety/ClassAndModuleAttributes:
   Enabled: true
 
-Style/GlobalVars:
+ThreadSafety/InstanceVariableInClassMethod:
   Enabled: true
 
-Style/ClassVars:
+ThreadSafety/NewThread:
   Enabled: true
 
-Style/MutableConstant:
-  Enabled: true
+# rubocop-rspec cops
 
-# rubocop-rspec
+# Enable it later
 RSpec/NamedSubject:
   Enabled: false
 
@@ -193,6 +192,60 @@ RSpec/ImplicitExpect:
   Enabled: true
   EnforcedStyle: should
 
+RSpec/ExpectInHook:
+  Enabled: false
+
+RSpec/LeadingSubject:
+  Enabled: false
+
 RSpec/MessageSpies:
   Enabled: true
   EnforcedStyle: receive
+
+RSpec/LetSetup:
+  Enabled: false
+
+RSpec/ScatteredSetup:
+  Enabled: false
+
+RSpec/ScatteredLet:
+  Enabled: false
+
+RSpec/HookArgument:
+  Enabled: false
+
+# https://robots.thoughtbot.com/don-t-stub-the-system-under-test
+# Enable later?
+RSpec/SubjectStub:
+  Enabled: false
+
+# Enable later
+RSpec/ExampleWording:
+  Enabled: false
+
+# Bug in rubocop-rspec cop
+RSpec/FilePath:
+  Enabled: true
+  Exclude:
+    - 'spec/routing/**/*.rb'
+
+# Possibly bug in rubocop-rspec cop
+RSpec/ExampleLength:
+  Enabled: true
+  Exclude:
+    - 'spec/routing/**/*.rb'
+
+RSpec/NestedGroups:
+  Enabled: false
+
+RSpec/EmptyExampleGroup:
+  Enabled: false
+
+# Maybe later
+RSpec/MultipleExpectations:
+  Enabled: false
+
+RSpec/MultipleDescribes:
+  Enabled: true
+  Exclude:
+    - 'spec/policies/**/*.rb'

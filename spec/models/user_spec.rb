@@ -25,5 +25,5 @@ describe User do
     it { should_not validate_uniqueness_of(:email).case_insensitive }
   end
 
-  it { should have_secure_password }
+  it { should have_secure_password } # TODO: validations: false
 end

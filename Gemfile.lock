@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/biow0lf/eve_online.git
-  revision: 4a25a9117344d455a8eedf7f5c6b0409478229f4
+  revision: 7765bdc134d875499ec282ee9296ded1f4a04300
   branch: master
   specs:
     eve_online (0.12.0)
@@ -288,7 +288,7 @@ GEM
       activerecord
     popper_js (1.11.1)
     powerpack (0.1.1)
-    pry (0.11.1)
+    pry (0.11.2)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
     pry-rails (0.3.6)
@@ -390,6 +390,8 @@ GEM
       rainbow (>= 2.2.2, < 3.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (~> 1.0, >= 1.0.1)
+    rubocop-rspec (1.19.0)
+      rubocop (>= 0.51.0)
     rubocop-thread_safety (0.3.3)
       rubocop (>= 0.48.0)
     ruby-progressbar (1.9.0)
@@ -535,6 +537,7 @@ DEPENDENCIES
   rspec-its
   rspec-rails
   rubocop
+  rubocop-rspec
   rubocop-thread_safety
   rubycritic
   rufus-scheduler

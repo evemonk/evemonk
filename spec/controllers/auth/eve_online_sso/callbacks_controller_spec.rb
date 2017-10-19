@@ -14,7 +14,7 @@ describe Auth::EveOnlineSso::CallbacksController do
     before { expect(eve_online).to receive(:save!) }
 
     let(:token) { double }
-    
+
     before do
       #
       # eve_online.session.token => token

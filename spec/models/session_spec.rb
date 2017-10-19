@@ -7,8 +7,6 @@ describe Session do
 
   it { should belong_to(:user) }
 
-  it { should validate_presence_of(:user) }
-
   describe 'validate device_token presence' do
     context 'device present' do
       subject { described_class.new(device: :ios) }
