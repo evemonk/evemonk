@@ -9,7 +9,7 @@ gem 'jquery-rails'
 gem 'bootsnap', require: false
 gem 'handlebars_assets'
 gem 'js-routes'
-gem 'bootstrap', '~> 4.0.0.alpha6'
+gem 'bootstrap', '~> 4.0.0.beta2'
 gem 'font-awesome-sass'
 gem 'rufus-scheduler'
 
