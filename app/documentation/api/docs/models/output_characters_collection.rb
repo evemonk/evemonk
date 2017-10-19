@@ -31,7 +31,7 @@ module Api
           end
           key :example,
               collection: [{ id: 123,
-                             uid: 1337512245,
+                             uid: 1_337_512_245,
                              name: 'Johnn Dillinger',
                              race: {
                                description: 'Once a thriving tribal civilization, the Minmatar...',

@@ -36,7 +36,7 @@ module Api
             key :description, 'Updated at in ISO8601 format'
           end
           key :example, id: 123,
-                        uid: 1337512245,
+                        uid: 1_337_512_245,
                         name: 'Johnn Dillinger',
                         race: {
                           description: 'Once a thriving tribal civilization, the Minmatar...',
