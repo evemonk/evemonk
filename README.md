@@ -66,6 +66,7 @@ app.save!
 * [The Twelve-Factor App](https://12factor.net/)
 * [HTTP Status Codes](https://httpstatuses.com)
 * [Idiosyncratic Ruby](https://github.com/janlelis/idiosyncratic-ruby.com)
+* [Fundamental programming with ruby examples](https://github.com/khusnetdinov/ruby.fundamental)
 
 ## Documentation
 
