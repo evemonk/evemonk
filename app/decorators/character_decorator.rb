@@ -1,6 +1,8 @@
 class CharacterDecorator < Draper::Decorator
   delegate_all
 
+  decorates_association :race
+
   def as_json(*)
     {
       id: id,
@@ -10,7 +12,7 @@ class CharacterDecorator < Draper::Decorator
       # corporation_id: corporation_id,
       # birthday: birthday,
       # gender: gender,
-      # race_id: race_id,
+      race: race,
       # bloodline_id: bloodline_id,
       # description: description,
       # alliance_id: alliance_id,

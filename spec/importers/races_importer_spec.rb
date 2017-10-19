@@ -4,24 +4,24 @@ describe RacesImporter do
   describe '#initialize' do
     let(:file) { double }
 
-    let(:chr_races) { double }
+    let(:races) { double }
 
     subject { described_class.new(file) }
 
     before do
       #
-      # EveOnline::SDE::ChrRaces.new(file) => chr_races
+      # EveOnline::SDE::Races.new(file) => races
       #
-      expect(EveOnline::SDE::ChrRaces).to receive(:new).with(file).and_return(chr_races)
+      expect(EveOnline::SDE::Races).to receive(:new).with(file).and_return(races)
     end
 
-    specify { expect(subject.chr_races).to eq(chr_races) }
+    specify { expect(subject.races).to eq(races) }
   end
 
   describe '#execute' do
     let(:file) { double }
 
-    let(:chr_race) { double }
+    let(:race) { double }
 
     let(:json) { double }
 
@@ -29,16 +29,16 @@ describe RacesImporter do
 
     before do
       #
-      # subject.chr_races.chr_races => [chr_race]
+      # subject.races.races => [race]
       #
-      expect(subject).to receive(:chr_races) do
+      expect(subject).to receive(:races) do
         double.tap do |a|
-          expect(a).to receive(:chr_races).and_return([chr_race])
+          expect(a).to receive(:races).and_return([race])
         end
       end
     end
 
-    before { expect(chr_race).to receive(:as_json).and_return(json) }
+    before { expect(race).to receive(:as_json).and_return(json) }
 
     before do
       #

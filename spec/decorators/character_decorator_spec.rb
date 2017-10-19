@@ -17,6 +17,8 @@ describe CharacterDecorator do
 
     its([:name]) { should eq('Johnn Dillinger') }
 
+    specify { expect(subject[:race].class).to eq(Eve::RaceDecorator) }
+
     its([:created_at]) { should eq(character.created_at.iso8601) }
 
     its([:updated_at]) { should eq(character.updated_at.iso8601) }

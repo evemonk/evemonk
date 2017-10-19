@@ -6,6 +6,8 @@ FactoryGirl.define do
 
     name { Faker::Name.name }
 
+    association :race, factory: :eve_race
+
     # TODO: later
     # token 'MyString'
     # refresh_token 'MyString'
