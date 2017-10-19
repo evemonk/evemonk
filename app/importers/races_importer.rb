@@ -1,13 +1,13 @@
 class RacesImporter
-  attr_reader :chr_races
+  attr_reader :races
 
   def initialize(file)
-    @chr_races = EveOnline::SDE::ChrRaces.new(file)
+    @races = EveOnline::SDE::Races.new(file)
   end
 
   def execute
-    chr_races.chr_races.each do |chr_race|
-      Eve::Race.create!(chr_race.as_json)
+    races.races.each do |race|
+      Eve::Race.create!(race.as_json)
     end
   end
 end
