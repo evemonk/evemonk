@@ -17,10 +17,8 @@
 !/log/.keep
 !/tmp/.keep
 
-# Ignore Byebug command history file.
-.byebug_history
+/spec/examples.txt
 
 /.idea/*
 /coverage/*
-.env
-
+/.env
