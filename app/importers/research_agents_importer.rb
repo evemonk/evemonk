@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class ResearchAgentsImporter
   attr_reader :agt_research_agents
 

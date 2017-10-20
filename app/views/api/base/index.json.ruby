@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 {
   collection: collection.decorate.as_json,
   total_pages: collection.total_pages,

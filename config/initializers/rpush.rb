@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 Rpush.configure do |config|
   # Supported clients are :active_record, :redis and :mongoid
   config.client = :active_record

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class AddMoreFieldsToCharacters < ActiveRecord::Migration[5.1]
   def change
     add_column :characters, :corporation_id, :integer

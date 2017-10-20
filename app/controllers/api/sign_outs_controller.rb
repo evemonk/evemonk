@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Api
   class SignOutsController < BaseController
     def destroy

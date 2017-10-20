@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class CreateInvFlags < ActiveRecord::Migration[5.0]
   def change
     create_table :inv_flags do |t|

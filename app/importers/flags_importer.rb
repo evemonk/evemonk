@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class FlagsImporter
   attr_reader :inv_flags
 

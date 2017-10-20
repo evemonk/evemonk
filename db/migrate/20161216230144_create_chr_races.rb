@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class CreateChrRaces < ActiveRecord::Migration[5.0]
   def change
     create_table :chr_races do |t|

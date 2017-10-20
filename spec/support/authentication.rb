@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Authentication
   def sign_in(user = nil)
     user ||= User.new

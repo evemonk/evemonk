@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 namespace :systemd do
   desc 'Stop backend'
   task :stop do

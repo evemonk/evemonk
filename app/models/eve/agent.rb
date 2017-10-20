@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Eve
   class Agent < ApplicationRecord
     self.table_name = 'agt_agents'

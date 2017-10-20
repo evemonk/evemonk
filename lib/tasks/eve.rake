@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # rubocop:disable Metrics/BlockLength
 namespace :eve do
   desc 'Import EveOnline SDE Agents'

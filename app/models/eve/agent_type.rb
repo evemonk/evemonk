@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Eve
   class AgentType < ApplicationRecord
     self.table_name = 'agt_agent_types'
