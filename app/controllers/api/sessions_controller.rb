@@ -3,13 +3,12 @@ module Api
     private
 
     def resource
-      @session ||= current_user.sessions.find(params[:id])
+      @session ||= Session.find(params[:id])
     end
 
     def collection
-      @sessions ||= current_user.sessions
-                                .order(created_at: :asc)
-                                .page(params[:page])
+      @sessions ||= policy_scope(Session).order(created_at: :asc)
+                                         .page(params[:page])
     end
   end
 end
