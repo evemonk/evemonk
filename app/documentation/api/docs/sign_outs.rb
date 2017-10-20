@@ -11,7 +11,7 @@ module Api
           key :description, 'Sign out user'
           key :tags, ['sign out']
           parameter :authorization
-          response '200' do
+          response '204' do
             key :description, 'Success'
           end
           extend Api::Docs::Shared::Unauthorized
