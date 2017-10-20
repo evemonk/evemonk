@@ -156,16 +156,26 @@ describe Api::CharactersController do
   end
 
   describe '#collection' do
-    let!(:user) { create(:user) }
+    context '@characters not set' do
+      let!(:user) { create(:user) }
 
-    let!(:character1) { create(:character, user: user) }
+      let!(:character1) { create(:character, user: user) }
 
-    let!(:character2) { create(:character, user: user) }
+      let!(:character2) { create(:character, user: user) }
 
-    before { expect(subject).to receive(:current_user).and_return(user) }
+      before { expect(subject).to receive(:current_user).and_return(user) }
 
-    specify { expect(subject.send(:collection)).to eq([character1, character2]) }
+      specify { expect(subject.send(:collection)).to eq([character1, character2]) }
 
-    specify { expect { subject.send(:collection) }.to change { subject.instance_variable_get(:@characters) }.from(nil) }
+      specify { expect { subject.send(:collection) }.to change { subject.instance_variable_get(:@characters) }.from(nil) }
+    end
+
+    context '@characters is set' do
+      let(:characters) { double }
+
+      before { subject.instance_variable_set(:@characters, characters) }
+
+      specify { expect(subject.send(:collection)).to eq(characters) }
+    end
   end
 end
