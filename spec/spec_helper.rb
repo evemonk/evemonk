@@ -3,6 +3,7 @@ require 'simplecov'
 SimpleCov.start 'rails' do
   add_group 'Channels', 'app/channels'
   add_group 'Decorators', 'app/decorators'
+  add_group 'Policies', 'app/policies'
   add_group 'Importers', 'app/importers'
   add_group 'Services', 'app/services'
   add_group 'Documentation', 'app/documentation'

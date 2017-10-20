@@ -20,7 +20,7 @@ gem 'eve_online', git: 'https://github.com/biow0lf/eve_online.git', branch: 'mas
 gem 'omniauth-eve_online-sso'
 gem 'rack-cors', require: 'rack/cors'
 gem 'kaminari'
-# gem 'pundit'
+gem 'pundit'
 gem 'draper'
 gem 'dotenv-rails'
 gem 'sidekiq', require: false
