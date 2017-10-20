@@ -4,7 +4,7 @@ module Api
     def destroy
       Api::SignOut.new(request).destroy!
 
-      head :ok
+      head :no_content
     end
   end
 end
