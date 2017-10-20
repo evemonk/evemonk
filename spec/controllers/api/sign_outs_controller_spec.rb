@@ -14,7 +14,7 @@ describe Api::SignOutsController do
 
       before { delete :destroy, format: :json }
 
-      it { should respond_with(:ok) }
+      it { should respond_with(:no_content) }
     end
 
     context 'not authorized' do

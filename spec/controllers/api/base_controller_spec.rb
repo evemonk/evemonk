@@ -65,7 +65,7 @@ describe Api::BaseController do
 
     before { expect(resource).to receive(:destroy!) }
 
-    before { expect(subject).to receive(:head).with(:ok) }
+    before { expect(subject).to receive(:head).with(:no_content) }
 
     specify { expect { subject.destroy }.not_to raise_error }
   end

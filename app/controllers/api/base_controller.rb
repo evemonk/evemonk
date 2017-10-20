@@ -32,7 +32,7 @@ module Api
 
       resource.destroy!
 
-      head :ok
+      head :no_content
     end
 
     # :nocov:

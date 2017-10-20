@@ -58,7 +58,7 @@ module Api
             key :type, :integer
             key :description, 'Character ID'
           end
-          response '200' do
+          response '204' do
             key :description, 'Success'
           end
           extend Api::Docs::Shared::Unauthorized
