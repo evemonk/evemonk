@@ -37,19 +37,35 @@ describe Api::CharactersController do
 
   describe '#show' do
     context 'authorized' do
-      let!(:user) { create(:user) }
+      context 'owner' do
+        let!(:user) { create(:user) }
 
-      let!(:session) { create(:session, user: user) }
+        let!(:session) { create(:session, user: user) }
 
-      let!(:character) { create(:character, user: user, id: 123) }
+        let!(:character) { create(:character, user: user, id: 123) }
 
-      before { request.env['HTTP_AUTHORIZATION'] = "Bearer #{ session.token }" }
+        before { request.env['HTTP_AUTHORIZATION'] = "Bearer #{ session.token }" }
 
-      before { get :show, params: { id: '123', format: :json } }
+        before { get :show, params: { id: '123', format: :json } }
 
-      it { should render_template(:show) }
+        it { should render_template(:show) }
 
-      it { should respond_with(:ok) }
+        it { should respond_with(:ok) }
+      end
+
+      context 'not owned' do
+        let!(:user) { create(:user) }
+
+        let!(:session) { create(:session, user: user) }
+
+        let!(:character) { create(:character, id: 123) }
+
+        before { request.env['HTTP_AUTHORIZATION'] = "Bearer #{ session.token }" }
+
+        before { get :show, params: { id: '123', format: :json } }
+
+        it { should respond_with(:forbidden) }
+      end
     end
 
     context 'not authorized' do
@@ -73,37 +89,37 @@ describe Api::CharactersController do
 
       it { should respond_with(:not_acceptable) }
     end
-
-    context 'not found' do
-      render_views
-
-      let!(:user) { create(:user) }
-
-      let!(:session) { create(:session, user: user) }
-
-      let!(:character) { create(:character, id: 123) }
-
-      before { request.env['HTTP_AUTHORIZATION'] = "Bearer #{ session.token }" }
-
-      before { get :show, params: { id: '123', format: :json } }
-
-      it { should respond_with(:not_found) }
-    end
   end
 
   describe '#destroy' do
     context 'authorized' do
-      let!(:user) { create(:user) }
+      context 'owned' do
+        let!(:user) { create(:user) }
 
-      let!(:session) { create(:session, user: user) }
+        let!(:session) { create(:session, user: user) }
 
-      let!(:character) { create(:character, user: user, id: 123) }
+        let!(:character) { create(:character, user: user, id: 123) }
 
-      before { request.env['HTTP_AUTHORIZATION'] = "Bearer #{ session.token }" }
+        before { request.env['HTTP_AUTHORIZATION'] = "Bearer #{ session.token }" }
 
-      before { delete :destroy, params: { id: '123', format: :json } }
+        before { delete :destroy, params: { id: '123', format: :json } }
 
-      it { should respond_with(:ok) }
+        it { should respond_with(:ok) }
+      end
+
+      context 'not owned' do
+        let!(:user) { create(:user) }
+
+        let!(:session) { create(:session, user: user) }
+
+        let!(:character) { create(:character, id: 123) }
+
+        before { request.env['HTTP_AUTHORIZATION'] = "Bearer #{ session.token }" }
+
+        before { delete :destroy, params: { id: '123', format: :json } }
+
+        it { should respond_with(:forbidden) }
+      end
     end
 
     context 'not authorized' do
@@ -113,31 +129,13 @@ describe Api::CharactersController do
 
       it { should respond_with(:unauthorized) }
     end
-
-    context 'not found' do
-      let!(:user) { create(:user) }
-
-      let!(:session) { create(:session, user: user) }
-
-      let!(:character) { create(:character, id: 123) }
-
-      before { request.env['HTTP_AUTHORIZATION'] = "Bearer #{ session.token }" }
-
-      before { delete :destroy, params: { id: '123', format: :json } }
-
-      it { should respond_with(:not_found) }
-    end
   end
 
   # private methods
 
   describe '#resource' do
-    context 'found' do
-      let!(:user) { create(:user) }
-
-      let!(:character) { create(:character, user: user, id: 123) }
-
-      before { expect(subject).to receive(:current_user).and_return(user) }
+    context '@character not set' do
+      let!(:character) { create(:character, id: 123) }
 
       let(:params) { { id: '123' } }
 
@@ -148,21 +146,7 @@ describe Api::CharactersController do
       specify { expect { subject.send(:resource) }.to change { subject.instance_variable_get(:@character) }.from(nil).to(character) }
     end
 
-    context 'not found' do
-      let!(:user) { create(:user) }
-
-      let!(:character) { create(:character, id: 123) }
-
-      before { expect(subject).to receive(:current_user).and_return(user) }
-
-      let(:params) { { id: '123' } }
-
-      before { expect(subject).to receive(:params).and_return(params) }
-
-      specify { expect { subject.send(:resource) }.to raise_error(ActiveRecord::RecordNotFound) }
-    end
-
-    context 'memoization' do
+    context '@character is set' do
       let(:character) { double }
 
       before { subject.instance_variable_set(:@character, character) }

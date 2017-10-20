@@ -3,13 +3,12 @@ module Api
     private
 
     def resource
-      @character ||= current_user.characters.find(params[:id])
+      @character ||= Character.find(params[:id])
     end
 
     def collection
-      @characters ||= current_user.characters
-                                  .order(created_at: :asc)
-                                  .page(params[:page])
+      @characters ||= policy_scope(Character).order(created_at: :asc)
+                                             .page(params[:page])
     end
   end
 end
