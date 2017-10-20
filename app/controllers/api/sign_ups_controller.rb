@@ -2,6 +2,12 @@ module Api
   class SignUpsController < BaseController
     skip_before_action :authenticate!
 
+    def create
+      build_resource
+
+      resource.save!
+    end
+
     private
 
     def build_resource
