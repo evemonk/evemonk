@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Api
   class SignUpsController < BaseController
     skip_before_action :authenticate!

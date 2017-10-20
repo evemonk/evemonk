@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class AddPortraitToCharacters < ActiveRecord::Migration[5.1]
   def change
     add_column :characters, :portrait_small, :string

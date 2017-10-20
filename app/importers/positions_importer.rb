@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class PositionsImporter
   attr_reader :inv_positions
 

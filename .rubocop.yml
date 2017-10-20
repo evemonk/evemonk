@@ -65,7 +65,6 @@ Layout/DotPosition:
 
 Style/FrozenStringLiteralComment:
   Enabled: true
-  EnforcedStyle: never
 
 # Recheck this cop later
 Style/FlipFlop:

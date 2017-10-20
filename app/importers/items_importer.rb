@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class ItemsImporter
   attr_reader :inv_items
 
