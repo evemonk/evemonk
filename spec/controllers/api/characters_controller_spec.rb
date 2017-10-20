@@ -105,7 +105,7 @@ describe Api::CharactersController do
 
         before { delete :destroy, params: { id: '123', format: :json } }
 
-        it { should respond_with(:ok) }
+        it { should respond_with(:no_content) }
       end
 
       context 'not owned' do
