@@ -3,6 +3,8 @@ require 'rails_helper'
 describe Api::BaseController do
   it { should be_a(ApplicationController) }
 
+  it { should be_a(Pundit) }
+
   it { should use_before_action(:authenticate!) }
 
   describe '#current_user' do
@@ -13,12 +15,24 @@ describe Api::BaseController do
     specify { expect(subject.current_user).to eq(user) }
   end
 
+  describe '#show' do
+    let(:resource) { double }
+
+    before { expect(subject).to receive(:resource).and_return(resource) }
+
+    before { expect(subject).to receive(:authorize).with(resource) }
+
+    specify { expect { subject.show }.not_to raise_error }
+  end
+
   describe '#create' do
     let(:resource) { double }
 
     before { expect(subject).to receive(:build_resource) }
 
-    before { expect(subject).to receive(:resource).and_return(resource) }
+    before { expect(subject).to receive(:resource).and_return(resource).twice }
+
+    before { expect(subject).to receive(:authorize).with(resource) }
 
     before { expect(resource).to receive(:save!) }
 
@@ -30,7 +44,9 @@ describe Api::BaseController do
 
     let(:resource_params) { double }
 
-    before { expect(subject).to receive(:resource).and_return(resource) }
+    before { expect(subject).to receive(:resource).and_return(resource).twice }
+
+    before { expect(subject).to receive(:authorize).with(resource) }
 
     before { expect(subject).to receive(:resource_params).and_return(resource_params) }
 
@@ -42,7 +58,9 @@ describe Api::BaseController do
   describe '#destroy' do
     let(:resource) { double }
 
-    before { expect(subject).to receive(:resource).and_return(resource) }
+    before { expect(subject).to receive(:resource).and_return(resource).twice }
+
+    before { expect(subject).to receive(:authorize).with(resource) }
 
     before { expect(resource).to receive(:destroy!) }
 

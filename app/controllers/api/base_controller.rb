@@ -1,22 +1,34 @@
 module Api
   class BaseController < ApplicationController
+    include Pundit
+
     before_action :authenticate!
 
     attr_reader :current_user
 
     helper_method :parent, :collection, :resource, :current_user
 
+    def show
+      authorize(resource)
+    end
+
     def create
       build_resource
+
+      authorize(resource)
 
       resource.save!
     end
 
     def update
+      authorize(resource)
+
       resource.update!(resource_params)
     end
 
     def destroy
+      authorize(resource)
+
       resource.destroy!
 
       head :ok
