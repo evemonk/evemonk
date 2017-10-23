@@ -72,7 +72,7 @@ GEM
     ansi (1.5.0)
     arel (8.0.0)
     ast (2.3.0)
-    autoprefixer-rails (7.1.5)
+    autoprefixer-rails (7.1.6)
       execjs
     awesome_print (1.8.0)
     axiom-types (0.1.1)
@@ -152,10 +152,10 @@ GEM
     et-orbi (1.0.7)
       tzinfo
     execjs (2.7.0)
-    factory_girl (4.8.1)
+    factory_bot (4.8.2)
       activesupport (>= 3.0.0)
-    factory_girl_rails (4.8.0)
-      factory_girl (~> 4.8.0)
+    factory_bot_rails (4.8.2)
+      factory_bot (~> 4.8.2)
       railties (>= 3.0.0)
     faker (1.8.4)
       i18n (~> 0.5)
@@ -509,7 +509,7 @@ DEPENDENCIES
   dotenv-rails
   draper
   eve_online!
-  factory_girl_rails
+  factory_bot_rails
   faker
   font-awesome-sass
   handlebars_assets
