@@ -42,7 +42,7 @@ group :development, :test do
   gem 'awesome_print', require: 'ap'
   gem 'pry-rails'
   gem 'bullet'
-  gem 'factory_girl_rails'
+  gem 'factory_bot_rails'
   gem 'faker'
   gem 'sql_tracker'
   gem 'bundler-audit', require: false
