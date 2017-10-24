@@ -7,7 +7,8 @@ describe CharacterDecorator do
       create(:character,
              id: 123,
              uid: 1_337_512_245,
-             name: 'Johnn Dillinger')
+             name: 'Johnn Dillinger',
+             security_status: 1.869488166134545)
     end
 
     subject { character.decorate.as_json }
@@ -17,6 +18,8 @@ describe CharacterDecorator do
     its([:uid]) { should eq(1_337_512_245) }
 
     its([:name]) { should eq('Johnn Dillinger') }
+
+    its([:security_status]) { should eq(1.869488166134545) }
 
     specify { expect(subject[:race].class).to eq(Eve::RaceDecorator) }
 

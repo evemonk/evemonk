@@ -18,7 +18,7 @@ class CharacterDecorator < Draper::Decorator
       # description: description,
       # alliance_id: alliance_id,
       # ancestry_id: ancestry_id,
-      # security_status: security_status,
+      security_status: security_status,
       # portrait: {
       #   small: portrait_small,
       #   medium: portrait_medium,
