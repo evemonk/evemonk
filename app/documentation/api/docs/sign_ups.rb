@@ -11,14 +11,14 @@ module Api
           key :description, 'Sign up new user.'
           key :tags, ['sign up']
           parameter do
-            key :name, :email
+            key :name, 'sign_up[email]'
             key :in, :formData
             key :required, true
             key :type, :string
             key :description, 'User email'
           end
           parameter do
-            key :name, :password
+            key :name, 'sign_up[password]'
             key :in, :formData
             key :required, true
             key :type, :string
@@ -26,7 +26,7 @@ module Api
             key :description, 'User password'
           end
           parameter do
-            key :name, :password_confirmation
+            key :name, 'sign_up[password_confirmation]'
             key :in, :formData
             key :required, true
             key :type, :string

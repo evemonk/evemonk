@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/biow0lf/eve_online.git
-  revision: 7765bdc134d875499ec282ee9296ded1f4a04300
+  revision: 71a0ce96bfd5e55bcb4177de40998263b78420e7
   branch: master
   specs:
     eve_online (0.12.0)
@@ -173,7 +173,7 @@ GEM
       sexp_processor (~> 4.8)
     font-awesome-sass (4.7.0)
       sass (>= 3.2)
-    globalid (0.4.0)
+    globalid (0.4.1)
       activesupport (>= 4.2.0)
     handlebars_assets (0.23.2)
       execjs (~> 2.0)

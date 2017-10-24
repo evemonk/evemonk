@@ -15,9 +15,11 @@ EvemonkApp.Views.SignUpView = Backbone.View.extend({
         event.preventDefault();
 
         this.model.save({
-            email: this.$('#email').val(),
-            password: this.$('#password').val(),
-            password_confirmation: this.$('#password_confirmation').val()
+            sign_up: {
+                email: this.$('#email').val(),
+                password: this.$('#password').val(),
+                password_confirmation: this.$('#password_confirmation').val()
+            }
         }, {
             success: function (model, response, options) {
                 Cookies.set('auth_token', response.token);

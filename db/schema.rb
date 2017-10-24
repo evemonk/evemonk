@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171011205856) do
+ActiveRecord::Schema.define(version: 20171024183504) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -68,6 +68,14 @@ ActiveRecord::Schema.define(version: 20171011205856) do
     t.string "portrait_large"
     t.string "portrait_huge"
     t.float "wallet"
+    t.integer "charisma"
+    t.integer "intelligence"
+    t.integer "memory"
+    t.integer "perception"
+    t.integer "willpower"
+    t.integer "bonus_remaps"
+    t.datetime "last_remap_date"
+    t.datetime "accrued_remap_cooldown_date"
     t.index ["user_id"], name: "index_characters_on_user_id"
   end
 

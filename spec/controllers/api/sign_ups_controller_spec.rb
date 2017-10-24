@@ -10,9 +10,11 @@ describe Api::SignUpsController do
     context 'user successfully created' do
       before do
         post :create, params: {
-          email: 'me@example.com',
-          password: 'password',
-          password_confirmation: 'password',
+          sign_up: {
+            email: 'me@example.com',
+            password: 'password',
+            password_confirmation: 'password'
+          },
           format: :json
         }
       end
@@ -25,9 +27,11 @@ describe Api::SignUpsController do
     context 'unprocessable entity due validations' do
       before do
         post :create, params: {
-          email: 'me@example.com',
-          password: 'password',
-          password_confirmation: 'wrong confirmation',
+          sign_up: {
+            email: 'me@example.com',
+            password: 'password',
+            password_confirmation: 'wrong confirmation'
+          },
           format: :json
         }
       end
@@ -40,9 +44,11 @@ describe Api::SignUpsController do
     context 'not supported accept:' do
       before do
         post :create, params: {
-          email: 'me@example.com',
-          password: 'password',
-          password_confirmation: 'password',
+          sign_up: {
+            email: 'me@example.com',
+            password: 'password',
+            password_confirmation: 'password'
+          },
           format: :html
         }
       end
@@ -78,11 +84,16 @@ describe Api::SignUpsController do
   describe '#resource_params' do
     before do
       #
-      # subject.params.permit(:email, :password, :password_confirmation)
+      # subject.params.require(:sign_up)
+      #        .permit(:email, :password, :password_confirmation)
       #
       expect(subject).to receive(:params) do
         double.tap do |a|
-          expect(a).to receive(:permit).with(:email, :password, :password_confirmation)
+          expect(a).to receive(:require).with(:sign_up) do
+            double.tap do |b|
+              expect(b).to receive(:permit).with(:email, :password, :password_confirmation)
+            end
+          end
         end
       end
     end

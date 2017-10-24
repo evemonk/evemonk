@@ -15,8 +15,10 @@ EvemonkApp.Views.SignInView = Backbone.View.extend({
         event.preventDefault();
 
         this.model.save({
-            email: this.$('#email').val(),
-            password: this.$('#password').val()
+            sign_in: {
+                email: this.$('#email').val(),
+                password: this.$('#password').val()
+            }
         }, {
             success: function (model, response, options) {
                 Cookies.set('auth_token', response.token);
