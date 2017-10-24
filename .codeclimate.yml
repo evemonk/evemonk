@@ -8,3 +8,5 @@ exclude_paths:
   - "spec/**/*_spec.rb"
   - "db/migrate/20170107151912_rpush_2_0_0_updates.rb"
   - "db/migrate/20170107151911_add_rpush.rb"
+  - "db/schema.rb"
+  - "app/documentation/**/*.rb"
