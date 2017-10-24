@@ -87,6 +87,10 @@ Style/ConditionalAssignment:
 Style/NegatedIf:
   Enabled: false
 
+Style/WordArray:
+  Enabled: true
+  EnforcedStyle: brackets
+
 # rubocop-thread_safety cops
 ThreadSafety/ClassAndModuleAttributes:
   Enabled: true

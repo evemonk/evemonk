@@ -38,3 +38,36 @@ RSpec/MultipleDescribes:
 Style/FrozenStringLiteralComment:
   Exclude:
     - 'db/schema.rb'
+
+Layout/AlignParameters:
+  Exclude:
+    - 'bin/brakeman'
+    - 'bin/bundle-audit'
+    - 'bin/cap'
+    - 'bin/capify'
+    - 'bin/consistency_fail'
+    - 'bin/license_finder'
+    - 'bin/mdl'
+    - 'bin/mry'
+    - 'bin/puma'
+    - 'bin/pumactl'
+    - 'bin/rpush'
+    - 'bin/rspec'
+    - 'bin/rubocop'
+    - 'bin/rubycritic'
+    - 'bin/sidekiq'
+    - 'bin/sidekiqctl'
+    - 'bin/squasher'
+
+Naming/FileName:
+  Exclude:
+    - 'config/initializers/rack-cors.rb'
+    - 'spec/support/shoulda-matchers.rb'
+
+Style/WordArray:
+  Exclude:
+    - 'config/spring.rb'
+
+Style/PercentLiteralDelimiters:
+  Exclude:
+    - 'config/spring.rb'
