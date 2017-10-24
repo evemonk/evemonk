@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module PushNotifications
   class Base
     attr_reader :device, :device_token, :notifications_count

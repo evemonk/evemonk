@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Eve
   class Position < ApplicationRecord
     self.table_name = 'inv_positions'

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Auth
   module EveOnlineSso
     class CallbacksController < ApplicationController

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class CreateInvItems < ActiveRecord::Migration[5.0]
   def change
     create_table :inv_items do |t|

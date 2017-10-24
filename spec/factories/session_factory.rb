@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 FactoryBot.define do
   sequence :device_token do |n|
     "push-notification-token-#{ n }"

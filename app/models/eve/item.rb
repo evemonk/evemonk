@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Eve
   class Item < ApplicationRecord
     self.table_name = 'inv_items'

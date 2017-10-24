@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Eve
   class Flag < ApplicationRecord
     self.table_name = 'inv_flags'

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class AgentTypesImporter
   attr_reader :agt_agent_types
 
