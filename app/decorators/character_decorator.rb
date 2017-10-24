@@ -25,6 +25,15 @@ class CharacterDecorator < Draper::Decorator
       #   large: portrait_large,
       #   huge: portrait_huge
       # },
+      wallet: wallet,
+      charisma: charisma,
+      intelligence: intelligence,
+      memory: memory,
+      perception: perception,
+      willpower: willpower,
+      bonus_remaps: bonus_remaps,
+      # last_remap_date: last_remap_date.iso8601,
+      # accrued_remap_cooldown_date: accrued_remap_cooldown_date.iso8601,
       created_at: created_at.iso8601,
       updated_at: updated_at.iso8601
     }
