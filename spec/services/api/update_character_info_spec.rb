@@ -21,6 +21,8 @@ describe Api::UpdateCharacterInfo do
 
     before { expect(subject).to receive(:character_portrait) }
 
+    before { expect(subject).to receive(:character_attributes) }
+
     specify { expect { subject.update! }.not_to raise_error }
   end
 
