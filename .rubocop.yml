@@ -38,6 +38,10 @@ RSpec/MultipleDescribes:
 Style/FrozenStringLiteralComment:
   Exclude:
     - 'db/schema.rb'
+    - 'db/migrate/20170107151911_add_rpush.rb'
+    - 'db/migrate/20170107151912_rpush_2_0_0_updates.rb'
+    - 'db/migrate/20170107151914_rpush_2_6_0_updates.rb'
+    - 'db/migrate/20170107151915_rpush_2_7_0_updates.rb'
 
 Layout/AlignParameters:
   Exclude:

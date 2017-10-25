@@ -46,7 +46,7 @@ module Api
       end
       key :host, (ENV['SWAGGER_BLOCKS_HOST'] || 'localhost:3000')
       key :basePath, '/api'
-      key :consumes, %w[application/json application/x-www-form-urlencoded]
+      key :consumes, ['application/json', 'application/x-www-form-urlencoded']
       key :produces, ['application/json']
       parameter :authorization do
         key :name, 'Authorization'
