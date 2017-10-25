@@ -1,0 +1,164 @@
+AllCops:
+  TargetRubyVersion: 2.4
+  DisplayCopNames: true
+  DisplayStyleGuide: true
+  TargetRailsVersion: 5.1
+
+Rails:
+  Enabled: true
+
+Style/BlockComments:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Layout/DotPosition:
+  Enabled: true
+  EnforcedStyle: leading
+
+Style/FrozenStringLiteralComment:
+  Enabled: true
+
+Style/FlipFlop:
+  Enabled: true
+
+Style/RedundantException:
+  Enabled: true
+
+Style/SafeNavigation:
+  Enabled: true
+
+Style/SignalException:
+  Enabled: true
+
+Layout/SpaceInsideStringInterpolation:
+  EnforcedStyle: space
+  Enabled: true
+
+Style/StringLiterals:
+  EnforcedStyle: single_quotes
+  Enabled: true
+
+Metrics/LineLength:
+  Enabled: false
+
+Rails/TimeZone:
+  EnforcedStyle: strict
+  Enabled: true
+
+Rails/SaveBang:
+  Enabled: true
+
+Style/AutoResourceCleanup:
+  Enabled: true
+
+Style/CollectionMethods:
+  Enabled: true
+
+Style/Encoding:
+  Enabled: true
+
+Style/ImplicitRuntimeError:
+  Enabled: true
+
+Style/MethodCalledOnDoEndBlock:
+  Enabled: true
+
+Layout/MultilineAssignmentLayout:
+  Enabled: true
+
+Bundler/OrderedGems:
+  Enabled: false
+
+Style/SymbolArray:
+  Enabled: false
+
+Style/GuardClause:
+  Enabled: false
+
+Style/IfUnlessModifier:
+  Enabled: false
+
+Style/ConditionalAssignment:
+  Enabled: true
+  EnforcedStyle: assign_to_condition
+
+Style/NegatedIf:
+  Enabled: false
+
+Style/WordArray:
+  Enabled: true
+  EnforcedStyle: brackets
+
+# rubocop-thread_safety cops
+ThreadSafety/ClassAndModuleAttributes:
+  Enabled: true
+
+ThreadSafety/InstanceVariableInClassMethod:
+  Enabled: true
+
+ThreadSafety/NewThread:
+  Enabled: true
+
+# rubocop-rspec cops
+
+# Enable it later
+RSpec/NamedSubject:
+  Enabled: false
+
+RSpec/ImplicitExpect:
+  Enabled: true
+  EnforcedStyle: should
+
+RSpec/ExpectInHook:
+  Enabled: false
+
+RSpec/LeadingSubject:
+  Enabled: false
+
+RSpec/MessageSpies:
+  Enabled: true
+  EnforcedStyle: receive
+
+RSpec/LetSetup:
+  Enabled: false
+
+RSpec/ScatteredSetup:
+  Enabled: false
+
+RSpec/ScatteredLet:
+  Enabled: false
+
+RSpec/HookArgument:
+  Enabled: false
+
+# https://robots.thoughtbot.com/don-t-stub-the-system-under-test
+# Enable later?
+RSpec/SubjectStub:
+  Enabled: false
+
+# Enable later
+RSpec/ExampleWording:
+  Enabled: false
+
+# Bug in rubocop-rspec cop
+RSpec/FilePath:
+  Enabled: true
+
+# Possibly bug in rubocop-rspec cop
+RSpec/ExampleLength:
+  Enabled: true
+
+RSpec/NestedGroups:
+  Enabled: false
+
+RSpec/EmptyExampleGroup:
+  Enabled: false
+
+# Maybe later
+RSpec/MultipleExpectations:
+  Enabled: false
+
+RSpec/MultipleDescribes:
+  Enabled: true

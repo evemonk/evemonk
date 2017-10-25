@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class CreateInvNames < ActiveRecord::Migration[5.0]
   def change
     create_table :inv_names do |t|

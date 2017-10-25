@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class CreateAgtAgentTypes < ActiveRecord::Migration[5.0]
   def change
     create_table :agt_agent_types do |t|

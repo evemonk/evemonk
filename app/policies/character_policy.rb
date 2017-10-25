@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class CharacterPolicy
   attr_reader :user, :record
 

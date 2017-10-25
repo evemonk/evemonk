@@ -2,249 +2,76 @@ require: rubocop-thread_safety
 require: rubocop-rspec
 
 inherit_from: .rubocop_todo.yml
+inherit_from: .rubocop_general.yml
 
-AllCops:
-  TargetRubyVersion: 2.4
-  Exclude:
-    - 'Capfile'
-    - 'db/schema.rb'
-    - 'db/migrate/20170107151911_add_rpush.rb'
-    - 'db/migrate/20170107151912_rpush_2_0_0_updates.rb'
-    - 'db/migrate/20170107151914_rpush_2_6_0_updates.rb'
-    - 'db/migrate/20170107151915_rpush_2_7_0_updates.rb'
-    - 'db/seeds.rb'
-    - 'bin/brakeman'
-    - 'bin/bundle-audit'
-    - 'bin/bundler-audit'
-    - 'bin/consistency_fail'
-    - 'bin/rpush'
-    - 'bin/rspec'
-    - 'bin/rubocop'
-    - 'bin/setup'
-    - 'bin/update'
-    - 'bin/cap'
-    - 'bin/capify'
-    - 'bin/sidekiq'
-    - 'bin/sidekiqctl'
-    - 'bin/whenever'
-    - 'bin/wheneverize'
-    - 'bin/license_finder'
-    - 'bin/rubycritic'
-    - 'bin/mry'
-    - 'bin/iap'
-    - 'bin/squasher'
-    - 'bin/spring'
-    - 'bin/puma'
-    - 'bin/pumactl'
-    - 'bin/mdl'
-    - 'config/initializers/assets.rb'
-    - 'config/initializers/backtrace_silencers.rb'
-    - 'config/initializers/new_framework_defaults.rb'
-    - 'config/initializers/rack-cors.rb'
-    - 'config/initializers/wrap_parameters.rb'
-    - 'spec/spec_helper.rb'
-    - 'spec/rails_helper.rb'
-  DisplayCopNames: true
-  DisplayStyleGuide: true
-  TargetRailsVersion: 5.1
-
-Rails:
-  Enabled: true
-
-# Allow block comments
-Style/BlockComments:
-  Enabled: false
-
-# Disable
-Style/Documentation:
-  Enabled: false
-
-Layout/DotPosition:
-  Enabled: true
-  EnforcedStyle: leading
-
-Style/FrozenStringLiteralComment:
-  Enabled: true
-
-# Recheck this cop later
-Style/FlipFlop:
-  Description: 'Checks for flip flops'
-  StyleGuide: '#no-flip-flops'
-  Enabled: true
-
-# Recheck this cop later
-Style/RedundantException:
-  Description: "Checks for an obsolete RuntimeException argument in raise/fail."
-  StyleGuide: '#no-explicit-runtimeerror'
-  Enabled: true
-
-# Recheck this cop later
-Style/SafeNavigation:
-  Description: >-
-                  This cop transforms usages of a method call safeguarded by
-                  a check for the existance of the object to
-                  safe navigation (`&.`).
-  Enabled: true
-
-# Recheck this cop later
-Style/SignalException:
-  Description: 'Checks for proper usage of fail and raise.'
-  StyleGuide: '#prefer-raise-over-fail'
-  Enabled: true
-
-# Enable with EnforcedStyle is space
-Layout/SpaceInsideStringInterpolation:
-  EnforcedStyle: space
-  Enabled: true
-
-# Enable with EnforcedStyle is single_quotes
 Style/StringLiterals:
-  EnforcedStyle: single_quotes
-  Enabled: true
-
-# Limit lines to 80 characters
-Metrics/LineLength:
-  Enabled: false
-
-# TimeZone stuff
-Rails/TimeZone:
-  EnforcedStyle: strict
-  Enabled: true
-
-# Identifies possible cases where Active Record save! or related should be used.
-Rails/SaveBang:
-  Enabled: true
-
-# Suggests the usage of an auto resource cleanup version of a method (if available)
-Style/AutoResourceCleanup:
-  Enabled: true
-
-# Preferred collection methods
-Style/CollectionMethods:
-  Enabled: true
-
-# Use UTF-8 as the source file encoding
-Style/Encoding:
-  Enabled: true
-
-# Use `raise` or `fail` with an explicit exception class and
-# message, rather than just a message.
-Style/ImplicitRuntimeError:
-  Enabled: true
-
-# Avoid chaining a method call on a do...end block
-Style/MethodCalledOnDoEndBlock:
-  Enabled: true
-
-# Check for a newline after the assignment operator in multi-line assignments
-Layout/MultilineAssignmentLayout:
-  Enabled: true
-
-# Just ignore order of gems in Gemfile
-Bundler/OrderedGems:
-  Enabled: false
-
-# Use %i or %I for an array of symbols.
-Style/SymbolArray:
-  Enabled: false
+  Exclude:
+    - 'bin/*'
+    - 'db/schema.rb'
 
 Metrics/BlockLength:
   Exclude:
+    - 'app/controllers/api/docs_controller.rb'
     - 'app/documentation/**/*.rb'
     - 'config/routes.rb'
+    - 'db/schema.rb'
     - 'spec/**/*.rb'
 
 Metrics/ClassLength:
   Exclude:
     - 'app/documentation/**/*.rb'
 
-Style/GuardClause:
-  Enabled: false
-
-Style/IfUnlessModifier:
-  Enabled: false
-
-Style/ConditionalAssignment:
-  Enabled: true
-  EnforcedStyle: assign_to_condition
-
-Style/NegatedIf:
-  Enabled: false
-
-# rubocop-thread_safety cops
-ThreadSafety/ClassAndModuleAttributes:
-  Enabled: true
-
-ThreadSafety/InstanceVariableInClassMethod:
-  Enabled: true
-
-ThreadSafety/NewThread:
-  Enabled: true
-
-# rubocop-rspec cops
-
-# Enable it later
-RSpec/NamedSubject:
-  Enabled: false
-
-RSpec/ImplicitExpect:
-  Enabled: true
-  EnforcedStyle: should
-
-RSpec/ExpectInHook:
-  Enabled: false
-
-RSpec/LeadingSubject:
-  Enabled: false
-
-RSpec/MessageSpies:
-  Enabled: true
-  EnforcedStyle: receive
-
-RSpec/LetSetup:
-  Enabled: false
-
-RSpec/ScatteredSetup:
-  Enabled: false
-
-RSpec/ScatteredLet:
-  Enabled: false
-
-RSpec/HookArgument:
-  Enabled: false
-
-# https://robots.thoughtbot.com/don-t-stub-the-system-under-test
-# Enable later?
-RSpec/SubjectStub:
-  Enabled: false
-
-# Enable later
-RSpec/ExampleWording:
-  Enabled: false
-
 # Bug in rubocop-rspec cop
 RSpec/FilePath:
-  Enabled: true
   Exclude:
     - 'spec/routing/**/*.rb'
 
 # Possibly bug in rubocop-rspec cop
 RSpec/ExampleLength:
-  Enabled: true
   Exclude:
     - 'spec/routing/**/*.rb'
 
-RSpec/NestedGroups:
-  Enabled: false
-
-RSpec/EmptyExampleGroup:
-  Enabled: false
-
-# Maybe later
-RSpec/MultipleExpectations:
-  Enabled: false
-
 RSpec/MultipleDescribes:
-  Enabled: true
   Exclude:
     - 'spec/policies/**/*.rb'
+
+Style/FrozenStringLiteralComment:
+  Exclude:
+    - 'db/schema.rb'
+    - 'db/migrate/20170107151911_add_rpush.rb'
+    - 'db/migrate/20170107151912_rpush_2_0_0_updates.rb'
+    - 'db/migrate/20170107151914_rpush_2_6_0_updates.rb'
+    - 'db/migrate/20170107151915_rpush_2_7_0_updates.rb'
+
+Layout/AlignParameters:
+  Exclude:
+    - 'bin/brakeman'
+    - 'bin/bundle-audit'
+    - 'bin/cap'
+    - 'bin/capify'
+    - 'bin/consistency_fail'
+    - 'bin/license_finder'
+    - 'bin/mdl'
+    - 'bin/mry'
+    - 'bin/puma'
+    - 'bin/pumactl'
+    - 'bin/rpush'
+    - 'bin/rspec'
+    - 'bin/rubocop'
+    - 'bin/rubycritic'
+    - 'bin/sidekiq'
+    - 'bin/sidekiqctl'
+    - 'bin/squasher'
+
+Naming/FileName:
+  Exclude:
+    - 'config/initializers/rack-cors.rb'
+    - 'spec/support/shoulda-matchers.rb'
+
+Style/WordArray:
+  Exclude:
+    - 'config/spring.rb'
+
+Style/PercentLiteralDelimiters:
+  Exclude:
+    - 'config/spring.rb'

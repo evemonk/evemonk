@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class SessionPolicy
   attr_reader :user, :record
 

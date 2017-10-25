@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class NamesImporter
   attr_reader :inv_names
 

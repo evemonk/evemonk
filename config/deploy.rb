@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 lock '3.10.0'
 
 set :application, 'evemonk'

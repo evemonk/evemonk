@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Eve
   class Race < ApplicationRecord
     self.table_name = 'chr_races'

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Eve
   class RaceDecorator < Draper::Decorator
     delegate_all
