@@ -36,7 +36,7 @@ module Api
                         race_id: 2,
                         race_name: 'Minmatar',
                         short_description: 'Breaking free of Amarrian subjugation...',
-                        icon_id: 1440
+                        icon_id: 1_440
         end
         # :nocov:
       end

@@ -82,3 +82,7 @@ Style/MethodCallWithArgsParentheses:
     - 'db/schema.rb'
     - 'db/migrate/*.rb'
     - 'spec/**/*_spec.rb'
+
+Style/NumericLiterals:
+  Exclude:
+    - 'db/schema.rb'

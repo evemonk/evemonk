@@ -10,7 +10,7 @@ describe Eve::RaceDecorator do
              short_description: 'Breaking free of Amarrian subjugation, ...',
              race_id: 2,
              race_name: 'Minmatar',
-             icon_id: 1440)
+             icon_id: 1_440)
     end
 
     subject { race.decorate.as_json }
@@ -23,6 +23,6 @@ describe Eve::RaceDecorator do
 
     its([:race_name]) { should eq('Minmatar') }
 
-    its([:icon_id]) { should eq(1440) }
+    its([:icon_id]) { should eq(1_440) }
   end
 end
