@@ -4,60 +4,49 @@ AllCops:
   DisplayStyleGuide: true
   TargetRailsVersion: 5.1
 
-Rails:
+Layout/EndOfLine:
   Enabled: true
+  EnforcedStyle: lf
 
-Style/BlockComments:
-  Enabled: false
-
-Style/Documentation:
-  Enabled: false
-
-Layout/DotPosition:
-  Enabled: true
-  EnforcedStyle: leading
-
-Style/FrozenStringLiteralComment:
-  Enabled: true
-
-Style/FlipFlop:
-  Enabled: true
-
-Style/RedundantException:
-  Enabled: true
-
-Style/SafeNavigation:
-  Enabled: true
-
-Style/SignalException:
-  Enabled: true
+# TODO: check this
+# Layout/ExtraSpacing
 
 Layout/SpaceInsideStringInterpolation:
   EnforcedStyle: space
   Enabled: true
 
-Style/StringLiterals:
-  EnforcedStyle: single_quotes
+Layout/MultilineAssignmentLayout:
   Enabled: true
 
 Metrics/LineLength:
   Enabled: false
 
-Rails/TimeZone:
-  EnforcedStyle: strict
+Rails/SaveBang:
   Enabled: true
 
-Rails/SaveBang:
+Rails/TimeZone:
+  EnforcedStyle: strict
   Enabled: true
 
 Style/AutoResourceCleanup:
   Enabled: true
 
+Style/BlockComments:
+  Enabled: false
+
 Style/CollectionMethods:
   Enabled: true
 
-Style/Encoding:
+Style/ConditionalAssignment:
   Enabled: true
+  EnforcedStyle: assign_to_condition
+
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: true
+  EnforcedStyle: always
 
 Style/ImplicitRuntimeError:
   Enabled: true
@@ -65,14 +54,31 @@ Style/ImplicitRuntimeError:
 Style/MethodCalledOnDoEndBlock:
   Enabled: true
 
-Layout/MultilineAssignmentLayout:
+Style/MissingElse:
+  Enabled: true
+  EnforcedStyle: case
+
+Style/NegatedIf:
+  Enabled: false
+
+Style/NumericLiterals:
+  Enabled: true
+  Strict: true
+  MinDigits: 4
+
+Style/PercentLiteralDelimiters:
+  Enabled: false
+
+Style/ReturnNil:
   Enabled: true
 
-Bundler/OrderedGems:
-  Enabled: false
-
 Style/SymbolArray:
-  Enabled: false
+  Enabled: true
+  EnforcedStyle: brackets
+
+Style/WordArray:
+  Enabled: true
+  EnforcedStyle: brackets
 
 Style/GuardClause:
   Enabled: false
@@ -80,85 +86,5 @@ Style/GuardClause:
 Style/IfUnlessModifier:
   Enabled: false
 
-Style/ConditionalAssignment:
-  Enabled: true
-  EnforcedStyle: assign_to_condition
-
-Style/NegatedIf:
+Bundler/OrderedGems:
   Enabled: false
-
-Style/WordArray:
-  Enabled: true
-  EnforcedStyle: brackets
-
-# rubocop-thread_safety cops
-ThreadSafety/ClassAndModuleAttributes:
-  Enabled: true
-
-ThreadSafety/InstanceVariableInClassMethod:
-  Enabled: true
-
-ThreadSafety/NewThread:
-  Enabled: true
-
-# rubocop-rspec cops
-
-# Enable it later
-RSpec/NamedSubject:
-  Enabled: false
-
-RSpec/ImplicitExpect:
-  Enabled: true
-  EnforcedStyle: should
-
-RSpec/ExpectInHook:
-  Enabled: false
-
-RSpec/LeadingSubject:
-  Enabled: false
-
-RSpec/MessageSpies:
-  Enabled: true
-  EnforcedStyle: receive
-
-RSpec/LetSetup:
-  Enabled: false
-
-RSpec/ScatteredSetup:
-  Enabled: false
-
-RSpec/ScatteredLet:
-  Enabled: false
-
-RSpec/HookArgument:
-  Enabled: false
-
-# https://robots.thoughtbot.com/don-t-stub-the-system-under-test
-# Enable later?
-RSpec/SubjectStub:
-  Enabled: false
-
-# Enable later
-RSpec/ExampleWording:
-  Enabled: false
-
-# Bug in rubocop-rspec cop
-RSpec/FilePath:
-  Enabled: true
-
-# Possibly bug in rubocop-rspec cop
-RSpec/ExampleLength:
-  Enabled: true
-
-RSpec/NestedGroups:
-  Enabled: false
-
-RSpec/EmptyExampleGroup:
-  Enabled: false
-
-# Maybe later
-RSpec/MultipleExpectations:
-  Enabled: false
-
-RSpec/MultipleDescribes:
-  Enabled: true
