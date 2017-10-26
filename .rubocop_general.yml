@@ -21,6 +21,9 @@ Layout/MultilineAssignmentLayout:
 Metrics/LineLength:
   Enabled: false
 
+Rails:
+  Enabled: true
+
 Rails/SaveBang:
   Enabled: true
 
@@ -64,7 +67,6 @@ Style/NegatedIf:
 Style/NumericLiterals:
   Enabled: true
   Strict: true
-  MinDigits: 4
 
 Style/PercentLiteralDelimiters:
   Enabled: false
@@ -87,4 +89,7 @@ Style/IfUnlessModifier:
   Enabled: false
 
 Bundler/OrderedGems:
+  Enabled: false
+
+Style/RegexpLiteral:
   Enabled: false
