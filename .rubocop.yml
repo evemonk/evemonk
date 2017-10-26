@@ -24,6 +24,10 @@ Metrics/ClassLength:
   Exclude:
     - 'app/documentation/**/*.rb'
 
+Layout/EmptyLinesAroundBlockBody:
+  Exclude:
+    - 'db/schema.rb'
+
 # Bug in rubocop-rspec cop
 RSpec/FilePath:
   Exclude:
