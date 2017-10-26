@@ -40,7 +40,7 @@ module Api
                                race_id: 2,
                                race_name: 'Minmatar',
                                short_description: 'Breaking free of Amarrian subjugation...',
-                               icon_id: 1440
+                               icon_id: 1_440
                              },
                              created_at: '2016-12-12T18:35:59Z',
                              updated_at: '2016-12-12T18:36:10Z' }],

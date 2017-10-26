@@ -1,20 +1,29 @@
 require: rubocop-thread_safety
 require: rubocop-rspec
 
-inherit_from: .rubocop_todo.yml
-inherit_from: .rubocop_general.yml
+inherit_from:
+  - .rubocop_general.yml
+  - .rubocop_rspec.yml
+  - .rubocop-thread_safety.yml
+  - .rubocop_todo.yml
+
+AllCops:
+  Exclude:
+    - 'db/schema.rb'
+    - 'db/migrate/20170107151911_add_rpush.rb'
+    - 'db/migrate/20170107151912_rpush_2_0_0_updates.rb'
+    - 'db/migrate/20170107151914_rpush_2_6_0_updates.rb'
+    - 'db/migrate/20170107151915_rpush_2_7_0_updates.rb'
 
 Style/StringLiterals:
   Exclude:
     - 'bin/*'
-    - 'db/schema.rb'
 
 Metrics/BlockLength:
   Exclude:
     - 'app/controllers/api/docs_controller.rb'
     - 'app/documentation/**/*.rb'
     - 'config/routes.rb'
-    - 'db/schema.rb'
     - 'spec/**/*.rb'
 
 Metrics/ClassLength:
@@ -35,18 +44,11 @@ RSpec/MultipleDescribes:
   Exclude:
     - 'spec/policies/**/*.rb'
 
-Style/FrozenStringLiteralComment:
-  Exclude:
-    - 'db/schema.rb'
-    - 'db/migrate/20170107151911_add_rpush.rb'
-    - 'db/migrate/20170107151912_rpush_2_0_0_updates.rb'
-    - 'db/migrate/20170107151914_rpush_2_6_0_updates.rb'
-    - 'db/migrate/20170107151915_rpush_2_7_0_updates.rb'
-
 Layout/AlignParameters:
   Exclude:
     - 'bin/brakeman'
     - 'bin/bundle-audit'
+    - 'bin/bundler-audit'
     - 'bin/cap'
     - 'bin/capify'
     - 'bin/consistency_fail'
@@ -75,3 +77,8 @@ Style/WordArray:
 Style/PercentLiteralDelimiters:
   Exclude:
     - 'config/spring.rb'
+
+Style/MethodCallWithArgsParentheses:
+  Exclude:
+    - 'db/migrate/*.rb'
+    - 'spec/**/*_spec.rb'
