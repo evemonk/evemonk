@@ -284,7 +284,7 @@ GEM
     pg (0.21.0)
     pg_query (0.13.5)
       json (>= 1.8, < 3)
-    pghero (2.0.6)
+    pghero (2.0.7)
       activerecord
     popper_js (1.12.5)
     powerpack (0.1.1)
@@ -462,7 +462,7 @@ GEM
     thread_safe (0.3.6)
     tilt (2.0.8)
     tty-which (0.3.0)
-    tzinfo (1.2.3)
+    tzinfo (1.2.4)
       thread_safe (~> 0.1)
     uglifier (3.2.0)
       execjs (>= 0.3.0, < 3)
