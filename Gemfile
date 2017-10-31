@@ -32,6 +32,7 @@ gem 'pghero'
 gem 'pg_query'
 gem 'rubycritic', require: false
 gem 'swagger-blocks'
+gem 'http_logger'
 
 group :production do
   gem 'lograge'
