@@ -182,6 +182,7 @@ GEM
     hashdiff (0.3.7)
     hashie (3.5.6)
     http-2 (0.8.4)
+    http_logger (0.5.1)
     httparty (0.15.6)
       multi_xml (>= 0.5.2)
     i18n (0.9.0)
@@ -513,6 +514,7 @@ DEPENDENCIES
   faker
   font-awesome-sass
   handlebars_assets
+  http_logger
   jquery-rails
   js-routes
   kaminari
