@@ -360,7 +360,7 @@ GEM
       rainbow (~> 2.0)
     request_store (1.3.2)
     require_all (1.4.0)
-    rpush (3.0.0)
+    rpush (3.0.1)
       activesupport
       ansi
       multi_json (~> 1.0)
