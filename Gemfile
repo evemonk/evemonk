@@ -45,7 +45,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'awesome_print', require: 'ap'
   gem 'pry-rails'
-  gem 'bullet'
+  # gem 'bullet'
   gem 'factory_bot_rails'
   gem 'faker'
   gem 'sql_tracker'
