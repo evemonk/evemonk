@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rpush.configure do |config|
 
   # Supported clients are :active_record and :redis
