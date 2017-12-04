@@ -13,7 +13,7 @@ module Api
     def save!
       update_character_attributes
 
-      create_user
+      build_user
 
       character.save!
 
@@ -70,8 +70,8 @@ module Api
                                   token_type: token_type)
     end
 
-    def create_user
-      character.create_user!(kind: :oauth) unless character.user
+    def build_user
+      character.build_user(kind: :oauth) unless character.user
     end
 
     def create_session
