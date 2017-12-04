@@ -1,9 +1,9 @@
-# # rubocop-thread_safety cops
-# ThreadSafety/ClassAndModuleAttributes:
-#   Enabled: true
+## rubocop-thread_safety cops
+#ThreadSafety/ClassAndModuleAttributes:
+#  Enabled: true
 #
-# ThreadSafety/InstanceVariableInClassMethod:
-#   Enabled: true
+#ThreadSafety/InstanceVariableInClassMethod:
+#  Enabled: true
 #
-# ThreadSafety/NewThread:
-#   Enabled: true
+#ThreadSafety/NewThread:
+#  Enabled: true

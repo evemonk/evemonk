@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 Rpush.configure do |config|
-  # Supported clients are :active_record, :redis and :mongoid
+
+  # Supported clients are :active_record and :redis
   config.client = :active_record
 
   # Options passed to Redis.new
@@ -22,16 +23,18 @@ Rpush.configure do |config|
   # Path to log file. Relative to current directory unless absolute.
   config.log_file = 'log/rpush.log'
 
-  config.log_level = Rails.logger.level
+  config.log_level = (defined?(Rails) && Rails.logger) ? Rails.logger.level : ::Logger::Severity::INFO
 
   # Define a custom logger.
   # config.logger = MyLogger.new
 
   # config.apns.feedback_receiver.enabled = true
   # config.apns.feedback_receiver.frequency = 60
+
 end
 
 Rpush.reflect do |on|
+
   # Called with a Rpush::Apns::Feedback instance when feedback is received
   # from the APNs that a notification has failed to be delivered.
   # Further notifications should not be sent to the device.
