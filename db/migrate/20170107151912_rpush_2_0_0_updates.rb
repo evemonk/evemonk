@@ -1,4 +1,4 @@
-class Rpush200Updates < ActiveRecord::Migration[4.2]
+class Rpush200Updates < ActiveRecord::VERSION::MAJOR >= 5 ? ActiveRecord::Migration[5.0] : ActiveRecord::Migration
   module Rpush
     class App < ActiveRecord::Base
       self.table_name = 'rpush_apps'
@@ -17,7 +17,7 @@ class Rpush200Updates < ActiveRecord::Migration[4.2]
     add_column :rpush_notifications, :processing, :boolean, null: false, default: false
     add_column :rpush_notifications, :priority, :integer, null: true
 
-    if index_name_exists?(:rpush_notifications, :index_rpush_notifications_multi, true)
+    if index_name_exists?(:rpush_notifications, :index_rpush_notifications_multi)
       remove_index :rpush_notifications, name: :index_rpush_notifications_multi
     end
 
@@ -46,7 +46,7 @@ class Rpush200Updates < ActiveRecord::Migration[4.2]
     change_column :rpush_feedback, :app_id, :string
     rename_column :rpush_feedback, :app_id, :app
 
-    if index_name_exists?(:rpush_notifications, :index_rpush_notifications_multi, true)
+    if index_name_exists?(:rpush_notifications, :index_rpush_notifications_multi)
       remove_index :rpush_notifications, name: :index_rpush_notifications_multi
     end
 
