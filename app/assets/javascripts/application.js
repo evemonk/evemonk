@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery3
+//= require activestorage
 //= require handlebars.runtime
 //= require js-routes
 //= require popper
