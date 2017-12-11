@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-lock '3.10.0'
+lock '3.10.1'
 
 set :application, 'evemonk'
 set :repo_url, 'git@github.com:biow0lf/evemonk.git'
