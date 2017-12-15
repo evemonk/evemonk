@@ -1,10 +1,10 @@
 GIT
   remote: https://github.com/biow0lf/eve_online.git
-  revision: 71a0ce96bfd5e55bcb4177de40998263b78420e7
+  revision: e11bddc86ffca70e5b15040afbe09f8fa1b54937
   branch: master
   specs:
-    eve_online (0.12.0)
-      activesupport (>= 3.0.0)
+    eve_online (0.13.0)
+      activesupport (>= 4.2.0)
       faraday
       json
       memoist
