@@ -288,8 +288,8 @@ GEM
       rack (>= 1.6.2, < 3)
     omniauth-eve_online-sso (0.1.0)
       omniauth-oauth2
-    omniauth-oauth2 (1.4.0)
-      oauth2 (~> 1.0)
+    omniauth-oauth2 (1.5.0)
+      oauth2 (~> 1.1)
       omniauth (~> 1.2)
     parallel (1.12.0)
     parser (2.4.0.2)
