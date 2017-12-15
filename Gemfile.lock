@@ -315,8 +315,6 @@ GEM
       activesupport (>= 3.0.0)
     rack (2.0.3)
     rack-cors (1.0.2)
-    rack-dev-mark (0.7.6)
-      rack (>= 1.1, < 2.1)
     rack-protection (2.0.0)
       rack
     rack-test (0.8.2)
@@ -552,7 +550,6 @@ DEPENDENCIES
   puma (~> 3.11)
   pundit
   rack-cors
-  rack-dev-mark
   rails (~> 5.2.0.beta2)
   rails-controller-testing
   rails_best_practices
@@ -582,4 +579,4 @@ DEPENDENCIES
   webmock
 
 BUNDLED WITH
-   1.16.0
+   1.16.1.pre1

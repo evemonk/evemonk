@@ -29,7 +29,7 @@ gem 'draper'
 gem 'dotenv-rails'
 gem 'sidekiq', require: false
 gem 'rpush'
-gem 'rack-dev-mark'
+# gem 'rack-dev-mark' # TODO: update to version which support 2.5 ruby
 gem 'pghero'
 gem 'pg_query'
 gem 'rubycritic', require: false
