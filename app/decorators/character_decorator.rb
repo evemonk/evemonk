@@ -5,6 +5,8 @@ class CharacterDecorator < Draper::Decorator
 
   decorates_association :race
 
+  # rubocop:disable Metrics/AbcSize
+  # rubocop:disable Metrics/MethodLength
   def as_json(*)
     {
       id: id,
@@ -39,4 +41,6 @@ class CharacterDecorator < Draper::Decorator
       updated_at: updated_at.iso8601
     }
   end
+  # rubocop:enable Metrics/AbcSize
+  # rubocop:enable Metrics/MethodLength
 end

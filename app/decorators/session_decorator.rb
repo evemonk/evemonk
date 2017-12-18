@@ -3,6 +3,7 @@
 class SessionDecorator < Draper::Decorator
   delegate_all
 
+  # rubocop:disable Metrics/MethodLength
   def as_json(*)
     {
       id: id,
@@ -19,4 +20,5 @@ class SessionDecorator < Draper::Decorator
       end
     end
   end
+  # rubocop:enable Metrics/MethodLength
 end
