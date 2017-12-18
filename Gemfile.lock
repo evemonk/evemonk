@@ -291,7 +291,7 @@ GEM
     omniauth-oauth2 (1.5.0)
       oauth2 (~> 1.1)
       omniauth (~> 1.2)
-    parallel (1.12.0)
+    parallel (1.12.1)
     parser (2.4.0.2)
       ast (~> 2.3)
     parslet (1.5.0)
