@@ -7,6 +7,7 @@ module Api
     include Swagger::Blocks
 
     # :nocov:
+    # rubocop:disable Layout/EmptyLinesAroundArguments (false positive)
     swagger_root do
       key :swagger, '2.0'
       info do
@@ -65,6 +66,7 @@ module Api
         key :format, :int64
       end
     end
+    # rubocop:enable Layout/EmptyLinesAroundArguments
 
     # A list of all classes that have swagger_* declarations.
     SWAGGERED_CLASSES = [

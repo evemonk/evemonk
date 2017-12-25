@@ -1,6 +1,5 @@
 AllCops:
-  TargetRubyVersion: 2.4
-  DisplayCopNames: true
+  TargetRubyVersion: 2.5
   DisplayStyleGuide: true
   TargetRailsVersion: 5.1
 
@@ -10,6 +9,9 @@ Layout/EndOfLine:
 
 # TODO: check this
 # Layout/ExtraSpacing
+
+# TODO: later
+# Layout/ClassStructure
 
 Layout/SpaceInsideStringInterpolation:
   EnforcedStyle: space
