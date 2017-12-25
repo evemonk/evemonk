@@ -191,7 +191,7 @@ GEM
       sprockets (>= 2.0.0)
       tilt (>= 1.2)
     hashdiff (0.3.7)
-    hashie (3.5.6)
+    hashie (3.5.7)
     http-2 (0.8.4)
     http_logger (0.5.1)
     httparty (0.15.6)
