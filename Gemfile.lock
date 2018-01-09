@@ -262,7 +262,7 @@ GEM
     mry (0.52.0.0)
       rubocop (>= 0.41.0)
     msgpack (1.2.0)
-    multi_json (1.12.2)
+    multi_json (1.13.0)
     multi_xml (0.6.0)
     multipart-post (2.0.0)
     net-http-persistent (3.0.0)
@@ -373,7 +373,7 @@ GEM
     request_store (1.4.0)
       rack (>= 1.4)
     require_all (1.5.0)
-    rpush (3.0.1)
+    rpush (3.0.2)
       activesupport
       ansi
       multi_json (~> 1.0)
