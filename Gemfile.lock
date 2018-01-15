@@ -84,7 +84,6 @@ GEM
       thread_safe (~> 0.3, >= 0.3.1)
     bcrypt (3.1.11)
     bcrypt_pbkdf (1.0.0)
-    blankslate (2.1.2.4)
     bootsnap (1.1.8)
       msgpack (~> 1.0)
     bootstrap (4.0.0.beta3)
@@ -226,12 +225,12 @@ GEM
     kramdown (1.16.2)
     launchy (2.4.3)
       addressable (~> 2.3)
-    license_finder (4.0.2)
+    license_finder (5.0.0)
       bundler
       httparty
       rubyzip
       thor
-      toml (= 0.1.2)
+      toml (= 0.2.0)
       with_env (> 1.0)
       xml-simple
     listen (3.1.5)
@@ -294,8 +293,7 @@ GEM
     parallel (1.12.1)
     parser (2.4.0.2)
       ast (~> 2.3)
-    parslet (1.5.0)
-      blankslate (~> 2.0)
+    parslet (1.8.1)
     path_expander (1.0.2)
     pg (0.21.0)
     pg_query (1.0.0)
@@ -479,8 +477,8 @@ GEM
     thor (0.20.0)
     thread_safe (0.3.6)
     tilt (2.0.8)
-    toml (0.1.2)
-      parslet (~> 1.5.0)
+    toml (0.2.0)
+      parslet (~> 1.8.0)
     tty-which (0.3.0)
     tzinfo (1.2.4)
       thread_safe (~> 0.1)
