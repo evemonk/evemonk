@@ -57,7 +57,7 @@ class Rpush200Updates < ActiveRecord::VERSION::MAJOR >= 5 ? ActiveRecord::Migrat
   end
 
   def self.adapter_name
-    env = (defined?(Rails) && Rails.env) ? Rails.env : 'development'
+    env = defined?(Rails) && Rails.env ? Rails.env : 'development'
     Hash[ActiveRecord::Base.configurations[env].map { |k,v| [k.to_sym,v] }][:adapter]
   end
 
