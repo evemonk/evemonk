@@ -11,7 +11,7 @@ describe Api::SignOutsController do
     context 'authorized' do
       let!(:session) { create(:session) }
 
-      before { request.env['HTTP_AUTHORIZATION'] = "Bearer #{ session.token }" }
+      before { request.env['HTTP_AUTHORIZATION'] = "Bearer #{session.token}" }
 
       before { delete :destroy, format: :json }
 
