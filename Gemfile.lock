@@ -86,9 +86,9 @@ GEM
     bcrypt_pbkdf (1.0.0)
     bootsnap (1.1.8)
       msgpack (~> 1.0)
-    bootstrap (4.0.0.beta3)
+    bootstrap (4.0.0)
       autoprefixer-rails (>= 6.0.3)
-      popper_js (>= 1.12.3, < 2)
+      popper_js (>= 1.12.9, < 2)
       sass (>= 3.5.2)
     brakeman (4.1.1)
     builder (3.2.3)
@@ -511,7 +511,7 @@ DEPENDENCIES
   bcrypt
   bcrypt_pbkdf
   bootsnap (>= 1.1.0)
-  bootstrap (~> 4.0.0.beta3)
+  bootstrap (~> 4.0.0)
   brakeman
   bullet
   bundler-audit
