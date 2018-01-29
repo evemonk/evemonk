@@ -273,7 +273,7 @@ GEM
     net-ssh (4.2.0)
     newrelic_rpm (4.7.1.340)
     nio4r (2.2.0)
-    nokogiri (1.8.1)
+    nokogiri (1.8.2)
       mini_portile2 (~> 2.3.0)
     nori (2.6.0)
     oauth2 (1.4.0)
