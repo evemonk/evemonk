@@ -11,15 +11,15 @@
 (function (factory) {
 
   // CommonJS
-  if (typeof exports == "object" && typeof require == "function") {
-    module.exports = factory(require("underscore"), require("backbone"));
+  if (typeof exports == 'object' && typeof require == 'function') {
+    module.exports = factory(require('underscore'), require('backbone'));
   }
   // AMD
-  else if (typeof define == "function" && define.amd) {
-    define(["underscore", "backbone"], factory);
+  else if (typeof define == 'function' && define.amd) {
+    define(['underscore', 'backbone'], factory);
   }
   // Browser
-  else if (typeof _ !== "undefined" && typeof Backbone !== "undefined") {
+  else if (typeof _ !== 'undefined' && typeof Backbone !== 'undefined') {
     var oldPageableCollection = Backbone.PageableCollection;
     var PageableCollection = factory(_, Backbone);
 
@@ -47,7 +47,7 @@
 
 }(function (_, Backbone) {
 
-  "use strict";
+  'use strict';
 
   var _extend = _.extend;
   var _omit = _.omit;
@@ -71,7 +71,7 @@
 
   function finiteInt (val, name) {
     if (!_.isNumber(val) || _.isNaN(val) || !_.isFinite(val) || ~~val !== val) {
-      throw new TypeError("`" + name + "` must be a finite integer");
+      throw new TypeError('`' + name + '` must be a finite integer');
     }
     return val;
   }
@@ -199,7 +199,7 @@
        on the client-side and `"infinite"` paginates on the server-side for APIs
        that do not support `totalRecords`.
     */
-    mode: "server",
+    mode: 'server',
 
     /**
        A translation map to convert PageableCollection state attributes
@@ -219,15 +219,15 @@
        server API accepts.
     */
     queryParams: {
-      currentPage: "page",
-      pageSize: "per_page",
-      totalPages: "total_pages",
-      totalRecords: "total_entries",
-      sortKey: "sort_by",
-      order: "order",
+      currentPage: 'page',
+      pageSize: 'per_page',
+      totalPages: 'total_pages',
+      totalRecords: 'total_entries',
+      sortKey: 'sort_by',
+      order: 'order',
       directions: {
-        "-1": "asc",
-        "1": "desc"
+        '-1': 'asc',
+        '1': 'desc'
       }
     },
 
@@ -311,7 +311,7 @@
       if (!_isArray(models)) models = models ? [models] : [];
       models = models.slice();
 
-      if (mode != "server" && state.totalRecords == null && !_isEmpty(models)) {
+      if (mode != 'server' && state.totalRecords == null && !_isEmpty(models)) {
         state.totalRecords = models.length;
       }
 
@@ -325,7 +325,7 @@
         this.setSorting(state.sortKey, state.order, options);
       }
 
-      if (mode != "server") {
+      if (mode != 'server') {
         var fullCollection = this.fullCollection;
 
         if (comparator && options.full) {
@@ -357,7 +357,7 @@
     */
     _makeFullCollection: function (models, options) {
 
-      var properties = ["url", "model", "sync", "comparator"];
+      var properties = ['url', 'model', 'sync', 'comparator'];
       var thisProto = this.constructor.prototype;
       var i, length, prop;
 
@@ -417,7 +417,7 @@
         var pageSize = state.pageSize;
         var pageStart = currentPage * pageSize, pageEnd = pageStart + pageSize;
 
-        if (event == "add") {
+        if (event == 'add') {
           var pageIndex, fullIndex, addAt, colToAdd, options = options || {};
           if (collection == fullCol) {
             fullIndex = fullCol.indexOf(model);
@@ -456,11 +456,11 @@
             }
           }
 
-          if (!options.silent) pageCol.trigger("pageable:state:change", pageCol.state);
+          if (!options.silent) pageCol.trigger('pageable:state:change', pageCol.state);
         }
 
         // remove the model from the other collection as well
-        if (event == "remove") {
+        if (event == 'remove') {
           if (!options.onAdd) {
             // decrement totalRecords and update totalPages and lastPage
             if (!--state.totalRecords) {
@@ -502,10 +502,10 @@
           }
           else delete options.onAdd;
 
-          if (!options.silent) pageCol.trigger("pageable:state:change", pageCol.state);
+          if (!options.silent) pageCol.trigger('pageable:state:change', pageCol.state);
         }
 
-        if (event == "reset") {
+        if (event == 'reset') {
           options = collection;
           collection = model;
 
@@ -521,7 +521,7 @@
               state.totalRecords = null;
               state.totalPages = null;
             }
-            if (pageCol.mode == "client") {
+            if (pageCol.mode == 'client') {
               firstPage = state.lastPage = state.currentPage = state.firstPage;
               currentPage = firstPage === 0 ? state.currentPage : state.currentPage - 1;
               pageStart = currentPage * pageSize;
@@ -532,10 +532,10 @@
                           _extend({}, options, {parse: false}));
           }
 
-          if (!options.silent) pageCol.trigger("pageable:state:change", pageCol.state);
+          if (!options.silent) pageCol.trigger('pageable:state:change', pageCol.state);
         }
 
-        if (event == "sort") {
+        if (event == 'sort') {
           options = collection;
           collection = model;
           if (collection === fullCol) {
@@ -582,36 +582,36 @@
       var totalPages = state.totalPages;
 
       if (totalRecords != null && pageSize != null && currentPage != null &&
-          firstPage != null && (mode == "infinite" ? links : true)) {
+          firstPage != null && (mode == 'infinite' ? links : true)) {
 
-        totalRecords = finiteInt(totalRecords, "totalRecords");
-        pageSize = finiteInt(pageSize, "pageSize");
-        currentPage = finiteInt(currentPage, "currentPage");
-        firstPage = finiteInt(firstPage, "firstPage");
+        totalRecords = finiteInt(totalRecords, 'totalRecords');
+        pageSize = finiteInt(pageSize, 'pageSize');
+        currentPage = finiteInt(currentPage, 'currentPage');
+        firstPage = finiteInt(firstPage, 'firstPage');
 
         if (pageSize < 1) {
-          throw new RangeError("`pageSize` must be >= 1");
+          throw new RangeError('`pageSize` must be >= 1');
         }
 
         totalPages = state.totalPages = ceil(totalRecords / pageSize);
 
         if (firstPage < 0 || firstPage > 1) {
-          throw new RangeError("`firstPage must be 0 or 1`");
+          throw new RangeError('`firstPage must be 0 or 1`');
         }
 
         state.lastPage = firstPage === 0 ? max(0, totalPages - 1) : totalPages || firstPage;
 
-        if (mode == "infinite") {
+        if (mode == 'infinite') {
           if (!links[currentPage + '']) {
-            throw new RangeError("No link found for page " + currentPage);
+            throw new RangeError('No link found for page ' + currentPage);
           }
         }
         else if (currentPage < firstPage ||
                  (totalPages > 0 &&
                   (firstPage ? currentPage > totalPages : currentPage >= totalPages))) {
-          throw new RangeError("`currentPage` must be firstPage <= currentPage " +
-                               (firstPage ? "<" : "<=") +
-                               " totalPages if " + firstPage + "-based. Got " +
+          throw new RangeError('`currentPage` must be firstPage <= currentPage ' +
+                               (firstPage ? '<' : '<=') +
+                               ' totalPages if ' + firstPage + '-based. Got ' +
                                currentPage + '.');
         }
       }
@@ -657,7 +657,7 @@
        from fetch or this.
     */
     setPageSize: function (pageSize, options) {
-      pageSize = finiteInt(pageSize, "pageSize");
+      pageSize = finiteInt(pageSize, 'pageSize');
 
       options = options || {first: false};
 
@@ -673,7 +673,7 @@
         totalPages: totalPages
       }));
 
-      return this.getPage(state.currentPage, _omit(options, ["first"]));
+      return this.getPage(state.currentPage, _omit(options, ['first']));
     },
 
     /**
@@ -711,7 +711,7 @@
     */
     switchMode: function (mode, options) {
 
-      if (!_contains(["server", "client", "infinite"], mode)) {
+      if (!_contains(['server', 'client', 'infinite'], mode)) {
         throw new TypeError('`mode` must be one of "server", "client" or "infinite"');
       }
 
@@ -726,19 +726,19 @@
       var self = this;
       var fullCollection = this.fullCollection;
       var handlers = this._handlers = this._handlers || {}, handler;
-      if (mode != "server" && !fullCollection) {
+      if (mode != 'server' && !fullCollection) {
         fullCollection = this._makeFullCollection(options.models || [], options);
         fullCollection.pageableCollection = this;
         this.fullCollection = fullCollection;
         var allHandler = this._makeCollectionEventHandler(this, fullCollection);
-        _each(["add", "remove", "reset", "sort"], function (event) {
+        _each(['add', 'remove', 'reset', 'sort'], function (event) {
           handlers[event] = handler = _.bind(allHandler, {}, event);
           self.on(event, handler);
           fullCollection.on(event, handler);
         });
         fullCollection.comparator = this._fullComparator;
       }
-      else if (mode == "server" && fullCollection) {
+      else if (mode == 'server' && fullCollection) {
         _each(_keys(handlers), function (event) {
           handler = handlers[event];
           self.off(event, handler);
@@ -749,7 +749,7 @@
         delete this.fullCollection;
       }
 
-      if (mode == "infinite") {
+      if (mode == 'infinite') {
         var links = this.links = {};
         var firstPage = state.firstPage;
         var totalPages = ceil(state.totalRecords / state.pageSize);
@@ -760,10 +760,10 @@
       }
       else if (this.links) delete this.links;
 
-      if (!options.silent) this.trigger("pageable:state:change", state);
+      if (!options.silent) this.trigger('pageable:state:change', state);
 
       return options.fetch ?
-        this.fetch(_omit(options, "fetch", "resetState")) :
+        this.fetch(_omit(options, 'fetch', 'resetState')) :
         this;
     },
 
@@ -774,7 +774,7 @@
     hasPreviousPage: function () {
       var state = this.state;
       var currentPage = state.currentPage;
-      if (this.mode != "infinite") return currentPage > state.firstPage;
+      if (this.mode != 'infinite') return currentPage > state.firstPage;
       return !!this.links[currentPage - 1];
     },
 
@@ -785,7 +785,7 @@
     hasNextPage: function () {
       var state = this.state;
       var currentPage = this.state.currentPage;
-      if (this.mode != "infinite") return currentPage < state.lastPage;
+      if (this.mode != 'infinite') return currentPage < state.lastPage;
       return !!this.links[currentPage + 1];
     },
 
@@ -800,7 +800,7 @@
        from fetch or this.
     */
     getFirstPage: function (options) {
-      return this.getPage("first", options);
+      return this.getPage('first', options);
     },
 
     /**
@@ -814,7 +814,7 @@
        from fetch or this.
     */
     getPreviousPage: function (options) {
-      return this.getPage("prev", options);
+      return this.getPage('prev', options);
     },
 
     /**
@@ -828,7 +828,7 @@
        from fetch or this.
     */
     getNextPage: function (options) {
-      return this.getPage("next", options);
+      return this.getPage('next', options);
     },
 
     /**
@@ -842,7 +842,7 @@
        from fetch or this.
     */
     getLastPage: function (options) {
-      return this.getPage("last", options);
+      return this.getPage('last', options);
     },
 
     /**
@@ -891,15 +891,15 @@
 
       var pageNum = index;
       switch (index) {
-        case "first": pageNum = firstPage; break;
-        case "prev": pageNum = currentPage - 1; break;
-        case "next": pageNum = currentPage + 1; break;
-        case "last": pageNum = lastPage; break;
-        default: pageNum = finiteInt(index, "index");
+        case 'first': pageNum = firstPage; break;
+        case 'prev': pageNum = currentPage - 1; break;
+        case 'next': pageNum = currentPage + 1; break;
+        case 'last': pageNum = lastPage; break;
+        default: pageNum = finiteInt(index, 'index');
       }
 
       this.state = this._checkState(_extend({}, state, {currentPage: pageNum}));
-      if (!options.silent) this.trigger("pageable:state:change", this.state);
+      if (!options.silent) this.trigger('pageable:state:change', this.state);
 
       options.from = currentPage, options.to = pageNum;
 
@@ -907,15 +907,15 @@
       var pageModels = fullCollection && fullCollection.length ?
         fullCollection.models.slice(pageStart, pageStart + pageSize) :
         [];
-      if ((mode == "client" || (mode == "infinite" && !_isEmpty(pageModels))) &&
+      if ((mode == 'client' || (mode == 'infinite' && !_isEmpty(pageModels))) &&
           !options.fetch) {
-        this.reset(pageModels, _omit(options, "fetch"));
+        this.reset(pageModels, _omit(options, 'fetch'));
         return this;
       }
 
-      if (mode == "infinite") options.url = this.links[pageNum];
+      if (mode == 'infinite') options.url = this.links[pageNum];
 
-      return this.fetch(_omit(options, "fetch"));
+      return this.fetch(_omit(options, 'fetch'));
     },
 
     /**
@@ -931,7 +931,7 @@
     */
     getPageByOffset: function (offset, options) {
       if (offset < 0) {
-        throw new RangeError("`offset must be > 0`");
+        throw new RangeError('`offset must be > 0`');
       }
       offset = finiteInt(offset);
 
@@ -952,7 +952,7 @@
     */
     sync: function (method, model, options) {
       var self = this;
-      if (self.mode == "infinite") {
+      if (self.mode == 'infinite') {
         var success = options.success;
         var currentPage = self.state.currentPage;
         options.success = function (resp, status, xhr) {
@@ -989,18 +989,18 @@
     */
     parseLinks: function (resp, options) {
       var links = {};
-      var linkHeader = options.xhr.getResponseHeader("Link");
+      var linkHeader = options.xhr.getResponseHeader('Link');
       if (linkHeader) {
-        var relations = ["first", "prev", "next"];
-        _each(linkHeader.split(","), function (linkValue) {
-          var linkParts = linkValue.split(";");
+        var relations = ['first', 'prev', 'next'];
+        _each(linkHeader.split(','), function (linkValue) {
+          var linkParts = linkValue.split(';');
           var url = linkParts[0].replace(URL_TRIM_RE, '');
           var params = linkParts.slice(1);
           _each(params, function (param) {
-            var paramParts = param.split("=");
+            var paramParts = param.split('=');
             var key = paramParts[0].replace(PARAM_TRIM_RE, '');
             var value = paramParts[1].replace(PARAM_TRIM_RE, '');
-            if (key == "rel" && _contains(relations, value)) links[value] = url;
+            if (key == 'rel' && _contains(relations, value)) links[value] = url;
           });
         });
       }
@@ -1092,7 +1092,7 @@
         var newState = _clone(state);
         var serverState = resp[0];
 
-        _each(_pairs(_omit(queryParams, "directions")), function (kvp) {
+        _each(_pairs(_omit(queryParams, 'directions')), function (kvp) {
           var k = kvp[0], v = kvp[1];
           var serverVal = serverState[v];
           if (!_isUndefined(serverVal) && !_.isNull(serverVal)) newState[k] = serverState[v];
@@ -1152,14 +1152,14 @@
 
       var mode = this.mode;
 
-      if (mode == "infinite" && !options.url) {
+      if (mode == 'infinite' && !options.url) {
         options.url = this.links[state.currentPage];
       }
 
       var data = options.data || {};
 
       // dedup query params
-      var url = options.url || this.url || "";
+      var url = options.url || this.url || '';
       if (_isFunction(url)) url = url.call(this);
       var qsi = url.indexOf('?');
       if (qsi != -1) {
@@ -1171,10 +1171,10 @@
       options.data = data;
 
       // map params except directions
-      var queryParams = this.mode == "client" ?
-        _pick(this.queryParams, "sortKey", "order") :
+      var queryParams = this.mode == 'client' ?
+        _pick(this.queryParams, 'sortKey', 'order') :
         _omit(_pick(this.queryParams, _keys(PageableProto.queryParams)),
-              "directions");
+              'directions');
 
       var thisCopy = _.clone(this);
       _.each(queryParams, function (v, k) {
@@ -1191,7 +1191,7 @@
           queryParams.order.call(thisCopy) :
           queryParams.order;
           if (!_isArray(state.order)) {
-              data[o] = this.queryParams.directions[state.order + ""];
+              data[o] = this.queryParams.directions[state.order + ''];
           }
           else {
               data[o] = [];
@@ -1214,7 +1214,7 @@
         if (v != null) data[kvp[0]] = v;
       }
 
-      if (mode != "server") {
+      if (mode != 'server') {
         var self = this, fullCol = this.fullCollection;
         var success = options.success;
         options.success = function (col, resp, opts) {
@@ -1225,11 +1225,11 @@
           else opts.silent = options.silent;
 
           var models = col.models;
-          if (mode == "client") fullCol.reset(models, opts);
+          if (mode == 'client') fullCol.reset(models, opts);
           else {
             fullCol.add(models, _extend({at: fullCol.length},
                                         _extend(opts, {parse: false})));
-            self.trigger("reset", self, opts);
+            self.trigger('reset', self, opts);
           }
 
           if (success) success(col, resp, opts);
@@ -1332,14 +1332,14 @@
       if (!sortKey) delComp = delFullComp = true;
 
       var mode = this.mode;
-      options = _extend({side: mode == "client" ? mode : "server", full: true},
+      options = _extend({side: mode == 'client' ? mode : 'server', full: true},
                         options);
 
       var comparator = this._makeComparator(sortKey, order, options.sortValue);
 
       var full = options.full, side = options.side;
 
-      if (side == "client") {
+      if (side == 'client') {
         if (full) {
           if (fullCollection) fullCollection.comparator = comparator;
           delComp = true;
@@ -1349,7 +1349,7 @@
           delFullComp = true;
         }
       }
-      else if (side == "server" && !full) {
+      else if (side == 'server' && !full) {
         this.comparator = comparator;
       }
 
