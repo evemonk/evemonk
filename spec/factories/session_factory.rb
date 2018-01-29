@@ -2,11 +2,11 @@
 
 FactoryBot.define do
   sequence :device_token do |n|
-    "push-notification-token-#{ n }"
+    "push-notification-token-#{n}"
   end
 
   sequence :name do |n|
-    "My Device #{ n }"
+    "My Device #{n}"
   end
 
   factory :session do

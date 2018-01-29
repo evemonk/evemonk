@@ -11,7 +11,7 @@ describe Api::SessionsController do
     context 'authorized' do
       let!(:session) { create(:session) }
 
-      before { request.env['HTTP_AUTHORIZATION'] = "Bearer #{ session.token }" }
+      before { request.env['HTTP_AUTHORIZATION'] = "Bearer #{session.token}" }
 
       before { get :index, format: :json }
 
@@ -29,7 +29,7 @@ describe Api::SessionsController do
     context 'not supported accept:' do
       let!(:session) { create(:session) }
 
-      before { request.env['HTTP_AUTHORIZATION'] = "Bearer #{ session.token }" }
+      before { request.env['HTTP_AUTHORIZATION'] = "Bearer #{session.token}" }
 
       before { get :index, format: :html }
 
@@ -42,7 +42,7 @@ describe Api::SessionsController do
       context 'owner' do
         let!(:session) { create(:session, id: 42) }
 
-        before { request.env['HTTP_AUTHORIZATION'] = "Bearer #{ session.token }" }
+        before { request.env['HTTP_AUTHORIZATION'] = "Bearer #{session.token}" }
 
         before { delete :destroy, params: { id: '42', format: :json } }
 
@@ -54,7 +54,7 @@ describe Api::SessionsController do
 
         let!(:another_session) { create(:session, id: 43) }
 
-        before { request.env['HTTP_AUTHORIZATION'] = "Bearer #{ session.token }" }
+        before { request.env['HTTP_AUTHORIZATION'] = "Bearer #{session.token}" }
 
         before { delete :destroy, params: { id: '43', format: :json } }
 
