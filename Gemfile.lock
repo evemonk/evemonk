@@ -76,7 +76,7 @@ GEM
     ansi (1.5.0)
     arel (9.0.0)
     ast (2.4.0)
-    autoprefixer-rails (7.2.5)
+    autoprefixer-rails (8.0.0)
       execjs
     awesome_print (1.8.0)
     axiom-types (0.1.1)
