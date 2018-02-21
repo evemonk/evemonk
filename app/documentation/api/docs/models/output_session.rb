@@ -8,7 +8,7 @@ module Api
         include Swagger::Blocks
 
         swagger_schema :OutputSession do
-          key :required, [:id, :token, :name, :device, :device_token,
+          key :required, [:id, :token, :name, :device_type, :device_token,
                           :created_at, :updated_at]
           property :id do
             key :type, :integer
@@ -23,7 +23,7 @@ module Api
             key :type, :string
             key :description, 'Session name'
           end
-          property :device do
+          property :device_type do
             key :type, :string
             key :description, 'Session device type'
             key :enum, [:ios, :android]
@@ -45,7 +45,7 @@ module Api
           key :example, id: 123,
                         token: 'AAkoMiLatQHMngyuUU1vnh5b',
                         name: 'My Computer',
-                        device: 'ios',
+                        device_type: 'ios',
                         device_token: 'ce8be6272e43e85516033e24b4c289220eeda4879c477160b2545e95b68b5969',
                         created_at: '2016-12-12T18:35:59Z',
                         updated_at: '2016-12-12T18:36:10Z'
