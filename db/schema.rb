@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_02_21_202012) do
+ActiveRecord::Schema.define(version: 2018_02_21_205404) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -100,14 +100,13 @@ ActiveRecord::Schema.define(version: 2018_02_21_202012) do
     t.index ["user_id"], name: "index_characters_on_user_id"
   end
 
-  create_table "chr_races", id: :serial, force: :cascade do |t|
+  create_table "eve_races", id: :serial, force: :cascade do |t|
     t.text "description"
     t.integer "race_id"
-    t.string "race_name"
-    t.string "short_description"
-    t.integer "icon_id"
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "alliance_id"
   end
 
   create_table "inv_flags", id: :serial, force: :cascade do |t|
