@@ -7,22 +7,19 @@ describe Eve::RaceDecorator do
     let!(:race) do
       create(:eve_race,
              description: 'Once a thriving tribal civilization, the Minmatar...',
-             short_description: 'Breaking free of Amarrian subjugation, ...',
              race_id: 2,
-             race_name: 'Minmatar',
-             icon_id: 1_440)
+             name: 'Minmatar',
+             alliance_id: 500_002)
     end
 
     subject { race.decorate.as_json }
 
     its([:description]) { should eq('Once a thriving tribal civilization, the Minmatar...') }
 
-    its([:short_description]) { should eq('Breaking free of Amarrian subjugation, ...') }
-
     its([:race_id]) { should eq(2) }
 
-    its([:race_name]) { should eq('Minmatar') }
+    its([:name]) { should eq('Minmatar') }
 
-    its([:icon_id]) { should eq(1_440) }
+    its([:alliance_id]) { should eq(500_002) }
   end
 end

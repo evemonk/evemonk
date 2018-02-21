@@ -6,10 +6,8 @@ FactoryBot.define do
 
     sequence(:race_id)
 
-    race_name { Faker::Lorem.word }
+    name { Faker::Lorem.word }
 
-    short_description { Faker::Lorem.sentence }
-
-    sequence(:icon_id)
+    sequence(:alliance_id)
   end
 end
