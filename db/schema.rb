@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2017_11_29_191705) do
+ActiveRecord::Schema.define(version: 2018_02_21_202012) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -216,7 +216,7 @@ ActiveRecord::Schema.define(version: 2017_11_29_191705) do
     t.datetime "updated_at", null: false
     t.string "name"
     t.string "device_token"
-    t.integer "device"
+    t.integer "device_type"
   end
 
   create_table "users", id: :serial, force: :cascade do |t|
