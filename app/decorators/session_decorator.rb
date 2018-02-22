@@ -14,7 +14,7 @@ class SessionDecorator < Draper::Decorator
       if context[:with_token]
         hash[:token] = token
 
-        hash[:device] = device
+        hash[:device_type] = device_type
 
         hash[:device_token] = device_token
       end

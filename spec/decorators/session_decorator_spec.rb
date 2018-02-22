@@ -4,42 +4,51 @@ require 'rails_helper'
 
 describe SessionDecorator do
   describe '#as_json' do
-    let!(:session) { create(:session) }
+    let!(:session) do
+      build_stubbed(:session,
+                    id: 123,
+                    name: 'My Device 1',
+                    token: 'token123',
+                    device_type: 'ios',
+                    device_token: 'push-notification-token-1',
+                    created_at: Time.zone.local(2018, 2, 21, 23, 42, 28),
+                    updated_at: Time.zone.local(2018, 2, 21, 23, 43, 25))
+    end
 
-    context 'with_token: false' do
+    context 'without token' do
       subject { session.decorate(context: { with_token: false }).as_json }
 
-      its([:id]) { should eq(session.id) }
+      its([:id]) { should eq(123) }
 
-      its([:name]) { should eq(session.name) }
+      its([:name]) { should eq('My Device 1') }
 
-      its([:created_at]) { should eq(session.created_at.iso8601) }
+      its([:created_at]) { should eq('2018-02-21T23:42:28Z') }
 
-      its([:updated_at]) { should eq(session.updated_at.iso8601) }
+      its([:updated_at]) { should eq('2018-02-21T23:43:25Z') }
 
       its([:token]) { should eq(nil) }
 
-      its([:device]) { should eq(nil) }
+      its([:device_type]) { should eq(nil) }
 
       its([:device_token]) { should eq(nil) }
     end
 
-    context 'with_token: true' do
+    context 'with token' do
       subject { session.decorate(context: { with_token: true }).as_json }
 
-      its([:id]) { should eq(session.id) }
+      its([:id]) { should eq(123) }
 
-      its([:name]) { should eq(session.name) }
+      its([:name]) { should eq('My Device 1') }
 
-      its([:created_at]) { should eq(session.created_at.iso8601) }
+      its([:created_at]) { should eq('2018-02-21T23:42:28Z') }
 
-      its([:updated_at]) { should eq(session.updated_at.iso8601) }
+      its([:updated_at]) { should eq('2018-02-21T23:43:25Z') }
 
-      its([:token]) { should eq(session.token) }
+      its([:token]) { should eq('token123') }
 
-      its([:device]) { should eq(session.device) }
+      its([:device_type]) { should eq('ios') }
 
-      its([:device_token]) { should eq(session.device_token) }
+      its([:device_token]) { should eq('push-notification-token-1') }
     end
   end
 end
