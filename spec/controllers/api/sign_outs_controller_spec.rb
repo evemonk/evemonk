@@ -9,9 +9,22 @@ describe Api::SignOutsController do
 
   describe '#destroy' do
     context 'authorized' do
-      let!(:session) { create(:session) }
+      before { sign_in }
 
-      before { request.env['HTTP_AUTHORIZATION'] = "Bearer #{ session.token }" }
+      let(:request1) { double.as_null_object }
+
+      before { expect(subject).to receive(:request).and_return(request1).at_least(:once) }
+
+      before do
+        #
+        # Api::SignOut.new(request).destroy!
+        #
+        expect(Api::SignOut).to receive(:new).with(request1) do
+          double.tap do |a|
+            expect(a).to receive(:destroy!)
+          end
+        end
+      end
 
       before { delete :destroy, format: :json }
 
