@@ -8,7 +8,7 @@ describe Api::SignOutsController do
   it { should use_before_action(:authenticate!) }
 
   describe '#destroy' do
-    context 'authorized' do
+    context 'when authorized' do
       before { sign_in }
 
       let(:request1) { double.as_null_object }
@@ -31,7 +31,7 @@ describe Api::SignOutsController do
       it { should respond_with(:no_content) }
     end
 
-    context 'not authorized' do
+    context 'when not authorized' do
       before { delete :destroy, format: :json }
 
       it { should respond_with(:unauthorized) }
