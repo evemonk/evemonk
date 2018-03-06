@@ -262,7 +262,7 @@ GEM
     minitest (5.11.3)
     mixlib-cli (1.7.0)
     mixlib-config (2.2.5)
-    mry (0.52.0.0)
+    mry (0.53.0.0)
       rubocop (>= 0.41.0)
     msgpack (1.2.2)
     multi_json (1.13.1)
