@@ -264,7 +264,7 @@ GEM
     mixlib-config (2.2.5)
     mry (0.52.0.0)
       rubocop (>= 0.41.0)
-    msgpack (1.2.2)
+    msgpack (1.2.4)
     multi_json (1.13.1)
     multi_xml (0.6.0)
     multipart-post (2.0.0)
