@@ -63,12 +63,12 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'spring-commands-rspec'
-  gem 'spring-commands-rubocop'
+  gem 'spring-commands-rspec', require: false
+  gem 'spring-commands-rubocop', require: false
   gem 'brakeman', require: false
   gem 'consistency_fail', require: false
   gem 'rails_best_practices'
-  gem 'license_finder'
+  gem 'license_finder', require: false
   gem 'active_record_doctor'
   gem 'bcrypt_pbkdf' # for rbnacl-libsodium
   gem 'rbnacl', '< 4.0' # for rbnacl-libsodium
