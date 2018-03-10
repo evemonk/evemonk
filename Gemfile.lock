@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/biow0lf/eve_online.git
-  revision: 7bdf488871f05c8c2f5e684982d3601adcee5a19
+  revision: 5a8940765d666c37be8acb975e32721c1df12b76
   branch: master
   specs:
     eve_online (0.14.0)
@@ -8,7 +8,6 @@ GIT
       faraday
       json
       memoist
-      nori (~> 2.6)
 
 GIT
   remote: https://github.com/jdliss/shoulda-callback-matchers.git
@@ -279,7 +278,6 @@ GEM
     nio4r (2.2.0)
     nokogiri (1.8.2)
       mini_portile2 (~> 2.3.0)
-    nori (2.6.0)
     oauth2 (1.4.0)
       faraday (>= 0.8, < 0.13)
       jwt (~> 1.0)
