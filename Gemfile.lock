@@ -280,7 +280,7 @@ GEM
       oauth2 (~> 1.1)
       omniauth (~> 1.2)
     parallel (1.12.1)
-    parser (2.5.0.3)
+    parser (2.5.0.4)
       ast (~> 2.4.0)
     parslet (1.8.2)
     pathname-common_prefix (0.0.1)
