@@ -80,7 +80,7 @@ group :development do
   gem 'capistrano-rbenv-install', require: false
   # gem 'overcommit', require: false
   gem 'cacheflow'
-  gem 'licensed', require: false
+  # gem 'licensed', require: false
 end
 
 group :test do
