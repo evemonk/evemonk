@@ -26,7 +26,7 @@ module Api
           property :device_type do
             key :type, :string
             key :description, 'Session device type'
-            key :enum, [:ios, :android]
+            key :enum, Session.device_types.keys
           end
           property :device_token do
             key :type, :string
