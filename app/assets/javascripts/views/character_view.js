@@ -8,11 +8,13 @@ EvemonkApp.Views.CharacterView = Backbone.View.extend({
     render: function () {
         this.$el.html(this.template(this.model.toJSON()));
 
-        var race = new EvemonkApp.Models.Race(this.model.get('race'));
+        if(this.model.get('race') !== null) {
+            var race = new EvemonkApp.Models.Race(this.model.get('race'));
 
-        var raceView = new EvemonkApp.Views.RaceView({ model: race });
+            var raceView = new EvemonkApp.Views.RaceView({ model: race });
 
-        this.$el.find('#race').html(raceView.render().el);
+            this.$el.find('#race').html(raceView.render().el);
+        }
 
         return this;
     },
