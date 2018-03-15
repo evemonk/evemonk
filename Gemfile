@@ -35,6 +35,7 @@ gem 'pg_query'
 # gem 'rubycritic', require: false
 gem 'swagger-blocks'
 gem 'http_logger'
+gem 'whenever', require: false
 
 group :production do
   gem 'lograge'
