@@ -17,7 +17,7 @@ describe Api::SignIn, type: :model do
         email: 'me@example.com',
         password: 'password',
         name: 'My Computer',
-        device: 'ios',
+        device_type: 'ios',
         device_token: 'token123'
       }
     end
@@ -30,7 +30,7 @@ describe Api::SignIn, type: :model do
 
     its(:name) { should eq('My Computer') }
 
-    its(:device) { should eq('ios') }
+    its(:device_type) { should eq('ios') }
 
     its(:device_token) { should eq('token123') }
   end
@@ -154,7 +154,7 @@ describe Api::SignIn, type: :model do
           email: 'me@example.com',
           password: 'password',
           name: 'My Computer',
-          device: 'ios',
+          device_type: 'ios',
           device_token: 'token123'
         }
       end
@@ -167,7 +167,7 @@ describe Api::SignIn, type: :model do
 
       specify { expect(subject.send(:create_session!).name).to eq('My Computer') }
 
-      specify { expect(subject.send(:create_session!).device).to eq('ios') }
+      specify { expect(subject.send(:create_session!).device_type).to eq('ios') }
 
       specify { expect(subject.send(:create_session!).device_token).to eq('token123') }
     end

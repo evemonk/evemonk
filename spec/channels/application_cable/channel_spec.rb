@@ -2,5 +2,8 @@
 
 require 'rails_helper'
 
-describe ApplicationCable::Channel do
+module ApplicationCable
+  describe Channel do
+    pending { should be_an(ActionCable::Channel::Base) }
+  end
 end

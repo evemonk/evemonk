@@ -11,7 +11,7 @@ describe User do
 
   it { should have_many(:characters).dependent(:destroy) }
 
-  context 'normal user' do
+  context 'when user registered via email' do
     subject { build(:user) }
 
     it { should validate_presence_of(:email) }
@@ -19,7 +19,7 @@ describe User do
     it { should validate_uniqueness_of(:email).case_insensitive }
   end
 
-  context 'oauth user' do
+  context 'when user registered via oauth' do
     subject { build(:user, :oauth) }
 
     it { should_not validate_presence_of(:email) }

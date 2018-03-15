@@ -2,5 +2,8 @@
 
 require 'rails_helper'
 
-describe ApplicationCable::Connection do
+module ApplicationCable
+  describe Connection do
+    pending { should be_an(ActionCable::Connection::Base) }
+  end
 end

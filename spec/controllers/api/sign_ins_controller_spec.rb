@@ -112,13 +112,13 @@ describe Api::SignInsController do
   describe '#resource_params' do
     before do
       #
-      # subject.params.require(:sign_in).permit(:email, :password, :name, :device, :device_token)
+      # subject.params.require(:sign_in).permit(:email, :password, :name, :device_type, :device_token)
       #
       expect(subject).to receive(:params) do
         double.tap do |a|
           expect(a).to receive(:require).with(:sign_in) do
             double.tap do |b|
-              expect(b).to receive(:permit).with(:email, :password, :name, :device, :device_token)
+              expect(b).to receive(:permit).with(:email, :password, :name, :device_type, :device_token)
             end
           end
         end

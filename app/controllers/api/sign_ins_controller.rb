@@ -21,7 +21,7 @@ module Api
     end
 
     def resource_params
-      params.require(:sign_in).permit(:email, :password, :name, :device, :device_token)
+      params.require(:sign_in).permit(:email, :password, :name, :device_type, :device_token)
     end
   end
 end

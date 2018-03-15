@@ -35,11 +35,11 @@ module Api
             key :description, 'Session name'
           end
           parameter do
-            key :name, 'sign_in[device]'
+            key :name, 'sign_in[device_type]'
             key :in, :formData
             key :required, false
             key :type, :string
-            key :enum, [:ios, :android]
+            key :enum, Session.device_types.keys
             key :description, 'Device type'
           end
           parameter do

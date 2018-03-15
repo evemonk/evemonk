@@ -2,14 +2,12 @@
 
 FactoryBot.define do
   factory :eve_race, class: Eve::Race do
-    description { Faker::Lorem.paragraph }
-
     sequence(:race_id)
 
-    race_name { Faker::Lorem.word }
+    name { Faker::Lorem.word }
 
-    short_description { Faker::Lorem.sentence }
+    description { Faker::Lorem.paragraph }
 
-    sequence(:icon_id)
+    sequence(:alliance_id)
   end
 end

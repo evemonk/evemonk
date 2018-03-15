@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2017_11_29_191705) do
+ActiveRecord::Schema.define(version: 2018_03_15_204218) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -97,17 +97,17 @@ ActiveRecord::Schema.define(version: 2017_11_29_191705) do
     t.integer "bonus_remaps"
     t.datetime "last_remap_date"
     t.datetime "accrued_remap_cooldown_date"
+    t.integer "faction_id"
     t.index ["user_id"], name: "index_characters_on_user_id"
   end
 
-  create_table "chr_races", id: :serial, force: :cascade do |t|
+  create_table "eve_races", id: :serial, force: :cascade do |t|
     t.text "description"
     t.integer "race_id"
-    t.string "race_name"
-    t.string "short_description"
-    t.integer "icon_id"
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "alliance_id"
   end
 
   create_table "inv_flags", id: :serial, force: :cascade do |t|
@@ -216,7 +216,7 @@ ActiveRecord::Schema.define(version: 2017_11_29_191705) do
     t.datetime "updated_at", null: false
     t.string "name"
     t.string "device_token"
-    t.integer "device"
+    t.integer "device_type"
   end
 
   create_table "users", id: :serial, force: :cascade do |t|

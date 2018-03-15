@@ -3,42 +3,16 @@
 require 'rails_helper'
 
 describe RacesImporter do
-  describe '#initialize' do
-    let(:file) { double }
+  describe '#import' do
+    let(:races) { instance_double(EveOnline::ESI::Races) }
 
-    let(:races) { double }
-
-    subject { described_class.new(file) }
-
-    before do
-      #
-      # EveOnline::SDE::Races.new(file) => races
-      #
-      expect(EveOnline::SDE::Races).to receive(:new).with(file).and_return(races)
-    end
-
-    specify { expect(subject.races).to eq(races) }
-  end
-
-  describe '#execute' do
-    let(:file) { double }
-
-    let(:race) { double }
+    let(:race) { instance_double(EveOnline::ESI::Models::Race) }
 
     let(:json) { double }
 
-    subject { described_class.new(file) }
+    before { expect(EveOnline::ESI::Races).to receive(:new).and_return(races) }
 
-    before do
-      #
-      # subject.races.races => [race]
-      #
-      expect(subject).to receive(:races) do
-        double.tap do |a|
-          expect(a).to receive(:races).and_return([race])
-        end
-      end
-    end
+    before { expect(races).to receive(:races).and_return([race]) }
 
     before { expect(race).to receive(:as_json).and_return(json) }
 
@@ -49,6 +23,6 @@ describe RacesImporter do
       expect(Eve::Race).to receive(:create!).with(json)
     end
 
-    specify { expect { subject.execute }.not_to raise_error }
+    specify { expect { subject.import }.not_to raise_error }
   end
 end

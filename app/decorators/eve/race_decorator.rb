@@ -8,9 +8,8 @@ module Eve
       {
         description: description,
         race_id: race_id,
-        race_name: race_name,
-        short_description: short_description,
-        icon_id: icon_id
+        name: name,
+        alliance_id: alliance_id
       }
     end
   end

@@ -9,10 +9,6 @@ describe Api::SignOut do
 
   it { should be_a(ActionController::HttpAuthentication::Token) }
 
-  describe '#initialize' do
-    specify { expect(subject.request).to eq(request) }
-  end
-
   describe '#destroy!' do
     let!(:user) { create(:user) }
 

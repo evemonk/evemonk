@@ -6,7 +6,7 @@ module Api
 
     attr_accessor :email, :password
 
-    attr_reader :name, :device, :device_token, :session
+    attr_reader :name, :device_type, :device_token, :session
 
     validates :email, presence: true
 
@@ -22,7 +22,7 @@ module Api
       @email = params[:email]
       @password = params[:password]
       @name = params[:name]
-      @device = params[:device]
+      @device_type = params[:device_type]
       @device_token = params[:device_token]
     end
 
@@ -52,7 +52,7 @@ module Api
     end
 
     def create_session!
-      @session ||= user.sessions.create!(name: name, device: device, device_token: device_token)
+      @session ||= user.sessions.create!(name: name, device_type: device_type, device_token: device_token)
     end
   end
 end

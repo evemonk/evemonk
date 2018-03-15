@@ -4,16 +4,22 @@ require 'rails_helper'
 
 describe UserDecorator do
   describe '#as_json' do
-    let!(:user) { create(:user) }
+    let!(:user) do
+      build_stubbed(:user,
+                    id: 42,
+                    email: 'me@example.com',
+                    created_at: Time.zone.local(2018, 2, 21, 23, 42, 28),
+                    updated_at: Time.zone.local(2018, 2, 21, 23, 43, 25))
+    end
 
     subject { user.decorate.as_json }
 
-    its([:id]) { should eq(user.id) }
+    its([:id]) { should eq(42) }
 
-    its([:email]) { should eq(user.email) }
+    its([:email]) { should eq('me@example.com') }
 
-    its([:created_at]) { should eq(user.created_at.iso8601) }
+    its([:created_at]) { should eq('2018-02-21T23:42:28Z') }
 
-    its([:updated_at]) { should eq(user.updated_at.iso8601) }
+    its([:updated_at]) { should eq('2018-02-21T23:43:25Z') }
   end
 end
