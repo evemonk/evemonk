@@ -41,7 +41,7 @@ EvemonkApp.Views.CharacterView = Backbone.View.extend({
 
             Backbone.history.navigate('characters', { trigger: true });
         } else {
-            return false
+            return false;
         }
     }
 });
