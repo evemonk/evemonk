@@ -16,6 +16,14 @@ EvemonkApp.Views.CharacterView = Backbone.View.extend({
             this.$el.find('#race').html(raceView.render().el);
         }
 
+        if(this.model.get('bloodline') !== null) {
+            var bloodline = new EvemonkApp.Models.Bloodline(this.model.get('bloodline'));
+
+            var bloodlineView = new EvemonkApp.Views.BloodlineView({ model: bloodline });
+
+            this.$el.find('#bloodline').html(bloodlineView.render().el);
+        }
+
         return this;
     },
 
