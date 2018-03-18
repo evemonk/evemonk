@@ -47,6 +47,6 @@ EvemonkApp.Views.SignInView = Backbone.View.extend({
                     $('#flash').append(flashView.render().el);
                 });
             }
-        })
+        });
     }
 });
