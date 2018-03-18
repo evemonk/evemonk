@@ -31,6 +31,10 @@ module Api
             key :type, :object
             key :'$ref', :OutputRace
           end
+          property :bloodline do
+            key :type, :object
+            key :'$ref', :OutputBloodline
+          end
           property :created_at do
             key :type, :string
             key :format, :'date-time'
@@ -50,6 +54,19 @@ module Api
                           race_id: 2,
                           name: 'Minmatar',
                           alliance_id: 500_002
+                        },
+                        bloodline: {
+                          bloodline_id: 4,
+                          name: 'Brutor',
+                          description: 'A martial, strong-willed people, the Brutor...',
+                          race_id: 2,
+                          ship_type_id: 588,
+                          corporation_id: 1000049,
+                          perception: 9,
+                          willpower: 7,
+                          charisma: 6,
+                          memory: 4,
+                          intelligence: 4
                         },
                         created_at: '2016-12-12T18:35:59Z',
                         updated_at: '2016-12-12T18:36:10Z'
