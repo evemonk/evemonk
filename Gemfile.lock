@@ -274,7 +274,7 @@ GEM
     parser (2.5.0.4)
       ast (~> 2.4.0)
     parslet (1.8.2)
-    pg (0.21.0)
+    pg (1.0.0)
     pg_query (1.0.1)
     pghero (2.1.0)
       activerecord
@@ -501,7 +501,7 @@ DEPENDENCIES
   mry
   newrelic_rpm
   omniauth-eve_online-sso
-  pg (~> 0.18)
+  pg (~> 1.0)
   pg_query
   pghero
   pry-rails
