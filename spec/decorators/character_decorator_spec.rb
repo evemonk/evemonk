@@ -9,6 +9,7 @@ describe CharacterDecorator do
              id: 123,
              uid: 1_337_512_245,
              name: 'Johnn Dillinger',
+             gender: 'male',
              security_status: 1.869488166134545,
              wallet: 500.1,
              charisma: 20,
@@ -27,6 +28,8 @@ describe CharacterDecorator do
 
     its([:name]) { should eq('Johnn Dillinger') }
 
+    its([:gender]) { should eq('male') }
+
     its([:security_status]) { should eq(1.869488166134545) }
 
     its([:wallet]) { should eq(500.1) }
@@ -44,6 +47,8 @@ describe CharacterDecorator do
     its([:bonus_remaps]) { should eq(2) }
 
     specify { expect(subject[:race].class).to eq(Eve::RaceDecorator) }
+
+    specify { expect(subject[:bloodline].class).to eq(Eve::BloodlineDecorator) }
 
     its([:created_at]) { should eq(character.created_at.iso8601) }
 

@@ -9,4 +9,13 @@ namespace :eve do
       RacesImporter.new.import
     end
   end
+
+  desc 'Import EveOnline Bloodlines'
+  task bloodlines: :environment do
+    ActiveRecord::Base.transaction do
+      Eve::Bloodline.destroy_all
+
+      BloodlinesImporter.new.import
+    end
+  end
 end

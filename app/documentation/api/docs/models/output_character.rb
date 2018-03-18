@@ -23,9 +23,17 @@ module Api
             key :type, :string
             key :description, 'Character name'
           end
+          property :gender do
+            key :type, :string
+            key :description, 'Character gender'
+          end
           property :race do
             key :type, :object
             key :'$ref', :OutputRace
+          end
+          property :bloodline do
+            key :type, :object
+            key :'$ref', :OutputBloodline
           end
           property :created_at do
             key :type, :string
@@ -40,11 +48,25 @@ module Api
           key :example, id: 123,
                         uid: 1_337_512_245,
                         name: 'Johnn Dillinger',
+                        gender: 'male',
                         race: {
                           description: 'Once a thriving tribal civilization, the Minmatar...',
                           race_id: 2,
                           name: 'Minmatar',
                           alliance_id: 500_002
+                        },
+                        bloodline: {
+                          bloodline_id: 4,
+                          name: 'Brutor',
+                          description: 'A martial, strong-willed people, the Brutor...',
+                          race_id: 2,
+                          ship_type_id: 588,
+                          corporation_id: 1000049,
+                          perception: 9,
+                          willpower: 7,
+                          charisma: 6,
+                          memory: 4,
+                          intelligence: 4
                         },
                         created_at: '2016-12-12T18:35:59Z',
                         updated_at: '2016-12-12T18:36:10Z'

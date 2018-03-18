@@ -35,6 +35,7 @@ module Api
               collection: [{ id: 123,
                              uid: 1_337_512_245,
                              name: 'Johnn Dillinger',
+                             gender: 'male',
                              race: {
                                description: 'Once a thriving tribal civilization, the Minmatar...',
                                race_id: 2,

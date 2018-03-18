@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_03_15_204218) do
+ActiveRecord::Schema.define(version: 2018_03_18_202022) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,33 +34,6 @@ ActiveRecord::Schema.define(version: 2018_03_15_204218) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
-  end
-
-  create_table "agt_agent_types", id: :serial, force: :cascade do |t|
-    t.string "agent_type"
-    t.integer "agent_type_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "agt_agents", id: :serial, force: :cascade do |t|
-    t.integer "agent_id"
-    t.integer "agent_type_id"
-    t.integer "corporation_id"
-    t.integer "division_id"
-    t.boolean "is_locator"
-    t.integer "level"
-    t.integer "location_id"
-    t.integer "quality"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "agt_research_agents", id: :serial, force: :cascade do |t|
-    t.integer "agent_id"
-    t.integer "type_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "characters", force: :cascade do |t|
@@ -101,6 +74,22 @@ ActiveRecord::Schema.define(version: 2018_03_15_204218) do
     t.index ["user_id"], name: "index_characters_on_user_id"
   end
 
+  create_table "eve_bloodlines", force: :cascade do |t|
+    t.integer "bloodline_id"
+    t.string "name"
+    t.text "description"
+    t.integer "race_id"
+    t.integer "ship_type_id"
+    t.integer "corporation_id"
+    t.integer "perception"
+    t.integer "willpower"
+    t.integer "charisma"
+    t.integer "memory"
+    t.integer "intelligence"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "eve_races", id: :serial, force: :cascade do |t|
     t.text "description"
     t.integer "race_id"
@@ -108,45 +97,6 @@ ActiveRecord::Schema.define(version: 2018_03_15_204218) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "alliance_id"
-  end
-
-  create_table "inv_flags", id: :serial, force: :cascade do |t|
-    t.integer "flag_id"
-    t.string "flag_name"
-    t.string "flag_text"
-    t.integer "order_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "inv_items", id: :serial, force: :cascade do |t|
-    t.integer "flag_id"
-    t.integer "item_id"
-    t.integer "location_id"
-    t.integer "owner_id"
-    t.integer "quantity"
-    t.integer "type_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "inv_names", id: :serial, force: :cascade do |t|
-    t.integer "item_id"
-    t.string "item_name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "inv_positions", id: :serial, force: :cascade do |t|
-    t.integer "item_id"
-    t.float "pitch"
-    t.float "roll"
-    t.float "x"
-    t.float "y"
-    t.float "yaw"
-    t.float "z"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "rpush_apps", force: :cascade do |t|

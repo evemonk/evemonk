@@ -75,6 +75,7 @@ module Api
       Api::Docs::Models::OutputCharacter,
       Api::Docs::Models::OutputCharactersCollection,
       Api::Docs::Models::OutputRace,
+      Api::Docs::Models::OutputBloodline,
       Api::Docs::Models::SignInsUnprocessableEntity,
       Api::Docs::Models::SignUpsUnprocessableEntity,
 

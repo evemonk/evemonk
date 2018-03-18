@@ -2,8 +2,6 @@
 
 module Eve
   class Race < ApplicationRecord
-    self.table_name = 'eve_races'
-
     validates :race_id, presence: true
 
     validates :race_id, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
