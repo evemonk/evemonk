@@ -5,6 +5,8 @@ class CharacterDecorator < Draper::Decorator
 
   decorates_association :race
 
+  decorates_association :bloodline
+
   # rubocop:disable Metrics/AbcSize
   # rubocop:disable Metrics/MethodLength
   def as_json(*)
@@ -17,7 +19,7 @@ class CharacterDecorator < Draper::Decorator
       # birthday: birthday,
       gender: gender,
       race: race,
-      # bloodline_id: bloodline_id,
+      bloodline: bloodline,
       # description: description,
       # alliance_id: alliance_id,
       # ancestry_id: ancestry_id,

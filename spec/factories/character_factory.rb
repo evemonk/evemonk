@@ -10,6 +10,8 @@ FactoryBot.define do
 
     association :race, factory: :eve_race
 
+    association :bloodline, factory: :eve_bloodline
+
     # TODO: later
     # token 'MyString'
     # refresh_token 'MyString'

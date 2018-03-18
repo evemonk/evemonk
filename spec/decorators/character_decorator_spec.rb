@@ -48,6 +48,8 @@ describe CharacterDecorator do
 
     specify { expect(subject[:race].class).to eq(Eve::RaceDecorator) }
 
+    specify { expect(subject[:bloodline].class).to eq(Eve::BloodlineDecorator) }
+
     its([:created_at]) { should eq(character.created_at.iso8601) }
 
     its([:updated_at]) { should eq(character.updated_at.iso8601) }
