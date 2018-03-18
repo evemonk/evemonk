@@ -8,4 +8,6 @@ describe Character do
   it { should belong_to(:user) }
 
   it { should belong_to(:race).class_name('Eve::Race').with_primary_key(:race_id) } # .optional(true) }
+
+  it { should belong_to(:bloodline).class_name('Eve::Bloodline').with_primary_key(:bloodline_id) } # .optional(true) }
 end
