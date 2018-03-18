@@ -9,6 +9,7 @@ describe CharacterDecorator do
              id: 123,
              uid: 1_337_512_245,
              name: 'Johnn Dillinger',
+             gender: 'male',
              security_status: 1.869488166134545,
              wallet: 500.1,
              charisma: 20,
@@ -26,6 +27,8 @@ describe CharacterDecorator do
     its([:uid]) { should eq(1_337_512_245) }
 
     its([:name]) { should eq('Johnn Dillinger') }
+
+    its([:gender]) { should eq('male') }
 
     its([:security_status]) { should eq(1.869488166134545) }
 
