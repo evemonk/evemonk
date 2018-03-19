@@ -24,6 +24,14 @@ EvemonkApp.Views.CharacterView = Backbone.View.extend({
             this.$el.find('#bloodline').html(bloodlineView.render().el);
         }
 
+        if(this.model.get('faction') !== null) {
+            var faction = new EvemonkApp.Models.Faction(this.model.get('faction'));
+
+            var factionView = new EvemonkApp.Views.FactionView({ model: faction });
+
+            this.$el.find('#faction').html(factionView.render().el);
+        }
+
         return this;
     },
 
