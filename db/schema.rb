@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_03_18_200025) do
+ActiveRecord::Schema.define(version: 2018_03_19_201835) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -86,6 +86,21 @@ ActiveRecord::Schema.define(version: 2018_03_18_200025) do
     t.integer "charisma"
     t.integer "memory"
     t.integer "intelligence"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "eve_factions", force: :cascade do |t|
+    t.integer "faction_id"
+    t.string "name"
+    t.text "description"
+    t.integer "solar_system_id"
+    t.integer "corporation_id"
+    t.integer "militia_corporation_id"
+    t.float "size_factor"
+    t.integer "station_count"
+    t.integer "station_system_count"
+    t.boolean "is_unique"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

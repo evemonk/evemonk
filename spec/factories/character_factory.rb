@@ -8,9 +8,13 @@ FactoryBot.define do
 
     name { Faker::Name.name }
 
+    description { Faker::Lorem.paragraph }
+
     association :race, factory: :eve_race
 
     association :bloodline, factory: :eve_bloodline
+
+    association :faction, factory: :eve_faction
 
     # TODO: later
     # token 'MyString'

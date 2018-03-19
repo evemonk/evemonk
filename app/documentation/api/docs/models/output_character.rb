@@ -8,7 +8,10 @@ module Api
         include Swagger::Blocks
 
         swagger_schema :OutputCharacter do
-          key :required, [:id, :uid, :name, :created_at, :updated_at]
+          key :required, [:id, :uid, :name, :description, :gender,
+                          :security_status, :wallet, :charisma, :intelligence,
+                          :memory, :perception, :willpower, :bonus_remaps,
+                          :created_at, :updated_at]
           property :id do
             key :type, :integer
             key :format, :int64
@@ -23,6 +26,10 @@ module Api
             key :type, :string
             key :description, 'Character name'
           end
+          property :description do
+            key :type, :string
+            key :description, 'Character description'
+          end
           property :gender do
             key :type, :string
             key :description, 'Character gender'
@@ -34,6 +41,50 @@ module Api
           property :bloodline do
             key :type, :object
             key :'$ref', :OutputBloodline
+          end
+          property :faction do
+            key :type, :object
+            key :'$ref', :OutputFaction
+          end
+          property :security_status do
+            key :type, :number
+            key :format, :float
+            key :description, 'Character security status'
+          end
+          property :wallet do
+            key :type, :number
+            key :format, :float
+            key :description, 'Character wallet'
+          end
+          property :charisma do
+            key :type, :integer
+            key :format, :int64
+            key :description, 'Character charisma'
+          end
+          property :intelligence do
+            key :type, :integer
+            key :format, :int64
+            key :description, 'Character intelligence'
+          end
+          property :memory do
+            key :type, :integer
+            key :format, :int64
+            key :description, 'Character memory'
+          end
+          property :perception do
+            key :type, :integer
+            key :format, :int64
+            key :description, 'Character perception'
+          end
+          property :willpower do
+            key :type, :integer
+            key :format, :int64
+            key :description, 'Character willpower'
+          end
+          property :bonus_remaps do
+            key :type, :integer
+            key :format, :int64
+            key :description, 'Character bonus remaps'
           end
           property :created_at do
             key :type, :string
@@ -48,6 +99,7 @@ module Api
           key :example, id: 123,
                         uid: 1_337_512_245,
                         name: 'Johnn Dillinger',
+                        description: 'some description',
                         gender: 'male',
                         race: {
                           description: 'Once a thriving tribal civilization, the Minmatar...',
@@ -61,13 +113,33 @@ module Api
                           description: 'A martial, strong-willed people, the Brutor...',
                           race_id: 2,
                           ship_type_id: 588,
-                          corporation_id: 1000049,
+                          corporation_id: 1_000_049,
                           perception: 9,
                           willpower: 7,
                           charisma: 6,
                           memory: 4,
                           intelligence: 4
                         },
+                        faction: {
+                          faction_id: 500_002,
+                          name: 'Minmatar Republic',
+                          description: 'The Minmatar Republic was formed over a century ago when the Minmatar threw...',
+                          solar_system_id: 30_002_544,
+                          corporation_id: 1_000_051,
+                          militia_corporation_id: 1_000_182,
+                          size_factor: 5.0,
+                          station_count: 570,
+                          station_system_count: 291,
+                          is_unique: true
+                        },
+                        security_status: 1.869488166134545,
+                        wallet: 409488252.49,
+                        charisma: 20,
+                        intelligence: 24,
+                        memory: 24,
+                        perception: 23,
+                        willpower: 23,
+                        bonus_remaps: 2,
                         created_at: '2016-12-12T18:35:59Z',
                         updated_at: '2016-12-12T18:36:10Z'
         end

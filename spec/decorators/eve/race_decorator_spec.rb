@@ -6,11 +6,11 @@ module Eve
   describe RaceDecorator do
     describe '#as_json' do
       let!(:race) do
-        create(:eve_race,
-               description: 'Once a thriving tribal civilization, the Minmatar...',
-               race_id: 2,
-               name: 'Minmatar',
-               alliance_id: 500_002)
+        build_stubbed(:eve_race,
+                      description: 'Once a thriving tribal civilization, the Minmatar...',
+                      race_id: 2,
+                      name: 'Minmatar',
+                      alliance_id: 500_002)
       end
 
       subject { race.decorate.as_json }

@@ -18,4 +18,13 @@ namespace :eve do
       BloodlinesImporter.new.import
     end
   end
+
+  desc 'Import EveOnline Factions'
+  task factions: :environment do
+    ActiveRecord::Base.transaction do
+      Eve::Faction.destroy_all
+
+      FactionsImporter.new.import
+    end
+  end
 end
