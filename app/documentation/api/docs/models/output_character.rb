@@ -23,6 +23,10 @@ module Api
             key :type, :string
             key :description, 'Character name'
           end
+          property :description do
+            key :type, :string
+            key :description, 'Character description'
+          end
           property :gender do
             key :type, :string
             key :description, 'Character gender'
@@ -48,6 +52,7 @@ module Api
           key :example, id: 123,
                         uid: 1_337_512_245,
                         name: 'Johnn Dillinger',
+                        description: 'some description',
                         gender: 'male',
                         race: {
                           description: 'Once a thriving tribal civilization, the Minmatar...',
