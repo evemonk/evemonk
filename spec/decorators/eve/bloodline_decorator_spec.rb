@@ -6,18 +6,18 @@ module Eve
   describe BloodlineDecorator do
     describe '#as_json' do
       let!(:bloodline) do
-        create(:eve_bloodline,
-               bloodline_id: 4,
-               name: 'Brutor',
-               description: 'A martial, strong-willed people, the Brutor...',
-               race_id: 2,
-               ship_type_id: 588,
-               corporation_id: 1000049,
-               perception: 9,
-               willpower: 7,
-               charisma: 6,
-               memory: 4,
-               intelligence: 4)
+        build_stubbed(:eve_bloodline,
+                      bloodline_id: 4,
+                      name: 'Brutor',
+                      description: 'A martial, strong-willed people, the Brutor...',
+                      race_id: 2,
+                      ship_type_id: 588,
+                      corporation_id: 1000049,
+                      perception: 9,
+                      willpower: 7,
+                      charisma: 6,
+                      memory: 4,
+                      intelligence: 4)
       end
 
       subject { bloodline.decorate.as_json }
