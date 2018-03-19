@@ -16,6 +16,7 @@ class CharacterDecorator < Draper::Decorator
       id: id,
       uid: uid,
       name: name,
+      description: description,
       # TODO: later
       # corporation_id: corporation_id,
       # birthday: birthday,
@@ -23,7 +24,6 @@ class CharacterDecorator < Draper::Decorator
       race: race,
       bloodline: bloodline,
       faction: faction,
-      description: description,
       # alliance_id: alliance_id,
       # ancestry_id: ancestry_id,
       security_status: security_status,
