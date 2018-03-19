@@ -29,7 +29,7 @@ RUN gem update --system
 
 ENV BUNDLER_VERSION 1.16.1
 
-RUN gem install bundler --version "$BUNDLER_VERSION"
+RUN gem install bundler --version "$BUNDLER_VERSION" --force
 
 RUN mkdir -p /srv/evemonk
 
