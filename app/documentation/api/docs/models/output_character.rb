@@ -39,6 +39,10 @@ module Api
             key :type, :object
             key :'$ref', :OutputBloodline
           end
+          property :faction do
+            key :type, :object
+            key :'$ref', :OutputFaction
+          end
           property :created_at do
             key :type, :string
             key :format, :'date-time'
@@ -72,6 +76,18 @@ module Api
                           charisma: 6,
                           memory: 4,
                           intelligence: 4
+                        },
+                        faction: {
+                          faction_id: 500_002,
+                          name: 'Minmatar Republic',
+                          description: 'The Minmatar Republic was formed over a century ago when the Minmatar threw...',
+                          solar_system_id: 30_002_544,
+                          corporation_id: 1_000_051,
+                          militia_corporation_id: 1_000_182,
+                          size_factor: 5.0,
+                          station_count: 570,
+                          station_system_count: 291,
+                          is_unique: true
                         },
                         created_at: '2016-12-12T18:35:59Z',
                         updated_at: '2016-12-12T18:36:10Z'
