@@ -38,8 +38,8 @@ module Api
             key :format, :int64
           end
           property :size_factor do
-            # key :type, :integer
-            # key :format, :int64
+            key :type, :number
+            key :format, :float
           end
           property :station_count do
             key :type, :integer
