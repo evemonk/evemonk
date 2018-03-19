@@ -20,7 +20,7 @@ class CharacterDecorator < Draper::Decorator
       gender: gender,
       race: race,
       bloodline: bloodline,
-      # description: description,
+      description: description,
       # alliance_id: alliance_id,
       # ancestry_id: ancestry_id,
       security_status: security_status,
