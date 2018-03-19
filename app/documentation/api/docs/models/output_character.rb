@@ -8,7 +8,10 @@ module Api
         include Swagger::Blocks
 
         swagger_schema :OutputCharacter do
-          key :required, [:id, :uid, :name, :created_at, :updated_at]
+          key :required, [:id, :uid, :name, :description, :gender,
+                          :security_status, :wallet, :charisma, :intelligence,
+                          :memory, :perception, :willpower, :bonus_remaps,
+                          :created_at, :updated_at]
           property :id do
             key :type, :integer
             key :format, :int64
@@ -42,6 +45,46 @@ module Api
           property :faction do
             key :type, :object
             key :'$ref', :OutputFaction
+          end
+          property :security_status do
+            key :type, :number
+            key :format, :float
+            key :description, 'Character security status'
+          end
+          property :wallet do
+            key :type, :number
+            key :format, :float
+            key :description, 'Character wallet'
+          end
+          property :charisma do
+            key :type, :integer
+            key :format, :int64
+            key :description, 'Character charisma'
+          end
+          property :intelligence do
+            key :type, :integer
+            key :format, :int64
+            key :description, 'Character intelligence'
+          end
+          property :memory do
+            key :type, :integer
+            key :format, :int64
+            key :description, 'Character memory'
+          end
+          property :perception do
+            key :type, :integer
+            key :format, :int64
+            key :description, 'Character perception'
+          end
+          property :willpower do
+            key :type, :integer
+            key :format, :int64
+            key :description, 'Character willpower'
+          end
+          property :bonus_remaps do
+            key :type, :integer
+            key :format, :int64
+            key :description, 'Character bonus remaps'
           end
           property :created_at do
             key :type, :string
@@ -89,6 +132,14 @@ module Api
                           station_system_count: 291,
                           is_unique: true
                         },
+                        security_status: 1.869488166134545,
+                        wallet: 409488252.49,
+                        charisma: 20,
+                        intelligence: 24,
+                        memory: 24,
+                        perception: 23,
+                        willpower: 23,
+                        bonus_remaps: 2,
                         created_at: '2016-12-12T18:35:59Z',
                         updated_at: '2016-12-12T18:36:10Z'
         end
