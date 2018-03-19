@@ -12,7 +12,7 @@ module Eve
                       description: 'A martial, strong-willed people, the Brutor...',
                       race_id: 2,
                       ship_type_id: 588,
-                      corporation_id: 1000049,
+                      corporation_id: 1_000_049,
                       perception: 9,
                       willpower: 7,
                       charisma: 6,
@@ -32,7 +32,7 @@ module Eve
 
       its([:ship_type_id]) { should eq(588) }
 
-      its([:corporation_id]) { should eq(1000049) }
+      its([:corporation_id]) { should eq(1_000_049) }
 
       its([:perception]) { should eq(9) }
 
