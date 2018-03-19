@@ -113,7 +113,7 @@ EvemonkApp.Routers.MainRouter = Backbone.Router.extend({
                     self.unauthorized();
                 }
             }
-        })
+        });
     },
 
     characters_page: function (page) {
