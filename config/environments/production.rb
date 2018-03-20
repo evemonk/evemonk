@@ -95,7 +95,7 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # squash production log file
-  config.lograge.enabled = true
+  # config.lograge.enabled = true
 
   # Sidekiq
   config.active_job.queue_adapter = :sidekiq

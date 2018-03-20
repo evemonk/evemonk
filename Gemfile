@@ -38,7 +38,7 @@ gem 'http_logger'
 gem 'whenever', require: false
 
 group :production do
-  gem 'lograge'
+  # gem 'lograge'
   gem 'newrelic_rpm'
 end
 
