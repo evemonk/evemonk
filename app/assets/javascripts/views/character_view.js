@@ -32,6 +32,14 @@ EvemonkApp.Views.CharacterView = Backbone.View.extend({
             this.$el.find('#faction').html(factionView.render().el);
         }
 
+        if(this.model.get('ancestry') !== null) {
+            var ancestry = new EvemonkApp.Models.Ancestry(this.model.get('ancestry'));
+
+            var ancestryView = new EvemonkApp.Views.AncestryView({ model: ancestry });
+
+            this.$el.find('#ancestry').html(ancestryView.render().el);
+        }
+
         return this;
     },
 
