@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddIconsToEveAlliances < ActiveRecord::Migration[5.2]
   def change
     add_column :eve_alliances, :icon_small, :string
