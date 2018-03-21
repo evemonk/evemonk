@@ -46,6 +46,10 @@ module Api
             key :type, :object
             key :'$ref', :OutputFaction
           end
+          property :ancestry do
+            key :type, :object
+            key :'$ref', :OutputAncestry
+          end
           property :security_status do
             key :type, :number
             key :format, :float
@@ -131,6 +135,14 @@ module Api
                           station_count: 570,
                           station_system_count: 291,
                           is_unique: true
+                        },
+                        ancestry: {
+                          ancestry_id: 24,
+                          name: 'Slave Child',
+                          bloodline_id: 4,
+                          description: 'Millions of slaves within the Amarr Empire dream of escape...',
+                          short_description: 'Torn from the cold and brought to the warmth of a new life.',
+                          icon_id: 1664
                         },
                         security_status: 1.869488166134545,
                         wallet: 409488252.49,
