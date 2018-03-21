@@ -145,7 +145,7 @@ module Api
                           icon_id: 1664
                         },
                         security_status: 1.869488166134545,
-                        wallet: 409488252.49,
+                        wallet: 409_488_252.49,
                         charisma: 20,
                         intelligence: 24,
                         memory: 24,
