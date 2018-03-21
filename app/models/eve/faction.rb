@@ -10,11 +10,11 @@ module Eve
 
     validates :description, presence: true
 
-    validates :solar_system_id, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+    validates :solar_system_id, numericality: { only_integer: true, greater_than_or_equal_to: 0, allow_nil: true }
 
-    validates :corporation_id, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+    validates :corporation_id, numericality: { only_integer: true, greater_than_or_equal_to: 0, allow_nil: true }
 
-    validates :militia_corporation_id, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+    validates :militia_corporation_id, numericality: { only_integer: true, greater_than_or_equal_to: 0, allow_nil: true }
 
     validates :size_factor, presence: true
 
