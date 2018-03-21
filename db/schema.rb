@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_03_21_222338) do
+ActiveRecord::Schema.define(version: 2018_03_21_224553) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -85,6 +85,8 @@ ActiveRecord::Schema.define(version: 2018_03_21_222338) do
     t.integer "faction_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "icon_small"
+    t.string "icon_medium"
   end
 
   create_table "eve_ancestries", force: :cascade do |t|
