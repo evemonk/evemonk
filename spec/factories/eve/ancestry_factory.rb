@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   factory :eve_ancestry, class: Eve::Ancestry do
     sequence(:ancestry_id)
