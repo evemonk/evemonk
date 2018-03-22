@@ -233,7 +233,8 @@ GEM
     mini_portile2 (2.3.0)
     minitest (5.11.3)
     mixlib-cli (1.7.0)
-    mixlib-config (2.2.5)
+    mixlib-config (2.2.6)
+      tomlrb
     mry (0.54.0.0)
       rubocop (>= 0.41.0)
     msgpack (1.2.4)
@@ -435,6 +436,7 @@ GEM
     tilt (2.0.8)
     toml (0.2.0)
       parslet (~> 1.8.0)
+    tomlrb (1.2.6)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
     uglifier (4.1.8)
