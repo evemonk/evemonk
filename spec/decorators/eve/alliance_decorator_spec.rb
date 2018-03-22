@@ -30,7 +30,7 @@ module Eve
 
       its([:executor_corporation_id]) { should eq(98306624) }
 
-      its([:date_founded]) { should eq(now) }
+      its([:date_founded]) { should eq(now.iso8601) }
 
       its([:faction_id]) { should eq(1) }
     end

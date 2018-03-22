@@ -12,7 +12,7 @@ module Eve
         creator_corporation_id: creator_corporation_id,
         ticker: ticker,
         executor_corporation_id: executor_corporation_id,
-        date_founded: date_founded,
+        date_founded: date_founded.iso8601,
         faction_id: faction_id,
         icon_small: icon_small,
         icon_medium: icon_medium
