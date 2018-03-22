@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/biow0lf/eve_online.git
-  revision: 1e033e2e995d984a3746dbd1a68907004ee266e9
+  revision: 6eda0a5ae62da9b11e28603d826c625c6d96b7e0
   branch: master
   specs:
     eve_online (0.14.0)
