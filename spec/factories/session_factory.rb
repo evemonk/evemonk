@@ -11,9 +11,13 @@ FactoryBot.define do
 
   factory :session do
     user
+
     token { SecureRandom.base58(24) }
+
     name
+
     device_type { Session.device_types.keys.sample }
+
     device_token
   end
 end

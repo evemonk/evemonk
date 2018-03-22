@@ -9,6 +9,8 @@ class CharacterDecorator < Draper::Decorator
 
   decorates_association :faction
 
+  decorates_association :ancestry
+
   # rubocop:disable Metrics/AbcSize
   # rubocop:disable Metrics/MethodLength
   def as_json(*)
@@ -24,8 +26,8 @@ class CharacterDecorator < Draper::Decorator
       race: race,
       bloodline: bloodline,
       faction: faction,
+      ancestry: ancestry,
       # alliance_id: alliance_id,
-      # ancestry_id: ancestry_id,
       security_status: security_status,
       # portrait: {
       #   small: portrait_small,

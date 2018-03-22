@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/biow0lf/eve_online.git
-  revision: 5a8940765d666c37be8acb975e32721c1df12b76
+  revision: 6eda0a5ae62da9b11e28603d826c625c6d96b7e0
   branch: master
   specs:
     eve_online (0.14.0)
@@ -75,7 +75,7 @@ GEM
     ansi (1.5.0)
     arel (9.0.0)
     ast (2.4.0)
-    autoprefixer-rails (8.1.0.1)
+    autoprefixer-rails (8.2.0)
       execjs
     awesome_print (1.8.0)
     bcrypt (3.1.11)
@@ -215,11 +215,6 @@ GEM
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
       ruby_dep (~> 1.2)
-    lograge (0.9.0)
-      actionpack (>= 4)
-      activesupport (>= 4)
-      railties (>= 4)
-      request_store (~> 1.0)
     loofah (2.2.1)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -239,7 +234,7 @@ GEM
     minitest (5.11.3)
     mixlib-cli (1.7.0)
     mixlib-config (2.2.5)
-    mry (0.53.0.0)
+    mry (0.54.0.0)
       rubocop (>= 0.41.0)
     msgpack (1.2.4)
     multi_json (1.13.1)
@@ -332,7 +327,7 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
     rainbow (3.0.0)
-    rake (12.3.0)
+    rake (12.3.1)
     rb-fsevent (0.10.3)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
@@ -372,7 +367,7 @@ GEM
       rspec-mocks (~> 3.7.0)
       rspec-support (~> 3.7.0)
     rspec-support (3.7.1)
-    rubocop (0.53.0)
+    rubocop (0.54.0)
       parallel (~> 1.10)
       parser (>= 2.5)
       powerpack (~> 0.1)
@@ -496,7 +491,6 @@ DEPENDENCIES
   kaminari
   license_finder
   listen (>= 3.0.5, < 3.2)
-  lograge
   mdl
   mry
   newrelic_rpm

@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
 every 1.day do
-  rake 'eve:races eve:bloodlines eve:factions'
+  rake 'eve:races eve:bloodlines eve:factions eve:ancestries'
 end
 
-# Learn more: http://github.com/javan/whenever
+every 1.week do
+  rake 'eve:alliances'
+end

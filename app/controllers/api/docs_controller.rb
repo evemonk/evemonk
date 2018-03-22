@@ -77,6 +77,7 @@ module Api
       Api::Docs::Models::OutputRace,
       Api::Docs::Models::OutputBloodline,
       Api::Docs::Models::OutputFaction,
+      Api::Docs::Models::OutputAncestry,
       Api::Docs::Models::SignInsUnprocessableEntity,
       Api::Docs::Models::SignUpsUnprocessableEntity,
 

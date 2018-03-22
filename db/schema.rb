@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_03_19_201835) do
+ActiveRecord::Schema.define(version: 2018_03_21_224553) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -72,6 +72,32 @@ ActiveRecord::Schema.define(version: 2018_03_19_201835) do
     t.datetime "accrued_remap_cooldown_date"
     t.integer "faction_id"
     t.index ["user_id"], name: "index_characters_on_user_id"
+  end
+
+  create_table "eve_alliances", force: :cascade do |t|
+    t.integer "alliance_id"
+    t.string "name"
+    t.integer "creator_id"
+    t.integer "creator_corporation_id"
+    t.string "ticker"
+    t.integer "executor_corporation_id"
+    t.datetime "date_founded"
+    t.integer "faction_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "icon_small"
+    t.string "icon_medium"
+  end
+
+  create_table "eve_ancestries", force: :cascade do |t|
+    t.integer "ancestry_id"
+    t.string "name"
+    t.integer "bloodline_id"
+    t.text "description"
+    t.string "short_description"
+    t.integer "icon_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "eve_bloodlines", force: :cascade do |t|
