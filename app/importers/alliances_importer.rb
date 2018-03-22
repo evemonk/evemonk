@@ -11,7 +11,10 @@ class AlliancesImporter
 
       alliance_icon = EveOnline::ESI::AllianceIcon.new(options)
 
-      Eve::Alliance.create!(alliance.as_json.merge(alliance_icon.as_json))
+      json = alliance.as_json.merge(alliance_icon.as_json)
+                             .merge(alliance_id: alliance_id)
+
+      Eve::Alliance.create!(json)
     end
   end
 end

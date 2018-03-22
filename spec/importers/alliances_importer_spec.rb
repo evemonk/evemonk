@@ -16,6 +16,8 @@ describe AlliancesImporter do
 
     let(:alliance_icon_json) { double }
 
+    let(:alliance_with_icon) { double }
+
     let(:json) { double }
 
     before { expect(EveOnline::ESI::Alliances).to receive(:new).and_return(alliances) }
@@ -30,7 +32,9 @@ describe AlliancesImporter do
 
     before { expect(alliance_icon).to receive(:as_json).and_return(alliance_icon_json) }
 
-    before { expect(alliance_json).to receive(:merge).with(alliance_icon_json).and_return(json) }
+    before { expect(alliance_json).to receive(:merge).with(alliance_icon_json).and_return(alliance_with_icon) }
+
+    before { expect(alliance_with_icon).to receive(:merge).with(alliance_id: alliance_id).and_return(json) }
 
     before do
       #
