@@ -78,6 +78,7 @@ module Api
       Api::Docs::Models::OutputBloodline,
       Api::Docs::Models::OutputFaction,
       Api::Docs::Models::OutputAncestry,
+      Api::Docs::Models::OutputAlliance,
       Api::Docs::Models::SignInsUnprocessableEntity,
       Api::Docs::Models::SignUpsUnprocessableEntity,
 
