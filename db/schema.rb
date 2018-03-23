@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_03_21_224553) do
+ActiveRecord::Schema.define(version: 2018_03_23_205047) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,6 +71,7 @@ ActiveRecord::Schema.define(version: 2018_03_21_224553) do
     t.datetime "last_remap_date"
     t.datetime "accrued_remap_cooldown_date"
     t.integer "faction_id"
+    t.index ["uid"], name: "index_characters_on_uid", unique: true
     t.index ["user_id"], name: "index_characters_on_user_id"
   end
 
