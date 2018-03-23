@@ -11,7 +11,7 @@ describe Api::ProfilesController do
     context 'authorized' do
       let!(:session) { create(:session) }
 
-      before { request.env['HTTP_AUTHORIZATION'] = "Bearer #{ session.token }" }
+      before { request.env['HTTP_AUTHORIZATION'] = "Bearer #{session.token}" }
 
       before { get :show, format: :json }
 
@@ -29,7 +29,7 @@ describe Api::ProfilesController do
     context 'not supported accept:' do
       let!(:session) { create(:session) }
 
-      before { request.env['HTTP_AUTHORIZATION'] = "Bearer #{ session.token }" }
+      before { request.env['HTTP_AUTHORIZATION'] = "Bearer #{session.token}" }
 
       before { get :show, format: :html }
 
