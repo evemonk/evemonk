@@ -10,4 +10,6 @@ class Character < ApplicationRecord
   belongs_to :faction, class_name: 'Eve::Faction', primary_key: :faction_id, optional: true
 
   belongs_to :ancestry, class_name: 'Eve::Ancestry', primary_key: :ancestry_id, optional: true
+
+  belongs_to :alliance, class_name: 'Eve::Alliance', primary_key: :alliance_id, optional: true
 end
