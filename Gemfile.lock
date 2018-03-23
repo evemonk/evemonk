@@ -80,7 +80,7 @@ GEM
     awesome_print (1.8.0)
     bcrypt (3.1.11)
     bcrypt_pbkdf (1.0.0)
-    bootsnap (1.2.0)
+    bootsnap (1.2.1)
       msgpack (~> 1.0)
     bootstrap (4.0.0)
       autoprefixer-rails (>= 6.0.3)
