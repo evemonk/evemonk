@@ -42,14 +42,14 @@ module Api
             key :type, :integer
             key :format, :int64
           end
-          key :example, alliance_id: 99005443,
+          key :example, alliance_id: 99_005_443,
                         name: 'Kids With Guns Alliance',
                         ticker: '-KWG-',
-                        creator_id: 94195096,
-                        creator_corporation_id: 98306624,
-                        executor_corporation_id: 98306624,
+                        creator_id: 94_195_096,
+                        creator_corporation_id: 98_306_624,
+                        executor_corporation_id: 98_306_624,
                         date_founded: '2015-05-03T19:45:17Z',
-                        faction_id: 500001
+                        faction_id: 500_001
         end
         # :nocov:
       end
