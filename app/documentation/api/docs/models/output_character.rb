@@ -50,6 +50,10 @@ module Api
             key :type, :object
             key :'$ref', :OutputAncestry
           end
+          property :alliance do
+            key :type, :object
+            key :'$ref', :OutputAlliance
+          end
           property :security_status do
             key :type, :number
             key :format, :float
@@ -143,6 +147,16 @@ module Api
                           description: 'Millions of slaves within the Amarr Empire dream of escape...',
                           short_description: 'Torn from the cold and brought to the warmth of a new life.',
                           icon_id: 1664
+                        },
+                        alliance: {
+                          alliance_id: 99_005_443,
+                          name: 'Kids With Guns Alliance',
+                          ticker: '-KWG-',
+                          creator_id: 94_195_096,
+                          creator_corporation_id: 98_306_624,
+                          executor_corporation_id: 98_306_624,
+                          date_founded: '2015-05-03T19:45:17Z',
+                          faction_id: 500_001
                         },
                         security_status: 1.869488166134545,
                         wallet: 409_488_252.49,
