@@ -2,6 +2,8 @@
 
 module Eve
   class Race < ApplicationRecord
+    has_many :characters
+
     validates :race_id, presence: true
 
     validates :race_id, numericality: { only_integer: true, greater_than_or_equal_to: 0 }

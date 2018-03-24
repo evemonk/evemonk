@@ -40,6 +40,14 @@ EvemonkApp.Views.CharacterView = Backbone.View.extend({
             this.$el.find('#ancestry').html(ancestryView.render().el);
         }
 
+        if(this.model.get('alliance') !== null) {
+            var alliance = new EvemonkApp.Models.Alliance(this.model.get('alliance'));
+
+            var allianceView = new EvemonkApp.Views.AllianceView({ model: alliance });
+
+            this.$el.find('#alliance').html(allianceView.render().el);
+        }
+
         return this;
     },
 
