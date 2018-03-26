@@ -2,6 +2,8 @@
 
 module Eve
   class Alliance < ApplicationRecord
+    has_many :characters, dependent: :destroy
+
     validates :alliance_id, presence: true
 
     validates :alliance_id, numericality: { only_integer: true, greater_than_or_equal_to: 0 }

@@ -8,6 +8,8 @@ module Eve
 
     it { expect(described_class.table_name).to eq('eve_alliances') }
 
+    it { should have_many(:characters).dependent(:destroy) }
+
     it { should validate_presence_of(:alliance_id) }
 
     it { should validate_numericality_of(:alliance_id).only_integer.is_greater_than_or_equal_to(0) }
