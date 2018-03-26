@@ -2,19 +2,16 @@
 
 class AlliancesImporter
   def import
-    alliances = EveOnline::ESI::Alliances.new
+    alliances_ids = EveOnline::ESI::Alliances.new.alliances
 
-    alliances.alliances.each do |alliance_id|
+    alliances_ids.each do |alliance_id|
+      alliance = Eve::Alliance.find_or_initialize_by(alliance_id: alliance_id)
+
       options = { alliance_id: alliance_id }
 
-      alliance = EveOnline::ESI::Alliance.new(options)
+      alliance.update!(EveOnline::ESI::Alliance.new(options).as_json)
 
-      alliance_icon = EveOnline::ESI::AllianceIcon.new(options)
-
-      json = alliance.as_json.merge(alliance_icon.as_json)
-                             .merge(alliance_id: alliance_id)
-
-      Eve::Alliance.create!(json)
+      alliance.update!(EveOnline::ESI::AllianceIcon.new(options).as_json)
     end
   end
 end

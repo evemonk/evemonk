@@ -10,15 +10,13 @@ describe AlliancesImporter do
 
     let(:alliance_icon) { instance_double(EveOnline::ESI::AllianceIcon) }
 
+    let(:eve_alliance) { instance_double(Eve::Alliance) }
+
     let(:alliance_id) { double }
 
     let(:alliance_json) { double }
 
     let(:alliance_icon_json) { double }
-
-    let(:alliance_with_icon) { double }
-
-    let(:json) { double }
 
     before { expect(EveOnline::ESI::Alliances).to receive(:new).and_return(alliances) }
 
@@ -28,20 +26,15 @@ describe AlliancesImporter do
 
     before { expect(EveOnline::ESI::AllianceIcon).to receive(:new).with(alliance_id: alliance_id).and_return(alliance_icon) }
 
+    before { expect(Eve::Alliance).to receive(:find_or_initialize_by).with(alliance_id: alliance_id).and_return(eve_alliance) }
+
     before { expect(alliance).to receive(:as_json).and_return(alliance_json) }
+
+    before { expect(eve_alliance).to receive(:update!).with(alliance_json) }
 
     before { expect(alliance_icon).to receive(:as_json).and_return(alliance_icon_json) }
 
-    before { expect(alliance_json).to receive(:merge).with(alliance_icon_json).and_return(alliance_with_icon) }
-
-    before { expect(alliance_with_icon).to receive(:merge).with(alliance_id: alliance_id).and_return(json) }
-
-    before do
-      #
-      # Eve::Alliance.create!(json)
-      #
-      expect(Eve::Alliance).to receive(:create!).with(json)
-    end
+    before { expect(eve_alliance).to receive(:update!).with(alliance_icon_json) }
 
     specify { expect { subject.import }.not_to raise_error }
   end
