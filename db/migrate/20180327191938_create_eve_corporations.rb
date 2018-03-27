@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateEveCorporations < ActiveRecord::Migration[5.2]
   def change
     create_table :eve_corporations do |t|
