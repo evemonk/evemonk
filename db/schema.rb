@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_03_27_182951) do
+ActiveRecord::Schema.define(version: 2018_03_27_183848) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -117,6 +117,7 @@ ActiveRecord::Schema.define(version: 2018_03_27_182951) do
     t.integer "intelligence"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["bloodline_id"], name: "index_eve_bloodlines_on_bloodline_id", unique: true
   end
 
   create_table "eve_factions", force: :cascade do |t|
