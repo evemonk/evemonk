@@ -45,6 +45,7 @@ module Api
           end
           extend Api::Docs::Shared::Unauthorized
           extend Api::Docs::Shared::NotAcceptable
+          extend Api::Docs::Shared::NotFound
         end
 
         operation :delete do
