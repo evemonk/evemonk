@@ -1,5 +1,7 @@
-class RemoveOldAlliances
-  def remove
+# frozen_string_literal: true
+
+class RemoveOldAlliancesImporter
+  def import
     alliances_ids = EveOnline::ESI::Alliances.new.alliances
 
     removed_alliance_ids = Eve::Alliance.pluck(:alliance_id) - alliances_ids
