@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_03_27_183848) do
+ActiveRecord::Schema.define(version: 2018_03_27_184950) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -133,6 +133,7 @@ ActiveRecord::Schema.define(version: 2018_03_27_183848) do
     t.boolean "is_unique"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["faction_id"], name: "index_eve_factions_on_faction_id", unique: true
   end
 
   create_table "eve_races", id: :serial, force: :cascade do |t|
