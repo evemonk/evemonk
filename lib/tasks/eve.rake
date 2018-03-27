@@ -39,10 +39,6 @@ namespace :eve do
 
   desc 'Import EveOnline Alliances'
   task alliances: :environment do
-    ActiveRecord::Base.transaction do
-      Eve::Alliance.destroy_all
-
-      AlliancesImporter.new.import
-    end
+    AlliancesImporter.new.import
   end
 end
