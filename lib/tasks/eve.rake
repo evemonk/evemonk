@@ -26,11 +26,7 @@ namespace :eve do
 
   desc 'Import EveOnline Ancestries'
   task ancestries: :environment do
-    ActiveRecord::Base.transaction do
-      Eve::Ancestry.destroy_all
-
-      AncestriesImporter.new.import
-    end
+    AncestriesImporter.new.import
   end
 
   desc 'Import EveOnline Alliances'
