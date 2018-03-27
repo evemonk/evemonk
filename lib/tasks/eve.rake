@@ -13,11 +13,7 @@ namespace :eve do
 
   desc 'Import EveOnline Factions'
   task factions: :environment do
-    ActiveRecord::Base.transaction do
-      Eve::Faction.destroy_all
-
-      FactionsImporter.new.import
-    end
+    FactionsImporter.new.import
   end
 
   desc 'Import EveOnline Ancestries'
