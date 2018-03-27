@@ -22,7 +22,7 @@ describe BloodlinesImporter do
 
     before do
       #
-      # Eve::Bloodline.find_or_initialize_by(bloodline_id: bloodline.bloodline_id)
+      # Eve::Bloodline.find_or_initialize_by(bloodline_id: bloodline.bloodline_id) => eve_bloodline
       #
       expect(Eve::Bloodline).to receive(:find_or_initialize_by).with(bloodline_id: bloodline_id).and_return(eve_bloodline)
     end
