@@ -54,6 +54,10 @@ module Api
             key :type, :object
             key :'$ref', :OutputAlliance
           end
+          property :corporation do
+            key :type, :object
+            key :'$ref', :OutputCorporation
+          end
           property :security_status do
             key :type, :number
             key :format, :float
@@ -157,6 +161,22 @@ module Api
                           executor_corporation_id: 98_306_624,
                           date_founded: '2015-05-03T19:45:17Z',
                           faction_id: 500_001
+                        },
+                        corporation: {
+                          corporation_id: 98_134_807,
+                          name: 'MyLittleDragon',
+                          ticker: 'MYLID',
+                          member_count: 120,
+                          ceo_id: 1_208_274_826,
+                          tax_rate: '0.09',
+                          creator_id: 265_506_411,
+                          alliance_id: 99_005_443,
+                          description: '',
+                          date_founded: '2012-08-28T20:16:00Z',
+                          corporation_url: 'http://',
+                          faction_id: nil,
+                          home_station_id: 60_004_474,
+                          shares: 1000
                         },
                         security_status: 1.869488166134545,
                         wallet: 409_488_252.49,
