@@ -24,7 +24,6 @@ class CharacterDecorator < Draper::Decorator
       name: name,
       description: description,
       # TODO: later
-      # corporation_id: corporation_id,
       # birthday: birthday,
       gender: gender,
       race: race,
