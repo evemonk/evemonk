@@ -18,6 +18,8 @@ module Api
       character_attributes
 
       character_corporation_info
+
+      character_loyalty_points
     end
 
     private
@@ -59,6 +61,19 @@ module Api
       corporation = Eve::Corporation.find_or_initialize_by(corporation_id: corporation_id)
 
       corporation.update!(::EveOnline::ESI::Corporation.new(corporation_id: corporation_id).as_json)
+    end
+
+    def character_loyalty_points
+      loyalty_points = ::EveOnline::ESI::CharacterLoyaltyPoints.new(character_id: character.uid,
+                                                                    token: character.token)
+
+      ActiveRecord::Base.transaction do
+        character.loyalty_points.destroy_all
+
+        loyalty_points.loyalty_points.each do |lp|
+          character.loyalty_points.create!(lp.as_json)
+        end
+      end
     end
   end
 end
