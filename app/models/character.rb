@@ -14,4 +14,6 @@ class Character < ApplicationRecord
   belongs_to :alliance, class_name: 'Eve::Alliance', primary_key: :alliance_id, optional: true
 
   belongs_to :corporation, class_name: 'Eve::Corporation', primary_key: :corporation_id, optional: true
+
+  has_many :loyalty_points, dependent: :destroy
 end
