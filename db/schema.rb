@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_03_26_185106) do
+ActiveRecord::Schema.define(version: 2018_03_27_201451) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -100,6 +100,7 @@ ActiveRecord::Schema.define(version: 2018_03_26_185106) do
     t.integer "icon_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["ancestry_id"], name: "index_eve_ancestries_on_ancestry_id", unique: true
   end
 
   create_table "eve_bloodlines", force: :cascade do |t|
@@ -116,6 +117,27 @@ ActiveRecord::Schema.define(version: 2018_03_26_185106) do
     t.integer "intelligence"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["bloodline_id"], name: "index_eve_bloodlines_on_bloodline_id", unique: true
+  end
+
+  create_table "eve_corporations", force: :cascade do |t|
+    t.string "name"
+    t.string "ticker"
+    t.integer "member_count"
+    t.integer "ceo_id"
+    t.integer "alliance_id"
+    t.text "description"
+    t.decimal "tax_rate"
+    t.datetime "date_founded"
+    t.integer "creator_id"
+    t.string "corporation_url"
+    t.integer "faction_id"
+    t.integer "home_station_id"
+    t.integer "shares"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "corporation_id"
+    t.index ["corporation_id"], name: "index_eve_corporations_on_corporation_id", unique: true
   end
 
   create_table "eve_factions", force: :cascade do |t|
@@ -131,6 +153,7 @@ ActiveRecord::Schema.define(version: 2018_03_26_185106) do
     t.boolean "is_unique"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["faction_id"], name: "index_eve_factions_on_faction_id", unique: true
   end
 
   create_table "eve_races", id: :serial, force: :cascade do |t|
@@ -140,6 +163,7 @@ ActiveRecord::Schema.define(version: 2018_03_26_185106) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "alliance_id"
+    t.index ["race_id"], name: "index_eve_races_on_race_id", unique: true
   end
 
   create_table "rpush_apps", force: :cascade do |t|

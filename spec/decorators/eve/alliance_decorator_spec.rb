@@ -5,16 +5,16 @@ require 'rails_helper'
 module Eve
   describe AllianceDecorator do
     describe '#as_json' do
-      let(:now) { Time.zone.now }
+      let(:date_founded) { Time.zone.now }
 
       let!(:alliance) do
         build_stubbed(:eve_alliance,
                       name: 'Kids With Guns Alliance',
                       ticker: '-KWG-',
-                      creator_id: 94195096,
-                      creator_corporation_id: 98306624,
-                      executor_corporation_id: 98306624,
-                      date_founded: now,
+                      creator_id: 94_195_096,
+                      creator_corporation_id: 98_306_624,
+                      executor_corporation_id: 98_306_624,
+                      date_founded: date_founded,
                       faction_id: 1)
       end
 
@@ -24,13 +24,13 @@ module Eve
 
       its([:ticker]) { should eq('-KWG-') }
 
-      its([:creator_id]) { should eq(94195096) }
+      its([:creator_id]) { should eq(94_195_096) }
 
-      its([:creator_corporation_id]) { should eq(98306624) }
+      its([:creator_corporation_id]) { should eq(98_306_624) }
 
-      its([:executor_corporation_id]) { should eq(98306624) }
+      its([:executor_corporation_id]) { should eq(98_306_624) }
 
-      its([:date_founded]) { should eq(now.iso8601) }
+      its([:date_founded]) { should eq(date_founded.iso8601) }
 
       its([:faction_id]) { should eq(1) }
     end

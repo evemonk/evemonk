@@ -48,6 +48,14 @@ EvemonkApp.Views.CharacterView = Backbone.View.extend({
             this.$el.find('#alliance').html(allianceView.render().el);
         }
 
+        if(this.model.get('corporation') !== null) {
+            var corporation = new EvemonkApp.Models.Corporation(this.model.get('corporation'));
+
+            var corporationView = new EvemonkApp.Views.CorporationView({ model: corporation });
+
+            this.$el.find('#corporation').html(corporationView.render().el);
+        }
+
         return this;
     },
 

@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/biow0lf/eve_online.git
-  revision: 6eda0a5ae62da9b11e28603d826c625c6d96b7e0
+  revision: b19e9602fe0ba43501100cd3374c91184c5c654b
   branch: master
   specs:
     eve_online (0.14.0)
@@ -289,7 +289,7 @@ GEM
     rack-cors (1.0.2)
     rack-protection (2.0.1)
       rack
-    rack-test (0.8.3)
+    rack-test (1.0.0)
       rack (>= 1.0, < 3)
     rails (5.2.0.rc2)
       actioncable (= 5.2.0.rc2)

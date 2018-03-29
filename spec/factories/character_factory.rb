@@ -20,6 +20,8 @@ FactoryBot.define do
 
     association :alliance, factory: :eve_alliance
 
+    association :corporation, factory: :eve_corporation
+
     # TODO: later
     # token 'MyString'
     # refresh_token 'MyString'

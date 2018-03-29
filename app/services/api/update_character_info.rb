@@ -16,12 +16,16 @@ module Api
       character_portrait
 
       character_attributes
+
+      character_corporation_info
     end
 
     private
 
     def character_info
       info = ::EveOnline::ESI::Character.new(character_id: character.uid)
+
+      # birthday: birthday
 
       character.update!(info.as_json)
     end
@@ -47,6 +51,14 @@ module Api
                                                              token: character.token)
 
       character.update!(attributes.as_json)
+    end
+
+    def character_corporation_info
+      corporation_id = character.corporation_id
+
+      corporation = Eve::Corporation.find_or_initialize_by(corporation_id: corporation_id)
+
+      corporation.update!(::EveOnline::ESI::Corporation.new(corporation_id: corporation_id).as_json)
     end
   end
 end

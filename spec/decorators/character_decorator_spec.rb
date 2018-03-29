@@ -59,6 +59,8 @@ describe CharacterDecorator do
 
     specify { expect(subject[:alliance].class).to eq(Eve::AllianceDecorator) }
 
+    specify { expect(subject[:corporation].class).to eq(Eve::CorporationDecorator) }
+
     its([:created_at]) { should eq(character.created_at.iso8601) }
 
     its([:updated_at]) { should eq(character.updated_at.iso8601) }

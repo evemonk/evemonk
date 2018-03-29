@@ -1,10 +1,6 @@
-<h2>Character {{ id }}</h2>
+<h2>Character: {{ name }}</h2>
 
 <table class="table table-bordered table-striped table-hover">
-    <tr>
-        <td>ID:</td>
-        <td>{{ id }}</td>
-    </tr>
     <tr>
         <td>UID:</td>
         <td>{{ uid }}</td>
@@ -14,12 +10,8 @@
         <td>{{ name }}</td>
     </tr>
     <tr>
-        <td>Description:</td>
+        <td>Biography:</td>
         <td>{{ description }}</td>
-    </tr>
-    <tr>
-        <td>corporation_id:</td>
-        <td>{{ corporation_id }}</td>
     </tr>
     <tr>
         <td>birthday:</td>
@@ -38,6 +30,8 @@
     <tr id="ancestry">
     </tr>
     <tr id="alliance">
+    </tr>
+    <tr id="corporation">
     </tr>
     <tr>
         <td>Security status:</td>
@@ -87,7 +81,7 @@
         <td>{{ charisma }} points</td>
     </tr>
     <tr>
-        <td>Bonus remaps:</td>
+        <td>Bonus Remaps Available:</td>
         <td>{{ bonus_remaps }}</td>
     </tr>
     <tr>
