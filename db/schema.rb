@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_03_27_201451) do
+ActiveRecord::Schema.define(version: 2018_03_29_200404) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -164,6 +164,16 @@ ActiveRecord::Schema.define(version: 2018_03_27_201451) do
     t.datetime "updated_at", null: false
     t.integer "alliance_id"
     t.index ["race_id"], name: "index_eve_races_on_race_id", unique: true
+  end
+
+  create_table "loyalty_points", force: :cascade do |t|
+    t.bigint "character_id"
+    t.integer "corporation_id"
+    t.integer "loyalty_points"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["character_id", "corporation_id"], name: "index_loyalty_points_on_character_id_and_corporation_id", unique: true
+    t.index ["character_id"], name: "index_loyalty_points_on_character_id"
   end
 
   create_table "rpush_apps", force: :cascade do |t|
