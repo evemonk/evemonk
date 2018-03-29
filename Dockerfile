@@ -19,9 +19,9 @@ ENV PATH /root/.rbenv/bin:/root/.rbenv/shims:$PATH
 
 RUN cd /root/.rbenv && src/configure && make -C src
 
-RUN rbenv install 2.5.0
+RUN rbenv install 2.5.1
 
-RUN rbenv global 2.5.0
+RUN rbenv global 2.5.1
 
 RUN echo 'eval "$(rbenv init -)"' >> /root/.bash_profile
 
