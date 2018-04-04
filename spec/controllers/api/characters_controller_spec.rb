@@ -11,7 +11,7 @@ describe Api::CharactersController do
     context 'authorized' do
       let!(:session) { create(:session) }
 
-      before { request.env['HTTP_AUTHORIZATION'] = "Bearer #{ session.token }" }
+      before { request.env['HTTP_AUTHORIZATION'] = "Bearer #{session.token}" }
 
       before { get :index, format: :json }
 
@@ -29,7 +29,7 @@ describe Api::CharactersController do
     context 'not supported accept:' do
       let!(:session) { create(:session) }
 
-      before { request.env['HTTP_AUTHORIZATION'] = "Bearer #{ session.token }" }
+      before { request.env['HTTP_AUTHORIZATION'] = "Bearer #{session.token}" }
 
       before { get :index, format: :html }
 
@@ -46,7 +46,7 @@ describe Api::CharactersController do
 
         let!(:character) { create(:character, user: user, id: 123) }
 
-        before { request.env['HTTP_AUTHORIZATION'] = "Bearer #{ session.token }" }
+        before { request.env['HTTP_AUTHORIZATION'] = "Bearer #{session.token}" }
 
         before { get :show, params: { id: '123', format: :json } }
 
@@ -62,7 +62,7 @@ describe Api::CharactersController do
 
         let!(:character) { create(:character, id: 123) }
 
-        before { request.env['HTTP_AUTHORIZATION'] = "Bearer #{ session.token }" }
+        before { request.env['HTTP_AUTHORIZATION'] = "Bearer #{session.token}" }
 
         before { get :show, params: { id: '123', format: :json } }
 
@@ -85,7 +85,7 @@ describe Api::CharactersController do
 
       let!(:character) { create(:character, user: user, id: 123) }
 
-      before { request.env['HTTP_AUTHORIZATION'] = "Bearer #{ session.token }" }
+      before { request.env['HTTP_AUTHORIZATION'] = "Bearer #{session.token}" }
 
       before { get :show, params: { id: '123', format: :html } }
 
@@ -102,7 +102,7 @@ describe Api::CharactersController do
 
         let!(:character) { create(:character, user: user, id: 123) }
 
-        before { request.env['HTTP_AUTHORIZATION'] = "Bearer #{ session.token }" }
+        before { request.env['HTTP_AUTHORIZATION'] = "Bearer #{session.token}" }
 
         before { delete :destroy, params: { id: '123', format: :json } }
 
@@ -116,7 +116,7 @@ describe Api::CharactersController do
 
         let!(:character) { create(:character, id: 123) }
 
-        before { request.env['HTTP_AUTHORIZATION'] = "Bearer #{ session.token }" }
+        before { request.env['HTTP_AUTHORIZATION'] = "Bearer #{session.token}" }
 
         before { delete :destroy, params: { id: '123', format: :json } }
 
