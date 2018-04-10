@@ -5,22 +5,17 @@ module Api
     skip_before_action :authenticate!
 
     def create
-      build_resource
+      sign_up = Api::SignUp.new(sign_ups_params)
 
-      resource.save!
+      sign_up.save!
+
+      render json: SessionDecorator.new(sign_up.session,
+                                        context: { with_token: true })
     end
 
     private
 
-    def build_resource
-      @sign_up = Api::SignUp.new(resource_params)
-    end
-
-    def resource
-      @sign_up
-    end
-
-    def resource_params
+    def sign_ups_params
       params.require(:sign_up).permit(:email, :password, :password_confirmation)
     end
   end
