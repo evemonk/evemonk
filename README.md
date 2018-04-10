@@ -20,6 +20,24 @@ EveMonk is helper software for EveOnline MMORPG.
 * Sign In page
 * Sign Out
 * Profile page
+* Character page with:
+  * Name
+  * Bio
+  * Birthday
+  * Gender
+  * Race
+  * Bloodline
+  * Ancestry
+  * Alliance
+  * Corporation
+  * Security status
+  * Wallet
+  * Perception
+  * Memory
+  * Willpower
+  * Intelligence
+  * Charisma
+  * Bonus Remaps Available
 
 ## Environment
 
