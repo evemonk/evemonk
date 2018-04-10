@@ -7,6 +7,8 @@ describe Api::DocsController do
 
   it { should be_a(Swagger::Blocks) }
 
+  # protect_from_forgery with: :exception
+
   describe '#index' do
     before { get :index, params: { format: :json } }
 

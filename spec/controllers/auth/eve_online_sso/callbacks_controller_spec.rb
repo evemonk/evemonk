@@ -3,6 +3,8 @@
 require 'rails_helper'
 
 describe Auth::EveOnlineSso::CallbacksController do
+  it { should be_a(ApplicationController) }
+
   describe '#show' do
     let(:eve_online) { double }
 
