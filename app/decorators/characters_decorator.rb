@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CharactersDecorator < Draper::CollectionDecorator
   def as_json(*)
     {
