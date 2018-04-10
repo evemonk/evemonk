@@ -2,48 +2,28 @@
 
 require 'rails_helper'
 
-describe Api::ProfilesController do
-  it { should be_a(Api::BaseController) }
+module Api
+  describe ProfilesController do
+    it { should be_a(Api::BaseController) }
 
-  it { should use_before_action(:authenticate!) }
+    describe '#show' do
+      context 'when user signed in' do
+        let(:current_user) { instance_double(User) }
 
-  describe '#show' do
-    context 'authorized' do
-      let!(:session) { create(:session) }
+        before { sign_in(current_user) }
 
-      before { request.env['HTTP_AUTHORIZATION'] = "Bearer #{ session.token }" }
+        before { expect(UserDecorator).to receive(:new).with(current_user) }
 
-      before { get :show, format: :json }
+        before { get :show, format: :json }
 
-      it { should render_template(:show) }
+        it { should respond_with(:ok) }
+      end
 
-      it { should respond_with(:ok) }
+      context 'when user not signed in' do
+        before { get :show, params: { format: :json } }
+
+        it { should respond_with(:unauthorized) }
+      end
     end
-
-    context 'not authorized' do
-      before { get :show, format: :json }
-
-      it { should respond_with(:unauthorized) }
-    end
-
-    context 'not supported accept:' do
-      let!(:session) { create(:session) }
-
-      before { request.env['HTTP_AUTHORIZATION'] = "Bearer #{ session.token }" }
-
-      before { get :show, format: :html }
-
-      it { should respond_with(:not_acceptable) }
-    end
-  end
-
-  # private methods
-
-  describe '#resource' do
-    let(:current_user) { create(:user) }
-
-    before { expect(subject).to receive(:current_user).and_return(current_user) }
-
-    specify { expect(subject.send(:resource)).to eq(current_user) }
   end
 end
