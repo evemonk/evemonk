@@ -54,4 +54,8 @@ class CharacterDecorator < Draper::Decorator
   end
   # rubocop:enable Metrics/AbcSize
   # rubocop:enable Metrics/MethodLength
+
+  def self.collection_decorator_class
+    PaginatingDecorator
+  end
 end
