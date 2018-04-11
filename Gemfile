@@ -36,6 +36,7 @@ gem 'pg_query'
 gem 'swagger-blocks'
 gem 'http_logger'
 gem 'whenever', require: false
+gem 'responders'
 
 group :production do
   # gem 'lograge'
