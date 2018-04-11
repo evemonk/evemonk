@@ -34,13 +34,6 @@ module Api
             key :type, :integer
             key :format, :int64
           end
-          property :tax_rate do
-            key :type, :string
-          end
-          property :creator_id do
-            key :type, :integer
-            key :format, :int64
-          end
           property :alliance_id do
             key :type, :integer
             key :format, :int64
@@ -48,8 +41,15 @@ module Api
           property :description do
             key :type, :string
           end
+          property :tax_rate do
+            key :type, :string
+          end
           property :date_founded do
             key :type, :string
+          end
+          property :creator_id do
+            key :type, :integer
+            key :format, :int64
           end
           property :corporation_url do
             key :type, :string
@@ -72,13 +72,13 @@ module Api
                         ticker: 'MYLID',
                         member_count: 120,
                         ceo_id: 1_208_274_826,
-                        tax_rate: '0.09',
-                        creator_id: 265_506_411,
                         alliance_id: 99_005_443,
                         description: '',
+                        tax_rate: '0.09',
                         date_founded: '2012-08-28T20:16:00Z',
+                        creator_id: 265_506_411,
                         corporation_url: 'http://',
-                        faction_id: nil,
+                        faction_id: 500_002,
                         home_station_id: 60_004_474,
                         shares: 1000
         end
