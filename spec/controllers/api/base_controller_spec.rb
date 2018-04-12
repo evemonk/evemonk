@@ -19,6 +19,10 @@ describe Api::BaseController do
 
   it { should rescue_from(ActiveRecord::RecordNotFound) }
 
+  it { should rescue_from(ActionController::UnknownFormat) }
+
+  it { should rescue_from(Pundit::NotAuthorizedError) }
+
   # private methods
 
   describe '#authenticate!' do
