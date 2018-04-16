@@ -14,7 +14,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'jquery-rails'
 gem 'handlebars_assets'
 gem 'js-routes'
-gem 'bootstrap', '~> 4.0.0'
+gem 'bootstrap'
 gem 'font-awesome-sass'
 gem 'rufus-scheduler'
 gem 'bcrypt'
