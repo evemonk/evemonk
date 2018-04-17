@@ -75,14 +75,14 @@ GEM
     ansi (1.5.0)
     arel (9.0.0)
     ast (2.4.0)
-    autoprefixer-rails (8.2.0)
+    autoprefixer-rails (8.3.0)
       execjs
     awesome_print (1.8.0)
     bcrypt (3.1.11)
     bcrypt_pbkdf (1.0.0)
     bootsnap (1.2.1)
       msgpack (~> 1.0)
-    bootstrap (4.0.0)
+    bootstrap (4.1.0)
       autoprefixer-rails (>= 6.0.3)
       popper_js (>= 1.12.9, < 2)
       sass (>= 3.5.2)
@@ -465,7 +465,7 @@ DEPENDENCIES
   bcrypt
   bcrypt_pbkdf
   bootsnap (>= 1.1.0)
-  bootstrap (~> 4.0.0)
+  bootstrap (~> 4.1.0)
   brakeman
   bullet
   bundler-audit
