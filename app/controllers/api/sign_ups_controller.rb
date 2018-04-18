@@ -7,10 +7,13 @@ module Api
     def create
       sign_up = Api::SignUp.new(sign_ups_params)
 
-      sign_up.save!
+      if sign_up.save
+        render json: SessionDecorator.new(sign_up.session,
+                                          context: { with_token: true })
+      else
+        render json: { errors: sign_up.errors }
+      end
 
-      render json: SessionDecorator.new(sign_up.session,
-                                        context: { with_token: true })
     end
 
     private

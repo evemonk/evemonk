@@ -22,8 +22,8 @@ module Api
       @password_confirmation = params[:password_confirmation]
     end
 
-    def save!
-      raise ActiveModel::StrictValidationFailed unless valid?
+    def save
+      return if !valid?
 
       build_session
 
