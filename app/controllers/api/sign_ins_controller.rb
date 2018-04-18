@@ -7,10 +7,12 @@ module Api
     def create
       sign_in = Api::SignIn.new(sign_in_params)
 
-      sign_in.save!
-
-      render json: SessionDecorator.new(sign_in.session,
-                                        context: { with_token: true })
+      if sign_in.save
+        render json: SessionDecorator.new(sign_in.session,
+                                          context: { with_token: true })
+      else
+        render json: { errors: sign_in.errors }
+      end
     end
 
     private
