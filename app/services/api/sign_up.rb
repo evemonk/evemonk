@@ -31,7 +31,7 @@ module Api
     rescue ActiveRecord::RecordNotUnique, ActiveRecord::RecordInvalid
       errors.add(:email, I18n.t('errors.messages.taken'))
 
-      raise ActiveModel::StrictValidationFailed
+      false
     end
 
     private

@@ -18,4 +18,22 @@ describe 'Sign up features' do
 
     expect(page).to have_content('Successful signed in!')
   end
+
+  it 'when email is already taken' do
+    create(:user, email: 'me@example.com')
+
+    visit '/sign_up'
+
+    expect {
+      fill_in 'email', with: 'me@example.com'
+      fill_in 'password', with: 'eidii7EeooVe8ahk'
+      fill_in 'password_confirmation', with: 'eidii7EeooVe8ahk'
+      click_button 'Sign up'
+      wait_for_ajax
+    }.not_to change(User, :count)
+
+    expect(current_path).to eq('/sign_up')
+
+    expect(page).to have_content('has already been taken')
+  end
 end

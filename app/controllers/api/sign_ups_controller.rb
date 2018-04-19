@@ -11,9 +11,8 @@ module Api
         render json: SessionDecorator.new(sign_up.session,
                                           context: { with_token: true })
       else
-        render json: { errors: sign_up.errors }
+        render json: { errors: sign_up.errors }, status: :unprocessable_entity
       end
-
     end
 
     private
