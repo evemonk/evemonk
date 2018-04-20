@@ -17,10 +17,16 @@ module Api
         before do
           #
           # Api::SignIn.new(email: 'me@example.com',
-          #                 password: 'password') => sign_in
+          #                 password: 'password',
+          #                 name: 'iOS session',
+          #                 device_type: 'ios',
+          #                 device_token: 'token123') => sign_in
           #
           expect(Api::SignIn).to receive(:new).with(permitter(email: 'me@example.com',
-                                                              password: 'password'))
+                                                              password: 'password',
+                                                              name: 'iOS session',
+                                                              device_type: 'ios',
+                                                              device_token: 'token123'))
                                               .and_return(sign_in)
         end
 
@@ -35,7 +41,10 @@ module Api
           post :create, params: {
             sign_in: {
               email: 'me@example.com',
-              password: 'password'
+              password: 'password',
+              name: 'iOS session',
+              device_type: 'ios',
+              device_token: 'token123'
             },
             format: :json
           }
@@ -52,10 +61,16 @@ module Api
         before do
           #
           # Api::SignIn.new(email: 'me@example.com',
-          #                 password: 'password') => sign_in
+          #                 password: 'password',
+          #                 name: 'iOS session',
+          #                 device_type: 'ios',
+          #                 device_token: 'token123') => sign_in
           #
           expect(Api::SignIn).to receive(:new).with(permitter(email: 'me@example.com',
-                                                              password: 'password'))
+                                                              password: 'password',
+                                                              name: 'iOS session',
+                                                              device_type: 'ios',
+                                                              device_token: 'token123'))
                                               .and_return(sign_in)
         end
 
@@ -63,7 +78,10 @@ module Api
           post :create, params: {
             sign_in: {
               email: 'me@example.com',
-              password: 'password'
+              password: 'password',
+              name: 'iOS session',
+              device_type: 'ios',
+              device_token: 'token123'
             },
             format: :json
           }
@@ -77,7 +95,10 @@ module Api
           post :create, params: {
             sign_in: {
               email: 'me@example.com',
-              password: 'password'
+              password: 'password',
+              name: 'iOS session',
+              device_type: 'ios',
+              device_token: 'token123'
             },
             format: :html
           }
