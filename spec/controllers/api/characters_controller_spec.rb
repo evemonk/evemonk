@@ -29,7 +29,7 @@ module Api
           end
         end
 
-        before { expect(CharactersDecorator).to receive(:new).with(characters) }
+        before { expect(CharacterDecorator).to receive(:decorate_collection).with(characters) }
 
         before { get :index, params: { format: :json, page: '1' } }
 

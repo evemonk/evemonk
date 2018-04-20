@@ -2,13 +2,11 @@
 
 module Api
   class CharactersController < BaseController
-    respond_to :json
-
     def index
       characters = policy_scope(Character).order(created_at: :asc)
                                           .page(params[:page])
 
-      respond_with(CharacterDecorator.decorate_collection(characters))
+      render json: CharacterDecorator.decorate_collection(characters)
     end
 
     def show
@@ -16,7 +14,7 @@ module Api
 
       authorize(character)
 
-      respond_with(CharacterDecorator.new(character))
+      render json: CharacterDecorator.new(character)
     end
 
     def destroy
