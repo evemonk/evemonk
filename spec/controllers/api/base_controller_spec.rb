@@ -8,6 +8,8 @@ module Api
 
     it { should be_a(Pundit) }
 
+    it { should use_before_action(:verify_requested_format!) }
+
     it { should use_before_action(:authenticate!) }
 
     describe '#current_user' do
