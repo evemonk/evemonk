@@ -19,4 +19,8 @@ class SessionDecorator < ApplicationDecorator
     end
   end
   # rubocop:enable Metrics/MethodLength
+
+  def self.collection_decorator_class
+    PaginatingDecorator
+  end
 end

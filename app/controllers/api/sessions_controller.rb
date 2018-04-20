@@ -6,7 +6,7 @@ module Api
       sessions = policy_scope(Session).order(created_at: :asc)
                                       .page(params[:page])
 
-      render json: SessionsDecorator.new(sessions)
+      render json: SessionDecorator.decorate_collection(sessions)
     end
 
     def destroy
