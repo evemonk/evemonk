@@ -3,8 +3,14 @@
 require 'rails_helper'
 
 describe SessionDecorator do
+  let(:session) { build_stubbed(:session) }
+
+  subject { described_class.new(session) }
+
+  it { should be_a(ApplicationDecorator) }
+
   describe '#as_json' do
-    let!(:session) do
+    let(:session) do
       build_stubbed(:session,
                     id: 123,
                     name: 'My Device 1',

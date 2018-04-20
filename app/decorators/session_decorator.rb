@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
-class SessionDecorator < Draper::Decorator
-  delegate_all
-
+class SessionDecorator < ApplicationDecorator
   # rubocop:disable Metrics/MethodLength
   def as_json(*)
     {

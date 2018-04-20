@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
-class CharacterDecorator < Draper::Decorator
-  delegate_all
-
+class CharacterDecorator < ApplicationDecorator
   decorates_association :race
 
   decorates_association :bloodline

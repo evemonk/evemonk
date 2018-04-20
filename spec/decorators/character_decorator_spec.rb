@@ -3,8 +3,14 @@
 require 'rails_helper'
 
 describe CharacterDecorator do
+  let(:character) { build_stubbed(:character) }
+
+  subject { described_class.new(character) }
+
+  it { should be_a(ApplicationDecorator) }
+
   describe '#as_json' do
-    let!(:character) do
+    let(:character) do
       build_stubbed(:character,
                     id: 123,
                     uid: 1_337_512_245,
