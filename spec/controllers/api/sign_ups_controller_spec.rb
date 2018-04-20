@@ -47,6 +47,37 @@ module Api
         it { should respond_with(:ok) }
       end
 
+      context 'when user not created due errors' do
+        let(:errors) { double }
+
+        let(:sign_up) { instance_double(Api::SignUp, errors: errors, save: false) }
+
+        before do
+          #
+          # Api::SignUp.new(email: 'me@example.com',
+          #                 password: 'password',
+          #                 password_confirmation: 'password') => sign_up
+          #
+          expect(SignUp).to receive(:new).with(permitter(email: 'me@example.com',
+                                                         password: 'password',
+                                                         password_confirmation: 'password'))
+                                         .and_return(sign_up)
+        end
+
+        before do
+          post :create, params: {
+            sign_up: {
+              email: 'me@example.com',
+              password: 'password',
+              password_confirmation: 'password'
+            },
+            format: :json
+          }
+        end
+
+        it { should respond_with(:unprocessable_entity) }
+      end
+
       context 'when not supported accept type' do
         before do
           post :create, params: {
