@@ -41,6 +41,14 @@ module Api
 
         it { should respond_with(:unauthorized) }
       end
+
+      context 'when not supported accept type' do
+        before { sign_in }
+
+        before { get :index, params: { format: :html } }
+
+        it { should respond_with(:not_acceptable) }
+      end
     end
 
     describe '#show' do
@@ -64,6 +72,14 @@ module Api
         before { get :show, params: { id: '1', format: :json } }
 
         it { should respond_with(:unauthorized) }
+      end
+
+      context 'when not supported accept type' do
+        before { sign_in }
+
+        before { get :show, params: { id: '1', format: :html } }
+
+        it { should respond_with(:not_acceptable) }
       end
     end
 
