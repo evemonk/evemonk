@@ -4,6 +4,10 @@ module Api
   class BaseController < ApplicationController
     include Pundit
 
+    before_action :verify_requested_format!
+
+    respond_to :json
+
     before_action :authenticate!
 
     attr_reader :current_user
