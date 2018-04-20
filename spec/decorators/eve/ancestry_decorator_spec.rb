@@ -4,6 +4,12 @@ require 'rails_helper'
 
 module Eve
   describe AncestryDecorator do
+    let(:ancestry) { build_stubbed(:eve_ancestry) }
+
+    subject { described_class.new(ancestry) }
+
+    it { should be_a(ApplicationDecorator) }
+
     describe '#as_json' do
       let(:ancestry) do
         build_stubbed(:eve_ancestry,

@@ -1,9 +1,7 @@
 # frozen_string_literal: true
 
 module Eve
-  class AncestryDecorator < Draper::Decorator
-    delegate_all
-
+  class AncestryDecorator < ApplicationDecorator
     def as_json(*)
       {
         ancestry_id: ancestry_id,

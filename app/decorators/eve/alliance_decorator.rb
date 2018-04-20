@@ -1,9 +1,7 @@
 # frozen_string_literal: true
 
 module Eve
-  class AllianceDecorator < Draper::Decorator
-    delegate_all
-
+  class AllianceDecorator < ApplicationDecorator
     def as_json(*)
       {
         alliance_id: alliance_id,

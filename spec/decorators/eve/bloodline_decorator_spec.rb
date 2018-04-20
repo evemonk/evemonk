@@ -4,6 +4,12 @@ require 'rails_helper'
 
 module Eve
   describe BloodlineDecorator do
+    let(:bloodline) { build_stubbed(:eve_bloodline) }
+
+    subject { described_class.new(bloodline) }
+
+    it { should be_a(ApplicationDecorator) }
+
     describe '#as_json' do
       let(:bloodline) do
         build_stubbed(:eve_bloodline,

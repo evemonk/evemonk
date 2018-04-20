@@ -1,9 +1,7 @@
 # frozen_string_literal: true
 
 module Eve
-  class BloodlineDecorator < Draper::Decorator
-    delegate_all
-
+  class BloodlineDecorator < ApplicationDecorator
     def as_json(*)
       {
         bloodline_id: bloodline_id,

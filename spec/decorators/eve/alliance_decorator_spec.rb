@@ -4,6 +4,12 @@ require 'rails_helper'
 
 module Eve
   describe AllianceDecorator do
+    let(:alliance) { build_stubbed(:eve_alliance) }
+
+    subject { described_class.new(alliance) }
+
+    it { should be_a(ApplicationDecorator) }
+
     describe '#as_json' do
       let(:date_founded) { Time.zone.now }
 
