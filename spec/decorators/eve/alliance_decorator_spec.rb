@@ -7,7 +7,7 @@ module Eve
     describe '#as_json' do
       let(:date_founded) { Time.zone.now }
 
-      let!(:alliance) do
+      let(:alliance) do
         build_stubbed(:eve_alliance,
                       name: 'Kids With Guns Alliance',
                       ticker: '-KWG-',

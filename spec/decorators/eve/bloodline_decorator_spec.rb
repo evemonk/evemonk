@@ -5,7 +5,7 @@ require 'rails_helper'
 module Eve
   describe BloodlineDecorator do
     describe '#as_json' do
-      let!(:bloodline) do
+      let(:bloodline) do
         build_stubbed(:eve_bloodline,
                       bloodline_id: 4,
                       name: 'Brutor',

@@ -5,7 +5,7 @@ require 'rails_helper'
 module Eve
   describe RaceDecorator do
     describe '#as_json' do
-      let!(:race) do
+      let(:race) do
         build_stubbed(:eve_race,
                       description: 'Once a thriving tribal civilization, the Minmatar...',
                       race_id: 2,

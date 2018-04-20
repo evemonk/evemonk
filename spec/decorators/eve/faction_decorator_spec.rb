@@ -5,7 +5,7 @@ require 'rails_helper'
 module Eve
   describe FactionDecorator do
     describe '#as_json' do
-      let!(:faction) do
+      let(:faction) do
         build_stubbed(:eve_faction,
                       faction_id: 500_002,
                       name: 'Minmatar Republic',

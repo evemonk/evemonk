@@ -5,7 +5,7 @@ require 'rails_helper'
 module Eve
   describe AncestryDecorator do
     describe '#as_json' do
-      let!(:ancestry) do
+      let(:ancestry) do
         build_stubbed(:eve_ancestry,
                       ancestry_id: 24,
                       name: 'Slave Child',
