@@ -14,7 +14,7 @@ module Api
 
         before { expect(UserDecorator).to receive(:new).with(current_user) }
 
-        before { get :show, format: :json }
+        before { get :show, params: { format: :json } }
 
         it { should respond_with(:ok) }
       end
