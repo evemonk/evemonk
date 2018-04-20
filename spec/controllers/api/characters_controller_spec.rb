@@ -43,8 +43,6 @@ module Api
       end
 
       context 'when not supported accept type' do
-        before { sign_in }
-
         before { get :index, params: { format: :html } }
 
         it { should respond_with(:not_acceptable) }
@@ -75,8 +73,6 @@ module Api
       end
 
       context 'when not supported accept type' do
-        before { sign_in }
-
         before { get :show, params: { id: '1', format: :html } }
 
         it { should respond_with(:not_acceptable) }

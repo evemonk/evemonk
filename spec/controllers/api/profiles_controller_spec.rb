@@ -26,8 +26,6 @@ module Api
       end
 
       context 'when not supported accept type' do
-        before { sign_in }
-
         before { get :show, params: { format: :html } }
 
         it { should respond_with(:not_acceptable) }

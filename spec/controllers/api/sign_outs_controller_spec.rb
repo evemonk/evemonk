@@ -37,6 +37,12 @@ module Api
 
         it { should respond_with(:unauthorized) }
       end
+
+      context 'when not supported accept type' do
+        before { delete :destroy, params: { format: :html } }
+
+        it { should respond_with(:not_acceptable) }
+      end
     end
   end
 end
