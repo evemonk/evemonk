@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 describe 'Sign up features' do
-  it 'when user successfully sign ups' do
+  skip 'when user successfully sign ups' do
     visit '/sign_up'
 
     expect {
@@ -19,7 +19,7 @@ describe 'Sign up features' do
     expect(page).to have_content('Successful signed in!')
   end
 
-  it 'when email is already taken' do
+  skip 'when email is already taken' do
     create(:user, email: 'me@example.com')
 
     visit '/sign_up'
@@ -37,7 +37,7 @@ describe 'Sign up features' do
     expect(page).to have_content('has already been taken')
   end
 
-  it "when password confirmation doesn't match" do
+  skip "when password confirmation doesn't match" do
     visit '/sign_up'
 
     expect {
