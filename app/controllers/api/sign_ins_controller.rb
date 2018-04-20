@@ -5,7 +5,7 @@ module Api
     skip_before_action :authenticate!
 
     def create
-      sign_in = Api::SignIn.new(sign_in_params)
+      sign_in = SignIn.new(sign_in_params)
 
       if sign_in.save
         render json: SessionDecorator.new(sign_in.session,
