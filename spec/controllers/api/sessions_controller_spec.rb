@@ -52,5 +52,29 @@ module Api
         it { should respond_with(:not_acceptable) }
       end
     end
+
+    describe '#destroy' do
+      context 'when user signed in' do
+        let(:session) { instance_double(Session) }
+
+        before { sign_in }
+
+        before { expect(Session).to receive(:find).with('1').and_return(session) }
+
+        before { expect(subject).to receive(:authorize).with(session) }
+
+        before { expect(session).to receive(:destroy!) }
+
+        before { delete :destroy, params: { id: '1', format: :json } }
+
+        it { should respond_with(:no_content) }
+      end
+
+      context 'when user not signed in' do
+        before { delete :destroy, params: { id: '1', format: :json } }
+
+        it { should respond_with(:unauthorized) }
+      end
+    end
   end
 end
