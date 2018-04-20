@@ -52,7 +52,7 @@ describe Api::SignUp, type: :model do
     context 'user valid but email has already been taken' do
       let!(:existed_user) { create(:user, email: 'me@example.com') }
 
-      specify do
+      pending do
         expect { subject.save }.to raise_error(ActiveModel::StrictValidationFailed) do
           expect(subject.errors[:email]).to eq(['has already been taken'])
         end
