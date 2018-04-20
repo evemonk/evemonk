@@ -43,7 +43,7 @@ describe Api::SignIn, type: :model do
 
       subject { described_class.new(params) }
 
-      specify { expect(subject.save).to eq(nil) }
+      specify { expect(subject.save).to eq(false) }
     end
 
     context 'valid' do

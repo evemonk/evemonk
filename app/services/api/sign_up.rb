@@ -23,7 +23,7 @@ module Api
     end
 
     def save
-      return if !valid?
+      return false if !valid?
 
       build_session
 

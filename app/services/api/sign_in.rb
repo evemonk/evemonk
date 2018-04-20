@@ -27,7 +27,7 @@ module Api
     end
 
     def save
-      return if !valid?
+      return false if !valid?
 
       # TODO: add this
       # PushNotifications::NewSignIn.new(device, device_token, user.notifications_count).execute!
