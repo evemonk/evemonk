@@ -57,4 +57,8 @@ describe SessionDecorator do
       its([:device_token]) { should eq('push-notification-token-1') }
     end
   end
+
+  describe '.collection_decorator_class' do
+    specify { expect(described_class.collection_decorator_class).to eq(PaginatingDecorator) }
+  end
 end

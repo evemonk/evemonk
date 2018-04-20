@@ -71,4 +71,8 @@ describe CharacterDecorator do
 
     its([:updated_at]) { should eq(character.updated_at.iso8601) }
   end
+
+  describe '.collection_decorator_class' do
+    specify { expect(described_class.collection_decorator_class).to eq(PaginatingDecorator) }
+  end
 end
