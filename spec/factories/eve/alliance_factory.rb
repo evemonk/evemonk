@@ -18,8 +18,8 @@ FactoryBot.define do
 
     sequence(:faction_id)
 
-    icon_small { "https://imageserver.eveonline.com/Alliance/#{ alliance_id }_64.png" }
+    icon_small { "https://imageserver.eveonline.com/Alliance/#{alliance_id}_64.png" }
 
-    icon_medium { "https://imageserver.eveonline.com/Alliance/#{ alliance_id }_128.png" }
+    icon_medium { "https://imageserver.eveonline.com/Alliance/#{alliance_id}_128.png" }
   end
 end
