@@ -35,7 +35,7 @@ describe Api::SignIn, type: :model do
     its(:device_token) { should eq('token123') }
   end
 
-  describe '#save!' do
+  describe '#save' do
     let!(:user) { create(:user, email: 'me@example.com', password: 'password') }
 
     context 'not valid' do
@@ -43,7 +43,7 @@ describe Api::SignIn, type: :model do
 
       subject { described_class.new(params) }
 
-      specify { expect { subject.save! }.to raise_error(ActiveModel::StrictValidationFailed) }
+      specify { expect(subject.save).to eq(false) }
     end
 
     context 'valid' do
@@ -51,9 +51,9 @@ describe Api::SignIn, type: :model do
 
       subject { described_class.new(params) }
 
-      specify { expect { subject.save! }.not_to raise_error }
+      specify { expect { subject.save }.not_to raise_error }
 
-      specify { expect { subject.save! }.to change { Session.count }.from(0).to(1) }
+      specify { expect { subject.save }.to change { Session.count }.from(0).to(1) }
     end
   end
 

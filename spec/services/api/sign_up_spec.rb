@@ -31,11 +31,11 @@ describe Api::SignUp, type: :model do
     specify { expect(subject.password_confirmation).to eq('password') }
   end
 
-  describe '#save!' do
+  describe '#save' do
     context 'user valid' do
-      specify { expect { subject.save! }.to change { User.count }.from(0).to(1) }
+      specify { expect { subject.save }.to change { User.count }.from(0).to(1) }
 
-      specify { expect { subject.save! }.to change { Session.count }.from(0).to(1) }
+      specify { expect { subject.save }.to change { Session.count }.from(0).to(1) }
     end
 
     context 'user not valid' do
@@ -46,14 +46,14 @@ describe Api::SignUp, type: :model do
         }
       end
 
-      specify { expect { subject.save! }.to raise_error(ActiveModel::StrictValidationFailed) }
+      specify { expect(subject.save).to eq(false) }
     end
 
     context 'user valid but email has already been taken' do
       let!(:existed_user) { create(:user, email: 'me@example.com') }
 
-      specify do
-        expect { subject.save! }.to raise_error(ActiveModel::StrictValidationFailed) do
+      pending do
+        expect { subject.save }.to raise_error(ActiveModel::StrictValidationFailed) do
           expect(subject.errors[:email]).to eq(['has already been taken'])
         end
       end

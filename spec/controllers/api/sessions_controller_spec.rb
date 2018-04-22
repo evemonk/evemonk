@@ -2,118 +2,83 @@
 
 require 'rails_helper'
 
-describe Api::SessionsController do
-  it { should be_a(Api::BaseController) }
+module Api
+  describe SessionsController do
+    it { should be_a(Api::BaseController) }
 
-  it { should use_before_action(:authenticate!) }
+    it { should use_before_action(:authenticate!) }
 
-  describe '#index' do
-    context 'authorized' do
-      let!(:session) { create(:session) }
+    describe '#index' do
+      context 'when user signed in' do
+        let(:sessions) { double }
 
-      before { request.env['HTTP_AUTHORIZATION'] = "Bearer #{ session.token }" }
+        before { sign_in }
 
-      before { get :index, format: :json }
+        before do
+          #
+          # subject.policy_scope(Session).order(created_at: :asc)
+          #                              .page(params[:page])
+          #
+          expect(subject).to receive(:policy_scope).with(Session) do
+            double.tap do |a|
+              expect(a).to receive(:order).with(created_at: :asc) do
+                double.tap do |b|
+                  expect(b).to receive(:page).with('1')
+                                             .and_return(sessions)
+                end
+              end
+            end
+          end
+        end
 
-      it { should render_template(:index) }
+        before { expect(SessionDecorator).to receive(:decorate_collection).with(sessions) }
 
-      it { should respond_with(:ok) }
+        before { get :index, params: { format: :json, page: '1' } }
+
+        it { should respond_with(:ok) }
+      end
+
+      context 'when user not signed in' do
+        before { get :index, params: { format: :json } }
+
+        it { should respond_with(:unauthorized) }
+      end
+
+      context 'when not supported accept type' do
+        before { get :index, params: { format: :html } }
+
+        it { should respond_with(:not_acceptable) }
+      end
     end
 
-    context 'not authorized' do
-      before { get :index, format: :json }
+    describe '#destroy' do
+      context 'when user signed in' do
+        let(:session) { instance_double(Session) }
 
-      it { should respond_with(:unauthorized) }
-    end
+        before { sign_in }
 
-    context 'not supported accept:' do
-      let!(:session) { create(:session) }
+        before { expect(Session).to receive(:find).with('1').and_return(session) }
 
-      before { request.env['HTTP_AUTHORIZATION'] = "Bearer #{ session.token }" }
+        before { expect(subject).to receive(:authorize).with(session) }
 
-      before { get :index, format: :html }
+        before { expect(session).to receive(:destroy!) }
 
-      it { should respond_with(:not_acceptable) }
-    end
-  end
-
-  describe '#destroy' do
-    context 'authorized' do
-      context 'owner' do
-        let!(:session) { create(:session, id: 42) }
-
-        before { request.env['HTTP_AUTHORIZATION'] = "Bearer #{ session.token }" }
-
-        before { delete :destroy, params: { id: '42', format: :json } }
+        before { delete :destroy, params: { id: '1', format: :json } }
 
         it { should respond_with(:no_content) }
       end
 
-      context 'not owned' do
-        let!(:session) { create(:session, id: 42) }
+      context 'when user not signed in' do
+        before { delete :destroy, params: { id: '1', format: :json } }
 
-        let!(:another_session) { create(:session, id: 43) }
-
-        before { request.env['HTTP_AUTHORIZATION'] = "Bearer #{ session.token }" }
-
-        before { delete :destroy, params: { id: '43', format: :json } }
-
-        it { should respond_with(:forbidden) }
+        it { should respond_with(:unauthorized) }
       end
-    end
 
-    context 'not authorized' do
-      let!(:session) { create(:session, id: 42) }
+      context 'when not supported accept type' do
+        before { delete :destroy, params: { id: '1', format: :html } }
 
-      before { delete :destroy, params: { id: '42', format: :json } }
-
-      it { should respond_with(:unauthorized) }
-    end
-  end
-
-  # private methods
-
-  describe '#resource' do
-    context '@session not set' do
-      let!(:session) { create(:session, id: 42) }
-
-      let(:params) { { id: '42' } }
-
-      before { expect(subject).to receive(:params).and_return(params) }
-
-      specify { expect(subject.send(:resource)).to eq(session) }
-    end
-
-    context '@session is set' do
-      let!(:session) { double }
-
-      before { subject.instance_variable_set(:@session, session) }
-
-      specify { expect(subject.send(:resource)).to eq(session) }
-    end
-  end
-
-  describe '#collection' do
-    context '@sessions not set' do
-      let!(:user) { create(:user) }
-
-      let!(:session1) { create(:session, user: user) }
-
-      let!(:session2) { create(:session, user: user) }
-
-      before { expect(subject).to receive(:current_user).and_return(user) }
-
-      specify { expect(subject.send(:collection)).to eq([session1, session2]) }
-
-      specify { expect { subject.send(:collection) }.to change { subject.instance_variable_get(:@sessions) }.from(nil) }
-    end
-
-    context '@sessions is set' do
-      let(:sessions) { double }
-
-      before { subject.instance_variable_set(:@sessions, sessions) }
-
-      specify { expect(subject.send(:collection)).to eq(sessions) }
+        it { should respond_with(:not_acceptable) }
+      end
     end
   end
 end

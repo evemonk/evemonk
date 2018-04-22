@@ -2,9 +2,9 @@
 
 module Api
   class DocsController < ActionController::Base
-    protect_from_forgery with: :exception
-
     include Swagger::Blocks
+
+    protect_from_forgery with: :exception
 
     # :nocov:
     swagger_root do

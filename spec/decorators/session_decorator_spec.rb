@@ -3,8 +3,14 @@
 require 'rails_helper'
 
 describe SessionDecorator do
+  let(:session) { build_stubbed(:session) }
+
+  subject { described_class.new(session) }
+
+  it { should be_a(ApplicationDecorator) }
+
   describe '#as_json' do
-    let!(:session) do
+    let(:session) do
       build_stubbed(:session,
                     id: 123,
                     name: 'My Device 1',
@@ -50,5 +56,9 @@ describe SessionDecorator do
 
       its([:device_token]) { should eq('push-notification-token-1') }
     end
+  end
+
+  describe '.collection_decorator_class' do
+    specify { expect(described_class.collection_decorator_class).to eq(PaginatingDecorator) }
   end
 end

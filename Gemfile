@@ -2,7 +2,7 @@
 
 source 'https://rubygems.org'
 
-gem 'rails', '~> 5.2.0.rc2'
+gem 'rails', '~> 5.2.0'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.11'
 gem 'sass-rails', '~> 5.0'
@@ -14,7 +14,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'jquery-rails'
 gem 'handlebars_assets'
 gem 'js-routes'
-gem 'bootstrap', '~> 4.0.0'
+gem 'bootstrap'
 gem 'font-awesome-sass'
 gem 'rufus-scheduler'
 gem 'bcrypt'
@@ -28,6 +28,8 @@ gem 'pundit'
 gem 'draper'
 gem 'dotenv-rails'
 gem 'sidekiq', require: false
+gem 'sidekiq-scheduler', require: false
+gem 'sinatra', require: false
 gem 'rpush'
 # gem 'rack-dev-mark' # TODO: update to version which support 2.5 ruby
 gem 'pghero'
@@ -36,6 +38,7 @@ gem 'pg_query'
 gem 'swagger-blocks'
 gem 'http_logger'
 gem 'whenever', require: false
+gem 'responders'
 
 group :production do
   # gem 'lograge'
@@ -85,6 +88,10 @@ group :development do
 end
 
 group :test do
+  gem 'capybara', '>= 2.15', '< 4.0'
+  gem 'selenium-webdriver'
+  # Easy installation and use of chromedriver to run system tests with Chrome
+  gem 'chromedriver-helper'
   gem 'rails-controller-testing'
   gem 'shoulda-matchers'
   gem 'rspec-its'

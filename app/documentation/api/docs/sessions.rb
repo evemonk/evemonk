@@ -41,6 +41,8 @@ module Api
             key :description, 'Success'
           end
           extend Api::Docs::Shared::Unauthorized
+          extend Api::Docs::Shared::NotAcceptable
+          extend Api::Docs::Shared::Forbidden
           extend Api::Docs::Shared::NotFound
         end
       end

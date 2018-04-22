@@ -3,8 +3,14 @@
 require 'rails_helper'
 
 describe CharacterDecorator do
+  let(:character) { build_stubbed(:character) }
+
+  subject { described_class.new(character) }
+
+  it { should be_a(ApplicationDecorator) }
+
   describe '#as_json' do
-    let!(:character) do
+    let(:character) do
       build_stubbed(:character,
                     id: 123,
                     uid: 1_337_512_245,
@@ -64,5 +70,9 @@ describe CharacterDecorator do
     its([:created_at]) { should eq(character.created_at.iso8601) }
 
     its([:updated_at]) { should eq(character.updated_at.iso8601) }
+  end
+
+  describe '.collection_decorator_class' do
+    specify { expect(described_class.collection_decorator_class).to eq(PaginatingDecorator) }
   end
 end

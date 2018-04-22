@@ -2,182 +2,111 @@
 
 require 'rails_helper'
 
-describe Api::CharactersController do
-  it { should be_a(Api::BaseController) }
+module Api
+  describe CharactersController do
+    it { should be_a(Api::BaseController) }
 
-  it { should use_before_action(:authenticate!) }
+    describe '#index' do
+      context 'when user signed in' do
+        let(:characters) { double }
 
-  describe '#index' do
-    context 'authorized' do
-      let!(:session) { create(:session) }
+        before { sign_in }
 
-      before { request.env['HTTP_AUTHORIZATION'] = "Bearer #{ session.token }" }
+        before do
+          #
+          # subject.policy_scope(Character).order(created_at: :asc)
+          #                                .page(params[:page])
+          #
+          expect(subject).to receive(:policy_scope).with(Character) do
+            double.tap do |a|
+              expect(a).to receive(:order).with(created_at: :asc) do
+                double.tap do |b|
+                  expect(b).to receive(:page).with('1')
+                                             .and_return(characters)
+                end
+              end
+            end
+          end
+        end
 
-      before { get :index, format: :json }
+        before { expect(CharacterDecorator).to receive(:decorate_collection).with(characters) }
 
-      it { should render_template(:index) }
-
-      it { should respond_with(:ok) }
-    end
-
-    context 'not authorized' do
-      before { get :index, format: :json }
-
-      it { should respond_with(:unauthorized) }
-    end
-
-    context 'not supported accept:' do
-      let!(:session) { create(:session) }
-
-      before { request.env['HTTP_AUTHORIZATION'] = "Bearer #{ session.token }" }
-
-      before { get :index, format: :html }
-
-      it { should respond_with(:not_acceptable) }
-    end
-  end
-
-  describe '#show' do
-    context 'authorized' do
-      context 'owner' do
-        let!(:user) { create(:user) }
-
-        let!(:session) { create(:session, user: user) }
-
-        let!(:character) { create(:character, user: user, id: 123) }
-
-        before { request.env['HTTP_AUTHORIZATION'] = "Bearer #{ session.token }" }
-
-        before { get :show, params: { id: '123', format: :json } }
-
-        it { should render_template(:show) }
+        before { get :index, params: { format: :json, page: '1' } }
 
         it { should respond_with(:ok) }
       end
 
-      context 'not owned' do
-        let!(:user) { create(:user) }
+      context 'when user not signed in' do
+        before { get :index, params: { format: :json } }
 
-        let!(:session) { create(:session, user: user) }
+        it { should respond_with(:unauthorized) }
+      end
 
-        let!(:character) { create(:character, id: 123) }
+      context 'when not supported accept type' do
+        before { get :index, params: { format: :html } }
 
-        before { request.env['HTTP_AUTHORIZATION'] = "Bearer #{ session.token }" }
-
-        before { get :show, params: { id: '123', format: :json } }
-
-        it { should respond_with(:forbidden) }
+        it { should respond_with(:not_acceptable) }
       end
     end
 
-    context 'not authorized' do
-      let!(:character) { create(:character, id: 123) }
+    describe '#show' do
+      context 'when user signed in' do
+        let(:character) { build_stubbed(:character, id: 1) }
 
-      before { get :show, params: { id: '123', format: :json } }
+        before { sign_in }
 
-      it { should respond_with(:unauthorized) }
+        before { expect(Character).to receive(:find).with('1').and_return(character) }
+
+        before { expect(subject).to receive(:authorize).with(character) }
+
+        before { expect(CharacterDecorator).to receive(:new).with(character) }
+
+        before { get :show, params: { id: '1', format: :json } }
+
+        it { should respond_with(:ok) }
+      end
+
+      context 'when user not signed in' do
+        before { get :show, params: { id: '1', format: :json } }
+
+        it { should respond_with(:unauthorized) }
+      end
+
+      context 'when not supported accept type' do
+        before { get :show, params: { id: '1', format: :html } }
+
+        it { should respond_with(:not_acceptable) }
+      end
     end
 
-    context 'not supported accept:' do
-      let!(:user) { create(:user) }
+    describe '#destroy' do
+      context 'when user signed in' do
+        let(:character) { build_stubbed(:character, id: 1) }
 
-      let!(:session) { create(:session, user: user) }
+        before { sign_in }
 
-      let!(:character) { create(:character, user: user, id: 123) }
+        before { expect(Character).to receive(:find).with('1').and_return(character) }
 
-      before { request.env['HTTP_AUTHORIZATION'] = "Bearer #{ session.token }" }
+        before { expect(subject).to receive(:authorize).with(character) }
 
-      before { get :show, params: { id: '123', format: :html } }
+        before { expect(character).to receive(:destroy!) }
 
-      it { should respond_with(:not_acceptable) }
-    end
-  end
-
-  describe '#destroy' do
-    context 'authorized' do
-      context 'owned' do
-        let!(:user) { create(:user) }
-
-        let!(:session) { create(:session, user: user) }
-
-        let!(:character) { create(:character, user: user, id: 123) }
-
-        before { request.env['HTTP_AUTHORIZATION'] = "Bearer #{ session.token }" }
-
-        before { delete :destroy, params: { id: '123', format: :json } }
+        before { delete :destroy, params: { id: '1', format: :json } }
 
         it { should respond_with(:no_content) }
       end
 
-      context 'not owned' do
-        let!(:user) { create(:user) }
+      context 'when user not signed in' do
+        before { delete :destroy, params: { id: '1', format: :json } }
 
-        let!(:session) { create(:session, user: user) }
-
-        let!(:character) { create(:character, id: 123) }
-
-        before { request.env['HTTP_AUTHORIZATION'] = "Bearer #{ session.token }" }
-
-        before { delete :destroy, params: { id: '123', format: :json } }
-
-        it { should respond_with(:forbidden) }
+        it { should respond_with(:unauthorized) }
       end
-    end
 
-    context 'not authorized' do
-      let!(:character) { create(:character, id: 123) }
+      context 'when not supported accept type' do
+        before { delete :destroy, params: { id: '1', format: :html } }
 
-      before { delete :destroy, params: { id: '123', format: :json } }
-
-      it { should respond_with(:unauthorized) }
-    end
-  end
-
-  # private methods
-
-  describe '#resource' do
-    context '@character not set' do
-      let!(:character) { create(:character, id: 123) }
-
-      let(:params) { { id: '123' } }
-
-      before { expect(subject).to receive(:params).and_return(params) }
-
-      specify { expect(subject.send(:resource)).to eq(character) }
-
-      specify { expect { subject.send(:resource) }.to change { subject.instance_variable_get(:@character) }.from(nil).to(character) }
-    end
-
-    context '@character is set' do
-      let(:character) { double }
-
-      before { subject.instance_variable_set(:@character, character) }
-
-      specify { expect(subject.send(:resource)).to eq(character) }
-    end
-  end
-
-  describe '#collection' do
-    context '@characters not set' do
-      let!(:user) { create(:user) }
-
-      let!(:character1) { create(:character, user: user) }
-
-      let!(:character2) { create(:character, user: user) }
-
-      before { expect(subject).to receive(:current_user).and_return(user) }
-
-      specify { expect(subject.send(:collection)).to eq([character1, character2]) }
-
-      specify { expect { subject.send(:collection) }.to change { subject.instance_variable_get(:@characters) }.from(nil) }
-    end
-
-    context '@characters is set' do
-      let(:characters) { double }
-
-      before { subject.instance_variable_set(:@characters, characters) }
-
-      specify { expect(subject.send(:collection)).to eq(characters) }
+        it { should respond_with(:not_acceptable) }
+      end
     end
   end
 end

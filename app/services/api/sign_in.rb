@@ -26,8 +26,8 @@ module Api
       @device_token = params[:device_token]
     end
 
-    def save!
-      raise ActiveModel::StrictValidationFailed unless valid?
+    def save
+      return false if !valid?
 
       # TODO: add this
       # PushNotifications::NewSignIn.new(device, device_token, user.notifications_count).execute!

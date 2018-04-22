@@ -3,8 +3,14 @@
 require 'rails_helper'
 
 describe UserDecorator do
+  let(:user) { build_stubbed(:user) }
+
+  subject { described_class.new(user) }
+
+  it { should be_a(ApplicationDecorator) }
+
   describe '#as_json' do
-    let!(:user) do
+    let(:user) do
       build_stubbed(:user,
                     id: 42,
                     email: 'me@example.com',

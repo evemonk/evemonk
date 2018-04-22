@@ -5,22 +5,19 @@ module Api
     skip_before_action :authenticate!
 
     def create
-      build_resource
+      sign_up = SignUp.new(sign_ups_params)
 
-      resource.save!
+      if sign_up.save
+        render json: SessionDecorator.new(sign_up.session,
+                                          context: { with_token: true })
+      else
+        render json: { errors: sign_up.errors }, status: :unprocessable_entity
+      end
     end
 
     private
 
-    def build_resource
-      @sign_up = Api::SignUp.new(resource_params)
-    end
-
-    def resource
-      @sign_up
-    end
-
-    def resource_params
+    def sign_ups_params
       params.require(:sign_up).permit(:email, :password, :password_confirmation)
     end
   end

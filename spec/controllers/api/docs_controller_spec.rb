@@ -2,14 +2,18 @@
 
 require 'rails_helper'
 
-describe Api::DocsController do
-  it { should be_a(ActionController::Base) }
+module Api
+  describe DocsController do
+    it { should be_a(ActionController::Base) }
 
-  it { should be_a(Swagger::Blocks) }
+    it { should be_a(Swagger::Blocks) }
 
-  describe '#index' do
-    before { get :index, params: { format: :json } }
+    # protect_from_forgery with: :exception
 
-    it { should respond_with(:ok) }
+    describe '#index' do
+      before { get :index, params: { format: :json } }
+
+      it { should respond_with(:ok) }
+    end
   end
 end

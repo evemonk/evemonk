@@ -2,15 +2,21 @@
 
 module Api
   class SessionsController < BaseController
-    private
+    def index
+      sessions = policy_scope(Session).order(created_at: :asc)
+                                      .page(params[:page])
 
-    def resource
-      @session ||= Session.find(params[:id])
+      render json: SessionDecorator.decorate_collection(sessions)
     end
 
-    def collection
-      @sessions ||= policy_scope(Session).order(created_at: :asc)
-                                         .page(params[:page])
+    def destroy
+      session = Session.find(params[:id])
+
+      authorize(session)
+
+      session.destroy!
+
+      head :no_content
     end
   end
 end

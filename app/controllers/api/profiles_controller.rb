@@ -2,13 +2,8 @@
 
 module Api
   class ProfilesController < BaseController
-    private
-
     def show
-    end
-
-    def resource
-      current_user
+      render json: UserDecorator.new(current_user)
     end
   end
 end

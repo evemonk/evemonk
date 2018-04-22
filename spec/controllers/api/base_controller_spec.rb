@@ -2,126 +2,50 @@
 
 require 'rails_helper'
 
-describe Api::BaseController do
-  it { should be_a(ApplicationController) }
+module Api
+  describe BaseController do
+    it { should be_a(ApplicationController) }
 
-  it { should be_a(Pundit) }
+    it { should be_a(Pundit) }
 
-  it { should use_before_action(:authenticate!) }
+    it { should use_before_action(:verify_requested_format!) }
 
-  describe '#current_user' do
-    let!(:user) { create(:user) }
+    it { should use_before_action(:authenticate!) }
 
-    before { subject.instance_variable_set(:@current_user, user) }
+    describe '#current_user' do
+      let!(:user) { instance_double(User) }
 
-    specify { expect(subject.current_user).to eq(user) }
-  end
+      before { subject.instance_variable_set(:@current_user, user) }
 
-  describe '#show' do
-    let(:resource) { double }
+      specify { expect(subject.current_user).to eq(user) }
+    end
 
-    before { expect(subject).to receive(:resource).and_return(resource) }
+    it { should rescue_from(ActiveRecord::RecordNotFound) }
 
-    before { expect(subject).to receive(:authorize).with(resource) }
+    it { should rescue_from(ActionController::UnknownFormat) }
 
-    specify { expect { subject.show }.not_to raise_error }
-  end
+    it { should rescue_from(Pundit::NotAuthorizedError) }
 
-  describe '#create' do
-    let(:resource) { double }
+    # private methods
 
-    before { expect(subject).to receive(:build_resource) }
+    describe '#authenticate!' do
+      let!(:user) { create(:user) }
 
-    before { expect(subject).to receive(:resource).and_return(resource).twice }
+      let!(:session) { create(:session, user: user) }
 
-    before { expect(subject).to receive(:authorize).with(resource) }
+      before { expect(subject).to receive(:authenticate_or_request_with_http_token).and_yield(session.token) }
 
-    before { expect(resource).to receive(:save!) }
+      specify { expect(subject.send(:authenticate!)).to eq(user) }
+    end
 
-    specify { expect { subject.create }.not_to raise_error }
-  end
+    describe '#authenticate' do
+      let!(:user) { create(:user) }
 
-  describe '#update' do
-    let(:resource) { double }
+      let!(:session) { create(:session, user: user) }
 
-    let(:resource_params) { double }
+      before { expect(subject).to receive(:authenticate_with_http_token).and_yield(session.token) }
 
-    before { expect(subject).to receive(:resource).and_return(resource).twice }
-
-    before { expect(subject).to receive(:authorize).with(resource) }
-
-    before { expect(subject).to receive(:resource_params).and_return(resource_params) }
-
-    before { expect(resource).to receive(:update!).with(resource_params) }
-
-    specify { expect { subject.update }.not_to raise_error }
-  end
-
-  describe '#destroy' do
-    let(:resource) { double }
-
-    before { expect(subject).to receive(:resource).and_return(resource).twice }
-
-    before { expect(subject).to receive(:authorize).with(resource) }
-
-    before { expect(resource).to receive(:destroy!) }
-
-    before { expect(subject).to receive(:head).with(:no_content) }
-
-    specify { expect { subject.destroy }.not_to raise_error }
-  end
-
-  it { should rescue_from(ActionController::ParameterMissing) }
-
-  it { should rescue_from(ActiveRecord::RecordInvalid) }
-
-  it { should rescue_from(ActiveModel::StrictValidationFailed) }
-
-  it { should rescue_from(ActiveRecord::RecordNotFound) }
-
-  it { should rescue_from(ActionController::UnknownFormat) }
-
-  it { should rescue_from(Pundit::NotAuthorizedError) }
-
-  # private methods
-
-  describe '#authenticate!' do
-    let!(:user) { create(:user) }
-
-    let!(:session) { create(:session, user: user) }
-
-    before { expect(subject).to receive(:authenticate_or_request_with_http_token).and_yield(session.token) }
-
-    specify { expect(subject.send(:authenticate!)).to eq(user) }
-  end
-
-  describe '#authenticate' do
-    let!(:user) { create(:user) }
-
-    let!(:session) { create(:session, user: user) }
-
-    before { expect(subject).to receive(:authenticate_with_http_token).and_yield(session.token) }
-
-    specify { expect(subject.send(:authenticate)).to eq(user) }
-  end
-
-  describe '#parent' do
-    specify { expect { subject.send(:parent) }.to raise_error(NotImplementedError) }
-  end
-
-  describe '#resource' do
-    specify { expect { subject.send(:resource) }.to raise_error(NotImplementedError) }
-  end
-
-  describe '#resource_params' do
-    specify { expect { subject.send(:resource_params) }.to raise_error(NotImplementedError) }
-  end
-
-  describe '#build_resource' do
-    specify { expect { subject.send(:build_resource) }.to raise_error(NotImplementedError) }
-  end
-
-  describe '#collection' do
-    specify { expect { subject.send(:collection) }.to raise_error(NotImplementedError) }
+      specify { expect(subject.send(:authenticate)).to eq(user) }
+    end
   end
 end

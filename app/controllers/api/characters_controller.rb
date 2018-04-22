@@ -2,15 +2,29 @@
 
 module Api
   class CharactersController < BaseController
-    private
+    def index
+      characters = policy_scope(Character).order(created_at: :asc)
+                                          .page(params[:page])
 
-    def resource
-      @character ||= Character.find(params[:id])
+      render json: CharacterDecorator.decorate_collection(characters)
     end
 
-    def collection
-      @characters ||= policy_scope(Character).order(created_at: :asc)
-                                             .page(params[:page])
+    def show
+      character = Character.find(params[:id])
+
+      authorize(character)
+
+      render json: CharacterDecorator.new(character)
+    end
+
+    def destroy
+      character = Character.find(params[:id])
+
+      authorize(character)
+
+      character.destroy!
+
+      head :no_content
     end
   end
 end

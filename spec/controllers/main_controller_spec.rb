@@ -3,4 +3,5 @@
 require 'rails_helper'
 
 describe MainController do
+  it { should be_a(ApplicationController) }
 end

@@ -4,10 +4,16 @@ require 'rails_helper'
 
 module Eve
   describe CorporationDecorator do
+    let(:corporation) { build_stubbed(:eve_corporation) }
+
+    subject { described_class.new(corporation) }
+
+    it { should be_a(ApplicationDecorator) }
+
     describe '#as_json' do
       let(:date_founded) { Time.zone.now }
 
-      let!(:corporation) do
+      let(:corporation) do
         build_stubbed(:eve_corporation,
                       corporation_id: 98_134_807,
                       name: 'MyLittleDragon',

@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
-class CharacterDecorator < Draper::Decorator
-  delegate_all
-
+class CharacterDecorator < ApplicationDecorator
   decorates_association :race
 
   decorates_association :bloodline
@@ -54,4 +52,8 @@ class CharacterDecorator < Draper::Decorator
   end
   # rubocop:enable Metrics/AbcSize
   # rubocop:enable Metrics/MethodLength
+
+  def self.collection_decorator_class
+    PaginatingDecorator
+  end
 end

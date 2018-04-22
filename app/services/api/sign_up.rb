@@ -22,8 +22,8 @@ module Api
       @password_confirmation = params[:password_confirmation]
     end
 
-    def save!
-      raise ActiveModel::StrictValidationFailed unless valid?
+    def save
+      return false if !valid?
 
       build_session
 
@@ -31,7 +31,7 @@ module Api
     rescue ActiveRecord::RecordNotUnique, ActiveRecord::RecordInvalid
       errors.add(:email, I18n.t('errors.messages.taken'))
 
-      raise ActiveModel::StrictValidationFailed
+      false
     end
 
     private

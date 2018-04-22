@@ -1,9 +1,7 @@
 # frozen_string_literal: true
 
 module Eve
-  class CorporationDecorator < Draper::Decorator
-    delegate_all
-
+  class CorporationDecorator < ApplicationDecorator
     def as_json(*)
       {
         corporation_id: corporation_id,

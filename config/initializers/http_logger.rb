@@ -1,3 +1,3 @@
 # frozen_string_literal: true
 
-resource.decorate.to_json
+HttpLogger.log_headers = true
