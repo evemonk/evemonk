@@ -552,7 +552,6 @@ DEPENDENCIES
   rubocop
   rubocop-rspec
   rubocop-thread_safety
-  rufus-scheduler
   sass-rails (~> 5.0)
   selenium-webdriver
   shoulda-callback-matchers!
