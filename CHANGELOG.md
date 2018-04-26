@@ -1,5 +1,9 @@
 ## Changelog
 
+**master**
+
+* Update underscore js to 1.9.0
+
 **v0.0.1**
 
 * Initial release
