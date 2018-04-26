@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 describe 'Sign in features' do
-  it 'when user successfully sign ups' do
+  it 'when user successfully sign ins' do
     create(:user, email: 'me@example.com', password: 'eidii7EeooVe8ahk')
 
     visit '/sign_in'
@@ -20,7 +20,7 @@ describe 'Sign in features' do
     expect(page).to have_content('Successful signed in!')
   end
 
-  it 'when user successfully sign ups with upper cased email' do
+  it 'when user successfully sign ins with upper cased email' do
     create(:user, email: 'me@example.com', password: 'eidii7EeooVe8ahk')
 
     visit '/sign_in'
