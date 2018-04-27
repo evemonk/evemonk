@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_04_27_202252) do
+ActiveRecord::Schema.define(version: 2018_04_27_202433) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -72,6 +72,7 @@ ActiveRecord::Schema.define(version: 2018_04_27_202252) do
     t.datetime "accrued_remap_cooldown_date"
     t.integer "faction_id"
     t.index ["alliance_id"], name: "index_characters_on_alliance_id"
+    t.index ["bloodline_id"], name: "index_characters_on_bloodline_id"
     t.index ["corporation_id"], name: "index_characters_on_corporation_id"
     t.index ["faction_id"], name: "index_characters_on_faction_id"
     t.index ["race_id"], name: "index_characters_on_race_id"
