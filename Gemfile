@@ -16,7 +16,7 @@ gem 'handlebars_assets'
 gem 'js-routes'
 gem 'bootstrap'
 gem 'font-awesome-sass'
-gem 'rufus-scheduler'
+# gem 'rufus-scheduler'
 gem 'bcrypt'
 # gem 'eve_online'
 gem 'eve_online', git: 'https://github.com/biow0lf/eve_online.git', branch: 'master'
@@ -37,7 +37,6 @@ gem 'pg_query'
 # gem 'rubycritic', require: false
 gem 'swagger-blocks'
 gem 'http_logger'
-gem 'whenever', require: false
 gem 'responders'
 
 group :production do
