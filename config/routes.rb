@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     mount PgHero::Engine, at: 'pghero'
 
     # TODO: spec this
-    mount Sidekiq::Web at: 'sidekiq'
+    mount Sidekiq::Web, at: 'sidekiq'
   end
 
   namespace :auth do
