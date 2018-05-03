@@ -16,6 +16,8 @@
 //= require js-routes
 //= require popper
 //= require bootstrap
+//= require tabler
+//= require tabler.plugins
 //= require ./lib/underscore
 //= require ./lib/backbone
 //= require ./lib/js.cookie
