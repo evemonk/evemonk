@@ -1,7 +1,7 @@
 EvemonkApp.Models.FlashSuccess = Backbone.Model.extend({
     defaults: {
         'classname': 'alert-success',
-        'icon': 'fas fa-check-circle',
+        'icon': 'fe fe-check mr-2',
         'message': null
     }
 });
