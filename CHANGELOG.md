@@ -6,6 +6,7 @@
 * Style Bootstrap with [Tabler theme](https://github.com/tabler/tabler)
 * Re-style flash errors with tabler
 * Re-style flash success with tabler
+* Re-style flash warning with tabler
 
 **v0.0.1**
 
