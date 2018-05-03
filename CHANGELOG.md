@@ -7,6 +7,7 @@
 * Re-style flash errors with tabler
 * Re-style flash success with tabler
 * Re-style flash warning with tabler
+* Remove FontAwesome font
 
 **v0.0.1**
 
