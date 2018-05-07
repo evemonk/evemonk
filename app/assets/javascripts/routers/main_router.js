@@ -7,7 +7,20 @@ EvemonkApp.Routers.MainRouter = Backbone.Router.extend({
         'profile' : 'profile',
         'characters?page=:page' : 'characters_page',
         'characters' : 'characters',
-        'characters/:id' : 'show_character'
+        'characters/:id' : 'show_character',
+        'universe' : 'universe',
+        'alliances' : 'alliances',
+        'alliances?page=:page' : 'alliances_page',
+        'alliances/:id' : 'show_alliance',
+        'corporations' : 'corporations',
+        'corporations?page=:page' : 'corporations_page',
+        'corporations/:id' : 'show_corporation',
+        'factions' : 'factions',
+        'factions?page=:page' : 'factions_page',
+        'factions/:id' : 'show_faction',
+        'pilots' : 'pilots',
+        'pilots?page=:page' : 'pilots_page',
+        'pilots/:id' : 'show_pilot'
     },
 
     initialize: function () {
@@ -167,5 +180,59 @@ EvemonkApp.Routers.MainRouter = Backbone.Router.extend({
                 }
             }
         });
+    },
+
+    universe: function () {
+        var universeView = new EvemonkApp.Views.UniverseView();
+
+        $('#content').html(universeView.render().el);
+    },
+
+    alliances: function () {
+
+    },
+
+    alliances_page: function (page) {
+
+    },
+
+    show_alliance: function (id) {
+
+    },
+
+    corporations: function () {
+
+    },
+
+    corporations_page: function (page) {
+
+    },
+
+    show_corporation: function (id) {
+
+    },
+
+    factions: function () {
+
+    },
+
+    factions_page: function (page) {
+
+    },
+
+    show_faction: function (id) {
+
+    },
+
+    pilots: function () {
+
+    },
+
+    pilots_page: function (page) {
+
+    },
+
+    show_pilot: function (id) {
+
     }
 });
