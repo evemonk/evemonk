@@ -9,9 +9,13 @@ class AlliancesImporter
 
       options = { alliance_id: alliance_id }
 
-      alliance.update!(EveOnline::ESI::Alliance.new(options).as_json)
+      begin
+        alliance.update!(EveOnline::ESI::Alliance.new(options).as_json)
 
-      alliance.update!(EveOnline::ESI::AllianceIcon.new(options).as_json)
+        alliance.update!(EveOnline::ESI::AllianceIcon.new(options).as_json)
+      rescue EveOnline::Exceptions::ResourceNotFound
+        Rails.logger.info("Alliance with ID '#{ alliance_id }' not found. Skip.")
+      end
     end
   end
 end
