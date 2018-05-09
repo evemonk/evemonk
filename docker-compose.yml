@@ -7,6 +7,9 @@ services:
   memcached:
     image: "memcached:latest"
 
+  postgresql:
+    image: "postgres:latest"
+
   web:
     build: .
     command: bundle exec rails s -p 3000 -b '0.0.0.0'
@@ -15,4 +18,5 @@ services:
     depends_on:
       - redis
       - memcached
+      - postgresql
 
