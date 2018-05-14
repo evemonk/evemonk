@@ -1,29 +1,43 @@
-<div class="row justify-content-center">
-    <form>
-        <h2>Sign Up</h2>
+<div class="row">
+    <div class="col col-login mx-auto">
+        <form class="card">
+            <div class="card-body p-6">
+                <div class="card-title">Sign Up</div>
+                <div class="form-group">
+                    <label for="email" class="form-label">Email address</label>
+                    <input id="email" type="email" class="form-control" placeholder="Email address" autofocus required>
+                    <div class="invalid-feedback"></div>
+                </div>
+                <div class="form-group">
+                    <label for="password" class="form-label">Password</label>
+                    <input id="password" type="password" class="form-control" placeholder="Password" required>
+                    <div class="invalid-feedback"></div>
+                </div>
+                <div class="form-group">
+                    <label for="password_confirmation" class="form-label">Password confirmation</label>
+                    <input id="password_confirmation" type="password" class="form-control" placeholder="Password confirmation" required>
+                    <div class="invalid-feedback"></div>
+                </div>
+                <div class="form-group">
+                    <label class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" />
+                        <span class="custom-control-label">Agree the <a href="terms.html">terms and policy</a></span>
+                    </label>
+                </div>
+                <div class="form-footer">
+                    <button type="submit" class="btn btn-primary btn-block sign-up">Sign up</button>
+                </div>
+            </div>
+        </form>
 
-        <div class="form-group">
-            <label for="email" class="sr-only">Email address</label>
-            <input id="email" type="email" class="form-control" placeholder="Email address" autofocus required>
-            <div class="invalid-feedback"></div>
+        <div class="text-center text-muted">
+            Already have account? <a href="./login.html">Sign in</a>
         </div>
-
-        <div class="form-group">
-            <label for="password" class="sr-only">Password:</label>
-            <input id="password" type="password" value="" class="form-control" placeholder="Password" required>
-            <div class="invalid-feedback"></div>
-        </div>
-
-        <div class="form-group">
-            <label for="password_confirmation" class="sr-only">Password confirmation:</label>
-            <input id="password_confirmation" type="password" value="" class="form-control" placeholder="Password confirmation" required>
-            <div class="invalid-feedback"></div>
-        </div>
-
-        <button type="submit" class="sign-up btn btn-primary btn-block">Sign up</button>
 
         <hr />
 
-        <a href="/auth/eve_online_sso"><img src="https://images.contentful.com/idjq7aai9ylm/4fSjj56uD6CYwYyus4KmES/4f6385c91e6de56274d99496e6adebab/EVE_SSO_Login_Buttons_Large_Black.png?w=270&h=45" alt="Sign in via EveOnline SSO"></a>
-    </form>
+        <div class="text-center">
+            <a href="/auth/eve_online_sso"><img src="https://images.contentful.com/idjq7aai9ylm/4fSjj56uD6CYwYyus4KmES/4f6385c91e6de56274d99496e6adebab/EVE_SSO_Login_Buttons_Large_Black.png?w=270&h=45" alt="Sign in via EveOnline SSO"></a>
+        </div>
+    </div>
 </div>
