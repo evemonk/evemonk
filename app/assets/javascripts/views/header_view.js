@@ -5,7 +5,8 @@ EvemonkApp.Views.HeaderView = Backbone.View.extend({
         'click .sign-in' : 'handle_click',
         'click .sign-up' : 'handle_click',
         'click .sign-out' : 'handle_click',
-        'click .profile' : 'handle_click'
+        'click .profile' : 'handle_click',
+        'click .universe' : 'handle_click'
     },
 
     template: JST['header/show'],
