@@ -10,7 +10,8 @@
 * Remove FontAwesome font
 * Re-style sign in page with tabler
 * Re-style sign up page with tabler
-* Add "Already have account?" to sign in page
+* Add "Already have account?" to sign up page
+* Add "Don't have account yet?" to sign in page
 
 **v0.0.1**
 

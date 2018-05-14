@@ -1,6 +1,7 @@
 EvemonkApp.Views.SignUpView = Backbone.View.extend({
     events: {
-        'click .sign-up' : 'sign_up'
+        'click .sign-up' : 'sign_up',
+        'click .sign-in' : 'handle_click'
     },
 
     template: JST['sign_up/show'],
@@ -54,5 +55,11 @@ EvemonkApp.Views.SignUpView = Backbone.View.extend({
                 });
             }
         });
+    },
+
+    handle_click: function (event) {
+        event.preventDefault();
+
+        Backbone.history.navigate(event.target.getAttribute('href'), { trigger: true });
     }
 });
