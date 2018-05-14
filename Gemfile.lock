@@ -217,7 +217,7 @@ GEM
       kaminari-core (= 1.1.1)
     kaminari-core (1.1.1)
     kramdown (1.16.2)
-    license_finder (5.1.0)
+    license_finder (5.2.1)
       bundler
       httparty
       rubyzip
