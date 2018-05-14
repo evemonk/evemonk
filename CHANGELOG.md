@@ -8,6 +8,7 @@
 * Re-style flash success with tabler
 * Re-style flash warning with tabler
 * Remove FontAwesome font
+* Re-style sign in page with tabler
 
 **v0.0.1**
 
