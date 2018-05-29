@@ -39,6 +39,7 @@ gem 'swagger-blocks'
 gem 'http_logger'
 gem 'responders'
 gem 'rack-timeout'
+gem 'rack-health'
 
 group :production do
   # gem 'lograge'
