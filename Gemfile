@@ -38,12 +38,11 @@ gem 'pg_query'
 gem 'swagger-blocks'
 gem 'http_logger'
 gem 'responders'
-gem 'rack-timeout'
 gem 'rack-health'
 
 group :production do
-  # gem 'lograge'
   gem 'newrelic_rpm'
+  gem 'rack-timeout'
 end
 
 group :development, :test do
