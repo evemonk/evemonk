@@ -48,9 +48,9 @@ EvemonkApp.Routers.MainRouter = Backbone.Router.extend({
     },
 
     index: function () {
-        var welcomeView = new EvemonkApp.Views.WelcomeView();
+        var pageView = new EvemonkApp.Views.PageView();
 
-        $('#content').html(welcomeView.render().el);
+        $('#page').html(pageView.render().el);
     },
 
     sign_up: function () {

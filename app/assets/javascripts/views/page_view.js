@@ -1,5 +1,5 @@
-EvemonkApp.Views.WelcomeView = Backbone.View.extend({
-    template: JST['welcome/index'],
+EvemonkApp.Views.PageView = Backbone.View.extend({
+    template: JST['page/index'],
 
     render: function () {
         this.$el.html(this.template());
