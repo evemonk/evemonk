@@ -12,6 +12,8 @@
 * Re-style sign up page with tabler
 * Add "Already have account?" to sign up page
 * Add "Don't have account yet?" to sign in page
+* Re-style footer with tabler
+* Update underscore js to 1.9.1
 
 **v0.0.1**
 
