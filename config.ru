@@ -5,3 +5,7 @@
 require_relative 'config/environment'
 
 run Rails.application
+
+# For New Relic health check
+use Rack::Health
+
