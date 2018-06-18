@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Rpush311Updates < ActiveRecord::VERSION::MAJOR >= 5 ? ActiveRecord::Migration[5.0] : ActiveRecord::Migration
   def self.up
     change_table :rpush_notifications do |t|
