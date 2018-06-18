@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_04_27_202539) do
+ActiveRecord::Schema.define(version: 2018_06_18_151304) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -196,6 +196,10 @@ ActiveRecord::Schema.define(version: 2018_04_27_202539) do
     t.string "client_secret"
     t.string "access_token"
     t.datetime "access_token_expiration"
+    t.string "apn_key"
+    t.string "apn_key_id"
+    t.string "team_id"
+    t.string "bundle_id"
   end
 
   create_table "rpush_feedback", force: :cascade do |t|
@@ -223,7 +227,7 @@ ActiveRecord::Schema.define(version: 2018_04_27_202539) do
     t.datetime "deliver_after"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "alert_is_json", default: false
+    t.boolean "alert_is_json", default: false, null: false
     t.string "type", null: false
     t.string "collapse_key"
     t.boolean "delay_while_idle", default: false, null: false
@@ -236,10 +240,11 @@ ActiveRecord::Schema.define(version: 2018_04_27_202539) do
     t.integer "priority"
     t.text "url_args"
     t.string "category"
-    t.boolean "content_available", default: false
+    t.boolean "content_available", default: false, null: false
     t.text "notification"
-    t.boolean "mutable_content", default: false
-    t.index ["delivered", "failed"], name: "index_rpush_notifications_multi", where: "((NOT delivered) AND (NOT failed))"
+    t.boolean "mutable_content", default: false, null: false
+    t.string "external_device_id"
+    t.index ["delivered", "failed", "processing", "deliver_after", "created_at"], name: "index_rpush_notifications_multi", where: "((NOT delivered) AND (NOT failed))"
   end
 
   create_table "sessions", id: :serial, force: :cascade do |t|
