@@ -330,7 +330,7 @@ GEM
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.0.4)
       loofah (~> 2.2, >= 2.2.2)
-    rails_best_practices (1.19.2)
+    rails_best_practices (1.19.3)
       activesupport
       code_analyzer (>= 0.4.8)
       erubis
