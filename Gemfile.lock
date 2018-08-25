@@ -1,9 +1,9 @@
 GIT
   remote: https://github.com/biow0lf/eve_online.git
-  revision: fd940908dda81d507e977329ac0d03e322196400
+  revision: 7d6d343190b0d8a59d59af5c6d481f4fefa962bb
   branch: master
   specs:
-    eve_online (0.15.0)
+    eve_online (0.16.0)
       activesupport (>= 4.2.0)
       faraday
       json
