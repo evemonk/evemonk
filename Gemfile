@@ -38,6 +38,7 @@ gem 'pg_query'
 gem 'swagger-blocks'
 gem 'http_logger'
 gem 'responders'
+gem 'rack-health'
 
 group :production do
   # gem 'lograge'
