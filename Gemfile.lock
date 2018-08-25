@@ -255,7 +255,7 @@ GEM
     multi_json (1.13.1)
     multi_xml (0.6.0)
     multipart-post (2.0.0)
-    mustermann (1.0.2)
+    mustermann (1.0.3)
     net-http-persistent (3.0.0)
       connection_pool (~> 2.2)
     net-http2 (0.17.0)
