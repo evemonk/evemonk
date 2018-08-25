@@ -312,6 +312,7 @@ GEM
       rack
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
+    rack-timeout (0.5.1)
     rails (5.2.1)
       actioncable (= 5.2.1)
       actionmailer (= 5.2.1)
@@ -548,6 +549,7 @@ DEPENDENCIES
   rack-cors
   rack-dev-mark
   rack-health
+  rack-timeout
   rails (~> 5.2.0)
   rails-controller-testing
   rails_best_practices

@@ -43,6 +43,7 @@ gem 'rack-health'
 group :production do
   # gem 'lograge'
   gem 'newrelic_rpm'
+  gem 'rack-timeout'
 end
 
 group :development, :test do
