@@ -285,7 +285,7 @@ GEM
     parser (2.5.1.0)
       ast (~> 2.4.0)
     parslet (1.8.2)
-    pg (1.0.0)
+    pg (1.1.0)
     pg_query (1.0.2)
     pghero (2.1.1)
       activerecord
