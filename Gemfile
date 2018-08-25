@@ -61,6 +61,7 @@ group :development, :test do
   gem 'mry', require: false
   gem 'squasher', require: false
   gem 'mdl', require: false
+  gem 'brakeman', require: false
 end
 
 group :development do
@@ -70,7 +71,6 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'spring-commands-rspec', require: false
   gem 'spring-commands-rubocop', require: false
-  gem 'brakeman', require: false
   gem 'consistency_fail', require: false
   gem 'rails_best_practices'
   gem 'license_finder', require: false
