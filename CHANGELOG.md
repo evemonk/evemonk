@@ -25,4 +25,3 @@
     * Intelligence
     * Charisma
     * Bonus Remaps Available
-
