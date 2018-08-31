@@ -1,10 +1,10 @@
-## Changelog
+# Changelog
 
-**master**
+## master
 
 * Update underscore js to 1.9.0
 
-**v0.0.1**
+## v0.0.1
 
 * Initial release
   * Character page with:
@@ -25,4 +25,3 @@
     * Intelligence
     * Charisma
     * Bonus Remaps Available
-

@@ -1,7 +1,6 @@
 # EveMonk back-end and web front-end
 
 [![Build Status](https://travis-ci.org/biow0lf/evemonk.svg?branch=master)](https://travis-ci.org/biow0lf/evemonk)
-[![Dependency Status](https://gemnasium.com/badges/github.com/biow0lf/evemonk.svg)](https://gemnasium.com/github.com/biow0lf/evemonk)
 [![Test Coverage](https://codeclimate.com/github/biow0lf/evemonk/badges/coverage.svg)](https://codeclimate.com/github/biow0lf/evemonk/coverage)
 [![security](https://hakiri.io/github/biow0lf/evemonk/master.svg)](https://hakiri.io/github/biow0lf/evemonk/master)
 
@@ -42,9 +41,9 @@ EveMonk is helper software for EveOnline MMORPG.
 ## Environment
 
 * Ruby 2.5.1
-* RubyGems 2.7.6
-* Bundler 1.16.1
-* Ruby on Rails 5.2.0
+* RubyGems 2.7.7
+* Bundler 1.16.4
+* Ruby on Rails 5.2.1
 * PostgreSQL 9.5.4
 * Backbone 1.3.3
 * Underscore 1.9.0
