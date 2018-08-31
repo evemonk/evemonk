@@ -160,6 +160,7 @@ GEM
       activemodel-serializers-xml (~> 1.0)
       activesupport (~> 5.0)
       request_store (~> 1.0)
+    ed25519 (1.2.4)
     erubi (1.7.1)
     erubis (2.7.0)
     et-orbi (1.1.5)
@@ -354,10 +355,6 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
-    rbnacl (3.4.0)
-      ffi
-    rbnacl-libsodium (1.0.16)
-      rbnacl (>= 3.0.1)
     redis (4.0.2)
     request_store (1.4.1)
       rack (>= 1.4)
@@ -504,7 +501,7 @@ DEPENDENCIES
   active_record_doctor
   awesome_print
   bcrypt
-  bcrypt_pbkdf
+  bcrypt_pbkdf (>= 1.0, < 2.0)
   bootsnap (>= 1.1.0)
   bootstrap
   brakeman
@@ -524,6 +521,7 @@ DEPENDENCIES
   database_rewinder
   dotenv-rails
   draper
+  ed25519 (>= 1.2, < 2.0)
   eve_online!
   factory_bot_rails
   faker
@@ -553,8 +551,6 @@ DEPENDENCIES
   rails (~> 5.2.0)
   rails-controller-testing
   rails_best_practices
-  rbnacl (< 4.0)
-  rbnacl-libsodium
   responders
   rpush
   rspec-its
