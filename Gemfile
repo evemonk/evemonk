@@ -73,7 +73,7 @@ group :development do
   gem 'spring-commands-rubocop', require: false
   gem 'consistency_fail', require: false
   gem 'rails_best_practices'
-  gem 'license_finder', require: false
+  # gem 'license_finder', require: false
   gem 'active_record_doctor'
   gem 'bcrypt_pbkdf' # for rbnacl-libsodium
   gem 'rbnacl', '< 4.0' # for rbnacl-libsodium
