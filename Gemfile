@@ -75,9 +75,8 @@ group :development do
   gem 'rails_best_practices'
   gem 'license_finder', require: false
   gem 'active_record_doctor'
-  gem 'bcrypt_pbkdf' # for rbnacl-libsodium
-  gem 'rbnacl', '< 4.0' # for rbnacl-libsodium
-  gem 'rbnacl-libsodium' # for ssh-ed25519 support
+  gem 'ed25519', '>= 1.2', '< 2.0' # net-ssh requires the following gems for ed25519 support
+  gem 'bcrypt_pbkdf', '>= 1.0', '< 2.0' # net-ssh requires the following gems for ed25519 support
   gem 'capistrano', require: false
   gem 'capistrano-rails', require: false
   gem 'capistrano-faster-assets', require: false

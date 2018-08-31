@@ -14,12 +14,12 @@ FactoryBot.define do
 
     sequence(:militia_corporation_id)
 
-    size_factor 1.5
+    size_factor { 1.5 }
 
     sequence(:station_count)
 
     sequence(:station_system_count)
 
-    is_unique false
+    is_unique { false }
   end
 end

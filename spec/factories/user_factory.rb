@@ -2,18 +2,18 @@
 
 FactoryBot.define do
   factory :user do
-    kind :normal
+    kind { :normal }
 
     email { Faker::Internet.email }
 
     password { Faker::Internet.password }
 
     trait :oauth do
-      kind :oauth
+      kind { :oauth }
 
-      email nil
+      email { nil }
 
-      password nil
+      password { nil }
     end
   end
 end
