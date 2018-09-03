@@ -289,7 +289,7 @@ GEM
     parslet (1.8.2)
     pg (1.1.2)
     pg_query (1.0.2)
-    pghero (2.1.1)
+    pghero (2.2.0)
       activerecord
     popper_js (1.14.3)
     powerpack (0.1.2)
