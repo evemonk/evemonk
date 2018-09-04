@@ -25,7 +25,7 @@ before_script:
 script:
   - bundle exec rake
   - bundle exec codeclimate-test-reporter
-  # - bundle exec bundle-audit
+  - bundle exec bundle-audit
   - bundle exec brakeman
   - bundle exec mdl README.md
   - bundle exec mdl CHANGELOG.md
