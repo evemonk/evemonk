@@ -163,7 +163,7 @@ GEM
     ed25519 (1.2.4)
     erubi (1.7.1)
     erubis (2.7.0)
-    et-orbi (1.1.5)
+    et-orbi (1.1.6)
       tzinfo
     execjs (2.7.0)
     factory_bot (4.11.0)
