@@ -1,5 +1,4 @@
 AllCops:
-  TargetRubyVersion: 2.5
   DisplayStyleGuide: true
 
 Layout/EndOfLine:
