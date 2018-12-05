@@ -167,7 +167,7 @@ GEM
     et-orbi (1.1.6)
       tzinfo
     execjs (2.7.0)
-    factory_bot (4.11.0)
+    factory_bot (4.11.1)
       activesupport (>= 3.0.0)
     factory_bot_rails (4.11.0)
       factory_bot (~> 4.11.0)
