@@ -292,7 +292,7 @@ GEM
     pg_query (1.1.0)
     pghero (2.2.0)
       activerecord
-    popper_js (1.14.3)
+    popper_js (1.14.5)
     powerpack (0.1.2)
     pry (0.12.2)
       coderay (~> 1.1.0)
