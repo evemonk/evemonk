@@ -221,7 +221,7 @@ GEM
       kaminari-core (= 1.1.1)
     kaminari-core (1.1.1)
     kramdown (1.17.0)
-    license_finder (5.4.0)
+    license_finder (5.5.2)
       bundler
       rubyzip
       thor
