@@ -303,7 +303,7 @@ GEM
     pundit (2.0.0)
       activesupport (>= 3.0.0)
     raabro (1.1.6)
-    rack (2.0.5)
+    rack (2.0.6)
     rack-cors (1.0.2)
     rack-dev-mark (0.7.7)
       rack (>= 1.1, < 2.1)
@@ -578,4 +578,4 @@ DEPENDENCIES
   webmock
 
 BUNDLED WITH
-   1.16.4
+   1.17.1
