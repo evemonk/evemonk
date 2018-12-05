@@ -236,7 +236,7 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.7.1)
       mini_mime (>= 0.1.1)
-    marcel (0.3.2)
+    marcel (0.3.3)
       mimemagic (~> 0.3.2)
     mdl (0.5.0)
       kramdown (~> 1.12, >= 1.12.0)
