@@ -98,7 +98,6 @@ group :test do
   gem 'shoulda-callback-matchers', git: 'https://github.com/jdliss/shoulda-callback-matchers.git',
                                    branch: 'master'
   gem 'simplecov'
-  gem 'codeclimate-test-reporter'
   gem 'database_rewinder'
   gem 'webmock'
   gem 'vcr'

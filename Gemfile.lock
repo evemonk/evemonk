@@ -132,8 +132,6 @@ GEM
       nokogiri (~> 1.8)
     code_analyzer (0.4.8)
       sexp_processor
-    codeclimate-test-reporter (1.0.7)
-      simplecov
     coderay (1.1.2)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
@@ -517,7 +515,6 @@ DEPENDENCIES
   capistrano-rbenv-install
   capybara (>= 2.15, < 4.0)
   chromedriver-helper
-  codeclimate-test-reporter
   coffee-rails (~> 4.2)
   consistency_fail
   database_rewinder
