@@ -38,6 +38,25 @@ describe Api::SignInForm, type: :model do
       specify { expect { subject.save }.to change { user.sessions.first&.device_token }.from(nil).to('token123') }
     end
 
+    context 'when user exist and password right with upper case email' do
+      let!(:user) { create(:user, email: 'me@example.com', password: 'password') }
+
+      let(:params) do
+        {
+          email: 'ME@EXAMPLE.COM',
+          password: 'password'
+        }
+      end
+
+      subject { described_class.new(params) }
+
+      specify { expect(subject.save).to eq(true) }
+
+      specify { expect { subject.save }.to change { user.sessions.count }.by(1) }
+
+      specify { expect { subject.save }.to change { user.sessions.first&.token }.from(nil) }
+    end
+
     context 'when user exist but password wrong' do
       let!(:user) { create(:user, email: 'me@example.com', password: 'password') }
 
