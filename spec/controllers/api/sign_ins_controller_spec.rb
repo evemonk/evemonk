@@ -47,44 +47,44 @@ describe Api::SignInsController do
       it { should render_template(:create) }
     end
 
-  #   context 'when user not successful authorize' do
-  #     let(:errors) { double }
+    context 'when user not successful authorize' do
+      let(:errors) { instance_double(ActiveModel::Errors) }
 
-  #     let(:sign_in) { instance_double(Api::SignIn, errors: errors, save: false) }
+      let(:form) { instance_double(Api::SignInForm, errors: errors, save: false) }
 
-  #     before do
-  #       #
-  #       # Api::SignIn.new(email: 'me@example.com',
-  #       #                 password: 'password',
-  #       #                 name: 'iOS session',
-  #       #                 device_type: 'ios',
-  #       #                 device_token: 'token123') => sign_in
-  #       #
-  #       expect(Api::SignIn).to receive(:new).with(permitter(email: 'me@example.com',
-  #                                                           password: 'password',
-  #                                                           name: 'iOS session',
-  #                                                           device_type: 'ios',
-  #                                                           device_token: 'token123'))
-  #                                           .and_return(sign_in)
-  #     end
+      before do
+        #
+        # Api::SignInForm.new(email: 'me@example.com',
+        #                     password: 'password',
+        #                     name: 'iOS session',
+        #                     device_type: 'ios',
+        #                     device_token: 'token123') # => form
+        #
+        expect(Api::SiSignInFormgnIn).to receive(:new).with(permitter(email: 'me@example.com',
+                                                                      password: 'password',
+                                                                      name: 'iOS session',
+                                                                      device_type: 'ios',
+                                                                      device_token: 'token123'))
+                                                      .and_return(form)
+      end
 
-  #     before do
-  #       post :create, params: {
-  #         sign_in: {
-  #           email: 'me@example.com',
-  #           password: 'password',
-  #           name: 'iOS session',
-  #           device_type: 'ios',
-  #           device_token: 'token123'
-  #         },
-  #         format: :json
-  #       }
-  #     end
+      before do
+        post :create, params: {
+          sign_in: {
+            email: 'me@example.com',
+            password: 'password',
+            name: 'iOS session',
+            device_type: 'ios',
+            device_token: 'token123'
+          },
+          format: :json
+        }
+      end
 
-  #     it { should respond_with(:unprocessable_entity) }
+      it { should respond_with(:unprocessable_entity) }
 
-  #     it { should render(:errors) }
-  #   end
+      it { should render_template(:errors) }
+    end
 
   #   context 'when not supported accept type' do
   #     before do
