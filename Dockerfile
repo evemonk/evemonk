@@ -1,6 +1,6 @@
 FROM centos:7
 
-MAINTAINER Igor Zubkov <igor.zubkov@gmail.com>
+LABEL maintainer="Igor Zubkov <igor.zubkov@gmail.com>"
 
 RUN yum upgrade -y -q
 
