@@ -1,5 +1,13 @@
 {
   "name": "evemonk",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "@rails/webpacker": "3.5",
+    "vue": "^2.5.18",
+    "vue-loader": "14.2.2",
+    "vue-template-compiler": "^2.5.18"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "2.11.2"
+  }
 }
