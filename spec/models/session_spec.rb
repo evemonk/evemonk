@@ -23,5 +23,5 @@ describe Session do
     end
   end
 
-  pending { should have_secure_token }
+  it { should have_secure_token }
 end
