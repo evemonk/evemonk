@@ -38,7 +38,7 @@ describe Api::SignInsController do
             device_type: 'ios',
             device_token: 'token123'
           },
-          format: :json
+          format: 'json'
         }
       end
 
@@ -60,12 +60,12 @@ describe Api::SignInsController do
         #                     device_type: 'ios',
         #                     device_token: 'token123') # => form
         #
-        expect(Api::SiSignInFormgnIn).to receive(:new).with(permitter(email: 'me@example.com',
-                                                                      password: 'password',
-                                                                      name: 'iOS session',
-                                                                      device_type: 'ios',
-                                                                      device_token: 'token123'))
-                                                      .and_return(form)
+        expect(Api::SignInForm).to receive(:new).with(permitter(email: 'me@example.com',
+                                                                password: 'password',
+                                                                name: 'iOS session',
+                                                                device_type: 'ios',
+                                                                device_token: 'token123'))
+                                                .and_return(form)
       end
 
       before do
@@ -77,7 +77,7 @@ describe Api::SignInsController do
             device_type: 'ios',
             device_token: 'token123'
           },
-          format: :json
+          format: 'json'
         }
       end
 
@@ -86,21 +86,21 @@ describe Api::SignInsController do
       it { should render_template(:errors) }
     end
 
-  #   context 'when not supported accept type' do
-  #     before do
-  #       post :create, params: {
-  #         sign_in: {
-  #           email: 'me@example.com',
-  #           password: 'password',
-  #           name: 'iOS session',
-  #           device_type: 'ios',
-  #           device_token: 'token123'
-  #         },
-  #         format: :html
-  #       }
-  #     end
+    # context 'when not supported accept type' do
+    #   before do
+    #     post :create, params: {
+    #       sign_in: {
+    #         email: 'me@example.com',
+    #         password: 'password',
+    #         name: 'iOS session',
+    #         device_type: 'ios',
+    #         device_token: 'token123'
+    #       },
+    #       format: :html
+    #     }
+    #   end
 
-  #     it { should respond_with(:not_acceptable) }
-  #   end
+    #   it { should respond_with(:not_acceptable) }
+    # end
   end
 end
