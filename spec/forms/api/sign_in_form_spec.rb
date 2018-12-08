@@ -9,6 +9,10 @@ describe Api::SignInForm, type: :model do
 
   it { should validate_presence_of(:password) }
 
+  it { should delegate_method(:id).to(:session) }
+
+  it { should delegate_method(:token).to(:session) }
+
   describe '#save' do
     context 'when user exist and password right' do
       let!(:user) { create(:user, email: 'me@example.com', password: 'password') }
