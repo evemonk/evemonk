@@ -47,9 +47,21 @@ describe Api::SignInForm, type: :model do
 
       specify { expect(subject.save).to eq(false) }
 
-      # specify { binding.pry }
+      specify { expect { subject.save }.to change { subject.errors.messages }.from({}).to(base: ['Email and/or password is invalid']) }
+
+      specify { expect { subject.save }.not_to change { user.sessions.count } }
+    end
+
+    context 'when user not exists' do
+      let(:params) { { email: 'me@example.com', password: 'password' } }
+
+      subject { described_class.new(params) }
+
+      specify { expect(subject.save).to eq(false) }
 
       specify { expect { subject.save }.to change { subject.errors.messages }.from({}).to(base: ['Email and/or password is invalid']) }
+
+      specify { expect { subject.save }.not_to change { Session.count } }
     end
   end
 end
