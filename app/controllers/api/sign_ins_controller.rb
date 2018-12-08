@@ -2,18 +2,30 @@
 
 module Api
   class SignInsController < BaseController
-    skip_before_action :authenticate!
+    skip_before_action :authenticate
 
     def create
-      sign_in = SignIn.new(sign_in_params)
+      @form = SignInForm.new(sign_in_params)
 
-      if sign_in.save
-        render json: SessionDecorator.new(sign_in.session,
-                                          context: { with_token: true })
+      # skip_authorization
+
+      if @form.save
+        render :create
       else
-        render json: { errors: sign_in.errors }, status: :unprocessable_entity
+        render :errors, status: :unprocessable_entity
       end
     end
+
+    # def create
+    #   sign_in = SignIn.new(sign_in_params)
+
+    #   if sign_in.save
+    #     render json: SessionDecorator.new(sign_in.session,
+    #                                       context: { with_token: true })
+    #   else
+    #     render json: { errors: sign_in.errors }, status: :unprocessable_entity
+    #   end
+    # end
 
     private
 
