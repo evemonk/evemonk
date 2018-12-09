@@ -9,9 +9,7 @@ describe Api::SignInsController do
 
   describe '#create' do
     context 'when user successful authorize' do
-      let(:session) { instance_double(Session) }
-
-      let(:form) { instance_double(Api::SignInForm, session: session, save: true) }
+      let(:form) { instance_double(Api::SignInForm, save: true) }
 
       before do
         #
@@ -38,7 +36,7 @@ describe Api::SignInsController do
             device_type: 'ios',
             device_token: 'token123'
           },
-          format: 'json'
+          format: :json
         }
       end
 
@@ -48,9 +46,7 @@ describe Api::SignInsController do
     end
 
     context 'when user not successful authorize' do
-      let(:errors) { instance_double(ActiveModel::Errors) }
-
-      let(:form) { instance_double(Api::SignInForm, errors: errors, save: false) }
+      let(:form) { instance_double(Api::SignInForm, save: false) }
 
       before do
         #
@@ -77,7 +73,7 @@ describe Api::SignInsController do
             device_type: 'ios',
             device_token: 'token123'
           },
-          format: 'json'
+          format: :json
         }
       end
 
@@ -86,21 +82,21 @@ describe Api::SignInsController do
       it { should render_template(:errors) }
     end
 
-    # context 'when not supported accept type' do
-    #   before do
-    #     post :create, params: {
-    #       sign_in: {
-    #         email: 'me@example.com',
-    #         password: 'password',
-    #         name: 'iOS session',
-    #         device_type: 'ios',
-    #         device_token: 'token123'
-    #       },
-    #       format: :html
-    #     }
-    #   end
+    context 'when not supported accept type' do
+      before do
+        post :create, params: {
+          sign_in: {
+            email: 'me@example.com',
+            password: 'password',
+            name: 'iOS session',
+            device_type: 'ios',
+            device_token: 'token123'
+          },
+          format: :html
+        }
+      end
 
-    #   it { should respond_with(:not_acceptable) }
-    # end
+      it { should respond_with(:not_acceptable) }
+    end
   end
 end

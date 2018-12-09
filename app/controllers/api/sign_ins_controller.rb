@@ -7,7 +7,7 @@ module Api
     def create
       @form = SignInForm.new(sign_in_params)
 
-      # skip_authorization
+      skip_authorization
 
       if @form.save
         render :create
@@ -15,17 +15,6 @@ module Api
         render :errors, status: :unprocessable_entity
       end
     end
-
-    # def create
-    #   sign_in = SignIn.new(sign_in_params)
-
-    #   if sign_in.save
-    #     render json: SessionDecorator.new(sign_in.session,
-    #                                       context: { with_token: true })
-    #   else
-    #     render json: { errors: sign_in.errors }, status: :unprocessable_entity
-    #   end
-    # end
 
     private
 
