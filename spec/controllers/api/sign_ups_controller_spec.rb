@@ -86,7 +86,7 @@ describe Api::SignUpsController do
         }
       end
 
-      pending { should respond_with(:not_acceptable) }
+      it { should respond_with(:not_acceptable) }
     end
   end
 end
