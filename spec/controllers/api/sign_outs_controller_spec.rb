@@ -2,47 +2,45 @@
 
 require 'rails_helper'
 
-module Api
-  describe SignOutsController do
-    it { should be_a(Api::BaseController) }
+describe Api::SignOutsController do
+  it { should be_a(Api::BaseController) }
 
-    it { should use_before_action(:authenticate!) }
+  it { should use_before_action(:authenticate) }
 
-    describe '#destroy' do
-      context 'when authorized' do
-        before { sign_in }
+  describe '#destroy' do
+    context 'when user authorized' do
+      before { sign_in }
 
-        let(:request1) { double.as_null_object }
+      let(:request1) { double.as_null_object }
 
-        before { expect(subject).to receive(:request).and_return(request1).at_least(:once) }
+      before { expect(subject).to receive(:request).and_return(request1).at_least(:once) }
 
-        before do
-          #
-          # Api::SignOut.new(request).destroy!
-          #
-          expect(Api::SignOut).to receive(:new).with(request1) do
-            double.tap do |a|
-              expect(a).to receive(:destroy!)
-            end
+      before do
+        #
+        # Api::SignOutForm.new(request).destroy!
+        #
+        expect(Api::SignOutForm).to receive(:new).with(request1) do
+          double.tap do |a|
+            expect(a).to receive(:destroy)
           end
         end
-
-        before { delete :destroy, params: { format: :json } }
-
-        it { should respond_with(:no_content) }
       end
 
-      context 'when not authorized' do
-        before { delete :destroy, params: { format: :json } }
+      before { delete :destroy, params: { format: :json } }
 
-        it { should respond_with(:unauthorized) }
-      end
+      it { should respond_with(:no_content) }
+    end
 
-      context 'when not supported accept type' do
-        before { delete :destroy, params: { format: :html } }
+    context 'when user not authorized' do
+      before { delete :destroy, params: { format: :json } }
 
-        it { should respond_with(:not_acceptable) }
-      end
+      it { should respond_with(:unauthorized) }
+    end
+
+    context 'when not supported accept type' do
+      before { delete :destroy, params: { format: :html } }
+
+      pending { should respond_with(:not_acceptable) }
     end
   end
 end
