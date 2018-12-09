@@ -40,7 +40,7 @@ describe Api::SignOutsController do
     context 'when not supported accept type' do
       before { delete :destroy, params: { format: :html } }
 
-      pending { should respond_with(:not_acceptable) }
+      it { should respond_with(:not_acceptable) }
     end
   end
 end
