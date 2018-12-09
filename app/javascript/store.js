@@ -6,17 +6,9 @@ axios.defaults.baseURL = 'http://localhost:3000';
 axios.defaults.headers.common.Accept = 'application/json';
 axios.defaults.timeout = 15000; // 15 seconds
 
-axios.interceptors.request.use((config) => {
-  if (store.state.token) {
-    config.headers.Authorization = `Bearer ${store.state.token}`;
-  }
-
-  return config;
-});
-
 Vue.use(Vuex);
 
-let store = new Vuex.Store({
+const store = new Vuex.Store({
   state: {
     currentUser: null,
     session_id: null,
@@ -75,7 +67,6 @@ let store = new Vuex.Store({
     async signOut({ commit, state }) {
       try {
         await axios.delete('/api/sign_out');
-      } catch (error) {
       } finally {
         commit('signOutUser');
       }
@@ -116,3 +107,11 @@ let store = new Vuex.Store({
 });
 
 export default store;
+
+axios.interceptors.request.use((config) => {
+  if (store.state.token) {
+    config.headers.Authorization = `Bearer ${store.state.token}`;
+  }
+
+  return config;
+});
