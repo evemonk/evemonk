@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 describe Api::SignOutForm do
-  let(:request) { double }
+  let(:request) { double } # TODO: use instance_double
 
   subject { described_class.new(request) }
 
