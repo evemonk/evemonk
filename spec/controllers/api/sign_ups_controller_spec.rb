@@ -2,96 +2,91 @@
 
 require 'rails_helper'
 
-module Api
-  describe SignUpsController do
-    it { should be_a(Api::BaseController) }
+describe Api::SignUpsController do
+  it { should be_a(Api::BaseController) }
 
-    it { should_not use_before_action(:authenticate!) }
+  it { should_not use_before_action(:authenticate) }
 
-    describe '#create' do
-      context 'when user successfully created' do
-        let(:session) { instance_double(Session) }
+  describe '#create' do
+    context 'when form valid' do
+      let(:session) { instance_double(Session) }
 
-        let(:sign_up) { instance_double(Api::SignUp, session: session, save: true) }
+      let(:form) { instance_double(Api::SignUpForm, session: session, save: true) }
 
-        before do
-          #
-          # Api::SignUp.new(email: 'me@example.com',
-          #                 password: 'password',
-          #                 password_confirmation: 'password') => sign_up
-          #
-          expect(SignUp).to receive(:new).with(permitter(email: 'me@example.com',
-                                                         password: 'password',
-                                                         password_confirmation: 'password'))
-                                         .and_return(sign_up)
-        end
-
-        before do
-          #
-          # SessionDecorator.new(sign_up.session,
-          #                      context: { with_token: true })
-          expect(SessionDecorator).to receive(:new).with(session, context: { with_token: true })
-        end
-
-        before do
-          post :create, params: {
-            sign_up: {
-              email: 'me@example.com',
-              password: 'password',
-              password_confirmation: 'password'
-            },
-            format: :json
-          }
-        end
-
-        it { should respond_with(:ok) }
+      before do
+        #
+        # Api::SignUpForm.new(email: 'me@example.com',
+        #                     password: 'password',
+        #                     password_confirmation: 'password') # => form
+        #
+        expect(Api::SignUpForm).to receive(:new).with(permitter(email: 'me@example.com',
+                                                                password: 'password',
+                                                                password_confirmation: 'password'))
+                                                .and_return(form)
       end
 
-      context 'when user not created due errors' do
-        let(:errors) { double }
-
-        let(:sign_up) { instance_double(Api::SignUp, errors: errors, save: false) }
-
-        before do
-          #
-          # Api::SignUp.new(email: 'me@example.com',
-          #                 password: 'password',
-          #                 password_confirmation: 'password') => sign_up
-          #
-          expect(SignUp).to receive(:new).with(permitter(email: 'me@example.com',
-                                                         password: 'password',
-                                                         password_confirmation: 'password'))
-                                         .and_return(sign_up)
-        end
-
-        before do
-          post :create, params: {
-            sign_up: {
-              email: 'me@example.com',
-              password: 'password',
-              password_confirmation: 'password'
-            },
-            format: :json
-          }
-        end
-
-        it { should respond_with(:unprocessable_entity) }
+      before do
+        post :create, params: {
+          sign_up: {
+            email: 'me@example.com',
+            password: 'password',
+            password_confirmation: 'password'
+          },
+          format: :json
+        }
       end
 
-      context 'when not supported accept type' do
-        before do
-          post :create, params: {
-            sign_up: {
-              email: 'me@example.com',
-              password: 'password',
-              password_confirmation: 'password'
-            },
-            format: :html
-          }
-        end
+      it { should respond_with(:ok) }
 
-        it { should respond_with(:not_acceptable) }
+      it { should render_template(:create) }
+    end
+
+    context 'when form not valid' do
+      let(:errors) { instance_double(ActiveModel::Errors) }
+
+      let(:form) { instance_double(Api::SignUpForm, errors: errors, save: false) }
+
+      before do
+        #
+        # Api::SignUpForm.new(email: 'me@example.com',
+        #                 password: 'password',
+        #                 password_confirmation: 'password') # => form
+        #
+        expect(Api::SignUpForm).to receive(:new).with(permitter(email: 'me@example.com',
+                                                                password: 'password',
+                                                                password_confirmation: 'another password'))
+                                                .and_return(form)
       end
+
+      before do
+        post :create, params: {
+          sign_up: {
+            email: 'me@example.com',
+            password: 'password',
+            password_confirmation: 'another password'
+          },
+          format: :json
+        }
+      end
+
+      it { should respond_with(:unprocessable_entity) }
+
+      it { should render_template(:errors) }
+    end
+
+    context 'when not supported accept type' do
+      before do
+        post :create, params: {
+          sign_up: {
+            email: 'me@example.com',
+            password: 'password',
+            password_confirmation: 'password'
+          },
+          format: :html
+        }
+      end
+
+      pending { should respond_with(:not_acceptable) }
     end
   end
 end
