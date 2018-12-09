@@ -2,6 +2,6 @@
 
 require 'rails_helper'
 
-describe MainController do
+describe WelcomeController do
   it { should be_a(ApplicationController) }
 end
