@@ -1,0 +1,17 @@
+# gem 'rufus-scheduler'
+# gem 'eve_online'
+gem 'eve_online', git: 'https://github.com/biow0lf/eve_online.git', branch: 'master'
+# gem 'eve_online', path: '~/opensource/eve_online'
+gem 'rack-cors', require: 'rack/cors'
+gem 'draper'
+gem 'sidekiq', require: false
+gem 'sidekiq-scheduler', require: false
+gem 'sinatra', require: false
+gem 'rpush'
+gem 'pghero'
+gem 'pg_query'
+# gem 'rubycritic', require: false
+gem 'http_logger'
+
+
+
