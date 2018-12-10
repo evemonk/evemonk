@@ -1,35 +1,21 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
   <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
     <title>EveMonk: EveOnline management suite</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= javascript_pack_tag 'evemonk_vue' %>
   </head>
 
   <body>
     <div class="container">
-      <div id="header">
-      </div>
-
-      <div id="flash">
-      </div>
-
       <%= yield %>
-
-      <div id="content">
-      </div>
     </div>
-
-    <%= javascript_include_tag 'application' %>
-
-    <script>
-        $(document).ready(function() {
-            EvemonkApp.initialize();
-        });
-    </script>
-
-    <%= yield :javascript %>
   </body>
 </html>
