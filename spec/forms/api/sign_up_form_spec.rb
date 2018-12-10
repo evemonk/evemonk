@@ -54,7 +54,7 @@ describe Api::SignUpForm, type: :model do
       specify { expect { subject.save }.not_to change { Session.count } }
     end
 
-    context 'user valid but email has already been taken' do
+    context 'when user valid but email has already been taken' do
       let!(:existed_user) { create(:user, email: 'ME@EXAMPLE.COM') }
 
       let(:params) do
