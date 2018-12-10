@@ -1299,14 +1299,14 @@ caniuse-api@^2.0.0:
     lodash.uniq "^4.5.0"
 
 caniuse-db@^1.0.30000529, caniuse-db@^1.0.30000634, caniuse-db@^1.0.30000639:
-  version "1.0.30000916"
-  resolved "https://registry.yarnpkg.com/caniuse-db/-/caniuse-db-1.0.30000916.tgz#44556ba3f7360a4e103950fc58cc98b74d253da1"
-  integrity sha512-XuMzGxlFYXDEm+e/6ti7ThqQki/hRXHw4aaFMQXtFHYoj2XNn92zZ5aH75AADfQ1tnXoZTOvS2+NbaaWWPypIw==
+  version "1.0.30000918"
+  resolved "https://registry.yarnpkg.com/caniuse-db/-/caniuse-db-1.0.30000918.tgz#650a34372ced440a79fa600644667802c6a4b9c2"
+  integrity sha512-ZaBZBV3FSuGf1/rOEMY+hfyb2GNgOY9vXQzBSVtXEeLTbYu5y/qcXeu8oFXG6WX9LhLf+v+JEH8lT7YWUHb6VA==
 
 caniuse-lite@^1.0.0, caniuse-lite@^1.0.30000792, caniuse-lite@^1.0.30000805, caniuse-lite@^1.0.30000844:
-  version "1.0.30000916"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30000916.tgz#3428d3f529f0a7b2bfaaec65e796037bdd433aab"
-  integrity sha512-D6J9jloPm2MPkg0PXcODLMQAJKkeixKO9xhqTUMvtd44MtTYMyyDXPQ2Lk9IgBq5FH0frwiPa/N/w8ncQf7kIQ==
+  version "1.0.30000918"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30000918.tgz#6288f79da3c5c8b45e502f47ad8f3eb91f1379a9"
+  integrity sha512-CAZ9QXGViBvhHnmIHhsTPSWFBujDaelKnUj7wwImbyQRxmXynYqKGi3UaZTSz9MoVh+1EVxOS/DFIkrJYgR3aw==
 
 case-sensitive-paths-webpack-plugin@^2.1.2:
   version "2.1.2"
@@ -4463,9 +4463,9 @@ node-pre-gyp@^0.10.0:
     tar "^4"
 
 node-sass@^4.9.2:
-  version "4.10.0"
-  resolved "https://registry.yarnpkg.com/node-sass/-/node-sass-4.10.0.tgz#dcc2b364c0913630945ccbf7a2bbf1f926effca4"
-  integrity sha512-fDQJfXszw6vek63Fe/ldkYXmRYK/QS6NbvM3i5oEo9ntPDy4XX7BcKZyTKv+/kSSxRtXXc7l+MSwEmYc0CSy6Q==
+  version "4.11.0"
+  resolved "https://registry.yarnpkg.com/node-sass/-/node-sass-4.11.0.tgz#183faec398e9cbe93ba43362e2768ca988a6369a"
+  integrity sha512-bHUdHTphgQJZaF1LASx0kAviPH7sGlcyNhWade4eVIpFp6tsn7SV8xNMTbsQFpEV9VXpnwTTnNYlfsZXgGgmkA==
   dependencies:
     async-foreach "^0.1.3"
     chalk "^1.1.1"
@@ -7164,9 +7164,9 @@ vue-style-loader@^4.0.1:
     loader-utils "^1.0.2"
 
 vue-template-compiler@^2.5.18:
-  version "2.5.18"
-  resolved "https://registry.yarnpkg.com/vue-template-compiler/-/vue-template-compiler-2.5.18.tgz#8a346e477c5ada6efc890a2db4857090a2c54a05"
-  integrity sha512-WG2G+r5YxqkbTyJnbpkJuISTVI9MvYNGAZVKnmn8S4AoP0R0OufIKrHEV+GKwilLa+p3t/Plo8FzJXdhL9m4Sw==
+  version "2.5.20"
+  resolved "https://registry.yarnpkg.com/vue-template-compiler/-/vue-template-compiler-2.5.20.tgz#b9c01741b7e0261d1c5aac5937c93bde98f880f0"
+  integrity sha512-aGJRLd1bJZi6oerGwCQVaDqvQ1T3dhCbNg9C2gNwzoKnyA3BmYfAWy8OQ3OhOebTri8o4YcLeXfwOOxtOKFfmA==
   dependencies:
     de-indent "^1.0.2"
     he "^1.1.0"
@@ -7177,9 +7177,9 @@ vue-template-es2015-compiler@^1.6.0:
   integrity sha512-x3LV3wdmmERhVCYy3quqA57NJW7F3i6faas++pJQWtknWT+n7k30F4TVdHvCLn48peTJFRvCpxs3UuFPqgeELg==
 
 vue@^2.5.18:
-  version "2.5.18"
-  resolved "https://registry.yarnpkg.com/vue/-/vue-2.5.18.tgz#885586eda5c8efc77140a497500b73620e53c1dd"
-  integrity sha512-j4oT4jQdhBf3dUxzu1ogjkhzMU44AtwqtLz7oq/u7340/lmUUogTG6/D6P4/J2cCosoM21MqMIUsQchPKS4elg==
+  version "2.5.20"
+  resolved "https://registry.yarnpkg.com/vue/-/vue-2.5.20.tgz#79fff9ccaa10cc37e7a7239b4c7adfac94df81ba"
+  integrity sha512-kVLZi8RWOk8qwAt+a0bVDy9VV5Zzcnj0fLCMyKLx1dmEBjqmYJYRWHvPwiypiJBtJkdmROy5NP5hyDqTdfBcvQ==
 
 vuex@^3.0.1:
   version "3.0.1"
