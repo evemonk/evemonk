@@ -13,7 +13,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 # gem 'rufus-scheduler'
 gem 'bcrypt'
 # gem 'eve_online'
-gem 'eve_online', git: 'https://github.com/biow0lf/eve_online.git', ref: '6557d81468b0a16140d13674be824c2b7d398bc5'
+gem 'eve_online', git: 'https://github.com/biow0lf/eve_online.git', branch: 'master'
 # gem 'eve_online', path: '~/opensource/eve_online'
 gem 'omniauth-eve_online-sso'
 gem 'rack-cors', require: 'rack/cors'
