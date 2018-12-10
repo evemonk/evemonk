@@ -14,11 +14,11 @@ module Api
     end
 
     def destroy
-      @character = Character.find(params[:id])
+      character = Character.find(params[:id])
 
-      authorize(@character)
+      authorize(character)
 
-      @character.destroy!
+      character.destroy!
 
       head :no_content
     end
