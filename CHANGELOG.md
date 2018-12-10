@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.1.0
+
+* Port to Vue.js
+
 ## v0.0.2
 
 * Update ruby and ruby gems
