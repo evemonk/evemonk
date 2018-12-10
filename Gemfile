@@ -33,7 +33,6 @@ gem 'responders'
 gem 'rack-health'
 
 group :production do
-  # gem 'lograge'
   gem 'newrelic_rpm'
   gem 'rack-timeout'
 end
@@ -42,17 +41,16 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'awesome_print', require: 'ap'
   gem 'pry-rails'
-
-  # gem 'bullet'
+  gem 'bullet'
   gem 'factory_bot_rails'
   gem 'faker'
-  # gem 'sql_tracker'
+  gem 'sql_tracker'
   gem 'bundler-audit', require: false
   gem 'rubocop', require: false
-  # gem 'rubocop-thread_safety', require: false
-  # gem 'rubocop-rspec', require: false
-  # gem 'mry', require: false
-  # gem 'squasher', require: false
+  gem 'rubocop-thread_safety', require: false
+  gem 'rubocop-rspec', require: false
+  gem 'mry', require: false
+  gem 'squasher', require: false
   gem 'mdl', require: false
   gem 'brakeman', require: false
 end
@@ -63,10 +61,10 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'spring-commands-rspec', require: false
   gem 'spring-commands-rubocop', require: false
-  # gem 'consistency_fail', require: false
-  # gem 'rails_best_practices'
-  # gem 'license_finder', require: false
-  # gem 'active_record_doctor'
+  gem 'consistency_fail', require: false
+  gem 'rails_best_practices'
+  gem 'license_finder', require: false
+  gem 'active_record_doctor'
   gem 'ed25519', '>= 1.2', '< 2.0' # net-ssh requires the following gems for ed25519 support
   gem 'bcrypt_pbkdf', '>= 1.0', '< 2.0' # net-ssh requires the following gems for ed25519 support
   gem 'capistrano', require: false
@@ -75,7 +73,7 @@ group :development do
   gem 'capistrano-rbenv', require: false
   gem 'capistrano-rbenv-install', require: false
   # gem 'overcommit', require: false
-  # gem 'cacheflow'
+  gem 'cacheflow'
   # gem 'licensed', require: false
 end
 
