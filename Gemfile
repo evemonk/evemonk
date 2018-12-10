@@ -89,9 +89,9 @@ group :test do
   gem 'chromedriver-helper'
   gem 'rails-controller-testing'
   gem 'shoulda-matchers', '4.0.0.rc1'
-  # gem 'rspec-its'
-  # gem 'shoulda-callback-matchers', git: 'https://github.com/jdliss/shoulda-callback-matchers.git',
-  #                                  branch: 'master'
+  gem 'rspec-its'
+  gem 'shoulda-callback-matchers', git: 'https://github.com/jdliss/shoulda-callback-matchers.git',
+                                   branch: 'master'
   gem 'simplecov'
   gem 'database_rewinder'
   gem 'webmock'
