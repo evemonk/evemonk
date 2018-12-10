@@ -30,14 +30,15 @@ describe SessionPolicy do
 
     specify { expect(subject.index?).to eq(false) }
   end
+
   describe '#show?' do
-    context 'character owner' do
+    context 'when character owner' do
       subject { described_class.new(user, record) }
 
       specify { expect(subject.show?).to eq(true) }
     end
 
-    context 'another user' do
+    context 'when another user' do
       subject { described_class.new(another_user, record) }
 
       specify { expect(subject.show?).to eq(false) }
@@ -53,13 +54,13 @@ describe SessionPolicy do
   end
 
   describe '#update?' do
-    context 'character owner' do
+    context 'when character owner' do
       subject { described_class.new(user, record) }
 
       specify { expect(subject.update?).to eq(true) }
     end
 
-    context 'another user' do
+    context 'when another user' do
       subject { described_class.new(another_user, record) }
 
       specify { expect(subject.update?).to eq(false) }
@@ -67,13 +68,13 @@ describe SessionPolicy do
   end
 
   describe '#destroy?' do
-    context 'character owner' do
+    context 'when character owner' do
       subject { described_class.new(user, record) }
 
       specify { expect(subject.destroy?).to eq(true) }
     end
 
-    context 'another user' do
+    context 'when another user' do
       subject { described_class.new(another_user, record) }
 
       specify { expect(subject.destroy?).to eq(false) }
@@ -114,13 +115,13 @@ describe SessionPolicy::Scope do
 
     let!(:another_user) { create(:user) }
 
-    context 'owner' do
+    context 'when owner' do
       subject { described_class.new(user, Session) }
 
       specify { expect(subject.resolve.all).to eq([record]) }
     end
 
-    context 'other' do
+    context 'when another other' do
       subject { described_class.new(another_user, Session) }
 
       specify { expect(subject.resolve.all).to eq([]) }
