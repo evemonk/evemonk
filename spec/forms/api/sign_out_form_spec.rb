@@ -7,7 +7,7 @@ describe Api::SignOutForm do
 
   it { should be_a(ActionController::HttpAuthentication::Token) }
 
-  describe '#destroy' do
+  describe '#destroy!' do
     let!(:user) { create(:user) }
 
     let!(:session) { create(:session, user: user) }
@@ -20,6 +20,6 @@ describe Api::SignOutForm do
                                                     .and_return([session.token])
     end
 
-    specify { expect { subject.destroy }.to change { user.sessions.count }.by(-1) }
+    specify { expect { subject.destroy! }.to change { user.sessions.count }.by(-1) }
   end
 end

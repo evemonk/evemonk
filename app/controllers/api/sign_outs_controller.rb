@@ -5,7 +5,7 @@ module Api
     def destroy
       form = SignOutForm.new(request)
 
-      form.destroy
+      form.destroy!
 
       skip_authorization
 

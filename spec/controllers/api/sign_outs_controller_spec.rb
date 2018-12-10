@@ -11,20 +11,15 @@ describe Api::SignOutsController do
     context 'when user authorized' do
       before { sign_in }
 
+      let(:form) { instance_double(Api::SignOutForm) }
+
       let(:request1) { double.as_null_object }
 
       before { expect(subject).to receive(:request).and_return(request1).at_least(:once) }
 
-      before do
-        #
-        # Api::SignOutForm.new(request).destroy!
-        #
-        expect(Api::SignOutForm).to receive(:new).with(request1) do
-          double.tap do |a|
-            expect(a).to receive(:destroy)
-          end
-        end
-      end
+      before { expect(Api::SignOutForm).to receive(:new).with(request1).and_return(form) }
+
+      before { expect(form).to receive(:destroy!) }
 
       before { delete :destroy, params: { format: :json } }
 

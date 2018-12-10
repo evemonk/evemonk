@@ -8,12 +8,12 @@ module Api
       @request = request
     end
 
-    def destroy
+    def destroy!
       token, = token_and_options(@request)
 
       session = Session.find_by!(token: token)
 
-      session.destroy
+      session.destroy!
     end
   end
 end
