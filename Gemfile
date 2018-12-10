@@ -19,19 +19,16 @@ gem 'omniauth-eve_online-sso'
 gem 'rack-cors', require: 'rack/cors'
 gem 'kaminari'
 gem 'pundit'
-# gem 'draper'
 gem 'dotenv-rails'
 gem 'sidekiq', require: false
 gem 'sidekiq-scheduler', require: false
 gem 'sinatra', require: false
 gem 'rpush'
-gem 'rack-dev-mark'
 gem 'pghero'
 gem 'pg_query'
 # gem 'rubycritic', require: false
 gem 'swagger-blocks'
 gem 'http_logger'
-# gem 'rack-dev-mark'
 gem 'responders'
 gem 'rack-health'
 
