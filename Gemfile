@@ -94,6 +94,6 @@ group :test do
   #                                  branch: 'master'
   gem 'simplecov'
   gem 'database_rewinder'
-  # gem 'webmock'
-  # gem 'vcr'
+  gem 'webmock'
+  gem 'vcr'
 end
