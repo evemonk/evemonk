@@ -25,6 +25,8 @@ describe Api::CharactersController do
         end
       end
 
+      before { subject.instance_variable_set(:@_pundit_policy_scoped, true) }
+
       before { get :index, params: { format: :json, page: '1' } }
 
       it { should respond_with(:ok) }
@@ -47,13 +49,15 @@ describe Api::CharactersController do
 
   describe '#show' do
     context 'when user signed in' do
-      let(:character) { build_stubbed(:character, id: 1) }
+      let(:character) { instance_double(Character, id: 1) }
 
       before { sign_in }
 
       before { expect(Character).to receive(:find).with('1').and_return(character) }
 
       before { expect(subject).to receive(:authorize).with(character) }
+
+      before { subject.instance_variable_set(:@_pundit_policy_authorized, true) }
 
       before { get :show, params: { id: '1', format: :json } }
 
@@ -77,7 +81,7 @@ describe Api::CharactersController do
 
   describe '#destroy' do
     context 'when user signed in' do
-      let(:character) { build_stubbed(:character, id: 1) }
+      let(:character) { instance_double(Character, id: 1) }
 
       before { sign_in }
 
@@ -86,6 +90,8 @@ describe Api::CharactersController do
       before { expect(subject).to receive(:authorize).with(character) }
 
       before { expect(character).to receive(:destroy!) }
+
+      before { subject.instance_variable_set(:@_pundit_policy_authorized, true) }
 
       before { delete :destroy, params: { id: '1', format: :json } }
 
