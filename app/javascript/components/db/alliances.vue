@@ -14,7 +14,7 @@
         <th>Corps count</th>
         <th>Members count</th>
       </thead>
-      <tr v-for="alliance in alliances">
+      <tr v-for="alliance in alliances" :key="alliance.id">
           <td>{{ alliance.id }}</td>
           <td><img :src="alliance.icon" height="64" width="64"></td>
           <td>{{ alliance.name }}</td>
