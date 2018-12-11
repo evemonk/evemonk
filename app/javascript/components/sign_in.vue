@@ -75,7 +75,7 @@
 </template>
 
 <script>
-    import { mapActions } from 'vuex';
+    import { mapActions, mapMutations } from 'vuex';
 
     export default {
         data () {
@@ -96,6 +96,10 @@
                 'signIn': 'signIn'
             }),
 
+            ...mapMutations({
+                'setFlash': 'setFlash'
+            }),
+
             onSubmit () {
                 const formData = {
                     sign_in: {
@@ -106,6 +110,11 @@
 
                 this.signIn(formData).then(response => {
                     if (response && response.status === 200) {
+                        let type = "success";
+                        let message = "Successful signed in!";
+
+                        this.setFlash(type, message);
+
                         this.$router.push('/profile');
                     } else if (response.response && response.response.status === 422) {
                         this.isValidated = true;

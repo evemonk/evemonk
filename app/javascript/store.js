@@ -13,12 +13,21 @@ const store = new Vuex.Store({
     currentUser: null,
     session_id: null,
     token: localStorage.getItem('token') || null,
+    flashes: {
+      success: [],
+      warning: [],
+      error: [],
+    },
   },
 
   getters: {
     isAuthenticated(state) {
       return state.token;
     },
+
+    // getFlashes(state) {
+    //   return state.flashes;
+    // },
   },
 
   mutations: {
@@ -36,6 +45,13 @@ const store = new Vuex.Store({
     signOutUser(state) {
       state.token = null;
       localStorage.removeItem('token');
+      state.flashes.error = [];
+      state.flashes.warning = [];
+      state.flashes.success = [];
+    },
+
+    setFlash(state, type, message) {
+      state.flashes[type].push(message);
     },
   },
 
