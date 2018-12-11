@@ -1,151 +1,87 @@
 <template>
-    <div id="sign_in">
-        <template v-if="errors.base && errors.base.length">
-            <template v-for="error in errors.base">
-                <div class="alert alert-danger" role="alert">
-                    {{ error }}
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-            </template>
-        </template>
+  <div id="sign_up">
+    <template v-if="this.errors.base && this.errors.base.length">
+      <v-alert v-for="(base, index) in this.errors.base"
+               color="error"
+               type="error"
+               dismissible
+               :key="index"
+               :value="true"
+               @click="clearBaseErrors">
+        {{ base }}
+      </v-alert>
+    </template>
 
-        <h1>Sign In</h1>
-
-        <form @submit.prevent="onSubmit" novalidate :class="{ 'was-validated': isValidated }">
-            <div class="form-group">
-                <label for="email" class="sr-only">Email:</label>
-                <input id="email"
-                       type="email"
-                       class="form-control"
-                       :class="validOrNotEmailClass()"
-                       placeholder="john.appleseed@example.com"
-                       autofocus
-                       required
-                       v-model="email">
-                <template v-if="errors.email && errors.email.length">
-                    <div class="invalid-feedback">
-                        <template v-for="error in errors.email">
-                            {{ error }}
-                        </template>
-                    </div>
-                </template>
-                <template v-else>
-                    <div class="valid-feedback">
-                        Looks good!
-                    </div>
-                </template>
-            </div>
-
-            <div class="form-group">
-                <label for="password" class="sr-only">Password:</label>
-                <input id="password"
-                       type="password"
-                       class="form-control"
-                       :class="validOrNotPasswordClass()"
-                       placeholder="Password"
-                       required
-                       v-model="password">
-                <template v-if="errors.password && errors.password.length">
-                    <div class="invalid-feedback">
-                        <template v-for="error in errors.password">
-                            {{ error }}
-                        </template>
-                    </div>
-                </template>
-                <template v-else>
-                    <div class="valid-feedback">
-                        Looks good!
-                    </div>
-                </template>
-            </div>
-
-            <div class="form-group">
-                <button type="submit" class="btn btn-primary btn-block">Sign in</button>
-            </div>
-
-            <hr />
-
-            <div class="form-group">
-                <a href="/auth/eve_online_sso"><img src="https://images.contentful.com/idjq7aai9ylm/4fSjj56uD6CYwYyus4KmES/4f6385c91e6de56274d99496e6adebab/EVE_SSO_Login_Buttons_Large_Black.png?w=270&h=45" alt="Sign in via EveOnline SSO"></a>
-            </div>
-        </form>
-    </div>
+    <v-form v-model="valid">
+      <v-text-field id="email"
+                    type="email"
+                    placeholder="john.appleseed@example.com"
+                    label="Email:"
+                    v-model="email"
+                    :error-messages="this.errors.email"
+                    autofocus
+                    required>
+      </v-text-field>
+      <v-text-field id="password"
+                    type="password"
+                    label="Password"
+                    :error-messages="this.errors.password"
+                    v-model="password"
+                    required>
+      </v-text-field>
+      <v-btn @click="submit">Sign In</v-btn>
+    </v-form>
+  </div>
 </template>
 
 <script>
-    import { mapActions, mapMutations } from 'vuex';
+  import { mapActions } from 'vuex';
 
-    export default {
-        data () {
-            return {
-                email: '',
-                password: '',
-                errors: {
-                    base: [],
-                    email: [],
-                    password: []
-                },
-                isValidated: false
-            }
+  export default {
+    data () {
+      return {
+        valid: true,
+        email: '',
+        password: '',
+        errors: {
+          base: [],
+          email: [],
+          password: []
         },
+      }
+    },
 
-        methods: {
-            ...mapActions({
-                'signIn': 'signIn'
-            }),
+    methods: {
+      ...mapActions({
+        'signIn': 'signIn'
+      }),
 
-            ...mapMutations({
-                'setFlash': 'setFlash'
-            }),
+      submit() {
+        const formData = {
+          sign_in: {
+            email: this.email,
+            password: this.password
+          }
+        };
 
-            onSubmit () {
-                const formData = {
-                    sign_in: {
-                        email: this.email,
-                        password: this.password
-                    }
-                };
+        this.signIn(formData).then(response => {
+          if (response && response.status === 200) {
+            // let type = "success";
+            // let message = "Successful signed in!";
 
-                this.signIn(formData).then(response => {
-                    if (response && response.status === 200) {
-                        let type = "success";
-                        let message = "Successful signed in!";
+            // this.setFlash(type, message);
 
-                        this.setFlash(type, message);
+            this.$router.push('/profile');
+          } else if (response.response && response.response.status === 422) {
+            this.valid = false;
+            this.errors = response.response.data.errors;
+          }
+        });
+      },
 
-                        this.$router.push('/profile');
-                    } else if (response.response && response.response.status === 422) {
-                        this.isValidated = true;
-                        this.errors = response.response.data.errors;
-                    }
-                });
-            },
-
-            validOrNotEmailClass () {
-                if (this.isValidated === true) {
-                    if (this.errors.email && this.errors.email.length) {
-                        return 'is-invalid';
-                    } else {
-                        return 'is-valid';
-                    }
-                } else {
-                    return '';
-                }
-            },
-
-            validOrNotPasswordClass () {
-                if (this.isValidated === true) {
-                    if (this.errors.password && this.errors.password.length) {
-                        return 'is-invalid';
-                    } else {
-                        return 'is-valid';
-                    }
-                } else {
-                    return '';
-                }
-            }
-        }
+      clearBaseErrors() {
+        this.errors.base = [];
+      }
     }
+  }
 </script>
