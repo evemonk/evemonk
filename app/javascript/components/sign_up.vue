@@ -95,6 +95,10 @@
             this.errors = response.response.data.errors;
           }
         });
+      },
+
+      clearBaseErrors() {
+        this.errors.base = [];
       }
     }
   }
