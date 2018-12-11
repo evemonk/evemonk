@@ -42,7 +42,6 @@ describe 'Sign in features' do
       fill_in 'email', with: 'me@example.com'
       fill_in 'password', with: 'eidii7EeooVe8ahk'
       click_button 'Sign in'
-      wait_for_ajax
     }.not_to change(Session, :count)
 
     expect(current_path).to eq('/sign_in')
