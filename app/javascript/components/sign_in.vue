@@ -1,7 +1,7 @@
 <template>
   <div id="sign_up">
-    <template v-if="this.errors.base && this.errors.base.length">
-      <v-alert v-for="(base, index) in this.errors.base"
+    <template v-if="errors.base && errors.base.length">
+      <v-alert v-for="(base, index) in errors.base"
                color="error"
                type="error"
                dismissible
@@ -18,14 +18,14 @@
                     placeholder="john.appleseed@example.com"
                     label="Email:"
                     v-model="email"
-                    :error-messages="this.errors.email"
+                    :error-messages="errors.email"
                     autofocus
                     required>
       </v-text-field>
       <v-text-field id="password"
                     type="password"
                     label="Password"
-                    :error-messages="this.errors.password"
+                    :error-messages="errors.password"
                     v-model="password"
                     required>
       </v-text-field>
