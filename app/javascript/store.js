@@ -72,13 +72,13 @@ const store = new Vuex.Store({
       }
     },
 
-    // async fetchProfile ({ commit, state }) {
-    //     try {
-    //         return await axios.get('/api/profile');
-    //     } catch (error) {
-    //         return error;
-    //     }
-    // },
+    async fetchProfile({ commit, state }) {
+      try {
+        return await axios.get('/api/profile');
+      } catch (error) {
+        return error;
+      }
+    },
 
     // async fetchCharacters ({ commit, state }, page) {
     //     try {
