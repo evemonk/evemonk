@@ -80,13 +80,13 @@ const store = new Vuex.Store({
       }
     },
 
-    // async fetchCharacters ({ commit, state }, page) {
-    //     try {
-    //         return await axios.get(`/api/characters?page=${page}`);
-    //     } catch (error) {
-    //         return error;
-    //     }
-    // },
+    async fetchCharacters({ commit, state }, page) {
+      try {
+        return await axios.get(`/api/characters?page=${page}`);
+      } catch (error) {
+        return error;
+      }
+    },
 
     // async fetchCharacterLoyaltyPoint ({ commit, state }, id) {
     //     try {
