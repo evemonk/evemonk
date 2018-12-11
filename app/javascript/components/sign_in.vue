@@ -29,7 +29,7 @@
                     v-model="password"
                     required>
       </v-text-field>
-      <v-btn @click="submit">Sign In</v-btn>
+      <v-btn @click="submit" color="primary">Sign In</v-btn>
     </v-form>
 
     <v-divider></v-divider>

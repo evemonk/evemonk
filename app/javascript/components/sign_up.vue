@@ -33,7 +33,7 @@
                     :error-messages="errors.password_confirmation"
                     v-model="password_confirmation">
       </v-text-field>
-      <v-btn @click="submit">Sign Up</v-btn>
+      <v-btn @click="submit" color="primary">Sign Up</v-btn>
 
     </v-form>
 
