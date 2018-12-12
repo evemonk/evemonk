@@ -2,14 +2,7 @@
   <div id="app">
     <v-app>
       <v-navigation-drawer app></v-navigation-drawer>
-      <v-toolbar app dark color="primary">
-        <v-toolbar-side-icon></v-toolbar-side-icon>
-        <v-toolbar-title class="white--text">EveMonk</v-toolbar-title>
-        <v-spacer></v-spacer>
-        <v-btn icon>
-          <v-icon>search</v-icon>
-        </v-btn>
-      </v-toolbar>
+      <app-toolbar></app-toolbar>
       <v-content>
         <v-container fluid>
           <router-view></router-view>
@@ -20,14 +13,11 @@
   </div>
 </template>
 
-    // <app-header />
-    // <app-flash />
-    // <router-view></router-view>
-
 <script>
   // import Header from './components/header.vue';
   // import Flash from './components/flash.vue';
   import Footer from './components/footer.vue';
+  import Toolbar from './components/toolbar.vue';
   import { mapGetters } from 'vuex';
 
   export default {
@@ -36,6 +26,7 @@
       // 'app-header': Header,
       // 'app-flash': Flash,
       'app-footer': Footer,
+      'app-toolbar': Toolbar,
     },
 
     computed: {
