@@ -1,7 +1,8 @@
 <template>
-    <div id="lpstore">
-        <h1>LP Store</h1>
-    </div>
+  <div id="lpstore">
+    <h1>LP Store</h1>
+  </div>
 </template>
 
-<script></script>
+<script>
+</script>
