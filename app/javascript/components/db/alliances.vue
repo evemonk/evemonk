@@ -28,44 +28,44 @@
 </template>
 
 <script>
-    import { mapActions } from 'vuex';
+  import { mapActions } from 'vuex';
 
-    export default {
-        data () {
-            return {
-                alliances: [],
-                current_page: 1,
-                total_count: null,
-                total_pages: null
-            }
-        },
+  export default {
+    data () {
+      return {
+        alliances: [],
+        current_page: 1,
+        total_count: null,
+        total_pages: null
+      }
+    },
 
-        watch: {
-            current_page: function (page) {
-                this.fetchAlliances(page).then(response => {
-                    if (response.status === 200) {
-                        this.total_count = response.data.total_count;
-                        this.total_pages = response.data.total_pages;
-                        this.alliances = response.data.alliances;
-                    }
-                })
-            }
-        },
+    watch: {
+      current_page: function (page) {
+        this.fetchAlliances(page).then(response => {
+          if (response.status === 200) {
+            this.total_count = response.data.total_count;
+            this.total_pages = response.data.total_pages;
+            this.alliances = response.data.alliances;
+          }
+        })
+      }
+    },
 
-        created () {
-            this.fetchAlliances(this.current_page).then(response => {
-                if (response.status === 200) {
-                    this.total_count = response.data.total_count;
-                    this.total_pages = response.data.total_pages;
-                    this.alliances = response.data.alliances;
-                }
-            });
-        },
-
-        methods: {
-            ...mapActions({
-                'fetchAlliances': 'fetchAlliances'
-            })
+    created () {
+      this.fetchAlliances(this.current_page).then(response => {
+        if (response.status === 200) {
+          this.total_count = response.data.total_count;
+          this.total_pages = response.data.total_pages;
+          this.alliances = response.data.alliances;
         }
+      });
+    },
+
+    methods: {
+      ...mapActions({
+        'fetchAlliances': 'fetchAlliances'
+      })
     }
+  }
 </script>
