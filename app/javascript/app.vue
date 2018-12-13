@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <v-app>
-      <v-navigation-drawer app></v-navigation-drawer>
+      <app-drawer></app-drawer>
       <app-toolbar></app-toolbar>
       <v-content>
         <v-container fluid>
@@ -16,8 +16,9 @@
 <script>
   // import Header from './components/header.vue';
   // import Flash from './components/flash.vue';
-  import Footer from './components/footer.vue';
+  import Drawer from './components/drawer.vue';
   import Toolbar from './components/toolbar.vue';
+  import Footer from './components/footer.vue';
   import { mapGetters } from 'vuex';
 
   export default {
@@ -25,8 +26,9 @@
     components: {
       // 'app-header': Header,
       // 'app-flash': Flash,
-      'app-footer': Footer,
+      'app-drawer': Drawer,
       'app-toolbar': Toolbar,
+      'app-footer': Footer,
     },
 
     computed: {

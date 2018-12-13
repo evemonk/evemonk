@@ -10,14 +10,11 @@ Vue.use(Vuex);
 
 const store = new Vuex.Store({
   state: {
+    drawer: null,
     currentUser: null,
     session_id: null,
     token: localStorage.getItem('token') || null,
-    flashes: {
-      success: [],
-      warning: [],
-      error: [],
-    },
+    flashes: {},
   },
 
   getters: {
@@ -25,9 +22,13 @@ const store = new Vuex.Store({
       return state.token;
     },
 
-    // getFlashes(state) {
-    //   return state.flashes;
-    // },
+    getDrawer(state) {
+      return state.drawer;
+    },
+
+    getFlashes(state) {
+      return state.flashes;
+    },
   },
 
   mutations: {
@@ -45,13 +46,15 @@ const store = new Vuex.Store({
     signOutUser(state) {
       state.token = null;
       localStorage.removeItem('token');
-      state.flashes.error = [];
-      state.flashes.warning = [];
-      state.flashes.success = [];
+      state.flashes = {};
     },
 
     setFlash(state, type, message) {
-      state.flashes[type].push(message);
+      state.flashes.push({ type, message });
+    },
+
+    setDrawer(state, option) {
+      state.drawer = option;
     },
   },
 
