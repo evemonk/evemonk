@@ -1,6 +1,6 @@
 <template>
   <v-toolbar app dark color="primary">
-    <v-toolbar-side-icon @click="onOffDrawer"></v-toolbar-side-icon>
+    <v-toolbar-side-icon @click="showDrawer"></v-toolbar-side-icon>
     <v-toolbar-title class="white--text">EveMonk</v-toolbar-title>
     <v-spacer></v-spacer>
     <v-btn icon>
@@ -20,7 +20,7 @@
         'getDrawer'
       ]),
 
-      onOffDrawer() {
+      showDrawer() {
         store.commit('setDrawer', !this.getDrawer());
       },
     }
