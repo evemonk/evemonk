@@ -485,6 +485,7 @@ DEPENDENCIES
   faker
   http_logger
   jbuilder (~> 2.5)
+  jwt
   kaminari
   license_finder
   listen (>= 3.0.5, < 3.2)
