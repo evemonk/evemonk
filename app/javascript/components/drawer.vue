@@ -20,7 +20,7 @@
     <v-list dense>
       <v-divider></v-divider>
 
-      <v-list-tile to="/sign_in">
+      <v-list-tile to="/sign_in" v-if="!isAuthenticated">
         <v-list-tile-action>
           <v-icon>folder</v-icon>
         </v-list-tile-action>
@@ -32,7 +32,7 @@
 
       <v-divider></v-divider>
 
-      <v-list-tile to="/sign_up">
+      <v-list-tile to="/sign_up" v-if="!isAuthenticated">
         <v-list-tile-action>
           <v-icon>folder</v-icon>
         </v-list-tile-action>
@@ -44,7 +44,7 @@
 
       <v-divider></v-divider>
 
-      <v-list-tile to="/sign_out">
+      <v-list-tile to="/sign_out" v-if="isAuthenticated">
         <v-list-tile-action>
           <v-icon>folder</v-icon>
         </v-list-tile-action>
@@ -67,6 +67,10 @@
 
   export default {
     computed: {
+      ...mapGetters([
+        'isAuthenticated'
+      ]),
+
       drawer: {
         get() {
           return this.getDrawer();
