@@ -18,53 +18,61 @@
     </v-toolbar>
 
     <v-list dense>
-      <v-divider></v-divider>
+      <template v-if="!isAuthenticated">
+        <v-divider></v-divider>
 
-      <v-list-tile to="/sign_in" v-if="!isAuthenticated">
-        <v-list-tile-action>
-          <v-icon>folder</v-icon>
-        </v-list-tile-action>
+        <v-list-tile to="/sign_in">
+          <v-list-tile-action>
+            <v-icon>folder</v-icon>
+          </v-list-tile-action>
 
-        <v-list-tile-content>
-          <v-list-tile-title>Sign in</v-list-tile-title>
-        </v-list-tile-content>
-      </v-list-tile>
+          <v-list-tile-content>
+            <v-list-tile-title>Sign in</v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
+      </template>
 
-      <v-divider></v-divider>
+      <template v-if="!isAuthenticated">
+        <v-divider></v-divider>
 
-      <v-list-tile to="/sign_up" v-if="!isAuthenticated">
-        <v-list-tile-action>
-          <v-icon>folder</v-icon>
-        </v-list-tile-action>
+        <v-list-tile to="/sign_up">
+          <v-list-tile-action>
+            <v-icon>folder</v-icon>
+          </v-list-tile-action>
 
-        <v-list-tile-content>
-          <v-list-tile-title>Sign up</v-list-tile-title>
-        </v-list-tile-content>
-      </v-list-tile>
+          <v-list-tile-content>
+            <v-list-tile-title>Sign up</v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
+      </template>
 
-      <v-divider></v-divider>
+      <template v-if="isAuthenticated">
+        <v-divider></v-divider>
 
-      <v-list-tile to="/profile" v-if="isAuthenticated">
-        <v-list-tile-action>
-          <v-icon>folder</v-icon>
-        </v-list-tile-action>
+        <v-list-tile to="/profile">
+          <v-list-tile-action>
+            <v-icon>folder</v-icon>
+          </v-list-tile-action>
 
-        <v-list-tile-content>
-          <v-list-tile-title>Profile</v-list-tile-title>
-        </v-list-tile-content>
-      </v-list-tile>
+          <v-list-tile-content>
+            <v-list-tile-title>Profile</v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
+      </template>
 
-      <v-divider></v-divider>
+      <template v-if="isAuthenticated">
+        <v-divider></v-divider>
 
-      <v-list-tile to="/characters" v-if="isAuthenticated">
-        <v-list-tile-action>
-          <v-icon>folder</v-icon>
-        </v-list-tile-action>
+        <v-list-tile to="/characters" v-if="isAuthenticated">
+          <v-list-tile-action>
+            <v-icon>folder</v-icon>
+          </v-list-tile-action>
 
-        <v-list-tile-content>
-          <v-list-tile-title>Characters</v-list-tile-title>
-        </v-list-tile-content>
-      </v-list-tile>
+          <v-list-tile-content>
+            <v-list-tile-title>Characters</v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
+      </template>
 
       <v-divider></v-divider>
 
@@ -78,17 +86,19 @@
         </v-list-tile-content>
       </v-list-tile>
 
-      <v-divider></v-divider>
+      <template v-if="isAuthenticated">
+        <v-divider></v-divider>
 
-      <v-list-tile to="/sign_out" v-if="isAuthenticated">
-        <v-list-tile-action>
-          <v-icon>folder</v-icon>
-        </v-list-tile-action>
+        <v-list-tile to="/sign_out">
+          <v-list-tile-action>
+            <v-icon>folder</v-icon>
+          </v-list-tile-action>
 
-        <v-list-tile-content>
-          <v-list-tile-title>Sign out</v-list-tile-title>
-        </v-list-tile-content>
-      </v-list-tile>
+          <v-list-tile-content>
+            <v-list-tile-title>Sign out</v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
+      </template>
 
       <v-divider></v-divider>
     </v-list>
