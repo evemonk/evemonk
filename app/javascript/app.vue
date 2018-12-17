@@ -14,7 +14,6 @@
 </template>
 
 <script>
-  // import Header from './components/header.vue';
   // import Flash from './components/flash.vue';
   import Drawer from './components/drawer.vue';
   import Toolbar from './components/toolbar.vue';
@@ -24,7 +23,6 @@
   export default {
     name: 'app',
     components: {
-      // 'app-header': Header,
       // 'app-flash': Flash,
       'app-drawer': Drawer,
       'app-toolbar': Toolbar,
