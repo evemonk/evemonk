@@ -70,7 +70,7 @@
       }),
 
       ...mapMutations({
-        'setFlash': 'setFlash'
+        'setAlert': 'setAlert'
       }),
 
       submit () {
@@ -84,10 +84,10 @@
 
         this.signUp(formData).then(response => {
           if (response && response.status === 200) {
-            // let type = "success";
-            // let message = "Successful signed up!";
+            let type = "success";
+            let message = "Successful signed up!";
 
-            // this.setFlash(type, message);
+            this.setAlert({ type, message });
 
             this.$router.push('/profile');
           } else if (response.response && response.response.status === 422) {

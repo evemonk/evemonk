@@ -54,8 +54,8 @@ const store = new Vuex.Store({
       state.alerts = [];
     },
 
-    setAlert(state, type, message) {
-      state.alerts.push({ type, message });
+    setAlert(state, alert) {
+      state.alerts.push(alert);
     },
 
     clearAlerts(state) {
