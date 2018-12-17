@@ -15,10 +15,10 @@ const store = new Vuex.Store({
     session_id: null,
     token: localStorage.getItem('token') || null,
     alerts: [
-      { type: 'info', message: 'Info' },
-      { type: 'success', message: 'Success' },
-      { type: 'warning', message: 'Warning' },
-      { type: 'error', message: 'Error' },
+      // { type: 'info', message: 'Info' },
+      // { type: 'success', message: 'Success' },
+      // { type: 'warning', message: 'Warning' },
+      // { type: 'error', message: 'Error' },
     ],
   },
 
@@ -56,6 +56,10 @@ const store = new Vuex.Store({
 
     setAlert(state, type, message) {
       state.alerts.push({ type, message });
+    },
+
+    clearAlerts(state) {
+      state.alerts = [];
     },
 
     setDrawer(state, option) {

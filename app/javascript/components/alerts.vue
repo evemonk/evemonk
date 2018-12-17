@@ -4,7 +4,8 @@
       <v-alert v-bind:type="alert.type"
                value=true
                dismissible
-               v-bind:key="index">
+               transition="scale-transition"
+               v-bind:key="index" @click="clearAlerts">
         {{ alert.message }}
       </v-alert>
     </template>
@@ -12,7 +13,7 @@
 </template>
 
 <script>
-  import { mapGetters } from 'vuex';
+  import { mapGetters, mapMutations } from 'vuex';
 
   export default {
     data () {
@@ -23,6 +24,12 @@
     computed: {
       ...mapGetters([
         'getAlerts'
+      ])
+    },
+
+    methods: {
+      ...mapMutations([
+        'clearAlerts'
       ])
     },
 
