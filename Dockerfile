@@ -27,7 +27,7 @@ RUN echo 'eval "$(rbenv init -)"' >> /root/.bash_profile
 
 RUN gem update --system
 
-ENV BUNDLER_VERSION 1.17.1
+ENV BUNDLER_VERSION 1.17.2
 
 RUN gem install bundler --version "$BUNDLER_VERSION" --force
 
