@@ -1,4 +1,14 @@
 GIT
+  remote: https://github.com/bblimke/webmock.git
+  revision: a135a37ff5f982a43806c52f2f7e778baba80797
+  branch: master
+  specs:
+    webmock (3.4.2)
+      addressable (>= 2.3.6)
+      crack (>= 0.3.2)
+      hashdiff
+
+GIT
   remote: https://github.com/biow0lf/eve_online.git
   revision: 6557d81468b0a16140d13674be824c2b7d398bc5
   branch: master
@@ -440,10 +450,6 @@ GEM
     unicode-display_width (1.4.0)
     uniform_notifier (1.12.1)
     vcr (4.0.0)
-    webmock (3.4.2)
-      addressable (>= 2.3.6)
-      crack (>= 0.3.2)
-      hashdiff
     webpacker (3.5.5)
       activesupport (>= 4.2)
       rack-proxy (>= 0.6.1)
@@ -529,7 +535,7 @@ DEPENDENCIES
   swagger-blocks
   uglifier (>= 1.3.0)
   vcr
-  webmock
+  webmock!
   webpacker
 
 BUNDLED WITH
