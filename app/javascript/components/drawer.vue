@@ -44,6 +44,42 @@
 
       <v-divider></v-divider>
 
+      <v-list-tile to="/profile" v-if="isAuthenticated">
+        <v-list-tile-action>
+          <v-icon>folder</v-icon>
+        </v-list-tile-action>
+
+        <v-list-tile-content>
+          <v-list-tile-title>Profile</v-list-tile-title>
+        </v-list-tile-content>
+      </v-list-tile>
+
+      <v-divider></v-divider>
+
+      <v-list-tile to="/characters" v-if="isAuthenticated">
+        <v-list-tile-action>
+          <v-icon>folder</v-icon>
+        </v-list-tile-action>
+
+        <v-list-tile-content>
+          <v-list-tile-title>Characters</v-list-tile-title>
+        </v-list-tile-content>
+      </v-list-tile>
+
+      <v-divider></v-divider>
+
+      <v-list-tile to="/db/alliances">
+        <v-list-tile-action>
+          <v-icon>folder</v-icon>
+        </v-list-tile-action>
+
+        <v-list-tile-content>
+          <v-list-tile-title>Alliances</v-list-tile-title>
+        </v-list-tile-content>
+      </v-list-tile>
+
+      <v-divider></v-divider>
+
       <v-list-tile to="/sign_out" v-if="isAuthenticated">
         <v-list-tile-action>
           <v-icon>folder</v-icon>
