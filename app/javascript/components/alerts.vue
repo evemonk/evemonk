@@ -1,6 +1,6 @@
 <template>
   <div id="alerts">
-    <template v-for="(alert, index) in alerts">
+    <template v-for="(alert, index) in getAlerts">
       <v-alert v-bind:type="alert.type"
                value=true
                dismissible
@@ -12,20 +12,22 @@
 </template>
 
 <script>
+  import { mapGetters } from 'vuex';
+
   export default {
     data () {
       return {
-        alerts: [
-          { type: 'info', message: 'Info' },
-          { type: 'success', message: 'Success' },
-          { type: 'warning', message: 'Warning' },
-          { type: 'error', message: 'Error' }
-        ]
       }
     },
 
+    computed: {
+      ...mapGetters([
+        'getAlerts'
+      ])
+    },
+
     created() {
-      console.log(this.alerts);
+      console.log(this.getAlerts);
     }
   }
 </script>

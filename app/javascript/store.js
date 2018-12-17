@@ -14,7 +14,12 @@ const store = new Vuex.Store({
     currentUser: null,
     session_id: null,
     token: localStorage.getItem('token') || null,
-    flashes: {},
+    alerts: [
+      { type: 'info', message: 'Info' },
+      { type: 'success', message: 'Success' },
+      { type: 'warning', message: 'Warning' },
+      { type: 'error', message: 'Error' },
+    ],
   },
 
   getters: {
@@ -26,8 +31,8 @@ const store = new Vuex.Store({
       return state.drawer;
     },
 
-    getFlashes(state) {
-      return state.flashes;
+    getAlerts(state) {
+      return state.alerts;
     },
   },
 
@@ -46,11 +51,11 @@ const store = new Vuex.Store({
     signOutUser(state) {
       state.token = null;
       localStorage.removeItem('token');
-      state.flashes = {};
+      state.alerts = [];
     },
 
-    setFlash(state, type, message) {
-      state.flashes.push({ type, message });
+    setAlert(state, type, message) {
+      state.alerts.push({ type, message });
     },
 
     setDrawer(state, option) {
