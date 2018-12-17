@@ -222,7 +222,7 @@ GEM
     mini_portile2 (2.4.0)
     minitest (5.11.3)
     mixlib-cli (1.7.0)
-    mixlib-config (2.2.13)
+    mixlib-config (2.2.18)
       tomlrb
     mry (0.59.0.0)
       rubocop (>= 0.41.0)
