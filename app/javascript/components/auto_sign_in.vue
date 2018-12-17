@@ -10,7 +10,7 @@
       }
     },
 
-    created () {
+    created() {
       let token = this.$route.params.token;
       store.commit('signInUserWithToken', token);
       this.$router.push('/profile');
