@@ -1,5 +1,5 @@
 <template>
-  <div id="sign_up">
+  <div id="sign_up_form">
     <template v-if="errors.base && errors.base.length">
       <v-alert v-for="(base, index) in errors.base"
                color="error"
@@ -33,7 +33,7 @@
                     :error-messages="errors.password_confirmation"
                     v-model="password_confirmation">
       </v-text-field>
-      <v-btn @click="submit" color="primary">Sign Up</v-btn>
+      <v-btn id="sign_up_button" @click="submit" color="primary">Sign Up</v-btn>
 
     </v-form>
 

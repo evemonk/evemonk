@@ -10,7 +10,7 @@ describe 'Sign up features' do
       fill_in 'email', with: 'me@example.com'
       fill_in 'password', with: 'eidii7EeooVe8ahk'
       fill_in 'password_confirmation', with: 'eidii7EeooVe8ahk'
-      click_button 'Sign up'
+      find('#sign_up_button').click # TODO: click on 'Sign up'
     }.to change(User, :count).by(1)
 
     expect(current_path).to eq('/')
@@ -27,7 +27,7 @@ describe 'Sign up features' do
       fill_in 'email', with: 'me@example.com'
       fill_in 'password', with: 'eidii7EeooVe8ahk'
       fill_in 'password_confirmation', with: 'eidii7EeooVe8ahk'
-      click_button 'Sign up'
+      find('#sign_up_button').click # TODO: click on 'Sign up'
     }.not_to change(User, :count)
 
     expect(current_path).to eq('/sign_up')
@@ -42,7 +42,7 @@ describe 'Sign up features' do
       fill_in 'email', with: 'me@example.com'
       fill_in 'password', with: 'eidii7EeooVe8ahk'
       fill_in 'password_confirmation', with: 'wrong'
-      click_button 'Sign up'
+      find('#sign_up_button').click # TODO: click on 'Sign up'
     }.not_to change(User, :count)
 
     expect(current_path).to eq('/sign_up')

@@ -11,7 +11,7 @@ describe 'Sign in features' do
     expect {
       fill_in 'email', with: 'me@example.com'
       fill_in 'password', with: 'eidii7EeooVe8ahk'
-      click_button 'Sign in'
+      find('#sign_in_button').click # TODO: click on 'Sign In'
     }.to change(Session, :count).by(1)
 
     expect(current_path).to eq('/')
@@ -27,7 +27,7 @@ describe 'Sign in features' do
     expect {
       fill_in 'email', with: 'ME@EXAMPLE.COM'
       fill_in 'password', with: 'eidii7EeooVe8ahk'
-      click_button 'Sign in'
+      find('#sign_in_button').click # TODO: click on 'Sign In'
     }.to change(Session, :count).by(1)
 
     expect(current_path).to eq('/')
@@ -41,7 +41,7 @@ describe 'Sign in features' do
     expect {
       fill_in 'email', with: 'me@example.com'
       fill_in 'password', with: 'eidii7EeooVe8ahk'
-      click_button 'Sign in'
+      find('#sign_in_button').click # TODO: click on 'Sign In'
     }.not_to change(Session, :count)
 
     expect(current_path).to eq('/sign_in')
@@ -57,7 +57,7 @@ describe 'Sign in features' do
     expect {
       fill_in 'email', with: 'me@example.com'
       fill_in 'password', with: 'wrong-password'
-      click_button 'Sign in'
+      find('#sign_in_button').click # TODO: click on 'Sign In'
     }.not_to change(Session, :count)
 
     expect(current_path).to eq('/sign_in')

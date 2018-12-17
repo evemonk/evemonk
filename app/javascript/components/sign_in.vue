@@ -1,5 +1,5 @@
 <template>
-  <div id="sign_up">
+  <div id="sign_up_form">
     <template v-if="errors.base && errors.base.length">
       <v-alert v-for="(base, index) in errors.base"
                color="error"
@@ -29,7 +29,7 @@
                     v-model="password"
                     required>
       </v-text-field>
-      <v-btn @click="submit" color="primary">Sign In</v-btn>
+      <v-btn id="sign_in_button" @click="submit" color="primary">Sign In</v-btn>
     </v-form>
 
     <v-divider></v-divider>
