@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 describe 'Sign up features' do
-  it 'when user successfully sign ups' do
+  it 'when user successfully sign up' do
     visit '/sign_up'
 
     expect {
@@ -15,7 +15,7 @@ describe 'Sign up features' do
 
     expect(current_path).to eq('/')
 
-    expect(page).to have_content('Successful signed in!')
+    expect(page).to have_content('Successful signed up!')
   end
 
   it 'when email is already taken' do
