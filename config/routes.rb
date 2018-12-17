@@ -32,6 +32,10 @@ Rails.application.routes.draw do
     resource :profile, only: :show
 
     resources :characters, only: [:index, :show, :destroy]
+
+    namespace :eve do
+      resources :alliances, only: :index
+    end
   end
 
   # You can have the root of your site routed with "root"
