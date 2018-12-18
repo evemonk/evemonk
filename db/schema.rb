@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_04_27_202539) do
+ActiveRecord::Schema.define(version: 2018_12_08_134616) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -250,6 +250,7 @@ ActiveRecord::Schema.define(version: 2018_04_27_202539) do
     t.string "name"
     t.string "device_token"
     t.integer "device_type"
+    t.index ["token"], name: "index_sessions_on_token", unique: true
     t.index ["user_id"], name: "index_sessions_on_user_id"
   end
 

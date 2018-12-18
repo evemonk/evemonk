@@ -11,12 +11,12 @@ module Api
       key :swagger, '2.0'
       info do
         key :version, '1.0.0'
-        key :title, 'EveMonk back-end REST API'
-        key :description, 'EveMonk back-end REST API documentation'
-        key :termsOfService, 'http://evemonk.com/terms'
+        key :title, 'EveMonk REST API'
+        key :description, 'EveMonk REST API documentation'
+        key :termsOfService, 'https://evemonk.com/terms'
         contact do
           key :name, 'Igor Zubkov'
-          key :url, 'http://evemonk.com/support'
+          key :url, 'https://evemonk.com/support'
           key :email, 'igor.zubkov@gmail.com'
         end
       end

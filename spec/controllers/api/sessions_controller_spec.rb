@@ -2,83 +2,82 @@
 
 require 'rails_helper'
 
-module Api
-  describe SessionsController do
-    it { should be_a(Api::BaseController) }
+describe Api::SessionsController do
+  it { should be_a(Api::BaseController) }
 
-    it { should use_before_action(:authenticate!) }
+  it { should use_before_action(:authenticate) }
 
-    describe '#index' do
-      context 'when user signed in' do
-        let(:sessions) { double }
+  describe '#index' do
+    context 'when user signed in' do
+      before { sign_in }
 
-        before { sign_in }
-
-        before do
-          #
-          # subject.policy_scope(Session).order(created_at: :asc)
-          #                              .page(params[:page])
-          #
-          expect(subject).to receive(:policy_scope).with(Session) do
-            double.tap do |a|
-              expect(a).to receive(:order).with(created_at: :asc) do
-                double.tap do |b|
-                  expect(b).to receive(:page).with('1')
-                                             .and_return(sessions)
-                end
+      before do
+        #
+        # subject.policy_scope(Session).order(created_at: :asc)
+        #                              .page(params[:page])
+        #
+        expect(subject).to receive(:policy_scope).with(Session) do
+          double.tap do |a|
+            expect(a).to receive(:order).with(created_at: :asc) do
+              double.tap do |b|
+                expect(b).to receive(:page).with('1')
               end
             end
           end
         end
-
-        before { expect(SessionDecorator).to receive(:decorate_collection).with(sessions) }
-
-        before { get :index, params: { format: :json, page: '1' } }
-
-        it { should respond_with(:ok) }
       end
 
-      context 'when user not signed in' do
-        before { get :index, params: { format: :json } }
+      before { subject.instance_variable_set(:@_pundit_policy_scoped, true) }
 
-        it { should respond_with(:unauthorized) }
-      end
+      before { get :index, params: { format: :json, page: '1' } }
 
-      context 'when not supported accept type' do
-        before { get :index, params: { format: :html } }
+      it { should respond_with(:ok) }
 
-        it { should respond_with(:not_acceptable) }
-      end
+      it { should render_template(:index) }
     end
 
-    describe '#destroy' do
-      context 'when user signed in' do
-        let(:session) { instance_double(Session) }
+    context 'when user not signed in' do
+      before { get :index, params: { format: :json } }
 
-        before { sign_in }
+      it { should respond_with(:unauthorized) }
+    end
 
-        before { expect(Session).to receive(:find).with('1').and_return(session) }
+    context 'when not supported accept type' do
+      before { get :index, params: { format: :html } }
 
-        before { expect(subject).to receive(:authorize).with(session) }
+      it { should respond_with(:not_acceptable) }
+    end
+  end
 
-        before { expect(session).to receive(:destroy!) }
+  describe '#destroy' do
+    context 'when user signed in' do
+      let(:session) { instance_double(Session) }
 
-        before { delete :destroy, params: { id: '1', format: :json } }
+      before { sign_in }
 
-        it { should respond_with(:no_content) }
-      end
+      before { expect(Session).to receive(:find).with('1').and_return(session) }
 
-      context 'when user not signed in' do
-        before { delete :destroy, params: { id: '1', format: :json } }
+      before { expect(subject).to receive(:authorize).with(session) }
 
-        it { should respond_with(:unauthorized) }
-      end
+      before { expect(session).to receive(:destroy!) }
 
-      context 'when not supported accept type' do
-        before { delete :destroy, params: { id: '1', format: :html } }
+      before { subject.instance_variable_set(:@_pundit_policy_authorized, true) }
 
-        it { should respond_with(:not_acceptable) }
-      end
+      before { delete :destroy, params: { id: '1', format: :json } }
+
+      it { should respond_with(:no_content) }
+    end
+
+    context 'when user not signed in' do
+      before { delete :destroy, params: { id: '1', format: :json } }
+
+      it { should respond_with(:unauthorized) }
+    end
+
+    context 'when not supported accept type' do
+      before { delete :destroy, params: { id: '1', format: :html } }
+
+      it { should respond_with(:not_acceptable) }
     end
   end
 end

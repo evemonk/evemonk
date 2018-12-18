@@ -3,7 +3,11 @@
 module Api
   class SignOutsController < BaseController
     def destroy
-      SignOut.new(request).destroy!
+      form = SignOutForm.new(request)
+
+      form.destroy!
+
+      skip_authorization
 
       head :no_content
     end

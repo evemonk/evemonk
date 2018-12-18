@@ -4,23 +4,23 @@ module Api
   class BaseController < ApplicationController
     include Pundit
 
+    after_action :verify_authorized, except: :index
+
+    after_action :verify_policy_scoped, only: :index
+
     before_action :verify_requested_format!
 
     respond_to :json
 
-    before_action :authenticate!
+    before_action :authenticate
 
     attr_reader :current_user
 
     # :nocov:
     # rescue_from ActionController::ParameterMissing do |exception|
     #   @exception = exception
-    #
-    #   render :exception, status: :unprocessable_entity
-    # end
 
-    # rescue_from ActiveRecord::RecordInvalid, ActiveModel::StrictValidationFailed do
-    #   render :errors, status: :unprocessable_entity
+    #   render :exception, status: :unprocessable_entity
     # end
 
     rescue_from ActiveRecord::RecordNotFound do
@@ -38,18 +38,19 @@ module Api
 
     private
 
-    def authenticate!
-      authenticate_or_request_with_http_token do |token,|
+    def authenticate_by_token
+      authenticate_with_http_token do |token,|
         @current_user = User.joins(:sessions)
                             .find_by(sessions: { token: token })
       end
     end
 
     def authenticate
-      authenticate_with_http_token do |token,|
-        @current_user = User.joins(:sessions)
-                            .find_by(sessions: { token: token })
-      end
+      authenticate_by_token || render_unauthorized
+    end
+
+    def render_unauthorized
+      render json: { error: 'Access denied' }, status: :unauthorized
     end
   end
 end

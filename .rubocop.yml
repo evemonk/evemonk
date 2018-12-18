@@ -19,6 +19,7 @@ AllCops:
     - 'db/migrate/20170107151915_rpush_2_7_0_updates.rb'
     - 'db/migrate/20171129191705_rpush_3_0_0_updates.rb'
     - 'db/migrate/20171129190142_create_active_storage_tables.active_storage.rb'
+    - 'node_modules/**/*'
 
 Metrics/BlockLength:
   Exclude:

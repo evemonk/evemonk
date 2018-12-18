@@ -1,4 +1,14 @@
 GIT
+  remote: https://github.com/bblimke/webmock.git
+  revision: a135a37ff5f982a43806c52f2f7e778baba80797
+  branch: master
+  specs:
+    webmock (3.4.2)
+      addressable (>= 2.3.6)
+      crack (>= 0.3.2)
+      hashdiff
+
+GIT
   remote: https://github.com/biow0lf/eve_online.git
   revision: 6557d81468b0a16140d13674be824c2b7d398bc5
   branch: master
@@ -51,10 +61,6 @@ GEM
       globalid (>= 0.3.6)
     activemodel (5.2.2)
       activesupport (= 5.2.2)
-    activemodel-serializers-xml (1.0.2)
-      activemodel (> 5.x)
-      activesupport (> 5.x)
-      builder (~> 3.1)
     activerecord (5.2.2)
       activemodel (= 5.2.2)
       activesupport (= 5.2.2)
@@ -77,17 +83,11 @@ GEM
       io-like (~> 0.3.0)
     arel (9.0.0)
     ast (2.4.0)
-    autoprefixer-rails (9.4.2)
-      execjs
     awesome_print (1.8.0)
     bcrypt (3.1.12)
     bcrypt_pbkdf (1.0.0)
     bootsnap (1.3.2)
       msgpack (~> 1.0)
-    bootstrap (4.1.3)
-      autoprefixer-rails (>= 6.0.3)
-      popper_js (>= 1.12.9, < 2)
-      sass (>= 3.5.2)
     brakeman (4.3.1)
     builder (3.2.3)
     bullet (5.9.0)
@@ -133,32 +133,19 @@ GEM
     code_analyzer (0.4.8)
       sexp_processor
     coderay (1.1.2)
-    coffee-rails (4.2.2)
-      coffee-script (>= 2.2.0)
-      railties (>= 4.0.0)
-    coffee-script (2.4.1)
-      coffee-script-source
-      execjs
-    coffee-script-source (1.12.2)
-    concurrent-ruby (1.1.3)
+    concurrent-ruby (1.1.4)
     connection_pool (2.2.2)
     consistency_fail (0.3.7)
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
     crass (1.0.4)
-    database_rewinder (0.9.0)
+    database_rewinder (0.9.1)
     diff-lcs (1.3)
     docile (1.3.1)
     dotenv (2.5.0)
     dotenv-rails (2.5.0)
       dotenv (= 2.5.0)
       railties (>= 3.2, < 6.0)
-    draper (3.0.1)
-      actionpack (~> 5.0)
-      activemodel (~> 5.0)
-      activemodel-serializers-xml (~> 1.0)
-      activesupport (~> 5.0)
-      request_store (~> 1.0)
     ed25519 (1.2.4)
     erubi (1.7.1)
     erubis (2.7.0)
@@ -175,35 +162,22 @@ GEM
     faraday (0.15.4)
       multipart-post (>= 1.2, < 3)
     ffi (1.9.25)
-    font-awesome-sass (5.5.0.1)
-      sassc (>= 1.11)
     fugit (1.1.6)
       et-orbi (~> 1.1, >= 1.1.6)
       raabro (~> 1.1)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
-    handlebars_assets (0.23.2)
-      execjs (~> 2.0)
-      sprockets (>= 2.0.0)
-      tilt (>= 1.2)
     hashdiff (0.3.7)
-    hashie (3.5.7)
+    hashie (3.6.0)
     http-2 (0.9.0)
     http_logger (0.5.1)
-    i18n (1.1.1)
+    i18n (1.2.0)
       concurrent-ruby (~> 1.0)
     io-like (0.3.0)
     jaro_winkler (1.5.1)
     jbuilder (2.8.0)
       activesupport (>= 4.2.0)
       multi_json (>= 1.2)
-    jquery-rails (4.3.3)
-      rails-dom-testing (>= 1, < 3)
-      railties (>= 4.2.0)
-      thor (>= 0.14, < 2.0)
-    js-routes (1.4.4)
-      railties (>= 3.2)
-      sprockets-rails
     json (2.1.0)
     jwt (2.1.0)
     kaminari (1.1.1)
@@ -245,10 +219,10 @@ GEM
     method_source (0.9.2)
     mimemagic (0.3.2)
     mini_mime (1.0.1)
-    mini_portile2 (2.3.0)
+    mini_portile2 (2.4.0)
     minitest (5.11.3)
     mixlib-cli (1.7.0)
-    mixlib-config (2.2.13)
+    mixlib-config (2.2.18)
       tomlrb
     mry (0.59.0.0)
       rubocop (>= 0.41.0)
@@ -264,24 +238,24 @@ GEM
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (5.0.2)
-    newrelic_rpm (5.5.0.348)
+    newrelic_rpm (5.6.0.349)
     nio4r (2.3.1)
-    nokogiri (1.8.5)
-      mini_portile2 (~> 2.3.0)
+    nokogiri (1.9.1)
+      mini_portile2 (~> 2.4.0)
     oauth2 (1.4.1)
       faraday (>= 0.8, < 0.16.0)
       jwt (>= 1.0, < 3.0)
       multi_json (~> 1.3)
       multi_xml (~> 0.5)
       rack (>= 1.2, < 3)
-    omniauth (1.8.1)
-      hashie (>= 3.4.6, < 3.6.0)
+    omniauth (1.9.0)
+      hashie (>= 3.4.6, < 3.7.0)
       rack (>= 1.6.2, < 3)
     omniauth-eve_online-sso (0.2.0)
       omniauth-oauth2
-    omniauth-oauth2 (1.5.0)
+    omniauth-oauth2 (1.6.0)
       oauth2 (~> 1.1)
-      omniauth (~> 1.2)
+      omniauth (~> 1.9)
     parallel (1.12.1)
     parser (2.5.3.0)
       ast (~> 2.4.0)
@@ -290,7 +264,6 @@ GEM
     pg_query (1.1.0)
     pghero (2.2.0)
       activerecord
-    popper_js (1.14.5)
     powerpack (0.1.2)
     pry (0.12.2)
       coderay (~> 1.1.0)
@@ -304,11 +277,11 @@ GEM
     raabro (1.1.6)
     rack (2.0.6)
     rack-cors (1.0.2)
-    rack-dev-mark (0.7.7)
-      rack (>= 1.1, < 2.1)
     rack-health (0.1.2)
       rack (>= 1.2.0)
     rack-protection (2.0.4)
+      rack
+    rack-proxy (0.6.5)
       rack
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
@@ -352,12 +325,10 @@ GEM
     rainbow (3.0.0)
     rake (12.3.2)
     rb-fsevent (0.10.3)
-    rb-inotify (0.9.10)
-      ffi (>= 0.5.0, < 2)
-    redis (4.0.3)
+    rb-inotify (0.10.0)
+      ffi (~> 1.0)
+    redis (4.1.0)
     regexp_parser (1.3.0)
-    request_store (1.4.1)
-      rack (>= 1.4)
     require_all (2.0.0)
     responders (2.4.0)
       actionpack (>= 4.2.0, < 5.3)
@@ -419,15 +390,12 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
-    sassc (2.0.0)
-      ffi (~> 1.9.6)
-      rake
     selenium-webdriver (3.141.0)
       childprocess (~> 0.5)
       rubyzip (~> 1.2, >= 1.2.2)
     sexp_processor (4.11.0)
-    shoulda-matchers (3.1.2)
-      activesupport (>= 4.0.0)
+    shoulda-matchers (4.0.0.rc1)
+      activesupport (>= 4.2.0)
     sidekiq (5.2.3)
       connection_pool (~> 2.2, >= 2.2.2)
       rack-protection (>= 1.5.0)
@@ -482,10 +450,10 @@ GEM
     unicode-display_width (1.4.0)
     uniform_notifier (1.12.1)
     vcr (4.0.0)
-    webmock (3.4.2)
-      addressable (>= 2.3.6)
-      crack (>= 0.3.2)
-      hashdiff
+    webpacker (3.5.5)
+      activesupport (>= 4.2)
+      rack-proxy (>= 0.6.1)
+      railties (>= 4.2)
     websocket-driver (0.7.0)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.3)
@@ -503,7 +471,6 @@ DEPENDENCIES
   bcrypt
   bcrypt_pbkdf (>= 1.0, < 2.0)
   bootsnap (>= 1.1.0)
-  bootstrap
   brakeman
   bullet
   bundler-audit
@@ -513,23 +480,18 @@ DEPENDENCIES
   capistrano-rails
   capistrano-rbenv
   capistrano-rbenv-install
-  capybara (>= 2.15, < 4.0)
+  capybara (>= 2.15)
   chromedriver-helper
-  coffee-rails (~> 4.2)
   consistency_fail
   database_rewinder
   dotenv-rails
-  draper
   ed25519 (>= 1.2, < 2.0)
   eve_online!
   factory_bot_rails
   faker
-  font-awesome-sass
-  handlebars_assets
   http_logger
   jbuilder (~> 2.5)
-  jquery-rails
-  js-routes
+  jwt
   kaminari
   license_finder
   listen (>= 3.0.5, < 3.2)
@@ -544,10 +506,9 @@ DEPENDENCIES
   puma (~> 3.11)
   pundit
   rack-cors
-  rack-dev-mark
   rack-health
   rack-timeout
-  rails (~> 5.2.0)
+  rails (~> 5.2.2)
   rails-controller-testing
   rails_best_practices
   responders
@@ -560,7 +521,7 @@ DEPENDENCIES
   sass-rails (~> 5.0)
   selenium-webdriver
   shoulda-callback-matchers!
-  shoulda-matchers
+  shoulda-matchers (= 4.0.0.rc1)
   sidekiq
   sidekiq-scheduler
   simplecov
@@ -574,7 +535,8 @@ DEPENDENCIES
   swagger-blocks
   uglifier (>= 1.3.0)
   vcr
-  webmock
+  webmock!
+  webpacker
 
 BUNDLED WITH
-   1.17.1
+   1.17.2

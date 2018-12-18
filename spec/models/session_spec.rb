@@ -5,7 +5,7 @@ require 'rails_helper'
 describe Session do
   it { should be_a(ApplicationRecord) }
 
-  it { should define_enum_for(:device_type).with([:ios, :android]) }
+  it { should define_enum_for(:device_type).with_values([:ios, :android]) }
 
   it { should belong_to(:user) }
 
@@ -23,5 +23,5 @@ describe Session do
     end
   end
 
-  pending { should have_secure_token }
+  it { should have_secure_token }
 end

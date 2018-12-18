@@ -2,111 +2,112 @@
 
 require 'rails_helper'
 
-module Api
-  describe CharactersController do
-    it { should be_a(Api::BaseController) }
+describe Api::CharactersController do
+  it { should be_a(Api::BaseController) }
 
-    describe '#index' do
-      context 'when user signed in' do
-        let(:characters) { double }
+  describe '#index' do
+    context 'when user signed in' do
+      before { sign_in }
 
-        before { sign_in }
-
-        before do
-          #
-          # subject.policy_scope(Character).order(created_at: :asc)
-          #                                .page(params[:page])
-          #
-          expect(subject).to receive(:policy_scope).with(Character) do
-            double.tap do |a|
-              expect(a).to receive(:order).with(created_at: :asc) do
-                double.tap do |b|
-                  expect(b).to receive(:page).with('1')
-                                             .and_return(characters)
-                end
+      before do
+        #
+        # subject.policy_scope(Character).order(created_at: :asc)
+        #                                .page(params[:page])
+        #
+        expect(subject).to receive(:policy_scope).with(Character) do
+          double.tap do |a|
+            expect(a).to receive(:order).with(created_at: :asc) do
+              double.tap do |b|
+                expect(b).to receive(:page).with('1')
               end
             end
           end
         end
-
-        before { expect(CharacterDecorator).to receive(:decorate_collection).with(characters) }
-
-        before { get :index, params: { format: :json, page: '1' } }
-
-        it { should respond_with(:ok) }
       end
 
-      context 'when user not signed in' do
-        before { get :index, params: { format: :json } }
+      before { subject.instance_variable_set(:@_pundit_policy_scoped, true) }
 
-        it { should respond_with(:unauthorized) }
-      end
+      before { get :index, params: { format: :json, page: '1' } }
 
-      context 'when not supported accept type' do
-        before { get :index, params: { format: :html } }
+      it { should respond_with(:ok) }
 
-        it { should respond_with(:not_acceptable) }
-      end
+      it { should render_template(:index) }
     end
 
-    describe '#show' do
-      context 'when user signed in' do
-        let(:character) { build_stubbed(:character, id: 1) }
+    context 'when user not signed in' do
+      before { get :index, params: { format: :json } }
 
-        before { sign_in }
-
-        before { expect(Character).to receive(:find).with('1').and_return(character) }
-
-        before { expect(subject).to receive(:authorize).with(character) }
-
-        before { expect(CharacterDecorator).to receive(:new).with(character) }
-
-        before { get :show, params: { id: '1', format: :json } }
-
-        it { should respond_with(:ok) }
-      end
-
-      context 'when user not signed in' do
-        before { get :show, params: { id: '1', format: :json } }
-
-        it { should respond_with(:unauthorized) }
-      end
-
-      context 'when not supported accept type' do
-        before { get :show, params: { id: '1', format: :html } }
-
-        it { should respond_with(:not_acceptable) }
-      end
+      it { should respond_with(:unauthorized) }
     end
 
-    describe '#destroy' do
-      context 'when user signed in' do
-        let(:character) { build_stubbed(:character, id: 1) }
+    context 'when not supported accept type' do
+      before { get :index, params: { format: :html } }
 
-        before { sign_in }
+      it { should respond_with(:not_acceptable) }
+    end
+  end
 
-        before { expect(Character).to receive(:find).with('1').and_return(character) }
+  describe '#show' do
+    context 'when user signed in' do
+      let(:character) { instance_double(Character, id: 1) }
 
-        before { expect(subject).to receive(:authorize).with(character) }
+      before { sign_in }
 
-        before { expect(character).to receive(:destroy!) }
+      before { expect(Character).to receive(:find).with('1').and_return(character) }
 
-        before { delete :destroy, params: { id: '1', format: :json } }
+      before { expect(subject).to receive(:authorize).with(character) }
 
-        it { should respond_with(:no_content) }
-      end
+      before { subject.instance_variable_set(:@_pundit_policy_authorized, true) }
 
-      context 'when user not signed in' do
-        before { delete :destroy, params: { id: '1', format: :json } }
+      before { get :show, params: { id: '1', format: :json } }
 
-        it { should respond_with(:unauthorized) }
-      end
+      it { should respond_with(:ok) }
 
-      context 'when not supported accept type' do
-        before { delete :destroy, params: { id: '1', format: :html } }
+      it { should render_template(:show) }
+    end
 
-        it { should respond_with(:not_acceptable) }
-      end
+    context 'when user not signed in' do
+      before { get :show, params: { id: '1', format: :json } }
+
+      it { should respond_with(:unauthorized) }
+    end
+
+    context 'when not supported accept type' do
+      before { get :show, params: { id: '1', format: :html } }
+
+      it { should respond_with(:not_acceptable) }
+    end
+  end
+
+  describe '#destroy' do
+    context 'when user signed in' do
+      let(:character) { instance_double(Character, id: 1) }
+
+      before { sign_in }
+
+      before { expect(Character).to receive(:find).with('1').and_return(character) }
+
+      before { expect(subject).to receive(:authorize).with(character) }
+
+      before { expect(character).to receive(:destroy!) }
+
+      before { subject.instance_variable_set(:@_pundit_policy_authorized, true) }
+
+      before { delete :destroy, params: { id: '1', format: :json } }
+
+      it { should respond_with(:no_content) }
+    end
+
+    context 'when user not signed in' do
+      before { delete :destroy, params: { id: '1', format: :json } }
+
+      it { should respond_with(:unauthorized) }
+    end
+
+    context 'when not supported accept type' do
+      before { delete :destroy, params: { id: '1', format: :html } }
+
+      it { should respond_with(:not_acceptable) }
     end
   end
 end

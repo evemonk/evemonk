@@ -1,7 +1,7 @@
 # EveMonk back-end and web front-end
 
-[![Build Status](https://travis-ci.org/biow0lf/evemonk.svg?branch=master)](https://travis-ci.org/biow0lf/evemonk)
-[![Test Coverage](https://codeclimate.com/github/biow0lf/evemonk/badges/coverage.svg)](https://codeclimate.com/github/biow0lf/evemonk/coverage)
+[![Build Status](https://travis-ci.org/evemonk/evemonk.svg?branch=master)](https://travis-ci.org/evemonk/evemonk)
+[![Test Coverage](https://codeclimate.com/github/evemonk/evemonk/badges/coverage.svg)](https://codeclimate.com/github/evemonk/evemonk/coverage)
 [![security](https://hakiri.io/github/evemonk/evemonk/master.svg)](https://hakiri.io/github/evemonk/evemonk/master)
 
 EveMonk is helper software for EveOnline MMORPG.
@@ -40,13 +40,21 @@ EveMonk is helper software for EveOnline MMORPG.
 
 ## Environment
 
-* Ruby 2.5.3
-* RubyGems 2.7.8
-* Bundler 1.17.1
+* [rbenv](https://github.com/rbenv/rbenv) + [ruby-build](https://github.com/rbenv/ruby-build)
+* [asdf](https://github.com/asdf-vm/asdf) + [asdf-nodejs](https://github.com/asdf-vm/asdf-nodejs)
+* Ruby 2.6.0-rc2
+* RubyGems 3.0.0.beta3
+* Bundler 1.17.2
 * Ruby on Rails 5.2.2
-* PostgreSQL 9.5.4
-* Backbone 1.3.3
-* Underscore 1.9.0
+* PostgreSQL 11.1
+* Redis 5.0.3
+* Node 10.14.1
+* NPM 6.4.1
+* Yarn 1.12.3
+* Vue 2.5.18
+* vuex 3.0.1
+* vue-router 3.0.2
+* Vuetify 1.3.13
 
 ## Configure
 

@@ -2,36 +2,29 @@
 
 source 'https://rubygems.org'
 
-gem 'rails', '~> 5.2.0'
+gem 'rails', '~> 5.2.2'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.11'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.2'
+gem 'webpacker'
 gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
-
-gem 'jquery-rails'
-gem 'handlebars_assets'
-gem 'js-routes'
-gem 'bootstrap'
-gem 'font-awesome-sass'
 # gem 'rufus-scheduler'
 gem 'bcrypt'
 # gem 'eve_online'
 gem 'eve_online', git: 'https://github.com/biow0lf/eve_online.git', branch: 'master'
 # gem 'eve_online', path: '~/opensource/eve_online'
 gem 'omniauth-eve_online-sso'
+gem 'jwt'
 gem 'rack-cors', require: 'rack/cors'
 gem 'kaminari'
 gem 'pundit'
-gem 'draper'
 gem 'dotenv-rails'
 gem 'sidekiq', require: false
 gem 'sidekiq-scheduler', require: false
 gem 'sinatra', require: false
 gem 'rpush'
-gem 'rack-dev-mark'
 gem 'pghero'
 gem 'pg_query'
 # gem 'rubycritic', require: false
@@ -41,7 +34,6 @@ gem 'responders'
 gem 'rack-health'
 
 group :production do
-  # gem 'lograge'
   gem 'newrelic_rpm'
   gem 'rack-timeout'
 end
@@ -66,7 +58,6 @@ end
 
 group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'spring-commands-rspec', require: false
@@ -88,17 +79,18 @@ group :development do
 end
 
 group :test do
-  gem 'capybara', '>= 2.15', '< 4.0'
+  gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
   gem 'rails-controller-testing'
-  gem 'shoulda-matchers'
+  gem 'shoulda-matchers', '4.0.0.rc1'
   gem 'rspec-its'
   gem 'shoulda-callback-matchers', git: 'https://github.com/jdliss/shoulda-callback-matchers.git',
                                    branch: 'master'
   gem 'simplecov'
   gem 'database_rewinder'
-  gem 'webmock'
+  gem 'webmock', git: 'https://github.com/bblimke/webmock.git',
+                 branch: 'master' # Until next version with https://github.com/bblimke/webmock/pull/769/commits/9432aaa21b6b1bdc038b1c22537444f223643d8f
   gem 'vcr'
 end
