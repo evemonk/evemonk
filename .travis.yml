@@ -26,6 +26,7 @@ before_script:
   - bundle exec bundle-audit update
 
 script:
+  - yarn install
   - bundle exec rake assets:precompile RAILS_ENV=test
   - bundle exec rake
   - bundle exec bundle-audit
