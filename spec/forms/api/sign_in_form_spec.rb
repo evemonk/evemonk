@@ -84,7 +84,7 @@ describe Api::SignInForm, type: :model do
 
       specify { expect { subject.save }.to change { subject.errors.messages }.from({}).to(base: ['Email and/or password is invalid']) }
 
-      specify { expect { subject.save }.not_to change { Session.count } }
+      specify { expect { subject.save }.not_to change(Session, :count) }
     end
   end
 end

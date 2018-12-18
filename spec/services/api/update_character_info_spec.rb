@@ -52,9 +52,9 @@ describe Api::UpdateCharacterInfo do
 
     subject { described_class.new(character) }
 
-    specify { expect { subject.send(:character_info) }.to change { character.name }.from('Cat').to('Johnn Dillinger') }
+    specify { expect { subject.send(:character_info) }.to change(character, :name).from('Cat').to('Johnn Dillinger') }
 
-    specify { expect { subject.send(:character_info) }.to change { character.gender }.from('female').to('male') }
+    specify { expect { subject.send(:character_info) }.to change(character, :gender).from('female').to('male') }
 
     # TODO:
     # {:corporation_id=>98134807,
@@ -86,12 +86,12 @@ describe Api::UpdateCharacterInfo do
 
     subject { described_class.new(character) }
 
-    specify { expect { subject.send(:character_portrait) }.to change { character.portrait_small }.from(nil).to('http://image.eveonline.com/Character/1337512245_64.jpg') }
+    specify { expect { subject.send(:character_portrait) }.to change(character, :portrait_small).from(nil).to('http://image.eveonline.com/Character/1337512245_64.jpg') }
 
-    specify { expect { subject.send(:character_portrait) }.to change { character.portrait_medium }.from(nil).to('http://image.eveonline.com/Character/1337512245_128.jpg') }
+    specify { expect { subject.send(:character_portrait) }.to change(character, :portrait_medium).from(nil).to('http://image.eveonline.com/Character/1337512245_128.jpg') }
 
-    specify { expect { subject.send(:character_portrait) }.to change { character.portrait_large }.from(nil).to('http://image.eveonline.com/Character/1337512245_256.jpg') }
+    specify { expect { subject.send(:character_portrait) }.to change(character, :portrait_large).from(nil).to('http://image.eveonline.com/Character/1337512245_256.jpg') }
 
-    specify { expect { subject.send(:character_portrait) }.to change { character.portrait_huge }.from(nil).to('http://image.eveonline.com/Character/1337512245_512.jpg') }
+    specify { expect { subject.send(:character_portrait) }.to change(character, :portrait_huge).from(nil).to('http://image.eveonline.com/Character/1337512245_512.jpg') }
   end
 end
