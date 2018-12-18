@@ -29,9 +29,9 @@ describe Api::SignUpForm, type: :model do
 
       specify { expect(subject.save).to eq(true) }
 
-      specify { expect { subject.save }.to change { User.count }.by(1) }
+      specify { expect { subject.save }.to change(User, :count).by(1) }
 
-      specify { expect { subject.save }.to change { Session.count }.by(1) }
+      specify { expect { subject.save }.to change(Session, :count).by(1) }
 
       pending { expect { subject.save }.to change { User.first&.authenticate('password') }.from(nil).to(User.first) }
     end
