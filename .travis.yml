@@ -19,7 +19,7 @@ before_install:
   - gem install bundler --no-document --force
   - gem --version
   - bundle --version
-  - nvm install node
+  - nvm install
   - node -v
   - npm -v
   - npm i -g yarn
@@ -35,8 +35,7 @@ before_script:
   - bundle exec bundle-audit update
 
 script:
-  - yarn install
-  - bundle exec rake assets:precompile RAILS_ENV=test
+  # - bundle exec rake assets:precompile RAILS_ENV=test
   - bundle exec rake
   - bundle exec bundle-audit
   - bundle exec brakeman
