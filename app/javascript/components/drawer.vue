@@ -76,7 +76,7 @@
 
       <v-divider></v-divider>
 
-      <v-list-tile to="/db/alliances">
+      <v-list-tile to="/universe/alliances">
         <v-list-tile-action>
           <v-icon>folder</v-icon>
         </v-list-tile-action>
