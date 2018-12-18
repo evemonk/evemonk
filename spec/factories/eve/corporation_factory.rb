@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# TODO: update
 FactoryBot.define do
   factory :eve_corporation, class: Eve::Corporation do
     sequence(:corporation_id)

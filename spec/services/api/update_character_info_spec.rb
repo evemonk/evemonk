@@ -66,32 +66,4 @@ describe Api::UpdateCharacterInfo do
     #  :ancestry_id=>24,
     #  :security_status=>1.8694881661345457}
   end
-
-  describe '#character_portrait' do
-    before { VCR.insert_cassette 'api/update_character_info/character_portrait/success' }
-
-    after { VCR.eject_cassette }
-
-    let(:token) { 'XPyr6SPgegR0FhP2k5yUtG8LQeU9XagHtqWo01EN9z2Djy6pcnED173V7jp-ifLgYAPdu58p1cF0Ye4jUwWJ1Q2' }
-
-    let!(:character) do
-      create(:character,
-             uid: 1_337_512_245,
-             token: token,
-             portrait_small: nil,
-             portrait_medium: nil,
-             portrait_large: nil,
-             portrait_huge: nil)
-    end
-
-    subject { described_class.new(character) }
-
-    specify { expect { subject.send(:character_portrait) }.to change(character, :portrait_small).from(nil).to('http://image.eveonline.com/Character/1337512245_64.jpg') }
-
-    specify { expect { subject.send(:character_portrait) }.to change(character, :portrait_medium).from(nil).to('http://image.eveonline.com/Character/1337512245_128.jpg') }
-
-    specify { expect { subject.send(:character_portrait) }.to change(character, :portrait_large).from(nil).to('http://image.eveonline.com/Character/1337512245_256.jpg') }
-
-    specify { expect { subject.send(:character_portrait) }.to change(character, :portrait_huge).from(nil).to('http://image.eveonline.com/Character/1337512245_512.jpg') }
-  end
 end
