@@ -1,0 +1,10 @@
+<% case Rails.env %>
+<% when 'development' %>
+const port = 3000;
+<% when 'test' %>
+const port = 10000;
+<% else %>
+const port = 80;
+<% end %>
+
+export default port;

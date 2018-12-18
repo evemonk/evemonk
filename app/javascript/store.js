@@ -2,7 +2,9 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 import axios from 'axios';
 
-axios.defaults.baseURL = 'http://localhost:3000';
+import port from 'port.js';
+
+axios.defaults.baseURL = `http://localhost:${port}`;
 axios.defaults.headers.common.Accept = 'application/json';
 axios.defaults.timeout = 15000; // 15 seconds
 
