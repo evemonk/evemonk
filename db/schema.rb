@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_18_212230) do
+ActiveRecord::Schema.define(version: 2018_12_18_213525) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -105,12 +105,12 @@ ActiveRecord::Schema.define(version: 2018_12_18_212230) do
   end
 
   create_table "eve_ancestries", force: :cascade do |t|
-    t.integer "ancestry_id"
-    t.string "name"
-    t.integer "bloodline_id"
+    t.bigint "ancestry_id"
+    t.bigint "bloodline_id"
     t.text "description"
-    t.string "short_description"
     t.integer "icon_id"
+    t.string "name"
+    t.text "short_description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["ancestry_id"], name: "index_eve_ancestries_on_ancestry_id", unique: true
