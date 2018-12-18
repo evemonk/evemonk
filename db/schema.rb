@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_08_134616) do
+ActiveRecord::Schema.define(version: 2018_12_18_200530) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -82,18 +82,16 @@ ActiveRecord::Schema.define(version: 2018_12_08_134616) do
   end
 
   create_table "eve_alliances", force: :cascade do |t|
-    t.integer "alliance_id"
-    t.string "name"
-    t.integer "creator_id"
-    t.integer "creator_corporation_id"
-    t.string "ticker"
-    t.integer "executor_corporation_id"
+    t.bigint "alliance_id"
+    t.bigint "creator_corporation_id"
+    t.bigint "creator_id"
     t.datetime "date_founded"
-    t.integer "faction_id"
+    t.bigint "executor_corporation_id"
+    t.bigint "faction_id"
+    t.string "name"
+    t.string "ticker"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "icon_small"
-    t.string "icon_medium"
     t.index ["alliance_id"], name: "index_eve_alliances_on_alliance_id", unique: true
   end
 
