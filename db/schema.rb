@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_18_210214) do
+ActiveRecord::Schema.define(version: 2018_12_18_211230) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -134,22 +134,22 @@ ActiveRecord::Schema.define(version: 2018_12_18_210214) do
   end
 
   create_table "eve_corporations", force: :cascade do |t|
-    t.string "name"
-    t.string "ticker"
-    t.integer "member_count"
-    t.integer "ceo_id"
-    t.integer "alliance_id"
-    t.text "description"
-    t.decimal "tax_rate"
+    t.bigint "corporation_id"
+    t.bigint "alliance_id"
+    t.bigint "ceo_id"
+    t.bigint "creator_id"
     t.datetime "date_founded"
-    t.integer "creator_id"
-    t.string "corporation_url"
-    t.integer "faction_id"
-    t.integer "home_station_id"
-    t.integer "shares"
+    t.text "description"
+    t.bigint "faction_id"
+    t.bigint "home_station_id"
+    t.integer "member_count"
+    t.string "name"
+    t.bigint "shares"
+    t.float "tax_rate"
+    t.string "ticker"
+    t.text "corporation_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "corporation_id"
     t.index ["corporation_id"], name: "index_eve_corporations_on_corporation_id", unique: true
   end
 
