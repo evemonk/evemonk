@@ -1,6 +1,6 @@
 # Changelog
 
-## v0.1.0
+## master
 
 * Port to Vue.js
 * Material Design with Vuetify
