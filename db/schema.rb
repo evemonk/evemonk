@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_18_211230) do
+ActiveRecord::Schema.define(version: 2018_12_18_212230) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -169,13 +169,13 @@ ActiveRecord::Schema.define(version: 2018_12_18_211230) do
     t.index ["faction_id"], name: "index_eve_factions_on_faction_id", unique: true
   end
 
-  create_table "eve_races", id: :serial, force: :cascade do |t|
+  create_table "eve_races", force: :cascade do |t|
+    t.bigint "alliance_id"
     t.text "description"
-    t.integer "race_id"
     t.string "name"
+    t.bigint "race_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "alliance_id"
     t.index ["race_id"], name: "index_eve_races_on_race_id", unique: true
   end
 
