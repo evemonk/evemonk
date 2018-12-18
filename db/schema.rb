@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_18_213525) do
+ActiveRecord::Schema.define(version: 2018_12_18_214142) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -117,17 +117,17 @@ ActiveRecord::Schema.define(version: 2018_12_18_213525) do
   end
 
   create_table "eve_bloodlines", force: :cascade do |t|
-    t.integer "bloodline_id"
-    t.string "name"
-    t.text "description"
-    t.integer "race_id"
-    t.integer "ship_type_id"
-    t.integer "corporation_id"
-    t.integer "perception"
-    t.integer "willpower"
+    t.bigint "bloodline_id"
     t.integer "charisma"
-    t.integer "memory"
+    t.bigint "corporation_id"
+    t.text "description"
     t.integer "intelligence"
+    t.integer "memory"
+    t.string "name"
+    t.integer "perception"
+    t.bigint "race_id"
+    t.bigint "ship_type_id"
+    t.integer "willpower"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["bloodline_id"], name: "index_eve_bloodlines_on_bloodline_id", unique: true
