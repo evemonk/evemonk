@@ -10,14 +10,12 @@ GIT
 
 GIT
   remote: https://github.com/biow0lf/eve_online.git
-  revision: 6557d81468b0a16140d13674be824c2b7d398bc5
+  revision: e240f863016c459470492ab6c3a409a255d7f2c2
   branch: master
   specs:
-    eve_online (0.17.0)
+    eve_online (0.20.0)
       activesupport (>= 4.2.0)
-      faraday
       json
-      memoist
 
 GIT
   remote: https://github.com/jdliss/shoulda-callback-matchers.git
@@ -215,7 +213,6 @@ GEM
       kramdown (~> 1.12, >= 1.12.0)
       mixlib-cli (~> 1.7, >= 1.7.0)
       mixlib-config (~> 2.2, >= 2.2.1)
-    memoist (0.16.0)
     method_source (0.9.2)
     mimemagic (0.3.2)
     mini_mime (1.0.1)
