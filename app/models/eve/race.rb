@@ -2,6 +2,6 @@
 
 module Eve
   class Race < ApplicationRecord
-    has_many :characters
+    belongs_to :alliance, primary_key: :alliance_id, optional: true
   end
 end
