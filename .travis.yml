@@ -1,7 +1,11 @@
 dist: trusty
 language: ruby
 sudo: required
-cache: bundler
+cache:
+  bundler: true
+  directories:
+    - node_modules
+  yarn: true
 services: postgresql
 bundler_args: --jobs=3 --retry=3 --without development
 rvm:
@@ -15,6 +19,11 @@ before_install:
   - gem install bundler --no-document --force
   - gem --version
   - bundle --version
+  - nvm install node
+  - node -v
+  - npm -v
+  - npm i -g yarn
+  - yarn
 
 before_script:
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
