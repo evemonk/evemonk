@@ -12,7 +12,7 @@ class CreateEveAlliancesTable < ActiveRecord::Migration[5.2]
       t.string :name
       t.string :ticker
       t.timestamps
-      t.index [:alliance_id], name: 'index_eve_alliances_on_alliance_id', unique: true
+      t.index :alliance_id, unique: true
     end
   end
 end
