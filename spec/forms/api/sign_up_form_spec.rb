@@ -49,9 +49,9 @@ describe Api::SignUpForm, type: :model do
 
       specify { expect(subject.save).to eq(false) }
 
-      specify { expect { subject.save }.not_to change { User.count } }
+      specify { expect { subject.save }.not_to change(User, :count) }
 
-      specify { expect { subject.save }.not_to change { Session.count } }
+      specify { expect { subject.save }.not_to change(Session, :count) }
     end
 
     context 'when user valid but email has already been taken' do
