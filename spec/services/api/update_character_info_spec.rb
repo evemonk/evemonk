@@ -20,8 +20,6 @@ describe Api::UpdateCharacterInfo do
 
     before { expect(subject).to receive(:character_wallet) }
 
-    before { expect(subject).to receive(:character_portrait) }
-
     before { expect(subject).to receive(:character_attributes) }
 
     before { expect(subject).to receive(:character_corporation_info) }
