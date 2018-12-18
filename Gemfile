@@ -16,6 +16,7 @@ gem 'bcrypt'
 gem 'eve_online', git: 'https://github.com/biow0lf/eve_online.git', branch: 'master'
 # gem 'eve_online', path: '~/opensource/eve_online'
 gem 'omniauth-eve_online-sso'
+gem 'jwt'
 gem 'rack-cors', require: 'rack/cors'
 gem 'kaminari'
 gem 'pundit'
@@ -89,6 +90,7 @@ group :test do
                                    branch: 'master'
   gem 'simplecov'
   gem 'database_rewinder'
-  gem 'webmock'
+  gem 'webmock', git: 'https://github.com/bblimke/webmock.git',
+                 branch: 'master' # Until next version with https://github.com/bblimke/webmock/pull/769/commits/9432aaa21b6b1bdc038b1c22537444f223643d8f
   gem 'vcr'
 end

@@ -2,7 +2,9 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 import axios from 'axios';
 
-axios.defaults.baseURL = 'http://localhost:3000';
+import port from 'port.js';
+
+axios.defaults.baseURL = `http://localhost:${port}`;
 axios.defaults.headers.common.Accept = 'application/json';
 axios.defaults.timeout = 15000; // 15 seconds
 
@@ -10,14 +12,29 @@ Vue.use(Vuex);
 
 const store = new Vuex.Store({
   state: {
+    drawer: null,
     currentUser: null,
     session_id: null,
     token: localStorage.getItem('token') || null,
+    alerts: [
+      // { type: 'info', message: 'Info' },
+      // { type: 'success', message: 'Success' },
+      // { type: 'warning', message: 'Warning' },
+      // { type: 'error', message: 'Error' },
+    ],
   },
 
   getters: {
     isAuthenticated(state) {
       return state.token;
+    },
+
+    getDrawer(state) {
+      return state.drawer;
+    },
+
+    getAlerts(state) {
+      return state.alerts;
     },
   },
 
@@ -36,6 +53,19 @@ const store = new Vuex.Store({
     signOutUser(state) {
       state.token = null;
       localStorage.removeItem('token');
+      state.alerts = [];
+    },
+
+    setAlert(state, alert) {
+      state.alerts.push(alert);
+    },
+
+    clearAlerts(state) {
+      state.alerts = [];
+    },
+
+    setDrawer(state, option) {
+      state.drawer = option;
     },
   },
 
@@ -96,13 +126,13 @@ const store = new Vuex.Store({
     //     }
     // },
 
-    // async fetchAlliances ({ commit, state }, page) {
-    //     try {
-    //         return await axios.get(`/api/eve/alliances?page=${page}`);
-    //     } catch (error) {
-    //         return error;
-    //     }
-    // }
+    async fetchAlliances({ commit, state }, page) {
+      try {
+        return await axios.get(`/api/eve/alliances?page=${page}`);
+      } catch (error) {
+        return error;
+      }
+    },
   },
 });
 

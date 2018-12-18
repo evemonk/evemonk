@@ -19,15 +19,15 @@ ENV PATH /root/.rbenv/bin:/root/.rbenv/shims:$PATH
 
 RUN cd /root/.rbenv && src/configure && make -C src
 
-RUN rbenv install 2.5.3
+RUN rbenv install 2.6.0-rc1
 
-RUN rbenv global 2.5.3
+RUN rbenv global 2.6.0-rc1
 
 RUN echo 'eval "$(rbenv init -)"' >> /root/.bash_profile
 
 RUN gem update --system
 
-ENV BUNDLER_VERSION 1.17.1
+ENV BUNDLER_VERSION 1.17.2
 
 RUN gem install bundler --version "$BUNDLER_VERSION" --force
 

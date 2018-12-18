@@ -1,7 +1,7 @@
 <template>
-    <div id="alliance">
-        <h1>Hello</h1>
-    </div>
+  <div id="alliance">
+    <h1>Hello</h1>
+  </div>
 </template>
 
 <script>
