@@ -2,6 +2,5 @@
 
 module Eve
   class Ancestry < ApplicationRecord
-    validates :ancestry_id, presence: true
   end
 end
