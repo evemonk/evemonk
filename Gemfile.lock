@@ -9,7 +9,7 @@ GIT
       hashdiff
 
 GIT
-  remote: https://github.com/biow0lf/eve_online.git
+  remote: https://github.com/evemonk/eve_online.git
   revision: fed08728d0dfa1886e95a4840d2a6f3014dd1955
   branch: master
   specs:
