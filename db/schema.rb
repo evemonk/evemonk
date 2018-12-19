@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_18_223520) do
+ActiveRecord::Schema.define(version: 2018_12_19_232349) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -97,6 +97,7 @@ ActiveRecord::Schema.define(version: 2018_12_18_223520) do
     t.string "ticker"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "etag"
     t.index ["alliance_id"], name: "index_eve_alliances_on_alliance_id", unique: true
   end
 
