@@ -2,6 +2,16 @@ FROM ruby:2.6.0-rc1
 
 LABEL maintainer="Igor Zubkov <igor.zubkov@gmail.com>"
 
+RUN apt-get update
+
+RUN mkdir -p /app
+
+WORKDIR /app
+
+COPY . .
+
+RUN bundle install --without development test
+
 # RUN yum upgrade -y -q
 
 # RUN yum install epel-release -y -q
