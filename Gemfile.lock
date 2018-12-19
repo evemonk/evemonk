@@ -10,12 +10,11 @@ GIT
 
 GIT
   remote: https://github.com/biow0lf/eve_online.git
-  revision: e240f863016c459470492ab6c3a409a255d7f2c2
+  revision: ca14099a15d04dc6ca71136a8098c9f3c60bce69
   branch: master
   specs:
     eve_online (0.20.0)
       activesupport (>= 4.2.0)
-      json
 
 GIT
   remote: https://github.com/jdliss/shoulda-callback-matchers.git
