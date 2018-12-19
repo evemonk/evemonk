@@ -145,7 +145,7 @@ GEM
       dotenv (= 2.5.0)
       railties (>= 3.2, < 6.0)
     ed25519 (1.2.4)
-    erubi (1.7.1)
+    erubi (1.8.0)
     erubis (2.7.0)
     et-orbi (1.1.6)
       tzinfo
