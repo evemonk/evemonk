@@ -10,8 +10,8 @@ GIT
 
 GIT
   remote: https://github.com/evemonk/eve_online.git
-  revision: fed08728d0dfa1886e95a4840d2a6f3014dd1955
-  branch: master
+  revision: 1352714d3d6c79dd84c36d3dbe2bd668674adcdc
+  branch: refactoring
   specs:
     eve_online (0.20.0)
       activesupport (>= 4.2.0)

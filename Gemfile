@@ -13,7 +13,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 # gem 'rufus-scheduler'
 gem 'bcrypt'
 # gem 'eve_online'
-gem 'eve_online', git: 'https://github.com/evemonk/eve_online.git', branch: 'master'
+gem 'eve_online', git: 'https://github.com/evemonk/eve_online.git', branch: 'refactoring'
 # gem 'eve_online', path: '~/opensource/eve_online'
 gem 'omniauth-eve_online-sso'
 gem 'jwt'
