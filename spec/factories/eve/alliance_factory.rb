@@ -10,5 +10,6 @@ FactoryBot.define do
     sequence(:faction_id)
     name { Faker::Lorem.word }
     ticker { Faker::Lorem.word.upcase }
+    etag { '' } # TODO: change to real etag string
   end
 end
