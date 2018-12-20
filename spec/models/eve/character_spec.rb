@@ -5,6 +5,8 @@ require 'rails_helper'
 describe Eve::Character do
   it { should be_an(ApplicationRecord) }
 
+  it { expect(described_class.table_name).to eq('eve_characters') }
+
   it { should belong_to(:alliance).with_primary_key(:alliance_id).optional }
 
   it { should belong_to(:ancestry).with_primary_key(:ancestry_id).optional }
