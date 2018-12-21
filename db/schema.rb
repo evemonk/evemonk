@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_20_221051) do
+ActiveRecord::Schema.define(version: 2018_12_21_123710) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -182,6 +182,20 @@ ActiveRecord::Schema.define(version: 2018_12_20_221051) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["faction_id"], name: "index_eve_factions_on_faction_id", unique: true
+  end
+
+  create_table "eve_graphics", force: :cascade do |t|
+    t.string "collision_file"
+    t.string "graphic_file"
+    t.bigint "graphic_id"
+    t.string "icon_folder"
+    t.string "sof_dna"
+    t.string "sof_fation_name"
+    t.string "sof_hull_name"
+    t.string "sof_race_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["graphic_id"], name: "index_eve_graphics_on_graphic_id", unique: true
   end
 
   create_table "eve_races", force: :cascade do |t|
