@@ -3,17 +3,17 @@
 module Eve
   class AlliancesImporter
     def import
-      etag = Redis.current.get("alliances:#{ I18n.locale }:etag")
+      current_etag = Redis.current.get("alliances:#{ I18n.locale }:etag")
 
-      alliances = EveOnline::ESI::Alliances.new(etag: etag)
+      eveonline_esi_alliances = EveOnline::ESI::Alliances.new(etag: current_etag)
 
-      return if alliances.not_modified?
+      return if eveonline_esi_alliances.not_modified?
 
-      alliances.alliance_ids.each do |alliance_id|
+      eveonline_esi_alliances.alliance_ids.each do |alliance_id|
         Eve::AllianceImporterWorker.perform_async(alliance_id)
       end
 
-      Redis.current.set("alliances:#{ I18n.locale }:etag", alliances.etag)
+      Redis.current.set("alliances:#{ I18n.locale }:etag", eveonline_esi_alliances.etag)
     end
   end
 end
