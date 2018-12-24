@@ -13,8 +13,6 @@ module Api
 
       character_wallet
 
-      character_portrait
-
       character_attributes
 
       character_corporation_info
@@ -37,15 +35,6 @@ module Api
                                                      token: character.token)
 
       character.update!(wallet.as_json)
-    end
-
-    def character_portrait
-      portrait = ::EveOnline::ESI::CharacterPortrait.new(character_id: character.uid)
-
-      character.update!(portrait_small: portrait.small,
-                        portrait_medium: portrait.medium,
-                        portrait_large: portrait.large,
-                        portrait_huge: portrait.huge)
     end
 
     def character_attributes

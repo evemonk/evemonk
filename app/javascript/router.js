@@ -8,7 +8,8 @@ import SignInPage from './components/sign_in.vue';
 import SignOut from './components/sign_out.vue';
 import Profile from './components/profile.vue';
 import Characters from './components/characters.vue';
-import Alliances from './components/db/alliances.vue';
+import UniverseAlliances from './components/universe/alliances.vue';
+// import UniverseAlliance from './components/universe/alliance.vue';
 
 Vue.use(VueRouter);
 
@@ -20,7 +21,7 @@ const routes = [
   { path: '/sign_out', component: SignOut },
   { path: '/profile', component: Profile },
   { path: '/characters', component: Characters },
-  { path: '/db/alliances', component: Alliances },
+  { path: '/universe/alliances', component: UniverseAlliances },
 
   // otherwise redirect to home
   { path: '*', redirect: '/' },

@@ -12,6 +12,7 @@ rvm:
   - 2.6.0-rc2
 addons:
   chrome: stable
+  postgresql: '9.3'
 env: DISPLAY=':99.0'
 
 before_install:

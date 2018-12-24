@@ -2,6 +2,8 @@
 
 module Eve
   class Ancestry < ApplicationRecord
-    validates :ancestry_id, presence: true
+    belongs_to :bloodline, primary_key: :bloodline_id, optional: true
+
+    # belongs_to :what? :icon_id?
   end
 end

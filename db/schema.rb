@@ -2,15 +2,15 @@
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
 #
-# Note that this schema.rb definition is the authoritative source for your
-# database schema. If you need to create the application database on another
-# system, you should be using db:schema:load, not running all the migrations
-# from scratch. The latter is a flawed and unsustainable approach (the more migrations
-# you'll amass, the slower it'll run and the greater likelihood for issues).
+# This file is the source Rails uses to define your schema when running `rails
+# db:schema:load`. When creating a new database, `rails db:schema:load` tends to
+# be faster and is potentially less error prone than running all of your
+# migrations from scratch. Old migrations may fail to apply correctly if those
+# migrations use external dependencies or application code.
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_08_134616) do
+ActiveRecord::Schema.define(version: 2018_12_24_204752) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,10 +57,6 @@ ActiveRecord::Schema.define(version: 2018_12_08_134616) do
     t.integer "alliance_id"
     t.integer "ancestry_id"
     t.decimal "security_status", precision: 18, scale: 16
-    t.string "portrait_small"
-    t.string "portrait_medium"
-    t.string "portrait_large"
-    t.string "portrait_huge"
     t.float "wallet"
     t.integer "charisma"
     t.integer "intelligence"
@@ -81,95 +77,161 @@ ActiveRecord::Schema.define(version: 2018_12_08_134616) do
     t.index ["user_id"], name: "index_characters_on_user_id"
   end
 
-  create_table "eve_alliances", force: :cascade do |t|
-    t.integer "alliance_id"
-    t.string "name"
-    t.integer "creator_id"
-    t.integer "creator_corporation_id"
-    t.string "ticker"
-    t.integer "executor_corporation_id"
-    t.datetime "date_founded"
-    t.integer "faction_id"
+  create_table "eve_alliance_corporations", force: :cascade do |t|
+    t.bigint "alliance_id"
+    t.bigint "corporation_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "icon_small"
-    t.string "icon_medium"
+    t.index ["alliance_id"], name: "index_eve_alliance_corporations_on_alliance_id"
+    t.index ["corporation_id"], name: "index_eve_alliance_corporations_on_corporation_id"
+  end
+
+  create_table "eve_alliances", force: :cascade do |t|
+    t.bigint "alliance_id"
+    t.bigint "creator_corporation_id"
+    t.bigint "creator_id"
+    t.datetime "date_founded"
+    t.bigint "executor_corporation_id"
+    t.bigint "faction_id"
+    t.string "name"
+    t.string "ticker"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "etag"
     t.index ["alliance_id"], name: "index_eve_alliances_on_alliance_id", unique: true
   end
 
   create_table "eve_ancestries", force: :cascade do |t|
-    t.integer "ancestry_id"
-    t.string "name"
-    t.integer "bloodline_id"
+    t.bigint "ancestry_id"
+    t.bigint "bloodline_id"
     t.text "description"
-    t.string "short_description"
     t.integer "icon_id"
+    t.string "name"
+    t.text "short_description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["ancestry_id"], name: "index_eve_ancestries_on_ancestry_id", unique: true
   end
 
   create_table "eve_bloodlines", force: :cascade do |t|
-    t.integer "bloodline_id"
-    t.string "name"
-    t.text "description"
-    t.integer "race_id"
-    t.integer "ship_type_id"
-    t.integer "corporation_id"
-    t.integer "perception"
-    t.integer "willpower"
+    t.bigint "bloodline_id"
     t.integer "charisma"
-    t.integer "memory"
+    t.bigint "corporation_id"
+    t.text "description"
     t.integer "intelligence"
+    t.integer "memory"
+    t.string "name"
+    t.integer "perception"
+    t.bigint "race_id"
+    t.bigint "ship_type_id"
+    t.integer "willpower"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["bloodline_id"], name: "index_eve_bloodlines_on_bloodline_id", unique: true
   end
 
-  create_table "eve_corporations", force: :cascade do |t|
-    t.string "name"
-    t.string "ticker"
-    t.integer "member_count"
-    t.integer "ceo_id"
-    t.integer "alliance_id"
+  create_table "eve_characters", force: :cascade do |t|
+    t.bigint "character_id"
+    t.bigint "alliance_id"
+    t.bigint "ancestry_id"
+    t.datetime "birthday"
+    t.bigint "bloodline_id"
+    t.bigint "corporation_id"
     t.text "description"
-    t.decimal "tax_rate"
-    t.datetime "date_founded"
-    t.integer "creator_id"
-    t.string "corporation_url"
-    t.integer "faction_id"
-    t.integer "home_station_id"
-    t.integer "shares"
+    t.bigint "faction_id"
+    t.string "gender"
+    t.string "name"
+    t.bigint "race_id"
+    t.float "security_status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "corporation_id"
+    t.index ["character_id"], name: "index_eve_characters_on_character_id", unique: true
+  end
+
+  create_table "eve_corporations", force: :cascade do |t|
+    t.bigint "corporation_id"
+    t.bigint "alliance_id"
+    t.bigint "ceo_id"
+    t.bigint "creator_id"
+    t.datetime "date_founded"
+    t.text "description"
+    t.bigint "faction_id"
+    t.bigint "home_station_id"
+    t.integer "member_count"
+    t.string "name"
+    t.bigint "shares"
+    t.float "tax_rate"
+    t.string "ticker"
+    t.text "corporation_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "etag"
     t.index ["corporation_id"], name: "index_eve_corporations_on_corporation_id", unique: true
   end
 
   create_table "eve_factions", force: :cascade do |t|
-    t.integer "faction_id"
-    t.string "name"
+    t.bigint "faction_id"
+    t.bigint "corporation_id"
     t.text "description"
-    t.integer "solar_system_id"
-    t.integer "corporation_id"
-    t.integer "militia_corporation_id"
+    t.boolean "is_unique"
+    t.bigint "militia_corporation_id"
+    t.string "name"
     t.float "size_factor"
+    t.bigint "solar_system_id"
     t.integer "station_count"
     t.integer "station_system_count"
-    t.boolean "is_unique"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["faction_id"], name: "index_eve_factions_on_faction_id", unique: true
   end
 
-  create_table "eve_races", id: :serial, force: :cascade do |t|
-    t.text "description"
-    t.integer "race_id"
-    t.string "name"
+  create_table "eve_graphics", force: :cascade do |t|
+    t.string "collision_file"
+    t.string "graphic_file"
+    t.bigint "graphic_id"
+    t.string "icon_folder"
+    t.string "sof_dna"
+    t.string "sof_fation_name"
+    t.string "sof_hull_name"
+    t.string "sof_race_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "alliance_id"
+    t.index ["graphic_id"], name: "index_eve_graphics_on_graphic_id", unique: true
+  end
+
+  create_table "eve_races", force: :cascade do |t|
+    t.bigint "alliance_id"
+    t.text "description"
+    t.string "name"
+    t.bigint "race_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["race_id"], name: "index_eve_races_on_race_id", unique: true
+  end
+
+  create_table "eve_stargates", force: :cascade do |t|
+    t.string "name"
+    t.bigint "stargate_id"
+    t.bigint "system_id"
+    t.bigint "type_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["stargate_id"], name: "index_eve_stargates_on_stargate_id", unique: true
+    t.index ["system_id"], name: "index_eve_stargates_on_system_id"
+  end
+
+  create_table "eve_systems", force: :cascade do |t|
+    t.bigint "constellation_id"
+    t.string "name"
+    t.string "security_class"
+    t.float "security_status"
+    t.bigint "star_id"
+    t.bigint "system_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["constellation_id"], name: "index_eve_systems_on_constellation_id"
+    t.index ["star_id"], name: "index_eve_systems_on_star_id"
+    t.index ["system_id"], name: "index_eve_systems_on_system_id", unique: true
   end
 
   create_table "loyalty_points", force: :cascade do |t|

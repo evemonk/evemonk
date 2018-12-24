@@ -1,47 +1,57 @@
-FROM centos:7
+FROM ruby:2.6-rc
 
 LABEL maintainer="Igor Zubkov <igor.zubkov@gmail.com>"
 
-RUN yum upgrade -y -q
+RUN apt-get update
 
-RUN yum install epel-release -y -q
+RUN mkdir -p /app
 
-RUN yum install git gcc make bzip2 libyaml-devel openssl-devel \
-	readline-devel zlib-devel postgresql-devel nodejs npm --enablerepo=epel -y -q
+WORKDIR /app
 
-RUN echo 'gem: --no-rdoc --no-ri' > /root/.gemrc
+COPY . .
 
-RUN git clone https://github.com/rbenv/rbenv.git /root/.rbenv
+RUN bundle install --without development test
 
-RUN git clone https://github.com/sstephenson/ruby-build.git /root/.rbenv/plugins/ruby-build
+# RUN yum upgrade -y -q
 
-ENV PATH /root/.rbenv/bin:/root/.rbenv/shims:$PATH
+# RUN yum install epel-release -y -q
 
-RUN cd /root/.rbenv && src/configure && make -C src
+# RUN yum install git gcc make bzip2 libyaml-devel openssl-devel \
+# 	readline-devel zlib-devel postgresql-devel nodejs npm --enablerepo=epel -y -q
 
-RUN rbenv install 2.6.0-rc2
+# RUN echo 'gem: --no-rdoc --no-ri' > /root/.gemrc
 
-RUN rbenv global 2.6.0-rc2
+# RUN git clone https://github.com/rbenv/rbenv.git /root/.rbenv
 
-RUN echo 'eval "$(rbenv init -)"' >> /root/.bash_profile
+# RUN git clone https://github.com/sstephenson/ruby-build.git /root/.rbenv/plugins/ruby-build
 
-RUN gem update --system
+# ENV PATH /root/.rbenv/bin:/root/.rbenv/shims:$PATH
 
-ENV BUNDLER_VERSION 1.17.2
+# RUN cd /root/.rbenv && src/configure && make -C src
 
-RUN gem install bundler --version "$BUNDLER_VERSION" --force
+# RUN rbenv install 2.6.0-rc2
 
-RUN mkdir -p /srv/evemonk
+# RUN rbenv global 2.6.0-rc2
 
-RUN git clone https://github.com/biow0lf/evemonk.git /srv/evemonk
+# RUN echo 'eval "$(rbenv init -)"' >> /root/.bash_profile
 
-WORKDIR /srv/evemonk
+# RUN gem update --system
 
-ENV RAILS_ENV production
+# ENV BUNDLER_VERSION 1.17.2
 
-RUN bundle install --quiet --without development test
+# RUN gem install bundler --version "$BUNDLER_VERSION" --force
 
-RUN rbenv rehash
+# RUN mkdir -p /srv/evemonk
+
+# RUN git clone https://github.com/biow0lf/evemonk.git /srv/evemonk
+
+# WORKDIR /srv/evemonk
+
+# ENV RAILS_ENV production
+
+# RUN bundle install --quiet --without development test
+
+# RUN rbenv rehash
 
 EXPOSE 3000
 
