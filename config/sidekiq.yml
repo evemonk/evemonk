@@ -8,9 +8,6 @@
     class: Eve::RacesImporterWorker
     description: 'Update EveOnline races'
 
-  # eve_races:
-  #   every: 1d
-  #   class: EveRacesWorker
   # eve_bloodlines:
   #   every: 1d
   #   class: EveBloodlinesWorker
