@@ -4,6 +4,7 @@
 
 * Port to Vue.js
 * Material Design with Vuetify
+* Port to Rails master (6.0 pre-release)
 
 ## v0.0.2
 
