@@ -6,6 +6,7 @@
     "actioncable": ">=5.2.1",
     "activestorage": ">=5.2.1",
     "axios": "^0.18.0",
+    "rails-erb-loader": "^5.5.0",
     "rails-ujs": ">=5.2.1",
     "vue": "^2.5.21",
     "vue-loader": "^15.4.2",
@@ -19,7 +20,6 @@
     "eslint": "^5.11.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.14.0",
-    "rails-erb-loader": "^5.5.0",
     "webpack-dev-server": "^3.1.14"
   }
 }
