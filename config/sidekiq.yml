@@ -6,8 +6,15 @@
   eve_races:
     every: 1d
     class: Eve::RacesImporterWorker
-    description: 'Update EveOnline races'
-
+    description: 'Update EveOnline Races'
+  eve_alliances:
+    every: 1d
+    class: Eve::AlliancesImporterWorker
+    description: 'Update EveOnline Alliances'
+  eve_alliances_remove_old:
+    every: 1d
+    class: Eve::RemoveOldAlliancesImporterWorker
+    description: 'Remove Old EveOnline Alliances'
   # eve_bloodlines:
   #   every: 1d
   #   class: EveBloodlinesWorker
@@ -17,6 +24,3 @@
   # eve_ancestries:
   #   every: 1d
   #   class: EveAncestriesWorker
-  # eve_alliances:
-  #   every: 1w
-  #   class: EveAlliancesWorker
