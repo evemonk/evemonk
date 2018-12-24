@@ -36,3 +36,4 @@ yarn-debug.log*
 /.env
 /.ruby-gemset
 /.DS_Store
+/dump.rdb
