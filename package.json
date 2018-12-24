@@ -19,6 +19,7 @@
     "eslint": "^5.11.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.14.0",
+    "rails-erb-loader": "^5.5.0",
     "webpack-dev-server": "^3.1.14"
   }
 }
