@@ -5,6 +5,7 @@
     "@rails/webpacker": "https://github.com/rails/webpacker",
     "actioncable": ">=5.2.1",
     "activestorage": ">=5.2.1",
+    "axios": "^0.18.0",
     "rails-ujs": ">=5.2.1",
     "vue": "^2.5.21",
     "vue-loader": "^15.4.2",
