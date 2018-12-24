@@ -2,12 +2,13 @@
 
 source 'https://rubygems.org'
 
-gem 'rails', '~> 5.2.2'
+gem 'rails', git: 'https://github.com/rails/rails.git',
+             branch: 'master'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.11'
 gem 'sass-rails', '~> 5.0'
-gem 'uglifier', '>= 1.3.0'
-gem 'webpacker'
+gem 'webpacker', git: 'https://github.com/rails/webpacker.git',
+                 branch: 'master'
 gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 # gem 'rufus-scheduler'
@@ -30,8 +31,19 @@ gem 'pg_query'
 # gem 'rubycritic', require: false
 gem 'swagger-blocks'
 gem 'http_logger'
-gem 'responders'
+gem 'responders', git: 'https://github.com/plataformatec/responders.git', branch: 'master' # Until next release
 gem 'rack-health'
+
+# Use Redis adapter to run Action Cable in production
+# gem 'redis', '~> 4.0'
+# Use ActiveModel has_secure_password
+# gem 'bcrypt', '~> 3.1.7'
+
+# Use ActiveStorage variant
+# gem 'image_processing', '~> 1.2'
+
+# Use Capistrano for deployment
+# gem 'capistrano-rails', group: :development
 
 group :production do
   gem 'newrelic_rpm'
@@ -42,7 +54,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'awesome_print', require: 'ap'
   gem 'pry-rails'
-  gem 'bullet'
+  # gem 'bullet' # Current version don't support rails 6 yet
   gem 'factory_bot_rails'
   gem 'faker'
   gem 'sql_tracker'
