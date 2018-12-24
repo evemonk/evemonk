@@ -14,13 +14,13 @@ module Eve
       alliance_ids_to_remove = eve_alliance_ids - eveonline_esi_alliances.alliance_ids
 
       alliance_ids_to_remove.each do |alliance_id|
-        alliance = Eve::Alliance.find_or_initialize_by(alliance_id: alliance_id)
+        eve_alliance = Eve::Alliance.find_or_initialize_by(alliance_id: alliance_id)
 
-        alliance.corporations.each do |corporation|
+        eve_alliance.corporations.each do |corporation|
           Eve::CorporationImporter.new(corporation.corporation_id).import
         end
 
-        alliance.destroy!
+        eve_alliance.destroy!
       end
 
       Redis.current.set("remove_old_alliances:#{ I18n.locale }:etag", eveonline_esi_alliances.etag)
