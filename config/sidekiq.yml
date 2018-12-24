@@ -5,16 +5,21 @@
 :schedule:
   eve_races:
     every: 1d
-    class: EveRacesWorker
-  eve_bloodlines:
-    every: 1d
-    class: EveBloodlinesWorker
-  eve_factions:
-    every: 1d
-    class: EveFactionsWorker
-  eve_ancestries:
-    every: 1d
-    class: EveAncestriesWorker
-  eve_alliances:
-    every: 1w
-    class: EveAlliancesWorker
+    class: Eve::RacesImporterWorker
+    description: 'Update EveOnline races'
+
+  # eve_races:
+  #   every: 1d
+  #   class: EveRacesWorker
+  # eve_bloodlines:
+  #   every: 1d
+  #   class: EveBloodlinesWorker
+  # eve_factions:
+  #   every: 1d
+  #   class: EveFactionsWorker
+  # eve_ancestries:
+  #   every: 1d
+  #   class: EveAncestriesWorker
+  # eve_alliances:
+  #   every: 1w
+  #   class: EveAlliancesWorker
