@@ -31,7 +31,7 @@ gem 'pg_query'
 # gem 'rubycritic', require: false
 gem 'swagger-blocks'
 gem 'http_logger'
-gem 'responders'
+gem 'responders', git: 'https://github.com/plataformatec/responders.git', branch: 'master' # Until next release
 gem 'rack-health'
 
 # Use Redis adapter to run Action Cable in production
