@@ -9,7 +9,7 @@ describe Eve::RacesImporter do
 
       before do
         #
-        # Redis.current.get("races:#{ I18n.locale }:etag")
+        # Redis.current.get("races:#{ I18n.locale }:etag") # => current_etag
         #
         expect(Redis).to receive(:current) do
           double.tap do |a|
@@ -72,7 +72,7 @@ describe Eve::RacesImporter do
 
       before do
         #
-        # Redis.current.get("races:#{ I18n.locale }:etag")
+        # Redis.current.get("races:#{ I18n.locale }:etag") # => current_etag
         #
         expect(Redis).to receive(:current) do
           double.tap do |a|
