@@ -52,6 +52,31 @@ describe Eve::AllianceImporter do
       end
 
       context 'when alliance not found' do
+        let(:alliance_id) { double }
+
+        subject { described_class.new(alliance_id) }
+
+        let(:etag) { double }
+
+        before { expect(Eve::Alliance).to receive(:find_or_initialize_by).with(alliance_id: alliance_id).and_return(eve_alliance) }
+
+        before { expect(EveOnline::ESI::Alliance).to receive(:new).and_raise(EveOnline::Exceptions::ResourceNotFound) }
+
+        context 'when alliance persisted' do
+          let(:eve_alliance) { instance_double(Eve::Alliance, persisted?: true, etag: etag) }
+
+          before { expect(eve_alliance).to receive(:destroy!) }
+
+          specify { expect { subject.import }.not_to raise_error }
+        end
+
+        context 'when alliance not persisted' do
+          let(:eve_alliance) { instance_double(Eve::Alliance, persisted?: false, etag: etag) }
+
+          before { expect(eve_alliance).not_to receive(:destroy!) }
+
+          specify { expect { subject.import }.not_to raise_error }
+        end
       end
     end
 
@@ -75,31 +100,5 @@ describe Eve::AllianceImporter do
 
       specify { expect { subject.import }.not_to raise_error }
     end
-
-    # context 'when alliance not found' do
-    #   let(:alliance_id) { double }
-
-    #   subject { described_class.new(alliance_id) }
-
-    #   before { expect(Eve::Alliance).to receive(:find_or_initialize_by).with(alliance_id: alliance_id).and_return(eve_alliance) }
-
-    #   before { expect(EveOnline::ESI::Alliance).to receive(:new).and_raise(EveOnline::Exceptions::ResourceNotFound) }
-
-    #   context 'when alliance persisted' do
-    #     let(:eve_alliance) { instance_double(Eve::Alliance, persisted?: true) }
-
-    #     before { expect(eve_alliance).to receive(:destroy) }
-
-    #     specify { expect { subject.import }.not_to raise_error }
-    #   end
-
-    #   context 'when alliance not persisted' do
-    #     let(:eve_alliance) { instance_double(Eve::Alliance, persisted?: false) }
-
-    #     before { expect(eve_alliance).not_to receive(:destroy) }
-
-    #     specify { expect { subject.import }.not_to raise_error }
-    #   end
-    # end
   end
 end
