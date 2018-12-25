@@ -47,8 +47,8 @@
     data () {
       return {
         valid: true,
-        email: '',
-        password: '',
+        email: null,
+        password: null,
         errors: {
           base: [],
           email: [],
