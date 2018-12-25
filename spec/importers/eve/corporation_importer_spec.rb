@@ -89,24 +89,24 @@ describe Eve::CorporationImporter do
     end
 
     context 'when no fresh data available' do
-      # let(:alliance_id) { double }
+      let(:corporation_id) { double }
 
-      # let(:etag) { double }
+      let(:etag) { double }
 
-      # subject { described_class.new(alliance_id) }
+      subject { described_class.new(corporation_id) }
 
-      # let(:eve_alliance) { instance_double(Eve::Alliance, etag: etag) }
+      let(:eve_corporation) { instance_double(Eve::Corporation, etag: etag) }
 
-      # before { expect(Eve::Alliance).to receive(:find_or_initialize_by).with(alliance_id: alliance_id).and_return(eve_alliance) }
+      before { expect(Eve::Corporation).to receive(:find_or_initialize_by).with(corporation_id: corporation_id).and_return(eve_corporation) }
 
-      # let(:eveonline_esi_alliance) do
-      #   instance_double(EveOnline::ESI::Alliance,
-      #                   not_modified?: true)
-      # end
+      let(:eveonline_esi_corporation) do
+        instance_double(EveOnline::ESI::Corporation,
+                        not_modified?: true)
+      end
 
-      # before { expect(EveOnline::ESI::Alliance).to receive(:new).with(alliance_id: alliance_id, etag: etag).and_return(eveonline_esi_alliance) }
+      before { expect(EveOnline::ESI::Corporation).to receive(:new).with(corporation_id: corporation_id, etag: etag).and_return(eveonline_esi_corporation) }
 
-      # specify { expect { subject.import }.not_to raise_error }
+      specify { expect { subject.import }.not_to raise_error }
     end
   end
 end
