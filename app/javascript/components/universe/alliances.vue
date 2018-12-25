@@ -4,7 +4,7 @@
 
     <h1>Current page {{ current_page }}</h1>
 
-    <b-pagination size="md" :total-rows="total_count" v-model="current_page" :per-page="25"></b-pagination>
+    <v-pagination v-model="current_page" :length="total_pages"></v-pagination>
 
     <table id="alliances-list">
       <thead>
@@ -23,7 +23,7 @@
         </tr>
       </table>
 
-      <b-pagination size="md" :total-rows="total_count" v-model="current_page" :per-page="25"></b-pagination>
+      <v-pagination v-model="current_page" :length="total_pages"></v-pagination>
     </div>
 </template>
 
