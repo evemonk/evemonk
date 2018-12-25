@@ -31,10 +31,6 @@
       ...mapMutations([
         'clearAlerts'
       ])
-    },
-
-    created() {
-      console.log(this.getAlerts);
     }
   }
 </script>

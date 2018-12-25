@@ -52,9 +52,9 @@
     data () {
       return {
         valid: true,
-        email: '',
-        password: '',
-        password_confirmation: '',
+        email: null,
+        password: null,
+        password_confirmation: null,
         errors: {
           base: [],
           email: [],
