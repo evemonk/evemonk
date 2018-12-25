@@ -5,18 +5,12 @@ require 'rails_helper'
 describe Eve::AllianceImporter do
   describe '#import' do
     context 'when fresh data available' do
-      context 'when alliance is changed' do
+      context 'when alliance exists' do
         let(:alliance_id) { double }
 
         let(:etag) { double }
 
         subject { described_class.new(alliance_id) }
-
-        let(:eve_alliance) do
-          instance_double(Eve::Alliance,
-                          etag: etag,
-                          changed?: true)
-        end
 
         before { expect(Eve::Alliance).to receive(:find_or_initialize_by).with(alliance_id: alliance_id).and_return(eve_alliance) }
 
@@ -32,12 +26,29 @@ describe Eve::AllianceImporter do
 
         before { expect(eve_alliance).to receive(:assign_attributes).with(json) }
 
-        before { expect(eve_alliance).to receive(:save!) }
+        context 'when alliance is changed' do
+          let(:eve_alliance) do
+            instance_double(Eve::Alliance,
+                            etag: etag,
+                            changed?: true)
+          end
 
-        specify { expect { subject.import }.not_to raise_error }
-      end
+          before { expect(eve_alliance).to receive(:save!) }
 
-      context 'when alliance not changed' do
+          specify { expect { subject.import }.not_to raise_error }
+        end
+
+        context 'when alliance not changed' do
+          let(:eve_alliance) do
+            instance_double(Eve::Alliance,
+                            etag: etag,
+                            changed?: false)
+          end
+
+          before { expect(eve_alliance).not_to receive(:save!) }
+
+          specify { expect { subject.import }.not_to raise_error }
+        end
       end
 
       context 'when alliance not found' do
@@ -64,38 +75,6 @@ describe Eve::AllianceImporter do
 
       specify { expect { subject.import }.not_to raise_error }
     end
-
-    # context 'when import ok' do
-    #   let(:alliance_id) { double }
-
-    #   subject { described_class.new(alliance_id) }
-
-    #   before { expect(Eve::Alliance).to receive(:find_or_initialize_by).with(alliance_id: alliance_id).and_return(eve_alliance) }
-
-    #   let(:json) { double }
-
-    #   let(:alliance) { instance_double(EveOnline::ESI::Alliance, as_json: json) }
-
-    #   before { expect(EveOnline::ESI::Alliance).to receive(:new).with(alliance_id: alliance_id).and_return(alliance) }
-
-    #   before { expect(eve_alliance).to receive(:assign_attributes).with(json) }
-
-    #   context 'when alliance changed' do
-    #     let(:eve_alliance) { instance_double(Eve::Alliance, changed?: true) }
-
-    #     before { expect(eve_alliance).to receive(:save!) }
-
-    #     specify { expect { subject.import }.not_to raise_error }
-    #   end
-
-    #   context 'when alliance not changed' do
-    #     let(:eve_alliance) { instance_double(Eve::Alliance, changed?: false) }
-
-    #     before { expect(eve_alliance).not_to receive(:save!) }
-
-    #     specify { expect { subject.import }.not_to raise_error }
-    #   end
-    # end
 
     # context 'when alliance not found' do
     #   let(:alliance_id) { double }
