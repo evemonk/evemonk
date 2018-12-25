@@ -641,7 +641,7 @@
 
 "@rails/webpacker@https://github.com/rails/webpacker":
   version "4.0.0-rc.2"
-  resolved "https://github.com/rails/webpacker#0d2db5fe9c19ab9bbfa10f662499326ffd138e02"
+  resolved "https://github.com/rails/webpacker#2c0a8dc82a6b0e58997522bb604b4aec6b9c6488"
   dependencies:
     "@babel/core" "^7.2.0"
     "@babel/plugin-proposal-class-properties" "^7.2.1"
@@ -4022,9 +4022,9 @@ loader-runner@^2.3.0:
   integrity sha512-By6ZFY7ETWOc9RFaAIb23IjJVcM4dvJC/N57nmdz9RSkMXvAXGI7SyVlAw3v8vjtDRlqThgVDVmTnr9fqMlxkw==
 
 loader-utils@^1.0.1, loader-utils@^1.0.2, loader-utils@^1.1.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/loader-utils/-/loader-utils-1.2.0.tgz#8194a9bfabc3612e52e556139f67acbf01b267b7"
-  integrity sha512-KkQxP+pVgJC6ypy8ePypyhsV/hZeyVlkqiqrxe4pDgCwClbzmr3dGy8LbeSVhmfzYmCpOovdrVs/9chsQXCrLQ==
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/loader-utils/-/loader-utils-1.2.1.tgz#64bbbac69aa5840d03754ba676a963dec568e844"
+  integrity sha512-3Zhx4qDqBQ9U8udWB3RMJ29nLu5a3ObNOSzk87woPvge01pi0wABowgv7F79Z4mL0DGtHRi/oOndT34EVhInoQ==
   dependencies:
     big.js "^5.2.2"
     emojis-list "^2.0.0"
@@ -4883,9 +4883,9 @@ p-limit@^1.1.0:
     p-try "^1.0.0"
 
 p-limit@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/p-limit/-/p-limit-2.0.0.tgz#e624ed54ee8c460a778b3c9f3670496ff8a57aec"
-  integrity sha512-fl5s52lI5ahKCernzzIyAP0QAZbGIovtVHGwpcu1Jr/EpzLVDI2myISHwGqK7m8uQFugVWSrbxH7XnhGtvEc+A==
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/p-limit/-/p-limit-2.1.0.tgz#1d5a0d20fb12707c758a655f6bbc4386b5930d68"
+  integrity sha512-NhURkNcrVB+8hNfLuysU8enY5xn2KXphsHBaC2YmRNTZRc7RWusw6apSpdEj3jo4CMb6W9nrF6tTnsJsJeyu6g==
   dependencies:
     p-try "^2.0.0"
 
