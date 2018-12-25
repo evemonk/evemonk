@@ -11,7 +11,7 @@ module Eve
     def import
       eve_corporation = Eve::Corporation.find_or_initialize_by(corporation_id: corporation_id)
 
-      eveonline_esi_corporation = EveOnline::ESI::Corporation.new(alliance_id: alliance_id,
+      eveonline_esi_corporation = EveOnline::ESI::Corporation.new(corporation_id: corporation_id,
                                                                   etag: eve_corporation.etag)
 
       return if eveonline_esi_corporation.not_modified?
