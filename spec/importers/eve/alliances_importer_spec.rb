@@ -5,68 +5,53 @@ require 'rails_helper'
 describe Eve::AlliancesImporter do
   describe '#import' do
     context 'when fresh data available' do
-      let(:current_etag) { double }
-
-      before do
-        #
-        # Redis.current.get("alliances:#{ I18n.locale }:etag") # => current_etag
-        #
-        expect(Redis).to receive(:current) do
-          double.tap do |a|
-            expect(a).to receive(:get).with("alliances:#{ I18n.locale }:etag").and_return(current_etag)
-          end
-        end
-      end
-
-      let(:alliance_id) { double }
+      let(:url) { double }
 
       let(:new_etag) { double }
+
+      let(:alliance_id) { double }
 
       let(:eveonline_esi_alliances) do
         instance_double(EveOnline::ESI::Alliances,
                         not_modified?: false,
+                        url: url,
                         etag: new_etag,
                         alliance_ids: [alliance_id])
       end
 
-      before { expect(EveOnline::ESI::Alliances).to receive(:new).with(etag: current_etag).and_return(eveonline_esi_alliances) }
+      before { expect(EveOnline::ESI::Alliances).to receive(:new).and_return(eveonline_esi_alliances) }
+
+      let(:etag) { instance_double(Etag, etag: '97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a') }
+
+      before { expect(Etag).to receive(:find_or_initialize_by).with(url: url).and_return(etag) }
+
+      before { expect(eveonline_esi_alliances).to receive(:etag=).with('97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a') }
 
       before { expect(Eve::AllianceImporterWorker).to receive(:perform_async).with(alliance_id) }
 
-      before do
-        #
-        # Redis.current.set("alliances:#{ I18n.locale }:etag", eveonline_esi_alliances.etag)
-        #
-        expect(Redis).to receive(:current) do
-          double.tap do |a|
-            expect(a).to receive(:set).with("alliances:#{ I18n.locale }:etag", new_etag)
-          end
-        end
-      end
+      before { expect(etag).to receive(:etag=).with(new_etag) }
+
+      before { expect(etag).to receive(:save!) }
 
       specify { expect { subject.import }.not_to raise_error }
     end
 
     context 'when no fresh data available' do
-      let(:current_etag) { double }
+      let(:url) { double }
 
-      before do
-        #
-        # Redis.current.get("alliances:#{ I18n.locale }:etag") # => current_etag
-        #
-        expect(Redis).to receive(:current) do
-          double.tap do |a|
-            expect(a).to receive(:get).with("alliances:#{ I18n.locale }:etag").and_return(current_etag)
-          end
-        end
-      end
-
-      let(:alliances) do
+      let(:eveonline_esi_alliances) do
         instance_double(EveOnline::ESI::Alliances,
-                        not_modified?: true)
+                        not_modified?: true,
+                        url: url)
       end
 
-      before { expect(EveOnline::ESI::Alliances).to receive(:new).with(etag: current_etag).and_return(alliances) }
+      before { expect(EveOnline::ESI::Alliances).to receive(:new).and_return(eveonline_esi_alliances) }
+
+      let(:etag) { instance_double(Etag, etag: '97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a') }
+
+      before { expect(Etag).to receive(:find_or_initialize_by).with(url: url).and_return(etag) }
+
+      before { expect(eveonline_esi_alliances).to receive(:etag=).with('97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a') }
 
       before { expect(Eve::AllianceImporterWorker).not_to receive(:perform_async) }
 
