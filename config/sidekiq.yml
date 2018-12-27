@@ -18,7 +18,7 @@
   eve_factions:
     every: 1d
     class: Eve::FactionsImporterWorker
-    description: 'Udpdate EveOnline Factions'
+    description: 'Update EveOnline Factions'
   eve_alliances:
     every: 1d
     class: Eve::AlliancesImporterWorker
