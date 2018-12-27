@@ -15,9 +15,7 @@ module Eve
         Eve::AllianceImporterWorker.perform_async(alliance_id)
       end
 
-      etag.etag = eveonline_esi_alliances.etag
-
-      etag.save!
+      etag.update!(etag: eveonline_esi_alliances.etag)
     end
   end
 end

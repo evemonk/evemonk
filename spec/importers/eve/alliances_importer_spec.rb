@@ -29,9 +29,7 @@ describe Eve::AlliancesImporter do
 
       before { expect(Eve::AllianceImporterWorker).to receive(:perform_async).with(alliance_id) }
 
-      before { expect(etag).to receive(:etag=).with(new_etag) }
-
-      before { expect(etag).to receive(:save!) }
+      before { expect(etag).to receive(:update!).with(etag: new_etag) }
 
       specify { expect { subject.import }.not_to raise_error }
     end
