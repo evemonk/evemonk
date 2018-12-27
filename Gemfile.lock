@@ -25,7 +25,7 @@ GIT
 
 GIT
   remote: https://github.com/rails/rails.git
-  revision: 6719d37be9b3cf69fa43688e252d29fbb38244de
+  revision: 4ae8d6182fd9351b9451003f9380d8855f3f5a94
   branch: master
   specs:
     actioncable (6.0.0.alpha)
@@ -544,4 +544,4 @@ DEPENDENCIES
   webpacker!
 
 BUNDLED WITH
-   1.17.2
+   1.17.3
