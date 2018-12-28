@@ -9,7 +9,7 @@ import SignOut from './components/sign_out.vue';
 import Profile from './components/profile.vue';
 import Characters from './components/characters.vue';
 import UniverseAlliances from './components/universe/alliances.vue';
-// import UniverseAlliance from './components/universe/alliance.vue';
+import UniverseAlliance from './components/universe/alliance.vue';
 
 Vue.use(VueRouter);
 
@@ -22,6 +22,7 @@ const routes = [
   { path: '/profile', component: Profile },
   { path: '/characters', component: Characters },
   { path: '/universe/alliances', component: UniverseAlliances },
+  { path: '/universe/alliances/:id', component: UniverseAlliance },
 
   // otherwise redirect to home
   { path: '*', redirect: '/' },
