@@ -16,7 +16,11 @@
                 <v-flex xs7>
                   <v-card-title primary-title>
                     <div>
-                      <div class="headline">{{ alliance.name }}</div>
+                      <div class="headline">
+                        <router-link :to="{ name: 'alliance', params: { id: alliance.id }}">
+                          {{ alliance.name }}
+                        </router-link>
+                      </div>
                       <div>({{ alliance.ticker }})</div>
                       <div>Founded in {{ alliance.date_founded }}</div>
                     </div>
