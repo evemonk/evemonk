@@ -26,4 +26,24 @@ describe Api::Eve::AlliancesController do
       it { should respond_with(:not_acceptable) }
     end
   end
+
+  describe '#show' do
+    context 'with supported content type' do
+      before { expect(Eve::Alliance).to receive(:find_by!).with(alliance_id: '99005443') }
+
+      before { subject.instance_variable_set(:@_pundit_policy_authorized, true) }
+
+      before { get :show, params: { id: '99005443', format: :json } }
+
+      it { should respond_with(:ok) }
+
+      it { should render_template(:show) }
+    end
+
+    context 'when not supported accept type' do
+      before { get :show, params: { id: '99005443', format: :html } }
+
+      it { should respond_with(:not_acceptable) }
+    end
+  end
 end

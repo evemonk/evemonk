@@ -12,6 +12,12 @@ module Api
         #                             .page(params[:page])
         @alliances = ::Eve::Alliance.page(params[:page])
       end
+
+      def show
+        @alliance = ::Eve::Alliance.find_by!(alliance_id: params[:id])
+
+        skip_authorization
+      end
     end
   end
 end
