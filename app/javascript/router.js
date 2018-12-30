@@ -22,7 +22,7 @@ const routes = [
   { path: '/profile', component: Profile },
   { path: '/characters', component: Characters },
   { path: '/universe/alliances', component: UniverseAlliances },
-  { path: '/universe/alliances/:id', component: UniverseAlliance },
+  { path: '/universe/alliances/:id', name: 'alliance', component: UniverseAlliance },
 
   // otherwise redirect to home
   { path: '*', redirect: '/' },

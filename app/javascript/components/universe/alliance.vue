@@ -11,6 +11,10 @@
         id: null,
         name: null
       }
+    },
+
+    created () {
+      console.log(this.$route.params.id);
     }
   }
 </script>
