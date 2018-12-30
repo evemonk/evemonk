@@ -14,18 +14,49 @@ import UniverseAlliance from './components/universe/alliance.vue';
 Vue.use(VueRouter);
 
 const routes = [
-  { path: '/', component: WelcomePage },
-  { path: '/autosignin/:token', component: AutoSignInPage },
-  { path: '/sign_up', component: SignUpPage },
-  { path: '/sign_in', component: SignInPage },
-  { path: '/sign_out', component: SignOut },
-  { path: '/profile', component: Profile },
-  { path: '/characters', component: Characters },
-  { path: '/universe/alliances', component: UniverseAlliances },
-  { path: '/universe/alliances/:id', name: 'alliance', component: UniverseAlliance },
+  {
+    path: '/',
+    component: WelcomePage,
+  },
+  {
+    path: '/autosignin/:token',
+    component: AutoSignInPage,
+  },
+  {
+    path: '/sign_up',
+    component: SignUpPage,
+  },
+  {
+    path: '/sign_in',
+    component: SignInPage,
+  },
+  {
+    path: '/sign_out',
+    component: SignOut,
+  },
+  {
+    path: '/profile',
+    component: Profile,
+  },
+  {
+    path: '/characters',
+    component: Characters,
+  },
+  {
+    path: '/universe/alliances',
+    component: UniverseAlliances,
+  },
+  {
+    path: '/universe/alliances/:id',
+    name: 'alliance',
+    component: UniverseAlliance,
+  },
 
   // otherwise redirect to home
-  { path: '*', redirect: '/' },
+  {
+    path: '*',
+    redirect: '/',
+  },
 ];
 
 export default new VueRouter({ mode: 'history', routes });
