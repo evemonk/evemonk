@@ -11,5 +11,14 @@ describe Api::Eve::AlliancesController do
         format: 'json'
       )
     end
+
+    it 'should route GET /api/eve/alliances/99005443 to api/eve/alliances#show' do
+      expect(get: '/api/eve/alliances/99005443').to route_to(
+        controller: 'api/eve/alliances',
+        action: 'show',
+        id: '99005443',
+        format: 'json'
+      )
+    end
   end
 end
