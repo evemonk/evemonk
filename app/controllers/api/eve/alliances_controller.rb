@@ -14,9 +14,9 @@ module Api
       end
 
       def show
-        @alliance = ::Eve::Alliance.find_by!(alliance_id: params[:id])
-
         skip_authorization
+
+        @alliance = ::Eve::Alliance.find_by!(alliance_id: params[:id])
       end
     end
   end
