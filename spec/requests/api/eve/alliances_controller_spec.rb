@@ -5,8 +5,6 @@ require 'rails_helper'
 describe Api::Eve::AlliancesController do
   describe '#index' do
     it 'returns list of Eve Alliances' do
-      # TODO: add creator_corporation, creator, executor_corporation
-
       create(:eve_faction,
              faction_id: 777,
              name: 'Faction name',
@@ -47,11 +45,15 @@ describe Api::Eve::AlliancesController do
              name: 'Creator name',
              description: 'Creator description')
 
+      create(:eve_corporation,
+             corporation_id: 123_123_123_123,
+             description: 'Executor corporation description',
+             name: 'Executor corporation name',
+             ticker: 'EXECUTORTICKER')
+
       get '/api/eve/alliances'
 
       expect(response).to have_http_status(:ok)
-
-      puts JSON.parse(response.body)
 
       expect(JSON.parse(response.body)).to eq('total_count' => 1,
                                               'total_pages' => 1,
@@ -75,7 +77,12 @@ describe Api::Eve::AlliancesController do
                                                   'name' => 'Creator name',
                                                   'description' => 'Creator description'
                                                 },
-
+                                                'executor_corporation' => {
+                                                  'id' => 123_123_123_123,
+                                                  'description' => 'Executor corporation description',
+                                                  'name' => 'Executor corporation name',
+                                                  'ticker' => 'EXECUTORTICKER'
+                                                },
                                                 'faction' => {
                                                   'id' => 777,
                                                   'name' => 'Faction name',
