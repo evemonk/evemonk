@@ -11,8 +11,7 @@ json.alliances do
     json.ticker alliance.ticker
     json.date_founded alliance.date_founded
     json.corporations_count alliance.corporations.count
-    # FIXME: corporation has member_count
-    json.characters_count alliance.characters.count
+    json.characters_count alliance.characters_count
     if alliance.creator_corporation
       json.creator_corporation do
         json.id alliance.creator_corporation.corporation_id

@@ -22,16 +22,11 @@ describe Api::Eve::AlliancesController do
 
       create(:eve_corporation,
              alliance_id: 123,
-             corporation_id: 456)
+             corporation_id: 456,
+             member_count: 1234)
 
       create(:eve_alliance_corporation,
              alliance_id: 123,
-             corporation_id: 456)
-
-      create(:eve_character,
-             corporation_id: 456)
-
-      create(:eve_character,
              corporation_id: 456)
 
       create(:eve_corporation,
@@ -65,7 +60,7 @@ describe Api::Eve::AlliancesController do
                                                 'ticker' => 'ABCDE',
                                                 'date_founded' => '2015-05-03T19:45:17.000Z',
                                                 'corporations_count' => 1,
-                                                'characters_count' => 2,
+                                                'characters_count' => 1234,
                                                 'creator_corporation' => {
                                                   'id' => 123_123,
                                                   'description' => 'Creator corporation description',
