@@ -5,18 +5,9 @@ require 'rails_helper'
 describe Eve::RacesImporter do
   describe '#import' do
     context 'when fresh data available' do
-      let(:current_etag) { double }
+      let(:url) { double }
 
-      before do
-        #
-        # Redis.current.get("races:#{ I18n.locale }:etag") # => current_etag
-        #
-        expect(Redis).to receive(:current) do
-          double.tap do |a|
-            expect(a).to receive(:get).with("races:#{ I18n.locale }:etag").and_return(current_etag)
-          end
-        end
-      end
+      let(:new_etag) { double }
 
       let(:race_id) { double }
 
@@ -27,66 +18,48 @@ describe Eve::RacesImporter do
       let(:eveonline_esi_races) do
         instance_double(EveOnline::ESI::UniverseRaces,
                         not_modified?: false,
+                        url: url,
                         etag: new_etag,
                         races: [race])
       end
 
-      let(:new_etag) { double }
-
       before { expect(EveOnline::ESI::UniverseRaces).to receive(:new).and_return(eveonline_esi_races) }
+
+      let(:etag) { instance_double(Etag, etag: 'e3f6a76b4a1287f54966c6253f8f5d6ac6460bc43d47570331b43e0b') }
+
+      before { expect(Etag).to receive(:find_or_initialize_by).with(url: url).and_return(etag) }
+
+      before { expect(eveonline_esi_races).to receive(:etag=).with('e3f6a76b4a1287f54966c6253f8f5d6ac6460bc43d47570331b43e0b') }
+
+      let(:eve_race) { instance_double(Eve::Race) }
 
       before { expect(Eve::Race).to receive(:find_or_initialize_by).with(race_id: race_id).and_return(eve_race) }
 
-      before { expect(eve_race).to receive(:assign_attributes).with(as_json) }
+      before { expect(eve_race).to receive(:update!).with(as_json) }
 
-      before do
-        #
-        # Redis.current.set("races:#{ I18n.locale }:etag", eveonline_esi_alliances.etag)
-        #
-        expect(Redis).to receive(:current) do
-          double.tap do |a|
-            expect(a).to receive(:set).with("races:#{ I18n.locale }:etag", new_etag)
-          end
-        end
-      end
+      before { expect(etag).to receive(:update!).with(etag: new_etag) }
 
-      context 'when race changed' do
-        let(:eve_race) { instance_double(Eve::Race, changed?: true) }
-
-        before { expect(eve_race).to receive(:save!) }
-
-        specify { expect { subject.import }.not_to raise_error }
-      end
-
-      context 'when race not changed' do
-        let(:eve_race) { instance_double(Eve::Race, changed?: false) }
-
-        before { expect(eve_race).not_to receive(:save!) }
-
-        specify { expect { subject.import }.not_to raise_error }
-      end
+      specify { expect { subject.import }.not_to raise_error }
     end
 
     context 'when no fresh data available' do
-      let(:current_etag) { double }
-
-      before do
-        #
-        # Redis.current.get("races:#{ I18n.locale }:etag") # => current_etag
-        #
-        expect(Redis).to receive(:current) do
-          double.tap do |a|
-            expect(a).to receive(:get).with("races:#{ I18n.locale }:etag").and_return(current_etag)
-          end
-        end
-      end
+      let(:url) { double }
 
       let(:eveonline_esi_races) do
         instance_double(EveOnline::ESI::UniverseRaces,
-                        not_modified?: true)
+                        not_modified?: true,
+                        url: url)
       end
 
-      before { expect(EveOnline::ESI::UniverseRaces).to receive(:new).with(etag: current_etag).and_return(eveonline_esi_races) }
+      before { expect(EveOnline::ESI::UniverseRaces).to receive(:new).and_return(eveonline_esi_races) }
+
+      let(:etag) { instance_double(Etag, etag: 'e3f6a76b4a1287f54966c6253f8f5d6ac6460bc43d47570331b43e0b') }
+
+      before { expect(Etag).to receive(:find_or_initialize_by).with(url: url).and_return(etag) }
+
+      before { expect(eveonline_esi_races).to receive(:etag=).with('e3f6a76b4a1287f54966c6253f8f5d6ac6460bc43d47570331b43e0b') }
+
+      before { expect(Eve::Race).not_to receive(:find_or_initialize_by) }
 
       specify { expect { subject.import }.not_to raise_error }
     end
