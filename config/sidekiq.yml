@@ -2,6 +2,9 @@
   - mailers
   - default
 
+:logfile: ./log/sidekiq.log
+:concurrency: 5
+
 :schedule:
   eve_races:
     every: 1d
@@ -23,7 +26,22 @@
     every: 1d
     class: Eve::AlliancesImporterWorker
     description: 'Update EveOnline Alliances'
-  eve_alliances_remove_old:
-    every: 1d
-    class: Eve::RemoveOldAlliancesImporterWorker
-    description: 'Remove Old EveOnline Alliances'
+  # eve_alliances_remove_old:
+  #   every: 1d
+  #   class: Eve::RemoveOldAlliancesImporterWorker
+  #   description: 'Remove Old EveOnline Alliances'
+  # eve_graphics:
+  #   every: 1d
+  #   class: Eve::GraphicsImporterWorker
+  # eve_systems:
+  #   every: 1d
+  #   class: Eve::SystemsImporterWorker
+  # eve_alliance_corporations:
+  #   every: 1d
+  #   class: Eve::AlliancesCorporationsImporterWorker
+  # eve_corporations:
+  #   every: 1d
+  #   class: Eve::CorporationsImporterWorker
+  # eve_characters:
+  #   every: 1d
+  #   class: Eve::CharactersImporterWorker
