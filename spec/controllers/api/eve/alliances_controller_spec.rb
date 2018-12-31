@@ -9,7 +9,17 @@ describe Api::Eve::AlliancesController do
 
   describe '#index' do
     context 'with supported content type' do
-      before { expect(Eve::Alliance).to receive(:page).with('1') }
+      before do
+        #
+        # Eve::Alliance.includes(:faction, :creator_corporation, :creator, :executor_corporation)
+        #              .page(params[:page])
+        #
+        expect(Eve::Alliance).to receive(:includes).with(:faction, :creator_corporation, :creator, :executor_corporation) do
+          double.tap do |a|
+            expect(a).to receive(:page).with('1')
+          end
+        end
+      end
 
       before { subject.instance_variable_set(:@_pundit_policy_scoped, true) }
 
