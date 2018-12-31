@@ -36,6 +36,12 @@ describe Api::Eve::AlliancesController do
       create(:eve_character,
              corporation_id: 456)
 
+      create(:eve_corporation,
+             corporation_id: 123_123,
+             description: 'Creator corporation description',
+             name: 'Creator corporation name',
+             ticker: 'CREATORTICKER')
+
       get '/api/eve/alliances'
 
       expect(response).to have_http_status(:ok)
@@ -53,6 +59,12 @@ describe Api::Eve::AlliancesController do
                                                 'date_founded' => '2015-05-03T19:45:17.000Z',
                                                 'corporations_count' => 1,
                                                 'characters_count' => 2,
+                                                'creator_corporation' => {
+                                                  'id' => 123_123,
+                                                  'description' => 'Creator corporation description',
+                                                  'name' => 'Creator corporation name',
+                                                  'ticker' => 'CREATORTICKER'
+                                                },
                                                 'faction' => {
                                                   'id' => 777,
                                                   'name' => 'Faction name',
