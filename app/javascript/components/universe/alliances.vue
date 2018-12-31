@@ -28,10 +28,10 @@
                   </v-flex>
                 </v-layout>
                 <v-divider light></v-divider>
-                <v-card-actions class="pa-3">
-                  <v-btn light>Corporations ({{ alliance.corporations_count }})</v-btn>
+                <v-card-actions>
+                  <v-btn color="info">Corporations ({{ alliance.corporations_count }})</v-btn>
                   <v-spacer></v-spacer>
-                  <v-btn light>Characters ({{ alliance.characters_count }})</v-btn>
+                  <v-btn color="info">Characters ({{ alliance.characters_count }})</v-btn>
                 </v-card-actions>
               </v-card>
             </v-flex>
