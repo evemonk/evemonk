@@ -64,6 +64,8 @@
             this.total_count = response.data.total_count;
             this.total_pages = response.data.total_pages;
             this.alliances = response.data.alliances;
+
+            this.$router.push({ name: 'alliances', query: { page: page } });
           }
         })
       }

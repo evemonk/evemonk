@@ -44,6 +44,7 @@ const routes = [
   },
   {
     path: '/universe/alliances',
+    name: 'alliances',
     component: UniverseAlliances,
   },
   {
