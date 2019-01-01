@@ -72,6 +72,12 @@
     },
 
     created () {
+      let page = this.$route.query.page;
+
+      if (page !== null) {
+        this.current_page = parseInt(page);
+      }
+
       this.fetchAlliances(this.current_page).then(response => {
         if (response.status === 200) {
           this.total_count = response.data.total_count;
