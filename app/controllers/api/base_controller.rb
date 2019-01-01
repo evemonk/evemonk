@@ -36,6 +36,8 @@ module Api
     end
     # :nocov:
 
+    def index; end
+
     private
 
     def authenticate_by_token
