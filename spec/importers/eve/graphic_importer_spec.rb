@@ -3,66 +3,6 @@
 require 'rails_helper'
 
 describe Eve::GraphicImporter do
-  # describe '#import' do
-  #   context 'when import ok' do
-  #     let(:graphic_id) { double }
-
-  #     subject { described_class.new(graphic_id) }
-
-  #     before { expect(Eve::Graphic).to receive(:find_or_initialize_by).with(graphic_id: graphic_id).and_return(eve_graphic) }
-
-  #     let(:json) { double }
-
-  #     let(:graphic) { instance_double(EveOnline::ESI::UniverseGraphic, as_json: json) }
-
-  #     before { expect(EveOnline::ESI::UniverseGraphic).to receive(:new).with(id: graphic_id).and_return(graphic) }
-
-  #     before { expect(eve_graphic).to receive(:assign_attributes).with(json) }
-
-  #     context 'when graphic changed' do
-  #       let(:eve_graphic) { instance_double(Eve::Graphic, changed?: true) }
-
-  #       before { expect(eve_graphic).to receive(:save!) }
-
-  #       specify { expect { subject.import }.not_to raise_error }
-  #     end
-
-  #     context 'when graphic not changed' do
-  #       let(:eve_graphic) { instance_double(Eve::Graphic, changed?: false) }
-
-  #       before { expect(eve_graphic).not_to receive(:save!) }
-
-  #       specify { expect { subject.import }.not_to raise_error }
-  #     end
-  #   end
-
-  #   context 'when graphic not found' do
-  #     let(:graphic_id) { double }
-
-  #     subject { described_class.new(graphic_id) }
-
-  #     before { expect(Eve::Graphic).to receive(:find_or_initialize_by).with(graphic_id: graphic_id).and_return(eve_graphic) }
-
-  #     before { expect(EveOnline::ESI::UniverseGraphic).to receive(:new).and_raise(EveOnline::Exceptions::ResourceNotFound) }
-
-  #     context 'when graphic persisted' do
-  #       let(:eve_graphic) { instance_double(Eve::Graphic, persisted?: true) }
-
-  #       before { expect(eve_graphic).to receive(:destroy) }
-
-  #       specify { expect { subject.import }.not_to raise_error }
-  #     end
-
-  #     context 'when graphic not persisted' do
-  #       let(:eve_graphic) { instance_double(Eve::Graphic, persisted?: false) }
-
-  #       before { expect(eve_graphic).not_to receive(:destroy) }
-
-  #       specify { expect { subject.import }.not_to raise_error }
-  #     end
-  #   end
-  # end
-
   describe '#import' do
     context 'when fresh data available' do
       context 'when graphic found' do
