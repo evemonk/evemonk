@@ -37,9 +37,10 @@
   # eve_systems:
   #   every: 1d
   #   class: Eve::SystemsImporterWorker
-  # eve_alliance_corporations:
-  #   every: 1d
-  #   class: Eve::AlliancesCorporationsImporterWorker
+  eve_alliance_corporations:
+    every: 1d
+    class: Eve::AlliancesCorporationsImporterWorker
+    description: 'Update EveOnline Alliances Corporations'
   # eve_corporations:
   #   every: 1d
   #   class: Eve::CorporationsImporterWorker
