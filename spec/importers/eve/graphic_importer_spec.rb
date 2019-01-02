@@ -103,21 +103,21 @@ describe Eve::GraphicImporter do
       #   specify { expect { subject.import }.not_to raise_error }
       # end
 
-      # context 'when graphic not found' do
-      #   let(:graphic_id) { double }
+      context 'when graphic not found' do
+        let(:graphic_id) { double }
 
-      #   subject { described_class.new(graphic_id) }
+        subject { described_class.new(graphic_id) }
 
-      #   let(:eve_alliance) { instance_double(Eve::Alliance) }
+        let(:eve_graphic) { instance_double(Eve::Graphic) }
 
-      #   before { expect(Eve::Alliance).to receive(:find_or_initialize_by).with(alliance_id: alliance_id).and_return(eve_alliance) }
+        before { expect(Eve::Graphic).to receive(:find_or_initialize_by).with(graphic_id: graphic_id).and_return(eve_graphic) }
 
-      #   before { expect(EveOnline::ESI::Alliance).to receive(:new).and_raise(EveOnline::Exceptions::ResourceNotFound) }
+        before { expect(EveOnline::ESI::UniverseGraphic).to receive(:new).and_raise(EveOnline::Exceptions::ResourceNotFound) }
 
-      #   before { expect(eve_alliance).to receive(:destroy!) }
+        before { expect(eve_graphic).to receive(:destroy!) }
 
-      #   specify { expect { subject.import }.not_to raise_error }
-      # end
+        specify { expect { subject.import }.not_to raise_error }
+      end
     end
 
     context 'when no fresh data available' do
@@ -132,7 +132,7 @@ describe Eve::GraphicImporter do
       let(:url) { double }
 
       let(:eveonline_esi_graphic) do
-        instance_double(EveOnline::ESI::Alliance,
+        instance_double(EveOnline::ESI::UniverseGraphic,
                         url: url,
                         not_modified?: true)
       end
