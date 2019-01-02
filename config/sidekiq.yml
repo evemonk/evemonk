@@ -30,9 +30,10 @@
   #   every: 1d
   #   class: Eve::RemoveOldAlliancesImporterWorker
   #   description: 'Remove Old EveOnline Alliances'
-  # eve_graphics:
-  #   every: 1d
-  #   class: Eve::GraphicsImporterWorker
+  eve_graphics:
+    every: 1d
+    class: Eve::GraphicsImporterWorker
+    description: 'Update EveOnline Graphics'
   # eve_systems:
   #   every: 1d
   #   class: Eve::SystemsImporterWorker
