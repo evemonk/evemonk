@@ -74,7 +74,9 @@
     created () {
       let page = this.$route.query.page;
 
-      if (page !== null) {
+      console.log(page);
+
+      if (page !== undefined) {
         this.current_page = parseInt(page);
       }
 
