@@ -43,6 +43,7 @@
   # eve_corporations:
   #   every: 1d
   #   class: Eve::CorporationsImporterWorker
-  # eve_characters:
-  #   every: 1d
-  #   class: Eve::CharactersImporterWorker
+  eve_characters:
+    every: 1d
+    class: Eve::CharactersImporterWorker
+    description: 'Update EveOnline Characters'
