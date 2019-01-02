@@ -3,18 +3,6 @@
 require 'rails_helper'
 
 describe Eve::GraphicsImporter do
-  # describe '#import' do
-  #   let(:graphic_id) { double }
-
-  #   let(:eveonline_graphics) { instance_double(EveOnline::ESI::UniverseGraphics, graphic_ids: [graphic_id]) }
-
-  #   before { expect(EveOnline::ESI::UniverseGraphics).to receive(:new).and_return(eveonline_graphics) }
-
-  #   before { expect(Eve::GraphicImporterWorker).to receive(:perform_async).with(graphic_id) }
-
-  #   specify { expect { subject.import }.not_to raise_error }
-  # end
-
   describe '#import' do
     context 'when fresh data available' do
       let(:url) { double }
