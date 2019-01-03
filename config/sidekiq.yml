@@ -44,6 +44,7 @@
   eve_corporations:
     every: 1d
     class: Eve::CorporationsImporterWorker
+    description: 'Update EveOnline Corporations'
   eve_characters:
     every: 1d
     class: Eve::CharactersImporterWorker
