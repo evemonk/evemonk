@@ -5,18 +5,9 @@ require 'rails_helper'
 describe Eve::BloodlinesImporter do
   describe '#import' do
     context 'when fresh data available' do
-      let(:current_etag) { double }
+      let(:url) { double }
 
-      before do
-        #
-        # Redis.current.get("bloodlines:#{ I18n.locale }:etag") # => current_etag
-        #
-        expect(Redis).to receive(:current) do
-          double.tap do |a|
-            expect(a).to receive(:get).with("bloodlines:#{ I18n.locale }:etag").and_return(current_etag)
-          end
-        end
-      end
+      let(:new_etag) { double }
 
       let(:bloodline_id) { double }
 
@@ -27,66 +18,48 @@ describe Eve::BloodlinesImporter do
       let(:eveonline_esi_bloodlines) do
         instance_double(EveOnline::ESI::UniverseBloodlines,
                         not_modified?: false,
+                        url: url,
                         etag: new_etag,
                         bloodlines: [bloodline])
       end
 
-      let(:new_etag) { double }
-
       before { expect(EveOnline::ESI::UniverseBloodlines).to receive(:new).and_return(eveonline_esi_bloodlines) }
+
+      let(:etag) { instance_double(Etag, etag: 'e3f6a76b4a1287f54966c6253f8f5d6ac6460bc43d47570331b43e0b') }
+
+      before { expect(Etag).to receive(:find_or_initialize_by).with(url: url).and_return(etag) }
+
+      before { expect(eveonline_esi_bloodlines).to receive(:etag=).with('e3f6a76b4a1287f54966c6253f8f5d6ac6460bc43d47570331b43e0b') }
+
+      let(:eve_bloodline) { instance_double(Eve::Bloodline) }
 
       before { expect(Eve::Bloodline).to receive(:find_or_initialize_by).with(bloodline_id: bloodline_id).and_return(eve_bloodline) }
 
-      before { expect(eve_bloodline).to receive(:assign_attributes).with(as_json) }
+      before { expect(eve_bloodline).to receive(:update!).with(as_json) }
 
-      before do
-        #
-        # Redis.current.set("bloodlines:#{ I18n.locale }:etag", eveonline_esi_factions.etag)
-        #
-        expect(Redis).to receive(:current) do
-          double.tap do |a|
-            expect(a).to receive(:set).with("bloodlines:#{ I18n.locale }:etag", new_etag)
-          end
-        end
-      end
+      before { expect(etag).to receive(:update!).with(etag: new_etag) }
 
-      context 'when bloodline changed' do
-        let(:eve_bloodline) { instance_double(Eve::Bloodline, changed?: true) }
-
-        before { expect(eve_bloodline).to receive(:save!) }
-
-        specify { expect { subject.import }.not_to raise_error }
-      end
-
-      context 'when bloodline not changed' do
-        let(:eve_bloodline) { instance_double(Eve::Bloodline, changed?: false) }
-
-        before { expect(eve_bloodline).not_to receive(:save!) }
-
-        specify { expect { subject.import }.not_to raise_error }
-      end
+      specify { expect { subject.import }.not_to raise_error }
     end
 
     context 'when no fresh data available' do
-      let(:current_etag) { double }
-
-      before do
-        #
-        # Redis.current.get("bloodlines:#{ I18n.locale }:etag") # => current_etag
-        #
-        expect(Redis).to receive(:current) do
-          double.tap do |a|
-            expect(a).to receive(:get).with("bloodlines:#{ I18n.locale }:etag").and_return(current_etag)
-          end
-        end
-      end
+      let(:url) { double }
 
       let(:eveonline_esi_bloodlines) do
         instance_double(EveOnline::ESI::UniverseBloodlines,
-                        not_modified?: true)
+                        not_modified?: true,
+                        url: url)
       end
 
-      before { expect(EveOnline::ESI::UniverseBloodlines).to receive(:new).with(etag: current_etag).and_return(eveonline_esi_bloodlines) }
+      before { expect(EveOnline::ESI::UniverseBloodlines).to receive(:new).and_return(eveonline_esi_bloodlines) }
+
+      let(:etag) { instance_double(Etag, etag: 'e3f6a76b4a1287f54966c6253f8f5d6ac6460bc43d47570331b43e0b') }
+
+      before { expect(Etag).to receive(:find_or_initialize_by).with(url: url).and_return(etag) }
+
+      before { expect(eveonline_esi_bloodlines).to receive(:etag=).with('e3f6a76b4a1287f54966c6253f8f5d6ac6460bc43d47570331b43e0b') }
+
+      before { expect(Eve::Bloodline).not_to receive(:find_or_initialize_by) }
 
       specify { expect { subject.import }.not_to raise_error }
     end

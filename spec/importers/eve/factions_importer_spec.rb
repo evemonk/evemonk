@@ -5,18 +5,9 @@ require 'rails_helper'
 describe Eve::FactionsImporter do
   describe '#import' do
     context 'when fresh data available' do
-      let(:current_etag) { double }
+      let(:url) { double }
 
-      before do
-        #
-        # Redis.current.get("factions:#{ I18n.locale }:etag") # => current_etag
-        #
-        expect(Redis).to receive(:current) do
-          double.tap do |a|
-            expect(a).to receive(:get).with("factions:#{ I18n.locale }:etag").and_return(current_etag)
-          end
-        end
-      end
+      let(:new_etag) { double }
 
       let(:faction_id) { double }
 
@@ -27,66 +18,48 @@ describe Eve::FactionsImporter do
       let(:eveonline_esi_factions) do
         instance_double(EveOnline::ESI::UniverseFactions,
                         not_modified?: false,
+                        url: url,
                         etag: new_etag,
                         factions: [faction])
       end
 
-      let(:new_etag) { double }
-
       before { expect(EveOnline::ESI::UniverseFactions).to receive(:new).and_return(eveonline_esi_factions) }
+
+      let(:etag) { instance_double(Etag, etag: 'e3f6a76b4a1287f54966c6253f8f5d6ac6460bc43d47570331b43e0b') }
+
+      before { expect(Etag).to receive(:find_or_initialize_by).with(url: url).and_return(etag) }
+
+      before { expect(eveonline_esi_factions).to receive(:etag=).with('e3f6a76b4a1287f54966c6253f8f5d6ac6460bc43d47570331b43e0b') }
+
+      let(:eve_faction) { instance_double(Eve::Faction) }
 
       before { expect(Eve::Faction).to receive(:find_or_initialize_by).with(faction_id: faction_id).and_return(eve_faction) }
 
-      before { expect(eve_faction).to receive(:assign_attributes).with(as_json) }
+      before { expect(eve_faction).to receive(:update!).with(as_json) }
 
-      before do
-        #
-        # Redis.current.set("factions:#{ I18n.locale }:etag", eveonline_esi_factions.etag)
-        #
-        expect(Redis).to receive(:current) do
-          double.tap do |a|
-            expect(a).to receive(:set).with("factions:#{ I18n.locale }:etag", new_etag)
-          end
-        end
-      end
+      before { expect(etag).to receive(:update!).with(etag: new_etag) }
 
-      context 'when faction changed' do
-        let(:eve_faction) { instance_double(Eve::Faction, changed?: true) }
-
-        before { expect(eve_faction).to receive(:save!) }
-
-        specify { expect { subject.import }.not_to raise_error }
-      end
-
-      context 'when faction not changed' do
-        let(:eve_faction) { instance_double(Eve::Faction, changed?: false) }
-
-        before { expect(eve_faction).not_to receive(:save!) }
-
-        specify { expect { subject.import }.not_to raise_error }
-      end
+      specify { expect { subject.import }.not_to raise_error }
     end
 
     context 'when no fresh data available' do
-      let(:current_etag) { double }
-
-      before do
-        #
-        # Redis.current.get("factions:#{ I18n.locale }:etag") # => current_etag
-        #
-        expect(Redis).to receive(:current) do
-          double.tap do |a|
-            expect(a).to receive(:get).with("factions:#{ I18n.locale }:etag").and_return(current_etag)
-          end
-        end
-      end
+      let(:url) { double }
 
       let(:eveonline_esi_factions) do
         instance_double(EveOnline::ESI::UniverseFactions,
-                        not_modified?: true)
+                        not_modified?: true,
+                        url: url)
       end
 
-      before { expect(EveOnline::ESI::UniverseFactions).to receive(:new).with(etag: current_etag).and_return(eveonline_esi_factions) }
+      before { expect(EveOnline::ESI::UniverseFactions).to receive(:new).and_return(eveonline_esi_factions) }
+
+      let(:etag) { instance_double(Etag, etag: 'e3f6a76b4a1287f54966c6253f8f5d6ac6460bc43d47570331b43e0b') }
+
+      before { expect(Etag).to receive(:find_or_initialize_by).with(url: url).and_return(etag) }
+
+      before { expect(eveonline_esi_factions).to receive(:etag=).with('e3f6a76b4a1287f54966c6253f8f5d6ac6460bc43d47570331b43e0b') }
+
+      before { expect(Eve::Faction).not_to receive(:find_or_initialize_by) }
 
       specify { expect { subject.import }.not_to raise_error }
     end

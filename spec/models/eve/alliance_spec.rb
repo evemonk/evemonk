@@ -18,4 +18,20 @@ describe Eve::Alliance do
   it { should have_many(:alliance_corporations).with_primary_key(:alliance_id) }
 
   it { should have_many(:corporations).through(:alliance_corporations) }
+
+  describe '#characters_count' do
+    let!(:alliance) { create(:eve_alliance, alliance_id: 123) }
+
+    let!(:corporation1) { create(:eve_corporation, corporation_id: 124, alliance_id: 123, member_count: 123) }
+
+    let!(:corporation2) { create(:eve_corporation, corporation_id: 125, alliance_id: 123, member_count: 123) }
+
+    let!(:alliance_corporation1) { create(:eve_alliance_corporation, corporation_id: 124, alliance_id: 123) }
+
+    let!(:alliance_corporation2) { create(:eve_alliance_corporation, corporation_id: 125, alliance_id: 123) }
+
+    subject { alliance }
+
+    specify { expect(subject.characters_count).to eq(246) }
+  end
 end

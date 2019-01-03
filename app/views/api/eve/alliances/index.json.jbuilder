@@ -7,8 +7,11 @@ json.alliances do
   json.array! @alliances do |alliance|
     json.id alliance.alliance_id
     json.icon "https://imageserver.eveonline.com/Alliance/#{ alliance.alliance_id }_128.png"
+    json.name alliance.name
+    json.ticker alliance.ticker
+    json.date_founded alliance.date_founded
     json.corporations_count alliance.corporations.count
-    json.characters_count alliance.characters.count
+    json.characters_count alliance.characters_count
     if alliance.creator_corporation
       json.creator_corporation do
         json.id alliance.creator_corporation.corporation_id
@@ -24,7 +27,6 @@ json.alliances do
         json.description alliance.creator.description
       end
     end
-    json.date_founded alliance.date_founded
     if alliance.executor_corporation
       json.executor_corporation do
         json.id alliance.executor_corporation.corporation_id
@@ -40,7 +42,5 @@ json.alliances do
         json.description alliance.faction.description
       end
     end
-    json.name alliance.name
-    json.ticker alliance.ticker
   end
 end

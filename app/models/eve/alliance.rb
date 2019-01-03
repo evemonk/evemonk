@@ -15,5 +15,9 @@ module Eve
     has_many :corporations, through: :alliance_corporations
 
     has_many :characters, through: :corporations
+
+    def characters_count
+      corporations.sum('eve_corporations.member_count')
+    end
   end
 end

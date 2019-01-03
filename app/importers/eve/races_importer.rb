@@ -3,21 +3,21 @@
 module Eve
   class RacesImporter
     def import
-      current_etag = Redis.current.get("races:#{ I18n.locale }:etag")
+      eveonline_esi_races = EveOnline::ESI::UniverseRaces.new
 
-      eveonline_esi_races = EveOnline::ESI::UniverseRaces.new(etag: current_etag)
+      etag = Etag.find_or_initialize_by(url: eveonline_esi_races.url)
+
+      eveonline_esi_races.etag = etag.etag
 
       return if eveonline_esi_races.not_modified?
 
       eveonline_esi_races.races.each do |race|
         eve_race = Eve::Race.find_or_initialize_by(race_id: race.race_id)
 
-        eve_race.assign_attributes(race.as_json)
-
-        eve_race.save! if eve_race.changed?
+        eve_race.update!(race.as_json)
       end
 
-      Redis.current.set("races:#{ I18n.locale }:etag", eveonline_esi_races.etag)
+      etag.update!(etag: eveonline_esi_races.etag)
     end
   end
 end

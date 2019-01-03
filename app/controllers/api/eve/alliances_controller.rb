@@ -8,9 +8,14 @@ module Api
       def index
         skip_policy_scope
 
-        # @alliances = ::Eve::Alliance.includes(:faction, :creator_corporation, :creator, :executor_corporation)
-        #                             .page(params[:page])
-        @alliances = ::Eve::Alliance.page(params[:page])
+        @alliances = ::Eve::Alliance.includes(:faction, :creator_corporation, :creator, :executor_corporation)
+                                    .page(params[:page])
+      end
+
+      def show
+        skip_authorization
+
+        @alliance = ::Eve::Alliance.find_by!(alliance_id: params[:id])
       end
     end
   end

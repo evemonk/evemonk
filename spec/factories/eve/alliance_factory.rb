@@ -3,13 +3,19 @@
 FactoryBot.define do
   factory :eve_alliance, class: Eve::Alliance do
     sequence(:alliance_id)
+
     sequence(:creator_corporation_id)
+
     sequence(:creator_id)
+
     date_founded { Time.zone.now }
+
     sequence(:executor_corporation_id)
+
     sequence(:faction_id)
+
     name { Faker::Lorem.word }
+
     ticker { Faker::Lorem.word.upcase }
-    etag { '' } # TODO: change to real etag string
   end
 end

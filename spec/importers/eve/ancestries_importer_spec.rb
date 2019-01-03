@@ -5,18 +5,9 @@ require 'rails_helper'
 describe Eve::AncestriesImporter do
   describe '#import' do
     context 'when fresh data available' do
-      let(:current_etag) { double }
+      let(:url) { double }
 
-      before do
-        #
-        # Redis.current.get("ancestries:#{ I18n.locale }:etag") # => current_etag
-        #
-        expect(Redis).to receive(:current) do
-          double.tap do |a|
-            expect(a).to receive(:get).with("ancestries:#{ I18n.locale }:etag").and_return(current_etag)
-          end
-        end
-      end
+      let(:new_etag) { double }
 
       let(:ancestry_id) { double }
 
@@ -27,66 +18,48 @@ describe Eve::AncestriesImporter do
       let(:eveonline_esi_ancestries) do
         instance_double(EveOnline::ESI::UniverseAncestries,
                         not_modified?: false,
+                        url: url,
                         etag: new_etag,
                         ancestries: [ancestry])
       end
 
-      let(:new_etag) { double }
-
       before { expect(EveOnline::ESI::UniverseAncestries).to receive(:new).and_return(eveonline_esi_ancestries) }
+
+      let(:etag) { instance_double(Etag, etag: 'e3f6a76b4a1287f54966c6253f8f5d6ac6460bc43d47570331b43e0b') }
+
+      before { expect(Etag).to receive(:find_or_initialize_by).with(url: url).and_return(etag) }
+
+      before { expect(eveonline_esi_ancestries).to receive(:etag=).with('e3f6a76b4a1287f54966c6253f8f5d6ac6460bc43d47570331b43e0b') }
+
+      let(:eve_ancestry) { instance_double(Eve::Ancestry) }
 
       before { expect(Eve::Ancestry).to receive(:find_or_initialize_by).with(ancestry_id: ancestry_id).and_return(eve_ancestry) }
 
-      before { expect(eve_ancestry).to receive(:assign_attributes).with(as_json) }
+      before { expect(eve_ancestry).to receive(:update!).with(as_json) }
 
-      before do
-        #
-        # Redis.current.set("ancestries:#{ I18n.locale }:etag", eveonline_esi_factions.etag)
-        #
-        expect(Redis).to receive(:current) do
-          double.tap do |a|
-            expect(a).to receive(:set).with("ancestries:#{ I18n.locale }:etag", new_etag)
-          end
-        end
-      end
+      before { expect(etag).to receive(:update!).with(etag: new_etag) }
 
-      context 'when ancestry changed' do
-        let(:eve_ancestry) { instance_double(Eve::Ancestry, changed?: true) }
-
-        before { expect(eve_ancestry).to receive(:save!) }
-
-        specify { expect { subject.import }.not_to raise_error }
-      end
-
-      context 'when ancestry not changed' do
-        let(:eve_ancestry) { instance_double(Eve::Ancestry, changed?: false) }
-
-        before { expect(eve_ancestry).not_to receive(:save!) }
-
-        specify { expect { subject.import }.not_to raise_error }
-      end
+      specify { expect { subject.import }.not_to raise_error }
     end
 
     context 'when no fresh data available' do
-      let(:current_etag) { double }
-
-      before do
-        #
-        # Redis.current.get("ancestries:#{ I18n.locale }:etag") # => current_etag
-        #
-        expect(Redis).to receive(:current) do
-          double.tap do |a|
-            expect(a).to receive(:get).with("ancestries:#{ I18n.locale }:etag").and_return(current_etag)
-          end
-        end
-      end
+      let(:url) { double }
 
       let(:eveonline_esi_ancestries) do
         instance_double(EveOnline::ESI::UniverseAncestries,
-                        not_modified?: true)
+                        not_modified?: true,
+                        url: url)
       end
 
-      before { expect(EveOnline::ESI::UniverseAncestries).to receive(:new).with(etag: current_etag).and_return(eveonline_esi_ancestries) }
+      before { expect(EveOnline::ESI::UniverseAncestries).to receive(:new).and_return(eveonline_esi_ancestries) }
+
+      let(:etag) { instance_double(Etag, etag: 'e3f6a76b4a1287f54966c6253f8f5d6ac6460bc43d47570331b43e0b') }
+
+      before { expect(Etag).to receive(:find_or_initialize_by).with(url: url).and_return(etag) }
+
+      before { expect(eveonline_esi_ancestries).to receive(:etag=).with('e3f6a76b4a1287f54966c6253f8f5d6ac6460bc43d47570331b43e0b') }
+
+      before { expect(Eve::Ancestry).not_to receive(:find_or_initialize_by) }
 
       specify { expect { subject.import }.not_to raise_error }
     end

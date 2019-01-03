@@ -5,6 +5,7 @@
 * Port to Vue.js
 * Material Design with Vuetify
 * Port to Rails master (6.0 pre-release)
+* Use etags from EveOnline for caching
 
 ## v0.0.2
 

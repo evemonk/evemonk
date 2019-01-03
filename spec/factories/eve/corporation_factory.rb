@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-# TODO: update
 FactoryBot.define do
   factory :eve_corporation, class: Eve::Corporation do
     sequence(:corporation_id)
@@ -30,5 +29,7 @@ FactoryBot.define do
     sequence(:home_station_id)
 
     sequence(:shares)
+
+    # TODO: add -- war_eligible { false }
   end
 end

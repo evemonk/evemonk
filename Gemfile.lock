@@ -1,19 +1,9 @@
 GIT
-  remote: https://github.com/bblimke/webmock.git
-  revision: a135a37ff5f982a43806c52f2f7e778baba80797
-  branch: master
-  specs:
-    webmock (3.4.2)
-      addressable (>= 2.3.6)
-      crack (>= 0.3.2)
-      hashdiff
-
-GIT
   remote: https://github.com/evemonk/eve_online.git
-  revision: 47ef992b09785188b77ca1ea8dd6d7c2d36b556e
+  revision: 4992c1b0178d626d06b2c4250f8a93685a6676b0
   branch: refactoring
   specs:
-    eve_online (0.20.0)
+    eve_online (0.22.0)
       activesupport (>= 4.2.0)
 
 GIT
@@ -35,13 +25,20 @@ GIT
 
 GIT
   remote: https://github.com/rails/rails.git
-  revision: 6a8519ca899db1b107bc3be8310e49196f341372
+  revision: f04e04b45c6a409b577d96ebccd2617c94729712
   branch: master
   specs:
     actioncable (6.0.0.alpha)
       actionpack (= 6.0.0.alpha)
       nio4r (~> 2.0)
       websocket-driver (>= 0.6.1)
+    actionmailbox (6.0.0.alpha)
+      actionpack (= 6.0.0.alpha)
+      activejob (= 6.0.0.alpha)
+      activerecord (= 6.0.0.alpha)
+      activestorage (= 6.0.0.alpha)
+      activesupport (= 6.0.0.alpha)
+      mail (>= 2.7.1)
     actionmailer (6.0.0.alpha)
       actionpack (= 6.0.0.alpha)
       actionview (= 6.0.0.alpha)
@@ -80,6 +77,7 @@ GIT
       tzinfo (~> 1.1)
     rails (6.0.0.alpha)
       actioncable (= 6.0.0.alpha)
+      actionmailbox (= 6.0.0.alpha)
       actionmailer (= 6.0.0.alpha)
       actionpack (= 6.0.0.alpha)
       actionview (= 6.0.0.alpha)
@@ -100,7 +98,7 @@ GIT
 
 GIT
   remote: https://github.com/rails/webpacker.git
-  revision: 2c0a8dc82a6b0e58997522bb604b4aec6b9c6488
+  revision: 2b5267335c693e77997005326f8fd36c43a26880
   branch: master
   specs:
     webpacker (4.0.0.rc.2)
@@ -201,11 +199,11 @@ GEM
       raabro (~> 1.1)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
-    hashdiff (0.3.7)
+    hashdiff (0.3.8)
     hashie (3.6.0)
     http-2 (0.9.0)
     http_logger (0.5.1)
-    i18n (1.3.0)
+    i18n (1.4.0)
       concurrent-ruby (~> 1.0)
     io-like (0.3.0)
     jaro_winkler (1.5.1)
@@ -270,7 +268,7 @@ GEM
       http-2 (= 0.9.0)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
-    net-ssh (5.0.2)
+    net-ssh (5.1.0)
     newrelic_rpm (5.6.0.349)
     nio4r (2.3.1)
     nokogiri (1.9.1)
@@ -301,7 +299,7 @@ GEM
     pry (0.12.2)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
-    pry-rails (0.3.8)
+    pry-rails (0.3.9)
       pry (>= 0.10.4)
     public_suffix (3.0.3)
     puma (3.12.0)
@@ -373,7 +371,7 @@ GEM
       rspec-mocks (~> 3.8.0)
       rspec-support (~> 3.8.0)
     rspec-support (3.8.0)
-    rubocop (0.61.1)
+    rubocop (0.62.0)
       jaro_winkler (~> 1.5.1)
       parallel (~> 1.10)
       parser (>= 2.5, != 2.5.1.1)
@@ -381,7 +379,7 @@ GEM
       rainbow (>= 2.2.2, < 4.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (~> 1.4.0)
-    rubocop-rspec (1.30.1)
+    rubocop-rspec (1.31.0)
       rubocop (>= 0.60.0)
     rubocop-thread_safety (0.3.4)
       rubocop (>= 0.51.0)
@@ -459,6 +457,10 @@ GEM
       thread_safe (~> 0.1)
     unicode-display_width (1.4.1)
     vcr (4.0.0)
+    webmock (3.5.1)
+      addressable (>= 2.3.6)
+      crack (>= 0.3.2)
+      hashdiff
     websocket-driver (0.7.0)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.3)
@@ -538,8 +540,8 @@ DEPENDENCIES
   squasher
   swagger-blocks
   vcr
-  webmock!
+  webmock
   webpacker!
 
 BUNDLED WITH
-   1.17.2
+   1.17.3
