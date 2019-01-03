@@ -58,7 +58,7 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'faker'
   gem 'sql_tracker'
-  # gem 'bundler-audit', require: false
+  gem 'bundler-audit', require: false
   gem 'rubocop', require: false
   gem 'rubocop-thread_safety', require: false
   gem 'rubocop-rspec', require: false
