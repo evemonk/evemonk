@@ -9,6 +9,7 @@ module Eve
     end
 
     def import
+      # TODO: etag support
       eve_alliance = Eve::Alliance.find_by!(alliance_id: alliance_id)
 
       eveonline_esi_alliance_corporations = EveOnline::ESI::AllianceCorporations.new(alliance_id: alliance_id)
