@@ -26,10 +26,10 @@
     every: 1d
     class: Eve::AlliancesImporterWorker
     description: 'Update EveOnline Alliances'
-  # eve_alliances_remove_old:
-  #   every: 1d
-  #   class: Eve::RemoveOldAlliancesImporterWorker
-  #   description: 'Remove Old EveOnline Alliances'
+  eve_alliances_remove_old:
+    every: 1d
+    class: Eve::RemoveOldAlliancesImporterWorker
+    description: 'Remove Old EveOnline Alliances'
   eve_graphics:
     every: 1d
     class: Eve::GraphicsImporterWorker
@@ -41,9 +41,9 @@
     every: 1d
     class: Eve::AlliancesCorporationsImporterWorker
     description: 'Update EveOnline Alliances Corporations'
-  # eve_corporations:
-  #   every: 1d
-  #   class: Eve::CorporationsImporterWorker
+  eve_corporations:
+    every: 1d
+    class: Eve::CorporationsImporterWorker
   eve_characters:
     every: 1d
     class: Eve::CharactersImporterWorker
