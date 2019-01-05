@@ -22,6 +22,7 @@ const routes = [
   },
   {
     path: '/autosignin/:token',
+    name: 'auto_sign_in',
     component: AutoSignInPage,
   },
   {
@@ -36,10 +37,12 @@ const routes = [
   },
   {
     path: '/sign_out',
+    name: 'sign_out',
     component: SignOut,
   },
   {
     path: '/profile',
+    name: 'profile',
     component: Profile,
   },
   {
