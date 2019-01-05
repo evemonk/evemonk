@@ -86,9 +86,9 @@
     },
 
     methods: {
-      ...mapActions({
-        'fetchAlliance': 'fetchAlliance'
-      })
+      ...mapActions([
+        'fetchAlliance'
+      ])
     }
   }
 </script>

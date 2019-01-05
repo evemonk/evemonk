@@ -103,9 +103,9 @@
     },
 
     methods: {
-      ...mapActions({
-        'fetchAlliances': 'fetchAlliances'
-      })
+      ...mapActions([
+        'fetchAlliances'
+      ])
     }
   }
 </script>
