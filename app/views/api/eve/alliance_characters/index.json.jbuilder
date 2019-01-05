@@ -13,6 +13,33 @@ json.characters do
     json.name character.name
     json.security_status character.security_status.to_s
 
+    # t.bigint "character_id"
+
+    # t.bigint "alliance_id"
+    # t.bigint "ancestry_id"
+    # t.datetime "birthday"
+    # t.bigint "bloodline_id"
+    # t.bigint "corporation_id"
+    # t.text "description"
+    # t.bigint "faction_id"
+    # t.string "gender"
+    # t.string "name"
+    # t.bigint "race_id"
+    # t.float "security_status"
+
+    if character.alliance
+      json.alliance do
+        json.id character.alliance.alliance_id
+        json.creator_corporation_id character.alliance.creator_corporation_id
+        json.creator_id character.alliance.creator_id
+        json.date_founded character.alliance.date_founded.to_s
+        json.executor_corporation_id character.alliance.executor_corporation_id
+        json.faction_id character.alliance.faction_id
+        json.name character.alliance.name
+        json.ticker character.alliance.ticker
+      end
+    end
+
     if character.ancestry
       json.ancestry do
         json.id character.ancestry.ancestry_id

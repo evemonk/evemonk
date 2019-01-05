@@ -6,7 +6,14 @@ describe Api::Eve::AllianceCharactersController do
   describe '#index' do
     it 'returns list of Eve Alliance Characters' do
       create(:eve_alliance,
-             alliance_id: 123)
+             alliance_id: 123,
+             creator_corporation_id: 2222,
+             creator_id: 3333,
+             date_founded: 'Sun, 03 May 2015 19:45:17 UTC +00:00',
+             executor_corporation_id: 4444,
+             faction_id: 5555,
+             name: 'Alliance name',
+             ticker: 'ALLIANCE_TICKER')
 
       create(:eve_corporation,
              alliance_id: 123,
@@ -55,6 +62,16 @@ describe Api::Eve::AllianceCharactersController do
                                                 'gender' => 'male',
                                                 'name' => 'Character name',
                                                 'security_status' => '1.1',
+                                                'alliance' => {
+                                                  'id' => 123,
+                                                  'creator_corporation_id' => 2222,
+                                                  'creator_id' => 3333,
+                                                  'date_founded' => '2015-05-03 19:45:17 UTC',
+                                                  'executor_corporation_id' => 4444,
+                                                  'faction_id' => 5555,
+                                                  'name' => 'Alliance name',
+                                                  'ticker' => 'ALLIANCE_TICKER'
+                                                },
                                                 'corporation' => {
                                                   'id' => 456,
                                                   'name' => 'Character corporation name',
