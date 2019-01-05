@@ -11,64 +11,57 @@ module Api
     end
 
     def save!
+      # update_character_attributes
+
+      # build_user
+
+      # character.save!
+
+      # session.save!
+
+      # update_character_info
     end
-
-    # def save
-    #   update_character_attributes
-
-    #   build_user
-
-    #   character.save!
-
-    #   session.save!
-
-    #   update_character_info
-    # end
-
-    # def session
-    #   @session ||= character.user.sessions.build
-    # end
 
     def session
-      @session ||= Session.new
+    #   @session ||= character.user.sessions.build
     end
 
-    # private
+    private
 
-    # def character_id
-    #   request.env['omniauth.auth']['info']['character_id']
-    # end
+    def character_id
+      request.env.dig('omniauth.auth', 'info', 'character_id')
+    end
 
-    # def name
-    #   request.env['omniauth.auth']['info']['name']
-    # end
+    def name
+      request.env.dig('omniauth.auth', 'info', 'name')
+    end
 
-    # def access_token
-    #   request.env['omniauth.auth']['credentials']['token']
-    # end
+    def access_token
+      request.env.dig('omniauth.auth', 'credentials', 'token')
+    end
 
-    # def refresh_token
-    #   request.env['omniauth.auth']['credentials']['refresh_token']
-    # end
+    def refresh_token
+      request.env.dig('omniauth.auth', 'credentials', 'refresh_token')
+    end
 
     # def token_expires_at
-    #   Time.zone.at(request.env['omniauth.auth']['credentials']['expires_at'])
+    #   Time.zone.at(request.env.dig('omniauth.auth', 'credentials', 'expires_at'))
     # end
 
     # def token_expires
-    #   request.env['omniauth.auth']['credentials']['expires']
+    #   request.env.dig('omniauth.auth', 'credentials', 'expires')
     # end
 
     # def scopes
-    #   request.env['omniauth.auth']['info']['scopes']
+    #   request.env.dig('omniauth.auth', 'info', 'scopes')
     # end
 
     # def token_type
-    #   request.env['omniauth.auth']['info']['token_type']
+    #   request.env.dig('omniauth.auth', 'info', 'token_type')
     # end
 
     # def character_owner_hash
-    #   request.env['omniauth.auth']['info']['character_owner_hash']
+    #   request.env.dig('omniauth.auth', 'info', 'character_owner_hash')
     # end
 
     # def character
@@ -91,7 +84,7 @@ module Api
     # end
 
     # def update_character_info
-    #   CharacterImporter.new(character_id).import
+    #   # CharacterImporter.new(character_id).import
     # end
   end
 end
