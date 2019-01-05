@@ -65,13 +65,13 @@
     },
 
     methods: {
-      ...mapActions({
-        'signUp': 'signUp'
-      }),
+      ...mapActions([
+        'signUp'
+      ]),
 
-      ...mapMutations({
-        'setAlert': 'setAlert'
-      }),
+      ...mapMutations([
+        'setAlert'
+      ]),
 
       submit () {
         const formData = {

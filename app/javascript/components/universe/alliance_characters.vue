@@ -29,7 +29,7 @@
               <!-- <v-card-actions>
                 <v-spacer></v-spacer>
                 <v-btn color="info">
-                  <router-link :to="{ name: 'character', params: { id: character.id }}">
+                  <router-link :to="{ name: 'universe_character', params: { id: character.id }}">
                     More
                   </router-link>
                 </v-btn>
@@ -64,7 +64,7 @@
           },
           {
             text: 'Alliances',
-            to: { name: 'alliances' },
+            to: { name: 'universe_alliances' },
             exact: true
           }
         ]
@@ -81,7 +81,7 @@
             this.characters = response.data.characters;
 
             this.$router.push({
-              name: 'alliance_characters',
+              name: 'universe_alliance_characters',
               params: {
                 id: this.alliance_id
               },
@@ -108,7 +108,7 @@
           this.breadcrumbs.push({
             text: alliance.name,
             to: {
-              name: 'alliance',
+              name: 'universe_alliance',
               params: {
                 id: alliance.id
               }
@@ -119,7 +119,7 @@
           this.breadcrumbs.push({ 
             text: 'Characters',
             to: {
-              name: 'alliance_characters',
+              name: 'universe_alliance_characters',
               params: {
                 id: alliance.id
               }

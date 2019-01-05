@@ -19,7 +19,7 @@
                   <v-card-title primary-title>
                     <div>
                       <div class="headline">
-                        <router-link :to="{ name: 'alliance', params: { id: alliance.id }}">
+                        <router-link :to="{ name: 'universe_alliance', params: { id: alliance.id }}">
                           {{ alliance.name }}
                         </router-link>
                       </div>
@@ -34,7 +34,7 @@
                 <v-btn color="info">Corporations ({{ alliance.corporations_count }})</v-btn>
                 <v-spacer></v-spacer>
                 <v-btn color="info">
-                  <router-link :to="{ name: 'alliance_characters', params: { id: alliance.id }}">
+                  <router-link :to="{ name: 'universe_alliance_characters', params: { id: alliance.id }}">
                     Characters ({{ alliance.characters_count }})
                   </router-link>
                 </v-btn>
@@ -68,7 +68,7 @@
           },
           {
             text: 'Alliances',
-            to: { name: 'alliances' },
+            to: { name: 'universe_alliances' },
             exact: true,
             disabled: true
           }
@@ -84,7 +84,7 @@
             this.total_pages = response.data.total_pages;
             this.alliances = response.data.alliances;
 
-            this.$router.push({ name: 'alliances', query: { page: page } });
+            this.$router.push({ name: 'universe_alliances', query: { page: page } });
           }
         })
       }

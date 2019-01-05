@@ -47,17 +47,17 @@ const routes = [
   },
   {
     path: '/universe/alliances',
-    name: 'alliances',
+    name: 'universe_alliances',
     component: UniverseAlliances,
   },
   {
     path: '/universe/alliances/:id',
-    name: 'alliance',
+    name: 'universe_alliance',
     component: UniverseAlliance,
   },
   {
     path: '/universe/alliances/:id/characters',
-    name: 'alliance_characters',
+    name: 'universe_alliance_characters',
     component: UniverseAllianceCharacters,
   },
 

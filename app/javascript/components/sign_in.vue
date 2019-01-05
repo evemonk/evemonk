@@ -58,13 +58,13 @@
     },
 
     methods: {
-      ...mapActions({
-        'signIn': 'signIn'
-      }),
+      ...mapActions([
+        'signIn'
+      ]),
 
-      ...mapMutations({
-        'setAlert': 'setAlert'
-      }),
+      ...mapMutations([
+        'setAlert'
+      ]),
 
       submit() {
         const formData = {

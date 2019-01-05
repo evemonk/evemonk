@@ -28,9 +28,9 @@
     },
 
     methods: {
-      ...mapActions({
-        'fetchCharacters': 'fetchCharacters'
-      })
+      ...mapActions([
+        'fetchCharacters'
+      ])
     }
   }
 </script>
