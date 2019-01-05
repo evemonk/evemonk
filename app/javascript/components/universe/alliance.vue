@@ -74,10 +74,10 @@
             text: alliance.name,
             to: {
               name: 'alliance',
-                params: {
-                  id: alliance.id
-                }
-              },
+              params: {
+                id: alliance.id
+              }
+            },
             exact: true,
             disabled: true
           });
