@@ -10,7 +10,12 @@ describe Api::Eve::AllianceCharactersController do
 
       create(:eve_corporation,
              alliance_id: 123,
-             corporation_id: 456)
+             corporation_id: 456,
+             name: 'Character corporation name',
+             description: 'Character corporation description',
+             ticker: 'TICKER',
+             date_founded: 'Sun, 03 May 2015 19:45:17 UTC +00:00',
+             corporation_url: 'https://evemonk.com/')
 
       create(:eve_alliance_corporation,
              alliance_id: 123,
@@ -42,7 +47,15 @@ describe Api::Eve::AllianceCharactersController do
                                                 'description' => 'Character description',
                                                 'gender' => 'male',
                                                 'name' => 'Character name',
-                                                'security_status' => '1.1'
+                                                'security_status' => '1.1',
+                                                'corporation' => {
+                                                  'id' => 456,
+                                                  'name' => 'Character corporation name',
+                                                  'description' => 'Character corporation description',
+                                                  'ticker' => 'TICKER',
+                                                  'date_founded' => '2015-05-03T19:45:17Z',
+                                                  'url' => 'https://evemonk.com/'
+                                                }
                                               }])
     end
   end
