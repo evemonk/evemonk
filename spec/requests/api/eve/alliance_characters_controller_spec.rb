@@ -39,11 +39,20 @@ describe Api::Eve::AllianceCharactersController do
              alliance_id: 123,
              character_id: 123_123_123,
              corporation_id: 456,
+             ancestry_id: 10,
              name: 'Character name',
              description: 'Character description',
              gender: 'male',
              birthday: 'Sun, 03 May 2015 19:45:17 UTC +00:00',
              security_status: 1.1)
+
+      create(:eve_ancestry,
+             ancestry_id: 10,
+             name: 'Ancestry name',
+             bloodline_id: 12,
+             description: 'Ancestry description',
+             short_description: 'Ancestry short description',
+             icon_id: 14)
 
       get '/api/eve/alliances/123/characters'
 
@@ -71,6 +80,14 @@ describe Api::Eve::AllianceCharactersController do
                                                   'faction_id' => 5555,
                                                   'name' => 'Alliance name',
                                                   'ticker' => 'ALLIANCE_TICKER'
+                                                },
+                                                'ancestry' => {
+                                                  'id' => 10,
+                                                  'name' => 'Ancestry name',
+                                                  'bloodline_id' => 12,
+                                                  'description' => 'Ancestry description',
+                                                  'short_description' => 'Ancestry short description',
+                                                  'icon_id' => 14
                                                 },
                                                 'corporation' => {
                                                   'id' => 456,

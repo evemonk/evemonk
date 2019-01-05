@@ -14,8 +14,8 @@ json.characters do
     json.security_status character.security_status.to_s
 
     # t.bigint "character_id"
-
     # t.bigint "alliance_id"
+
     # t.bigint "ancestry_id"
     # t.datetime "birthday"
     # t.bigint "bloodline_id"
@@ -43,6 +43,7 @@ json.characters do
     if character.ancestry
       json.ancestry do
         json.id character.ancestry.ancestry_id
+        json.bloodline_id character.ancestry.bloodline_id
         json.name character.ancestry.name
         json.short_description character.ancestry.short_description
         json.description character.ancestry.description
