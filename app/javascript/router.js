@@ -30,6 +30,7 @@ const routes = [
   },
   {
     path: '/sign_in',
+    name: 'sign_in',
     component: SignInPage,
   },
   {
