@@ -13,26 +13,49 @@ json.characters do
     json.name character.name
     json.security_status character.security_status.to_s
 
-    # if character.ancestry
-    #   json.ancestry do
-    #     json.id character.ancestry.ancestry_id
-    #     json.bloodline_id character.ancestry.bloodline_id
-    #     json.description character.ancestry.description
-    #     json.icon_id character.ancestry.icon_id
-    #     json.name character.ancestry.name
-    #     json.short_description character.ancestry.short_description
-    #   end
-    # end
+    if character.ancestry
+      json.ancestry do
+        json.id character.ancestry.ancestry_id
+        json.name character.ancestry.name
+        json.short_description character.ancestry.short_description
+        json.description character.ancestry.description
+        json.icon_id character.ancestry.icon_id
+      end
+    end
 
-    # json.bloodline_id character.bloodline_id
-    # json.corporation_id character.corporation_id
-    # if character.faction
-    #   json.faction do
-    #     json.id character.faction.faction_id
-    #     json.name character.faction.name
-    #     json.description character.faction.description
+    if character.bloodline
+      json.bloodline do
+        json.id character.bloodline.bloodline_id
+        json.name character.bloodline.name
+        json.description character.bloodline.description
+      end
+    end
+
+    if character.faction
+      json.faction do
+        json.id character.faction.faction_id
+        json.name character.faction.name
+        json.description character.faction.description
+      end
+    end
+
+    if character.race
+      json.race do
+        json.id character.race.race_id
+        json.name character.race.name
+        json.description character.race.description
+      end
+    end
+
+    # if character.corporation
+    #   json.corporation do
+    #     json.id character.corporation.corporation_id
+    #     json.name character.corporation.name
+    #     json.description character.corporation.description
+    #     json.ticker character.corporation.ticker
+    #     json.date_founded character.corporation.date_founded.iso8601
+    #     json.url character.corporation.corporation_url
     #   end
     # end
-    # json.race_id character.race_id
   end
 end
