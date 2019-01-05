@@ -28,7 +28,7 @@ describe Api::Eve::AllianceCharactersController do
              tax_rate: 0.99,
              ceo_id: 1234,
              creator_id: 4321,
-             faction_id: 777,
+             faction_id: 5555,
              home_station_id: 999)
 
       create(:eve_alliance_corporation,
@@ -41,6 +41,7 @@ describe Api::Eve::AllianceCharactersController do
              corporation_id: 456,
              ancestry_id: 10,
              bloodline_id: 12,
+             faction_id: 5555,
              name: 'Character name',
              description: 'Character description',
              gender: 'male',
@@ -67,6 +68,18 @@ describe Api::Eve::AllianceCharactersController do
              description: 'Ancestry description',
              short_description: 'Ancestry short description',
              icon_id: 14)
+
+      create(:eve_faction,
+             faction_id: 5555,
+             name: 'Faction name',
+             description: 'Faction description',
+             solar_system_id: 10,
+             corporation_id: 456,
+             militia_corporation_id: 20,
+             size_factor: 2.0,
+             station_count: 10,
+             station_system_count: 100,
+             is_unique: true)
 
       get '/api/eve/alliances/123/characters'
 
@@ -116,6 +129,18 @@ describe Api::Eve::AllianceCharactersController do
                                                   'memory' => 24,
                                                   'intelligence' => 25
                                                 },
+                                                'faction' => {
+                                                  'id' => 5555,
+                                                  'name' => 'Faction name',
+                                                  'description' => 'Faction description',
+                                                  'solar_system_id' => 10,
+                                                  'corporation_id' => 456,
+                                                  'militia_corporation_id' => 20,
+                                                  'size_factor' => '2.0',
+                                                  'station_count' => 10,
+                                                  'station_system_count' => 100,
+                                                  'is_unique' => true
+                                                },
                                                 'corporation' => {
                                                   'id' => 456,
                                                   'name' => 'Character corporation name',
@@ -129,7 +154,7 @@ describe Api::Eve::AllianceCharactersController do
                                                   'alliance_id' => 123,
                                                   'ceo_id' => 1234,
                                                   'creator_id' => 4321,
-                                                  'faction_id' => 777,
+                                                  'faction_id' => 5555,
                                                   'home_station_id' => 999
                                                 }
                                               }])
