@@ -49,7 +49,9 @@
   export default {
     data () {
       return {
-        alliance: {},
+        alliance: {
+          id: 0
+        },
         breadcrumbs: [
           {
             text: 'Home',
