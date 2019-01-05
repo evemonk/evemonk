@@ -10,6 +10,7 @@ import Profile from './components/profile.vue';
 import Characters from './components/characters.vue';
 import UniverseAlliances from './components/universe/alliances.vue';
 import UniverseAlliance from './components/universe/alliance.vue';
+import UniverseAllianceCharacters from './components/universe/alliance_characters.vue';
 
 Vue.use(VueRouter);
 
@@ -41,6 +42,7 @@ const routes = [
   },
   {
     path: '/characters',
+    name: 'characters',
     component: Characters,
   },
   {
@@ -52,6 +54,11 @@ const routes = [
     path: '/universe/alliances/:id',
     name: 'alliance',
     component: UniverseAlliance,
+  },
+  {
+    path: '/universe/alliances/:id/characters',
+    name: 'alliance_characters',
+    component: UniverseAllianceCharacters,
   },
 
   // otherwise redirect to home
