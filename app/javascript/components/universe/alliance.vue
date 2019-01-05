@@ -1,7 +1,5 @@
 <template>
   <div id="alliance">
-    <h1>Hello</h1>
-
     <v-card>
       <v-container fluid grid-list-lg>
         <v-layout row wrap>
