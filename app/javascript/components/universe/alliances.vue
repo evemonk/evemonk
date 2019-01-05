@@ -1,6 +1,8 @@
 <template>
   <div id="alliances">
-    <h1>Alliances</h1>
+    <v-breadcrumbs :items="breadcrumbs">
+      <v-icon slot="divider">chevron_right</v-icon>
+    </v-breadcrumbs>
 
     <v-pagination v-model="current_page" :length="total_pages"></v-pagination>
 
@@ -53,7 +55,18 @@
         alliances: [],
         current_page: 1,
         total_count: null,
-        total_pages: null
+        total_pages: null,
+        breadcrumbs: [
+          {
+            text: 'Home',
+            to: 'welcome'
+          },
+          {
+            text: 'Alliances',
+            to: 'alliances',
+            disabled: true
+          }
+        ]
       }
     },
 
