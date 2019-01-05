@@ -27,7 +27,11 @@
               <v-card-actions>
                 <v-btn color="info">Corporations ({{ alliance.corporations_count }})</v-btn>
                 <v-spacer></v-spacer>
-                <v-btn color="info">Characters ({{ alliance.characters_count }})</v-btn>
+                <v-btn color="info">
+                  <router-link :to="{ name: 'alliance_characters', params: { id: alliance.id }}">
+                    Characters ({{ alliance.characters_count }})
+                  </router-link>
+                </v-btn>
               </v-card-actions>
             </v-card>
           </v-flex>
