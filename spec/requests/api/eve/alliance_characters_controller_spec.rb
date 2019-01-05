@@ -15,7 +15,14 @@ describe Api::Eve::AllianceCharactersController do
              description: 'Character corporation description',
              ticker: 'TICKER',
              date_founded: 'Sun, 03 May 2015 19:45:17 UTC +00:00',
-             corporation_url: 'https://evemonk.com/')
+             corporation_url: 'https://evemonk.com/',
+             member_count: 2000,
+             shares: 1000,
+             tax_rate: 0.99,
+             ceo_id: 1234,
+             creator_id: 4321,
+             faction_id: 777,
+             home_station_id: 999)
 
       create(:eve_alliance_corporation,
              alliance_id: 123,
@@ -54,7 +61,15 @@ describe Api::Eve::AllianceCharactersController do
                                                   'description' => 'Character corporation description',
                                                   'ticker' => 'TICKER',
                                                   'date_founded' => '2015-05-03T19:45:17Z',
-                                                  'url' => 'https://evemonk.com/'
+                                                  'url' => 'https://evemonk.com/',
+                                                  'member_count' => 2000,
+                                                  'shares' => 1000,
+                                                  'tax_rate' => '0.99',
+                                                  'alliance_id' => 123,
+                                                  'ceo_id' => 1234,
+                                                  'creator_id' => 4321,
+                                                  'faction_id' => 777,
+                                                  'home_station_id' => 999
                                                 }
                                               }])
     end

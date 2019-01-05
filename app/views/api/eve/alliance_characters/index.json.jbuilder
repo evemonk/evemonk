@@ -55,6 +55,14 @@ json.characters do
         json.ticker character.corporation.ticker
         json.date_founded character.corporation.date_founded.iso8601
         json.url character.corporation.corporation_url
+        json.member_count character.corporation.member_count
+        json.shares character.corporation.shares
+        json.tax_rate character.corporation.tax_rate.to_s
+        json.alliance_id character.corporation.alliance_id
+        json.ceo_id character.corporation.ceo_id
+        json.creator_id character.corporation.creator_id
+        json.faction_id character.corporation.faction_id
+        json.home_station_id character.corporation.home_station_id
       end
     end
   end
