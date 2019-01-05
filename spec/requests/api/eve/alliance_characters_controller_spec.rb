@@ -42,6 +42,7 @@ describe Api::Eve::AllianceCharactersController do
              ancestry_id: 10,
              bloodline_id: 12,
              faction_id: 5555,
+             race_id: 123,
              name: 'Character name',
              description: 'Character description',
              gender: 'male',
@@ -52,7 +53,7 @@ describe Api::Eve::AllianceCharactersController do
              bloodline_id: 12,
              name: 'Bloodline name',
              description: 'Bloodline description',
-             race_id: 20,
+             race_id: 123,
              corporation_id: 456,
              ship_type_id: 30,
              perception: 21,
@@ -81,11 +82,15 @@ describe Api::Eve::AllianceCharactersController do
              station_system_count: 100,
              is_unique: true)
 
+      create(:eve_race,
+             race_id: 123,
+             name: 'Race name',
+             description: 'Race description',
+             alliance_id: 123)
+
       get '/api/eve/alliances/123/characters'
 
       expect(response).to have_http_status(:ok)
-
-      puts JSON.parse(response.body)
 
       expect(JSON.parse(response.body)).to eq('total_count' => 1,
                                               'total_pages' => 1,
@@ -120,7 +125,7 @@ describe Api::Eve::AllianceCharactersController do
                                                   'id' => 12,
                                                   'name' => 'Bloodline name',
                                                   'description' => 'Bloodline description',
-                                                  'race_id' => 20,
+                                                  'race_id' => 123,
                                                   'corporation_id' => 456,
                                                   'ship_type_id' => 30,
                                                   'perception' => 21,
@@ -140,6 +145,12 @@ describe Api::Eve::AllianceCharactersController do
                                                   'station_count' => 10,
                                                   'station_system_count' => 100,
                                                   'is_unique' => true
+                                                },
+                                                'race' => {
+                                                  'id' => 123,
+                                                  'name' => 'Race name',
+                                                  'description' => 'Race description',
+                                                  'alliance_id' => 123
                                                 },
                                                 'corporation' => {
                                                   'id' => 456,

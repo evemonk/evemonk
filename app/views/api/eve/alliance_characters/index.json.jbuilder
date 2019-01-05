@@ -13,20 +13,6 @@ json.characters do
     json.name character.name
     json.security_status character.security_status.to_s
 
-    # t.bigint "character_id"
-    # t.bigint "alliance_id"
-
-    # t.bigint "ancestry_id"
-    # t.datetime "birthday"
-    # t.bigint "bloodline_id"
-    # t.bigint "corporation_id"
-    # t.text "description"
-    # t.bigint "faction_id"
-    # t.string "gender"
-    # t.string "name"
-    # t.bigint "race_id"
-    # t.float "security_status"
-
     if character.alliance
       json.alliance do
         json.id character.alliance.alliance_id
@@ -85,6 +71,7 @@ json.characters do
     if character.race
       json.race do
         json.id character.race.race_id
+        json.alliance_id character.race.alliance_id
         json.name character.race.name
         json.description character.race.description
       end
