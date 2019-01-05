@@ -59,11 +59,13 @@
         breadcrumbs: [
           {
             text: 'Home',
-            to: 'welcome'
+            to: { name: 'welcome' },
+            exact: true
           },
           {
             text: 'Alliances',
-            to: 'alliances',
+            to: { name: 'alliances' },
+            exact: true,
             disabled: true
           }
         ]
