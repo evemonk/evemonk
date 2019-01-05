@@ -134,34 +134,36 @@ describe Api::Eve::AlliancesController do
 
       expect(response).to have_http_status(:ok)
 
-      expect(JSON.parse(response.body)).to eq('id' => 123,
-                                              'icon' => 'https://imageserver.eveonline.com/Alliance/123_128.png',
-                                              'name' => 'Alliance name',
-                                              'ticker' => 'ABCDE',
-                                              'date_founded' => '2015-05-03T19:45:17.000Z',
-                                              'corporations_count' => 1,
-                                              'characters_count' => 1234,
-                                              'creator_corporation' => {
-                                                'id' => 123_123,
-                                                'description' => 'Creator corporation description',
-                                                'name' => 'Creator corporation name',
-                                                'ticker' => 'CREATORTICKER'
-                                              },
-                                              'creator' => {
-                                                'id' => 123_123_123,
-                                                'name' => 'Creator name',
-                                                'description' => 'Creator description'
-                                              },
-                                              'executor_corporation' => {
-                                                'id' => 123_123_123_123,
-                                                'description' => 'Executor corporation description',
-                                                'name' => 'Executor corporation name',
-                                                'ticker' => 'EXECUTORTICKER'
-                                              },
-                                              'faction' => {
-                                                'id' => 777,
-                                                'name' => 'Faction name',
-                                                'description' => 'Faction description'
+      expect(JSON.parse(response.body)).to eq('alliance' => {
+                                                'id' => 123,
+                                                'icon' => 'https://imageserver.eveonline.com/Alliance/123_128.png',
+                                                'name' => 'Alliance name',
+                                                'ticker' => 'ABCDE',
+                                                'date_founded' => '2015-05-03T19:45:17.000Z',
+                                                'corporations_count' => 1,
+                                                'characters_count' => 1234,
+                                                'creator_corporation' => {
+                                                  'id' => 123_123,
+                                                  'description' => 'Creator corporation description',
+                                                  'name' => 'Creator corporation name',
+                                                  'ticker' => 'CREATORTICKER'
+                                                },
+                                                'creator' => {
+                                                  'id' => 123_123_123,
+                                                  'name' => 'Creator name',
+                                                  'description' => 'Creator description'
+                                                },
+                                                'executor_corporation' => {
+                                                  'id' => 123_123_123_123,
+                                                  'description' => 'Executor corporation description',
+                                                  'name' => 'Executor corporation name',
+                                                  'ticker' => 'EXECUTORTICKER'
+                                                },
+                                                'faction' => {
+                                                  'id' => 777,
+                                                  'name' => 'Faction name',
+                                                  'description' => 'Faction description'
+                                                }
                                               })
     end
   end
