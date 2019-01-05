@@ -34,7 +34,9 @@ Rails.application.routes.draw do
     resources :characters, only: [:index, :show, :destroy]
 
     namespace :eve do
-      resources :alliances, only: [:index, :show]
+      resources :alliances, only: [:index, :show] do
+        resources :characters, only: :index, controller: :alliance_characters
+      end
     end
   end
 
