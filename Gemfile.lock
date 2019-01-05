@@ -25,7 +25,7 @@ GIT
 
 GIT
   remote: https://github.com/rails/rails.git
-  revision: 88349cee3cb8f7bba662232fbc444eeebc8bb227
+  revision: df8ee09ce71338cdf9816225df1bdebc707f3560
   branch: master
   specs:
     actioncable (6.0.0.alpha)
@@ -52,6 +52,12 @@ GIT
       rack-test (>= 0.6.3)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.0, >= 1.0.2)
+    actiontext (6.0.0.alpha)
+      actionpack (= 6.0.0.alpha)
+      activerecord (= 6.0.0.alpha)
+      activestorage (= 6.0.0.alpha)
+      activesupport (= 6.0.0.alpha)
+      nokogiri (>= 1.8.5)
     actionview (6.0.0.alpha)
       activesupport (= 6.0.0.alpha)
       builder (~> 3.1)
@@ -80,6 +86,7 @@ GIT
       actionmailbox (= 6.0.0.alpha)
       actionmailer (= 6.0.0.alpha)
       actionpack (= 6.0.0.alpha)
+      actiontext (= 6.0.0.alpha)
       actionview (= 6.0.0.alpha)
       activejob (= 6.0.0.alpha)
       activemodel (= 6.0.0.alpha)
