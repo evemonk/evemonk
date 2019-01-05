@@ -4,9 +4,6 @@
       <v-icon slot="divider">chevron_right</v-icon>
     </v-breadcrumbs>
 
-
-    <h1>Alliances</h1>
-
     <v-pagination v-model="current_page" :length="total_pages"></v-pagination>
 
     <div>{{ characters.length }}</div>
