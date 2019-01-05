@@ -29,6 +29,10 @@ module Api
     #   @session ||= character.user.sessions.build
     # end
 
+    def session
+      @session ||= Session.new
+    end
+
     # private
 
     # def character_id

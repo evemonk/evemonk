@@ -6,7 +6,9 @@ describe Auth::EveOnlineSso::CallbacksController do
   it { should be_a(ApplicationController) }
 
   describe '#show' do
-    let(:form) { instance_double(Api::EveOnlineForm) }
+    let(:session) { instance_double(Session, token: 'token123') }
+
+    let(:form) { instance_double(Api::EveOnlineForm, session: session) }
 
     before do
       #
@@ -17,32 +19,10 @@ describe Auth::EveOnlineSso::CallbacksController do
 
     before { expect(form).to receive(:save!) }
 
-    # let(:token) { double }
-
-    # before do
-    #   #
-    #   # eve_online.session.token => token
-    #   #
-    #   expect(eve_online).to receive(:session) do
-    #     double.tap do |a|
-    #       expect(a).to receive(:token).and_return(token)
-    #     end
-    #   end
-    # end
-
-    # before do
-    #   #
-    #   # subject.cookies['auth_token'] = eve_online.session.token
-    #   #
-    #   expect(subject).to receive(:cookies) do
-    #     double.tap do |a|
-    #       expect(a).to receive(:[]=).with('auth_token', token)
-    #     end
-    #   end
-    # end
-
     before { get :show }
 
     it { should respond_with(:found) }
+
+    it { expect(subject).to redirect_to('/autosignin/token123') }
   end
 end

@@ -8,8 +8,7 @@ module Auth
 
         form.save!
 
-        # redirect_to "/autosignin/#{ form.session.token }"
-        redirect_to '/autosignin/'
+        redirect_to "/autosignin/#{ form.session.token }"
       end
     end
   end
