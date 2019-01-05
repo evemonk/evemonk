@@ -23,6 +23,6 @@ describe Auth::EveOnlineSso::CallbacksController do
 
     it { should respond_with(:found) }
 
-    it { expect(subject).to redirect_to('/autosignin/token123') }
+    it { should redirect_to('/autosignin/token123') }
   end
 end
