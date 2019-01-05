@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_27_163439) do
+ActiveRecord::Schema.define(version: 2019_01_05_045437) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -237,6 +237,25 @@ ActiveRecord::Schema.define(version: 2018_12_27_163439) do
     t.index ["constellation_id"], name: "index_eve_systems_on_constellation_id"
     t.index ["star_id"], name: "index_eve_systems_on_star_id"
     t.index ["system_id"], name: "index_eve_systems_on_system_id", unique: true
+  end
+
+  create_table "eve_types", force: :cascade do |t|
+    t.float "capacity"
+    t.text "description"
+    t.bigint "graphic_id"
+    t.bigint "group_id"
+    t.bigint "icon_id"
+    t.bigint "market_group_id"
+    t.float "mass"
+    t.string "name"
+    t.float "packaged_volume"
+    t.integer "portion_size"
+    t.boolean "published"
+    t.float "radius"
+    t.bigint "type_id"
+    t.float "volume"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "loyalty_points", force: :cascade do |t|

@@ -28,7 +28,7 @@ describe Eve::GraphicImporter do
                           as_json: json)
         end
 
-        before { expect(EveOnline::ESI::UniverseGraphic).to receive(:new).with(graphic_id: graphic_id).and_return(eveonline_esi_graphic) }
+        before { expect(EveOnline::ESI::UniverseGraphic).to receive(:new).with(id: graphic_id).and_return(eveonline_esi_graphic) }
 
         let(:etag) { instance_double(Etag, etag: 'e3f6a76b4a1287f54966c6253f8f5d6ac6460bc43d47570331b43e0b') }
 
@@ -52,7 +52,7 @@ describe Eve::GraphicImporter do
 
         before { expect(Eve::Graphic).to receive(:find_or_initialize_by).with(graphic_id: graphic_id).and_return(eve_graphic) }
 
-        before { expect(EveOnline::ESI::UniverseGraphic).to receive(:new).and_raise(EveOnline::Exceptions::ResourceNotFound) }
+        before { expect(EveOnline::ESI::UniverseGraphic).to receive(:new).with(id: graphic_id).and_raise(EveOnline::Exceptions::ResourceNotFound) }
 
         before { expect(eve_graphic).to receive(:destroy!) }
 
@@ -77,7 +77,7 @@ describe Eve::GraphicImporter do
                         not_modified?: true)
       end
 
-      before { expect(EveOnline::ESI::UniverseGraphic).to receive(:new).with(graphic_id: graphic_id).and_return(eveonline_esi_graphic) }
+      before { expect(EveOnline::ESI::UniverseGraphic).to receive(:new).with(id: graphic_id).and_return(eveonline_esi_graphic) }
 
       let(:etag) { instance_double(Etag, etag: 'e3f6a76b4a1287f54966c6253f8f5d6ac6460bc43d47570331b43e0b') }
 

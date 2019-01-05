@@ -1,6 +1,8 @@
 <template>
   <div id="alliances">
-    <h1>Alliances</h1>
+    <v-breadcrumbs :items="breadcrumbs">
+      <v-icon slot="divider">chevron_right</v-icon>
+    </v-breadcrumbs>
 
     <v-pagination v-model="current_page" :length="total_pages"></v-pagination>
 
@@ -24,21 +26,21 @@
                       <div>({{ alliance.ticker }})</div>
                       <div>Founded in {{ alliance.date_founded }}</div>
                     </div>
-                    </v-card-title>
-                  </v-flex>
-                </v-layout>
-                <v-divider light></v-divider>
-                <v-card-actions>
-                  <v-btn color="info">Corporations ({{ alliance.corporations_count }})</v-btn>
-                  <v-spacer></v-spacer>
-                  <v-btn color="info">Characters ({{ alliance.characters_count }})</v-btn>
-                </v-card-actions>
-              </v-card>
-            </v-flex>
+                  </v-card-title>
+                </v-flex>
+              </v-layout>
+              <v-divider light></v-divider>
+              <v-card-actions>
+                <v-btn color="info">Corporations ({{ alliance.corporations_count }})</v-btn>
+                <v-spacer></v-spacer>
+                <v-btn color="info">Characters ({{ alliance.characters_count }})</v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-flex>
 
-          </v-layout>
-        </v-container>
-      </v-card>
+        </v-layout>
+      </v-container>
+    </v-card>
 
     <v-pagination v-model="current_page" :length="total_pages"></v-pagination>
   </div>
@@ -53,7 +55,20 @@
         alliances: [],
         current_page: 1,
         total_count: null,
-        total_pages: null
+        total_pages: null,
+        breadcrumbs: [
+          {
+            text: 'Home',
+            to: { name: 'welcome' },
+            exact: true
+          },
+          {
+            text: 'Alliances',
+            to: { name: 'alliances' },
+            exact: true,
+            disabled: true
+          }
+        ]
       }
     },
 
@@ -74,8 +89,6 @@
     created () {
       let page = this.$route.query.page;
 
-      console.log(page);
-
       if (page !== undefined) {
         this.current_page = parseInt(page);
       }
@@ -90,9 +103,9 @@
     },
 
     methods: {
-      ...mapActions({
-        'fetchAlliances': 'fetchAlliances'
-      })
+      ...mapActions([
+        'fetchAlliances'
+      ])
     }
   }
 </script>

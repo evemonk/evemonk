@@ -16,6 +16,7 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: '/',
+    name: 'welcome',
     component: WelcomePage,
   },
   {

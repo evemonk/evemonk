@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/evemonk/eve_online.git
-  revision: 4992c1b0178d626d06b2c4250f8a93685a6676b0
+  revision: 4ad4621e1fc949706d5d7524be11f976e7772dfb
   branch: refactoring
   specs:
     eve_online (0.22.0)
@@ -25,7 +25,7 @@ GIT
 
 GIT
   remote: https://github.com/rails/rails.git
-  revision: f04e04b45c6a409b577d96ebccd2617c94729712
+  revision: f99b3c5f9759baffec5c1f7abf74e108e2fb1c77
   branch: master
   specs:
     actioncable (6.0.0.alpha)
@@ -52,6 +52,12 @@ GIT
       rack-test (>= 0.6.3)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.0, >= 1.0.2)
+    actiontext (6.0.0.alpha)
+      actionpack (= 6.0.0.alpha)
+      activerecord (= 6.0.0.alpha)
+      activestorage (= 6.0.0.alpha)
+      activesupport (= 6.0.0.alpha)
+      nokogiri (>= 1.8.5)
     actionview (6.0.0.alpha)
       activesupport (= 6.0.0.alpha)
       builder (~> 3.1)
@@ -80,6 +86,7 @@ GIT
       actionmailbox (= 6.0.0.alpha)
       actionmailer (= 6.0.0.alpha)
       actionpack (= 6.0.0.alpha)
+      actiontext (= 6.0.0.alpha)
       actionview (= 6.0.0.alpha)
       activejob (= 6.0.0.alpha)
       activemodel (= 6.0.0.alpha)
@@ -98,7 +105,7 @@ GIT
 
 GIT
   remote: https://github.com/rails/webpacker.git
-  revision: 2b5267335c693e77997005326f8fd36c43a26880
+  revision: c8375ded9bc87b344d30a28c005f2946544ccdc0
   branch: master
   specs:
     webpacker (4.0.0.rc.2)
@@ -206,7 +213,7 @@ GEM
     i18n (1.4.0)
       concurrent-ruby (~> 1.0)
     io-like (0.3.0)
-    jaro_winkler (1.5.1)
+    jaro_winkler (1.5.2)
     jbuilder (2.8.0)
       activesupport (>= 4.2.0)
       multi_json (>= 1.2)
@@ -271,7 +278,7 @@ GEM
     net-ssh (5.1.0)
     newrelic_rpm (5.6.0.349)
     nio4r (2.3.1)
-    nokogiri (1.9.1)
+    nokogiri (1.10.0)
       mini_portile2 (~> 2.4.0)
     oauth2 (1.4.1)
       faraday (>= 0.8, < 0.16.0)
@@ -389,7 +396,7 @@ GEM
     rufus-scheduler (3.5.2)
       fugit (~> 1.1, >= 1.1.5)
     safe_yaml (1.0.4)
-    sass (3.7.2)
+    sass (3.7.3)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
       rb-fsevent (~> 0.9, >= 0.9.4)

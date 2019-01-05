@@ -52,7 +52,7 @@ describe Eve::AllianceImporter do
 
         before { expect(Eve::Alliance).to receive(:find_or_initialize_by).with(alliance_id: alliance_id).and_return(eve_alliance) }
 
-        before { expect(EveOnline::ESI::Alliance).to receive(:new).and_raise(EveOnline::Exceptions::ResourceNotFound) }
+        before { expect(EveOnline::ESI::Alliance).to receive(:new).with(alliance_id: alliance_id).and_raise(EveOnline::Exceptions::ResourceNotFound) }
 
         before { expect(eve_alliance).to receive(:destroy!) }
 

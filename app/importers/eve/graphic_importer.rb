@@ -11,7 +11,7 @@ module Eve
     def import
       eve_graphic = Eve::Graphic.find_or_initialize_by(graphic_id: graphic_id)
 
-      eveonline_esi_graphic = EveOnline::ESI::UniverseGraphic.new(graphic_id: graphic_id)
+      eveonline_esi_graphic = EveOnline::ESI::UniverseGraphic.new(id: graphic_id)
 
       etag = Etag.find_or_initialize_by(url: eveonline_esi_graphic.url)
 
