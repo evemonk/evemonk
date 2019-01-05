@@ -40,11 +40,25 @@ describe Api::Eve::AllianceCharactersController do
              character_id: 123_123_123,
              corporation_id: 456,
              ancestry_id: 10,
+             bloodline_id: 12,
              name: 'Character name',
              description: 'Character description',
              gender: 'male',
              birthday: 'Sun, 03 May 2015 19:45:17 UTC +00:00',
              security_status: 1.1)
+
+      create(:eve_bloodline,
+             bloodline_id: 12,
+             name: 'Bloodline name',
+             description: 'Bloodline description',
+             race_id: 20,
+             corporation_id: 456,
+             ship_type_id: 30,
+             perception: 21,
+             willpower: 22,
+             charisma: 23,
+             memory: 24,
+             intelligence: 25)
 
       create(:eve_ancestry,
              ancestry_id: 10,
@@ -88,6 +102,19 @@ describe Api::Eve::AllianceCharactersController do
                                                   'description' => 'Ancestry description',
                                                   'short_description' => 'Ancestry short description',
                                                   'icon_id' => 14
+                                                },
+                                                'bloodline' => {
+                                                  'id' => 12,
+                                                  'name' => 'Bloodline name',
+                                                  'description' => 'Bloodline description',
+                                                  'race_id' => 20,
+                                                  'corporation_id' => 456,
+                                                  'ship_type_id' => 30,
+                                                  'perception' => 21,
+                                                  'willpower' => 22,
+                                                  'charisma' => 23,
+                                                  'memory' => 24,
+                                                  'intelligence' => 25
                                                 },
                                                 'corporation' => {
                                                   'id' => 456,
