@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_05_045437) do
+ActiveRecord::Schema.define(version: 2019_01_05_234840) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,7 +38,6 @@ ActiveRecord::Schema.define(version: 2019_01_05_045437) do
 
   create_table "characters", force: :cascade do |t|
     t.bigint "user_id"
-    t.integer "uid"
     t.string "name"
     t.string "token"
     t.string "refresh_token"
@@ -67,13 +66,14 @@ ActiveRecord::Schema.define(version: 2019_01_05_045437) do
     t.datetime "last_remap_date"
     t.datetime "accrued_remap_cooldown_date"
     t.integer "faction_id"
+    t.bigint "character_id"
     t.index ["alliance_id"], name: "index_characters_on_alliance_id"
     t.index ["ancestry_id"], name: "index_characters_on_ancestry_id"
     t.index ["bloodline_id"], name: "index_characters_on_bloodline_id"
+    t.index ["character_id"], name: "index_characters_on_character_id", unique: true
     t.index ["corporation_id"], name: "index_characters_on_corporation_id"
     t.index ["faction_id"], name: "index_characters_on_faction_id"
     t.index ["race_id"], name: "index_characters_on_race_id"
-    t.index ["uid"], name: "index_characters_on_uid", unique: true
     t.index ["user_id"], name: "index_characters_on_user_id"
   end
 
