@@ -5,16 +5,29 @@
 </template>
 
 <script>
+  import { mapActions } from 'vuex';
+
   export default {
     data () {
       return {
-        id: null,
-        name: null
+        alliance: {}
       }
     },
 
     created () {
-      console.log(this.$route.params.id);
+      let id = this.$route.params.id;
+
+      this.fetchAlliance(id).then(response => {
+        if (response.status === 200) {
+          this.alliance = response.data.alliance;
+        }
+      });
+    },
+
+    methods: {
+      ...mapActions({
+        'fetchAlliance': 'fetchAlliance'
+      })
     }
   }
 </script>

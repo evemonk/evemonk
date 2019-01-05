@@ -133,6 +133,14 @@ const store = new Vuex.Store({
         return error;
       }
     },
+
+    async fetchAlliance({ commit, state }, id) {
+      try {
+        return await axios.get(`/api/eve/alliances/${id}`);
+      } catch (error) {
+        return error;
+      }
+    },
   },
 });
 
