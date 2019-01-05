@@ -24,21 +24,21 @@
                       <div>({{ alliance.ticker }})</div>
                       <div>Founded in {{ alliance.date_founded }}</div>
                     </div>
-                    </v-card-title>
-                  </v-flex>
-                </v-layout>
-                <v-divider light></v-divider>
-                <v-card-actions>
-                  <v-btn color="info">Corporations ({{ alliance.corporations_count }})</v-btn>
-                  <v-spacer></v-spacer>
-                  <v-btn color="info">Characters ({{ alliance.characters_count }})</v-btn>
-                </v-card-actions>
-              </v-card>
-            </v-flex>
+                  </v-card-title>
+                </v-flex>
+              </v-layout>
+              <v-divider light></v-divider>
+              <v-card-actions>
+                <v-btn color="info">Corporations ({{ alliance.corporations_count }})</v-btn>
+                <v-spacer></v-spacer>
+                <v-btn color="info">Characters ({{ alliance.characters_count }})</v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-flex>
 
-          </v-layout>
-        </v-container>
-      </v-card>
+        </v-layout>
+      </v-container>
+    </v-card>
 
     <v-pagination v-model="current_page" :length="total_pages"></v-pagination>
   </div>
