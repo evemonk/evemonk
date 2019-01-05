@@ -1,5 +1,9 @@
 <template>
   <div id="alliance">
+    <v-breadcrumbs :items="breadcrumbs">
+      <v-icon slot="divider">chevron_right</v-icon>
+    </v-breadcrumbs>
+
     <v-card>
       <v-container fluid grid-list-lg>
         <v-layout row wrap>
@@ -41,7 +45,17 @@
   export default {
     data () {
       return {
-        alliance: {}
+        alliance: {},
+        breadcrumbs: [
+          {
+            text: 'Home',
+            to: 'welcome'
+          },
+          {
+            text: 'Alliances',
+            to: 'alliances',
+          }
+        ]
       }
     },
 
@@ -50,7 +64,11 @@
 
       this.fetchAlliance(id).then(response => {
         if (response.status === 200) {
-          this.alliance = response.data.alliance;
+          let alliance = response.data.alliance;
+
+          this.alliance = alliance;
+
+          this.breadcrumbs.push({ text: alliance.name, disabled: true });
         }
       });
     },
