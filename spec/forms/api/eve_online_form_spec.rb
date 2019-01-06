@@ -33,7 +33,42 @@ describe Api::EveOnlineForm do
     specify { expect { subject.save! }.not_to raise_error }
   end
 
-  describe '#session'
+  describe '#session' do
+    context 'when @session is set' do
+      let(:session) { instance_double(Session) }
+
+      before { subject.instance_variable_set(:@session, session) }
+
+      specify { expect(subject.session).to eq(session) }
+    end
+
+    context 'when @session not set' do
+      let(:session) { instance_double(Session) }
+
+      let(:character) { instance_double(Character) }
+
+      before { expect(subject).to receive(:character).and_return(character) }
+
+      before do
+        #
+        # character.user.sessions.build # => session
+        #
+        expect(character).to receive(:user) do
+          double.tap do |a|
+            expect(a).to receive(:sessions) do
+              double.tap do |b|
+                expect(b).to receive(:build).and_return(session)
+              end
+            end
+          end
+        end
+      end
+
+      specify { expect(subject.session).to eq(session) }
+
+      specify { expect { subject.session }.to change { subject.instance_variable_get(:@session) }.from(nil).to(session) }
+    end
+  end
 
   # private methods
 

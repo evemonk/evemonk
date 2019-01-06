@@ -21,7 +21,7 @@ module Api
     end
 
     def session
-      # @session ||= character.user.sessions.build
+      @session ||= character.user.sessions.build
     end
 
     private
