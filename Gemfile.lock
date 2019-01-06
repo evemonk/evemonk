@@ -25,7 +25,7 @@ GIT
 
 GIT
   remote: https://github.com/rails/rails.git
-  revision: 02d2958b6cd84d687d89112eb7e2306a6a89c082
+  revision: 1e09019088760adafaa122eb11c24effdb4c1160
   branch: master
   specs:
     actioncable (6.0.0.alpha)
