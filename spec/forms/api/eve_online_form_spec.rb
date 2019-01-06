@@ -281,5 +281,7 @@ describe Api::EveOnlineForm do
     end
   end
 
-  describe '#update_character_info'
+  describe '#update_character_info' do
+    specify { expect { subject.send(:update_character_info) }.not_to raise_error }
+  end
 end
