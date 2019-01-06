@@ -13,11 +13,11 @@ module Api
 
       build_user
 
-      # character.save!
+      character.save!
 
-      # session.save!
+      session.save!
 
-      # update_character_info
+      update_character_info
     end
 
     def session

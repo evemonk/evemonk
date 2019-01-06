@@ -16,6 +16,20 @@ describe Api::EveOnlineForm do
 
     before { expect(subject).to receive(:build_user) }
 
+    let(:character) { instance_double(Character) }
+
+    before { expect(subject).to receive(:character).and_return(character) }
+
+    before { expect(character).to receive(:save!) }
+
+    let(:session) { instance_double(Session) }
+
+    before { expect(subject).to receive(:session).and_return(session) }
+
+    before { expect(session).to receive(:save!) }
+
+    before { expect(subject).to receive(:update_character_info) }
+
     specify { expect { subject.save! }.not_to raise_error }
   end
 
