@@ -12,6 +12,8 @@ describe Api::EveOnlineForm do
   end
 
   describe '#save!' do
+    before { expect(subject).to receive(:update_character_attributes) }
+
     specify { expect { subject.save! }.not_to raise_error }
   end
 
@@ -89,13 +91,35 @@ describe Api::EveOnlineForm do
   #   request.env.dig('omniauth.auth', 'info', 'scopes')
   # end
 
-  # def token_type
-  #   request.env.dig('omniauth.auth', 'info', 'token_type')
-  # end
+  describe '#token_type' do
+    before do
+      #
+      # request.env.dig('omniauth.auth', 'info', 'token_type')
+      #
+      expect(request).to receive(:env) do
+        double.tap do |a|
+          expect(a).to receive(:dig).with('omniauth.auth', 'info', 'token_type')
+        end
+      end
+    end
 
-  # def character_owner_hash
-  #   request.env.dig('omniauth.auth', 'info', 'character_owner_hash')
-  # end
+    specify { expect { subject.send(:token_type) }.not_to raise_error }
+  end
+
+  describe '#character_owner_hash' do
+    before do
+      #
+      # request.env.dig('omniauth.auth', 'info', 'character_owner_hash')
+      #
+      expect(request).to receive(:env) do
+        double.tap do |a|
+          expect(a).to receive(:dig).with('omniauth.auth', 'info', 'character_owner_hash')
+        end
+      end
+    end
+
+    specify { expect { subject.send(:character_owner_hash) }.not_to raise_error }
+  end
 
   describe '#character' do
     context 'when @character is set' do

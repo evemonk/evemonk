@@ -11,7 +11,7 @@ module Api
     end
 
     def save!
-      # update_character_attributes
+      update_character_attributes
 
       # build_user
 
@@ -56,13 +56,13 @@ module Api
     #   request.env.dig('omniauth.auth', 'info', 'scopes')
     # end
 
-    # def token_type
-    #   request.env.dig('omniauth.auth', 'info', 'token_type')
-    # end
+    def token_type
+      request.env.dig('omniauth.auth', 'info', 'token_type')
+    end
 
-    # def character_owner_hash
-    #   request.env.dig('omniauth.auth', 'info', 'character_owner_hash')
-    # end
+    def character_owner_hash
+      request.env.dig('omniauth.auth', 'info', 'character_owner_hash')
+    end
 
     # TODO: add support for character_owner_hash
     # If character_owner_hash changed for character, remove this character from user
@@ -70,16 +70,16 @@ module Api
       @character ||= Character.find_or_initialize_by(character_id: character_id)
     end
 
-    # def update_character_attributes
-    #   character.assign_attributes(name: name,
-    #                               access_token: access_token,
-    #                               refresh_token: refresh_token,
-    #                               token_expires_at: token_expires_at,
-    #                               token_expires: token_expires,
-    #                               scopes: scopes,
-    #                               token_type: token_type,
-    #                               character_owner_hash: character_owner_hash)
-    # end
+    def update_character_attributes
+      character.assign_attributes(name: name,
+                                  access_token: access_token,
+                                  refresh_token: refresh_token,
+                                  token_expires_at: token_expires_at,
+                                  token_expires: token_expires,
+                                  scopes: scopes,
+                                  token_type: token_type,
+                                  character_owner_hash: character_owner_hash)
+    end
 
     # def build_user
     #   character.build_user(kind: :oauth) unless character.user
