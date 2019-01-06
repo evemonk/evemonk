@@ -14,6 +14,8 @@ describe Api::EveOnlineForm do
   describe '#save!' do
     before { expect(subject).to receive(:assign_character_attributes) }
 
+    before { expect(subject).to receive(:build_user) }
+
     specify { expect { subject.save! }.not_to raise_error }
   end
 
@@ -255,7 +257,29 @@ describe Api::EveOnlineForm do
     specify { expect { subject.send(:assign_character_attributes) }.not_to raise_error }
   end
 
-  describe '#build_user'
+  describe '#build_user' do
+    context 'when user not set in character' do
+      let(:character) { instance_double(Character, user: nil) }
+
+      before { expect(subject).to receive(:character).and_return(character).twice }
+
+      before { expect(character).to receive(:build_user).with(kind: :oauth) }
+
+      specify { expect { subject.send(:build_user) }.not_to raise_error }
+    end
+
+    context 'when user is set in character' do
+      let(:user) { instance_double(User) }
+
+      let(:character) { instance_double(Character, user: user) }
+
+      before { expect(subject).to receive(:character).and_return(character) }
+
+      before { expect(character).not_to receive(:build_user) }
+
+      specify { expect { subject.send(:build_user) }.not_to raise_error }
+    end
+  end
 
   describe '#update_character_info'
 end

@@ -4,8 +4,6 @@ module Api
   class EveOnlineForm
     attr_reader :request
 
-    # delegate :errors, to: :character
-
     def initialize(request)
       @request = request
     end
@@ -13,7 +11,7 @@ module Api
     def save!
       assign_character_attributes
 
-      # build_user
+      build_user
 
       # character.save!
 
@@ -81,9 +79,9 @@ module Api
                                   character_owner_hash: character_owner_hash)
     end
 
-    # def build_user
-    #   character.build_user(kind: :oauth) unless character.user
-    # end
+    def build_user
+      character.build_user(kind: :oauth) unless character.user
+    end
 
     # def update_character_info
     #   # CharacterImporter.new(character_id).import
