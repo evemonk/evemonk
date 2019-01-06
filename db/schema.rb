@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_06_001125) do
+ActiveRecord::Schema.define(version: 2019_01_06_002738) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,11 +39,10 @@ ActiveRecord::Schema.define(version: 2019_01_06_001125) do
   create_table "characters", force: :cascade do |t|
     t.bigint "user_id"
     t.string "name"
-    t.string "token"
+    t.string "access_token"
     t.string "refresh_token"
     t.datetime "token_expires_at"
     t.boolean "token_expires"
-    t.string "scopes"
     t.string "token_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -67,10 +66,13 @@ ActiveRecord::Schema.define(version: 2019_01_06_001125) do
     t.bigint "bloodline_id"
     t.bigint "ancestry_id"
     t.bigint "faction_id"
+    t.text "scopes"
+    t.string "character_owner_hash"
     t.index ["alliance_id"], name: "index_characters_on_alliance_id"
     t.index ["ancestry_id"], name: "index_characters_on_ancestry_id"
     t.index ["bloodline_id"], name: "index_characters_on_bloodline_id"
     t.index ["character_id"], name: "index_characters_on_character_id", unique: true
+    t.index ["character_owner_hash"], name: "index_characters_on_character_owner_hash", unique: true
     t.index ["corporation_id"], name: "index_characters_on_corporation_id"
     t.index ["faction_id"], name: "index_characters_on_faction_id"
     t.index ["race_id"], name: "index_characters_on_race_id"
