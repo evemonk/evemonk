@@ -11,7 +11,7 @@ module Api
     end
 
     def save!
-      update_character_attributes
+      assign_character_attributes
 
       # build_user
 
@@ -23,7 +23,7 @@ module Api
     end
 
     def session
-    #   @session ||= character.user.sessions.build
+      # @session ||= character.user.sessions.build
     end
 
     private
@@ -44,17 +44,17 @@ module Api
       request.env.dig('omniauth.auth', 'credentials', 'refresh_token')
     end
 
-    # def token_expires_at
-    #   Time.zone.at(request.env.dig('omniauth.auth', 'credentials', 'expires_at'))
-    # end
+    def token_expires_at
+      Time.zone.at(request.env.dig('omniauth.auth', 'credentials', 'expires_at'))
+    end
 
-    # def token_expires
-    #   request.env.dig('omniauth.auth', 'credentials', 'expires')
-    # end
+    def token_expires
+      request.env.dig('omniauth.auth', 'credentials', 'expires')
+    end
 
-    # def scopes
-    #   request.env.dig('omniauth.auth', 'info', 'scopes')
-    # end
+    def scopes
+      request.env.dig('omniauth.auth', 'info', 'scopes')
+    end
 
     def token_type
       request.env.dig('omniauth.auth', 'info', 'token_type')
@@ -70,7 +70,7 @@ module Api
       @character ||= Character.find_or_initialize_by(character_id: character_id)
     end
 
-    def update_character_attributes
+    def assign_character_attributes
       character.assign_attributes(name: name,
                                   access_token: access_token,
                                   refresh_token: refresh_token,

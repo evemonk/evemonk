@@ -12,10 +12,12 @@ describe Api::EveOnlineForm do
   end
 
   describe '#save!' do
-    before { expect(subject).to receive(:update_character_attributes) }
+    before { expect(subject).to receive(:assign_character_attributes) }
 
     specify { expect { subject.save! }.not_to raise_error }
   end
+
+  describe '#session'
 
   # private methods
 
@@ -79,17 +81,64 @@ describe Api::EveOnlineForm do
     specify { expect { subject.send(:refresh_token) }.not_to raise_error }
   end
 
-  # def token_expires_at
-  #   Time.zone.at(request.env.dig('omniauth.auth', 'credentials', 'expires_at'))
-  # end
+  describe '#token_expires_at' do
+    let(:expires_at) { double }
 
-  # def token_expires
-  #   request.env.dig('omniauth.auth', 'credentials', 'expires')
-  # end
+    before do
+      #
+      # request.env.dig('omniauth.auth', 'credentials', 'expires_at')
+      #
+      expect(request).to receive(:env) do
+        double.tap do |a|
+          expect(a).to receive(:dig).with('omniauth.auth', 'credentials', 'expires_at')
+                                    .and_return(expires_at)
+        end
+      end
+    end
 
-  # def scopes
-  #   request.env.dig('omniauth.auth', 'info', 'scopes')
-  # end
+    before do
+      #
+      # Time.zone.at(expires_at)
+      #
+      expect(Time).to receive(:zone) do
+        double.tap do |a|
+          expect(a).to receive(:at).with(expires_at)
+        end
+      end
+    end
+
+    specify { expect { subject.send(:token_expires_at) }.not_to raise_error }
+  end
+
+  describe '#token_expires' do
+    before do
+      #
+      # request.env.dig('omniauth.auth', 'credentials', 'expires')
+      #
+      expect(request).to receive(:env) do
+        double.tap do |a|
+          expect(a).to receive(:dig).with('omniauth.auth', 'credentials', 'expires')
+        end
+      end
+    end
+
+    specify { expect { subject.send(:token_expires) }.not_to raise_error }
+  end
+
+  describe '#scopes' do
+    before do
+      #
+      # request.env.dig('omniauth.auth', 'info', 'scopes')
+      #
+      expect(request).to receive(:env) do
+        double.tap do |a|
+          expect(a).to receive(:dig).with('omniauth.auth', 'info', 'scopes')
+        end
+      end
+    end
+
+    specify { expect { subject.send(:scopes) }.not_to raise_error }
+  end
 
   describe '#token_type' do
     before do
@@ -144,4 +193,69 @@ describe Api::EveOnlineForm do
       specify { expect { subject.send(:character) }.to change { subject.instance_variable_get(:@character) }.from(nil).to(character) }
     end
   end
+
+  describe '#assign_character_attributes' do
+    let(:character) { instance_double(Character) }
+
+    let(:name) { double }
+
+    let(:access_token) { double }
+
+    let(:refresh_token) { double }
+
+    let(:token_expires_at) { double }
+
+    let(:token_expires) { double }
+
+    let(:scopes) { double }
+
+    let(:token_type) { double }
+
+    let(:character_owner_hash) { double }
+
+    before { expect(subject).to receive(:character).and_return(character) }
+
+    before { expect(subject).to receive(:name).and_return(name) }
+
+    before { expect(subject).to receive(:access_token).and_return(access_token) }
+
+    before { expect(subject).to receive(:refresh_token).and_return(refresh_token) }
+
+    before { expect(subject).to receive(:token_expires_at).and_return(token_expires_at) }
+
+    before { expect(subject).to receive(:token_expires).and_return(token_expires) }
+
+    before { expect(subject).to receive(:scopes).and_return(scopes) }
+
+    before { expect(subject).to receive(:token_type).and_return(token_type) }
+
+    before { expect(subject).to receive(:character_owner_hash).and_return(character_owner_hash) }
+
+    before do
+      #
+      # character.assign_attributes(name: name,
+      #                             access_token: access_token,
+      #                             refresh_token: refresh_token,
+      #                             token_expires_at: token_expires_at,
+      #                             token_expires: token_expires,
+      #                             scopes: scopes,
+      #                             token_type: token_type,
+      #                             character_owner_hash: character_owner_hash)
+      #
+      expect(character).to receive(:assign_attributes).with(name: name,
+                                                            access_token: access_token,
+                                                            refresh_token: refresh_token,
+                                                            token_expires_at: token_expires_at,
+                                                            token_expires: token_expires,
+                                                            scopes: scopes,
+                                                            token_type: token_type,
+                                                            character_owner_hash: character_owner_hash)
+    end
+
+    specify { expect { subject.send(:assign_character_attributes) }.not_to raise_error }
+  end
+
+  describe '#build_user'
+
+  describe '#update_character_info'
 end
