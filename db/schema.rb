@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_05_234840) do
+ActiveRecord::Schema.define(version: 2019_01_06_000716) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,7 +53,6 @@ ActiveRecord::Schema.define(version: 2019_01_05_234840) do
     t.integer "race_id"
     t.integer "bloodline_id"
     t.text "description"
-    t.integer "alliance_id"
     t.integer "ancestry_id"
     t.decimal "security_status", precision: 18, scale: 16
     t.float "wallet"
@@ -67,6 +66,7 @@ ActiveRecord::Schema.define(version: 2019_01_05_234840) do
     t.datetime "accrued_remap_cooldown_date"
     t.integer "faction_id"
     t.bigint "character_id"
+    t.bigint "alliance_id"
     t.index ["alliance_id"], name: "index_characters_on_alliance_id"
     t.index ["ancestry_id"], name: "index_characters_on_ancestry_id"
     t.index ["bloodline_id"], name: "index_characters_on_bloodline_id"
