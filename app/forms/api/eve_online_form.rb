@@ -64,9 +64,11 @@ module Api
     #   request.env.dig('omniauth.auth', 'info', 'character_owner_hash')
     # end
 
-    # def character
-    #   @character ||= Character.find_or_initialize_by(character_id: character_id)
-    # end
+    # TODO: add support for character_owner_hash
+    # If character_owner_hash changed for character, remove this character from user
+    def character
+      @character ||= Character.find_or_initialize_by(character_id: character_id)
+    end
 
     # def update_character_attributes
     #   character.assign_attributes(name: name,
