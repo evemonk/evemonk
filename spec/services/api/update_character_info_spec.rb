@@ -22,7 +22,7 @@ describe Api::UpdateCharacterInfo do
 
     before { expect(subject).to receive(:character_attributes) }
 
-    # before { expect(subject).to receive(:character_loyalty_points) }
+    before { expect(subject).to receive(:character_loyalty_points) }
 
     specify { expect { subject.update! }.not_to raise_error }
   end
@@ -95,6 +95,36 @@ describe Api::UpdateCharacterInfo do
     let(:character) { instance_double(Character, character_id: character_id, access_token: access_token) }
 
     subject { described_class.new(character) }
+
+    let(:as_json) { double }
+
+    let(:loyalty_point) { instance_double(EveOnline::ESI::Models::LoyaltyPoint, as_json: as_json) }
+
+    let(:esi) { instance_double(EveOnline::ESI::CharacterLoyaltyPoints, loyalty_points: [loyalty_point]) }
+
+    before { expect(EveOnline::ESI::CharacterLoyaltyPoints).to receive(:new).with(character_id: character_id, token: access_token).and_return(esi) }
+
+    before do
+      #
+      # character.loyalty_points.destroy_all
+      #
+      expect(character).to receive(:loyalty_points) do
+        double.tap do |a|
+          expect(a).to receive(:destroy_all)
+        end
+      end
+    end
+
+    before do
+      #
+      # character.loyalty_points.create!(lp.as_json)
+      #
+      expect(character).to receive(:loyalty_points) do
+        double.tap do |a|
+          expect(a).to receive(:create!).with(as_json)
+        end
+      end
+    end
 
     specify { expect { subject.send(:character_loyalty_points) }.not_to raise_error }
   end

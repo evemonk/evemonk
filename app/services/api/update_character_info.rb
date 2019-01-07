@@ -41,16 +41,16 @@ module Api
     end
 
     def character_loyalty_points
-    #   loyalty_points = EveOnline::ESI::CharacterLoyaltyPoints.new(character_id: character.character_id,
-    #                                                               token: character.access_token)
+      esi = EveOnline::ESI::CharacterLoyaltyPoints.new(character_id: character.character_id,
+                                                       token: character.access_token)
 
-    #   ActiveRecord::Base.transaction do
-    #     character.loyalty_points.destroy_all
+      ActiveRecord::Base.transaction do
+        character.loyalty_points.destroy_all
 
-    #     loyalty_points.loyalty_points.each do |lp|
-    #       character.loyalty_points.create!(lp.as_json)
-    #     end
-    #   end
+        esi.loyalty_points.each do |lp|
+          character.loyalty_points.create!(lp.as_json)
+        end
+      end
     end
   end
 end
