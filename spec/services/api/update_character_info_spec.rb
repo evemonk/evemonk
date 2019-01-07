@@ -38,12 +38,12 @@ describe Api::UpdateCharacterInfo do
 
     let!(:race) { create(:eve_race, race_id: 2) }
 
-    let(:token) { 'XPyr6SPgegR0FhP2k5yUtG8LQeU9XagHtqWo01EN9z2Djy6pcnED173V7jp-ifLgYAPdu58p1cF0Ye4jUwWJ1Q2' }
+    let(:access_token) { 'XPyr6SPgegR0FhP2k5yUtG8LQeU9XagHtqWo01EN9z2Djy6pcnED173V7jp-ifLgYAPdu58p1cF0Ye4jUwWJ1Q2' }
 
     let!(:character) do
       create(:character,
-             uid: 1_337_512_245,
-             token: token,
+             character_id: 1_337_512_245,
+             access_token: access_token,
              name: 'Cat',
              gender: 'female')
     end
