@@ -46,7 +46,7 @@ gem 'rack-health'
 # gem 'capistrano-rails', group: :development
 
 group :production do
-  gem 'newrelic_rpm'
+  # gem 'newrelic_rpm'
   gem 'rack-timeout'
 end
 
