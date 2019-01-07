@@ -4,7 +4,7 @@ require 'rails_helper'
 
 describe Api::UpdateCharacterInfo do
   describe '#initialize' do
-    let(:character) { double }
+    let(:character) { instance_double(Character) }
 
     subject { described_class.new(character) }
 
@@ -12,19 +12,17 @@ describe Api::UpdateCharacterInfo do
   end
 
   describe '#update!' do
-    let(:character) { double }
+    let(:character) { instance_double(Character) }
 
     subject { described_class.new(character) }
 
     before { expect(subject).to receive(:character_info) }
 
-    before { expect(subject).to receive(:character_wallet) }
+    # before { expect(subject).to receive(:character_wallet) }
 
-    before { expect(subject).to receive(:character_attributes) }
+    # before { expect(subject).to receive(:character_attributes) }
 
-    before { expect(subject).to receive(:character_corporation_info) }
-
-    before { expect(subject).to receive(:character_loyalty_points) }
+    # before { expect(subject).to receive(:character_loyalty_points) }
 
     specify { expect { subject.update! }.not_to raise_error }
   end
@@ -32,36 +30,20 @@ describe Api::UpdateCharacterInfo do
   # private methods
 
   describe '#character_info' do
-    before { VCR.insert_cassette 'api/update_character_info/character_info/success' }
+    let(:character_id) { double }
 
-    after { VCR.eject_cassette }
-
-    let!(:race) { create(:eve_race, race_id: 2) }
-
-    let(:access_token) { 'XPyr6SPgegR0FhP2k5yUtG8LQeU9XagHtqWo01EN9z2Djy6pcnED173V7jp-ifLgYAPdu58p1cF0Ye4jUwWJ1Q2' }
-
-    let!(:character) do
-      create(:character,
-             character_id: 1_337_512_245,
-             access_token: access_token,
-             name: 'Cat',
-             gender: 'female')
-    end
+    let(:character) { instance_double(Character, character_id: character_id) }
 
     subject { described_class.new(character) }
 
-    specify { expect { subject.send(:character_info) }.to change(character, :name).from('Cat').to('Johnn Dillinger') }
+    let(:as_json) { double }
 
-    specify { expect { subject.send(:character_info) }.to change(character, :gender).from('female').to('male') }
+    let(:esi) { instance_double(EveOnline::ESI::Character, as_json: as_json) }
 
-    # TODO:
-    # {:corporation_id=>98134807,
-    #  :birthday=>Fri, 15 Jan 2010 15:26:00 UTC +00:00,
-    #  :race_id=>2,
-    #  :bloodline_id=>4,
-    #  :description=>"",
-    #  :alliance_id=>99005443,
-    #  :ancestry_id=>24,
-    #  :security_status=>1.8694881661345457}
+    before { expect(EveOnline::ESI::Character).to receive(:new).with(character_id: character_id).and_return(esi) }
+
+    before { expect(character).to receive(:update!).with(as_json) }
+
+    specify { expect { subject.send(:character_info) }.not_to raise_error }
   end
 end

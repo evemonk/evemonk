@@ -11,58 +11,46 @@ module Api
     def update!
       character_info
 
-      character_wallet
+      # character_wallet
 
-      character_attributes
+      # character_attributes
 
-      character_corporation_info
-
-      character_loyalty_points
+      # character_loyalty_points
     end
 
     private
 
     def character_info
-      info = ::EveOnline::ESI::Character.new(character_id: character.uid)
+      esi = EveOnline::ESI::Character.new(character_id: character.character_id)
 
-      # birthday: birthday
-
-      character.update!(info.as_json)
+      character.update!(esi.as_json)
     end
 
-    def character_wallet
-      wallet = ::EveOnline::ESI::CharacterWallet.new(character_id: character.uid,
-                                                     token: character.token)
+    # def character_wallet
+    #   wallet = EveOnline::ESI::CharacterWallet.new(character_id: character.character_id,
+    #                                                token: character.access_token)
 
-      character.update!(wallet.as_json)
-    end
+    #   character.update!(wallet.as_json)
+    # end
 
-    def character_attributes
-      attributes = ::EveOnline::ESI::CharacterAttributes.new(character_id: character.uid,
-                                                             token: character.token)
+    # def character_attributes
+    #   attributes = EveOnline::ESI::CharacterAttributes.new(character_id: character.character_id,
+    #                                                        token: character.access_token)
 
-      character.update!(attributes.as_json)
-    end
+    #   character.update!(attributes.as_json)
+    # end
 
-    def character_corporation_info
-      corporation_id = character.corporation_id
+    # def character_loyalty_points
+    #   loyalty_points = EveOnline::ESI::CharacterLoyaltyPoints.new(character_id: character.character_id,
+    #                                                               token: character.access_token)
 
-      corporation = Eve::Corporation.find_or_initialize_by(corporation_id: corporation_id)
+    #   ActiveRecord::Base.transaction do
+    #     character.loyalty_points.destroy_all
 
-      corporation.update!(::EveOnline::ESI::Corporation.new(corporation_id: corporation_id).as_json)
-    end
-
-    def character_loyalty_points
-      loyalty_points = ::EveOnline::ESI::CharacterLoyaltyPoints.new(character_id: character.uid,
-                                                                    token: character.token)
-
-      ActiveRecord::Base.transaction do
-        character.loyalty_points.destroy_all
-
-        loyalty_points.loyalty_points.each do |lp|
-          character.loyalty_points.create!(lp.as_json)
-        end
-      end
-    end
+    #     loyalty_points.loyalty_points.each do |lp|
+    #       character.loyalty_points.create!(lp.as_json)
+    #     end
+    #   end
+    # end
   end
 end
