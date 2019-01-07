@@ -18,6 +18,12 @@ module Api
       session.save!
 
       update_character_info
+
+      # update_character_wallet
+
+      # update_character_attributes
+
+      # update_character_lps
     end
 
     def session
@@ -84,7 +90,24 @@ module Api
     end
 
     def update_character_info
-      # CharacterImporter.new(character_id).import
+      Api::UpdateCharacterInfo.new(character).update!
     end
+
+    # TODO: remove this
+    # def update_character_info
+    #   CharacterImporter.new(character_id).import
+    # end
+
+    # def update_character_wallet
+    #   CharacterWalletImporter.new(character_id).import
+    # end
+
+    # def update_character_attributes
+    #   CharacterAttributesImporter.new(character_id).import
+    # end
+
+    # def update_character_lps
+    #   CharacterLoyaltyPointsImporter.new(character_id).import
+    # end
   end
 end

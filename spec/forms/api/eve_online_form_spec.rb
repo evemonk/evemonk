@@ -331,6 +331,21 @@ describe Api::EveOnlineForm do
   end
 
   describe '#update_character_info' do
+    let(:character) { instance_double(Character) }
+
+    before { expect(subject).to receive(:character).and_return(character) }
+
+    before do
+      #
+      # Api::UpdateCharacterInfo.new(character).update!
+      #
+      expect(Api::UpdateCharacterInfo).to receive(:new).with(character) do
+        double.tap do |a|
+          expect(a).to receive(:update!)
+        end
+      end
+    end
+
     specify { expect { subject.send(:update_character_info) }.not_to raise_error }
   end
 end
