@@ -4,7 +4,7 @@ FactoryBot.define do
   factory :character do
     user
 
-    sequence(:uid)
+    sequence(:character_id)
 
     name { Faker::Name.name }
 
