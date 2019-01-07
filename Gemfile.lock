@@ -276,7 +276,6 @@ GEM
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (5.1.0)
-    newrelic_rpm (5.6.0.349)
     nio4r (2.3.1)
     nokogiri (1.10.0)
       mini_portile2 (~> 2.4.0)
@@ -510,7 +509,6 @@ DEPENDENCIES
   listen (>= 3.0.5, < 3.2)
   mdl
   mry
-  newrelic_rpm
   omniauth-eve_online-sso
   pg (>= 0.18, < 2.0)
   pg_query
