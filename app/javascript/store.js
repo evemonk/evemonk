@@ -40,7 +40,7 @@ const store = new Vuex.Store({
 
   mutations: {
     signInUser(state, payload) {
-      const token = payload.data.token;
+      let token = payload.data.token;
       state.token = token;
       localStorage.setItem('token', token);
     },

@@ -21,7 +21,7 @@
       <template v-if="!isAuthenticated">
         <v-divider></v-divider>
 
-        <v-list-tile to="/sign_in">
+        <v-list-tile :to="{ name: 'sign_in' }">
           <v-list-tile-action>
             <v-icon>folder</v-icon>
           </v-list-tile-action>
@@ -35,7 +35,7 @@
       <template v-if="!isAuthenticated">
         <v-divider></v-divider>
 
-        <v-list-tile to="/sign_up">
+        <v-list-tile :to="{ name: 'sign_up' }">
           <v-list-tile-action>
             <v-icon>folder</v-icon>
           </v-list-tile-action>
@@ -49,7 +49,7 @@
       <template v-if="isAuthenticated">
         <v-divider></v-divider>
 
-        <v-list-tile to="/profile">
+        <v-list-tile :to="{ name: 'profile' }">
           <v-list-tile-action>
             <v-icon>folder</v-icon>
           </v-list-tile-action>
@@ -63,7 +63,7 @@
       <template v-if="isAuthenticated">
         <v-divider></v-divider>
 
-        <v-list-tile to="/characters" v-if="isAuthenticated">
+        <v-list-tile :to="{ name: 'characters' }" v-if="isAuthenticated">
           <v-list-tile-action>
             <v-icon>folder</v-icon>
           </v-list-tile-action>
@@ -74,9 +74,23 @@
         </v-list-tile>
       </template>
 
+      <template v-if="isAuthenticated">
+        <v-divider></v-divider>
+
+        <v-list-tile :to="{ name: 'lpstore' }" v-if="isAuthenticated">
+          <v-list-tile-action>
+            <v-icon>folder</v-icon>
+          </v-list-tile-action>
+
+          <v-list-tile-content>
+            <v-list-tile-title>LP Store</v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
+      </template>
+
       <v-divider></v-divider>
 
-      <v-list-tile to="/universe/alliances">
+      <v-list-tile :to="{ name: 'universe_alliances' }">
         <v-list-tile-action>
           <v-icon>folder</v-icon>
         </v-list-tile-action>
@@ -89,7 +103,7 @@
       <template v-if="isAuthenticated">
         <v-divider></v-divider>
 
-        <v-list-tile to="/sign_out">
+        <v-list-tile :to="{ name: 'sign_out' }">
           <v-list-tile-action>
             <v-icon>folder</v-icon>
           </v-list-tile-action>
