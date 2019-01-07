@@ -15,7 +15,7 @@ module Api
 
       character_attributes
 
-      # character_loyalty_points
+      character_loyalty_points
     end
 
     private
@@ -40,7 +40,7 @@ module Api
       character.update!(esi.as_json)
     end
 
-    # def character_loyalty_points
+    def character_loyalty_points
     #   loyalty_points = EveOnline::ESI::CharacterLoyaltyPoints.new(character_id: character.character_id,
     #                                                               token: character.access_token)
 
@@ -51,6 +51,6 @@ module Api
     #       character.loyalty_points.create!(lp.as_json)
     #     end
     #   end
-    # end
+    end
   end
 end

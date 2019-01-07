@@ -86,4 +86,16 @@ describe Api::UpdateCharacterInfo do
 
     specify { expect { subject.send(:character_attributes) }.not_to raise_error }
   end
+
+  describe '#character_loyalty_points' do
+    let(:character_id) { double }
+
+    let(:access_token) { double }
+
+    let(:character) { instance_double(Character, character_id: character_id, access_token: access_token) }
+
+    subject { described_class.new(character) }
+
+    specify { expect { subject.send(:character_loyalty_points) }.not_to raise_error }
+  end
 end
