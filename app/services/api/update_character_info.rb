@@ -34,10 +34,10 @@ module Api
     end
 
     def character_attributes
-      attributes = EveOnline::ESI::CharacterAttributes.new(character_id: character.character_id,
-                                                           token: character.access_token)
+      esi = EveOnline::ESI::CharacterAttributes.new(character_id: character.character_id,
+                                                    token: character.access_token)
 
-      character.update!(attributes.as_json)
+      character.update!(esi.as_json)
     end
 
     # def character_loyalty_points
