@@ -49,11 +49,11 @@ describe Api::CharactersController do
 
   describe '#show' do
     context 'when user signed in' do
-      let(:character) { instance_double(Character, id: 1) }
+      let(:character) { instance_double(Character, character_id: 1) }
 
       before { sign_in }
 
-      before { expect(Character).to receive(:find).with('1').and_return(character) }
+      before { expect(Character).to receive(:find_by!).with(character_id: '1').and_return(character) }
 
       before { expect(subject).to receive(:authorize).with(character) }
 
@@ -81,11 +81,11 @@ describe Api::CharactersController do
 
   describe '#destroy' do
     context 'when user signed in' do
-      let(:character) { instance_double(Character, id: 1) }
+      let(:character) { instance_double(Character, character_id: 1) }
 
       before { sign_in }
 
-      before { expect(Character).to receive(:find).with('1').and_return(character) }
+      before { expect(Character).to receive(:find_by!).with(character_id: '1').and_return(character) }
 
       before { expect(subject).to receive(:authorize).with(character) }
 

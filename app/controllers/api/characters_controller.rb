@@ -8,13 +8,13 @@ module Api
     end
 
     def show
-      @character = Character.find(params[:id])
+      @character = Character.find_by!(character_id: params[:id])
 
       authorize(@character)
     end
 
     def destroy
-      character = Character.find(params[:id])
+      character = Character.find_by!(character_id: params[:id])
 
       authorize(character)
 
