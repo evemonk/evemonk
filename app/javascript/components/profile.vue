@@ -30,9 +30,9 @@
     },
 
     methods: {
-      ...mapActions({
-        'fetchProfile': 'fetchProfile'
-      })
+      ...mapActions([
+        'fetchProfile'
+      ])
     }
   }
 </script>

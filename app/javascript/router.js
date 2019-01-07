@@ -8,6 +8,7 @@ import SignInPage from './components/sign_in.vue';
 import SignOut from './components/sign_out.vue';
 import Profile from './components/profile.vue';
 import Characters from './components/characters.vue';
+import LPStore from './components/lpstore.vue';
 import UniverseAlliances from './components/universe/alliances.vue';
 import UniverseAlliance from './components/universe/alliance.vue';
 import UniverseAllianceCharacters from './components/universe/alliance_characters.vue';
@@ -22,22 +23,27 @@ const routes = [
   },
   {
     path: '/autosignin/:token',
+    name: 'auto_sign_in',
     component: AutoSignInPage,
   },
   {
     path: '/sign_up',
+    name: 'sign_up',
     component: SignUpPage,
   },
   {
     path: '/sign_in',
+    name: 'sign_in',
     component: SignInPage,
   },
   {
     path: '/sign_out',
+    name: 'sign_out',
     component: SignOut,
   },
   {
     path: '/profile',
+    name: 'profile',
     component: Profile,
   },
   {
@@ -46,18 +52,23 @@ const routes = [
     component: Characters,
   },
   {
+    path: '/lpstore',
+    name: 'lpstore',
+    component: LPStore,
+  },
+  {
     path: '/universe/alliances',
-    name: 'alliances',
+    name: 'universe_alliances',
     component: UniverseAlliances,
   },
   {
     path: '/universe/alliances/:id',
-    name: 'alliance',
+    name: 'universe_alliance',
     component: UniverseAlliance,
   },
   {
     path: '/universe/alliances/:id/characters',
-    name: 'alliance_characters',
+    name: 'universe_alliance_characters',
     component: UniverseAllianceCharacters,
   },
 

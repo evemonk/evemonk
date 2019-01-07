@@ -4,13 +4,11 @@ module Auth
   module EveOnlineSso
     class CallbacksController < ApplicationController
       def show
-        eve_online = Api::EveOnline.new(request)
+        form = Api::EveOnlineForm.new(request)
 
-        eve_online.save!
+        form.save!
 
-        cookies['auth_token'] = eve_online.session.token
-
-        redirect_to root_url
+        redirect_to "/autosignin/#{ form.session.token }"
       end
     end
   end

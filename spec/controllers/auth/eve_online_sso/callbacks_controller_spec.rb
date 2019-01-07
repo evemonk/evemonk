@@ -2,51 +2,27 @@
 
 require 'rails_helper'
 
-module Auth
-  module EveOnlineSso
-    describe CallbacksController do
-      it { should be_a(ApplicationController) }
+describe Auth::EveOnlineSso::CallbacksController do
+  it { should be_a(ApplicationController) }
 
-      describe '#show' do
-        let(:eve_online) { double }
+  describe '#show' do
+    let(:session) { instance_double(Session, token: 'token123') }
 
-        before do
-          #
-          # Api::EveOnline.new(request) => eve_online
-          #
-          expect(Api::EveOnline).to receive(:new).with(any_args).and_return(eve_online)
-        end
+    let(:form) { instance_double(Api::EveOnlineForm, session: session) }
 
-        before { expect(eve_online).to receive(:save!) }
-
-        let(:token) { double }
-
-        before do
-          #
-          # eve_online.session.token => token
-          #
-          expect(eve_online).to receive(:session) do
-            double.tap do |a|
-              expect(a).to receive(:token).and_return(token)
-            end
-          end
-        end
-
-        before do
-          #
-          # subject.cookies['auth_token'] = eve_online.session.token
-          #
-          expect(subject).to receive(:cookies) do
-            double.tap do |a|
-              expect(a).to receive(:[]=).with('auth_token', token)
-            end
-          end
-        end
-
-        before { get :show }
-
-        it { should respond_with(:found) }
-      end
+    before do
+      #
+      # Api::EveOnlineForm.new(request) => form
+      #
+      expect(Api::EveOnlineForm).to receive(:new).with(any_args).and_return(form)
     end
+
+    before { expect(form).to receive(:save!) }
+
+    before { get :show }
+
+    it { should respond_with(:found) }
+
+    it { should redirect_to('/autosignin/token123') }
   end
 end

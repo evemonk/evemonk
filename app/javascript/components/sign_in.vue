@@ -1,5 +1,9 @@
 <template>
   <div id="sign_up_form">
+    <v-breadcrumbs :items="breadcrumbs">
+      <v-icon slot="divider">chevron_right</v-icon>
+    </v-breadcrumbs>
+
     <template v-if="errors.base && errors.base.length">
       <v-alert v-for="(base, index) in errors.base"
                color="error"
@@ -54,17 +58,30 @@
           email: [],
           password: []
         },
+        breadcrumbs: [
+          {
+            text: 'Home',
+            to: { name: 'welcome' },
+            exact: true
+          },
+          {
+            text: 'Sign In',
+            to: { name: 'sign_in' },
+            exact: true,
+            disabled: true
+          }
+        ]
       }
     },
 
     methods: {
-      ...mapActions({
-        'signIn': 'signIn'
-      }),
+      ...mapActions([
+        'signIn'
+      ]),
 
-      ...mapMutations({
-        'setAlert': 'setAlert'
-      }),
+      ...mapMutations([
+        'setAlert'
+      ]),
 
       submit() {
         const formData = {

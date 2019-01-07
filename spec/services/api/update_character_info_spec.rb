@@ -4,7 +4,7 @@ require 'rails_helper'
 
 describe Api::UpdateCharacterInfo do
   describe '#initialize' do
-    let(:character) { double }
+    let(:character) { instance_double(Character) }
 
     subject { described_class.new(character) }
 
@@ -12,7 +12,7 @@ describe Api::UpdateCharacterInfo do
   end
 
   describe '#update!' do
-    let(:character) { double }
+    let(:character) { instance_double(Character) }
 
     subject { described_class.new(character) }
 
@@ -22,8 +22,6 @@ describe Api::UpdateCharacterInfo do
 
     before { expect(subject).to receive(:character_attributes) }
 
-    before { expect(subject).to receive(:character_corporation_info) }
-
     before { expect(subject).to receive(:character_loyalty_points) }
 
     specify { expect { subject.update! }.not_to raise_error }
@@ -32,36 +30,102 @@ describe Api::UpdateCharacterInfo do
   # private methods
 
   describe '#character_info' do
-    before { VCR.insert_cassette 'api/update_character_info/character_info/success' }
+    let(:character_id) { double }
 
-    after { VCR.eject_cassette }
-
-    let!(:race) { create(:eve_race, race_id: 2) }
-
-    let(:token) { 'XPyr6SPgegR0FhP2k5yUtG8LQeU9XagHtqWo01EN9z2Djy6pcnED173V7jp-ifLgYAPdu58p1cF0Ye4jUwWJ1Q2' }
-
-    let!(:character) do
-      create(:character,
-             uid: 1_337_512_245,
-             token: token,
-             name: 'Cat',
-             gender: 'female')
-    end
+    let(:character) { instance_double(Character, character_id: character_id) }
 
     subject { described_class.new(character) }
 
-    specify { expect { subject.send(:character_info) }.to change(character, :name).from('Cat').to('Johnn Dillinger') }
+    let(:as_json) { double }
 
-    specify { expect { subject.send(:character_info) }.to change(character, :gender).from('female').to('male') }
+    let(:esi) { instance_double(EveOnline::ESI::Character, as_json: as_json) }
 
-    # TODO:
-    # {:corporation_id=>98134807,
-    #  :birthday=>Fri, 15 Jan 2010 15:26:00 UTC +00:00,
-    #  :race_id=>2,
-    #  :bloodline_id=>4,
-    #  :description=>"",
-    #  :alliance_id=>99005443,
-    #  :ancestry_id=>24,
-    #  :security_status=>1.8694881661345457}
+    before { expect(EveOnline::ESI::Character).to receive(:new).with(character_id: character_id).and_return(esi) }
+
+    before { expect(character).to receive(:update!).with(as_json) }
+
+    specify { expect { subject.send(:character_info) }.not_to raise_error }
+  end
+
+  describe '#character_wallet' do
+    let(:character_id) { double }
+
+    let(:access_token) { double }
+
+    let(:character) { instance_double(Character, character_id: character_id, access_token: access_token) }
+
+    subject { described_class.new(character) }
+
+    let(:as_json) { double }
+
+    let(:esi) { instance_double(EveOnline::ESI::CharacterWallet, as_json: as_json) }
+
+    before { expect(EveOnline::ESI::CharacterWallet).to receive(:new).with(character_id: character_id, token: access_token).and_return(esi) }
+
+    before { expect(character).to receive(:update!).with(as_json) }
+
+    specify { expect { subject.send(:character_wallet) }.not_to raise_error }
+  end
+
+  describe '#character_attributes' do
+    let(:character_id) { double }
+
+    let(:access_token) { double }
+
+    let(:character) { instance_double(Character, character_id: character_id, access_token: access_token) }
+
+    subject { described_class.new(character) }
+
+    let(:as_json) { double }
+
+    let(:esi) { instance_double(EveOnline::ESI::CharacterAttributes, as_json: as_json) }
+
+    before { expect(EveOnline::ESI::CharacterAttributes).to receive(:new).with(character_id: character_id, token: access_token).and_return(esi) }
+
+    before { expect(character).to receive(:update!).with(as_json) }
+
+    specify { expect { subject.send(:character_attributes) }.not_to raise_error }
+  end
+
+  describe '#character_loyalty_points' do
+    let(:character_id) { double }
+
+    let(:access_token) { double }
+
+    let(:character) { instance_double(Character, character_id: character_id, access_token: access_token) }
+
+    subject { described_class.new(character) }
+
+    let(:as_json) { double }
+
+    let(:loyalty_point) { instance_double(EveOnline::ESI::Models::LoyaltyPoint, as_json: as_json) }
+
+    let(:esi) { instance_double(EveOnline::ESI::CharacterLoyaltyPoints, loyalty_points: [loyalty_point]) }
+
+    before { expect(EveOnline::ESI::CharacterLoyaltyPoints).to receive(:new).with(character_id: character_id, token: access_token).and_return(esi) }
+
+    before do
+      #
+      # character.loyalty_points.destroy_all
+      #
+      expect(character).to receive(:loyalty_points) do
+        double.tap do |a|
+          expect(a).to receive(:destroy_all)
+        end
+      end
+    end
+
+    before do
+      #
+      # character.loyalty_points.create!(lp.as_json)
+      #
+      expect(character).to receive(:loyalty_points) do
+        double.tap do |a|
+          expect(a).to receive(:create!).with(as_json)
+        end
+      end
+    end
+
+    specify { expect { subject.send(:character_loyalty_points) }.not_to raise_error }
   end
 end
