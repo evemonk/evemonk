@@ -36,9 +36,11 @@ FactoryBot.define do
 
     willpower { (20..25).to_a.sample }
 
-    # t.integer "bonus_remaps"
-    # t.datetime "last_remap_date"
-    # t.datetime "accrued_remap_cooldown_date"
+    bonus_remaps { 2 }
+
+    last_remap_date { 6.years.ago }
+
+    accrued_remap_cooldown_date { 5.years.ago }
 
     sequence(:race_id)
 
