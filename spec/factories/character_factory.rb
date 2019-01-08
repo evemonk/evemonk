@@ -24,13 +24,18 @@ FactoryBot.define do
 
     security_status { 2.15 }
 
+    wallet { 100.49 }
 
-    # t.float "wallet"
-    # t.integer "charisma"
-    # t.integer "intelligence"
-    # t.integer "memory"
-    # t.integer "perception"
-    # t.integer "willpower"
+    charisma { (20..25).to_a.sample }
+
+    intelligence { (20..25).to_a.sample }
+
+    memory { (20..25).to_a.sample }
+
+    perception { (20..25).to_a.sample }
+
+    willpower { (20..25).to_a.sample }
+
     # t.integer "bonus_remaps"
     # t.datetime "last_remap_date"
     # t.datetime "accrued_remap_cooldown_date"
