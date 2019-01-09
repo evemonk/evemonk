@@ -16,6 +16,8 @@ describe Api::CharactersController do
 
       expect(response).to have_http_status(:ok)
 
+      expect(JSON.parse(response.body).keys.sort).to eq(['characters', 'current_page', 'total_count', 'total_pages'])
+
       expect(JSON.parse(response.body)).to eq('total_count' => 0,
                                               'total_pages' => 0,
                                               'current_page' => 1,
