@@ -189,7 +189,7 @@ GEM
     ed25519 (1.2.4)
     erubi (1.8.0)
     erubis (2.7.0)
-    et-orbi (1.1.6)
+    et-orbi (1.1.7)
       tzinfo
     factory_bot (4.11.1)
       activesupport (>= 3.0.0)
