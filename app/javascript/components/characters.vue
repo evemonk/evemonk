@@ -1,5 +1,9 @@
 <template>
   <div id="characters">
+    <v-breadcrumbs :items="breadcrumbs">
+      <v-icon slot="divider">chevron_right</v-icon>
+    </v-breadcrumbs>
+
     <h1>Characters</h1>
   </div>
 </template>
@@ -11,7 +15,20 @@
     data () {
       return {
         current_page: 1,
-        characters: []
+        characters: [],
+        breadcrumbs: [
+          {
+            text: 'Home',
+            to: { name: 'welcome' },
+            exact: true
+          },
+          {
+            text: 'Characters',
+            to: { name: 'characters' },
+            exact: true,
+            disabled: true
+          }
+        ]
       }
     },
 
