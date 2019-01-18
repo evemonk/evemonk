@@ -41,7 +41,15 @@ describe Api::CharactersController do
 
       session = create(:session, user: user)
 
-      character = create(:character, user: user, character_id: '123', name: 'Character name')
+      alliance = create(:eve_alliance,
+                        alliance_id: 1234,
+                        name: 'Alliance name')
+
+      character = create(:character,
+                         user: user,
+                         alliance_id: alliance.alliance_id,
+                         character_id: '123',
+                         name: 'Character name')
 
       get "/api/characters/#{ character.character_id }", headers: { 'Authorization': "Bearer #{ session.token }" }
 
@@ -49,13 +57,19 @@ describe Api::CharactersController do
 
       expect(JSON.parse(response.body).keys.sort).to eq(['character'])
 
-      expect(JSON.parse(response.body)['character'].keys.sort).to eq(['icon', 'id', 'name'])
+      expect(JSON.parse(response.body)['character'].keys.sort).to eq(['alliance', 'icon', 'id', 'name'])
 
       expect(JSON.parse(response.body)['character']['id']).to eq(123)
 
       expect(JSON.parse(response.body)['character']['icon']).to eq('https://imageserver.eveonline.com/Character/123_512.jpg')
 
       expect(JSON.parse(response.body)['character']['name']).to eq('Character name')
+
+      expect(JSON.parse(response.body)['character']['alliance'].keys.sort).to eq(['id', 'name'])
+
+      expect(JSON.parse(response.body)['character']['alliance']['id']).to eq(1234)
+
+      expect(JSON.parse(response.body)['character']['alliance']['name']).to eq('Alliance name')
     end
   end
 end
