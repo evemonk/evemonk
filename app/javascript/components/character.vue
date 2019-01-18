@@ -1,5 +1,9 @@
 <template>
   <div id="character">
+    <v-breadcrumbs :items="breadcrumbs">
+      <v-icon slot="divider">chevron_right</v-icon>
+    </v-breadcrumbs>
+
     Hello
   </div>
 </template>
@@ -14,14 +18,24 @@
           id: null,
           icon: null,
           name: null
-        }
+        },
+        breadcrumbs: [
+          {
+            text: 'Home',
+            to: { name: 'welcome' },
+            exact: true
+          },
+          {
+            text: 'Characters',
+            to: { name: 'characters' },
+            exact: true
+          }
+        ]
       }
     },
 
     created () {
       let id = this.$route.params.id;
-
-      console.log(id);
 
       this.fetchCharacter(id).then(response => {
         if (response.status === 200) {
