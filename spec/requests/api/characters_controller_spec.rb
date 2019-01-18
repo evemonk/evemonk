@@ -49,6 +49,8 @@ describe Api::CharactersController do
 
       expect(JSON.parse(response.body).keys.sort).to eq(['character'])
 
+      expect(JSON.parse(response.body)['character'].keys.sort).to eq(['icon', 'id', 'name'])
+
       expect(JSON.parse(response.body)['character']['id']).to eq(123)
 
       expect(JSON.parse(response.body)['character']['icon']).to eq('https://imageserver.eveonline.com/Character/123_512.jpg')
