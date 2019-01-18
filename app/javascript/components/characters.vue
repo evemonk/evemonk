@@ -74,6 +74,20 @@
       }
     },
 
+    watch: {
+      current_page: function (page) {
+        this.fetchCharacters(page).then(response => {
+          if (response.status === 200) {
+            this.total_count = response.data.total_count;
+            this.total_pages = response.data.total_pages;
+            this.characters = response.data.characters;
+
+            this.$router.push({ name: 'characters', query: { page: page } });
+          }
+        })
+      }
+    },
+
     created () {
       this.fetchCharacters(this.current_page).then(response => {
         if (response.status === 200) {
