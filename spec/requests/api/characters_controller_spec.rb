@@ -34,4 +34,26 @@ describe Api::CharactersController do
       expect(JSON.parse(response.body)['characters'].first['name']).to eq('Character name')
     end
   end
+
+  describe '#show' do
+    it 'returns user character info' do
+      user = create(:user)
+
+      session = create(:session, user: user)
+
+      character = create(:character, user: user, character_id: '123', name: 'Character name')
+
+      get "/api/characters/#{ character.character_id }", headers: { 'Authorization': "Bearer #{ session.token }" }
+
+      expect(response).to have_http_status(:ok)
+
+      expect(JSON.parse(response.body).keys.sort).to eq(['character'])
+
+      expect(JSON.parse(response.body)['character']['id']).to eq(123)
+
+      expect(JSON.parse(response.body)['character']['icon']).to eq('https://imageserver.eveonline.com/Character/123_512.jpg')
+
+      expect(JSON.parse(response.body)['character']['name']).to eq('Character name')
+    end
+  end
 end
