@@ -45,11 +45,18 @@ describe Api::CharactersController do
                         alliance_id: 1234,
                         name: 'Alliance name')
 
+      corporation = create(:eve_corporation,
+                           alliance_id: alliance.alliance_id,
+                           corporation_id: 12_345,
+                           name: 'Corporation name')
+
       character = create(:character,
                          user: user,
                          alliance_id: alliance.alliance_id,
+                         corporation_id: corporation.corporation_id,
                          character_id: '123',
-                         name: 'Character name')
+                         name: 'Character name',
+                         description: 'Character description')
 
       get "/api/characters/#{ character.character_id }", headers: { 'Authorization': "Bearer #{ session.token }" }
 
@@ -57,7 +64,7 @@ describe Api::CharactersController do
 
       expect(JSON.parse(response.body).keys.sort).to eq(['character'])
 
-      expect(JSON.parse(response.body)['character'].keys.sort).to eq(['alliance', 'icon', 'id', 'name'])
+      expect(JSON.parse(response.body)['character'].keys.sort).to eq(['alliance', 'corporation', 'description', 'icon', 'id', 'name'])
 
       expect(JSON.parse(response.body)['character']['id']).to eq(123)
 
@@ -65,11 +72,19 @@ describe Api::CharactersController do
 
       expect(JSON.parse(response.body)['character']['name']).to eq('Character name')
 
+      expect(JSON.parse(response.body)['character']['description']).to eq('Character description')
+
       expect(JSON.parse(response.body)['character']['alliance'].keys.sort).to eq(['id', 'name'])
 
       expect(JSON.parse(response.body)['character']['alliance']['id']).to eq(1234)
 
       expect(JSON.parse(response.body)['character']['alliance']['name']).to eq('Alliance name')
+
+      expect(JSON.parse(response.body)['character']['corporation'].keys.sort).to eq(['id', 'name'])
+
+      expect(JSON.parse(response.body)['character']['corporation']['id']).to eq(12_345)
+
+      expect(JSON.parse(response.body)['character']['corporation']['name']).to eq('Corporation name')
     end
   end
 end
