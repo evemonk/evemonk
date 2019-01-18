@@ -9,8 +9,7 @@ describe Api::CharactersController do
 
       session = create(:session, user: user)
 
-      character = create(:character,
-                         user: user)
+      create(:character, user: user, character_id: '123', name: 'Character name')
 
       get '/api/characters', headers: { 'Authorization': "Bearer #{ session.token }" }
 
@@ -18,10 +17,19 @@ describe Api::CharactersController do
 
       expect(JSON.parse(response.body).keys.sort).to eq(['characters', 'current_page', 'total_count', 'total_pages'])
 
-      expect(JSON.parse(response.body)).to eq('total_count' => 0,
-                                              'total_pages' => 0,
-                                              'current_page' => 1,
-                                              'characters' => [])
+      expect(JSON.parse(response.body)['total_count']).to eq(1)
+
+      expect(JSON.parse(response.body)['total_pages']).to eq(1)
+
+      expect(JSON.parse(response.body)['current_page']).to eq(1)
+
+      expect(JSON.parse(response.body)['characters'].size).to eq(1)
+
+      expect(JSON.parse(response.body)['characters'].first['id']).to eq(123)
+
+      expect(JSON.parse(response.body)['characters'].first['icon']).to eq('https://imageserver.eveonline.com/Character/123_512.jpg')
+
+      expect(JSON.parse(response.body)['characters'].first['name']).to eq('Character name')
     end
   end
 end
