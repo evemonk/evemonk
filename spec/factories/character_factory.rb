@@ -10,22 +10,48 @@ FactoryBot.define do
 
     description { Faker::Lorem.paragraph }
 
-    association :race, factory: :eve_race
+    # t.string "access_token"
+    # t.string "refresh_token"
+    # t.datetime "token_expires_at"
+    # t.boolean "token_expires"
+    # t.string "token_type"
+    # t.text "scopes"
+    # t.string "character_owner_hash"
 
-    association :bloodline, factory: :eve_bloodline
+    birthday { Time.zone.now }
 
-    association :faction, factory: :eve_faction
+    gender { ['male', 'female'].sample }
 
-    association :ancestry, factory: :eve_ancestry
+    security_status { 2.15 }
 
-    association :alliance, factory: :eve_alliance
+    wallet { 100.49 }
 
-    association :corporation, factory: :eve_corporation
+    charisma { (20..25).to_a.sample }
 
-    # TODO: later
-    # token 'MyString'
-    # refresh_token 'MyString'
-    # token_expires_at '2017-09-29 22:01:16'
-    # token_expires false
+    intelligence { (20..25).to_a.sample }
+
+    memory { (20..25).to_a.sample }
+
+    perception { (20..25).to_a.sample }
+
+    willpower { (20..25).to_a.sample }
+
+    bonus_remaps { 2 }
+
+    last_remap_date { 6.years.ago }
+
+    accrued_remap_cooldown_date { 5.years.ago }
+
+    sequence(:race_id)
+
+    sequence(:bloodline_id)
+
+    sequence(:faction_id)
+
+    sequence(:ancestry_id)
+
+    sequence(:alliance_id)
+
+    sequence(:corporation_id)
   end
 end
