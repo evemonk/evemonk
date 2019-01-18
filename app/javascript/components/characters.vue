@@ -31,14 +31,11 @@
               <v-card-actions>
                 <v-btn color="info">LPStore</v-btn>
                 <v-spacer></v-spacer>
-                <v-btn color="info">Info</v-btn>
-                <!--<v-btn color="info">Corporations ({{ alliance.corporations_count }})</v-btn>-->
-                <!--<v-spacer></v-spacer>-->
-                <!--<v-btn color="info">-->
-                  <!--<router-link :to="{ name: 'universe_alliance_characters', params: { id: alliance.id }}">-->
-                    <!--Characters ({{ alliance.characters_count }})-->
-                  <!--</router-link>-->
-                <!--</v-btn>-->
+                <v-btn color="info">
+                  <router-link :to="{ name: 'character', params: { id: character.id }}">
+                    Info
+                  </router-link>
+                </v-btn>
               </v-card-actions>
             </v-card>
           </v-flex>
@@ -58,6 +55,8 @@
     data () {
       return {
         current_page: 1,
+        total_count: null,
+        total_pages: null,
         characters: [],
         breadcrumbs: [
           {

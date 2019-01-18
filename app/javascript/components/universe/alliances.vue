@@ -78,7 +78,7 @@
 
     watch: {
       current_page: function (page) {
-        this.fetchAlliances(page).then(response => {
+        this.fetchUniverseAlliances(page).then(response => {
           if (response.status === 200) {
             this.total_count = response.data.total_count;
             this.total_pages = response.data.total_pages;
@@ -97,7 +97,7 @@
         this.current_page = parseInt(page);
       }
 
-      this.fetchAlliances(this.current_page).then(response => {
+      this.fetchUniverseAlliances(this.current_page).then(response => {
         if (response.status === 200) {
           this.total_count = response.data.total_count;
           this.total_pages = response.data.total_pages;
@@ -108,7 +108,7 @@
 
     methods: {
       ...mapActions([
-        'fetchAlliances'
+        'fetchUniverseAlliances'
       ])
     }
   }
