@@ -24,6 +24,9 @@
                         <router-link :to="{ name: 'universe_alliance', params: { id: character.alliance.id }}">{{ character.alliance.name }}</router-link>
                       </div>
                       <div>{{ character.description }}</div>
+
+                      <div>Birthday: {{ character.birthday }}</div>
+                      <div>Gender: {{ character.gender }}</div>
                     </div>
                   </v-card-title>
                 </v-flex>
