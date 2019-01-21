@@ -58,7 +58,13 @@ describe Api::CharactersController do
                          name: 'Character name',
                          description: 'Character description',
                          birthday: '2010-01-15T15:26:00Z',
-                         gender: 'male')
+                         gender: 'male',
+                         charisma: 20,
+                         intelligence: 21,
+                         memory: 22,
+                         perception: 23,
+                         willpower: 24,
+                         security_status: 1.8)
 
       get "/api/characters/#{ character.character_id }", headers: { 'Authorization': "Bearer #{ session.token }" }
 
@@ -66,7 +72,20 @@ describe Api::CharactersController do
 
       expect(JSON.parse(response.body).keys.sort).to eq(['character'])
 
-      expect(JSON.parse(response.body)['character'].keys.sort).to eq(['alliance', 'birthday', 'corporation', 'description', 'gender', 'icon', 'id', 'name'])
+      expect(JSON.parse(response.body)['character'].keys.sort).to eq(['alliance',
+                                                                      'birthday',
+                                                                      'charisma',
+                                                                      'corporation',
+                                                                      'description',
+                                                                      'gender',
+                                                                      'icon',
+                                                                      'id',
+                                                                      'intelligence',
+                                                                      'memory',
+                                                                      'name',
+                                                                      'perception',
+                                                                      'security_status',
+                                                                      'willpower'])
 
       expect(JSON.parse(response.body)['character']['id']).to eq(123)
 
@@ -79,6 +98,18 @@ describe Api::CharactersController do
       expect(JSON.parse(response.body)['character']['birthday']).to eq('2010-01-15T15:26:00Z')
 
       expect(JSON.parse(response.body)['character']['gender']).to eq('male')
+
+      expect(JSON.parse(response.body)['character']['charisma']).to eq(20)
+
+      expect(JSON.parse(response.body)['character']['intelligence']).to eq(21)
+
+      expect(JSON.parse(response.body)['character']['memory']).to eq(22)
+
+      expect(JSON.parse(response.body)['character']['perception']).to eq(23)
+
+      expect(JSON.parse(response.body)['character']['willpower']).to eq(24)
+
+      expect(JSON.parse(response.body)['character']['security_status']).to eq('1.8')
 
       expect(JSON.parse(response.body)['character']['alliance'].keys.sort).to eq(['id', 'name'])
 
