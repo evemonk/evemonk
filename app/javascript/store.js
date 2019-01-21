@@ -118,6 +118,14 @@ const store = new Vuex.Store({
       }
     },
 
+    async fetchCharacter({ commit, state }, id) {
+      try {
+        return await axios.get(`/api/characters/${id}`);
+      } catch (error) {
+        return error;
+      }
+    },
+
     // async fetchCharacterLoyaltyPoint ({ commit, state }, id) {
     //     try {
     //         return await axios.get(`/api/characters/${id}/loyalty_points`);
@@ -126,7 +134,7 @@ const store = new Vuex.Store({
     //     }
     // },
 
-    async fetchAlliances({ commit, state }, page) {
+    async fetchUniverseAlliances({ commit, state }, page) {
       try {
         return await axios.get(`/api/eve/alliances?page=${page}`);
       } catch (error) {
@@ -134,7 +142,7 @@ const store = new Vuex.Store({
       }
     },
 
-    async fetchAlliance({ commit, state }, id) {
+    async fetchUniverseAlliance({ commit, state }, id) {
       try {
         return await axios.get(`/api/eve/alliances/${id}`);
       } catch (error) {
@@ -142,7 +150,7 @@ const store = new Vuex.Store({
       }
     },
 
-    async fetchAllianceCharacters({ commit, state }, { id, page }) {
+    async fetchUniverseAllianceCharacters({ commit, state }, { id, page }) {
       try {
         return await axios.get(`/api/eve/alliances/${id}/characters?page=${page}`);
       } catch (error) {

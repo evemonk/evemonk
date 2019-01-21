@@ -70,7 +70,7 @@
     created () {
       let id = this.$route.params.id;
 
-      this.fetchAlliance(id).then(response => {
+      this.fetchUniverseAlliance(id).then(response => {
         if (response.status === 200) {
           let alliance = response.data.alliance;
 
@@ -93,7 +93,7 @@
 
     methods: {
       ...mapActions([
-        'fetchAlliance'
+        'fetchUniverseAlliance'
       ])
     }
   }

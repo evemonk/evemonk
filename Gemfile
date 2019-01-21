@@ -2,13 +2,15 @@
 
 source 'https://rubygems.org'
 
-gem 'rails', git: 'https://github.com/rails/rails.git',
-             branch: 'master'
+gem 'rails', '6.0.0.beta1'
+# gem 'rails', git: 'https://github.com/rails/rails.git',
+#              branch: 'master'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.11'
 gem 'sass-rails', '~> 5.0'
-gem 'webpacker', git: 'https://github.com/rails/webpacker.git',
-                 branch: 'master'
+gem 'webpacker', '4.0.0.rc.5'
+# gem 'webpacker', git: 'https://github.com/rails/webpacker.git',
+#                 branch: 'master'
 gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 # gem 'rufus-scheduler'
@@ -31,7 +33,7 @@ gem 'pg_query'
 # gem 'rubycritic', require: false
 gem 'swagger-blocks'
 gem 'http_logger'
-gem 'responders', git: 'https://github.com/plataformatec/responders.git', branch: 'master' # Until next release
+gem 'responders'
 gem 'rack-health'
 
 # Use Redis adapter to run Action Cable in production

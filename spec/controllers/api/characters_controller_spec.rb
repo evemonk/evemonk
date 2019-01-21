@@ -53,7 +53,27 @@ describe Api::CharactersController do
 
       before { sign_in }
 
-      before { expect(Character).to receive(:find_by!).with(character_id: '1').and_return(character) }
+      before do
+        #
+        # Character.eager_load(:race,
+        #                      :bloodline,
+        #                      :ancestry,
+        #                      :faction,
+        #                      :alliance,
+        #                      :corporation)
+        #          .find_by!(character_id: params[:id])
+        #
+        expect(Character).to receive(:eager_load).with(:race,
+                                                       :bloodline,
+                                                       :ancestry,
+                                                       :faction,
+                                                       :alliance,
+                                                       :corporation) do
+          double.tap do |a|
+            expect(a).to receive(:find_by!).with(character_id: '1').and_return(character)
+          end
+        end
+      end
 
       before { expect(subject).to receive(:authorize).with(character) }
 

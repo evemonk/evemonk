@@ -73,7 +73,7 @@
 
     watch: {
       current_page: function (page) {
-        this.fetchAllianceCharacters({ id: this.alliance_id,
+        this.fetchUniverseAllianceCharacters({ id: this.alliance_id,
                                        page: page }).then(response => {
           if (response.status === 200) {
             this.total_count = response.data.total_count;
@@ -99,7 +99,7 @@
 
       let id = this.$route.params.id;
 
-      this.fetchAlliance(id).then(response => {
+      this.fetchUniverseAlliance(id).then(response => {
         if (response.status === 200) {
           let alliance = response.data.alliance;
 
@@ -116,7 +116,7 @@
             exact: true
           });
 
-          this.breadcrumbs.push({ 
+          this.breadcrumbs.push({
             text: 'Characters',
             to: {
               name: 'universe_alliance_characters',
@@ -136,7 +136,7 @@
         this.current_page = parseInt(page);
       }
 
-      this.fetchAllianceCharacters({ id: id, page: this.current_page }).then(response => {
+      this.fetchUniverseAllianceCharacters({ id: id, page: this.current_page }).then(response => {
         if (response.status === 200) {
           this.total_count = response.data.total_count;
           this.total_pages = response.data.total_pages;
@@ -147,8 +147,8 @@
 
     methods: {
       ...mapActions([
-        'fetchAlliance',
-        'fetchAllianceCharacters'
+        'fetchUniverseAlliance',
+        'fetchUniverseAllianceCharacters'
       ])
     }
   }

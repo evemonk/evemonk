@@ -30,6 +30,6 @@ FactoryBot.define do
 
     sequence(:shares)
 
-    # TODO: add -- war_eligible { false }
+    war_eligible { false }
   end
 end
