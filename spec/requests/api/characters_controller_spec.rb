@@ -54,11 +54,16 @@ describe Api::CharactersController do
                     race_id: 124,
                     name: 'Race name')
 
+      bloodline = create(:eve_bloodline,
+                         bloodline_id: 125,
+                         name: 'Bloodline name')
+
       character = create(:character,
                          user: user,
                          alliance_id: alliance.alliance_id,
                          corporation_id: corporation.corporation_id,
                          race_id: race.race_id,
+                         bloodline_id: bloodline.bloodline_id,
                          character_id: '123',
                          name: 'Character name',
                          description: 'Character description',
@@ -79,6 +84,7 @@ describe Api::CharactersController do
 
       expect(JSON.parse(response.body)['character'].keys.sort).to eq(['alliance',
                                                                       'birthday',
+                                                                      'bloodline',
                                                                       'charisma',
                                                                       'corporation',
                                                                       'description',
@@ -122,6 +128,12 @@ describe Api::CharactersController do
       expect(JSON.parse(response.body)['character']['race']['id']).to eq(124)
 
       expect(JSON.parse(response.body)['character']['race']['name']).to eq('Race name')
+
+      expect(JSON.parse(response.body)['character']['bloodline'].keys.sort).to eq(['id', 'name'])
+
+      expect(JSON.parse(response.body)['character']['bloodline']['id']).to eq(125)
+
+      expect(JSON.parse(response.body)['character']['bloodline']['name']).to eq('Bloodline name')
 
       expect(JSON.parse(response.body)['character']['alliance'].keys.sort).to eq(['id', 'name'])
 
