@@ -84,14 +84,14 @@
       ]),
 
       submit() {
-        const formData = {
+        const payload = {
           sign_in: {
             email: this.email,
             password: this.password
           }
         };
 
-        this.signIn(formData).then(response => {
+        this.signIn(payload).then(response => {
           if (response && response.status === 200) {
             let type = "success";
             let message = "Successful signed in!";

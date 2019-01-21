@@ -1,11 +1,12 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 
-import WelcomePage from './components/welcome.vue';
-import AutoSignInPage from './components/auto_sign_in.vue';
-import SignUpPage from './components/sign_up.vue';
-import SignInPage from './components/sign_in.vue';
+import Welcome from './components/welcome.vue';
+import AutoSignIn from './components/auto_sign_in.vue';
+import SignUp from './components/sign_up.vue';
+import SignIn from './components/sign_in.vue';
 import SignOut from './components/sign_out.vue';
+import ForgotPassword from './components/forgot_password.vue';
 import Profile from './components/profile.vue';
 import Characters from './components/characters.vue';
 import Character from './components/character.vue';
@@ -22,27 +23,32 @@ const routes = [
   {
     path: '/',
     name: 'welcome',
-    component: WelcomePage,
+    component: Welcome,
   },
   {
     path: '/autosignin/:token',
     name: 'auto_sign_in',
-    component: AutoSignInPage,
+    component: AutoSignIn,
   },
   {
     path: '/sign_up',
     name: 'sign_up',
-    component: SignUpPage,
+    component: SignUp,
   },
   {
     path: '/sign_in',
     name: 'sign_in',
-    component: SignInPage,
+    component: SignIn,
   },
   {
     path: '/sign_out',
     name: 'sign_out',
     component: SignOut,
+  },
+  {
+    path: '/forgot_password',
+    name: 'forgot_password',
+    component: ForgotPassword,
   },
   {
     path: '/profile',

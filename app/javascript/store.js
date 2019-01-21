@@ -102,6 +102,14 @@ const store = new Vuex.Store({
       }
     },
 
+    async forgotPassword({ commit, state }, payload) {
+      try {
+        return await axios.get('/api/forgot_password', payload);
+      } catch (error) {
+        return error;
+      }
+    },
+
     async fetchProfile({ commit, state }) {
       try {
         return await axios.get('/api/profile');
