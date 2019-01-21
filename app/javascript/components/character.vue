@@ -133,6 +133,7 @@
         if (response.status === 200) {
           this.character = response.data.character;
           this.loaded = true;
+          this.breadcrumbs.push({ text: this.character.name, exact: true, disabled: true });
         } else {
           //this.$router.push('/sign_in');
         }
