@@ -13,6 +13,7 @@ json.character do
   json.willpower @character.willpower
   json.intelligence @character.intelligence
   json.charisma @character.charisma
+  json.wallet @character.wallet.to_s
   if @character.race
     json.race do
       json.id @character.race.race_id
@@ -29,6 +30,12 @@ json.character do
     json.ancestry do
       json.id @character.ancestry.ancestry_id
       json.name @character.ancestry.name
+    end
+  end
+  if @character.faction
+    json.faction do
+      json.id @character.faction.faction_id
+      json.name @character.faction.name
     end
   end
   if @character.alliance

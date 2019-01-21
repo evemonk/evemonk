@@ -23,6 +23,7 @@
                         <router-link :to="{ name: 'universe_corporation', params: { id: character.corporation.id }}">{{ character.corporation.name }}</router-link> /
                         <router-link :to="{ name: 'universe_alliance', params: { id: character.alliance.id }}">{{ character.alliance.name }}</router-link>
                       </div>
+
                       <div>{{ character.description }}</div>
 
                       <div>Birthday: {{ character.birthday }}</div>
@@ -34,6 +35,7 @@
                       <div>Race: {{ character.race.name }}</div>
                       <div>Bloodline: {{ character.bloodline.name }}</div>
                       <div>Ancestry: {{ character.ancestry.name }}</div>
+                      <div v-if="character.faction && character.faction.name">Faction: {{ character.faction.name }}</div>
 
                       <v-divider light></v-divider>
 
@@ -43,28 +45,16 @@
                       <div>Intelligence: {{ character.intelligence }}</div>
                       <div>Charisma: {{ character.charisma }}</div>
 
-                      <!--* Faction-->
-                      <!--* Alliance-->
-                      <!--* Corporation-->
-                      <!--* Wallet-->
+                      <v-divider light></v-divider>
+
+                      <div>Wallet: {{ character.wallet }}</div>
+
                       <!--* Bonus Remaps Available-->
 
                     </div>
                   </v-card-title>
                 </v-flex>
               </v-layout>
-              <v-divider light></v-divider>
-              <!--<v-card-actions>-->
-
-              <!--</v-card-actions>-->
-              <!-- <v-card-actions>
-                <v-spacer></v-spacer>
-                <v-btn color="info">
-                  <router-link :to="{ name: 'universe_character', params: { id: character.id }}">
-                    More
-                  </router-link>
-                </v-btn>
-              </v-card-actions> -->
             </v-card>
           </v-flex>
 
@@ -95,6 +85,7 @@
           willpower: '',
           intelligence: '',
           charisma: '',
+          wallet: '',
           race: {
             id: '',
             name: ''
@@ -104,6 +95,10 @@
             name: ''
           },
           ancestry: {
+            id: '',
+            name: ''
+          },
+          faction: {
             id: '',
             name: ''
           },

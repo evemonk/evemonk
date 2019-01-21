@@ -62,6 +62,10 @@ describe Api::CharactersController do
                         ancestry_id: 126,
                         name: 'Ancestry name')
 
+      faction = create(:eve_faction,
+                       faction_id: 127,
+                       name: 'Faction name')
+
       character = create(:character,
                          user: user,
                          alliance_id: alliance.alliance_id,
@@ -69,6 +73,7 @@ describe Api::CharactersController do
                          race_id: race.race_id,
                          bloodline_id: bloodline.bloodline_id,
                          ancestry_id: ancestry.ancestry_id,
+                         faction_id: faction.faction_id,
                          character_id: '123',
                          name: 'Character name',
                          description: 'Character description',
@@ -79,7 +84,8 @@ describe Api::CharactersController do
                          memory: 22,
                          perception: 23,
                          willpower: 24,
-                         security_status: 1.8)
+                         security_status: 1.8,
+                         wallet: 252.49)
 
       get "/api/characters/#{ character.character_id }", headers: { 'Authorization': "Bearer #{ session.token }" }
 
@@ -94,6 +100,7 @@ describe Api::CharactersController do
                                                                       'charisma',
                                                                       'corporation',
                                                                       'description',
+                                                                      'faction',
                                                                       'gender',
                                                                       'icon',
                                                                       'id',
@@ -103,6 +110,7 @@ describe Api::CharactersController do
                                                                       'perception',
                                                                       'race',
                                                                       'security_status',
+                                                                      'wallet',
                                                                       'willpower'])
 
       expect(JSON.parse(response.body)['character']['id']).to eq(123)
@@ -129,6 +137,8 @@ describe Api::CharactersController do
 
       expect(JSON.parse(response.body)['character']['security_status']).to eq('1.8')
 
+      expect(JSON.parse(response.body)['character']['wallet']).to eq('252.49')
+
       expect(JSON.parse(response.body)['character']['race'].keys.sort).to eq(['id', 'name'])
 
       expect(JSON.parse(response.body)['character']['race']['id']).to eq(124)
@@ -146,6 +156,12 @@ describe Api::CharactersController do
       expect(JSON.parse(response.body)['character']['ancestry']['id']).to eq(126)
 
       expect(JSON.parse(response.body)['character']['ancestry']['name']).to eq('Ancestry name')
+
+      expect(JSON.parse(response.body)['character']['faction'].keys.sort).to eq(['id', 'name'])
+
+      expect(JSON.parse(response.body)['character']['faction']['id']).to eq(127)
+
+      expect(JSON.parse(response.body)['character']['faction']['name']).to eq('Faction name')
 
       expect(JSON.parse(response.body)['character']['alliance'].keys.sort).to eq(['id', 'name'])
 
