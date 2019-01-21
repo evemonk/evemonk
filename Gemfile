@@ -2,8 +2,9 @@
 
 source 'https://rubygems.org'
 
-gem 'rails', git: 'https://github.com/rails/rails.git',
-             branch: 'master'
+gem 'rails', '6.0.0.beta1'
+# gem 'rails', git: 'https://github.com/rails/rails.git',
+#              branch: 'master'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.11'
 gem 'sass-rails', '~> 5.0'
