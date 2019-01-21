@@ -50,10 +50,15 @@ describe Api::CharactersController do
                            corporation_id: 12_345,
                            name: 'Corporation name')
 
+      race = create(:eve_race,
+                    race_id: 124,
+                    name: 'Race name')
+
       character = create(:character,
                          user: user,
                          alliance_id: alliance.alliance_id,
                          corporation_id: corporation.corporation_id,
+                         race_id: race.race_id,
                          character_id: '123',
                          name: 'Character name',
                          description: 'Character description',
@@ -84,6 +89,7 @@ describe Api::CharactersController do
                                                                       'memory',
                                                                       'name',
                                                                       'perception',
+                                                                      'race',
                                                                       'security_status',
                                                                       'willpower'])
 
@@ -110,6 +116,12 @@ describe Api::CharactersController do
       expect(JSON.parse(response.body)['character']['willpower']).to eq(24)
 
       expect(JSON.parse(response.body)['character']['security_status']).to eq('1.8')
+
+      expect(JSON.parse(response.body)['character']['race'].keys.sort).to eq(['id', 'name'])
+
+      expect(JSON.parse(response.body)['character']['race']['id']).to eq(124)
+
+      expect(JSON.parse(response.body)['character']['race']['name']).to eq('Race name')
 
       expect(JSON.parse(response.body)['character']['alliance'].keys.sort).to eq(['id', 'name'])
 
