@@ -7,6 +7,7 @@ import SignUp from './components/sign_up.vue';
 import SignIn from './components/sign_in.vue';
 import SignOut from './components/sign_out.vue';
 import ForgotPassword from './components/forgot_password.vue';
+import ChangePassword from './components/change_password.vue';
 import Profile from './components/profile.vue';
 import Characters from './components/characters.vue';
 import Character from './components/character.vue';
@@ -49,6 +50,11 @@ const routes = [
     path: '/forgot_password',
     name: 'forgot_password',
     component: ForgotPassword,
+  },
+  {
+    path: '/change_password',
+    name: 'change_password',
+    component: ChangePassword,
   },
   {
     path: '/profile',
