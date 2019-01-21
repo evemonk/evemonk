@@ -41,6 +41,10 @@
     <a href="/auth/eve_online_sso">
       <v-img src="https://images.contentful.com/idjq7aai9ylm/4fSjj56uD6CYwYyus4KmES/4f6385c91e6de56274d99496e6adebab/EVE_SSO_Login_Buttons_Large_Black.png?w=270&h=45" width="270" height="45" alt="Sign in via EveOnline SSO"></v-img>
     </a>
+
+    <v-divider></v-divider>
+
+    <router-link :to="{ name: 'forgot_password' }">Forgot password?</router-link>
   </div>
 </template>
 
