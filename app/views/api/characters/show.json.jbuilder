@@ -14,6 +14,9 @@ json.character do
   json.intelligence @character.intelligence
   json.charisma @character.charisma
   json.wallet @character.wallet.to_s
+  json.bonus_remaps @character.bonus_remaps
+  json.last_remap_date @character.last_remap_date.iso8601
+  json.accrued_remap_cooldown_date @character.accrued_remap_cooldown_date.iso8601
   if @character.race
     json.race do
       json.id @character.race.race_id

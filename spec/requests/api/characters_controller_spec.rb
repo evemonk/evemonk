@@ -85,7 +85,10 @@ describe Api::CharactersController do
                          perception: 23,
                          willpower: 24,
                          security_status: 1.8,
-                         wallet: 252.49)
+                         wallet: 252.49,
+                         bonus_remaps: 2,
+                         last_remap_date: '2011-05-07T12:58:06Z',
+                         accrued_remap_cooldown_date: '2012-05-06T12:58:06Z')
 
       get "/api/characters/#{ character.character_id }", headers: { 'Authorization': "Bearer #{ session.token }" }
 
@@ -93,10 +96,12 @@ describe Api::CharactersController do
 
       expect(JSON.parse(response.body).keys.sort).to eq(['character'])
 
-      expect(JSON.parse(response.body)['character'].keys.sort).to eq(['alliance',
+      expect(JSON.parse(response.body)['character'].keys.sort).to eq(['accrued_remap_cooldown_date',
+                                                                      'alliance',
                                                                       'ancestry',
                                                                       'birthday',
                                                                       'bloodline',
+                                                                      'bonus_remaps',
                                                                       'charisma',
                                                                       'corporation',
                                                                       'description',
@@ -105,6 +110,7 @@ describe Api::CharactersController do
                                                                       'icon',
                                                                       'id',
                                                                       'intelligence',
+                                                                      'last_remap_date',
                                                                       'memory',
                                                                       'name',
                                                                       'perception',
@@ -138,6 +144,12 @@ describe Api::CharactersController do
       expect(JSON.parse(response.body)['character']['security_status']).to eq('1.8')
 
       expect(JSON.parse(response.body)['character']['wallet']).to eq('252.49')
+
+      expect(JSON.parse(response.body)['character']['bonus_remaps']).to eq(2)
+
+      expect(JSON.parse(response.body)['character']['last_remap_date']).to eq('2011-05-07T12:58:06Z')
+
+      expect(JSON.parse(response.body)['character']['accrued_remap_cooldown_date']).to eq('2012-05-06T12:58:06Z')
 
       expect(JSON.parse(response.body)['character']['race'].keys.sort).to eq(['id', 'name'])
 
