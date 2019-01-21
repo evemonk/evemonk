@@ -49,8 +49,11 @@
 
                       <div>Wallet: {{ character.wallet }}</div>
 
-                      <!--* Bonus Remaps Available-->
+                      <v-divider light></v-divider>
 
+                      <div>Bonus Remaps: {{ character.bonus_remaps }}</div>
+                      <div>Last Remap Date: {{ character.last_remap_date }}</div>
+                      <div>Accured Remap Cooldown Date: {{ character.accrued_remap_cooldown_date }}</div>
                     </div>
                   </v-card-title>
                 </v-flex>
@@ -86,6 +89,9 @@
           intelligence: '',
           charisma: '',
           wallet: '',
+          bonus_remaps: '',
+          last_remap_date: '',
+          accrued_remap_cooldown_date: '',
           race: {
             id: '',
             name: ''
