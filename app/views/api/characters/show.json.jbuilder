@@ -5,7 +5,8 @@ json.character do
   json.icon "https://imageserver.eveonline.com/Character/#{ @character.character_id }_512.jpg"
   json.name @character.name
   json.description @character.description
-  # json.birthday @character.birthday.iso8601
+  json.birthday @character.birthday.iso8601
+  json.gender @character.gender
   if @character.alliance
     json.alliance do
       json.id @character.alliance.alliance_id

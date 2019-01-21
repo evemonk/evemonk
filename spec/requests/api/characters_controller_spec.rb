@@ -56,7 +56,9 @@ describe Api::CharactersController do
                          corporation_id: corporation.corporation_id,
                          character_id: '123',
                          name: 'Character name',
-                         description: 'Character description')
+                         description: 'Character description',
+                         birthday: '2010-01-15T15:26:00Z',
+                         gender: 'male')
 
       get "/api/characters/#{ character.character_id }", headers: { 'Authorization': "Bearer #{ session.token }" }
 
@@ -64,7 +66,7 @@ describe Api::CharactersController do
 
       expect(JSON.parse(response.body).keys.sort).to eq(['character'])
 
-      expect(JSON.parse(response.body)['character'].keys.sort).to eq(['alliance', 'corporation', 'description', 'icon', 'id', 'name'])
+      expect(JSON.parse(response.body)['character'].keys.sort).to eq(['alliance', 'birthday', 'corporation', 'description', 'gender', 'icon', 'id', 'name'])
 
       expect(JSON.parse(response.body)['character']['id']).to eq(123)
 
@@ -73,6 +75,10 @@ describe Api::CharactersController do
       expect(JSON.parse(response.body)['character']['name']).to eq('Character name')
 
       expect(JSON.parse(response.body)['character']['description']).to eq('Character description')
+
+      expect(JSON.parse(response.body)['character']['birthday']).to eq('2010-01-15T15:26:00Z')
+
+      expect(JSON.parse(response.body)['character']['gender']).to eq('male')
 
       expect(JSON.parse(response.body)['character']['alliance'].keys.sort).to eq(['id', 'name'])
 
