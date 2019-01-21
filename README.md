@@ -27,6 +27,7 @@ EveMonk is helper software for EveOnline MMORPG.
   * Race
   * Bloodline
   * Ancestry
+  * Faction
   * Alliance
   * Corporation
   * Security status
