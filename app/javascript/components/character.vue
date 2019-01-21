@@ -27,6 +27,28 @@
 
                       <div>Birthday: {{ character.birthday }}</div>
                       <div>Gender: {{ character.gender }}</div>
+                      <div>Security status: {{ character.security_status }}</div>
+
+                      <v-divider light></v-divider>
+
+                      <div>Race: {{ character.race.name }}</div>
+                      <div>Bloodline: {{ character.bloodline.name }}</div>
+                      <div>Ancestry: {{ character.ancestry.name }}</div>
+
+                      <v-divider light></v-divider>
+
+                      <div>Perception: {{ character.perception }}</div>
+                      <div>Memory: {{ character.memory }}</div>
+                      <div>Willpower: {{ character.willpower }}</div>
+                      <div>Intelligence: {{ character.intelligence }}</div>
+                      <div>Charisma: {{ character.charisma }}</div>
+
+                      <!--* Faction-->
+                      <!--* Alliance-->
+                      <!--* Corporation-->
+                      <!--* Wallet-->
+                      <!--* Bonus Remaps Available-->
+
                     </div>
                   </v-card-title>
                 </v-flex>
@@ -67,6 +89,24 @@
           description: '',
           birthday: '',
           gender: '',
+          security_status: '',
+          perception: '',
+          memory: '',
+          willpower: '',
+          intelligence: '',
+          charisma: '',
+          race: {
+            id: '',
+            name: ''
+          },
+          bloodline: {
+            id: '',
+            name: ''
+          },
+          ancestry: {
+            id: '',
+            name: ''
+          },
           alliance: {
             id: '',
             name: ''
