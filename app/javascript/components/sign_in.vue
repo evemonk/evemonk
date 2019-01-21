@@ -45,6 +45,10 @@
     <v-divider></v-divider>
 
     <router-link :to="{ name: 'forgot_password' }">Forgot password?</router-link>
+
+    <v-divider></v-divider>
+
+    <router-link :to="{ name: 'sign_up' }">Don't have an account? Sign up here</router-link>
   </div>
 </template>
 
