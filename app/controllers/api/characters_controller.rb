@@ -8,7 +8,13 @@ module Api
     end
 
     def show
-      @character = Character.find_by!(character_id: params[:id])
+      @character = Character.eager_load(:race,
+                                        :bloodline,
+                                        :ancestry,
+                                        :faction,
+                                        :alliance,
+                                        :corporation)
+                            .find_by!(character_id: params[:id])
 
       authorize(@character)
     end
