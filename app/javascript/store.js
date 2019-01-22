@@ -2,9 +2,9 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 import axios from 'axios';
 
-import port from 'port.js';
+import baseurl from 'baseurl.js'
 
-axios.defaults.baseURL = `http://localhost:${port}`;
+axios.defaults.baseURL = baseurl;
 axios.defaults.headers.common.Accept = 'application/json';
 axios.defaults.timeout = 15000; // 15 seconds
 
@@ -99,6 +99,14 @@ const store = new Vuex.Store({
         await axios.delete('/api/sign_out');
       } finally {
         commit('signOutUser');
+      }
+    },
+
+    async forgotPassword({ commit, state }, payload) {
+      try {
+        return await axios.get('/api/forgot_password', payload);
+      } catch (error) {
+        return error;
       }
     },
 

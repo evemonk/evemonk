@@ -55,7 +55,7 @@ EveMonk is helper software for EveOnline MMORPG.
 * Vue 2.5.22
 * vuex 3.1.0
 * vue-router 3.0.2
-* Vuetify 1.4.2
+* Vuetify 1.4.3
 
 ## Configure
 
@@ -75,7 +75,7 @@ app.save!
 
 * [EVE Online Third-Party Developer Documentation](https://eveonline-third-party-documentation.readthedocs.io/en/latest/)
 * [ESI Swagger](https://esi.tech.ccp.is/latest/)
-* [Eve Online Static Data Export (SDE) and Image Export Collection (IEC) downloader](https://github.com/biow0lf/eveonline-sde-iec-downloader)
+* [Eve Online Static Data Export (SDE) and Image Export Collection (IEC) downloader](https://github.com/evemonk/eveonline-sde-iec-downloader)
 
 ## Guides
 
