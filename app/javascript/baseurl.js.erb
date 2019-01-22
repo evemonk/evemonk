@@ -1,0 +1,11 @@
+import port from 'port.js';
+
+<% if Rails.env.development? %>
+const baseurl = `http://localhost:${port}`;
+<% elsif Rails.env.test? %>
+const baseurl = `http://localhost:${port}`;
+<% else %>
+const baseurl = 'https://evemonk.com';
+<% end %>
+
+export default baseurl;

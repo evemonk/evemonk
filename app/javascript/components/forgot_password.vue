@@ -14,6 +14,7 @@
                     autofocus
                     required>
       </v-text-field>
+
       <v-btn id="forgot_password_button" @click="submit" color="primary">Send Reset Email</v-btn>
     </v-form>
   </div>
@@ -67,10 +68,7 @@
             let type = "success";
             let message = "Email sent with password reset instructions.";
 
-            this.setAlert({
-              type,
-              message
-            });
+            this.setAlert({ type, message });
 
             this.sent = true;
           // } else if (response.response && response.response.status === 422) {
