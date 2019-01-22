@@ -20,8 +20,12 @@
                     <div>
                       <div class="headline">{{ character.name }}</div>
                       <div>
-                        <router-link :to="{ name: 'universe_corporation', params: { id: character.corporation.id }}" v-if="character.corporation">{{ character.corporation.name }}</router-link> /
-                        <router-link :to="{ name: 'universe_alliance', params: { id: character.alliance.id }}" v-if="character.alliance">{{ character.alliance.name }}</router-link>
+                        <template v-if="character.corporation">
+                          <router-link :to="{ name: 'universe_corporation', params: { id: character.corporation.id }}">{{ character.corporation.name }}</router-link> /
+                        </template>
+                        <template v-if="character.alliance">
+                          <router-link :to="{ name: 'universe_alliance', params: { id: character.alliance.id }}" v-if="character.alliance">{{ character.alliance.name }}</router-link>
+                        </template>
                       </div>
 
                       <div>{{ character.description }}</div>
