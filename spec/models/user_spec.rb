@@ -16,7 +16,7 @@ describe User do
 
     xit { should validate_presence_of(:email) } # TODO: update shoulda-matchers and enable this spec
 
-    xit { should validate_uniqueness_of(:email).case_insensitive } # TODO: update shoulda-matchers and enable this spec
+    it { should validate_uniqueness_of(:email).case_insensitive }
   end
 
   context 'when user registered via oauth' do
@@ -24,10 +24,10 @@ describe User do
 
     xit { should_not validate_presence_of(:email) } # TODO: update shoulda-matchers and enable this spec
 
-    xit { should_not validate_uniqueness_of(:email).case_insensitive } # TODO: update shoulda-matchers and enable this spec
+    it { should_not validate_uniqueness_of(:email).case_insensitive }
   end
 
-  # it { should have_secure_password } # TODO: validations: false # TODO: update shoulda-matchers and enable this spec
+  it { should have_secure_password } # TODO: validations: false
 
   it { should have_secure_token(:reset_password_token) }
 end
