@@ -3,7 +3,7 @@
 lock '3.11.0'
 
 set :application, 'evemonk'
-set :repo_url, 'git@github.com:biow0lf/evemonk.git'
+set :repo_url, 'git@github.com:evemonk/evemonk.git'
 
 set :rbenv_type, :user
 set :rbenv_ruby, File.read('.ruby-version').strip
