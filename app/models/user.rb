@@ -12,4 +12,6 @@ class User < ApplicationRecord
   validates :email, uniqueness: { case_sensitive: false }, unless: :oauth?
 
   has_secure_password validations: false
+
+  has_secure_token :reset_password_token
 end

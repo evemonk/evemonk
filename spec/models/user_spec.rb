@@ -28,4 +28,6 @@ describe User do
   end
 
   # it { should have_secure_password } # TODO: validations: false # TODO: update shoulda-matchers and enable this spec
+
+  it { should have_secure_token(:reset_password_token) }
 end
