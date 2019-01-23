@@ -13,6 +13,12 @@ rvm:
 addons:
   chrome: stable
   postgresql: '11'
+  apt:
+    packages:
+      - postgresql-11
+      - postgresql-client-11
+      - postgresql-contrib-11
+      - libpq-dev
 env: DISPLAY=':99.0'
 
 before_install:
