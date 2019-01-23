@@ -87,29 +87,37 @@
             this.$router.push({ name: 'universe_alliances', query: { page: page } });
           }
         })
+      },
+
+      '$route': function () {
+        this.current_page = parseInt(this.$route.query.page);
       }
     },
 
     created () {
-      let page = this.$route.query.page;
-
-      if (page !== undefined) {
-        this.current_page = parseInt(page);
-      }
-
-      this.fetchUniverseAlliances(this.current_page).then(response => {
-        if (response.status === 200) {
-          this.total_count = response.data.total_count;
-          this.total_pages = response.data.total_pages;
-          this.alliances = response.data.alliances;
-        }
-      });
+      this.fetchData();
     },
 
     methods: {
       ...mapActions([
         'fetchUniverseAlliances'
-      ])
+      ]),
+
+      fetchData () {
+        let page = this.$route.query.page;
+
+        if (page !== undefined) {
+          this.current_page = parseInt(page);
+        }
+
+        this.fetchUniverseAlliances(this.current_page).then(response => {
+          if (response.status === 200) {
+            this.total_count = response.data.total_count;
+            this.total_pages = response.data.total_pages;
+            this.alliances = response.data.alliances;
+          }
+        });
+      }
     }
   }
 </script>
