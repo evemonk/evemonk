@@ -90,6 +90,7 @@ group :development do
   # gem 'overcommit', require: false
   gem 'cacheflow'
   # gem 'licensed', require: false
+  gem 'gemdiff', require: false
 end
 
 group :test do
