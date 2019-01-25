@@ -37,16 +37,24 @@
                       <v-divider light></v-divider>
 
                       <template v-if="character.race">
-                        <div>Race: {{ character.race.name }}</div>
+                        <div>
+                          Race: {{ character.race.name }}
+                        </div>
                       </template>
                       <template v-if="character.bloodline">
-                        <div>Bloodline: {{ character.bloodline.name }}</div>
+                        <div>
+                          Bloodline: {{ character.bloodline.name }}
+                        </div>
                       </template>
                       <template v-if="character.ancestry">
-                        <div>Ancestry: {{ character.ancestry.name }}</div>
+                        <div>
+                          Ancestry: {{ character.ancestry.name }}
+                        </div>
                       </template>
                       <template v-if="character.faction">
-                        <div>Faction: {{ character.faction.name }}</div>
+                        <div>
+                          Faction: {{ character.faction.name }}
+                        </div>
                       </template>
 
                       <v-divider light></v-divider>
