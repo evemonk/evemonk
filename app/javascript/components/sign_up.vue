@@ -97,7 +97,7 @@
       ]),
 
       submit () {
-        const formData = {
+        const payload = {
           sign_up: {
             email: this.email,
             password: this.password,
@@ -105,7 +105,7 @@
           }
         };
 
-        this.signUp(formData).then(response => {
+        this.signUp(payload).then(response => {
           if (response && response.status === 200) {
             let type = "success";
             let message = "Successful signed up!";
