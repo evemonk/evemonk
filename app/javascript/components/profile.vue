@@ -1,6 +1,10 @@
 <template>
-  <div>
-    <h1>Profile</h1>
+  <div id="profile">
+    <vue-headful :title="title" />
+
+    <v-breadcrumbs :items="breadcrumbs">
+      <v-icon slot="divider">chevron_right</v-icon>
+    </v-breadcrumbs>
 
     <h2>Email: {{ email }}</h2>
     <h1>Characters count: {{ characters_count }}</h1>
@@ -13,8 +17,21 @@
   export default {
     data () {
       return {
+        title: 'Profile | EveMonk: EveOnline management suite',
         email: '',
-        characters_count: null
+        characters_count: null,
+        breadcrumbs: [
+          {
+            text: 'Home',
+            to: { name: 'welcome' },
+            exact: true
+          },
+          {
+            text: 'Profile',
+            to: { name: 'profile' },
+            exact: true
+          }
+        ]
       }
     },
 
