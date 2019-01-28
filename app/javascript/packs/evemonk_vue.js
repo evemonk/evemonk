@@ -7,12 +7,14 @@
 
 import Vue from 'vue';
 import Vuetify from 'vuetify';
+import vueHeadful from 'vue-headful';
 import App from '../app.vue';
 
 import router from '../router';
 import store from '../store';
 
 Vue.use(Vuetify);
+Vue.component('vue-headful', vueHeadful);
 
 document.addEventListener('DOMContentLoaded', () => {
   const app = new Vue({

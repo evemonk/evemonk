@@ -1,5 +1,10 @@
 <template>
   <div id="alliances">
+    <vue-headful
+            title="Title from vue-headful"
+            description="Description from vue-headful"
+    />
+
     <v-breadcrumbs :items="breadcrumbs">
       <v-icon slot="divider">chevron_right</v-icon>
     </v-breadcrumbs>
@@ -83,41 +88,39 @@
             this.total_count = response.data.total_count;
             this.total_pages = response.data.total_pages;
             this.alliances = response.data.alliances;
-
-            this.$router.push({ name: 'universe_alliances', query: { page: page } });
           }
-        })
+        });
+
+        this.$router.push({ name: 'universe_alliances', query: { page: page } });
       },
 
-      '$route': function () {
-        this.current_page = parseInt(this.$route.query.page);
+      '$route.query.page': function (page) {
+        if (page !== undefined && parseInt(page) !== this.current_page) {
+          this.current_page = parseInt(page);
+        }
       }
     },
 
     created () {
-      this.fetchData();
+      let page = this.$route.query.page;
+
+      if (page !== undefined) {
+        this.current_page = parseInt(page);
+      }
+
+      this.fetchUniverseAlliances(this.current_page).then(response => {
+        if (response.status === 200) {
+          this.total_count = response.data.total_count;
+          this.total_pages = response.data.total_pages;
+          this.alliances = response.data.alliances;
+        }
+      });
     },
 
     methods: {
       ...mapActions([
         'fetchUniverseAlliances'
-      ]),
-
-      fetchData () {
-        let page = this.$route.query.page;
-
-        if (page !== undefined) {
-          this.current_page = parseInt(page);
-        }
-
-        this.fetchUniverseAlliances(this.current_page).then(response => {
-          if (response.status === 200) {
-            this.total_count = response.data.total_count;
-            this.total_pages = response.data.total_pages;
-            this.alliances = response.data.alliances;
-          }
-        });
-      }
+      ])
     }
   }
 </script>
