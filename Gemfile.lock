@@ -192,7 +192,7 @@ GEM
     kramdown (1.17.0)
     launchy (2.4.3)
       addressable (~> 2.3)
-    license_finder (5.6.1)
+    license_finder (5.6.2)
       bundler
       rubyzip
       thor
