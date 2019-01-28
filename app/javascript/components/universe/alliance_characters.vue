@@ -1,5 +1,7 @@
 <template>
   <div id="characters">
+    <vue-headful :title="title" />
+
     <v-breadcrumbs :items="breadcrumbs">
       <v-icon slot="divider">chevron_right</v-icon>
     </v-breadcrumbs>
@@ -51,6 +53,7 @@
   export default {
     data () {
       return {
+        title: '',
         characters: [],
         current_page: 1,
         total_count: null,
@@ -73,8 +76,7 @@
 
     watch: {
       current_page: function (page) {
-        this.fetchUniverseAllianceCharacters({ id: this.alliance_id,
-                                       page: page }).then(response => {
+        this.fetchUniverseAllianceCharacters({ id: this.alliance_id, page: page }).then(response => {
           if (response.status === 200) {
             this.total_count = response.data.total_count;
             this.total_pages = response.data.total_pages;
@@ -127,6 +129,8 @@
             exact: true,
             disabled: true
           });
+
+          this.title = `Characters in alliance "${alliance.name}" (${alliance.ticker}) | EveMonk: EveOnline management suite`;
         }
       });
 

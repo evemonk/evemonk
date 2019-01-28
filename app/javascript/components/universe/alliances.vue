@@ -1,7 +1,6 @@
 <template>
   <div id="alliances">
-    <!--<vue-headful title="Title from vue-headful"-->
-                 <!--description="Description from vue-headful">-->
+    <vue-headful :title="title" />
 
     <v-breadcrumbs :items="breadcrumbs">
       <v-icon slot="divider">chevron_right</v-icon>
@@ -59,6 +58,7 @@
   export default {
     data () {
       return {
+        title: 'Alliances | EveMonk: EveOnline management suite',
         alliances: [],
         current_page: 1,
         total_count: null,
@@ -86,10 +86,10 @@
             this.total_count = response.data.total_count;
             this.total_pages = response.data.total_pages;
             this.alliances = response.data.alliances;
+
+            this.$router.push({ name: 'universe_alliances', query: { page: page } });
           }
         });
-
-        this.$router.push({ name: 'universe_alliances', query: { page: page } });
       },
 
       '$route.query.page': function (page) {
