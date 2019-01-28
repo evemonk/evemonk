@@ -1,9 +1,7 @@
 <template>
   <div id="alliances">
-    <vue-headful
-            title="Title from vue-headful"
-            description="Description from vue-headful"
-    />
+    <!--<vue-headful title="Title from vue-headful"-->
+                 <!--description="Description from vue-headful">-->
 
     <v-breadcrumbs :items="breadcrumbs">
       <v-icon slot="divider">chevron_right</v-icon>
