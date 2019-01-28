@@ -35,6 +35,7 @@ gem 'swagger-blocks'
 gem 'http_logger'
 gem 'responders'
 gem 'rack-health'
+gem 'sitemap_generator'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
