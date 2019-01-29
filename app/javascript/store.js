@@ -102,6 +102,14 @@ const store = new Vuex.Store({
       }
     },
 
+    async changePassword({ commit, state }, payload) {
+      try {
+        return await axios.post('/api/change_password', payload);
+      } catch (error) {
+        return error;
+      }
+    },
+
     async forgotPassword({ commit, state }, payload) {
       try {
         return await axios.get('/api/forgot_password', payload);
