@@ -1,9 +1,0 @@
-<% if Rails.env.development? %>
-const port = 3000;
-<% elsif Rails.env.test? %>
-const port = 10000;
-<% else %>
-const port = 80;
-<% end %>
-
-export default port;
