@@ -104,7 +104,11 @@ const store = new Vuex.Store({
 
     async changePassword({ commit, state }, payload) {
       try {
-        return await axios.post('/api/change_password', payload);
+        const response = await axios.post('/api/change_password', payload);
+
+        commit('signInUserWithToken', response.data.token);
+
+        return response;
       } catch (error) {
         return error;
       }

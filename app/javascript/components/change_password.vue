@@ -105,7 +105,7 @@
 
             this.setAlert({ type, message });
 
-            // this.$router.push('/profile');
+            this.$router.push('/profile');
           } else if (response.response && response.response.status === 422) {
             this.valid = false;
             this.errors = response.response.data.errors;
