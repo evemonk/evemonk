@@ -48,6 +48,8 @@
 </template>
 
 <script>
+  import { mapActions, mapMutations } from 'vuex';
+
   export default {
     data () {
       return {
@@ -79,8 +81,36 @@
     },
 
     methods: {
+      ...mapActions([
+        'changePassword'
+      ]),
+
+      ...mapMutations([
+        'setAlert'
+      ]),
+
       submit() {
-        console.log('good');
+        const payload = {
+          change_password: {
+            old_password: this.old_password,
+            password: this.password,
+            password_confirmation: this.password_confirmation
+          }
+        };
+
+        this.changePassword(payload).then(response => {
+          if (response && response.status === 200) {
+            let type = "success";
+            let message = "Password was successful changed!";
+
+            this.setAlert({ type, message });
+
+            // this.$router.push('/profile');
+          } else if (response.response && response.response.status === 422) {
+            this.valid = false;
+            this.errors = response.response.data.errors;
+          }
+        });
       },
 
       clearBaseErrors() {
