@@ -8,12 +8,17 @@
 import Vue from 'vue';
 import Vuetify from 'vuetify';
 import vueHeadful from 'vue-headful';
+import VueAnalytics from 'vue-analytics';
 import App from '../app.vue';
 
 import router from '../router';
 import store from '../store';
 
 Vue.use(Vuetify);
+Vue.use(VueAnalytics, {
+  id: 'UA-133495976-1',
+  router,
+});
 Vue.component('vue-headful', vueHeadful);
 
 document.addEventListener('DOMContentLoaded', () => {

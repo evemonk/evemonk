@@ -9,6 +9,7 @@
     "rails-erb-loader": "^5.5.0",
     "rails-ujs": ">=5.2.1",
     "vue": "^2.5.21",
+    "vue-analytics": "^5.16.2",
     "vue-headful": "^2.0.1",
     "vue-loader": "^15.4.2",
     "vue-router": "^3.0.2",
