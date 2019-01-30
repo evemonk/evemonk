@@ -1,2 +1,0 @@
----
-BUNDLE_BUILD__PG: "--with-pg-config=/usr/pgsql-11/bin/pg_config"
