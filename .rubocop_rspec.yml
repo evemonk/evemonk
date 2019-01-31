@@ -43,10 +43,6 @@ RSpec/ExampleWording:
 RSpec/FilePath:
   Enabled: true
 
-# Possibly bug in rubocop-rspec cop
-RSpec/ExampleLength:
-  Enabled: true
-
 RSpec/NestedGroups:
   Enabled: false
 
@@ -59,3 +55,6 @@ RSpec/MultipleExpectations:
 
 RSpec/MultipleDescribes:
   Enabled: true
+
+RSpec/ExampleLength:
+  Enabled: false
