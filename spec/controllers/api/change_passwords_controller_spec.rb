@@ -102,16 +102,40 @@ describe Api::ChangePasswordsController do
       it { should render_template(:errors) }
     end
 
-    # context 'when user not signed in' do
-    #   before { post :create, params: { format: :json } }
-    #
-    #   it { should respond_with(:unauthorized) }
-    # end
-    #
-    # context 'when not supported accept type' do
-    #   before { post :create, params: { format: :html } }
-    #
-    #   it { should respond_with(:not_acceptable) }
-    # end
+    context 'when user not signed in' do
+      before do
+        post :create, params: {
+          change_password: {
+            old_password: 'old_password',
+            password: 'new_password',
+            password_confirmation: 'new_password',
+            name: 'iOS session',
+            device_type: 'ios',
+            device_token: 'token123'
+          },
+          format: :json
+        }
+      end
+
+      it { should respond_with(:unauthorized) }
+    end
+
+    context 'when not supported accept type' do
+      before do
+        post :create, params: {
+          change_password: {
+            old_password: 'old_password',
+            password: 'new_password',
+            password_confirmation: 'new_password',
+            name: 'iOS session',
+            device_type: 'ios',
+            device_token: 'token123'
+          },
+          format: :html
+        }
+      end
+
+      it { should respond_with(:not_acceptable) }
+    end
   end
 end
