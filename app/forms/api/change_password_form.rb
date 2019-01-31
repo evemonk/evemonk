@@ -28,7 +28,7 @@ module Api
 
       session.save!
 
-      notify_user
+      # notify_user
 
       true
     end
@@ -56,8 +56,8 @@ module Api
                                        device_token: device_token)
     end
 
-    def notify_user
-      # TODO: write sms/push notification
-    end
+    # def notify_user
+    #   # TODO: write sms/push notification
+    # end
   end
 end

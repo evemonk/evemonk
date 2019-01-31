@@ -11,19 +11,23 @@ describe Api::ChangePasswordForm, type: :model do
 
   xit { should validate_confirmation_of(:password) }
 
+  it { should delegate_method(:id).to(:session) }
+
+  it { should delegate_method(:token).to(:session) }
+
   describe '#save' do
-    context 'when user exist and password right' do
-      let!(:user) { create(:user, email: 'me@example.com', password: 'password') }
+    context 'when password is correct' do
+      let!(:user) { create(:user, email: 'me@example.com', password: 'old_password') }
 
-      let!(:session1) { create(:session, user: user) }
+      let!(:session1) { create(:session, user: user, device_type: 'android') }
 
-      let!(:session2) { create(:session, user: user) }
+      let!(:session2) { create(:session, user: user, device_type: 'android') }
 
-      let!(:session3) { create(:session, user: user) }
+      let!(:session3) { create(:session, user: user, device_type: 'android') }
 
       let(:params) do
         {
-          old_password: 'password',
+          old_password: 'old_password',
           password: 'new_password',
           password_confirmation: 'new_password',
           name: 'My Computer',
@@ -38,14 +42,15 @@ describe Api::ChangePasswordForm, type: :model do
 
       specify { expect { subject.save }.to change { user.sessions.count }.by(-2) }
 
-      specify { expect { subject.save }.to change { user.sessions.first&.token }.from(nil) }
+      specify { expect { subject.save }.to change { user.authenticate('old_password') }.from(user).to(false) }
 
-      specify { expect { subject.save }.to change { user.sessions.first&.name }.from(nil).to('My Computer') }
+      specify { expect { subject.save }.to change { user.authenticate('new_password') }.from(false).to(user) }
 
-      specify { expect { subject.save }.to change { user.sessions.first&.device_type }.from(nil).to('ios') }
+      specify { expect { subject.save }.to change { user.sessions.last.name }.to('My Computer') }
 
-      specify { expect { subject.save }.to change { user.sessions.first&.device_token }.from(nil).to('token123') }
+      specify { expect { subject.save }.to change { user.sessions.last.device_type }.to('ios') }
 
+      specify { expect { subject.save }.to change { user.sessions.last.device_token }.to('token123') }
     end
   end
 end
