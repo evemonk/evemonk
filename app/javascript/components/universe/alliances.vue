@@ -1,5 +1,7 @@
 <template>
   <div id="alliances">
+    <vue-headful :title="title" />
+
     <v-breadcrumbs :items="breadcrumbs">
       <v-icon slot="divider">chevron_right</v-icon>
     </v-breadcrumbs>
@@ -56,6 +58,7 @@
   export default {
     data () {
       return {
+        title: 'Alliances | EveMonk: EveOnline management suite',
         alliances: [],
         current_page: 1,
         total_count: null,
@@ -86,7 +89,13 @@
 
             this.$router.push({ name: 'universe_alliances', query: { page: page } });
           }
-        })
+        });
+      },
+
+      '$route.query.page': function (page) {
+        if (page !== undefined && parseInt(page) !== this.current_page) {
+          this.current_page = parseInt(page);
+        }
       }
     },
 

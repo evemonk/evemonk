@@ -1,5 +1,7 @@
 <template>
   <div id="characters">
+    <vue-headful :title="title" />
+
     <v-breadcrumbs :items="breadcrumbs">
       <v-icon slot="divider">chevron_right</v-icon>
     </v-breadcrumbs>
@@ -54,6 +56,7 @@
   export default {
     data () {
       return {
+        title: 'Characters | EveMonk: EveOnline management suite',
         current_page: 1,
         total_count: null,
         total_pages: null,

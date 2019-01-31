@@ -1,5 +1,7 @@
 <template>
   <div id="sign_up_form">
+    <vue-headful :title="title" />
+
     <v-breadcrumbs :items="breadcrumbs">
       <v-icon slot="divider">chevron_right</v-icon>
     </v-breadcrumbs>
@@ -58,6 +60,7 @@
   export default {
     data () {
       return {
+        title: 'Sign Up | EveMonk: EveOnline management suite',
         valid: true,
         email: null,
         password: null,
@@ -94,7 +97,7 @@
       ]),
 
       submit () {
-        const formData = {
+        const payload = {
           sign_up: {
             email: this.email,
             password: this.password,
@@ -102,7 +105,7 @@
           }
         };
 
-        this.signUp(formData).then(response => {
+        this.signUp(payload).then(response => {
           if (response && response.status === 200) {
             let type = "success";
             let message = "Successful signed up!";

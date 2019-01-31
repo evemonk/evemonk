@@ -1,5 +1,7 @@
 <template>
   <div id="alliance">
+    <vue-headful :title="title" />
+
     <v-breadcrumbs :items="breadcrumbs">
       <v-icon slot="divider">chevron_right</v-icon>
     </v-breadcrumbs>
@@ -49,8 +51,11 @@
   export default {
     data () {
       return {
+        title: '',
         alliance: {
-          id: 0
+          id: 0,
+          name: '',
+          ticker: ''
         },
         breadcrumbs: [
           {
@@ -87,6 +92,8 @@
             exact: true,
             disabled: true
           });
+
+          this.title = `Alliance "${alliance.name}" (${alliance.ticker}) | EveMonk: EveOnline management suite`;
         }
       });
     },

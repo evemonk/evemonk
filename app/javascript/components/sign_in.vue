@@ -1,5 +1,7 @@
 <template>
   <div id="sign_up_form">
+    <vue-headful :title="title" />
+
     <v-breadcrumbs :items="breadcrumbs">
       <v-icon slot="divider">chevron_right</v-icon>
     </v-breadcrumbs>
@@ -58,6 +60,7 @@
   export default {
     data () {
       return {
+        title: 'Sign In | EveMonk: EveOnline management suite',
         valid: true,
         email: null,
         password: null,

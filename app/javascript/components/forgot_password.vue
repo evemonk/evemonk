@@ -1,5 +1,7 @@
 <template>
   <div id="forgot_password_form">
+    <vue-headful :title="title" />
+
     <v-breadcrumbs :items="breadcrumbs">
       <v-icon slot="divider">chevron_right</v-icon>
     </v-breadcrumbs>
@@ -26,6 +28,7 @@
   export default {
     data () {
       return {
+        title: 'Forgot password | EveMonk: EveOnline management suite',
         sent: false,
         email: '',
         errors: {

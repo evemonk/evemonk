@@ -8,7 +8,7 @@ gem 'rails', '6.0.0.beta1'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.11'
 gem 'sass-rails', '~> 5.0'
-gem 'webpacker', '4.0.0.rc.5'
+gem 'webpacker', '4.0.0.rc.7'
 # gem 'webpacker', git: 'https://github.com/rails/webpacker.git',
 #                 branch: 'master'
 gem 'jbuilder', '~> 2.5'
@@ -35,6 +35,7 @@ gem 'swagger-blocks'
 gem 'http_logger'
 gem 'responders'
 gem 'rack-health'
+gem 'sitemap_generator'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
@@ -48,7 +49,7 @@ gem 'rack-health'
 # gem 'capistrano-rails', group: :development
 
 group :production do
-  # gem 'newrelic_rpm'
+  gem 'newrelic_rpm'
   gem 'rack-timeout'
 end
 
@@ -90,6 +91,7 @@ group :development do
   # gem 'overcommit', require: false
   gem 'cacheflow'
   # gem 'licensed', require: false
+  gem 'gemdiff', require: false
 end
 
 group :test do
