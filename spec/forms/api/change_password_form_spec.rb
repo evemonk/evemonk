@@ -16,7 +16,7 @@ describe Api::ChangePasswordForm, type: :model do
   it { should delegate_method(:token).to(:session) }
 
   describe '#save' do
-    context 'when password is correct' do
+    context 'when everything ok' do
       let!(:user) { create(:user, email: 'me@example.com', password: 'old_password') }
 
       let!(:session1) { create(:session, user: user, device_type: 'android') }
@@ -51,6 +51,24 @@ describe Api::ChangePasswordForm, type: :model do
       specify { expect { subject.save }.to change { user.sessions.last.device_type }.to('ios') }
 
       specify { expect { subject.save }.to change { user.sessions.last.device_token }.to('token123') }
+    end
+
+    context 'when user password wrong' do
+      let!(:user) { create(:user, email: 'me@example.com', password: 'password') }
+
+      let(:params) do
+        {
+          old_password: 'wrong-password',
+          password: 'new_password',
+          password_confirmation: 'new_password'
+        }
+      end
+
+      subject { described_class.new(params.merge(user: user)) }
+
+      specify { expect(subject.save).to eq(false) }
+
+      specify { expect { subject.save }.to change { subject.errors.messages }.from({}).to(old_password: ['Wrong password']) }
     end
   end
 end
