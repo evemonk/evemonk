@@ -70,5 +70,23 @@ describe Api::ChangePasswordForm, type: :model do
 
       specify { expect { subject.save }.to change { subject.errors.messages }.from({}).to(old_password: ['Wrong password']) }
     end
+
+    context "when new user password doesn't match confirmation" do
+      let!(:user) { create(:user, email: 'me@example.com', password: 'password') }
+
+      let(:params) do
+        {
+          old_password: 'password',
+          password: 'new_password',
+          password_confirmation: 'wrong-new-password'
+        }
+      end
+
+      subject { described_class.new(params.merge(user: user)) }
+
+      specify { expect(subject.save).to eq(false) }
+
+      specify { expect { subject.save }.to change { subject.errors.messages }.from({}).to(password_confirmation: ["doesn't match Password"]) }
+    end
   end
 end
