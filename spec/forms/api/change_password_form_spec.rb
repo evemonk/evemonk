@@ -5,6 +5,8 @@ require 'rails_helper'
 describe Api::ChangePasswordForm, type: :model do
   it { should be_a(ActiveModel::Model) }
 
+  xit { should validate_presence_of(:old_password) } # TODO: update shoulda-matchers and enable this spec
+
   xit { should validate_presence_of(:password) } # TODO: update shoulda-matchers and enable this spec
 
   xit { should validate_presence_of(:password_confirmation) } # TODO: update shoulda-matchers and enable this spec
