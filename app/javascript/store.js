@@ -2,7 +2,7 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 import axios from 'axios';
 
-import baseurl from 'baseurl.js'
+import baseurl from 'baseurl.js';
 
 axios.defaults.baseURL = baseurl;
 axios.defaults.headers.common.Accept = 'application/json';
