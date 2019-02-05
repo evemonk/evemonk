@@ -24,7 +24,7 @@ module Api
 
       change_password
 
-      end_all_user_session
+      end_all_user_sessions
 
       session.save!
 
@@ -46,8 +46,8 @@ module Api
       user.update!(password: password)
     end
 
-    def end_all_user_session
-      user.sessions.destroy_all
+    def end_all_user_sessions
+      EndAllUserSessions.new(user).execute
     end
 
     def session

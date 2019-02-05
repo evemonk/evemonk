@@ -21,12 +21,6 @@ describe Api::ChangePasswordForm, type: :model do
     context 'when everything ok' do
       let!(:user) { create(:user, email: 'me@example.com', password: 'old_password') }
 
-      let!(:session1) { create(:session, user: user, device_type: 'android') }
-
-      let!(:session2) { create(:session, user: user, device_type: 'android') }
-
-      let!(:session3) { create(:session, user: user, device_type: 'android') }
-
       let(:params) do
         {
           old_password: 'old_password',
@@ -40,19 +34,28 @@ describe Api::ChangePasswordForm, type: :model do
 
       subject { described_class.new(params.merge(user: user)) }
 
-      specify { expect(subject.save).to eq(true) }
+      before do
+        #
+        # Api::EndAllUserSessions.new(user).execute
+        #
+        expect(Api::EndAllUserSessions).to receive(:new).with(user) do
+          double.tap do |a|
+            expect(a).to receive(:execute)
+          end
+        end
+      end
 
-      specify { expect { subject.save }.to change { user.sessions.count }.by(-2) }
+      specify { expect(subject.save).to eq(true) }
 
       specify { expect { subject.save }.to change { user.authenticate('old_password') }.from(user).to(false) }
 
       specify { expect { subject.save }.to change { user.authenticate('new_password') }.from(false).to(user) }
 
-      specify { expect { subject.save }.to change { user.sessions.last.name }.to('My Computer') }
+      specify { expect { subject.save }.to change { user.sessions.first&.name }.to('My Computer') }
 
-      specify { expect { subject.save }.to change { user.sessions.last.device_type }.to('ios') }
+      specify { expect { subject.save }.to change { user.sessions.first&.device_type }.to('ios') }
 
-      specify { expect { subject.save }.to change { user.sessions.last.device_token }.to('token123') }
+      specify { expect { subject.save }.to change { user.sessions.first&.device_token }.to('token123') }
     end
 
     context 'when user password wrong' do
@@ -67,6 +70,8 @@ describe Api::ChangePasswordForm, type: :model do
       end
 
       subject { described_class.new(params.merge(user: user)) }
+
+      before { expect(Api::EndAllUserSessions).not_to receive(:new) }
 
       specify { expect(subject.save).to eq(false) }
 
@@ -85,6 +90,8 @@ describe Api::ChangePasswordForm, type: :model do
       end
 
       subject { described_class.new(params.merge(user: user)) }
+
+      before { expect(Api::EndAllUserSessions).not_to receive(:new) }
 
       specify { expect(subject.save).to eq(false) }
 
