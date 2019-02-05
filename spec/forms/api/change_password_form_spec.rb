@@ -47,9 +47,9 @@ describe Api::ChangePasswordForm, type: :model do
 
       specify { expect(subject.save).to eq(true) }
 
-      specify { expect { subject.save }.to change { user.authenticate('old_password') }.from(user).to(false) }
+      specify { expect { subject.save }.to change { user.reload.authenticate('old_password') }.from(user).to(false) }
 
-      specify { expect { subject.save }.to change { user.authenticate('new_password') }.from(false).to(user) }
+      specify { expect { subject.save }.to change { user.reload.authenticate('new_password') }.from(false).to(user) }
 
       specify { expect { subject.save }.to change { user.sessions.first&.name }.to('My Computer') }
 
