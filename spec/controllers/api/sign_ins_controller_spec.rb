@@ -19,12 +19,13 @@ describe Api::SignInsController do
         #                     device_type: 'ios',
         #                     device_token: 'token123') # => form
         #
-        expect(Api::SignInForm).to receive(:new).with(permitter(email: 'me@example.com',
-                                                                password: 'password',
-                                                                name: 'iOS session',
-                                                                device_type: 'ios',
-                                                                device_token: 'token123'))
-                                                .and_return(form)
+        expect(Api::SignInForm).to receive(:new)
+          .with(permitter(email: 'me@example.com',
+                          password: 'password',
+                          name: 'iOS session',
+                          device_type: 'ios',
+                          device_token: 'token123'))
+          .and_return(form)
       end
 
       before do
@@ -56,12 +57,13 @@ describe Api::SignInsController do
         #                     device_type: 'ios',
         #                     device_token: 'token123') # => form
         #
-        expect(Api::SignInForm).to receive(:new).with(permitter(email: 'me@example.com',
-                                                                password: 'password',
-                                                                name: 'iOS session',
-                                                                device_type: 'ios',
-                                                                device_token: 'token123'))
-                                                .and_return(form)
+        expect(Api::SignInForm).to receive(:new)
+          .with(permitter(email: 'me@example.com',
+                          password: 'password',
+                          name: 'iOS session',
+                          device_type: 'ios',
+                          device_token: 'token123'))
+          .and_return(form)
       end
 
       before do
