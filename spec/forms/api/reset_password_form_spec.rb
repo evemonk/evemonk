@@ -86,7 +86,7 @@ describe Api::ResetPasswordForm, type: :model do
 
       specify { expect(subject.save).to eq(false) }
 
-      specify { expect { subject.save }.to change { subject.errors.messages }.from({}).to(reset_password_token: ['Reset token not found']) }
+      specify { expect { subject.save }.to change { subject.errors.messages }.from({}).to(base: ['Reset password token not found']) }
     end
   end
 end

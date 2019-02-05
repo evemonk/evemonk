@@ -39,7 +39,7 @@ module Api
     def user_presence
       return if errors.any?
 
-      errors.add(:reset_password_token, 'Reset token not found') if !user
+      errors.add(:base, 'Reset password token not found') if !user
     end
 
     def change_password
