@@ -53,7 +53,7 @@
   export default {
     data () {
       return {
-        title: '',
+        title: 'EveMonk: EveOnline management suite',
         characters: [],
         current_page: 1,
         total_count: null,
@@ -92,8 +92,14 @@
               }
             });
           }
-        })
-      }
+        });
+      },
+
+      // '$route.query.page': function (page) {
+      //   if (page !== undefined && parseInt(page) !== this.current_page) {
+      //     this.current_page = parseInt(page);
+      //   }
+      // }
     },
 
     created () {
