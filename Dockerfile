@@ -10,6 +10,10 @@ WORKDIR /app
 
 COPY . .
 
+ENV BUNDLER_VERSION 2.0.1
+
+RUN gem install bundler --version "$BUNDLER_VERSION" --force
+
 RUN bundle install --without development test
 
 # RUN yum upgrade -y -q
