@@ -18,6 +18,8 @@ EveMonk is helper software for EveOnline MMORPG.
 * Sign Up page
 * Sign In page
 * Sign Out
+* Change password
+* Reset password
 * Profile page
 * Character page with:
   * Name

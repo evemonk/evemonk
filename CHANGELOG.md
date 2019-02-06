@@ -4,7 +4,6 @@
 
 * Reset password feature
 * Change password feature
-* Back button in browser now works as expected
 * Add SEO titles to pages
 * Add Google Analytics
 * Enable NewRelic again
