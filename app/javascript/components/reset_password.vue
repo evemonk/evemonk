@@ -41,12 +41,14 @@
 </template>
 
 <script>
+  import { mapActions, mapMutations } from 'vuex';
+
   export default {
     data () {
       return {
         title: 'Reset password | EveMonk: EveOnline management suite',
         valid: true,
-        token: null,
+        reset_password_token: null,
         password: null,
         password_confirmation: null,
         errors: {
@@ -71,20 +73,40 @@
     },
 
     created () {
-      this.token = this.$route.params.token;
+      this.reset_password_token = this.$route.params.token;
     },
 
     methods: {
+      ...mapActions([
+        'resetPassword'
+      ]),
+
+      ...mapMutations([
+        'setAlert'
+      ]),
+
       submit() {
         const payload = {
           reset_password: {
-            token: this.token,
+            reset_password_token: this.reset_password_token,
             password: this.password,
             password_confirmation: this.password_confirmation
           }
         };
 
+        this.resetPassword(payload).then(response => {
+          if (response && response.status === 200) {
+            let type = "success";
+            let message = "Password was successful reset.";
 
+            this.setAlert({ type, message });
+
+            this.$router.push('/profile');
+          } else if (response.response && response.response.status === 422) {
+            this.valid = false;
+            this.errors = response.response.data.errors;
+          }
+        });
       },
 
       clearBaseErrors() {

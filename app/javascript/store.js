@@ -122,6 +122,18 @@ const store = new Vuex.Store({
       }
     },
 
+    async resetPassword({ commit, state }, payload) {
+      try {
+        const response = await axios.post('/api/reset_password', payload);
+
+        commit('signInUserWithToken', response.data.token);
+
+        return response;
+      } catch (error) {
+        return error;
+      }
+    },
+
     async fetchProfile({ commit, state }) {
       try {
         return await axios.get('/api/profile');
