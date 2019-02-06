@@ -81,6 +81,8 @@ describe Eve::AlliancePolicy::Scope do
 
     subject { described_class.new(user, Eve::Alliance) }
 
-    specify { expect(subject.resolve.all).to eq([record]) }
+    before { expect(Eve::Alliance).to receive(:all) }
+
+    specify { expect { subject.resolve }.not_to raise_error }
   end
 end
