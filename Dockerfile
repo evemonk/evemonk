@@ -1,8 +1,8 @@
-FROM ruby:2.6-rc
+FROM ruby:2.6.1
 
 LABEL maintainer="Igor Zubkov <igor.zubkov@gmail.com>"
 
-RUN apt-get update
+RUN apt-get update -y && apt-get dist-upgrade -y
 
 RUN mkdir -p /app
 
