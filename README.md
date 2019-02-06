@@ -18,6 +18,8 @@ EveMonk is helper software for EveOnline MMORPG.
 * Sign Up page
 * Sign In page
 * Sign Out
+* Change password
+* Reset password
 * Profile page
 * Character page with:
   * Name
@@ -49,13 +51,13 @@ EveMonk is helper software for EveOnline MMORPG.
 * Ruby on Rails 6.0.0.beta1
 * PostgreSQL 11.1
 * Redis 5.0.3
-* Node 10.15.0
-* NPM 6.6.0
+* Node 10.15.1
+* NPM 6.7.0
 * Yarn 1.13.0
-* Vue 2.5.22
+* Vue 2.6.2
 * vuex 3.1.0
 * vue-router 3.0.2
-* Vuetify 1.4.4
+* Vuetify 1.5.0
 
 ## Configure
 

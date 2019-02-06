@@ -6,7 +6,7 @@
       <v-icon slot="divider">chevron_right</v-icon>
     </v-breadcrumbs>
 
-    <v-form v-if="!sent">
+    <v-form v-model="valid" v-if="!sent">
       <v-text-field id="email"
                     type="email"
                     placeholder="john.appleseed@example.com"
@@ -29,6 +29,7 @@
     data () {
       return {
         title: 'Forgot password | EveMonk: EveOnline management suite',
+        valid: true,
         sent: false,
         email: '',
         errors: {
@@ -52,7 +53,7 @@
 
     methods: {
       ...mapActions([
-        'forgotPassword'
+        'requestPasswordReset'
       ]),
 
       ...mapMutations([
@@ -61,12 +62,12 @@
 
       submit() {
         const payload = {
-          forgot_password: {
+          request_password_reset: {
             email: this.email
           }
         };
 
-        this.forgotPassword(payload).then(response => {
+        this.requestPasswordReset(payload).then(response => {
           if (response && response.status === 200) {
             let type = "success";
             let message = "Email sent with password reset instructions.";
@@ -74,9 +75,9 @@
             this.setAlert({ type, message });
 
             this.sent = true;
-          // } else if (response.response && response.response.status === 422) {
-          //   this.valid = false;
-          //   this.errors = response.response.data.errors;
+          } else if (response.response && response.response.status === 422) {
+            this.valid = false;
+            this.errors = response.response.data.errors;
           }
         });
       }

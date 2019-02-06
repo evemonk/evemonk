@@ -92,14 +92,19 @@
         });
       },
 
-      '$route.query.page': function (page) {
-        if (page !== undefined && parseInt(page) !== this.current_page) {
-          this.current_page = parseInt(page);
-        }
-      }
+      // '$route.query.page': function (page) {
+      //   console.log('$route.query.page', page);
+      //   console.log('Number.isInteger: ', Number.isInteger(page));
+      //   if (page !== undefined && parseInt(page) !== this.current_page) {
+      //     console.log('inside $route.query.page', page);
+      //     this.current_page = parseInt(page);
+      //   }
+      // }
     },
 
     created () {
+      // console.log('created');
+
       let page = this.$route.query.page;
 
       if (page !== undefined) {

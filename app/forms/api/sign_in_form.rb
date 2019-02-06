@@ -21,6 +21,7 @@ module Api
 
       # TODO: add this
       # PushNotifications::NewSignIn.new(device, device_token, user.notifications_count).execute!
+      # Notifications::NewSignInMailer
 
       session.save!
     end

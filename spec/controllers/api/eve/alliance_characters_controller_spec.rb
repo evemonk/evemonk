@@ -11,29 +11,44 @@ describe Api::Eve::AllianceCharactersController do
     context 'with supported content type' do
       let(:alliance) { instance_double(Eve::Alliance) }
 
-      before { expect(Eve::Alliance).to receive(:find_by!).with(alliance_id: '12345').and_return(alliance) }
+      before do
+        #
+        # subject.policy_scope(::Eve::Alliance)
+        #        .find_by!(alliance_id: params[:alliance_id])
+        #
+        expect(subject).to receive(:policy_scope).with(Eve::Alliance) do
+          double.tap do |a|
+            expect(a).to receive(:find_by!).with(alliance_id: '12345')
+                                           .and_return(alliance)
+          end
+        end
+      end
 
       before do
         #
-        # Eve::Character.where(alliance: alliance)
-        #               .includes(:alliance,
-        #                         :ancestry,
-        #                         :bloodline,
-        #                         :corporation,
-        #                         :faction,
-        #                         :race)
-        #               .page(params[:page])
+        # subject.policy_scope(Eve::Character).where(alliance: @alliance)
+        #                                     .includes(:alliance,
+        #                                               :ancestry,
+        #                                               :bloodline,
+        #                                               :corporation,
+        #                                               :faction,
+        #                                               :race)
+        #                                     .page(params[:page])
         #
-        expect(Eve::Character).to receive(:where).with(alliance: alliance) do
+        expect(subject).to receive(:policy_scope).with(Eve::Character) do
           double.tap do |a|
-            expect(a).to receive(:includes).with(:alliance,
-                                                 :ancestry,
-                                                 :bloodline,
-                                                 :corporation,
-                                                 :faction,
-                                                 :race) do
+            expect(a).to receive(:where).with(alliance: alliance) do
               double.tap do |b|
-                expect(b).to receive(:page).with('1')
+                expect(b).to receive(:includes).with(:alliance,
+                                                     :ancestry,
+                                                     :bloodline,
+                                                     :corporation,
+                                                     :faction,
+                                                     :race) do
+                  double.tap do |c|
+                    expect(c).to receive(:page).with('1')
+                  end
+                end
               end
             end
           end

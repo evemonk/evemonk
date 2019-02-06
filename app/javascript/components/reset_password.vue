@@ -1,5 +1,5 @@
 <template>
-  <div id="sign_up_form">
+  <div id="reset_password_form">
     <vue-headful :title="title" />
 
     <v-breadcrumbs :items="breadcrumbs">
@@ -19,39 +19,24 @@
     </template>
 
     <v-form v-model="valid">
-      <v-text-field id="email"
-                    type="email"
-                    placeholder="john.appleseed@example.com"
-                    label="Email:"
-                    v-model="email"
-                    :error-messages="errors.email"
-                    autofocus
-                    required>
-      </v-text-field>
       <v-text-field id="password"
                     type="password"
-                    label="Password"
+                    label="New password"
                     :error-messages="errors.password"
                     v-model="password"
                     required>
       </v-text-field>
 
-      <v-btn id="sign_in_button" @click="submit" color="primary">Sign In</v-btn>
+      <v-text-field id="password_confirmation"
+                    type="password"
+                    label="New password confirmation"
+                    :error-messages="errors.password_confirmation"
+                    v-model="password_confirmation"
+                    required>
+      </v-text-field>
+
+      <v-btn id="reset_password_button" @click="submit" color="primary">Reset password</v-btn>
     </v-form>
-
-    <v-divider></v-divider>
-
-    <a href="/auth/eve_online_sso">
-      <v-img src="https://images.contentful.com/idjq7aai9ylm/4fSjj56uD6CYwYyus4KmES/4f6385c91e6de56274d99496e6adebab/EVE_SSO_Login_Buttons_Large_Black.png?w=270&h=45" width="270" height="45" alt="Sign in via EveOnline SSO"></v-img>
-    </a>
-
-    <v-divider></v-divider>
-
-    <router-link :to="{ name: 'forgot_password' }">Forgot password?</router-link>
-
-    <v-divider></v-divider>
-
-    <router-link :to="{ name: 'sign_up' }">Don't have an account? Sign up here</router-link>
   </div>
 </template>
 
@@ -61,14 +46,15 @@
   export default {
     data () {
       return {
-        title: 'Sign In | EveMonk: EveOnline management suite',
+        title: 'Reset password | EveMonk: EveOnline management suite',
         valid: true,
-        email: null,
+        reset_password_token: null,
         password: null,
+        password_confirmation: null,
         errors: {
           base: [],
-          email: [],
-          password: []
+          password: [],
+          password_confirmation: []
         },
         breadcrumbs: [
           {
@@ -77,8 +63,8 @@
             exact: true
           },
           {
-            text: 'Sign In',
-            to: { name: 'sign_in' },
+            text: 'Reset password',
+            to: { name: 'reset_password' },
             exact: true,
             disabled: true
           }
@@ -86,9 +72,13 @@
       }
     },
 
+    created () {
+      this.reset_password_token = this.$route.params.token;
+    },
+
     methods: {
       ...mapActions([
-        'signIn'
+        'resetPassword'
       ]),
 
       ...mapMutations([
@@ -97,16 +87,17 @@
 
       submit() {
         const payload = {
-          sign_in: {
-            email: this.email,
-            password: this.password
+          reset_password: {
+            reset_password_token: this.reset_password_token,
+            password: this.password,
+            password_confirmation: this.password_confirmation
           }
         };
 
-        this.signIn(payload).then(response => {
+        this.resetPassword(payload).then(response => {
           if (response && response.status === 200) {
             let type = "success";
-            let message = "Successful signed in!";
+            let message = "Password was successful reset.";
 
             this.setAlert({ type, message });
 

@@ -1,14 +1,18 @@
-FROM ruby:2.6-rc
+FROM ruby:2.6.1
 
 LABEL maintainer="Igor Zubkov <igor.zubkov@gmail.com>"
 
-RUN apt-get update
+RUN apt-get update -y && apt-get dist-upgrade -y
 
 RUN mkdir -p /app
 
 WORKDIR /app
 
 COPY . .
+
+ENV BUNDLER_VERSION 2.0.1
+
+RUN gem install bundler --version "$BUNDLER_VERSION" --force
 
 RUN bundle install --without development test
 

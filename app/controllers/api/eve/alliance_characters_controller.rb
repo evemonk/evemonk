@@ -6,18 +6,16 @@ module Api
       skip_before_action :authenticate
 
       def index
-        skip_policy_scope
+        @alliance = policy_scope(::Eve::Alliance).find_by!(alliance_id: params[:alliance_id])
 
-        @alliance = ::Eve::Alliance.find_by!(alliance_id: params[:alliance_id])
-
-        @characters = ::Eve::Character.where(alliance: @alliance)
-                                      .includes(:alliance,
-                                                :ancestry,
-                                                :bloodline,
-                                                :corporation,
-                                                :faction,
-                                                :race)
-                                      .page(params[:page])
+        @characters = policy_scope(::Eve::Character).where(alliance: @alliance)
+                                                    .includes(:alliance,
+                                                              :ancestry,
+                                                              :bloodline,
+                                                              :corporation,
+                                                              :faction,
+                                                              :race)
+                                                    .page(params[:page])
       end
     end
   end

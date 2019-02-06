@@ -2,7 +2,7 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 import axios from 'axios';
 
-import baseurl from 'baseurl.js'
+import baseurl from 'baseurl.js';
 
 axios.defaults.baseURL = baseurl;
 axios.defaults.headers.common.Accept = 'application/json';
@@ -114,9 +114,21 @@ const store = new Vuex.Store({
       }
     },
 
-    async forgotPassword({ commit, state }, payload) {
+    async requestPasswordReset({ commit, state }, payload) {
       try {
-        return await axios.get('/api/forgot_password', payload);
+        return await axios.post('/api/request_password_reset', payload);
+      } catch (error) {
+        return error;
+      }
+    },
+
+    async resetPassword({ commit, state }, payload) {
+      try {
+        const response = await axios.post('/api/reset_password', payload);
+
+        commit('signInUserWithToken', response.data.token);
+
+        return response;
       } catch (error) {
         return error;
       }
