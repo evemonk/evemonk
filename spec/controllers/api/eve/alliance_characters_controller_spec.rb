@@ -11,13 +11,17 @@ describe Api::Eve::AllianceCharactersController do
     context 'with supported content type' do
       let(:alliance) { instance_double(Eve::Alliance) }
 
-      before { expect(Eve::Alliance).to receive(:find_by!).with(alliance_id: '12345').and_return(alliance) }
-
       before do
         #
-        # authorize(@alliance)
+        # subject.policy_scope(::Eve::Alliance)
+        #        .find_by!(alliance_id: params[:alliance_id])
         #
-        expect(subject).to receive(:authorize).with(alliance)
+        expect(subject).to receive(:policy_scope).with(Eve::Alliance) do
+          double.tap do |a|
+            expect(a).to receive(:find_by!).with(alliance_id: '12345')
+                                           .and_return(alliance)
+          end
+        end
       end
 
       before do
