@@ -15,25 +15,36 @@ describe Api::Eve::AllianceCharactersController do
 
       before do
         #
-        # Eve::Character.where(alliance: alliance)
-        #               .includes(:alliance,
-        #                         :ancestry,
-        #                         :bloodline,
-        #                         :corporation,
-        #                         :faction,
-        #                         :race)
-        #               .page(params[:page])
+        # authorize(@alliance)
         #
-        expect(Eve::Character).to receive(:where).with(alliance: alliance) do
+        expect(subject).to receive(:authorize).with(alliance)
+      end
+
+      before do
+        #
+        # subject.policy_scope(Eve::Character).where(alliance: @alliance)
+        #                                     .includes(:alliance,
+        #                                               :ancestry,
+        #                                               :bloodline,
+        #                                               :corporation,
+        #                                               :faction,
+        #                                               :race)
+        #                                     .page(params[:page])
+        #
+        expect(subject).to receive(:policy_scope).with(Eve::Character) do
           double.tap do |a|
-            expect(a).to receive(:includes).with(:alliance,
-                                                 :ancestry,
-                                                 :bloodline,
-                                                 :corporation,
-                                                 :faction,
-                                                 :race) do
+            expect(a).to receive(:where).with(alliance: alliance) do
               double.tap do |b|
-                expect(b).to receive(:page).with('1')
+                expect(b).to receive(:includes).with(:alliance,
+                                                     :ancestry,
+                                                     :bloodline,
+                                                     :corporation,
+                                                     :faction,
+                                                     :race) do
+                  double.tap do |c|
+                    expect(c).to receive(:page).with('1')
+                  end
+                end
               end
             end
           end
