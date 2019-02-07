@@ -57,7 +57,7 @@
       ]),
 
       ...mapMutations([
-        'setAlert'
+        'SET_ALERT'
       ]),
 
       submit() {
@@ -72,7 +72,7 @@
             let type = "success";
             let message = "Email sent with password reset instructions.";
 
-            this.setAlert({ type, message });
+            this.SET_ALERT({ type, message });
 
             this.sent = true;
           } else if (response.response && response.response.status === 422) {

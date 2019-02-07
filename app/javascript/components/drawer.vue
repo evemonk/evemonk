@@ -137,7 +137,7 @@
         },
 
         set(value) {
-          store.commit('setDrawer', value);
+          store.commit('SET_DRAWER', value);
         }
       }
     },

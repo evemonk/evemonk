@@ -28,9 +28,9 @@
     },
 
     methods: {
-      ...mapMutations([
-        'clearAlerts'
-      ])
+      ...mapMutations({
+        clearAlerts: 'CLEAR_ALERTS'
+      })
     }
   }
 </script>

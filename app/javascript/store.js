@@ -39,32 +39,32 @@ const store = new Vuex.Store({
   },
 
   mutations: {
-    signInUser(state, payload) {
-      let token = payload.data.token;
+    SIGN_IN_USER(state, payload) {
+      const token = payload.data.token;
       state.token = token;
       localStorage.setItem('token', token);
     },
 
-    signInUserWithToken(state, token) {
+    SIGN_IN_USER_WITH_TOKEN(state, token) {
       state.token = token;
       localStorage.setItem('token', token);
     },
 
-    signOutUser(state) {
+    SIGN_OUT_USER(state) {
       state.token = null;
       localStorage.removeItem('token');
       state.alerts = [];
     },
 
-    setAlert(state, alert) {
+    SET_ALERT(state, alert) {
       state.alerts.push(alert);
     },
 
-    clearAlerts(state) {
+    CLEAR_ALERTS(state) {
       state.alerts = [];
     },
 
-    setDrawer(state, option) {
+    SET_DRAWER(state, option) {
       state.drawer = option;
     },
   },
@@ -74,7 +74,7 @@ const store = new Vuex.Store({
       try {
         const response = await axios.post('/api/sign_up', payload);
 
-        commit('signInUser', response);
+        commit('SIGN_IN_USER', response);
 
         return response;
       } catch (error) {
@@ -86,7 +86,7 @@ const store = new Vuex.Store({
       try {
         const response = await axios.post('/api/sign_in', payload);
 
-        commit('signInUser', response);
+        commit('SIGN_IN_USER', response);
 
         return response;
       } catch (error) {
@@ -98,7 +98,7 @@ const store = new Vuex.Store({
       try {
         await axios.delete('/api/sign_out');
       } finally {
-        commit('signOutUser');
+        commit('SIGN_OUT_USER');
       }
     },
 
@@ -106,7 +106,7 @@ const store = new Vuex.Store({
       try {
         const response = await axios.post('/api/change_password', payload);
 
-        commit('signInUserWithToken', response.data.token);
+        commit('SIGN_IN_USER_WITH_TOKEN', response.data.token);
 
         return response;
       } catch (error) {
@@ -126,7 +126,7 @@ const store = new Vuex.Store({
       try {
         const response = await axios.post('/api/reset_password', payload);
 
-        commit('signInUserWithToken', response.data.token);
+        commit('SIGN_IN_USER_WITH_TOKEN', response.data.token);
 
         return response;
       } catch (error) {
@@ -190,6 +190,8 @@ const store = new Vuex.Store({
       }
     },
   },
+
+  // strict: process.env.NODE_ENV !== 'production',
 });
 
 export default store;
