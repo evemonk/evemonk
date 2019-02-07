@@ -6,7 +6,9 @@
       <v-icon slot="divider">chevron_right</v-icon>
     </v-breadcrumbs>
 
-    <v-card>
+    <v-progress-linear :indeterminate="true" v-if="!loaded"></v-progress-linear>
+
+    <v-card v-if="loaded">
       <v-container fluid grid-list-lg>
         <v-layout row wrap>
           <v-flex xs12>
@@ -52,6 +54,7 @@
     data () {
       return {
         title: '',
+        loaded: false,
         alliance: {
           id: 0,
           name: '',
@@ -94,6 +97,8 @@
           });
 
           this.title = `Alliance "${alliance.name}" (${alliance.ticker}) | EveMonk: EveOnline management suite`;
+
+          this.loaded = true;
         }
       });
     },
