@@ -6,9 +6,11 @@
       <v-icon slot="divider">chevron_right</v-icon>
     </v-breadcrumbs>
 
-    <v-pagination v-model="current_page" :length="total_pages"></v-pagination>
+    <v-progress-linear :indeterminate="true" v-if="!loaded"></v-progress-linear>
 
-    <v-card>
+    <v-pagination v-model="current_page" :length="total_pages" v-if="loaded"></v-pagination>
+
+    <v-card v-if="loaded">
       <v-container fluid grid-list-lg>
         <v-layout row wrap>
           <v-flex xs12 v-for="character in characters" :key="character.id">
@@ -43,7 +45,7 @@
       </v-container>
     </v-card>
 
-    <v-pagination v-model="current_page" :length="total_pages"></v-pagination>
+    <v-pagination v-model="current_page" :length="total_pages" v-if="loaded"></v-pagination>
   </div>
 </template>
 
@@ -54,6 +56,7 @@
     data () {
       return {
         title: 'EveMonk: EveOnline management suite',
+        loaded: false,
         characters: [],
         current_page: 1,
         total_count: null,
@@ -151,6 +154,7 @@
           this.total_count = response.data.total_count;
           this.total_pages = response.data.total_pages;
           this.characters = response.data.characters;
+          this.loaded = true;
         }
       });
     },
