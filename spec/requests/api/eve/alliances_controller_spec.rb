@@ -166,5 +166,11 @@ describe Api::Eve::AlliancesController do
                                                 }
                                               })
     end
+
+    it 'returns 404' do
+      get '/api/eve/alliances/123'
+
+      expect(response).to have_http_status(:not_found)
+    end
   end
 end
