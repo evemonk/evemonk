@@ -54,7 +54,7 @@ EveMonk is helper software for EveOnline MMORPG.
 * Node 10.15.1
 * NPM 6.7.0
 * Yarn 1.13.0
-* Vue 2.6.3
+* Vue 2.6.5
 * vuex 3.1.0
 * vue-router 3.0.2
 * Vuetify 1.5.0
