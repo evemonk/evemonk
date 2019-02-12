@@ -24,5 +24,11 @@ describe Api::Eve::AllianceCorporationsController do
                                               'current_page' => 1,
                                               'corporations' => [])
     end
+
+    it 'returns 404' do
+      get '/api/eve/alliances/123/corporations'
+
+      expect(response).to have_http_status(:not_found)
+    end
   end
 end
