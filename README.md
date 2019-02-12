@@ -15,6 +15,8 @@ EveMonk is helper software for EveOnline MMORPG.
 * API End session
 * API current user profile
 * Multiple API sessions for clients
+* API list characters
+* API remove character
 * Sign Up page
 * Sign In page
 * Sign Out
@@ -54,7 +56,7 @@ EveMonk is helper software for EveOnline MMORPG.
 * Node 10.15.1
 * NPM 6.7.0
 * Yarn 1.13.0
-* Vue 2.6.5
+* Vue 2.6.6
 * vuex 3.1.0
 * vue-router 3.0.2
 * Vuetify 1.5.0
