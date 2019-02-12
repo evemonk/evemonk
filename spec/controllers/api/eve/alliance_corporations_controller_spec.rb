@@ -19,7 +19,7 @@ describe Api::Eve::AllianceCorporationsController do
         expect(subject).to receive(:policy_scope).with(Eve::Alliance) do
           double.tap do |a|
             expect(a).to receive(:find_by!).with(alliance_id: '12345')
-              .and_return(alliance)
+                                           .and_return(alliance)
           end
         end
       end
