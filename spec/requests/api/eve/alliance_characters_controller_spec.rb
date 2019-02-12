@@ -172,7 +172,7 @@ describe Api::Eve::AllianceCharactersController do
     end
 
     it 'returns 404' do
-      get '/api/eve/alliances/123'
+      get '/api/eve/alliances/123/characters'
 
       expect(response).to have_http_status(:not_found)
     end
