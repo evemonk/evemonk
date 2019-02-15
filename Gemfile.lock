@@ -337,7 +337,7 @@ GEM
       railties (>= 4.2.0, < 6.0)
     rotp (4.0.2)
       addressable (~> 2.5)
-    rpush (3.3.1)
+    rpush (4.0.0)
       activesupport
       ansi
       jwt (>= 1.5.6)
