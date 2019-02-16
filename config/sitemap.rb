@@ -27,6 +27,14 @@ SitemapGenerator::Sitemap.create do
   #     add article_path(article), :lastmod => article.updated_at
   #   end
 
+  pages = Eve::Alliance.page(1).total_pages
+
+  add '/universe/alliances', lastmod: Time.zone.now, changefreq: 'daily'
+
+  (1..pages).each do |page|
+    add "/universe/alliances?page=#{ page }", lastmod: Time.zone.now, changefreq: 'daily'
+  end
+
   Eve::Alliance.find_each do |alliance|
     add "/universe/alliances/#{ alliance.alliance_id }", lastmod: alliance.updated_at
   end
