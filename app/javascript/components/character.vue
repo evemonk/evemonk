@@ -78,6 +78,14 @@
                   </v-card-title>
                 </v-flex>
               </v-layout>
+              <v-divider light></v-divider>
+              <v-card-actions>
+                <v-btn color="error" @click="removeCharacter(character.id)">
+                  Remove
+                </v-btn>
+                <v-spacer></v-spacer>
+                <v-btn color="info">LPStore</v-btn>
+              </v-card-actions>
             </v-card>
           </v-flex>
 
@@ -168,8 +176,17 @@
 
     methods: {
       ...mapActions([
-        'fetchCharacter'
-      ])
+        'fetchCharacter',
+        'destroyCharacter',
+      ]),
+
+      removeCharacter (id) {
+        this.destroyCharacter(id).then(response => {
+          if (response.status === 204) {
+            this.$router.push('/characters');
+          }
+        });
+      }
     }
   }
 </script>
