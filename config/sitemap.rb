@@ -27,6 +27,11 @@ SitemapGenerator::Sitemap.create do
   #     add article_path(article), :lastmod => article.updated_at
   #   end
 
+  add '/'
+  add '/sign_in'
+  add '/sign_up'
+  add '/forgot_password'
+
   add '/universe/alliances'
 
   pages = Eve::Alliance.page(1).total_pages
