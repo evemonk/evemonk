@@ -33,6 +33,10 @@
               </v-layout>
               <v-divider light></v-divider>
               <v-card-actions>
+                <v-btn color="error" @click="removeCharacter(character.id)">
+                  Remove
+                </v-btn>
+                <v-spacer></v-spacer>
                 <v-btn color="info">LPStore</v-btn>
                 <v-spacer></v-spacer>
                 <v-btn color="info">
@@ -109,8 +113,22 @@
 
     methods: {
       ...mapActions([
-        'fetchCharacters'
-      ])
+        'fetchCharacters',
+        'destroyCharacter',
+      ]),
+
+      removeCharacter (id) {
+        this.destroyCharacter(id).then(response => {
+          console.log(response);
+
+
+          if (response.status === 200) {
+            console.log('done');
+          } else {
+
+          }
+        });
+      }
     }
   }
 </script>

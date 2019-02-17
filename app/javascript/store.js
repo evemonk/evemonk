@@ -158,6 +158,14 @@ const store = new Vuex.Store({
       }
     },
 
+    async destroyCharacter({ commit, state }, id) {
+      try {
+        return await axios.delete(`/api/characters/${id}`);
+      } catch (error) {
+        return error;
+      }
+    },
+
     // async fetchCharacterLoyaltyPoint ({ commit, state }, id) {
     //     try {
     //         return await axios.get(`/api/characters/${id}/loyalty_points`);
