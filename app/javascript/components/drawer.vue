@@ -1,8 +1,7 @@
 <template>
   <v-navigation-drawer app
                        v-model="drawer"
-                       absolute
-                       temporary>
+                       absolute>
     <v-toolbar flat class="transparent">
       <v-list>
         <v-list-tile avatar>
