@@ -21,7 +21,7 @@
       ]),
 
       showDrawer() {
-        store.commit('setDrawer', !this.getDrawer());
+        store.commit('SET_DRAWER', !this.getDrawer());
       },
     }
   }

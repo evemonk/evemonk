@@ -28,6 +28,4 @@ document.addEventListener('DOMContentLoaded', () => {
     store,
     render: h => h(App),
   });
-
-  console.log(app);
 });

@@ -7,6 +7,7 @@
 * Add SEO titles to pages
 * Add Google Analytics
 * Enable NewRelic again
+* Show Alliance corporations
 
 ## v0.1.0
 

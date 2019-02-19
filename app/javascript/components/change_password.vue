@@ -86,7 +86,7 @@
       ]),
 
       ...mapMutations([
-        'setAlert'
+        'SET_ALERT'
       ]),
 
       submit() {
@@ -103,7 +103,7 @@
             let type = "success";
             let message = "Password was successful changed!";
 
-            this.setAlert({ type, message });
+            this.SET_ALERT({ type, message });
 
             this.$router.push('/profile');
           } else if (response.response && response.response.status === 422) {

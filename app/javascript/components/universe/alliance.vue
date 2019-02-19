@@ -6,7 +6,9 @@
       <v-icon slot="divider">chevron_right</v-icon>
     </v-breadcrumbs>
 
-    <v-card>
+    <v-progress-linear :indeterminate="true" v-if="!loaded"></v-progress-linear>
+
+    <v-card v-if="loaded">
       <v-container fluid grid-list-lg>
         <v-layout row wrap>
           <v-flex xs12>
@@ -27,7 +29,11 @@
               </v-layout>
               <v-divider light></v-divider>
               <v-card-actions>
-                <v-btn color="info">Corporations ({{ alliance.corporations_count }})</v-btn>
+                <v-btn color="info">
+                  <router-link :to="{ name: 'universe_alliance_corporations', params: { id: alliance.id }}">
+                    Corporations ({{ alliance.corporations_count }})
+                  </router-link>
+                </v-btn>
                 <v-spacer></v-spacer>
                 <v-btn color="info">
                   <router-link :to="{ name: 'universe_alliance_characters', params: { id: alliance.id }}">
@@ -51,7 +57,8 @@
   export default {
     data () {
       return {
-        title: '',
+        title: 'EveMonk: EveOnline management suite',
+        loaded: false,
         alliance: {
           id: 0,
           name: '',
@@ -94,6 +101,8 @@
           });
 
           this.title = `Alliance "${alliance.name}" (${alliance.ticker}) | EveMonk: EveOnline management suite`;
+
+          this.loaded = true;
         }
       });
     },

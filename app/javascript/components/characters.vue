@@ -6,9 +6,11 @@
       <v-icon slot="divider">chevron_right</v-icon>
     </v-breadcrumbs>
 
-    <v-pagination v-model="current_page" :length="total_pages"></v-pagination>
+    <v-progress-linear :indeterminate="true" v-if="!loaded"></v-progress-linear>
 
-    <v-card>
+    <v-pagination v-model="current_page" :length="total_pages" v-if="loaded"></v-pagination>
+
+    <v-card v-if="loaded">
       <v-container fluid grid-list-lg>
         <v-layout row wrap>
           <v-flex xs12 v-for="character in characters" :key="character.id">
@@ -31,6 +33,10 @@
               </v-layout>
               <v-divider light></v-divider>
               <v-card-actions>
+                <v-btn color="error" @click="removeCharacter(character.id)">
+                  Remove
+                </v-btn>
+                <v-spacer></v-spacer>
                 <v-btn color="info">LPStore</v-btn>
                 <v-spacer></v-spacer>
                 <v-btn color="info">
@@ -46,7 +52,7 @@
       </v-container>
     </v-card>
 
-    <v-pagination v-model="current_page" :length="total_pages"></v-pagination>
+    <v-pagination v-model="current_page" :length="total_pages" v-if="loaded"></v-pagination>
   </div>
 </template>
 
@@ -57,6 +63,7 @@
     data () {
       return {
         title: 'Characters | EveMonk: EveOnline management suite',
+        loaded: false,
         current_page: 1,
         total_count: null,
         total_pages: null,
@@ -97,6 +104,7 @@
           this.total_count = response.data.total_count;
           this.total_pages = response.data.total_pages;
           this.characters = response.data.characters;
+          this.loaded = true;
         } else {
           //this.$router.push('/sign_in');
         }
@@ -105,8 +113,24 @@
 
     methods: {
       ...mapActions([
-        'fetchCharacters'
-      ])
+        'fetchCharacters',
+        'destroyCharacter',
+      ]),
+
+      removeCharacter (id) {
+        this.destroyCharacter(id).then(response => {
+          if (response.status === 204) {
+            this.fetchCharacters(this.current_page).then(response => {
+              if (response.status === 200) {
+                this.total_count = response.data.total_count;
+                this.total_pages = response.data.total_pages;
+                this.characters = response.data.characters;
+                this.loaded = true;
+              }
+            });
+          }
+        });
+      }
     }
   }
 </script>

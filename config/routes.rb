@@ -42,6 +42,8 @@ Rails.application.routes.draw do
     namespace :eve do
       resources :alliances, only: [:index, :show] do
         resources :characters, only: :index, controller: :alliance_characters
+
+        resources :corporations, only: :index, controller: :alliance_corporations
       end
     end
   end

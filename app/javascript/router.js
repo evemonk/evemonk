@@ -16,6 +16,7 @@ import LPStore from './components/lpstore.vue';
 import UniverseAlliances from './components/universe/alliances.vue';
 import UniverseAlliance from './components/universe/alliance.vue';
 import UniverseAllianceCharacters from './components/universe/alliance_characters.vue';
+import UniverseAllianceCorporations from './components/universe/alliance_corporations.vue';
 import UniverseCorporations from './components/universe/corporations.vue';
 import UniverseCorporation from './components/universe/corporation.vue';
 
@@ -96,6 +97,11 @@ const routes = [
     path: '/universe/alliances/:id/characters',
     name: 'universe_alliance_characters',
     component: UniverseAllianceCharacters,
+  },
+  {
+    path: '/universe/alliances/:id/corporations',
+    name: 'universe_alliance_corporations',
+    component: UniverseAllianceCorporations,
   },
   {
     path: '/universe/corporations',

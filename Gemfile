@@ -36,17 +36,13 @@ gem 'http_logger'
 gem 'responders'
 gem 'rack-health'
 gem 'sitemap_generator'
+gem 'rotp'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
 
 # Use ActiveStorage variant
 # gem 'image_processing', '~> 1.2'
-
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
 
 group :production do
   gem 'newrelic_rpm'
@@ -100,7 +96,7 @@ group :test do
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
   gem 'rails-controller-testing'
-  gem 'shoulda-matchers', '4.0.0.rc1'
+  gem 'shoulda-matchers'
   gem 'rspec-its'
   gem 'shoulda-callback-matchers', git: 'https://github.com/jdliss/shoulda-callback-matchers.git',
                                    branch: 'master'
