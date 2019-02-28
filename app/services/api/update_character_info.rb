@@ -48,7 +48,9 @@ module Api
         character.loyalty_points.destroy_all
 
         esi.loyalty_points.each do |lp|
-          character.loyalty_points.create!(lp.as_json)
+          character_lp = character.loyalty_points.find_or_initialize_by(corporation_id: lp.corporation_id)
+          character_lp.assign_attributes(lp.as_json)
+          character_lp.save!
         end
       end
     end
