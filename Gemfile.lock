@@ -266,6 +266,9 @@ GEM
     pghero (2.2.0)
       activerecord
     powerpack (0.1.2)
+    prerender_rails (1.6.0)
+      activesupport
+      rack
     pry (0.12.2)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
@@ -518,6 +521,7 @@ DEPENDENCIES
   pg (>= 0.18, < 2.0)
   pg_query
   pghero
+  prerender_rails
   pry-rails
   puma (~> 3.11)
   pundit
