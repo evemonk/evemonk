@@ -52,7 +52,7 @@ const store = new Vuex.Store({
 
     SIGN_OUT_USER(state) {
       state.token = null;
-      localStorage.removeItem('token');
+      localStorage.clear();
       state.alerts = [];
     },
 
