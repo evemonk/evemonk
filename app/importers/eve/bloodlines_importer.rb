@@ -3,21 +3,21 @@
 module Eve
   class BloodlinesImporter
     def import
-      eveonline_esi_bloodlines = EveOnline::ESI::UniverseBloodlines.new
+      esi = EveOnline::ESI::UniverseBloodlines.new
 
-      etag = Etag.find_or_initialize_by(url: eveonline_esi_bloodlines.url)
+      etag = Etag.find_or_initialize_by(url: esi.url)
 
-      eveonline_esi_bloodlines.etag = etag.etag
+      esi.etag = etag.etag
 
-      return if eveonline_esi_bloodlines.not_modified?
+      return if esi.not_modified?
 
-      eveonline_esi_bloodlines.bloodlines.each do |bloodline|
+      esi.bloodlines.each do |bloodline|
         eve_bloodline = Eve::Bloodline.find_or_initialize_by(bloodline_id: bloodline.bloodline_id)
 
         eve_bloodline.update!(bloodline.as_json)
       end
 
-      etag.update!(etag: eveonline_esi_bloodlines.etag)
+      etag.update!(etag: esi.etag)
     end
   end
 end
