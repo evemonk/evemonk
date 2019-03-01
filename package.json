@@ -6,6 +6,7 @@
     "actioncable": ">=5.2.1",
     "activestorage": ">=5.2.1",
     "axios": "^0.18.0",
+    "prerender": "^5.5.1",
     "rails-erb-loader": "^5.5.0",
     "rails-ujs": ">=5.2.1",
     "vue": "^2.5.21",

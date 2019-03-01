@@ -63,4 +63,7 @@ Rails.application.configure do
 
   # Sidekiq
   config.active_job.queue_adapter = :sidekiq
+
+  # Prerender
+  config.middleware.use Rack::Prerender, prerender_service_url: 'http://localhost:3001'
 end
