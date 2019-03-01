@@ -2,7 +2,7 @@
 
 source 'https://rubygems.org'
 
-gem 'rails', '6.0.0.beta1'
+gem 'rails', '6.0.0.beta2'
 # gem 'rails', git: 'https://github.com/rails/rails.git',
 #              branch: 'master'
 gem 'pg', '>= 0.18', '< 2.0'
@@ -51,7 +51,11 @@ group :production do
 end
 
 group :development, :test do
-  gem 'rspec-rails'
+  # gem 'rspec-rails'
+  ['rspec-core', 'rspec-expectations', 'rspec-mocks', 'rspec-support'].each do |lib|
+    gem lib, git: "https://github.com/rspec/#{ lib }.git", branch: 'master'
+  end
+  gem 'rspec-rails', git: 'https://github.com/rspec/rspec-rails.git', branch: '4-0-dev'
   gem 'awesome_print', require: 'ap'
   gem 'pry-rails'
   # gem 'bullet' # Current version don't support rails 6 yet
