@@ -3,19 +3,19 @@
 module Eve
   class AlliancesImporter
     def import
-      eveonline_esi_alliances = EveOnline::ESI::Alliances.new
+      esi = EveOnline::ESI::Alliances.new
 
-      etag = Etag.find_or_initialize_by(url: eveonline_esi_alliances.url)
+      etag = Etag.find_or_initialize_by(url: esi.url)
 
-      eveonline_esi_alliances.etag = etag.etag
+      esi.etag = etag.etag
 
-      return if eveonline_esi_alliances.not_modified?
+      return if esi.not_modified?
 
-      eveonline_esi_alliances.alliance_ids.each do |alliance_id|
+      esi.alliance_ids.each do |alliance_id|
         Eve::AllianceImporterWorker.perform_async(alliance_id)
       end
 
-      etag.update!(etag: eveonline_esi_alliances.etag)
+      etag.update!(etag: esi.etag)
     end
   end
 end
