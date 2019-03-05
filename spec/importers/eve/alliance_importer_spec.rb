@@ -20,7 +20,7 @@ describe Eve::AllianceImporter do
 
         let(:new_etag) { double }
 
-        let(:eveonline_esi_alliance) do
+        let(:esi) do
           instance_double(EveOnline::ESI::Alliance,
                           url: url,
                           not_modified?: false,
@@ -28,13 +28,13 @@ describe Eve::AllianceImporter do
                           as_json: json)
         end
 
-        before { expect(EveOnline::ESI::Alliance).to receive(:new).with(alliance_id: alliance_id).and_return(eveonline_esi_alliance) }
+        before { expect(EveOnline::ESI::Alliance).to receive(:new).with(alliance_id: alliance_id).and_return(esi) }
 
         let(:etag) { instance_double(Etag, etag: '6780e53a01c7d9715b5f445126c4f2c137da4be79e4debe541ce3ab2') }
 
         before { expect(Etag).to receive(:find_or_initialize_by).with(url: url).and_return(etag) }
 
-        before { expect(eveonline_esi_alliance).to receive(:etag=).with('6780e53a01c7d9715b5f445126c4f2c137da4be79e4debe541ce3ab2') }
+        before { expect(esi).to receive(:etag=).with('6780e53a01c7d9715b5f445126c4f2c137da4be79e4debe541ce3ab2') }
 
         before { expect(eve_alliance).to receive(:update!).with(json) }
 
@@ -71,19 +71,19 @@ describe Eve::AllianceImporter do
 
       let(:url) { double }
 
-      let(:eveonline_esi_alliance) do
+      let(:esi) do
         instance_double(EveOnline::ESI::Alliance,
                         url: url,
                         not_modified?: true)
       end
 
-      before { expect(EveOnline::ESI::Alliance).to receive(:new).with(alliance_id: alliance_id).and_return(eveonline_esi_alliance) }
+      before { expect(EveOnline::ESI::Alliance).to receive(:new).with(alliance_id: alliance_id).and_return(esi) }
 
       let(:etag) { instance_double(Etag, etag: '6780e53a01c7d9715b5f445126c4f2c137da4be79e4debe541ce3ab2') }
 
       before { expect(Etag).to receive(:find_or_initialize_by).with(url: url).and_return(etag) }
 
-      before { expect(eveonline_esi_alliance).to receive(:etag=).with('6780e53a01c7d9715b5f445126c4f2c137da4be79e4debe541ce3ab2') }
+      before { expect(esi).to receive(:etag=).with('6780e53a01c7d9715b5f445126c4f2c137da4be79e4debe541ce3ab2') }
 
       before { expect(eve_alliance).not_to receive(:update!) }
 
