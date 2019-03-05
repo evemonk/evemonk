@@ -591,7 +591,7 @@ DEPENDENCIES
   swagger-blocks
   vcr
   webmock
-  webpacker (= 4.0.1)
+  webpacker
 
 BUNDLED WITH
    2.0.1
