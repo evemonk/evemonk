@@ -655,9 +655,9 @@
   integrity sha512-Xb7tBu7QEJqQev0VdDPQP/SPtqiJyNdG7VUFhugnGWGCZ687E+NnwbfZ3qdfF+pqXU1TYBN5bqDlh/MKUE0JMA==
 
 "@rails/webpacker@^4.0.1":
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/@rails/webpacker/-/webpacker-4.0.1.tgz#4e20f1115dd583e4410cf3f895bfd1dd717155a3"
-  integrity sha512-P9wDoB4TpsiQOudTIzusUXsZhToxBE8B+yN9KdVIBCzJnZFaCXHbSc72JoHnTKM+3YKP1od+j4TM4uS0rglmow==
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/@rails/webpacker/-/webpacker-4.0.2.tgz#2c2e96527500b060a84159098449ddb1615c65e8"
+  integrity sha512-TDj/+UHnWaEg8X21E3cGKvptm3BbW1aUtOAXtrYwpK9tkiWq+Dc40Gm2RIZW7rU3jxDDBZgPRiqvr5B0dorIVw==
   dependencies:
     "@babel/core" "^7.3.4"
     "@babel/plugin-proposal-class-properties" "^7.3.4"
@@ -7584,9 +7584,9 @@ webpack-cli@^3.2.3:
     yargs "^12.0.4"
 
 webpack-dev-middleware@^3.5.1:
-  version "3.6.0"
-  resolved "https://registry.yarnpkg.com/webpack-dev-middleware/-/webpack-dev-middleware-3.6.0.tgz#71f1b04e52ff8d442757af2be3a658237d53a3e5"
-  integrity sha512-oeXA3m+5gbYbDBGo4SvKpAHJJEGMoekUbHgo1RK7CP1sz7/WOSeu/dWJtSTk+rzDCLkPwQhGocgIq6lQqOyOwg==
+  version "3.6.1"
+  resolved "https://registry.yarnpkg.com/webpack-dev-middleware/-/webpack-dev-middleware-3.6.1.tgz#91f2531218a633a99189f7de36045a331a4b9cd4"
+  integrity sha512-XQmemun8QJexMEvNFbD2BIg4eSKrmSIMrTfnl2nql2Sc6OGAYFyb8rwuYrCjl/IiEYYuyTEiimMscu7EXji/Dw==
   dependencies:
     memory-fs "^0.4.1"
     mime "^2.3.1"
