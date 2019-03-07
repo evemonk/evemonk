@@ -22,7 +22,7 @@ before_install:
   - bundle --version
   - nvm install
   - node -v
-  - npm install -g npm@6.8.0
+  - npm install -g npm@6.9.0
   - npm -v
   - npm i -g yarn@1.13.0
   - yarn -v
