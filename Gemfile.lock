@@ -272,7 +272,7 @@ GEM
       tomlrb
     mry (0.59.0.0)
       rubocop (>= 0.41.0)
-    msgpack (1.2.8)
+    msgpack (1.2.9)
     multi_json (1.13.1)
     multi_xml (0.6.0)
     multipart-post (2.0.0)
