@@ -1,4 +1,4 @@
-FROM ruby:2.6.2
+FROM ruby:2.6.2-slim
 
 LABEL maintainer="Igor Zubkov <igor.zubkov@gmail.com>"
 
