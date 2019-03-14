@@ -14,6 +14,9 @@ ENV BUNDLER_VERSION 2.0.1
 
 RUN gem install bundler --version "$BUNDLER_VERSION" --force
 
+# throw errors if Gemfile has been modified since Gemfile.lock
+RUN bundle config --global frozen 1
+
 RUN bundle install --without development test
 
 # RUN yum upgrade -y -q
