@@ -26,7 +26,11 @@ describe Api::Eve::CorporationsController do
 
       expect(JSON.parse(response.body)).to eq('total_count' => 1,
                                               'total_pages' => 1,
-                                              'current_page' => 1)
+                                              'current_page' => 1,
+                                              'corporations' => [{
+                                                'id' => 456,
+                                                'icon' => 'http://imageserver.eveonline.com/Corporation/456_256.png'
+                                              }])
     end
   end
 end

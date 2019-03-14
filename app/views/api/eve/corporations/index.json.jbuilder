@@ -3,10 +3,9 @@
 json.total_count @corporations.total_count
 json.total_pages @corporations.total_pages
 json.current_page @corporations.current_page
-# json.characters do
-#   json.array! @characters do |character|
-#     json.id character.character_id
-#     json.icon "https://imageserver.eveonline.com/Character/#{ character.character_id }_512.jpg"
-#     json.name character.name
-#   end
-# end
+json.corporations do
+  json.array! @corporations do |corporation|
+    json.id corporation.corporation_id
+    json.icon "http://imageserver.eveonline.com/Corporation/#{ corporation.corporation_id }_256.png"
+  end
+end
