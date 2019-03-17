@@ -35,11 +35,11 @@
               </v-layout>
               <v-divider light></v-divider>
               <v-card-actions>
-                <!--<v-btn color="info">-->
-                  <!--<router-link :to="{ name: 'universe_alliance_corporations', params: { id: alliance.id }}">-->
-                    <!--Corporations ({{ alliance.corporations_count }})-->
-                  <!--</router-link>-->
-                <!--</v-btn>-->
+                <v-btn color="info">
+                  <router-link :to="{ name: 'universe_corporation', params: { id: corporation.id }}">
+                    Info
+                  </router-link>
+                </v-btn>
                 <v-spacer></v-spacer>
                 <v-btn color="info">
                   <router-link :to="{ name: 'universe_corporation_characters', params: { id: corporation.id }}">
