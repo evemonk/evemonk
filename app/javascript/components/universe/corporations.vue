@@ -86,7 +86,19 @@
       }
     },
 
-    watch: {},
+    watch: {
+      current_page: function (page) {
+        this.fetchUniverseCorporations(page).then(response => {
+          if (response.status === 200) {
+            this.total_count = response.data.total_count;
+            this.total_pages = response.data.total_pages;
+            this.corporations = response.data.corporations;
+
+            this.$router.push({ name: 'universe_corporations', query: { page: page } });
+          }
+        });
+      },
+    },
 
     created () {
       // console.log('created');
