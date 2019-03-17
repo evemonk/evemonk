@@ -15,7 +15,7 @@ describe Eve::FactionsImporter do
 
       let(:faction) { instance_double(EveOnline::ESI::Models::Faction, faction_id: faction_id, as_json: as_json) }
 
-      let(:eveonline_esi_factions) do
+      let(:esi) do
         instance_double(EveOnline::ESI::UniverseFactions,
                         not_modified?: false,
                         url: url,
@@ -23,13 +23,13 @@ describe Eve::FactionsImporter do
                         factions: [faction])
       end
 
-      before { expect(EveOnline::ESI::UniverseFactions).to receive(:new).and_return(eveonline_esi_factions) }
+      before { expect(EveOnline::ESI::UniverseFactions).to receive(:new).and_return(esi) }
 
       let(:etag) { instance_double(Etag, etag: 'e3f6a76b4a1287f54966c6253f8f5d6ac6460bc43d47570331b43e0b') }
 
       before { expect(Etag).to receive(:find_or_initialize_by).with(url: url).and_return(etag) }
 
-      before { expect(eveonline_esi_factions).to receive(:etag=).with('e3f6a76b4a1287f54966c6253f8f5d6ac6460bc43d47570331b43e0b') }
+      before { expect(esi).to receive(:etag=).with('e3f6a76b4a1287f54966c6253f8f5d6ac6460bc43d47570331b43e0b') }
 
       let(:eve_faction) { instance_double(Eve::Faction) }
 
@@ -45,19 +45,19 @@ describe Eve::FactionsImporter do
     context 'when no fresh data available' do
       let(:url) { double }
 
-      let(:eveonline_esi_factions) do
+      let(:esi) do
         instance_double(EveOnline::ESI::UniverseFactions,
                         not_modified?: true,
                         url: url)
       end
 
-      before { expect(EveOnline::ESI::UniverseFactions).to receive(:new).and_return(eveonline_esi_factions) }
+      before { expect(EveOnline::ESI::UniverseFactions).to receive(:new).and_return(esi) }
 
       let(:etag) { instance_double(Etag, etag: 'e3f6a76b4a1287f54966c6253f8f5d6ac6460bc43d47570331b43e0b') }
 
       before { expect(Etag).to receive(:find_or_initialize_by).with(url: url).and_return(etag) }
 
-      before { expect(eveonline_esi_factions).to receive(:etag=).with('e3f6a76b4a1287f54966c6253f8f5d6ac6460bc43d47570331b43e0b') }
+      before { expect(esi).to receive(:etag=).with('e3f6a76b4a1287f54966c6253f8f5d6ac6460bc43d47570331b43e0b') }
 
       before { expect(Eve::Faction).not_to receive(:find_or_initialize_by) }
 

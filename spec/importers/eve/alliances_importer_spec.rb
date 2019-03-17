@@ -11,7 +11,7 @@ describe Eve::AlliancesImporter do
 
       let(:alliance_id) { double }
 
-      let(:eveonline_esi_alliances) do
+      let(:esi) do
         instance_double(EveOnline::ESI::Alliances,
                         not_modified?: false,
                         url: url,
@@ -19,13 +19,13 @@ describe Eve::AlliancesImporter do
                         alliance_ids: [alliance_id])
       end
 
-      before { expect(EveOnline::ESI::Alliances).to receive(:new).and_return(eveonline_esi_alliances) }
+      before { expect(EveOnline::ESI::Alliances).to receive(:new).and_return(esi) }
 
       let(:etag) { instance_double(Etag, etag: '97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a') }
 
       before { expect(Etag).to receive(:find_or_initialize_by).with(url: url).and_return(etag) }
 
-      before { expect(eveonline_esi_alliances).to receive(:etag=).with('97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a') }
+      before { expect(esi).to receive(:etag=).with('97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a') }
 
       before { expect(Eve::AllianceImporterWorker).to receive(:perform_async).with(alliance_id) }
 
@@ -37,19 +37,19 @@ describe Eve::AlliancesImporter do
     context 'when no fresh data available' do
       let(:url) { double }
 
-      let(:eveonline_esi_alliances) do
+      let(:esi) do
         instance_double(EveOnline::ESI::Alliances,
                         not_modified?: true,
                         url: url)
       end
 
-      before { expect(EveOnline::ESI::Alliances).to receive(:new).and_return(eveonline_esi_alliances) }
+      before { expect(EveOnline::ESI::Alliances).to receive(:new).and_return(esi) }
 
       let(:etag) { instance_double(Etag, etag: '97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a') }
 
       before { expect(Etag).to receive(:find_or_initialize_by).with(url: url).and_return(etag) }
 
-      before { expect(eveonline_esi_alliances).to receive(:etag=).with('97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a') }
+      before { expect(esi).to receive(:etag=).with('97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a') }
 
       before { expect(Eve::AllianceImporterWorker).not_to receive(:perform_async) }
 

@@ -3,21 +3,21 @@
 module Eve
   class RacesImporter
     def import
-      eveonline_esi_races = EveOnline::ESI::UniverseRaces.new
+      esi = EveOnline::ESI::UniverseRaces.new
 
-      etag = Etag.find_or_initialize_by(url: eveonline_esi_races.url)
+      etag = Etag.find_or_initialize_by(url: esi.url)
 
-      eveonline_esi_races.etag = etag.etag
+      esi.etag = etag.etag
 
-      return if eveonline_esi_races.not_modified?
+      return if esi.not_modified?
 
-      eveonline_esi_races.races.each do |race|
+      esi.races.each do |race|
         eve_race = Eve::Race.find_or_initialize_by(race_id: race.race_id)
 
         eve_race.update!(race.as_json)
       end
 
-      etag.update!(etag: eveonline_esi_races.etag)
+      etag.update!(etag: esi.etag)
     end
   end
 end

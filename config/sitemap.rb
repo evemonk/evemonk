@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Set the host name for URL creation
-SitemapGenerator::Sitemap.default_host = "https://evemonk.com"
+SitemapGenerator::Sitemap.default_host = 'https://evemonk.com'
 
 SitemapGenerator::Sitemap.create do
   # Put links creation logic here.
@@ -55,6 +55,25 @@ SitemapGenerator::Sitemap.create do
 
     (1..pages).each do |page|
       add "/universe/alliances/#{ alliance.alliance_id }/corporations?page=#{ page }"
+    end
+  end
+
+  add '/universe/corporations'
+
+  pages = Eve::Corporation.page(1).total_pages
+
+  (1..pages).each do |page|
+    add "/universe/corporations?page=#{ page }"
+  end
+
+  Eve::Corporation.find_each do |corporation|
+    add "/universe/corporations/#{ corporation.corporation_id }"
+    add "/universe/corporations/#{ corporation.corporation_id }/characters"
+
+    pages = corporation.characters.page(1).total_pages
+
+    (1..pages).each do |page|
+      add "/universe/corporations/#{ corporation.corporation_id }/characters?page=#{ page }"
     end
   end
 end

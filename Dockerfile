@@ -1,4 +1,4 @@
-FROM ruby:2.6.1
+FROM ruby:2.6.2-slim
 
 LABEL maintainer="Igor Zubkov <igor.zubkov@gmail.com>"
 
@@ -13,6 +13,9 @@ COPY . .
 ENV BUNDLER_VERSION 2.0.1
 
 RUN gem install bundler --version "$BUNDLER_VERSION" --force
+
+# throw errors if Gemfile has been modified since Gemfile.lock
+RUN bundle config --global frozen 1
 
 RUN bundle install --without development test
 

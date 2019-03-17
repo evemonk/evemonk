@@ -34,7 +34,9 @@
                 <v-divider light></v-divider>
                   <v-card-actions>
                     <v-btn color="info">
-                      Characters ({{ corporation.member_count }})
+                      <router-link :to="{ name: 'universe_corporation_characters', params: { id: corporation.id }}">
+                        Characters ({{ corporation.member_count }})
+                      </router-link>
                     </v-btn>
                   </v-card-actions>
               </v-card>

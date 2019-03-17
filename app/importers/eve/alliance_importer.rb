@@ -11,17 +11,17 @@ module Eve
     def import
       eve_alliance = Eve::Alliance.find_or_initialize_by(alliance_id: alliance_id)
 
-      eveonline_esi_alliance = EveOnline::ESI::Alliance.new(alliance_id: alliance_id)
+      esi = EveOnline::ESI::Alliance.new(alliance_id: alliance_id)
 
-      etag = Etag.find_or_initialize_by(url: eveonline_esi_alliance.url)
+      etag = Etag.find_or_initialize_by(url: esi.url)
 
-      eveonline_esi_alliance.etag = etag.etag
+      esi.etag = etag.etag
 
-      return if eveonline_esi_alliance.not_modified?
+      return if esi.not_modified?
 
-      eve_alliance.update!(eveonline_esi_alliance.as_json)
+      eve_alliance.update!(esi.as_json)
 
-      etag.update!(etag: eveonline_esi_alliance.etag)
+      etag.update!(etag: esi.etag)
     rescue EveOnline::Exceptions::ResourceNotFound
       eve_alliance.destroy!
     end

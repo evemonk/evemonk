@@ -2,7 +2,7 @@
   "name": "evemonk",
   "private": true,
   "dependencies": {
-    "@rails/webpacker": "https://github.com/rails/webpacker",
+    "@rails/webpacker": "^4.0.1",
     "actioncable": ">=5.2.1",
     "activestorage": ">=5.2.1",
     "axios": "^0.18.0",

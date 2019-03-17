@@ -2,15 +2,13 @@
 
 source 'https://rubygems.org'
 
-gem 'rails', '6.0.0.beta2'
+gem 'rails', '6.0.0.beta3'
 # gem 'rails', git: 'https://github.com/rails/rails.git',
 #              branch: 'master'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.11'
 gem 'sass-rails', '~> 5.0'
-gem 'webpacker', '4.0.0.rc.7'
-# gem 'webpacker', git: 'https://github.com/rails/webpacker.git',
-#                 branch: 'master'
+gem 'webpacker'
 gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 # gem 'rufus-scheduler'
@@ -66,6 +64,7 @@ group :development, :test do
   gem 'rubocop', require: false
   gem 'rubocop-thread_safety', require: false
   gem 'rubocop-rspec', require: false
+  gem 'rubocop-performance', require: false
   gem 'mry', require: false
   gem 'squasher', require: false
   gem 'mdl', require: false
