@@ -198,9 +198,17 @@ const store = new Vuex.Store({
       }
     },
 
-    async fetchUniverseAllianceCorporations({ commit, satte }, { id, page }) {
+    async fetchUniverseAllianceCorporations({ commit, state }, { id, page }) {
       try {
         return await axios.get(`/api/eve/alliances/${id}/corporations?page=${page}`);
+      } catch (error) {
+        return error;
+      }
+    },
+
+    async fetchUniverseCorporations({ commit, state }, page) {
+      try {
+        return await axios.get(`/api/eve/corporations?page=${page}`);
       } catch (error) {
         return error;
       }
