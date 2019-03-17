@@ -2,7 +2,7 @@
   <v-navigation-drawer app
                        v-model="drawer"
                        absolute>
-    <v-toolbar flat class="transparent">
+    <v-toolbar flat class="transparent" v-if="false">
       <v-list>
         <v-list-tile avatar>
           <v-list-tile-avatar>
@@ -46,7 +46,7 @@
       </template>
 
       <template v-if="isAuthenticated">
-        <v-divider></v-divider>
+        <v-divider v-if="false"></v-divider>
 
         <v-list-tile :to="{ name: 'profile' }">
           <v-list-tile-action>
@@ -96,6 +96,18 @@
 
         <v-list-tile-content>
           <v-list-tile-title>Alliances</v-list-tile-title>
+        </v-list-tile-content>
+      </v-list-tile>
+
+      <v-divider></v-divider>
+
+      <v-list-tile :to="{ name: 'universe_corporations' }">
+        <v-list-tile-action>
+          <v-icon>folder</v-icon>
+        </v-list-tile-action>
+
+        <v-list-tile-content>
+          <v-list-tile-title>Corporations</v-list-tile-title>
         </v-list-tile-content>
       </v-list-tile>
 
