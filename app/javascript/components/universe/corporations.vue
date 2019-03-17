@@ -34,19 +34,19 @@
                 </v-flex>
               </v-layout>
               <v-divider light></v-divider>
-              <!--<v-card-actions>-->
+              <v-card-actions>
                 <!--<v-btn color="info">-->
                   <!--<router-link :to="{ name: 'universe_alliance_corporations', params: { id: alliance.id }}">-->
                     <!--Corporations ({{ alliance.corporations_count }})-->
                   <!--</router-link>-->
                 <!--</v-btn>-->
-                <!--<v-spacer></v-spacer>-->
-                <!--<v-btn color="info">-->
-                  <!--<router-link :to="{ name: 'universe_alliance_characters', params: { id: alliance.id }}">-->
-                    <!--Characters ({{ alliance.characters_count }})-->
-                  <!--</router-link>-->
-                <!--</v-btn>-->
-              <!--</v-card-actions>-->
+                <v-spacer></v-spacer>
+                <v-btn color="info">
+                  <router-link :to="{ name: 'universe_corporation_characters', params: { id: corporation.id }}">
+                    Characters ({{ corporation.member_count }})
+                  </router-link>
+                </v-btn>
+              </v-card-actions>
             </v-card>
           </v-flex>
 
