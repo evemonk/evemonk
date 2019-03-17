@@ -213,6 +213,14 @@ const store = new Vuex.Store({
         return error;
       }
     },
+
+    async fetchUniverseCorporation({ commit, state }, id) {
+      try {
+        return await axios.get(`/api/eve/corporations/${id}`);
+      } catch (error) {
+        return error;
+      }
+    },
   },
 
   strict: process.env.NODE_ENV !== 'production',
