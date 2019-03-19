@@ -69,6 +69,7 @@ group :development, :test do
   gem 'squasher', require: false
   gem 'mdl', require: false
   gem 'brakeman', require: false
+  gem 'fasterer', require: false
 end
 
 group :development do
@@ -92,7 +93,6 @@ group :development do
   gem 'cacheflow'
   # gem 'licensed', require: false
   gem 'gemdiff', require: false
-  gem 'fasterer', require: false
 end
 
 group :test do
