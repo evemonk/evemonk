@@ -92,6 +92,7 @@ group :development do
   gem 'cacheflow'
   # gem 'licensed', require: false
   gem 'gemdiff', require: false
+  gem 'fasterer', require: false
 end
 
 group :test do

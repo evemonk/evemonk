@@ -43,6 +43,7 @@ script:
   - bundle exec brakeman
   - bundle exec mdl README.md
   - bundle exec mdl CHANGELOG.md
+  - bundle exec fasterer
 
 after_script:
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
