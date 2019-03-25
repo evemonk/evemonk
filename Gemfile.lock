@@ -190,6 +190,14 @@ GEM
       dotenv (= 2.7.1)
       railties (>= 3.2, < 6.1)
     ed25519 (1.2.4)
+    elasticsearch (6.2.0)
+      elasticsearch-api (= 6.2.0)
+      elasticsearch-transport (= 6.2.0)
+    elasticsearch-api (6.2.0)
+      multi_json
+    elasticsearch-transport (6.2.0)
+      faraday
+      multi_json
     erubi (1.8.0)
     erubis (2.7.0)
     et-orbi (1.1.7)
@@ -440,6 +448,10 @@ GEM
     sawyer (0.8.1)
       addressable (>= 2.3.5, < 2.6)
       faraday (~> 0.8, < 1.0)
+    searchkick (3.1.2)
+      activemodel (>= 4.2)
+      elasticsearch (>= 5)
+      hashie
     selenium-webdriver (3.141.0)
       childprocess (~> 0.5)
       rubyzip (~> 1.2, >= 1.2.2)
@@ -582,6 +594,7 @@ DEPENDENCIES
   rubocop-rspec
   rubocop-thread_safety
   sass-rails (~> 5.0)
+  searchkick
   selenium-webdriver
   shoulda-callback-matchers!
   shoulda-matchers
