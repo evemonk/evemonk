@@ -42,7 +42,9 @@ describe Eve::Alliance do
 
     subject { alliance }
 
-    specify { expect(subject.search_data).to eq(name: 'Kids With Guns Alliance',
-                                                ticker: '-KWG-') }
+    specify do
+      expect(subject.search_data).to eq(name: 'Kids With Guns Alliance',
+                                        ticker: '-KWG-')
+    end
   end
 end
