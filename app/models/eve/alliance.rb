@@ -2,6 +2,8 @@
 
 module Eve
   class Alliance < ApplicationRecord
+    searchkick
+
     belongs_to :creator_corporation, primary_key: :corporation_id, class_name: 'Eve::Corporation', optional: true
 
     belongs_to :creator, primary_key: :character_id, class_name: 'Eve::Character', optional: true
@@ -18,6 +20,13 @@ module Eve
 
     def characters_count
       corporations.sum('eve_corporations.member_count')
+    end
+
+    def search_data
+      {
+        name: name,
+        ticker: ticker
+      }
     end
   end
 end

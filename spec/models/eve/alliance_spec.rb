@@ -5,6 +5,8 @@ require 'rails_helper'
 describe Eve::Alliance do
   it { should be_a(ApplicationRecord) }
 
+  it { expect(described_class).to respond_to(:search) }
+
   it { expect(described_class.table_name).to eq('eve_alliances') }
 
   it { should belong_to(:creator_corporation).with_primary_key(:corporation_id).class_name('Eve::Corporation').optional }
@@ -33,5 +35,14 @@ describe Eve::Alliance do
     subject { alliance }
 
     specify { expect(subject.characters_count).to eq(246) }
+  end
+
+  describe '#search_data' do
+    let!(:alliance) { create(:eve_alliance, name: 'Kids With Guns Alliance', ticker: '-KWG-') }
+
+    subject { alliance }
+
+    specify { expect(subject.search_data).to eq(name: 'Kids With Guns Alliance',
+                                                ticker: '-KWG-') }
   end
 end
