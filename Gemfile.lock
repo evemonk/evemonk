@@ -198,6 +198,7 @@ GEM
     elasticsearch-transport (6.2.0)
       faraday
       multi_json
+    errbase (0.1.1)
     erubi (1.8.0)
     erubis (2.7.0)
     et-orbi (1.1.7)
@@ -552,6 +553,7 @@ DEPENDENCIES
   database_rewinder
   dotenv-rails
   ed25519 (>= 1.2, < 2.0)
+  errbase
   eve_online!
   factory_bot_rails
   faker
