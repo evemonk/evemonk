@@ -456,6 +456,8 @@ GEM
     selenium-webdriver (3.141.0)
       childprocess (~> 0.5)
       rubyzip (~> 1.2, >= 1.2.2)
+    sentry-raven (2.9.0)
+      faraday (>= 0.7.6, < 1.0)
     sexp_processor (4.12.0)
     shoulda-matchers (4.0.1)
       activesupport (>= 4.2.0)
@@ -598,6 +600,7 @@ DEPENDENCIES
   sass-rails (~> 5.0)
   searchkick
   selenium-webdriver
+  sentry-raven
   shoulda-callback-matchers!
   shoulda-matchers
   sidekiq

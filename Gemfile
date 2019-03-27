@@ -37,6 +37,7 @@ gem 'sitemap_generator'
 gem 'rotp'
 gem 'prerender_rails'
 gem 'searchkick'
+gem 'sentry-raven'
 gem 'errbase'
 
 # Use Redis adapter to run Action Cable in production
