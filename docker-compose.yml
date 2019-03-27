@@ -1,14 +1,27 @@
-version: '3'
+version: '3.7'
 
 services:
+  nginx:
+    image: 'nginx:1.14.2'
+
   redis:
-    image: 'redis:latest'
+    image: 'redis:5.0.4'
 
   memcached:
-    image: 'memcached:latest'
+    image: 'memcached:1.5.12'
 
   postgresql:
-    image: 'postgres:latest'
+    image: 'postgres:11.2'
+
+  prometheus:
+    image: 'prom/prometheus:v2.8.0'
+    depends_on:
+      - web
+
+  grafana:
+    image: 'grafana/grafana:6.0.2'
+    depends_on:
+      - prometheus
 
   web:
     build: .
@@ -16,6 +29,7 @@ services:
     ports:
       - '3000:3000'
     depends_on:
+      - nginx
       - redis
       - memcached
       - postgresql
