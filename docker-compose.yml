@@ -24,7 +24,7 @@ services:
   prometheus:
     image: 'prom/prometheus:v2.8.0'
     depends_on:
-      - web
+      - backend
 
   grafana:
     image: 'grafana/grafana:6.0.2'
@@ -44,7 +44,7 @@ services:
     build: .
     env_file: .env_docker
 
-  web:
+  backend:
     <<: *app
     command: bundle exec rails s -p 3000 -b '0.0.0.0'
     ports:

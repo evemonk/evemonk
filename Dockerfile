@@ -29,7 +29,9 @@ RUN mkdir -p /app
 
 WORKDIR /app
 
-COPY . .
+COPY Gemfile Gemfile
+
+COPY Gemfile.lock Gemfile.lock
 
 ENV RAILS_ENV production
 
@@ -50,6 +52,8 @@ RUN bundle config --global without development test
 RUN bundle config --global retry 5
 
 RUN bundle install
+
+COPY . .
 
 # RUN bundle exec rails assets:precompile
 
