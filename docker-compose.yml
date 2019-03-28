@@ -42,7 +42,7 @@ services:
 
   app: &app
     build: .
-    env_file: .env
+    env_file: .env_docker
 
   web:
     <<: *app
@@ -58,6 +58,7 @@ services:
 
   sidekiq:
     <<: *app
+    command: bundle exec sidekiq
     depends_on:
       - redis
       - memcached
