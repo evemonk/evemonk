@@ -1,17 +1,25 @@
 version: '3.7'
 
+volumes:
+  postresql-data:
+  redis-data:
+
 services:
   nginx:
     image: 'nginx:1.14.2'
 
   redis:
     image: 'redis:5.0.4'
+    volumes:
+      - "redis-data:/data"
 
   memcached:
     image: 'memcached:1.5.12'
 
   postgresql:
     image: 'postgres:11.2'
+    volumes:
+      - "postresql-data:/var/lib/postgresql/data"
 
   prometheus:
     image: 'prom/prometheus:v2.8.0'
@@ -23,13 +31,36 @@ services:
     depends_on:
       - prometheus
 
-  web:
+  elasticsearch:
+    image: 'elasticsearch:6.6.2'
+
+#  sentry:
+#    image: ''
+#    depends_on:
+#      - postgresql
+#      - redis
+
+  app: &app
     build: .
+    env_file: .env
+
+  web:
+    <<: *app
     command: bundle exec rails s -p 3000 -b '0.0.0.0'
     ports:
       - '3000:3000'
     depends_on:
-      - nginx
       - redis
       - memcached
       - postgresql
+      - elasticsearch
+#      - sentry
+
+  sidekiq:
+    <<: *app
+    depends_on:
+      - redis
+      - memcached
+      - postgresql
+      - elasticsearch
+#      - sentry

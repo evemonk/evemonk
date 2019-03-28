@@ -33,8 +33,7 @@ ENV RAILS_ENV production
 
 RUN bundle install --without development test
 
-# RUN yum install bzip2 libyaml-devel openssl-devel \
-# 	readline-devel zlib-devel postgresql-devel nodejs npm --enablerepo=epel -y -q
+# RUN yum install nodejs npm --enablerepo=epel -y -q
 
 EXPOSE 3000
 
