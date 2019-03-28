@@ -325,7 +325,7 @@ GEM
     pg_query (1.1.0)
     pghero (2.2.0)
       activerecord
-    prerender_rails (1.6.0)
+    prerender_rails (1.6.1)
       activesupport
       rack
     pry (0.12.2)
