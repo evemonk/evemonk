@@ -45,6 +45,13 @@ services:
     restart: 'no'
     env_file: .env_docker
 
+  migrations:
+    <<: *app
+    build: .
+    restart: 'no'
+    env_file: .env_docker
+    command: bundle exec rails db:migrate
+
   backend:
     <<: *app
     command: bundle exec rails s -p 3000 -b '0.0.0.0'
