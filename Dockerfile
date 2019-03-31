@@ -57,7 +57,7 @@ COPY . .
 
 # RUN bundle exec rails assets:precompile
 
-RUN bundle exec rake DATABASE_URL=postgresql:does_not_exist assets:precompile
+RUN bundle exec rake SECRET_KEY_BASE=blablabla DATABASE_URL=postgresql:does_not_exist assets:precompile
 
 EXPOSE 3000
 
