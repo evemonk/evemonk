@@ -53,12 +53,16 @@ RUN bundle config --global retry 5
 
 RUN bundle install
 
-COPY . .
+COPY package.json package.json
 
-# RUN bundle exec rails assets:precompile
+COPY yarn.lock yarn.lock
+
+RUN yarn install
+
+COPY . .
 
 RUN bundle exec rake SECRET_KEY_BASE=blablabla DATABASE_URL=postgresql:does_not_exist assets:precompile
 
-EXPOSE 3000
-
-CMD ["rails", "server", "-b", "0.0.0.0"]
+#EXPOSE 3000
+#
+#CMD ["rails", "server", "-b", "0.0.0.0"]
