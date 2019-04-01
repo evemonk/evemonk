@@ -39,6 +39,7 @@ gem 'prerender_rails'
 gem 'searchkick'
 gem 'sentry-raven'
 gem 'errbase'
+gem 'activerecord-nulldb-adapter'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
