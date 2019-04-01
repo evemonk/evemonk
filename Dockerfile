@@ -4,7 +4,7 @@ LABEL maintainer="Igor Zubkov <igor.zubkov@gmail.com>"
 
 RUN apt-get update -y && \
     apt-get dist-upgrade -y && \
-    apt-get install gnupg2 git gcc make wget curl -y
+    apt-get install gnupg2 git gcc make wget curl wait-for-it -y
 
 RUN sh -c 'wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add -'
 

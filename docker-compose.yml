@@ -7,33 +7,40 @@ volumes:
 services:
   nginx:
     image: 'nginx:1.14.2'
+    restart: unless-stopped
 
   redis:
     image: 'redis:5.0.4'
+    restart: unless-stopped
     volumes:
       - 'redis-data:/data'
 
   memcached:
     image: 'memcached:1.5.12'
+    restart: unless-stopped
     command: memcached -m 64
 
   postgresql:
     image: 'postgres:11.2'
+    restart: unless-stopped
     volumes:
       - 'postresql-data:/var/lib/postgresql/data'
 
   prometheus:
     image: 'prom/prometheus:v2.8.0'
+    restart: unless-stopped
     depends_on:
       - backend
 
   grafana:
     image: 'grafana/grafana:6.0.2'
+    restart: unless-stopped
     depends_on:
       - prometheus
 
   elasticsearch:
     image: 'elasticsearch:6.6.2'
+    restart: unless-stopped
 
 #  sentry:
 #    image: ''
@@ -51,13 +58,14 @@ services:
     build: .
     restart: 'no'
     env_file: .env_docker
-    command: bundle exec rails db:migrate searchkick:reindex CLASS=Eve::Alliance
+    command: wait-for-it elasticsearch:9200 --timeout=60 -- bundle exec rails db:migrate searchkick:reindex CLASS=Eve::Alliance
     depends_on:
       - elasticsearch
 
   backend:
     <<: *app
-    command: bundle exec rails s -p 3000 -b '0.0.0.0'
+    restart: unless-stopped
+    command: wait-for-it postgresql:5432 --timeout=60 -- bundle exec rails s -p 3000 -b '0.0.0.0'
     ports:
       - '3000:3000'
     depends_on:
@@ -69,7 +77,8 @@ services:
 
   sidekiq:
     <<: *app
-    command: bundle exec sidekiq
+    restart: unless-stopped
+    command: wait-for-it postgresql:5432 --timeout=60 -- bundle exec sidekiq
     depends_on:
       - migrations
       - redis
