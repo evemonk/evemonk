@@ -51,7 +51,9 @@ services:
     build: .
     restart: 'no'
     env_file: .env_docker
-    command: bundle exec rails db:migrate
+    command: bundle exec rails db:migrate searchkick:reindex CLASS=Eve::Alliance
+    depends_on:
+      - elasticsearch
 
   backend:
     <<: *app
@@ -69,6 +71,7 @@ services:
     <<: *app
     command: bundle exec sidekiq
     depends_on:
+      - migrations
       - redis
       - memcached
       - postgresql

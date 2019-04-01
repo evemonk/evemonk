@@ -4,3 +4,4 @@
 config/credentials.yml.enc
 config/master.key
 node_modules/*
+tmp/cache/*
