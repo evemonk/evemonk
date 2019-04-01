@@ -11,15 +11,16 @@ services:
   redis:
     image: 'redis:5.0.4'
     volumes:
-      - "redis-data:/data"
+      - 'redis-data:/data'
 
   memcached:
     image: 'memcached:1.5.12'
+    command: memcached -m 64
 
   postgresql:
     image: 'postgres:11.2'
     volumes:
-      - "postresql-data:/var/lib/postgresql/data"
+      - 'postresql-data:/var/lib/postgresql/data'
 
   prometheus:
     image: 'prom/prometheus:v2.8.0'
