@@ -5,3 +5,5 @@ config/credentials.yml.enc
 config/master.key
 node_modules/*
 tmp/cache/*
+public/packs/*
+public/packs-test/*
