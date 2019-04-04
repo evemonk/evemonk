@@ -133,7 +133,7 @@ GEM
     ast (2.4.0)
     awesome_print (1.8.0)
     bcrypt (3.1.12)
-    bcrypt_pbkdf (1.0.0)
+    bcrypt_pbkdf (1.0.1)
     bootsnap (1.4.2)
       msgpack (~> 1.0)
     brakeman (4.5.0)
