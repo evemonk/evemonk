@@ -40,6 +40,7 @@ gem 'searchkick'
 gem 'sentry-raven'
 gem 'errbase'
 gem 'activerecord-nulldb-adapter'
+gem 'niceql'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
