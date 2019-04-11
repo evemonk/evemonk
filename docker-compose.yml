@@ -79,7 +79,7 @@ services:
     restart: unless-stopped
 
   alertmanager:
-    image: 'prom/alertmanager:v0.16.1'
+    image: 'prom/alertmanager:v0.16.2'
     ports:
       - '9093:9093'
     volumes:
