@@ -36,7 +36,7 @@ services:
       - 'postresql_data:/var/lib/postgresql/data'
 
   prometheus:
-    image: 'prom/prometheus:v2.8.0'
+    image: 'prom/prometheus:v2.8.1'
     volumes:
       - './docker/prometheus/:/etc/prometheus/'
       - 'prometheus_data:/prometheus'
