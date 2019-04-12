@@ -452,9 +452,9 @@ GEM
     sawyer (0.8.1)
       addressable (>= 2.3.5, < 2.6)
       faraday (~> 0.8, < 1.0)
-    searchkick (3.1.2)
-      activemodel (>= 4.2)
-      elasticsearch (>= 5)
+    searchkick (4.0.0)
+      activemodel (>= 5)
+      elasticsearch (>= 6)
       hashie
     selenium-webdriver (3.141.0)
       childprocess (~> 0.5)
