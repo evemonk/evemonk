@@ -300,7 +300,7 @@ GEM
       net-ssh (>= 2.6.5, < 6.0.0)
     net-ssh (5.2.0)
     newrelic_rpm (6.2.0.354)
-    niceql (0.1.23)
+    niceql (0.1.25)
     nio4r (2.3.1)
     nokogiri (1.10.2)
       mini_portile2 (~> 2.4.0)
