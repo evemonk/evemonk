@@ -7258,9 +7258,9 @@ trim-right@^1.0.1:
     glob "^7.1.2"
 
 ts-pnp@^1.0.0:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/ts-pnp/-/ts-pnp-1.0.1.tgz#fde74a6371676a167abaeda1ffc0fdb423520098"
-  integrity sha512-Zzg9XH0anaqhNSlDRibNC8Kp+B9KNM0uRIpLpGkGyrgRIttA7zZBhotTSEoEyuDrz3QW2LGtu2dxuk34HzIGnQ==
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/ts-pnp/-/ts-pnp-1.1.0.tgz#391d01656478c5e1afca4fd568f11c7a379ca89e"
+  integrity sha512-hJkGMrHwSZtk6gsRR3GUXBQ2vFTdO9SgL/e+rNFyvBsBLKl1J6bjRGt5+NW2f5yRTMW8so58nwvvs93nqi5sGw==
 
 tslib@^1.9.0:
   version "1.9.3"
