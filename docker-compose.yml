@@ -104,7 +104,7 @@ services:
       - './docker/grafana/config.monitoring'
 
   elasticsearch:
-    image: 'elasticsearch:6.7.0'
+    image: 'elasticsearch:7.0.0'
     restart: unless-stopped
     volumes:
       - 'elasticsearch_data:/usr/share/elasticsearch/data'
