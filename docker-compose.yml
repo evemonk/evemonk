@@ -25,7 +25,7 @@ services:
       - 'redis_data:/data'
 
   memcached:
-    image: 'memcached:1.5.13'
+    image: 'memcached:1.5.12'
     restart: unless-stopped
     command: memcached -m 64
 
