@@ -24,7 +24,7 @@ GIT
 
 GIT
   remote: https://github.com/rspec/rspec-expectations.git
-  revision: 8d630d1e7ea7f8da0040cd22740d3763480402b8
+  revision: 49fcbeebd6ea3e74ab542087b9d767dbc4691251
   branch: master
   specs:
     rspec-expectations (3.9.0.pre)
