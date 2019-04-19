@@ -19,7 +19,7 @@ default: &default
   encoding: unicode
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  pool: <%= ENV.fetch('RAILS_MAX_THREADS') { 5 } %>
 
 development:
   <<: *default
@@ -80,6 +80,4 @@ test:
 #
 production:
   <<: *default
-  database: <%= ENV['EVEMONK_DATABASE_NAME'] %>
-  username: <%= ENV['EVEMONK_DATABASE_USER'] %>
-  password: <%= ENV['EVEMONK_DATABASE_PASSWORD'] %>
+  url: <%= ENV['EVEMONK_DATABASE_URL'] %>

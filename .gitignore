@@ -31,6 +31,7 @@ yarn-debug.log*
 /.idea/*
 /coverage/*
 /.env
+/.env_docker
 /.ruby-gemset
 /.DS_Store
 /dump.rdb

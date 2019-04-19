@@ -36,6 +36,11 @@ gem 'rack-health'
 gem 'sitemap_generator'
 gem 'rotp'
 gem 'prerender_rails'
+gem 'searchkick'
+gem 'sentry-raven'
+gem 'errbase'
+gem 'activerecord-nulldb-adapter'
+gem 'niceql'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
@@ -69,6 +74,7 @@ group :development, :test do
   gem 'squasher', require: false
   gem 'mdl', require: false
   gem 'brakeman', require: false
+  gem 'fasterer', require: false
 end
 
 group :development do

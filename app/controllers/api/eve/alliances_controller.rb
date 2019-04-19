@@ -6,11 +6,9 @@ module Api
       skip_before_action :authenticate
 
       def index
-        @alliances = policy_scope(::Eve::Alliance).includes(:faction,
-                                                            :creator_corporation,
-                                                            :creator,
-                                                            :executor_corporation)
-                                                  .page(params[:page])
+        @alliances = ::Eve::AlliancesSearcher.new(params[:q], policy_scope(::Eve::Alliance))
+                                             .query
+                                             .page(params[:page])
       end
 
       def show
