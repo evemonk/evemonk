@@ -44,10 +44,6 @@ Rails.application.routes.draw do
         resources :characters, only: :index, controller: :alliance_characters
 
         resources :corporations, only: :index, controller: :alliance_corporations
-
-        collection do
-          resources :search, only: :index, controller: :alliances_search
-        end
       end
 
       resources :corporations, only: :index
