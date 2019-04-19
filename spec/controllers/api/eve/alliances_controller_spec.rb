@@ -9,20 +9,22 @@ describe Api::Eve::AlliancesController do
 
   describe '#index' do
     context 'with supported content type' do
+      let(:scoped_eve_alliance) { instance_double(Eve::Alliance) }
+
+      before do
+        expect(subject).to receive(:policy_scope).with(::Eve::Alliance)
+                                                 .and_return(scoped_eve_alliance)
+      end
+
       before do
         #
-        # subject.policy_scope(::Eve::Alliance).includes(:faction,
-        #                                                :creator_corporation,
-        #                                                :creator,
-        #                                                :executor_corporation)
-        #                                      .page(params[:page])
+        # Eve::AlliancesSearcher.new(params[:q], policy_scope(::Eve::Alliance))
+        #                       .query
+        #                       .page(params[:page])
         #
-        expect(subject).to receive(:policy_scope).with(Eve::Alliance) do
+        expect(Eve::AlliancesSearcher).to receive(:new).with('search string', scoped_eve_alliance) do
           double.tap do |a|
-            expect(a).to receive(:includes).with(:faction,
-                                                 :creator_corporation,
-                                                 :creator,
-                                                 :executor_corporation) do
+            expect(a).to receive(:query) do
               double.tap do |b|
                 expect(b).to receive(:page).with('1')
               end
@@ -33,7 +35,7 @@ describe Api::Eve::AlliancesController do
 
       before { subject.instance_variable_set(:@_pundit_policy_scoped, true) }
 
-      before { get :index, params: { format: :json, page: '1' } }
+      before { get :index, params: { format: :json, page: '1', q: 'search string' } }
 
       it { should respond_with(:ok) }
 
