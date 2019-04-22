@@ -3,6 +3,8 @@
   "private": true,
   "dependencies": {
     "@rails/webpacker": "^4.0.1",
+    "@sentry/browser": "^5.1.0",
+    "@sentry/integrations": "^5.1.0",
     "actioncable": ">=5.2.1",
     "activestorage": ">=5.2.1",
     "axios": "^0.18.0",
