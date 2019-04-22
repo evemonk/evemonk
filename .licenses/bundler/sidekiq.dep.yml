@@ -1,6 +1,6 @@
 ---
 name: sidekiq
-version: 5.2.6
+version: 5.2.7
 type: bundler
 summary: Simple, efficient background processing for Ruby
 homepage: http://sidekiq.org
