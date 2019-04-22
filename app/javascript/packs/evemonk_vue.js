@@ -6,6 +6,8 @@
 // All it does is render <div>Hello Vue</div> at the bottom of the page.
 
 import Vue from 'vue';
+import * as Sentry from '@sentry/browser';
+import * as Integrations from '@sentry/integrations';
 import Vuetify from 'vuetify';
 import vueHeadful from 'vue-headful';
 import VueAnalytics from 'vue-analytics';
@@ -13,6 +15,16 @@ import App from '../app.vue';
 
 import router from '../router';
 import store from '../store';
+
+Sentry.init({
+  dsn: 'https://185a236f4b994411a9f33c3c714cb34e@sentry.io/1424888',
+  integrations: [
+    new Integrations.Vue({
+      Vue,
+      attachProps: true,
+    }),
+  ],
+});
 
 Vue.use(Vuetify);
 Vue.use(VueAnalytics, {
