@@ -6,6 +6,10 @@ allowed:
   - 'mit'
   - 'apache-2.0'
 
+ignored:
+  bundler:
+    - 'rack-health'
+
 reviewed:
   bundler:
     - 'activerecord'
@@ -24,6 +28,6 @@ reviewed:
     - 'pg_query'
     - 'puma'
     - 'rack'
-    - 'rack-health'
     - 'swagger-blocks'
     - 'tilt'
+    - 'newrelic_rpm'
