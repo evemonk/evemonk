@@ -1,6 +1,6 @@
 ---
 name: nokogiri
-version: 1.10.2
+version: 1.10.3
 type: bundler
 summary: Nokogiri (鋸) is an HTML, XML, SAX, and Reader parser
 homepage: 
