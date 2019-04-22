@@ -1,6 +1,6 @@
 sources:
   bundler: true
-  npm: false
+  npm: true
 
 allowed:
   - 'mit'
