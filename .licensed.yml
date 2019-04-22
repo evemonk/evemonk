@@ -13,6 +13,9 @@ allowed:
 ignored:
   bundler:
     - 'rack-health'
+  npm:
+    - '@vue/component-compiler-utils'
+    - 'boolbase'
 
 reviewed:
   bundler:
@@ -35,3 +38,15 @@ reviewed:
     - 'swagger-blocks'
     - 'tilt'
     - 'newrelic_rpm'
+
+  npm:
+    - '@webassemblyjs/helper-fsm'
+    - '@webassemblyjs/leb128'
+    - '@xtuc/ieee754'
+    - 'abbrev'
+    - 'amdefine'
+    - 'atob'
+    - 'bcrypt-pbkdf'
+    - 'block-stream'
+    - 'browserify-zlib'
+
