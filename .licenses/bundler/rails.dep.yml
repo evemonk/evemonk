@@ -1,0 +1,11 @@
+---
+name: rails
+version: 6.0.0.beta3
+type: bundler
+summary: Full-stack web application framework.
+homepage: https://rubyonrails.org
+license: mit
+licenses:
+- sources: README.md
+  text: Ruby on Rails is released under the [MIT License](https://opensource.org/licenses/MIT).
+notices: []

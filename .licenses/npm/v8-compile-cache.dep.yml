@@ -1,0 +1,9 @@
+---
+name: v8-compile-cache
+version: 2.0.2
+type: npm
+summary: Require hook for automatic V8 compile cache persistence
+homepage: 
+license: mit
+licenses: []
+notices: []

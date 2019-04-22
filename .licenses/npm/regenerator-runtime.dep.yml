@@ -1,0 +1,9 @@
+---
+name: regenerator-runtime
+version: 0.13.2
+type: npm
+summary: Runtime for Regenerator-compiled generator and async functions.
+homepage: 
+license: mit
+licenses: []
+notices: []

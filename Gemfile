@@ -75,6 +75,7 @@ group :development, :test do
   gem 'mdl', require: false
   gem 'brakeman', require: false
   gem 'fasterer', require: false
+  gem 'licensed', require: false
 end
 
 group :development do
@@ -85,7 +86,6 @@ group :development do
   gem 'spring-commands-rubocop', require: false
   gem 'consistency_fail', require: false
   gem 'rails_best_practices'
-  gem 'license_finder', require: false
   gem 'active_record_doctor'
   gem 'ed25519', '>= 1.2', '< 2.0' # net-ssh requires the following gems for ed25519 support
   gem 'bcrypt_pbkdf', '>= 1.0', '< 2.0' # net-ssh requires the following gems for ed25519 support
@@ -96,7 +96,6 @@ group :development do
   gem 'capistrano-rbenv-install', require: false
   # gem 'overcommit', require: false
   gem 'cacheflow'
-  # gem 'licensed', require: false
   gem 'gemdiff', require: false
 end
 

@@ -1,0 +1,33 @@
+sources:
+  bundler: true
+  npm: true
+
+allowed:
+  - 'mit'
+  - 'apache-2.0'
+
+ignored:
+  bundler:
+    - 'rack-health'
+
+reviewed:
+  bundler:
+    - 'activerecord'
+    - 'activerecord-nulldb-adapter'
+    - 'ansi'
+    - 'bcrypt'
+    - 'concurrent-ruby'
+    - 'elasticsearch'
+    - 'elasticsearch-api'
+    - 'elasticsearch-transport'
+    - 'ffi'
+    - 'method_source'
+    - 'nokogiri'
+    - 'omniauth'
+    - 'pg'
+    - 'pg_query'
+    - 'puma'
+    - 'rack'
+    - 'swagger-blocks'
+    - 'tilt'
+    - 'newrelic_rpm'

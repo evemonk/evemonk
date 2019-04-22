@@ -1,0 +1,11 @@
+---
+name: activestorage
+version: 5.2.3
+type: npm
+summary: Attach cloud and local files in Rails applications
+homepage: http://rubyonrails.org/
+license: mit
+licenses:
+- sources: README.md
+  text: Active Storage is released under the [MIT License](https://opensource.org/licenses/MIT).
+notices: []
