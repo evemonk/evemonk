@@ -46,6 +46,7 @@ script:
   - bundle exec mdl README.md
   - bundle exec mdl CHANGELOG.md
   - bundle exec fasterer
+  - bundle exec licensed status || exit 0
 
 after_script:
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
