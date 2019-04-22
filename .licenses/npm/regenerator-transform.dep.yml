@@ -1,0 +1,9 @@
+---
+name: regenerator-transform
+version: 0.13.4
+type: npm
+summary: Explode async and generator functions into a state machine.
+homepage: 
+license: mit
+licenses: []
+notices: []
