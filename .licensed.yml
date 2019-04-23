@@ -10,13 +10,6 @@ allowed:
   - 'bsd-2-clause'
   - 'bsd-3-clause'
 
-ignored:
-  bundler:
-    - 'rack-health'
-  npm:
-    - '@vue/component-compiler-utils'
-    - 'boolbase'
-
 reviewed:
   bundler:
     - 'activerecord'
@@ -37,6 +30,7 @@ reviewed:
     - 'rack'
     - 'swagger-blocks'
     - 'tilt'
+    - 'rack-health'
     - 'newrelic_rpm'
 
   npm:
@@ -49,4 +43,5 @@ reviewed:
     - 'bcrypt-pbkdf'
     - 'block-stream'
     - 'browserify-zlib'
-
+    - 'cacache'
+    - 'caniuse-lite'
