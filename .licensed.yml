@@ -30,6 +30,7 @@ reviewed:
     - 'rack'
     - 'swagger-blocks'
     - 'tilt'
+    - 'rack-health'
     - 'newrelic_rpm'
 
   npm:
@@ -42,4 +43,5 @@ reviewed:
     - 'bcrypt-pbkdf'
     - 'block-stream'
     - 'browserify-zlib'
-
+    - 'cacache'
+    - 'caniuse-lite'
