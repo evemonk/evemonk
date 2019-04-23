@@ -1,0 +1,159 @@
+version: '3.7'
+
+volumes:
+  postresql_data:
+  redis_data:
+  app_assets:
+  app_packs:
+  app_node_modules:
+  prometheus_data:
+  grafana_data:
+  elasticsearch_data:
+
+services:
+  nginx:
+    image: 'nginx:1.14.2'
+    restart: unless-stopped
+    volumes:
+      - 'app_assets:/app/public/assets'
+      - 'app_packs:/app/public/packs'
+
+  redis:
+    image: 'redis:5.0.4'
+    restart: unless-stopped
+    volumes:
+      - 'redis_data:/data'
+
+  memcached:
+    image: 'memcached:1.5.12'
+    restart: unless-stopped
+    command: memcached -m 64
+
+  postgresql:
+    image: 'postgres:11.2'
+    restart: unless-stopped
+    volumes:
+      - 'postresql_data:/var/lib/postgresql/data'
+
+  prometheus:
+    image: 'prom/prometheus:v2.9.1'
+    volumes:
+      - './docker/prometheus/:/etc/prometheus/'
+      - 'prometheus_data:/prometheus'
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/usr/share/prometheus/console_libraries'
+      - '--web.console.templates=/usr/share/prometheus/consoles'
+    ports:
+      - '9090:9090'
+    restart: unless-stopped
+    depends_on:
+      - backend
+      - cadvisor
+
+  node_exporter:
+    image: 'prom/node-exporter:v0.17.0'
+    volumes:
+      - /proc:/host/proc:ro
+      - /sys:/host/sys:ro
+      - /:/rootfs:ro
+    command:
+      - '--path.procfs=/host/proc'
+      - '--path.sysfs=/host/sys'
+      - '--collector.filesystem.ignored-mount-points'
+      - '^/(sys|proc|dev|host|etc|rootfs/var/lib/docker/containers|rootfs/var/lib/docker/overlay2|rootfs/run/docker/netns|rootfs/var/lib/docker/aufs)($$|/)'
+    ports:
+      - '9100:9100'
+    restart: unless-stopped
+
+  cadvisor:
+    image: 'google/cadvisor:v0.33.0'
+    volumes:
+      - '/:/rootfs:ro'
+      - '/var/run:/var/run:rw'
+      - '/sys:/sys:ro'
+      - '/var/lib/docker/:/var/lib/docker:ro'
+    ports:
+      - '8080:8080'
+    restart: unless-stopped
+
+  alertmanager:
+    image: 'prom/alertmanager:v0.16.2'
+    ports:
+      - '9093:9093'
+    volumes:
+      - './docker/alertmanager/:/etc/alertmanager/'
+    restart: unless-stopped
+    command:
+      - '--config.file=/etc/alertmanager/config.yml'
+      - '--storage.path=/alertmanager'
+
+  grafana:
+    image: 'grafana/grafana:6.1.4'
+    user: '104'
+    restart: unless-stopped
+    depends_on:
+      - prometheus
+    ports:
+      - '3001:3000' # 3001 is external
+    volumes:
+      - 'grafana_data:/var/lib/grafana'
+      - './docker/grafana/provisioning/:/etc/grafana/provisioning/'
+    env_file:
+      - './docker/grafana/config.monitoring'
+
+  elasticsearch:
+    image: 'elasticsearch:7.0.0'
+    restart: unless-stopped
+    volumes:
+      - 'elasticsearch_data:/usr/share/elasticsearch/data'
+
+#  sentry:
+#    image: ''
+#    depends_on:
+#      - postgresql
+#      - redis
+
+  app: &app
+    build: .
+    restart: 'no'
+    env_file: .env_docker
+    volumes:
+      - 'app_assets:/app/public/assets'
+      - 'app_packs:/app/public/packs'
+      - 'app_node_modules:/app/node_modules'
+
+  migrations:
+    <<: *app
+    build: .
+    restart: 'no'
+    env_file: .env_docker
+    command: wait-for-it elasticsearch:9200 --timeout=60 -- bundle exec rails db:migrate searchkick:reindex CLASS=Eve::Alliance
+    depends_on:
+      - elasticsearch
+
+  backend:
+    <<: *app
+    restart: unless-stopped
+    command: wait-for-it postgresql:5432 --timeout=60 -- bundle exec rails s -p 3000 -b '0.0.0.0'
+    ports:
+      - '3000:3000'
+    depends_on:
+      - redis
+      - memcached
+      - postgresql
+      - elasticsearch
+#      - sentry
+
+  sidekiq:
+    <<: *app
+    restart: unless-stopped
+    command: wait-for-it postgresql:5432 --timeout=60 -- bundle exec sidekiq
+    depends_on:
+      - migrations
+      - redis
+      - memcached
+      - postgresql
+      - elasticsearch
+#      - sentry
