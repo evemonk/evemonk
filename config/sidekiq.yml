@@ -6,10 +6,14 @@
 :concurrency: 5
 
 :schedule:
-  pg_hero:
+  pg_hero_query_stats:
     every: 5m
-    class: PgHero::CaptureQueryStatsWorker
-    description: 'Collect postgresql stats'
+    class: Pghero::CaptureQueryStatsWorker
+    description: 'Collect postgresql query stats'
+  pg_hero_space_stats:
+    every: 1d
+    class: Pghero::CaptureSpaceStatsWorker
+    description: 'Collection postgresql space stats'
   eve_races:
     every: 1h
     class: Eve::RacesImporterWorker
