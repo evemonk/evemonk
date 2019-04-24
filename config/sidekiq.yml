@@ -6,6 +6,10 @@
 :concurrency: 5
 
 :schedule:
+  pg_hero:
+    every: 5m
+    class: PgHeroWorker
+    description: 'Collect postgresql stats'
   eve_races:
     every: 1h
     class: Eve::RacesImporterWorker
