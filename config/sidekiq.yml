@@ -8,7 +8,7 @@
 :schedule:
   pg_hero:
     every: 5m
-    class: PgHeroWorker
+    class: PgHero::CaptureQueryStatsWorker
     description: 'Collect postgresql stats'
   eve_races:
     every: 1h
