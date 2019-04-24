@@ -1,6 +1,6 @@
 ---
 name: bootsnap
-version: 1.4.3
+version: 1.4.4
 type: bundler
 summary: Boot large ruby/rails apps faster
 homepage: https://github.com/Shopify/bootsnap

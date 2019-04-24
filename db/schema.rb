@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_24_084503) do
+ActiveRecord::Schema.define(version: 2019_04_24_153024) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -84,6 +84,7 @@ ActiveRecord::Schema.define(version: 2019_04_24_084503) do
     t.text "etag", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["url"], name: "index_etags_on_url"
   end
 
   create_table "eve_alliance_corporations", force: :cascade do |t|
@@ -280,6 +281,15 @@ ActiveRecord::Schema.define(version: 2019_04_24_084503) do
     t.bigint "calls"
     t.datetime "captured_at"
     t.index ["database", "captured_at"], name: "index_pghero_query_stats_on_database_and_captured_at"
+  end
+
+  create_table "pghero_space_stats", force: :cascade do |t|
+    t.text "database"
+    t.text "schema"
+    t.text "relation"
+    t.bigint "size"
+    t.datetime "captured_at"
+    t.index ["database", "captured_at"], name: "index_pghero_space_stats_on_database_and_captured_at"
   end
 
   create_table "rpush_apps", force: :cascade do |t|

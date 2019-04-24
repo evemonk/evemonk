@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-describe PgHeroWorker do
+describe Pghero::CaptureQueryStatsWorker do
   it { should be_a(Sidekiq::Worker) }
 
   describe '#perform' do
