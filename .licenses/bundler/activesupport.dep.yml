@@ -1,10 +1,10 @@
 ---
 name: activesupport
-version: 6.0.0.beta3
+version: 6.0.0.rc1
 type: bundler
 summary: A toolkit of support libraries and Ruby core extensions extracted from the
   Rails framework.
-homepage: http://rubyonrails.org
+homepage: https://rubyonrails.org
 license: mit
 licenses:
 - sources: MIT-LICENSE

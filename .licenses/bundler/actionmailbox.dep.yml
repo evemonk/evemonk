@@ -1,6 +1,6 @@
 ---
 name: actionmailbox
-version: 6.0.0.beta3
+version: 6.0.0.rc1
 type: bundler
 summary: Inbound email handling framework.
 homepage: https://rubyonrails.org

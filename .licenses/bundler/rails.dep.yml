@@ -1,6 +1,6 @@
 ---
 name: rails
-version: 6.0.0.beta3
+version: 6.0.0.rc1
 type: bundler
 summary: Full-stack web application framework.
 homepage: https://rubyonrails.org

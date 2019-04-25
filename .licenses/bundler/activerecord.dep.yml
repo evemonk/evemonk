@@ -1,9 +1,9 @@
 ---
 name: activerecord
-version: 6.0.0.beta3
+version: 6.0.0.rc1
 type: bundler
 summary: Object-relational mapper framework (part of Rails).
-homepage: http://rubyonrails.org
+homepage: https://rubyonrails.org
 license: other
 licenses:
 - sources: MIT-LICENSE

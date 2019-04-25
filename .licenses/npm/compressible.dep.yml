@@ -1,6 +1,6 @@
 ---
 name: compressible
-version: 2.0.16
+version: 2.0.17
 type: npm
 summary: Compressible Content-Type / mime checking
 homepage: https://github.com/jshttp/compressible#readme
