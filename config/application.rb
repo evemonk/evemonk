@@ -31,5 +31,9 @@ module Evemonk
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    # TODO: check
+    # bin/rails zeitwerk:check
+    # config.autoloader = :classic
   end
 end
