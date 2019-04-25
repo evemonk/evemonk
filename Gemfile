@@ -2,7 +2,7 @@
 
 source 'https://rubygems.org'
 
-gem 'rails', '6.0.0.beta3'
+gem 'rails', '6.0.0.rc1'
 # gem 'rails', git: 'https://github.com/rails/rails.git',
 #              branch: 'master'
 gem 'pg', '>= 0.18', '< 2.0'
