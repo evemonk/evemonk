@@ -59,7 +59,7 @@ describe Eve::AlliancesSearcher do
         specify { expect(subject.query.to_a).to eq([alliance]) }
       end
 
-      context 'when ticker: match' do
+      context 'when ticker match' do
         let!(:alliance) { create(:eve_alliance, name: nil, ticker: 'NC') }
 
         let(:q) { 'NC' }
