@@ -3,14 +3,12 @@
 source 'https://rubygems.org'
 
 gem 'rails', '6.0.0.rc1'
-# gem 'rails', git: 'https://github.com/rails/rails.git',
-#              branch: 'master'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.11'
 gem 'sass-rails', '~> 5.0'
-gem 'webpacker'
+gem 'webpacker', '~> 4.0'
 gem 'jbuilder', '~> 2.5'
-gem 'bootsnap', '>= 1.1.0', require: false
+gem 'bootsnap', '>= 1.4.2', require: false
 # gem 'rufus-scheduler'
 gem 'bcrypt'
 # gem 'eve_online'
@@ -102,8 +100,8 @@ end
 group :test do
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
-  # Easy installation and use of chromedriver to run system tests with Chrome
-  gem 'chromedriver-helper'
+  # Easy installation and use of web drivers to run system tests with browsers
+  gem 'webdrivers'
   gem 'rails-controller-testing'
   gem 'shoulda-matchers'
   gem 'rspec-its'
