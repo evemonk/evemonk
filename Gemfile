@@ -58,7 +58,7 @@ group :development, :test do
   end
   gem 'awesome_print', require: 'ap'
   gem 'pry-rails'
-  # gem 'bullet' # Current version don't support rails 6 yet
+  gem 'bullet'
   gem 'factory_bot_rails'
   gem 'faker'
   gem 'sql_tracker'
