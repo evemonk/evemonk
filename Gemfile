@@ -56,7 +56,7 @@ group :development, :test do
   ['rspec-core', 'rspec-expectations', 'rspec-mocks', 'rspec-support'].each do |lib|
     gem lib, git: "https://github.com/rspec/#{ lib }.git", branch: 'master'
   end
-  gem 'rspec-rails', git: 'https://github.com/rspec/rspec-rails.git', branch: '4-0-dev'
+  gem 'rspec-rails', '4.0.0.beta2'
   gem 'awesome_print', require: 'ap'
   gem 'pry-rails'
   # gem 'bullet' # Current version don't support rails 6 yet
