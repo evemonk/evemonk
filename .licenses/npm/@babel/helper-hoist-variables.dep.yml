@@ -1,6 +1,6 @@
 ---
 name: "@babel/helper-hoist-variables"
-version: 7.4.0
+version: 7.4.4
 type: npm
 summary: Helper function to hoist variables
 homepage: 

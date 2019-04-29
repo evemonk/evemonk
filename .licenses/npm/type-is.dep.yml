@@ -1,6 +1,6 @@
 ---
 name: type-is
-version: 1.6.17
+version: 1.6.18
 type: npm
 summary: Infer the content-type of a request.
 homepage: https://github.com/jshttp/type-is#readme

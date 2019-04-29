@@ -1,6 +1,6 @@
 ---
 name: "@babel/plugin-transform-destructuring"
-version: 7.4.3
+version: 7.4.4
 type: npm
 summary: Compile ES2015 destructuring to ES5
 homepage: 

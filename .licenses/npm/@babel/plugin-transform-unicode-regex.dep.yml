@@ -1,6 +1,6 @@
 ---
 name: "@babel/plugin-transform-unicode-regex"
-version: 7.4.3
+version: 7.4.4
 type: npm
 summary: Compile ES2015 Unicode regex to ES5
 homepage: 
