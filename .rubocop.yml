@@ -1,59 +1,31 @@
-require: rubocop-thread_safety
-require: rubocop-rspec
 require: rubocop-performance
 
 inherit_from:
-  - .rubocop_general.yml
-  - .rubocop_rspec.yml
-  - .rubocop-thread_safety.yml
-  - .rubocop_todo.yml
+  - .rubocop_local.yml
 
 AllCops:
-  Exclude:
-    - 'bin/*'
-    - 'config/spring.rb'
-    - 'db/schema.rb'
-    - 'db/migrate/20170107151911_add_rpush.rb'
-    - 'db/migrate/20170107151912_rpush_2_0_0_updates.rb'
-    - 'db/migrate/20170107151913_rpush_2_1_0_updates.rb'
-    - 'db/migrate/20170107151914_rpush_2_6_0_updates.rb'
-    - 'db/migrate/20170107151915_rpush_2_7_0_updates.rb'
-    - 'db/migrate/20171129191705_rpush_3_0_0_updates.rb'
-    - 'db/migrate/20171129190142_create_active_storage_tables.active_storage.rb'
-    - 'node_modules/**/*'
-    - 'vendor/**/*'
+  DisplayStyleGuide: true
 
-Metrics/BlockLength:
-  Exclude:
-    - 'app/controllers/api/docs_controller.rb'
-    - 'app/documentation/**/*.rb'
-    - 'config/routes.rb'
-    - 'spec/**/*.rb'
+Bundler/OrderedGems:
+  Enabled: false
 
-Metrics/ClassLength:
-  Exclude:
-    - 'app/documentation/**/*.rb'
+Gemspec/OrderedDependencies:
+  Enabled: false
 
-# Bug in rubocop-rspec cop
-RSpec/FilePath:
-  Exclude:
-    - 'spec/routing/**/*.rb'
+Style/SymbolArray:
+  Enabled: true
+  EnforcedStyle: brackets
 
-# Possibly bug in rubocop-rspec cop
-RSpec/ExampleLength:
-  Exclude:
-    - 'spec/routing/**/*.rb'
+Style/WordArray:
+  Enabled: true
+  EnforcedStyle: brackets
 
-RSpec/MultipleDescribes:
-  Exclude:
-    - 'spec/policies/**/*.rb'
+Layout/SpaceInsideStringInterpolation:
+  EnforcedStyle: space
+  Enabled: true
 
-Naming/FileName:
-  Exclude:
-    - 'config/initializers/rack-cors.rb'
-    - 'spec/support/shoulda-matchers.rb'
+Metrics/LineLength:
+  Enabled: false
 
-Style/MethodCallWithArgsParentheses:
-  Exclude:
-    - 'db/migrate/*.rb'
-    - 'spec/**/*_spec.rb'
+Style/Documentation:
+  Enabled: false
