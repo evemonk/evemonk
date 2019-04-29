@@ -47,6 +47,11 @@ services:
       - 'app_assets:/app/public/assets'
       - 'app_packs:/app/public/packs'
       - 'app_node_modules:/app/node_modules'
+    depends_on:
+      - redis
+      - memcached
+      - postgresql
+      - elasticsearch
 
   backend:
     <<: *app
@@ -54,18 +59,8 @@ services:
     entrypoint: ./bin/app.sh
     ports:
       - '3000:3000'
-    depends_on:
-      - redis
-      - memcached
-      - postgresql
-      - elasticsearch
 
   sidekiq:
     <<: *app
     restart: unless-stopped
     entrypoint: ./bin/sidekiq.sh
-    depends_on:
-      - redis
-      - memcached
-      - postgresql
-      - elasticsearch

@@ -8,4 +8,6 @@ wait-for-it "memcached:11211" -- echo "Memcached up and running"
 
 wait-for-it "postgresql:5432" -- echo "PostgreSQL up and running"
 
-bundle exec sidekiq -C config/sidekiq.yml
+wait-for-it "backend:3000" -- echo "Backend up and running"
+
+bundle exec sidekiq -C config/sidekiq.yml #  -e $RAILS_ENV
