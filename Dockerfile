@@ -63,6 +63,6 @@ COPY . .
 
 RUN bundle exec rake SECRET_KEY_BASE=blablabla DB_ADAPTER=nulldb assets:precompile
 
-#EXPOSE 3000
-#
-#CMD ["rails", "server", "-b", "0.0.0.0"]
+EXPOSE 3000
+
+ENTRYPOINT ./bin/app.sh
