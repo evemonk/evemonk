@@ -1,9 +1,9 @@
 ---
 name: actionmailer
-version: 6.0.0.beta3
+version: 6.0.0.rc1
 type: bundler
 summary: Email composition and delivery framework (part of Rails).
-homepage: http://rubyonrails.org
+homepage: https://rubyonrails.org
 license: mit
 licenses:
 - sources: MIT-LICENSE

@@ -1,9 +1,9 @@
 ---
 name: activestorage
-version: 6.0.0.beta3
+version: 6.0.0.rc1
 type: bundler
 summary: Local and cloud file storage framework.
-homepage: http://rubyonrails.org
+homepage: https://rubyonrails.org
 license: mit
 licenses:
 - sources: MIT-LICENSE

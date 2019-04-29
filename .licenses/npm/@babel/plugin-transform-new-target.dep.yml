@@ -1,6 +1,6 @@
 ---
 name: "@babel/plugin-transform-new-target"
-version: 7.4.0
+version: 7.4.4
 type: npm
 summary: Transforms new.target meta property
 homepage: 

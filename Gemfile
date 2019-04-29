@@ -2,15 +2,13 @@
 
 source 'https://rubygems.org'
 
-gem 'rails', '6.0.0.beta3'
-# gem 'rails', git: 'https://github.com/rails/rails.git',
-#              branch: 'master'
+gem 'rails', '6.0.0.rc1'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.11'
 gem 'sass-rails', '~> 5.0'
-gem 'webpacker'
+gem 'webpacker', '~> 4.0'
 gem 'jbuilder', '~> 2.5'
-gem 'bootsnap', '>= 1.1.0', require: false
+gem 'bootsnap', '>= 1.4.2', require: false
 # gem 'rufus-scheduler'
 gem 'bcrypt'
 # gem 'eve_online'
@@ -54,14 +52,13 @@ group :production do
 end
 
 group :development, :test do
-  # gem 'rspec-rails'
+  gem 'rspec-rails', '4.0.0.beta2'
   ['rspec-core', 'rspec-expectations', 'rspec-mocks', 'rspec-support'].each do |lib|
     gem lib, git: "https://github.com/rspec/#{ lib }.git", branch: 'master'
   end
-  gem 'rspec-rails', git: 'https://github.com/rspec/rspec-rails.git', branch: '4-0-dev'
   gem 'awesome_print', require: 'ap'
   gem 'pry-rails'
-  # gem 'bullet' # Current version don't support rails 6 yet
+  gem 'bullet'
   gem 'factory_bot_rails'
   gem 'faker'
   gem 'sql_tracker'
@@ -102,8 +99,8 @@ end
 group :test do
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
-  # Easy installation and use of chromedriver to run system tests with Chrome
-  gem 'chromedriver-helper'
+  # Easy installation and use of web drivers to run system tests with browsers
+  gem 'webdrivers'
   gem 'rails-controller-testing'
   gem 'shoulda-matchers'
   gem 'rspec-its'

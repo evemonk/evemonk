@@ -1,6 +1,6 @@
 ---
 name: "@babel/plugin-transform-function-name"
-version: 7.4.3
+version: 7.4.4
 type: npm
 summary: Apply ES2015 function.name semantics to all functions
 homepage: 

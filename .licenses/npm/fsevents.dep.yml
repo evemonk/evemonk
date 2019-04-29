@@ -1,6 +1,6 @@
 ---
 name: fsevents
-version: 1.2.8
+version: 1.2.9
 type: npm
 summary: Native Access to Mac OS-X FSEvents
 homepage: https://github.com/strongloop/fsevents

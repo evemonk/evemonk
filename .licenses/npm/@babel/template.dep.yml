@@ -1,6 +1,6 @@
 ---
 name: "@babel/template"
-version: 7.4.0
+version: 7.4.4
 type: npm
 summary: Generate an AST from a string template.
 homepage: https://babeljs.io/

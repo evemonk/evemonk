@@ -1,6 +1,6 @@
 ---
 name: "@babel/plugin-transform-modules-systemjs"
-version: 7.4.0
+version: 7.4.4
 type: npm
 summary: This plugin transforms ES2015 modules to SystemJS
 homepage: 

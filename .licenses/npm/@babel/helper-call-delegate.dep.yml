@@ -1,6 +1,6 @@
 ---
 name: "@babel/helper-call-delegate"
-version: 7.4.0
+version: 7.4.4
 type: npm
 summary: Helper function to call delegate
 homepage: 
