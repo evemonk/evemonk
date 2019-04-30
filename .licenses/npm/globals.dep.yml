@@ -1,6 +1,6 @@
 ---
 name: globals
-version: 11.11.0
+version: 11.12.0
 type: npm
 summary: Global identifiers from different JavaScript environments
 homepage: https://github.com/sindresorhus/globals#readme
