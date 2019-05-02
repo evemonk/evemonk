@@ -6,9 +6,6 @@ require 'sidekiq-scheduler/web'
 Rails.application.routes.draw do
   namespace :backoffice do
     # TODO: spec this
-    mount PgHero::Engine, at: 'pghero'
-
-    # TODO: spec this
     mount Sidekiq::Web, at: 'sidekiq'
   end
 
