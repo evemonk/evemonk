@@ -1,4 +1,6 @@
 AllCops:
   Exclude:
+    - 'bin/*'
+    - 'config/spring.rb'
     - 'db/schema.rb'
     - 'node_modules/**/*'
