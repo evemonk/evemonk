@@ -84,13 +84,6 @@ group :development do
   gem 'consistency_fail', require: false
   gem 'rails_best_practices'
   gem 'active_record_doctor'
-  gem 'ed25519', '>= 1.2', '< 2.0' # net-ssh requires the following gems for ed25519 support
-  gem 'bcrypt_pbkdf', '>= 1.0', '< 2.0' # net-ssh requires the following gems for ed25519 support
-  gem 'capistrano', require: false
-  gem 'capistrano-rails', require: false
-  gem 'capistrano-faster-assets', require: false
-  gem 'capistrano-rbenv', require: false
-  gem 'capistrano-rbenv-install', require: false
   # gem 'overcommit', require: false
   gem 'cacheflow'
   gem 'gemdiff', require: false
