@@ -1,6 +1,6 @@
 ---
 name: worker-farm
-version: 1.6.0
+version: 1.7.0
 type: npm
 summary: Distribute processing tasks to child processes with an über-simple API and
   baked-in durability & custom concurrency options.
