@@ -90,7 +90,7 @@ services:
       - '--storage.path=/alertmanager'
 
   grafana:
-    image: 'grafana/grafana:6.1.4'
+    image: 'grafana/grafana:6.1.6'
     user: '104'
     restart: unless-stopped
     depends_on:
