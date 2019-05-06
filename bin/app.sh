@@ -12,7 +12,7 @@ wait-for-it "memcached:11211" -- echo "Memcached up and running"
 
 wait-for-it "postgresql:5432" -- echo "PostgreSQL up and running"
 
-bundle exec rails db:migrate
+bundle exec rails db:create db:migrate
 
 bundle exec rails searchkick:reindex:all
 
