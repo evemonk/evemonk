@@ -1,6 +1,6 @@
 ---
 name: postcss
-version: 7.0.14
+version: 7.0.16
 type: npm
 summary: Tool for transforming styles with JS plugins
 homepage: https://postcss.org/
