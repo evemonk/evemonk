@@ -1,5 +1,9 @@
 #! /bin/sh
 
+rm -rf /shared
+
+cp -R /app/public/ /shared/
+
 wait-for-it "elasticsearch:9200" -- echo "Elastic up and running"
 
 wait-for-it "redis:6379" -- echo "Redis up and running"
