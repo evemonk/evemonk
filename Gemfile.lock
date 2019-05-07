@@ -358,7 +358,7 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.10.0)
       ffi (~> 1.0)
-    redis (4.1.0)
+    redis (4.1.1)
     regexp_parser (1.4.0)
     require_all (2.0.0)
     responders (2.4.1)
@@ -426,7 +426,7 @@ GEM
       activemodel (>= 5)
       elasticsearch (>= 6)
       hashie
-    selenium-webdriver (3.142.0)
+    selenium-webdriver (3.142.1)
       childprocess (>= 0.5, < 2.0)
       rubyzip (~> 1.2, >= 1.2.2)
     sentry-raven (2.9.0)

@@ -1,6 +1,6 @@
 ---
 name: redis
-version: 4.1.0
+version: 4.1.1
 type: bundler
 summary: A Ruby client library for Redis
 homepage: https://github.com/redis/redis-rb
