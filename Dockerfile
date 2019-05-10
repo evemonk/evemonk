@@ -67,6 +67,4 @@ VOLUME ['/shared']
 
 EXPOSE 3000
 
-ENTRYPOINT ./bin/entrypoint.sh
-
 CMD ['rails', 'server', '-b', '0.0.0.0']
