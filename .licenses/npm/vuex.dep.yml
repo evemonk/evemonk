@@ -1,6 +1,6 @@
 ---
 name: vuex
-version: 3.1.0
+version: 3.1.1
 type: npm
 summary: state management for Vue.js
 homepage: https://github.com/vuejs/vuex#readme
