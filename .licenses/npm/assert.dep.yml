@@ -1,9 +1,9 @@
 ---
 name: assert
-version: 1.4.1
+version: 1.5.0
 type: npm
-summary: commonjs assert - node.js api compatible
-homepage: https://github.com/defunctzombie/commonjs-assert
+summary: The node.js assert module, re-packaged for web browsers.
+homepage: https://github.com/browserify/commonjs-assert
 license: mit
 licenses:
 - sources: LICENSE
