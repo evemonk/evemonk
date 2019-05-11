@@ -8,10 +8,6 @@ inherit_from:
   - .rubocop-thread_safety.yml
   - .rubocop_todo.yml
 
-AllCops:
-  Exclude:
-    - 'vendor/**/*'
-
 Metrics/BlockLength:
   Exclude:
     - 'app/controllers/api/docs_controller.rb'
