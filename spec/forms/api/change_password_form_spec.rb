@@ -5,13 +5,30 @@ require 'rails_helper'
 describe Api::ChangePasswordForm, type: :model do
   it { should be_a(ActiveModel::Model) }
 
-  xit { should validate_presence_of(:old_password) } # TODO: update shoulda-matchers and enable this spec
+  describe 'validations' do
+    let!(:user) { create(:user, email: 'me@example.com', password: 'old_password') }
 
-  xit { should validate_presence_of(:password) } # TODO: update shoulda-matchers and enable this spec
+    let(:params) do
+      {
+        old_password: 'old_password',
+        password: 'new_password',
+        password_confirmation: 'new_password',
+        name: 'My Computer',
+        device_type: 'ios',
+        device_token: 'token123'
+      }
+    end
 
-  xit { should validate_presence_of(:password_confirmation) } # TODO: update shoulda-matchers and enable this spec
+    subject { described_class.new(params.merge(user: user)) }
 
-  xit { should validate_confirmation_of(:password) }
+    it { should validate_presence_of(:old_password) }
+
+    it { should validate_presence_of(:password) }
+
+    it { should validate_presence_of(:password_confirmation) }
+
+    it { should validate_confirmation_of(:password) }
+  end
 
   it { should delegate_method(:id).to(:session) }
 
