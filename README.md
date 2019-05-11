@@ -80,6 +80,7 @@ app.save!
 
 * [The official repository for ESI documentation](https://github.com/esi/esi-docs)
 * [EVE Swagger Interface](https://esi.evetech.net/ui/?datasource=tranquility)
+* [One place to hold all EVE logic recreated in ESI](https://github.com/esi/eve-glue)
 * [Eve Online Static Data Export (SDE) and Image Export Collection (IEC) downloader](https://github.com/evemonk/eveonline-sde-iec-downloader)
 
 ## Guides
