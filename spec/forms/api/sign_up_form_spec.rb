@@ -47,7 +47,7 @@ describe Api::SignUpForm, type: :model do
 
       specify { expect { subject.save }.to change(Session, :count).by(1) }
 
-      pending { expect { subject.save }.to change { User.first&.authenticate('password') }.from(nil).to(User.first) }
+      specify { expect { subject.save }.to change { User.first&.authenticate('password')&.present? }.from(nil).to(true) }
     end
 
     context 'when user not valid' do
