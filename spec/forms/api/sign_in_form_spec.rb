@@ -10,11 +10,11 @@ describe Api::SignInForm, type: :model do
 
     let(:params) do
       {
-          email: 'me@example.com',
-          password: 'password',
-          name: 'My Computer',
-          device_type: 'ios',
-          device_token: 'token123'
+        email: 'me@example.com',
+        password: 'password',
+        name: 'My Computer',
+        device_type: 'ios',
+        device_token: 'token123'
       }
     end
 
