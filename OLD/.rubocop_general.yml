@@ -61,9 +61,6 @@ Style/MissingElse:
   Enabled: true
   EnforcedStyle: case
 
-Style/NegatedIf:
-  Enabled: false
-
 Style/NumericLiterals:
   Enabled: true
   Strict: true

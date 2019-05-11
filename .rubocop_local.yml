@@ -22,6 +22,7 @@ Naming/FileName:
 
 Metrics/BlockLength:
   Exclude:
+    - 'app/controllers/api/docs_controller.rb'
     - 'app/documentation/api/docs/**/*.rb'
     - 'app/views/api/**/*.json.jbuilder'
     - 'config/routes.rb'
