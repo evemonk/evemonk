@@ -78,8 +78,8 @@ app.save!
 
 ## Links
 
-* [EVE Online Third-Party Developer Documentation](https://eveonline-third-party-documentation.readthedocs.io/en/latest/)
-* [ESI Swagger](https://esi.tech.ccp.is/latest/)
+* [The official repository for ESI documentation](https://github.com/esi/esi-docs)
+* [EVE Swagger Interface](https://esi.evetech.net/ui/?datasource=tranquility)
 * [Eve Online Static Data Export (SDE) and Image Export Collection (IEC) downloader](https://github.com/evemonk/eveonline-sde-iec-downloader)
 
 ## Guides
