@@ -22,8 +22,20 @@ Naming/FileName:
 
 Metrics/BlockLength:
   Exclude:
+    - 'app/documentation/api/docs/**/*.rb'
+    - 'app/views/api/**/*.json.jbuilder'
+    - 'config/routes.rb'
+    - 'config/sitemap.rb'
     - 'spec/**/*.rb'
 
 Metrics/MethodLength:
+  Exclude:
+    - 'db/migrate/*.rb'
+
+Metrics/ClassLength:
+  Exclude:
+    - 'app/documentation/api/docs/**/*.rb'
+
+Metrics/AbcSize:
   Exclude:
     - 'db/migrate/*.rb'

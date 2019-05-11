@@ -7,17 +7,6 @@ inherit_from:
   - .rubocop_rspec.yml
   - .rubocop-thread_safety.yml
 
-Metrics/BlockLength:
-  Exclude:
-    - 'app/controllers/api/docs_controller.rb'
-    - 'app/documentation/**/*.rb'
-    - 'config/routes.rb'
-    - 'spec/**/*.rb'
-
-Metrics/ClassLength:
-  Exclude:
-    - 'app/documentation/**/*.rb'
-
 # Bug in rubocop-rspec cop
 RSpec/FilePath:
   Exclude:
@@ -31,11 +20,6 @@ RSpec/ExampleLength:
 RSpec/MultipleDescribes:
   Exclude:
     - 'spec/policies/**/*.rb'
-
-Naming/FileName:
-  Exclude:
-    - 'config/initializers/rack-cors.rb'
-    - 'spec/support/shoulda-matchers.rb'
 
 Style/MethodCallWithArgsParentheses:
   Exclude:

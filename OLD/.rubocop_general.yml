@@ -1,6 +1,3 @@
-AllCops:
-  DisplayStyleGuide: true
-
 Layout/EndOfLine:
   Enabled: true
   EnforcedStyle: lf
