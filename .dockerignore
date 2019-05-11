@@ -1,9 +1,6 @@
 .env
 .env.example
 .env_docker
-config/secrets.yml
-config/credentials.yml.enc
-config/master.key
 node_modules/*
 tmp/cache/*
 public/packs/*
