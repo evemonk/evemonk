@@ -1,6 +1,6 @@
 ---
 name: multipart-post
-version: 2.1.0
+version: 2.1.1
 type: bundler
 summary: A multipart form post accessory for Net::HTTP.
 homepage: https://github.com/nicksieger/multipart-post
