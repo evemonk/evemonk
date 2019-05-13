@@ -1,6 +1,6 @@
 ---
 name: rpush
-version: 4.1.0
+version: 4.1.1
 type: bundler
 summary: The push notification service for Ruby.
 homepage: https://github.com/rpush/rpush
