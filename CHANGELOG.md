@@ -8,6 +8,8 @@
 * Add Google Analytics
 * Enable NewRelic again
 * Show Alliance corporations
+* Migrate to Docker
+* Handle service unavailable (503) on sign in via EVE SSO
 
 ## v0.1.0
 

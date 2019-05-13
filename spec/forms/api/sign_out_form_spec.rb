@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'rails_helper'
+
 describe Api::SignOutForm do
   let(:request) { double } # TODO: use instance_double
 

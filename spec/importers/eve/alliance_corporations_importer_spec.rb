@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'rails_helper'
+
 describe Eve::AllianceCorporationsImporter do
   describe '#import' do
     let(:alliance_id) { double }

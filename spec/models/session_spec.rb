@@ -13,15 +13,15 @@ describe Session do
     context 'when device_type present' do
       subject { described_class.new(device_type: :ios) }
 
-      xit { should validate_presence_of(:device_token) } # TODO: update shoulda-matchers and enable this spec
+      it { should validate_presence_of(:device_token) }
     end
 
     context 'when device_type not present' do
       subject { described_class.new(device_type: nil) }
 
-      xit { should_not validate_presence_of(:device_token) } # TODO: update shoulda-matchers and enable this spec
+      it { should_not validate_presence_of(:device_token) }
     end
   end
 
-  # it { should have_secure_token } # TODO: update shoulda-matchers and enable this spec
+  it { should have_secure_token }
 end

@@ -23,7 +23,7 @@ describe Api::SignOutsController do
 
       before { delete :destroy, params: { format: :json } }
 
-      xit { should respond_with(:no_content) }
+      it { should respond_with(:no_content) }
     end
 
     context 'when user not authorized' do

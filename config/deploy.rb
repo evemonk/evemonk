@@ -8,9 +8,8 @@ set :repo_url, 'git@github.com:evemonk/evemonk.git'
 set :rbenv_type, :user
 set :rbenv_ruby, File.read('.ruby-version').strip
 
-set :linked_files, ['config/database.yml', 'config/newrelic.yml', '.env']
+set :linked_files, ['config/newrelic.yml', '.env']
 set :linked_dirs, ['log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/assets', 'public/packs']
-set :config_files, ['database.yml']
 
 set :deploy_to, '/home/evemonkapp/www'
 

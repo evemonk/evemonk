@@ -5,9 +5,25 @@ require 'rails_helper'
 describe Api::SignInForm, type: :model do
   it { should be_a(ActiveModel::Model) }
 
-  xit { should validate_presence_of(:email) } # TODO: update shoulda-matchers and enable this spec
+  describe 'validations' do
+    let!(:user) { create(:user, email: 'me@example.com', password: 'password') }
 
-  xit { should validate_presence_of(:password) } # TODO: update shoulda-matchers and enable this spec
+    let(:params) do
+      {
+        email: 'me@example.com',
+        password: 'password',
+        name: 'My Computer',
+        device_type: 'ios',
+        device_token: 'token123'
+      }
+    end
+
+    subject { described_class.new(params) }
+
+    it { should validate_presence_of(:email) }
+
+    it { should validate_presence_of(:password) }
+  end
 
   it { should delegate_method(:id).to(:session) }
 

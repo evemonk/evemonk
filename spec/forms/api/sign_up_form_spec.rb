@@ -1,15 +1,29 @@
 # frozen_string_literal: true
 
+require 'rails_helper'
+
 describe Api::SignUpForm, type: :model do
   it { should be_a(ActiveModel::Model) }
 
-  xit { should validate_presence_of(:email) } # TODO: update shoulda-matchers and enable this spec
+  describe 'validations' do
+    let(:params) do
+      {
+        email: 'me@example.com',
+        password: 'password',
+        password_confirmation: 'password'
+      }
+    end
 
-  xit { should validate_presence_of(:password) } # TODO: update shoulda-matchers and enable this spec
+    subject { described_class.new(params) }
 
-  xit { should validate_presence_of(:password_confirmation) } # TODO: update shoulda-matchers and enable this spec
+    it { should validate_presence_of(:email) }
 
-  it { should validate_confirmation_of(:password) }
+    it { should validate_presence_of(:password) }
+
+    it { should validate_presence_of(:password_confirmation) }
+
+    it { should validate_confirmation_of(:password) }
+  end
 
   it { should delegate_method(:id).to(:session) }
 
@@ -33,7 +47,7 @@ describe Api::SignUpForm, type: :model do
 
       specify { expect { subject.save }.to change(Session, :count).by(1) }
 
-      pending { expect { subject.save }.to change { User.first&.authenticate('password') }.from(nil).to(User.first) }
+      specify { expect { subject.save }.to change { User.first&.authenticate('password')&.present? }.from(nil).to(true) }
     end
 
     context 'when user not valid' do

@@ -5,15 +5,32 @@ require 'rails_helper'
 describe Api::ResetPasswordForm, type: :model do
   it { should be_a(ActiveModel::Model) }
 
-  xit { should validate_presence_of(:reset_password_token) } # TODO: update shoulda-matchers and enable this spec
+  describe 'validations' do
+    let!(:user) do
+      create(:user,
+             email: 'me@example.com',
+             password: 'old_password',
+             reset_password_token: 'reset-token-123')
+    end
 
-  xit { should validate_presence_of(:password) } # TODO: update shoulda-matchers and enable this spec
+    let(:params) do
+      {
+        reset_password_token: 'reset-token-123',
+        password: 'new_password',
+        password_confirmation: 'new_password'
+      }
+    end
 
-  xit { should validate_presence_of(:password_confirmation) } # TODO: update shoulda-matchers and enable this spec
+    subject { described_class.new(params) }
 
-  xit { should validate_presence_of(:email) } # TODO: update shoulda-matchers and enable this spec
+    it { should validate_presence_of(:reset_password_token) }
 
-  xit { should validate_confirmation_of(:password) }
+    it { should validate_presence_of(:password) }
+
+    it { should validate_presence_of(:password_confirmation) }
+
+    it { should validate_confirmation_of(:password) }
+  end
 
   it { should delegate_method(:id).to(:session) }
 

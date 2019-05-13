@@ -5,7 +5,13 @@ require 'rails_helper'
 describe Api::RequestResetPasswordForm, type: :model do
   it { should be_a(ActiveModel::Model) }
 
-  xit { should validate_presence_of(:email) } # TODO: update shoulda-matchers and enable this spec
+  describe 'validations' do
+    let(:params) { { email: 'me@example.com' } }
+
+    subject { described_class.new(params) }
+
+    it { should validate_presence_of(:email) }
+  end
 
   describe '#save' do
     context 'when user with given email not found' do

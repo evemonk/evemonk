@@ -2,7 +2,7 @@
 
 module Eve
   class Alliance < ApplicationRecord
-    # searchkick
+    searchkick
 
     belongs_to :creator_corporation, primary_key: :corporation_id, class_name: 'Eve::Corporation', optional: true
 

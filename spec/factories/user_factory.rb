@@ -8,7 +8,7 @@ FactoryBot.define do
 
     password { Faker::Internet.password }
 
-    reset_password_token { SecureRandom::base58 }
+    reset_password_token { SecureRandom.base58 }
 
     trait :oauth do
       kind { :oauth }

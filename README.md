@@ -45,20 +45,23 @@ EveMonk is helper software for EveOnline MMORPG.
 
 ## Environment
 
-* [rbenv](https://github.com/rbenv/rbenv) + [ruby-build](https://github.com/rbenv/ruby-build)
-* [asdf](https://github.com/asdf-vm/asdf) + [asdf-nodejs](https://github.com/asdf-vm/asdf-nodejs)
+* [rbenv](https://github.com/rbenv/rbenv)
+* [ruby-build](https://github.com/rbenv/ruby-build)
+* [asdf](https://github.com/asdf-vm/asdf)
+* [asdf-nodejs](https://github.com/asdf-vm/asdf-nodejs)
+
 * Ruby 2.6.3
 * RubyGems 3.0.3
 * Bundler 2.0.1
 * Ruby on Rails 6.0.0.rc1
 * PostgreSQL 11.2
-* Redis 5.0.3
-* Elasticsearch 6.6.2
+* Redis 5.0.4
+* Elasticsearch 6.7.0
 * Node 10.15.3
 * NPM 6.9.0
 * Yarn 1.15.2
 * Vue 2.6.10
-* vuex 3.1.0
+* vuex 3.1.1
 * vue-router 3.0.6
 * Vuetify 1.5.14
 
@@ -78,8 +81,9 @@ app.save!
 
 ## Links
 
-* [EVE Online Third-Party Developer Documentation](https://eveonline-third-party-documentation.readthedocs.io/en/latest/)
-* [ESI Swagger](https://esi.tech.ccp.is/latest/)
+* [The official repository for ESI documentation](https://github.com/esi/esi-docs)
+* [EVE Swagger Interface](https://esi.evetech.net/ui/?datasource=tranquility)
+* [One place to hold all EVE logic recreated in ESI](https://github.com/esi/eve-glue)
 * [Eve Online Static Data Export (SDE) and Image Export Collection (IEC) downloader](https://github.com/evemonk/eveonline-sde-iec-downloader)
 
 ## Guides

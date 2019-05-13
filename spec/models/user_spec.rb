@@ -14,7 +14,7 @@ describe User do
   context 'when user registered via email' do
     subject { build(:user) }
 
-    xit { should validate_presence_of(:email) } # TODO: update shoulda-matchers and enable this spec
+    it { should validate_presence_of(:email) }
 
     it { should validate_uniqueness_of(:email).case_insensitive }
   end
@@ -22,7 +22,7 @@ describe User do
   context 'when user registered via oauth' do
     subject { build(:user, :oauth) }
 
-    xit { should_not validate_presence_of(:email) } # TODO: update shoulda-matchers and enable this spec
+    it { should_not validate_presence_of(:email) }
 
     it { should_not validate_uniqueness_of(:email).case_insensitive }
   end

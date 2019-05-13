@@ -30,7 +30,7 @@ describe Eve::AlliancesSearcher do
   end
 
   describe '#query' do
-    xcontext 'when q is empty' do
+    context 'when q is empty' do
       let!(:alliance1) { create(:eve_alliance) }
 
       let!(:alliance2) { create(:eve_alliance) }
@@ -46,7 +46,7 @@ describe Eve::AlliancesSearcher do
       specify { expect(subject.query.to_a).to include(alliance1, alliance2, alliance3) }
     end
 
-    xcontext 'when q is present' do
+    context 'when q is present' do
       context 'when name match' do
         let!(:alliance) { create(:eve_alliance, name: 'Northern Coalition.', ticker: nil) }
 

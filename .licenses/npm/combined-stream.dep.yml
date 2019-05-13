@@ -1,6 +1,6 @@
 ---
 name: combined-stream
-version: 1.0.7
+version: 1.0.8
 type: npm
 summary: A stream that emits multiple other streams one after another.
 homepage: https://github.com/felixge/node-combined-stream

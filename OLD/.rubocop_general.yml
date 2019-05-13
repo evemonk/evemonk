@@ -1,6 +1,3 @@
-AllCops:
-  DisplayStyleGuide: true
-
 Layout/EndOfLine:
   Enabled: true
   EnforcedStyle: lf
@@ -63,9 +60,6 @@ Style/MethodCalledOnDoEndBlock:
 Style/MissingElse:
   Enabled: true
   EnforcedStyle: case
-
-Style/NegatedIf:
-  Enabled: false
 
 Style/NumericLiterals:
   Enabled: true
