@@ -9,7 +9,7 @@ json.alliances do
     json.icon "https://imageserver.eveonline.com/Alliance/#{ alliance.alliance_id }_128.png"
     json.name alliance.name
     json.ticker alliance.ticker
-    json.date_founded alliance.date_founded
+    json.date_founded alliance.date_founded.iso8601
     json.corporations_count alliance.corporations.count
     json.characters_count alliance.characters_count
     if alliance.creator_corporation
