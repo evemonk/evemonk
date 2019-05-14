@@ -21,9 +21,9 @@ describe Eve::AllianceCorporationsImporter do
 
       let(:remote_corporation_ids) { [remote_corporation_id] }
 
-      let(:eveonline_esi_alliance_corporations) { instance_double(EveOnline::ESI::AllianceCorporations, corporation_ids: remote_corporation_ids) }
+      let(:esi) { instance_double(EveOnline::ESI::AllianceCorporations, corporation_ids: remote_corporation_ids) }
 
-      before { expect(EveOnline::ESI::AllianceCorporations).to receive(:new).with(alliance_id: alliance_id).and_return(eveonline_esi_alliance_corporations) }
+      before { expect(EveOnline::ESI::AllianceCorporations).to receive(:new).with(alliance_id: alliance_id).and_return(esi) }
 
       let(:local_corporation_id) { double }
 
