@@ -135,6 +135,55 @@ describe Eve::AlliancesImporter do
     end
   end
 
+  describe '#remove_old_alliances' do
+    let(:alliance_id) { double }
+
+    let(:alliance_ids) { [alliance_id] }
+
+    let(:esi) do
+      instance_double(EveOnline::ESI::Alliances,
+                      alliance_ids: alliance_ids)
+    end
+
+    before { expect(EveOnline::ESI::Alliances).to receive(:new).and_return(esi) }
+
+    let(:eve_alliance_ids) { double }
+
+    before { expect(Eve::Alliance).to receive(:pluck).with(:alliance_id).and_return(eve_alliance_ids) }
+
+    let(:alliance_id_to_remove) { double }
+
+    let(:alliance_ids_to_remove) { [alliance_id_to_remove] }
+
+    before { expect(eve_alliance_ids).to receive(:-).with(alliance_ids).and_return(alliance_ids_to_remove) }
+
+    let(:corporation_id) { double }
+
+    let(:corporation) { instance_double(Eve::Corporation, corporation_id: corporation_id) }
+
+    let(:corporations) { [corporation] }
+
+    let(:eve_alliance) { instance_double(Eve::Alliance, corporations: corporations) }
+
+    before { expect(Eve::Alliance).to receive(:find_or_initialize_by).with(alliance_id: alliance_id_to_remove).and_return(eve_alliance) }
+
+    before do
+      #
+      # Eve::CorporationImporter.new(corporation.corporation_id).import
+      #
+      expect(Eve::CorporationImporter).to receive(:new).with(corporation_id) do
+        double.tap do |a|
+          expect(a).to receive(:import)
+        end
+      end
+    end
+
+    before { expect(eve_alliance).to receive(:destroy!) }
+
+    specify { expect { subject.send(:remove_old_alliances) }.not_to raise_error }
+  end
+
+
   # describe '#import' do
   #   context 'when fresh data available' do
   #     let(:url) { double }
