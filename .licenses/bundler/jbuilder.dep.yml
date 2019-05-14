@@ -1,6 +1,6 @@
 ---
 name: jbuilder
-version: 2.9.0
+version: 2.9.1
 type: bundler
 summary: Create JSON structures via a Builder-style DSL
 homepage: https://github.com/rails/jbuilder
