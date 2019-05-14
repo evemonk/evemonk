@@ -37,22 +37,31 @@ describe Eve::AlliancesImporter do
     end
   end
 
-  # def import
-  #   esi.etag = etag.etag
-  #
-  #   return if esi.not_modified?
-  #
-  #   import_new_alliances
-  #
-  #   remove_old_alliances
-  #
-  #   etag.update!(etag: esi.etag)
-  # end
-
-
   describe '#import' do
     context 'when fresh data available' do
+      let(:etag) { instance_double(Etag, etag: '97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a') }
 
+      let(:new_etag) { double }
+
+      let(:esi) do
+        instance_double(EveOnline::ESI::Alliances,
+                        not_modified?: false,
+                        etag: new_etag)
+      end
+
+      before { expect(EveOnline::ESI::Alliances).to receive(:new).and_return(esi) }
+
+      before { expect(subject).to receive(:etag).and_return(etag).twice }
+
+      before { expect(esi).to receive(:etag=).with('97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a') }
+
+      before { expect(subject).to receive(:import_new_alliances) }
+
+      before { expect(subject).to receive(:remove_old_alliances) }
+
+      before { expect(etag).to receive(:update!).with(etag: new_etag) }
+
+      specify { expect { subject.import }.not_to raise_error }
     end
 
     context 'when no fresh data available' do
