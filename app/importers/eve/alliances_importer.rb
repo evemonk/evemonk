@@ -43,7 +43,7 @@ module Eve
         eve_alliance = Eve::Alliance.find_or_initialize_by(alliance_id: alliance_id)
 
         eve_alliance.corporations.each do |corporation|
-          Eve::CorporationImporter.new(corporation.corporation_id).import
+          Eve::CorporationImporterWorker.perform_async(corporation.corporation_id)
         end
 
         eve_alliance.destroy!
