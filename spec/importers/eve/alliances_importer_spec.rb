@@ -88,6 +88,52 @@ describe Eve::AlliancesImporter do
     end
   end
 
+  # private methods
+
+  describe '#import_new_alliances' do
+    let(:alliance_id) { double }
+
+    let(:esi) do
+      instance_double(EveOnline::ESI::Alliances,
+                      alliance_ids: [alliance_id])
+    end
+
+    before { expect(EveOnline::ESI::Alliances).to receive(:new).and_return(esi) }
+
+    context 'when alliance not imported' do
+      before do
+        #
+        # Eve::Alliance.where(alliance_id: alliance_id).exists? # => false
+        #
+        expect(Eve::Alliance).to receive(:where).with(alliance_id: alliance_id) do
+          double.tap do |a|
+            expect(a).to receive(:exists?).and_return(false)
+          end
+        end
+      end
+
+      before { expect(Eve::AllianceImporterWorker).to receive(:perform_async).with(alliance_id) }
+
+      specify { expect { subject.send(:import_new_alliances) }.not_to raise_error }
+    end
+
+    context 'when alliance already imported' do
+      before do
+        #
+        # Eve::Alliance.where(alliance_id: alliance_id).exists? # => true
+        #
+        expect(Eve::Alliance).to receive(:where).with(alliance_id: alliance_id) do
+          double.tap do |a|
+            expect(a).to receive(:exists?).and_return(true)
+          end
+        end
+      end
+
+      before { expect(Eve::AllianceImporterWorker).not_to receive(:perform_async).with(alliance_id) }
+
+      specify { expect { subject.send(:import_new_alliances) }.not_to raise_error }
+    end
+  end
 
   # describe '#import' do
   #   context 'when fresh data available' do
