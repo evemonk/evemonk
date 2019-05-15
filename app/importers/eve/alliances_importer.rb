@@ -8,10 +8,6 @@ module Eve
       @esi = EveOnline::ESI::Alliances.new
     end
 
-    def etag
-      @etag ||= Etag.find_or_initialize_by(url: esi.url)
-    end
-
     def import
       esi.etag = etag.etag
 
@@ -25,6 +21,10 @@ module Eve
     end
 
     private
+
+    def etag
+      @etag ||= Etag.find_or_initialize_by(url: esi.url)
+    end
 
     def import_new_alliances
       esi.alliance_ids.each do |alliance_id|

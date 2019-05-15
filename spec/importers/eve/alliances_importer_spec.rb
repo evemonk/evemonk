@@ -11,32 +11,6 @@ describe Eve::AlliancesImporter do
     its(:esi) { should eq(esi) }
   end
 
-  describe '#etag' do
-    context 'when @model set' do
-      let(:etag) { instance_double(Etag) }
-
-      before { subject.instance_variable_set(:@etag, etag) }
-
-      specify { expect(subject.etag).to eq(etag) }
-    end
-
-    context 'when @etag not set' do
-      let(:url) { double }
-
-      let(:esi) { instance_double(EveOnline::ESI::Alliances, url: url) }
-
-      let(:etag) { instance_double(Etag) }
-
-      before { expect(EveOnline::ESI::Alliances).to receive(:new).and_return(esi) }
-
-      before { expect(Etag).to receive(:find_or_initialize_by).with(url: url).and_return(etag) }
-
-      specify { expect { subject.etag }.not_to raise_error }
-
-      specify { expect { subject.etag }.to change { subject.instance_variable_get(:@etag) }.from(nil).to(etag) }
-    end
-  end
-
   describe '#import' do
     context 'when fresh data available' do
       let(:etag) { instance_double(Etag, etag: '97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a') }
@@ -89,6 +63,32 @@ describe Eve::AlliancesImporter do
   end
 
   # private methods
+
+  describe '#etag' do
+    context 'when @etag set' do
+      let(:etag) { instance_double(Etag) }
+
+      before { subject.instance_variable_set(:@etag, etag) }
+
+      specify { expect(subject.send(:etag)).to eq(etag) }
+    end
+
+    context 'when @etag not set' do
+      let(:url) { double }
+
+      let(:esi) { instance_double(EveOnline::ESI::Alliances, url: url) }
+
+      let(:etag) { instance_double(Etag) }
+
+      before { expect(EveOnline::ESI::Alliances).to receive(:new).and_return(esi) }
+
+      before { expect(Etag).to receive(:find_or_initialize_by).with(url: url).and_return(etag) }
+
+      specify { expect { subject.send(:etag) }.not_to raise_error }
+
+      specify { expect { subject.send(:etag) }.to change { subject.instance_variable_get(:@etag) }.from(nil).to(etag) }
+    end
+  end
 
   describe '#import_new_alliances' do
     let(:alliance_id) { double }
