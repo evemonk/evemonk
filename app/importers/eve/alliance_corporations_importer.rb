@@ -2,33 +2,47 @@
 
 module Eve
   class AllianceCorporationsImporter
-    attr_reader :alliance_id
+    attr_reader :alliance_id, :esi
 
     def initialize(alliance_id)
       @alliance_id = alliance_id
+      @esi = EveOnline::ESI::AllianceCorporations.new(alliance_id: alliance_id)
     end
 
     def import
-      # TODO: etag support
-      eve_alliance = Eve::Alliance.find_by!(alliance_id: alliance_id)
+      esi.etag = etag.etag
 
-      esi = EveOnline::ESI::AllianceCorporations.new(alliance_id: alliance_id)
+      return if esi.not_modified?
 
-      remote_corporation_ids = esi.corporation_ids
+      import_new_corporations
 
-      local_corporation_ids = eve_alliance.alliance_corporations.pluck(:corporation_id)
+      remove_old_corporations
 
-      ids_to_create = remote_corporation_ids - local_corporation_ids
+      etag.update!(etag: esi.etag)
+    end
 
-      ids_to_remove = local_corporation_ids - remote_corporation_ids
+    private
 
-      ids_to_create.each do |corporation_id|
+    def import_new_corporations
+      corporation_ids = esi.corporation_ids - eve_alliance.alliance_corporations.pluck(:corporation_id)
+
+      corporation_ids.each do |corporation_id|
         eve_alliance.alliance_corporations.create!(corporation_id: corporation_id)
       end
+    end
 
-      ids_to_remove.each do |corporation_id|
-        eve_alliance.alliance_corporations.where(corporation_id: corporation_id).destroy_all
-      end
+    def remove_old_corporations
+      corporation_ids = eve_alliance.alliance_corporations.pluck(:corporation_id) - esi.corporation_ids
+
+      eve_alliance.alliance_corporations.where(corporation_id: corporation_ids).destroy_all
+    end
+
+    def etag
+      @etag ||= Etag.find_or_initialize_by(url: esi.url)
+    end
+
+    def eve_alliance
+      @eve_alliance ||= Eve::Alliance.find_by!(alliance_id: alliance_id)
     rescue ActiveRecord::RecordNotFound
       Rails.logger.info("Alliance with ID #{ alliance_id } not found")
     end
