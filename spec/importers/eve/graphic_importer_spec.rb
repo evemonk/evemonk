@@ -20,7 +20,7 @@ describe Eve::GraphicImporter do
 
         let(:new_etag) { double }
 
-        let(:eveonline_esi_graphic) do
+        let(:esi) do
           instance_double(EveOnline::ESI::UniverseGraphic,
                           url: url,
                           not_modified?: false,
@@ -28,13 +28,13 @@ describe Eve::GraphicImporter do
                           as_json: json)
         end
 
-        before { expect(EveOnline::ESI::UniverseGraphic).to receive(:new).with(id: graphic_id).and_return(eveonline_esi_graphic) }
+        before { expect(EveOnline::ESI::UniverseGraphic).to receive(:new).with(id: graphic_id).and_return(esi) }
 
         let(:etag) { instance_double(Etag, etag: 'e3f6a76b4a1287f54966c6253f8f5d6ac6460bc43d47570331b43e0b') }
 
         before { expect(Etag).to receive(:find_or_initialize_by).with(url: url).and_return(etag) }
 
-        before { expect(eveonline_esi_graphic).to receive(:etag=).with('e3f6a76b4a1287f54966c6253f8f5d6ac6460bc43d47570331b43e0b') }
+        before { expect(esi).to receive(:etag=).with('e3f6a76b4a1287f54966c6253f8f5d6ac6460bc43d47570331b43e0b') }
 
         before { expect(eve_graphic).to receive(:update!).with(json) }
 
@@ -71,19 +71,19 @@ describe Eve::GraphicImporter do
 
       let(:url) { double }
 
-      let(:eveonline_esi_graphic) do
+      let(:esi) do
         instance_double(EveOnline::ESI::UniverseGraphic,
                         url: url,
                         not_modified?: true)
       end
 
-      before { expect(EveOnline::ESI::UniverseGraphic).to receive(:new).with(id: graphic_id).and_return(eveonline_esi_graphic) }
+      before { expect(EveOnline::ESI::UniverseGraphic).to receive(:new).with(id: graphic_id).and_return(esi) }
 
       let(:etag) { instance_double(Etag, etag: 'e3f6a76b4a1287f54966c6253f8f5d6ac6460bc43d47570331b43e0b') }
 
       before { expect(Etag).to receive(:find_or_initialize_by).with(url: url).and_return(etag) }
 
-      before { expect(eveonline_esi_graphic).to receive(:etag=).with('e3f6a76b4a1287f54966c6253f8f5d6ac6460bc43d47570331b43e0b') }
+      before { expect(esi).to receive(:etag=).with('e3f6a76b4a1287f54966c6253f8f5d6ac6460bc43d47570331b43e0b') }
 
       before { expect(eve_graphic).not_to receive(:update!) }
 

@@ -11,17 +11,17 @@ module Eve
     def import
       eve_graphic = Eve::Graphic.find_or_initialize_by(graphic_id: graphic_id)
 
-      eveonline_esi_graphic = EveOnline::ESI::UniverseGraphic.new(id: graphic_id)
+      esi = EveOnline::ESI::UniverseGraphic.new(id: graphic_id)
 
-      etag = Etag.find_or_initialize_by(url: eveonline_esi_graphic.url)
+      etag = Etag.find_or_initialize_by(url: esi.url)
 
-      eveonline_esi_graphic.etag = etag.etag
+      esi.etag = etag.etag
 
-      return if eveonline_esi_graphic.not_modified?
+      return if esi.not_modified?
 
-      eve_graphic.update!(eveonline_esi_graphic.as_json)
+      eve_graphic.update!(esi.as_json)
 
-      etag.update!(etag: eveonline_esi_graphic.etag)
+      etag.update!(etag: esi.etag)
     rescue EveOnline::Exceptions::ResourceNotFound
       eve_graphic.destroy!
     end
