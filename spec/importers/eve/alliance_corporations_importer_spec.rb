@@ -3,6 +3,10 @@
 require 'rails_helper'
 
 describe Eve::AllianceCorporationsImporter do
+  let(:alliance_id) { double }
+
+  subject { described_class.new(alliance_id) }
+
   # describe '#import' do
   #   let(:alliance_id) { double }
   #
@@ -71,10 +75,6 @@ describe Eve::AllianceCorporationsImporter do
 
   describe '#etag' do
     context 'when @etag set' do
-      let(:alliance_id) { double }
-
-      subject { described_class.new(alliance_id) }
-
       let(:etag) { instance_double(Etag) }
 
       before { subject.instance_variable_set(:@etag, etag) }
@@ -83,10 +83,6 @@ describe Eve::AllianceCorporationsImporter do
     end
 
     context 'when @etag not set' do
-      let(:alliance_id) { double }
-
-      subject { described_class.new(alliance_id) }
-
       let(:url) { double }
 
       let(:esi) { instance_double(EveOnline::ESI::AllianceCorporations, url: url) }
@@ -105,10 +101,6 @@ describe Eve::AllianceCorporationsImporter do
 
   describe '#eve_alliance' do
     context 'when @eve_alliance set' do
-      let(:alliance_id) { double }
-
-      subject { described_class.new(alliance_id) }
-
       let(:eve_alliance) { instance_double(Eve::Alliance) }
 
       before { subject.instance_variable_set(:@eve_alliance, eve_alliance) }
@@ -117,10 +109,6 @@ describe Eve::AllianceCorporationsImporter do
     end
 
     context 'when @eve_alliance not set' do
-      let(:alliance_id) { double }
-
-      subject { described_class.new(alliance_id) }
-
       let(:eve_alliance) { instance_double(Eve::Alliance) }
 
       before { expect(Eve::Alliance).to receive(:find_by!).with(alliance_id: alliance_id).and_return(eve_alliance) }
@@ -131,10 +119,6 @@ describe Eve::AllianceCorporationsImporter do
     end
 
     context 'when alliance not found' do
-      let(:alliance_id) { double }
-
-      subject { described_class.new(alliance_id) }
-
       before { expect(Eve::Alliance).to receive(:find_by!).with(alliance_id: alliance_id).and_raise(ActiveRecord::RecordNotFound) }
 
       before do
