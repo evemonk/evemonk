@@ -134,6 +134,63 @@ describe Eve::AllianceCorporationsImporter do
 
   # private methods
 
+  describe '#import_new_corporations' do
+    let(:remote_corporation_id) { double }
+
+    let(:remote_corporation_ids) { [remote_corporation_id] }
+
+    let(:esi) do
+      instance_double(EveOnline::ESI::AllianceCorporations,
+                      not_modified?: false,
+                      corporation_ids: remote_corporation_ids)
+    end
+
+    before { expect(EveOnline::ESI::AllianceCorporations).to receive(:new).with(alliance_id: alliance_id).and_return(esi) }
+
+    let(:eve_alliance) { instance_double(Eve::Alliance) }
+
+    before { expect(subject).to receive(:eve_alliance).and_return(eve_alliance).twice }
+
+    let(:local_corporation_id) { double }
+
+    let(:local_corporation_ids) { [local_corporation_id] }
+
+    before do
+      #
+      # eve_alliance.alliance_corporations.pluck(:corporation_id)
+      #
+      expect(eve_alliance).to receive(:alliance_corporations) do
+        double.tap do |a|
+          expect(a).to receive(:pluck).with(:corporation_id).and_return(local_corporation_ids)
+        end
+      end
+    end
+
+    before do
+      #
+      # eve_alliance.alliance_corporations.create!(corporation_id: corporation_id)
+      #
+      expect(eve_alliance).to receive(:alliance_corporations) do
+        double.tap do |a|
+          expect(a).to receive(:create!).with(corporation_id: remote_corporation_id)
+        end
+      end
+    end
+
+    specify { expect { subject.send(:import_new_corporations) }.not_to raise_error }
+  end
+
+
+  # def remove_old_corporations
+  #   corporation_ids = eve_alliance.alliance_corporations.pluck(:corporation_id) - esi.corporation_ids
+  #
+  #   eve_alliance.alliance_corporations.where(corporation_id: corporation_ids).destroy_all
+  # end
+
+  # describe '#remove_old_corporations' do
+  #   specify { expect { subject.send(:remove_old_corporations) }.not_to raise_error }
+  # end
+
   describe '#etag' do
     context 'when @etag set' do
       let(:etag) { instance_double(Etag) }
