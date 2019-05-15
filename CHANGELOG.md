@@ -10,6 +10,7 @@
 * Show Alliance corporations
 * Migrate to Docker
 * Handle service unavailable (503) on sign in via EVE SSO
+* Rewrite working with etags
 
 ## v0.1.0
 

@@ -2,20 +2,52 @@
 
 module Eve
   class AlliancesImporter
+    attr_reader :esi
+
+    def initialize
+      @esi = EveOnline::ESI::Alliances.new
+    end
+
     def import
-      esi = EveOnline::ESI::Alliances.new
-
-      etag = Etag.find_or_initialize_by(url: esi.url)
-
       esi.etag = etag.etag
 
       return if esi.not_modified?
 
-      esi.alliance_ids.each do |alliance_id|
-        Eve::AllianceImporterWorker.perform_async(alliance_id)
-      end
+      import_new_alliances
+
+      remove_old_alliances
 
       etag.update!(etag: esi.etag)
+    end
+
+    private
+
+    def etag
+      @etag ||= Etag.find_or_initialize_by(url: esi.url)
+    end
+
+    def import_new_alliances
+      esi.alliance_ids.each do |alliance_id|
+        if !Eve::Alliance.where(alliance_id: alliance_id).exists?
+          Eve::AllianceImporterWorker.perform_async(alliance_id)
+        end
+      end
+    end
+
+    def remove_old_alliances
+      eve_alliance_ids = Eve::Alliance.pluck(:alliance_id)
+
+      alliance_ids_to_remove = eve_alliance_ids - esi.alliance_ids
+
+      alliance_ids_to_remove.each do |alliance_id|
+        eve_alliance = Eve::Alliance.find_or_initialize_by(alliance_id: alliance_id)
+
+        eve_alliance.corporations.each do |corporation|
+          Eve::CorporationImporterWorker.perform_async(corporation.corporation_id)
+        end
+
+        eve_alliance.destroy!
+      end
     end
   end
 end

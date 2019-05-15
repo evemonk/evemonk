@@ -11,17 +11,17 @@ module Eve
     def import
       eve_corporation = Eve::Corporation.find_or_initialize_by(corporation_id: corporation_id)
 
-      eveonline_esi_corporation = EveOnline::ESI::Corporation.new(corporation_id: corporation_id)
+      esi = EveOnline::ESI::Corporation.new(corporation_id: corporation_id)
 
-      etag = Etag.find_or_initialize_by(url: eveonline_esi_corporation.url)
+      etag = Etag.find_or_initialize_by(url: esi.url)
 
-      eveonline_esi_corporation.etag = etag.etag
+      esi.etag = etag.etag
 
-      return if eveonline_esi_corporation.not_modified?
+      return if esi.not_modified?
 
-      eve_corporation.update!(eveonline_esi_corporation.as_json)
+      eve_corporation.update!(esi.as_json)
 
-      etag.update!(etag: eveonline_esi_corporation.etag)
+      etag.update!(etag: esi.etag)
     rescue EveOnline::Exceptions::ResourceNotFound
       eve_corporation.destroy!
     end

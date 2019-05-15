@@ -20,7 +20,7 @@ describe Eve::CharacterImporter do
 
         let(:new_etag) { double }
 
-        let(:eveonline_esi_character) do
+        let(:esi) do
           instance_double(EveOnline::ESI::Character,
                           url: url,
                           not_modified?: false,
@@ -28,13 +28,13 @@ describe Eve::CharacterImporter do
                           as_json: json)
         end
 
-        before { expect(EveOnline::ESI::Character).to receive(:new).with(character_id: character_id).and_return(eveonline_esi_character) }
+        before { expect(EveOnline::ESI::Character).to receive(:new).with(character_id: character_id).and_return(esi) }
 
         let(:etag) { instance_double(Etag, etag: '22c39689783a86032b8d43fa0b2e8f4809c4f38a585e39471035aa8b') }
 
         before { expect(Etag).to receive(:find_or_initialize_by).with(url: url).and_return(etag) }
 
-        before { expect(eveonline_esi_character).to receive(:etag=).with('22c39689783a86032b8d43fa0b2e8f4809c4f38a585e39471035aa8b') }
+        before { expect(esi).to receive(:etag=).with('22c39689783a86032b8d43fa0b2e8f4809c4f38a585e39471035aa8b') }
 
         before { expect(eve_character).to receive(:update!).with(json) }
 
@@ -71,19 +71,19 @@ describe Eve::CharacterImporter do
 
       let(:url) { double }
 
-      let(:eveonline_esi_character) do
+      let(:esi) do
         instance_double(EveOnline::ESI::Character,
                         url: url,
                         not_modified?: true)
       end
 
-      before { expect(EveOnline::ESI::Character).to receive(:new).with(character_id: character_id).and_return(eveonline_esi_character) }
+      before { expect(EveOnline::ESI::Character).to receive(:new).with(character_id: character_id).and_return(esi) }
 
       let(:etag) { instance_double(Etag, etag: '22c39689783a86032b8d43fa0b2e8f4809c4f38a585e39471035aa8b') }
 
       before { expect(Etag).to receive(:find_or_initialize_by).with(url: url).and_return(etag) }
 
-      before { expect(eveonline_esi_character).to receive(:etag=).with('22c39689783a86032b8d43fa0b2e8f4809c4f38a585e39471035aa8b') }
+      before { expect(esi).to receive(:etag=).with('22c39689783a86032b8d43fa0b2e8f4809c4f38a585e39471035aa8b') }
 
       before { expect(eve_character).not_to receive(:update!) }
 

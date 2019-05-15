@@ -3,19 +3,19 @@
 module Eve
   class GraphicsImporter
     def import
-      eveonline_esi_graphics = EveOnline::ESI::UniverseGraphics.new
+      esi = EveOnline::ESI::UniverseGraphics.new
 
-      etag = Etag.find_or_initialize_by(url: eveonline_esi_graphics.url)
+      etag = Etag.find_or_initialize_by(url: esi.url)
 
-      eveonline_esi_graphics.etag = etag.etag
+      esi.etag = etag.etag
 
-      return if eveonline_esi_graphics.not_modified?
+      return if esi.not_modified?
 
-      eveonline_esi_graphics.graphic_ids.each do |graphic_id|
+      esi.graphic_ids.each do |graphic_id|
         Eve::GraphicImporterWorker.perform_async(graphic_id)
       end
 
-      etag.update!(etag: eveonline_esi_graphics.etag)
+      etag.update!(etag: esi.etag)
     end
   end
 end

@@ -20,7 +20,7 @@ describe Eve::CorporationImporter do
 
         let(:new_etag) { double }
 
-        let(:eveonline_esi_corporation) do
+        let(:esi) do
           instance_double(EveOnline::ESI::Corporation,
                           url: url,
                           not_modified?: false,
@@ -28,13 +28,13 @@ describe Eve::CorporationImporter do
                           as_json: json)
         end
 
-        before { expect(EveOnline::ESI::Corporation).to receive(:new).with(corporation_id: corporation_id).and_return(eveonline_esi_corporation) }
+        before { expect(EveOnline::ESI::Corporation).to receive(:new).with(corporation_id: corporation_id).and_return(esi) }
 
         let(:etag) { instance_double(Etag, etag: '68ad4a11893776c0ffc80845edeb2687c0122f56287d2aecadf8739b') }
 
         before { expect(Etag).to receive(:find_or_initialize_by).with(url: url).and_return(etag) }
 
-        before { expect(eveonline_esi_corporation).to receive(:etag=).with('68ad4a11893776c0ffc80845edeb2687c0122f56287d2aecadf8739b') }
+        before { expect(esi).to receive(:etag=).with('68ad4a11893776c0ffc80845edeb2687c0122f56287d2aecadf8739b') }
 
         before { expect(eve_corporation).to receive(:update!).with(json) }
 
@@ -71,19 +71,19 @@ describe Eve::CorporationImporter do
 
       let(:url) { double }
 
-      let(:eveonline_esi_corporation) do
+      let(:esi) do
         instance_double(EveOnline::ESI::Corporation,
                         url: url,
                         not_modified?: true)
       end
 
-      before { expect(EveOnline::ESI::Corporation).to receive(:new).with(corporation_id: corporation_id).and_return(eveonline_esi_corporation) }
+      before { expect(EveOnline::ESI::Corporation).to receive(:new).with(corporation_id: corporation_id).and_return(esi) }
 
       let(:etag) { instance_double(Etag, etag: '68ad4a11893776c0ffc80845edeb2687c0122f56287d2aecadf8739b') }
 
       before { expect(Etag).to receive(:find_or_initialize_by).with(url: url).and_return(etag) }
 
-      before { expect(eveonline_esi_corporation).to receive(:etag=).with('68ad4a11893776c0ffc80845edeb2687c0122f56287d2aecadf8739b') }
+      before { expect(esi).to receive(:etag=).with('68ad4a11893776c0ffc80845edeb2687c0122f56287d2aecadf8739b') }
 
       before { expect(eve_corporation).not_to receive(:update!) }
 

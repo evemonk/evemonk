@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_24_153024) do
+ActiveRecord::Schema.define(version: 2019_05_13_142659) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -84,7 +84,7 @@ ActiveRecord::Schema.define(version: 2019_04_24_153024) do
     t.text "etag", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["url"], name: "index_etags_on_url"
+    t.index ["url"], name: "index_etags_on_url", unique: true
   end
 
   create_table "eve_alliance_corporations", force: :cascade do |t|

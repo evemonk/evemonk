@@ -49,14 +49,13 @@ EveMonk is helper software for EveOnline MMORPG.
 * [ruby-build](https://github.com/rbenv/ruby-build)
 * [asdf](https://github.com/asdf-vm/asdf)
 * [asdf-nodejs](https://github.com/asdf-vm/asdf-nodejs)
-
 * Ruby 2.6.3
 * RubyGems 3.0.3
 * Bundler 2.0.1
 * Ruby on Rails 6.0.0.rc1
-* PostgreSQL 11.2
+* PostgreSQL 11.3
 * Redis 5.0.4
-* Elasticsearch 6.7.0
+* Elasticsearch 7.0.1
 * Node 10.15.3
 * NPM 6.9.0
 * Yarn 1.15.2

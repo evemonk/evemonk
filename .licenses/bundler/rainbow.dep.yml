@@ -1,14 +1,14 @@
 ---
-name: jbuilder
-version: 2.9.1
+name: rainbow
+version: 3.0.0
 type: bundler
-summary: Create JSON structures via a Builder-style DSL
-homepage: https://github.com/rails/jbuilder
+summary: Colorize printed text on ANSI terminals
+homepage: https://github.com/sickill/rainbow
 license: mit
 licenses:
-- sources: MIT-LICENSE
+- sources: LICENSE
   text: |
-    Copyright (c) 2011-2018 David Heinemeier Hansson, 37signals
+    Copyright (c) Marcin Kulik
 
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the
@@ -28,6 +28,4 @@ licenses:
     LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
     OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
     WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-- sources: README.md
-  text: Jbuilder is released under the [MIT License](http://www.opensource.org/licenses/MIT).
 notices: []

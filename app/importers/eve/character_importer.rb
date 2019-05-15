@@ -11,18 +11,18 @@ module Eve
     def import
       eve_character = Eve::Character.find_or_initialize_by(character_id: character_id)
 
-      eveonline_esi_character = EveOnline::ESI::Character.new(character_id: character_id)
+      esi = EveOnline::ESI::Character.new(character_id: character_id)
 
-      etag = Etag.find_or_initialize_by(url: eveonline_esi_character.url)
+      etag = Etag.find_or_initialize_by(url: esi.url)
 
-      eveonline_esi_character.etag = etag.etag
+      esi.etag = etag.etag
 
-      return if eveonline_esi_character.not_modified?
+      return if esi.not_modified?
 
       # FIXME: character security status always updates
-      eve_character.update!(eveonline_esi_character.as_json)
+      eve_character.update!(esi.as_json)
 
-      etag.update!(etag: eveonline_esi_character.etag)
+      etag.update!(etag: esi.etag)
     rescue EveOnline::Exceptions::ResourceNotFound
       eve_character.destroy!
     end

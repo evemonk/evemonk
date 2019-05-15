@@ -16,7 +16,7 @@ GIT
 
 GIT
   remote: https://github.com/rspec/rspec-core.git
-  revision: 7727a078e01df1677fe8ce787e3a751111364e00
+  revision: b5b096738d87d867902f3e871c3e1f9b9e8b6339
   branch: master
   specs:
     rspec-core (3.9.0.pre)
@@ -112,7 +112,6 @@ GEM
       zeitwerk (~> 2.1, >= 2.1.4)
     addressable (2.6.0)
       public_suffix (>= 2.0.2, < 4.0)
-    ansi (1.5.0)
     ast (2.4.0)
     awesome_print (1.8.0)
     bcrypt (3.1.12)
@@ -128,13 +127,14 @@ GEM
       thor (~> 0.18)
     cacheflow (0.1.1)
       activesupport
-    capybara (3.19.1)
+    capybara (3.20.0)
       addressable
       mini_mime (>= 0.1.3)
       nokogiri (~> 1.8)
       rack (>= 1.6.0)
       rack-test (>= 0.6.3)
       regexp_parser (~> 1.2)
+      uglifier
       xpath (~> 3.2)
     childprocess (1.0.1)
       rake (< 13.0)
@@ -168,6 +168,7 @@ GEM
     erubis (2.7.0)
     et-orbi (1.2.1)
       tzinfo
+    execjs (2.7.0)
     factory_bot (5.0.2)
       activesupport (>= 4.2.0)
     factory_bot_rails (5.0.2)
@@ -197,9 +198,8 @@ GEM
     i18n (1.6.0)
       concurrent-ruby (~> 1.0)
     jaro_winkler (1.5.2)
-    jbuilder (2.8.0)
+    jbuilder (2.9.1)
       activesupport (>= 4.2.0)
-      multi_json (>= 1.2)
     json (2.2.0)
     jwt (2.1.0)
     kaminari (1.1.1)
@@ -257,7 +257,7 @@ GEM
     msgpack (1.2.10)
     multi_json (1.13.1)
     multi_xml (0.6.0)
-    multipart-post (2.1.0)
+    multipart-post (2.1.1)
     mustermann (1.0.3)
     net-http-persistent (3.0.1)
       connection_pool (~> 2.2)
@@ -360,21 +360,21 @@ GEM
     rb-inotify (0.10.0)
       ffi (~> 1.0)
     redis (4.1.1)
-    regexp_parser (1.4.0)
+    regexp_parser (1.5.0)
     require_all (2.0.0)
     responders (2.4.1)
       actionpack (>= 4.2.0, < 6.0)
       railties (>= 4.2.0, < 6.0)
     rotp (4.1.0)
       addressable (~> 2.5)
-    rpush (4.1.0)
+    rpush (4.1.1)
       activesupport
-      ansi
       jwt (>= 1.5.6)
       multi_json (~> 1.0)
       net-http-persistent
       net-http2 (~> 0.14)
       railties
+      rainbow
       thor (>= 0.18.1, < 2.0)
     rspec-its (1.3.0)
       rspec-core (>= 3.0.0)
@@ -394,9 +394,9 @@ GEM
       rainbow (>= 2.2.2, < 4.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 1.4.0, < 1.7)
-    rubocop-performance (1.2.0)
+    rubocop-performance (1.3.0)
       rubocop (>= 0.68.0)
-    rubocop-rspec (1.32.0)
+    rubocop-rspec (1.33.0)
       rubocop (>= 0.60.0)
     rubocop-thread_safety (0.3.4)
       rubocop (>= 0.51.0)
@@ -483,10 +483,12 @@ GEM
     tomlrb (1.2.8)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
+    uglifier (4.1.20)
+      execjs (>= 0.3.0, < 3)
     unicode-display_width (1.6.0)
     uniform_notifier (1.12.1)
     vcr (4.0.0)
-    webdrivers (3.9.1)
+    webdrivers (3.9.2)
       nokogiri (~> 1.6)
       rubyzip (~> 1.0)
       selenium-webdriver (~> 3.0)

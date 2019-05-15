@@ -58,7 +58,7 @@ describe Api::Eve::AlliancesController do
                                                 'icon' => 'https://imageserver.eveonline.com/Alliance/123_128.png',
                                                 'name' => 'Alliance name',
                                                 'ticker' => 'ABCDE',
-                                                'date_founded' => '2015-05-03T19:45:17.000Z',
+                                                'date_founded' => '2015-05-03T19:45:17Z',
                                                 'corporations_count' => 1,
                                                 'characters_count' => 1234,
                                                 'creator_corporation' => {
@@ -139,7 +139,7 @@ describe Api::Eve::AlliancesController do
                                                 'icon' => 'https://imageserver.eveonline.com/Alliance/123_128.png',
                                                 'name' => 'Alliance name',
                                                 'ticker' => 'ABCDE',
-                                                'date_founded' => '2015-05-03T19:45:17.000Z',
+                                                'date_founded' => '2015-05-03T19:45:17Z',
                                                 'corporations_count' => 1,
                                                 'characters_count' => 1234,
                                                 'creator_corporation' => {
