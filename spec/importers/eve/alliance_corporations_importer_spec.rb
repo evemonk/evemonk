@@ -65,23 +65,6 @@ describe Eve::AllianceCorporationsImporter do
   #
   #     specify { expect { subject.import }.not_to raise_error }
   #   end
-  #
-  #   context 'when alliance not found' do
-  #     before { expect(Eve::Alliance).to receive(:find_by!).with(alliance_id: alliance_id).and_raise(ActiveRecord::RecordNotFound) }
-  #
-  #     before do
-  #       #
-  #       # Rails.logger.info("Alliance with ID #{ alliance_id } not found")
-  #       #
-  #       expect(Rails).to receive(:logger) do
-  #         double.tap do |a|
-  #           expect(a).to receive(:info).with("Alliance with ID #{ alliance_id } not found")
-  #         end
-  #       end
-  #     end
-  #
-  #     specify { expect { subject.import }.not_to raise_error }
-  #   end
   # end
 
   # private methods
