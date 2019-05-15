@@ -7,6 +7,16 @@ describe Eve::AllianceCorporationsImporter do
 
   subject { described_class.new(alliance_id) }
 
+  describe '#initialize' do
+    let(:esi) { instance_double(EveOnline::ESI::AllianceCorporations) }
+
+    before { expect(EveOnline::ESI::AllianceCorporations).to receive(:new).with(alliance_id: alliance_id).and_return(esi) }
+
+    its(:alliance_id) { should eq(alliance_id) }
+
+    its(:esi) { should eq(esi) }
+  end
+
   # describe '#import' do
   #   let(:alliance_id) { double }
   #
