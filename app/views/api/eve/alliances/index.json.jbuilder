@@ -10,7 +10,7 @@ json.alliances do
     json.name alliance.name
     json.ticker alliance.ticker
     json.date_founded alliance.date_founded.iso8601
-    json.corporations_count alliance.corporations.count
+    json.corporations_count alliance.corporations_count
     json.characters_count alliance.characters_count
     if alliance.creator_corporation
       json.creator_corporation do
