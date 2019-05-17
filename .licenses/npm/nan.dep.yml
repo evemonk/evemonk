@@ -1,6 +1,6 @@
 ---
 name: nan
-version: 2.13.2
+version: 2.14.0
 type: npm
 summary: 'Native Abstractions for Node.js: C++ header for Node 0.8 -> 11 compatibility'
 homepage: https://github.com/nodejs/nan#readme
