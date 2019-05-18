@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/evemonk/eve_online.git
-  revision: 517a26742aa7930d4018e6c484ed8c53a8a090fe
+  revision: ca13e7d6d54457449b543daaf4fd261bdac61cd4
   branch: master
   specs:
     eve_online (0.25.0)
@@ -127,7 +127,7 @@ GEM
       thor (~> 0.18)
     cacheflow (0.1.1)
       activesupport
-    capybara (3.20.0)
+    capybara (3.20.1)
       addressable
       mini_mime (>= 0.1.3)
       nokogiri (~> 1.8)
@@ -181,7 +181,7 @@ GEM
     fasterer (0.5.1)
       colorize (~> 0.7)
       ruby_parser (>= 3.13.0)
-    ffi (1.10.0)
+    ffi (1.11.0)
     fugit (1.2.1)
       et-orbi (~> 1.1, >= 1.1.8)
       raabro (~> 1.1)
@@ -488,7 +488,7 @@ GEM
     unicode-display_width (1.6.0)
     uniform_notifier (1.12.1)
     vcr (4.0.0)
-    webdrivers (3.9.2)
+    webdrivers (3.9.3)
       nokogiri (~> 1.6)
       rubyzip (~> 1.0)
       selenium-webdriver (~> 3.0)
