@@ -1,6 +1,6 @@
 ---
 name: ffi
-version: 1.11.0
+version: 1.11.1
 type: bundler
 summary: Ruby FFI
 homepage: http://wiki.github.com/ffi/ffi

@@ -53,5 +53,7 @@ FactoryBot.define do
     sequence(:alliance_id)
 
     sequence(:corporation_id)
+
+    title { 'Test title' }
   end
 end
