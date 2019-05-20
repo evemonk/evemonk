@@ -25,5 +25,7 @@ FactoryBot.define do
     sequence(:race_id)
 
     security_status { 0.0 }
+
+    title { 'Test title' }
   end
 end
