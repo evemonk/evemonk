@@ -24,7 +24,7 @@ GIT
 
 GIT
   remote: https://github.com/rspec/rspec-expectations.git
-  revision: 12bca283fc60fc1da3851de704bb5ce6fe416d85
+  revision: 1044d4e5b8a2620e6753fd599bffd69c00110544
   branch: master
   specs:
     rspec-expectations (3.9.0.pre)
@@ -33,7 +33,7 @@ GIT
 
 GIT
   remote: https://github.com/rspec/rspec-mocks.git
-  revision: 55f0b116dc8c15a7acef9e7619bb0a3925bd18fa
+  revision: 5f3f68f936f40b24c43e7389017bdc2c6743dd24
   branch: master
   specs:
     rspec-mocks (3.9.0.pre)
@@ -42,7 +42,7 @@ GIT
 
 GIT
   remote: https://github.com/rspec/rspec-support.git
-  revision: 4579133922b6fb2a615a0dac0ae8d0b4f6fabfff
+  revision: d68c94b9d1b60afa55efd35fe69fc531ee68b596
   branch: master
   specs:
     rspec-support (3.9.0.pre)
@@ -127,14 +127,13 @@ GEM
       thor (~> 0.18)
     cacheflow (0.1.1)
       activesupport
-    capybara (3.20.1)
+    capybara (3.20.2)
       addressable
       mini_mime (>= 0.1.3)
       nokogiri (~> 1.8)
       rack (>= 1.6.0)
       rack-test (>= 0.6.3)
       regexp_parser (~> 1.2)
-      uglifier
       xpath (~> 3.2)
     childprocess (1.0.1)
       rake (< 13.0)
@@ -168,7 +167,6 @@ GEM
     erubis (2.7.0)
     et-orbi (1.2.1)
       tzinfo
-    execjs (2.7.0)
     factory_bot (5.0.2)
       activesupport (>= 4.2.0)
     factory_bot_rails (5.0.2)
@@ -217,7 +215,7 @@ GEM
     kramdown (1.17.0)
     launchy (2.4.3)
       addressable (~> 2.3)
-    licensed (2.2.0)
+    licensed (2.3.0)
       bundler (>= 1.10)
       licensee (~> 9.10)
       pathname-common_prefix (~> 0.0.1)
@@ -483,8 +481,6 @@ GEM
     tomlrb (1.2.8)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
-    uglifier (4.1.20)
-      execjs (>= 0.3.0, < 3)
     unicode-display_width (1.6.0)
     uniform_notifier (1.12.1)
     vcr (4.0.0)

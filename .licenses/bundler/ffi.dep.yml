@@ -1,6 +1,6 @@
 ---
 name: ffi
-version: 1.10.0
+version: 1.11.0
 type: bundler
 summary: Ruby FFI
 homepage: http://wiki.github.com/ffi/ffi
@@ -110,6 +110,5 @@ licenses:
 - sources: README.md
   text: |-
     The ffi library is covered by the BSD license, also see the LICENSE file.
-    The specs are shared with Rubyspec and are licensed by the same license
-    as Rubyspec, see the LICENSE.SPECS file.
+    The specs are covered by the same license as [ruby/spec](https://github.com/ruby/spec), the MIT license.
 notices: []

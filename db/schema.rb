@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_15_210030) do
+ActiveRecord::Schema.define(version: 2019_05_20_182009) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -68,6 +68,7 @@ ActiveRecord::Schema.define(version: 2019_05_15_210030) do
     t.bigint "faction_id"
     t.text "scopes"
     t.string "character_owner_hash"
+    t.string "title"
     t.index ["alliance_id"], name: "index_characters_on_alliance_id"
     t.index ["ancestry_id"], name: "index_characters_on_ancestry_id"
     t.index ["bloodline_id"], name: "index_characters_on_bloodline_id"
@@ -155,6 +156,7 @@ ActiveRecord::Schema.define(version: 2019_05_15_210030) do
     t.float "security_status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "title"
     t.index ["character_id"], name: "index_eve_characters_on_character_id", unique: true
   end
 
