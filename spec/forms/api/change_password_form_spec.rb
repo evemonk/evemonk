@@ -49,7 +49,7 @@ describe Api::ChangePasswordForm, type: :model do
         }
       end
 
-      subject { described_class.new(params.merge(user: user)) }
+      subject(:form) { described_class.new(params.merge(user: user)) }
 
       before do
         #
@@ -62,17 +62,17 @@ describe Api::ChangePasswordForm, type: :model do
         end
       end
 
-      specify { expect(subject.save).to eq(true) }
+      specify { expect(form.save).to eq(true) }
 
-      specify { expect { subject.save }.to change { user.reload.authenticate('old_password') }.from(user).to(false) }
+      specify { expect { form.save }.to change { user.reload.authenticate('old_password') }.from(user).to(false) }
 
-      specify { expect { subject.save }.to change { user.reload.authenticate('new_password') }.from(false).to(user) }
+      specify { expect { form.save }.to change { user.reload.authenticate('new_password') }.from(false).to(user) }
 
-      specify { expect { subject.save }.to change { user.sessions.first&.name }.to('My Computer') }
+      specify { expect { form.save }.to change { user.sessions.first&.name }.to('My Computer') }
 
-      specify { expect { subject.save }.to change { user.sessions.first&.device_type }.to('ios') }
+      specify { expect { form.save }.to change { user.sessions.first&.device_type }.to('ios') }
 
-      specify { expect { subject.save }.to change { user.sessions.first&.device_token }.to('token123') }
+      specify { expect { form.save }.to change { user.sessions.first&.device_token }.to('token123') }
     end
 
     context 'when user password wrong' do
@@ -86,13 +86,13 @@ describe Api::ChangePasswordForm, type: :model do
         }
       end
 
-      subject { described_class.new(params.merge(user: user)) }
+      subject(:form) { described_class.new(params.merge(user: user)) }
 
       before { expect(Api::EndAllUserSessions).not_to receive(:new) }
 
-      specify { expect(subject.save).to eq(false) }
+      specify { expect(form.save).to eq(false) }
 
-      specify { expect { subject.save }.to change { subject.errors.messages }.from({}).to(old_password: ['Wrong password']) }
+      specify { expect { form.save }.to change { form.errors.messages }.from({}).to(old_password: ['Wrong password']) }
     end
 
     context "when new user password doesn't match confirmation" do
@@ -106,13 +106,13 @@ describe Api::ChangePasswordForm, type: :model do
         }
       end
 
-      subject { described_class.new(params.merge(user: user)) }
+      subject(:form) { described_class.new(params.merge(user: user)) }
 
       before { expect(Api::EndAllUserSessions).not_to receive(:new) }
 
-      specify { expect(subject.save).to eq(false) }
+      specify { expect(form.save).to eq(false) }
 
-      specify { expect { subject.save }.to change { subject.errors.messages }.from({}).to(password_confirmation: ["doesn't match Password"]) }
+      specify { expect { form.save }.to change { form.errors.messages }.from({}).to(password_confirmation: ["doesn't match Password"]) }
     end
   end
 end
