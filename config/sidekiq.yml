@@ -16,23 +16,27 @@
   eve_races:
     every: 1d
     class: Eve::RacesImporterWorker
-    description: 'Update EveOnline Races'
+    description: 'Import Races'
   eve_bloodlines:
     every: 1d
     class: Eve::BloodlinesImporterWorker
-    description: 'Update EveOnline Bloodlines'
+    description: 'Import Bloodlines'
   eve_ancestries:
     every: 1d
     class: Eve::AncestriesImporterWorker
-    description: 'Update EveOnline Ancestries'
+    description: 'Import Ancestries'
   eve_factions:
     every: 1d
     class: Eve::FactionsImporterWorker
-    description: 'Update EveOnline Factions'
+    description: 'Import Factions'
   eve_alliances:
     every: 1d
     class: Eve::AlliancesImporterWorker
-    description: 'Update EveOnline Alliances'
+    description: 'Import Alliances index'
+  eve_alliances_local:
+    every: 1d
+    class: Eve::LocalAlliancesImporterWorker
+    description: 'Import Alliances info'
   eve_graphics:
     every: 1d
     class: Eve::GraphicsImporterWorker
