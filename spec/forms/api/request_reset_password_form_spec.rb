@@ -17,11 +17,11 @@ describe Api::RequestResetPasswordForm, type: :model do
     context 'when user with given email not found' do
       let(:params) { { email: 'me@example.com' } }
 
-      subject { described_class.new(params) }
+      subject(:form) { described_class.new(params) }
 
-      specify { expect(subject.save).to eq(false) }
+      specify { expect(form.save).to eq(false) }
 
-      specify { expect { subject.save }.to change { subject.errors.messages }.from({}).to(email: ['Email not found']) }
+      specify { expect { form.save }.to change { form.errors.messages }.from({}).to(email: ['Email not found']) }
     end
 
     context 'when user with given email is found' do
@@ -29,7 +29,7 @@ describe Api::RequestResetPasswordForm, type: :model do
 
       let(:params) { { email: 'me@example.com' } }
 
-      subject { described_class.new(params) }
+      subject(:form) { described_class.new(params) }
 
       before do
         #
@@ -46,9 +46,9 @@ describe Api::RequestResetPasswordForm, type: :model do
         end
       end
 
-      specify { expect(subject.save).to eq(true) }
+      specify { expect(form.save).to eq(true) }
 
-      specify { expect { subject.save }.to change { user.reload.reset_password_token } }
+      specify { expect { form.save }.to change { user.reload.reset_password_token } }
     end
 
     context 'when user with given email is found (case insensitive)' do
@@ -56,7 +56,7 @@ describe Api::RequestResetPasswordForm, type: :model do
 
       let(:params) { { email: 'ME@EXAMPLE.COM' } }
 
-      subject { described_class.new(params) }
+      subject(:form) { described_class.new(params) }
 
       before do
         #
@@ -73,9 +73,9 @@ describe Api::RequestResetPasswordForm, type: :model do
         end
       end
 
-      specify { expect(subject.save).to eq(true) }
+      specify { expect(form.save).to eq(true) }
 
-      specify { expect { subject.save }.to change { user.reload.reset_password_token } }
+      specify { expect { form.save }.to change { user.reload.reset_password_token } }
     end
   end
 end
