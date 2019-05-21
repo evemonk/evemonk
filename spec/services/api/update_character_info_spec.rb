@@ -14,17 +14,17 @@ describe Api::UpdateCharacterInfo do
   describe '#update!' do
     let(:character) { instance_double(Character) }
 
-    subject { described_class.new(character) }
+    subject(:service) { described_class.new(character) }
 
-    before { expect(subject).to receive(:character_info) }
+    before { expect(service).to receive(:character_info) }
 
-    before { expect(subject).to receive(:character_wallet) }
+    before { expect(service).to receive(:character_wallet) }
 
-    before { expect(subject).to receive(:character_attributes) }
+    before { expect(service).to receive(:character_attributes) }
 
-    before { expect(subject).to receive(:character_loyalty_points) }
+    before { expect(service).to receive(:character_loyalty_points) }
 
-    specify { expect { subject.update! }.not_to raise_error }
+    specify { expect { service.update! }.not_to raise_error }
   end
 
   # private methods
@@ -34,7 +34,7 @@ describe Api::UpdateCharacterInfo do
 
     let(:character) { instance_double(Character, character_id: character_id) }
 
-    subject { described_class.new(character) }
+    subject(:service) { described_class.new(character) }
 
     let(:as_json) { double }
 
@@ -44,7 +44,7 @@ describe Api::UpdateCharacterInfo do
 
     before { expect(character).to receive(:update!).with(as_json) }
 
-    specify { expect { subject.send(:character_info) }.not_to raise_error }
+    specify { expect { service.send(:character_info) }.not_to raise_error }
   end
 
   describe '#character_wallet' do
@@ -54,7 +54,7 @@ describe Api::UpdateCharacterInfo do
 
     let(:character) { instance_double(Character, character_id: character_id, access_token: access_token) }
 
-    subject { described_class.new(character) }
+    subject(:service) { described_class.new(character) }
 
     let(:as_json) { double }
 
@@ -64,7 +64,7 @@ describe Api::UpdateCharacterInfo do
 
     before { expect(character).to receive(:update!).with(as_json) }
 
-    specify { expect { subject.send(:character_wallet) }.not_to raise_error }
+    specify { expect { service.send(:character_wallet) }.not_to raise_error }
   end
 
   describe '#character_attributes' do
@@ -74,7 +74,7 @@ describe Api::UpdateCharacterInfo do
 
     let(:character) { instance_double(Character, character_id: character_id, access_token: access_token) }
 
-    subject { described_class.new(character) }
+    subject(:service) { described_class.new(character) }
 
     let(:as_json) { double }
 
@@ -84,7 +84,7 @@ describe Api::UpdateCharacterInfo do
 
     before { expect(character).to receive(:update!).with(as_json) }
 
-    specify { expect { subject.send(:character_attributes) }.not_to raise_error }
+    specify { expect { service.send(:character_attributes) }.not_to raise_error }
   end
 
   describe '#character_loyalty_points' do
@@ -94,7 +94,7 @@ describe Api::UpdateCharacterInfo do
 
     let(:character) { instance_double(Character, character_id: character_id, access_token: access_token) }
 
-    subject { described_class.new(character) }
+    subject(:service) { described_class.new(character) }
 
     let(:corporation_id) { double }
 
@@ -136,6 +136,6 @@ describe Api::UpdateCharacterInfo do
 
     before { expect(character_loyalty_point).to receive(:save!) }
 
-    specify { expect { subject.send(:character_loyalty_points) }.not_to raise_error }
+    specify { expect { service.send(:character_loyalty_points) }.not_to raise_error }
   end
 end

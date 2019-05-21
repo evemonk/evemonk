@@ -1,4 +1,6 @@
-require: rubocop-performance
+require:
+  - rubocop-performance
+  - rubocop-rspec
 
 inherit_from:
   - .rubocop_local.yml
@@ -32,4 +34,11 @@ Style/Documentation:
   Enabled: false
 
 Style/NegatedIf:
+  Enabled: false
+
+RSpec/ImplicitExpect:
+  Enabled: true
+  EnforcedStyle: should
+
+RSpec/LeadingSubject:
   Enabled: false

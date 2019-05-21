@@ -5,7 +5,7 @@ require 'rails_helper'
 describe Api::SignOutForm do
   let(:request) { double } # TODO: use instance_double
 
-  subject { described_class.new(request) }
+  subject(:form) { described_class.new(request) }
 
   it { should be_a(ActionController::HttpAuthentication::Token) }
 
@@ -16,12 +16,12 @@ describe Api::SignOutForm do
 
     before do
       #
-      # subject.token_and_options(request) => [token]
+      # form.token_and_options(request) => [token]
       #
-      expect(subject).to receive(:token_and_options).with(request)
-                                                    .and_return([session.token])
+      expect(form).to receive(:token_and_options).with(request)
+                                                 .and_return([session.token])
     end
 
-    specify { expect { subject.destroy! }.to change { user.sessions.count }.by(-1) }
+    specify { expect { form.destroy! }.to change { user.sessions.count }.by(-1) }
   end
 end

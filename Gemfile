@@ -39,6 +39,7 @@ gem 'sentry-raven'
 gem 'errbase'
 gem 'activerecord-nulldb-adapter'
 gem 'niceql'
+gem 'server_timing'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
@@ -87,6 +88,7 @@ group :development do
   # gem 'overcommit', require: false
   gem 'cacheflow'
   gem 'gemdiff', require: false
+  gem 'derailed_benchmarks'
 end
 
 group :test do

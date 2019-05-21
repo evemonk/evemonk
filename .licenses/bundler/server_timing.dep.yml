@@ -1,14 +1,16 @@
 ---
-name: core-js-compat
-version: 3.1.1
-type: npm
-summary: core-js compat
-homepage: https://github.com/zloirock/core-js#readme
+name: server_timing
+version: 1.0.2
+type: bundler
+summary: View server-side performance metrics in your browser.
+homepage: https://github.com/scoutapp/ruby_server_timing
 license: mit
 licenses:
-- sources: LICENSE
+- sources: LICENSE.txt
   text: |
-    Copyright (c) 2014-2019 Denis Pushkarev
+    The MIT License (MIT)
+
+    Copyright (c) 2018 Derek Haynes
 
     Permission is hereby granted, free of charge, to any person obtaining a copy
     of this software and associated documentation files (the "Software"), to deal
@@ -27,4 +29,6 @@ licenses:
     LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
     THE SOFTWARE.
+- sources: README.md
+  text: The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
 notices: []

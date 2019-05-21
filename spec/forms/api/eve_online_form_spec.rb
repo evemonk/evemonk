@@ -5,41 +5,41 @@ require 'rails_helper'
 describe Api::EveOnlineForm do
   let(:request) { double }
 
-  subject { described_class.new(request) }
+  subject(:form) { described_class.new(request) }
 
   describe '#initialize' do
     its(:request) { should eq(request) }
   end
 
   describe '#save!' do
-    before { expect(subject).to receive(:assign_character_attributes) }
+    before { expect(form).to receive(:assign_character_attributes) }
 
-    before { expect(subject).to receive(:build_user) }
+    before { expect(form).to receive(:build_user) }
 
     let(:character) { instance_double(Character) }
 
-    before { expect(subject).to receive(:character).and_return(character) }
+    before { expect(form).to receive(:character).and_return(character) }
 
     before { expect(character).to receive(:save!) }
 
     let(:session) { instance_double(Session) }
 
-    before { expect(subject).to receive(:session).and_return(session) }
+    before { expect(form).to receive(:session).and_return(session) }
 
     before { expect(session).to receive(:save!) }
 
-    before { expect(subject).to receive(:update_character_info) }
+    before { expect(form).to receive(:update_character_info) }
 
-    specify { expect { subject.save! }.not_to raise_error }
+    specify { expect { form.save! }.not_to raise_error }
   end
 
   describe '#session' do
     context 'when @session is set' do
       let(:session) { instance_double(Session) }
 
-      before { subject.instance_variable_set(:@session, session) }
+      before { form.instance_variable_set(:@session, session) }
 
-      specify { expect(subject.session).to eq(session) }
+      specify { expect(form.session).to eq(session) }
     end
 
     context 'when @session not set' do
@@ -47,7 +47,7 @@ describe Api::EveOnlineForm do
 
       let(:character) { instance_double(Character) }
 
-      before { expect(subject).to receive(:character).and_return(character) }
+      before { expect(form).to receive(:character).and_return(character) }
 
       before do
         #
@@ -64,9 +64,9 @@ describe Api::EveOnlineForm do
         end
       end
 
-      specify { expect(subject.session).to eq(session) }
+      specify { expect(form.session).to eq(session) }
 
-      specify { expect { subject.session }.to change { subject.instance_variable_get(:@session) }.from(nil).to(session) }
+      specify { expect { form.session }.to change { form.instance_variable_get(:@session) }.from(nil).to(session) }
     end
   end
 
@@ -84,7 +84,7 @@ describe Api::EveOnlineForm do
       end
     end
 
-    specify { expect { subject.send(:character_id) }.not_to raise_error }
+    specify { expect { form.send(:character_id) }.not_to raise_error }
   end
 
   describe '#name' do
@@ -99,7 +99,7 @@ describe Api::EveOnlineForm do
       end
     end
 
-    specify { expect { subject.send(:name) }.not_to raise_error }
+    specify { expect { form.send(:name) }.not_to raise_error }
   end
 
   describe '#access_token' do
@@ -114,7 +114,7 @@ describe Api::EveOnlineForm do
       end
     end
 
-    specify { expect { subject.send(:access_token) }.not_to raise_error }
+    specify { expect { form.send(:access_token) }.not_to raise_error }
   end
 
   describe '#refresh_token' do
@@ -129,7 +129,7 @@ describe Api::EveOnlineForm do
       end
     end
 
-    specify { expect { subject.send(:refresh_token) }.not_to raise_error }
+    specify { expect { form.send(:refresh_token) }.not_to raise_error }
   end
 
   describe '#token_expires_at' do
@@ -158,7 +158,7 @@ describe Api::EveOnlineForm do
       end
     end
 
-    specify { expect { subject.send(:token_expires_at) }.not_to raise_error }
+    specify { expect { form.send(:token_expires_at) }.not_to raise_error }
   end
 
   describe '#token_expires' do
@@ -173,7 +173,7 @@ describe Api::EveOnlineForm do
       end
     end
 
-    specify { expect { subject.send(:token_expires) }.not_to raise_error }
+    specify { expect { form.send(:token_expires) }.not_to raise_error }
   end
 
   describe '#scopes' do
@@ -188,7 +188,7 @@ describe Api::EveOnlineForm do
       end
     end
 
-    specify { expect { subject.send(:scopes) }.not_to raise_error }
+    specify { expect { form.send(:scopes) }.not_to raise_error }
   end
 
   describe '#token_type' do
@@ -203,7 +203,7 @@ describe Api::EveOnlineForm do
       end
     end
 
-    specify { expect { subject.send(:token_type) }.not_to raise_error }
+    specify { expect { form.send(:token_type) }.not_to raise_error }
   end
 
   describe '#character_owner_hash' do
@@ -218,16 +218,16 @@ describe Api::EveOnlineForm do
       end
     end
 
-    specify { expect { subject.send(:character_owner_hash) }.not_to raise_error }
+    specify { expect { form.send(:character_owner_hash) }.not_to raise_error }
   end
 
   describe '#character' do
     context 'when @character is set' do
       let(:character) { instance_double(Character) }
 
-      before { subject.instance_variable_set(:@character, character) }
+      before { form.instance_variable_set(:@character, character) }
 
-      specify { expect(subject.send(:character)).to eq(character) }
+      specify { expect(form.send(:character)).to eq(character) }
     end
 
     context 'when @character not set' do
@@ -235,13 +235,13 @@ describe Api::EveOnlineForm do
 
       let(:character_id) { double }
 
-      before { expect(subject).to receive(:character_id).and_return(character_id) }
+      before { expect(form).to receive(:character_id).and_return(character_id) }
 
       before { expect(Character).to receive(:find_or_initialize_by).with(character_id: character_id).and_return(character) }
 
-      specify { expect(subject.send(:character)).to eq(character) }
+      specify { expect(form.send(:character)).to eq(character) }
 
-      specify { expect { subject.send(:character) }.to change { subject.instance_variable_get(:@character) }.from(nil).to(character) }
+      specify { expect { form.send(:character) }.to change { form.instance_variable_get(:@character) }.from(nil).to(character) }
     end
   end
 
@@ -264,23 +264,23 @@ describe Api::EveOnlineForm do
 
     let(:character_owner_hash) { double }
 
-    before { expect(subject).to receive(:character).and_return(character) }
+    before { expect(form).to receive(:character).and_return(character) }
 
-    before { expect(subject).to receive(:name).and_return(name) }
+    before { expect(form).to receive(:name).and_return(name) }
 
-    before { expect(subject).to receive(:access_token).and_return(access_token) }
+    before { expect(form).to receive(:access_token).and_return(access_token) }
 
-    before { expect(subject).to receive(:refresh_token).and_return(refresh_token) }
+    before { expect(form).to receive(:refresh_token).and_return(refresh_token) }
 
-    before { expect(subject).to receive(:token_expires_at).and_return(token_expires_at) }
+    before { expect(form).to receive(:token_expires_at).and_return(token_expires_at) }
 
-    before { expect(subject).to receive(:token_expires).and_return(token_expires) }
+    before { expect(form).to receive(:token_expires).and_return(token_expires) }
 
-    before { expect(subject).to receive(:scopes).and_return(scopes) }
+    before { expect(form).to receive(:scopes).and_return(scopes) }
 
-    before { expect(subject).to receive(:token_type).and_return(token_type) }
+    before { expect(form).to receive(:token_type).and_return(token_type) }
 
-    before { expect(subject).to receive(:character_owner_hash).and_return(character_owner_hash) }
+    before { expect(form).to receive(:character_owner_hash).and_return(character_owner_hash) }
 
     before do
       #
@@ -303,18 +303,18 @@ describe Api::EveOnlineForm do
                                                             character_owner_hash: character_owner_hash)
     end
 
-    specify { expect { subject.send(:assign_character_attributes) }.not_to raise_error }
+    specify { expect { form.send(:assign_character_attributes) }.not_to raise_error }
   end
 
   describe '#build_user' do
     context 'when user not set in character' do
       let(:character) { instance_double(Character, user: nil) }
 
-      before { expect(subject).to receive(:character).and_return(character).twice }
+      before { expect(form).to receive(:character).and_return(character).twice }
 
       before { expect(character).to receive(:build_user).with(kind: :oauth) }
 
-      specify { expect { subject.send(:build_user) }.not_to raise_error }
+      specify { expect { form.send(:build_user) }.not_to raise_error }
     end
 
     context 'when user is set in character' do
@@ -322,18 +322,18 @@ describe Api::EveOnlineForm do
 
       let(:character) { instance_double(Character, user: user) }
 
-      before { expect(subject).to receive(:character).and_return(character) }
+      before { expect(form).to receive(:character).and_return(character) }
 
       before { expect(character).not_to receive(:build_user) }
 
-      specify { expect { subject.send(:build_user) }.not_to raise_error }
+      specify { expect { form.send(:build_user) }.not_to raise_error }
     end
   end
 
   describe '#update_character_info' do
     let(:character) { instance_double(Character) }
 
-    before { expect(subject).to receive(:character).and_return(character) }
+    before { expect(form).to receive(:character).and_return(character) }
 
     before do
       #
@@ -346,6 +346,6 @@ describe Api::EveOnlineForm do
       end
     end
 
-    specify { expect { subject.send(:update_character_info) }.not_to raise_error }
+    specify { expect { form.send(:update_character_info) }.not_to raise_error }
   end
 end

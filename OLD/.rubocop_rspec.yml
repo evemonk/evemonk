@@ -1,17 +1,6 @@
 # rubocop-rspec cops
 
-# Enable it later
-RSpec/NamedSubject:
-  Enabled: false
-
-RSpec/ImplicitExpect:
-  Enabled: true
-  EnforcedStyle: should
-
 RSpec/ExpectInHook:
-  Enabled: false
-
-RSpec/LeadingSubject:
   Enabled: false
 
 RSpec/MessageSpies:
