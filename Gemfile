@@ -88,6 +88,7 @@ group :development do
   # gem 'overcommit', require: false
   gem 'cacheflow'
   gem 'gemdiff', require: false
+  gem 'derailed_benchmarks'
 end
 
 group :test do
