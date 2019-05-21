@@ -39,3 +39,6 @@ Style/NegatedIf:
 RSpec/ImplicitExpect:
   Enabled: true
   EnforcedStyle: should
+
+RSpec/LeadingSubject:
+  Enabled: false
