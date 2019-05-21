@@ -19,7 +19,7 @@ gem 'jwt'
 gem 'rack-cors', require: 'rack/cors'
 gem 'kaminari'
 gem 'pundit'
-gem 'dotenv-rails'
+gem 'dotenv-rails', groups: [:development, :test]
 gem 'sidekiq', require: false
 gem 'sidekiq-scheduler', require: false
 gem 'sinatra', require: false
