@@ -1,6 +1,6 @@
 ---
 name: "@babel/preset-env"
-version: 7.4.4
+version: 7.4.5
 type: npm
 summary: A Babel preset for each environment.
 homepage: https://babeljs.io/
