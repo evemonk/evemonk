@@ -1,9 +1,5 @@
 # rubocop-rspec cops
 
-# Enable it later
-RSpec/NamedSubject:
-  Enabled: false
-
 RSpec/ExpectInHook:
   Enabled: false
 

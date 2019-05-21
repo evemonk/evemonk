@@ -85,8 +85,5 @@ Style/GuardClause:
 Style/IfUnlessModifier:
   Enabled: false
 
-Bundler/OrderedGems:
-  Enabled: false
-
 Style/RegexpLiteral:
   Enabled: false
