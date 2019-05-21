@@ -39,15 +39,15 @@ describe Api::SignUpForm, type: :model do
         }
       end
 
-      subject { described_class.new(params) }
+      subject(:form) { described_class.new(params) }
 
-      specify { expect(subject.save).to eq(true) }
+      specify { expect(form.save).to eq(true) }
 
-      specify { expect { subject.save }.to change(User, :count).by(1) }
+      specify { expect { form.save }.to change(User, :count).by(1) }
 
-      specify { expect { subject.save }.to change(Session, :count).by(1) }
+      specify { expect { form.save }.to change(Session, :count).by(1) }
 
-      specify { expect { subject.save }.to change { User.first&.authenticate('password')&.present? }.from(nil).to(true) }
+      specify { expect { form.save }.to change { User.first&.authenticate('password')&.present? }.from(nil).to(true) }
     end
 
     context 'when user not valid' do
@@ -59,13 +59,13 @@ describe Api::SignUpForm, type: :model do
         }
       end
 
-      subject { described_class.new(params) }
+      subject(:form) { described_class.new(params) }
 
-      specify { expect(subject.save).to eq(false) }
+      specify { expect(form.save).to eq(false) }
 
-      specify { expect { subject.save }.not_to change(User, :count) }
+      specify { expect { form.save }.not_to change(User, :count) }
 
-      specify { expect { subject.save }.not_to change(Session, :count) }
+      specify { expect { form.save }.not_to change(Session, :count) }
     end
 
     context 'when user valid but email has already been taken' do
@@ -79,11 +79,11 @@ describe Api::SignUpForm, type: :model do
         }
       end
 
-      subject { described_class.new(params) }
+      subject(:form) { described_class.new(params) }
 
-      specify { expect(subject.save).to eq(false) }
+      specify { expect(form.save).to eq(false) }
 
-      specify { expect { subject.save }.to change { subject.errors[:email] }.from([]).to(['has already been taken']) }
+      specify { expect { form.save }.to change { form.errors[:email] }.from([]).to(['has already been taken']) }
     end
   end
 end
