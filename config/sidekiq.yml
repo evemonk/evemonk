@@ -49,14 +49,14 @@
     every: 1d
     class: Eve::CharactersImporterWorker
     description: 'Import Characters info'
+  eve_graphics:
+    every: 1d
+    class: Eve::GraphicsImporterWorker
+    description: 'Import Graphics index'
 ##  eve_types:
 ##    every: 1h
 ##    class: Eve::TypesImporterWorker
 ##    description: 'Update EveOnline Types'
-#  eve_graphics:
-#    every: 1d
-#    class: Eve::GraphicsImporterWorker
-#    description: 'Import Graphics index'
 #  # eve_systems:
 #  #   every: 1d
 #  #   class: Eve::SystemsImporterWorker
