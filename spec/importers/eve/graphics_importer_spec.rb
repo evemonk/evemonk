@@ -135,9 +135,51 @@ describe Eve::GraphicsImporter do
     end
   end
 
+  # def remove_old_graphics
+  #   eve_graphic_ids = Eve::Graphic.pluck(:graphic_id)
+  #
+  #   graphic_ids_to_remove = eve_graphic_ids - esi.graphic_ids
+  #
+  #   graphic_ids_to_remove.each do |graphic_id|
+  #     eve_graphic = Eve::Graphic.find_or_initialize_by(graphic_id: graphic_id)
+  #
+  #     eve_graphic.destroy!
+  #   end
+  # end
+
+  describe '#remove_old_graphics' do
+    let(:graphic_id) { double }
+
+    let(:graphic_ids) { [graphic_id] }
+
+    let(:esi) do
+      instance_double(EveOnline::ESI::UniverseGraphics,
+                      graphic_ids: graphic_ids)
+    end
+
+    before { expect(EveOnline::ESI::UniverseGraphics).to receive(:new).and_return(esi) }
+
+    let(:eve_graphic_ids) { double }
+
+    before { expect(Eve::Graphic).to receive(:pluck).with(:graphic_id).and_return(eve_graphic_ids) }
+
+    let(:graphic_id_to_remove) { double }
+
+    let(:graphic_ids_to_remove) { [graphic_id_to_remove] }
+
+    before { expect(eve_graphic_ids).to receive(:-).with(graphic_ids).and_return(graphic_ids_to_remove) }
+
+    let(:eve_graphic) { instance_double(Eve::Graphic) }
+
+    before { expect(Eve::Graphic).to receive(:find_or_initialize_by).with(graphic_id: graphic_id_to_remove).and_return(eve_graphic) }
+
+    before { expect(eve_graphic).to receive(:destroy!) }
+
+    specify { expect { subject.send(:remove_old_graphics) }.not_to raise_error }
+  end
 
 
-    # describe '#import' do
+  # describe '#import' do
   #   context 'when fresh data available' do
   #     let(:url) { double }
   #
