@@ -68,6 +68,7 @@ group :development, :test do
   gem 'rubocop-thread_safety', require: false
   gem 'rubocop-rspec', require: false
   gem 'rubocop-performance', require: false
+  gem 'rubocop-rails', require: false
   gem 'mry', require: false
   gem 'squasher', require: false
   gem 'mdl', require: false
