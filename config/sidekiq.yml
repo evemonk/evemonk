@@ -5,14 +5,14 @@
 :concurrency: 5
 
 :schedule:
-  pg_hero_query_stats:
-    every: 5m
-    class: Pghero::CaptureQueryStatsWorker
-    description: 'Collect postgresql query stats'
-  pg_hero_space_stats:
-    every: 1d
-    class: Pghero::CaptureSpaceStatsWorker
-    description: 'Collection postgresql space stats'
+#  pg_hero_query_stats:
+#    every: 5m
+#    class: Pghero::CaptureQueryStatsWorker
+#    description: 'Collect postgresql query stats'
+#  pg_hero_space_stats:
+#    every: 1d
+#    class: Pghero::CaptureSpaceStatsWorker
+#    description: 'Collection postgresql space stats'
   eve_races:
     every: 1d
     class: Eve::RacesImporterWorker
@@ -37,26 +37,26 @@
     every: 1d
     class: Eve::LocalAlliancesImporterWorker
     description: 'Import Alliances info'
-  eve_graphics:
-    every: 1d
-    class: Eve::GraphicsImporterWorker
-    description: 'Update EveOnline Graphics'
-  # eve_systems:
-  #   every: 1d
-  #   class: Eve::SystemsImporterWorker
   eve_alliances_corporations:
     every: 1d
     class: Eve::AlliancesCorporationsImporterWorker
-    description: 'Update EveOnline Alliances Corporations'
+    description: 'Import Alliances Corporations info'
   eve_corporations:
     every: 1d
     class: Eve::CorporationsImporterWorker
-    description: 'Update EveOnline Corporations'
+    description: 'Import Corporations info'
   eve_characters:
     every: 1d
     class: Eve::CharactersImporterWorker
-    description: 'Update EveOnline Characters'
-#  eve_types:
-#    every: 1h
-#    class: Eve::TypesImporterWorker
-#    description: 'Update EveOnline Types'
+    description: 'Import Characters info'
+##  eve_types:
+##    every: 1h
+##    class: Eve::TypesImporterWorker
+##    description: 'Update EveOnline Types'
+#  eve_graphics:
+#    every: 1d
+#    class: Eve::GraphicsImporterWorker
+#    description: 'Import Graphics index'
+#  # eve_systems:
+#  #   every: 1d
+#  #   class: Eve::SystemsImporterWorker
