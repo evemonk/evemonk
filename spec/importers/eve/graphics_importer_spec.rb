@@ -11,6 +11,57 @@ describe Eve::GraphicsImporter do
     its(:esi) { should eq(esi) }
   end
 
+  describe '#import' do
+    context 'when fresh data available' do
+      let(:etag) { instance_double(Etag, etag: '97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a') }
+
+      let(:new_etag) { double }
+
+      let(:esi) do
+        instance_double(EveOnline::ESI::UniverseGraphics,
+                        not_modified?: false,
+                        etag: new_etag)
+      end
+
+      before { expect(EveOnline::ESI::UniverseGraphics).to receive(:new).and_return(esi) }
+
+      before { expect(subject).to receive(:etag).and_return(etag).twice }
+
+      before { expect(esi).to receive(:etag=).with('97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a') }
+
+      before { expect(subject).to receive(:import_new_graphics) }
+
+      before { expect(subject).to receive(:remove_old_graphics) }
+
+      before { expect(etag).to receive(:update!).with(etag: new_etag) }
+
+      specify { expect { subject.import }.not_to raise_error }
+    end
+
+    context 'when no fresh data available' do
+      let(:etag) { instance_double(Etag, etag: '97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a') }
+
+      let(:esi) do
+        instance_double(EveOnline::ESI::UniverseGraphics,
+                        not_modified?: true)
+      end
+
+      before { expect(EveOnline::ESI::UniverseGraphics).to receive(:new).and_return(esi) }
+
+      before { expect(subject).to receive(:etag).and_return(etag) }
+
+      before { expect(esi).to receive(:etag=).with('97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a') }
+
+      before { expect(subject).not_to receive(:import_new_graphics) }
+
+      before { expect(subject).not_to receive(:remove_old_graphics) }
+
+      before { expect(etag).not_to receive(:update!) }
+
+      specify { expect { subject.import }.not_to raise_error }
+    end
+  end
+
   # private methods
 
   describe '#etag' do
