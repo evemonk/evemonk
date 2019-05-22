@@ -1,6 +1,6 @@
 ---
 name: core-js-pure
-version: 3.1.1
+version: 3.1.2
 type: npm
 summary: Standard library
 homepage: https://github.com/zloirock/core-js#readme
