@@ -19,6 +19,8 @@ module Eve
       remove_old_corporations
 
       etag.update!(etag: esi.etag)
+    rescue ActiveRecord::RecordNotFound
+      Rails.logger.info("Alliance with ID #{ alliance_id } not found")
     end
 
     private
@@ -43,8 +45,6 @@ module Eve
 
     def eve_alliance
       @eve_alliance ||= Eve::Alliance.find_by!(alliance_id: alliance_id)
-    rescue ActiveRecord::RecordNotFound
-      Rails.logger.info("Alliance with ID #{ alliance_id } not found")
     end
   end
 end
