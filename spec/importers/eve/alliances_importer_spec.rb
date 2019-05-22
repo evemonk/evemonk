@@ -129,7 +129,7 @@ describe Eve::AlliancesImporter do
         end
       end
 
-      before { expect(Eve::AllianceImporterWorker).not_to receive(:perform_async).with(alliance_id) }
+      before { expect(Eve::AllianceImporterWorker).not_to receive(:perform_async) }
 
       specify { expect { subject.send(:import_new_alliances) }.not_to raise_error }
     end
