@@ -53,6 +53,10 @@
     every: 1d
     class: Eve::GraphicsImporterWorker
     description: 'Import Graphics index'
+  eve_graphics_local:
+    every: 1d
+    class: Eve::LocalGraphicsImporterWorker
+    description: 'Import Graphics info'
 ##  eve_types:
 ##    every: 1h
 ##    class: Eve::TypesImporterWorker
