@@ -41,10 +41,10 @@
     every: 1d
     class: Eve::AlliancesCorporationsImporterWorker
     description: 'Import Alliances Corporations info'
-#  eve_corporations:
-#    every: 1d
-#    class: Eve::CorporationsImporterWorker
-#    description: 'Update EveOnline Corporations'
+  eve_corporations:
+    every: 1d
+    class: Eve::CorporationsImporterWorker
+    description: 'Import Corporations info'
   eve_characters:
     every: 1d
     class: Eve::CharactersImporterWorker
