@@ -90,6 +90,51 @@ describe Eve::GraphicsImporter do
     end
   end
 
+  describe '#import_new_graphics' do
+    let(:graphic_id) { double }
+
+    let(:esi) do
+      instance_double(EveOnline::ESI::UniverseGraphics,
+                      graphic_ids: [graphic_id])
+    end
+
+    before { expect(EveOnline::ESI::UniverseGraphics).to receive(:new).and_return(esi) }
+
+    context 'when graphic not imported' do
+      before do
+        #
+        # Eve::Graphic.where(graphic_id: graphic_id).exists? # => false
+        #
+        expect(Eve::Graphic).to receive(:where).with(graphic_id: graphic_id) do
+          double.tap do |a|
+            expect(a).to receive(:exists?).and_return(false)
+          end
+        end
+      end
+
+      before { expect(Eve::GraphicImporterWorker).to receive(:perform_async).with(graphic_id) }
+
+      specify { expect { subject.send(:import_new_graphics) }.not_to raise_error }
+    end
+
+    context 'when graphic already imported' do
+      before do
+        #
+        # Eve::Graphic.where(graphic_id: graphic_id).exists? # => true
+        #
+        expect(Eve::Graphic).to receive(:where).with(graphic_id: graphic_id) do
+          double.tap do |a|
+            expect(a).to receive(:exists?).and_return(true)
+          end
+        end
+      end
+
+      before { expect(Eve::GraphicImporterWorker).not_to receive(:perform_async) }
+
+      specify { expect { subject.send(:import_new_graphics) }.not_to raise_error }
+    end
+  end
+
 
 
     # describe '#import' do
