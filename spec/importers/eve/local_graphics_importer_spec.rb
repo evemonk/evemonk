@@ -4,7 +4,7 @@ require 'rails_helper'
 
 describe Eve::LocalGraphicsImporter do
   describe '#import' do
-    let(:alliance_id) { double }
+    let(:graphic_id) { double }
 
     before do
       #
