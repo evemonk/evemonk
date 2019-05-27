@@ -1,6 +1,6 @@
 ---
 name: psl
-version: 1.1.31
+version: 1.1.32
 type: npm
 summary: Domain name parser based on the Public Suffix List
 homepage: https://github.com/wrangr/psl#readme
