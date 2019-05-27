@@ -1,6 +1,6 @@
 ---
 name: core-js
-version: 2.6.8
+version: 2.6.9
 type: npm
 summary: Standard library
 homepage: https://github.com/zloirock/core-js#readme
