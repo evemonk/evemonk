@@ -1,6 +1,6 @@
 ---
 name: bluebird
-version: 3.5.4
+version: 3.5.5
 type: npm
 summary: Full featured Promises/A+ implementation with exceptionally good performance
 homepage: https://github.com/petkaantonov/bluebird

@@ -1,6 +1,6 @@
 ---
 name: chrome-trace-event
-version: 1.0.1
+version: 1.0.2
 type: npm
 summary: A library to create a trace of your node app per Google's Trace Event format.
 homepage: 
