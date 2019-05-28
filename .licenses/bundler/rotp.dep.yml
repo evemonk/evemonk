@@ -1,6 +1,6 @@
 ---
 name: rotp
-version: 4.1.0
+version: 5.0.0
 type: bundler
 summary: A Ruby library for generating and verifying one time passwords
 homepage: http://github.com/mdp/rotp
