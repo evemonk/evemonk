@@ -413,7 +413,7 @@ GEM
       rubocop (>= 0.60.0)
     rubocop-thread_safety (0.3.4)
       rubocop (>= 0.51.0)
-    ruby-progressbar (1.10.0)
+    ruby-progressbar (1.10.1)
     ruby-xxHash (0.4.0.1)
     ruby_dep (1.5.0)
     ruby_parser (3.13.1)
