@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_29_173436) do
+ActiveRecord::Schema.define(version: 2019_05_29_180340) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -181,14 +181,6 @@ ActiveRecord::Schema.define(version: 2019_05_29_173436) do
     t.index ["corporation_id"], name: "index_eve_corporations_on_corporation_id", unique: true
   end
 
-  create_table "eve_dogma_attributes", force: :cascade do |t|
-    t.bigint "eve_type_id"
-    t.bigint "attribute_id"
-    t.float "value"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "eve_factions", force: :cascade do |t|
     t.bigint "faction_id"
     t.bigint "corporation_id"
@@ -252,6 +244,14 @@ ActiveRecord::Schema.define(version: 2019_05_29_173436) do
     t.index ["constellation_id"], name: "index_eve_systems_on_constellation_id"
     t.index ["star_id"], name: "index_eve_systems_on_star_id"
     t.index ["system_id"], name: "index_eve_systems_on_system_id", unique: true
+  end
+
+  create_table "eve_type_dogma_attributes", force: :cascade do |t|
+    t.bigint "type_id"
+    t.bigint "attribute_id"
+    t.float "value"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "eve_types", force: :cascade do |t|
