@@ -61,6 +61,10 @@
 ##    every: 1h
 ##    class: Eve::TypesImporterWorker
 ##    description: 'Update EveOnline Types'
+  eve_types_local:
+    every: 1d
+    class: Eve::LocalTypesImporterWorker
+    description: 'Import Types info'
 #  # eve_systems:
 #  #   every: 1d
 #  #   class: Eve::SystemsImporterWorker
