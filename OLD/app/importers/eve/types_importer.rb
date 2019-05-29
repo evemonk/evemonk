@@ -9,19 +9,19 @@ module Eve
     end
 
     def import
-      eveonline_esi_types = EveOnline::ESI::UniverseTypes.new
+      esi = EveOnline::ESI::UniverseTypes.new
 
-      etag = Etag.find_or_initialize_by(url: eveonline_esi_types.url)
+      etag = Etag.find_or_initialize_by(url: esi.url)
 
-      eveonline_esi_types.etag = etag.etag
+      esi.etag = etag.etag
 
-      return if eveonline_esi_types.not_modified?
+      return if esi.not_modified?
 
-      eveonline_esi_types.universe_type_ids.each do |type_id|
+      esi.universe_type_ids.each do |type_id|
         Eve::TypeImporterWorker.perform_async(type_id)
       end
 
-      etag.update!(etag: eveonline_esi_types.etag)
+      etag.update!(etag: esi.etag)
     end
   end
 end
