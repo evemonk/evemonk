@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_20_182009) do
+ActiveRecord::Schema.define(version: 2019_05_29_173436) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -179,6 +179,14 @@ ActiveRecord::Schema.define(version: 2019_05_20_182009) do
     t.datetime "updated_at", null: false
     t.boolean "war_eligible"
     t.index ["corporation_id"], name: "index_eve_corporations_on_corporation_id", unique: true
+  end
+
+  create_table "eve_dogma_attributes", force: :cascade do |t|
+    t.bigint "eve_type_id"
+    t.bigint "attribute_id"
+    t.float "value"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "eve_factions", force: :cascade do |t|
