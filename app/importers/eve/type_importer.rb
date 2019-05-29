@@ -25,13 +25,13 @@ module Eve
 
       eve_type.type_dogma_effects.destroy_all
 
-      # esi.dogma_attributes.each do |dogma_attribute|
-      #   eve_type.type_dogma_attributes.create!(dogma_attribute.as_json)
-      # end
-      #
-      # esi.dogma_effects.each do |dogma_effect|
-      #   eve_type.type_dogma_effects.create!(dogma_effect.as_json)
-      # end
+      esi.dogma_attributes.each do |dogma_attribute|
+        eve_type.type_dogma_attributes.create!(dogma_attribute.as_json)
+      end
+
+      esi.dogma_effects.each do |dogma_effect|
+        eve_type.type_dogma_effects.create!(dogma_effect.as_json)
+      end
 
       etag.update!(etag: esi.etag)
     rescue EveOnline::Exceptions::ResourceNotFound

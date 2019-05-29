@@ -28,11 +28,25 @@ describe Eve::TypeImporter do
 
         let(:new_etag) { double }
 
+        let(:dogma_attribute_json) { double }
+
+        let(:dogma_attribute) { instance_double(EveOnline::ESI::Models::DogmaAttributeShort, as_json: dogma_attribute_json) }
+
+        let(:dogma_attributes) { [dogma_attribute] }
+
+        let(:dogma_effect_json) { double }
+
+        let(:dogma_effect) { instance_double(EveOnline::ESI::Models::DogmaEffectShort, as_json: dogma_effect_json) }
+
+        let(:dogma_effects) { [dogma_effect] }
+
         let(:esi) do
           instance_double(EveOnline::ESI::UniverseType,
                           url: url,
                           not_modified?: false,
                           etag: new_etag,
+                          dogma_attributes: dogma_attributes,
+                          dogma_effects: dogma_effects,
                           as_json: json)
         end
 
@@ -68,13 +82,27 @@ describe Eve::TypeImporter do
           end
         end
 
-        # esi.dogma_attributes.each do |dogma_attribute|
-        #   eve_type.type_dogma_attributes.create!(dogma_attribute.as_json)
-        # end
-        #
-        # esi.dogma_effects.each do |dogma_effect|
-        #   eve_type.type_dogma_effects.create!(dogma_effect.as_json)
-        # end
+        before do
+          #
+          # eve_type.type_dogma_attributes.create!(dogma_attribute.as_json)
+          #
+          expect(eve_type).to receive(:type_dogma_attributes) do
+            double.tap do |a|
+              expect(a).to receive(:create!).with(dogma_attribute_json)
+            end
+          end
+        end
+
+        before do
+          #
+          # eve_type.type_dogma_effects.create!(dogma_effect.as_json)
+          #
+          expect(eve_type).to receive(:type_dogma_effects) do
+            double.tap do |a|
+              expect(a).to receive(:create!).with(dogma_effect_json)
+            end
+          end
+        end
 
         before { expect(etag).to receive(:update!).with(etag: new_etag) }
 
