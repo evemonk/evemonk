@@ -1,6 +1,6 @@
 ---
 name: icss-utils
-version: 4.1.0
+version: 4.1.1
 type: npm
 summary: ICSS utils for postcss ast
 homepage: https://github.com/css-modules/icss-utils#readme
