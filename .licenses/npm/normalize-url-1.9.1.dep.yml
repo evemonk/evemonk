@@ -1,9 +1,9 @@
 ---
-name: query-string
-version: 4.3.4
+name: normalize-url
+version: 1.9.1
 type: npm
-summary: Parse and stringify URL query strings
-homepage: https://github.com/sindresorhus/query-string#readme
+summary: Normalize a URL
+homepage: https://github.com/sindresorhus/normalize-url#readme
 license: mit
 licenses:
 - sources: license

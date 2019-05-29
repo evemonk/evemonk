@@ -1,9 +1,9 @@
 ---
-name: query-string
-version: 4.3.4
+name: is-plain-obj
+version: 1.1.0
 type: npm
-summary: Parse and stringify URL query strings
-homepage: https://github.com/sindresorhus/query-string#readme
+summary: Check if a value is a plain object
+homepage: https://github.com/sindresorhus/is-plain-obj#readme
 license: mit
 licenses:
 - sources: license
@@ -30,5 +30,5 @@ licenses:
     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
     THE SOFTWARE.
 - sources: readme.md
-  text: MIT © [Sindre Sorhus](https://sindresorhus.com)
+  text: MIT © [Sindre Sorhus](http://sindresorhus.com)
 notices: []

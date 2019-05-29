@@ -1,9 +1,9 @@
 ---
-name: query-string
-version: 4.3.4
+name: sort-keys
+version: 1.1.2
 type: npm
-summary: Parse and stringify URL query strings
-homepage: https://github.com/sindresorhus/query-string#readme
+summary: Sort the keys of an object
+homepage: https://github.com/sindresorhus/sort-keys#readme
 license: mit
 licenses:
 - sources: license
