@@ -14,19 +14,19 @@
 #    class: Pghero::CaptureSpaceStatsWorker
 #    description: 'Collection postgresql space stats'
   eve_races:
-    every: 1d
+    every: 7d
     class: Eve::RacesImporterWorker
     description: 'Import Races'
   eve_bloodlines:
-    every: 1d
+    every: 7d
     class: Eve::BloodlinesImporterWorker
     description: 'Import Bloodlines'
   eve_ancestries:
-    every: 1d
+    every: 7d
     class: Eve::AncestriesImporterWorker
     description: 'Import Ancestries'
   eve_factions:
-    every: 1d
+    every: 7d
     class: Eve::FactionsImporterWorker
     description: 'Import Factions'
   eve_alliances:
@@ -50,19 +50,19 @@
     class: Eve::CharactersImporterWorker
     description: 'Import Characters info'
   eve_graphics:
-    every: 1d
+    every: 7d
     class: Eve::GraphicsImporterWorker
     description: 'Import Graphics index'
   eve_graphics_local:
-    every: 1d
+    every: 7d
     class: Eve::LocalGraphicsImporterWorker
     description: 'Import Graphics info'
   eve_types:
-    every: 1h
+    every: 7h
     class: Eve::TypesImporterWorker
     description: 'Import Types index'
   eve_types_local:
-    every: 1d
+    every: 7d
     class: Eve::LocalTypesImporterWorker
     description: 'Import Types info'
 #  eve_systems:
