@@ -4,11 +4,17 @@ require 'rails_helper'
 
 describe Eve::TypesImporter do
   describe '#initialize' do
-    let(:page) { 1 }
+    context 'with page' do
+      let(:page) { 1 }
 
-    subject { described_class.new(page) }
+      subject { described_class.new(page) }
 
-    its(:page) { should eq(page) }
+      its(:page) { should eq(page) }
+    end
+
+    context 'without page' do
+      its(:page) { should eq(1) }
+    end
   end
 
   describe '#import' do

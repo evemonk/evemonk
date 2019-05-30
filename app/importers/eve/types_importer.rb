@@ -4,7 +4,7 @@ module Eve
   class TypesImporter
     attr_reader :page
 
-    def initialize(page)
+    def initialize(page = 1)
       @page = page
     end
 
