@@ -19,21 +19,23 @@ module Eve
 
       return if esi.not_modified?
 
-      eve_type.update!(esi.as_json)
+      ActiveRecord::Base.transaction do
+        eve_type.update!(esi.as_json)
 
-      eve_type.type_dogma_attributes.destroy_all
+        eve_type.type_dogma_attributes.destroy_all
 
-      eve_type.type_dogma_effects.destroy_all
+        eve_type.type_dogma_effects.destroy_all
 
-      esi.dogma_attributes.each do |dogma_attribute|
-        eve_type.type_dogma_attributes.create!(dogma_attribute.as_json)
+        esi.dogma_attributes.each do |dogma_attribute|
+          eve_type.type_dogma_attributes.create!(dogma_attribute.as_json)
+        end
+
+        esi.dogma_effects.each do |dogma_effect|
+          eve_type.type_dogma_effects.create!(dogma_effect.as_json)
+        end
+
+        etag.update!(etag: esi.etag)
       end
-
-      esi.dogma_effects.each do |dogma_effect|
-        eve_type.type_dogma_effects.create!(dogma_effect.as_json)
-      end
-
-      etag.update!(etag: esi.etag)
     rescue EveOnline::Exceptions::ResourceNotFound
       eve_type.destroy!
     end
