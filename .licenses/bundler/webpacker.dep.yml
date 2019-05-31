@@ -1,6 +1,6 @@
 ---
 name: webpacker
-version: 4.0.4
+version: 4.0.5
 type: bundler
 summary: Use webpack to manage app-like JavaScript modules in Rails
 homepage: https://github.com/rails/webpacker

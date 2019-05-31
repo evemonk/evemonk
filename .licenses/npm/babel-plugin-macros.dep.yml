@@ -1,6 +1,6 @@
 ---
 name: babel-plugin-macros
-version: 2.5.1
+version: 2.6.0
 type: npm
 summary: Allows you to build compile-time libraries
 homepage: https://github.com/kentcdodds/babel-plugin-macros#readme
