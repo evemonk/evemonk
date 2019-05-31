@@ -64,7 +64,33 @@ describe Eve::TypesImporter do
     end
 
     context 'when no fresh data available' do
+      let(:page) { double }
 
+      subject { described_class.new(page) }
+
+      let(:etag) { instance_double(Etag, etag: '97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a') }
+
+      let(:url) { double }
+
+      let(:esi) do
+        instance_double(EveOnline::ESI::UniverseTypes,
+                        not_modified?: true,
+                        url: url)
+      end
+
+      before { expect(EveOnline::ESI::UniverseTypes).to receive(:new).with(page: page).and_return(esi) }
+
+      before { expect(Etag).to receive(:find_or_initialize_by).with(url: url).and_return(etag) }
+
+      before { expect(esi).to receive(:etag=).with('97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a') }
+
+      before { expect(subject).not_to receive(:import_types) }
+
+      before { expect(subject).not_to receive(:import_other_pages) }
+
+      before { expect(etag).not_to receive(:update!) }
+
+      specify { expect { subject.import }.not_to raise_error }
     end
   end
 
