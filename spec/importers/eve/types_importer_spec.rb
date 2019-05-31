@@ -96,6 +96,13 @@ describe Eve::TypesImporter do
 
   # private methods
 
+  describe '#import_types' do
+    # let(:page) { double }
+    #
+    # subject { described_class.new(page) }
+
+  end
+
   # TODO: add specs
   # def import_types
   #   esi.universe_type_ids.each do |type_id|
@@ -104,13 +111,48 @@ describe Eve::TypesImporter do
   #     end
   #   end
   # end
-  #
-  # def import_other_pages
-  #   return if page != 1 || esi.total_pages == 1
-  #
-  #   (2..esi.total_pages).each do |next_page|
-  #     Eve::TypesImporterWorker.perform_async(next_page)
-  #   end
-  # end
 
+  describe '#import_other_pages' do
+    context 'when page is more than 1' do
+      let(:page) { 2 }
+
+      subject { described_class.new(page) }
+
+      let(:esi) { instance_double(EveOnline::ESI::UniverseTypes) }
+
+      before { expect(EveOnline::ESI::UniverseTypes).to receive(:new).with(page: page).and_return(esi) }
+
+      before { expect(Eve::TypesImporterWorker).not_to receive(:perform_async) }
+
+      specify { expect { subject.send(:import_other_pages) }.not_to raise_error }
+    end
+
+    context 'when total pages is 1' do
+      let(:page) { 1 }
+
+      subject { described_class.new(page) }
+
+      let(:esi) { instance_double(EveOnline::ESI::UniverseTypes, total_pages: 1) }
+
+      before { expect(EveOnline::ESI::UniverseTypes).to receive(:new).with(page: page).and_return(esi) }
+
+      before { expect(Eve::TypesImporterWorker).not_to receive(:perform_async) }
+
+      specify { expect { subject.send(:import_other_pages) }.not_to raise_error }
+    end
+
+    context 'when page is 1 and total pages more than 1' do
+      let(:page) { 1 }
+
+      subject { described_class.new(page) }
+
+      let(:esi) { instance_double(EveOnline::ESI::UniverseTypes, total_pages: 2) }
+
+      before { expect(EveOnline::ESI::UniverseTypes).to receive(:new).with(page: page).and_return(esi) }
+
+      before { expect(Eve::TypesImporterWorker).to receive(:perform_async).with(2) }
+
+      specify { expect { subject.send(:import_other_pages) }.not_to raise_error }
+    end
+  end
 end
