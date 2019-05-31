@@ -1,6 +1,6 @@
 ---
 name: "@rails/webpacker"
-version: 4.0.5
+version: 4.0.6
 type: npm
 summary: Use webpack to manage app-like JavaScript modules in Rails
 homepage: https://github.com/rails/webpacker
