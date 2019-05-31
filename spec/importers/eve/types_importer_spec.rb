@@ -94,11 +94,23 @@ describe Eve::TypesImporter do
     end
   end
 
-  # describe '#import' do
-  #   let(:page) { 1 }
-  #
-  #   subject(:importer) { described_class.new(page) }
-  #
-  #   specify { expect { importer.import }.not_to raise_error }
+  # private methods
+
+  # TODO: add specs
+  # def import_types
+  #   esi.universe_type_ids.each do |type_id|
+  #     if !Eve::Type.where(type_id: type_id).exists?
+  #       Eve::TypeImporterWorker.perform_async(type_id)
+  #     end
+  #   end
   # end
+  #
+  # def import_other_pages
+  #   return if page != 1 || esi.total_pages == 1
+  #
+  #   (2..esi.total_pages).each do |next_page|
+  #     Eve::TypesImporterWorker.perform_async(next_page)
+  #   end
+  # end
+
 end
