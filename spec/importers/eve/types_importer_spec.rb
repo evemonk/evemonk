@@ -7,9 +7,7 @@ describe Eve::TypesImporter do
     context 'with page' do
       let(:page) { double }
 
-      let(:options) { { page: page } }
-
-      subject { described_class.new(options) }
+      subject { described_class.new(page) }
 
       its(:page) { should eq(page) }
     end
@@ -20,9 +18,9 @@ describe Eve::TypesImporter do
   end
 
   describe '#import' do
-    let(:options) { { page: 1 } }
+    let(:page) { 1 }
 
-    subject(:importer) { described_class.new(options) }
+    subject(:importer) { described_class.new(page) }
 
     specify { expect { importer.import }.not_to raise_error }
   end
