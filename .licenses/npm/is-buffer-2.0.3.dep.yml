@@ -1,14 +1,16 @@
 ---
-name: axios
-version: 0.18.1
+name: is-buffer
+version: 2.0.3
 type: npm
-summary: Promise based HTTP client for the browser and node.js
-homepage: https://github.com/axios/axios
+summary: Determine if an object is a Buffer
+homepage: https://github.com/feross/is-buffer#readme
 license: mit
 licenses:
 - sources: LICENSE
   text: |
-    Copyright (c) 2014-present Matt Zabriskie
+    The MIT License (MIT)
+
+    Copyright (c) Feross Aboukhadijeh
 
     Permission is hereby granted, free of charge, to any person obtaining a copy
     of this software and associated documentation files (the "Software"), to deal
@@ -28,5 +30,5 @@ licenses:
     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
     THE SOFTWARE.
 - sources: README.md
-  text: MIT
+  text: MIT. Copyright (C) [Feross Aboukhadijeh](http://feross.org).
 notices: []
