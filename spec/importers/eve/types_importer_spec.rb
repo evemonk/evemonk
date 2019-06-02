@@ -144,15 +144,6 @@ describe Eve::TypesImporter do
     end
   end
 
-  # TODO: add specs
-  # def import_types
-  #   esi.universe_type_ids.each do |type_id|
-  #     if !Eve::Type.where(type_id: type_id).exists?
-  #       Eve::TypeImporterWorker.perform_async(type_id)
-  #     end
-  #   end
-  # end
-
   describe '#import_other_pages' do
     context 'when page is more than 1' do
       let(:page) { 2 }
