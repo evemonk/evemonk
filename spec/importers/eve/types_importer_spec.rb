@@ -97,22 +97,19 @@ describe Eve::TypesImporter do
   # private methods
 
   describe '#import_types' do
-    # let(:page) { double }
-    #
-    # subject { described_class.new(page) }
+    let(:page) { double }
+
+    subject { described_class.new(page) }
+
+    let(:universe_type_id) { double }
+
+    let(:universe_type_ids) { [universe_type_id] }
+
+    let(:esi) { instance_double(EveOnline::ESI::UniverseTypes, universe_type_ids: universe_type_ids) }
+
+    before { expect(EveOnline::ESI::UniverseTypes).to receive(:new).with(page: page).and_return(esi) }
+
     context 'when type not imported' do
-      let(:page) { double }
-
-      subject { described_class.new(page) }
-
-      let(:universe_type_id) { double }
-
-      let(:universe_type_ids) { [universe_type_id] }
-
-      let(:esi) { instance_double(EveOnline::ESI::UniverseTypes, universe_type_ids: universe_type_ids) }
-
-      before { expect(EveOnline::ESI::UniverseTypes).to receive(:new).with(page: page).and_return(esi) }
-
       before do
         #
         # Eve::Type.where(type_id: type_id).exists? # => false
@@ -130,18 +127,6 @@ describe Eve::TypesImporter do
     end
 
     context 'when type is imported' do
-      let(:page) { double }
-
-      subject { described_class.new(page) }
-
-      let(:universe_type_id) { double }
-
-      let(:universe_type_ids) { [universe_type_id] }
-
-      let(:esi) { instance_double(EveOnline::ESI::UniverseTypes, universe_type_ids: universe_type_ids) }
-
-      before { expect(EveOnline::ESI::UniverseTypes).to receive(:new).with(page: page).and_return(esi) }
-
       before do
         #
         # Eve::Type.where(type_id: type_id).exists? # => true
