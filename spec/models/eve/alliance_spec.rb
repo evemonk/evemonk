@@ -32,19 +32,15 @@ describe Eve::Alliance do
 
     let!(:alliance_corporation2) { create(:eve_alliance_corporation, corporation_id: 125, alliance_id: 123) }
 
-    subject { alliance }
-
-    specify { expect(subject.characters_count).to eq(246) }
+    specify { expect(alliance.characters_count).to eq(246) }
   end
 
   describe '#search_data' do
     let!(:alliance) { create(:eve_alliance, name: 'Kids With Guns Alliance', ticker: '-KWG-') }
 
-    subject { alliance }
-
     specify do
-      expect(subject.search_data).to eq(name: 'Kids With Guns Alliance',
-                                        ticker: '-KWG-')
+      expect(alliance.search_data).to eq(name: 'Kids With Guns Alliance',
+                                         ticker: '-KWG-')
     end
   end
 end

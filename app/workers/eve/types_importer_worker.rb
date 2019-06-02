@@ -4,8 +4,8 @@ module Eve
   class TypesImporterWorker
     include Sidekiq::Worker
 
-    def perform(*)
-      Eve::TypesImporter.new.import
+    def perform(page = 1)
+      Eve::TypesImporter.new(page).import
     end
   end
 end

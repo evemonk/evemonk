@@ -8,15 +8,8 @@ Layout/EndOfLine:
 # TODO: later
 # Layout/ClassStructure
 
-Layout/SpaceInsideStringInterpolation:
-  EnforcedStyle: space
-  Enabled: true
-
 Layout/MultilineAssignmentLayout:
   Enabled: true
-
-Metrics/LineLength:
-  Enabled: false
 
 Rails:
   Enabled: true
@@ -40,9 +33,6 @@ Style/CollectionMethods:
 Style/ConditionalAssignment:
   Enabled: true
   EnforcedStyle: assign_to_condition
-
-Style/Documentation:
-  Enabled: false
 
 Style/EmptyMethod:
   Enabled: false
@@ -70,14 +60,6 @@ Style/PercentLiteralDelimiters:
 
 Style/ReturnNil:
   Enabled: true
-
-Style/SymbolArray:
-  Enabled: true
-  EnforcedStyle: brackets
-
-Style/WordArray:
-  Enabled: true
-  EnforcedStyle: brackets
 
 Style/GuardClause:
   Enabled: false

@@ -7,9 +7,6 @@ RSpec/MessageSpies:
   Enabled: true
   EnforcedStyle: receive
 
-RSpec/LetSetup:
-  Enabled: false
-
 RSpec/ScatteredSetup:
   Enabled: false
 
