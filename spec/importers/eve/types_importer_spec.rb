@@ -100,7 +100,63 @@ describe Eve::TypesImporter do
     # let(:page) { double }
     #
     # subject { described_class.new(page) }
+    context 'when type not imported' do
+      let(:page) { double }
 
+      subject { described_class.new(page) }
+
+      let(:universe_type_id) { double }
+
+      let(:universe_type_ids) { [universe_type_id] }
+
+      let(:esi) { instance_double(EveOnline::ESI::UniverseTypes, universe_type_ids: universe_type_ids) }
+
+      before { expect(EveOnline::ESI::UniverseTypes).to receive(:new).with(page: page).and_return(esi) }
+
+      before do
+        #
+        # Eve::Type.where(type_id: type_id).exists? # => false
+        #
+        expect(Eve::Type).to receive(:where).with(type_id: universe_type_id) do
+          double.tap do |a|
+            expect(a).to receive(:exists?).and_return(false)
+          end
+        end
+      end
+
+      before { expect(Eve::TypeImporterWorker).to receive(:perform_async).with(universe_type_id) }
+
+      specify { expect { subject.send(:import_types) }.not_to raise_error }
+    end
+
+    context 'when type is imported' do
+      let(:page) { double }
+
+      subject { described_class.new(page) }
+
+      let(:universe_type_id) { double }
+
+      let(:universe_type_ids) { [universe_type_id] }
+
+      let(:esi) { instance_double(EveOnline::ESI::UniverseTypes, universe_type_ids: universe_type_ids) }
+
+      before { expect(EveOnline::ESI::UniverseTypes).to receive(:new).with(page: page).and_return(esi) }
+
+      before do
+        #
+        # Eve::Type.where(type_id: type_id).exists? # => true
+        #
+        expect(Eve::Type).to receive(:where).with(type_id: universe_type_id) do
+          double.tap do |a|
+            expect(a).to receive(:exists?).and_return(true)
+          end
+        end
+      end
+
+      before { expect(Eve::TypeImporterWorker).not_to receive(:perform_async) }
+
+      specify { expect { subject.send(:import_types) }.not_to raise_error }
+    end
   end
 
   # TODO: add specs
