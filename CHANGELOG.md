@@ -12,6 +12,7 @@
 * Handle service unavailable (503) on sign in via EVE SSO
 * Rewrite working with etags and updating public info
 * Import eve types info
+* If character_owner_hash changed for character, remove this character from user
 
 ## v0.1.0
 

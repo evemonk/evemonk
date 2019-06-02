@@ -9,21 +9,25 @@ module Api
     end
 
     def save!
-      assign_character_attributes
+      ActiveRecord::Base.transaction do
+        assign_character_attributes
 
-      build_user
+        build_user
 
-      character.save!
+        remove_old_characters
 
-      session.save!
+        character.save!
 
-      update_character_info
+        session.save!
 
-      # update_character_wallet
+        update_character_info
 
-      # update_character_attributes
+        # update_character_wallet
 
-      # update_character_lps
+        # update_character_attributes
+
+        # update_character_lps
+      end
     end
 
     def session
@@ -68,10 +72,8 @@ module Api
       request.env.dig('omniauth.auth', 'info', 'character_owner_hash')
     end
 
-    # TODO: add support for character_owner_hash
-    # If character_owner_hash changed for character, remove this character from user
     def character
-      @character ||= Character.find_or_initialize_by(character_id: character_id)
+      @character ||= Character.find_or_initialize_by(character_owner_hash: character_owner_hash)
     end
 
     def assign_character_attributes
@@ -82,11 +84,17 @@ module Api
                                   token_expires: token_expires,
                                   scopes: scopes,
                                   token_type: token_type,
-                                  character_owner_hash: character_owner_hash)
+                                  character_id: character_id)
     end
 
     def build_user
       character.build_user(kind: :oauth) unless character.user
+    end
+
+    def remove_old_characters
+      return if !character.new_record?
+
+      Character.where(character_id: character_id).destroy_all
     end
 
     def update_character_info
