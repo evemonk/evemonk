@@ -7,10 +7,6 @@ class User < ApplicationRecord
 
   has_many :characters, dependent: :destroy
 
-  validates :email, presence: true, unless: :oauth?
-
-  validates :email, uniqueness: { case_sensitive: false }, unless: :oauth?
-
   has_secure_password validations: false
 
   has_secure_token :reset_password_token
