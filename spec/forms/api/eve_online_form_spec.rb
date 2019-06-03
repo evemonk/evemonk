@@ -16,6 +16,8 @@ describe Api::EveOnlineForm do
 
     before { expect(form).to receive(:build_user) }
 
+    before { expect(form).to receive(:remove_old_characters) }
+
     let(:character) { instance_double(Character) }
 
     before { expect(form).to receive(:character).and_return(character) }
@@ -233,11 +235,11 @@ describe Api::EveOnlineForm do
     context 'when @character not set' do
       let(:character) { instance_double(Character) }
 
-      let(:character_id) { double }
+      let(:character_owner_hash) { double }
 
-      before { expect(form).to receive(:character_id).and_return(character_id) }
+      before { expect(form).to receive(:character_owner_hash).and_return(character_owner_hash) }
 
-      before { expect(Character).to receive(:find_or_initialize_by).with(character_id: character_id).and_return(character) }
+      before { expect(Character).to receive(:find_or_initialize_by).with(character_owner_hash: character_owner_hash).and_return(character) }
 
       specify { expect(form.send(:character)).to eq(character) }
 
@@ -262,7 +264,7 @@ describe Api::EveOnlineForm do
 
     let(:token_type) { double }
 
-    let(:character_owner_hash) { double }
+    let(:character_id) { double }
 
     before { expect(form).to receive(:character).and_return(character) }
 
@@ -280,7 +282,7 @@ describe Api::EveOnlineForm do
 
     before { expect(form).to receive(:token_type).and_return(token_type) }
 
-    before { expect(form).to receive(:character_owner_hash).and_return(character_owner_hash) }
+    before { expect(form).to receive(:character_id).and_return(character_id) }
 
     before do
       #
@@ -291,7 +293,7 @@ describe Api::EveOnlineForm do
       #                             token_expires: token_expires,
       #                             scopes: scopes,
       #                             token_type: token_type,
-      #                             character_owner_hash: character_owner_hash)
+      #                             character_id: character_id)
       #
       expect(character).to receive(:assign_attributes).with(name: name,
                                                             access_token: access_token,
@@ -300,7 +302,7 @@ describe Api::EveOnlineForm do
                                                             token_expires: token_expires,
                                                             scopes: scopes,
                                                             token_type: token_type,
-                                                            character_owner_hash: character_owner_hash)
+                                                            character_id: character_id)
     end
 
     specify { expect { form.send(:assign_character_attributes) }.not_to raise_error }
@@ -327,6 +329,41 @@ describe Api::EveOnlineForm do
       before { expect(character).not_to receive(:build_user) }
 
       specify { expect { form.send(:build_user) }.not_to raise_error }
+    end
+  end
+
+  describe '#remove_old_characters' do
+    context 'when character is new record, remove old characters' do
+      let(:character_id) { double }
+
+      let(:character) { instance_double(Character, new_record?: true) }
+
+      before { expect(subject).to receive(:character_id).and_return(character_id) }
+
+      before { expect(subject).to receive(:character).and_return(character) }
+
+      before do
+        #
+        # Character.where(character_id: character_id).destroy_all
+        #
+        expect(Character).to receive(:where).with(character_id: character_id) do
+          double.tap do |a|
+            expect(a).to receive(:destroy_all)
+          end
+        end
+      end
+
+      specify { expect { form.send(:remove_old_characters) }.not_to raise_error }
+    end
+
+    context 'when character is not new record' do
+      let(:character) { instance_double(Character, new_record?: false) }
+
+      before { expect(subject).to receive(:character).and_return(character) }
+
+      before { expect(Character).not_to receive(:where) }
+
+      specify { expect { form.send(:remove_old_characters) }.not_to raise_error }
     end
   end
 
