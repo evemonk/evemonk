@@ -101,16 +101,7 @@ describe Eve::AlliancesImporter do
     before { expect(EveOnline::ESI::Alliances).to receive(:new).and_return(esi) }
 
     context 'when alliance not imported' do
-      before do
-        #
-        # Eve::Alliance.where(alliance_id: alliance_id).exists? # => false
-        #
-        expect(Eve::Alliance).to receive(:where).with(alliance_id: alliance_id) do
-          double.tap do |a|
-            expect(a).to receive(:exists?).and_return(false)
-          end
-        end
-      end
+      before { expect(Eve::Alliance).to receive(:exists?).with(alliance_id: alliance_id).and_return(false) }
 
       before { expect(Eve::AllianceImporterWorker).to receive(:perform_async).with(alliance_id) }
 
@@ -118,16 +109,7 @@ describe Eve::AlliancesImporter do
     end
 
     context 'when alliance already imported' do
-      before do
-        #
-        # Eve::Alliance.where(alliance_id: alliance_id).exists? # => true
-        #
-        expect(Eve::Alliance).to receive(:where).with(alliance_id: alliance_id) do
-          double.tap do |a|
-            expect(a).to receive(:exists?).and_return(true)
-          end
-        end
-      end
+      before { expect(Eve::Alliance).to receive(:exists?).with(alliance_id: alliance_id).and_return(true) }
 
       before { expect(Eve::AllianceImporterWorker).not_to receive(:perform_async) }
 

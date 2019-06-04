@@ -110,16 +110,7 @@ describe Eve::TypesImporter do
     before { expect(EveOnline::ESI::UniverseTypes).to receive(:new).with(page: page).and_return(esi) }
 
     context 'when type not imported' do
-      before do
-        #
-        # Eve::Type.where(type_id: type_id).exists? # => false
-        #
-        expect(Eve::Type).to receive(:where).with(type_id: universe_type_id) do
-          double.tap do |a|
-            expect(a).to receive(:exists?).and_return(false)
-          end
-        end
-      end
+      before { expect(Eve::Type).to receive(:exists?).with(type_id: universe_type_id).and_return(false) }
 
       before { expect(Eve::TypeImporterWorker).to receive(:perform_async).with(universe_type_id) }
 
@@ -127,16 +118,7 @@ describe Eve::TypesImporter do
     end
 
     context 'when type is imported' do
-      before do
-        #
-        # Eve::Type.where(type_id: type_id).exists? # => true
-        #
-        expect(Eve::Type).to receive(:where).with(type_id: universe_type_id) do
-          double.tap do |a|
-            expect(a).to receive(:exists?).and_return(true)
-          end
-        end
-      end
+      before { expect(Eve::Type).to receive(:exists?).with(type_id: universe_type_id).and_return(true) }
 
       before { expect(Eve::TypeImporterWorker).not_to receive(:perform_async) }
 
