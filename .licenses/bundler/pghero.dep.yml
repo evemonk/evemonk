@@ -1,6 +1,6 @@
 ---
 name: pghero
-version: 2.2.0
+version: 2.2.1
 type: bundler
 summary: A performance dashboard for Postgres
 homepage: https://github.com/ankane/pghero
@@ -8,7 +8,7 @@ license: mit
 licenses:
 - sources: LICENSE.txt
   text: |
-    Copyright (c) 2014-2018 Andrew Kane, 2008-2014 Heroku (initial queries)
+    Copyright (c) 2014-2019 Andrew Kane, 2008-2014 Heroku (initial queries)
 
     MIT License
 
