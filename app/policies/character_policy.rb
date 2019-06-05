@@ -13,7 +13,7 @@ class CharacterPolicy
   end
 
   def show?
-    scope.where(id: record.id).exists?
+    scope.exists?(record.id)
   end
 
   def create?
@@ -21,11 +21,11 @@ class CharacterPolicy
   end
 
   def update?
-    scope.where(id: record.id).exists?
+    scope.exists?(record.id)
   end
 
   def destroy?
-    scope.where(id: record.id).exists?
+    scope.exists?(record.id)
   end
 
   def scope

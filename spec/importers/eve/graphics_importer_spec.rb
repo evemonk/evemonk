@@ -101,16 +101,7 @@ describe Eve::GraphicsImporter do
     before { expect(EveOnline::ESI::UniverseGraphics).to receive(:new).and_return(esi) }
 
     context 'when graphic not imported' do
-      before do
-        #
-        # Eve::Graphic.where(graphic_id: graphic_id).exists? # => false
-        #
-        expect(Eve::Graphic).to receive(:where).with(graphic_id: graphic_id) do
-          double.tap do |a|
-            expect(a).to receive(:exists?).and_return(false)
-          end
-        end
-      end
+      before { expect(Eve::Graphic).to receive(:exists?).with(graphic_id: graphic_id).and_return(false) }
 
       before { expect(Eve::GraphicImporterWorker).to receive(:perform_async).with(graphic_id) }
 
@@ -118,16 +109,7 @@ describe Eve::GraphicsImporter do
     end
 
     context 'when graphic already imported' do
-      before do
-        #
-        # Eve::Graphic.where(graphic_id: graphic_id).exists? # => true
-        #
-        expect(Eve::Graphic).to receive(:where).with(graphic_id: graphic_id) do
-          double.tap do |a|
-            expect(a).to receive(:exists?).and_return(true)
-          end
-        end
-      end
+      before { expect(Eve::Graphic).to receive(:exists?).with(graphic_id: graphic_id).and_return(true) }
 
       before { expect(Eve::GraphicImporterWorker).not_to receive(:perform_async) }
 
