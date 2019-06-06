@@ -46,3 +46,6 @@ RSpec/LeadingSubject:
 
 RSpec/LetSetup:
   Enabled: false
+
+RSpec/ExpectInHook:
+  Enabled: false
