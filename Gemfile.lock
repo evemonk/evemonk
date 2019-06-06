@@ -350,6 +350,9 @@ GEM
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.0.4)
       loofah (~> 2.2, >= 2.2.2)
+    rails-settings-cached (2.0.3)
+      rails (>= 4.2.0)
+      request_store
     rails_best_practices (1.19.4)
       activesupport
       code_analyzer (>= 0.4.8)
@@ -371,6 +374,8 @@ GEM
       ffi (~> 1.0)
     redis (4.1.2)
     regexp_parser (1.5.1)
+    request_store (1.4.1)
+      rack (>= 1.4)
     require_all (2.0.0)
     responders (2.4.1)
       actionpack (>= 4.2.0, < 6.0)
@@ -568,6 +573,7 @@ DEPENDENCIES
   rack-timeout
   rails (= 6.0.0.rc1)
   rails-controller-testing
+  rails-settings-cached
   rails_best_practices
   responders
   rotp

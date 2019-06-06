@@ -20,6 +20,7 @@ gem 'rack-cors', require: 'rack/cors'
 gem 'kaminari'
 gem 'pundit'
 gem 'dotenv-rails'
+gem 'rails-settings-cached'
 gem 'sidekiq', require: false
 gem 'sidekiq-scheduler', require: false
 gem 'sinatra', require: false
