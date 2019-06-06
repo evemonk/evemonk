@@ -49,3 +49,7 @@ RSpec/LetSetup:
 
 RSpec/ExpectInHook:
   Enabled: false
+
+RSpec/MessageSpies:
+  Enabled: true
+  EnforcedStyle: receive
