@@ -1,6 +1,6 @@
 ---
 name: pnp-webpack-plugin
-version: 1.4.3
+version: 1.5.0
 type: npm
 summary: plug'n'play resolver for Webpack
 homepage: https://github.com/arcanis/pnp-webpack-plugin
