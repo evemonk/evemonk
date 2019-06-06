@@ -12,6 +12,6 @@ module Eve
 
     # belongs_to :home_station_id
 
-    has_many :characters, primary_key: :corporation_id
+    has_many :characters, primary_key: :corporation_id # rubocop:disable Rails/HasManyOrHasOneDependent
   end
 end

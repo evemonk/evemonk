@@ -12,7 +12,7 @@ module Eve
 
     belongs_to :faction, primary_key: :faction_id, optional: true
 
-    has_many :alliance_corporations, primary_key: :alliance_id
+    has_many :alliance_corporations, primary_key: :alliance_id # rubocop:disable Rails/HasManyOrHasOneDependent
 
     has_many :corporations, through: :alliance_corporations
 
