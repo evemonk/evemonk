@@ -37,10 +37,6 @@ Style/ConditionalAssignment:
 Style/EmptyMethod:
   Enabled: false
 
-Style/FrozenStringLiteralComment:
-  Enabled: true
-  EnforcedStyle: always
-
 Style/ImplicitRuntimeError:
   Enabled: true
 

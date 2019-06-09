@@ -1,8 +1,5 @@
 # rubocop-rspec cops
 
-RSpec/ScatteredSetup:
-  Enabled: false
-
 RSpec/ScatteredLet:
   Enabled: false
 
