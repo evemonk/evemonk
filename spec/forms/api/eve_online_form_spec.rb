@@ -338,9 +338,9 @@ describe Api::EveOnlineForm do
 
       let(:character) { instance_double(Character, new_record?: true) }
 
-      before { expect(subject).to receive(:character_id).and_return(character_id) }
+      before { expect(form).to receive(:character_id).and_return(character_id) }
 
-      before { expect(subject).to receive(:character).and_return(character) }
+      before { expect(form).to receive(:character).and_return(character) }
 
       before do
         #
@@ -359,7 +359,7 @@ describe Api::EveOnlineForm do
     context 'when character is not new record' do
       let(:character) { instance_double(Character, new_record?: false) }
 
-      before { expect(subject).to receive(:character).and_return(character) }
+      before { expect(form).to receive(:character).and_return(character) }
 
       before { expect(Character).not_to receive(:where) }
 
