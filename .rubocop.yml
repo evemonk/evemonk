@@ -56,3 +56,6 @@ RSpec/MessageSpies:
 
 RSpec/ScatteredSetup:
   Enabled: false
+
+RSpec/ScatteredLet:
+  Enabled: false
