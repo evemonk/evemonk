@@ -1,8 +1,5 @@
 # rubocop-rspec cops
 
-RSpec/ScatteredLet:
-  Enabled: false
-
 RSpec/HookArgument:
   Enabled: false
 
