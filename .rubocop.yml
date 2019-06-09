@@ -53,3 +53,6 @@ RSpec/ExpectInHook:
 RSpec/MessageSpies:
   Enabled: true
   EnforcedStyle: receive
+
+RSpec/ScatteredSetup:
+  Enabled: false
