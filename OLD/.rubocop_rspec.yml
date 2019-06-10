@@ -19,9 +19,6 @@ RSpec/FilePath:
 RSpec/NestedGroups:
   Enabled: false
 
-RSpec/EmptyExampleGroup:
-  Enabled: false
-
 # Maybe later
 RSpec/MultipleExpectations:
   Enabled: false
