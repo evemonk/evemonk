@@ -1,18 +1,5 @@
 # rubocop-rspec cops
 
-RSpec/ExpectInHook:
-  Enabled: false
-
-RSpec/MessageSpies:
-  Enabled: true
-  EnforcedStyle: receive
-
-RSpec/ScatteredSetup:
-  Enabled: false
-
-RSpec/ScatteredLet:
-  Enabled: false
-
 RSpec/HookArgument:
   Enabled: false
 

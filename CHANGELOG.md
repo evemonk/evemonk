@@ -13,6 +13,7 @@
 * Rewrite working with etags and updating public info
 * Import eve types info
 * If character_owner_hash changed for character, remove this character from user
+* Add /.well-known/change-password
 
 ## v0.1.0
 

@@ -16,7 +16,7 @@ GIT
 
 GIT
   remote: https://github.com/rspec/rspec-core.git
-  revision: e0ecbafdd3c0a6c2a58db9a8acda4953cfd58057
+  revision: c408a2a31e4cd3a1c4081513d8da1c1c27842605
   branch: master
   specs:
     rspec-core (3.9.0.pre)
@@ -24,7 +24,7 @@ GIT
 
 GIT
   remote: https://github.com/rspec/rspec-expectations.git
-  revision: 1044d4e5b8a2620e6753fd599bffd69c00110544
+  revision: 23c11fcdaf994664d1fd9a5e423d6110d943ff35
   branch: master
   specs:
     rspec-expectations (3.9.0.pre)
@@ -42,7 +42,7 @@ GIT
 
 GIT
   remote: https://github.com/rspec/rspec-support.git
-  revision: d68c94b9d1b60afa55efd35fe69fc531ee68b596
+  revision: d70a6dd4d31bb90a9e9066725c0ffa5104d613ca
   branch: master
   specs:
     rspec-support (3.9.0.pre)
@@ -350,6 +350,9 @@ GEM
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.0.4)
       loofah (~> 2.2, >= 2.2.2)
+    rails-settings-cached (2.0.3)
+      rails (>= 4.2.0)
+      request_store
     rails_best_practices (1.19.4)
       activesupport
       code_analyzer (>= 0.4.8)
@@ -371,6 +374,8 @@ GEM
       ffi (~> 1.0)
     redis (4.1.2)
     regexp_parser (1.5.1)
+    request_store (1.4.1)
+      rack (>= 1.4)
     require_all (2.0.0)
     responders (2.4.1)
       actionpack (>= 4.2.0, < 6.0)
@@ -406,8 +411,8 @@ GEM
       unicode-display_width (>= 1.4.0, < 1.7)
     rubocop-performance (1.3.0)
       rubocop (>= 0.68.0)
-    rubocop-rails (2.0.0)
-      rack (>= 2.0)
+    rubocop-rails (2.0.1)
+      rack (>= 1.1)
       rubocop (>= 0.70.0)
     rubocop-rspec (1.33.0)
       rubocop (>= 0.60.0)
@@ -450,7 +455,7 @@ GEM
     server_timing (1.0.2)
       scout_apm
     sexp_processor (4.12.1)
-    shoulda-matchers (4.0.1)
+    shoulda-matchers (4.1.0)
       activesupport (>= 4.2.0)
     sidekiq (5.2.7)
       connection_pool (~> 2.2, >= 2.2.2)
@@ -568,6 +573,7 @@ DEPENDENCIES
   rack-timeout
   rails (= 6.0.0.rc1)
   rails-controller-testing
+  rails-settings-cached
   rails_best_practices
   responders
   rotp

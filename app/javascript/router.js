@@ -119,6 +119,10 @@ const routes = [
     name: 'universe_corporation_characters',
     component: UniverseCorporationCharacters,
   },
+  {
+    path: '/.well-known/change-password',
+    redirect: '/change_password',
+  },
 
   // otherwise redirect to home
   {
