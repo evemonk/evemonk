@@ -1,4 +1,12 @@
 GIT
+  remote: https://github.com/evemonk/eve_online.git
+  revision: 0961d47d0490439f4ea8635ca1e82017f4166bc0
+  branch: master
+  specs:
+    eve_online (0.26.0)
+      activesupport (>= 4.2.0)
+
+GIT
   remote: https://github.com/jdliss/shoulda-callback-matchers.git
   revision: b8a3680bc1d19ac713e43054a2b33238ce845698
   branch: master
@@ -168,8 +176,6 @@ GEM
     erubis (2.7.0)
     et-orbi (1.2.1)
       tzinfo
-    eve_online (0.26.0)
-      activesupport (>= 4.2.0)
     factory_bot (5.0.2)
       activesupport (>= 4.2.0)
     factory_bot_rails (5.0.2)
@@ -539,7 +545,7 @@ DEPENDENCIES
   derailed_benchmarks
   dotenv-rails
   errbase
-  eve_online
+  eve_online!
   factory_bot_rails
   faker
   fasterer
