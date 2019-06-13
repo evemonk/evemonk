@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/evemonk/eve_online.git
-  revision: 0961d47d0490439f4ea8635ca1e82017f4166bc0
+  revision: 4e983aff01e9f4c57ec1e6181e140279e054b689
   branch: dev
   specs:
     eve_online (0.26.0)
@@ -614,4 +614,4 @@ DEPENDENCIES
   webpacker (~> 4.0)
 
 BUNDLED WITH
-   2.0.1
+   2.0.2
