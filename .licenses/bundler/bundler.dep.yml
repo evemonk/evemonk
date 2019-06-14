@@ -1,9 +1,9 @@
 ---
 name: bundler
-version: 2.0.1
+version: 2.0.2
 type: bundler
 summary: The best way to manage your application's dependencies
-homepage: http://bundler.io
+homepage: https://bundler.io
 license: mit
 licenses:
 - sources: LICENSE.md

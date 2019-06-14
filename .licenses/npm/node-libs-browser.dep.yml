@@ -1,6 +1,6 @@
 ---
 name: node-libs-browser
-version: 2.2.0
+version: 2.2.1
 type: npm
 summary: The node core libs for in browser usage.
 homepage: http://github.com/webpack/node-libs-browser
