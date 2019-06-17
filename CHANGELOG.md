@@ -14,6 +14,7 @@
 * Import eve types info
 * If character_owner_hash changed for character, remove this character from user
 * Add /.well-known/change-password
+* Add ability to set login/password for sidekiq backoffice
 
 ## v0.1.0
 
