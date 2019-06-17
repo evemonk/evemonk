@@ -59,3 +59,10 @@ RSpec/ScatteredSetup:
 
 RSpec/ScatteredLet:
   Enabled: false
+
+RSpec/EmptyExampleGroup:
+  Enabled: false
+
+# Later? https://robots.thoughtbot.com/don-t-stub-the-system-under-test
+RSpec/SubjectStub:
+  Enabled: false

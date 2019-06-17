@@ -3,11 +3,6 @@
 RSpec/HookArgument:
   Enabled: false
 
-# https://robots.thoughtbot.com/don-t-stub-the-system-under-test
-# Enable later?
-RSpec/SubjectStub:
-  Enabled: false
-
 # Enable later
 RSpec/ExampleWording:
   Enabled: false
@@ -17,9 +12,6 @@ RSpec/FilePath:
   Enabled: true
 
 RSpec/NestedGroups:
-  Enabled: false
-
-RSpec/EmptyExampleGroup:
   Enabled: false
 
 # Maybe later

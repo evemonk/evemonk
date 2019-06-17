@@ -1,6 +1,6 @@
 ---
 name: resolve
-version: 1.11.1
+version: 1.11.0
 type: npm
 summary: resolve like require.resolve() on behalf of files asynchronously and synchronously
 homepage: https://github.com/browserify/resolve#readme

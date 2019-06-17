@@ -3,6 +3,8 @@
 require 'rails_helper'
 
 describe Eve::CorporationsImporter do
+  subject(:importer) { described_class.new }
+
   describe '#import' do
     let(:corporation_id) { double }
 
@@ -21,6 +23,6 @@ describe Eve::CorporationsImporter do
 
     before { expect(Eve::CorporationImporterWorker).to receive(:perform_async).with(corporation_id) }
 
-    specify { expect { subject.import }.not_to raise_error }
+    specify { expect { importer.import }.not_to raise_error }
   end
 end

@@ -16,7 +16,7 @@ describe Eve::TypeImporter do
       context 'when type found' do
         let(:type_id) { double }
 
-        subject { described_class.new(type_id) }
+        subject(:importer) { described_class.new(type_id) }
 
         let(:eve_type) { instance_double(Eve::Type) }
 
@@ -106,13 +106,13 @@ describe Eve::TypeImporter do
 
         before { expect(etag).to receive(:update!).with(etag: new_etag) }
 
-        specify { expect { subject.import }.not_to raise_error }
+        specify { expect { importer.import }.not_to raise_error }
       end
 
       context 'when type not found' do
         let(:type_id) { double }
 
-        subject { described_class.new(type_id) }
+        subject(:importer) { described_class.new(type_id) }
 
         let(:eve_type) { instance_double(Eve::Type) }
 
@@ -122,14 +122,14 @@ describe Eve::TypeImporter do
 
         before { expect(eve_type).to receive(:destroy!) }
 
-        specify { expect { subject.import }.not_to raise_error }
+        specify { expect { importer.import }.not_to raise_error }
       end
     end
 
     context 'when no fresh data available' do
       let(:type_id) { double }
 
-      subject { described_class.new(type_id) }
+      subject(:importer) { described_class.new(type_id) }
 
       let(:eve_type) { instance_double(Eve::Type) }
 
@@ -155,7 +155,7 @@ describe Eve::TypeImporter do
 
       before { expect(etag).not_to receive(:update!) }
 
-      specify { expect { subject.import }.not_to raise_error }
+      specify { expect { importer.import }.not_to raise_error }
     end
   end
 end
