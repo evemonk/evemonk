@@ -8,3 +8,6 @@ run Rails.application
 
 # For New Relic health check
 use Rack::Health
+
+# Export metrics for prometheus
+use Yabeda::Prometheus::Exporter
