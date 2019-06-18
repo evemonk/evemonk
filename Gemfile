@@ -43,6 +43,11 @@ gem 'activerecord-nulldb-adapter'
 gem 'niceql'
 gem 'server_timing'
 
+gem 'prometheus-client'
+gem 'yabeda-prometheus'
+gem 'yabeda-rails'
+gem 'yabeda-sidekiq'
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 
