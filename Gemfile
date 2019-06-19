@@ -47,6 +47,7 @@ gem 'prometheus-client'
 gem 'yabeda-prometheus'
 gem 'yabeda-rails'
 gem 'yabeda-sidekiq'
+gem 'yabeda-puma-plugin'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'

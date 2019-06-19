@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_06_094249) do
+ActiveRecord::Schema.define(version: 2019_06_18_203615) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -94,7 +94,6 @@ ActiveRecord::Schema.define(version: 2019_06_06_094249) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["alliance_id", "corporation_id"], name: "index_eve_ac_on_alliance_id_and_corporation_id", unique: true
-    t.index ["alliance_id"], name: "index_eve_alliance_corporations_on_alliance_id"
     t.index ["corporation_id"], name: "index_eve_alliance_corporations_on_corporation_id"
   end
 
@@ -289,7 +288,6 @@ ActiveRecord::Schema.define(version: 2019_06_06_094249) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["character_id", "corporation_id"], name: "index_loyalty_points_on_character_id_and_corporation_id", unique: true
-    t.index ["character_id"], name: "index_loyalty_points_on_character_id"
   end
 
   create_table "pghero_query_stats", force: :cascade do |t|
