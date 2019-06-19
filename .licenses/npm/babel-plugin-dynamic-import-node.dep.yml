@@ -1,6 +1,6 @@
 ---
 name: babel-plugin-dynamic-import-node
-version: 2.2.0
+version: 2.3.0
 type: npm
 summary: Babel plugin to transpile import() to a deferred require(), for node
 homepage: https://github.com/airbnb/babel-plugin-dynamic-import-node#readme
