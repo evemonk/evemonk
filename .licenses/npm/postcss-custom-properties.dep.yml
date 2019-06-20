@@ -1,6 +1,6 @@
 ---
 name: postcss-custom-properties
-version: 8.0.10
+version: 8.0.11
 type: npm
 summary: Use Custom Properties Queries in CSS
 homepage: https://github.com/postcss/postcss-custom-properties#readme
