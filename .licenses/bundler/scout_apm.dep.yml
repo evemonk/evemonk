@@ -1,6 +1,6 @@
 ---
 name: scout_apm
-version: 2.4.24
+version: 2.5.0
 type: bundler
 summary: Ruby application performance monitoring
 homepage: https://github.com/scoutapp/scout_apm_ruby
