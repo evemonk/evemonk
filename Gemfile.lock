@@ -455,7 +455,7 @@ GEM
     sawyer (0.8.2)
       addressable (>= 2.3.5)
       faraday (> 0.8, < 2.0)
-    scout_apm (2.4.24)
+    scout_apm (2.5.0)
     searchkick (4.0.2)
       activemodel (>= 5)
       elasticsearch (>= 6)
