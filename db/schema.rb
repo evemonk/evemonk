@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_18_203615) do
+ActiveRecord::Schema.define(version: 2019_06_21_091935) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -157,6 +157,7 @@ ActiveRecord::Schema.define(version: 2019_06_18_203615) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "title"
+    t.index ["alliance_id"], name: "index_eve_characters_on_alliance_id"
     t.index ["character_id"], name: "index_eve_characters_on_character_id", unique: true
   end
 
@@ -178,6 +179,7 @@ ActiveRecord::Schema.define(version: 2019_06_18_203615) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "war_eligible"
+    t.index ["alliance_id"], name: "index_eve_corporations_on_alliance_id"
     t.index ["corporation_id"], name: "index_eve_corporations_on_corporation_id", unique: true
   end
 
