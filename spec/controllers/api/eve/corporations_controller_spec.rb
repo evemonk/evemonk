@@ -35,4 +35,36 @@ describe Api::Eve::CorporationsController do
       it { should respond_with(:not_acceptable) }
     end
   end
+
+  describe '#show' do
+    context 'with supported content type' do
+      let(:eve_corporation) { instance_double(Eve::Corporation) }
+
+      before { expect(Eve::Corporation).to receive(:find_by!).with(corporation_id: '98005120').and_return(eve_corporation) }
+
+      before { expect(subject).to receive(:authorize).with(eve_corporation) }
+
+      before { subject.instance_variable_set(:@_pundit_policy_authorized, true) }
+
+      before { get :show, params: { id: '98005120', format: :json } }
+
+      it { should respond_with(:ok) }
+
+      it { should render_template(:show) }
+    end
+
+    context 'when not supported accept type' do
+      before { get :show, params: { id: '98005120', format: :html } }
+
+      it { should respond_with(:not_acceptable) }
+    end
+
+    context 'when corporation not found' do
+      before { expect(Eve::Corporation).to receive(:find_by!).with(corporation_id: '98005120').and_raise(ActiveRecord::RecordNotFound) }
+
+      before { get :show, params: { id: '98005120', format: :json } }
+
+      it { should respond_with(:not_found) }
+    end
+  end
 end
