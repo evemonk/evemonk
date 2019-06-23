@@ -53,7 +53,9 @@ Rails.application.routes.draw do
         resources :corporations, only: :index, controller: :alliance_corporations
       end
 
-      resources :corporations, only: [:index, :show]
+      resources :corporations, only: [:index, :show] do
+        resources :characters, only: :index, controller: :corporation_characters
+      end
     end
   end
 
