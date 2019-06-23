@@ -54,6 +54,34 @@
       'character-item': CharacterItem,
     },
 
+    watch: {
+      current_page: function (page) {
+        this.fetchUniverseCorporationCharacters({ id: this.corporation_id, page: page }).then(response => {
+          if (response.status === 200) {
+            this.total_count = response.data.total_count;
+            this.total_pages = response.data.total_pages;
+            this.characters = response.data.characters;
+
+            this.$router.push({
+              name: 'universe_corporation_characters',
+              params: {
+                id: this.corporation_id
+              },
+              query: {
+                page: page
+              }
+            });
+          }
+        });
+      },
+
+      // '$route.query.page': function (page) {
+      //   if (page !== undefined && parseInt(page) !== this.current_page) {
+      //     this.current_page = parseInt(page);
+      //   }
+      // }
+    },
+
     created () {
       this.corporation_id = this.$route.params.id;
 
