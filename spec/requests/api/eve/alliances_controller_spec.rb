@@ -88,7 +88,7 @@ describe Api::Eve::AlliancesController do
   end
 
   describe '#show' do
-    it 'returns Eve Alliances' do
+    it 'returns Eve Alliance' do
       create(:eve_faction,
              faction_id: 777,
              name: 'Faction name',
