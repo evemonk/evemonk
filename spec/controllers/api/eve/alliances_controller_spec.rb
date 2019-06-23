@@ -71,5 +71,13 @@ describe Api::Eve::AlliancesController do
 
       it { should respond_with(:not_acceptable) }
     end
+
+    context 'when alliance not found' do
+      before { expect(Eve::Alliance).to receive(:find_by!).with(alliance_id: '99005443').and_raise(ActiveRecord::RecordNotFound) }
+
+      before { get :show, params: { id: '99005443', format: :json } }
+
+      it { should respond_with(:not_found) }
+    end
   end
 end
