@@ -13,43 +13,10 @@
     <v-card v-if="loaded">
       <v-container fluid grid-list-lg>
         <v-layout row wrap>
-          <v-flex xs12 v-for="corporation in corporations" :key="corporation.id">
-            <v-card dark>
-              <v-layout>
-                <v-flex xs5>
-                  <v-img :src="corporation.icon" height="128px" contain></v-img>
-                </v-flex>
-                <v-flex xs7>
-                  <v-card-title primary-title>
-                    <div>
-                      <div class="headline">
-                        <router-link :to="{ name: 'universe_corporation', params: { id: corporation.id }}">
-                          {{ corporation.name }}
-                        </router-link>
-                      </div>
-                      <div>({{ corporation.ticker }})</div>
-                      <div>Founded in {{ corporation.date_founded }}</div>
-                    </div>
-                  </v-card-title>
-                </v-flex>
-              </v-layout>
-              <v-divider light></v-divider>
-              <v-card-actions>
-                <v-btn color="info">
-                  <router-link :to="{ name: 'universe_corporation', params: { id: corporation.id }}">
-                    Info
-                  </router-link>
-                </v-btn>
-                <v-spacer></v-spacer>
-                <v-btn color="info">
-                  <router-link :to="{ name: 'universe_corporation_characters', params: { id: corporation.id }}">
-                    Characters ({{ corporation.member_count }})
-                  </router-link>
-                </v-btn>
-              </v-card-actions>
-            </v-card>
-          </v-flex>
-
+          <corporation-item v-for="corporation in corporations"
+                            v-bind:key="corporation.id"
+                            v-bind="corporation">
+          </corporation-item>
         </v-layout>
       </v-container>
     </v-card>
@@ -60,6 +27,8 @@
 
 <script>
   import { mapActions } from 'vuex';
+
+  import CorporationItem from './corporation-item.vue';
 
   export default {
     data () {
@@ -84,6 +53,10 @@
           }
         ]
       }
+    },
+
+    components: {
+      'corporation-item': CorporationItem,
     },
 
     watch: {
@@ -116,7 +89,6 @@
           this.total_count = response.data.total_count;
           this.total_pages = response.data.total_pages;
           this.corporations = response.data.corporations;
-          console.log(this.corporations);
           this.loaded = true;
         }
       });

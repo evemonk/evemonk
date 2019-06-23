@@ -8,6 +8,12 @@ module Api
       def index
         @corporations = policy_scope(::Eve::Corporation).page(params[:page])
       end
+
+      def show
+        @corporation = ::Eve::Corporation.find_by!(corporation_id: params[:id])
+
+        authorize(@corporation)
+      end
     end
   end
 end

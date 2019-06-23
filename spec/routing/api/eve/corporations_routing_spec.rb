@@ -11,5 +11,14 @@ describe Api::Eve::CorporationsController do
         format: 'json'
       )
     end
+
+    it 'should route GET /api/eve/corporations/98005120 to api/eve/corporations#show' do
+      expect(get: '/api/eve/corporations/98005120').to route_to(
+        controller: 'api/eve/corporations',
+        action: 'show',
+        id: '98005120',
+        format: 'json'
+      )
+    end
   end
 end

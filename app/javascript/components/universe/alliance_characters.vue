@@ -13,34 +13,10 @@
     <v-card v-if="loaded">
       <v-container fluid grid-list-lg>
         <v-layout row wrap>
-          <v-flex xs12 v-for="character in characters" :key="character.id">
-            <v-card dark>
-              <v-layout>
-                <v-flex xs5>
-                  <v-img :src="character.icon" height="128px" contain></v-img>
-                </v-flex>
-                <v-flex xs7>
-                  <v-card-title primary-title>
-                    <div>
-                      <div class="headline">{{ character.name }}</div>
-                      <div>{{ character.corporation.name }} / {{ character.alliance.name }}</div>
-                      <div>Birthday {{ character.birthday }}</div>
-                    </div>
-                  </v-card-title>
-                </v-flex>
-              </v-layout>
-              <v-divider light></v-divider>
-              <!-- <v-card-actions>
-                <v-spacer></v-spacer>
-                <v-btn color="info">
-                  <router-link :to="{ name: 'universe_character', params: { id: character.id }}">
-                    More
-                  </router-link>
-                </v-btn>
-              </v-card-actions> -->
-            </v-card>
-          </v-flex>
-
+          <character-item v-for="character in characters"
+                          v-bind:key="character.id"
+                          v-bind="character">
+          </character-item>
         </v-layout>
       </v-container>
     </v-card>
@@ -51,6 +27,8 @@
 
 <script>
   import { mapActions } from 'vuex';
+
+  import CharacterItem from './character-item.vue';
 
   export default {
     data () {
@@ -75,6 +53,10 @@
           }
         ]
       }
+    },
+
+    components: {
+      'character-item': CharacterItem,
     },
 
     watch: {
