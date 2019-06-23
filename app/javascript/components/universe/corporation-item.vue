@@ -9,7 +9,9 @@
           <v-card-title primary-title>
             <div>
               <div class="headline">
-                {{ name }}
+                <router-link :to="{ name: 'universe_corporation', params: { id: id }}">
+                  {{ name }}
+                </router-link>
               </div>
               <div>({{ ticker }})</div>
               <div>Founded in {{ date_founded }}</div>
@@ -19,6 +21,12 @@
       </v-layout>
       <v-divider light></v-divider>
       <v-card-actions>
+        <v-btn color="info">
+          <router-link :to="{ name: 'universe_corporation', params: { id: id }}">
+            Info
+          </router-link>
+        </v-btn>
+        <v-spacer></v-spacer>
         <v-btn color="info">
           <router-link :to="{ name: 'universe_corporation_characters', params: { id: id }}">
             Characters ({{ member_count }})
