@@ -9,7 +9,15 @@
           <v-card-title primary-title>
             <div>
               <div class="headline">{{ name }}</div>
-              <div>{{ corporation.name }} / {{ alliance.name }}</div>
+              <template v-if="corporation && alliance">
+                <div>{{ corporation.name }} / {{ alliance.name }}</div>
+              </template>
+              <template v-else-if="corporation">
+                <div>{{ corporation.name }}</div>
+              </template>
+              <template v-else-if="alliance">
+                <div>{{ alliance.name }}</div>
+              </template>
               <div>Birthday {{ birthday }}</div>
             </div>
           </v-card-title>
