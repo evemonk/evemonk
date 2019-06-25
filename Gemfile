@@ -42,6 +42,7 @@ gem 'errbase'
 gem 'activerecord-nulldb-adapter'
 gem 'niceql'
 gem 'server_timing'
+gem 'lograge'
 
 gem 'prometheus-client'
 gem 'yabeda-prometheus'
