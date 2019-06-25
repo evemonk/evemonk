@@ -48,7 +48,10 @@ describe Eve::CharactersSearcher do
 
     context 'when query is present' do
       context 'when name match' do
-        let!(:character) { create(:eve_character, name: 'Green Black') }
+        let!(:character) do
+          create(:eve_character,
+                 name: 'Green Black')
+        end
 
         let(:query) { 'Green Black' }
 
