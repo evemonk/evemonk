@@ -90,6 +90,26 @@
       });
     },
 
+    watch: {
+      current_page: function (page) {
+        this.loaded = false;
+        this.loading = true;
+
+        this.fetchUniverseCharacters(page).then(response => {
+          if (response.status === 200) {
+            this.total_count = response.data.total_count;
+            this.total_pages = response.data.total_pages;
+            this.characters = response.data.characters;
+
+            this.loaded = true;
+            this.loading = false;
+
+            this.$router.push({ name: 'universe_characters', query: { page: page } });
+          }
+        });
+      },
+    },
+
     methods: {
       ...mapActions([
         'fetchUniverseCharacters'
