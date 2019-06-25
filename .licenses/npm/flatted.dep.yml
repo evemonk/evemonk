@@ -1,6 +1,6 @@
 ---
 name: flatted
-version: 2.0.0
+version: 2.0.1
 type: npm
 summary: A super light and fast circular JSON parser.
 homepage: https://github.com/WebReflection/flatted#readme
