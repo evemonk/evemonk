@@ -2,6 +2,8 @@
 
 module Eve
   class Corporation < ApplicationRecord
+    searchkick
+
     belongs_to :alliance, primary_key: :alliance_id, optional: true
 
     belongs_to :ceo, primary_key: :character_id, class_name: 'Eve::Character', optional: true
@@ -13,5 +15,12 @@ module Eve
     # belongs_to :home_station_id
 
     has_many :characters, primary_key: :corporation_id # rubocop:disable Rails/HasManyOrHasOneDependent
+
+    def search_data
+      {
+        name: name,
+        ticker: ticker
+      }
+    end
   end
 end
