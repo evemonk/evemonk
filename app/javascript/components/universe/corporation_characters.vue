@@ -1,5 +1,5 @@
 <template>
-  <div id="characters">
+  <div id="corporation_characters">
     <vue-headful :title="title" />
 
     <v-breadcrumbs :items="breadcrumbs">
