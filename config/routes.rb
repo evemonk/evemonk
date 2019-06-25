@@ -56,6 +56,8 @@ Rails.application.routes.draw do
       resources :corporations, only: [:index, :show] do
         resources :characters, only: :index, controller: :corporation_characters
       end
+
+      resources :characters, only: [:index, :show]
     end
   end
 
