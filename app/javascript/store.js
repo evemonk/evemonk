@@ -229,6 +229,14 @@ const store = new Vuex.Store({
         return error;
       }
     },
+
+    async fetchUniverseCharacters({ commit, state }, page) {
+      try {
+        return await axios.get(`/api/eve/characters?page=${page}`);
+      } catch (error) {
+        return error;
+      }
+    },
   },
 
   strict: process.env.NODE_ENV !== 'production',
