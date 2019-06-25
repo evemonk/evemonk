@@ -36,7 +36,11 @@ describe Eve::Alliance do
   end
 
   describe '#search_data' do
-    let!(:alliance) { create(:eve_alliance, name: 'Kids With Guns Alliance', ticker: '-KWG-') }
+    let!(:alliance) do
+      create(:eve_alliance,
+             name: 'Kids With Guns Alliance',
+             ticker: '-KWG-')
+    end
 
     specify do
       expect(alliance.search_data).to eq(name: 'Kids With Guns Alliance',

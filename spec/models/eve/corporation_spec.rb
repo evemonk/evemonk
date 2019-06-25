@@ -18,7 +18,11 @@ describe Eve::Corporation do
   it { should belong_to(:faction).with_primary_key(:faction_id).optional }
 
   describe '#search_data' do
-    let!(:corporation) { create(:eve_corporation, name: 'MyLittleDragon', ticker: 'MYLID') }
+    let!(:corporation) do
+      create(:eve_corporation,
+             name: 'MyLittleDragon',
+             ticker: 'MYLID')
+    end
 
     specify do
       expect(corporation.search_data).to eq(name: 'MyLittleDragon',
