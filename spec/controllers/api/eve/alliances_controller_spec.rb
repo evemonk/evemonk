@@ -18,7 +18,8 @@ describe Api::Eve::AlliancesController do
 
       before do
         #
-        # Eve::AlliancesSearcher.new(params[:q], policy_scope(::Eve::Alliance))
+        # Eve::AlliancesSearcher.new(params[:q],
+        #                            policy_scope(::Eve::Alliance))
         #                       .search
         #                       .page(params[:page])
         #

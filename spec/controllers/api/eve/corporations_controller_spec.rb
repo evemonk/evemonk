@@ -18,7 +18,8 @@ describe Api::Eve::CorporationsController do
 
       before do
         #
-        # Eve::CorporationsSearcher.new(params[:q], policy_scope(::Eve::Corporation))
+        # Eve::CorporationsSearcher.new(params[:q],
+        #                               policy_scope(::Eve::Corporation))
         #                          .search
         #                          .page(params[:page])
         #
