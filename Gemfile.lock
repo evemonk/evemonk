@@ -614,7 +614,7 @@ DEPENDENCIES
   prerender_rails
   prometheus-client
   pry-rails
-  puma (~> 3.11)
+  puma
   pundit
   rack-cors
   rack-health
