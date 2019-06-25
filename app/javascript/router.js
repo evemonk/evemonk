@@ -21,6 +21,7 @@ import UniverseCorporations from './components/universe/corporations.vue';
 import UniverseCorporation from './components/universe/corporation.vue';
 import UniverseCorporationCharacters from './components/universe/corporation_characters.vue';
 import UniverseCharacter from './components/universe/character.vue';
+import UniverseCharacters from './components/universe/characters.vue';
 
 Vue.use(VueRouter);
 
@@ -119,6 +120,11 @@ const routes = [
     path: '/universe/corporations/:id/characters',
     name: 'universe_corporation_characters',
     component: UniverseCorporationCharacters,
+  },
+  {
+    path: '/universe/characters',
+    name: 'universe_characters',
+    component: UniverseCharacters,
   },
   {
     path: '/universe/characters/:id',
