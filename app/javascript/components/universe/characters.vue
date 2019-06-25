@@ -105,7 +105,8 @@
               this.loaded = true;
               this.loading = false;
 
-              this.$router.push({ name: 'universe_characters', query: { page: page } });
+              this.$router.push({ name: 'universe_characters',
+                                  query: { page: page } });
             }
           });
         }
