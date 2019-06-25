@@ -5,13 +5,13 @@ require 'rails_helper'
 describe Eve::AlliancesSearcher do
   describe '#initialize' do
     context 'with parameters' do
-      let(:q) { double }
+      let(:query) { double }
 
       let(:scope) { double }
 
-      subject { described_class.new(q, scope) }
+      subject { described_class.new(query, scope) }
 
-      its(:q) { should eq(q) }
+      its(:query) { should eq(query) }
 
       its(:scope) { should eq(scope) }
     end
@@ -23,14 +23,14 @@ describe Eve::AlliancesSearcher do
 
       subject { described_class.new }
 
-      its(:q) { should eq(nil) }
+      its(:query) { should eq(nil) }
 
       its(:scope) { should eq(scope) }
     end
   end
 
-  describe '#query' do
-    context 'when q is empty' do
+  describe '#search' do
+    context 'when query is empty' do
       let!(:alliance1) { create(:eve_alliance) }
 
       let!(:alliance2) { create(:eve_alliance) }
@@ -39,36 +39,36 @@ describe Eve::AlliancesSearcher do
 
       subject { described_class.new }
 
-      specify { expect(subject.query.count).to eq(3) }
+      specify { expect(subject.search.count).to eq(3) }
 
-      specify { expect(subject.query.respond_to?(:all)).to eq(true) }
+      specify { expect(subject.search.respond_to?(:all)).to eq(true) }
 
-      specify { expect(subject.query.to_a).to include(alliance1, alliance2, alliance3) }
+      specify { expect(subject.search.to_a).to include(alliance1, alliance2, alliance3) }
     end
 
-    context 'when q is present' do
+    context 'when query is present' do
       context 'when name match' do
         let!(:alliance) { create(:eve_alliance, name: 'Northern Coalition.', ticker: nil) }
 
-        let(:q) { 'Northern Coalition.' }
+        let(:query) { 'Northern Coalition.' }
 
         before { Eve::Alliance.reindex }
 
-        subject { described_class.new(q) }
+        subject { described_class.new(query) }
 
-        specify { expect(subject.query.to_a).to eq([alliance]) }
+        specify { expect(subject.search.to_a).to eq([alliance]) }
       end
 
       context 'when ticker match' do
         let!(:alliance) { create(:eve_alliance, name: nil, ticker: 'NC') }
 
-        let(:q) { 'NC' }
+        let(:query) { 'NC' }
 
         before { Eve::Alliance.reindex }
 
-        subject { described_class.new(q) }
+        subject { described_class.new(query) }
 
-        specify { expect(subject.query.to_a).to eq([alliance]) }
+        specify { expect(subject.search.to_a).to eq([alliance]) }
       end
     end
   end
