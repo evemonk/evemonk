@@ -164,12 +164,12 @@ GEM
       dotenv (= 2.7.4)
       railties (>= 3.2, < 6.1)
     dry-initializer (3.0.1)
-    elasticsearch (7.1.0)
-      elasticsearch-api (= 7.1.0)
-      elasticsearch-transport (= 7.1.0)
-    elasticsearch-api (7.1.0)
+    elasticsearch (7.2.0)
+      elasticsearch-api (= 7.2.0)
+      elasticsearch-transport (= 7.2.0)
+    elasticsearch-api (7.2.0)
       multi_json
-    elasticsearch-transport (7.1.0)
+    elasticsearch-transport (7.2.0)
       faraday
       multi_json
     equatable (0.6.0)
