@@ -42,14 +42,16 @@ SitemapGenerator::Sitemap.create do
 
   Eve::Alliance.find_each do |alliance|
     add "/universe/alliances/#{ alliance.alliance_id }"
+
     add "/universe/alliances/#{ alliance.alliance_id }/characters"
-    add "/universe/alliances/#{ alliance.alliance_id }/corporations"
 
     pages = alliance.characters.page(1).total_pages
 
     (1..pages).each do |page|
       add "/universe/alliances/#{ alliance.alliance_id }/characters?page=#{ page }"
     end
+
+    add "/universe/alliances/#{ alliance.alliance_id }/corporations"
 
     pages = alliance.corporations.page(1).total_pages
 
@@ -68,6 +70,7 @@ SitemapGenerator::Sitemap.create do
 
   Eve::Corporation.find_each do |corporation|
     add "/universe/corporations/#{ corporation.corporation_id }"
+
     add "/universe/corporations/#{ corporation.corporation_id }/characters"
 
     pages = corporation.characters.page(1).total_pages
@@ -75,5 +78,17 @@ SitemapGenerator::Sitemap.create do
     (1..pages).each do |page|
       add "/universe/corporations/#{ corporation.corporation_id }/characters?page=#{ page }"
     end
+  end
+
+  add 'universe/characters'
+
+  pages = Eve::Character.page(1).total_pages
+
+  (1..pages).each do |page|
+    add "/universe/characters?page=#{ page }"
+  end
+
+  Eve::Character.find_each do |character|
+    add "/universe/characters/#{ character.character_id }"
   end
 end
