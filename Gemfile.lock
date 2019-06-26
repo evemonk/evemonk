@@ -172,7 +172,7 @@ GEM
     elasticsearch-transport (7.2.0)
       faraday
       multi_json
-    equatable (0.6.0)
+    equatable (0.6.1)
     errbase (0.1.1)
     erubi (1.8.0)
     erubis (2.7.0)
