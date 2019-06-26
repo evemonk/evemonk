@@ -4,13 +4,25 @@ module Eve
   class Alliance < ApplicationRecord
     searchkick
 
-    belongs_to :creator_corporation, primary_key: :corporation_id, class_name: 'Eve::Corporation', optional: true
+    belongs_to :creator_corporation,
+               primary_key: :corporation_id,
+               class_name: 'Eve::Corporation',
+               optional: true
 
-    belongs_to :creator, primary_key: :character_id, class_name: 'Eve::Character', optional: true
+    belongs_to :creator,
+               primary_key: :character_id,
+               class_name: 'Eve::Character',
+               optional: true
 
-    belongs_to :executor_corporation, foreign_key: :executor_corporation_id, primary_key: :corporation_id, class_name: 'Eve::Corporation', optional: true
+    belongs_to :executor_corporation,
+               foreign_key: :executor_corporation_id,
+               primary_key: :corporation_id,
+               class_name: 'Eve::Corporation',
+               optional: true
 
-    belongs_to :faction, primary_key: :faction_id, optional: true
+    belongs_to :faction,
+               primary_key: :faction_id,
+               optional: true
 
     has_many :alliance_corporations, primary_key: :alliance_id # rubocop:disable Rails/HasManyOrHasOneDependent
 
