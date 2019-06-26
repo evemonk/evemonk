@@ -89,7 +89,6 @@
           description: '',
           image: '',
           url: '',
-          type: '',
         },
         loading: true,
         loaded: false,
