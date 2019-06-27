@@ -14,7 +14,7 @@
     </template>
 
     <template v-if="loaded">
-      <v-card>
+      <v-card itemscope itemtype="http://schema.org/Person">
         <v-container fluid grid-list-lg>
           <v-layout row wrap>
             <v-flex xs12>
@@ -26,7 +26,7 @@
                   <v-flex xs7>
                     <v-card-title primary-title>
                       <div>
-                        <div class="headline">{{ character.name }}</div>
+                        <div class="headline" itemprop="name">{{ character.name }}</div>
                         <div>
                           <template v-if="character.corporation">
                             <router-link :to="{ name: 'universe_corporation', params: { id: character.corporation.id }}">{{ character.corporation.name }}</router-link> /
