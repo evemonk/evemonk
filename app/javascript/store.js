@@ -230,9 +230,9 @@ const store = new Vuex.Store({
       }
     },
 
-    async fetchUniverseCharacters({ commit, state }, page) {
+    async fetchUniverseCharacters({ commit, state }, { page, q }) {
       try {
-        return await axios.get(`/api/eve/characters?page=${page}`);
+        return await axios.get(`/api/eve/characters?page=${page}&q=${q}`);
       } catch (error) {
         return error;
       }
