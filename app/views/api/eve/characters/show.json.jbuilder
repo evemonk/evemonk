@@ -54,7 +54,7 @@ json.character do
     json.corporation do
       json.id @character.corporation.corporation_id
       json.name @character.corporation.name
-      json.description @character.corporation.description
+      json.description Rails::Html::FullSanitizer.new.sanitize(@character.corporation.description)
       json.ticker @character.corporation.ticker
       json.date_founded @character.corporation.date_founded.iso8601
       json.url @character.corporation.corporation_url
