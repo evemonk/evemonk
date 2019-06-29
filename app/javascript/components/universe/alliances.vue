@@ -1,27 +1,36 @@
 <template>
   <div id="alliances">
-    <vue-headful :title="title" />
+    <vue-headful :title="headful.title"
+                 :url="headful.url" />
 
     <v-breadcrumbs :items="breadcrumbs">
       <v-icon slot="divider">chevron_right</v-icon>
     </v-breadcrumbs>
 
-    <v-progress-linear :indeterminate="true" v-if="!loaded"></v-progress-linear>
+    <template v-if="loading">
+      <v-progress-linear :indeterminate="true"></v-progress-linear>
+    </template>
 
-    <v-pagination v-model="current_page" :length="total_pages" v-if="loaded"></v-pagination>
+    <template v-if="loaded">
+      <v-pagination v-model="current_page" :length="total_pages" v-if="loaded"></v-pagination>
 
-    <v-card v-if="loaded">
-      <v-container fluid grid-list-lg>
-        <v-layout row wrap>
-          <alliance-item v-for="alliance in alliances"
-                         v-bind:key="alliance.id"
-                         v-bind="alliance">
-          </alliance-item>
-        </v-layout>
-      </v-container>
-    </v-card>
+      <v-card v-if="loaded">
+        <v-container fluid grid-list-lg>
+          <v-layout row wrap>
+            <alliance-item v-for="alliance in alliances"
+                           v-bind:key="alliance.id"
+                           v-bind="alliance">
+            </alliance-item>
+          </v-layout>
+        </v-container>
+      </v-card>
 
-    <v-pagination v-model="current_page" :length="total_pages" v-if="loaded"></v-pagination>
+      <v-pagination v-model="current_page" :length="total_pages" v-if="loaded"></v-pagination>
+    </template>
+
+    <template v-if="error">
+      We're sorry, but something went wrong. Please, try again later.
+    </template>
   </div>
 </template>
 
@@ -33,8 +42,13 @@
   export default {
     data () {
       return {
-        title: 'Alliances | EveMonk: EveOnline management suite',
+        headful: {
+          title: 'Alliances | EveMonk: EveOnline management suite',
+          url: '',
+        },
+        loading: true,
         loaded: false,
+        error: false,
         alliances: [],
         current_page: 1,
         total_count: null,
@@ -83,8 +97,6 @@
     },
 
     created () {
-      // console.log('created');
-
       let page = this.$route.query.page;
 
       if (page !== undefined) {
@@ -97,6 +109,11 @@
           this.total_pages = response.data.total_pages;
           this.alliances = response.data.alliances;
           this.loaded = true;
+          this.loading = false;
+        } else {
+          this.loading = false;
+          this.loaded = false;
+          this.error = true;
         }
       });
     },
