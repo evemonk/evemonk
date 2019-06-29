@@ -8,7 +8,7 @@ json.characters do
     json.id character.character_id
     json.icon "https://imageserver.eveonline.com/Character/#{ character.character_id }_512.jpg"
     json.birthday character.birthday.iso8601
-    json.description character.description
+    json.description Rails::Html::FullSanitizer.new.sanitize(character.description)
     json.gender character.gender
     json.name character.name
     json.security_status character.security_status.to_s
@@ -82,7 +82,7 @@ json.characters do
       json.corporation do
         json.id character.corporation.corporation_id
         json.name character.corporation.name
-        json.description character.corporation.description
+        json.description Rails::Html::FullSanitizer.new.sanitize(character.corporation.description)
         json.ticker character.corporation.ticker
         json.date_founded character.corporation.date_founded.iso8601
         json.url character.corporation.corporation_url
