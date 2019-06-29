@@ -622,6 +622,7 @@ DEPENDENCIES
   rack-timeout
   rails (= 6.0.0.rc1)
   rails-controller-testing
+  rails-html-sanitizer
   rails-settings-cached
   rails_best_practices
   responders
