@@ -1,6 +1,8 @@
 <template>
   <div id="alliance">
-    <vue-headful :title="title" />
+    <vue-headful :title="headful.title"
+                 :image="headful.image"
+                 :url="headful.url" />
 
     <v-breadcrumbs :items="breadcrumbs">
       <v-icon slot="divider">chevron_right</v-icon>
@@ -57,7 +59,11 @@
   export default {
     data () {
       return {
-        title: 'EveMonk: EveOnline management suite',
+        headful: {
+          title: 'EveMonk: EveOnline management suite',
+          image: '',
+          url: '',
+        },
         loaded: false,
         alliance: {
           id: 0,
@@ -100,7 +106,9 @@
             disabled: true
           });
 
-          this.title = `Alliance "${alliance.name}" (${alliance.ticker}) | EveMonk: EveOnline management suite`;
+          this.headful.title = `Alliance "${alliance.name}" (${alliance.ticker}) | EveMonk: EveOnline management suite`;
+          this.headful.image = alliance.icon;
+          this.headful.url = `https://evemonk/universe/alliances/${alliance.id}`;
 
           this.loaded = true;
         }
