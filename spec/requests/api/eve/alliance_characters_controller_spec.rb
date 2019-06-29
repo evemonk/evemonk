@@ -47,7 +47,8 @@ describe Api::Eve::AllianceCharactersController do
              description: 'Character description',
              gender: 'male',
              birthday: 'Sun, 03 May 2015 19:45:17 UTC +00:00',
-             security_status: 1.1)
+             security_status: 1.1,
+             title: 'Character title')
 
       create(:eve_bloodline,
              bloodline_id: 12,
@@ -103,6 +104,7 @@ describe Api::Eve::AllianceCharactersController do
                                                 'gender' => 'male',
                                                 'name' => 'Character name',
                                                 'security_status' => '1.1',
+                                                'title' => 'Character title',
                                                 'alliance' => {
                                                   'id' => 123,
                                                   'creator_corporation_id' => 2222,

@@ -12,6 +12,7 @@ json.characters do
     json.gender character.gender
     json.name character.name
     json.security_status character.security_status.to_s
+    json.title character.title
 
     if character.alliance
       json.alliance do
