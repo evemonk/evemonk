@@ -1,6 +1,7 @@
 <template>
   <div id="characters">
-    <vue-headful :title="title" />
+    <vue-headful :title="headful.title"
+                 :url="headful.url" />
 
     <v-breadcrumbs :items="breadcrumbs">
       <v-icon slot="divider">chevron_right</v-icon>
@@ -40,12 +41,16 @@
   export default {
     data () {
       return {
-        title: 'Characters | EveMonk: EveOnline management suite',
+        headful: {
+          title: 'Characters | EveMonk: EveOnline management suite',
+          url: 'https://evemonk.com/universe/characters',
+        },
         loading: true,
         loaded: false,
         error: false,
         characters: [],
         current_page: 1,
+        q: '',
         total_count: null,
         total_pages: null,
         breadcrumbs: [
@@ -75,7 +80,7 @@
         this.current_page = parseInt(page);
       }
 
-      this.fetchUniverseCharacters(this.current_page).then(response => {
+      this.fetchUniverseCharacters({ page: this.current_page, q: this.q }).then(response => {
         if (response.status === 200) {
           this.total_count = response.data.total_count;
           this.total_pages = response.data.total_pages;
@@ -96,7 +101,7 @@
           this.loaded = false;
           this.loading = true;
 
-          this.fetchUniverseCharacters(page).then(response => {
+          this.fetchUniverseCharacters({ page: page, q: this.q }).then(response => {
             if (response.status === 200) {
               this.total_count = response.data.total_count;
               this.total_pages = response.data.total_pages;
