@@ -1,6 +1,6 @@
 ---
 name: optimize-css-assets-webpack-plugin
-version: 5.0.1
+version: 5.0.3
 type: npm
 summary: A Webpack plugin to optimize \ minimize CSS assets.
 homepage: http://github.com/NMFR/optimize-css-assets-webpack-plugin

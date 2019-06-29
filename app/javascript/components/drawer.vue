@@ -111,6 +111,18 @@
         </v-list-tile-content>
       </v-list-tile>
 
+      <v-divider></v-divider>
+
+      <v-list-tile :to="{ name: 'universe_characters' }">
+        <v-list-tile-action>
+          <v-icon>folder</v-icon>
+        </v-list-tile-action>
+
+        <v-list-tile-content>
+          <v-list-tile-title>Characters</v-list-tile-title>
+        </v-list-tile-content>
+      </v-list-tile>
+
       <template v-if="isAuthenticated">
         <v-divider></v-divider>
 

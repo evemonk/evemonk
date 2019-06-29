@@ -1,14 +1,16 @@
 ---
-name: rotp
-version: 5.1.0
+name: lograge
+version: 0.11.2
 type: bundler
-summary: A Ruby library for generating and verifying one time passwords
-homepage: http://github.com/mdp/rotp
+summary: Tame Rails' multi-line logging into a single line per request
+homepage: https://github.com/roidrage/lograge
 license: mit
 licenses:
-- sources: LICENSE
+- sources: LICENSE.txt
   text: |
-    Copyright (C) 2011 by Mark Percival <m@mdp.im>
+    The MIT License (MIT)
+
+    Copyright (c) 2016 Mathias Meyer
 
     Permission is hereby granted, free of charge, to any person obtaining a copy
     of this software and associated documentation files (the "Software"), to deal
@@ -27,7 +29,4 @@ licenses:
     LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
     THE SOFTWARE.
-- sources: README.md
-  text: MIT Copyright (C) 2019 by Mark Percival, see [LICENSE](https://github.com/mdp/rotp/blob/master/LICENSE)
-    for details.
 notices: []

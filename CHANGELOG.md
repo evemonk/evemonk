@@ -16,6 +16,7 @@
 * Add /.well-known/change-password
 * Add ability to set login/password for sidekiq backoffice
 * Corporation characters
+* Add Facebook OpenGraph tags
 
 ## v0.1.0
 

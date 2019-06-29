@@ -6,7 +6,10 @@ module Api
       skip_before_action :authenticate
 
       def index
-        @corporations = policy_scope(::Eve::Corporation).page(params[:page])
+        @corporations = ::Eve::CorporationsSearcher.new(params[:q],
+                                                        policy_scope(::Eve::Corporation))
+                                                   .search
+                                                   .page(params[:page])
       end
 
       def show

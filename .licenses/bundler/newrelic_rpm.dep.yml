@@ -1,6 +1,6 @@
 ---
 name: newrelic_rpm
-version: 6.4.0.356
+version: 6.5.0.357
 type: bundler
 summary: New Relic Ruby Agent
 homepage: https://github.com/newrelic/rpm

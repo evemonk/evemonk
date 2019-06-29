@@ -18,13 +18,14 @@ describe Api::Eve::AlliancesController do
 
       before do
         #
-        # Eve::AlliancesSearcher.new(params[:q], policy_scope(::Eve::Alliance))
-        #                       .query
+        # Eve::AlliancesSearcher.new(params[:q],
+        #                            policy_scope(::Eve::Alliance))
+        #                       .search
         #                       .page(params[:page])
         #
         expect(Eve::AlliancesSearcher).to receive(:new).with('search string', scoped_eve_alliance) do
           double.tap do |a|
-            expect(a).to receive(:query) do
+            expect(a).to receive(:search) do
               double.tap do |b|
                 expect(b).to receive(:page).with('1')
               end

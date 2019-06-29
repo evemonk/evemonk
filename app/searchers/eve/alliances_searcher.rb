@@ -2,15 +2,15 @@
 
 module Eve
   class AlliancesSearcher
-    attr_reader :q, :scope
+    attr_reader :query, :scope
 
-    def initialize(q = nil, scope = Eve::Alliance.all)
-      @q = q
+    def initialize(query = nil, scope = Eve::Alliance.all)
+      @query = query
       @scope = scope
     end
 
-    def query
-      ids = Eve::Alliance.search(q, load: false).map(&:id) if q.present?
+    def search
+      ids = Eve::Alliance.search(query, load: false).map(&:id) if query.present?
 
       relation = scope.includes(:faction, :creator_corporation,
                                 :creator, :executor_corporation)

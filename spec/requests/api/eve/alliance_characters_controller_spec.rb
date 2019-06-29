@@ -19,7 +19,7 @@ describe Api::Eve::AllianceCharactersController do
              alliance_id: 123,
              corporation_id: 456,
              name: 'Character corporation name',
-             description: 'Character corporation description',
+             description: '<b>Character corporation description</b>',
              ticker: 'TICKER',
              date_founded: 'Sun, 03 May 2015 19:45:17 UTC +00:00',
              corporation_url: 'https://evemonk.com/',
@@ -44,10 +44,11 @@ describe Api::Eve::AllianceCharactersController do
              faction_id: 5555,
              race_id: 123,
              name: 'Character name',
-             description: 'Character description',
+             description: '<b>Character description</b>',
              gender: 'male',
              birthday: 'Sun, 03 May 2015 19:45:17 UTC +00:00',
-             security_status: 1.1)
+             security_status: 1.1,
+             title: 'Character title')
 
       create(:eve_bloodline,
              bloodline_id: 12,
@@ -103,6 +104,7 @@ describe Api::Eve::AllianceCharactersController do
                                                 'gender' => 'male',
                                                 'name' => 'Character name',
                                                 'security_status' => '1.1',
+                                                'title' => 'Character title',
                                                 'alliance' => {
                                                   'id' => 123,
                                                   'creator_corporation_id' => 2222,

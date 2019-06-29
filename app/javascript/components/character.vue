@@ -103,48 +103,7 @@
     data () {
       return {
         loaded: false,
-        character: {
-          id: '',
-          icon: '',
-          name: '',
-          description: '',
-          birthday: '',
-          gender: '',
-          security_status: '',
-          perception: '',
-          memory: '',
-          willpower: '',
-          intelligence: '',
-          charisma: '',
-          wallet: '',
-          bonus_remaps: '',
-          last_remap_date: '',
-          accrued_remap_cooldown_date: '',
-          race: {
-            id: '',
-            name: ''
-          },
-          bloodline: {
-            id: '',
-            name: ''
-          },
-          ancestry: {
-            id: '',
-            name: ''
-          },
-          faction: {
-            id: '',
-            name: ''
-          },
-          alliance: {
-            id: '',
-            name: ''
-          },
-          corporation: {
-            id: '',
-            name: ''
-          }
-        },
+        character: {},
         breadcrumbs: [
           {
             text: 'Home',
@@ -167,7 +126,9 @@
         if (response.status === 200) {
           this.character = response.data.character;
           this.loaded = true;
-          this.breadcrumbs.push({ text: this.character.name, exact: true, disabled: true });
+          this.breadcrumbs.push({ text: this.character.name,
+                                  exact: true,
+                                  disabled: true });
         } else {
           //this.$router.push('/sign_in');
         }

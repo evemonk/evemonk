@@ -54,6 +54,25 @@ json.characters do
       end
     end
 
+    if character.corporation
+      json.corporation do
+        json.id character.corporation.corporation_id
+        json.name character.corporation.name
+        json.description Rails::Html::FullSanitizer.new.sanitize(character.corporation.description)
+        json.ticker character.corporation.ticker
+        json.date_founded character.corporation.date_founded.iso8601
+        json.url character.corporation.corporation_url
+        json.member_count character.corporation.member_count
+        json.shares character.corporation.shares
+        json.tax_rate character.corporation.tax_rate.to_s
+        json.alliance_id character.corporation.alliance_id
+        json.ceo_id character.corporation.ceo_id
+        json.creator_id character.corporation.creator_id
+        json.faction_id character.corporation.faction_id
+        json.home_station_id character.corporation.home_station_id
+      end
+    end
+
     if character.faction
       json.faction do
         json.id character.faction.faction_id
@@ -75,25 +94,6 @@ json.characters do
         json.alliance_id character.race.alliance_id
         json.name character.race.name
         json.description character.race.description
-      end
-    end
-
-    if character.corporation
-      json.corporation do
-        json.id character.corporation.corporation_id
-        json.name character.corporation.name
-        json.description Rails::Html::FullSanitizer.new.sanitize(character.corporation.description)
-        json.ticker character.corporation.ticker
-        json.date_founded character.corporation.date_founded.iso8601
-        json.url character.corporation.corporation_url
-        json.member_count character.corporation.member_count
-        json.shares character.corporation.shares
-        json.tax_rate character.corporation.tax_rate.to_s
-        json.alliance_id character.corporation.alliance_id
-        json.ceo_id character.corporation.ceo_id
-        json.creator_id character.corporation.creator_id
-        json.faction_id character.corporation.faction_id
-        json.home_station_id character.corporation.home_station_id
       end
     end
   end
