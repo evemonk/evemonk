@@ -19,6 +19,17 @@ describe Eve::CharacterImporterWorker do
       end
     end
 
+    before do
+      #
+      # Eve::CharacterCorporationHistoryImporter.new(character_id).import
+      #
+      expect(Eve::CharacterCorporationHistoryImporter).to receive(:new).with(character_id) do
+        double.tap do |a|
+          expect(a).to receive(:import)
+        end
+      end
+    end
+
     specify { expect { subject.perform(character_id) }.not_to raise_error }
   end
 end

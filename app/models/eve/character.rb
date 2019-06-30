@@ -16,6 +16,10 @@ module Eve
 
     belongs_to :race, primary_key: :race_id, optional: true
 
+    has_many :character_corporation_histories,
+             primary_key: :character_id,
+             dependent: :destroy
+
     def search_data
       {
         name: name
