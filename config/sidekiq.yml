@@ -46,7 +46,7 @@
     class: Eve::CorporationsImporterWorker
     description: 'Import Corporations info'
   eve_characters:
-    every: 1d
+    every: 7d
     class: Eve::CharactersImporterWorker
     description: 'Import Characters info'
   eve_graphics:
