@@ -21,6 +21,8 @@ describe Eve::Character do
 
   it { should belong_to(:race).with_primary_key(:race_id).optional }
 
+  it { should have_many(:character_corporation_histories).with_primary_key(:character_id).dependent(:destroy) }
+
   describe '#search_data' do
     let!(:character) do
       create(:eve_character,
