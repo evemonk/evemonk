@@ -22,6 +22,7 @@ gem 'kaminari'
 gem 'rails-html-sanitizer'
 gem 'pundit'
 gem 'dotenv-rails'
+gem 'draper'
 gem 'rails-settings-cached'
 gem 'sidekiq', require: false
 gem 'sidekiq-scheduler', require: false
