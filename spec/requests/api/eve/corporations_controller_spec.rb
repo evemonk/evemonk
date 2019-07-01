@@ -12,6 +12,7 @@ describe Api::Eve::CorporationsController do
              alliance_id: 123,
              corporation_id: 456,
              name: 'Character corporation name',
+             description: '<b>Character corporation description</b>',
              ticker: 'TICKER',
              date_founded: 'Sun, 03 May 2015 19:45:17 UTC +00:00',
              member_count: 2000)
@@ -29,6 +30,7 @@ describe Api::Eve::CorporationsController do
                                                 'id' => 456,
                                                 'member_count' => 2000,
                                                 'name' => 'Character corporation name',
+                                                'description' => 'Character corporation description',
                                                 'ticker' => 'TICKER'
                                               }])
     end
@@ -43,6 +45,7 @@ describe Api::Eve::CorporationsController do
              alliance_id: 123,
              corporation_id: 456,
              name: 'Character corporation name',
+             description: '<b>Character corporation description</b>',
              ticker: 'TICKER',
              date_founded: 'Sun, 03 May 2015 19:45:17 UTC +00:00',
              member_count: 2000)
@@ -57,6 +60,7 @@ describe Api::Eve::CorporationsController do
                                                 'id' => 456,
                                                 'member_count' => 2000,
                                                 'name' => 'Character corporation name',
+                                                'description' => 'Character corporation description',
                                                 'ticker' => 'TICKER'
                                               })
     end
