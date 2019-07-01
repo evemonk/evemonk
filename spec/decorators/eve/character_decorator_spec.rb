@@ -39,4 +39,15 @@ describe Eve::CharacterDecorator do
 
     specify { expect(subject.description).to eq('Test') }
   end
+
+  describe '#security_status' do
+    let(:eve_character) do
+      create(:eve_character,
+             security_status: 1.1)
+    end
+
+    subject { eve_character.decorate }
+
+    specify { expect(subject.security_status).to eq('1.1') }
+  end
 end

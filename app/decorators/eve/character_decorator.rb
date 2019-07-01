@@ -16,5 +16,9 @@ module Eve
     def description
       Rails::Html::FullSanitizer.new.sanitize(object.description)
     end
+
+    def security_status
+      object.security_status.to_s
+    end
   end
 end
