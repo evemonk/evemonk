@@ -10,6 +10,10 @@ module Eve
       Rails::Html::FullSanitizer.new.sanitize(object.description)
     end
 
+    def icon
+      "https://imageserver.eveonline.com/Corporation/#{ corporation_id }_256.png"
+    end
+
     def self.collection_decorator_class
       PaginatingDecorator
     end

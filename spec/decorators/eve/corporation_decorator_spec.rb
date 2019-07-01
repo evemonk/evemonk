@@ -42,6 +42,17 @@ describe Eve::CorporationDecorator do
     specify { expect(subject.description).to eq('Test') }
   end
 
+  describe '#icon' do
+    let(:eve_corporation) do
+      create(:eve_corporation,
+             corporation_id: 123)
+    end
+
+    subject { eve_corporation.decorate }
+
+    specify { expect(subject.icon).to eq('https://imageserver.eveonline.com/Corporation/123_256.png') }
+  end
+
   describe '.collection_decorator_class' do
     specify { expect(described_class.collection_decorator_class).to eq(PaginatingDecorator) }
   end
