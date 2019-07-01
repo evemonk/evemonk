@@ -30,4 +30,15 @@ describe Eve::CorporationDecorator do
       specify { expect(subject.date_founded).to eq('2015-05-03T19:45:17Z') }
     end
   end
+
+  describe '#description' do
+    let(:eve_corporation) do
+      create(:eve_corporation,
+             description: '<b>Test</b>')
+    end
+
+    subject { eve_corporation.decorate }
+
+    specify { expect(subject.description).to eq('Test') }
+  end
 end
