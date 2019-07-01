@@ -2,5 +2,6 @@
 
 module Eve
   class BloodlineDecorator < ApplicationDecorator
+    decorates_associations :corporation, :race
   end
 end
