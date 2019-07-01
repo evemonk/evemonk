@@ -52,8 +52,4 @@ describe Eve::CorporationDecorator do
 
     specify { expect(subject.icon).to eq('https://imageserver.eveonline.com/Corporation/123_256.png') }
   end
-
-  describe '.collection_decorator_class' do
-    specify { expect(described_class.collection_decorator_class).to eq(PaginatingDecorator) }
-  end
 end

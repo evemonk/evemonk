@@ -13,9 +13,5 @@ module Eve
     def description
       Rails::Html::FullSanitizer.new.sanitize(object.description)
     end
-
-    def self.collection_decorator_class
-      PaginatingDecorator
-    end
   end
 end

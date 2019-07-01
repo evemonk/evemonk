@@ -13,9 +13,5 @@ module Eve
     def icon
       "https://imageserver.eveonline.com/Corporation/#{ corporation_id }_256.png"
     end
-
-    def self.collection_decorator_class
-      PaginatingDecorator
-    end
   end
 end

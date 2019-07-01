@@ -39,8 +39,4 @@ describe Eve::CharacterDecorator do
 
     specify { expect(subject.description).to eq('Test') }
   end
-
-  describe '.collection_decorator_class' do
-    specify { expect(described_class.collection_decorator_class).to eq(PaginatingDecorator) }
-  end
 end
