@@ -58,7 +58,7 @@ describe Api::Eve::CorporationsController do
   describe '#show' do
     context 'with supported content type' do
       let(:eve_corporation) { instance_double(Eve::Corporation) }
-      
+
       before do
         #
         # subject.policy_scope(::Eve::Corporation)
