@@ -34,3 +34,4 @@ yarn-debug.log*
 /.env_docker
 /.DS_Store
 /dump.rdb
+/public/sitemap*.xml.gz
