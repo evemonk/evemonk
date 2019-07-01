@@ -102,6 +102,10 @@ describe Api::Eve::CorporationsController do
           end
         end
       end
+
+      before { get :show, params: { id: '98005120', format: :json } }
+
+      it { should respond_with(:not_found) }
     end
   end
 end
