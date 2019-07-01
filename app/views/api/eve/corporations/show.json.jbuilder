@@ -2,9 +2,10 @@
 
 json.corporation do
   json.id @corporation.corporation_id
-  json.icon "https://imageserver.eveonline.com/Corporation/#{ @corporation.corporation_id }_256.png"
-  json.date_founded @corporation.date_founded.iso8601
+  json.icon @corporation.icon
+  json.date_founded @corporation.date_founded
   json.name @corporation.name
+  json.description @corporation.description
   json.member_count @corporation.member_count
   json.ticker @corporation.ticker
 end
