@@ -5,6 +5,7 @@ module Api
     def index
       @characters = policy_scope(Character).order(created_at: :asc)
                                            .page(params[:page])
+                                           .decorate
     end
 
     def show
@@ -15,6 +16,7 @@ module Api
                                         :alliance,
                                         :corporation)
                             .find_by!(character_id: params[:id])
+                            .decorate
 
       authorize(@character)
     end

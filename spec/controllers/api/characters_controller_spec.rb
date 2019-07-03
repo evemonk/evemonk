@@ -13,12 +13,17 @@ describe Api::CharactersController do
         #
         # subject.policy_scope(Character).order(created_at: :asc)
         #                                .page(params[:page])
+        #                                .decorate
         #
         expect(subject).to receive(:policy_scope).with(Character) do
           double.tap do |a|
             expect(a).to receive(:order).with(created_at: :asc) do
               double.tap do |b|
-                expect(b).to receive(:page).with('1')
+                expect(b).to receive(:page).with('1') do
+                  double.tap do |c|
+                    expect(c).to receive(:decorate)
+                  end
+                end
               end
             end
           end
@@ -62,6 +67,7 @@ describe Api::CharactersController do
         #                      :alliance,
         #                      :corporation)
         #          .find_by!(character_id: params[:id])
+        #          .decorate
         #
         expect(Character).to receive(:eager_load).with(:race,
                                                        :bloodline,
@@ -70,7 +76,11 @@ describe Api::CharactersController do
                                                        :alliance,
                                                        :corporation) do
           double.tap do |a|
-            expect(a).to receive(:find_by!).with(character_id: '1').and_return(character)
+            expect(a).to receive(:find_by!).with(character_id: '1') do
+              double.tap do |b|
+                expect(b).to receive(:decorate).and_return(character)
+              end
+            end
           end
         end
       end
