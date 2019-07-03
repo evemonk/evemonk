@@ -101,6 +101,7 @@ group :development do
   gem 'cacheflow'
   gem 'gemdiff', require: false
   gem 'derailed_benchmarks'
+  gem 'activerecord-cause'
 end
 
 group :test do
