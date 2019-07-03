@@ -9,17 +9,21 @@ describe Api::Eve::CorporationCharactersController do
 
   describe '#index' do
     context 'with supported content type' do
-      let(:corporation) { instance_double(Eve::Corporation) }
+      let(:eve_corporation) { instance_double(Eve::Corporation) }
 
       before do
         #
         # subject.policy_scope(::Eve::Corporation)
-        #        .find_by!(corporation_id: params[:corporation_id]) # => corporation
+        #        .find_by!(corporation_id: params[:corporation_id])
+        #        .decorate # => eve_corporation
         #
         expect(subject).to receive(:policy_scope).with(Eve::Corporation) do
           double.tap do |a|
-            expect(a).to receive(:find_by!).with(corporation_id: '12345')
-                                           .and_return(corporation)
+            expect(a).to receive(:find_by!).with(corporation_id: '12345') do
+              double.tap do |b|
+                expect(b).to receive(:decorate).and_return(eve_corporation)
+              end
+            end
           end
         end
       end
@@ -34,10 +38,11 @@ describe Api::Eve::CorporationCharactersController do
         #                                               :faction,
         #                                               :race)
         #                                     .page(params[:page])
+        #                                     .decorate
         #
         expect(subject).to receive(:policy_scope).with(Eve::Character) do
           double.tap do |a|
-            expect(a).to receive(:where).with(corporation: corporation) do
+            expect(a).to receive(:where).with(corporation: eve_corporation) do
               double.tap do |b|
                 expect(b).to receive(:includes).with(:alliance,
                                                      :ancestry,
@@ -46,7 +51,11 @@ describe Api::Eve::CorporationCharactersController do
                                                      :faction,
                                                      :race) do
                   double.tap do |c|
-                    expect(c).to receive(:page).with('1')
+                    expect(c).to receive(:page).with('1') do
+                      double.tap do |d|
+                        expect(d).to receive(:decorate)
+                      end
+                    end
                   end
                 end
               end
