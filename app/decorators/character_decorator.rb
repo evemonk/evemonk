@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 class CharacterDecorator < ApplicationDecorator
+  decorates_associations :user, :race, :bloodline, :faction, :ancestry,
+                         :alliance, :corporation
+
   def birthday
     object.birthday.iso8601
   end
