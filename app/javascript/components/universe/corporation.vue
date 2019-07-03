@@ -39,6 +39,10 @@
                 Characters ({{ corporation.member_count }})
               </router-link>
             </v-btn>
+            <v-spacer></v-spacer>
+            <v-btn color="info" v-if="corporation.ceo">
+              <router-link :to="{ name: 'universe_character', params: { id: corporation.ceo.id }}">CEO</router-link>
+            </v-btn>
           </v-card-actions>
         </v-card>
       </v-flex>
