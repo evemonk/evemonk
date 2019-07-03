@@ -9,8 +9,8 @@ describe Eve::CharacterDecorator do
 
   describe '#birthday' do
     let(:eve_character) do
-      create(:eve_character,
-             birthday: 'Sun, 03 May 2015 19:45:17 UTC +00:00')
+      build(:eve_character,
+            birthday: 'Sun, 03 May 2015 19:45:17 UTC +00:00')
     end
 
     subject { eve_character.decorate }
@@ -20,8 +20,8 @@ describe Eve::CharacterDecorator do
 
   describe '#icon' do
     let(:eve_character) do
-      create(:eve_character,
-             character_id: 123)
+      build(:eve_character,
+            character_id: 123)
     end
 
     subject { eve_character.decorate }
@@ -31,8 +31,8 @@ describe Eve::CharacterDecorator do
 
   describe '#description' do
     let(:eve_character) do
-      create(:eve_character,
-             description: '<b>Test</b>')
+      build(:eve_character,
+            description: '<b>Test</b>')
     end
 
     subject { eve_character.decorate }
@@ -42,8 +42,8 @@ describe Eve::CharacterDecorator do
 
   describe '#security_status' do
     let(:eve_character) do
-      create(:eve_character,
-             security_status: 1.1)
+      build(:eve_character,
+            security_status: 1.1)
     end
 
     subject { eve_character.decorate }

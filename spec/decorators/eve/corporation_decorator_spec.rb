@@ -10,8 +10,8 @@ describe Eve::CorporationDecorator do
   describe '#date_founded' do
     context 'when date_founded is empty' do
       let(:eve_corporation) do
-        create(:eve_corporation,
-               date_founded: nil)
+        build(:eve_corporation,
+              date_founded: nil)
       end
 
       subject { eve_corporation.decorate }
@@ -21,8 +21,8 @@ describe Eve::CorporationDecorator do
 
     context 'when date_founded is present' do
       let(:eve_corporation) do
-        create(:eve_corporation,
-               date_founded: 'Sun, 03 May 2015 19:45:17 UTC +00:00')
+        build(:eve_corporation,
+              date_founded: 'Sun, 03 May 2015 19:45:17 UTC +00:00')
       end
 
       subject { eve_corporation.decorate }
@@ -33,8 +33,8 @@ describe Eve::CorporationDecorator do
 
   describe '#description' do
     let(:eve_corporation) do
-      create(:eve_corporation,
-             description: '<b>Test</b>')
+      build(:eve_corporation,
+            description: '<b>Test</b>')
     end
 
     subject { eve_corporation.decorate }
@@ -44,8 +44,8 @@ describe Eve::CorporationDecorator do
 
   describe '#icon' do
     let(:eve_corporation) do
-      create(:eve_corporation,
-             corporation_id: 123)
+      build(:eve_corporation,
+            corporation_id: 123)
     end
 
     subject { eve_corporation.decorate }
