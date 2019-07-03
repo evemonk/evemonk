@@ -13,7 +13,7 @@ json.character do
   json.willpower @character.willpower
   json.intelligence @character.intelligence
   json.charisma @character.charisma
-  json.wallet @character.wallet.to_s
+  json.wallet @character.wallet
   json.bonus_remaps @character.bonus_remaps
   json.last_remap_date @character.last_remap_date
   json.accrued_remap_cooldown_date @character.accrued_remap_cooldown_date

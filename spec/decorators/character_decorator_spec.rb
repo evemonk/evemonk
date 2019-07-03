@@ -72,4 +72,15 @@ describe CharacterDecorator do
 
     specify { expect(subject.accrued_remap_cooldown_date).to eq('2015-05-03T19:45:17Z') }
   end
+
+  describe '#wallet' do
+    let(:character) do
+      build(:character,
+            wallet: 8252.49)
+    end
+
+    subject { character.decorate }
+
+    specify { expect(subject.wallet).to eq('8252.49') }
+  end
 end

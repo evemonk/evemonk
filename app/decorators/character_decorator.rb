@@ -27,4 +27,8 @@ class CharacterDecorator < ApplicationDecorator
   def accrued_remap_cooldown_date
     object.accrued_remap_cooldown_date.iso8601
   end
+
+  def wallet
+    object.wallet.to_s
+  end
 end
