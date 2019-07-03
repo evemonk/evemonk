@@ -94,6 +94,10 @@ GEM
       globalid (>= 0.3.6)
     activemodel (6.0.0.rc1)
       activesupport (= 6.0.0.rc1)
+    activemodel-serializers-xml (1.0.2)
+      activemodel (> 5.x)
+      activesupport (> 5.x)
+      builder (~> 3.1)
     activerecord (6.0.0.rc1)
       activemodel (= 6.0.0.rc1)
       activesupport (= 6.0.0.rc1)
@@ -163,6 +167,12 @@ GEM
     dotenv-rails (2.7.4)
       dotenv (= 2.7.4)
       railties (>= 3.2, < 6.1)
+    draper (3.1.0)
+      actionpack (>= 5.0)
+      activemodel (>= 5.0)
+      activemodel-serializers-xml (>= 1.0)
+      activesupport (>= 5.0)
+      request_store (>= 1.0)
     dry-initializer (3.0.1)
     elasticsearch (7.2.0)
       elasticsearch-api (= 7.2.0)
@@ -369,7 +379,7 @@ GEM
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.0.4)
       loofah (~> 2.2, >= 2.2.2)
-    rails-settings-cached (2.0.3)
+    rails-settings-cached (2.1.0)
       rails (>= 4.2.0)
       request_store
     rails_best_practices (1.19.4)
@@ -486,7 +496,7 @@ GEM
       rufus-scheduler (~> 3.2)
       sidekiq (>= 3)
       tilt (>= 1.4.0)
-    simplecov (0.16.1)
+    simplecov (0.17.0)
       docile (~> 1.1)
       json (>= 1.8, < 3)
       simplecov-html (~> 0.10.0)
@@ -539,7 +549,7 @@ GEM
     unicode_utils (1.4.0)
     uniform_notifier (1.12.1)
     vcr (5.0.0)
-    webdrivers (4.0.1)
+    webdrivers (4.1.0)
       nokogiri (~> 1.6)
       rubyzip (~> 1.0)
       selenium-webdriver (>= 3.0, < 4.0)
@@ -591,6 +601,7 @@ DEPENDENCIES
   database_rewinder
   derailed_benchmarks
   dotenv-rails
+  draper
   errbase
   eve_online!
   factory_bot_rails

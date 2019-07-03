@@ -109,7 +109,7 @@ describe Api::Eve::AllianceCharactersController do
                                                   'id' => 123,
                                                   'creator_corporation_id' => 2222,
                                                   'creator_id' => 3333,
-                                                  'date_founded' => '2015-05-03 19:45:17 UTC',
+                                                  'date_founded' => '2015-05-03T19:45:17Z',
                                                   'executor_corporation_id' => 4444,
                                                   'faction_id' => 5555,
                                                   'name' => 'Alliance name',

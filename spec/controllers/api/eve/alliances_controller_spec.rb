@@ -22,12 +22,17 @@ describe Api::Eve::AlliancesController do
         #                            policy_scope(::Eve::Alliance))
         #                       .search
         #                       .page(params[:page])
+        #                       .decorate
         #
         expect(Eve::AlliancesSearcher).to receive(:new).with('search string', scoped_eve_alliance) do
           double.tap do |a|
             expect(a).to receive(:search) do
               double.tap do |b|
-                expect(b).to receive(:page).with('1')
+                expect(b).to receive(:page).with('1') do
+                  double.tap do |c|
+                    expect(c).to receive(:decorate)
+                  end
+                end
               end
             end
           end
@@ -54,9 +59,21 @@ describe Api::Eve::AlliancesController do
     context 'with supported content type' do
       let(:eve_alliance) { instance_double(Eve::Alliance) }
 
-      before { expect(Eve::Alliance).to receive(:find_by!).with(alliance_id: '99005443').and_return(eve_alliance) }
+      before do
+        #
+        # subject.policy_scope(::Eve::Alliance)
+        #        .find_by!(corporation_id: params[:id]) # => eve_alliance
+        #
+        expect(subject).to receive(:policy_scope).with(Eve::Alliance) do
+          double.tap do |a|
+            expect(a).to receive(:find_by!).with(alliance_id: '99005443').and_return(eve_alliance)
+          end
+        end
+      end
 
-      before { expect(subject).to receive(:authorize).with(eve_alliance) }
+      before { expect(eve_alliance).to receive(:decorate) }
+
+      before { expect(subject).to receive(:skip_authorization) }
 
       before { subject.instance_variable_set(:@_pundit_policy_authorized, true) }
 
@@ -74,7 +91,17 @@ describe Api::Eve::AlliancesController do
     end
 
     context 'when alliance not found' do
-      before { expect(Eve::Alliance).to receive(:find_by!).with(alliance_id: '99005443').and_raise(ActiveRecord::RecordNotFound) }
+      before do
+        #
+        # subject.policy_scope(::Eve::Alliance)
+        #        .find_by!(alliance_id: params[:id]) # => ActiveRecord::RecordNotFound
+        #
+        expect(subject).to receive(:policy_scope).with(Eve::Alliance) do
+          double.tap do |a|
+            expect(a).to receive(:find_by!).with(alliance_id: '99005443').and_raise(ActiveRecord::RecordNotFound)
+          end
+        end
+      end
 
       before { get :show, params: { id: '99005443', format: :json } }
 

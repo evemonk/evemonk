@@ -1,6 +1,6 @@
 ---
 name: rails-settings-cached
-version: 2.0.3
+version: 2.1.0
 type: bundler
 summary: Settings plugin for Rails that makes managing a table of global keys.
 homepage: https://github.com/huacnlee/rails-settings-cached

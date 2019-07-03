@@ -10,12 +10,14 @@ module Api
                                                   policy_scope(::Eve::Alliance))
                                              .search
                                              .page(params[:page])
+                                             .decorate
       end
 
       def show
-        @alliance = ::Eve::Alliance.find_by!(alliance_id: params[:id])
+        @alliance = policy_scope(::Eve::Alliance).find_by!(alliance_id: params[:id])
+                                                 .decorate
 
-        authorize(@alliance)
+        skip_authorization
       end
     end
   end

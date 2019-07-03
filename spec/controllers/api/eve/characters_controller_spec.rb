@@ -22,12 +22,17 @@ describe Api::Eve::CharactersController do
         #                             policy_scope(::Eve::Character))
         #                        .search
         #                        .page(params[:page])
+        #                        .decorate
         #
         expect(Eve::CharactersSearcher).to receive(:new).with('search string', scoped_eve_character) do
           double.tap do |a|
             expect(a).to receive(:search) do
               double.tap do |b|
-                expect(b).to receive(:page).with('1')
+                expect(b).to receive(:page).with('1') do
+                  double.tap do |c|
+                    expect(c).to receive(:decorate)
+                  end
+                end
               end
             end
           end
@@ -54,9 +59,26 @@ describe Api::Eve::CharactersController do
     context 'with supported content type' do
       let(:eve_character) { instance_double(Eve::Character) }
 
-      before { expect(Eve::Character).to receive(:find_by!).with(character_id: '90729314').and_return(eve_character) }
+      before do
+        #
+        # subject.policy_scope(::Eve::Character)
+        #        .includes(character_corporation_histories: :corporation)
+        #        .find_by!(character_id: params[:id]) # => eve_character
+        #
+        expect(subject).to receive(:policy_scope).with(Eve::Character) do
+          double.tap do |a|
+            expect(a).to receive(:includes).with(character_corporation_histories: :corporation) do
+              double.tap do |b|
+                expect(b).to receive(:find_by!).with(character_id: '90729314').and_return(eve_character)
+              end
+            end
+          end
+        end
+      end
 
-      before { expect(subject).to receive(:authorize).with(eve_character) }
+      before { expect(eve_character).to receive(:decorate) }
+
+      before { expect(subject).to receive(:skip_authorization) }
 
       before { subject.instance_variable_set(:@_pundit_policy_authorized, true) }
 
@@ -74,7 +96,22 @@ describe Api::Eve::CharactersController do
     end
 
     context 'when character not found' do
-      before { expect(Eve::Character).to receive(:find_by!).with(character_id: '90729314').and_raise(ActiveRecord::RecordNotFound) }
+      before do
+        #
+        # subject.policy_scope(::Eve::Character)
+        #        .includes(character_corporation_histories: :corporation)
+        #        .find_by!(character_id: params[:id]) # => ActiveRecord::RecordNotFound
+        #
+        expect(subject).to receive(:policy_scope).with(Eve::Character) do
+          double.tap do |a|
+            expect(a).to receive(:includes).with(character_corporation_histories: :corporation) do
+              double.tap do |b|
+                expect(b).to receive(:find_by!).with(character_id: '90729314').and_raise(ActiveRecord::RecordNotFound)
+              end
+            end
+          end
+        end
+      end
 
       before { get :show, params: { id: '90729314', format: :json } }
 

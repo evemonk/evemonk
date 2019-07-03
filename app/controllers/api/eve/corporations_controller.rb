@@ -10,12 +10,14 @@ module Api
                                                         policy_scope(::Eve::Corporation))
                                                    .search
                                                    .page(params[:page])
+                                                   .decorate
       end
 
       def show
-        @corporation = ::Eve::Corporation.find_by!(corporation_id: params[:id])
+        @corporation = policy_scope(::Eve::Corporation).find_by!(corporation_id: params[:id])
+                                                       .decorate
 
-        authorize(@corporation)
+        skip_authorization
       end
     end
   end

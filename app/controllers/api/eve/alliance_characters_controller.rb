@@ -7,6 +7,7 @@ module Api
 
       def index
         @alliance = policy_scope(::Eve::Alliance).find_by!(alliance_id: params[:alliance_id])
+                                                 .decorate
 
         @characters = policy_scope(::Eve::Character).where(alliance: @alliance)
                                                     .includes(:alliance,
@@ -16,6 +17,7 @@ module Api
                                                               :faction,
                                                               :race)
                                                     .page(params[:page])
+                                                    .decorate
       end
     end
   end

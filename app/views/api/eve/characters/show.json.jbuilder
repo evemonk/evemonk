@@ -2,12 +2,12 @@
 
 json.character do
   json.id @character.character_id
-  json.icon "https://imageserver.eveonline.com/Character/#{ @character.character_id }_512.jpg"
-  json.birthday @character.birthday.iso8601
-  json.description Rails::Html::FullSanitizer.new.sanitize(@character.description)
+  json.icon @character.icon
+  json.birthday @character.birthday
+  json.description @character.description
   json.gender @character.gender
   json.name @character.name
-  json.security_status @character.security_status.to_s
+  json.security_status @character.security_status
   json.title @character.title
 
   if @character.alliance
@@ -15,7 +15,7 @@ json.character do
       json.id @character.alliance.alliance_id
       json.creator_corporation_id @character.alliance.creator_corporation_id
       json.creator_id @character.alliance.creator_id
-      json.date_founded @character.alliance.date_founded.to_s
+      json.date_founded @character.alliance.date_founded
       json.executor_corporation_id @character.alliance.executor_corporation_id
       json.faction_id @character.alliance.faction_id
       json.name @character.alliance.name
@@ -54,9 +54,9 @@ json.character do
     json.corporation do
       json.id @character.corporation.corporation_id
       json.name @character.corporation.name
-      json.description Rails::Html::FullSanitizer.new.sanitize(@character.corporation.description)
+      json.description @character.corporation.description
       json.ticker @character.corporation.ticker
-      json.date_founded @character.corporation.date_founded.iso8601
+      json.date_founded @character.corporation.date_founded
       json.url @character.corporation.corporation_url
       json.member_count @character.corporation.member_count
       json.shares @character.corporation.shares
