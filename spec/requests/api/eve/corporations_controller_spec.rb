@@ -21,18 +21,31 @@ describe Api::Eve::CorporationsController do
 
       expect(response).to have_http_status(:ok)
 
-      expect(JSON.parse(response.body)).to eq('total_count' => 1,
-                                              'total_pages' => 1,
-                                              'current_page' => 1,
-                                              'corporations' => [{
-                                                'date_founded' => '2015-05-03T19:45:17Z',
-                                                'icon' => 'https://imageserver.eveonline.com/Corporation/456_256.png',
-                                                'id' => 456,
-                                                'member_count' => 2000,
-                                                'name' => 'Character corporation name',
-                                                'description' => 'Character corporation description',
-                                                'ticker' => 'TICKER'
-                                              }])
+      expect(JSON.parse(response.body).keys.sort).to eq(['corporations', 'current_page', 'total_count', 'total_pages'])
+
+      expect(JSON.parse(response.body)['total_count']).to eq(1)
+
+      expect(JSON.parse(response.body)['total_pages']).to eq(1)
+
+      expect(JSON.parse(response.body)['current_page']).to eq(1)
+
+      expect(JSON.parse(response.body)['corporations'].size).to eq(1)
+
+      expect(JSON.parse(response.body)['corporations'].first.keys.sort).to eq(['date_founded', 'description', 'icon', 'id', 'member_count', 'name', 'ticker'])
+
+      expect(JSON.parse(response.body)['corporations'].first['id']).to eq(456)
+
+      expect(JSON.parse(response.body)['corporations'].first['icon']).to eq('https://imageserver.eveonline.com/Corporation/456_256.png')
+
+      expect(JSON.parse(response.body)['corporations'].first['date_founded']).to eq('2015-05-03T19:45:17Z')
+
+      expect(JSON.parse(response.body)['corporations'].first['name']).to eq('Character corporation name')
+
+      expect(JSON.parse(response.body)['corporations'].first['description']).to eq('Character corporation description')
+
+      expect(JSON.parse(response.body)['corporations'].first['member_count']).to eq(2000)
+
+      expect(JSON.parse(response.body)['corporations'].first['ticker']).to eq('TICKER')
     end
   end
 
