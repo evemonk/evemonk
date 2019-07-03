@@ -67,15 +67,23 @@ describe Api::Eve::CorporationsController do
 
       expect(response).to have_http_status(:ok)
 
-      expect(JSON.parse(response.body)).to eq('corporation' => {
-                                                'date_founded' => '2015-05-03T19:45:17Z',
-                                                'icon' => 'https://imageserver.eveonline.com/Corporation/456_256.png',
-                                                'id' => 456,
-                                                'member_count' => 2000,
-                                                'name' => 'Character corporation name',
-                                                'description' => 'Character corporation description',
-                                                'ticker' => 'TICKER'
-                                              })
+      expect(JSON.parse(response.body).keys.sort).to eq(['corporation'])
+
+      expect(JSON.parse(response.body)['corporation'].keys.sort).to eq(['alliance', 'date_founded', 'description', 'icon', 'id', 'member_count', 'name', 'ticker'])
+
+      expect(JSON.parse(response.body)['corporation']['id']).to eq(456)
+
+      expect(JSON.parse(response.body)['corporation']['icon']).to eq('https://imageserver.eveonline.com/Corporation/456_256.png')
+
+      expect(JSON.parse(response.body)['corporation']['date_founded']).to eq('2015-05-03T19:45:17Z')
+
+      expect(JSON.parse(response.body)['corporation']['name']).to eq('Character corporation name')
+
+      expect(JSON.parse(response.body)['corporation']['description']).to eq('Character corporation description')
+
+      expect(JSON.parse(response.body)['corporation']['member_count']).to eq(2000)
+
+      expect(JSON.parse(response.body)['corporation']['ticker']).to eq('TICKER')
     end
 
     it 'returns 404' do
