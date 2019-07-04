@@ -13,7 +13,7 @@ module Eve
 
       esi = EveOnline::ESI::Corporation.new(corporation_id: corporation_id)
 
-      etag = Etag.find_or_initialize_by(url: esi.url)
+      etag = Eve::Etag.find_or_initialize_by(url: esi.url)
 
       esi.etag = etag.etag
 

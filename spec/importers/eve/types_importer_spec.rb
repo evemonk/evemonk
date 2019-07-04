@@ -48,9 +48,9 @@ describe Eve::TypesImporter do
 
       before { expect(EveOnline::ESI::UniverseTypes).to receive(:new).with(page: page).and_return(esi) }
 
-      let(:etag) { instance_double(Etag, etag: '97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a') }
+      let(:etag) { instance_double(Eve::Etag, etag: '97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a') }
 
-      before { expect(Etag).to receive(:find_or_initialize_by).with(url: url).and_return(etag) }
+      before { expect(Eve::Etag).to receive(:find_or_initialize_by).with(url: url).and_return(etag) }
 
       before { expect(esi).to receive(:etag=).with('97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a') }
 
@@ -68,7 +68,7 @@ describe Eve::TypesImporter do
 
       subject { described_class.new(page) }
 
-      let(:etag) { instance_double(Etag, etag: '97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a') }
+      let(:etag) { instance_double(Eve::Etag, etag: '97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a') }
 
       let(:url) { double }
 
@@ -80,7 +80,7 @@ describe Eve::TypesImporter do
 
       before { expect(EveOnline::ESI::UniverseTypes).to receive(:new).with(page: page).and_return(esi) }
 
-      before { expect(Etag).to receive(:find_or_initialize_by).with(url: url).and_return(etag) }
+      before { expect(Eve::Etag).to receive(:find_or_initialize_by).with(url: url).and_return(etag) }
 
       before { expect(esi).to receive(:etag=).with('97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a') }
 

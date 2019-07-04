@@ -25,9 +25,9 @@ describe Eve::RacesImporter do
 
       before { expect(EveOnline::ESI::UniverseRaces).to receive(:new).and_return(esi) }
 
-      let(:etag) { instance_double(Etag, etag: 'e3f6a76b4a1287f54966c6253f8f5d6ac6460bc43d47570331b43e0b') }
+      let(:etag) { instance_double(Eve::Etag, etag: 'e3f6a76b4a1287f54966c6253f8f5d6ac6460bc43d47570331b43e0b') }
 
-      before { expect(Etag).to receive(:find_or_initialize_by).with(url: url).and_return(etag) }
+      before { expect(Eve::Etag).to receive(:find_or_initialize_by).with(url: url).and_return(etag) }
 
       before { expect(esi).to receive(:etag=).with('e3f6a76b4a1287f54966c6253f8f5d6ac6460bc43d47570331b43e0b') }
 
@@ -53,9 +53,9 @@ describe Eve::RacesImporter do
 
       before { expect(EveOnline::ESI::UniverseRaces).to receive(:new).and_return(esi) }
 
-      let(:etag) { instance_double(Etag, etag: 'e3f6a76b4a1287f54966c6253f8f5d6ac6460bc43d47570331b43e0b') }
+      let(:etag) { instance_double(Eve::Etag, etag: 'e3f6a76b4a1287f54966c6253f8f5d6ac6460bc43d47570331b43e0b') }
 
-      before { expect(Etag).to receive(:find_or_initialize_by).with(url: url).and_return(etag) }
+      before { expect(Eve::Etag).to receive(:find_or_initialize_by).with(url: url).and_return(etag) }
 
       before { expect(esi).to receive(:etag=).with('e3f6a76b4a1287f54966c6253f8f5d6ac6460bc43d47570331b43e0b') }
 

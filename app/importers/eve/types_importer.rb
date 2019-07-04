@@ -10,7 +10,7 @@ module Eve
     end
 
     def import
-      etag = Etag.find_or_initialize_by(url: esi.url)
+      etag = Eve::Etag.find_or_initialize_by(url: esi.url)
 
       esi.etag = etag.etag
 
