@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_30_205606) do
+ActiveRecord::Schema.define(version: 2019_07_04_182518) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -78,14 +78,6 @@ ActiveRecord::Schema.define(version: 2019_06_30_205606) do
     t.index ["faction_id"], name: "index_characters_on_faction_id"
     t.index ["race_id"], name: "index_characters_on_race_id"
     t.index ["user_id"], name: "index_characters_on_user_id"
-  end
-
-  create_table "etags", force: :cascade do |t|
-    t.text "url", null: false
-    t.text "etag", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["url"], name: "index_etags_on_url", unique: true
   end
 
   create_table "eve_alliance_corporations", force: :cascade do |t|
@@ -194,6 +186,14 @@ ActiveRecord::Schema.define(version: 2019_06_30_205606) do
     t.boolean "war_eligible"
     t.index ["alliance_id"], name: "index_eve_corporations_on_alliance_id"
     t.index ["corporation_id"], name: "index_eve_corporations_on_corporation_id", unique: true
+  end
+
+  create_table "eve_etags", force: :cascade do |t|
+    t.text "url", null: false
+    t.text "etag", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["url"], name: "index_eve_etags_on_url", unique: true
   end
 
   create_table "eve_factions", force: :cascade do |t|
