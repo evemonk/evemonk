@@ -1,6 +1,6 @@
 ---
 name: "@babel/runtime"
-version: 7.4.5
+version: 7.5.0
 type: npm
 summary: babel's modular runtime helpers
 homepage: 

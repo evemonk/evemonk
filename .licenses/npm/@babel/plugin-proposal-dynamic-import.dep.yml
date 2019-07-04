@@ -1,9 +1,9 @@
 ---
-name: "@babel/core"
+name: "@babel/plugin-proposal-dynamic-import"
 version: 7.5.0
 type: npm
-summary: Babel compiler core.
-homepage: https://babeljs.io/
+summary: Transform import() expressions
+homepage: 
 license: mit
 licenses:
 - sources: LICENSE

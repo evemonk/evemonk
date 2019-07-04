@@ -1,6 +1,6 @@
 ---
 name: "@babel/highlight"
-version: 7.0.0
+version: 7.5.0
 type: npm
 summary: Syntax highlight JavaScript strings for output in terminals.
 homepage: https://babeljs.io/
@@ -10,7 +10,7 @@ licenses:
   text: |
     MIT License
 
-    Copyright (c) 2014-2018 Sebastian McKenzie <sebmck@gmail.com>
+    Copyright (c) 2014-present Sebastian McKenzie and other contributors
 
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the
