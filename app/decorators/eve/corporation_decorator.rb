@@ -5,7 +5,7 @@ module Eve
     decorates_associations :alliance, :ceo, :creator, :faction, :characters
 
     def date_founded
-      object.date_founded.iso8601 if object.date_founded
+      object.date_founded&.iso8601
     end
 
     def description
