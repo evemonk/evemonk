@@ -69,7 +69,13 @@ describe Api::Eve::CorporationsController do
 
       expect(JSON.parse(response.body).keys.sort).to eq(['corporation'])
 
-      expect(JSON.parse(response.body)['corporation'].keys.sort).to eq(['alliance', 'date_founded', 'description', 'icon', 'id', 'member_count', 'name', 'ticker'])
+      expect(JSON.parse(response.body)['corporation'].keys.sort).to eq(['date_founded',
+                                                                        'description',
+                                                                        'icon',
+                                                                        'id',
+                                                                        'member_count',
+                                                                        'name',
+                                                                        'ticker'])
 
       expect(JSON.parse(response.body)['corporation']['id']).to eq(456)
 
