@@ -60,7 +60,7 @@ json.character do
       json.url @character.corporation.corporation_url
       json.member_count @character.corporation.member_count
       json.shares @character.corporation.shares
-      json.tax_rate @character.corporation.tax_rate.to_s
+      json.tax_rate @character.corporation.tax_rate
       json.alliance_id @character.corporation.alliance_id
       json.ceo_id @character.corporation.ceo_id
       json.creator_id @character.corporation.creator_id
@@ -79,7 +79,7 @@ json.character do
       json.solar_system_id @character.faction.solar_system_id
       json.station_count @character.faction.station_count
       json.station_system_count @character.faction.station_system_count
-      json.size_factor @character.faction.size_factor.to_s
+      json.size_factor @character.faction.size_factor
       json.is_unique @character.faction.is_unique
     end
   end
