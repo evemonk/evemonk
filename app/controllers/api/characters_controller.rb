@@ -3,7 +3,8 @@
 module Api
   class CharactersController < BaseController
     def index
-      @characters = policy_scope(Character).order(created_at: :asc)
+      @characters = policy_scope(Character).includes(:alliance, :corporation)
+                                           .order(created_at: :asc)
                                            .page(params[:page])
                                            .decorate
     end

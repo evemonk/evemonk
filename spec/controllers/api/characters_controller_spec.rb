@@ -11,17 +11,22 @@ describe Api::CharactersController do
 
       before do
         #
-        # subject.policy_scope(Character).order(created_at: :asc)
+        # subject.policy_scope(Character).includes(:alliance, :corporation)
+        #                                .order(created_at: :asc)
         #                                .page(params[:page])
         #                                .decorate
         #
         expect(subject).to receive(:policy_scope).with(Character) do
           double.tap do |a|
-            expect(a).to receive(:order).with(created_at: :asc) do
+            expect(a).to receive(:includes).with(:alliance, :corporation) do
               double.tap do |b|
-                expect(b).to receive(:page).with('1') do
+                expect(b).to receive(:order).with(created_at: :asc) do
                   double.tap do |c|
-                    expect(c).to receive(:decorate)
+                    expect(c).to receive(:page).with('1') do
+                      double.tap do |d|
+                        expect(d).to receive(:decorate)
+                      end
+                    end
                   end
                 end
               end
