@@ -16,4 +16,8 @@ class Character < ApplicationRecord
   belongs_to :corporation, class_name: 'Eve::Corporation', primary_key: :corporation_id, optional: true
 
   has_many :loyalty_points, dependent: :destroy
+
+  def token_expired?
+    token_expires_at <= Time.zone.now
+  end
 end
