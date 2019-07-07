@@ -31,11 +31,11 @@ describe Eve::AlliancesSearcher do
 
   describe '#search' do
     context 'when query is empty' do
-      let!(:alliance1) { create(:eve_alliance) }
+      let!(:alliance1) { create(:eve_alliance, name: 'a') }
 
-      let!(:alliance2) { create(:eve_alliance) }
+      let!(:alliance2) { create(:eve_alliance, name: 'b') }
 
-      let!(:alliance3) { create(:eve_alliance) }
+      let!(:alliance3) { create(:eve_alliance, name: 'c') }
 
       subject { described_class.new }
 
@@ -43,7 +43,7 @@ describe Eve::AlliancesSearcher do
 
       specify { expect(subject.search.respond_to?(:all)).to eq(true) }
 
-      specify { expect(subject.search.to_a).to include(alliance1, alliance2, alliance3) }
+      specify { expect(subject.search.to_a).to eq([alliance1, alliance2, alliance3]) }
     end
 
     context 'when query is present' do
