@@ -1,6 +1,6 @@
 ---
 name: ajv-keywords
-version: 3.4.0
+version: 3.4.1
 type: npm
 summary: Custom JSON-Schema keywords for Ajv validator
 homepage: https://github.com/epoberezkin/ajv-keywords#readme
