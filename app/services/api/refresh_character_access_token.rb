@@ -15,8 +15,8 @@ module Api
 
       oauth_client_options = OmniAuth::Strategies::EveOnlineSso.default_options['client_options']
 
-      oauth_client = OAuth2::Client.new(ENV.fetch('EVE_ONLINE_SSO_CLIENT_ID'),
-                                        ENV.fetch('EVE_ONLINE_SSO_SECRET_KEY'),
+      oauth_client = OAuth2::Client.new(Setting.eve_online_sso_client_id,
+                                        Setting.eve_online_sso_secret_key,
                                         oauth_client_options)
 
       response = OAuth2::AccessToken.from_hash(oauth_client,

@@ -21,9 +21,9 @@ describe Api::RefreshCharacterAccessToken do
 
     after { VCR.eject_cassette }
 
-    before { expect(ENV).to receive(:fetch).with('EVE_ONLINE_SSO_CLIENT_ID').and_return('eve-online-sso-client-id') }
+    before { expect(Setting).to receive(:eve_online_sso_client_id).and_return('eve-online-sso-client-id') }
 
-    before { expect(ENV).to receive(:fetch).with('EVE_ONLINE_SSO_SECRET_KEY').and_return('eve-online-sso-secret-key') }
+    before { expect(Setting).to receive(:eve_online_sso_secret_key).and_return('eve-online-sso-secret-key') }
 
     let(:character) do
       create(:character,
