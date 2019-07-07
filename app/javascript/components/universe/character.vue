@@ -74,6 +74,37 @@
           </v-layout>
         </v-container>
       </v-card>
+
+      <v-card-title>
+        Corporations History
+        <v-spacer></v-spacer>
+        <v-text-field v-model="search"
+                      append-icon="search"
+                      label="Search"
+                      single-line
+                      hide-details>
+        </v-text-field>
+      </v-card-title>
+
+      <v-data-table :headers="headers"
+                    :items="character.corporations_history"
+                    :search="search"
+                    hide-actions
+                    dark>
+        <template v-slot:items="props">
+          <td>
+            <router-link :to="{ name: 'universe_corporation', params: { id: props.item.id }}">{{ props.item.name }}</router-link>
+          </td>
+          <td class="text-xs-right">{{ props.item.start_date }}</td>
+        </template>
+
+        <template v-slot:no-results>
+          <v-alert :value="true" color="error" icon="warning">
+            Your search for "{{ search }}" found no results.
+          </v-alert>
+        </template>
+      </v-data-table>
+
     </template>
   </div>
 </template>
@@ -105,7 +136,12 @@
             to: { name: 'universe_characters' },
             exact: true
           }
-        ]
+        ],
+        headers: [
+          { text: 'Corporation', value: 'name', sortable: false },
+          { text: 'Joined at', value: 'start_date', sortable: false }
+        ],
+        search: '',
       }
     },
 
