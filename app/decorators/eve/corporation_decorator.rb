@@ -15,5 +15,9 @@ module Eve
     def icon
       "https://imageserver.eveonline.com/Corporation/#{ corporation_id }_256.png"
     end
+
+    def tax_rate
+      object.tax_rate.to_s
+    end
   end
 end

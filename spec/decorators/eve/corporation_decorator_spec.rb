@@ -52,4 +52,15 @@ describe Eve::CorporationDecorator do
 
     specify { expect(subject.icon).to eq('https://imageserver.eveonline.com/Corporation/123_256.png') }
   end
+
+  describe '#tax_rate' do
+    let(:eve_corporation) do
+      build(:eve_corporation,
+            tax_rate: 0.99)
+    end
+
+    subject { eve_corporation.decorate }
+
+    specify { expect(subject.tax_rate).to eq('0.99') }
+  end
 end
