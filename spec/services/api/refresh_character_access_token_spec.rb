@@ -17,5 +17,28 @@ describe Api::RefreshCharacterAccessToken do
   end
 
   context 'when token needed to refresh' do
+    before { VCR.insert_cassette 'api/refresh_character_access_token/success' }
+
+    after { VCR.eject_cassette }
+
+    before { expect(ENV).to receive(:fetch).with('EVE_ONLINE_SSO_CLIENT_ID').and_return('eve-online-sso-client-id') }
+
+    before { expect(ENV).to receive(:fetch).with('EVE_ONLINE_SSO_SECRET_KEY').and_return('eve-online-sso-secret-key') }
+
+    let(:character) do
+      create(:character,
+             character_id: 1337512245,
+             access_token: 'expired-access-token123',
+             refresh_token: 'fresh-token-1232132132132131231312312312312312321321321321312312',
+             token_expires_at: Time.zone.now)
+    end
+
+    subject { described_class.new(character.character_id) }
+
+    before { expect(Character).to receive(:find_by).with(character_id: 1337512245).and_return(character) }
+
+    before { expect(character).to receive(:update!) }
+
+    specify { expect { subject.refresh }.not_to raise_error }
   end
 end
