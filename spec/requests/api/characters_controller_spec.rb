@@ -246,7 +246,7 @@ describe Api::CharactersController do
 
       expect(JSON.parse(response.body)['character']['security_status']).to eq('1.8')
 
-      expect(JSON.parse(response.body)['character']['wallet']).to eq('252.49')
+      expect(JSON.parse(response.body)['character']['wallet']).to eq('252.49 ISK')
 
       expect(JSON.parse(response.body)['character']['bonus_remaps']).to eq(2)
 
