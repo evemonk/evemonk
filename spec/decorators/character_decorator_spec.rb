@@ -81,6 +81,6 @@ describe CharacterDecorator do
 
     subject { character.decorate }
 
-    specify { expect(subject.wallet).to eq('8252.49') }
+    specify { expect(subject.wallet).to eq('8252.49 ISK') }
   end
 end

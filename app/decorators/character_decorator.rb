@@ -29,6 +29,6 @@ class CharacterDecorator < ApplicationDecorator
   end
 
   def wallet
-    object.wallet.to_s
+    "#{ object.wallet.to_s } ISK"
   end
 end
