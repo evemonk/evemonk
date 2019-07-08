@@ -15,7 +15,7 @@ json.characters do
     json.title character.title
 
     if character.alliance
-      json.partial! partial: 'api/eve/shared/alliance', locals: { faction: character.alliance }
+      json.partial! partial: 'api/eve/shared/alliance', locals: { alliance: character.alliance }
     end
 
     if character.ancestry
@@ -35,22 +35,7 @@ json.characters do
     end
 
     if character.corporation
-      json.corporation do
-        json.id character.corporation.corporation_id
-        json.name character.corporation.name
-        json.description character.corporation.description
-        json.ticker character.corporation.ticker
-        json.date_founded character.corporation.date_founded
-        json.url character.corporation.corporation_url
-        json.member_count character.corporation.member_count
-        json.shares character.corporation.shares
-        json.tax_rate character.corporation.tax_rate
-        json.alliance_id character.corporation.alliance_id
-        json.ceo_id character.corporation.ceo_id
-        json.creator_id character.corporation.creator_id
-        json.faction_id character.corporation.faction_id
-        json.home_station_id character.corporation.home_station_id
-      end
+      json.partial! partial: 'api/eve/shared/corporation', locals: { corporation: character.corporation }
     end
   end
 end
