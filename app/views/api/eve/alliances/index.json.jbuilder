@@ -40,11 +40,7 @@ json.alliances do
     end
 
     if alliance.faction
-      json.faction do
-        json.id alliance.faction.faction_id
-        json.name alliance.faction.name
-        json.description alliance.faction.description
-      end
+      json.partial! partial: 'api/eve/shared/faction', locals: { faction: alliance.faction }
     end
   end
 end
