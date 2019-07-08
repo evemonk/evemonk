@@ -245,6 +245,14 @@ const store = new Vuex.Store({
         return error;
       }
     },
+
+    async fetchUniverseCharacterCorporationsHistory({ commit, state }, { id, page }) {
+      try {
+        return await axios.get(`/api/eve/characters/${id}/corporations_history?page=${page}}`);
+      } catch (error) {
+        return error;
+      }
+    },
   },
 
   strict: process.env.NODE_ENV !== 'production',
