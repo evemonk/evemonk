@@ -78,12 +78,7 @@ json.characters do
     end
 
     if character.race
-      json.race do
-        json.id character.race.race_id
-        json.alliance_id character.race.alliance_id
-        json.name character.race.name
-        json.description character.race.description
-      end
+      json.partial! partial: 'api/eve/shared/race', locals: { race: character.race }
     end
   end
 end
