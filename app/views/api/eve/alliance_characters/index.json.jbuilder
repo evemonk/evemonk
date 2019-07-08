@@ -28,30 +28,11 @@ json.characters do
     end
 
     if character.ancestry
-      json.ancestry do
-        json.id character.ancestry.ancestry_id
-        json.bloodline_id character.ancestry.bloodline_id
-        json.name character.ancestry.name
-        json.short_description character.ancestry.short_description
-        json.description character.ancestry.description
-        json.icon_id character.ancestry.icon_id
-      end
+      json.partial! partial: 'api/eve/shared/ancestry', locals: { ancestry: character.ancestry }
     end
 
     if character.bloodline
-      json.bloodline do
-        json.id character.bloodline.bloodline_id
-        json.corporation_id character.bloodline.corporation_id
-        json.race_id character.bloodline.race_id
-        json.name character.bloodline.name
-        json.description character.bloodline.description
-        json.charisma character.bloodline.charisma
-        json.intelligence character.bloodline.intelligence
-        json.memory character.bloodline.memory
-        json.perception character.bloodline.perception
-        json.willpower character.bloodline.willpower
-        json.ship_type_id character.bloodline.ship_type_id
-      end
+      json.partial! partial: 'api/eve/shared/bloodline', locals: { bloodline: character.bloodline }
     end
 
     if character.faction
