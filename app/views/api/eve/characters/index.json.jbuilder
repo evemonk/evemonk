@@ -74,18 +74,7 @@ json.characters do
     end
 
     if character.faction
-      json.faction do
-        json.id character.faction.faction_id
-        json.corporation_id character.faction.corporation_id
-        json.name character.faction.name
-        json.description character.faction.description
-        json.militia_corporation_id character.faction.militia_corporation_id
-        json.solar_system_id character.faction.solar_system_id
-        json.station_count character.faction.station_count
-        json.station_system_count character.faction.station_system_count
-        json.size_factor character.faction.size_factor
-        json.is_unique character.faction.is_unique
-      end
+      json.partial! partial: 'api/eve/shared/faction', locals: { faction: character.faction }
     end
 
     if character.race
