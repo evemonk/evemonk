@@ -15,16 +15,7 @@ json.characters do
     json.title character.title
 
     if character.alliance
-      json.alliance do
-        json.id character.alliance.alliance_id
-        json.creator_corporation_id character.alliance.creator_corporation_id
-        json.creator_id character.alliance.creator_id
-        json.date_founded character.alliance.date_founded
-        json.executor_corporation_id character.alliance.executor_corporation_id
-        json.faction_id character.alliance.faction_id
-        json.name character.alliance.name
-        json.ticker character.alliance.ticker
-      end
+      json.partial! partial: 'api/eve/shared/alliance', locals: { faction: character.alliance }
     end
 
     if character.ancestry
