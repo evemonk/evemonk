@@ -1,6 +1,6 @@
 ---
 name: postcss-preset-env
-version: 6.6.0
+version: 6.7.0
 type: npm
 summary: Convert modern CSS into something browsers understand
 homepage: https://github.com/csstools/postcss-preset-env#readme
