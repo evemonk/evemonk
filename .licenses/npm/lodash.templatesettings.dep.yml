@@ -1,14 +1,14 @@
 ---
 name: lodash.templatesettings
-version: 4.1.0
+version: 4.2.0
 type: npm
-summary: The lodash method `_.templateSettings` exported as a module.
+summary: The Lodash method `_.templateSettings` exported as a module.
 homepage: https://lodash.com/
 license: other
 licenses:
 - sources: LICENSE
   text: |
-    Copyright jQuery Foundation and other contributors <https://jquery.org/>
+    Copyright OpenJS Foundation and other contributors <https://openjsf.org/>
 
     Based on Underscore.js, copyright Jeremy Ashkenas,
     DocumentCloud and Investigative Reporters & Editors <http://underscorejs.org/>
