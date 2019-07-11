@@ -29,7 +29,8 @@ describe Api::Eve::CorporationCharactersController do
              ceo_id: 1234,
              creator_id: 4321,
              faction_id: 5555,
-             home_station_id: 999)
+             home_station_id: 999,
+             war_eligible: true)
 
       create(:eve_alliance_corporation,
              alliance_id: 123,
@@ -107,13 +108,16 @@ describe Api::Eve::CorporationCharactersController do
                                                 'title' => 'Character title',
                                                 'alliance' => {
                                                   'id' => 123,
+                                                  'icon' => 'https://imageserver.eveonline.com/Alliance/123_128.png',
                                                   'creator_corporation_id' => 2222,
                                                   'creator_id' => 3333,
                                                   'date_founded' => '2015-05-03T19:45:17Z',
                                                   'executor_corporation_id' => 4444,
                                                   'faction_id' => 5555,
                                                   'name' => 'Alliance name',
-                                                  'ticker' => 'ALLIANCE_TICKER'
+                                                  'ticker' => 'ALLIANCE_TICKER',
+                                                  'corporations_count' => 1,
+                                                  'characters_count' => 2000
                                                 },
                                                 'ancestry' => {
                                                   'id' => 10,
@@ -156,6 +160,7 @@ describe Api::Eve::CorporationCharactersController do
                                                 },
                                                 'corporation' => {
                                                   'id' => 456,
+                                                  'icon' => 'https://imageserver.eveonline.com/Corporation/456_256.png',
                                                   'name' => 'Character corporation name',
                                                   'description' => 'Character corporation description',
                                                   'ticker' => 'TICKER',
@@ -168,7 +173,8 @@ describe Api::Eve::CorporationCharactersController do
                                                   'ceo_id' => 1234,
                                                   'creator_id' => 4321,
                                                   'faction_id' => 5555,
-                                                  'home_station_id' => 999
+                                                  'home_station_id' => 999,
+                                                  'war_eligible' => true
                                                 }
                                               }])
     end
