@@ -15,7 +15,7 @@ describe Api::Eve::AllianceCharactersController do
         #
         # subject.policy_scope(::Eve::Alliance)
         #        .find_by!(alliance_id: params[:alliance_id])
-        #        .decorate
+        #        .decorate # => eve_alliance
         #
         expect(subject).to receive(:policy_scope).with(Eve::Alliance) do
           double.tap do |a|
@@ -83,7 +83,7 @@ describe Api::Eve::AllianceCharactersController do
       before do
         #
         # subject.policy_scope(::Eve::Alliance)
-        #        .find_by!(alliance_id: params[:alliance_id])
+        #        .find_by!(alliance_id: params[:alliance_id]) # => ActiveRecord::RecordNotFound
         #
         expect(subject).to receive(:policy_scope).with(Eve::Alliance) do
           double.tap do |a|
