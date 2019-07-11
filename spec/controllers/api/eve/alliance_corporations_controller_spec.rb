@@ -31,6 +31,10 @@ describe Api::Eve::AllianceCorporationsController do
       before do
         #
         # subject.policy_scope(Eve::Corporation).where(alliance: @alliance)
+        #                                       .includes(:alliance,
+        #                                                 :ceo,
+        #                                                 :creator,
+        #                                                 :faction)
         #                                       .page(params[:page])
         #                                       .decorate
         #
@@ -38,9 +42,13 @@ describe Api::Eve::AllianceCorporationsController do
           double.tap do |a|
             expect(a).to receive(:where).with(alliance: eve_alliance) do
               double.tap do |b|
-                expect(b).to receive(:page).with('1') do
+                expect(b).to receive(:includes).with(:alliance, :ceo, :creator, :faction) do
                   double.tap do |c|
-                    expect(c).to receive(:decorate)
+                    expect(c).to receive(:page).with('1') do
+                      double.tap do |d|
+                        expect(d).to receive(:decorate)
+                      end
+                    end
                   end
                 end
               end
