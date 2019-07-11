@@ -2,6 +2,7 @@
 
 json.corporation do
   json.id corporation.corporation_id
+  json.icon corporation.icon
   json.name corporation.name
   json.description corporation.description
   json.ticker corporation.ticker
