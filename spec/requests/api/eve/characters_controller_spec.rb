@@ -29,7 +29,8 @@ describe Api::Eve::CharactersController do
              ceo_id: 1234,
              creator_id: 4321,
              faction_id: 5555,
-             home_station_id: 999)
+             home_station_id: 999,
+             war_eligible: false)
 
       create(:eve_alliance_corporation,
              alliance_id: 123,
@@ -97,8 +98,8 @@ describe Api::Eve::CharactersController do
                                               'total_pages' => 1,
                                               'current_page' => 1,
                                               'characters' => [{
+                                                'id' => 123_123_123,
                                                 'icon' => 'https://imageserver.eveonline.com/Character/123123123_512.jpg',
-                                                'id' => 123123123,
                                                 'birthday' => '2015-05-03T19:45:17Z',
                                                 'description' => 'Character description',
                                                 'gender' => 'male',
@@ -107,34 +108,55 @@ describe Api::Eve::CharactersController do
                                                 'title' => 'Character title',
                                                 'alliance' => {
                                                   'id' => 123,
+                                                  'icon' => 'https://imageserver.eveonline.com/Alliance/123_128.png',
                                                   'creator_corporation_id' => 2222,
                                                   'creator_id' => 3333,
                                                   'date_founded' => '2015-05-03T19:45:17Z',
                                                   'executor_corporation_id' => 4444,
                                                   'faction_id' => 5555,
                                                   'name' => 'Alliance name',
-                                                  'ticker' => 'ALLIANCE_TICKER'
+                                                  'ticker' => 'ALLIANCE_TICKER',
+                                                  'corporations_count' => 1,
+                                                  'characters_count' => 2000
                                                 },
                                                 'ancestry' => {
                                                   'id' => 10,
-                                                  'name' => 'Ancestry name',
                                                   'bloodline_id' => 12,
-                                                  'description' => 'Ancestry description',
+                                                  'name' => 'Ancestry name',
                                                   'short_description' => 'Ancestry short description',
+                                                  'description' => 'Ancestry description',
                                                   'icon_id' => 14
                                                 },
                                                 'bloodline' => {
                                                   'id' => 12,
+                                                  'corporation_id' => 456,
+                                                  'race_id' => 123,
                                                   'name' => 'Bloodline name',
                                                   'description' => 'Bloodline description',
-                                                  'race_id' => 123,
-                                                  'corporation_id' => 456,
-                                                  'ship_type_id' => 30,
+                                                  'charisma' => 23,
+                                                  'intelligence' => 25,
+                                                  'memory' => 24,
                                                   'perception' => 21,
                                                   'willpower' => 22,
-                                                  'charisma' => 23,
-                                                  'memory' => 24,
-                                                  'intelligence' => 25
+                                                  'ship_type_id' => 30
+                                                },
+                                                'corporation' => {
+                                                  'id' => 456,
+                                                  'icon' => 'https://imageserver.eveonline.com/Corporation/456_256.png',
+                                                  'name' => 'Character corporation name',
+                                                  'description' => 'Character corporation description',
+                                                  'ticker' => 'TICKER',
+                                                  'date_founded' => '2015-05-03T19:45:17Z',
+                                                  'url' => 'https://evemonk.com/',
+                                                  'member_count' => 2000,
+                                                  'shares' => 1000,
+                                                  'tax_rate' => '0.99',
+                                                  'alliance_id' => 123,
+                                                  'ceo_id' => 1234,
+                                                  'creator_id' => 4321,
+                                                  'faction_id' => 5555,
+                                                  'home_station_id' => 999,
+                                                  'war_eligible' => false
                                                 },
                                                 'faction' => {
                                                   'id' => 5555,
@@ -154,22 +176,6 @@ describe Api::Eve::CharactersController do
                                                   'description' => 'Race description',
                                                   'alliance_id' => 123
                                                 },
-                                                'corporation' => {
-                                                  'id' => 456,
-                                                  'name' => 'Character corporation name',
-                                                  'description' => 'Character corporation description',
-                                                  'ticker' => 'TICKER',
-                                                  'date_founded' => '2015-05-03T19:45:17Z',
-                                                  'url' => 'https://evemonk.com/',
-                                                  'member_count' => 2000,
-                                                  'shares' => 1000,
-                                                  'tax_rate' => '0.99',
-                                                  'alliance_id' => 123,
-                                                  'ceo_id' => 1234,
-                                                  'creator_id' => 4321,
-                                                  'faction_id' => 5555,
-                                                  'home_station_id' => 999
-                                                }
                                              }])
     end
   end
@@ -200,7 +206,8 @@ describe Api::Eve::CharactersController do
              ceo_id: 1234,
              creator_id: 4321,
              faction_id: 5555,
-             home_station_id: 999)
+             home_station_id: 999,
+             war_eligible: false)
 
       create(:eve_alliance_corporation,
              alliance_id: 123,
@@ -265,8 +272,8 @@ describe Api::Eve::CharactersController do
       expect(response).to have_http_status(:ok)
 
       expect(JSON.parse(response.body)).to eq('character' => {
-                                                'icon' => 'https://imageserver.eveonline.com/Character/123123123_512.jpg',
                                                 'id' => 123123123,
+                                                'icon' => 'https://imageserver.eveonline.com/Character/123123123_512.jpg',
                                                 'birthday' => '2015-05-03T19:45:17Z',
                                                 'description' => 'Character description',
                                                 'gender' => 'male',
@@ -275,55 +282,41 @@ describe Api::Eve::CharactersController do
                                                 'title' => 'Character title',
                                                 'alliance' => {
                                                   'id' => 123,
+                                                  'icon' => 'https://imageserver.eveonline.com/Alliance/123_128.png',
                                                   'creator_corporation_id' => 2222,
                                                   'creator_id' => 3333,
                                                   'date_founded' => '2015-05-03T19:45:17Z',
                                                   'executor_corporation_id' => 4444,
                                                   'faction_id' => 5555,
                                                   'name' => 'Alliance name',
-                                                  'ticker' => 'ALLIANCE_TICKER'
+                                                  'ticker' => 'ALLIANCE_TICKER',
+                                                  'corporations_count' => 1,
+                                                  'characters_count' => 2000
                                                 },
                                                 'ancestry' => {
                                                   'id' => 10,
-                                                  'name' => 'Ancestry name',
                                                   'bloodline_id' => 12,
-                                                  'description' => 'Ancestry description',
+                                                  'name' => 'Ancestry name',
                                                   'short_description' => 'Ancestry short description',
+                                                  'description' => 'Ancestry description',
                                                   'icon_id' => 14
                                                 },
                                                 'bloodline' => {
                                                   'id' => 12,
+                                                  'corporation_id' => 456,
+                                                  'race_id' => 123,
                                                   'name' => 'Bloodline name',
                                                   'description' => 'Bloodline description',
-                                                  'race_id' => 123,
-                                                  'corporation_id' => 456,
-                                                  'ship_type_id' => 30,
-                                                  'perception' => 21,
-                                                  'willpower' => 22,
                                                   'charisma' => 23,
+                                                  'intelligence' => 25,
                                                   'memory' => 24,
-                                                  'intelligence' => 25
-                                                },
-                                                'faction' => {
-                                                  'id' => 5555,
-                                                  'name' => 'Faction name',
-                                                  'description' => 'Faction description',
-                                                  'solar_system_id' => 10,
-                                                  'corporation_id' => 456,
-                                                  'militia_corporation_id' => 20,
-                                                  'size_factor' => '2.0',
-                                                  'station_count' => 10,
-                                                  'station_system_count' => 100,
-                                                  'is_unique' => true
-                                                },
-                                                'race' => {
-                                                  'id' => 123,
-                                                  'name' => 'Race name',
-                                                  'description' => 'Race description',
-                                                  'alliance_id' => 123
+                                                  'perception' => 21,
+                                                  'willpower' => 22,                                   
+                                                  'ship_type_id' => 30,
                                                 },
                                                 'corporation' => {
                                                   'id' => 456,
+                                                  'icon' => 'https://imageserver.eveonline.com/Corporation/456_256.png',
                                                   'name' => 'Character corporation name',
                                                   'description' => 'Character corporation description',
                                                   'ticker' => 'TICKER',
@@ -336,7 +329,26 @@ describe Api::Eve::CharactersController do
                                                   'ceo_id' => 1234,
                                                   'creator_id' => 4321,
                                                   'faction_id' => 5555,
-                                                  'home_station_id' => 999
+                                                  'home_station_id' => 999,
+                                                  'war_eligible' => false
+                                                },
+                                                'faction' => {
+                                                  'id' => 5555,
+                                                  'corporation_id' => 456,
+                                                  'name' => 'Faction name',
+                                                  'description' => 'Faction description',
+                                                  'militia_corporation_id' => 20,
+                                                  'solar_system_id' => 10,
+                                                  'station_count' => 10,
+                                                  'station_system_count' => 100,
+                                                  'size_factor' => '2.0',
+                                                  'is_unique' => true
+                                                },
+                                                'race' => {
+                                                  'id' => 123,
+                                                  'alliance_id' => 123,
+                                                  'name' => 'Race name',
+                                                  'description' => 'Race description'
                                                 }
                                              })
     end
