@@ -1,6 +1,6 @@
 ---
 name: postcss-initial
-version: 3.0.0
+version: 3.0.1
 type: npm
 summary: PostCSS plugin to fallback initial keyword.
 homepage: https://github.com/maximkoretskiy/postcss-initial#readme
