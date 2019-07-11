@@ -6,6 +6,7 @@ json.current_page @corporations.current_page
 json.corporations do
   json.array! @corporations do |corporation|
     json.id corporation.corporation_id
+    json.icon corporation.icon
     json.name corporation.name
     json.description corporation.description
     json.ticker corporation.ticker

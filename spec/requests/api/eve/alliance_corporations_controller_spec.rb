@@ -87,6 +87,7 @@ describe Api::Eve::AllianceCorporationsController do
                                               'current_page' => 1,
                                               'corporations' => [{
                                                 'id' => 456,
+                                                'icon' => 'https://imageserver.eveonline.com/Corporation/456_256.png',
                                                 'name' => 'Character corporation name',
                                                 'description' => 'Character corporation description',
                                                 'ticker' => 'TICKER',
@@ -103,6 +104,7 @@ describe Api::Eve::AllianceCorporationsController do
                                                 'war_eligible' => false,
                                                 'alliance' => {
                                                   'id' => 123,
+                                                  'icon' => 'https://imageserver.eveonline.com/Alliance/123_128.png',
                                                   'creator_corporation_id' => 2222,
                                                   'creator_id' => 3333,
                                                   'date_founded' => '2015-05-03T19:45:17Z',
