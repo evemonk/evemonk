@@ -14,7 +14,15 @@ describe Api::Eve::CharacterCorporationsHistoryController do
 
       expect(JSON.parse(response.body)).to eq('current_page' => 1,
                                               'total_count' => 0,
-                                              'total_pages' => 0)
+                                              'total_pages' => 0,
+                                              'history' => [
+                                              ])
+    end
+
+    it 'returns 404' do
+      get '/api/eve/characters/456/corporations_history'
+
+      expect(response).to have_http_status(:not_found)
     end
   end
 end
