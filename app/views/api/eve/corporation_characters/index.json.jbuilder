@@ -32,16 +32,16 @@ json.characters do
       json.partial! partial: 'api/eve/shared/bloodline', locals: { bloodline: character.bloodline }
     end
 
+    if character.corporation
+      json.partial! partial: 'api/eve/shared/corporation', locals: { corporation: character.corporation }
+    end
+
     if character.faction
       json.partial! partial: 'api/eve/shared/faction', locals: { faction: character.faction }
     end
 
     if character.race
       json.partial! partial: 'api/eve/shared/race', locals: { race: character.race }
-    end
-
-    if character.corporation
-      json.partial! partial: 'api/eve/shared/corporation', locals: { corporation: character.corporation }
     end
   end
 end
