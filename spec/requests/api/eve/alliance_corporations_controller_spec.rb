@@ -36,11 +36,51 @@ describe Api::Eve::AllianceCorporationsController do
              alliance_id: 123,
              corporation_id: 456)
 
+      create(:eve_character,
+             alliance_id: 123,
+             character_id: 1234,
+             corporation_id: 456,
+             ancestry_id: 10,
+             bloodline_id: 12,
+             faction_id: 5555,
+             race_id: 123,
+             name: 'CEO name',
+             description: '<b>CEO description</b>',
+             gender: 'male',
+             birthday: 'Sun, 03 May 2015 19:45:17 UTC +00:00',
+             security_status: 1.1,
+             title: 'CEO title')
+
+      create(:eve_character,
+             alliance_id: 123,
+             character_id: 4321,
+             corporation_id: 456,
+             ancestry_id: 10,
+             bloodline_id: 12,
+             faction_id: 5555,
+             race_id: 123,
+             name: 'Creator name',
+             description: '<b>Creator description</b>',
+             gender: 'male',
+             birthday: 'Sun, 03 May 2015 19:45:17 UTC +00:00',
+             security_status: 1.1,
+             title: 'Creator title')
+
+      create(:eve_faction,
+             faction_id: 5555,
+             name: 'Faction name',
+             description: 'Faction description',
+             solar_system_id: 10,
+             corporation_id: 456,
+             militia_corporation_id: 20,
+             size_factor: 2.0,
+             station_count: 10,
+             station_system_count: 100,
+             is_unique: true)
+
       get '/api/eve/alliances/123/corporations'
 
       expect(response).to have_http_status(:ok)
-
-      ap JSON.parse(response.body)
 
       expect(JSON.parse(response.body)).to eq('total_count' => 1,
                                               'total_pages' => 1,
@@ -72,6 +112,50 @@ describe Api::Eve::AllianceCorporationsController do
                                                   'ticker' => 'ALLIANCE_TICKER',
                                                   'corporations_count' => 1,
                                                   'characters_count' => 2000
+                                                },
+                                                'ceo' => {
+                                                  'id' => 1234,
+                                                  'icon' => 'https://imageserver.eveonline.com/Character/1234_512.jpg',
+                                                  'alliance_id' => 123,
+                                                  'ancestry_id' => 10,
+                                                  'birthday' => '2015-05-03T19:45:17Z',
+                                                  'bloodline_id' => 12,
+                                                  'corporation_id' => 456,
+                                                  'description' => 'CEO description',
+                                                  'faction_id' => 5555,
+                                                  'gender' => 'male',
+                                                  'name' => 'CEO name',
+                                                  'race_id' => 123,
+                                                  'security_status' => '1.1',
+                                                  'title' => 'CEO title'
+                                                },
+                                                'creator' => {
+                                                  'id' => 4321,
+                                                  'icon' => 'https://imageserver.eveonline.com/Character/4321_512.jpg',
+                                                  'alliance_id' => 123,
+                                                  'ancestry_id' => 10,
+                                                  'birthday' => '2015-05-03T19:45:17Z',
+                                                  'bloodline_id' => 12,
+                                                  'corporation_id' => 456,
+                                                  'description' => 'Creator description',
+                                                  'faction_id' => 5555,
+                                                  'gender' => 'male',
+                                                  'name' => 'Creator name',
+                                                  'race_id' => 123,
+                                                  'security_status' => '1.1',
+                                                  'title' => 'Creator title'
+                                                },
+                                                'faction' => {
+                                                  'id' => 5555,
+                                                  'corporation_id' => 456,
+                                                  'name' => 'Faction name',
+                                                  'description' => 'Faction description',
+                                                  'militia_corporation_id' => 20,
+                                                  'solar_system_id' => 10,
+                                                  'station_count' => 10,
+                                                  'station_system_count' => 100,
+                                                  'size_factor' => '2.0',
+                                                  'is_unique' => true
                                                 }
                                               }])
     end
