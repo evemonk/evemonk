@@ -7,10 +7,16 @@ json.characters do
   json.array! @characters do |character|
     json.id character.character_id
     json.icon character.icon
+    json.alliance_id character.alliance_id
+    json.ancestry_id character.ancestry_id
     json.birthday character.birthday
+    json.bloodline_id character.bloodline_id
+    json.corporation_id character.corporation_id
     json.description character.description
+    json.faction_id character.faction_id
     json.gender character.gender
     json.name character.name
+    json.race_id character.race_id
     json.security_status character.security_status
     json.title character.title
 

@@ -100,10 +100,16 @@ describe Api::Eve::CorporationCharactersController do
                                               'characters' => [{
                                                 'id' => 123_123_123,
                                                 'icon' => 'https://imageserver.eveonline.com/Character/123123123_512.jpg',
+                                                'alliance_id' => 123,
+                                                'ancestry_id' => 10,
                                                 'birthday' => '2015-05-03T19:45:17Z',
+                                                'bloodline_id' => 12,
+                                                'corporation_id' => 456,
                                                 'description' => 'Character description',
+                                                'faction_id' => 5555,
                                                 'gender' => 'male',
                                                 'name' => 'Character name',
+                                                'race_id' => 123,
                                                 'security_status' => '1.1',
                                                 'title' => 'Character title',
                                                 'alliance' => {
