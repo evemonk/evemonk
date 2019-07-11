@@ -114,6 +114,7 @@ describe Api::Eve::AllianceCharactersController do
                                                 'title' => 'Character title',
                                                 'alliance' => {
                                                   'id' => 123,
+                                                  'icon' => 'https://imageserver.eveonline.com/Alliance/123_128.png',
                                                   'creator_corporation_id' => 2222,
                                                   'creator_id' => 3333,
                                                   'date_founded' => '2015-05-03T19:45:17Z',
@@ -155,7 +156,7 @@ describe Api::Eve::AllianceCharactersController do
                                                   'station_count' => 10,
                                                   'station_system_count' => 100,
                                                   'size_factor' => '2.0',
-                                                  'is_unique' => true
+                                                  'is_unique' => true,
                                                 },
                                                 'race' => {
                                                   'id' => 123,
@@ -165,6 +166,7 @@ describe Api::Eve::AllianceCharactersController do
                                                 },
                                                 'corporation' => {
                                                   'id' => 456,
+                                                  'icon' => 'https://imageserver.eveonline.com/Corporation/456_256.png',
                                                   'name' => 'Character corporation name',
                                                   'description' => 'Character corporation description',
                                                   'ticker' => 'TICKER',
