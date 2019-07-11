@@ -62,11 +62,22 @@ describe Api::Eve::AlliancesController do
       before do
         #
         # subject.policy_scope(::Eve::Alliance)
+        #        .includes(:faction,
+        #                  :creator_corporation,
+        #                  :creator,
+        #                  :executor_corporation)
         #        .find_by!(corporation_id: params[:id]) # => eve_alliance
         #
         expect(subject).to receive(:policy_scope).with(Eve::Alliance) do
           double.tap do |a|
-            expect(a).to receive(:find_by!).with(alliance_id: '99005443').and_return(eve_alliance)
+            expect(a).to receive(:includes).with(:faction,
+                                                 :creator_corporation,
+                                                 :creator,
+                                                 :executor_corporation) do
+              double.tap do |b|
+                expect(b).to receive(:find_by!).with(alliance_id: '99005443').and_return(eve_alliance)
+              end
+            end
           end
         end
       end
@@ -94,11 +105,22 @@ describe Api::Eve::AlliancesController do
       before do
         #
         # subject.policy_scope(::Eve::Alliance)
+        #        .includes(:faction,
+        #                  :creator_corporation,
+        #                  :creator,
+        #                  :executor_corporation)
         #        .find_by!(alliance_id: params[:id]) # => ActiveRecord::RecordNotFound
         #
         expect(subject).to receive(:policy_scope).with(Eve::Alliance) do
           double.tap do |a|
-            expect(a).to receive(:find_by!).with(alliance_id: '99005443').and_raise(ActiveRecord::RecordNotFound)
+            expect(a).to receive(:includes).with(:faction,
+                                                 :creator_corporation,
+                                                 :creator,
+                                                 :executor_corporation) do
+              double.tap do |b|
+                expect(b).to receive(:find_by!).with(alliance_id: '99005443').and_raise(ActiveRecord::RecordNotFound)
+              end
+            end
           end
         end
       end
