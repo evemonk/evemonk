@@ -15,43 +15,41 @@ describe Api::Eve::CorporationsController do
              description: '<b>Character corporation description</b>',
              ticker: 'TICKER',
              date_founded: 'Sun, 03 May 2015 19:45:17 UTC +00:00',
-             member_count: 2000)
+             corporation_url: 'https://evemonk.com/',
+             member_count: 2000,
+             shares: 1000,
+             tax_rate: 0.99,
+             ceo_id: 1234,
+             creator_id: 4321,
+             faction_id: 5555,
+             home_station_id: 999,
+             war_eligible: false)
 
       get '/api/eve/corporations'
 
       expect(response).to have_http_status(:ok)
 
-      expect(JSON.parse(response.body).keys.sort).to eq(['corporations', 'current_page', 'total_count', 'total_pages'])
-
-      expect(JSON.parse(response.body)['total_count']).to eq(1)
-
-      expect(JSON.parse(response.body)['total_pages']).to eq(1)
-
-      expect(JSON.parse(response.body)['current_page']).to eq(1)
-
-      expect(JSON.parse(response.body)['corporations'].size).to eq(1)
-
-      expect(JSON.parse(response.body)['corporations'].first.keys.sort).to eq(['date_founded',
-                                                                               'description',
-                                                                               'icon',
-                                                                               'id',
-                                                                               'member_count',
-                                                                               'name',
-                                                                               'ticker'])
-
-      expect(JSON.parse(response.body)['corporations'].first['id']).to eq(456)
-
-      expect(JSON.parse(response.body)['corporations'].first['icon']).to eq('https://imageserver.eveonline.com/Corporation/456_256.png')
-
-      expect(JSON.parse(response.body)['corporations'].first['date_founded']).to eq('2015-05-03T19:45:17Z')
-
-      expect(JSON.parse(response.body)['corporations'].first['name']).to eq('Character corporation name')
-
-      expect(JSON.parse(response.body)['corporations'].first['description']).to eq('Character corporation description')
-
-      expect(JSON.parse(response.body)['corporations'].first['member_count']).to eq(2000)
-
-      expect(JSON.parse(response.body)['corporations'].first['ticker']).to eq('TICKER')
+      expect(JSON.parse(response.body)).to eq('current_page' => 1,
+                                              'total_count' => 1,
+                                              'total_pages' => 1,
+                                              'corporations' => [{
+                                                'id' => 456,
+                                                'icon' => 'https://imageserver.eveonline.com/Corporation/456_256.png',
+                                                'alliance_id' => 123,
+                                                'ceo_id' => 1234,
+                                                'creator_id' => 4321,
+                                                'date_founded' => '2015-05-03T19:45:17Z',
+                                                'description' => 'Character corporation description',
+                                                'faction_id' => 5555,
+                                                'home_station_id' => 999,
+                                                'member_count' => 2000,
+                                                'name' => 'Character corporation name',
+                                                'shares' => 1000,
+                                                'tax_rate' => '0.99',
+                                                'ticker' => 'TICKER',
+                                                'corporation_url' => 'https://evemonk.com/',
+                                                'war_eligible' => false
+                                              }])
     end
   end
 
@@ -67,35 +65,38 @@ describe Api::Eve::CorporationsController do
              description: '<b>Character corporation description</b>',
              ticker: 'TICKER',
              date_founded: 'Sun, 03 May 2015 19:45:17 UTC +00:00',
-             member_count: 2000)
+             corporation_url: 'https://evemonk.com/',
+             member_count: 2000,
+             shares: 1000,
+             tax_rate: 0.99,
+             ceo_id: 1234,
+             creator_id: 4321,
+             faction_id: 5555,
+             home_station_id: 999,
+             war_eligible: false)
 
       get '/api/eve/corporations/456'
 
       expect(response).to have_http_status(:ok)
 
-      expect(JSON.parse(response.body).keys.sort).to eq(['corporation'])
-
-      expect(JSON.parse(response.body)['corporation'].keys.sort).to eq(['date_founded',
-                                                                        'description',
-                                                                        'icon',
-                                                                        'id',
-                                                                        'member_count',
-                                                                        'name',
-                                                                        'ticker'])
-
-      expect(JSON.parse(response.body)['corporation']['id']).to eq(456)
-
-      expect(JSON.parse(response.body)['corporation']['icon']).to eq('https://imageserver.eveonline.com/Corporation/456_256.png')
-
-      expect(JSON.parse(response.body)['corporation']['date_founded']).to eq('2015-05-03T19:45:17Z')
-
-      expect(JSON.parse(response.body)['corporation']['name']).to eq('Character corporation name')
-
-      expect(JSON.parse(response.body)['corporation']['description']).to eq('Character corporation description')
-
-      expect(JSON.parse(response.body)['corporation']['member_count']).to eq(2000)
-
-      expect(JSON.parse(response.body)['corporation']['ticker']).to eq('TICKER')
+      expect(JSON.parse(response.body)).to eq('corporation' => {
+                                                'id' => 456,
+                                                'icon' => 'https://imageserver.eveonline.com/Corporation/456_256.png',
+                                                'alliance_id' => 123,
+                                                'ceo_id' => 1234,
+                                                'creator_id' => 4321,
+                                                'date_founded' => '2015-05-03T19:45:17Z',
+                                                'description' => 'Character corporation description',
+                                                'faction_id' => 5555,
+                                                'home_station_id' => 999,
+                                                'member_count' => 2000,
+                                                'name' => 'Character corporation name',
+                                                'shares' => 1000,
+                                                'tax_rate' => '0.99',
+                                                'ticker' => 'TICKER',
+                                                'corporation_url' => 'https://evemonk.com/',
+                                                'war_eligible' => false
+                                              })
     end
 
     it 'returns 404' do
