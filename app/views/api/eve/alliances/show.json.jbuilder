@@ -19,7 +19,8 @@ json.alliance do
   end
 
   if @alliance.creator
-    json.partial! partial: 'api/eve/shared/creator', locals: { creator: @alliance.creator }
+    json.partial! partial: 'api/eve/shared/creator',
+                  locals: { creator: @alliance.creator }
   end
 
   if @alliance.executor_corporation
@@ -28,6 +29,7 @@ json.alliance do
   end
 
   if @alliance.faction
-    json.partial! partial: 'api/eve/shared/faction', locals: { faction: @alliance.faction }
+    json.partial! partial: 'api/eve/shared/faction',
+                  locals: { faction: @alliance.faction }
   end
 end
