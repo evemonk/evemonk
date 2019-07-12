@@ -41,7 +41,7 @@ before_script:
 
 script:
   - bundle exec rspec --profile
-  - bundle exec bundle-audit || true
+  - bundle exec bundle-audit
   - yarn audit
   - bundle exec brakeman
   - bundle exec mdl README.md
