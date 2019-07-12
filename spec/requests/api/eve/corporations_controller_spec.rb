@@ -56,7 +56,14 @@ describe Api::Eve::CorporationsController do
   describe '#show' do
     it 'returns Eve Corporation' do
       create(:eve_alliance,
-             alliance_id: 123)
+             alliance_id: 123,
+             creator_corporation_id: 2222,
+             creator_id: 3333,
+             date_founded: 'Sun, 03 May 2015 19:45:17 UTC +00:00',
+             executor_corporation_id: 4444,
+             faction_id: 5555,
+             name: 'Alliance name',
+             ticker: 'ALLIANCE_TICKER')
 
       create(:eve_corporation,
              alliance_id: 123,
@@ -75,9 +82,15 @@ describe Api::Eve::CorporationsController do
              home_station_id: 999,
              war_eligible: false)
 
+      create(:eve_alliance_corporation,
+             alliance_id: 123,
+             corporation_id: 456)
+
       get '/api/eve/corporations/456'
 
       expect(response).to have_http_status(:ok)
+
+      ap JSON.parse(response.body)
 
       expect(JSON.parse(response.body)).to eq('corporation' => {
                                                 'id' => 456,
@@ -95,7 +108,20 @@ describe Api::Eve::CorporationsController do
                                                 'tax_rate' => '0.99',
                                                 'ticker' => 'TICKER',
                                                 'corporation_url' => 'https://evemonk.com/',
-                                                'war_eligible' => false
+                                                'war_eligible' => false,
+                                                'alliance' => {
+                                                  'id' => 123,
+                                                  'icon' => 'https://imageserver.eveonline.com/Alliance/123_128.png',
+                                                  'creator_corporation_id' => 2222,
+                                                  'creator_id' => 3333,
+                                                  'date_founded' => '2015-05-03T19:45:17Z',
+                                                  'executor_corporation_id' => 4444,
+                                                  'faction_id' => 5555,
+                                                  'name' => 'Alliance name',
+                                                  'ticker' => 'ALLIANCE_TICKER',
+                                                  'corporations_count' => 1,
+                                                  'characters_count' => 2000
+                                                }
                                               })
     end
 
