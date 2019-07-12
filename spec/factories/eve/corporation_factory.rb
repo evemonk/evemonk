@@ -30,6 +30,6 @@ FactoryBot.define do
 
     sequence(:shares)
 
-    war_eligible { false }
+    war_eligible { [true, false].sample }
   end
 end

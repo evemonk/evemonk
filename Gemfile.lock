@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/evemonk/eve_online.git
-  revision: 125c40681df2402a7df08dcc7a2c215da576dbc9
+  revision: c542ec3d58a887b5c693fc8bd91d79420335ce25
   branch: master
   specs:
     eve_online (0.27.0)
@@ -16,7 +16,7 @@ GIT
 
 GIT
   remote: https://github.com/rspec/rspec-core.git
-  revision: e1c0fb59571c93ef7bea010ac886fa661715419b
+  revision: 77dbc84657c5dc45e07a7fe0f5b02b4caeb6c9ad
   branch: master
   specs:
     rspec-core (3.9.0.pre)
@@ -24,7 +24,7 @@ GIT
 
 GIT
   remote: https://github.com/rspec/rspec-expectations.git
-  revision: 45e5070c797fb4cb6166c8daca2ea68e31aeca40
+  revision: 51ba18313b8a3100727bb8628798eeea408628b3
   branch: master
   specs:
     rspec-expectations (3.9.0.pre)
@@ -33,7 +33,7 @@ GIT
 
 GIT
   remote: https://github.com/rspec/rspec-mocks.git
-  revision: b789d70b76d5bde224796de6e5d2c5af2bbd291b
+  revision: af72baa61793b4c2e440d3b23e1c3682f3e61ca7
   branch: master
   specs:
     rspec-mocks (3.9.0.pre)
@@ -42,7 +42,7 @@ GIT
 
 GIT
   remote: https://github.com/rspec/rspec-support.git
-  revision: 667ad802a4fadd153044e6223a8561a1e143e202
+  revision: 6deb13fb055c2638e8dc8a7aaaa7e72b266edcd6
   branch: master
   specs:
     rspec-support (3.9.0.pre)
@@ -182,7 +182,6 @@ GEM
     elasticsearch-transport (7.2.0)
       faraday
       multi_json
-    equatable (0.6.1)
     errbase (0.1.1)
     erubi (1.8.0)
     erubis (2.7.0)
@@ -193,16 +192,11 @@ GEM
     factory_bot_rails (5.0.2)
       factory_bot (~> 5.0.2)
       railties (>= 4.2.0)
-    faker (1.9.4)
+    faker (1.9.6)
       i18n (>= 0.7)
-      pastel (~> 0.7.2)
-      thor (~> 0.20.0)
-      tty-pager (~> 0.12.0)
-      tty-screen (~> 0.6.5)
-      tty-tree (~> 0.3.0)
     faraday (0.15.4)
       multipart-post (>= 1.2, < 3)
-    fasterer (0.5.1)
+    fasterer (0.6.0)
       colorize (~> 0.7)
       ruby_parser (>= 3.13.0)
     ffi (1.11.1)
@@ -213,7 +207,8 @@ GEM
       launchy (~> 2.4)
       octokit (~> 4.0)
       thor (~> 0.19)
-    get_process_mem (0.2.3)
+    get_process_mem (0.2.4)
+      ffi (~> 1.0)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     hashdiff (0.4.0)
@@ -278,7 +273,7 @@ GEM
     memory_profiler (0.9.14)
     method_source (0.9.2)
     mimemagic (0.3.3)
-    mini_mime (1.0.1)
+    mini_mime (1.0.2)
     mini_portile2 (2.4.0)
     minitest (5.11.3)
     mixlib-cli (1.7.0)
@@ -297,7 +292,7 @@ GEM
       http-2 (~> 0.10.1)
     newrelic_rpm (6.5.0.357)
     niceql (0.1.25)
-    nio4r (2.3.1)
+    nio4r (2.4.0)
     nokogiri (1.10.3)
       mini_portile2 (~> 2.4.0)
     oauth2 (1.4.1)
@@ -319,9 +314,6 @@ GEM
     parallel (1.17.0)
     parser (2.6.3.0)
       ast (~> 2.4.0)
-    pastel (0.7.3)
-      equatable (~> 0.6)
-      tty-color (~> 0.5)
     pathname-common_prefix (0.0.1)
     pg (1.1.4)
     pg_query (1.1.0)
@@ -338,7 +330,7 @@ GEM
     pry-rails (0.3.9)
       pry (>= 0.10.4)
     public_suffix (3.1.1)
-    puma (4.0.0)
+    puma (4.0.1)
       nio4r (~> 2.0)
     pundit (2.0.1)
       activesupport (>= 3.0.0)
@@ -440,7 +432,7 @@ GEM
       unicode-display_width (>= 1.4.0, < 1.7)
     rubocop-performance (1.4.0)
       rubocop (>= 0.71.0)
-    rubocop-rails (2.1.0)
+    rubocop-rails (2.2.0)
       rack (>= 1.1)
       rubocop (>= 0.72.0)
     rubocop-rspec (1.33.0)
@@ -525,28 +517,14 @@ GEM
       sprockets (>= 3.0.0)
     sql_tracker (1.2.1)
     squasher (0.6.2)
-    strings (0.1.5)
-      strings-ansi (~> 0.1)
-      unicode-display_width (~> 1.5)
-      unicode_utils (~> 1.4)
-    strings-ansi (0.1.0)
     swagger-blocks (2.0.2)
     thor (0.20.3)
     thread_safe (0.3.6)
     tilt (2.0.9)
     tomlrb (1.2.8)
-    tty-color (0.5.0)
-    tty-pager (0.12.1)
-      strings (~> 0.1.4)
-      tty-screen (~> 0.6)
-      tty-which (~> 0.4)
-    tty-screen (0.6.5)
-    tty-tree (0.3.0)
-    tty-which (0.4.1)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
     unicode-display_width (1.6.0)
-    unicode_utils (1.4.0)
     uniform_notifier (1.12.1)
     vcr (5.0.0)
     webdrivers (4.1.0)

@@ -1,6 +1,6 @@
 ---
 name: mini_mime
-version: 1.0.1
+version: 1.0.2
 type: bundler
 summary: A lightweight mime type lookup toy
 homepage: https://github.com/discourse/mini_mime

@@ -19,7 +19,7 @@ describe Eve::AllianceCorporationsImporter do
 
   describe '#import' do
     context 'when fresh data available' do
-      let(:etag) { instance_double(Etag, etag: '97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a') }
+      let(:etag) { instance_double(Eve::Etag, etag: '97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a') }
 
       let(:new_etag) { double }
 
@@ -45,7 +45,7 @@ describe Eve::AllianceCorporationsImporter do
     end
 
     context 'when no fresh data available' do
-      let(:etag) { instance_double(Etag, etag: '97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a') }
+      let(:etag) { instance_double(Eve::Etag, etag: '97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a') }
 
       let(:esi) do
         instance_double(EveOnline::ESI::AllianceCorporations,
@@ -186,7 +186,7 @@ describe Eve::AllianceCorporationsImporter do
 
   describe '#etag' do
     context 'when @etag set' do
-      let(:etag) { instance_double(Etag) }
+      let(:etag) { instance_double(Eve::Etag) }
 
       before { subject.instance_variable_set(:@etag, etag) }
 
@@ -198,11 +198,11 @@ describe Eve::AllianceCorporationsImporter do
 
       let(:esi) { instance_double(EveOnline::ESI::AllianceCorporations, url: url) }
 
-      let(:etag) { instance_double(Etag) }
+      let(:etag) { instance_double(Eve::Etag) }
 
       before { expect(EveOnline::ESI::AllianceCorporations).to receive(:new).with(alliance_id: alliance_id).and_return(esi) }
 
-      before { expect(Etag).to receive(:find_or_initialize_by).with(url: url).and_return(etag) }
+      before { expect(Eve::Etag).to receive(:find_or_initialize_by).with(url: url).and_return(etag) }
 
       specify { expect { subject.send(:etag) }.not_to raise_error }
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_30_205606) do
+ActiveRecord::Schema.define(version: 2019_07_08_164119) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,21 @@ ActiveRecord::Schema.define(version: 2019_06_30_205606) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "character_assets", force: :cascade do |t|
+    t.bigint "character_id"
+    t.boolean "is_blueprint_copy"
+    t.boolean "is_singleton"
+    t.bigint "item_id"
+    t.string "location_flag"
+    t.bigint "location_id"
+    t.string "location_type"
+    t.bigint "quantity"
+    t.bigint "type_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["character_id"], name: "index_character_assets_on_character_id"
   end
 
   create_table "characters", force: :cascade do |t|
@@ -85,7 +100,6 @@ ActiveRecord::Schema.define(version: 2019_06_30_205606) do
     t.text "etag", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["url"], name: "index_etags_on_url", unique: true
   end
 
   create_table "eve_alliance_corporations", force: :cascade do |t|
@@ -109,6 +123,7 @@ ActiveRecord::Schema.define(version: 2019_06_30_205606) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "corporations_count", default: 0
+    t.bigint "characters_count", default: 0
     t.index ["alliance_id"], name: "index_eve_alliances_on_alliance_id", unique: true
   end
 
@@ -194,6 +209,14 @@ ActiveRecord::Schema.define(version: 2019_06_30_205606) do
     t.boolean "war_eligible"
     t.index ["alliance_id"], name: "index_eve_corporations_on_alliance_id"
     t.index ["corporation_id"], name: "index_eve_corporations_on_corporation_id", unique: true
+  end
+
+  create_table "eve_etags", force: :cascade do |t|
+    t.text "url", null: false
+    t.text "etag", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["url"], name: "index_eve_etags_on_url", unique: true
   end
 
   create_table "eve_factions", force: :cascade do |t|
@@ -418,6 +441,7 @@ ActiveRecord::Schema.define(version: 2019_06_30_205606) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "character_assets", "characters"
   add_foreign_key "characters", "users"
   add_foreign_key "sessions", "users"
 end

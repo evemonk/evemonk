@@ -31,11 +31,11 @@ describe Eve::CharactersSearcher do
 
   describe '#search' do
     context 'when query is empty' do
-      let!(:character1) { create(:eve_character) }
+      let!(:character1) { create(:eve_character, name: 'a') }
 
-      let!(:character2) { create(:eve_character) }
+      let!(:character2) { create(:eve_character, name: 'b') }
 
-      let!(:character3) { create(:eve_character) }
+      let!(:character3) { create(:eve_character, name: 'c') }
 
       subject { described_class.new }
 
@@ -43,7 +43,7 @@ describe Eve::CharactersSearcher do
 
       specify { expect(subject.search.respond_to?(:all)).to eq(true) }
 
-      specify { expect(subject.search.to_a).to include(character1, character2, character3) }
+      specify { expect(subject.search.to_a).to eq([character1, character2, character3]) }
     end
 
     context 'when query is present' do

@@ -30,9 +30,9 @@ describe Eve::CorporationImporter do
 
         before { expect(EveOnline::ESI::Corporation).to receive(:new).with(corporation_id: corporation_id).and_return(esi) }
 
-        let(:etag) { instance_double(Etag, etag: '68ad4a11893776c0ffc80845edeb2687c0122f56287d2aecadf8739b') }
+        let(:etag) { instance_double(Eve::Etag, etag: '68ad4a11893776c0ffc80845edeb2687c0122f56287d2aecadf8739b') }
 
-        before { expect(Etag).to receive(:find_or_initialize_by).with(url: url).and_return(etag) }
+        before { expect(Eve::Etag).to receive(:find_or_initialize_by).with(url: url).and_return(etag) }
 
         before { expect(esi).to receive(:etag=).with('68ad4a11893776c0ffc80845edeb2687c0122f56287d2aecadf8739b') }
 
@@ -79,9 +79,9 @@ describe Eve::CorporationImporter do
 
       before { expect(EveOnline::ESI::Corporation).to receive(:new).with(corporation_id: corporation_id).and_return(esi) }
 
-      let(:etag) { instance_double(Etag, etag: '68ad4a11893776c0ffc80845edeb2687c0122f56287d2aecadf8739b') }
+      let(:etag) { instance_double(Eve::Etag, etag: '68ad4a11893776c0ffc80845edeb2687c0122f56287d2aecadf8739b') }
 
-      before { expect(Etag).to receive(:find_or_initialize_by).with(url: url).and_return(etag) }
+      before { expect(Eve::Etag).to receive(:find_or_initialize_by).with(url: url).and_return(etag) }
 
       before { expect(esi).to receive(:etag=).with('68ad4a11893776c0ffc80845edeb2687c0122f56287d2aecadf8739b') }
 

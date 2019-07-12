@@ -1,6 +1,6 @@
 ---
 name: lodash
-version: 4.17.11
+version: 4.17.14
 type: npm
 summary: Lodash modular utilities.
 homepage: https://lodash.com/
@@ -8,7 +8,7 @@ license: other
 licenses:
 - sources: LICENSE
   text: |
-    Copyright JS Foundation and other contributors <https://js.foundation/>
+    Copyright OpenJS Foundation and other contributors <https://openjsf.org/>
 
     Based on Underscore.js, copyright Jeremy Ashkenas,
     DocumentCloud and Investigative Reporters & Editors <http://underscorejs.org/>

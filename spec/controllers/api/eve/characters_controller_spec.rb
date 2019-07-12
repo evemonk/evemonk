@@ -62,16 +62,11 @@ describe Api::Eve::CharactersController do
       before do
         #
         # subject.policy_scope(::Eve::Character)
-        #        .includes(character_corporation_histories: :corporation)
         #        .find_by!(character_id: params[:id]) # => eve_character
         #
         expect(subject).to receive(:policy_scope).with(Eve::Character) do
           double.tap do |a|
-            expect(a).to receive(:includes).with(character_corporation_histories: :corporation) do
-              double.tap do |b|
-                expect(b).to receive(:find_by!).with(character_id: '90729314').and_return(eve_character)
-              end
-            end
+            expect(a).to receive(:find_by!).with(character_id: '90729314').and_return(eve_character)
           end
         end
       end
@@ -99,16 +94,11 @@ describe Api::Eve::CharactersController do
       before do
         #
         # subject.policy_scope(::Eve::Character)
-        #        .includes(character_corporation_histories: :corporation)
         #        .find_by!(character_id: params[:id]) # => ActiveRecord::RecordNotFound
         #
         expect(subject).to receive(:policy_scope).with(Eve::Character) do
           double.tap do |a|
-            expect(a).to receive(:includes).with(character_corporation_histories: :corporation) do
-              double.tap do |b|
-                expect(b).to receive(:find_by!).with(character_id: '90729314').and_raise(ActiveRecord::RecordNotFound)
-              end
-            end
+            expect(a).to receive(:find_by!).with(character_id: '90729314').and_raise(ActiveRecord::RecordNotFound)
           end
         end
       end

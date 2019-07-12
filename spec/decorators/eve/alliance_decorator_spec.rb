@@ -9,8 +9,8 @@ describe Eve::AllianceDecorator do
 
   describe '#date_founded' do
     let(:eve_alliance) do
-      create(:eve_alliance,
-             date_founded: 'Sun, 03 May 2015 19:45:17 UTC +00:00')
+      build(:eve_alliance,
+            date_founded: 'Sun, 03 May 2015 19:45:17 UTC +00:00')
     end
 
     subject { eve_alliance.decorate }
@@ -20,8 +20,8 @@ describe Eve::AllianceDecorator do
 
   describe '#icon' do
     let(:eve_alliance) do
-      create(:eve_alliance,
-             alliance_id: 123)
+      build(:eve_alliance,
+            alliance_id: 123)
     end
 
     subject { eve_alliance.decorate }

@@ -21,6 +21,8 @@ module Eve
 
       relation = relation.where(id: ids) if ids.present?
 
+      relation = relation.order(name: :asc) if ids.blank?
+
       relation
     end
   end

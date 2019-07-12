@@ -23,7 +23,7 @@ module Eve
     private
 
     def etag
-      @etag ||= Etag.find_or_initialize_by(url: esi.url)
+      @etag ||= Eve::Etag.find_or_initialize_by(url: esi.url)
     end
 
     def import_new_alliances

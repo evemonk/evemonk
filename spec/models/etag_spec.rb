@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require 'rails_helper'
 
 describe Etag do
@@ -8,7 +6,7 @@ describe Etag do
   it { should validate_presence_of(:url) }
 
   describe 'uniqueness' do
-    subject { create(:etag) }
+    subject { create(:eve_etag) }
 
     it { should validate_uniqueness_of(:url) }
   end

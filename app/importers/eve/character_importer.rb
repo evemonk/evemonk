@@ -13,7 +13,7 @@ module Eve
 
       esi = EveOnline::ESI::Character.new(character_id: character_id)
 
-      etag = Etag.find_or_initialize_by(url: esi.url)
+      etag = Eve::Etag.find_or_initialize_by(url: esi.url)
 
       esi.etag = etag.etag
 

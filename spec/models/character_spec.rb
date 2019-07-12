@@ -20,4 +20,18 @@ describe Character do
   it { should belong_to(:corporation).class_name('Eve::Corporation').with_primary_key(:corporation_id).optional }
 
   it { should have_many(:loyalty_points).dependent(:destroy) }
+
+  describe '#token_expired?' do
+    context 'when expired' do
+      subject { create(:character, token_expires_at: Time.zone.now - 1.hour) }
+
+      specify { expect(subject.token_expired?).to eq(true) }
+    end
+
+    context 'when not expired' do
+      subject { create(:character, token_expires_at: Time.zone.now + 1.hour) }
+
+      specify { expect(subject.token_expired?).to eq(false) }
+    end
+  end
 end

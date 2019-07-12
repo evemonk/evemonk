@@ -24,7 +24,7 @@ before_install:
   - bundle --version
   - nvm install
   - node -v
-  - npm install -g npm@6.9.0
+  - npm install -g npm@6.10.0
   - npm -v
   - npm i -g yarn@1.16.0
   - yarn -v
@@ -41,11 +41,12 @@ before_script:
 
 script:
   - bundle exec rspec --profile
-  - bundle exec bundle-audit
+  - bundle exec bundle-audit || true
   - yarn audit
   - bundle exec brakeman
   - bundle exec mdl README.md
   - bundle exec mdl CHANGELOG.md
+  - bundle exec mdl DEVELOPMENT.md
   - bundle exec fasterer
   - bundle exec rubocop || true
   - bundle exec licensed status || true

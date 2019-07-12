@@ -31,11 +31,11 @@ describe Eve::CorporationsSearcher do
 
   describe '#search' do
     context 'when query is empty' do
-      let!(:corporation1) { create(:eve_corporation) }
+      let!(:corporation1) { create(:eve_corporation, name: 'a') }
 
-      let!(:corporation2) { create(:eve_corporation) }
+      let!(:corporation2) { create(:eve_corporation, name: 'b') }
 
-      let!(:corporation3) { create(:eve_corporation) }
+      let!(:corporation3) { create(:eve_corporation, name: 'c') }
 
       subject { described_class.new }
 
@@ -43,7 +43,7 @@ describe Eve::CorporationsSearcher do
 
       specify { expect(subject.search.respond_to?(:all)).to eq(true) }
 
-      specify { expect(subject.search.to_a).to include(corporation1, corporation2, corporation3) }
+      specify { expect(subject.search.to_a).to eq([corporation1, corporation2, corporation3]) }
     end
 
     context 'when query is present' do

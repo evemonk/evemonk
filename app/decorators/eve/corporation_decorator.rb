@@ -5,7 +5,7 @@ module Eve
     decorates_associations :alliance, :ceo, :creator, :faction, :characters
 
     def date_founded
-      object.date_founded.iso8601 if object.date_founded
+      object.date_founded&.iso8601
     end
 
     def description
@@ -14,6 +14,10 @@ module Eve
 
     def icon
       "https://imageserver.eveonline.com/Corporation/#{ corporation_id }_256.png"
+    end
+
+    def tax_rate
+      object.tax_rate.to_s
     end
   end
 end
