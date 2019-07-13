@@ -60,15 +60,40 @@
       }
     },
 
+    watch: {
+      current_page: function (page) {
+        this.fetchUniverseCharacterCorporationsHistory({ id: this.id, page: page }).then(response => {
+          if (response.status === 200) {
+            this.history.push(...response.data.history);
+
+            if (this.current_page < this.total_pages) {
+              this.current_page++;
+            } else {
+              this.loaded = true;
+              this.loading = false;
+            }
+          } else {
+            this.loading = false;
+            this.loaded = false;
+            this.error = true;
+          }
+        });
+      }
+    },
+
     created () {
-      this.fetchUniverseCharacterCorporationsHistory({ id: this.id, page: '1' }).then(response => {
+      this.fetchUniverseCharacterCorporationsHistory({ id: this.id, page: this.current_page }).then(response => {
         if (response.status === 200) {
           this.history.push(...response.data.history);
           this.total_count = response.data.total_count;
           this.total_pages = response.data.total_pages;
 
-          this.loaded = true;
-          this.loading = false;
+          if (this.current_page < this.total_pages) {
+            this.current_page++;
+          } else {
+            this.loaded = true;
+            this.loading = false;
+          }
         } else {
           this.loading = false;
           this.loaded = false;
