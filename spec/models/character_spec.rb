@@ -21,6 +21,8 @@ describe Character do
 
   it { should have_many(:loyalty_points).dependent(:destroy) }
 
+  it { should have_many(:character_assets).dependent(:destroy) }
+
   describe '#token_expired?' do
     context 'when expired' do
       subject { create(:character, token_expires_at: Time.zone.now - 1.hour) }
