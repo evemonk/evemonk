@@ -248,7 +248,7 @@ const store = new Vuex.Store({
 
     async fetchUniverseCharacterCorporationsHistory({ commit, state }, { id, page }) {
       try {
-        return await axios.get(`/api/eve/characters/${id}/corporations_history?page=${page}}`);
+        return await axios.get(`/api/eve/characters/${id}/corporations_history?page=${page}`);
       } catch (error) {
         return error;
       }

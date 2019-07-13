@@ -28,12 +28,38 @@
                       <div>
                         <div class="headline" itemprop="name">{{ character.name }}</div>
                         <div>
-                          <template v-if="character.corporation">
-                            <router-link :to="{ name: 'universe_corporation', params: { id: character.corporation.id }}">{{ character.corporation.name }}</router-link> /
+
+                          <template v-if="character.corporation && character.alliance">
+                            <div>
+                              <router-link :to="{ name: 'universe_corporation',
+                                                  params: { id: character.corporation.id }}">
+                                {{ character.corporation.name }}
+                              </router-link> /
+                              <router-link :to="{ name: 'universe_alliance',
+                                                  params: { id: character.alliance.id }}">
+                                {{ character.alliance.name }}
+                              </router-link>
+                            </div>
                           </template>
-                          <template v-if="character.alliance">
-                            <router-link :to="{ name: 'universe_alliance', params: { id: character.alliance.id }}" v-if="character.alliance">{{ character.alliance.name }}</router-link>
+
+                          <template v-else-if="character.corporation">
+                            <div>
+                              <router-link :to="{ name: 'universe_corporation',
+                                                  params: { id: character.corporation.id }}">
+                                {{ character.corporation.name }}
+                              </router-link>
+                            </div>
                           </template>
+
+                          <template v-else-if="character.alliance">
+                            <div>
+                              <router-link :to="{ name: 'universe_alliance',
+                                                  params: { id: character.alliance.id }}">
+                                {{ character.alliance.name }}
+                              </router-link>
+                            </div>
+                          </template>
+
                         </div>
 
                         <div>{{ character.description }}</div>
@@ -75,42 +101,17 @@
         </v-container>
       </v-card>
 
-      <v-card-title>
-        Corporations History
-        <v-spacer></v-spacer>
-        <v-text-field v-model="search"
-                      append-icon="search"
-                      label="Search"
-                      single-line
-                      hide-details>
-        </v-text-field>
-      </v-card-title>
-
-      <v-data-table :headers="headers"
-                    :items="character.corporations_history"
-                    :search="search"
-                    hide-actions
-                    dark>
-        <template v-slot:items="props">
-          <td>
-            <router-link :to="{ name: 'universe_corporation', params: { id: props.item.id }}">{{ props.item.name }}</router-link>
-          </td>
-          <td class="text-xs-right">{{ props.item.start_date }}</td>
-        </template>
-
-        <template v-slot:no-results>
-          <v-alert :value="true" color="error" icon="warning">
-            Your search for "{{ search }}" found no results.
-          </v-alert>
-        </template>
-      </v-data-table>
-
+      <character-corporation-history
+        v-bind:key="character.id"
+        v-bind="character">
+      </character-corporation-history>
     </template>
   </div>
 </template>
 
 <script>
   import { mapActions } from 'vuex';
+  import CharacterCorporationHistory from './character_corporation_history.vue'
 
   export default {
     data () {
@@ -143,6 +144,10 @@
         ],
         search: '',
       }
+    },
+
+    components: {
+      'character-corporation-history': CharacterCorporationHistory,
     },
 
     created () {

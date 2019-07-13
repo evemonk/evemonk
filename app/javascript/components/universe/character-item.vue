@@ -16,20 +16,28 @@
 
               <template v-if="corporation && alliance">
                 <div>
-                  <router-link :to="{ name: 'universe_corporation', params: { id: corporation.id }}">{{ corporation.name }}</router-link> /
-                  <router-link :to="{ name: 'universe_alliance', params: { id: alliance.id }}">{{ alliance.name }}</router-link>
+                  <router-link :to="{ name: 'universe_corporation', params: { id: corporation.id }}">
+                    {{ corporation.name }}
+                  </router-link> /
+                  <router-link :to="{ name: 'universe_alliance', params: { id: alliance.id }}">
+                    {{ alliance.name }}
+                  </router-link>
                 </div>
               </template>
 
               <template v-else-if="corporation">
                 <div>
-                  <router-link :to="{ name: 'universe_corporation', params: { id: corporation.id }}">{{ corporation.name }}</router-link>
+                  <router-link :to="{ name: 'universe_corporation', params: { id: corporation.id }}">
+                    {{ corporation.name }}
+                  </router-link>
                 </div>
               </template>
 
               <template v-else-if="alliance">
                 <div>
-                  <router-link :to="{ name: 'universe_alliance', params: { id: alliance.id }}">{{ alliance.name }}</router-link>
+                  <router-link :to="{ name: 'universe_alliance', params: { id: alliance.id }}">
+                    {{ alliance.name }}
+                  </router-link>
                 </div>
               </template>
 
