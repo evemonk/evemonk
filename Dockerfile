@@ -4,7 +4,7 @@ LABEL maintainer="Igor Zubkov <igor.zubkov@gmail.com>"
 
 RUN apt-get update -y && \
     apt-get dist-upgrade -y && \
-    apt-get install gnupg2 git gcc make wget curl wait-for-it libpq-dev -y
+    apt-get install gnupg2 git gcc make wget curl wait-for-it libpq-dev libjemalloc2 -y
 
 RUN sh -c 'curl -sL https://deb.nodesource.com/setup_10.x | bash -'
 
@@ -56,7 +56,7 @@ COPY . .
 
 RUN bundle exec rake SECRET_KEY_BASE=blablabla DB_ADAPTER=nulldb assets:precompile
 
-ENV LD_PRELOAD /usr/lib/x86_64-linux-gnu/libjemalloc.so.1
+ENV LD_PRELOAD /usr/lib/x86_64-linux-gnu/libjemalloc.so.2
 
 VOLUME ['/shared']
 
