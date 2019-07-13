@@ -4,14 +4,7 @@ LABEL maintainer="Igor Zubkov <igor.zubkov@gmail.com>"
 
 RUN apt-get update -y && \
     apt-get dist-upgrade -y && \
-    apt-get install gnupg2 git gcc make wget curl wait-for-it libjemalloc2 libjemalloc-dev -y
-
-RUN sh -c 'wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add -'
-
-RUN sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ stretch-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
-
-RUN apt-get update -y && \
-    apt-get install postgresql-client-11 postgresql-11 libpq-dev postgresql-server-dev-10 -y
+    apt-get install gnupg2 git gcc make wget curl wait-for-it libpq-dev -y
 
 RUN sh -c 'curl -sL https://deb.nodesource.com/setup_10.x | bash -'
 
