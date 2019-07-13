@@ -51,7 +51,7 @@
                             </div>
                           </template>
 
-                          <template v-else-if="alliance">
+                          <template v-else-if="character.alliance">
                             <div>
                               <router-link :to="{ name: 'universe_alliance',
                                                   params: { id: character.alliance.id }}">
