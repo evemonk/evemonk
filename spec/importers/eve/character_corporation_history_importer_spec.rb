@@ -62,7 +62,6 @@ describe Eve::CharacterCorporationHistoryImporter do
         before { expect(etag).to receive(:update!).with(etag: new_etag) }
 
         specify { expect { subject.import }.not_to raise_error }
-
       end
 
       context 'when character not found (404)' do
