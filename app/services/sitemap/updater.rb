@@ -5,11 +5,11 @@ module Sitemap
     def update
       SitemapGenerator::Interpreter.run(verbose: false)
 
-      FileUtils.mkdir_p('/shared')
+      FileUtils.mkdir_p('/shared/public/')
 
-      FileUtils.rm(Dir.glob('/shared/*.xml.gz'))
+      FileUtils.rm(Dir.glob('/shared/public/*.xml.gz'))
 
-      FileUtils.cp(Dir.glob('public/*.xml.gz'), '/shared')
+      FileUtils.cp(Dir.glob('public/*.xml.gz'), '/shared/public/')
 
       SitemapGenerator::Sitemap.ping_search_engines
     end
