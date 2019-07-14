@@ -79,6 +79,27 @@ describe Eve::CorporationAllianceHistoryImporter do
 
         specify { expect { subject.import }.not_to raise_error }
       end
+
+      context 'when corporation not found (ActiveRecord::RecordNotFound)' do
+        let(:corporation_id) { double }
+
+        subject { described_class.new(corporation_id) }
+
+        before { expect(Eve::Corporation).to receive(:find_by!).with(corporation_id: corporation_id).and_raise(ActiveRecord::RecordNotFound) }
+
+        before do
+          #
+          # Rails.logger.info("Corporation with ID #{ corporation_id } not found")
+          #
+          expect(Rails).to receive(:logger) do
+            double.tap do |a|
+              expect(a).to receive(:info).with("Corporation with ID #{ corporation_id } not found")
+            end
+          end
+        end
+
+        specify { expect { subject.import }.not_to raise_error }
+      end
     end
   end
 end

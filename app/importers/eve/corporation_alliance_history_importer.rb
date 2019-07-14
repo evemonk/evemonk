@@ -30,7 +30,7 @@ module Eve
     rescue EveOnline::Exceptions::ResourceNotFound
       eve_corporation.destroy!
     rescue ActiveRecord::RecordNotFound
-      Rails.logger.info("Character with ID #{ character_id } not found")
+      Rails.logger.info("Corporation with ID #{ corporation_id } not found")
     end
   end
 end
