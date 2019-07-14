@@ -192,6 +192,7 @@ ActiveRecord::Schema.define(version: 2019_07_14_192614) do
   end
 
   create_table "eve_corporation_alliance_histories", force: :cascade do |t|
+    t.bigint "corporation_id"
     t.bigint "alliance_id"
     t.boolean "is_deleted"
     t.bigint "record_id"
