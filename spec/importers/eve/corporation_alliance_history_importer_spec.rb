@@ -101,5 +101,35 @@ describe Eve::CorporationAllianceHistoryImporter do
         specify { expect { subject.import }.not_to raise_error }
       end
     end
+
+    context 'when no fresh data available' do
+      let(:corporation_id) { double }
+
+      subject { described_class.new(corporation_id) }
+
+      let(:eve_corporation) { instance_double(Eve::Corporation) }
+
+      before { expect(Eve::Corporation).to receive(:find_by!).with(corporation_id: corporation_id).and_return(eve_corporation) }
+
+      let(:url) { double }
+
+      let(:esi) do
+        instance_double(EveOnline::ESI::CorporationAllianceHistory,
+                        url: url,
+                        not_modified?: true)
+      end
+
+      before { expect(EveOnline::ESI::CorporationAllianceHistory).to receive(:new).with(corporation_id: corporation_id).and_return(esi) }
+
+      let(:etag) { instance_double(Eve::Etag, etag: '22c39689783a86032b8d43fa0b2e8f4809c4f38a585e39471035aa8b') }
+
+      before { expect(Eve::Etag).to receive(:find_or_initialize_by).with(url: url).and_return(etag) }
+
+      before { expect(esi).to receive(:etag=).with('22c39689783a86032b8d43fa0b2e8f4809c4f38a585e39471035aa8b') }
+
+      before { expect(etag).not_to receive(:update!) }
+
+      specify { expect { subject.import }.not_to raise_error }
+    end
   end
 end
