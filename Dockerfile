@@ -16,7 +16,7 @@ RUN apt-get update -y && \
     apt-get install nodejs yarn -y
 
 RUN apt-get autoremove -y && \
-    apt-get clean -y &&
+    apt-get clean -y && \
     rm -rf /var/lib/apt/lists/*
 
 RUN mkdir -p /app
