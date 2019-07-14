@@ -47,7 +47,7 @@ describe Eve::CharacterCorporationHistoryImporter do
         before do
           #
           # eve_character.character_corporation_histories
-          #              .find_or_initialize_by(corporation_id: entry.corporation_id) # => character_corporation_history
+          #              .find_or_initialize_by(record_id: entry.record_id) # => character_corporation_history
           #
           expect(eve_character).to receive(:character_corporation_histories) do
             double.tap do |a|
