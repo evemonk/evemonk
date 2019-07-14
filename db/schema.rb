@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_08_164119) do
+ActiveRecord::Schema.define(version: 2019_07_14_015815) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -125,6 +125,7 @@ ActiveRecord::Schema.define(version: 2019_07_08_164119) do
     t.integer "corporations_count", default: 0
     t.bigint "characters_count", default: 0
     t.index ["alliance_id"], name: "index_eve_alliances_on_alliance_id", unique: true
+    t.index ["name"], name: "index_eve_alliances_on_name"
   end
 
   create_table "eve_ancestries", force: :cascade do |t|
@@ -187,6 +188,7 @@ ActiveRecord::Schema.define(version: 2019_07_08_164119) do
     t.index ["alliance_id"], name: "index_eve_characters_on_alliance_id"
     t.index ["character_id"], name: "index_eve_characters_on_character_id", unique: true
     t.index ["corporation_id"], name: "index_eve_characters_on_corporation_id"
+    t.index ["name"], name: "index_eve_characters_on_name"
   end
 
   create_table "eve_corporations", force: :cascade do |t|
@@ -209,6 +211,7 @@ ActiveRecord::Schema.define(version: 2019_07_08_164119) do
     t.boolean "war_eligible"
     t.index ["alliance_id"], name: "index_eve_corporations_on_alliance_id"
     t.index ["corporation_id"], name: "index_eve_corporations_on_corporation_id", unique: true
+    t.index ["name"], name: "index_eve_corporations_on_name"
   end
 
   create_table "eve_etags", force: :cascade do |t|

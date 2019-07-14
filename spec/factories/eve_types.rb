@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   factory :eve_type, class: 'Eve::Type' do
     capacity { 1.5 }

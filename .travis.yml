@@ -24,9 +24,9 @@ before_install:
   - bundle --version
   - nvm install
   - node -v
-  - npm install -g npm@6.10.0
+  - npm install -g npm@6.10.1
   - npm -v
-  - npm i -g yarn@1.16.0
+  - npm install -g yarn@1.17.3
   - yarn -v
   - yarn
 

@@ -4,7 +4,7 @@ LABEL maintainer="Igor Zubkov <igor.zubkov@gmail.com>"
 
 RUN apt-get update -y && \
     apt-get dist-upgrade -y && \
-    apt-get install gnupg2 git gcc make wget curl wait-for-it libpq-dev libjemalloc2 -y
+    apt-get install gnupg2 git gcc make wget curl wait-for-it libpq-dev libjemalloc2 --no-install-recommends -y
 
 RUN sh -c 'curl -sL https://deb.nodesource.com/setup_10.x | bash -'
 
@@ -16,7 +16,8 @@ RUN apt-get update -y && \
     apt-get install nodejs yarn -y
 
 RUN apt-get autoremove -y && \
-    apt-get clean -y
+    apt-get clean -y &&
+    rm -rf /var/lib/apt/lists/*
 
 RUN mkdir -p /app
 
