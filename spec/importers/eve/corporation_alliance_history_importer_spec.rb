@@ -63,6 +63,22 @@ describe Eve::CorporationAllianceHistoryImporter do
 
         specify { expect { subject.import }.not_to raise_error }
       end
+
+      context 'when corporation not found (404)' do
+        let(:corporation_id) { double }
+
+        subject { described_class.new(corporation_id) }
+
+        let(:eve_corporation) { instance_double(Eve::Corporation) }
+
+        before { expect(Eve::Corporation).to receive(:find_by!).with(corporation_id: corporation_id).and_return(eve_corporation) }
+
+        before { expect(EveOnline::ESI::CorporationAllianceHistory).to receive(:new).with(corporation_id: corporation_id).and_raise(EveOnline::Exceptions::ResourceNotFound) }
+
+        before { expect(eve_corporation).to receive(:destroy!) }
+
+        specify { expect { subject.import }.not_to raise_error }
+      end
     end
   end
 end
