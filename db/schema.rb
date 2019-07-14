@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_14_015815) do
+ActiveRecord::Schema.define(version: 2019_07_14_192614) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -189,6 +189,16 @@ ActiveRecord::Schema.define(version: 2019_07_14_015815) do
     t.index ["character_id"], name: "index_eve_characters_on_character_id", unique: true
     t.index ["corporation_id"], name: "index_eve_characters_on_corporation_id"
     t.index ["name"], name: "index_eve_characters_on_name"
+  end
+
+  create_table "eve_corporation_alliance_histories", force: :cascade do |t|
+    t.bigint "corporation_id"
+    t.bigint "alliance_id"
+    t.boolean "is_deleted"
+    t.bigint "record_id"
+    t.datetime "start_date"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "eve_corporations", force: :cascade do |t|

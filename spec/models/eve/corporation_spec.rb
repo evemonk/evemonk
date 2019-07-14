@@ -17,6 +17,8 @@ describe Eve::Corporation do
 
   it { should belong_to(:faction).with_primary_key(:faction_id).optional }
 
+  it { should have_many(:corporation_alliance_histories).with_primary_key(:corporation_id) }
+
   describe '#search_data' do
     let!(:corporation) do
       create(:eve_corporation,

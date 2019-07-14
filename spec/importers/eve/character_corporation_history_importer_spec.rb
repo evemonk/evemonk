@@ -14,7 +14,7 @@ describe Eve::CharacterCorporationHistoryImporter do
 
         before { expect(Eve::Character).to receive(:find_by!).with(character_id: character_id).and_return(eve_character) }
 
-        let(:corporation_id) { double }
+        let(:record_id) { double }
 
         let(:json) { double }
 
@@ -22,7 +22,7 @@ describe Eve::CharacterCorporationHistoryImporter do
 
         let(:new_etag) { double }
 
-        let(:entry) { instance_double(EveOnline::ESI::Models::CharacterCorporationHistory, corporation_id: corporation_id, as_json: json) }
+        let(:entry) { instance_double(EveOnline::ESI::Models::CharacterCorporationHistory, record_id: record_id, as_json: json) }
 
         let(:entries) { [entry] }
 
@@ -47,11 +47,11 @@ describe Eve::CharacterCorporationHistoryImporter do
         before do
           #
           # eve_character.character_corporation_histories
-          #              .find_or_initialize_by(corporation_id: entry.corporation_id) # => character_corporation_history
+          #              .find_or_initialize_by(record_id: entry.record_id) # => character_corporation_history
           #
           expect(eve_character).to receive(:character_corporation_histories) do
             double.tap do |a|
-              expect(a).to receive(:find_or_initialize_by).with(corporation_id: corporation_id)
+              expect(a).to receive(:find_or_initialize_by).with(record_id: record_id)
                                                           .and_return(character_corporation_history)
             end
           end
@@ -62,7 +62,6 @@ describe Eve::CharacterCorporationHistoryImporter do
         before { expect(etag).to receive(:update!).with(etag: new_etag) }
 
         specify { expect { subject.import }.not_to raise_error }
-
       end
 
       context 'when character not found (404)' do

@@ -6,6 +6,7 @@ module Eve
 
     def perform(corporation_id)
       Eve::CorporationImporter.new(corporation_id).import
+      Eve::CorporationAllianceHistoryImporter.new(corporation_id).import
     end
   end
 end

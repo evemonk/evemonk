@@ -21,7 +21,7 @@ module Eve
 
       esi.entries.each do |entry|
         history = eve_character.character_corporation_histories
-                               .find_or_initialize_by(corporation_id: entry.corporation_id)
+                               .find_or_initialize_by(record_id: entry.record_id)
 
         history.update!(entry.as_json)
       end
