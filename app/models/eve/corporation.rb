@@ -26,6 +26,13 @@ module Eve
 
     has_many :characters, primary_key: :corporation_id # rubocop:disable Rails/HasManyOrHasOneDependent
 
+    has_many :corporation_alliance_histories,
+             primary_key: :corporation_id
+
+    # after_create_commit
+    #
+    # after_destroy_commit
+
     def search_data
       {
         name: name,
