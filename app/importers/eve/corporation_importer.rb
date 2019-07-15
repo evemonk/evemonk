@@ -9,19 +9,21 @@ module Eve
     end
 
     def import
-      eve_corporation = Eve::Corporation.find_or_initialize_by(corporation_id: corporation_id)
+      ActiveRecord::Base.transaction do
+        eve_corporation = Eve::Corporation.find_or_initialize_by(corporation_id: corporation_id)
 
-      esi = EveOnline::ESI::Corporation.new(corporation_id: corporation_id)
+        esi = EveOnline::ESI::Corporation.new(corporation_id: corporation_id)
 
-      etag = Eve::Etag.find_or_initialize_by(url: esi.url)
+        etag = Eve::Etag.find_or_initialize_by(url: esi.url)
 
-      esi.etag = etag.etag
+        esi.etag = etag.etag
 
-      return if esi.not_modified?
+        return if esi.not_modified?
 
-      eve_corporation.update!(esi.as_json)
+        eve_corporation.update!(esi.as_json)
 
-      etag.update!(etag: esi.etag)
+        etag.update!(etag: esi.etag)
+      end
     rescue EveOnline::Exceptions::ResourceNotFound
       eve_corporation.destroy!
     end
