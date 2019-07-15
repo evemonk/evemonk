@@ -28,11 +28,11 @@ module Eve
         end
 
         etag.update!(etag: esi.etag)
+      rescue EveOnline::Exceptions::ResourceNotFound
+        eve_corporation.destroy!
+      rescue ActiveRecord::RecordNotFound
+        Rails.logger.info("Corporation with ID #{ corporation_id } not found")
       end
-    rescue EveOnline::Exceptions::ResourceNotFound
-      eve_corporation.destroy!
-    rescue ActiveRecord::RecordNotFound
-      Rails.logger.info("Corporation with ID #{ corporation_id } not found")
     end
   end
 end
