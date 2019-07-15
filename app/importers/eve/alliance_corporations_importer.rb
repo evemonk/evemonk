@@ -10,15 +10,17 @@ module Eve
     end
 
     def import
-      esi.etag = etag.etag
+      ActiveRecord::Base.transaction do
+        esi.etag = etag.etag
 
-      return if esi.not_modified?
+        return if esi.not_modified?
 
-      import_new_corporations
+        import_new_corporations
 
-      remove_old_corporations
+        remove_old_corporations
 
-      etag.update!(etag: esi.etag)
+        etag.update!(etag: esi.etag)
+      end
     rescue ActiveRecord::RecordNotFound
       Rails.logger.info("Alliance with ID #{ alliance_id } not found")
     end
