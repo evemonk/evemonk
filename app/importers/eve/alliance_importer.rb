@@ -23,9 +23,9 @@ module Eve
         eve_alliance.update!(esi.as_json)
 
         etag.update!(etag: esi.etag)
+      rescue EveOnline::Exceptions::ResourceNotFound
+        eve_alliance.destroy!
       end
-    rescue EveOnline::Exceptions::ResourceNotFound
-      eve_alliance.destroy!
     end
   end
 end
