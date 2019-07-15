@@ -9,15 +9,17 @@ module Eve
     end
 
     def import
-      esi.etag = etag.etag
+      ActiveRecord::Base.transaction do
+        esi.etag = etag.etag
 
-      return if esi.not_modified?
+        return if esi.not_modified?
 
-      import_new_alliances
+        import_new_alliances
 
-      remove_old_alliances
+        remove_old_alliances
 
-      etag.update!(etag: esi.etag)
+        etag.update!(etag: esi.etag)
+      end
     end
 
     private
