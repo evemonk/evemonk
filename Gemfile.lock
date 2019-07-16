@@ -200,7 +200,7 @@ GEM
       colorize (~> 0.7)
       ruby_parser (>= 3.13.0)
     ffi (1.11.1)
-    fugit (1.2.2)
+    fugit (1.2.3)
       et-orbi (~> 1.1, >= 1.1.8)
       raabro (~> 1.1)
     gemdiff (3.0.0)
