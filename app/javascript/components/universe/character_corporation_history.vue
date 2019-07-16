@@ -18,11 +18,14 @@
                     hide-actions
                     dark>
         <template v-slot:items="props">
-          <td>
+          <td v-if="props.item.corporation">
             <router-link :to="{ name: 'universe_corporation',
                                 params: { id: props.item.corporation.id }}">
               {{ props.item.corporation.name }}
             </router-link>
+          </td>
+          <td v-else>
+            ***CORPORATION MISSING***
           </td>
           <td class="text-xs-right">{{ props.item.start_date }}</td>
         </template>

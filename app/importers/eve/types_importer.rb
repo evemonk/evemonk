@@ -10,17 +10,19 @@ module Eve
     end
 
     def import
-      etag = Eve::Etag.find_or_initialize_by(url: esi.url)
+      ActiveRecord::Base.transaction do
+        etag = Eve::Etag.find_or_initialize_by(url: esi.url)
 
-      esi.etag = etag.etag
+        esi.etag = etag.etag
 
-      return if esi.not_modified?
+        return if esi.not_modified?
 
-      import_types
+        import_types
 
-      import_other_pages
+        import_other_pages
 
-      etag.update!(etag: esi.etag)
+        etag.update!(etag: esi.etag)
+      end
     end
 
     private

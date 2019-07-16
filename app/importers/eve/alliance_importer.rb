@@ -9,21 +9,23 @@ module Eve
     end
 
     def import
-      eve_alliance = Eve::Alliance.find_or_initialize_by(alliance_id: alliance_id)
+      ActiveRecord::Base.transaction do
+        eve_alliance = Eve::Alliance.find_or_initialize_by(alliance_id: alliance_id)
 
-      esi = EveOnline::ESI::Alliance.new(alliance_id: alliance_id)
+        esi = EveOnline::ESI::Alliance.new(alliance_id: alliance_id)
 
-      etag = Eve::Etag.find_or_initialize_by(url: esi.url)
+        etag = Eve::Etag.find_or_initialize_by(url: esi.url)
 
-      esi.etag = etag.etag
+        esi.etag = etag.etag
 
-      return if esi.not_modified?
+        return if esi.not_modified?
 
-      eve_alliance.update!(esi.as_json)
+        eve_alliance.update!(esi.as_json)
 
-      etag.update!(etag: esi.etag)
-    rescue EveOnline::Exceptions::ResourceNotFound
-      eve_alliance.destroy!
+        etag.update!(etag: esi.etag)
+      rescue EveOnline::Exceptions::ResourceNotFound
+        eve_alliance.destroy!
+      end
     end
   end
 end

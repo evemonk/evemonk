@@ -9,17 +9,17 @@ module Eve
     end
 
     def import
-      eve_type = Eve::Type.find_or_initialize_by(type_id: type_id)
-
-      esi = EveOnline::ESI::UniverseType.new(id: type_id)
-
-      etag = Eve::Etag.find_or_initialize_by(url: esi.url)
-
-      esi.etag = etag.etag
-
-      return if esi.not_modified?
-
       ActiveRecord::Base.transaction do
+        eve_type = Eve::Type.find_or_initialize_by(type_id: type_id)
+
+        esi = EveOnline::ESI::UniverseType.new(id: type_id)
+
+        etag = Eve::Etag.find_or_initialize_by(url: esi.url)
+
+        esi.etag = etag.etag
+
+        return if esi.not_modified?
+
         eve_type.update!(esi.as_json)
 
         eve_type.type_dogma_attributes.destroy_all
@@ -35,9 +35,9 @@ module Eve
         end
 
         etag.update!(etag: esi.etag)
+      rescue EveOnline::Exceptions::ResourceNotFound
+        eve_type.destroy!
       end
-    rescue EveOnline::Exceptions::ResourceNotFound
-      eve_type.destroy!
     end
   end
 end
