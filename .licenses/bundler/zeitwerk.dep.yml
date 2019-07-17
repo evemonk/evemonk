@@ -1,6 +1,6 @@
 ---
 name: zeitwerk
-version: 2.1.8
+version: 2.1.9
 type: bundler
 summary: Efficient and thread-safe constant autoloader
 homepage: https://github.com/fxn/zeitwerk
