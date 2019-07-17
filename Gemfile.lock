@@ -559,7 +559,7 @@ GEM
     yabeda-sidekiq (0.1.3)
       sidekiq
       yabeda
-    zeitwerk (2.1.8)
+    zeitwerk (2.1.9)
 
 PLATFORMS
   ruby
