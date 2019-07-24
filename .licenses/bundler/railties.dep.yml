@@ -1,6 +1,6 @@
 ---
 name: railties
-version: 6.0.0.rc1
+version: 6.0.0.rc2
 type: bundler
 summary: Tools for creating, working with, and running Rails applications.
 homepage: https://rubyonrails.org

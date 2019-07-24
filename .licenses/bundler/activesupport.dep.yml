@@ -1,6 +1,6 @@
 ---
 name: activesupport
-version: 6.0.0.rc1
+version: 6.0.0.rc2
 type: bundler
 summary: A toolkit of support libraries and Ruby core extensions extracted from the
   Rails framework.

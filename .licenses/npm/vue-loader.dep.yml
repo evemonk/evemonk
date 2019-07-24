@@ -1,6 +1,6 @@
 ---
 name: vue-loader
-version: 15.7.0
+version: 15.7.1
 type: npm
 summary: Vue single-file component loader for Webpack
 homepage: https://github.com/vuejs/vue-loader

@@ -1,16 +1,26 @@
 ---
-name: activerecord
-version: 6.0.0.rc2
-type: bundler
-summary: Object-relational mapper framework (part of Rails).
-homepage: https://rubyonrails.org
+name: lodash
+version: 4.17.15
+type: npm
+summary: Lodash modular utilities.
+homepage: https://lodash.com/
 license: other
 licenses:
-- sources: MIT-LICENSE
+- sources: LICENSE
   text: |
-    Copyright (c) 2004-2019 David Heinemeier Hansson
+    Copyright OpenJS Foundation and other contributors <https://openjsf.org/>
 
-    Arel originally copyright (c) 2007-2016 Nick Kallen, Bryan Helmkamp, Emilio Tagua, Aaron Patterson
+    Based on Underscore.js, copyright Jeremy Ashkenas,
+    DocumentCloud and Investigative Reporters & Editors <http://underscorejs.org/>
+
+    This software consists of voluntary contributions made by many
+    individuals. For exact contribution history, see the revision history
+    available at https://github.com/lodash/lodash
+
+    The following license applies to all parts of this software except as
+    documented below:
+
+    ====
 
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the
@@ -30,9 +40,19 @@ licenses:
     LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
     OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
     WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-- sources: README.rdoc
-  text: |-
-    Active Record is released under the MIT license:
 
-    * https://opensource.org/licenses/MIT
+    ====
+
+    Copyright and related rights for sample code are waived via CC0. Sample
+    code is defined as all source code displayed within the prose of the
+    documentation.
+
+    CC0: http://creativecommons.org/publicdomain/zero/1.0/
+
+    ====
+
+    Files located in the node_modules and vendor directories are externally
+    maintained libraries used by this software which have their own
+    licenses; we recommend you read them, as their terms may differ from the
+    terms above.
 notices: []
