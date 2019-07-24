@@ -2,12 +2,12 @@
 
 source 'https://rubygems.org'
 
-gem 'rails', '6.0.0.rc1'
+gem 'rails', '6.0.0.rc2'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma'
 gem 'sass-rails', '~> 5.0'
 gem 'webpacker', '~> 4.0'
-gem 'jbuilder', '~> 2.5'
+gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.2', require: false
 # gem 'rufus-scheduler'
 gem 'bcrypt'
