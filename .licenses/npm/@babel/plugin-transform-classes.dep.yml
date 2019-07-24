@@ -1,6 +1,6 @@
 ---
 name: "@babel/plugin-transform-classes"
-version: 7.4.4
+version: 7.5.5
 type: npm
 summary: Compile ES2015 classes to ES5
 homepage: 

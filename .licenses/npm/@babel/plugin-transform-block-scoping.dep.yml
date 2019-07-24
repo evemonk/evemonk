@@ -1,6 +1,6 @@
 ---
 name: "@babel/plugin-transform-block-scoping"
-version: 7.4.4
+version: 7.5.5
 type: npm
 summary: Compile ES2015 block scoping (const and let) to ES5
 homepage: 

@@ -1,8 +1,8 @@
 ---
 name: vuetify
-version: 1.5.16
+version: 2.0.0
 type: npm
-summary: Vue.js Material Component Framework
+summary: Vue.js 2 Semantic Component Framework
 homepage: https://vuetifyjs.com
 license: mit
 licenses:

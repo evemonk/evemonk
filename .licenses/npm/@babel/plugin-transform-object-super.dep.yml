@@ -1,6 +1,6 @@
 ---
 name: "@babel/plugin-transform-object-super"
-version: 7.2.0
+version: 7.5.5
 type: npm
 summary: Compile ES2015 object super to ES5
 homepage: 
@@ -10,7 +10,7 @@ licenses:
   text: |
     MIT License
 
-    Copyright (c) 2014-2018 Sebastian McKenzie and other contributors
+    Copyright (c) 2014-present Sebastian McKenzie and other contributors
 
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the
