@@ -16,7 +16,7 @@
     "vue-qrcode": "^0.0.2",
     "vue-router": "^3.0.6",
     "vue-template-compiler": "^2.6.10",
-    "vuetify": "^1.5.13",
+    "vuetify": "^2.0.0",
     "vuex": "^3.1.0"
   },
   "version": "0.1.0",
