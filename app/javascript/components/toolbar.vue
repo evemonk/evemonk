@@ -1,12 +1,12 @@
 <template>
-  <v-toolbar app dark color="primary">
-    <v-toolbar-side-icon @click="showDrawer"></v-toolbar-side-icon>
+  <v-app-bar max-height="64">
+    <v-app-bar-nav-icon @click="showDrawer"></v-app-bar-nav-icon>
     <v-toolbar-title class="white--text">EveMonk</v-toolbar-title>
     <v-spacer></v-spacer>
     <v-btn icon>
-      <v-icon>search</v-icon>
+      <v-icon>mdi-magnify</v-icon>
     </v-btn>
-  </v-toolbar>
+  </v-app-bar>
 </template>
 
 <script>
