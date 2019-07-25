@@ -5,7 +5,7 @@
                  :url="headful.url" />
 
     <v-breadcrumbs :items="breadcrumbs">
-      <v-icon slot="divider">chevron_right</v-icon>
+      <v-icon slot="divider">mdi-chevron-right</v-icon>
     </v-breadcrumbs>
 
     <v-progress-linear :indeterminate="true" v-if="!loaded"></v-progress-linear>
