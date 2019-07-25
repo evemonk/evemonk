@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_25_110345) do
+ActiveRecord::Schema.define(version: 2019_07_25_110626) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -167,6 +167,7 @@ ActiveRecord::Schema.define(version: 2019_07_25_110345) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["character_id", "corporation_id"], name: "index_eve_char_corp_histories_on_char_id_and_corp_id"
     t.index ["corporation_id"], name: "index_eve_character_corporation_histories_on_corporation_id"
+    t.index ["record_id"], name: "index_eve_character_corporation_histories_on_record_id"
   end
 
   create_table "eve_characters", force: :cascade do |t|
