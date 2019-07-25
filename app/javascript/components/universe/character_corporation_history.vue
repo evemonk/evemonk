@@ -5,7 +5,7 @@
         Corporations History ({{ total_count }})
         <v-spacer></v-spacer>
         <v-text-field v-model="search"
-                      append-icon="search"
+                      append-icon="mdi-magnify"
                       label="Search"
                       single-line
                       hide-details>
@@ -16,7 +16,7 @@
                     :items="history"
                     :search="search"
                     hide-actions
-                    dark>
+                    >
         <template v-slot:items="props">
           <td v-if="props.item.corporation">
             <router-link :to="{ name: 'universe_corporation',
