@@ -8,15 +8,16 @@
                       append-icon="mdi-magnify"
                       label="Search"
                       single-line
-                      hide-details>
+                      hide-default-headers
+                      hide-default-footer>
         </v-text-field>
       </v-card-title>
 
       <v-data-table :headers="headers"
                     :items="history"
+                    :items-per-page="-1"
                     :search="search"
-                    hide-actions
-                    >
+                    hide-default-footer>
         <template v-slot:items="props">
           <td v-if="props.item.corporation">
             <router-link :to="{ name: 'universe_corporation',
