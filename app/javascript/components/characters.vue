@@ -14,7 +14,7 @@
       <v-container fluid grid-list-lg>
         <v-layout row wrap>
           <v-flex xs12 v-for="character in characters" :key="character.id">
-            <v-card dark>
+            <v-card>
               <v-layout>
                 <v-flex xs5>
                   <v-img :src="character.icon" height="128px" contain></v-img>
@@ -51,7 +51,7 @@
                   </v-card-title>
                 </v-flex>
               </v-layout>
-              <v-divider light></v-divider>
+              <v-divider></v-divider>
               <v-card-actions>
                 <v-btn color="error" @click="removeCharacter(character.id)">
                   Remove

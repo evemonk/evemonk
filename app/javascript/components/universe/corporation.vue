@@ -15,7 +15,7 @@
 
     <template v-if="loaded">
       <v-flex xs12>
-        <v-card dark>
+        <v-card>
           <v-layout>
             <v-flex xs5>
               <v-img :src="corporation.icon" height="128px" contain></v-img>
@@ -32,7 +32,7 @@
               </v-card-title>
             </v-flex>
           </v-layout>
-          <v-divider light></v-divider>
+          <v-divider></v-divider>
           <v-card-actions>
             <v-btn color="info">
               <router-link :to="{ name: 'universe_corporation_characters', params: { id: corporation.id }}">
