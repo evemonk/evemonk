@@ -2,7 +2,8 @@
 
 [![Build Status](https://travis-ci.org/evemonk/evemonk.svg?branch=master)](https://travis-ci.org/evemonk/evemonk)
 [![Test Coverage](https://codeclimate.com/github/evemonk/evemonk/badges/coverage.svg)](https://codeclimate.com/github/evemonk/evemonk/coverage)
-[![security](https://hakiri.io/github/evemonk/evemonk/master.svg)](https://hakiri.io/github/evemonk/evemonk/master) [![Greenkeeper badge](https://badges.greenkeeper.io/evemonk/evemonk.svg)](https://greenkeeper.io/)
+[![security](https://hakiri.io/github/evemonk/evemonk/master.svg)](https://hakiri.io/github/evemonk/evemonk/master)
+[![Greenkeeper badge](https://badges.greenkeeper.io/evemonk/evemonk.svg)](https://greenkeeper.io/)
 
 EveMonk is helper software for EveOnline MMORPG.
 
