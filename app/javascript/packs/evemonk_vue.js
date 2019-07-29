@@ -26,6 +26,10 @@ Sentry.init({
   ],
 });
 
+const opts = { theme: { dark: true } }
+
+// const opts = { theme: { dark: false } }
+
 Vue.use(Vuetify);
 Vue.use(VueAnalytics, {
   id: 'UA-133495976-1',
@@ -39,5 +43,6 @@ document.addEventListener('DOMContentLoaded', () => {
     router,
     store,
     render: h => h(App),
+    vuetify: new Vuetify(opts),
   });
 });

@@ -1,6 +1,6 @@
 ---
 name: sentry-raven
-version: 2.9.0
+version: 2.10.0
 type: bundler
 summary: A gem that provides a client interface for the Sentry error logger
 homepage: https://github.com/getsentry/raven-ruby

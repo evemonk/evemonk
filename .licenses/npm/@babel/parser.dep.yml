@@ -1,6 +1,6 @@
 ---
 name: "@babel/parser"
-version: 7.5.0
+version: 7.5.5
 type: npm
 summary: A JavaScript parser
 homepage: https://babeljs.io/

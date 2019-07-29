@@ -4,140 +4,140 @@
                        absolute>
     <v-toolbar flat class="transparent" v-if="false">
       <v-list>
-        <v-list-tile avatar>
-          <v-list-tile-avatar>
+        <v-list-item>
+          <v-list-item-avatar>
             <img src="https://randomuser.me/api/portraits/men/85.jpg">
-          </v-list-tile-avatar>
+          </v-list-item-avatar>
 
-          <v-list-tile-content>
-            <v-list-tile-title>John Snow</v-list-tile-title>
-          </v-list-tile-content>
-        </v-list-tile>
+          <v-list-item-content>
+            <v-list-item-title>John Snow</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
       </v-list>
+
+      <v-divider></v-divider>
     </v-toolbar>
 
     <v-list dense>
       <template v-if="!isAuthenticated">
+        <v-list-item :to="{ name: 'sign_in' }">
+          <v-list-item-action>
+            <v-icon>mdi-folder</v-icon>
+          </v-list-item-action>
+
+          <v-list-item-content>
+            <v-list-item-title>Sign in</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+
         <v-divider></v-divider>
-
-        <v-list-tile :to="{ name: 'sign_in' }">
-          <v-list-tile-action>
-            <v-icon>folder</v-icon>
-          </v-list-tile-action>
-
-          <v-list-tile-content>
-            <v-list-tile-title>Sign in</v-list-tile-title>
-          </v-list-tile-content>
-        </v-list-tile>
       </template>
 
       <template v-if="!isAuthenticated">
+        <v-list-item :to="{ name: 'sign_up' }">
+          <v-list-item-action>
+            <v-icon>mdi-folder</v-icon>
+          </v-list-item-action>
+
+          <v-list-item-content>
+            <v-list-item-title>Sign up</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+
         <v-divider></v-divider>
-
-        <v-list-tile :to="{ name: 'sign_up' }">
-          <v-list-tile-action>
-            <v-icon>folder</v-icon>
-          </v-list-tile-action>
-
-          <v-list-tile-content>
-            <v-list-tile-title>Sign up</v-list-tile-title>
-          </v-list-tile-content>
-        </v-list-tile>
       </template>
 
       <template v-if="isAuthenticated">
-        <v-divider v-if="false"></v-divider>
+        <v-list-item :to="{ name: 'profile' }">
+          <v-list-item-action>
+            <v-icon>mdi-folder</v-icon>
+          </v-list-item-action>
 
-        <v-list-tile :to="{ name: 'profile' }">
-          <v-list-tile-action>
-            <v-icon>folder</v-icon>
-          </v-list-tile-action>
+          <v-list-item-content>
+            <v-list-item-title>Profile</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
 
-          <v-list-tile-content>
-            <v-list-tile-title>Profile</v-list-tile-title>
-          </v-list-tile-content>
-        </v-list-tile>
+        <v-divider></v-divider>
       </template>
 
       <template v-if="isAuthenticated">
+        <v-list-item :to="{ name: 'characters' }" v-if="isAuthenticated">
+          <v-list-item-action>
+            <v-icon>mdi-folder</v-icon>
+          </v-list-item-action>
+
+          <v-list-item-content>
+            <v-list-item-title>Characters</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+
         <v-divider></v-divider>
-
-        <v-list-tile :to="{ name: 'characters' }" v-if="isAuthenticated">
-          <v-list-tile-action>
-            <v-icon>folder</v-icon>
-          </v-list-tile-action>
-
-          <v-list-tile-content>
-            <v-list-tile-title>Characters</v-list-tile-title>
-          </v-list-tile-content>
-        </v-list-tile>
       </template>
 
       <template v-if="isAuthenticated">
+        <v-list-item :to="{ name: 'lpstore' }" v-if="isAuthenticated">
+          <v-list-item-action>
+            <v-icon>mdi-folder</v-icon>
+          </v-list-item-action>
+
+          <v-list-item-content>
+            <v-list-item-title>LP Store</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+
         <v-divider></v-divider>
-
-        <v-list-tile :to="{ name: 'lpstore' }" v-if="isAuthenticated">
-          <v-list-tile-action>
-            <v-icon>folder</v-icon>
-          </v-list-tile-action>
-
-          <v-list-tile-content>
-            <v-list-tile-title>LP Store</v-list-tile-title>
-          </v-list-tile-content>
-        </v-list-tile>
       </template>
 
-      <v-divider></v-divider>
+      <v-list-item :to="{ name: 'universe_alliances' }">
+        <v-list-item-action>
+          <v-icon>mdi-folder</v-icon>
+        </v-list-item-action>
 
-      <v-list-tile :to="{ name: 'universe_alliances' }">
-        <v-list-tile-action>
-          <v-icon>folder</v-icon>
-        </v-list-tile-action>
-
-        <v-list-tile-content>
-          <v-list-tile-title>Alliances</v-list-tile-title>
-        </v-list-tile-content>
-      </v-list-tile>
+        <v-list-item-content>
+          <v-list-item-title>Alliances</v-list-item-title>
+        </v-list-item-content>
+      </v-list-item>
 
       <v-divider></v-divider>
 
-      <v-list-tile :to="{ name: 'universe_corporations' }">
-        <v-list-tile-action>
-          <v-icon>folder</v-icon>
-        </v-list-tile-action>
+      <v-list-item :to="{ name: 'universe_corporations' }">
+        <v-list-item-action>
+          <v-icon>mdi-folder</v-icon>
+        </v-list-item-action>
 
-        <v-list-tile-content>
-          <v-list-tile-title>Corporations</v-list-tile-title>
-        </v-list-tile-content>
-      </v-list-tile>
+        <v-list-item-content>
+          <v-list-item-title>Corporations</v-list-item-title>
+        </v-list-item-content>
+      </v-list-item>
 
       <v-divider></v-divider>
 
-      <v-list-tile :to="{ name: 'universe_characters' }">
-        <v-list-tile-action>
-          <v-icon>folder</v-icon>
-        </v-list-tile-action>
+      <v-list-item :to="{ name: 'universe_characters' }">
+        <v-list-item-action>
+          <v-icon>mdi-folder</v-icon>
+        </v-list-item-action>
 
-        <v-list-tile-content>
-          <v-list-tile-title>Characters</v-list-tile-title>
-        </v-list-tile-content>
-      </v-list-tile>
+        <v-list-item-content>
+          <v-list-item-title>Characters</v-list-item-title>
+        </v-list-item-content>
+      </v-list-item>
+
+      <v-divider></v-divider>
 
       <template v-if="isAuthenticated">
+        <v-list-item :to="{ name: 'sign_out' }">
+          <v-list-item-action>
+            <v-icon>mdi-folder</v-icon>
+          </v-list-item-action>
+
+          <v-list-item-content>
+            <v-list-item-title>Sign out</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+
         <v-divider></v-divider>
-
-        <v-list-tile :to="{ name: 'sign_out' }">
-          <v-list-tile-action>
-            <v-icon>folder</v-icon>
-          </v-list-tile-action>
-
-          <v-list-tile-content>
-            <v-list-tile-title>Sign out</v-list-tile-title>
-          </v-list-tile-content>
-        </v-list-tile>
       </template>
-
-      <v-divider></v-divider>
     </v-list>
 
   </v-navigation-drawer>

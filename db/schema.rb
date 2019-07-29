@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_14_192614) do
+ActiveRecord::Schema.define(version: 2019_07_25_110915) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -167,6 +167,7 @@ ActiveRecord::Schema.define(version: 2019_07_14_192614) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["character_id", "corporation_id"], name: "index_eve_char_corp_histories_on_char_id_and_corp_id"
     t.index ["corporation_id"], name: "index_eve_character_corporation_histories_on_corporation_id"
+    t.index ["record_id"], name: "index_eve_character_corporation_histories_on_record_id"
   end
 
   create_table "eve_characters", force: :cascade do |t|
@@ -199,6 +200,7 @@ ActiveRecord::Schema.define(version: 2019_07_14_192614) do
     t.datetime "start_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["record_id"], name: "index_eve_corporation_alliance_histories_on_record_id"
   end
 
   create_table "eve_corporations", force: :cascade do |t|
@@ -303,6 +305,7 @@ ActiveRecord::Schema.define(version: 2019_07_14_192614) do
     t.float "value"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["type_id"], name: "index_eve_type_dogma_attributes_on_type_id"
   end
 
   create_table "eve_type_dogma_effects", force: :cascade do |t|
@@ -311,6 +314,7 @@ ActiveRecord::Schema.define(version: 2019_07_14_192614) do
     t.boolean "is_default"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["type_id"], name: "index_eve_type_dogma_effects_on_type_id"
   end
 
   create_table "eve_types", force: :cascade do |t|

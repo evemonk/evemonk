@@ -1,6 +1,6 @@
 ---
 name: elasticsearch-api
-version: 7.2.0
+version: 7.2.1
 type: bundler
 summary: Ruby API for Elasticsearch.
 homepage: https://github.com/elasticsearch/elasticsearch-ruby/tree/master/elasticsearch-api

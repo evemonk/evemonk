@@ -3,7 +3,7 @@
     <vue-headful :title="title" />
 
     <v-breadcrumbs :items="breadcrumbs">
-      <v-icon slot="divider">chevron_right</v-icon>
+      <v-icon slot="divider">mdi-chevron-right</v-icon>
     </v-breadcrumbs>
 
     <v-progress-linear :indeterminate="true" v-if="!loaded"></v-progress-linear>
@@ -14,7 +14,7 @@
       <v-container fluid grid-list-lg>
         <v-layout row wrap>
           <v-flex xs12 v-for="character in characters" :key="character.id">
-            <v-card dark>
+            <v-card>
               <v-layout>
                 <v-flex xs5>
                   <v-img :src="character.icon" height="128px" contain></v-img>
@@ -51,15 +51,15 @@
                   </v-card-title>
                 </v-flex>
               </v-layout>
-              <v-divider light></v-divider>
+              <v-divider></v-divider>
               <v-card-actions>
                 <v-btn color="error" @click="removeCharacter(character.id)">
                   Remove
                 </v-btn>
                 <v-spacer></v-spacer>
-                <v-btn color="info">LPStore</v-btn>
+                <v-btn text elevation="1">LPStore</v-btn>
                 <v-spacer></v-spacer>
-                <v-btn color="info">
+                <v-btn text elevation="1">
                   <router-link :to="{ name: 'character', params: { id: character.id }}">
                     Info
                   </router-link>

@@ -5,18 +5,19 @@
         Corporations History ({{ total_count }})
         <v-spacer></v-spacer>
         <v-text-field v-model="search"
-                      append-icon="search"
+                      append-icon="mdi-magnify"
                       label="Search"
                       single-line
-                      hide-details>
+                      hide-default-headers
+                      hide-default-footer>
         </v-text-field>
       </v-card-title>
 
       <v-data-table :headers="headers"
                     :items="history"
+                    :items-per-page="-1"
                     :search="search"
-                    hide-actions
-                    dark>
+                    hide-default-footer>
         <template v-slot:items="props">
           <td v-if="props.item.corporation">
             <router-link :to="{ name: 'universe_corporation',
@@ -31,7 +32,7 @@
         </template>
 
         <template v-slot:no-results>
-          <v-alert :value="true" color="error" icon="warning">
+          <v-alert :value="true" color="error" icon="mdi-alert">
             Your search for "{{ search }}" found no results.
           </v-alert>
         </template>

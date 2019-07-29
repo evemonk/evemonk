@@ -1,6 +1,6 @@
 ---
 name: "@babel/types"
-version: 7.5.0
+version: 7.5.5
 type: npm
 summary: Babel Types is a Lodash-esque utility library for AST nodes
 homepage: https://babeljs.io/
