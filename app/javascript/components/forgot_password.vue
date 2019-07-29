@@ -3,7 +3,7 @@
     <vue-headful :title="title" />
 
     <v-breadcrumbs :items="breadcrumbs">
-      <v-icon slot="divider">chevron_right</v-icon>
+      <v-icon slot="divider">mdi-chevron-right</v-icon>
     </v-breadcrumbs>
 
     <v-form v-model="valid" v-if="!sent">

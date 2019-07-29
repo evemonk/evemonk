@@ -6,7 +6,7 @@
                  :url="headful.url" />
 
     <v-breadcrumbs :items="breadcrumbs">
-      <v-icon slot="divider">chevron_right</v-icon>
+      <v-icon slot="divider">mdi-chevron-right</v-icon>
     </v-breadcrumbs>
 
     <template v-if="loading">
@@ -18,7 +18,7 @@
         <v-container fluid grid-list-lg>
           <v-layout row wrap>
             <v-flex xs12>
-              <v-card dark>
+              <v-card>
                 <v-layout>
                   <v-flex xs5>
                     <v-img :src="character.icon" height="128px" contain></v-img>
@@ -68,7 +68,7 @@
                         <div>Gender: {{ character.gender }}</div>
                         <div>Security status: {{ character.security_status }}</div>
 
-                        <v-divider light></v-divider>
+                        <v-divider></v-divider>
 
                         <template v-if="character.race">
                           <div>

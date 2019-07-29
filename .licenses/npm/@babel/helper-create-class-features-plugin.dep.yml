@@ -1,6 +1,6 @@
 ---
 name: "@babel/helper-create-class-features-plugin"
-version: 7.5.0
+version: 7.5.5
 type: npm
 summary: Compile class public and private fields, private methods and decorators to
   ES6

@@ -1,6 +1,6 @@
 ---
 name: "@babel/helper-module-transforms"
-version: 7.4.4
+version: 7.5.5
 type: npm
 summary: Babel helper functions for implementing ES6 module transformations
 homepage: https://babeljs.io/

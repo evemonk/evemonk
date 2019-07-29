@@ -1,7 +1,7 @@
 <template>
   <div id="character">
     <v-breadcrumbs :items="breadcrumbs">
-      <v-icon slot="divider">chevron_right</v-icon>
+      <v-icon slot="divider">mdi-chevron-right</v-icon>
     </v-breadcrumbs>
 
     <v-progress-linear :indeterminate="true" v-if="!loaded"></v-progress-linear>
@@ -10,7 +10,7 @@
       <v-container fluid grid-list-lg>
         <v-layout row wrap>
           <v-flex xs12>
-            <v-card dark>
+            <v-card>
               <v-layout>
                 <v-flex xs5>
                   <v-img :src="character.icon" height="128px" contain></v-img>
@@ -34,7 +34,7 @@
                       <div>Gender: {{ character.gender }}</div>
                       <div>Security status: {{ character.security_status }}</div>
 
-                      <v-divider light></v-divider>
+                      <v-divider></v-divider>
 
                       <template v-if="character.race">
                         <div>
@@ -57,7 +57,7 @@
                         </div>
                       </template>
 
-                      <v-divider light></v-divider>
+                      <v-divider></v-divider>
 
                       <div>Perception: {{ character.perception }}</div>
                       <div>Memory: {{ character.memory }}</div>
@@ -65,11 +65,11 @@
                       <div>Intelligence: {{ character.intelligence }}</div>
                       <div>Charisma: {{ character.charisma }}</div>
 
-                      <v-divider light></v-divider>
+                      <v-divider></v-divider>
 
                       <div>Wallet: {{ character.wallet }}</div>
 
-                      <v-divider light></v-divider>
+                      <v-divider></v-divider>
 
                       <div>Bonus Remaps: {{ character.bonus_remaps }}</div>
                       <div>Last Remap Date: {{ character.last_remap_date }}</div>
@@ -78,13 +78,13 @@
                   </v-card-title>
                 </v-flex>
               </v-layout>
-              <v-divider light></v-divider>
+              <v-divider></v-divider>
               <v-card-actions>
                 <v-btn color="error" @click="removeCharacter(character.id)">
                   Remove
                 </v-btn>
                 <v-spacer></v-spacer>
-                <v-btn color="info">LPStore</v-btn>
+                <v-btn text elevation="1">LPStore</v-btn>
               </v-card-actions>
             </v-card>
           </v-flex>

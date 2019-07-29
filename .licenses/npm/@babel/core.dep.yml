@@ -1,6 +1,6 @@
 ---
 name: "@babel/core"
-version: 7.5.4
+version: 7.5.5
 type: npm
 summary: Babel compiler core.
 homepage: https://babeljs.io/
