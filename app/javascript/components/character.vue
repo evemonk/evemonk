@@ -84,7 +84,7 @@
                   Remove
                 </v-btn>
                 <v-spacer></v-spacer>
-                <v-btn color="info">LPStore</v-btn>
+                <v-btn text elevation="1">LPStore</v-btn>
               </v-card-actions>
             </v-card>
           </v-flex>

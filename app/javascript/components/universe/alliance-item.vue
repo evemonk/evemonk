@@ -21,13 +21,13 @@
       </v-layout>
       <v-divider></v-divider>
       <v-card-actions>
-        <v-btn color="info">
+        <v-btn text elevation="1">
           <router-link :to="{ name: 'universe_alliance_corporations', params: { id: id }}">
             Corporations ({{ corporations_count }})
           </router-link>
         </v-btn>
         <v-spacer></v-spacer>
-        <v-btn color="info">
+        <v-btn text elevation="1">
           <router-link :to="{ name: 'universe_alliance_characters', params: { id: id }}">
             Characters ({{ characters_count }})
           </router-link>

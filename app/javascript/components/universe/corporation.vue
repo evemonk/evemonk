@@ -34,13 +34,13 @@
           </v-layout>
           <v-divider></v-divider>
           <v-card-actions>
-            <v-btn color="info">
+            <v-btn text elevation="1">
               <router-link :to="{ name: 'universe_corporation_characters', params: { id: corporation.id }}">
                 Characters ({{ corporation.member_count }})
               </router-link>
             </v-btn>
             <v-spacer></v-spacer>
-            <v-btn color="info" v-if="corporation.ceo">
+            <v-btn text elevation="1" v-if="corporation.ceo">
               <router-link :to="{ name: 'universe_character', params: { id: corporation.ceo.id }}">CEO</router-link>
             </v-btn>
           </v-card-actions>

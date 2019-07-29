@@ -57,9 +57,9 @@
                   Remove
                 </v-btn>
                 <v-spacer></v-spacer>
-                <v-btn color="info">LPStore</v-btn>
+                <v-btn text elevation="1">LPStore</v-btn>
                 <v-spacer></v-spacer>
-                <v-btn color="info">
+                <v-btn text elevation="1">
                   <router-link :to="{ name: 'character', params: { id: character.id }}">
                     Info
                   </router-link>
