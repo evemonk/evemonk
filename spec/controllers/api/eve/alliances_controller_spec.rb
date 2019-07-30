@@ -75,7 +75,8 @@ describe Api::Eve::AlliancesController do
                                                  :creator,
                                                  :executor_corporation) do
               double.tap do |b|
-                expect(b).to receive(:find_by!).with(alliance_id: "99005443").and_return(eve_alliance)
+                expect(b).to receive(:find_by!).with(alliance_id: "99005443")
+                  .and_return(eve_alliance)
               end
             end
           end
@@ -118,7 +119,8 @@ describe Api::Eve::AlliancesController do
                                                  :creator,
                                                  :executor_corporation) do
               double.tap do |b|
-                expect(b).to receive(:find_by!).with(alliance_id: "99005443").and_raise(ActiveRecord::RecordNotFound)
+                expect(b).to receive(:find_by!).with(alliance_id: "99005443")
+                  .and_raise(ActiveRecord::RecordNotFound)
               end
             end
           end

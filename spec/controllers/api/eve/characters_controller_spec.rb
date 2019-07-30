@@ -66,7 +66,8 @@ describe Api::Eve::CharactersController do
         #
         expect(subject).to receive(:policy_scope).with(Eve::Character) do
           double.tap do |a|
-            expect(a).to receive(:find_by!).with(character_id: "90729314").and_return(eve_character)
+            expect(a).to receive(:find_by!).with(character_id: "90729314")
+              .and_return(eve_character)
           end
         end
       end
@@ -98,7 +99,8 @@ describe Api::Eve::CharactersController do
         #
         expect(subject).to receive(:policy_scope).with(Eve::Character) do
           double.tap do |a|
-            expect(a).to receive(:find_by!).with(character_id: "90729314").and_raise(ActiveRecord::RecordNotFound)
+            expect(a).to receive(:find_by!).with(character_id: "90729314")
+              .and_raise(ActiveRecord::RecordNotFound)
           end
         end
       end

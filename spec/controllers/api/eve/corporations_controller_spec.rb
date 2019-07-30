@@ -66,7 +66,8 @@ describe Api::Eve::CorporationsController do
         #
         expect(subject).to receive(:policy_scope).with(Eve::Corporation) do
           double.tap do |a|
-            expect(a).to receive(:find_by!).with(corporation_id: "98005120").and_return(eve_corporation)
+            expect(a).to receive(:find_by!).with(corporation_id: "98005120")
+              .and_return(eve_corporation)
           end
         end
       end
@@ -98,7 +99,8 @@ describe Api::Eve::CorporationsController do
         #
         expect(subject).to receive(:policy_scope).with(Eve::Corporation) do
           double.tap do |a|
-            expect(a).to receive(:find_by!).with(corporation_id: "98005120").and_raise(ActiveRecord::RecordNotFound)
+            expect(a).to receive(:find_by!).with(corporation_id: "98005120")
+              .and_raise(ActiveRecord::RecordNotFound)
           end
         end
       end
