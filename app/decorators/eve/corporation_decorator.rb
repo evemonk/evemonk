@@ -13,7 +13,7 @@ module Eve
     end
 
     def icon
-      "https://imageserver.eveonline.com/Corporation/#{ corporation_id }_256.png"
+      "https://imageserver.eveonline.com/Corporation/#{corporation_id}_256.png"
     end
 
     def tax_rate

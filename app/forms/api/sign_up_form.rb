@@ -17,7 +17,7 @@ module Api
     delegate :id, :token, to: :session
 
     def save
-      return false if !valid?
+      return false unless valid?
 
       ActiveRecord::Base.transaction do
         user.save!
@@ -25,7 +25,7 @@ module Api
         session.save!
       end
     rescue ActiveRecord::RecordNotUnique, ActiveRecord::RecordInvalid
-      errors.add(:email, I18n.t('errors.messages.taken'))
+      errors.add(:email, I18n.t("errors.messages.taken"))
 
       false
     end

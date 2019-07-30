@@ -22,7 +22,7 @@ module Eve
 
         esi.entries.each do |entry|
           history = eve_corporation.corporation_alliance_histories
-                                   .find_or_initialize_by(record_id: entry.record_id)
+            .find_or_initialize_by(record_id: entry.record_id)
 
           history.update!(entry.as_json)
         end
@@ -31,7 +31,7 @@ module Eve
       rescue EveOnline::Exceptions::ResourceNotFound
         eve_corporation.destroy!
       rescue ActiveRecord::RecordNotFound
-        Rails.logger.info("Corporation with ID #{ corporation_id } not found")
+        Rails.logger.info("Corporation with ID #{corporation_id} not found")
       end
     end
   end

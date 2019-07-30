@@ -30,7 +30,7 @@ module Eve
 
     def import_new_graphics
       esi.graphic_ids.each do |graphic_id|
-        if !Eve::Graphic.exists?(graphic_id: graphic_id)
+        unless Eve::Graphic.exists?(graphic_id: graphic_id)
           Eve::GraphicImporterWorker.perform_async(graphic_id)
         end
       end

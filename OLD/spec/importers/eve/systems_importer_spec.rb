@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
+require "rails_helper"
 
 describe Eve::SystemsImporter do
-  describe '#import' do
+  describe "#import" do
     let(:system_id) { double }
 
     let(:eveonline_systems) { instance_double(EveOnline::ESI::UniverseSystems, universe_system_ids: [system_id]) }

@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
+require "rails_helper"
 
 describe Eve::SystemImporter do
-  describe '#import' do
-    context 'when import ok' do
+  describe "#import" do
+    context "when import ok" do
       let(:system_id) { double }
 
       subject { described_class.new(system_id) }
@@ -23,7 +23,7 @@ describe Eve::SystemImporter do
 
       before { expect(Eve::StargateImporterWorker).to receive(:perform_async).with(stargate_id) }
 
-      context 'when system changed' do
+      context "when system changed" do
         let(:eve_system) { instance_double(Eve::System, changed?: true) }
 
         before { expect(eve_system).to receive(:save!) }
@@ -31,7 +31,7 @@ describe Eve::SystemImporter do
         specify { expect { subject.import }.not_to raise_error }
       end
 
-      context 'when system not changed' do
+      context "when system not changed" do
         let(:eve_system) { instance_double(Eve::System, changed?: false) }
 
         before { expect(eve_system).not_to receive(:save!) }
@@ -40,7 +40,7 @@ describe Eve::SystemImporter do
       end
     end
 
-    context 'when system not found' do
+    context "when system not found" do
       let(:system_id) { double }
 
       subject { described_class.new(system_id) }
@@ -49,7 +49,7 @@ describe Eve::SystemImporter do
 
       before { expect(EveOnline::ESI::UniverseSystem).to receive(:new).and_raise(EveOnline::Exceptions::ResourceNotFound) }
 
-      context 'when system persisted' do
+      context "when system persisted" do
         let(:eve_system) { instance_double(Eve::System, persisted?: true) }
 
         before { expect(eve_system).to receive(:destroy) }
@@ -57,7 +57,7 @@ describe Eve::SystemImporter do
         specify { expect { subject.import }.not_to raise_error }
       end
 
-      context 'when system not persisted' do
+      context "when system not persisted" do
         let(:eve_system) { instance_double(Eve::System, persisted?: false) }
 
         before { expect(eve_system).not_to receive(:destroy) }

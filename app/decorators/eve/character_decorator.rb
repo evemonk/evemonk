@@ -10,7 +10,7 @@ module Eve
     end
 
     def icon
-      "https://imageserver.eveonline.com/Character/#{ character_id }_512.jpg"
+      "https://imageserver.eveonline.com/Character/#{character_id}_512.jpg"
     end
 
     def description
