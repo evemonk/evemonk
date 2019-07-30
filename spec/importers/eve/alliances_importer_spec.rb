@@ -6,14 +6,20 @@ describe Eve::AlliancesImporter do
   describe "#initialize" do
     let(:esi) { instance_double(EveOnline::ESI::Alliances) }
 
-    before { expect(EveOnline::ESI::Alliances).to receive(:new).and_return(esi) }
+    before do
+      expect(EveOnline::ESI::Alliances).to receive(:new)
+        .and_return(esi)
+    end
 
     its(:esi) { should eq(esi) }
   end
 
   describe "#import" do
     context "when fresh data available" do
-      let(:etag) { instance_double(Eve::Etag, etag: "97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a") }
+      let(:etag) do
+        instance_double(Eve::Etag,
+                        etag: "97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a")
+      end
 
       let(:new_etag) { double }
 
@@ -23,11 +29,21 @@ describe Eve::AlliancesImporter do
                         etag: new_etag)
       end
 
-      before { expect(EveOnline::ESI::Alliances).to receive(:new).and_return(esi) }
+      before do
+        expect(EveOnline::ESI::Alliances).to receive(:new)
+          .and_return(esi)
+      end
 
-      before { expect(subject).to receive(:etag).and_return(etag).twice }
+      before do
+        expect(subject).to receive(:etag)
+          .and_return(etag)
+          .twice
+      end
 
-      before { expect(esi).to receive(:etag=).with("97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a") }
+      before do
+        expect(esi).to receive(:etag=)
+          .with("97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a")
+      end
 
       before { expect(subject).to receive(:import_new_alliances) }
 
@@ -39,18 +55,27 @@ describe Eve::AlliancesImporter do
     end
 
     context "when no fresh data available" do
-      let(:etag) { instance_double(Eve::Etag, etag: "97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a") }
+      let(:etag) do
+        instance_double(Eve::Etag,
+                        etag: "97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a")
+      end
 
       let(:esi) do
         instance_double(EveOnline::ESI::Alliances,
                         not_modified?: true)
       end
 
-      before { expect(EveOnline::ESI::Alliances).to receive(:new).and_return(esi) }
+      before do
+        expect(EveOnline::ESI::Alliances).to receive(:new)
+          .and_return(esi)
+      end
 
       before { expect(subject).to receive(:etag).and_return(etag) }
 
-      before { expect(esi).to receive(:etag=).with("97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a") }
+      before do
+        expect(esi).to receive(:etag=)
+          .with("97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a")
+      end
 
       before { expect(subject).not_to receive(:import_new_alliances) }
 
@@ -76,13 +101,23 @@ describe Eve::AlliancesImporter do
     context "when @etag not set" do
       let(:url) { double }
 
-      let(:esi) { instance_double(EveOnline::ESI::Alliances, url: url) }
+      let(:esi) do
+        instance_double(EveOnline::ESI::Alliances,
+                        url: url)
+      end
 
       let(:etag) { instance_double(Eve::Etag) }
 
-      before { expect(EveOnline::ESI::Alliances).to receive(:new).and_return(esi) }
+      before do
+        expect(EveOnline::ESI::Alliances).to receive(:new)
+          .and_return(esi)
+      end
 
-      before { expect(Eve::Etag).to receive(:find_or_initialize_by).with(url: url).and_return(etag) }
+      before do
+        expect(Eve::Etag).to receive(:find_or_initialize_by)
+          .with(url: url)
+          .and_return(etag)
+      end
 
       specify { expect { subject.send(:etag) }.not_to raise_error }
 
@@ -98,18 +133,32 @@ describe Eve::AlliancesImporter do
                       alliance_ids: [alliance_id])
     end
 
-    before { expect(EveOnline::ESI::Alliances).to receive(:new).and_return(esi) }
+    before do
+      expect(EveOnline::ESI::Alliances).to receive(:new)
+        .and_return(esi)
+    end
 
     context "when alliance not imported" do
-      before { expect(Eve::Alliance).to receive(:exists?).with(alliance_id: alliance_id).and_return(false) }
+      before do
+        expect(Eve::Alliance).to receive(:exists?)
+          .with(alliance_id: alliance_id)
+          .and_return(false)
+      end
 
-      before { expect(Eve::AllianceImporterWorker).to receive(:perform_async).with(alliance_id) }
+      before do
+        expect(Eve::AllianceImporterWorker).to receive(:perform_async)
+          .with(alliance_id)
+      end
 
       specify { expect { subject.send(:import_new_alliances) }.not_to raise_error }
     end
 
     context "when alliance already imported" do
-      before { expect(Eve::Alliance).to receive(:exists?).with(alliance_id: alliance_id).and_return(true) }
+      before do
+        expect(Eve::Alliance).to receive(:exists?)
+          .with(alliance_id: alliance_id)
+          .and_return(true)
+      end
 
       before { expect(Eve::AllianceImporterWorker).not_to receive(:perform_async) }
 

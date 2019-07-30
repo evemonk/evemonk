@@ -42,9 +42,16 @@ describe Eve::AllianceCorporationsImporter do
           .and_return(esi)
       end
 
-      before { expect(subject).to receive(:etag).and_return(etag).twice }
+      before do
+        expect(subject).to receive(:etag)
+          .and_return(etag)
+          .twice
+      end
 
-      before { expect(esi).to receive(:etag=).with("97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a") }
+      before do
+        expect(esi).to receive(:etag=)
+          .with("97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a")
+      end
 
       before { expect(subject).to receive(:import_new_corporations) }
 
@@ -74,7 +81,10 @@ describe Eve::AllianceCorporationsImporter do
 
       before { expect(subject).to receive(:etag).and_return(etag) }
 
-      before { expect(esi).to receive(:etag=).with("97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a") }
+      before do
+        expect(esi).to receive(:etag=)
+          .with("97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a")
+      end
 
       before { expect(subject).not_to receive(:import_new_corporations) }
 
