@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
+require "rails_helper"
 
 describe Eve::AllianceCorporationsImporter do
   let(:alliance_id) { double }
 
   subject { described_class.new(alliance_id) }
 
-  describe '#initialize' do
+  describe "#initialize" do
     let(:esi) { instance_double(EveOnline::ESI::AllianceCorporations) }
 
     before { expect(EveOnline::ESI::AllianceCorporations).to receive(:new).with(alliance_id: alliance_id).and_return(esi) }
@@ -17,9 +17,9 @@ describe Eve::AllianceCorporationsImporter do
     its(:esi) { should eq(esi) }
   end
 
-  describe '#import' do
-    context 'when fresh data available' do
-      let(:etag) { instance_double(Eve::Etag, etag: '97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a') }
+  describe "#import" do
+    context "when fresh data available" do
+      let(:etag) { instance_double(Eve::Etag, etag: "97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a") }
 
       let(:new_etag) { double }
 
@@ -33,7 +33,7 @@ describe Eve::AllianceCorporationsImporter do
 
       before { expect(subject).to receive(:etag).and_return(etag).twice }
 
-      before { expect(esi).to receive(:etag=).with('97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a') }
+      before { expect(esi).to receive(:etag=).with("97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a") }
 
       before { expect(subject).to receive(:import_new_corporations) }
 
@@ -44,8 +44,8 @@ describe Eve::AllianceCorporationsImporter do
       specify { expect { subject.import }.not_to raise_error }
     end
 
-    context 'when no fresh data available' do
-      let(:etag) { instance_double(Eve::Etag, etag: '97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a') }
+    context "when no fresh data available" do
+      let(:etag) { instance_double(Eve::Etag, etag: "97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a") }
 
       let(:esi) do
         instance_double(EveOnline::ESI::AllianceCorporations,
@@ -56,7 +56,7 @@ describe Eve::AllianceCorporationsImporter do
 
       before { expect(subject).to receive(:etag).and_return(etag) }
 
-      before { expect(esi).to receive(:etag=).with('97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a') }
+      before { expect(esi).to receive(:etag=).with("97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a") }
 
       before { expect(subject).not_to receive(:import_new_corporations) }
 
@@ -67,7 +67,7 @@ describe Eve::AllianceCorporationsImporter do
       specify { expect { subject.import }.not_to raise_error }
     end
 
-    context 'when alliance not found' do
+    context "when alliance not found" do
       before { expect(subject).to receive(:etag).and_raise(ActiveRecord::RecordNotFound) }
 
       before do
@@ -76,7 +76,7 @@ describe Eve::AllianceCorporationsImporter do
         #
         expect(Rails).to receive(:logger) do
           double.tap do |a|
-            expect(a).to receive(:info).with("Alliance with ID #{ alliance_id } not found")
+            expect(a).to receive(:info).with("Alliance with ID #{alliance_id} not found")
           end
         end
       end
@@ -87,7 +87,7 @@ describe Eve::AllianceCorporationsImporter do
 
   # private methods
 
-  describe '#import_new_corporations' do
+  describe "#import_new_corporations" do
     let(:remote_corporation_id) { double }
 
     let(:remote_corporation_ids) { [remote_corporation_id] }
@@ -133,8 +133,7 @@ describe Eve::AllianceCorporationsImporter do
     specify { expect { subject.send(:import_new_corporations) }.not_to raise_error }
   end
 
-
-  describe '#remove_old_corporations' do
+  describe "#remove_old_corporations" do
     let(:remote_corporation_id) { double }
 
     let(:remote_corporation_ids) { [remote_corporation_id] }
@@ -184,8 +183,8 @@ describe Eve::AllianceCorporationsImporter do
     specify { expect { subject.send(:remove_old_corporations) }.not_to raise_error }
   end
 
-  describe '#etag' do
-    context 'when @etag set' do
+  describe "#etag" do
+    context "when @etag set" do
       let(:etag) { instance_double(Eve::Etag) }
 
       before { subject.instance_variable_set(:@etag, etag) }
@@ -193,7 +192,7 @@ describe Eve::AllianceCorporationsImporter do
       specify { expect(subject.send(:etag)).to eq(etag) }
     end
 
-    context 'when @etag not set' do
+    context "when @etag not set" do
       let(:url) { double }
 
       let(:esi) { instance_double(EveOnline::ESI::AllianceCorporations, url: url) }
@@ -210,8 +209,8 @@ describe Eve::AllianceCorporationsImporter do
     end
   end
 
-  describe '#eve_alliance' do
-    context 'when @eve_alliance set' do
+  describe "#eve_alliance" do
+    context "when @eve_alliance set" do
       let(:eve_alliance) { instance_double(Eve::Alliance) }
 
       before { subject.instance_variable_set(:@eve_alliance, eve_alliance) }
@@ -219,7 +218,7 @@ describe Eve::AllianceCorporationsImporter do
       specify { expect(subject.send(:eve_alliance)).to eq(eve_alliance) }
     end
 
-    context 'when @eve_alliance not set' do
+    context "when @eve_alliance not set" do
       let(:eve_alliance) { instance_double(Eve::Alliance) }
 
       before { expect(Eve::Alliance).to receive(:find_by!).with(alliance_id: alliance_id).and_return(eve_alliance) }

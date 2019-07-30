@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
+require "rails_helper"
 
 describe Eve::CharacterImporter do
-  describe '#import' do
-    context 'when fresh data available' do
-      context 'when character found' do
+  describe "#import" do
+    context "when fresh data available" do
+      context "when character found" do
         let(:character_id) { double }
 
         subject { described_class.new(character_id) }
@@ -30,11 +30,11 @@ describe Eve::CharacterImporter do
 
         before { expect(EveOnline::ESI::Character).to receive(:new).with(character_id: character_id).and_return(esi) }
 
-        let(:etag) { instance_double(Eve::Etag, etag: '22c39689783a86032b8d43fa0b2e8f4809c4f38a585e39471035aa8b') }
+        let(:etag) { instance_double(Eve::Etag, etag: "22c39689783a86032b8d43fa0b2e8f4809c4f38a585e39471035aa8b") }
 
         before { expect(Eve::Etag).to receive(:find_or_initialize_by).with(url: url).and_return(etag) }
 
-        before { expect(esi).to receive(:etag=).with('22c39689783a86032b8d43fa0b2e8f4809c4f38a585e39471035aa8b') }
+        before { expect(esi).to receive(:etag=).with("22c39689783a86032b8d43fa0b2e8f4809c4f38a585e39471035aa8b") }
 
         before { expect(eve_character).to receive(:update!).with(json) }
 
@@ -43,7 +43,7 @@ describe Eve::CharacterImporter do
         specify { expect { subject.import }.not_to raise_error }
       end
 
-      context 'when character not found' do
+      context "when character not found" do
         let(:character_id) { double }
 
         subject { described_class.new(character_id) }
@@ -60,7 +60,7 @@ describe Eve::CharacterImporter do
       end
     end
 
-    context 'when no fresh data available' do
+    context "when no fresh data available" do
       let(:character_id) { double }
 
       subject { described_class.new(character_id) }
@@ -79,11 +79,11 @@ describe Eve::CharacterImporter do
 
       before { expect(EveOnline::ESI::Character).to receive(:new).with(character_id: character_id).and_return(esi) }
 
-      let(:etag) { instance_double(Eve::Etag, etag: '22c39689783a86032b8d43fa0b2e8f4809c4f38a585e39471035aa8b') }
+      let(:etag) { instance_double(Eve::Etag, etag: "22c39689783a86032b8d43fa0b2e8f4809c4f38a585e39471035aa8b") }
 
       before { expect(Eve::Etag).to receive(:find_or_initialize_by).with(url: url).and_return(etag) }
 
-      before { expect(esi).to receive(:etag=).with('22c39689783a86032b8d43fa0b2e8f4809c4f38a585e39471035aa8b') }
+      before { expect(esi).to receive(:etag=).with("22c39689783a86032b8d43fa0b2e8f4809c4f38a585e39471035aa8b") }
 
       before { expect(eve_character).not_to receive(:update!) }
 

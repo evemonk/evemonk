@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
+require "rails_helper"
 
 describe Eve::LocalTypesImporter do
-  describe '#import' do
+  describe "#import" do
     let(:type_id) { double }
 
     before do

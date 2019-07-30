@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
+require "rails_helper"
 
 describe Eve::CorporationsImporter do
   subject(:importer) { described_class.new }
 
-  describe '#import' do
+  describe "#import" do
     let(:corporation_id1) { double }
 
     let(:corporation_ids1) { [corporation_id1] }

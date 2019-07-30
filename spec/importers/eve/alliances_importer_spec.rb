@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
+require "rails_helper"
 
 describe Eve::AlliancesImporter do
-  describe '#initialize' do
+  describe "#initialize" do
     let(:esi) { instance_double(EveOnline::ESI::Alliances) }
 
     before { expect(EveOnline::ESI::Alliances).to receive(:new).and_return(esi) }
@@ -11,9 +11,9 @@ describe Eve::AlliancesImporter do
     its(:esi) { should eq(esi) }
   end
 
-  describe '#import' do
-    context 'when fresh data available' do
-      let(:etag) { instance_double(Eve::Etag, etag: '97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a') }
+  describe "#import" do
+    context "when fresh data available" do
+      let(:etag) { instance_double(Eve::Etag, etag: "97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a") }
 
       let(:new_etag) { double }
 
@@ -27,7 +27,7 @@ describe Eve::AlliancesImporter do
 
       before { expect(subject).to receive(:etag).and_return(etag).twice }
 
-      before { expect(esi).to receive(:etag=).with('97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a') }
+      before { expect(esi).to receive(:etag=).with("97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a") }
 
       before { expect(subject).to receive(:import_new_alliances) }
 
@@ -38,8 +38,8 @@ describe Eve::AlliancesImporter do
       specify { expect { subject.import }.not_to raise_error }
     end
 
-    context 'when no fresh data available' do
-      let(:etag) { instance_double(Eve::Etag, etag: '97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a') }
+    context "when no fresh data available" do
+      let(:etag) { instance_double(Eve::Etag, etag: "97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a") }
 
       let(:esi) do
         instance_double(EveOnline::ESI::Alliances,
@@ -50,7 +50,7 @@ describe Eve::AlliancesImporter do
 
       before { expect(subject).to receive(:etag).and_return(etag) }
 
-      before { expect(esi).to receive(:etag=).with('97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a') }
+      before { expect(esi).to receive(:etag=).with("97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a") }
 
       before { expect(subject).not_to receive(:import_new_alliances) }
 
@@ -64,8 +64,8 @@ describe Eve::AlliancesImporter do
 
   # private methods
 
-  describe '#etag' do
-    context 'when @etag set' do
+  describe "#etag" do
+    context "when @etag set" do
       let(:etag) { instance_double(Eve::Etag) }
 
       before { subject.instance_variable_set(:@etag, etag) }
@@ -73,7 +73,7 @@ describe Eve::AlliancesImporter do
       specify { expect(subject.send(:etag)).to eq(etag) }
     end
 
-    context 'when @etag not set' do
+    context "when @etag not set" do
       let(:url) { double }
 
       let(:esi) { instance_double(EveOnline::ESI::Alliances, url: url) }
@@ -90,7 +90,7 @@ describe Eve::AlliancesImporter do
     end
   end
 
-  describe '#import_new_alliances' do
+  describe "#import_new_alliances" do
     let(:alliance_id) { double }
 
     let(:esi) do
@@ -100,7 +100,7 @@ describe Eve::AlliancesImporter do
 
     before { expect(EveOnline::ESI::Alliances).to receive(:new).and_return(esi) }
 
-    context 'when alliance not imported' do
+    context "when alliance not imported" do
       before { expect(Eve::Alliance).to receive(:exists?).with(alliance_id: alliance_id).and_return(false) }
 
       before { expect(Eve::AllianceImporterWorker).to receive(:perform_async).with(alliance_id) }
@@ -108,7 +108,7 @@ describe Eve::AlliancesImporter do
       specify { expect { subject.send(:import_new_alliances) }.not_to raise_error }
     end
 
-    context 'when alliance already imported' do
+    context "when alliance already imported" do
       before { expect(Eve::Alliance).to receive(:exists?).with(alliance_id: alliance_id).and_return(true) }
 
       before { expect(Eve::AllianceImporterWorker).not_to receive(:perform_async) }
@@ -117,7 +117,7 @@ describe Eve::AlliancesImporter do
     end
   end
 
-  describe '#remove_old_alliances' do
+  describe "#remove_old_alliances" do
     let(:alliance_id) { double }
 
     let(:alliance_ids) { [alliance_id] }

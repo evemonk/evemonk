@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
+require "rails_helper"
 
 describe CharacterImporter do
-  context 'when character found' do
+  context "when character found" do
     let(:character_id) { double }
 
     subject { described_class.new(character_id) }
@@ -26,7 +26,7 @@ describe CharacterImporter do
     specify { expect { subject.import }.not_to raise_error }
   end
 
-  context 'when character not found (404)' do
+  context "when character not found (404)" do
     let(:character_id) { double }
 
     subject { described_class.new(character_id) }
@@ -42,7 +42,7 @@ describe CharacterImporter do
     specify { expect { subject.import }.not_to raise_error }
   end
 
-  context 'when character not found (ActiveRecord::RecordNotFound)' do
+  context "when character not found (ActiveRecord::RecordNotFound)" do
     let(:character_id) { double }
 
     subject { described_class.new(character_id) }
@@ -55,7 +55,7 @@ describe CharacterImporter do
       #
       expect(Rails).to receive(:logger) do
         double.tap do |a|
-          expect(a).to receive(:info).with("Character with ID #{ character_id } not found")
+          expect(a).to receive(:info).with("Character with ID #{character_id} not found")
         end
       end
     end

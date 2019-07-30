@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
+require "rails_helper"
 
 describe Eve::TypesImporter do
-  describe '#initialize' do
-    context 'with page' do
+  describe "#initialize" do
+    context "with page" do
       let(:page) { double }
 
       let(:esi) { instance_double(EveOnline::ESI::UniverseTypes) }
@@ -18,7 +18,7 @@ describe Eve::TypesImporter do
       its(:esi) { should eq(esi) }
     end
 
-    context 'without page' do
+    context "without page" do
       let(:esi) { instance_double(EveOnline::ESI::UniverseTypes) }
 
       before { expect(EveOnline::ESI::UniverseTypes).to receive(:new).with(page: 1).and_return(esi) }
@@ -29,8 +29,8 @@ describe Eve::TypesImporter do
     end
   end
 
-  describe '#import' do
-    context 'when fresh data available' do
+  describe "#import" do
+    context "when fresh data available" do
       let(:page) { double }
 
       subject { described_class.new(page) }
@@ -48,11 +48,11 @@ describe Eve::TypesImporter do
 
       before { expect(EveOnline::ESI::UniverseTypes).to receive(:new).with(page: page).and_return(esi) }
 
-      let(:etag) { instance_double(Eve::Etag, etag: '97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a') }
+      let(:etag) { instance_double(Eve::Etag, etag: "97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a") }
 
       before { expect(Eve::Etag).to receive(:find_or_initialize_by).with(url: url).and_return(etag) }
 
-      before { expect(esi).to receive(:etag=).with('97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a') }
+      before { expect(esi).to receive(:etag=).with("97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a") }
 
       before { expect(subject).to receive(:import_types) }
 
@@ -63,12 +63,12 @@ describe Eve::TypesImporter do
       specify { expect { subject.import }.not_to raise_error }
     end
 
-    context 'when no fresh data available' do
+    context "when no fresh data available" do
       let(:page) { double }
 
       subject { described_class.new(page) }
 
-      let(:etag) { instance_double(Eve::Etag, etag: '97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a') }
+      let(:etag) { instance_double(Eve::Etag, etag: "97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a") }
 
       let(:url) { double }
 
@@ -82,7 +82,7 @@ describe Eve::TypesImporter do
 
       before { expect(Eve::Etag).to receive(:find_or_initialize_by).with(url: url).and_return(etag) }
 
-      before { expect(esi).to receive(:etag=).with('97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a') }
+      before { expect(esi).to receive(:etag=).with("97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a") }
 
       before { expect(subject).not_to receive(:import_types) }
 
@@ -96,7 +96,7 @@ describe Eve::TypesImporter do
 
   # private methods
 
-  describe '#import_types' do
+  describe "#import_types" do
     let(:page) { double }
 
     subject { described_class.new(page) }
@@ -109,7 +109,7 @@ describe Eve::TypesImporter do
 
     before { expect(EveOnline::ESI::UniverseTypes).to receive(:new).with(page: page).and_return(esi) }
 
-    context 'when type not imported' do
+    context "when type not imported" do
       before { expect(Eve::Type).to receive(:exists?).with(type_id: universe_type_id).and_return(false) }
 
       before { expect(Eve::TypeImporterWorker).to receive(:perform_async).with(universe_type_id) }
@@ -117,7 +117,7 @@ describe Eve::TypesImporter do
       specify { expect { subject.send(:import_types) }.not_to raise_error }
     end
 
-    context 'when type is imported' do
+    context "when type is imported" do
       before { expect(Eve::Type).to receive(:exists?).with(type_id: universe_type_id).and_return(true) }
 
       before { expect(Eve::TypeImporterWorker).not_to receive(:perform_async) }
@@ -126,8 +126,8 @@ describe Eve::TypesImporter do
     end
   end
 
-  describe '#import_other_pages' do
-    context 'when page is more than 1' do
+  describe "#import_other_pages" do
+    context "when page is more than 1" do
       let(:page) { 2 }
 
       subject { described_class.new(page) }
@@ -141,7 +141,7 @@ describe Eve::TypesImporter do
       specify { expect { subject.send(:import_other_pages) }.not_to raise_error }
     end
 
-    context 'when total pages is 1' do
+    context "when total pages is 1" do
       let(:page) { 1 }
 
       subject { described_class.new(page) }
@@ -155,7 +155,7 @@ describe Eve::TypesImporter do
       specify { expect { subject.send(:import_other_pages) }.not_to raise_error }
     end
 
-    context 'when page is 1 and total pages more than 1' do
+    context "when page is 1 and total pages more than 1" do
       let(:page) { 1 }
 
       subject { described_class.new(page) }
