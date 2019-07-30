@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
+require "rails_helper"
 
 describe Eve::GraphicsImporterWorker do
   it { should be_a(Sidekiq::Worker) }
 
-  describe '#perform' do
+  describe "#perform" do
     before do
       #
       # Eve::GraphicsImporter.new.import

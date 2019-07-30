@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
+require "rails_helper"
 
 describe Eve::AlliancesSearcher do
-  describe '#initialize' do
-    context 'with parameters' do
+  describe "#initialize" do
+    context "with parameters" do
       let(:query) { double }
 
       let(:scope) { double }
@@ -16,7 +16,7 @@ describe Eve::AlliancesSearcher do
       its(:scope) { should eq(scope) }
     end
 
-    context 'without parameters' do
+    context "without parameters" do
       let(:scope) { double }
 
       before { expect(Eve::Alliance).to receive(:all).and_return(scope) }
@@ -29,13 +29,13 @@ describe Eve::AlliancesSearcher do
     end
   end
 
-  describe '#search' do
-    context 'when query is empty' do
-      let!(:alliance1) { create(:eve_alliance, name: 'a') }
+  describe "#search" do
+    context "when query is empty" do
+      let!(:alliance1) { create(:eve_alliance, name: "a") }
 
-      let!(:alliance2) { create(:eve_alliance, name: 'b') }
+      let!(:alliance2) { create(:eve_alliance, name: "b") }
 
-      let!(:alliance3) { create(:eve_alliance, name: 'c') }
+      let!(:alliance3) { create(:eve_alliance, name: "c") }
 
       subject { described_class.new }
 
@@ -46,15 +46,15 @@ describe Eve::AlliancesSearcher do
       specify { expect(subject.search.to_a).to eq([alliance1, alliance2, alliance3]) }
     end
 
-    context 'when query is present' do
-      context 'when name match' do
+    context "when query is present" do
+      context "when name match" do
         let!(:alliance) do
           create(:eve_alliance,
-                 name: 'Northern Coalition.',
+                 name: "Northern Coalition.",
                  ticker: nil)
         end
 
-        let(:query) { 'Northern Coalition.' }
+        let(:query) { "Northern Coalition." }
 
         before { Eve::Alliance.reindex }
 
@@ -63,14 +63,14 @@ describe Eve::AlliancesSearcher do
         specify { expect(subject.search.to_a).to eq([alliance]) }
       end
 
-      context 'when ticker match' do
+      context "when ticker match" do
         let!(:alliance) do
           create(:eve_alliance,
                  name: nil,
-                 ticker: 'NC')
+                 ticker: "NC")
         end
 
-        let(:query) { 'NC' }
+        let(:query) { "NC" }
 
         before { Eve::Alliance.reindex }
 

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
+require "rails_helper"
 
 describe CharacterPolicy do
   let!(:user) { create(:user) }
@@ -9,7 +9,7 @@ describe CharacterPolicy do
 
   let!(:another_user) { create(:user) }
 
-  describe '#initialize' do
+  describe "#initialize" do
     let(:user) { double }
 
     let(:record) { double }
@@ -21,7 +21,7 @@ describe CharacterPolicy do
     its(:record) { should eq(record) }
   end
 
-  describe '#index?' do
+  describe "#index?" do
     let(:user) { double }
 
     let(:record) { double }
@@ -31,21 +31,21 @@ describe CharacterPolicy do
     specify { expect(subject.index?).to eq(false) }
   end
 
-  describe '#show?' do
-    context 'when character owner' do
+  describe "#show?" do
+    context "when character owner" do
       subject { described_class.new(user, record) }
 
       specify { expect(subject.show?).to eq(true) }
     end
 
-    context 'when another user' do
+    context "when another user" do
       subject { described_class.new(another_user, record) }
 
       specify { expect(subject.show?).to eq(false) }
     end
   end
 
-  describe '#create?' do
+  describe "#create?" do
     let!(:record) { build(:character, user: user) }
 
     subject { described_class.new(user, record) }
@@ -53,35 +53,35 @@ describe CharacterPolicy do
     specify { expect(subject.create?).to eq(true) }
   end
 
-  describe '#update?' do
-    context 'when character owner' do
+  describe "#update?" do
+    context "when character owner" do
       subject { described_class.new(user, record) }
 
       specify { expect(subject.update?).to eq(true) }
     end
 
-    context 'when another user' do
+    context "when another user" do
       subject { described_class.new(another_user, record) }
 
       specify { expect(subject.update?).to eq(false) }
     end
   end
 
-  describe '#destroy?' do
-    context 'when character owner' do
+  describe "#destroy?" do
+    context "when character owner" do
       subject { described_class.new(user, record) }
 
       specify { expect(subject.destroy?).to eq(true) }
     end
 
-    context 'when another user' do
+    context "when another user" do
       subject { described_class.new(another_user, record) }
 
       specify { expect(subject.destroy?).to eq(false) }
     end
   end
 
-  describe '#scope' do
+  describe "#scope" do
     subject { described_class.new(user, record) }
 
     before do
@@ -96,7 +96,7 @@ describe CharacterPolicy do
 end
 
 describe CharacterPolicy::Scope do
-  describe 'initialize' do
+  describe "initialize" do
     let(:user) { double }
 
     let(:scope) { double }
@@ -108,20 +108,20 @@ describe CharacterPolicy::Scope do
     its(:scope) { should eq(scope) }
   end
 
-  describe '#resolve' do
+  describe "#resolve" do
     let!(:user) { create(:user) }
 
     let!(:record) { create(:character, user: user) }
 
     let!(:another_user) { create(:user) }
 
-    context 'when owner' do
+    context "when owner" do
       subject { described_class.new(user, Character) }
 
       specify { expect(subject.resolve.all).to eq([record]) }
     end
 
-    context 'when another other' do
+    context "when another other" do
       subject { described_class.new(another_user, Character) }
 
       specify { expect(subject.resolve.all).to eq([]) }

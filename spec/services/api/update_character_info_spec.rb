@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
+require "rails_helper"
 
 describe Api::UpdateCharacterInfo do
-  describe '#initialize' do
+  describe "#initialize" do
     let(:character) { instance_double(Character) }
 
     subject { described_class.new(character) }
@@ -11,7 +11,7 @@ describe Api::UpdateCharacterInfo do
     its(:character) { should eq(character) }
   end
 
-  describe '#update!' do
+  describe "#update!" do
     let(:character) { instance_double(Character) }
 
     subject(:service) { described_class.new(character) }
@@ -29,7 +29,7 @@ describe Api::UpdateCharacterInfo do
 
   # private methods
 
-  describe '#character_info' do
+  describe "#character_info" do
     let(:character_id) { double }
 
     let(:character) { instance_double(Character, character_id: character_id) }
@@ -47,7 +47,7 @@ describe Api::UpdateCharacterInfo do
     specify { expect { service.send(:character_info) }.not_to raise_error }
   end
 
-  describe '#character_wallet' do
+  describe "#character_wallet" do
     let(:character_id) { double }
 
     let(:access_token) { double }
@@ -67,7 +67,7 @@ describe Api::UpdateCharacterInfo do
     specify { expect { service.send(:character_wallet) }.not_to raise_error }
   end
 
-  describe '#character_attributes' do
+  describe "#character_attributes" do
     let(:character_id) { double }
 
     let(:access_token) { double }
@@ -87,7 +87,7 @@ describe Api::UpdateCharacterInfo do
     specify { expect { service.send(:character_attributes) }.not_to raise_error }
   end
 
-  describe '#character_loyalty_points' do
+  describe "#character_loyalty_points" do
     let(:character_id) { double }
 
     let(:access_token) { double }

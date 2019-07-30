@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
+require "rails_helper"
 
 describe Eve::CharactersSearcher do
-  describe '#initialize' do
-    context 'with parameters' do
+  describe "#initialize" do
+    context "with parameters" do
       let(:query) { double }
 
       let(:scope) { double }
@@ -16,7 +16,7 @@ describe Eve::CharactersSearcher do
       its(:scope) { should eq(scope) }
     end
 
-    context 'without parameters' do
+    context "without parameters" do
       let(:scope) { double }
 
       before { expect(Eve::Character).to receive(:all).and_return(scope) }
@@ -29,13 +29,13 @@ describe Eve::CharactersSearcher do
     end
   end
 
-  describe '#search' do
-    context 'when query is empty' do
-      let!(:character1) { create(:eve_character, name: 'a') }
+  describe "#search" do
+    context "when query is empty" do
+      let!(:character1) { create(:eve_character, name: "a") }
 
-      let!(:character2) { create(:eve_character, name: 'b') }
+      let!(:character2) { create(:eve_character, name: "b") }
 
-      let!(:character3) { create(:eve_character, name: 'c') }
+      let!(:character3) { create(:eve_character, name: "c") }
 
       subject { described_class.new }
 
@@ -46,14 +46,14 @@ describe Eve::CharactersSearcher do
       specify { expect(subject.search.to_a).to eq([character1, character2, character3]) }
     end
 
-    context 'when query is present' do
-      context 'when name match' do
+    context "when query is present" do
+      context "when name match" do
         let!(:character) do
           create(:eve_character,
-                 name: 'Green Black')
+                 name: "Green Black")
         end
 
-        let(:query) { 'Green Black' }
+        let(:query) { "Green Black" }
 
         before { Eve::Character.reindex }
 

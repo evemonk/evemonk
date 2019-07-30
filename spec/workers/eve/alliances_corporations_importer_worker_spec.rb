@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
+require "rails_helper"
 
 describe Eve::AlliancesCorporationsImporterWorker do
   it { should be_a(Sidekiq::Worker) }
 
-  describe '#perform' do
+  describe "#perform" do
     before do
       #
       # Eve::AlliancesCorporationsImporter.new.import
