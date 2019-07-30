@@ -48,7 +48,7 @@ script:
   - bundle exec mdl CHANGELOG.md
   - bundle exec mdl DEVELOPMENT.md
   - bundle exec fasterer
-  - bundle exec rubocop || true
+  - bundle exec standardrb
   - bundle exec licensed status || true
 
 after_script:

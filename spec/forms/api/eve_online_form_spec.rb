@@ -295,14 +295,15 @@ describe Api::EveOnlineForm do
       #                             token_type: token_type,
       #                             character_id: character_id)
       #
-      expect(character).to receive(:assign_attributes).with(name: name,
-                                                            access_token: access_token,
-                                                            refresh_token: refresh_token,
-                                                            token_expires_at: token_expires_at,
-                                                            token_expires: token_expires,
-                                                            scopes: scopes,
-                                                            token_type: token_type,
-                                                            character_id: character_id)
+      expect(character).to receive(:assign_attributes)
+        .with(name: name,
+              access_token: access_token,
+              refresh_token: refresh_token,
+              token_expires_at: token_expires_at,
+              token_expires: token_expires,
+              scopes: scopes,
+              token_type: token_type,
+              character_id: character_id)
     end
 
     specify { expect { form.send(:assign_character_attributes) }.not_to raise_error }

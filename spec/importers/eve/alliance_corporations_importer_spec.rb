@@ -10,7 +10,11 @@ describe Eve::AllianceCorporationsImporter do
   describe "#initialize" do
     let(:esi) { instance_double(EveOnline::ESI::AllianceCorporations) }
 
-    before { expect(EveOnline::ESI::AllianceCorporations).to receive(:new).with(alliance_id: alliance_id).and_return(esi) }
+    before do
+      expect(EveOnline::ESI::AllianceCorporations).to receive(:new)
+        .with(alliance_id: alliance_id)
+        .and_return(esi)
+    end
 
     its(:alliance_id) { should eq(alliance_id) }
 
@@ -29,7 +33,11 @@ describe Eve::AllianceCorporationsImporter do
                         etag: new_etag)
       end
 
-      before { expect(EveOnline::ESI::AllianceCorporations).to receive(:new).with(alliance_id: alliance_id).and_return(esi) }
+      before do
+        expect(EveOnline::ESI::AllianceCorporations).to receive(:new)
+          .with(alliance_id: alliance_id)
+          .and_return(esi)
+      end
 
       before { expect(subject).to receive(:etag).and_return(etag).twice }
 
@@ -52,7 +60,11 @@ describe Eve::AllianceCorporationsImporter do
                         not_modified?: true)
       end
 
-      before { expect(EveOnline::ESI::AllianceCorporations).to receive(:new).with(alliance_id: alliance_id).and_return(esi) }
+      before do
+        expect(EveOnline::ESI::AllianceCorporations).to receive(:new)
+          .with(alliance_id: alliance_id)
+          .and_return(esi)
+      end
 
       before { expect(subject).to receive(:etag).and_return(etag) }
 
