@@ -19,9 +19,10 @@ describe Api::SignUpsController do
         #                     password: 'password',
         #                     password_confirmation: 'password') # => form
         #
-        expect(Api::SignUpForm).to receive(:new).with(permitter(email: "me@example.com",
-                                                                password: "password",
-                                                                password_confirmation: "password"))
+        expect(Api::SignUpForm).to receive(:new)
+          .with(permitter(email: "me@example.com",
+                          password: "password",
+                          password_confirmation: "password"))
           .and_return(form)
       end
 
@@ -52,9 +53,10 @@ describe Api::SignUpsController do
         #                 password: 'password',
         #                 password_confirmation: 'password') # => form
         #
-        expect(Api::SignUpForm).to receive(:new).with(permitter(email: "me@example.com",
-                                                                password: "password",
-                                                                password_confirmation: "another password"))
+        expect(Api::SignUpForm).to receive(:new)
+          .with(permitter(email: "me@example.com",
+                          password: "password",
+                          password_confirmation: "another password"))
           .and_return(form)
       end
 
