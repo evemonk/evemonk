@@ -4,7 +4,7 @@ require "rails_helper"
 
 describe "/.well-known/change-password" do
   it "when user successfully redirected to change password form" do
-    user = create(:user, email: "me@example.com", password: "eidii7EeooVe8ahk")
+    create(:user, email: "me@example.com", password: "eidii7EeooVe8ahk")
 
     visit "/sign_in"
 
