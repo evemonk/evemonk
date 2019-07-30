@@ -4,7 +4,7 @@ module Api
   class SessionsController < BaseController
     def index
       @sessions = policy_scope(Session).order(created_at: :asc)
-                                       .page(params[:page])
+        .page(params[:page])
     end
 
     def destroy

@@ -7,17 +7,17 @@ module Api
 
       def index
         corporation = policy_scope(::Eve::Corporation).find_by!(corporation_id: params[:corporation_id])
-                                                      .decorate
+          .decorate
 
         @characters = policy_scope(::Eve::Character).where(corporation: corporation)
-                                                    .includes(:alliance,
+          .includes(:alliance,
                                                               :ancestry,
                                                               :bloodline,
                                                               :corporation,
                                                               :faction,
                                                               :race)
-                                                    .page(params[:page])
-                                                    .decorate
+          .page(params[:page])
+          .decorate
       end
     end
   end

@@ -18,7 +18,7 @@ FactoryBot.define do
 
     sequence(:faction_id)
 
-    gender { ['male', 'female'].sample }
+    gender { ["male", "female"].sample }
 
     name { Faker::Lorem.word }
 
@@ -26,6 +26,6 @@ FactoryBot.define do
 
     security_status { 0.0 }
 
-    title { 'Test title' }
+    title { "Test title" }
   end
 end

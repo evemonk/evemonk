@@ -10,13 +10,13 @@ module Auth
 
         form.save!
 
-        redirect_to "/autosignin/#{ form.session.token }"
+        redirect_to "/autosignin/#{form.session.token}"
       end
 
       private
 
       def handle_service_unavailable
-        render inline: 'Net::HTTPServiceUnavailable (503). Try again later.'
+        render inline: "Net::HTTPServiceUnavailable (503). Try again later."
       end
     end
   end

@@ -16,7 +16,7 @@ FactoryBot.define do
 
     description { Faker::Lorem.paragraph }
 
-    tax_rate { '0.09' }
+    tax_rate { "0.09" }
 
     date_founded { Time.zone.now }
 

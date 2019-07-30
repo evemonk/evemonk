@@ -8,14 +8,14 @@ module Api
       def index
         @characters = ::Eve::CharactersSearcher.new(params[:q],
                                                     policy_scope(::Eve::Character))
-                                               .search
-                                               .page(params[:page])
-                                               .decorate
+          .search
+          .page(params[:page])
+          .decorate
       end
 
       def show
         @character = policy_scope(::Eve::Character).find_by!(character_id: params[:id])
-                                                   .decorate
+          .decorate
 
         skip_authorization
       end
