@@ -16,9 +16,9 @@ module Api
             end
           end
           key :example,
-              errors: { email: [],
-                        password: [],
-                        password_confirmation: [] }
+              errors: {email: [],
+                       password: [],
+                       password_confirmation: [],}
         end
         # :nocov:
       end

@@ -12,26 +12,26 @@ module Api
           property :id do
             key :type, :integer
             key :format, :int64
-            key :description, 'Session ID'
+            key :description, "Session ID"
           end
           property :name do
             key :type, :string
-            key :description, 'Session name'
+            key :description, "Session name"
           end
           property :created_at do
             key :type, :string
             key :format, :'date-time'
-            key :description, 'Created at in ISO8601 format'
+            key :description, "Created at in ISO8601 format"
           end
           property :updated_at do
             key :type, :string
             key :format, :'date-time'
-            key :description, 'Updated at in ISO8601 format'
+            key :description, "Updated at in ISO8601 format"
           end
           key :example, id: 123,
-                        name: 'My Computer',
-                        created_at: '2016-12-12T18:35:59Z',
-                        updated_at: '2016-12-12T18:36:10Z'
+                        name: "My Computer",
+                        created_at: "2016-12-12T18:35:59Z",
+                        updated_at: "2016-12-12T18:36:10Z"
         end
         # :nocov:
       end

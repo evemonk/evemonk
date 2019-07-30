@@ -11,19 +11,19 @@ module Api
           key :required, [:faction_id, :name, :description, :solar_system_id,
                           :corporation_id, :militia_corporation_id,
                           :size_factor, :station_count, :station_system_count,
-                          :is_unique]
+                          :is_unique,]
           property :faction_id do
             key :type, :integer
             key :format, :int64
-            key :description, 'Faction ID'
+            key :description, "Faction ID"
           end
           property :name do
             key :type, :string
-            key :description, 'Faction name'
+            key :description, "Faction name"
           end
           property :description do
             key :type, :string
-            key :description, 'Faction description'
+            key :description, "Faction description"
           end
           property :solar_system_id do
             key :type, :integer
@@ -54,8 +54,8 @@ module Api
             key :format, :int64
           end
           key :example, faction_id: 500_002,
-                        name: 'Minmatar Republic',
-                        description: 'The Minmatar Republic was formed over a century ago when the Minmatar threw...',
+                        name: "Minmatar Republic",
+                        description: "The Minmatar Republic was formed over a century ago when the Minmatar threw...",
                         solar_system_id: 30_002_544,
                         corporation_id: 1_000_051,
                         militia_corporation_id: 1_000_182,

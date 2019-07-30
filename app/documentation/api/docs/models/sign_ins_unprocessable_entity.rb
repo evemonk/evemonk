@@ -15,7 +15,7 @@ module Api
               key :type, :string
             end
           end
-          key :example, errors: { email: [], password: [], base: [] }
+          key :example, errors: {email: [], password: [], base: []}
         end
         # :nocov:
       end
