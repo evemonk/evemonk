@@ -23,7 +23,10 @@ describe Eve::AllianceCorporationsImporter do
 
   describe "#import" do
     context "when fresh data available" do
-      let(:etag) { instance_double(Eve::Etag, etag: "97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a") }
+      let(:etag) do
+        instance_double(Eve::Etag,
+                        etag: "97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a")
+      end
 
       let(:new_etag) { double }
 
@@ -53,7 +56,10 @@ describe Eve::AllianceCorporationsImporter do
     end
 
     context "when no fresh data available" do
-      let(:etag) { instance_double(Eve::Etag, etag: "97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a") }
+      let(:etag) do
+        instance_double(Eve::Etag,
+                        etag: "97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a")
+      end
 
       let(:esi) do
         instance_double(EveOnline::ESI::AllianceCorporations,
@@ -80,7 +86,10 @@ describe Eve::AllianceCorporationsImporter do
     end
 
     context "when alliance not found" do
-      before { expect(subject).to receive(:etag).and_raise(ActiveRecord::RecordNotFound) }
+      before do
+        expect(subject).to receive(:etag)
+          .and_raise(ActiveRecord::RecordNotFound)
+      end
 
       before do
         #
@@ -88,7 +97,8 @@ describe Eve::AllianceCorporationsImporter do
         #
         expect(Rails).to receive(:logger) do
           double.tap do |a|
-            expect(a).to receive(:info).with("Alliance with ID #{alliance_id} not found")
+            expect(a).to receive(:info)
+              .with("Alliance with ID #{alliance_id} not found")
           end
         end
       end
@@ -166,11 +176,19 @@ describe Eve::AllianceCorporationsImporter do
                       corporation_ids: remote_corporation_ids)
     end
 
-    before { expect(EveOnline::ESI::AllianceCorporations).to receive(:new).with(alliance_id: alliance_id).and_return(esi) }
+    before do
+      expect(EveOnline::ESI::AllianceCorporations).to receive(:new)
+        .with(alliance_id: alliance_id)
+        .and_return(esi)
+    end
 
     let(:eve_alliance) { instance_double(Eve::Alliance) }
 
-    before { expect(subject).to receive(:eve_alliance).and_return(eve_alliance).twice }
+    before do
+      expect(subject).to receive(:eve_alliance)
+        .and_return(eve_alliance)
+        .twice
+    end
 
     let(:local_corporation_id) { double }
 
@@ -182,7 +200,9 @@ describe Eve::AllianceCorporationsImporter do
       #
       expect(eve_alliance).to receive(:alliance_corporations) do
         double.tap do |a|
-          expect(a).to receive(:pluck).with(:corporation_id).and_return(local_corporation_ids)
+          expect(a).to receive(:pluck)
+            .with(:corporation_id)
+            .and_return(local_corporation_ids)
         end
       end
     end
@@ -217,13 +237,24 @@ describe Eve::AllianceCorporationsImporter do
     context "when @etag not set" do
       let(:url) { double }
 
-      let(:esi) { instance_double(EveOnline::ESI::AllianceCorporations, url: url) }
+      let(:esi) do
+        instance_double(EveOnline::ESI::AllianceCorporations,
+                        url: url)
+      end
 
       let(:etag) { instance_double(Eve::Etag) }
 
-      before { expect(EveOnline::ESI::AllianceCorporations).to receive(:new).with(alliance_id: alliance_id).and_return(esi) }
+      before do
+        expect(EveOnline::ESI::AllianceCorporations).to receive(:new)
+          .with(alliance_id: alliance_id)
+          .and_return(esi)
+      end
 
-      before { expect(Eve::Etag).to receive(:find_or_initialize_by).with(url: url).and_return(etag) }
+      before do
+        expect(Eve::Etag).to receive(:find_or_initialize_by)
+          .with(url: url)
+          .and_return(etag)
+      end
 
       specify { expect { subject.send(:etag) }.not_to raise_error }
 
@@ -243,7 +274,11 @@ describe Eve::AllianceCorporationsImporter do
     context "when @eve_alliance not set" do
       let(:eve_alliance) { instance_double(Eve::Alliance) }
 
-      before { expect(Eve::Alliance).to receive(:find_by!).with(alliance_id: alliance_id).and_return(eve_alliance) }
+      before do
+        expect(Eve::Alliance).to receive(:find_by!)
+          .with(alliance_id: alliance_id)
+          .and_return(eve_alliance)
+      end
 
       specify { expect { subject.send(:eve_alliance) }.not_to raise_error }
 
