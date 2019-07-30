@@ -1,23 +1,23 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
+require "rails_helper"
 
 describe Api::ResetPasswordForm, type: :model do
   it { should be_a(ActiveModel::Model) }
 
-  describe 'validations' do
+  describe "validations" do
     let!(:user) do
       create(:user,
-             email: 'me@example.com',
-             password: 'old_password',
-             reset_password_token: 'reset-token-123')
+             email: "me@example.com",
+             password: "old_password",
+             reset_password_token: "reset-token-123")
     end
 
     let(:params) do
       {
-        reset_password_token: 'reset-token-123',
-        password: 'new_password',
-        password_confirmation: 'new_password'
+        reset_password_token: "reset-token-123",
+        password: "new_password",
+        password_confirmation: "new_password",
       }
     end
 
@@ -36,20 +36,20 @@ describe Api::ResetPasswordForm, type: :model do
 
   it { should delegate_method(:token).to(:session) }
 
-  describe '#save' do
-    context 'when everything ok' do
+  describe "#save" do
+    context "when everything ok" do
       let!(:user) do
         create(:user,
-               email: 'me@example.com',
-               password: 'old_password',
-               reset_password_token: 'reset-token-123')
+               email: "me@example.com",
+               password: "old_password",
+               reset_password_token: "reset-token-123")
       end
 
       let(:params) do
         {
-          reset_password_token: 'reset-token-123',
-          password: 'new_password',
-          password_confirmation: 'new_password'
+          reset_password_token: "reset-token-123",
+          password: "new_password",
+          password_confirmation: "new_password",
         }
       end
 
@@ -68,9 +68,9 @@ describe Api::ResetPasswordForm, type: :model do
 
       specify { expect(form.save).to eq(true) }
 
-      specify { expect { form.save }.to change { user.reload.authenticate('old_password') }.from(user).to(false) }
+      specify { expect { form.save }.to change { user.reload.authenticate("old_password") }.from(user).to(false) }
 
-      specify { expect { form.save }.to change { user.reload.authenticate('new_password') }.from(false).to(user) }
+      specify { expect { form.save }.to change { user.reload.authenticate("new_password") }.from(false).to(user) }
 
       specify { expect { form.save }.to change { user.sessions.count }.by(1) }
 
@@ -81,19 +81,19 @@ describe Api::ResetPasswordForm, type: :model do
       # specify { expect { form.save }.to change { user.sessions.first&.device_token }.to('token123') }
     end
 
-    context 'when user reset password token not found' do
+    context "when user reset password token not found" do
       let!(:user) do
         create(:user,
-               email: 'me@example.com',
-               password: 'old_password',
-               reset_password_token: 'reset-token-123')
+               email: "me@example.com",
+               password: "old_password",
+               reset_password_token: "reset-token-123")
       end
 
       let(:params) do
         {
-          reset_password_token: 'another-reset-token-123',
-          password: 'new_password',
-          password_confirmation: 'new_password'
+          reset_password_token: "another-reset-token-123",
+          password: "new_password",
+          password_confirmation: "new_password",
         }
       end
 
@@ -103,7 +103,7 @@ describe Api::ResetPasswordForm, type: :model do
 
       specify { expect(form.save).to eq(false) }
 
-      specify { expect { form.save }.to change { form.errors.messages }.from({}).to(base: ['Reset password token not found']) }
+      specify { expect { form.save }.to change { form.errors.messages }.from({}).to(base: ["Reset password token not found"]) }
     end
   end
 end

@@ -37,39 +37,39 @@ module Api
     private
 
     def character_id
-      request.env.dig('omniauth.auth', 'info', 'character_id')
+      request.env.dig("omniauth.auth", "info", "character_id")
     end
 
     def name
-      request.env.dig('omniauth.auth', 'info', 'name')
+      request.env.dig("omniauth.auth", "info", "name")
     end
 
     def access_token
-      request.env.dig('omniauth.auth', 'credentials', 'token')
+      request.env.dig("omniauth.auth", "credentials", "token")
     end
 
     def refresh_token
-      request.env.dig('omniauth.auth', 'credentials', 'refresh_token')
+      request.env.dig("omniauth.auth", "credentials", "refresh_token")
     end
 
     def token_expires_at
-      Time.zone.at(request.env.dig('omniauth.auth', 'credentials', 'expires_at'))
+      Time.zone.at(request.env.dig("omniauth.auth", "credentials", "expires_at"))
     end
 
     def token_expires
-      request.env.dig('omniauth.auth', 'credentials', 'expires')
+      request.env.dig("omniauth.auth", "credentials", "expires")
     end
 
     def scopes
-      request.env.dig('omniauth.auth', 'info', 'scopes')
+      request.env.dig("omniauth.auth", "info", "scopes")
     end
 
     def token_type
-      request.env.dig('omniauth.auth', 'info', 'token_type')
+      request.env.dig("omniauth.auth", "info", "token_type")
     end
 
     def character_owner_hash
-      request.env.dig('omniauth.auth', 'info', 'character_owner_hash')
+      request.env.dig("omniauth.auth", "info", "character_owner_hash")
     end
 
     def character
@@ -92,7 +92,7 @@ module Api
     end
 
     def remove_old_characters
-      return if !character.new_record?
+      return unless character.new_record?
 
       Character.where(character_id: character_id).destroy_all
     end

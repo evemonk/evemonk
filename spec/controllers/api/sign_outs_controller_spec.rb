@@ -1,14 +1,14 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
+require "rails_helper"
 
 describe Api::SignOutsController do
   it { should be_a(Api::BaseController) }
 
   it { should use_before_action(:authenticate) }
 
-  describe '#destroy' do
-    context 'when user authorized' do
+  describe "#destroy" do
+    context "when user authorized" do
       before { sign_in }
 
       let(:form) { instance_double(Api::SignOutForm) }
@@ -21,19 +21,19 @@ describe Api::SignOutsController do
 
       before { expect(form).to receive(:destroy!) }
 
-      before { delete :destroy, params: { format: :json } }
+      before { delete :destroy, params: {format: :json} }
 
       it { should respond_with(:no_content) }
     end
 
-    context 'when user not authorized' do
-      before { delete :destroy, params: { format: :json } }
+    context "when user not authorized" do
+      before { delete :destroy, params: {format: :json} }
 
       it { should respond_with(:unauthorized) }
     end
 
-    context 'when not supported accept type' do
-      before { delete :destroy, params: { format: :html } }
+    context "when not supported accept type" do
+      before { delete :destroy, params: {format: :html} }
 
       it { should respond_with(:not_acceptable) }
     end

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
+require "rails_helper"
 
 describe Eve::CharacterCorporationHistoryDecorator do
   subject { described_class.new(double) }

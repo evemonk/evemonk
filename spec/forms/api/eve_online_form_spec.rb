@@ -1,17 +1,17 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
+require "rails_helper"
 
 describe Api::EveOnlineForm do
   let(:request) { double }
 
   subject(:form) { described_class.new(request) }
 
-  describe '#initialize' do
+  describe "#initialize" do
     its(:request) { should eq(request) }
   end
 
-  describe '#save!' do
+  describe "#save!" do
     before { expect(form).to receive(:assign_character_attributes) }
 
     before { expect(form).to receive(:build_user) }
@@ -35,8 +35,8 @@ describe Api::EveOnlineForm do
     specify { expect { form.save! }.not_to raise_error }
   end
 
-  describe '#session' do
-    context 'when @session is set' do
+  describe "#session" do
+    context "when @session is set" do
       let(:session) { instance_double(Session) }
 
       before { form.instance_variable_set(:@session, session) }
@@ -44,7 +44,7 @@ describe Api::EveOnlineForm do
       specify { expect(form.session).to eq(session) }
     end
 
-    context 'when @session not set' do
+    context "when @session not set" do
       let(:session) { instance_double(Session) }
 
       let(:character) { instance_double(Character) }
@@ -74,14 +74,14 @@ describe Api::EveOnlineForm do
 
   # private methods
 
-  describe '#character_id' do
+  describe "#character_id" do
     before do
       #
       # request.env.dig('omniauth.auth', 'info', 'character_id')
       #
       expect(request).to receive(:env) do
         double.tap do |a|
-          expect(a).to receive(:dig).with('omniauth.auth', 'info', 'character_id')
+          expect(a).to receive(:dig).with("omniauth.auth", "info", "character_id")
         end
       end
     end
@@ -89,14 +89,14 @@ describe Api::EveOnlineForm do
     specify { expect { form.send(:character_id) }.not_to raise_error }
   end
 
-  describe '#name' do
+  describe "#name" do
     before do
       #
       # request.env.dig('omniauth.auth', 'info', 'name')
       #
       expect(request).to receive(:env) do
         double.tap do |a|
-          expect(a).to receive(:dig).with('omniauth.auth', 'info', 'name')
+          expect(a).to receive(:dig).with("omniauth.auth", "info", "name")
         end
       end
     end
@@ -104,14 +104,14 @@ describe Api::EveOnlineForm do
     specify { expect { form.send(:name) }.not_to raise_error }
   end
 
-  describe '#access_token' do
+  describe "#access_token" do
     before do
       #
       # request.env.dig('omniauth.auth', 'credentials', 'token')
       #
       expect(request).to receive(:env) do
         double.tap do |a|
-          expect(a).to receive(:dig).with('omniauth.auth', 'credentials', 'token')
+          expect(a).to receive(:dig).with("omniauth.auth", "credentials", "token")
         end
       end
     end
@@ -119,14 +119,14 @@ describe Api::EveOnlineForm do
     specify { expect { form.send(:access_token) }.not_to raise_error }
   end
 
-  describe '#refresh_token' do
+  describe "#refresh_token" do
     before do
       #
       # request.env.dig('omniauth.auth', 'credentials', 'refresh_token')
       #
       expect(request).to receive(:env) do
         double.tap do |a|
-          expect(a).to receive(:dig).with('omniauth.auth', 'credentials', 'refresh_token')
+          expect(a).to receive(:dig).with("omniauth.auth", "credentials", "refresh_token")
         end
       end
     end
@@ -134,7 +134,7 @@ describe Api::EveOnlineForm do
     specify { expect { form.send(:refresh_token) }.not_to raise_error }
   end
 
-  describe '#token_expires_at' do
+  describe "#token_expires_at" do
     let(:expires_at) { double }
 
     before do
@@ -143,8 +143,8 @@ describe Api::EveOnlineForm do
       #
       expect(request).to receive(:env) do
         double.tap do |a|
-          expect(a).to receive(:dig).with('omniauth.auth', 'credentials', 'expires_at')
-                                    .and_return(expires_at)
+          expect(a).to receive(:dig).with("omniauth.auth", "credentials", "expires_at")
+            .and_return(expires_at)
         end
       end
     end
@@ -163,14 +163,14 @@ describe Api::EveOnlineForm do
     specify { expect { form.send(:token_expires_at) }.not_to raise_error }
   end
 
-  describe '#token_expires' do
+  describe "#token_expires" do
     before do
       #
       # request.env.dig('omniauth.auth', 'credentials', 'expires')
       #
       expect(request).to receive(:env) do
         double.tap do |a|
-          expect(a).to receive(:dig).with('omniauth.auth', 'credentials', 'expires')
+          expect(a).to receive(:dig).with("omniauth.auth", "credentials", "expires")
         end
       end
     end
@@ -178,14 +178,14 @@ describe Api::EveOnlineForm do
     specify { expect { form.send(:token_expires) }.not_to raise_error }
   end
 
-  describe '#scopes' do
+  describe "#scopes" do
     before do
       #
       # request.env.dig('omniauth.auth', 'info', 'scopes')
       #
       expect(request).to receive(:env) do
         double.tap do |a|
-          expect(a).to receive(:dig).with('omniauth.auth', 'info', 'scopes')
+          expect(a).to receive(:dig).with("omniauth.auth", "info", "scopes")
         end
       end
     end
@@ -193,14 +193,14 @@ describe Api::EveOnlineForm do
     specify { expect { form.send(:scopes) }.not_to raise_error }
   end
 
-  describe '#token_type' do
+  describe "#token_type" do
     before do
       #
       # request.env.dig('omniauth.auth', 'info', 'token_type')
       #
       expect(request).to receive(:env) do
         double.tap do |a|
-          expect(a).to receive(:dig).with('omniauth.auth', 'info', 'token_type')
+          expect(a).to receive(:dig).with("omniauth.auth", "info", "token_type")
         end
       end
     end
@@ -208,14 +208,14 @@ describe Api::EveOnlineForm do
     specify { expect { form.send(:token_type) }.not_to raise_error }
   end
 
-  describe '#character_owner_hash' do
+  describe "#character_owner_hash" do
     before do
       #
       # request.env.dig('omniauth.auth', 'info', 'character_owner_hash')
       #
       expect(request).to receive(:env) do
         double.tap do |a|
-          expect(a).to receive(:dig).with('omniauth.auth', 'info', 'character_owner_hash')
+          expect(a).to receive(:dig).with("omniauth.auth", "info", "character_owner_hash")
         end
       end
     end
@@ -223,8 +223,8 @@ describe Api::EveOnlineForm do
     specify { expect { form.send(:character_owner_hash) }.not_to raise_error }
   end
 
-  describe '#character' do
-    context 'when @character is set' do
+  describe "#character" do
+    context "when @character is set" do
       let(:character) { instance_double(Character) }
 
       before { form.instance_variable_set(:@character, character) }
@@ -232,7 +232,7 @@ describe Api::EveOnlineForm do
       specify { expect(form.send(:character)).to eq(character) }
     end
 
-    context 'when @character not set' do
+    context "when @character not set" do
       let(:character) { instance_double(Character) }
 
       let(:character_owner_hash) { double }
@@ -247,7 +247,7 @@ describe Api::EveOnlineForm do
     end
   end
 
-  describe '#assign_character_attributes' do
+  describe "#assign_character_attributes" do
     let(:character) { instance_double(Character) }
 
     let(:name) { double }
@@ -308,8 +308,8 @@ describe Api::EveOnlineForm do
     specify { expect { form.send(:assign_character_attributes) }.not_to raise_error }
   end
 
-  describe '#build_user' do
-    context 'when user not set in character' do
+  describe "#build_user" do
+    context "when user not set in character" do
       let(:character) { instance_double(Character, user: nil) }
 
       before { expect(form).to receive(:character).and_return(character).twice }
@@ -319,7 +319,7 @@ describe Api::EveOnlineForm do
       specify { expect { form.send(:build_user) }.not_to raise_error }
     end
 
-    context 'when user is set in character' do
+    context "when user is set in character" do
       let(:user) { instance_double(User) }
 
       let(:character) { instance_double(Character, user: user) }
@@ -332,8 +332,8 @@ describe Api::EveOnlineForm do
     end
   end
 
-  describe '#remove_old_characters' do
-    context 'when character is new record, remove old characters' do
+  describe "#remove_old_characters" do
+    context "when character is new record, remove old characters" do
       let(:character_id) { double }
 
       let(:character) { instance_double(Character, new_record?: true) }
@@ -356,7 +356,7 @@ describe Api::EveOnlineForm do
       specify { expect { form.send(:remove_old_characters) }.not_to raise_error }
     end
 
-    context 'when character is not new record' do
+    context "when character is not new record" do
       let(:character) { instance_double(Character, new_record?: false) }
 
       before { expect(form).to receive(:character).and_return(character) }
@@ -367,7 +367,7 @@ describe Api::EveOnlineForm do
     end
   end
 
-  describe '#update_character_info' do
+  describe "#update_character_info" do
     let(:character) { instance_double(Character) }
 
     before { expect(form).to receive(:character).and_return(character) }

@@ -19,7 +19,7 @@ module Api
     delegate :id, :token, to: :session
 
     def save
-      return false if !valid?
+      return false unless valid?
 
       change_password
 
@@ -39,7 +39,7 @@ module Api
     def user_presence
       return if errors.any?
 
-      errors.add(:base, 'Reset password token not found') if !user
+      errors.add(:base, "Reset password token not found") unless user
     end
 
     def change_password
