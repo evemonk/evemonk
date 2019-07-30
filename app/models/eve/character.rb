@@ -22,7 +22,7 @@ module Eve
 
     def search_data
       {
-        name: name
+        name: name,
       }
     end
   end

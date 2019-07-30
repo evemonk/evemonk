@@ -10,12 +10,12 @@ module Eve
 
     belongs_to :ceo,
                primary_key: :character_id,
-               class_name: 'Eve::Character',
+               class_name: "Eve::Character",
                optional: true
 
     belongs_to :creator,
                primary_key: :character_id,
-               class_name: 'Eve::Character',
+               class_name: "Eve::Character",
                optional: true
 
     belongs_to :faction,
@@ -36,7 +36,7 @@ module Eve
     def search_data
       {
         name: name,
-        ticker: ticker
+        ticker: ticker,
       }
     end
   end

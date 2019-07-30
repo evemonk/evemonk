@@ -6,18 +6,18 @@ module Eve
 
     belongs_to :creator_corporation,
                primary_key: :corporation_id,
-               class_name: 'Eve::Corporation',
+               class_name: "Eve::Corporation",
                optional: true
 
     belongs_to :creator,
                primary_key: :character_id,
-               class_name: 'Eve::Character',
+               class_name: "Eve::Character",
                optional: true
 
     belongs_to :executor_corporation,
                foreign_key: :executor_corporation_id,
                primary_key: :corporation_id,
-               class_name: 'Eve::Corporation',
+               class_name: "Eve::Corporation",
                optional: true
 
     belongs_to :faction,
@@ -31,13 +31,13 @@ module Eve
     has_many :characters, through: :corporations
 
     def characters_count
-      corporations.sum('eve_corporations.member_count')
+      corporations.sum("eve_corporations.member_count")
     end
 
     def search_data
       {
         name: name,
-        ticker: ticker
+        ticker: ticker,
       }
     end
   end

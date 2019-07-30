@@ -4,11 +4,11 @@ module Eve
   class CharacterCorporationHistory < ApplicationRecord
     belongs_to :character,
                primary_key: :character_id,
-               class_name: 'Eve::Character'
+               class_name: "Eve::Character"
 
     belongs_to :corporation,
                primary_key: :corporation_id,
-               class_name: 'Eve::Corporation',
+               class_name: "Eve::Corporation",
                optional: true
   end
 end

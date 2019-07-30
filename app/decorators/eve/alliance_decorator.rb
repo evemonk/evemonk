@@ -11,7 +11,7 @@ module Eve
     end
 
     def icon
-      "https://imageserver.eveonline.com/Alliance/#{ alliance_id }_128.png"
+      "https://imageserver.eveonline.com/Alliance/#{alliance_id}_128.png"
     end
   end
 end

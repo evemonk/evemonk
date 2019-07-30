@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Set the host name for URL creation
-SitemapGenerator::Sitemap.default_host = 'https://evemonk.com'
+SitemapGenerator::Sitemap.default_host = "https://evemonk.com"
 
 SitemapGenerator::Sitemap.create do
   # Put links creation logic here.
@@ -27,68 +27,68 @@ SitemapGenerator::Sitemap.create do
   #     add article_path(article), :lastmod => article.updated_at
   #   end
 
-  add '/'
-  add '/sign_in'
-  add '/sign_up'
-  add '/forgot_password'
+  add "/"
+  add "/sign_in"
+  add "/sign_up"
+  add "/forgot_password"
 
-  add '/universe/alliances'
+  add "/universe/alliances"
 
   pages = Eve::Alliance.page(1).total_pages
 
   (1..pages).each do |page|
-    add "/universe/alliances?page=#{ page }"
+    add "/universe/alliances?page=#{page}"
   end
 
   Eve::Alliance.find_each do |alliance|
-    add "/universe/alliances/#{ alliance.alliance_id }"
+    add "/universe/alliances/#{alliance.alliance_id}"
 
-    add "/universe/alliances/#{ alliance.alliance_id }/characters"
+    add "/universe/alliances/#{alliance.alliance_id}/characters"
 
     pages = alliance.characters.page(1).total_pages
 
     (1..pages).each do |page|
-      add "/universe/alliances/#{ alliance.alliance_id }/characters?page=#{ page }"
+      add "/universe/alliances/#{alliance.alliance_id}/characters?page=#{page}"
     end
 
-    add "/universe/alliances/#{ alliance.alliance_id }/corporations"
+    add "/universe/alliances/#{alliance.alliance_id}/corporations"
 
     pages = alliance.corporations.page(1).total_pages
 
     (1..pages).each do |page|
-      add "/universe/alliances/#{ alliance.alliance_id }/corporations?page=#{ page }"
+      add "/universe/alliances/#{alliance.alliance_id}/corporations?page=#{page}"
     end
   end
 
-  add '/universe/corporations'
+  add "/universe/corporations"
 
   pages = Eve::Corporation.page(1).total_pages
 
   (1..pages).each do |page|
-    add "/universe/corporations?page=#{ page }"
+    add "/universe/corporations?page=#{page}"
   end
 
   Eve::Corporation.find_each do |corporation|
-    add "/universe/corporations/#{ corporation.corporation_id }"
+    add "/universe/corporations/#{corporation.corporation_id}"
 
-    add "/universe/corporations/#{ corporation.corporation_id }/characters"
+    add "/universe/corporations/#{corporation.corporation_id}/characters"
 
     pages = corporation.characters.page(1).total_pages
 
     (1..pages).each do |page|
-      add "/universe/corporations/#{ corporation.corporation_id }/characters?page=#{ page }"
+      add "/universe/corporations/#{corporation.corporation_id}/characters?page=#{page}"
     end
   end
 
-  add 'universe/characters'
+  add "universe/characters"
 
   pages = Eve::Character.page(1).total_pages
 
   (1..pages).each do |page|
-    add "/universe/characters?page=#{ page }"
+    add "/universe/characters?page=#{page}"
   end
 
   Eve::Character.find_each do |character|
-    add "/universe/characters/#{ character.character_id }"
+    add "/universe/characters/#{character.character_id}"
   end
 end

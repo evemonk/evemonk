@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
+require "rails_helper"
 
 module Api
   describe DocsController do
@@ -10,8 +10,8 @@ module Api
 
     # protect_from_forgery with: :exception
 
-    describe '#index' do
-      before { get :index, params: { format: :json } }
+    describe "#index" do
+      before { get :index, params: {format: :json} }
 
       it { should respond_with(:ok) }
     end

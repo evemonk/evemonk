@@ -6,6 +6,6 @@ class Rpush300Updates < ActiveRecord::VERSION::MAJOR >= 5 ? ActiveRecord::Migrat
 
   def self.down
     remove_column :rpush_notifications, :mutable_content
-    change_column :rpush_notifications, :sound, :string, default: 'default'
+    change_column :rpush_notifications, :sound, :string, default: "default"
   end
 end
