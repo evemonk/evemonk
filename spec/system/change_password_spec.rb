@@ -6,7 +6,7 @@ describe "Change password features" do
   it "when user successfully change password" do
     user = create(:user, email: "me@example.com", password: "eidii7EeooVe8ahk")
 
-    session = create(:session, user: user, token: "token123")
+    create(:session, user: user, token: "token123")
 
     visit "/"
 
