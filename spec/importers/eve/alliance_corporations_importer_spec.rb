@@ -110,11 +110,19 @@ describe Eve::AllianceCorporationsImporter do
                       corporation_ids: remote_corporation_ids)
     end
 
-    before { expect(EveOnline::ESI::AllianceCorporations).to receive(:new).with(alliance_id: alliance_id).and_return(esi) }
+    before do
+      expect(EveOnline::ESI::AllianceCorporations).to receive(:new)
+        .with(alliance_id: alliance_id)
+        .and_return(esi)
+    end
 
     let(:eve_alliance) { instance_double(Eve::Alliance) }
 
-    before { expect(subject).to receive(:eve_alliance).and_return(eve_alliance).twice }
+    before do
+      expect(subject).to receive(:eve_alliance)
+        .and_return(eve_alliance)
+        .twice
+    end
 
     let(:local_corporation_id) { double }
 
@@ -126,7 +134,8 @@ describe Eve::AllianceCorporationsImporter do
       #
       expect(eve_alliance).to receive(:alliance_corporations) do
         double.tap do |a|
-          expect(a).to receive(:pluck).with(:corporation_id).and_return(local_corporation_ids)
+          expect(a).to receive(:pluck).with(:corporation_id)
+            .and_return(local_corporation_ids)
         end
       end
     end
@@ -137,7 +146,8 @@ describe Eve::AllianceCorporationsImporter do
       #
       expect(eve_alliance).to receive(:alliance_corporations) do
         double.tap do |a|
-          expect(a).to receive(:create!).with(corporation_id: remote_corporation_id)
+          expect(a).to receive(:create!)
+            .with(corporation_id: remote_corporation_id)
         end
       end
     end
