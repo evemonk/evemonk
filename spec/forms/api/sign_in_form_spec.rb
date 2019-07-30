@@ -47,15 +47,15 @@ describe Api::SignInForm, type: :model do
 
       specify { expect(form.save).to eq(true) }
 
-      specify { expect { form.save }.to change { user.sessions.count }.by(1) }
+      specify { expect { form.save }.to(change { user.sessions.count }.by(1)) }
 
-      specify { expect { form.save }.to change { user.sessions.first&.token }.from(nil) }
+      specify { expect { form.save }.to(change { user.sessions.first&.token }.from(nil)) }
 
-      specify { expect { form.save }.to change { user.sessions.first&.name }.from(nil).to("My Computer") }
+      specify { expect { form.save }.to(change { user.sessions.first&.name }.from(nil).to("My Computer")) }
 
-      specify { expect { form.save }.to change { user.sessions.first&.device_type }.from(nil).to("ios") }
+      specify { expect { form.save }.to(change { user.sessions.first&.device_type }.from(nil).to("ios")) }
 
-      specify { expect { form.save }.to change { user.sessions.first&.device_token }.from(nil).to("token123") }
+      specify { expect { form.save }.to(change { user.sessions.first&.device_token }.from(nil).to("token123")) }
     end
 
     context "when user exist and password right with upper case email" do
@@ -72,9 +72,9 @@ describe Api::SignInForm, type: :model do
 
       specify { expect(form.save).to eq(true) }
 
-      specify { expect { form.save }.to change { user.sessions.count }.by(1) }
+      specify { expect { form.save }.to(change { user.sessions.count }.by(1)) }
 
-      specify { expect { form.save }.to change { user.sessions.first&.token }.from(nil) }
+      specify { expect { form.save }.to(change { user.sessions.first&.token }.from(nil)) }
     end
 
     context "when user exist but password wrong" do
@@ -86,9 +86,9 @@ describe Api::SignInForm, type: :model do
 
       specify { expect(form.save).to eq(false) }
 
-      specify { expect { form.save }.to change { form.errors.messages }.from({}).to(base: ["Email and/or password is invalid"]) }
+      specify { expect { form.save }.to(change { form.errors.messages }.from({}).to(base: ["Email and/or password is invalid"])) }
 
-      specify { expect { form.save }.not_to change { user.sessions.count } }
+      specify { expect { form.save }.not_to(change { user.sessions.count }) }
     end
 
     context "when user not exists" do
@@ -98,9 +98,9 @@ describe Api::SignInForm, type: :model do
 
       specify { expect(form.save).to eq(false) }
 
-      specify { expect { form.save }.to change { form.errors.messages }.from({}).to(base: ["Email and/or password is invalid"]) }
+      specify { expect { form.save }.to(change { form.errors.messages }.from({}).to(base: ["Email and/or password is invalid"])) }
 
-      specify { expect { form.save }.not_to change(Session, :count) }
+      specify { expect { form.save }.not_to(change(Session, :count)) }
     end
   end
 end

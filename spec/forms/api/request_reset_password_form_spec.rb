@@ -21,7 +21,7 @@ describe Api::RequestResetPasswordForm, type: :model do
 
       specify { expect(form.save).to eq(false) }
 
-      specify { expect { form.save }.to change { form.errors.messages }.from({}).to(email: ["Email not found"]) }
+      specify { expect { form.save }.to(change { form.errors.messages }.from({}).to(email: ["Email not found"])) }
     end
 
     context "when user with given email is found" do
@@ -48,7 +48,7 @@ describe Api::RequestResetPasswordForm, type: :model do
 
       specify { expect(form.save).to eq(true) }
 
-      specify { expect { form.save }.to change { user.reload.reset_password_token } }
+      specify { expect { form.save }.to(change { user.reload.reset_password_token }) }
     end
 
     context "when user with given email is found (case insensitive)" do
@@ -75,7 +75,7 @@ describe Api::RequestResetPasswordForm, type: :model do
 
       specify { expect(form.save).to eq(true) }
 
-      specify { expect { form.save }.to change { user.reload.reset_password_token } }
+      specify { expect { form.save }.to(change { user.reload.reset_password_token }) }
     end
   end
 end
