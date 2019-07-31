@@ -1,6 +1,6 @@
 ---
 name: dotenv
-version: 2.7.4
+version: 2.7.5
 type: bundler
 summary: Loads environment variables from `.env`.
 homepage: https://github.com/bkeepers/dotenv
