@@ -1,6 +1,6 @@
 ---
 name: esutils
-version: 2.0.3
+version: 2.0.2
 type: npm
 summary: utility box for ECMAScript language tools
 homepage: https://github.com/estools/esutils
