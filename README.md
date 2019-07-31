@@ -4,6 +4,7 @@
 [![Test Coverage](https://codeclimate.com/github/evemonk/evemonk/badges/coverage.svg)](https://codeclimate.com/github/evemonk/evemonk/coverage)
 [![security](https://hakiri.io/github/evemonk/evemonk/master.svg)](https://hakiri.io/github/evemonk/evemonk/master)
 [![Greenkeeper badge](https://badges.greenkeeper.io/evemonk/evemonk.svg)](https://greenkeeper.io/)
+[![](https://images.microbadger.com/badges/image/biow0lf/evemonk.svg)](https://microbadger.com/images/biow0lf/evemonk "Get your own image badge on microbadger.com")
 
 EveMonk is helper software for EveOnline MMORPG.
 
