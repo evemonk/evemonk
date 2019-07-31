@@ -20,7 +20,7 @@ FactoryBot.define do
 
     birthday { Time.zone.now }
 
-    gender { ['male', 'female'].sample }
+    gender { ["male", "female"].sample }
 
     security_status { 2.15 }
 
@@ -54,6 +54,6 @@ FactoryBot.define do
 
     sequence(:corporation_id)
 
-    title { 'Test title' }
+    title { "Test title" }
   end
 end

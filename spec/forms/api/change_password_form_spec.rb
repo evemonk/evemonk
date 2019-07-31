@@ -1,21 +1,21 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
+require "rails_helper"
 
 describe Api::ChangePasswordForm, type: :model do
   it { should be_a(ActiveModel::Model) }
 
-  describe 'validations' do
-    let!(:user) { create(:user, email: 'me@example.com', password: 'old_password') }
+  describe "validations" do
+    let!(:user) { create(:user, email: "me@example.com", password: "old_password") }
 
     let(:params) do
       {
-        old_password: 'old_password',
-        password: 'new_password',
-        password_confirmation: 'new_password',
-        name: 'My Computer',
-        device_type: 'ios',
-        device_token: 'token123'
+        old_password: "old_password",
+        password: "new_password",
+        password_confirmation: "new_password",
+        name: "My Computer",
+        device_type: "ios",
+        device_token: "token123",
       }
     end
 
@@ -34,18 +34,18 @@ describe Api::ChangePasswordForm, type: :model do
 
   it { should delegate_method(:token).to(:session) }
 
-  describe '#save' do
-    context 'when everything ok' do
-      let!(:user) { create(:user, email: 'me@example.com', password: 'old_password') }
+  describe "#save" do
+    context "when everything ok" do
+      let!(:user) { create(:user, email: "me@example.com", password: "old_password") }
 
       let(:params) do
         {
-          old_password: 'old_password',
-          password: 'new_password',
-          password_confirmation: 'new_password',
-          name: 'My Computer',
-          device_type: 'ios',
-          device_token: 'token123'
+          old_password: "old_password",
+          password: "new_password",
+          password_confirmation: "new_password",
+          name: "My Computer",
+          device_type: "ios",
+          device_token: "token123",
         }
       end
 
@@ -64,25 +64,25 @@ describe Api::ChangePasswordForm, type: :model do
 
       specify { expect(form.save).to eq(true) }
 
-      specify { expect { form.save }.to change { user.reload.authenticate('old_password') }.from(user).to(false) }
+      specify { expect { form.save }.to change { user.reload.authenticate("old_password") }.from(user).to(false) }
 
-      specify { expect { form.save }.to change { user.reload.authenticate('new_password') }.from(false).to(user) }
+      specify { expect { form.save }.to change { user.reload.authenticate("new_password") }.from(false).to(user) }
 
-      specify { expect { form.save }.to change { user.sessions.first&.name }.to('My Computer') }
+      specify { expect { form.save }.to change { user.sessions.first&.name }.to("My Computer") }
 
-      specify { expect { form.save }.to change { user.sessions.first&.device_type }.to('ios') }
+      specify { expect { form.save }.to change { user.sessions.first&.device_type }.to("ios") }
 
-      specify { expect { form.save }.to change { user.sessions.first&.device_token }.to('token123') }
+      specify { expect { form.save }.to change { user.sessions.first&.device_token }.to("token123") }
     end
 
-    context 'when user password wrong' do
-      let!(:user) { create(:user, email: 'me@example.com', password: 'password') }
+    context "when user password wrong" do
+      let!(:user) { create(:user, email: "me@example.com", password: "password") }
 
       let(:params) do
         {
-          old_password: 'wrong-password',
-          password: 'new_password',
-          password_confirmation: 'new_password'
+          old_password: "wrong-password",
+          password: "new_password",
+          password_confirmation: "new_password",
         }
       end
 
@@ -92,17 +92,17 @@ describe Api::ChangePasswordForm, type: :model do
 
       specify { expect(form.save).to eq(false) }
 
-      specify { expect { form.save }.to change { form.errors.messages }.from({}).to(old_password: ['Wrong password']) }
+      specify { expect { form.save }.to change { form.errors.messages }.from({}).to(old_password: ["Wrong password"]) }
     end
 
     context "when new user password doesn't match confirmation" do
-      let!(:user) { create(:user, email: 'me@example.com', password: 'password') }
+      let!(:user) { create(:user, email: "me@example.com", password: "password") }
 
       let(:params) do
         {
-          old_password: 'password',
-          password: 'new_password',
-          password_confirmation: 'wrong-new-password'
+          old_password: "password",
+          password: "new_password",
+          password_confirmation: "wrong-new-password",
         }
       end
 

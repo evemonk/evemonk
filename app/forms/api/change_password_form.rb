@@ -20,7 +20,7 @@ module Api
     delegate :id, :token, to: :session
 
     def save
-      return false if !valid?
+      return false unless valid?
 
       change_password
 
@@ -35,7 +35,7 @@ module Api
 
     def old_password_validation
       # TODO: only if "password_digest: nil"
-      errors.add(:old_password, 'Wrong password') if !user.authenticate(old_password)
+      errors.add(:old_password, "Wrong password") unless user.authenticate(old_password)
     end
 
     # def change_user_oauth_kind_to_regular

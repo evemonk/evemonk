@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
+require "rails_helper"
 
 describe PushNotifications::NewSignIn do
   let(:device) { double }
@@ -13,7 +13,7 @@ describe PushNotifications::NewSignIn do
 
   specify { expect(service).to be_a(PushNotifications::Base) }
 
-  describe '#alert' do
-    specify { expect(service.send(:alert)).to eq('New sign-in from Location (IP)') }
+  describe "#alert" do
+    specify { expect(service.send(:alert)).to eq("New sign-in from Location (IP)") }
   end
 end

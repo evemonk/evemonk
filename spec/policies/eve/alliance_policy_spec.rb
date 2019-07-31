@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
+require "rails_helper"
 
 describe Eve::AlliancePolicy do
   let!(:user) { create(:user) }
 
   let!(:record) { create(:eve_alliance) }
 
-  describe '#initialize' do
+  describe "#initialize" do
     subject { described_class.new(user, record) }
 
     its(:user) { should eq(user) }
@@ -15,19 +15,19 @@ describe Eve::AlliancePolicy do
     its(:record) { should eq(record) }
   end
 
-  describe '#index?' do
+  describe "#index?" do
     subject { described_class.new(user, record) }
 
     specify { expect(subject.index?).to eq(false) }
   end
 
-  describe '#show?' do
+  describe "#show?" do
     subject { described_class.new(user, record) }
 
     specify { expect(subject.show?).to eq(true) }
   end
 
-  describe '#create?' do
+  describe "#create?" do
     let!(:record) { build(:eve_alliance) }
 
     subject { described_class.new(user, record) }
@@ -35,19 +35,19 @@ describe Eve::AlliancePolicy do
     specify { expect(subject.create?).to eq(true) }
   end
 
-  describe '#update?' do
+  describe "#update?" do
     subject { described_class.new(user, record) }
 
     specify { expect(subject.update?).to eq(true) }
   end
 
-  describe '#destroy?' do
+  describe "#destroy?" do
     subject { described_class.new(user, record) }
 
     specify { expect(subject.destroy?).to eq(true) }
   end
 
-  describe '#scope' do
+  describe "#scope" do
     subject { described_class.new(user, record) }
 
     before do
@@ -62,7 +62,7 @@ describe Eve::AlliancePolicy do
 end
 
 describe Eve::AlliancePolicy::Scope do
-  describe 'initialize' do
+  describe "initialize" do
     let(:user) { double }
 
     let(:scope) { double }
@@ -74,7 +74,7 @@ describe Eve::AlliancePolicy::Scope do
     its(:scope) { should eq(scope) }
   end
 
-  describe '#resolve' do
+  describe "#resolve" do
     let!(:user) { create(:user) }
 
     let!(:record) { create(:eve_alliance) }

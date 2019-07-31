@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
+require "rails_helper"
 
 describe Eve::CharactersImporter do
-  describe '#import' do
+  describe "#import" do
     let(:character_ids) { [1] }
 
     let(:alliance_creator_ids) { [2] }

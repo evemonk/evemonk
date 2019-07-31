@@ -4,9 +4,9 @@ module Api
   class CharactersController < BaseController
     def index
       @characters = policy_scope(Character).includes(:alliance, :corporation)
-                                           .order(created_at: :asc)
-                                           .page(params[:page])
-                                           .decorate
+        .order(created_at: :asc)
+        .page(params[:page])
+        .decorate
     end
 
     def show
@@ -16,8 +16,8 @@ module Api
                                         :faction,
                                         :alliance,
                                         :corporation)
-                            .find_by!(character_id: params[:id])
-                            .decorate
+        .find_by!(character_id: params[:id])
+        .decorate
 
       authorize(@character)
     end

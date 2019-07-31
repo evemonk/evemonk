@@ -6,8 +6,8 @@ module Api
     module Shared
       module NotFound
         def self.extended(base)
-          base.response '404' do
-            key :description, 'Not Found'
+          base.response "404" do
+            key :description, "Not Found"
           end
         end
       end

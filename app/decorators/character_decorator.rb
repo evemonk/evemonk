@@ -9,7 +9,7 @@ class CharacterDecorator < ApplicationDecorator
   end
 
   def icon
-    "https://imageserver.eveonline.com/Character/#{ character_id }_512.jpg"
+    "https://imageserver.eveonline.com/Character/#{character_id}_512.jpg"
   end
 
   def description
@@ -29,6 +29,6 @@ class CharacterDecorator < ApplicationDecorator
   end
 
   def wallet
-    "#{ object.wallet } ISK"
+    "#{object.wallet} ISK"
   end
 end

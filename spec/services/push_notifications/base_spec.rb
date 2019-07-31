@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
+require "rails_helper"
 
 describe PushNotifications::Base do
   let(:device) { double }
@@ -11,7 +11,7 @@ describe PushNotifications::Base do
 
   subject(:service) { described_class.new(device, device_token, notifications_count) }
 
-  describe '#initialize' do
+  describe "#initialize" do
     its(:device) { should eq(device) }
 
     its(:device_token) { should eq(device_token) }
@@ -19,7 +19,7 @@ describe PushNotifications::Base do
     its(:notifications_count) { should eq(notifications_count) }
   end
 
-  describe '#execute!' do
+  describe "#execute!" do
     let(:notification) { double }
 
     before { expect(service).to receive(:notification).and_return(notification).exactly(5).times }
@@ -51,8 +51,8 @@ describe PushNotifications::Base do
 
   # private methods
 
-  describe '#notification' do
-    context '@notification is set' do
+  describe "#notification" do
+    context "@notification is set" do
       let(:notification) { double }
 
       before { service.instance_variable_set(:@notification, notification) }
@@ -60,8 +60,8 @@ describe PushNotifications::Base do
       specify { expect(service.send(:notification)).to eq(notification) }
     end
 
-    context 'ios' do
-      let(:device) { 'ios' }
+    context "ios" do
+      let(:device) { "ios" }
 
       let(:notification) { double }
 
@@ -72,34 +72,34 @@ describe PushNotifications::Base do
       specify { expect { service.send(:notification) }.to change { service.instance_variable_get(:@notification) }.from(nil).to(notification) }
     end
 
-    context 'not supported' do
-      let(:device) { 'not-supported' }
+    context "not supported" do
+      let(:device) { "not-supported" }
 
       specify { expect { service.send(:notification) }.to raise_error(NotImplementedError) }
     end
   end
 
-  describe '#app' do
-    context 'ios' do
-      let(:device) { 'ios' }
+  describe "#app" do
+    context "ios" do
+      let(:device) { "ios" }
 
       before { expect(Rpush::Apns::App).to receive(:find_by_name).with(device) }
 
       specify { expect { service.send(:app) }.not_to raise_error }
     end
 
-    context 'not supported' do
-      let(:device) { 'not-supported' }
+    context "not supported" do
+      let(:device) { "not-supported" }
 
       specify { expect { service.send(:app) }.to raise_error(NotImplementedError) }
     end
   end
 
-  describe '#alert' do
+  describe "#alert" do
     specify { expect { service.send(:alert) }.to raise_error(NotImplementedError) }
   end
 
-  describe '#badge' do
+  describe "#badge" do
     specify { expect(service.send(:badge)).to eq(notifications_count) }
   end
 end

@@ -6,15 +6,15 @@ module Api
       # :nocov:
       include Swagger::Blocks
 
-      swagger_path '/sessions' do
+      swagger_path "/sessions" do
         operation :get do
-          key :summary, 'Get all user sessions'
-          key :description, 'Get all user sessions'
-          key :tags, ['sessions']
+          key :summary, "Get all user sessions"
+          key :description, "Get all user sessions"
+          key :tags, ["sessions"]
           parameter :authorization
           parameter :page
-          response '200' do
-            key :description, 'Success'
+          response "200" do
+            key :description, "Success"
             schema do
               key :'$ref', :OutputSessionWithoutToken
             end
@@ -24,21 +24,21 @@ module Api
         end
       end
 
-      swagger_path '/sessions/{id}' do
+      swagger_path "/sessions/{id}" do
         operation :delete do
-          key :summary, 'End session'
-          key :description, 'End session'
-          key :tags, ['sessions']
+          key :summary, "End session"
+          key :description, "End session"
+          key :tags, ["sessions"]
           parameter :authorization
           parameter do
             key :name, :id
             key :in, :path
             key :required, true
             key :type, :integer
-            key :description, 'Session ID'
+            key :description, "Session ID"
           end
-          response '204' do
-            key :description, 'Success'
+          response "204" do
+            key :description, "Success"
           end
           extend Api::Docs::Shared::Unauthorized
           extend Api::Docs::Shared::NotAcceptable

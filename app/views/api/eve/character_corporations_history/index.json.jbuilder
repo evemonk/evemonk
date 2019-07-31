@@ -12,8 +12,8 @@ json.history do
     json.start_date history.start_date.iso8601
 
     if history.corporation
-      json.partial! partial: 'api/eve/shared/corporation',
-                    locals: { corporation: history.corporation }
+      json.partial! partial: "api/eve/shared/corporation",
+                    locals: {corporation: history.corporation}
     end
   end
 end

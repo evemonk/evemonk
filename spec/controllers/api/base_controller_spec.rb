@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
+require "rails_helper"
 
 describe Api::BaseController do
   it { should be_a(ApplicationController) }
@@ -11,7 +11,7 @@ describe Api::BaseController do
 
   it { should use_before_action(:authenticate) }
 
-  describe '#current_user' do
+  describe "#current_user" do
     let!(:user) { instance_double(User) }
 
     before { subject.instance_variable_set(:@current_user, user) }
@@ -27,8 +27,8 @@ describe Api::BaseController do
 
   # private methods
 
-  describe '#authenticate_by_token' do
-    context 'when user exists' do
+  describe "#authenticate_by_token" do
+    context "when user exists" do
       let!(:user) { create(:user) }
 
       let!(:session) { create(:session, user: user) }
@@ -38,13 +38,13 @@ describe Api::BaseController do
       specify { expect(subject.send(:authenticate_by_token)).to eq(user) }
     end
 
-    context 'when user not exists' do
+    context "when user not exists" do
       specify { expect(subject.send(:authenticate_by_token)).to eq(nil) }
     end
   end
 
-  describe '#authenticate' do
-    context 'when user exists' do
+  describe "#authenticate" do
+    context "when user exists" do
       let(:user) { instance_double(User) }
 
       before { expect(subject).to receive(:authenticate_by_token).and_return(user) }
@@ -52,7 +52,7 @@ describe Api::BaseController do
       specify { expect(subject.send(:authenticate)).to eq(user) }
     end
 
-    context 'when user not exists' do
+    context "when user not exists" do
       before { expect(subject).to receive(:authenticate_by_token).and_return(nil) }
 
       before { expect(subject).to receive(:render_unauthorized) }
@@ -61,8 +61,8 @@ describe Api::BaseController do
     end
   end
 
-  describe '#render_unauthorized' do
-    before { expect(subject).to receive(:render).with(json: { error: 'Access denied' }, status: :unauthorized) }
+  describe "#render_unauthorized" do
+    before { expect(subject).to receive(:render).with(json: {error: "Access denied"}, status: :unauthorized) }
 
     specify { expect { subject.send(:render_unauthorized) }.not_to raise_error }
   end

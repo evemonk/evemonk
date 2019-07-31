@@ -5,7 +5,7 @@ module PushNotifications
     private
 
     def alert
-      'New sign-in from Location (IP)'
+      "New sign-in from Location (IP)"
     end
   end
 end

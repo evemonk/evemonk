@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
+require "rails_helper"
 
 describe Eve::StargateImporter do
-  describe '#import' do
-    context 'when import ok' do
+  describe "#import" do
+    context "when import ok" do
       let(:stargate_id) { double }
 
       subject { described_class.new(stargate_id) }
@@ -19,7 +19,7 @@ describe Eve::StargateImporter do
 
       before { expect(eve_stargate).to receive(:assign_attributes).with(json) }
 
-      context 'when stargate changed' do
+      context "when stargate changed" do
         let(:eve_stargate) { instance_double(Eve::Stargate, changed?: true) }
 
         before { expect(eve_stargate).to receive(:save!) }
@@ -27,7 +27,7 @@ describe Eve::StargateImporter do
         specify { expect { subject.import }.not_to raise_error }
       end
 
-      context 'when stargate not changed' do
+      context "when stargate not changed" do
         let(:eve_stargate) { instance_double(Eve::Stargate, changed?: false) }
 
         before { expect(eve_stargate).not_to receive(:save!) }
@@ -36,7 +36,7 @@ describe Eve::StargateImporter do
       end
     end
 
-    context 'when stargate not found' do
+    context "when stargate not found" do
       let(:stargate_id) { double }
 
       subject { described_class.new(stargate_id) }
@@ -45,7 +45,7 @@ describe Eve::StargateImporter do
 
       before { expect(EveOnline::ESI::UniverseStargate).to receive(:new).and_raise(EveOnline::Exceptions::ResourceNotFound) }
 
-      context 'when stargate persisted' do
+      context "when stargate persisted" do
         let(:eve_stargate) { instance_double(Eve::Stargate, persisted?: true) }
 
         before { expect(eve_stargate).to receive(:destroy) }
@@ -53,7 +53,7 @@ describe Eve::StargateImporter do
         specify { expect { subject.import }.not_to raise_error }
       end
 
-      context 'when stargate not persisted' do
+      context "when stargate not persisted" do
         let(:eve_stargate) { instance_double(Eve::Stargate, persisted?: false) }
 
         before { expect(eve_stargate).not_to receive(:destroy) }

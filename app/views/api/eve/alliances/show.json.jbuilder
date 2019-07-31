@@ -14,22 +14,22 @@ json.alliance do
   json.characters_count @alliance.characters_count
 
   if @alliance.creator_corporation
-    json.partial! partial: 'api/eve/shared/creator_corporation',
-                  locals: { creator_corporation: @alliance.creator_corporation }
+    json.partial! partial: "api/eve/shared/creator_corporation",
+                  locals: {creator_corporation: @alliance.creator_corporation}
   end
 
   if @alliance.creator
-    json.partial! partial: 'api/eve/shared/creator',
-                  locals: { creator: @alliance.creator }
+    json.partial! partial: "api/eve/shared/creator",
+                  locals: {creator: @alliance.creator}
   end
 
   if @alliance.executor_corporation
-    json.partial! partial: 'api/eve/shared/executor_corporation',
-                  locals: { executor_corporation: @alliance.executor_corporation }
+    json.partial! partial: "api/eve/shared/executor_corporation",
+                  locals: {executor_corporation: @alliance.executor_corporation}
   end
 
   if @alliance.faction
-    json.partial! partial: 'api/eve/shared/faction',
-                  locals: { faction: @alliance.faction }
+    json.partial! partial: "api/eve/shared/faction",
+                  locals: {faction: @alliance.faction}
   end
 end

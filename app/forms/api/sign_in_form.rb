@@ -17,7 +17,7 @@ module Api
     delegate :id, :token, to: :session
 
     def save
-      return false if !valid?
+      return false unless valid?
 
       # TODO: add this
       # PushNotifications::NewSignIn.new(device, device_token, user.notifications_count).execute!
@@ -27,19 +27,19 @@ module Api
     end
 
     def user
-      @user ||= User.where('LOWER(email) = LOWER(?)', email).first
+      @user ||= User.where("LOWER(email) = LOWER(?)", email).first
     end
 
     def user_presence
       return if errors.any?
 
-      errors.add(:base, 'Email and/or password is invalid') if !user
+      errors.add(:base, "Email and/or password is invalid") unless user
     end
 
     def user_password
       return if errors.any?
 
-      errors.add(:base, 'Email and/or password is invalid') if user && !user.authenticate(password)
+      errors.add(:base, "Email and/or password is invalid") if user && !user.authenticate(password)
     end
 
     def session

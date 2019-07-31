@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
+require "rails_helper"
 
 describe Eve::CorporationAllianceHistoryImporter do
-  describe '#import' do
-    context 'when fresh data available' do
-      context 'when character found' do
+  describe "#import" do
+    context "when fresh data available" do
+      context "when character found" do
         let(:corporation_id) { double }
 
         subject { described_class.new(corporation_id) }
@@ -36,11 +36,11 @@ describe Eve::CorporationAllianceHistoryImporter do
 
         before { expect(EveOnline::ESI::CorporationAllianceHistory).to receive(:new).with(corporation_id: corporation_id).and_return(esi) }
 
-        let(:etag) { instance_double(Eve::Etag, etag: '22c39689783a86032b8d43fa0b2e8f4809c4f38a585e39471035aa8b') }
+        let(:etag) { instance_double(Eve::Etag, etag: "22c39689783a86032b8d43fa0b2e8f4809c4f38a585e39471035aa8b") }
 
         before { expect(Eve::Etag).to receive(:find_or_initialize_by).with(url: url).and_return(etag) }
 
-        before { expect(esi).to receive(:etag=).with('22c39689783a86032b8d43fa0b2e8f4809c4f38a585e39471035aa8b') }
+        before { expect(esi).to receive(:etag=).with("22c39689783a86032b8d43fa0b2e8f4809c4f38a585e39471035aa8b") }
 
         let(:corporation_alliance_history) { instance_double(Eve::CorporationAllianceHistory) }
 
@@ -52,7 +52,7 @@ describe Eve::CorporationAllianceHistoryImporter do
           expect(eve_corporation).to receive(:corporation_alliance_histories) do
             double.tap do |a|
               expect(a).to receive(:find_or_initialize_by).with(record_id: record_id)
-                                                          .and_return(corporation_alliance_history)
+                .and_return(corporation_alliance_history)
             end
           end
         end
@@ -64,7 +64,7 @@ describe Eve::CorporationAllianceHistoryImporter do
         specify { expect { subject.import }.not_to raise_error }
       end
 
-      context 'when corporation not found (404)' do
+      context "when corporation not found (404)" do
         let(:corporation_id) { double }
 
         subject { described_class.new(corporation_id) }
@@ -80,7 +80,7 @@ describe Eve::CorporationAllianceHistoryImporter do
         specify { expect { subject.import }.not_to raise_error }
       end
 
-      context 'when corporation not found (ActiveRecord::RecordNotFound)' do
+      context "when corporation not found (ActiveRecord::RecordNotFound)" do
         let(:corporation_id) { double }
 
         subject { described_class.new(corporation_id) }
@@ -93,7 +93,7 @@ describe Eve::CorporationAllianceHistoryImporter do
           #
           expect(Rails).to receive(:logger) do
             double.tap do |a|
-              expect(a).to receive(:info).with("Corporation with ID #{ corporation_id } not found")
+              expect(a).to receive(:info).with("Corporation with ID #{corporation_id} not found")
             end
           end
         end
@@ -102,7 +102,7 @@ describe Eve::CorporationAllianceHistoryImporter do
       end
     end
 
-    context 'when no fresh data available' do
+    context "when no fresh data available" do
       let(:corporation_id) { double }
 
       subject { described_class.new(corporation_id) }
@@ -121,11 +121,11 @@ describe Eve::CorporationAllianceHistoryImporter do
 
       before { expect(EveOnline::ESI::CorporationAllianceHistory).to receive(:new).with(corporation_id: corporation_id).and_return(esi) }
 
-      let(:etag) { instance_double(Eve::Etag, etag: '22c39689783a86032b8d43fa0b2e8f4809c4f38a585e39471035aa8b') }
+      let(:etag) { instance_double(Eve::Etag, etag: "22c39689783a86032b8d43fa0b2e8f4809c4f38a585e39471035aa8b") }
 
       before { expect(Eve::Etag).to receive(:find_or_initialize_by).with(url: url).and_return(etag) }
 
-      before { expect(esi).to receive(:etag=).with('22c39689783a86032b8d43fa0b2e8f4809c4f38a585e39471035aa8b') }
+      before { expect(esi).to receive(:etag=).with("22c39689783a86032b8d43fa0b2e8f4809c4f38a585e39471035aa8b") }
 
       before { expect(etag).not_to receive(:update!) }
 

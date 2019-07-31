@@ -30,7 +30,7 @@ module Eve
 
     def import_new_alliances
       esi.alliance_ids.each do |alliance_id|
-        if !Eve::Alliance.exists?(alliance_id: alliance_id)
+        unless Eve::Alliance.exists?(alliance_id: alliance_id)
           Eve::AllianceImporterWorker.perform_async(alliance_id)
         end
       end

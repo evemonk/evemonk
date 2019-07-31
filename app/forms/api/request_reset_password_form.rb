@@ -11,7 +11,7 @@ module Api
     validate :user_presence
 
     def save
-      return false if !valid?
+      return false unless valid?
 
       user.regenerate_reset_password_token
 
@@ -23,13 +23,13 @@ module Api
     private
 
     def user
-      @user ||= User.where('LOWER(email) = LOWER(?)', email).first
+      @user ||= User.where("LOWER(email) = LOWER(?)", email).first
     end
 
     def user_presence
       return if errors.any?
 
-      errors.add(:email, 'Email not found') if !user
+      errors.add(:email, "Email not found") unless user
     end
 
     def notify_user_via_email

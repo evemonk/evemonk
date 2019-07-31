@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
+require "rails_helper"
 
 describe Api::EndAllUserSessions do
-  describe '#initialize' do
+  describe "#initialize" do
     let(:user) { instance_double(User) }
 
     subject { described_class.new(user) }
@@ -11,7 +11,7 @@ describe Api::EndAllUserSessions do
     its(:user) { should eq(user) }
   end
 
-  describe '#execute' do
+  describe "#execute" do
     let!(:user) { create(:user) }
 
     let!(:session1) { create(:session, user: user) }

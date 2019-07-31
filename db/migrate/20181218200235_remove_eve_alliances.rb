@@ -15,7 +15,7 @@ class RemoveEveAlliances < ActiveRecord::Migration[5.2]
       t.datetime :updated_at, null: false
       t.string :icon_small
       t.string :icon_medium
-      t.index [:alliance_id], name: 'index_eve_alliances_on_alliance_id', unique: true
+      t.index [:alliance_id], name: "index_eve_alliances_on_alliance_id", unique: true
     end
   end
 end

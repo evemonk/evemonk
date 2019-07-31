@@ -1,16 +1,16 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
+require "rails_helper"
 
 describe Api::SignUpForm, type: :model do
   it { should be_a(ActiveModel::Model) }
 
-  describe 'validations' do
+  describe "validations" do
     let(:params) do
       {
-        email: 'me@example.com',
-        password: 'password',
-        password_confirmation: 'password'
+        email: "me@example.com",
+        password: "password",
+        password_confirmation: "password",
       }
     end
 
@@ -29,13 +29,13 @@ describe Api::SignUpForm, type: :model do
 
   it { should delegate_method(:token).to(:session) }
 
-  describe '#save' do
-    context 'when user valid' do
+  describe "#save" do
+    context "when user valid" do
       let(:params) do
         {
-          email: 'me@example.com',
-          password: 'password',
-          password_confirmation: 'password'
+          email: "me@example.com",
+          password: "password",
+          password_confirmation: "password",
         }
       end
 
@@ -47,15 +47,15 @@ describe Api::SignUpForm, type: :model do
 
       specify { expect { form.save }.to change(Session, :count).by(1) }
 
-      specify { expect { form.save }.to change { User.first&.authenticate('password')&.present? }.from(nil).to(true) }
+      specify { expect { form.save }.to change { User.first&.authenticate("password")&.present? }.from(nil).to(true) }
     end
 
-    context 'when user not valid' do
+    context "when user not valid" do
       let(:params) do
         {
           email: nil,
           password: nil,
-          password_confirmation: nil
+          password_confirmation: nil,
         }
       end
 
@@ -68,14 +68,14 @@ describe Api::SignUpForm, type: :model do
       specify { expect { form.save }.not_to change(Session, :count) }
     end
 
-    context 'when user valid but email has already been taken' do
-      let!(:existed_user) { create(:user, email: 'ME@EXAMPLE.COM') }
+    context "when user valid but email has already been taken" do
+      let!(:existed_user) { create(:user, email: "ME@EXAMPLE.COM") }
 
       let(:params) do
         {
-          email: 'me@example.com',
-          password: 'password',
-          password_confirmation: 'password'
+          email: "me@example.com",
+          password: "password",
+          password_confirmation: "password",
         }
       end
 
@@ -83,7 +83,7 @@ describe Api::SignUpForm, type: :model do
 
       specify { expect(form.save).to eq(false) }
 
-      specify { expect { form.save }.to change { form.errors[:email] }.from([]).to(['has already been taken']) }
+      specify { expect { form.save }.to change { form.errors[:email] }.from([]).to(["has already been taken"]) }
     end
   end
 end

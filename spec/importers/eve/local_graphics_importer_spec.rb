@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
+require "rails_helper"
 
 describe Eve::LocalGraphicsImporter do
-  describe '#import' do
+  describe "#import" do
     let(:graphic_id) { double }
 
     before do

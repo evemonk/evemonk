@@ -17,6 +17,6 @@ class CharacterImporter
   rescue EveOnline::Exceptions::ResourceNotFound
     character.destroy!
   rescue ActiveRecord::RecordNotFound
-    Rails.logger.info("Character with ID #{ character_id } not found")
+    Rails.logger.info("Character with ID #{character_id} not found")
   end
 end

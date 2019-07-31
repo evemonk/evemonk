@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
+require "rails_helper"
 
 describe Eve::TypeImporter do
-  describe '#initialize' do
+  describe "#initialize" do
     let(:type_id) { double }
 
     subject { described_class.new(type_id) }
@@ -11,9 +11,9 @@ describe Eve::TypeImporter do
     its(:type_id) { should eq(type_id) }
   end
 
-  describe '#import' do
-    context 'when fresh data available' do
-      context 'when type found' do
+  describe "#import" do
+    context "when fresh data available" do
+      context "when type found" do
         let(:type_id) { double }
 
         subject(:importer) { described_class.new(type_id) }
@@ -52,11 +52,11 @@ describe Eve::TypeImporter do
 
         before { expect(EveOnline::ESI::UniverseType).to receive(:new).with(id: type_id).and_return(esi) }
 
-        let(:etag) { instance_double(Eve::Etag, etag: '6780e53a01c7d9715b5f445126c4f2c137da4be79e4debe541ce3ab2') }
+        let(:etag) { instance_double(Eve::Etag, etag: "6780e53a01c7d9715b5f445126c4f2c137da4be79e4debe541ce3ab2") }
 
         before { expect(Eve::Etag).to receive(:find_or_initialize_by).with(url: url).and_return(etag) }
 
-        before { expect(esi).to receive(:etag=).with('6780e53a01c7d9715b5f445126c4f2c137da4be79e4debe541ce3ab2') }
+        before { expect(esi).to receive(:etag=).with("6780e53a01c7d9715b5f445126c4f2c137da4be79e4debe541ce3ab2") }
 
         before { expect(eve_type).to receive(:update!).with(json) }
 
@@ -109,7 +109,7 @@ describe Eve::TypeImporter do
         specify { expect { importer.import }.not_to raise_error }
       end
 
-      context 'when type not found' do
+      context "when type not found" do
         let(:type_id) { double }
 
         subject(:importer) { described_class.new(type_id) }
@@ -126,7 +126,7 @@ describe Eve::TypeImporter do
       end
     end
 
-    context 'when no fresh data available' do
+    context "when no fresh data available" do
       let(:type_id) { double }
 
       subject(:importer) { described_class.new(type_id) }
@@ -145,11 +145,11 @@ describe Eve::TypeImporter do
 
       before { expect(EveOnline::ESI::UniverseType).to receive(:new).with(id: type_id).and_return(esi) }
 
-      let(:etag) { instance_double(Eve::Etag, etag: '6780e53a01c7d9715b5f445126c4f2c137da4be79e4debe541ce3ab2') }
+      let(:etag) { instance_double(Eve::Etag, etag: "6780e53a01c7d9715b5f445126c4f2c137da4be79e4debe541ce3ab2") }
 
       before { expect(Eve::Etag).to receive(:find_or_initialize_by).with(url: url).and_return(etag) }
 
-      before { expect(esi).to receive(:etag=).with('6780e53a01c7d9715b5f445126c4f2c137da4be79e4debe541ce3ab2') }
+      before { expect(esi).to receive(:etag=).with("6780e53a01c7d9715b5f445126c4f2c137da4be79e4debe541ce3ab2") }
 
       before { expect(eve_type).not_to receive(:update!) }
 

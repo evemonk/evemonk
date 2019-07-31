@@ -1,19 +1,19 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
+require "rails_helper"
 
 describe Eve::Alliance do
   it { should be_a(ApplicationRecord) }
 
   it { expect(described_class).to respond_to(:search) }
 
-  it { expect(described_class.table_name).to eq('eve_alliances') }
+  it { expect(described_class.table_name).to eq("eve_alliances") }
 
-  it { should belong_to(:creator_corporation).with_primary_key(:corporation_id).class_name('Eve::Corporation').optional }
+  it { should belong_to(:creator_corporation).with_primary_key(:corporation_id).class_name("Eve::Corporation").optional }
 
-  it { should belong_to(:creator).with_primary_key(:character_id).class_name('Eve::Character').optional }
+  it { should belong_to(:creator).with_primary_key(:character_id).class_name("Eve::Character").optional }
 
-  it { should belong_to(:executor_corporation).with_foreign_key(:executor_corporation_id).with_primary_key(:corporation_id).class_name('Eve::Corporation').optional }
+  it { should belong_to(:executor_corporation).with_foreign_key(:executor_corporation_id).with_primary_key(:corporation_id).class_name("Eve::Corporation").optional }
 
   it { should belong_to(:faction).with_primary_key(:faction_id).optional }
 
@@ -21,7 +21,7 @@ describe Eve::Alliance do
 
   it { should have_many(:corporations).through(:alliance_corporations) }
 
-  describe '#characters_count' do
+  describe "#characters_count" do
     let!(:alliance) { create(:eve_alliance, alliance_id: 123) }
 
     let!(:corporation1) { create(:eve_corporation, corporation_id: 124, alliance_id: 123, member_count: 123) }
@@ -35,16 +35,16 @@ describe Eve::Alliance do
     specify { expect(alliance.characters_count).to eq(246) }
   end
 
-  describe '#search_data' do
+  describe "#search_data" do
     let!(:alliance) do
       create(:eve_alliance,
-             name: 'Kids With Guns Alliance',
-             ticker: '-KWG-')
+             name: "Kids With Guns Alliance",
+             ticker: "-KWG-")
     end
 
     specify do
-      expect(alliance.search_data).to eq(name: 'Kids With Guns Alliance',
-                                         ticker: '-KWG-')
+      expect(alliance.search_data).to eq(name: "Kids With Guns Alliance",
+                                         ticker: "-KWG-")
     end
   end
 end

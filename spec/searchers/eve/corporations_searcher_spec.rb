@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
+require "rails_helper"
 
 describe Eve::CorporationsSearcher do
-  describe '#initialize' do
-    context 'with parameters' do
+  describe "#initialize" do
+    context "with parameters" do
       let(:query) { double }
 
       let(:scope) { double }
@@ -16,7 +16,7 @@ describe Eve::CorporationsSearcher do
       its(:scope) { should eq(scope) }
     end
 
-    context 'without parameters' do
+    context "without parameters" do
       let(:scope) { double }
 
       before { expect(Eve::Corporation).to receive(:all).and_return(scope) }
@@ -29,13 +29,13 @@ describe Eve::CorporationsSearcher do
     end
   end
 
-  describe '#search' do
-    context 'when query is empty' do
-      let!(:corporation1) { create(:eve_corporation, name: 'a') }
+  describe "#search" do
+    context "when query is empty" do
+      let!(:corporation1) { create(:eve_corporation, name: "a") }
 
-      let!(:corporation2) { create(:eve_corporation, name: 'b') }
+      let!(:corporation2) { create(:eve_corporation, name: "b") }
 
-      let!(:corporation3) { create(:eve_corporation, name: 'c') }
+      let!(:corporation3) { create(:eve_corporation, name: "c") }
 
       subject { described_class.new }
 
@@ -46,15 +46,15 @@ describe Eve::CorporationsSearcher do
       specify { expect(subject.search.to_a).to eq([corporation1, corporation2, corporation3]) }
     end
 
-    context 'when query is present' do
-      context 'when name match' do
+    context "when query is present" do
+      context "when name match" do
         let!(:corporation) do
           create(:eve_corporation,
-                 name: 'MyLittleDragon',
+                 name: "MyLittleDragon",
                  ticker: nil)
         end
 
-        let(:query) { 'MyLittleDragon' }
+        let(:query) { "MyLittleDragon" }
 
         before { Eve::Corporation.reindex }
 
@@ -63,10 +63,10 @@ describe Eve::CorporationsSearcher do
         specify { expect(subject.search.to_a).to eq([corporation]) }
       end
 
-      context 'when ticker match' do
-        let!(:corporation) { create(:eve_corporation, name: nil, ticker: 'MYLID') }
+      context "when ticker match" do
+        let!(:corporation) { create(:eve_corporation, name: nil, ticker: "MYLID") }
 
-        let(:query) { 'MYLID' }
+        let(:query) { "MYLID" }
 
         before { Eve::Corporation.reindex }
 

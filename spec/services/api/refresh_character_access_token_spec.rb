@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
+require "rails_helper"
 
 describe Api::RefreshCharacterAccessToken do
-  context 'when token fresh' do
+  context "when token fresh" do
     let(:character) do
       create(:character,
              token_expires_at: Time.zone.now + 1.day)
@@ -16,20 +16,20 @@ describe Api::RefreshCharacterAccessToken do
     specify { expect { subject.refresh }.not_to raise_error }
   end
 
-  context 'when token needed to refresh' do
-    before { VCR.insert_cassette 'api/refresh_character_access_token/success' }
+  context "when token needed to refresh" do
+    before { VCR.insert_cassette "api/refresh_character_access_token/success" }
 
     after { VCR.eject_cassette }
 
-    before { expect(Setting).to receive(:eve_online_sso_client_id).and_return('eve-online-sso-client-id') }
+    before { expect(Setting).to receive(:eve_online_sso_client_id).and_return("eve-online-sso-client-id") }
 
-    before { expect(Setting).to receive(:eve_online_sso_secret_key).and_return('eve-online-sso-secret-key') }
+    before { expect(Setting).to receive(:eve_online_sso_secret_key).and_return("eve-online-sso-secret-key") }
 
     let(:character) do
       create(:character,
              character_id: 1337512245,
-             access_token: 'expired-access-token123',
-             refresh_token: 'fresh-token-1232132132132131231312312312312312321321321321312312',
+             access_token: "expired-access-token123",
+             refresh_token: "fresh-token-1232132132132131231312312312312312321321321321312312",
              token_expires_at: Time.zone.now)
     end
 

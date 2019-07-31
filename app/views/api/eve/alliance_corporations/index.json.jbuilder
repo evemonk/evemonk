@@ -23,23 +23,23 @@ json.corporations do
     json.war_eligible corporation.war_eligible
 
     if corporation.alliance
-      json.partial! partial: 'api/eve/shared/alliance',
-                    locals: { alliance: corporation.alliance }
+      json.partial! partial: "api/eve/shared/alliance",
+                    locals: {alliance: corporation.alliance}
     end
 
     if corporation.ceo
-      json.partial! partial: 'api/eve/shared/ceo',
-                    locals: { ceo: corporation.ceo }
+      json.partial! partial: "api/eve/shared/ceo",
+                    locals: {ceo: corporation.ceo}
     end
 
     if corporation.creator
-      json.partial! partial: 'api/eve/shared/creator',
-                    locals: { creator: corporation.creator }
+      json.partial! partial: "api/eve/shared/creator",
+                    locals: {creator: corporation.creator}
     end
 
     if corporation.faction
-      json.partial! partial: 'api/eve/shared/faction',
-                    locals: { faction: corporation.faction }
+      json.partial! partial: "api/eve/shared/faction",
+                    locals: {faction: corporation.faction}
     end
   end
 end

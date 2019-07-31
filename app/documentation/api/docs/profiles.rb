@@ -6,14 +6,14 @@ module Api
       # :nocov:
       include Swagger::Blocks
 
-      swagger_path '/profile' do
+      swagger_path "/profile" do
         operation :get do
-          key :summary, 'Get current user profile'
-          key :description, 'Get current user profile'
-          key :tags, ['profile']
+          key :summary, "Get current user profile"
+          key :description, "Get current user profile"
+          key :tags, ["profile"]
           parameter :authorization
-          response '200' do
-            key :description, 'Success'
+          response "200" do
+            key :description, "Success"
             schema do
               key :'$ref', :OutputUser
             end

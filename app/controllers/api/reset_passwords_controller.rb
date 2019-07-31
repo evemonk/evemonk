@@ -20,7 +20,7 @@ module Api
 
     def resource_params
       params.require(:reset_password)
-            .permit(:reset_password_token, :password, :password_confirmation)
+        .permit(:reset_password_token, :password, :password_confirmation)
     end
   end
 end

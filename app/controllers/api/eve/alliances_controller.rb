@@ -8,9 +8,9 @@ module Api
       def index
         @alliances = ::Eve::AlliancesSearcher.new(params[:q],
                                                   policy_scope(::Eve::Alliance))
-                                             .search
-                                             .page(params[:page])
-                                             .decorate
+          .search
+          .page(params[:page])
+          .decorate
       end
 
       def show
@@ -18,8 +18,8 @@ module Api
                                                            :creator_corporation,
                                                            :creator,
                                                            :executor_corporation)
-                                                 .find_by!(alliance_id: params[:id])
-                                                 .decorate
+          .find_by!(alliance_id: params[:id])
+          .decorate
 
         skip_authorization
       end

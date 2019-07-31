@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
+require "rails_helper"
 
 describe Api::ResetPasswordsController do
   it { should be_a(Api::BaseController) }
 
-  describe '#create' do
-    context 'when user successful reset password' do
+  describe "#create" do
+    context "when user successful reset password" do
       let(:form) { instance_double(Api::ResetPasswordForm, save: true) }
 
       before do
@@ -16,20 +16,20 @@ describe Api::ResetPasswordsController do
         #                            password_confirmation: 'new_password' # => form
         #
         expect(Api::ResetPasswordForm).to receive(:new)
-          .with(permitter(reset_password_token: 'reset-password-token-123',
-                          password: 'new_password',
-                          password_confirmation: 'new_password'))
+          .with(permitter(reset_password_token: "reset-password-token-123",
+                          password: "new_password",
+                          password_confirmation: "new_password"))
           .and_return(form)
       end
 
       before do
         post :create, params: {
           reset_password: {
-            reset_password_token: 'reset-password-token-123',
-            password: 'new_password',
-            password_confirmation: 'new_password'
+            reset_password_token: "reset-password-token-123",
+            password: "new_password",
+            password_confirmation: "new_password",
           },
-          format: :json
+          format: :json,
         }
       end
 
@@ -38,7 +38,7 @@ describe Api::ResetPasswordsController do
       it { should render_template(:create) }
     end
 
-    context 'when user not successful reset password' do
+    context "when user not successful reset password" do
       let(:form) { instance_double(Api::ResetPasswordForm, save: false) }
 
       before do
@@ -48,20 +48,20 @@ describe Api::ResetPasswordsController do
         #                            password_confirmation: 'new_password' # => form
         #
         expect(Api::ResetPasswordForm).to receive(:new)
-          .with(permitter(reset_password_token: 'reset-password-token-123',
-                          password: 'new_password',
-                          password_confirmation: 'new_password'))
+          .with(permitter(reset_password_token: "reset-password-token-123",
+                          password: "new_password",
+                          password_confirmation: "new_password"))
           .and_return(form)
       end
 
       before do
         post :create, params: {
           reset_password: {
-            reset_password_token: 'reset-password-token-123',
-            password: 'new_password',
-            password_confirmation: 'new_password'
+            reset_password_token: "reset-password-token-123",
+            password: "new_password",
+            password_confirmation: "new_password",
           },
-          format: :json
+          format: :json,
         }
       end
 
@@ -70,15 +70,15 @@ describe Api::ResetPasswordsController do
       it { should render_template(:errors) }
     end
 
-    context 'when not supported accept type' do
+    context "when not supported accept type" do
       before do
         post :create, params: {
           reset_password: {
-            reset_password_token: 'reset-password-token-123',
-            password: 'new_password',
-            password_confirmation: 'new_password'
+            reset_password_token: "reset-password-token-123",
+            password: "new_password",
+            password_confirmation: "new_password",
           },
-          format: :html
+          format: :html,
         }
       end
 

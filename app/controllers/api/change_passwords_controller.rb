@@ -18,8 +18,8 @@ module Api
 
     def change_password_params
       params.require(:change_password)
-            .permit(:old_password, :password, :password_confirmation, :name,
-                    :device_type, :device_token)
+        .permit(:old_password, :password, :password_confirmation, :name,
+                :device_type, :device_token)
     end
   end
 end

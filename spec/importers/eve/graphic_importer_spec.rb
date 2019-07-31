@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
+require "rails_helper"
 
 describe Eve::GraphicImporter do
-  describe '#import' do
-    context 'when fresh data available' do
-      context 'when graphic found' do
+  describe "#import" do
+    context "when fresh data available" do
+      context "when graphic found" do
         let(:graphic_id) { double }
 
         subject { described_class.new(graphic_id) }
@@ -30,11 +30,11 @@ describe Eve::GraphicImporter do
 
         before { expect(EveOnline::ESI::UniverseGraphic).to receive(:new).with(id: graphic_id).and_return(esi) }
 
-        let(:etag) { instance_double(Eve::Etag, etag: 'e3f6a76b4a1287f54966c6253f8f5d6ac6460bc43d47570331b43e0b') }
+        let(:etag) { instance_double(Eve::Etag, etag: "e3f6a76b4a1287f54966c6253f8f5d6ac6460bc43d47570331b43e0b") }
 
         before { expect(Eve::Etag).to receive(:find_or_initialize_by).with(url: url).and_return(etag) }
 
-        before { expect(esi).to receive(:etag=).with('e3f6a76b4a1287f54966c6253f8f5d6ac6460bc43d47570331b43e0b') }
+        before { expect(esi).to receive(:etag=).with("e3f6a76b4a1287f54966c6253f8f5d6ac6460bc43d47570331b43e0b") }
 
         before { expect(eve_graphic).to receive(:update!).with(json) }
 
@@ -43,7 +43,7 @@ describe Eve::GraphicImporter do
         specify { expect { subject.import }.not_to raise_error }
       end
 
-      context 'when graphic not found' do
+      context "when graphic not found" do
         let(:graphic_id) { double }
 
         subject { described_class.new(graphic_id) }
@@ -60,7 +60,7 @@ describe Eve::GraphicImporter do
       end
     end
 
-    context 'when no fresh data available' do
+    context "when no fresh data available" do
       let(:graphic_id) { double }
 
       subject { described_class.new(graphic_id) }
@@ -79,11 +79,11 @@ describe Eve::GraphicImporter do
 
       before { expect(EveOnline::ESI::UniverseGraphic).to receive(:new).with(id: graphic_id).and_return(esi) }
 
-      let(:etag) { instance_double(Eve::Etag, etag: 'e3f6a76b4a1287f54966c6253f8f5d6ac6460bc43d47570331b43e0b') }
+      let(:etag) { instance_double(Eve::Etag, etag: "e3f6a76b4a1287f54966c6253f8f5d6ac6460bc43d47570331b43e0b") }
 
       before { expect(Eve::Etag).to receive(:find_or_initialize_by).with(url: url).and_return(etag) }
 
-      before { expect(esi).to receive(:etag=).with('e3f6a76b4a1287f54966c6253f8f5d6ac6460bc43d47570331b43e0b') }
+      before { expect(esi).to receive(:etag=).with("e3f6a76b4a1287f54966c6253f8f5d6ac6460bc43d47570331b43e0b") }
 
       before { expect(eve_graphic).not_to receive(:update!) }
 

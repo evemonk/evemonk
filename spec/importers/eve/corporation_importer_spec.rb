@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
+require "rails_helper"
 
 describe Eve::CorporationImporter do
-  describe '#import' do
-    context 'when fresh data available' do
-      context 'when corporation found' do
+  describe "#import" do
+    context "when fresh data available" do
+      context "when corporation found" do
         let(:corporation_id) { double }
 
         subject { described_class.new(corporation_id) }
@@ -30,11 +30,11 @@ describe Eve::CorporationImporter do
 
         before { expect(EveOnline::ESI::Corporation).to receive(:new).with(corporation_id: corporation_id).and_return(esi) }
 
-        let(:etag) { instance_double(Eve::Etag, etag: '68ad4a11893776c0ffc80845edeb2687c0122f56287d2aecadf8739b') }
+        let(:etag) { instance_double(Eve::Etag, etag: "68ad4a11893776c0ffc80845edeb2687c0122f56287d2aecadf8739b") }
 
         before { expect(Eve::Etag).to receive(:find_or_initialize_by).with(url: url).and_return(etag) }
 
-        before { expect(esi).to receive(:etag=).with('68ad4a11893776c0ffc80845edeb2687c0122f56287d2aecadf8739b') }
+        before { expect(esi).to receive(:etag=).with("68ad4a11893776c0ffc80845edeb2687c0122f56287d2aecadf8739b") }
 
         before { expect(eve_corporation).to receive(:update!).with(json) }
 
@@ -43,7 +43,7 @@ describe Eve::CorporationImporter do
         specify { expect { subject.import }.not_to raise_error }
       end
 
-      context 'when corporation not found' do
+      context "when corporation not found" do
         let(:corporation_id) { double }
 
         subject { described_class.new(corporation_id) }
@@ -60,7 +60,7 @@ describe Eve::CorporationImporter do
       end
     end
 
-    context 'when no fresh data available' do
+    context "when no fresh data available" do
       let(:corporation_id) { double }
 
       subject { described_class.new(corporation_id) }
@@ -79,11 +79,11 @@ describe Eve::CorporationImporter do
 
       before { expect(EveOnline::ESI::Corporation).to receive(:new).with(corporation_id: corporation_id).and_return(esi) }
 
-      let(:etag) { instance_double(Eve::Etag, etag: '68ad4a11893776c0ffc80845edeb2687c0122f56287d2aecadf8739b') }
+      let(:etag) { instance_double(Eve::Etag, etag: "68ad4a11893776c0ffc80845edeb2687c0122f56287d2aecadf8739b") }
 
       before { expect(Eve::Etag).to receive(:find_or_initialize_by).with(url: url).and_return(etag) }
 
-      before { expect(esi).to receive(:etag=).with('68ad4a11893776c0ffc80845edeb2687c0122f56287d2aecadf8739b') }
+      before { expect(esi).to receive(:etag=).with("68ad4a11893776c0ffc80845edeb2687c0122f56287d2aecadf8739b") }
 
       before { expect(eve_corporation).not_to receive(:update!) }
 

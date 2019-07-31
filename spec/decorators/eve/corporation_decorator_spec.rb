@@ -1,14 +1,14 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
+require "rails_helper"
 
 describe Eve::CorporationDecorator do
   subject { described_class.new(double) }
 
   it { should be_a(ApplicationDecorator) }
 
-  describe '#date_founded' do
-    context 'when date_founded is empty' do
+  describe "#date_founded" do
+    context "when date_founded is empty" do
       let(:eve_corporation) do
         build(:eve_corporation,
               date_founded: nil)
@@ -19,30 +19,30 @@ describe Eve::CorporationDecorator do
       specify { expect(subject.date_founded).to eq(nil) }
     end
 
-    context 'when date_founded is present' do
+    context "when date_founded is present" do
       let(:eve_corporation) do
         build(:eve_corporation,
-              date_founded: 'Sun, 03 May 2015 19:45:17 UTC +00:00')
+              date_founded: "Sun, 03 May 2015 19:45:17 UTC +00:00")
       end
 
       subject { eve_corporation.decorate }
 
-      specify { expect(subject.date_founded).to eq('2015-05-03T19:45:17Z') }
+      specify { expect(subject.date_founded).to eq("2015-05-03T19:45:17Z") }
     end
   end
 
-  describe '#description' do
+  describe "#description" do
     let(:eve_corporation) do
       build(:eve_corporation,
-            description: '<b>Test</b>')
+            description: "<b>Test</b>")
     end
 
     subject { eve_corporation.decorate }
 
-    specify { expect(subject.description).to eq('Test') }
+    specify { expect(subject.description).to eq("Test") }
   end
 
-  describe '#icon' do
+  describe "#icon" do
     let(:eve_corporation) do
       build(:eve_corporation,
             corporation_id: 123)
@@ -50,10 +50,10 @@ describe Eve::CorporationDecorator do
 
     subject { eve_corporation.decorate }
 
-    specify { expect(subject.icon).to eq('https://imageserver.eveonline.com/Corporation/123_256.png') }
+    specify { expect(subject.icon).to eq("https://imageserver.eveonline.com/Corporation/123_256.png") }
   end
 
-  describe '#tax_rate' do
+  describe "#tax_rate" do
     let(:eve_corporation) do
       build(:eve_corporation,
             tax_rate: 0.99)
@@ -61,6 +61,6 @@ describe Eve::CorporationDecorator do
 
     subject { eve_corporation.decorate }
 
-    specify { expect(subject.tax_rate).to eq('0.99') }
+    specify { expect(subject.tax_rate).to eq("0.99") }
   end
 end

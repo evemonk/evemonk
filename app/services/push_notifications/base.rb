@@ -30,7 +30,7 @@ module PushNotifications
       return @notification if @notification
 
       case device
-      when 'ios'
+      when "ios"
         @notification = Rpush::Apns::Notification.new
       # when 'android'
       #   @notification = Rpush::Gcm::Notification.new
@@ -42,7 +42,7 @@ module PushNotifications
     # TODO: add android support
     def app
       case device
-      when 'ios'
+      when "ios"
         Rpush::Apns::App.find_by_name(device) # rubocop:disable Rails/DynamicFindBy
       # when 'android'
       #   Rpush::Gcm::App.find_by_name(device)

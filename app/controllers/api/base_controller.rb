@@ -36,14 +36,15 @@ module Api
     end
     # :nocov:
 
-    def index; end
+    def index
+    end
 
     private
 
     def authenticate_by_token
       authenticate_with_http_token do |token,|
         @current_user = User.joins(:sessions)
-                            .find_by(sessions: { token: token })
+          .find_by(sessions: {token: token})
       end
     end
 
@@ -52,7 +53,7 @@ module Api
     end
 
     def render_unauthorized
-      render json: { error: 'Access denied' }, status: :unauthorized
+      render json: {error: "Access denied"}, status: :unauthorized
     end
   end
 end

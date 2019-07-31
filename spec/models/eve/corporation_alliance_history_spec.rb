@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
+require "rails_helper"
 
 describe Eve::CorporationAllianceHistory do
   it { should belong_to(:corporation).with_primary_key(:corporation_id) }
