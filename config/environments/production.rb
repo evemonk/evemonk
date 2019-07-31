@@ -117,4 +117,9 @@ Rails.application.configure do
 
   # Prerender
   config.middleware.use Rack::Prerender
+
+  # logs to logstash
+  config.lograge.enabled = true
+  config.lograge.formatter = Lograge::Formatters::Logstash.new
+  config.lograge.logger = LogStashLogger.new(type: :udp, host: ENV["LOGSTASH_HOST"], port: 5228)
 end

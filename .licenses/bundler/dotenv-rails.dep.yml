@@ -1,6 +1,6 @@
 ---
 name: dotenv-rails
-version: 2.7.4
+version: 2.7.5
 type: bundler
 summary: Autoload dotenv in Rails.
 homepage: https://github.com/bkeepers/dotenv

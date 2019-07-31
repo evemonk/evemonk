@@ -45,6 +45,8 @@ gem "activerecord-nulldb-adapter"
 gem "niceql"
 gem "server_timing"
 gem "lograge"
+gem "logstash-event"
+gem "logstash-logger"
 
 gem "prometheus-client"
 gem "yabeda-prometheus"

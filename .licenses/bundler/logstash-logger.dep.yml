@@ -1,14 +1,14 @@
 ---
-name: dotenv
-version: 2.7.5
+name: logstash-logger
+version: 0.26.1
 type: bundler
-summary: Loads environment variables from `.env`.
-homepage: https://github.com/bkeepers/dotenv
+summary: LogStash Logger for ruby
+homepage: http://github.com/dwbutler/logstash-logger
 license: mit
 licenses:
-- sources: LICENSE
+- sources: LICENSE.txt
   text: |-
-    Copyright (c) 2012 Brandon Keepers
+    Copyright (c) 2012 David Butler
 
     MIT License
 
