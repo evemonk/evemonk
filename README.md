@@ -57,7 +57,7 @@ EveMonk is helper software for EveOnline MMORPG.
 * Ruby on Rails 6.0.0.rc2
 * PostgreSQL 11.4
 * Redis 5.0.5
-* Elasticsearch 7.2.1
+* Elasticsearch 7.3.0
 * Node 10.16.0
 * NPM 6.10.2
 * Yarn 1.17.3
@@ -102,18 +102,6 @@ app.save!
 * [Idiosyncratic Ruby](https://github.com/janlelis/idiosyncratic-ruby.com)
 * [Fundamental programming with ruby examples](https://github.com/khusnetdinov/ruby.fundamental)
 * [Rails Directory Structure Guide](https://github.com/jwipeout/rails-directory-structure-guide)
-
-## Documentation
-
-* [Hypertext Transfer Protocol (HTTP/1.1): Message Syntax and Routing](https://tools.ietf.org/html/rfc7230)
-* [Hypertext Transfer Protocol (HTTP/1.1): Semantics and Content](https://tools.ietf.org/html/rfc7231)
-* [Hypertext Transfer Protocol (HTTP/1.1): Conditional Requests](https://tools.ietf.org/html/rfc7232)
-* [Hypertext Transfer Protocol (HTTP/1.1): Range Requests](https://tools.ietf.org/html/rfc7233)
-* [Hypertext Transfer Protocol (HTTP/1.1): Caching](https://tools.ietf.org/html/rfc7234)
-* [Hypertext Transfer Protocol (HTTP/1.1): Authentication](https://tools.ietf.org/html/rfc7235)
-* [Initial Hypertext Transfer Protocol (HTTP) Authentication Scheme Registrations](https://tools.ietf.org/html/rfc7236)
-* [Initial Hypertext Transfer Protocol (HTTP) Method Registrations](https://tools.ietf.org/html/rfc7237)
-* [HTTP Strict Transport Security (HSTS)](https://tools.ietf.org/html/rfc6797)
 
 ## Author
 

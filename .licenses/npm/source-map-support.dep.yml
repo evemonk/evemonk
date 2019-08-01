@@ -1,6 +1,6 @@
 ---
 name: source-map-support
-version: 0.5.12
+version: 0.5.13
 type: npm
 summary: Fixes stack traces for files with source maps
 homepage: https://github.com/evanw/node-source-map-support#readme

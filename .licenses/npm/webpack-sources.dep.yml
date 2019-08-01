@@ -1,6 +1,6 @@
 ---
 name: webpack-sources
-version: 1.3.0
+version: 1.4.1
 type: npm
 summary: Source code handling classes for webpack
 homepage: https://github.com/webpack/webpack-sources#readme
