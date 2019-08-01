@@ -103,18 +103,6 @@ app.save!
 * [Fundamental programming with ruby examples](https://github.com/khusnetdinov/ruby.fundamental)
 * [Rails Directory Structure Guide](https://github.com/jwipeout/rails-directory-structure-guide)
 
-## Documentation
-
-* [Hypertext Transfer Protocol (HTTP/1.1): Message Syntax and Routing](https://tools.ietf.org/html/rfc7230)
-* [Hypertext Transfer Protocol (HTTP/1.1): Semantics and Content](https://tools.ietf.org/html/rfc7231)
-* [Hypertext Transfer Protocol (HTTP/1.1): Conditional Requests](https://tools.ietf.org/html/rfc7232)
-* [Hypertext Transfer Protocol (HTTP/1.1): Range Requests](https://tools.ietf.org/html/rfc7233)
-* [Hypertext Transfer Protocol (HTTP/1.1): Caching](https://tools.ietf.org/html/rfc7234)
-* [Hypertext Transfer Protocol (HTTP/1.1): Authentication](https://tools.ietf.org/html/rfc7235)
-* [Initial Hypertext Transfer Protocol (HTTP) Authentication Scheme Registrations](https://tools.ietf.org/html/rfc7236)
-* [Initial Hypertext Transfer Protocol (HTTP) Method Registrations](https://tools.ietf.org/html/rfc7237)
-* [HTTP Strict Transport Security (HSTS)](https://tools.ietf.org/html/rfc6797)
-
 ## Author
 
 * Igor Zubkov (@biow0lf)
