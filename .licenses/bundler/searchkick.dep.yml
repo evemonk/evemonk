@@ -1,6 +1,6 @@
 ---
 name: searchkick
-version: 4.0.2
+version: 4.1.0
 type: bundler
 summary: Intelligent search made easy with Rails and Elasticsearch
 homepage: https://github.com/ankane/searchkick
