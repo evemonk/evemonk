@@ -1,6 +1,6 @@
 ---
 name: webpack
-version: 4.39.0
+version: 4.39.1
 type: npm
 summary: Packs CommonJs/AMD modules for the browser. Allows to split your codebase
   into multiple bundles, which can be loaded on demand. Support loaders to preprocess

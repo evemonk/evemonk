@@ -1,6 +1,6 @@
 ---
 name: async-limiter
-version: 1.0.0
+version: 1.0.1
 type: npm
 summary: asynchronous function queue with adjustable concurrency
 homepage: https://github.com/strml/async-limiter#readme
