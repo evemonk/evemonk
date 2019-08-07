@@ -16,6 +16,5 @@ json.type do
   json.portion_size @type.portion_size
   json.published @type.published
   json.radius @type.radius
-  json.type_id @type.type_id
   json.volume @type.volume
 end
