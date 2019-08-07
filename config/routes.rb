@@ -60,6 +60,8 @@ Rails.application.routes.draw do
       resources :characters, only: [:index, :show] do
         resources :corporations_history, only: :index, controller: :character_corporations_history
       end
+
+      resources :types, only: [:index, :show]
     end
   end
 
