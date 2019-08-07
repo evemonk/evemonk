@@ -44,6 +44,10 @@ gem "errbase"
 gem "activerecord-nulldb-adapter"
 gem "niceql"
 gem "server_timing"
+
+gem "awesome_print", require: "ap"
+gem "pry-rails"
+
 gem "lograge"
 gem "logstash-event"
 gem "logstash-logger"
@@ -70,8 +74,6 @@ group :development, :test do
   ["rspec-core", "rspec-expectations", "rspec-mocks", "rspec-support"].each do |lib|
     gem lib, git: "https://github.com/rspec/#{lib}.git", branch: "master"
   end
-  gem "awesome_print", require: "ap"
-  gem "pry-rails"
   gem "bullet"
   gem "factory_bot_rails"
   gem "faker"
