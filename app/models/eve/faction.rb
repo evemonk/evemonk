@@ -2,7 +2,7 @@
 
 module Eve
   class Faction < ApplicationRecord
-    has_many :alliances, primary_key: :faction_id # rubocop:disable Rails/HasManyOrHasOneDependent
+    has_many :alliances, primary_key: :faction_id
 
     belongs_to :corporation, primary_key: :corporation_id, optional: true
 
