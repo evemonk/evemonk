@@ -1,0 +1,15 @@
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+Metrics/LineLength:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/TrailingCommaInHashLiteral:
+  EnforcedStyleForMultiline: consistent_comma
+
+Bundler/OrderedGems:
+  Enabled: false
+
