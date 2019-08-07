@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 json.type do
-  json.id @type.id
+  json.id @type.type_id
   json.capacity @type.capacity
   json.description @type.description
   # dogma_attributes
