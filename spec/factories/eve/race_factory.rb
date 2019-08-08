@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-# TODO: update
 FactoryBot.define do
   factory :eve_race, class: Eve::Race do
     sequence(:race_id)
