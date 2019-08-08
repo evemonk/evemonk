@@ -6,6 +6,7 @@ json.current_page @types.current_page
 json.characters do
   json.array! @types do |type|
     json.id type.type_id
+    # json.icon type.icon
     json.capacity type.capacity
     json.description type.description
     # dogma_attributes

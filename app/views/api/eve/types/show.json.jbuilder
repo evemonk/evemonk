@@ -2,6 +2,7 @@
 
 json.type do
   json.id @type.type_id
+  # json.icon @type.icon
   json.capacity @type.capacity
   json.description @type.description
   # dogma_attributes
