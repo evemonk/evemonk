@@ -22,6 +22,8 @@ import UniverseCorporation from './components/universe/corporation.vue';
 import UniverseCorporationCharacters from './components/universe/corporation_characters.vue';
 import UniverseCharacter from './components/universe/character.vue';
 import UniverseCharacters from './components/universe/characters.vue';
+import UniverseTypes from './components/universe/types.vue';
+import UniverseType from './components/universe/type.vue';
 
 Vue.use(VueRouter);
 
@@ -130,6 +132,16 @@ const routes = [
     path: '/universe/characters/:id',
     name: 'universe_character',
     component: UniverseCharacter,
+  },
+  {
+    path: '/universe/types',
+    name: 'universe_types',
+    component: UniverseTypes,
+  },
+  {
+    path: '/universe/types/:id',
+    name: 'universe_type',
+    component: UniverseType,
   },
   {
     path: '/.well-known/change-password',
