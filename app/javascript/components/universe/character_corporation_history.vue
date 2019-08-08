@@ -7,7 +7,8 @@
         <v-text-field v-model="search"
                       append-icon="mdi-magnify"
                       label="Search"
-                      single-line>
+                      single-line
+                      hide-details>
         </v-text-field>
       </v-card-title>
 
@@ -17,17 +18,16 @@
                     :search="search"
                     hide-default-headers
                     hide-default-footer>
-        <template v-slot:items="props">
-          <td v-if="props.item.corporation">
+        <template v-slot:item.corporation.name="{ item }">
+          <div v-if="item.corporation">
             <router-link :to="{ name: 'universe_corporation',
-                                params: { id: props.item.corporation.id }}">
-              {{ props.item.corporation.name }}
+                                params: { id: item.corporation.id }}">
+              {{ item.corporation.name }}
             </router-link>
-          </td>
-          <td v-else>
+          </div>
+          <div v-else>
             ***CORPORATION MISSING***
-          </td>
-          <td class="text-xs-right">{{ props.item.start_date }}</td>
+          </div>
         </template>
 
         <template v-slot:no-results>
