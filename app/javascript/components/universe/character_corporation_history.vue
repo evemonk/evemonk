@@ -7,9 +7,7 @@
         <v-text-field v-model="search"
                       append-icon="mdi-magnify"
                       label="Search"
-                      single-line
-                      hide-default-headers
-                      hide-default-footer>
+                      single-line>
         </v-text-field>
       </v-card-title>
 
@@ -17,6 +15,7 @@
                     :items="history"
                     :items-per-page="-1"
                     :search="search"
+                    hide-default-headers
                     hide-default-footer>
         <template v-slot:items="props">
           <td v-if="props.item.corporation">
