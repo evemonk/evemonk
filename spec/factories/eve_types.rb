@@ -12,7 +12,7 @@ FactoryBot.define do
     name { "MyString" }
     packaged_volume { 1.5 }
     portion_size { 1 }
-    published { false }
+    published { [false, true].sample }
     radius { 1.5 }
     type_id { "" }
     volume { 1.5 }
