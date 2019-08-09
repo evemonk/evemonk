@@ -1,6 +1,6 @@
 ---
 name: sass-loader
-version: 7.1.0
+version: 7.2.0
 type: npm
 summary: Sass loader for webpack
 homepage: https://github.com/webpack-contrib/sass-loader
