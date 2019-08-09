@@ -509,7 +509,7 @@ GEM
       sprockets (>= 3.0.0)
     sql_tracker (1.2.1)
     squasher (0.6.2)
-    standard (0.1.0)
+    standard (0.1.2)
       rubocop (~> 0.72.0)
       rubocop-performance (~> 1.4.0)
     swagger-blocks (2.0.2)
