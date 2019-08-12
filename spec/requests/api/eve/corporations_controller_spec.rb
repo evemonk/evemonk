@@ -34,7 +34,12 @@ describe Api::Eve::CorporationsController do
                                               "total_pages" => 1,
                                               "corporations" => [{
                                                 "id" => 456,
-                                                "icon" => "https://imageserver.eveonline.com/Corporation/456_256.png",
+                                                "icon" => {
+                                                  "large" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Corporation/456_256.png",
+                                                  "medium" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Corporation/456_128.png",
+                                                  "small" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Corporation/456_64.png",
+                                                  "tiny" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Corporation/456_32.png",
+                                                },
                                                 "alliance_id" => 123,
                                                 "ceo_id" => 1234,
                                                 "creator_id" => 4321,
@@ -134,7 +139,12 @@ describe Api::Eve::CorporationsController do
 
       expect(JSON.parse(response.body)).to eq("corporation" => {
         "id" => 456,
-        "icon" => "https://imageserver.eveonline.com/Corporation/456_256.png",
+        "icon" => {
+          "large" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Corporation/456_256.png",
+          "medium" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Corporation/456_128.png",
+          "small" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Corporation/456_64.png",
+          "tiny" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Corporation/456_32.png",
+        },
         "alliance_id" => 123,
         "ceo_id" => 1234,
         "creator_id" => 4321,
@@ -151,7 +161,11 @@ describe Api::Eve::CorporationsController do
         "war_eligible" => false,
         "alliance" => {
           "id" => 123,
-          "icon" => "https://imageserver.eveonline.com/Alliance/123_128.png",
+          "icon" => {
+            "medium" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Alliance/123_128.png",
+            "small" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Alliance/123_64.png",
+            "tiny" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Alliance/123_32.png",
+          },
           "creator_corporation_id" => 2222,
           "creator_id" => 3333,
           "date_founded" => "2015-05-03T19:45:17Z",
@@ -164,7 +178,14 @@ describe Api::Eve::CorporationsController do
         },
         "ceo" => {
           "id" => 1234,
-          "icon" => "https://imageserver.eveonline.com/Character/1234_512.jpg",
+          "icon" => {
+            "gigantic" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Character/1234_1024.png",
+            "huge" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Character/1234_512.png",
+            "large" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Character/1234_256.png",
+            "medium" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Character/1234_128.png",
+            "small" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Character/1234_64.png",
+            "tiny" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Character/1234_32.png",
+          },
           "alliance_id" => 123,
           "ancestry_id" => 10,
           "birthday" => "2015-05-03T19:45:17Z",
@@ -180,7 +201,14 @@ describe Api::Eve::CorporationsController do
         },
         "creator" => {
           "id" => 4321,
-          "icon" => "https://imageserver.eveonline.com/Character/4321_512.jpg",
+          "icon" => {
+            "gigantic" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Character/4321_1024.png",
+            "huge" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Character/4321_512.png",
+            "large" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Character/4321_256.png",
+            "medium" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Character/4321_128.png",
+            "small" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Character/4321_64.png",
+            "tiny" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Character/4321_32.png",
+          },
           "alliance_id" => 123,
           "ancestry_id" => 10,
           "birthday" => "2015-05-03T19:45:17Z",
