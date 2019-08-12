@@ -42,7 +42,7 @@ describe Eve::CorporationDecorator do
     specify { expect(subject.description).to eq("Test") }
   end
 
-  describe "#icon" do
+  describe "#icon_tiny" do
     let(:eve_corporation) do
       build(:eve_corporation,
             corporation_id: 123)
@@ -50,7 +50,80 @@ describe Eve::CorporationDecorator do
 
     subject { eve_corporation.decorate }
 
-    specify { expect(subject.icon).to eq("https://imageserver.eveonline.com/Corporation/123_256.png") }
+    context "when IMAGEPROXY_ENABLED is set" do
+      before { ENV["IMAGEPROXY_ENABLED"] = "yes, please" }
+
+      specify { expect(subject.icon_tiny).to eq("https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Corporation/123_32.png") }
+    end
+
+    context "when IMAGEPROXY_ENABLED is not set" do
+      before { ENV["IMAGEPROXY_ENABLED"] = nil }
+
+      specify { expect(subject.icon_tiny).to eq("https://imageserver.eveonline.com/Corporation/123_32.png") }
+    end
+  end
+
+  describe "#icon_small" do
+    let(:eve_corporation) do
+      build(:eve_corporation,
+            corporation_id: 123)
+    end
+
+    subject { eve_corporation.decorate }
+
+    context "when IMAGEPROXY_ENABLED is set" do
+      before { ENV["IMAGEPROXY_ENABLED"] = "yes, please" }
+
+      specify { expect(subject.icon_small).to eq("https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Corporation/123_64.png") }
+    end
+
+    context "when IMAGEPROXY_ENABLED is not set" do
+      before { ENV["IMAGEPROXY_ENABLED"] = nil }
+
+      specify { expect(subject.icon_small).to eq("https://imageserver.eveonline.com/Corporation/123_64.png") }
+    end
+  end
+
+  describe "#icon_medium" do
+    let(:eve_corporation) do
+      build(:eve_corporation,
+            corporation_id: 123)
+    end
+
+    subject { eve_corporation.decorate }
+
+    context "when IMAGEPROXY_ENABLED is set" do
+      before { ENV["IMAGEPROXY_ENABLED"] = "yes, please" }
+
+      specify { expect(subject.icon_medium).to eq("https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Corporation/123_128.png") }
+    end
+
+    context "when IMAGEPROXY_ENABLED is not set" do
+      before { ENV["IMAGEPROXY_ENABLED"] = nil }
+
+      specify { expect(subject.icon_medium).to eq("https://imageserver.eveonline.com/Corporation/123_128.png") }
+    end
+  end
+
+  describe "#icon_large" do
+    let(:eve_corporation) do
+      build(:eve_corporation,
+            corporation_id: 123)
+    end
+
+    subject { eve_corporation.decorate }
+
+    context "when IMAGEPROXY_ENABLED is set" do
+      before { ENV["IMAGEPROXY_ENABLED"] = "yes, please" }
+
+      specify { expect(subject.icon_large).to eq("https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Corporation/123_256.png") }
+    end
+
+    context "when IMAGEPROXY_ENABLED is not set" do
+      before { ENV["IMAGEPROXY_ENABLED"] = nil }
+
+      specify { expect(subject.icon_large).to eq("https://imageserver.eveonline.com/Corporation/123_256.png") }
+    end
   end
 
   describe "#tax_rate" do
