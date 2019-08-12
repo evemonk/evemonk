@@ -20,6 +20,10 @@
                     hide-default-footer>
         <template v-slot:item.corporation.name="{ item }">
           <div v-if="item.corporation">
+            <v-avatar size="32px" tile>
+              <img :src="item.corporation.icon.tiny" :alt="item.corporation.name">
+            </v-avatar>
+
             <router-link :to="{ name: 'universe_corporation',
                                 params: { id: item.corporation.id }}">
               {{ item.corporation.name }}
