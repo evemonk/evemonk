@@ -6,7 +6,14 @@ json.current_page @characters.current_page
 json.characters do
   json.array! @characters do |character|
     json.id character.character_id
-    json.icon character.icon
+    json.icon do
+      json.tiny character.icon_tiny
+      json.small character.icon_small
+      json.medium character.icon_medium
+      json.large character.icon_large
+      json.huge character.icon_huge
+      json.gigantic character.icon_gigantic
+    end
     json.alliance_id character.alliance_id
     json.ancestry_id character.ancestry_id
     json.birthday character.birthday
