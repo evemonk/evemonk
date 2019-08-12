@@ -48,7 +48,12 @@ describe Api::Eve::CharacterCorporationsHistoryController do
                                                 "start_date" => "2015-05-03T19:45:17Z",
                                                 "corporation" => {
                                                   "id" => 456,
-                                                  "icon" => "https://imageserver.eveonline.com/Corporation/456_256.png",
+                                                  "icon" => {
+                                                    "large" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Corporation/456_256.png",
+                                                    "medium" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Corporation/456_128.png",
+                                                    "small" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Corporation/456_64.png",
+                                                    "tiny" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Corporation/456_32.png",
+                                                  },
                                                   "name" => "Character corporation name",
                                                   "description" => "Character corporation description",
                                                   "ticker" => "TICKER",
