@@ -1,6 +1,6 @@
 ---
 name: timers-browserify
-version: 2.0.10
+version: 2.0.11
 type: npm
 summary: timers module for browserify
 homepage: https://github.com/jryans/timers-browserify
