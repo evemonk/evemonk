@@ -2,7 +2,12 @@
 
 json.executor_corporation do
   json.id executor_corporation.corporation_id
-  json.icon executor_corporation.icon
+  json.icon do
+    json.tiny executor_corporation.icon_tiny
+    json.small executor_corporation.icon_small
+    json.medium executor_corporation.icon_medium
+    json.large executor_corporation.icon_large
+  end
   json.name executor_corporation.name
   json.description executor_corporation.description
   json.ticker executor_corporation.ticker
