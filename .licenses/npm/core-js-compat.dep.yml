@@ -1,6 +1,6 @@
 ---
 name: core-js-compat
-version: 3.2.0
+version: 3.2.1
 type: npm
 summary: core-js compat
 homepage: https://github.com/zloirock/core-js#readme

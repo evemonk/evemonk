@@ -1,14 +1,14 @@
 ---
-name: core-js
-version: 3.2.1
+name: acorn
+version: 6.3.0
 type: npm
-summary: Standard library
-homepage: https://github.com/zloirock/core-js#readme
+summary: ECMAScript parser
+homepage: https://github.com/acornjs/acorn
 license: mit
 licenses:
 - sources: LICENSE
   text: |
-    Copyright (c) 2014-2019 Denis Pushkarev
+    Copyright (C) 2012-2018 by various contributors (see AUTHORS)
 
     Permission is hereby granted, free of charge, to any person obtaining a copy
     of this software and associated documentation files (the "Software"), to deal
