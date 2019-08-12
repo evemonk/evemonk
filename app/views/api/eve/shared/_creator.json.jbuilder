@@ -2,7 +2,14 @@
 
 json.creator do
   json.id creator.character_id
-  json.icon creator.icon
+  json.icon do
+    json.tiny creator.icon_tiny
+    json.small creator.icon_small
+    json.medium creator.icon_medium
+    json.large creator.icon_large
+    json.huge creator.icon_huge
+    json.gigantic creator.icon_gigantic
+  end
   json.alliance_id creator.alliance_id
   json.ancestry_id creator.ancestry_id
   json.birthday creator.birthday
