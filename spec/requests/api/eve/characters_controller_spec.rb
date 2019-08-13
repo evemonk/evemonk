@@ -3,6 +3,8 @@
 require "rails_helper"
 
 describe Api::Eve::CharactersController do
+  before { ENV["IMAGEPROXY_ENABLED"] = "yes, please" }
+
   describe "#index" do
     it "returns list of Eve Characters" do
       create(:eve_alliance,

@@ -3,6 +3,8 @@
 require "rails_helper"
 
 describe Api::Eve::CharacterCorporationsHistoryController do
+  before { ENV["IMAGEPROXY_ENABLED"] = "yes, please" }
+
   describe "#index" do
     it "returns Eve Character corporation history" do
       create(:eve_character,

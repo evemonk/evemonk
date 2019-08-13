@@ -3,6 +3,8 @@
 require "rails_helper"
 
 describe Api::Eve::AllianceCorporationsController do
+  before { ENV["IMAGEPROXY_ENABLED"] = "yes, please" }
+
   describe "#index" do
     it "returns list of Eve Alliance Corporations" do
       create(:eve_alliance,
