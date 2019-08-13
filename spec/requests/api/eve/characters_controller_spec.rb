@@ -99,7 +99,14 @@ describe Api::Eve::CharactersController do
                                               "current_page" => 1,
                                               "characters" => [{
                                                 "id" => 123_123_123,
-                                                "icon" => "https://imageserver.eveonline.com/Character/123123123_512.jpg",
+                                                "icon" => {
+                                                  "gigantic" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Character/123123123_1024.png",
+                                                  "huge" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Character/123123123_512.png",
+                                                  "large" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Character/123123123_256.png",
+                                                  "medium" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Character/123123123_128.png",
+                                                  "small" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Character/123123123_64.png",
+                                                  "tiny" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Character/123123123_32.png",
+                                                },
                                                 "birthday" => "2015-05-03T19:45:17Z",
                                                 "description" => "Character description",
                                                 "gender" => "male",
@@ -108,7 +115,11 @@ describe Api::Eve::CharactersController do
                                                 "title" => "Character title",
                                                 "alliance" => {
                                                   "id" => 123,
-                                                  "icon" => "https://imageserver.eveonline.com/Alliance/123_128.png",
+                                                  "icon" => {
+                                                    "medium" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Alliance/123_128.png",
+                                                    "small" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Alliance/123_64.png",
+                                                    "tiny" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Alliance/123_32.png",
+                                                  },
                                                   "creator_corporation_id" => 2222,
                                                   "creator_id" => 3333,
                                                   "date_founded" => "2015-05-03T19:45:17Z",
@@ -142,7 +153,12 @@ describe Api::Eve::CharactersController do
                                                 },
                                                 "corporation" => {
                                                   "id" => 456,
-                                                  "icon" => "https://imageserver.eveonline.com/Corporation/456_256.png",
+                                                  "icon" => {
+                                                    "large" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Corporation/456_256.png",
+                                                    "medium" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Corporation/456_128.png",
+                                                    "small" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Corporation/456_64.png",
+                                                    "tiny" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Corporation/456_32.png",
+                                                  },
                                                   "name" => "Character corporation name",
                                                   "description" => "Character corporation description",
                                                   "ticker" => "TICKER",
@@ -272,8 +288,15 @@ describe Api::Eve::CharactersController do
       expect(response).to have_http_status(:ok)
 
       expect(JSON.parse(response.body)).to eq("character" => {
-        "id" => 123123123,
-        "icon" => "https://imageserver.eveonline.com/Character/123123123_512.jpg",
+        "id" => 123_123_123,
+        "icon" => {
+          "gigantic" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Character/123123123_1024.png",
+          "huge" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Character/123123123_512.png",
+          "large" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Character/123123123_256.png",
+          "medium" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Character/123123123_128.png",
+          "small" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Character/123123123_64.png",
+          "tiny" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Character/123123123_32.png",
+        },
         "birthday" => "2015-05-03T19:45:17Z",
         "description" => "Character description",
         "gender" => "male",
@@ -282,7 +305,11 @@ describe Api::Eve::CharactersController do
         "title" => "Character title",
         "alliance" => {
           "id" => 123,
-          "icon" => "https://imageserver.eveonline.com/Alliance/123_128.png",
+          "icon" => {
+            "medium" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Alliance/123_128.png",
+            "small" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Alliance/123_64.png",
+            "tiny" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Alliance/123_32.png",
+          },
           "creator_corporation_id" => 2222,
           "creator_id" => 3333,
           "date_founded" => "2015-05-03T19:45:17Z",
@@ -316,7 +343,12 @@ describe Api::Eve::CharactersController do
         },
         "corporation" => {
           "id" => 456,
-          "icon" => "https://imageserver.eveonline.com/Corporation/456_256.png",
+          "icon" => {
+            "large" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Corporation/456_256.png",
+            "medium" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Corporation/456_128.png",
+            "small" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Corporation/456_64.png",
+            "tiny" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Corporation/456_32.png",
+          },
           "name" => "Character corporation name",
           "description" => "Character corporation description",
           "ticker" => "TICKER",
