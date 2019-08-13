@@ -13,7 +13,7 @@ describe Api::Eve::CharacterCorporationsHistoryController do
              alliance_id: 123,
              corporation_id: 456,
              name: "Character corporation name",
-             description: "<b>Character corporation description</b>",
+             description: "Character corporation description",
              ticker: "TICKER",
              date_founded: "Sun, 03 May 2015 19:45:17 UTC +00:00",
              corporation_url: "https://evemonk.com/",
