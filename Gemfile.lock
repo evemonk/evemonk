@@ -441,7 +441,7 @@ GEM
     rubyzip (1.2.3)
     rufus-scheduler (3.6.0)
       fugit (~> 1.1, >= 1.1.6)
-    rugged (0.28.2)
+    rugged (0.28.3)
     safe_yaml (1.0.5)
     sass (3.7.4)
       sass-listen (~> 4.0.0)
