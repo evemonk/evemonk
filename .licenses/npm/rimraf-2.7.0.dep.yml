@@ -1,16 +1,16 @@
 ---
-name: graceful-fs
-version: 4.2.2
+name: rimraf
+version: 2.7.0
 type: npm
-summary: A drop-in replacement for fs, making various improvements.
-homepage: https://github.com/isaacs/node-graceful-fs#readme
+summary: A deep deletion module for node (like `rm -rf`)
+homepage: https://github.com/isaacs/rimraf#readme
 license: isc
 licenses:
 - sources: LICENSE
   text: |
     The ISC License
 
-    Copyright (c) Isaac Z. Schlueter, Ben Noordhuis, and Contributors
+    Copyright (c) Isaac Z. Schlueter and Contributors
 
     Permission to use, copy, modify, and/or distribute this software for any
     purpose with or without fee is hereby granted, provided that the above
