@@ -80,7 +80,7 @@ describe Api::CharactersController do
                                                   "name" => "Alliance name",
                                                   "ticker" => "ALLIANCE_TICKER",
                                                   "corporations_count" => 1,
-                                                  "characters_count" => 2000
+                                                  "characters_count" => 2000,
                                                 },
                                                 "corporation" => {
                                                   "id" => 456,
@@ -106,8 +106,6 @@ describe Api::CharactersController do
                                                   "war_eligible" => true,
                                                 },
                                               }])
-
-
     end
   end
 
