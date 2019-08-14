@@ -33,7 +33,8 @@ describe Api::CharactersController do
              ceo_id: 1234,
              creator_id: 4321,
              faction_id: 5555,
-             home_station_id: 999)
+             home_station_id: 999,
+             war_eligible: true)
 
       create(:eve_alliance_corporation,
              alliance_id: 123,
@@ -50,91 +51,63 @@ describe Api::CharactersController do
 
       expect(response).to have_http_status(:ok)
 
-      expect(JSON.parse(response.body).keys.sort).to eq(["characters", "current_page", "total_count", "total_pages"])
+      expect(JSON.parse(response.body)).to eq("total_count" => 1,
+                                              "total_pages" => 1,
+                                              "current_page" => 1,
+                                              "characters" => [{
+                                                "id" => 123_123_123,
+                                                "icon" => {
+                                                  "tiny" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Character/123123123_32.png",
+                                                  "small" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Character/123123123_64.png",
+                                                  "medium" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Character/123123123_128.png",
+                                                  "large" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Character/123123123_256.png",
+                                                  "huge" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Character/123123123_512.png",
+                                                  "gigantic" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Character/123123123_1024.png",
+                                                },
+                                                "name" => "Character name",
+                                                "alliance" => {
+                                                  "id" => 123,
+                                                  "icon" => {
+                                                    "tiny" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Alliance/123_32.png",
+                                                    "small" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Alliance/123_64.png",
+                                                    "medium" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Alliance/123_128.png",
+                                                  },
+                                                  "creator_corporation_id" => 2222,
+                                                  "creator_id" => 3333,
+                                                  "date_founded" => "2015-05-03T19:45:17Z",
+                                                  "executor_corporation_id" => 4444,
+                                                  "faction_id" => 5555,
+                                                  "name" => "Alliance name",
+                                                  "ticker" => "ALLIANCE_TICKER",
+                                                  "corporations_count" => 1,
+                                                  "characters_count" => 2000
+                                                },
+                                                "corporation" => {
+                                                  "id" => 456,
+                                                  "icon" => {
+                                                    "tiny" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Corporation/456_32.png",
+                                                    "small" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Corporation/456_64.png",
+                                                    "medium" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Corporation/456_128.png",
+                                                    "large" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Corporation/456_256.png",
+                                                  },
+                                                  "alliance_id" => 123,
+                                                  "ceo_id" => 1234,
+                                                  "creator_id" => 4321,
+                                                  "date_founded" => "2015-05-03T19:45:17Z",
+                                                  "description" => "Character corporation description",
+                                                  "faction_id" => 5555,
+                                                  "home_station_id" => 999,
+                                                  "member_count" => 2000,
+                                                  "name" => "Character corporation name",
+                                                  "shares" => 1000,
+                                                  "tax_rate" => "0.99",
+                                                  "ticker" => "TICKER",
+                                                  "corporation_url" => "https://evemonk.com/",
+                                                  "war_eligible" => true,
+                                                },
+                                              }])
 
-      expect(JSON.parse(response.body)["total_count"]).to eq(1)
 
-      expect(JSON.parse(response.body)["total_pages"]).to eq(1)
-
-      expect(JSON.parse(response.body)["current_page"]).to eq(1)
-
-      expect(JSON.parse(response.body)["characters"].size).to eq(1)
-
-      expect(JSON.parse(response.body)["characters"].first.keys.sort).to eq(["alliance", "corporation", "icon", "id", "name"])
-
-      expect(JSON.parse(response.body)["characters"].first["id"]).to eq(123_123_123)
-
-      expect(JSON.parse(response.body)["characters"].first["icon"]).to eq("https://imageserver.eveonline.com/Character/123123123_512.jpg")
-
-      expect(JSON.parse(response.body)["characters"].first["name"]).to eq("Character name")
-
-      expect(JSON.parse(response.body)["characters"].first["alliance"].keys.sort).to eq(["creator_corporation_id",
-                                                                                         "creator_id",
-                                                                                         "date_founded",
-                                                                                         "executor_corporation_id",
-                                                                                         "faction_id",
-                                                                                         "id",
-                                                                                         "name",
-                                                                                         "ticker",])
-
-      expect(JSON.parse(response.body)["characters"].first["alliance"]["creator_corporation_id"]).to eq(2222)
-
-      expect(JSON.parse(response.body)["characters"].first["alliance"]["creator_id"]).to eq(3333)
-
-      expect(JSON.parse(response.body)["characters"].first["alliance"]["date_founded"]).to eq("2015-05-03T19:45:17Z")
-
-      expect(JSON.parse(response.body)["characters"].first["alliance"]["executor_corporation_id"]).to eq(4444)
-
-      expect(JSON.parse(response.body)["characters"].first["alliance"]["faction_id"]).to eq(5555)
-
-      expect(JSON.parse(response.body)["characters"].first["alliance"]["id"]).to eq(123)
-
-      expect(JSON.parse(response.body)["characters"].first["alliance"]["name"]).to eq("Alliance name")
-
-      expect(JSON.parse(response.body)["characters"].first["alliance"]["ticker"]).to eq("ALLIANCE_TICKER")
-
-      expect(JSON.parse(response.body)["characters"].first["corporation"].keys.sort).to eq(["alliance_id",
-                                                                                            "ceo_id",
-                                                                                            "creator_id",
-                                                                                            "date_founded",
-                                                                                            "description",
-                                                                                            "faction_id",
-                                                                                            "home_station_id",
-                                                                                            "id",
-                                                                                            "member_count",
-                                                                                            "name",
-                                                                                            "shares",
-                                                                                            "tax_rate",
-                                                                                            "ticker",
-                                                                                            "url",])
-
-      expect(JSON.parse(response.body)["characters"].first["corporation"]["alliance_id"]).to eq(123)
-
-      expect(JSON.parse(response.body)["characters"].first["corporation"]["ceo_id"]).to eq(1234)
-
-      expect(JSON.parse(response.body)["characters"].first["corporation"]["creator_id"]).to eq(4321)
-
-      expect(JSON.parse(response.body)["characters"].first["corporation"]["date_founded"]).to eq("2015-05-03T19:45:17Z")
-
-      expect(JSON.parse(response.body)["characters"].first["corporation"]["description"]).to eq("Character corporation description")
-
-      expect(JSON.parse(response.body)["characters"].first["corporation"]["faction_id"]).to eq(5555)
-
-      expect(JSON.parse(response.body)["characters"].first["corporation"]["home_station_id"]).to eq(999)
-
-      expect(JSON.parse(response.body)["characters"].first["corporation"]["id"]).to eq(456)
-
-      expect(JSON.parse(response.body)["characters"].first["corporation"]["member_count"]).to eq(2000)
-
-      expect(JSON.parse(response.body)["characters"].first["corporation"]["name"]).to eq("Character corporation name")
-
-      expect(JSON.parse(response.body)["characters"].first["corporation"]["shares"]).to eq(1000)
-
-      expect(JSON.parse(response.body)["characters"].first["corporation"]["tax_rate"]).to eq("0.99")
-
-      expect(JSON.parse(response.body)["characters"].first["corporation"]["ticker"]).to eq("TICKER")
-
-      expect(JSON.parse(response.body)["characters"].first["corporation"]["url"]).to eq("https://evemonk.com/")
     end
   end
 
