@@ -9,7 +9,7 @@ SCOPES = ["esi-wallet.read_character_wallet.v1",
           "esi-location.read_online.v1",
           "esi-location.read_ship_type.v1",].freeze
 
-OmniAuth.config.full_host = 'https://evemonk.com'
+OmniAuth.config.full_host = "https://evemonk.com"
 
 Rails.application.config.middleware.use OmniAuth::Builder do
   provider :eve_online_sso,
