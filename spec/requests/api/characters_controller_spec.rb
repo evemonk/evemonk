@@ -59,12 +59,12 @@ describe Api::CharactersController do
                                               "characters" => [{
                                                 "id" => 123_123_123,
                                                 "icon" => {
-                                                  "tiny" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Character/123123123_32.png",
-                                                  "small" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Character/123123123_64.png",
-                                                  "medium" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Character/123123123_128.png",
-                                                  "large" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Character/123123123_256.png",
-                                                  "huge" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Character/123123123_512.png",
-                                                  "gigantic" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Character/123123123_1024.png",
+                                                  "tiny" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Character/123123123_32.jpg",
+                                                  "small" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Character/123123123_64.jpg",
+                                                  "medium" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Character/123123123_128.jpg",
+                                                  "large" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Character/123123123_256.jpg",
+                                                  "huge" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Character/123123123_512.jpg",
+                                                  "gigantic" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Character/123123123_1024.jpg",
                                                 },
                                                 "name" => "Character name",
                                                 "alliance" => {
@@ -219,12 +219,12 @@ describe Api::CharactersController do
       expect(JSON.parse(response.body)).to eq("character" => {
         "id" => 123_123_123,
         "icon" => {
-          "tiny" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Character/123123123_32.png",
-          "small" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Character/123123123_64.png",
-          "medium" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Character/123123123_128.png",
-          "large" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Character/123123123_256.png",
-          "huge" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Character/123123123_512.png",
-          "gigantic" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Character/123123123_1024.png",
+          "tiny" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Character/123123123_32.jpg",
+          "small" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Character/123123123_64.jpg",
+          "medium" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Character/123123123_128.jpg",
+          "large" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Character/123123123_256.jpg",
+          "huge" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Character/123123123_512.jpg",
+          "gigantic" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Character/123123123_1024.jpg",
         },
         "name" => "Character name",
         "description" => "Character description",
