@@ -57,6 +57,8 @@ COPY . .
 
 RUN bundle exec rake SECRET_KEY_BASE=blablabla DB_ADAPTER=nulldb assets:precompile
 
+RUN curl -sL https://sentry.io/get-cli/ | bash
+
 ENV LD_PRELOAD /usr/lib/x86_64-linux-gnu/libjemalloc.so.2
 
 VOLUME ['/shared']
