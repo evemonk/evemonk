@@ -17,6 +17,10 @@
     every: 1d
     class: SitemapUpdaterWorker
     description: 'Update sitemap and ping google'
+  eve_server_status:
+    every: 1m
+    class: Eve::ServerStatusImporterWorker
+    description: 'Server status'
   eve_races:
     every: 7d
     class: Eve::RacesImporterWorker
