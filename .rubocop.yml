@@ -43,3 +43,27 @@ Naming/FileName:
 
 Style/SymbolArray:
   Enabled: false
+
+Metrics/MethodLength:
+  Enabled: false
+
+Metrics/AbcSize:
+  Enabled: false
+
+Style/IfUnlessModifier:
+  Enabled: false
+
+Style/BracesAroundHashParameters:
+  Enabled: false
+
+Layout/SpaceAfterComma:
+  Enabled: false
+
+Layout/AlignArguments:
+  Enabled: false
+
+Style/EmptyMethod:
+  Enabled: false
+
+Metrics/ClassLength:
+  Enabled: false
