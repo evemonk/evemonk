@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Rpush200Updates < ActiveRecord::VERSION::MAJOR >= 5 ? ActiveRecord::Migration[5.0] : ActiveRecord::Migration
   module Rpush
     class App < ActiveRecord::Base

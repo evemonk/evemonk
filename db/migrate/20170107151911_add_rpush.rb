@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # NOTE TO THE CURIOUS.
 #
 # Congratulations on being a diligent developer and vetting the migrations

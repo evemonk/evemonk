@@ -27,7 +27,7 @@ describe Api::RefreshCharacterAccessToken do
 
     let(:character) do
       create(:character,
-             character_id: 1337512245,
+             character_id: 1_337_512_245,
              access_token: "expired-access-token123",
              refresh_token: "fresh-token-1232132132132131231312312312312312321321321321312312",
              token_expires_at: Time.zone.now)
@@ -35,7 +35,7 @@ describe Api::RefreshCharacterAccessToken do
 
     subject { described_class.new(character.character_id) }
 
-    before { expect(Character).to receive(:find_by).with(character_id: 1337512245).and_return(character) }
+    before { expect(Character).to receive(:find_by).with(character_id: 1_337_512_245).and_return(character) }
 
     before { expect(character).to receive(:update!) }
 
