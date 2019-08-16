@@ -4,6 +4,7 @@ AllCops:
     - "config/spring.rb"
     - "db/schema.rb"
     - "node_modules/**/*"
+    - "vendor/**/*"
 
 Style/StringLiterals:
   EnforcedStyle: double_quotes
