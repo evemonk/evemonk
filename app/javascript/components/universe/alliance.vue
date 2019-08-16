@@ -107,7 +107,7 @@
           });
 
           this.headful.title = `Alliance "${alliance.name}" (${alliance.ticker}) | EveMonk: EveOnline management suite`;
-          this.headful.image = alliance.icon;
+          this.headful.image = alliance.icon; // FIXME: fix icon url
           this.headful.url = `https://evemonk/universe/alliances/${alliance.id}`;
 
           this.loaded = true;
