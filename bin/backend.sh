@@ -10,6 +10,8 @@ sentry-cli releases new -p evemonk-backend "$VERSION"
 
 sentry-cli releases set-commits --auto "$VERSION"
 
+sentry-cli releases deploys "$VERSION" new -e production
+
 wait-for-it "redis:6379" -- echo "Redis up and running"
 
 wait-for-it "memcached:11211" -- echo "Memcached up and running"
