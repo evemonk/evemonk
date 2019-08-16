@@ -1,3 +1,11 @@
+AllCops:
+  Exclude:
+    - "bin/*"
+    - "config/spring.rb"
+    - "db/schema.rb"
+    - "node_modules/**/*"
+    - "vendor/**/*"
+
 Style/StringLiterals:
   EnforcedStyle: double_quotes
 
@@ -13,3 +21,50 @@ Style/TrailingCommaInHashLiteral:
 Bundler/OrderedGems:
   Enabled: false
 
+Metrics/BlockLength:
+  Enabled: false
+
+Style/WordArray:
+  Enabled: false
+
+Layout/SpaceInsideHashLiteralBraces:
+  Enabled: false
+
+Layout/MultilineMethodCallIndentation:
+  Enabled: false
+
+Style/TrailingCommaInArrayLiteral:
+  Enabled: false
+
+Layout/IndentFirstHashElement:
+  Enabled: false
+
+Naming/FileName:
+  Enabled: false
+
+Style/SymbolArray:
+  Enabled: false
+
+Metrics/MethodLength:
+  Enabled: false
+
+Metrics/AbcSize:
+  Enabled: false
+
+Style/IfUnlessModifier:
+  Enabled: false
+
+Style/BracesAroundHashParameters:
+  Enabled: false
+
+Layout/SpaceAfterComma:
+  Enabled: false
+
+Layout/AlignArguments:
+  Enabled: false
+
+Style/EmptyMethod:
+  Enabled: false
+
+Metrics/ClassLength:
+  Enabled: false

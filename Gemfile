@@ -79,6 +79,7 @@ group :development, :test do
   gem "faker"
   gem "sql_tracker"
   gem "bundler-audit", require: false
+  gem "rubocop", require: false
   gem "standard", require: false
   gem "squasher", require: false
   gem "mdl", require: false
@@ -92,6 +93,7 @@ group :development do
   gem "spring"
   gem "spring-watcher-listen", "~> 2.0.0"
   gem "spring-commands-rspec", require: false
+  gem "spring-commands-rubocop", require: false
   gem "consistency_fail", require: false
   gem "rails_best_practices"
   gem "active_record_doctor"
