@@ -1,6 +1,6 @@
 ---
 name: webpack
-version: 4.39.1
+version: 4.39.2
 type: npm
 summary: Packs CommonJs/AMD modules for the browser. Allows to split your codebase
   into multiple bundles, which can be loaded on demand. Support loaders to preprocess
@@ -618,7 +618,8 @@ licenses:
     https://npmjs.com/package/webpack\n\n[node]: https://img.shields.io/node/v/webpack.svg\n[node-url]:
     https://nodejs.org\n\n[deps]: https://img.shields.io/david/webpack/webpack.svg\n[deps-url]:
     https://david-dm.org/webpack/webpack\n\n[tests]: https://img.shields.io/travis/webpack/webpack/master.svg\n[tests-url]:
-    https://travis-ci.org/webpack/webpack\n\n[builds-url]: https://ci.appveyor.com/project/sokra/webpack/branch/master\n[builds]:
+    https://travis-ci.org/webpack/webpack\n\n[prs]: https://img.shields.io/badge/PRs-welcome-brightgreen.svg\n[prs-url]:
+    https://webpack.js.org/contribute/\n\n[builds-url]: https://ci.appveyor.com/project/sokra/webpack/branch/master\n[builds]:
     https://ci.appveyor.com/api/projects/status/github/webpack/webpack?svg=true\n\n[builds2]:
     https://dev.azure.com/webpack/webpack/_apis/build/status/webpack.webpack\n[builds2-url]:
     https://dev.azure.com/webpack/webpack/_build/latest?definitionId=3\n\n[licenses-url]:

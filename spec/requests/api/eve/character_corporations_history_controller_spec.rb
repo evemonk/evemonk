@@ -3,6 +3,8 @@
 require "rails_helper"
 
 describe Api::Eve::CharacterCorporationsHistoryController do
+  before { ENV["IMAGEPROXY_ENABLED"] = "yes, please" }
+
   describe "#index" do
     it "returns Eve Character corporation history" do
       create(:eve_character,
@@ -13,7 +15,7 @@ describe Api::Eve::CharacterCorporationsHistoryController do
              alliance_id: 123,
              corporation_id: 456,
              name: "Character corporation name",
-             description: "<b>Character corporation description</b>",
+             description: "Character corporation description",
              ticker: "TICKER",
              date_founded: "Sun, 03 May 2015 19:45:17 UTC +00:00",
              corporation_url: "https://evemonk.com/",
@@ -48,7 +50,12 @@ describe Api::Eve::CharacterCorporationsHistoryController do
                                                 "start_date" => "2015-05-03T19:45:17Z",
                                                 "corporation" => {
                                                   "id" => 456,
-                                                  "icon" => "https://imageserver.eveonline.com/Corporation/456_256.png",
+                                                  "icon" => {
+                                                    "large" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Corporation/456_256.png",
+                                                    "medium" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Corporation/456_128.png",
+                                                    "small" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Corporation/456_64.png",
+                                                    "tiny" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Corporation/456_32.png",
+                                                  },
                                                   "name" => "Character corporation name",
                                                   "description" => "Character corporation description",
                                                   "ticker" => "TICKER",

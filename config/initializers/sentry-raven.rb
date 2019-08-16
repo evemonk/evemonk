@@ -5,5 +5,14 @@ if Rails.env.production? && ENV["SENTRY_DSN"]
     config.dsn = ENV["SENTRY_DSN"]
 
     config.sanitize_fields = Rails.application.config.filter_parameters.map(&:to_s)
+
+    config.excluded_exceptions += ["EveOnline::Exceptions::InternalServerError",
+                                   "EveOnline::Exceptions::BadGateway",
+                                   "EveOnline::Exceptions::ServiceUnavailable",
+                                   "EveOnline::Exceptions::Timeout",]
+
+    # TODO: add release support
+    # https://docs.sentry.io/clients/ruby/config/
+    # config.release = '721e41770371db95eee98ca2707686226b993eda'
   end
 end

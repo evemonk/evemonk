@@ -13,7 +13,7 @@
             <v-card>
               <v-layout>
                 <v-flex xs5>
-                  <v-img :src="character.icon" height="128px" contain></v-img>
+                  <v-img :src="character.icon.large" height="128px" contain></v-img>
                 </v-flex>
                 <v-flex xs7>
                   <v-card-title primary-title>

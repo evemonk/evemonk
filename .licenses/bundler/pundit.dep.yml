@@ -1,6 +1,6 @@
 ---
 name: pundit
-version: 2.0.1
+version: 2.1.0
 type: bundler
 summary: OO authorization for Rails
 homepage: https://github.com/varvet/pundit
@@ -8,7 +8,7 @@ license: mit
 licenses:
 - sources: LICENSE.txt
   text: |
-    Copyright (c) 2018 Jonas Nicklas, Varvet AB
+    Copyright (c) 2019 Jonas Nicklas, Varvet AB
 
     MIT License
 

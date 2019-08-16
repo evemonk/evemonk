@@ -2,7 +2,14 @@
 
 json.ceo do
   json.id ceo.character_id
-  json.icon ceo.icon
+  json.icon do
+    json.tiny ceo.icon_tiny
+    json.small ceo.icon_small
+    json.medium ceo.icon_medium
+    json.large ceo.icon_large
+    json.huge ceo.icon_huge
+    json.gigantic ceo.icon_gigantic
+  end
   json.alliance_id ceo.alliance_id
   json.ancestry_id ceo.ancestry_id
   json.birthday ceo.birthday

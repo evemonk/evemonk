@@ -3,6 +3,8 @@
 require "rails_helper"
 
 describe Api::Eve::CorporationCharactersController do
+  before { ENV["IMAGEPROXY_ENABLED"] = "yes, please" }
+
   describe "#index" do
     it "returns list of Eve Corporation Characters" do
       create(:eve_alliance,
@@ -19,7 +21,7 @@ describe Api::Eve::CorporationCharactersController do
              alliance_id: 123,
              corporation_id: 456,
              name: "Character corporation name",
-             description: "<b>Character corporation description</b>",
+             description: "Character corporation description",
              ticker: "TICKER",
              date_founded: "Sun, 03 May 2015 19:45:17 UTC +00:00",
              corporation_url: "https://evemonk.com/",
@@ -45,7 +47,7 @@ describe Api::Eve::CorporationCharactersController do
              faction_id: 5555,
              race_id: 123,
              name: "Character name",
-             description: "<b>Character description</b>",
+             description: "Character description",
              gender: "male",
              birthday: "Sun, 03 May 2015 19:45:17 UTC +00:00",
              security_status: 1.1,
@@ -99,7 +101,14 @@ describe Api::Eve::CorporationCharactersController do
                                               "current_page" => 1,
                                               "characters" => [{
                                                 "id" => 123_123_123,
-                                                "icon" => "https://imageserver.eveonline.com/Character/123123123_512.jpg",
+                                                "icon" => {
+                                                  "gigantic" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Character/123123123_1024.jpg",
+                                                  "huge" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Character/123123123_512.jpg",
+                                                  "large" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Character/123123123_256.jpg",
+                                                  "medium" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Character/123123123_128.jpg",
+                                                  "small" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Character/123123123_64.jpg",
+                                                  "tiny" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Character/123123123_32.jpg",
+                                                },
                                                 "alliance_id" => 123,
                                                 "ancestry_id" => 10,
                                                 "birthday" => "2015-05-03T19:45:17Z",
@@ -114,7 +123,11 @@ describe Api::Eve::CorporationCharactersController do
                                                 "title" => "Character title",
                                                 "alliance" => {
                                                   "id" => 123,
-                                                  "icon" => "https://imageserver.eveonline.com/Alliance/123_128.png",
+                                                  "icon" => {
+                                                    "medium" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Alliance/123_128.png",
+                                                    "small" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Alliance/123_64.png",
+                                                    "tiny" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Alliance/123_32.png",
+                                                  },
                                                   "creator_corporation_id" => 2222,
                                                   "creator_id" => 3333,
                                                   "date_founded" => "2015-05-03T19:45:17Z",
@@ -166,7 +179,12 @@ describe Api::Eve::CorporationCharactersController do
                                                 },
                                                 "corporation" => {
                                                   "id" => 456,
-                                                  "icon" => "https://imageserver.eveonline.com/Corporation/456_256.png",
+                                                  "icon" => {
+                                                    "large" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Corporation/456_256.png",
+                                                    "medium" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Corporation/456_128.png",
+                                                    "small" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Corporation/456_64.png",
+                                                    "tiny" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Corporation/456_32.png",
+                                                  },
                                                   "name" => "Character corporation name",
                                                   "description" => "Character corporation description",
                                                   "ticker" => "TICKER",

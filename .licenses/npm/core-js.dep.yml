@@ -1,6 +1,6 @@
 ---
 name: core-js
-version: 3.1.4
+version: 3.2.1
 type: npm
 summary: Standard library
 homepage: https://github.com/zloirock/core-js#readme

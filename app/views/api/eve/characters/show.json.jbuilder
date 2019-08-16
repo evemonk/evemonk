@@ -2,7 +2,14 @@
 
 json.character do
   json.id @character.character_id
-  json.icon @character.icon
+  json.icon do
+    json.tiny @character.icon_tiny
+    json.small @character.icon_small
+    json.medium @character.icon_medium
+    json.large @character.icon_large
+    json.huge @character.icon_huge
+    json.gigantic @character.icon_gigantic
+  end
   json.birthday @character.birthday
   json.description @character.description
   json.gender @character.gender

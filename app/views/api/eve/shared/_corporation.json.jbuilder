@@ -2,7 +2,12 @@
 
 json.corporation do
   json.id corporation.corporation_id
-  json.icon corporation.icon
+  json.icon do
+    json.tiny corporation.icon_tiny
+    json.small corporation.icon_small
+    json.medium corporation.icon_medium
+    json.large corporation.icon_large
+  end
   json.name corporation.name
   json.description corporation.description
   json.ticker corporation.ticker

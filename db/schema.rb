@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_25_110915) do
+ActiveRecord::Schema.define(version: 2019_08_12_143513) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -84,6 +84,12 @@ ActiveRecord::Schema.define(version: 2019_07_25_110915) do
     t.text "scopes"
     t.string "character_owner_hash"
     t.string "title"
+    t.bigint "current_solar_system_id"
+    t.bigint "current_station_id"
+    t.bigint "current_structure_id"
+    t.bigint "current_ship_item_id"
+    t.string "current_ship_name"
+    t.bigint "current_ship_type_id"
     t.index ["alliance_id"], name: "index_characters_on_alliance_id"
     t.index ["ancestry_id"], name: "index_characters_on_ancestry_id"
     t.index ["bloodline_id"], name: "index_characters_on_bloodline_id"

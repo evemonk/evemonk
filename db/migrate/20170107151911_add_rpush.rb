@@ -42,19 +42,19 @@ class AddRpush < ActiveRecord::VERSION::MAJOR >= 5 ? ActiveRecord::Migration[5.0
   class CreateRapnsNotifications < ActiveRecord::VERSION::MAJOR >= 5 ? ActiveRecord::Migration[5.0] : ActiveRecord::Migration
     def self.up
       create_table :rapns_notifications do |t|
-        t.integer   :badge,                 null: true
-        t.string    :device_token,          null: false, limit: 64
-        t.string    :sound,                 null: true,  default: "1.aiff"
-        t.string    :alert,                 null: true
-        t.text      :attributes_for_device, null: true
-        t.integer   :expiry,                null: false, default: 1.day.to_i
-        t.boolean   :delivered,             null: false, default: false
-        t.timestamp :delivered_at,          null: true
-        t.boolean   :failed,                null: false, default: false
-        t.timestamp :failed_at,             null: true
-        t.integer   :error_code,            null: true
-        t.string    :error_description,     null: true
-        t.timestamp :deliver_after,         null: true
+        t.integer :badge, null: true
+        t.string :device_token, null: false, limit: 64
+        t.string :sound, null: true, default: "1.aiff"
+        t.string :alert, null: true
+        t.text :attributes_for_device, null: true
+        t.integer :expiry, null: false, default: 1.day.to_i
+        t.boolean :delivered, null: false, default: false
+        t.timestamp :delivered_at, null: true
+        t.boolean :failed, null: false, default: false
+        t.timestamp :failed_at, null: true
+        t.integer :error_code, null: true
+        t.string :error_description, null: true
+        t.timestamp :deliver_after, null: true
         t.timestamps
       end
 
@@ -72,8 +72,8 @@ class AddRpush < ActiveRecord::VERSION::MAJOR >= 5 ? ActiveRecord::Migration[5.0
   class CreateRapnsFeedback < ActiveRecord::VERSION::MAJOR >= 5 ? ActiveRecord::Migration[5.0] : ActiveRecord::Migration
     def self.up
       create_table :rapns_feedback do |t|
-        t.string    :device_token,          null: false, limit: 64
-        t.timestamp :failed_at,             null: false
+        t.string :device_token, null: false, limit: 64
+        t.timestamp :failed_at, null: false
         t.timestamps
       end
 
@@ -113,11 +113,11 @@ class AddRpush < ActiveRecord::VERSION::MAJOR >= 5 ? ActiveRecord::Migration[5.0
   class CreateRapnsApps < ActiveRecord::VERSION::MAJOR >= 5 ? ActiveRecord::Migration[5.0] : ActiveRecord::Migration
     def self.up
       create_table :rapns_apps do |t|
-        t.string    :key,             null: false
-        t.string    :environment,     null: false
-        t.text      :certificate,     null: false
-        t.string    :password,        null: true
-        t.integer   :connections,     null: false, default: 1
+        t.string :key, null: false
+        t.string :environment, null: false
+        t.text :certificate, null: false
+        t.string :password, null: true
+        t.integer :connections, null: false, default: 1
         t.timestamps
       end
     end

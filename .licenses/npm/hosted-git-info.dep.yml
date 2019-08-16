@@ -1,6 +1,6 @@
 ---
 name: hosted-git-info
-version: 2.8.2
+version: 2.8.4
 type: npm
 summary: Provides metadata and conversions from repository urls for Github, Bitbucket
   and Gitlab

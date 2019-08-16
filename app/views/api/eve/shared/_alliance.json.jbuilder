@@ -2,7 +2,11 @@
 
 json.alliance do
   json.id alliance.alliance_id
-  json.icon alliance.icon
+  json.icon do
+    json.tiny alliance.icon_tiny
+    json.small alliance.icon_small
+    json.medium alliance.icon_medium
+  end
   json.creator_corporation_id alliance.creator_corporation_id
   json.creator_id alliance.creator_id
   json.date_founded alliance.date_founded

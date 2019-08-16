@@ -253,6 +253,22 @@ const store = new Vuex.Store({
         return error;
       }
     },
+
+    async fetchUniverseTypes({ commit, state }, { page, q }) {
+      try {
+        return await  axios.get(`/api/eve/types?page=${page}&q=${q}`);
+      } catch (error) {
+        return error;
+      }
+    },
+
+    async fetchUniverseType({ commit, state }, id) {
+      try {
+        return await axios.get(`/api/eve/types/${id}`);
+      } catch (error) {
+        return error;
+      }
+    },
   },
 
   strict: process.env.NODE_ENV !== 'production',

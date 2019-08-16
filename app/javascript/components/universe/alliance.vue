@@ -17,7 +17,7 @@
             <v-card>
               <v-layout>
                 <v-flex xs5>
-                  <v-img :src="alliance.icon" height="128px" contain></v-img>
+                  <v-img :src="alliance.icon.medium" height="128px" contain></v-img>
                 </v-flex>
                 <v-flex xs7>
                   <v-card-title primary-title>
@@ -107,7 +107,7 @@
           });
 
           this.headful.title = `Alliance "${alliance.name}" (${alliance.ticker}) | EveMonk: EveOnline management suite`;
-          this.headful.image = alliance.icon;
+          this.headful.image = alliance.icon; // FIXME: fix icon url
           this.headful.url = `https://evemonk/universe/alliances/${alliance.id}`;
 
           this.loaded = true;
