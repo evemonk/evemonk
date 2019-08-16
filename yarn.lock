@@ -686,9 +686,9 @@
   integrity sha512-Xb7tBu7QEJqQev0VdDPQP/SPtqiJyNdG7VUFhugnGWGCZ687E+NnwbfZ3qdfF+pqXU1TYBN5bqDlh/MKUE0JMA==
 
 "@rails/actioncable@^6.0.0-alpha":
-  version "6.0.0-alpha"
-  resolved "https://registry.yarnpkg.com/@rails/actioncable/-/actioncable-6.0.0-alpha.tgz#84be50626a43fe431789243c6b13c14f922bf048"
-  integrity sha512-hBaruc8FMus0EuLL2LzPHHZpQUHzNrvDzmy9EN03P5K4DQR43FTdksCu77kbx2TrKlrvjnJ1PBbcx87jGotykw==
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/@rails/actioncable/-/actioncable-6.0.0.tgz#8bff9c902be1531ef7a9e191562e9771efcfdfe1"
+  integrity sha512-DieouotYHpI6k2EGTCnh1eMvD3W8p3zqjWXEYj4z0khJ+A0qQ5tHxihjTEkio54MVwqHt1DcpUm2woh2n/alCA==
 
 "@rails/webpacker@^4.0.2":
   version "4.0.7"

@@ -1,14 +1,14 @@
 ---
-name: rb-fsevent
-version: 0.10.3
+name: sassc
+version: 2.0.1
 type: bundler
-summary: Very simple & usable FSEvents API
-homepage: http://rubygems.org/gems/rb-fsevent
+summary: Use libsass with Ruby!
+homepage: https://github.com/sass/sassc-ruby
 license: mit
 licenses:
 - sources: LICENSE.txt
   text: |
-    Copyright (c) 2010-2014 Thibaud Guillaume-Gentil & Travis Tilley
+    Copyright (c) Ryan Boland & Contributors
 
     MIT License
 

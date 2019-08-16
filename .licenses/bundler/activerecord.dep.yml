@@ -1,6 +1,6 @@
 ---
 name: activerecord
-version: 6.0.0.rc2
+version: 6.0.0
 type: bundler
 summary: Object-relational mapper framework (part of Rails).
 homepage: https://rubyonrails.org
