@@ -2,11 +2,13 @@
 
 module Api
   module Eve
-    class ServerStatusLastController < BaseController
+    class ServerStatusLastsController < BaseController
       skip_before_action :authenticate
 
       def show
-        @server_status = Eve::ServerStatus.last.decorate
+        @server_status = policy_scope(::Eve::ServerStatus).last.decorate
+
+        skip_authorization
       end
     end
   end
