@@ -116,7 +116,8 @@ Rails.application.configure do
   config.active_job.queue_adapter = :sidekiq
 
   # Prerender
-  config.middleware.use Rack::Prerender, prerender_service_url: "http://prerender:3000"
+  config.middleware.use Rack::Prerender, prerender_service_url: "http://prerender:3000",
+                                         protocol: "https"
 
   # logs to logstash
   config.lograge.enabled = true
