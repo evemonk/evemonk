@@ -12,6 +12,7 @@ import ChangePassword from './components/change_password.vue';
 import Profile from './components/profile.vue';
 import Characters from './components/characters.vue';
 import Character from './components/character.vue';
+import CharacterLPStore from './components/character_lpstore.vue';
 import LPStore from './components/lpstore.vue';
 import UniverseAlliances from './components/universe/alliances.vue';
 import UniverseAlliance from './components/universe/alliance.vue';
@@ -82,6 +83,11 @@ const routes = [
     path: '/characters/:id',
     name: 'character',
     component: Character,
+  },
+  {
+    path: '/characters/:id/lpstore',
+    name: 'character_lpstore',
+    component: CharacterLPStore,
   },
   {
     path: '/lpstore',

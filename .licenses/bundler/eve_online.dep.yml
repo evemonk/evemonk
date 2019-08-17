@@ -1,6 +1,6 @@
 ---
 name: eve_online
-version: 0.28.0
+version: 0.29.0
 type: bundler
 summary: EveOnline ESI API.
 homepage: https://github.com/evemonk/eve_online
