@@ -1,6 +1,6 @@
 ---
 name: sass-rails
-version: 6.0.0.beta3
+version: 6.0.0
 type: bundler
 summary: Sass adapter for the Rails asset pipeline.
 homepage: https://github.com/rails/sass-rails
