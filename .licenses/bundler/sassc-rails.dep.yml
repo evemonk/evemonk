@@ -1,14 +1,16 @@
 ---
-name: sass
-version: 3.7.4
+name: sassc-rails
+version: 2.1.2
 type: bundler
-summary: A powerful but elegant CSS compiler that makes CSS fun again.
-homepage: https://sass-lang.com/
+summary: Integrate SassC-Ruby into Rails.
+homepage: https://github.com/sass/sassc-rails
 license: mit
 licenses:
-- sources: MIT-LICENSE
+- sources: LICENSE.txt
   text: |
-    Copyright (c) 2006-2016 Hampton Catlin, Natalie Weizenbaum, and Chris Eppstein
+    Copyright (c) 2015 Ryan Boland
+
+    MIT License
 
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the

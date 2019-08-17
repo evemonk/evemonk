@@ -1,14 +1,9 @@
 ---
 name: "@rails/actioncable"
-version: 6.0.0-alpha
+version: 6.0.0
 type: npm
 summary: WebSocket framework for Ruby on Rails.
 homepage: http://rubyonrails.org/
 license: mit
-licenses:
-- sources: README.md
-  text: |-
-    Action Cable is released under the MIT license:
-
-    * https://opensource.org/licenses/MIT
+licenses: []
 notices: []

@@ -1,6 +1,6 @@
 ---
 name: actionmailer
-version: 6.0.0.rc2
+version: 6.0.0
 type: bundler
 summary: Email composition and delivery framework (part of Rails).
 homepage: https://rubyonrails.org

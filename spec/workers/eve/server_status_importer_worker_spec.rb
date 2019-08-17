@@ -7,6 +7,8 @@ describe Eve::ServerStatusImporterWorker do
 
   describe ".sidekiq_options" do
     specify { expect(described_class.sidekiq_options["retry"]).to eq(false) }
+
+    specify { expect(described_class.sidekiq_options["queue"]).to eq("server_status") }
   end
 
   describe "#perform" do
