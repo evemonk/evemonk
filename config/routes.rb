@@ -62,6 +62,8 @@ Rails.application.routes.draw do
       end
 
       resources :types, only: [:index, :show]
+
+      resource :server_status_last, only: :show
     end
   end
 
