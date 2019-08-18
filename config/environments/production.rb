@@ -116,11 +116,10 @@ Rails.application.configure do
   config.active_job.queue_adapter = :sidekiq
 
   # Prerender
-  config.middleware.use Rack::Prerender, prerender_service_url: "http://prerender:3000",
-                                         protocol: "https"
+  config.middleware.use Rack::Prerender, prerender_service_url: "https://prerender.evemonk.com"
 
   # logs to logstash
-  config.lograge.enabled = true
-  config.lograge.formatter = Lograge::Formatters::Logstash.new
-  config.lograge.logger = LogStashLogger.new(type: :tcp, host: ENV["LOGSTASH_HOST"], port: 5000)
+  # config.lograge.enabled = true
+  # config.lograge.formatter = Lograge::Formatters::Logstash.new
+  # config.lograge.logger = LogStashLogger.new(type: :tcp, host: ENV["LOGSTASH_HOST"], port: 5000)
 end
