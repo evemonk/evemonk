@@ -10,7 +10,7 @@
     "prerender": "^5.6.0",
     "rails-erb-loader": "^5.5.2",
     "vue": "^2.6.10",
-    "vue-analytics": "^5.16.4",
+    "vue-analytics": "^5.17.2",
     "vue-headful": "^2.0.1",
     "vue-loader": "^15.7.0",
     "vue-qrcode": "^0.0.2",
