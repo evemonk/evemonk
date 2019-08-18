@@ -18,7 +18,7 @@ addons:
 env: DISPLAY=':99.0'
 
 before_install:
-  - gem update --system --no-document
+  - gem update --system --no-document 3.0.6
   - gem install bundler --no-document --force
   - gem --version
   - bundle --version
