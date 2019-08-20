@@ -115,9 +115,6 @@ Rails.application.configure do
   # Sidekiq
   config.active_job.queue_adapter = :sidekiq
 
-  # Prerender
-  config.middleware.use Rack::Prerender, prerender_service_url: "https://prerender.evemonk.com"
-
   # logs to logstash
   # config.lograge.enabled = true
   # config.lograge.formatter = Lograge::Formatters::Logstash.new
