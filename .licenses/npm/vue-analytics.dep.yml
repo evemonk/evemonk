@@ -1,6 +1,6 @@
 ---
 name: vue-analytics
-version: 5.17.0
+version: 5.17.2
 type: npm
 summary: Google Analytics plugin for Vue
 homepage: https://github.com/MatteoGabriele/vue-analytics#readme
