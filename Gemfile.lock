@@ -331,9 +331,6 @@ GEM
     pg_query (1.1.0)
     pghero (2.3.0)
       activerecord (>= 5)
-    prerender_rails (1.6.1)
-      activesupport
-      rack
     prometheus-client (0.9.0)
       quantile (~> 0.2.1)
     pry (0.12.2)
@@ -624,7 +621,6 @@ DEPENDENCIES
   pg (>= 0.18, < 2.0)
   pg_query
   pghero
-  prerender_rails
   prometheus-client
   pry-rails
   puma
