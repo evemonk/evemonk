@@ -4,6 +4,8 @@ require "rails_helper"
 
 describe "Sign up features" do
   it "when user successfully sign up" do
+    create(:eve_server_status)
+
     visit "/sign_up"
 
     fill_in "email", with: "me@example.com"
@@ -21,6 +23,8 @@ describe "Sign up features" do
   it "when email is already taken" do
     create(:user, email: "me@example.com")
 
+    create(:eve_server_status)
+
     visit "/sign_up"
 
     fill_in "email", with: "me@example.com"
@@ -36,6 +40,8 @@ describe "Sign up features" do
   end
 
   it "when password confirmation doesn't match" do
+    create(:eve_server_status)
+
     visit "/sign_up"
 
     fill_in "email", with: "me@example.com"

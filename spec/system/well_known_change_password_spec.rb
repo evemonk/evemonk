@@ -6,6 +6,8 @@ describe "/.well-known/change-password" do
   it "when user successfully redirected to change password form" do
     create(:user, email: "me@example.com", password: "eidii7EeooVe8ahk")
 
+    create(:eve_server_status)
+
     visit "/sign_in"
 
     fill_in "email", with: "me@example.com"
