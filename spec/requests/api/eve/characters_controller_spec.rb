@@ -382,7 +382,7 @@ describe Api::Eve::CharactersController do
                                                 "alliance_id" => 123,
                                                 "name" => "Race name",
                                                 "description" => "Race description",
-                                              },)
+                                              })
     end
 
     it "returns 404" do

@@ -376,7 +376,7 @@ describe Api::Eve::AlliancesController do
                                                 "station_system_count" => 100,
                                                 "size_factor" => "2.0",
                                                 "is_unique" => true,
-                                              },)
+                                              })
     end
 
     it "returns 404" do
