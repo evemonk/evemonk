@@ -90,7 +90,7 @@
 
       this.fetchUniverseAlliance(id).then(response => {
         if (response.status === 200) {
-          let alliance = response.data.alliance;
+          let alliance = response.data;
 
           this.alliance = alliance;
 
