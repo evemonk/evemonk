@@ -246,7 +246,7 @@ GEM
     kramdown (1.17.0)
     launchy (2.4.3)
       addressable (~> 2.3)
-    licensed (2.3.0)
+    licensed (2.3.1)
       bundler (>= 1.10)
       licensee (~> 9.10)
       pathname-common_prefix (~> 0.0.1)
