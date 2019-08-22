@@ -1,9 +1,0 @@
----
-name: unique-slug
-version: 2.0.0
-type: npm
-summary: Generate a unique character string suitible for use in files and URLs.
-homepage: https://github.com/iarna/unique-slug#readme
-license: isc
-licenses: []
-notices: []
