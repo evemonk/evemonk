@@ -1,6 +1,6 @@
 ---
 name: regexp-tree
-version: 0.1.11
+version: 0.1.12
 type: npm
 summary: Regular Expressions parser in JavaScript
 homepage: https://github.com/DmitrySoshnikov/regexp-tree
