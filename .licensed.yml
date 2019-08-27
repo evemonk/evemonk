@@ -36,10 +36,14 @@ reviewed:
     - 'coderay'
     - 'json'
     - 'jwt'
-    - 'logstash-event'
     - 'prometheus-client'
     - 'pry'
     - 'rack-health'
+    - 'rails-settings-cached'
+    - 'scout_apm'
+    - 'sidekiq'
+    - 'websocket-driver'
+    - 'websocket-extensions'
 
   npm:
     - '@webassemblyjs/helper-fsm'
