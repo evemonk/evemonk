@@ -1,9 +1,0 @@
----
-name: headful
-version: 1.0.3
-type: npm
-summary: Set <head> properties (e.g. title and meta tags) from JavaScript.
-homepage: https://github.com/troxler/headful
-license: mit
-licenses: []
-notices: []

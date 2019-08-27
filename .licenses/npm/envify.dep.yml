@@ -1,9 +1,0 @@
----
-name: envify
-version: 3.4.1
-type: npm
-summary: Selectively replace Node-style environment variables with plain strings.
-homepage: https://github.com/hughsk/envify#readme
-license: mit
-licenses: []
-notices: []

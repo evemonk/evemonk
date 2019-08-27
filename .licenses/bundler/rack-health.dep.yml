@@ -1,9 +1,0 @@
----
-name: rack-health
-version: 0.1.2
-type: bundler
-summary: A health check interface for rack applications.
-homepage: https://github.com/mirakui/rack-health
-license: none
-licenses: []
-notices: []

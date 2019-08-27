@@ -1,9 +1,0 @@
----
-name: "@vue/component-compiler-utils"
-version: 3.0.0
-type: npm
-summary: Lower level utilities for compiling Vue single file components
-homepage: https://github.com/vuejs/component-compiler-utils#readme
-license: mit
-licenses: []
-notices: []

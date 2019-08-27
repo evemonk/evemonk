@@ -1,9 +1,0 @@
----
-name: imurmurhash
-version: 0.1.4
-type: npm
-summary: An incremental implementation of MurmurHash3
-homepage: https://github.com/jensyt/imurmurhash-js
-license: mit
-licenses: []
-notices: []

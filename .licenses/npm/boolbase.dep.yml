@@ -1,9 +1,0 @@
----
-name: boolbase
-version: 1.0.0
-type: npm
-summary: 'two functions: One that returns true, one that returns false'
-homepage: https://github.com/fb55/boolbase
-license: isc
-licenses: []
-notices: []

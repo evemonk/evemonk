@@ -1,9 +1,0 @@
----
-name: vue-template-compiler
-version: 2.6.10
-type: npm
-summary: template compiler for Vue 2.0
-homepage: https://github.com/vuejs/vue/tree/dev/packages/vue-template-compiler#readme
-license: mit
-licenses: []
-notices: []

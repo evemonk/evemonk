@@ -1,9 +1,0 @@
----
-name: de-indent
-version: 1.0.2
-type: npm
-summary: remove extra indent from a block of code
-homepage: https://github.com/yyx990803/de-indent#readme
-license: mit
-licenses: []
-notices: []
