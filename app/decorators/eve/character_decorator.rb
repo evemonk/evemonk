@@ -6,7 +6,7 @@ module Eve
                            :faction, :race, :character_corporation_histories
 
     def birthday
-      object.birthday.iso8601
+      object.birthday&.iso8601
     end
 
     def icon_tiny

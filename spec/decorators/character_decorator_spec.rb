@@ -8,14 +8,24 @@ describe CharacterDecorator do
   it { should be_a(ApplicationDecorator) }
 
   describe "#birthday" do
-    let(:character) do
-      build(:character,
-            birthday: "Sun, 03 May 2015 19:45:17 UTC +00:00")
+    context "when birthday is present" do
+      let(:character) do
+        build(:character,
+              birthday: "Sun, 03 May 2015 19:45:17 UTC +00:00")
+      end
+
+      subject { character.decorate }
+
+      specify { expect(subject.birthday).to eq("2015-05-03T19:45:17Z") }
     end
 
-    subject { character.decorate }
+    context "when birthday is empty" do
+      let(:character) { build(:character, birthday: nil) }
 
-    specify { expect(subject.birthday).to eq("2015-05-03T19:45:17Z") }
+      subject { character.decorate }
+
+      specify { expect(subject.birthday).to eq(nil) }
+    end
   end
 
   describe "#icon_tiny" do
@@ -167,25 +177,45 @@ describe CharacterDecorator do
   end
 
   describe "#last_remap_date" do
-    let(:character) do
-      build(:character,
-            last_remap_date: "Sun, 03 May 2015 19:45:17 UTC +00:00")
+    context "when last_remap_date is present" do
+      let(:character) do
+        build(:character,
+              last_remap_date: "Sun, 03 May 2015 19:45:17 UTC +00:00")
+      end
+
+      subject { character.decorate }
+
+      specify { expect(subject.last_remap_date).to eq("2015-05-03T19:45:17Z") }
     end
 
-    subject { character.decorate }
+    context "when last_remap_date is empty" do
+      let(:character) { build(:character, last_remap_date: nil) }
 
-    specify { expect(subject.last_remap_date).to eq("2015-05-03T19:45:17Z") }
+      subject { character.decorate }
+
+      specify { expect(subject.last_remap_date).to eq(nil) }
+    end
   end
 
   describe "#accrued_remap_cooldown_date" do
-    let(:character) do
-      build(:character,
-            accrued_remap_cooldown_date: "Sun, 03 May 2015 19:45:17 UTC +00:00")
+    context "when accrued_remap_cooldown_date is present" do
+      let(:character) do
+        build(:character,
+              accrued_remap_cooldown_date: "Sun, 03 May 2015 19:45:17 UTC +00:00")
+      end
+
+      subject { character.decorate }
+
+      specify { expect(subject.accrued_remap_cooldown_date).to eq("2015-05-03T19:45:17Z") }
     end
 
-    subject { character.decorate }
+    context "when accrued_remap_cooldown_date is empty" do
+      let(:character) { build(:character, accrued_remap_cooldown_date: nil) }
 
-    specify { expect(subject.accrued_remap_cooldown_date).to eq("2015-05-03T19:45:17Z") }
+      subject { character.decorate }
+
+      specify { expect(subject.accrued_remap_cooldown_date).to eq(nil) }
+    end
   end
 
   describe "#wallet" do

@@ -8,14 +8,24 @@ describe Eve::CharacterDecorator do
   it { should be_a(ApplicationDecorator) }
 
   describe "#birthday" do
-    let(:eve_character) do
-      build(:eve_character,
-            birthday: "Sun, 03 May 2015 19:45:17 UTC +00:00")
+    context "when birthday is present" do
+      let(:eve_character) do
+        build(:eve_character,
+              birthday: "Sun, 03 May 2015 19:45:17 UTC +00:00")
+      end
+
+      subject { eve_character.decorate }
+
+      specify { expect(subject.birthday).to eq("2015-05-03T19:45:17Z") }
     end
 
-    subject { eve_character.decorate }
+    context "when birthday is empty" do
+      let(:eve_character) { build(:eve_character, birthday: nil) }
 
-    specify { expect(subject.birthday).to eq("2015-05-03T19:45:17Z") }
+      subject { eve_character.decorate }
+
+      specify { expect(subject.birthday).to eq(nil) }
+    end
   end
 
   describe "#icon_tiny" do
