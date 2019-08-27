@@ -32,6 +32,14 @@ reviewed:
     - 'tilt'
     - 'rack-health'
     - 'newrelic_rpm'
+    - 'awesome_print'
+    - 'coderay'
+    - 'json'
+    - 'jwt'
+    - 'logstash-event'
+    - 'prometheus-client'
+    - 'pry'
+    - 'rack-health'
 
   npm:
     - '@webassemblyjs/helper-fsm'
