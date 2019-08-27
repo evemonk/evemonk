@@ -1,9 +1,0 @@
----
-name: esprima-fb
-version: 15001.1.0-dev-harmony-fb
-type: npm
-summary: Facebook-specific fork of the esprima project
-homepage: https://github.com/facebook/esprima/tree/fb-harmony
-license: none
-licenses: []
-notices: []

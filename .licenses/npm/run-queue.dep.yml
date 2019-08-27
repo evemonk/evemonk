@@ -1,9 +1,0 @@
----
-name: run-queue
-version: 1.0.3
-type: npm
-summary: A promise based, dynamic priority queue runner, with concurrency limiting.
-homepage: https://npmjs.com/package/run-queue
-license: isc
-licenses: []
-notices: []

@@ -1,9 +1,0 @@
----
-name: source-map
-version: 0.4.4
-type: npm
-summary: Generates and consumes source maps
-homepage: https://github.com/mozilla/source-map
-license: bsd-3-clause
-licenses: []
-notices: []

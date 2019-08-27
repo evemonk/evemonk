@@ -47,8 +47,6 @@ gem "awesome_print", require: "ap"
 gem "pry-rails"
 
 gem "lograge"
-gem "logstash-event"
-gem "logstash-logger"
 
 gem "prometheus-client"
 gem "yabeda-prometheus"
@@ -85,7 +83,7 @@ group :development, :test do
   gem "mdl", require: false
   gem "brakeman", require: false
   gem "fasterer", require: false
-  gem "licensed", require: false
+  gem "license_finder", require: false
 end
 
 group :development do

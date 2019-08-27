@@ -1,9 +1,0 @@
----
-name: "@rails/actioncable"
-version: 6.0.0
-type: npm
-summary: WebSocket framework for Ruby on Rails.
-homepage: http://rubyonrails.org/
-license: mit
-licenses: []
-notices: []

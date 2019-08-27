@@ -1,9 +1,0 @@
----
-name: errno
-version: 0.1.7
-type: npm
-summary: libuv errno details exposed
-homepage: https://github.com/rvagg/node-errno#readme
-license: mit
-licenses: []
-notices: []

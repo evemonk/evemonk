@@ -1,9 +1,0 @@
----
-name: vue-template-es2015-compiler
-version: 1.9.1
-type: npm
-summary: Post compiler for Vue template render functions to support ES2015+ features
-homepage: https://github.com/vuejs/vue-template-es2015-compiler#readme
-license: mit
-licenses: []
-notices: []

@@ -1,9 +1,0 @@
----
-name: vue-headful
-version: 2.0.1
-type: npm
-summary: Set <head> properties (e.g. title and meta tags) in Vue.js apps.
-homepage: https://github.com/troxler/vue-headful
-license: mit
-licenses: []
-notices: []

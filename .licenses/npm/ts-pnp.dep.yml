@@ -1,9 +1,0 @@
----
-name: ts-pnp
-version: 1.1.2
-type: npm
-summary: plug'n'play resolver for TypeScript
-homepage: https://github.com/arcanis/ts-pnp
-license: mit
-licenses: []
-notices: []
