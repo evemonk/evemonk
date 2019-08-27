@@ -83,7 +83,7 @@ group :development, :test do
   gem "mdl", require: false
   gem "brakeman", require: false
   gem "fasterer", require: false
-  gem "licensed", require: false
+  gem "license_finder", require: false
 end
 
 group :development do
