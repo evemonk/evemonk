@@ -79,5 +79,4 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
-  url: <%= ENV['EVEMONK_DATABASE_URL'] %>
+  url: <%= ENV['DATABASE_URL'] %>
