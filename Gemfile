@@ -47,8 +47,6 @@ gem "awesome_print", require: "ap"
 gem "pry-rails"
 
 gem "lograge"
-gem "logstash-event"
-gem "logstash-logger"
 
 gem "prometheus-client"
 gem "yabeda-prometheus"
