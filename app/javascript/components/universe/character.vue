@@ -155,7 +155,7 @@
 
       this.fetchUniverseCharacter(id).then(response => {
         if (response.status === 200) {
-          let character = response.data.character;
+          let character = response.data;
 
           this.character = character;
           this.loaded = true;

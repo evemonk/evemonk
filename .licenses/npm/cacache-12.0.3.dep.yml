@@ -1,6 +1,6 @@
 ---
 name: cacache
-version: 12.0.2
+version: 12.0.3
 type: npm
 summary: Fast, fault-tolerant, cross-platform, disk-based, data-agnostic, content-addressable
   cache.

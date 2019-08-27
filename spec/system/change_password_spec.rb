@@ -8,6 +8,8 @@ describe "Change password features" do
 
     create(:session, user: user, token: "token123")
 
+    create(:eve_server_status)
+
     visit "/"
 
     page.execute_script <<-JAVASCRIPT

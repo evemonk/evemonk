@@ -6,6 +6,8 @@ describe "Sign in features" do
   it "when user successfully sign in" do
     user = create(:user, email: "me@example.com", password: "eidii7EeooVe8ahk")
 
+    create(:eve_server_status)
+
     visit "/sign_in"
 
     fill_in "email", with: "me@example.com"
@@ -22,6 +24,8 @@ describe "Sign in features" do
   it "when user successfully sign in with upper cased email" do
     user = create(:user, email: "me@example.com", password: "eidii7EeooVe8ahk")
 
+    create(:eve_server_status)
+
     visit "/sign_in"
 
     fill_in "email", with: "ME@EXAMPLE.COM"
@@ -36,6 +40,8 @@ describe "Sign in features" do
   end
 
   it "when user with given email not found" do
+    create(:eve_server_status)
+
     visit "/sign_in"
 
     fill_in "email", with: "me@example.com"
@@ -51,6 +57,8 @@ describe "Sign in features" do
 
   it "when password wrong" do
     create(:user, email: "me@example.com", password: "eidii7EeooVe8ahk")
+
+    create(:eve_server_status)
 
     visit "/sign_in"
 

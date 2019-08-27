@@ -16,7 +16,7 @@ GIT
 
 GIT
   remote: https://github.com/rspec/rspec-core.git
-  revision: 77dbc84657c5dc45e07a7fe0f5b02b4caeb6c9ad
+  revision: 4ab682260afe252b90c4330bb7f91430f68f68c4
   branch: master
   specs:
     rspec-core (3.9.0.pre)
@@ -124,7 +124,7 @@ GEM
       msgpack (~> 1.0)
     brakeman (4.6.1)
     builder (3.2.3)
-    bullet (6.0.1)
+    bullet (6.0.2)
       activesupport (>= 3.0.0)
       uniform_notifier (~> 1.11)
     bundler-audit (0.6.1)
@@ -186,7 +186,7 @@ GEM
     errbase (0.1.1)
     erubi (1.8.0)
     erubis (2.7.0)
-    et-orbi (1.2.1)
+    et-orbi (1.2.2)
       tzinfo
     factory_bot (5.0.2)
       activesupport (>= 4.2.0)
@@ -246,7 +246,7 @@ GEM
     kramdown (1.17.0)
     launchy (2.4.3)
       addressable (~> 2.3)
-    licensed (2.3.0)
+    licensed (2.3.1)
       bundler (>= 1.10)
       licensee (~> 9.10)
       pathname-common_prefix (~> 0.0.1)
@@ -329,11 +329,8 @@ GEM
     pathname-common_prefix (0.0.1)
     pg (1.1.4)
     pg_query (1.1.0)
-    pghero (2.2.1)
-      activerecord
-    prerender_rails (1.6.1)
-      activesupport
-      rack
+    pghero (2.3.0)
+      activerecord (>= 5)
     prometheus-client (0.9.0)
       quantile (~> 0.2.1)
     pry (0.12.2)
@@ -352,7 +349,7 @@ GEM
     rack-cors (1.0.3)
     rack-health (0.1.2)
       rack (>= 1.2.0)
-    rack-protection (2.0.5)
+    rack-protection (2.0.7)
       rack
     rack-proxy (0.6.5)
       rack
@@ -456,9 +453,8 @@ GEM
     safe_yaml (1.0.5)
     sass-rails (6.0.0)
       sassc-rails (~> 2.1, >= 2.1.1)
-    sassc (2.0.1)
+    sassc (2.2.0)
       ffi (~> 1.9)
-      rake
     sassc-rails (2.1.2)
       railties (>= 4.0.0)
       sassc (>= 2.0)
@@ -498,10 +494,10 @@ GEM
       json (>= 1.8, < 3)
       simplecov-html (~> 0.10.0)
     simplecov-html (0.10.2)
-    sinatra (2.0.5)
+    sinatra (2.0.7)
       mustermann (~> 1.0)
       rack (~> 2.0)
-      rack-protection (= 2.0.5)
+      rack-protection (= 2.0.7)
       tilt (~> 2.0)
     sitemap_generator (6.0.2)
       builder (~> 3.0)
@@ -625,7 +621,6 @@ DEPENDENCIES
   pg (>= 0.18, < 2.0)
   pg_query
   pghero
-  prerender_rails
   prometheus-client
   pry-rails
   puma

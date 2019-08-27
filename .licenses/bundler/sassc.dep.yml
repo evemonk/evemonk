@@ -1,6 +1,6 @@
 ---
 name: sassc
-version: 2.0.1
+version: 2.2.0
 type: bundler
 summary: Use libsass with Ruby!
 homepage: https://github.com/sass/sassc-ruby

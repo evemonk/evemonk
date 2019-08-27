@@ -1,6 +1,6 @@
 ---
 name: pghero
-version: 2.2.1
+version: 2.3.0
 type: bundler
 summary: A performance dashboard for Postgres
 homepage: https://github.com/ankane/pghero

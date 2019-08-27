@@ -1,9 +1,9 @@
 ---
 name: terser
-version: 4.1.4
+version: 4.2.1
 type: npm
 summary: JavaScript parser, mangler/compressor and beautifier toolkit for ES6+
-homepage: https://github.com/fabiosantoscode/terser
+homepage: https://github.com/terser-js/terser
 license: other
 licenses:
 - sources: LICENSE

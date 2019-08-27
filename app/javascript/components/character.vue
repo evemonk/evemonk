@@ -124,7 +124,7 @@
 
       this.fetchCharacter(id).then(response => {
         if (response.status === 200) {
-          this.character = response.data.character;
+          this.character = response.data;
           this.loaded = true;
           this.breadcrumbs.push({ text: this.character.name,
                                   exact: true,

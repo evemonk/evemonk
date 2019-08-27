@@ -5,7 +5,7 @@ class CharacterDecorator < ApplicationDecorator
                          :alliance, :corporation
 
   def birthday
-    object.birthday.iso8601
+    object.birthday&.iso8601
   end
 
   def icon_tiny
@@ -41,11 +41,11 @@ class CharacterDecorator < ApplicationDecorator
   end
 
   def last_remap_date
-    object.last_remap_date.iso8601
+    object.last_remap_date&.iso8601
   end
 
   def accrued_remap_cooldown_date
-    object.accrued_remap_cooldown_date.iso8601
+    object.accrued_remap_cooldown_date&.iso8601
   end
 
   def wallet

@@ -1,9 +1,0 @@
----
-name: minipass
-version: 2.3.3
-type: npm
-summary: minimal implementation of a PassThrough stream
-homepage: https://github.com/isaacs/minipass#readme
-license: isc
-licenses: []
-notices: []

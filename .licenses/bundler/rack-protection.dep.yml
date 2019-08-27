@@ -1,6 +1,6 @@
 ---
 name: rack-protection
-version: 2.0.5
+version: 2.0.7
 type: bundler
 summary: Protect against typical web attacks, works with all Rack apps, including
   Rails.

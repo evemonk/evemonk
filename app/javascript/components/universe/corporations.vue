@@ -74,11 +74,7 @@
     },
 
     created () {
-      // console.log('created');
-
       let page = this.$route.query.page;
-
-      // console.log(page);
 
       if (page !== undefined) {
         this.current_page = parseInt(page);
