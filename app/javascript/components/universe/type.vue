@@ -51,7 +51,7 @@
 
       this.fetchUniverseType(id).then(response => {
         if (response.status === 200) {
-          let type = response.data.type;
+          let type = response.data;
 
           this.type = type;
           this.loaded = true;

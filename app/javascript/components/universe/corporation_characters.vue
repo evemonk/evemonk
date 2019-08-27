@@ -89,7 +89,7 @@
 
       this.fetchUniverseCorporation(id).then(response => {
         if (response.status === 200) {
-          let corporation = response.data.corporation;
+          let corporation = response.data;
 
           this.corporation = corporation;
 
