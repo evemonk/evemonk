@@ -130,6 +130,9 @@ GEM
     bundler-audit (0.6.1)
       bundler (>= 1.2.0, < 3)
       thor (~> 0.18)
+    bundler-leak (0.1.0)
+      bundler (>= 1.2.0, < 3)
+      thor (~> 0.18)
     cacheflow (0.1.1)
       activesupport
     capybara (3.28.0)
@@ -585,6 +588,7 @@ DEPENDENCIES
   brakeman
   bullet
   bundler-audit
+  bundler-leak
   cacheflow
   capybara (>= 2.15)
   consistency_fail
