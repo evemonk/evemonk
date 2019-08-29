@@ -11,7 +11,7 @@ services:
   - elasticsearch
 bundler_args: --jobs=3 --retry=3 --without development
 rvm:
-  - 2.6.3
+  - 2.6.4
 addons:
   chrome: stable
   postgresql: '9.6'
@@ -38,19 +38,21 @@ before_script:
   - psql -c 'CREATE DATABASE evemonk_test;' -U postgres
   - bundle exec rails db:create db:migrate
   - bundle exec bundle-audit update
+  - bundle exec bundle-leak update
 
 script:
   - bundle exec rspec --profile
   - bundle exec bundle-audit || true
   - yarn audit
   - bundle exec brakeman
+  - bundle exec bundle-leak
   - bundle exec mdl README.md
   - bundle exec mdl CHANGELOG.md
   - bundle exec mdl DEVELOPMENT.md
   - bundle exec fasterer
   - bundle exec standardrb
   - bundle exec rubocop
-  - bundle exec license_finder --quiet || true
+  - bundle exec license_finder || true
 
 after_script:
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
