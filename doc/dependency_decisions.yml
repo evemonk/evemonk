@@ -1,31 +1,43 @@
 ---
 - - :whitelist
   - MIT
-  - :who: 
-    :why: 
+  - :who: biow0lf
+    :why:
     :versions: []
     :when: 2019-08-27 21:17:47.009970000 Z
 - - :whitelist
   - Apache 2.0
-  - :who: 
-    :why: 
+  - :who: biow0lf
+    :why:
     :versions: []
     :when: 2019-08-27 21:17:54.471130000 Z
 - - :whitelist
   - ruby
-  - :who: 
-    :why: 
+  - :who: biow0lf
+    :why:
     :versions: []
     :when: 2019-08-27 21:18:00.026008000 Z
 - - :whitelist
   - ISC
-  - :who: 
-    :why: 
+  - :who: biow0lf
+    :why:
     :versions: []
     :when: 2019-08-27 21:18:03.822706000 Z
 - - :whitelist
   - New BSD
-  - :who: 
-    :why: 
+  - :who: biow0lf
+    :why:
     :versions: []
     :when: 2019-08-27 21:20:25.098106000 Z
+- - :approve
+  - newrelic_rpm
+  - :who: biow0lf
+    :why:
+    :versions: []
+    :when: 2019-08-29 20:41:19.538636000 Z
+- - :whitelist
+  - Simplified BSD
+  - :who: biow0lf
+    :why:
+    :versions: []
+    :when: 2019-08-29 20:43:42.420200000 Z
