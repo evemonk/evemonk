@@ -52,7 +52,7 @@ script:
   - bundle exec fasterer
   - bundle exec standardrb
   - bundle exec rubocop
-  - license_finder --quiet || true
+  - bundle exec ricense_finder --quiet || true
 
 after_script:
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
