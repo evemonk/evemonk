@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Eve
-  class TranslationsImporter
+  class RacesTranslationsImporter
     def import
       locales = I18n.available_locales - [:en]
 
@@ -32,9 +32,5 @@ module Eve
 
       etag.update!(etag: esi.etag)
     end
-
-    # def update_eve_bloodlines(locale)
-    #
-    # end
   end
 end

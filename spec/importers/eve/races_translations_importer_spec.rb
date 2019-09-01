@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Eve::TranslationsImporter do
+describe Eve::RacesTranslationsImporter do
   describe "#import" do
     before { expect(subject).to receive(:update_eve_races).with(:de) }
 
