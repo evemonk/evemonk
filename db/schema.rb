@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_01_184354) do
+ActiveRecord::Schema.define(version: 2019_09_01_212358) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -344,7 +344,7 @@ ActiveRecord::Schema.define(version: 2019_09_01_184354) do
 
   create_table "eve_types", force: :cascade do |t|
     t.float "capacity"
-    t.text "description"
+    t.text "description_en"
     t.bigint "graphic_id"
     t.bigint "group_id"
     t.bigint "icon_id"
@@ -359,6 +359,11 @@ ActiveRecord::Schema.define(version: 2019_09_01_184354) do
     t.float "volume"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.text "description_de"
+    t.text "description_fr"
+    t.text "description_ja"
+    t.text "description_ru"
+    t.text "description_zh"
     t.index ["type_id"], name: "index_eve_types_on_type_id", unique: true
   end
 
