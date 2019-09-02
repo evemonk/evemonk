@@ -2,6 +2,8 @@
 
 module Eve
   class Alliance < ApplicationRecord
+    has_paper_trail
+
     searchkick
 
     belongs_to :creator_corporation,

@@ -22,6 +22,8 @@ gem "kaminari"
 gem "rails-html-sanitizer"
 gem "pundit"
 gem "draper"
+gem "mobility"
+gem "paper_trail"
 gem "rails-settings-cached"
 gem "sidekiq", require: false
 gem "sidekiq-scheduler", require: false

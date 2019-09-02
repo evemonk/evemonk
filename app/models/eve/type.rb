@@ -2,6 +2,12 @@
 
 module Eve
   class Type < ApplicationRecord
+    extend Mobility
+
+    has_paper_trail
+
+    translates :description
+
     searchkick
 
     has_many :type_dogma_attributes,

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_16_131958) do
+ActiveRecord::Schema.define(version: 2019_09_02_083746) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -137,12 +137,22 @@ ActiveRecord::Schema.define(version: 2019_08_16_131958) do
   create_table "eve_ancestries", force: :cascade do |t|
     t.bigint "ancestry_id"
     t.bigint "bloodline_id"
-    t.text "description"
+    t.text "description_en"
     t.integer "icon_id"
-    t.string "name"
+    t.string "name_en"
     t.text "short_description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name_de"
+    t.string "name_fr"
+    t.string "name_ja"
+    t.string "name_ru"
+    t.string "name_zh"
+    t.text "description_de"
+    t.text "description_fr"
+    t.text "description_ja"
+    t.text "description_ru"
+    t.text "description_zh"
     t.index ["ancestry_id"], name: "index_eve_ancestries_on_ancestry_id", unique: true
   end
 
@@ -150,16 +160,26 @@ ActiveRecord::Schema.define(version: 2019_08_16_131958) do
     t.bigint "bloodline_id"
     t.integer "charisma"
     t.bigint "corporation_id"
-    t.text "description"
+    t.text "description_en"
     t.integer "intelligence"
     t.integer "memory"
-    t.string "name"
+    t.string "name_en"
     t.integer "perception"
     t.bigint "race_id"
     t.bigint "ship_type_id"
     t.integer "willpower"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name_de"
+    t.string "name_fr"
+    t.string "name_ja"
+    t.string "name_ru"
+    t.string "name_zh"
+    t.text "description_de"
+    t.text "description_fr"
+    t.text "description_ja"
+    t.text "description_ru"
+    t.text "description_zh"
     t.index ["bloodline_id"], name: "index_eve_bloodlines_on_bloodline_id", unique: true
   end
 
@@ -243,16 +263,26 @@ ActiveRecord::Schema.define(version: 2019_08_16_131958) do
   create_table "eve_factions", force: :cascade do |t|
     t.bigint "faction_id"
     t.bigint "corporation_id"
-    t.text "description"
+    t.text "description_en"
     t.boolean "is_unique"
     t.bigint "militia_corporation_id"
-    t.string "name"
+    t.string "name_en"
     t.float "size_factor"
     t.bigint "solar_system_id"
     t.integer "station_count"
     t.integer "station_system_count"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name_de"
+    t.string "name_fr"
+    t.string "name_ja"
+    t.string "name_ru"
+    t.string "name_zh"
+    t.text "description_de"
+    t.text "description_fr"
+    t.text "description_ja"
+    t.text "description_ru"
+    t.text "description_zh"
     t.index ["faction_id"], name: "index_eve_factions_on_faction_id", unique: true
   end
 
@@ -272,11 +302,21 @@ ActiveRecord::Schema.define(version: 2019_08_16_131958) do
 
   create_table "eve_races", force: :cascade do |t|
     t.bigint "alliance_id"
-    t.text "description"
-    t.string "name"
+    t.text "description_en"
+    t.string "name_en"
     t.bigint "race_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name_de"
+    t.string "name_fr"
+    t.string "name_ja"
+    t.string "name_ru"
+    t.string "name_zh"
+    t.text "description_de"
+    t.text "description_fr"
+    t.text "description_ja"
+    t.text "description_ru"
+    t.text "description_zh"
     t.index ["race_id"], name: "index_eve_races_on_race_id", unique: true
   end
 
@@ -334,7 +374,7 @@ ActiveRecord::Schema.define(version: 2019_08_16_131958) do
 
   create_table "eve_types", force: :cascade do |t|
     t.float "capacity"
-    t.text "description"
+    t.text "description_en"
     t.bigint "graphic_id"
     t.bigint "group_id"
     t.bigint "icon_id"
@@ -349,6 +389,11 @@ ActiveRecord::Schema.define(version: 2019_08_16_131958) do
     t.float "volume"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.text "description_de"
+    t.text "description_fr"
+    t.text "description_ja"
+    t.text "description_ru"
+    t.text "description_zh"
     t.index ["type_id"], name: "index_eve_types_on_type_id", unique: true
   end
 
@@ -471,6 +516,17 @@ ActiveRecord::Schema.define(version: 2019_08_16_131958) do
     t.string "reset_password_token"
     t.index "lower((email)::text)", name: "index_users_on_LOWER_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "versions", force: :cascade do |t|
+    t.string "item_type", null: false
+    t.bigint "item_id", null: false
+    t.string "event", null: false
+    t.string "whodunnit"
+    t.text "object"
+    t.datetime "created_at"
+    t.text "object_changes"
+    t.index ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id"
   end
 
   add_foreign_key "character_assets", "characters"
