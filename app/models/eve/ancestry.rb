@@ -2,6 +2,12 @@
 
 module Eve
   class Ancestry < ApplicationRecord
+    extend Mobility
+
+    has_paper_trail
+
+    translates :name, :description
+
     belongs_to :bloodline, primary_key: :bloodline_id, optional: true
 
     # belongs_to :what? :icon_id?

@@ -2,6 +2,12 @@
 
 module Eve
   class Faction < ApplicationRecord
+    extend Mobility
+
+    has_paper_trail
+
+    translates :name, :description
+
     has_many :alliances, primary_key: :faction_id
 
     belongs_to :corporation, primary_key: :corporation_id, optional: true
