@@ -26,6 +26,10 @@
     every: 7d
     class: Eve::RacesImporterWorker
     description: 'Import Races'
+  eve_races_translations:
+    every: 7d
+    class: Eve::RacesTranslationsImporterWorker
+    description: 'Import Races translations'
   eve_bloodlines:
     every: 7d
     class: Eve::BloodlinesImporterWorker
