@@ -2,6 +2,8 @@
 
 module Eve
   class TypeDogmaEffect < ApplicationRecord
+    has_paper_trail
+
     belongs_to :type, primary_key: :type_id, foreign_key: :type_id
 
     # TODO: effect_id

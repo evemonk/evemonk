@@ -2,6 +2,8 @@
 
 module Eve
   class AllianceCorporation < ApplicationRecord
+    # TODO: has_paper_trail
+
     belongs_to :alliance,
                primary_key: :alliance_id,
                counter_cache: :corporations_count,
