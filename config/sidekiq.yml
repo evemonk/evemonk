@@ -1,7 +1,7 @@
 :queues:
+  - [server_status, 2]
   - mailers
   - default
-  - server_status
 
 :concurrency: 5
 
