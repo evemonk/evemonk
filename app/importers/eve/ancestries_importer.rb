@@ -3,22 +3,24 @@
 module Eve
   class AncestriesImporter
     def import
-      ActiveRecord::Base.transaction do
-        esi = EveOnline::ESI::UniverseAncestries.new
+      Mobility.with_locale(:en) do
+        ActiveRecord::Base.transaction do
+          esi = EveOnline::ESI::UniverseAncestries.new
 
-        etag = Eve::Etag.find_or_initialize_by(url: esi.url)
+          etag = Eve::Etag.find_or_initialize_by(url: esi.url)
 
-        esi.etag = etag.etag
+          esi.etag = etag.etag
 
-        return if esi.not_modified?
+          return if esi.not_modified?
 
-        esi.ancestries.each do |ancestry|
-          eve_ancestry = Eve::Ancestry.find_or_initialize_by(ancestry_id: ancestry.ancestry_id)
+          esi.ancestries.each do |ancestry|
+            eve_ancestry = Eve::Ancestry.find_or_initialize_by(ancestry_id: ancestry.ancestry_id)
 
-          eve_ancestry.update!(ancestry.as_json)
+            eve_ancestry.update!(ancestry.as_json)
+          end
+
+          etag.update!(etag: esi.etag)
         end
-
-        etag.update!(etag: esi.etag)
       end
     end
   end
