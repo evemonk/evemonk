@@ -8,6 +8,7 @@ jobs:
         environment:
           RAILS_ENV: test
           PGHOST: localhost
+          DISPLAY: ":99.0"
       - image: postgres:11.5
         environment:
           POSTGRES_USER: circleci
@@ -36,7 +37,7 @@ jobs:
       - run: wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
       - run: sudo dpkg -i google-chrome-stable_current_amd64.deb
       - run: sudo apt-get -fy install
-      - run: sudo apt-get install google-chrome-stable
+      - run: sh -e /etc/init.d/xvfb start
       - run: bundle exec rails db:create
       - run: bundle exec rails db:migrate
       - run: bundle exec rspec
