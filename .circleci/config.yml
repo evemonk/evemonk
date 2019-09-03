@@ -31,6 +31,10 @@ jobs:
           key: ruby-263-v1-dependencies-{{ checksum "Gemfile.lock" }}
       - run: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run: dockerize -wait tcp://localhost:9200 -timeout 2m
+      - run: wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+      - run: dpkg -i google-chrome-stable_current_amd64.deb
+      - run: apt-get -fy install
+      - run: sudo apt-get install google-chrome-stable
       - run: bundle exec rails db:create
       - run: bundle exec rails db:migrate
       - run: bundle exec rspec
