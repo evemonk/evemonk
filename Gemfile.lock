@@ -16,7 +16,7 @@ GIT
 
 GIT
   remote: https://github.com/rspec/rspec-core.git
-  revision: 4ab682260afe252b90c4330bb7f91430f68f68c4
+  revision: 0fcf18cda804b4a414923690b2ca452af863b13a
   branch: master
   specs:
     rspec-core (3.9.0.pre)
@@ -24,7 +24,7 @@ GIT
 
 GIT
   remote: https://github.com/rspec/rspec-expectations.git
-  revision: 75f5cc9cab09fd0728bcf95e26d2c4b46f73c466
+  revision: 5e0cf1915b7c42fa2c7495e07220698087a6eb97
   branch: master
   specs:
     rspec-expectations (3.9.0.pre)
@@ -135,7 +135,7 @@ GEM
       thor (~> 0.18)
     cacheflow (0.1.1)
       activesupport
-    capybara (3.28.0)
+    capybara (3.29.0)
       addressable
       mini_mime (>= 0.1.3)
       nokogiri (~> 1.8)
@@ -249,7 +249,7 @@ GEM
     kramdown (1.17.0)
     launchy (2.4.3)
       addressable (~> 2.3)
-    license_finder (5.10.1)
+    license_finder (5.10.2)
       bundler
       rubyzip
       thor
@@ -517,7 +517,7 @@ GEM
       sprockets (>= 3.0.0)
     sql_tracker (1.2.1)
     squasher (0.6.2)
-    standard (0.1.2)
+    standard (0.1.3)
       rubocop (~> 0.72.0)
       rubocop-performance (~> 1.4.0)
     strings (0.1.6)

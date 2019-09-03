@@ -1,0 +1,57 @@
+version: 2
+
+jobs:
+  build:
+    working_directory: ~/evemonk
+    docker:
+      - image: circleci/ruby:2.6.3-node-browsers
+        environment:
+          RAILS_ENV: test
+          PGHOST: localhost
+          # DISPLAY: ":99.0"
+      - image: postgres:11.5
+        environment:
+          POSTGRES_USER: circleci
+          POSTGRES_DB: evemonk_test
+          POSTGRES_PASSWORD: ""
+      - image: elasticsearch:7.3.1
+        environment:
+          - discovery.type: single-node
+    steps:
+      - checkout
+      - run: curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+      - run: chmod +x ./cc-test-reporter
+      - run: ./cc-test-reporter before-build
+      - restore_cache:
+          keys:
+            - ruby-263-v1-dependencies-{{ checksum "Gemfile.lock" }}
+            - ruby-263-v1-dependencies-
+      - run: sudo gem update --system '3.0.6'
+      - run: gem install bundler -v '2.0.2'
+      - run: bundle install --jobs=4 --retry=3 --path vendor/bundle
+      - save_cache:
+          paths:
+            - ./vendor/bundle
+          key: ruby-263-v1-dependencies-{{ checksum "Gemfile.lock" }}
+      - run: dockerize -wait tcp://localhost:5432 -timeout 1m
+      - run: dockerize -wait tcp://localhost:9200 -timeout 2m
+      - run: sudo npm install -g npm@6.11.2
+      - run: sudo npm install -g yarn@1.17.3
+      - run: yarn install
+      - run: bundle exec rails db:create
+      - run: bundle exec rails db:migrate
+      - run: bundle exec rspec --profile
+      - run: bundle exec bundle-audit update
+      - run: bundle exec bundle-leak update
+      - run: bundle exec bundle-audit || true
+      - run: yarn audit
+      - run: bundle exec brakeman
+      - run: bundle exec bundle-leak
+      - run: bundle exec mdl README.md
+      - run: bundle exec mdl CHANGELOG.md
+      - run: bundle exec mdl DEVELOPMENT.md
+      - run: bundle exec fasterer
+      - run: bundle exec standardrb
+      - run: bundle exec rubocop
+      - run: bundle exec license_finder || true
+      - run: ./cc-test-reporter after-build
