@@ -15,7 +15,7 @@ jobs:
           POSTGRES_PASSWORD: ""
       - image: elasticsearch:7.3.1
         environment:
-          - 'discovery.type: single-node'
+          - discovery.type: single-node
     steps:
       - checkout
       - restore_cache:
@@ -30,7 +30,7 @@ jobs:
             - ./vendor/bundle
           key: ruby-263-v1-dependencies-{{ checksum "Gemfile.lock" }}
       - run: dockerize -wait tcp://localhost:5432 -timeout 1m
-      - run: dockerize -wait tcp://localhost:9250 -timeout 2m
+      - run: dockerize -wait tcp://localhost:9200 -timeout 2m
       - run: bundle exec rails db:create
       - run: bundle exec rails db:migrate
       - run: bundle exec rspec
