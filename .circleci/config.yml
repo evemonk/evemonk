@@ -1,0 +1,22 @@
+version: 2
+
+jobs:
+  build:
+    working_directory: ~/evemonk
+    docker:
+      - image: circleci/ruby:2.4.1
+        environment:
+          RAILS_ENV: test
+          PGHOST: localhost
+      - image: postgres:10.5
+        environment:
+          POSTGRES_USER: postgres
+          POSTGRES_DB: evemonk_test
+          POSTGRES_PASSWORD: ""
+  steps:
+    - checkout
+    - run: bundle install
+    - run: dockerize -wait tcp://localhost:5432 -timeout 1m
+    - run: bundle exec db:create
+    - run: bundle exec db:migrate
+    - run: bundle exec rspec
