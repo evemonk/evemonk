@@ -13,13 +13,16 @@ jobs:
           POSTGRES_USER: postgres
           POSTGRES_DB: evemonk_test
           POSTGRES_PASSWORD: ""
+      - image: elasticsearch:7.3.1
+        environment:
+          - 'discovery.type: single-node'
     steps:
       - checkout
       - restore_cache:
           keys:
             - ruby-263-v1-dependencies-{{ checksum "Gemfile.lock" }}
             - ruby-263-v1-dependencies-
-      - run: gem update --system '3.0.6'
+      - run: sudo gem update --system '3.0.6'
       - run: gem install bundler -v '2.0.2'
       - run: bundle install --jobs=4 --retry=3 --path vendor/bundle
       - save_cache:
@@ -27,6 +30,7 @@ jobs:
             - ./vendor/bundle
           key: ruby-263-v1-dependencies-{{ checksum "Gemfile.lock" }}
       - run: dockerize -wait tcp://localhost:5432 -timeout 1m
-      - run: bundle exec db:create
-      - run: bundle exec db:migrate
+      - run: dockerize -wait tcp://localhost:9250 -timeout 2m
+      - run: bundle exec rails db:create
+      - run: bundle exec rails db:migrate
       - run: bundle exec rspec
