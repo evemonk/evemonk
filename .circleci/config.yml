@@ -10,7 +10,7 @@ jobs:
           PGHOST: localhost
       - image: postgres:11.5
         environment:
-          POSTGRES_USER: postgres
+          POSTGRES_USER: circleci
           POSTGRES_DB: evemonk_test
           POSTGRES_PASSWORD: ""
       - image: elasticsearch:7.3.1
