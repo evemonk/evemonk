@@ -4,11 +4,11 @@ jobs:
   build:
     working_directory: ~/evemonk
     docker:
-      - image: circleci/ruby:2.4.1
+      - image: circleci/ruby:2.6.3
         environment:
           RAILS_ENV: test
           PGHOST: localhost
-      - image: postgres:10.5
+      - image: postgres:11.5
         environment:
           POSTGRES_USER: postgres
           POSTGRES_DB: evemonk_test
@@ -19,7 +19,13 @@ jobs:
           keys:
             - ruby-263-v1-dependencies-{{ checksum "Gemfile.lock" }}
             - ruby-263-v1-dependencies-
-      - run: bundle install
+      - run: gem update --system '3.0.6'
+      - run: gem install bundler -v '2.0.2'
+      - run: bundle install --jobs=4 --retry=3 --path vendor/bundle
+      - save_cache:
+          paths:
+            - ./vendor/bundle
+          key: ruby-263-v1-dependencies-{{ checksum "Gemfile.lock" }}
       - run: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run: bundle exec db:create
       - run: bundle exec db:migrate
