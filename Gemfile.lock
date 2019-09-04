@@ -1,4 +1,14 @@
 GIT
+  remote: https://github.com/actindi/act-fluent-logger-rails.git
+  revision: f47f35c7a73acf209d47386ffcbc442a834857c9
+  branch: master
+  specs:
+    act-fluent-logger-rails (0.5.0)
+      activesupport (>= 4, < 6.1)
+      fluent-logger
+      railties (>= 4, < 6.1)
+
+GIT
   remote: https://github.com/evemonk/eve_online.git
   revision: 9340957d36c5c10014ce5ee214520a3306321db7
   branch: master
@@ -58,9 +68,6 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
-    act-fluent-logger-rails (0.0.4)
-      fluent-logger
-      rails
     actioncable (6.0.0)
       actionpack (= 6.0.0)
       nio4r (~> 2.0)
@@ -597,7 +604,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  act-fluent-logger-rails
+  act-fluent-logger-rails!
   active_record_doctor
   activerecord-nulldb-adapter
   awesome_print
