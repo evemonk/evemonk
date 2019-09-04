@@ -110,7 +110,9 @@ group :test do
   # Easy installation and use of web drivers to run system tests with browsers
   gem "webdrivers"
   gem "rails-controller-testing"
-  gem "shoulda-matchers"
+  # https://github.com/thoughtbot/shoulda-matchers/pull/1237
+  gem "shoulda-matchers", git: "https://github.com/thoughtbot/shoulda-matchers.git",
+                          branch: "master"
   gem "rspec-its"
   gem "shoulda-callback-matchers", git: "https://github.com/jdliss/shoulda-callback-matchers.git",
                                    branch: "master"
