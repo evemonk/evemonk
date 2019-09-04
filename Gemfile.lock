@@ -58,6 +58,9 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
+    act-fluent-logger-rails (0.0.4)
+      fluent-logger
+      rails
     actioncable (6.0.0)
       actionpack (= 6.0.0)
       nio4r (~> 2.0)
@@ -219,6 +222,8 @@ GEM
       colorize (~> 0.7)
       ruby_parser (>= 3.13.0)
     ffi (1.11.1)
+    fluent-logger (0.8.2)
+      msgpack (>= 1.0.0, < 2)
     fugit (1.3.3)
       et-orbi (~> 1.1, >= 1.1.8)
       raabro (~> 1.1)
@@ -592,6 +597,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  act-fluent-logger-rails
   active_record_doctor
   activerecord-nulldb-adapter
   awesome_print

@@ -48,6 +48,7 @@ gem "server_timing"
 gem "awesome_print", require: "ap"
 gem "pry-rails"
 
+gem "act-fluent-logger-rails"
 gem "lograge"
 
 gem "prometheus-client"
