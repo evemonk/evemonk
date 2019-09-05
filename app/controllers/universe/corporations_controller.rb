@@ -1,0 +1,31 @@
+# frozen_string_literal: true
+
+module Universe
+  class CorporationsController < ApplicationController
+    include Pundit
+
+    after_action :verify_authorized, except: :index
+
+    after_action :verify_policy_scoped, only: :index
+
+    attr_reader :current_user
+
+    def index
+    end
+
+    def show
+      @corporation = policy_scope(::Eve::Corporation)
+        .find_by!(corporation_id: params[:id])
+        .decorate
+
+      @characters = policy_scope(::Eve::Character)
+        .where(corporation: @corporation)
+        .includes(:alliance, :ancestry, :bloodline, :corporation, :faction,
+                  :race)
+        .page(params[:page])
+        .decorate
+
+      skip_authorization
+    end
+  end
+end
