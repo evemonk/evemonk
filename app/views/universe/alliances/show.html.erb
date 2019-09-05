@@ -25,7 +25,7 @@
           <tr>
             <td class="align-middle text-center"><%= image_tag(corporation.icon_tiny) %></td>
             <td><%= link_to(corporation.name, universe_corporation_path(corporation.corporation_id)) %> (<%= corporation.ticker %>)</td>
-            <td class="text-right"><%= corporation.member_count %></td>
+            <td class="text-right"><%= number_with_delimiter(corporation.member_count, delimiter: " ") %></td>
           </tr>
         <% end %>
       </tbody>
