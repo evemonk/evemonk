@@ -114,4 +114,9 @@ Rails.application.configure do
 
   # Sidekiq
   config.active_job.queue_adapter = :sidekiq
+
+  # Fluentd
+  config.logger = ActFluentLoggerRails::Logger.new
+  config.lograge.enabled = true
+  config.lograge.formatter = Lograge::Formatters::Json.new
 end

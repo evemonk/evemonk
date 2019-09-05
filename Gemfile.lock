@@ -1,4 +1,14 @@
 GIT
+  remote: https://github.com/actindi/act-fluent-logger-rails.git
+  revision: f47f35c7a73acf209d47386ffcbc442a834857c9
+  branch: master
+  specs:
+    act-fluent-logger-rails (0.5.0)
+      activesupport (>= 4, < 6.1)
+      fluent-logger
+      railties (>= 4, < 6.1)
+
+GIT
   remote: https://github.com/evemonk/eve_online.git
   revision: 9340957d36c5c10014ce5ee214520a3306321db7
   branch: master
@@ -46,6 +56,14 @@ GIT
   branch: master
   specs:
     rspec-support (3.9.0.pre)
+
+GIT
+  remote: https://github.com/thoughtbot/shoulda-matchers.git
+  revision: ed962dee3e56fa6e209b5e6747827caa7155e9db
+  branch: master
+  specs:
+    shoulda-matchers (4.1.2)
+      activesupport (>= 4.2.0)
 
 GEM
   remote: https://rubygems.org/
@@ -211,6 +229,8 @@ GEM
       colorize (~> 0.7)
       ruby_parser (>= 3.13.0)
     ffi (1.11.1)
+    fluent-logger (0.8.2)
+      msgpack (>= 1.0.0, < 2)
     fugit (1.3.3)
       et-orbi (~> 1.1, >= 1.1.8)
       raabro (~> 1.1)
@@ -476,8 +496,6 @@ GEM
     server_timing (1.0.2)
       scout_apm
     sexp_processor (4.12.1)
-    shoulda-matchers (4.1.2)
-      activesupport (>= 4.2.0)
     sidekiq (6.0.0)
       connection_pool (>= 2.2.2)
       rack (>= 2.0.0)
@@ -550,7 +568,7 @@ GEM
       nokogiri (~> 1.6)
       rubyzip (~> 1.0)
       selenium-webdriver (>= 3.0, < 4.0)
-    webmock (3.7.1)
+    webmock (3.7.2)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
       hashdiff (>= 0.4.0, < 2.0.0)
@@ -586,6 +604,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  act-fluent-logger-rails!
   active_record_doctor
   activerecord-nulldb-adapter
   awesome_print
@@ -653,7 +672,7 @@ DEPENDENCIES
   sentry-raven
   server_timing
   shoulda-callback-matchers!
-  shoulda-matchers
+  shoulda-matchers!
   sidekiq
   sidekiq-scheduler
   simplecov

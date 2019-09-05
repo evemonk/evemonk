@@ -48,6 +48,8 @@ gem "server_timing"
 gem "awesome_print", require: "ap"
 gem "pry-rails"
 
+gem "act-fluent-logger-rails", git: "https://github.com/actindi/act-fluent-logger-rails.git",
+                               branch: "master"
 gem "lograge"
 
 gem "prometheus-client"
@@ -110,7 +112,9 @@ group :test do
   # Easy installation and use of web drivers to run system tests with browsers
   gem "webdrivers"
   gem "rails-controller-testing"
-  gem "shoulda-matchers"
+  # https://github.com/thoughtbot/shoulda-matchers/pull/1237
+  gem "shoulda-matchers", git: "https://github.com/thoughtbot/shoulda-matchers.git",
+                          branch: "master"
   gem "rspec-its"
   gem "shoulda-callback-matchers", git: "https://github.com/jdliss/shoulda-callback-matchers.git",
                                    branch: "master"
