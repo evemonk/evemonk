@@ -27,8 +27,7 @@ module Universe
 
       @corporations = policy_scope(::Eve::Corporation)
         .where(alliance: @alliance)
-        .includes(:alliance, :ceo, :creator, :faction)
-        .page(params[:page])
+        .includes(:faction)
         .decorate
 
       skip_authorization
