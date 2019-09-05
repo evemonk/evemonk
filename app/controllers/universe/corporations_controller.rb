@@ -11,6 +11,11 @@ module Universe
     attr_reader :current_user
 
     def index
+      @corporations = ::Eve::CorporationsSearcher
+        .new(params[:q], policy_scope(::Eve::Corporation))
+        .search
+        .page(params[:page])
+        .decorate
     end
 
     def show
