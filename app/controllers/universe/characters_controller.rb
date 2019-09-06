@@ -20,6 +20,7 @@ module Universe
 
     def show
       @character = policy_scope(::Eve::Character)
+        .includes(character_corporation_histories: :corporation)
         .find_by!(character_id: params[:id])
         .decorate
 

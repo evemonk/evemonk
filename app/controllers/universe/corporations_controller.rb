@@ -23,12 +23,16 @@ module Universe
         .find_by!(corporation_id: params[:id])
         .decorate
 
-      @characters = policy_scope(::Eve::Character)
-        .where(corporation: @corporation)
-        .includes(:alliance, :ancestry, :bloodline, :corporation, :faction,
-                  :race)
-        .page(params[:page])
-        .decorate
+      @history = Eve::CharacterCorporationHistory.where(corporation: @corporation)
+                                                 .includes(:character)
+                                                 .decorate
+
+      # @characters = policy_scope(::Eve::Character)
+      #   .where(corporation: @corporation)
+      #   .includes(:alliance, :ancestry, :bloodline, :corporation, :faction,
+      #             :race, :character_corporation_histories)
+      #   .page(params[:page])
+      #   .decorate
 
       skip_authorization
     end
