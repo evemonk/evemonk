@@ -11,13 +11,13 @@ describe Eve::Corporation do
 
   it { expect(described_class.table_name).to eq("eve_corporations") }
 
-  it { should belong_to(:alliance).with_primary_key(:alliance_id).optional }
+  it { should belong_to(:alliance).with_primary_key(:alliance_id).optional(true) }
 
-  it { should belong_to(:ceo).with_primary_key(:character_id).class_name("Eve::Character").optional }
+  it { should belong_to(:ceo).with_primary_key(:character_id).class_name("Eve::Character").optional(true) }
 
-  it { should belong_to(:creator).with_primary_key(:character_id).class_name("Eve::Character").optional }
+  it { should belong_to(:creator).with_primary_key(:character_id).class_name("Eve::Character").optional(true) }
 
-  it { should belong_to(:faction).with_primary_key(:faction_id).optional }
+  it { should belong_to(:faction).with_primary_key(:faction_id).optional(true) }
 
   it { should have_many(:corporation_alliance_histories).with_primary_key(:corporation_id) }
 

@@ -13,7 +13,7 @@ describe Eve::Bloodline do
 
   it { expect(described_class.table_name).to eq("eve_bloodlines") }
 
-  it { should belong_to(:corporation).with_primary_key(:corporation_id).optional }
+  it { should belong_to(:corporation).with_primary_key(:corporation_id).optional(true) }
 
-  it { should belong_to(:race).with_primary_key(:race_id).optional }
+  it { should belong_to(:race).with_primary_key(:race_id).optional(true) }
 end
