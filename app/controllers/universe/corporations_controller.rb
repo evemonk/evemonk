@@ -23,9 +23,12 @@ module Universe
         .find_by!(corporation_id: params[:id])
         .decorate
 
-      @history = Eve::CharacterCorporationHistory.where(corporation: @corporation)
-                                                 .includes(:character)
-                                                 .decorate
+      @characters = Eve::Character.where(corporation_id: @corporation.corporation_id)
+                                  .decorate
+
+      # @history = Eve::CharacterCorporationHistory.where(corporation: @corporation)
+      #                                            .includes(:character)
+      #                                            .decorate
 
       # @characters = policy_scope(::Eve::Character)
       #   .where(corporation: @corporation)
