@@ -1,27 +1,52 @@
-<nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item"><%= link_to("Home", root_path) %></li>
-    <li class="breadcrumb-item"><%= link_to("Corporations", universe_corporations_path) %></li>
-    <li class="breadcrumb-item active" aria-current="page"><%= @corporation.name %></li>
-  </ol>
-</nav>
+<div class="row">
+  <div class="col">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><%= link_to("Home", root_path) %></li>
+        <li class="breadcrumb-item"><%= link_to("Corporations", universe_corporations_path) %></li>
+        <li class="breadcrumb-item active" aria-current="page"><%= @corporation.name %></li>
+      </ol>
+    </nav>
+  </div>
+</div>
 
-Characters:
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+    <h4>Corporation: <%= @corporation.name %></h4>
 
-<table class="table table-dark table-striped table-bordered">
-  <thead>
-    <tr>
-      <td>&nbsp;</td>
-      <td>Name</td>
-    </tr>
-  </thead>
-  <tbody>
-    <% @history.each do |record| %>
+    <div class="card">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item text-center"><%= image_tag(@corporation.icon_medium) %></li>
+        <% if @corporation.alliance %>
+          <li class="list-group-item">Alliance: <%= link_to(@corporation.alliance.name, universe_alliance_path(@corporation.alliance.alliance_id)) %> (<%= @corporation.alliance.ticker %>)</li>
+        <% end %>
+        <li class="list-group-item">Ticker: <%= @corporation.ticker %></li>
+        <li class="list-group-item">Members: <%= number_with_delimiter(@corporation.member_count, delimiter: " ") %></li>
+        <li class="list-group-item">CEO: <%= link_to(@corporation.ceo.name, universe_character_path(@corporation.ceo.character_id)) %></li>
+      </ul>
+      <p class="card-text text-center"><small class="text-muted">Last updated <%= time_ago_in_words(@corporation.updated_at) %> ago</small></p>
+    </div>
+  </div>
+
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-8 col-xl-8">
+    <h4>Characters</h4>
+
+    <table class="table table-dark table-striped table-bordered">
+      <thead>
       <tr>
-        <td class="align-middle text-center"><%= image_tag(record.character.icon_tiny) %></td>
-        <td><%= link_to(record.character.name, universe_character_path(record.character.character_id)) %></td>
-        <td><%= record.start_date %></td>
+        <td>&nbsp;</td>
+        <td>Name</td>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+      </thead>
+      <tbody>
+      <% @history.each do |record| %>
+        <tr>
+          <td class="align-middle text-center"><%= image_tag(record.character.icon_tiny) %></td>
+          <td><%= link_to(record.character.name, universe_character_path(record.character.character_id)) %></td>
+          <td><%= record.start_date %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
