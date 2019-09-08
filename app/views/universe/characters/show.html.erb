@@ -16,11 +16,23 @@
 
     <div class="card">
       <ul class="list-group list-group-flush">
-        <li class="list-group-item text-center"><%= image_tag(@character.icon_medium) %></li>
-        <li class="list-group-item">Alliance: <%= link_to(@character.alliance.name, universe_alliance_path(@character.alliance.alliance_id)) %> (<%= @character.alliance.ticker %>)</li>
-        <li class="list-group-item">Corporation: <%= link_to(@character.corporation.name, universe_corporation_path(@character.corporation.corporation_id)) %> (<%= @character.corporation.ticker %>)</li>
+        <li class="list-group-item text-center">
+          <%= image_tag(@character.icon_medium) %>
+        </li>
+        <li class="list-group-item">
+          Alliance: <%= link_to(@character.alliance.name,
+                                universe_alliance_path(@character.alliance.alliance_id)) %>
+          (<%= @character.alliance.ticker %>)
+        </li>
+        <li class="list-group-item">
+          Corporation: <%= link_to(@character.corporation.name,
+                                   universe_corporation_path(@character.corporation.corporation_id)) %>
+          (<%= @character.corporation.ticker %>)
+        </li>
       </ul>
-      <p class="card-text text-center"><small class="text-muted">Last updated <%= time_ago_in_words(@character.updated_at) %> ago</small></p>
+      <p class="card-text text-center">
+        <small class="text-muted">Last updated <%= time_ago_in_words(@character.updated_at) %> ago</small>
+      </p>
     </div>
   </div>
 
