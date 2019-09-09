@@ -500,7 +500,7 @@ GEM
     sawyer (0.8.2)
       addressable (>= 2.3.5)
       faraday (> 0.8, < 2.0)
-    scout_apm (2.5.2)
+    scout_apm (2.5.3)
     searchkick (4.1.0)
       activemodel (>= 5)
       elasticsearch (>= 6)
