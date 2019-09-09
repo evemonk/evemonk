@@ -9,16 +9,17 @@ gem "sass-rails"
 gem "webpacker", "~> 4.0"
 gem "jbuilder", "~> 2.7"
 gem "devise"
+gem "omniauth-rails_csrf_protection"
 gem "bootsnap", ">= 1.4.2", require: false
 gem "bootstrap", "~> 4.3.1"
 gem "meta-tags"
 gem "metricky"
-# gem 'rufus-scheduler'
+# gem "rufus-scheduler"
 gem "bcrypt"
-# gem 'eve_online'
+# gem "eve_online"
 gem "eve_online", git: "https://github.com/evemonk/eve_online.git", branch: "master"
-# gem 'eve_online', git: 'https://github.com/evemonk/eve_online.git', branch: 'dev'
-# gem 'eve_online', path: '~/opensource/eve_online'
+# gem "eve_online", git: "https://github.com/evemonk/eve_online.git", branch: "dev"
+# gem "eve_online", path: "~/opensource/eve_online"
 gem "omniauth-eve_online-sso"
 gem "jwt"
 gem "rack-cors", require: "rack/cors"
@@ -35,7 +36,7 @@ gem "sinatra", require: false
 gem "rpush"
 gem "pghero"
 gem "pg_query"
-# gem 'rubycritic', require: false
+# gem "rubycritic", require: false
 gem "swagger-blocks"
 gem "http_logger"
 gem "responders"
