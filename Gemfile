@@ -10,6 +10,7 @@ gem "webpacker", "~> 4.0"
 gem "jbuilder", "~> 2.7"
 gem "bootsnap", ">= 1.4.2", require: false
 gem "bootstrap", "~> 4.3.1"
+gem "meta-tags"
 gem "metricky"
 # gem 'rufus-scheduler'
 gem "bcrypt"
