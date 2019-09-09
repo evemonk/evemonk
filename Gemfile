@@ -8,6 +8,7 @@ gem "puma"
 gem "sass-rails"
 gem "webpacker", "~> 4.0"
 gem "jbuilder", "~> 2.7"
+gem "devise"
 gem "bootsnap", ">= 1.4.2", require: false
 gem "bootstrap", "~> 4.3.1"
 gem "meta-tags"
