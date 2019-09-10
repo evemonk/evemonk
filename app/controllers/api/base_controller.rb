@@ -1,8 +1,10 @@
 # frozen_string_literal: true
 
 module Api
-  class BaseController < ApplicationController
+  class BaseController < ActionController::Base
     include Pundit
+
+    protect_from_forgery with: :exception, unless: -> { request.format.json? }
 
     after_action :verify_authorized, except: :index
 
