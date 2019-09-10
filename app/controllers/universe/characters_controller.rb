@@ -2,14 +2,6 @@
 
 module Universe
   class CharactersController < ApplicationController
-    include Pundit
-
-    after_action :verify_authorized, except: :index
-
-    after_action :verify_policy_scoped, only: :index
-
-    attr_reader :current_user
-
     def index
       @characters = ::Eve::CharactersSearcher
         .new(params[:q], policy_scope(::Eve::Character))

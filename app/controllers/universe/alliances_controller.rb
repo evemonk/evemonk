@@ -2,14 +2,6 @@
 
 module Universe
   class AlliancesController < ApplicationController
-    include Pundit
-
-    after_action :verify_authorized, except: :index
-
-    after_action :verify_policy_scoped, only: :index
-
-    attr_reader :current_user
-
     def index
       @alliances = ::Eve::AlliancesSearcher
         .new(params[:q], policy_scope(::Eve::Alliance))
