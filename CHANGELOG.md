@@ -2,6 +2,10 @@
 
 ## master
 
+* Cut all features
+
+## v0.1.1
+
 * Reset password feature
 * Change password feature
 * Add SEO titles to pages
