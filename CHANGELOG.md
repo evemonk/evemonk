@@ -3,6 +3,15 @@
 ## master
 
 * Cut all features
+* Move client side rendering back to server
+* Remove vue stuff
+* Style with Twitter Bootstrap
+* Add universe alliances index
+* Add universe alliance show
+* Add universe corporations index
+* Add universe corporation show
+* Add universe characters index
+* Add universe character show
 
 ## v0.1.1
 
