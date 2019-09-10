@@ -71,7 +71,7 @@
     class: Eve::LocalGraphicsImporterWorker
     description: 'Import Graphics info'
   eve_types:
-    every: 7h
+    every: 1d
     class: Eve::TypesImporterWorker
     description: 'Import Types index'
   eve_types_local:
