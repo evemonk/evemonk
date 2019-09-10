@@ -28,7 +28,7 @@ jobs:
             - ruby-263-v1-dependencies-
       - run: sudo gem update --system '3.0.6'
       - run: gem install bundler -v '2.0.2'
-      - run: bundle install --jobs=4 --retry=3 --path vendor/bundle
+      - run: bundle check || bundle install --clean --jobs=2 --retry=5 --path vendor/bundle
       - save_cache:
           paths:
             - ./vendor/bundle
