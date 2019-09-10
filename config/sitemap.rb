@@ -28,9 +28,9 @@ SitemapGenerator::Sitemap.create do
   #   end
 
   add "/"
-  add "/sign_in"
-  add "/sign_up"
-  add "/forgot_password"
+  # add "/sign_in"
+  # add "/sign_up"
+  # add "/forgot_password"
 
   add "/universe/alliances"
 
@@ -40,24 +40,8 @@ SitemapGenerator::Sitemap.create do
     add "/universe/alliances?page=#{page}"
   end
 
-  Eve::Alliance.find_each do |alliance|
-    add "/universe/alliances/#{alliance.alliance_id}"
-
-    add "/universe/alliances/#{alliance.alliance_id}/characters"
-
-    pages = alliance.characters.page(1).total_pages
-
-    (1..pages).each do |page|
-      add "/universe/alliances/#{alliance.alliance_id}/characters?page=#{page}"
-    end
-
-    add "/universe/alliances/#{alliance.alliance_id}/corporations"
-
-    pages = alliance.corporations.page(1).total_pages
-
-    (1..pages).each do |page|
-      add "/universe/alliances/#{alliance.alliance_id}/corporations?page=#{page}"
-    end
+  Eve::Alliance.pluck(:alliance_id).each do |alliance_id|
+    add "/universe/alliances/#{alliance_id}"
   end
 
   add "/universe/corporations"
@@ -68,16 +52,8 @@ SitemapGenerator::Sitemap.create do
     add "/universe/corporations?page=#{page}"
   end
 
-  Eve::Corporation.find_each do |corporation|
-    add "/universe/corporations/#{corporation.corporation_id}"
-
-    add "/universe/corporations/#{corporation.corporation_id}/characters"
-
-    pages = corporation.characters.page(1).total_pages
-
-    (1..pages).each do |page|
-      add "/universe/corporations/#{corporation.corporation_id}/characters?page=#{page}"
-    end
+  Eve::Corporation.pluck(:corporation_id).each do |corporation_id|
+    add "/universe/corporations/#{corporation_id}"
   end
 
   add "universe/characters"
@@ -88,7 +64,7 @@ SitemapGenerator::Sitemap.create do
     add "/universe/characters?page=#{page}"
   end
 
-  Eve::Character.find_each do |character|
-    add "/universe/characters/#{character.character_id}"
+  Eve::Character.pluck(:character_id).each do |character_id|
+    add "/universe/characters/#{character_id}"
   end
 end
