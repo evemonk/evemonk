@@ -1,3 +1,10 @@
+<% set_meta_tags title: "Alliance &quot;#{ @alliance.name }&quot; (#{ @alliance.ticker })",
+                 og: {
+                   title: :full_title,
+                   image: @alliance.icon_medium,
+                   url: "https://evemonk.com/universe/alliances/#{ @alliance.alliance_id }"
+                 } %>
+
 <div class="row">
   <div class="col">
     <nav aria-label="breadcrumb">
