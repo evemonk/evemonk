@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe "/.well-known/change-password" do
+xdescribe "/.well-known/change-password" do
   it "when user successfully redirected to change password form" do
     create(:user, email: "me@example.com", password: "eidii7EeooVe8ahk")
 
