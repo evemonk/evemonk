@@ -14,6 +14,7 @@ gem "bootsnap", ">= 1.4.2", require: false
 gem "bootstrap", "~> 4.3.1"
 gem "meta-tags"
 gem "metricky"
+gem "dalli"
 # gem "rufus-scheduler"
 gem "bcrypt"
 # gem "eve_online"
