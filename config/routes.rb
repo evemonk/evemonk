@@ -4,19 +4,17 @@ require "sidekiq/web"
 require "sidekiq-scheduler/web"
 
 Rails.application.routes.draw do
+  # TODO: move to subdomain
   namespace :backoffice do
-    # TODO: spec this
-    # https://github.com/mperham/sidekiq/wiki/Monitoring#rails-http-basic-auth-from-routes
-    Sidekiq::Web.use Rack::Auth::Basic do |username, password|
-      # Protect against timing attacks:
-      # - See https://codahale.com/a-lesson-in-timing-attacks/
-      # - See https://thisdata.com/blog/timing-attacks-against-string-comparison/
-      # - Use & (do not use &&) so that it doesn't short circuit.
-      # - Use digests to stop length information leaking (see also ActiveSupport::SecurityUtils.variable_size_secure_compare)
-      ActiveSupport::SecurityUtils.secure_compare(::Digest::SHA256.hexdigest(username), ::Digest::SHA256.hexdigest(ENV["SIDEKIQ_USERNAME"])) &
-        ActiveSupport::SecurityUtils.secure_compare(::Digest::SHA256.hexdigest(password), ::Digest::SHA256.hexdigest(ENV["SIDEKIQ_PASSWORD"]))
-    end
     mount Sidekiq::Web, at: "sidekiq"
+  end
+
+  namespace :universe do
+    resources :alliances, only: [:index, :show]
+
+    resources :corporations, only: [:index, :show]
+
+    resources :characters, only: [:index, :show]
   end
 
   namespace :auth do
@@ -67,8 +65,5 @@ Rails.application.routes.draw do
     end
   end
 
-  # You can have the root of your site routed with "root"
   root to: "welcome#index"
-
-  get "*path", to: "welcome#index"
 end
