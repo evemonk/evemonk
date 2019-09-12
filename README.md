@@ -9,40 +9,12 @@ EveMonk is helper software for EveOnline MMORPG.
 
 ## Features
 
-* API Sign Up
-* API Sign In
-* API Sign Out
-* API Session list
-* API End session
-* API current user profile
-* Multiple API sessions for clients
-* API list characters
-* API remove character
-* Sign Up page
-* Sign In page
-* Sign Out
-* Change password
-* Reset password
-* Profile page
-* Character page with:
-  * Name
-  * Bio
-  * Birthday
-  * Gender
-  * Race
-  * Bloodline
-  * Ancestry
-  * Faction
-  * Alliance
-  * Corporation
-  * Security status
-  * Wallet
-  * Perception
-  * Memory
-  * Willpower
-  * Intelligence
-  * Charisma
-  * Bonus Remaps Available
+* Alliances list
+* Corporations list
+* Characters list
+* Alliance show
+* Corporation show
+* Character show
 
 ## Environment
 
