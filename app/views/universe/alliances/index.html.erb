@@ -1,7 +1,9 @@
 <% set_meta_tags title: "Alliances",
                  og: {
-                   title: :full_title,
-                   url: "https://evemonk.com/universe/alliances"
+                   title: :title,
+                   url: "https://evemonk.com/universe/alliances",
+                   type: "website",
+                   site_name: "EveMonk: EveOnline management suite",
                  } %>
 
 <div class="row">
@@ -9,13 +11,13 @@
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><%= link_to("Home", root_path) %></li>
-        <li class="breadcrumb-item active" aria-current="page"><%= "Alliances" %></li>
+        <li class="breadcrumb-item active" aria-current="page">Alliances</li>
       </ol>
     </nav>
   </div>
 </div>
 
-<div class="row">
+<div class="row justify-content-center">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
     <table class="table table-striped table-bordered">
       <thead>
@@ -38,10 +40,8 @@
       </tbody>
     </table>
   </div>
-</div>
 
-<div class="row justify-content-center">
-  <div class="col">
-    <%= paginate @alliances %>
-  </div>
+  <div class="w-100"></div>
+
+  <%= paginate @alliances %>
 </div>
