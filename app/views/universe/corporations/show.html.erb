@@ -1,10 +1,13 @@
-
-<!---    <meta property="og:title" content="">-->
-<!---    <meta property="og:description" content="">-->
-<!---    <meta property="og:image" content="">-->
-<!---    <meta property="og:url" content="">-->
-<!---    <meta property="og:type" content="website">-->
-
+<% set_meta_tags title: "Corporation &quot;#{ @corporation.name }&quot;",
+                 og: {
+                   title: :title,
+                   url: "https://evemonk.com/universe/corporations/#{ @corporation.corporation_id }",
+                   type: "website",
+                   site_name: "EveMonk: EveOnline management suite",
+                   image: @corporation.icon_medium,
+                   locale: "en_US",
+                   description: @corporation.description,
+                 } %>
 
 <div class="row">
   <div class="col">
