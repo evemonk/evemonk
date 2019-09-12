@@ -16,7 +16,7 @@ module Universe
         .decorate
 
       @characters = Eve::Character.where(corporation_id: @corporation.corporation_id)
-                                  .decorate
+        .decorate
 
       # @history = Eve::CharacterCorporationHistory.where(corporation: @corporation)
       #                                            .includes(:character)
