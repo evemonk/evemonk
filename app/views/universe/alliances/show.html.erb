@@ -1,9 +1,18 @@
 <% set_meta_tags title: "Alliance &quot;#{ @alliance.name }&quot; (#{ @alliance.ticker })",
                  og: {
-                   title: :full_title,
+                   title: :title,
+                   url: "https://evemonk.com/universe/alliances/#{ @alliance.alliance_id }",
+                   type: "website",
+                   site_name: "EveMonk: EveOnline management suite",
                    image: @alliance.icon_medium,
-                   url: "https://evemonk.com/universe/alliances/#{ @alliance.alliance_id }"
                  } %>
+
+<!---    <meta property="og:title" content="">-->
+<!---    <meta property="og:description" content="">-->
+<!---    <meta property="og:image" content="">-->
+<!---    <meta property="og:url" content="">-->
+<!---    <meta property="og:type" content="website">-->
+
 
 <div class="row">
   <div class="col">
@@ -49,7 +58,7 @@
         <% @corporations.order(:name).each do |corporation| %>
           <tr>
             <td class="align-middle text-center"><%= image_tag(corporation.icon_tiny) %></td>
-            <td><%= link_to(corporation.name, universe_corporation_path(corporation.corporation_id)) %> (<%= corporation.ticker %>)</td>
+            <td class="text-break"><%= link_to(corporation.name, universe_corporation_path(corporation.corporation_id)) %> (<%= corporation.ticker %>)</td>
             <td class="text-right"><%= number_with_delimiter(corporation.member_count, delimiter: " ") %></td>
           </tr>
         <% end %>
