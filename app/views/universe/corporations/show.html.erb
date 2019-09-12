@@ -33,7 +33,9 @@
         <% end %>
         <li class="list-group-item">Ticker: <%= @corporation.ticker %></li>
         <li class="list-group-item">Members: <%= number_with_delimiter(@corporation.member_count, delimiter: " ") %></li>
-        <li class="list-group-item">CEO: <%= link_to(@corporation.ceo.name, universe_character_path(@corporation.ceo.character_id)) %></li>
+        <% if @corporation.ceo %>
+          <li class="list-group-item">CEO: <%= link_to(@corporation.ceo.name, universe_character_path(@corporation.ceo.character_id)) %></li>
+        <% end %>
       </ul>
       <p class="card-text text-center"><small class="text-muted">Last updated <%= time_ago_in_words(@corporation.updated_at) %> ago</small></p>
     </div>
@@ -44,18 +46,18 @@
 
     <table class="table table-striped table-bordered">
       <thead>
-      <tr>
-        <td>&nbsp;</td>
-        <td>Name</td>
-      </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td>Name</td>
+        </tr>
       </thead>
       <tbody>
-      <% @characters.each do |character| %>
-        <tr>
-          <td class="align-middle text-center"><%= image_tag(character.icon_tiny) %></td>
-          <td><%= link_to(character.name, universe_character_path(character.character_id)) %></td>
-        </tr>
-      <% end %>
+        <% @characters.each do |character| %>
+          <tr>
+            <td class="align-middle text-center"><%= image_tag(character.icon_tiny) %></td>
+            <td><%= link_to(character.name, universe_character_path(character.character_id)) %></td>
+          </tr>
+        <% end %>
       </tbody>
     </table>
   </div>
