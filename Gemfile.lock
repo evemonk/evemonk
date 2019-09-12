@@ -588,6 +588,9 @@ GEM
     tty-screen (0.7.0)
     tty-tree (0.3.0)
     tty-which (0.4.1)
+    turbolinks (5.2.0)
+      turbolinks-source (~> 5.2)
+    turbolinks-source (5.2.0)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
     unicode-display_width (1.6.0)
@@ -725,6 +728,7 @@ DEPENDENCIES
   squasher
   standard
   swagger-blocks
+  turbolinks (~> 5)
   vcr
   webdrivers
   webmock
