@@ -27,7 +27,7 @@
 
     <div class="card">
       <ul class="list-group list-group-flush">
-        <li class="list-group-item text-center"><%= image_tag(@corporation.icon_medium) %></li>
+        <li class="list-group-item text-center"><%= image_tag(@corporation.icon_medium, class: "rounded") %></li>
         <% if @corporation.alliance %>
           <li class="list-group-item">Alliance: <%= link_to(@corporation.alliance.name, universe_alliance_path(@corporation.alliance.alliance_id)) %> (<%= @corporation.alliance.ticker %>)</li>
         <% end %>
@@ -54,7 +54,7 @@
       <tbody>
         <% @characters.each do |character| %>
           <tr>
-            <td class="align-middle text-center"><%= image_tag(character.icon_tiny) %></td>
+            <td class="align-middle text-center"><%= image_tag(character.icon_tiny, class: "rounded") %></td>
             <td><%= link_to(character.name, universe_character_path(character.character_id)) %></td>
           </tr>
         <% end %>

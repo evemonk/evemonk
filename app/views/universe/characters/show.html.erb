@@ -28,7 +28,7 @@
     <div class="card">
       <ul class="list-group list-group-flush">
         <li class="list-group-item text-center">
-          <%= image_tag(@character.icon_medium) %>
+          <%= image_tag(@character.icon_medium, class: "rounded") %>
         </li>
         <li class="list-group-item">
           Alliance: <%= link_to(@character.alliance.name,
@@ -63,7 +63,7 @@
           <%# In some cases we don't have corporation yet in db %>
           <% if record.corporation %>
             <tr>
-              <td class="align-middle text-center"><%= image_tag(record.corporation.icon_tiny) %></td>
+              <td class="align-middle text-center"><%= image_tag(record.corporation.icon_tiny, class: "rounded") %></td>
               <td><%= link_to(record.corporation.name, universe_corporation_path(record.corporation.corporation_id)) %> (<%= record.corporation.ticker %>)</td>
               <td class="text-right"><%= time_ago_in_words record.start_date %></td>
             </tr>

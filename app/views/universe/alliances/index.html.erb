@@ -32,7 +32,7 @@
       <tbody>
         <% @alliances.each do |alliance| %>
           <tr>
-            <td class="align-middle text-center"><%= image_tag(alliance.icon_tiny) %></td>
+            <td class="align-middle text-center"><%= image_tag(alliance.icon_tiny, class: "rounded") %></td>
             <td><%= link_to(alliance.name, universe_alliance_path(alliance.alliance_id)) %> (<%= alliance.ticker %>)</td>
             <td class="text-right"><%= number_with_delimiter(alliance.corporations_count, delimiter: " ") %></td>
             <td class="text-right"><%= number_with_delimiter(alliance.characters_count, delimiter: " ") %></td>

@@ -26,7 +26,7 @@
 
     <div class="card">
       <ul class="list-group list-group-flush">
-        <li class="list-group-item text-center"><%= image_tag(@alliance.icon_medium) %></li>
+        <li class="list-group-item text-center"><%= image_tag(@alliance.icon_medium, class: "rounded") %></li>
         <li class="list-group-item">Ticker: <%= @alliance.ticker %></li>
         <li class="list-group-item">Members: <%= number_with_delimiter(@alliance.characters_count, delimiter: " ") %></li>
         <li class="list-group-item">Creator: <%= link_to(@alliance.creator.name, universe_character_path(@alliance.creator.character_id)) %></li>
@@ -51,7 +51,7 @@
       <tbody>
         <% @corporations.order(:name).each do |corporation| %>
           <tr>
-            <td class="align-middle text-center"><%= image_tag(corporation.icon_tiny) %></td>
+            <td class="align-middle text-center"><%= image_tag(corporation.icon_tiny, class: "rounded") %></td>
             <td class="text-break"><%= link_to(corporation.name, universe_corporation_path(corporation.corporation_id)) %> (<%= corporation.ticker %>)</td>
             <td class="text-right"><%= number_with_delimiter(corporation.member_count, delimiter: " ") %></td>
           </tr>

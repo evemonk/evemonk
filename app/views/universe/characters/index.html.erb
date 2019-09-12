@@ -30,7 +30,7 @@
       <tbody>
         <% @characters.each do |character| %>
           <tr>
-            <td class="align-middle text-center"><%= image_tag(character.icon_tiny) %></td>
+            <td class="align-middle text-center"><%= image_tag(character.icon_tiny, class: "rounded") %></td>
             <td><%= link_to(character.name, universe_character_path(character.character_id)) %></td>
           </tr>
         <% end %>
