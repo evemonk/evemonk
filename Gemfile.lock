@@ -135,17 +135,11 @@ GEM
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
     ast (2.4.0)
-    autoprefixer-rails (9.6.1.1)
-      execjs
     awesome_print (1.8.0)
     bcrypt (3.1.13)
     benchmark-ips (2.7.2)
     bootsnap (1.4.5)
       msgpack (~> 1.0)
-    bootstrap (4.3.1)
-      autoprefixer-rails (>= 9.1.0)
-      popper_js (>= 1.14.3, < 2)
-      sassc-rails (>= 2.0.0)
     brakeman (4.6.1)
     builder (3.2.3)
     bullet (6.0.2)
@@ -223,7 +217,6 @@ GEM
     erubis (2.7.0)
     et-orbi (1.2.2)
       tzinfo
-    execjs (2.7.0)
     factory_bot (5.0.2)
       activesupport (>= 4.2.0)
     factory_bot_rails (5.0.2)
@@ -380,7 +373,6 @@ GEM
     pg_query (1.1.0)
     pghero (2.3.0)
       activerecord (>= 5)
-    popper_js (1.14.5)
     prometheus-client (0.9.0)
       quantile (~> 0.2.1)
     pry (0.12.2)
@@ -588,9 +580,6 @@ GEM
     tty-screen (0.7.0)
     tty-tree (0.3.0)
     tty-which (0.4.1)
-    turbolinks (5.2.0)
-      turbolinks-source (~> 5.2)
-    turbolinks-source (5.2.0)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
     unicode-display_width (1.6.0)
@@ -645,7 +634,6 @@ DEPENDENCIES
   awesome_print
   bcrypt
   bootsnap (>= 1.4.2)
-  bootstrap (~> 4.3.1)
   brakeman
   bullet
   bundler-audit
@@ -728,7 +716,6 @@ DEPENDENCIES
   squasher
   standard
   swagger-blocks
-  turbolinks (~> 5)
   vcr
   webdrivers
   webmock
