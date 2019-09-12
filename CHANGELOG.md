@@ -12,6 +12,7 @@
 * Add universe corporation show
 * Add universe characters index
 * Add universe character show
+* Add Open Graph tags
 
 ## v0.1.1
 

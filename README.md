@@ -15,6 +15,7 @@ EveMonk is helper software for EveOnline MMORPG.
 * Alliance show
 * Corporation show
 * Character show
+* Open Graph tags
 
 ## Environment
 
