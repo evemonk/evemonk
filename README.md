@@ -60,6 +60,7 @@ EveMonk is helper software for EveOnline MMORPG.
 * Node 10.16.3
 * NPM 6.11.2
 * Yarn 1.17.3
+* Twitter Bootstrap 4.3.1
 
 ## Configure
 
