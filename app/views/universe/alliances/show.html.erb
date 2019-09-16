@@ -1,7 +1,7 @@
 <% set_meta_tags title: "Alliance &quot;#{ @alliance.name }&quot; (#{ @alliance.ticker })",
                  og: {
                    title: :title,
-                   url: "https://evemonk.com/universe/alliances/#{ @alliance.alliance_id }",
+                   url: universe_alliance_url(@alliance.alliance_id),
                    type: "website",
                    site_name: "EveMonk: EveOnline management suite",
                    image: @alliance.icon_medium,

@@ -1,7 +1,8 @@
 <% set_meta_tags title: "Character &quot;#{ @character.name }&quot;",
+                 description: @character.description,
                  og: {
                    title: :title,
-                   url: "https://evemonk.com/universe/characters/#{ @character.character_id }",
+                   url: universe_character_url(@character.character_id),
                    type: "website",
                    site_name: "EveMonk: EveOnline management suite",
                    locale: "en_US",
@@ -30,16 +31,20 @@
         <li class="list-group-item text-center">
           <%= image_tag(@character.icon_medium, class: "rounded") %>
         </li>
-        <li class="list-group-item text-break">
-          Alliance: <%= link_to(@character.alliance.name,
-                                universe_alliance_path(@character.alliance.alliance_id)) %>
-          (<%= @character.alliance.ticker %>)
-        </li>
-        <li class="list-group-item text-break">
-          Corporation: <%= link_to(@character.corporation.name,
-                                   universe_corporation_path(@character.corporation.corporation_id)) %>
-          (<%= @character.corporation.ticker %>)
-        </li>
+        <% if @character.alliance %>
+          <li class="list-group-item text-break">
+            Alliance: <%= link_to(@character.alliance.name,
+                                  universe_alliance_path(@character.alliance.alliance_id)) %>
+            (<%= @character.alliance.ticker %>)
+          </li>
+        <% end %>
+        <% if @character.corporation %>
+          <li class="list-group-item text-break">
+            Corporation: <%= link_to(@character.corporation.name,
+                                     universe_corporation_path(@character.corporation.corporation_id)) %>
+            (<%= @character.corporation.ticker %>)
+          </li>
+        <% end %>
       </ul>
       <p class="card-text text-center">
         <small class="text-muted">Last updated <%= time_ago_in_words(@character.updated_at) %> ago</small>
@@ -48,7 +53,7 @@
   </div>
 
   <div class="col">
-    <h4 class="text-center">Corporation history</h4>
+    <h4 class="text-center">Corporation history (<%= @character.character_corporation_histories.size %>)</h4>
 
     <table class="table table-striped table-bordered">
       <thead>

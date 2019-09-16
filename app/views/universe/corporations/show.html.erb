@@ -1,7 +1,8 @@
 <% set_meta_tags title: "Corporation &quot;#{ @corporation.name }&quot;",
+                 description: @corporation.description,
                  og: {
                    title: :title,
-                   url: "https://evemonk.com/universe/corporations/#{ @corporation.corporation_id }",
+                   url: universe_corporation_url(@corporation.corporation_id),
                    type: "website",
                    site_name: "EveMonk: EveOnline management suite",
                    image: @corporation.icon_medium,
