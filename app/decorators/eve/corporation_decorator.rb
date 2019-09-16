@@ -2,6 +2,8 @@
 
 module Eve
   class CorporationDecorator < ApplicationDecorator
+    include ActionView::Helpers::NumberHelper
+
     decorates_associations :alliance, :ceo, :creator, :faction, :characters
 
     def date_founded
@@ -30,6 +32,10 @@ module Eve
 
     def tax_rate
       object.tax_rate.to_s
+    end
+
+    def formatted_member_count
+      number_with_delimiter(member_count, delimiter: " ")
     end
   end
 end

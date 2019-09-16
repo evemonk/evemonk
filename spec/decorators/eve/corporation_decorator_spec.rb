@@ -136,4 +136,28 @@ describe Eve::CorporationDecorator do
 
     specify { expect(subject.tax_rate).to eq("0.99") }
   end
+
+  describe "#formatted_member_count" do
+    context "when number is 3" do
+      let(:eve_corporation) do
+        build(:eve_corporation,
+              member_count: 111)
+      end
+
+      subject { eve_corporation.decorate }
+
+      specify { expect(subject.formatted_member_count).to eq("111") }
+    end
+
+    context "when number is 6" do
+      let(:eve_corporation) do
+        build(:eve_corporation,
+              member_count: 111_222)
+      end
+
+      subject { eve_corporation.decorate }
+
+      specify { expect(subject.formatted_member_count).to eq("111 222") }
+    end
+  end
 end
