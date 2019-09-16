@@ -32,9 +32,9 @@ module Eve
 
     has_many :characters, through: :corporations
 
-    def characters_count
-      corporations.sum("eve_corporations.member_count")
-    end
+    # def characters_count
+    #   corporations.sum("eve_corporations.member_count")
+    # end
 
     def search_data
       {
