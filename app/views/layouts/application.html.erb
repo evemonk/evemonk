@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <%= display_meta_tags site: "EveMonk: EveOnline management suite",
-                          reverse: true %>
-
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <%= display_meta_tags site: "EveMonk: EveOnline management suite",
+                          reverse: true %>
 
     <!-- Disable translation prompt -->
     <meta name="google" content="notranslate">
@@ -16,14 +16,6 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-<!--    -    # <meta property="og:url" content="https://example.com/page.html">-->
-<!--    -    # <meta property="og:type" content="website">-->
-<!--    -    # <meta property="og:title" content="Content Title">-->
-<!--    -    # <meta property="og:image" content="https://example.com/image.jpg">-->
-<!--    -    # <meta property="og:description" content="Description Here">-->
-<!--    -    # <meta property="og:site_name" content="Site Name">-->
-<!--    -    # <meta property="og:locale" content="en_US">-->
-
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -31,6 +23,8 @@
   <body>
     <div class="container">
       <%= yield %>
+
+      <div class="w-100"></div>
 
       <div class="row text-center">
         <div class="col">
