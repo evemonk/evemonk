@@ -32,7 +32,7 @@
         <% @corporations.each do |corporation| %>
           <tr>
             <td class="align-middle text-center"><%= image_tag(corporation.icon_tiny, class: "rounded") %></td>
-            <td><%= link_to(corporation.name, universe_corporation_path(corporation.corporation_id)) %> (<%= corporation.ticker %>)</td>
+            <td class="text-break"><%= link_to(corporation.name, universe_corporation_path(corporation.corporation_id)) %> (<%= corporation.ticker %>)</td>
             <td class="text-right"><%= corporation.member_count %></td>
           </tr>
         <% end %>

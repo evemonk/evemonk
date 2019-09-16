@@ -36,7 +36,7 @@
           <% @alliances.each do |alliance| %>
             <tr>
               <td class="align-middle text-center"><%= image_tag(alliance.icon_tiny, class: "rounded") %></td>
-              <td><%= link_to(alliance.name, universe_alliance_path(alliance.alliance_id)) %> (<%= alliance.ticker %>)</td>
+              <td class="text-break"><%= link_to(alliance.name, universe_alliance_path(alliance.alliance_id)) %> (<%= alliance.ticker %>)</td>
               <td class="text-right"><%= alliance.formatted_corporations_count %></td>
               <td class="text-right"><%= alliance.formatted_characters_count %></td>
             </tr>
@@ -60,7 +60,7 @@
           <% @corporations.each do |corporation| %>
             <tr>
               <td class="align-middle text-center"><%= image_tag(corporation.icon_tiny, class: "rounded") %></td>
-              <td><%= link_to(corporation.name, universe_corporation_path(corporation.corporation_id)) %> (<%= corporation.ticker %>)</td>
+              <td class="text-break"><%= link_to(corporation.name, universe_corporation_path(corporation.corporation_id)) %> (<%= corporation.ticker %>)</td>
               <td class="text-right"><%= corporation.member_count %></td>
             </tr>
           <% end %>

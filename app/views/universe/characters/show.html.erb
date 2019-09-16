@@ -23,19 +23,19 @@
 
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
-    <h4 class="text-center">Character: <%= @character.name %></h4>
+    <h4 class="text-center text-break">Character: <%= @character.name %></h4>
 
     <div class="card">
       <ul class="list-group list-group-flush">
         <li class="list-group-item text-center">
           <%= image_tag(@character.icon_medium, class: "rounded") %>
         </li>
-        <li class="list-group-item">
+        <li class="list-group-item text-break">
           Alliance: <%= link_to(@character.alliance.name,
                                 universe_alliance_path(@character.alliance.alliance_id)) %>
           (<%= @character.alliance.ticker %>)
         </li>
-        <li class="list-group-item">
+        <li class="list-group-item text-break">
           Corporation: <%= link_to(@character.corporation.name,
                                    universe_corporation_path(@character.corporation.corporation_id)) %>
           (<%= @character.corporation.ticker %>)
@@ -64,7 +64,7 @@
           <% if record.corporation %>
             <tr>
               <td class="align-middle text-center"><%= image_tag(record.corporation.icon_tiny, class: "rounded") %></td>
-              <td><%= link_to(record.corporation.name, universe_corporation_path(record.corporation.corporation_id)) %> (<%= record.corporation.ticker %>)</td>
+              <td class="text-break"><%= link_to(record.corporation.name, universe_corporation_path(record.corporation.corporation_id)) %> (<%= record.corporation.ticker %>)</td>
               <td class="text-right"><%= time_ago_in_words record.start_date %></td>
             </tr>
           <% else %>

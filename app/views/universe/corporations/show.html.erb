@@ -23,18 +23,18 @@
 
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
-    <h4 class="text-center">Corporation: <%= @corporation.name %></h4>
+    <h4 class="text-center text-break">Corporation: <%= @corporation.name %></h4>
 
     <div class="card">
       <ul class="list-group list-group-flush">
         <li class="list-group-item text-center"><%= image_tag(@corporation.icon_medium, class: "rounded") %></li>
         <% if @corporation.alliance %>
-          <li class="list-group-item">Alliance: <%= link_to(@corporation.alliance.name, universe_alliance_path(@corporation.alliance.alliance_id)) %> (<%= @corporation.alliance.ticker %>)</li>
+          <li class="list-group-item text-break">Alliance: <%= link_to(@corporation.alliance.name, universe_alliance_path(@corporation.alliance.alliance_id)) %> (<%= @corporation.alliance.ticker %>)</li>
         <% end %>
-        <li class="list-group-item">Ticker: <%= @corporation.ticker %></li>
+        <li class="list-group-item text-break">Ticker: <%= @corporation.ticker %></li>
         <li class="list-group-item">Members: <%= number_with_delimiter(@corporation.member_count, delimiter: " ") %></li>
         <% if @corporation.ceo %>
-          <li class="list-group-item">CEO: <%= link_to(@corporation.ceo.name, universe_character_path(@corporation.ceo.character_id)) %></li>
+          <li class="list-group-item text-break">CEO: <%= link_to(@corporation.ceo.name, universe_character_path(@corporation.ceo.character_id)) %></li>
         <% end %>
       </ul>
       <p class="card-text text-center"><small class="text-muted">Last updated <%= time_ago_in_words(@corporation.updated_at) %> ago</small></p>
@@ -55,7 +55,7 @@
         <% @characters.each do |character| %>
           <tr>
             <td class="align-middle text-center"><%= image_tag(character.icon_tiny, class: "rounded") %></td>
-            <td><%= link_to(character.name, universe_character_path(character.character_id)) %></td>
+            <td class="text-break"><%= link_to(character.name, universe_character_path(character.character_id)) %></td>
           </tr>
         <% end %>
       </tbody>
