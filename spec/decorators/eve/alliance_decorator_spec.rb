@@ -80,4 +80,52 @@ describe Eve::AllianceDecorator do
       specify { expect(subject.icon_medium).to eq("https://imageserver.eveonline.com/Alliance/123_128.png") }
     end
   end
+
+  describe "#formatted_corporations_count" do
+    context "when number is 3" do
+      let(:eve_alliance) do
+        build(:eve_alliance,
+              corporations_count: 111)
+      end
+
+      subject { eve_alliance.decorate }
+
+      specify { expect(subject.formatted_corporations_count).to eq("111") }
+    end
+
+    context "when number is 6" do
+      let(:eve_alliance) do
+        build(:eve_alliance,
+              corporations_count: 111_222)
+      end
+
+      subject { eve_alliance.decorate }
+
+      specify { expect(subject.formatted_corporations_count).to eq("111 222") }
+    end
+  end
+
+  describe "#formatted_characters_count" do
+    context "when number is 3" do
+      let(:eve_alliance) do
+        build(:eve_alliance,
+              characters_count: 111)
+      end
+
+      subject { eve_alliance.decorate }
+
+      specify { expect(subject.formatted_characters_count).to eq("111") }
+    end
+
+    context "when number is 6" do
+      let(:eve_alliance) do
+        build(:eve_alliance,
+              characters_count: 111_222)
+      end
+
+      subject { eve_alliance.decorate }
+
+      specify { expect(subject.formatted_characters_count).to eq("111 222") }
+    end
+  end
 end
