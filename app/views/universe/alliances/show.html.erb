@@ -28,10 +28,14 @@
       <ul class="list-group list-group-flush">
         <li class="list-group-item text-center"><%= image_tag(@alliance.icon_medium, class: "rounded") %></li>
         <li class="list-group-item text-break">Ticker: <%= @alliance.ticker %></li>
-        <li class="list-group-item">Members: <%= number_with_delimiter(@alliance.characters_count, delimiter: " ") %></li>
-        <li class="list-group-item text-break">Creator: <%= link_to(@alliance.creator.name, universe_character_path(@alliance.creator.character_id)) %></li>
-        <li class="list-group-item text-break">Executor: <%= link_to(@alliance.executor_corporation.name, universe_corporation_path(@alliance.executor_corporation.corporation_id)) %></li>
-        <li class="list-group-item">Corporations: <%= @alliance.corporations_count %></li>
+        <li class="list-group-item">Members: <%= @alliance.formatted_characters_count %></li>
+        <% if @alliance.creator %>
+          <li class="list-group-item text-break">Creator: <%= link_to(@alliance.creator.name, universe_character_path(@alliance.creator.character_id)) %></li>
+        <% end %>
+        <% if @alliance.executor_corporation %>
+          <li class="list-group-item text-break">Executor: <%= link_to(@alliance.executor_corporation.name, universe_corporation_path(@alliance.executor_corporation.corporation_id)) %></li>
+        <% end %>
+        <li class="list-group-item">Corporations: <%= @alliance.formatted_corporations_count %></li>
       </ul>
       <p class="card-text text-center"><small class="text-muted">Last updated <%= time_ago_in_words(@alliance.updated_at) %> ago</small></p>
     </div>

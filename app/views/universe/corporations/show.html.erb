@@ -33,7 +33,7 @@
           <li class="list-group-item text-break">Alliance: <%= link_to(@corporation.alliance.name, universe_alliance_path(@corporation.alliance.alliance_id)) %> (<%= @corporation.alliance.ticker %>)</li>
         <% end %>
         <li class="list-group-item text-break">Ticker: <%= @corporation.ticker %></li>
-        <li class="list-group-item">Members: <%= number_with_delimiter(@corporation.member_count, delimiter: " ") %></li>
+        <li class="list-group-item">Members: <%= @corporation.formatted_member_count %></li>
         <% if @corporation.ceo %>
           <li class="list-group-item text-break">CEO: <%= link_to(@corporation.ceo.name, universe_character_path(@corporation.ceo.character_id)) %></li>
         <% end %>
