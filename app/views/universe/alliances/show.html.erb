@@ -53,7 +53,7 @@
           <tr>
             <td class="align-middle text-center"><%= image_tag(corporation.icon_tiny, class: "rounded") %></td>
             <td class="text-break"><%= link_to(corporation.name, universe_corporation_path(corporation.corporation_id)) %> (<%= corporation.ticker %>)</td>
-            <td class="text-right"><%= number_with_delimiter(corporation.member_count, delimiter: " ") %></td>
+            <td class="text-right"><%= corporation.formatted_member_count %></td>
           </tr>
         <% end %>
       </tbody>
