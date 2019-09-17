@@ -2,6 +2,6 @@
 
 class AddForeignKeySecureTokensUsers < ActiveRecord::Migration[6.0]
   def change
-    add_foreign_key :secure_tokens, :users, validate: false
+    add_foreign_key :secure_tokens, :users
   end
 end
