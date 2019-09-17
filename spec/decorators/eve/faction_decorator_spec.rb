@@ -10,7 +10,7 @@ describe Eve::FactionDecorator do
   describe "#size_factor" do
     let(:eve_faction) do
       build(:eve_faction,
-            size_factor: 2.0)
+        size_factor: 2.0)
     end
 
     subject { eve_faction.decorate }

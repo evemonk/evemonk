@@ -11,7 +11,7 @@ describe Eve::CharacterDecorator do
     context "when birthday is present" do
       let(:eve_character) do
         build(:eve_character,
-              birthday: "Sun, 03 May 2015 19:45:17 UTC +00:00")
+          birthday: "Sun, 03 May 2015 19:45:17 UTC +00:00")
       end
 
       subject { eve_character.decorate }
@@ -31,7 +31,7 @@ describe Eve::CharacterDecorator do
   describe "#icon_tiny" do
     let(:eve_character) do
       build(:eve_character,
-            character_id: 123)
+        character_id: 123)
     end
 
     subject { eve_character.decorate }
@@ -52,7 +52,7 @@ describe Eve::CharacterDecorator do
   describe "#icon_small" do
     let(:eve_character) do
       build(:eve_character,
-            character_id: 123)
+        character_id: 123)
     end
 
     subject { eve_character.decorate }
@@ -73,7 +73,7 @@ describe Eve::CharacterDecorator do
   describe "#icon_medium" do
     let(:eve_character) do
       build(:eve_character,
-            character_id: 123)
+        character_id: 123)
     end
 
     subject { eve_character.decorate }
@@ -94,7 +94,7 @@ describe Eve::CharacterDecorator do
   describe "#icon_large" do
     let(:eve_character) do
       build(:eve_character,
-            character_id: 123)
+        character_id: 123)
     end
 
     subject { eve_character.decorate }
@@ -115,7 +115,7 @@ describe Eve::CharacterDecorator do
   describe "#icon_huge" do
     let(:eve_character) do
       build(:eve_character,
-            character_id: 123)
+        character_id: 123)
     end
 
     subject { eve_character.decorate }
@@ -136,7 +136,7 @@ describe Eve::CharacterDecorator do
   describe "#icon_gigantic" do
     let(:eve_character) do
       build(:eve_character,
-            character_id: 123)
+        character_id: 123)
     end
 
     subject { eve_character.decorate }
@@ -157,7 +157,7 @@ describe Eve::CharacterDecorator do
   describe "#description" do
     let(:eve_character) do
       build(:eve_character,
-            description: "<b>Test</b>")
+        description: "<b>Test</b>")
     end
 
     subject { eve_character.decorate }
@@ -168,7 +168,7 @@ describe Eve::CharacterDecorator do
   describe "#security_status" do
     let(:eve_character) do
       build(:eve_character,
-            security_status: 1.1)
+        security_status: 1.1)
     end
 
     subject { eve_character.decorate }

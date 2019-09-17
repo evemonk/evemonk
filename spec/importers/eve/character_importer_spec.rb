@@ -22,10 +22,10 @@ describe Eve::CharacterImporter do
 
         let(:esi) do
           instance_double(EveOnline::ESI::Character,
-                          url: url,
-                          not_modified?: false,
-                          etag: new_etag,
-                          as_json: json)
+            url: url,
+            not_modified?: false,
+            etag: new_etag,
+            as_json: json)
         end
 
         before { expect(EveOnline::ESI::Character).to receive(:new).with(character_id: character_id).and_return(esi) }
@@ -73,8 +73,8 @@ describe Eve::CharacterImporter do
 
       let(:esi) do
         instance_double(EveOnline::ESI::Character,
-                        url: url,
-                        not_modified?: true)
+          url: url,
+          not_modified?: true)
       end
 
       before { expect(EveOnline::ESI::Character).to receive(:new).with(character_id: character_id).and_return(esi) }

@@ -19,8 +19,8 @@ describe Eve::GraphicsImporter do
 
       let(:esi) do
         instance_double(EveOnline::ESI::UniverseGraphics,
-                        not_modified?: false,
-                        etag: new_etag)
+          not_modified?: false,
+          etag: new_etag)
       end
 
       before { expect(EveOnline::ESI::UniverseGraphics).to receive(:new).and_return(esi) }
@@ -43,7 +43,7 @@ describe Eve::GraphicsImporter do
 
       let(:esi) do
         instance_double(EveOnline::ESI::UniverseGraphics,
-                        not_modified?: true)
+          not_modified?: true)
       end
 
       before { expect(EveOnline::ESI::UniverseGraphics).to receive(:new).and_return(esi) }
@@ -95,7 +95,7 @@ describe Eve::GraphicsImporter do
 
     let(:esi) do
       instance_double(EveOnline::ESI::UniverseGraphics,
-                      graphic_ids: [graphic_id])
+        graphic_ids: [graphic_id])
     end
 
     before { expect(EveOnline::ESI::UniverseGraphics).to receive(:new).and_return(esi) }
@@ -124,7 +124,7 @@ describe Eve::GraphicsImporter do
 
     let(:esi) do
       instance_double(EveOnline::ESI::UniverseGraphics,
-                      graphic_ids: graphic_ids)
+        graphic_ids: graphic_ids)
     end
 
     before { expect(EveOnline::ESI::UniverseGraphics).to receive(:new).and_return(esi) }

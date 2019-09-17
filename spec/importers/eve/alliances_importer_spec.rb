@@ -18,15 +18,15 @@ describe Eve::AlliancesImporter do
     context "when fresh data available" do
       let(:etag) do
         instance_double(Eve::Etag,
-                        etag: "97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a")
+          etag: "97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a")
       end
 
       let(:new_etag) { double }
 
       let(:esi) do
         instance_double(EveOnline::ESI::Alliances,
-                        not_modified?: false,
-                        etag: new_etag)
+          not_modified?: false,
+          etag: new_etag)
       end
 
       before do
@@ -57,12 +57,12 @@ describe Eve::AlliancesImporter do
     context "when no fresh data available" do
       let(:etag) do
         instance_double(Eve::Etag,
-                        etag: "97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a")
+          etag: "97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a")
       end
 
       let(:esi) do
         instance_double(EveOnline::ESI::Alliances,
-                        not_modified?: true)
+          not_modified?: true)
       end
 
       before do
@@ -103,7 +103,7 @@ describe Eve::AlliancesImporter do
 
       let(:esi) do
         instance_double(EveOnline::ESI::Alliances,
-                        url: url)
+          url: url)
       end
 
       let(:etag) { instance_double(Eve::Etag) }
@@ -130,7 +130,7 @@ describe Eve::AlliancesImporter do
 
     let(:esi) do
       instance_double(EveOnline::ESI::Alliances,
-                      alliance_ids: [alliance_id])
+        alliance_ids: [alliance_id])
     end
 
     before do
@@ -173,7 +173,7 @@ describe Eve::AlliancesImporter do
 
     let(:esi) do
       instance_double(EveOnline::ESI::Alliances,
-                      alliance_ids: alliance_ids)
+        alliance_ids: alliance_ids)
     end
 
     before { expect(EveOnline::ESI::Alliances).to receive(:new).and_return(esi) }

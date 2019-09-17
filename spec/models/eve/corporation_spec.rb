@@ -24,8 +24,8 @@ describe Eve::Corporation do
   describe "#search_data" do
     let!(:corporation) do
       create(:eve_corporation,
-             name: "MyLittleDragon",
-             ticker: "MYLID")
+        name: "MyLittleDragon",
+        ticker: "MYLID")
     end
 
     specify do

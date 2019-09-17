@@ -5,7 +5,7 @@ module Api
     include ActiveModel::Model
 
     attr_accessor :user, :old_password, :password, :password_confirmation,
-                  :name, :device_type, :device_token
+      :name, :device_type, :device_token
 
     validates :old_password, presence: true
 

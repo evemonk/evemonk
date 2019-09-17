@@ -13,7 +13,7 @@ module Api
         @characters = policy_scope(::Eve::Character)
           .where(corporation: corporation)
           .includes(:alliance, :ancestry, :bloodline, :corporation, :faction,
-                    :race)
+            :race)
           .page(params[:page])
           .decorate
       end

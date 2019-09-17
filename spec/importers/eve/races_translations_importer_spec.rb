@@ -37,10 +37,10 @@ describe Eve::RacesTranslationsImporter do
 
       let(:esi) do
         instance_double(EveOnline::ESI::UniverseRaces,
-                        not_modified?: false,
-                        url: url,
-                        etag: new_etag,
-                        races: [race])
+          not_modified?: false,
+          url: url,
+          etag: new_etag,
+          races: [race])
       end
 
       before { expect(EveOnline::ESI::UniverseRaces).to receive(:new).with(language: locale).and_return(esi) }
@@ -69,8 +69,8 @@ describe Eve::RacesTranslationsImporter do
 
       let(:esi) do
         instance_double(EveOnline::ESI::UniverseRaces,
-                        not_modified?: true,
-                        url: url)
+          not_modified?: true,
+          url: url)
       end
 
       before { expect(EveOnline::ESI::UniverseRaces).to receive(:new).with(language: locale).and_return(esi) }

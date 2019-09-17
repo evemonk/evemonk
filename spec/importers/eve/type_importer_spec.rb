@@ -42,12 +42,12 @@ describe Eve::TypeImporter do
 
         let(:esi) do
           instance_double(EveOnline::ESI::UniverseType,
-                          url: url,
-                          not_modified?: false,
-                          etag: new_etag,
-                          dogma_attributes: dogma_attributes,
-                          dogma_effects: dogma_effects,
-                          as_json: json)
+            url: url,
+            not_modified?: false,
+            etag: new_etag,
+            dogma_attributes: dogma_attributes,
+            dogma_effects: dogma_effects,
+            as_json: json)
         end
 
         before { expect(EveOnline::ESI::UniverseType).to receive(:new).with(id: type_id).and_return(esi) }
@@ -139,8 +139,8 @@ describe Eve::TypeImporter do
 
       let(:esi) do
         instance_double(EveOnline::ESI::UniverseType,
-                        url: url,
-                        not_modified?: true)
+          url: url,
+          not_modified?: true)
       end
 
       before { expect(EveOnline::ESI::UniverseType).to receive(:new).with(id: type_id).and_return(esi) }

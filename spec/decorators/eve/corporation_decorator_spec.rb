@@ -11,7 +11,7 @@ describe Eve::CorporationDecorator do
     context "when date_founded is empty" do
       let(:eve_corporation) do
         build(:eve_corporation,
-              date_founded: nil)
+          date_founded: nil)
       end
 
       subject { eve_corporation.decorate }
@@ -22,7 +22,7 @@ describe Eve::CorporationDecorator do
     context "when date_founded is present" do
       let(:eve_corporation) do
         build(:eve_corporation,
-              date_founded: "Sun, 03 May 2015 19:45:17 UTC +00:00")
+          date_founded: "Sun, 03 May 2015 19:45:17 UTC +00:00")
       end
 
       subject { eve_corporation.decorate }
@@ -34,7 +34,7 @@ describe Eve::CorporationDecorator do
   describe "#description" do
     let(:eve_corporation) do
       build(:eve_corporation,
-            description: "<b>Test</b>")
+        description: "<b>Test</b>")
     end
 
     subject { eve_corporation.decorate }
@@ -45,7 +45,7 @@ describe Eve::CorporationDecorator do
   describe "#icon_tiny" do
     let(:eve_corporation) do
       build(:eve_corporation,
-            corporation_id: 123)
+        corporation_id: 123)
     end
 
     subject { eve_corporation.decorate }
@@ -66,7 +66,7 @@ describe Eve::CorporationDecorator do
   describe "#icon_small" do
     let(:eve_corporation) do
       build(:eve_corporation,
-            corporation_id: 123)
+        corporation_id: 123)
     end
 
     subject { eve_corporation.decorate }
@@ -87,7 +87,7 @@ describe Eve::CorporationDecorator do
   describe "#icon_medium" do
     let(:eve_corporation) do
       build(:eve_corporation,
-            corporation_id: 123)
+        corporation_id: 123)
     end
 
     subject { eve_corporation.decorate }
@@ -108,7 +108,7 @@ describe Eve::CorporationDecorator do
   describe "#icon_large" do
     let(:eve_corporation) do
       build(:eve_corporation,
-            corporation_id: 123)
+        corporation_id: 123)
     end
 
     subject { eve_corporation.decorate }
@@ -129,7 +129,7 @@ describe Eve::CorporationDecorator do
   describe "#tax_rate" do
     let(:eve_corporation) do
       build(:eve_corporation,
-            tax_rate: 0.99)
+        tax_rate: 0.99)
     end
 
     subject { eve_corporation.decorate }
@@ -141,7 +141,7 @@ describe Eve::CorporationDecorator do
     context "when number is 3" do
       let(:eve_corporation) do
         build(:eve_corporation,
-              member_count: 111)
+          member_count: 111)
       end
 
       subject { eve_corporation.decorate }
@@ -152,7 +152,7 @@ describe Eve::CorporationDecorator do
     context "when number is 6" do
       let(:eve_corporation) do
         build(:eve_corporation,
-              member_count: 111_222)
+          member_count: 111_222)
       end
 
       subject { eve_corporation.decorate }

@@ -11,7 +11,7 @@ describe CharacterDecorator do
     context "when birthday is present" do
       let(:character) do
         build(:character,
-              birthday: "Sun, 03 May 2015 19:45:17 UTC +00:00")
+          birthday: "Sun, 03 May 2015 19:45:17 UTC +00:00")
       end
 
       subject { character.decorate }
@@ -31,7 +31,7 @@ describe CharacterDecorator do
   describe "#icon_tiny" do
     let(:character) do
       build(:character,
-            character_id: 123)
+        character_id: 123)
     end
 
     subject { character.decorate }
@@ -52,7 +52,7 @@ describe CharacterDecorator do
   describe "#icon_small" do
     let(:character) do
       build(:character,
-            character_id: 123)
+        character_id: 123)
     end
 
     subject { character.decorate }
@@ -73,7 +73,7 @@ describe CharacterDecorator do
   describe "#icon_medium" do
     let(:character) do
       build(:character,
-            character_id: 123)
+        character_id: 123)
     end
 
     subject { character.decorate }
@@ -94,7 +94,7 @@ describe CharacterDecorator do
   describe "#icon_large" do
     let(:character) do
       build(:character,
-            character_id: 123)
+        character_id: 123)
     end
 
     subject { character.decorate }
@@ -115,7 +115,7 @@ describe CharacterDecorator do
   describe "#icon_huge" do
     let(:character) do
       build(:character,
-            character_id: 123)
+        character_id: 123)
     end
 
     subject { character.decorate }
@@ -136,7 +136,7 @@ describe CharacterDecorator do
   describe "#icon_gigantic" do
     let(:character) do
       build(:character,
-            character_id: 123)
+        character_id: 123)
     end
 
     subject { character.decorate }
@@ -157,7 +157,7 @@ describe CharacterDecorator do
   describe "#description" do
     let(:character) do
       build(:character,
-            description: "<b>Test</b>")
+        description: "<b>Test</b>")
     end
 
     subject { character.decorate }
@@ -168,7 +168,7 @@ describe CharacterDecorator do
   describe "#security_status" do
     let(:character) do
       build(:character,
-            security_status: 1.1)
+        security_status: 1.1)
     end
 
     subject { character.decorate }
@@ -180,7 +180,7 @@ describe CharacterDecorator do
     context "when last_remap_date is present" do
       let(:character) do
         build(:character,
-              last_remap_date: "Sun, 03 May 2015 19:45:17 UTC +00:00")
+          last_remap_date: "Sun, 03 May 2015 19:45:17 UTC +00:00")
       end
 
       subject { character.decorate }
@@ -201,7 +201,7 @@ describe CharacterDecorator do
     context "when accrued_remap_cooldown_date is present" do
       let(:character) do
         build(:character,
-              accrued_remap_cooldown_date: "Sun, 03 May 2015 19:45:17 UTC +00:00")
+          accrued_remap_cooldown_date: "Sun, 03 May 2015 19:45:17 UTC +00:00")
       end
 
       subject { character.decorate }
@@ -221,7 +221,7 @@ describe CharacterDecorator do
   describe "#wallet" do
     let(:character) do
       build(:character,
-            wallet: 8252.49)
+        wallet: 8252.49)
     end
 
     subject { character.decorate }

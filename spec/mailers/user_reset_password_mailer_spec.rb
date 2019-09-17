@@ -6,8 +6,8 @@ describe UserResetPasswordMailer do
   describe "#email" do
     let(:user) do
       create(:user,
-             email: "me@example.com",
-             reset_password_token: "reset-token-123")
+        email: "me@example.com",
+        reset_password_token: "reset-token-123")
     end
 
     subject(:mailer) { described_class.with(user: user).email }

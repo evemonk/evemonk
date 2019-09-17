@@ -13,7 +13,7 @@ module Eve
       ids = Eve::Alliance.search(query, load: false).map(&:id) if query.present?
 
       relation = scope.includes(:faction, :creator_corporation,
-                                :creator, :executor_corporation)
+        :creator, :executor_corporation)
 
       relation = relation.where(id: ids) if ids.present?
 

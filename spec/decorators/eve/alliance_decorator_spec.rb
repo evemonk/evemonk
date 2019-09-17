@@ -10,7 +10,7 @@ describe Eve::AllianceDecorator do
   describe "#date_founded" do
     let(:eve_alliance) do
       build(:eve_alliance,
-            date_founded: "Sun, 03 May 2015 19:45:17 UTC +00:00")
+        date_founded: "Sun, 03 May 2015 19:45:17 UTC +00:00")
     end
 
     subject { eve_alliance.decorate }
@@ -21,7 +21,7 @@ describe Eve::AllianceDecorator do
   describe "#icon_tiny" do
     let(:eve_alliance) do
       build(:eve_alliance,
-            alliance_id: 123)
+        alliance_id: 123)
     end
 
     subject { eve_alliance.decorate }
@@ -42,7 +42,7 @@ describe Eve::AllianceDecorator do
   describe "#icon_small" do
     let(:eve_alliance) do
       build(:eve_alliance,
-            alliance_id: 123)
+        alliance_id: 123)
     end
 
     subject { eve_alliance.decorate }
@@ -63,7 +63,7 @@ describe Eve::AllianceDecorator do
   describe "#icon_medium" do
     let(:eve_alliance) do
       build(:eve_alliance,
-            alliance_id: 123)
+        alliance_id: 123)
     end
 
     subject { eve_alliance.decorate }
@@ -85,7 +85,7 @@ describe Eve::AllianceDecorator do
     context "when number is 3" do
       let(:eve_alliance) do
         build(:eve_alliance,
-              corporations_count: 111)
+          corporations_count: 111)
       end
 
       subject { eve_alliance.decorate }
@@ -96,7 +96,7 @@ describe Eve::AllianceDecorator do
     context "when number is 6" do
       let(:eve_alliance) do
         build(:eve_alliance,
-              corporations_count: 111_222)
+          corporations_count: 111_222)
       end
 
       subject { eve_alliance.decorate }
@@ -109,7 +109,7 @@ describe Eve::AllianceDecorator do
     context "when number is 3" do
       let(:eve_alliance) do
         build(:eve_alliance,
-              characters_count: 111)
+          characters_count: 111)
       end
 
       subject { eve_alliance.decorate }
@@ -120,7 +120,7 @@ describe Eve::AllianceDecorator do
     context "when number is 6" do
       let(:eve_alliance) do
         build(:eve_alliance,
-              characters_count: 111_222)
+          characters_count: 111_222)
       end
 
       subject { eve_alliance.decorate }

@@ -32,13 +32,13 @@ module Api
             key :description, "Total entries"
           end
           key :example,
-              collection: [{id: 123,
-                            name: "My Computer",
-                            created_at: "2016-12-12T18:35:59Z",
-                            updated_at: "2016-12-12T18:36:10Z",}],
-              total_pages: 4,
-              current_page: 1,
-              total_entries: 90
+            collection: [{id: 123,
+                          name: "My Computer",
+                          created_at: "2016-12-12T18:35:59Z",
+                          updated_at: "2016-12-12T18:36:10Z",}],
+            total_pages: 4,
+            current_page: 1,
+            total_entries: 90
         end
         # :nocov:
       end

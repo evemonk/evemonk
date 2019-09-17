@@ -12,11 +12,11 @@ module Api
 
     def show
       @character = Character.eager_load(:race,
-                                        :bloodline,
-                                        :ancestry,
-                                        :faction,
-                                        :alliance,
-                                        :corporation)
+        :bloodline,
+        :ancestry,
+        :faction,
+        :alliance,
+        :corporation)
         .find_by!(character_id: params[:id])
         .decorate
 

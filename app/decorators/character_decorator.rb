@@ -2,7 +2,7 @@
 
 class CharacterDecorator < ApplicationDecorator
   decorates_associations :user, :race, :bloodline, :faction, :ancestry,
-                         :alliance, :corporation
+    :alliance, :corporation
 
   def birthday
     object.birthday&.iso8601

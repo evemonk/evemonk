@@ -5,12 +5,12 @@ module Eve
     # TODO: has_paper_trail
 
     belongs_to :character,
-               primary_key: :character_id,
-               class_name: "Eve::Character"
+      primary_key: :character_id,
+      class_name: "Eve::Character"
 
     belongs_to :corporation,
-               primary_key: :corporation_id,
-               class_name: "Eve::Corporation",
-               optional: true
+      primary_key: :corporation_id,
+      class_name: "Eve::Corporation",
+      optional: true
   end
 end

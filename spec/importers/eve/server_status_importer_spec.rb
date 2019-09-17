@@ -13,10 +13,10 @@ describe Eve::ServerStatusImporter do
 
       let(:esi) do
         instance_double(EveOnline::ESI::ServerStatus,
-                        not_modified?: false,
-                        url: url,
-                        etag: new_etag,
-                        as_json: as_json)
+          not_modified?: false,
+          url: url,
+          etag: new_etag,
+          as_json: as_json)
       end
 
       before { expect(EveOnline::ESI::ServerStatus).to receive(:new).and_return(esi) }
@@ -39,8 +39,8 @@ describe Eve::ServerStatusImporter do
 
       let(:esi) do
         instance_double(EveOnline::ESI::ServerStatus,
-                        not_modified?: true,
-                        url: url)
+          not_modified?: true,
+          url: url)
       end
 
       before { expect(EveOnline::ESI::ServerStatus).to receive(:new).and_return(esi) }
