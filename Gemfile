@@ -54,8 +54,9 @@ gem "server_timing"
 gem "awesome_print", require: "ap"
 gem "pry-rails"
 
-gem "act-fluent-logger-rails", git: "https://github.com/actindi/act-fluent-logger-rails.git",
-                               branch: "master"
+# gem "act-fluent-logger-rails", git: "https://github.com/actindi/act-fluent-logger-rails.git",
+#                                branch: "master"
+
 gem "lograge"
 
 gem "prometheus-client"
