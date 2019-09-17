@@ -13,6 +13,8 @@
 * Add universe characters index
 * Add universe character show
 * Add Open Graph tags
+* Add SEO stuff to pages
+* Add Google Analytics
 
 ## v0.1.1
 

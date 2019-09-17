@@ -5,7 +5,7 @@
 [![security](https://hakiri.io/github/evemonk/evemonk/master.svg)](https://hakiri.io/github/evemonk/evemonk/master)
 [![](https://images.microbadger.com/badges/image/biow0lf/evemonk.svg)](https://microbadger.com/images/biow0lf/evemonk)
 
-EveMonk is helper software for EveOnline MMORPG.
+EveMonk is helper software for EveOnline MMORPG. Styled with Twitter Bootstrap. Mobile first design.
 
 ## Features
 
@@ -16,6 +16,7 @@ EveMonk is helper software for EveOnline MMORPG.
 * Corporation show
 * Character show
 * Open Graph tags
+* SEO friendly
 
 ## Environment
 
