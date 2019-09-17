@@ -11,11 +11,7 @@ module Eve
 
     belongs_to :corporation, primary_key: :corporation_id, optional: true
 
-    after_create_commit :eve_alliance_reset_characters_count
-
-    after_update_commit :eve_alliance_reset_characters_count
-
-    after_destroy_commit :eve_alliance_reset_characters_count
+    after_commit :eve_alliance_reset_characters_count, on: [:create, :update, :destroy]
 
     def eve_alliance_reset_characters_count
       alliance&.reset_characters_count
