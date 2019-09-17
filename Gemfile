@@ -49,6 +49,7 @@ gem "errbase"
 gem "activerecord-nulldb-adapter"
 gem "niceql"
 gem "server_timing"
+gem "strong_migrations"
 
 gem "awesome_print", require: "ap"
 gem "pry-rails"
