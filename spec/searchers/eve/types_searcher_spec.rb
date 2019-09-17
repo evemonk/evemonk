@@ -50,8 +50,8 @@ describe Eve::TypesSearcher do
       context "when name match" do
         let!(:type) do
           create(:eve_type,
-                 name: "Ragnarok",
-                 published: true)
+            name: "Ragnarok",
+            published: true)
         end
 
         let(:query) { "Ragnarok" }

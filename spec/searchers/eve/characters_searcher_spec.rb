@@ -50,7 +50,7 @@ describe Eve::CharactersSearcher do
       context "when name match" do
         let!(:character) do
           create(:eve_character,
-                 name: "Green Black")
+            name: "Green Black")
         end
 
         let(:query) { "Green Black" }

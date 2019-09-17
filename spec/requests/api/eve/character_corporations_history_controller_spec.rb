@@ -8,32 +8,32 @@ describe Api::Eve::CharacterCorporationsHistoryController do
   describe "#index" do
     it "returns Eve Character corporation history" do
       create(:eve_character,
-             character_id: 123,
-             corporation_id: 456)
+        character_id: 123,
+        corporation_id: 456)
 
       create(:eve_corporation,
-             alliance_id: 123,
-             corporation_id: 456,
-             name: "Character corporation name",
-             description: "Character corporation description",
-             ticker: "TICKER",
-             date_founded: "Sun, 03 May 2015 19:45:17 UTC +00:00",
-             corporation_url: "https://evemonk.com/",
-             member_count: 2000,
-             shares: 1000,
-             tax_rate: 0.99,
-             ceo_id: 1234,
-             creator_id: 4321,
-             faction_id: 5555,
-             home_station_id: 999,
-             war_eligible: false)
+        alliance_id: 123,
+        corporation_id: 456,
+        name: "Character corporation name",
+        description: "Character corporation description",
+        ticker: "TICKER",
+        date_founded: "Sun, 03 May 2015 19:45:17 UTC +00:00",
+        corporation_url: "https://evemonk.com/",
+        member_count: 2000,
+        shares: 1000,
+        tax_rate: 0.99,
+        ceo_id: 1234,
+        creator_id: 4321,
+        faction_id: 5555,
+        home_station_id: 999,
+        war_eligible: false)
 
       create(:eve_character_corporation_history,
-             character_id: 123,
-             corporation_id: 456,
-             is_deleted: false,
-             record_id: 1,
-             start_date: "Sun, 03 May 2015 19:45:17 UTC +00:00")
+        character_id: 123,
+        corporation_id: 456,
+        is_deleted: false,
+        record_id: 1,
+        start_date: "Sun, 03 May 2015 19:45:17 UTC +00:00")
 
       get "/api/eve/characters/123/corporations_history"
 
