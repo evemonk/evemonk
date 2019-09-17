@@ -25,7 +25,7 @@
       <table class="table table-striped table-bordered">
         <thead>
           <tr>
-            <th>&nbsp;</th>
+            <th class="m-0 p-2">&nbsp;</th>
             <th>Name</th>
             <th class="text-right">Corps</th>
             <th class="text-right">Members</th>
@@ -35,10 +35,10 @@
         <tbody>
           <% @alliances.each do |alliance| %>
             <tr>
-              <td class="align-middle text-center"><%= image_tag(alliance.icon_tiny, class: "rounded") %></td>
-              <td class="text-break"><%= link_to(alliance.name, universe_alliance_path(alliance.alliance_id)) %> (<%= alliance.ticker %>)</td>
-              <td class="text-right"><%= alliance.formatted_corporations_count %></td>
-              <td class="text-right"><%= alliance.formatted_characters_count %></td>
+              <td class="text-center align-middle m-0 p-2"><%= image_tag(alliance.icon_tiny, class: "rounded border", width: 32, height: 32) %></td>
+              <td class="text-break align-middle"><%= link_to(alliance.name, universe_alliance_path(alliance.alliance_id)) %> (<%= alliance.ticker %>)</td>
+              <td class="text-right align-middle"><%= alliance.formatted_corporations_count %></td>
+              <td class="text-right align-middle"><%= alliance.formatted_characters_count %></td>
             </tr>
           <% end %>
         </tbody>
@@ -51,7 +51,7 @@
       <table class="table table-striped table-bordered">
         <thead>
           <tr>
-            <th>&nbsp;</th>
+            <th class="m-0 p-2">&nbsp;</th>
             <th>Name</th>
             <th class="text-right">Members</th>
             <!-- <th>&Delta;</th> -->
@@ -60,9 +60,9 @@
         <tbody>
           <% @corporations.each do |corporation| %>
             <tr>
-              <td class="align-middle text-center"><%= image_tag(corporation.icon_tiny, class: "rounded") %></td>
-              <td class="text-break"><%= link_to(corporation.name, universe_corporation_path(corporation.corporation_id)) %> (<%= corporation.ticker %>)</td>
-              <td class="text-right"><%= corporation.formatted_member_count %></td>
+              <td class="text-center align-middle m-0 p-2"><%= image_tag(corporation.icon_tiny, class: "rounded border", width: 32, height: 32) %></td>
+              <td class="text-break align-middle"><%= link_to(corporation.name, universe_corporation_path(corporation.corporation_id)) %> (<%= corporation.ticker %>)</td>
+              <td class="text-right align-middle"><%= corporation.formatted_member_count %></td>
             </tr>
           <% end %>
         </tbody>
