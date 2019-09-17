@@ -70,13 +70,18 @@ describe Universe::CorporationsController do
       #
       # subject.policy_scope(::Eve::Character)
       #        .where(corporation: @corporation)
+      #        .order(:name)
       #        .decorate
       #
       expect(subject).to receive(:policy_scope).with(Eve::Character) do
         double.tap do |a|
           expect(a).to receive(:where).with(corporation: eve_corporation) do
             double.tap do |b|
-              expect(b).to receive(:decorate)
+              expect(b).to receive(:order).with(:name) do
+                double.tap do |c|
+                  expect(c).to receive(:decorate)
+                end
+              end
             end
           end
         end

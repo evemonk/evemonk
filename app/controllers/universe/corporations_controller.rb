@@ -17,6 +17,7 @@ module Universe
 
       @characters = policy_scope(::Eve::Character)
         .where(corporation: @corporation)
+        .order(:name)
         .decorate
 
       skip_authorization
