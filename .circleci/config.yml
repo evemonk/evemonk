@@ -4,7 +4,7 @@ jobs:
   build:
     working_directory: ~/evemonk
     docker:
-      - image: circleci/ruby:2.6.3-node-browsers
+      - image: circleci/ruby:2.6.4-node-browsers
         environment:
           RAILS_ENV: test
           PGHOST: localhost
@@ -23,15 +23,15 @@ jobs:
       - run: ./cc-test-reporter before-build
       - restore_cache:
           keys:
-            - ruby-263-v1-dependencies-{{ checksum "Gemfile.lock" }}
-            - ruby-263-v1-dependencies-
+            - ruby-264-v1-dependencies-{{ checksum "Gemfile.lock" }}
+            - ruby-264-v1-dependencies-
       - run: sudo gem update --system '3.0.6'
       - run: gem install bundler -v '2.0.2'
       - run: bundle check || bundle install --clean --jobs=2 --retry=5 --path vendor/bundle
       - save_cache:
           paths:
             - ./vendor/bundle
-          key: ruby-263-v1-dependencies-{{ checksum "Gemfile.lock" }}
+          key: ruby-264-v1-dependencies-{{ checksum "Gemfile.lock" }}
       - run: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run: dockerize -wait tcp://localhost:9200 -timeout 2m
       - run: sudo npm install -g npm@6.11.3
