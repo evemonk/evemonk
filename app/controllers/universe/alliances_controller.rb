@@ -12,8 +12,7 @@ module Universe
 
     def show
       @alliance = policy_scope(::Eve::Alliance)
-        .includes(:faction, :creator_corporation, :creator,
-          :executor_corporation)
+        .includes(:faction, :creator_corporation, :creator, :executor_corporation)
         .find_by!(alliance_id: params[:id])
         .decorate
 
