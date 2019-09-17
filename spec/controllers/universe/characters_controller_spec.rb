@@ -39,7 +39,7 @@ describe Universe::CharactersController do
 
     before { subject.instance_variable_set(:@_pundit_policy_scoped, true) }
 
-    before { get :index, params: { q: "character", page: "2" } }
+    before { get :index, params: {q: "character", page: "2"} }
 
     it { should respond_with(:ok) }
 
@@ -75,7 +75,7 @@ describe Universe::CharactersController do
       end
     end
 
-    before { get :show, params: { id: "91752503" } }
+    before { get :show, params: {id: "91752503"} }
 
     it { should respond_with(:ok) }
 

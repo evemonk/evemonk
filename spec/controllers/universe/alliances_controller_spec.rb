@@ -39,7 +39,7 @@ describe Universe::AlliancesController do
 
     before { subject.instance_variable_set(:@_pundit_policy_scoped, true) }
 
-    before { get :index, params: { q: "alliance", page: "2" } }
+    before { get :index, params: {q: "alliance", page: "2"} }
 
     it { should respond_with(:ok) }
 
@@ -102,7 +102,7 @@ describe Universe::AlliancesController do
       end
     end
 
-    before { get :show, params: { id: "1354830081" } }
+    before { get :show, params: {id: "1354830081"} }
 
     it { should respond_with(:ok) }
 

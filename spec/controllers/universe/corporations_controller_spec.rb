@@ -39,7 +39,7 @@ describe Universe::CorporationsController do
 
     before { subject.instance_variable_set(:@_pundit_policy_scoped, true) }
 
-    before { get :index, params: { q: "corporation", page: "2" } }
+    before { get :index, params: {q: "corporation", page: "2"} }
 
     it { should respond_with(:ok) }
 
@@ -83,7 +83,7 @@ describe Universe::CorporationsController do
       end
     end
 
-    before { get :show, params: { id: "1000001" } }
+    before { get :show, params: {id: "1000001"} }
 
     it { should respond_with(:ok) }
 
