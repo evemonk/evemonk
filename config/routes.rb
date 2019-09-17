@@ -1,14 +1,6 @@
 # frozen_string_literal: true
 
-require "sidekiq/web"
-require "sidekiq-scheduler/web"
-
 Rails.application.routes.draw do
-  # TODO: move to subdomain
-  namespace :backoffice do
-    mount Sidekiq::Web, at: "sidekiq"
-  end
-
   namespace :universe do
     resources :alliances, only: [:index, :show]
 

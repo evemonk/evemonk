@@ -33,7 +33,6 @@ gem "paper_trail"
 gem "rails-settings-cached"
 gem "sidekiq", require: false
 gem "sidekiq-scheduler", require: false
-gem "sinatra", require: false
 gem "rpush"
 gem "pghero"
 gem "pg_query"
