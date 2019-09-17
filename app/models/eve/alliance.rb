@@ -42,7 +42,7 @@ module Eve
     end
 
     def reset_characters_count
-      update!(characters_count: corporations.sum(:member_count))
+      update_columns(characters_count: corporations.sum(:member_count))
     end
   end
 end
