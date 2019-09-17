@@ -34,7 +34,7 @@
         <tbody>
           <% @alliances.each do |alliance| %>
             <tr>
-              <td class="text-center align-middle border-right-0 m-0 p-2"><%= image_tag(alliance.icon_tiny, alt: "#{ alliance.name } (#{ alliance.ticker })", class: "rounded border", width: 34, height: 34) %></td>
+              <td class="text-center align-middle border-right-0 m-0 p-2"><%= image_tag(alliance.icon_tiny, alt: "#{ alliance.name } (#{ alliance.ticker })", class: "rounded border", size: "34x34", loading: "lazy") %></td>
               <td class="text-break align-middle border-left-0"><%= link_to(alliance.name, universe_alliance_path(alliance.alliance_id)) %> (<%= alliance.ticker %>)</td>
               <td class="text-right align-middle"><%= alliance.formatted_corporations_count %></td>
               <td class="text-right align-middle"><%= alliance.formatted_characters_count %></td>
@@ -58,7 +58,7 @@
         <tbody>
           <% @corporations.each do |corporation| %>
             <tr>
-              <td class="text-center align-middle border-right-0 m-0 p-2"><%= image_tag(corporation.icon_tiny, alt: "#{ corporation.name } (#{ corporation.ticker })", class: "rounded border", width: 34, height: 34) %></td>
+              <td class="text-center align-middle border-right-0 m-0 p-2"><%= image_tag(corporation.icon_tiny, alt: "#{ corporation.name } (#{ corporation.ticker })", class: "rounded border", size: "34x34", loading: "lazy") %></td>
               <td class="text-break align-middle border-left-0"><%= link_to(corporation.name, universe_corporation_path(corporation.corporation_id)) %> (<%= corporation.ticker %>)</td>
               <td class="text-right align-middle"><%= corporation.formatted_member_count %></td>
             </tr>
