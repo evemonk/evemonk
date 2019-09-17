@@ -7,24 +7,24 @@ module Eve
     searchkick
 
     belongs_to :creator_corporation,
-               primary_key: :corporation_id,
-               class_name: "Eve::Corporation",
-               optional: true
+      primary_key: :corporation_id,
+      class_name: "Eve::Corporation",
+      optional: true
 
     belongs_to :creator,
-               primary_key: :character_id,
-               class_name: "Eve::Character",
-               optional: true
+      primary_key: :character_id,
+      class_name: "Eve::Character",
+      optional: true
 
     belongs_to :executor_corporation,
-               foreign_key: :executor_corporation_id,
-               primary_key: :corporation_id,
-               class_name: "Eve::Corporation",
-               optional: true
+      foreign_key: :executor_corporation_id,
+      primary_key: :corporation_id,
+      class_name: "Eve::Corporation",
+      optional: true
 
     belongs_to :faction,
-               primary_key: :faction_id,
-               optional: true
+      primary_key: :faction_id,
+      optional: true
 
     has_many :alliance_corporations, primary_key: :alliance_id
 
@@ -32,15 +32,17 @@ module Eve
 
     has_many :characters, through: :corporations
 
-    # def characters_count
-    #   corporations.sum("eve_corporations.member_count")
-    # end
+    after_create_commit :reset_characters_count
 
     def search_data
       {
         name: name,
         ticker: ticker,
       }
+    end
+
+    def reset_characters_count
+      update!(characters_count: corporations.sum(:member_count))
     end
   end
 end
