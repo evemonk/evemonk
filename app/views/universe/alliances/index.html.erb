@@ -34,10 +34,22 @@
       <tbody>
         <% @alliances.each do |alliance| %>
           <tr>
-            <td class="align-middle text-center border-right-0 m-0 p-2"><%= image_tag(alliance.icon_tiny, alt: "#{ alliance.name } (#{ alliance.ticker })", class: "rounded border", size: "34x34", loading: "lazy") %></td>
-            <td class="align-middle text-break border-left-0"><%= link_to(alliance.name, universe_alliance_path(alliance.alliance_id)) %> (<%= alliance.ticker %>)</td>
-            <td class="align-middle text-right"><%= alliance.formatted_corporations_count %></td>
-            <td class="align-middle text-right"><%= alliance.formatted_characters_count %></td>
+            <td class="align-middle text-center border-right-0 m-0 p-2">
+              <%= image_tag(alliance.icon_tiny,
+                            alt: "#{ alliance.name } (#{ alliance.ticker })",
+                            class: "rounded border",
+                            size: "34x34",
+                            loading: "lazy") %>
+            </td>
+            <td class="align-middle text-break border-left-0">
+              <%= link_to(alliance.name, universe_alliance_path(alliance.alliance_id)) %> (<%= alliance.ticker %>)
+            </td>
+            <td class="align-middle text-right">
+              <%= alliance.formatted_corporations_count %>
+            </td>
+            <td class="align-middle text-right">
+              <%= alliance.formatted_characters_count %>
+            </td>
           </tr>
         <% end %>
       </tbody>
