@@ -1,6 +1,7 @@
 .env
 .env.example
 .env_docker
+docker-compose.yml
 node_modules/*
 tmp/cache/*
 public/packs/*
