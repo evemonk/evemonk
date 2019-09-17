@@ -17,8 +17,8 @@ GIT
       activesupport (>= 4.2.0)
 
 GIT
-  remote: https://github.com/jdliss/shoulda-callback-matchers.git
-  revision: b8a3680bc1d19ac713e43054a2b33238ce845698
+  remote: https://github.com/just806me/shoulda-callback-matchers.git
+  revision: b3a93d43490cdb3062a437e2edfbd50d25eda79a
   branch: master
   specs:
     shoulda-callback-matchers (1.1.4)

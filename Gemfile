@@ -122,7 +122,7 @@ group :test do
   gem "shoulda-matchers", git: "https://github.com/thoughtbot/shoulda-matchers.git",
                           branch: "master"
   gem "rspec-its"
-  gem "shoulda-callback-matchers", git: "https://github.com/jdliss/shoulda-callback-matchers.git",
+  gem "shoulda-callback-matchers", git: "https://github.com/just806me/shoulda-callback-matchers.git",
                                    branch: "master"
   gem "simplecov"
   gem "database_rewinder"
