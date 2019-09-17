@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-class AddForeignKeySecureTokensUsers < ActiveRecord::Migration[5.0]
+class AddForeignKeySecureTokensUsers < ActiveRecord::Migration[6.0]
   def change
-    add_foreign_key :secure_tokens, :users
+    add_foreign_key :secure_tokens, :users, validate: false
   end
 end
