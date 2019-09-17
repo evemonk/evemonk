@@ -7,7 +7,7 @@ describe Universe::CharactersController do
     it "should route GET /universe/characters to universe/characters#index" do
       expect(get: "/universe/characters").to route_to(
         controller: "universe/characters",
-        action: "index",
+        action: "index"
       )
     end
 
@@ -15,7 +15,7 @@ describe Universe::CharactersController do
       expect(get: "/universe/characters/90729314").to route_to(
         controller: "universe/characters",
         action: "show",
-        id: "90729314",
+        id: "90729314"
       )
     end
   end

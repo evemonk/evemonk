@@ -7,7 +7,7 @@ describe Universe::CorporationsController do
     it "should route GET /universe/corporations to universe/corporations#index" do
       expect(get: "/universe/corporations").to route_to(
         controller: "universe/corporations",
-        action: "index",
+        action: "index"
       )
     end
 
@@ -15,7 +15,7 @@ describe Universe::CorporationsController do
       expect(get: "/universe/corporations/98005120").to route_to(
         controller: "universe/corporations",
         action: "show",
-        id: "98005120",
+        id: "98005120"
       )
     end
   end

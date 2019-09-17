@@ -7,7 +7,7 @@ describe Universe::AlliancesController do
     it "should route GET /universe/alliances to universe/alliances#index" do
       expect(get: "/universe/alliances").to route_to(
         controller: "universe/alliances",
-        action: "index",
+        action: "index"
       )
     end
 
@@ -15,7 +15,7 @@ describe Universe::AlliancesController do
       expect(get: "/universe/alliances/99005443").to route_to(
         controller: "universe/alliances",
         action: "show",
-        id: "99005443",
+        id: "99005443"
       )
     end
   end
