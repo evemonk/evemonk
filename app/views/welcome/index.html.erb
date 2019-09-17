@@ -38,13 +38,13 @@
             <tr>
               <td class="text-center align-middle border-right-0 m-0 p-2">
                 <%= image_tag(alliance.icon_tiny,
-                              alt: "#{ alliance.name } (#{ alliance.ticker })",
+                              alt: alliance.name,
                               class: "rounded border",
                               size: "34x34",
                               loading: "lazy") %>
               </td>
               <td class="text-break align-middle border-left-0">
-                <%= link_to(alliance.name, universe_alliance_path(alliance.alliance_id)) %> (<%= alliance.ticker %>)
+                <%= link_to(alliance.name, universe_alliance_path(alliance.alliance_id)) %>
               </td>
               <td class="text-right align-middle">
                 <%= alliance.formatted_corporations_count %>
@@ -74,13 +74,13 @@
             <tr>
               <td class="text-center align-middle border-right-0 m-0 p-2">
                 <%= image_tag(corporation.icon_tiny,
-                              alt: "#{ corporation.name } (#{ corporation.ticker })",
+                              alt: corporation.name,
                               class: "rounded border",
                               size: "34x34",
                               loading: "lazy") %>
               </td>
               <td class="text-break align-middle border-left-0">
-                <%= link_to(corporation.name, universe_corporation_path(corporation.corporation_id)) %> (<%= corporation.ticker %>)
+                <%= link_to(corporation.name, universe_corporation_path(corporation.corporation_id)) %>
               </td>
               <td class="text-right align-middle">
                 <%= corporation.formatted_member_count %>
