@@ -8,9 +8,9 @@ describe Api::ResetPasswordForm, type: :model do
   describe "validations" do
     let!(:user) do
       create(:user,
-             email: "me@example.com",
-             password: "old_password",
-             reset_password_token: "reset-token-123")
+        email: "me@example.com",
+        password: "old_password",
+        reset_password_token: "reset-token-123")
     end
 
     let(:params) do
@@ -40,9 +40,9 @@ describe Api::ResetPasswordForm, type: :model do
     context "when everything ok" do
       let!(:user) do
         create(:user,
-               email: "me@example.com",
-               password: "old_password",
-               reset_password_token: "reset-token-123")
+          email: "me@example.com",
+          password: "old_password",
+          reset_password_token: "reset-token-123")
       end
 
       let(:params) do
@@ -84,9 +84,9 @@ describe Api::ResetPasswordForm, type: :model do
     context "when user reset password token not found" do
       let!(:user) do
         create(:user,
-               email: "me@example.com",
-               password: "old_password",
-               reset_password_token: "reset-token-123")
+          email: "me@example.com",
+          password: "old_password",
+          reset_password_token: "reset-token-123")
       end
 
       let(:params) do

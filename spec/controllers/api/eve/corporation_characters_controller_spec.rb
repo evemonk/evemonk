@@ -45,11 +45,11 @@ describe Api::Eve::CorporationCharactersController do
             expect(a).to receive(:where).with(corporation: eve_corporation) do
               double.tap do |b|
                 expect(b).to receive(:includes).with(:alliance,
-                                                     :ancestry,
-                                                     :bloodline,
-                                                     :corporation,
-                                                     :faction,
-                                                     :race) do
+                  :ancestry,
+                  :bloodline,
+                  :corporation,
+                  :faction,
+                  :race) do
                   double.tap do |c|
                     expect(c).to receive(:page).with("1") do
                       double.tap do |d|

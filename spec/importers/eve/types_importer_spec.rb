@@ -41,9 +41,9 @@ describe Eve::TypesImporter do
 
       let(:esi) do
         instance_double(EveOnline::ESI::UniverseTypes,
-                        not_modified?: false,
-                        etag: new_etag,
-                        url: url)
+          not_modified?: false,
+          etag: new_etag,
+          url: url)
       end
 
       before { expect(EveOnline::ESI::UniverseTypes).to receive(:new).with(page: page).and_return(esi) }
@@ -74,8 +74,8 @@ describe Eve::TypesImporter do
 
       let(:esi) do
         instance_double(EveOnline::ESI::UniverseTypes,
-                        not_modified?: true,
-                        url: url)
+          not_modified?: true,
+          url: url)
       end
 
       before { expect(EveOnline::ESI::UniverseTypes).to receive(:new).with(page: page).and_return(esi) }

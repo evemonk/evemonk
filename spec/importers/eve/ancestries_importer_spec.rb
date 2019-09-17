@@ -17,10 +17,10 @@ describe Eve::AncestriesImporter do
 
       let(:esi) do
         instance_double(EveOnline::ESI::UniverseAncestries,
-                        not_modified?: false,
-                        url: url,
-                        etag: new_etag,
-                        ancestries: [ancestry])
+          not_modified?: false,
+          url: url,
+          etag: new_etag,
+          ancestries: [ancestry])
       end
 
       before { expect(EveOnline::ESI::UniverseAncestries).to receive(:new).and_return(esi) }
@@ -47,8 +47,8 @@ describe Eve::AncestriesImporter do
 
       let(:esi) do
         instance_double(EveOnline::ESI::UniverseAncestries,
-                        not_modified?: true,
-                        url: url)
+          not_modified?: true,
+          url: url)
       end
 
       before { expect(EveOnline::ESI::UniverseAncestries).to receive(:new).and_return(esi) }

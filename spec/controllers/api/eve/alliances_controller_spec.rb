@@ -71,9 +71,9 @@ describe Api::Eve::AlliancesController do
         expect(subject).to receive(:policy_scope).with(Eve::Alliance) do
           double.tap do |a|
             expect(a).to receive(:includes).with(:faction,
-                                                 :creator_corporation,
-                                                 :creator,
-                                                 :executor_corporation) do
+              :creator_corporation,
+              :creator,
+              :executor_corporation) do
               double.tap do |b|
                 expect(b).to receive(:find_by!).with(alliance_id: "99005443")
                   .and_return(eve_alliance)
@@ -115,9 +115,9 @@ describe Api::Eve::AlliancesController do
         expect(subject).to receive(:policy_scope).with(Eve::Alliance) do
           double.tap do |a|
             expect(a).to receive(:includes).with(:faction,
-                                                 :creator_corporation,
-                                                 :creator,
-                                                 :executor_corporation) do
+              :creator_corporation,
+              :creator,
+              :executor_corporation) do
               double.tap do |b|
                 expect(b).to receive(:find_by!).with(alliance_id: "99005443")
                   .and_raise(ActiveRecord::RecordNotFound)

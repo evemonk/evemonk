@@ -6,7 +6,7 @@ describe Api::RefreshCharacterAccessToken do
   context "when token fresh" do
     let(:character) do
       create(:character,
-             token_expires_at: Time.zone.now + 1.day)
+        token_expires_at: Time.zone.now + 1.day)
     end
 
     subject { described_class.new(character.character_id) }
@@ -27,10 +27,10 @@ describe Api::RefreshCharacterAccessToken do
 
     let(:character) do
       create(:character,
-             character_id: 1_337_512_245,
-             access_token: "expired-access-token123",
-             refresh_token: "fresh-token-1232132132132131231312312312312312321321321321312312",
-             token_expires_at: Time.zone.now)
+        character_id: 1_337_512_245,
+        access_token: "expired-access-token123",
+        refresh_token: "fresh-token-1232132132132131231312312312312312321321321321312312",
+        token_expires_at: Time.zone.now)
     end
 
     subject { described_class.new(character.character_id) }

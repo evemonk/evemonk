@@ -17,10 +17,10 @@ describe Eve::BloodlinesImporter do
 
       let(:esi) do
         instance_double(EveOnline::ESI::UniverseBloodlines,
-                        not_modified?: false,
-                        url: url,
-                        etag: new_etag,
-                        bloodlines: [bloodline])
+          not_modified?: false,
+          url: url,
+          etag: new_etag,
+          bloodlines: [bloodline])
       end
 
       before { expect(EveOnline::ESI::UniverseBloodlines).to receive(:new).and_return(esi) }
@@ -47,8 +47,8 @@ describe Eve::BloodlinesImporter do
 
       let(:esi) do
         instance_double(EveOnline::ESI::UniverseBloodlines,
-                        not_modified?: true,
-                        url: url)
+          not_modified?: true,
+          url: url)
       end
 
       before { expect(EveOnline::ESI::UniverseBloodlines).to receive(:new).and_return(esi) }

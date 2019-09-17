@@ -75,11 +75,11 @@ describe Api::CharactersController do
         #          .decorate
         #
         expect(Character).to receive(:eager_load).with(:race,
-                                                       :bloodline,
-                                                       :ancestry,
-                                                       :faction,
-                                                       :alliance,
-                                                       :corporation) do
+          :bloodline,
+          :ancestry,
+          :faction,
+          :alliance,
+          :corporation) do
           double.tap do |a|
             expect(a).to receive(:find_by!).with(character_id: "1") do
               double.tap do |b|

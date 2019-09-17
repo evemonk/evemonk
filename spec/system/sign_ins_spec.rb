@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe "Sign in features" do
+xdescribe "Sign in features" do
   it "when user successfully sign in" do
     user = create(:user, email: "me@example.com", password: "eidii7EeooVe8ahk")
 

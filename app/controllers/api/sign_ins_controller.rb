@@ -20,7 +20,7 @@ module Api
 
     def sign_in_params
       params.require(:sign_in).permit(:email, :password, :name, :device_type,
-                                      :device_token)
+        :device_token)
     end
   end
 end

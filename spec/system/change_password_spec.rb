@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe "Change password features" do
+xdescribe "Change password features" do
   it "when user successfully change password" do
     user = create(:user, email: "me@example.com", password: "eidii7EeooVe8ahk")
 

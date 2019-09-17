@@ -2,6 +2,22 @@
 
 ## master
 
+* Cut all features
+* Move client side rendering back to server
+* Remove vue stuff
+* Style with Twitter Bootstrap
+* Add universe alliances index
+* Add universe alliance show
+* Add universe corporations index
+* Add universe corporation show
+* Add universe characters index
+* Add universe character show
+* Add Open Graph tags
+* Add SEO stuff to pages
+* Add Google Analytics
+
+## v0.1.1
+
 * Reset password feature
 * Change password feature
 * Add SEO titles to pages

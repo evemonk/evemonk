@@ -2,9 +2,11 @@
 
 module Eve
   class AllianceDecorator < ApplicationDecorator
+    include ActionView::Helpers::NumberHelper
+
     decorates_associations :creator_corporation, :creator,
-                           :executor_corporation, :faction,
-                           :corporations, :characters
+      :executor_corporation, :faction,
+      :corporations, :characters
 
     def date_founded
       object.date_founded.iso8601
@@ -20,6 +22,14 @@ module Eve
 
     def icon_medium
       "#{imageproxy_url}https://imageserver.eveonline.com/Alliance/#{alliance_id}_128.png"
+    end
+
+    def formatted_corporations_count
+      number_with_delimiter(corporations_count, delimiter: " ")
+    end
+
+    def formatted_characters_count
+      number_with_delimiter(characters_count, delimiter: " ")
     end
   end
 end

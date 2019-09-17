@@ -50,8 +50,8 @@ describe Eve::AlliancesSearcher do
       context "when name match" do
         let!(:alliance) do
           create(:eve_alliance,
-                 name: "Northern Coalition.",
-                 ticker: nil)
+            name: "Northern Coalition.",
+            ticker: nil)
         end
 
         let(:query) { "Northern Coalition." }
@@ -66,8 +66,8 @@ describe Eve::AlliancesSearcher do
       context "when ticker match" do
         let!(:alliance) do
           create(:eve_alliance,
-                 name: nil,
-                 ticker: "NC")
+            name: nil,
+            ticker: "NC")
         end
 
         let(:query) { "NC" }

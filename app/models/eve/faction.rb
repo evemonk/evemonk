@@ -15,9 +15,9 @@ module Eve
     # belongs_to :militia_corporation_id
 
     belongs_to :solar_system,
-               foreign_key: :solar_system_id,
-               primary_key: :system_id,
-               class_name: "Eve::System",
-               optional: true
+      foreign_key: :solar_system_id,
+      primary_key: :system_id,
+      class_name: "Eve::System",
+      optional: true
   end
 end

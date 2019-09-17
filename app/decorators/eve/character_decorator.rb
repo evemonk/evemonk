@@ -3,7 +3,7 @@
 module Eve
   class CharacterDecorator < ApplicationDecorator
     decorates_associations :alliance, :ancestry, :bloodline, :corporation,
-                           :faction, :race, :character_corporation_histories
+      :faction, :race, :character_corporation_histories
 
     def birthday
       object.birthday&.iso8601

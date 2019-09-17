@@ -26,10 +26,10 @@ describe Eve::AllianceImporter do
 
         let(:esi) do
           instance_double(EveOnline::ESI::Alliance,
-                          url: url,
-                          not_modified?: false,
-                          etag: new_etag,
-                          as_json: json)
+            url: url,
+            not_modified?: false,
+            etag: new_etag,
+            as_json: json)
         end
 
         before do
@@ -40,7 +40,7 @@ describe Eve::AllianceImporter do
 
         let(:etag) do
           instance_double(Eve::Etag,
-                          etag: "6780e53a01c7d9715b5f445126c4f2c137da4be79e4debe541ce3ab2")
+            etag: "6780e53a01c7d9715b5f445126c4f2c137da4be79e4debe541ce3ab2")
         end
 
         before do
@@ -103,8 +103,8 @@ describe Eve::AllianceImporter do
 
       let(:esi) do
         instance_double(EveOnline::ESI::Alliance,
-                        url: url,
-                        not_modified?: true)
+          url: url,
+          not_modified?: true)
       end
 
       before do
@@ -115,7 +115,7 @@ describe Eve::AllianceImporter do
 
       let(:etag) do
         instance_double(Eve::Etag,
-                        etag: "6780e53a01c7d9715b5f445126c4f2c137da4be79e4debe541ce3ab2")
+          etag: "6780e53a01c7d9715b5f445126c4f2c137da4be79e4debe541ce3ab2")
       end
 
       before do

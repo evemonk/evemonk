@@ -9,7 +9,8 @@ if Rails.env.production? && ENV["SENTRY_DSN"]
     config.excluded_exceptions += ["EveOnline::Exceptions::InternalServerError",
                                    "EveOnline::Exceptions::BadGateway",
                                    "EveOnline::Exceptions::ServiceUnavailable",
-                                   "EveOnline::Exceptions::Timeout",]
+                                   "EveOnline::Exceptions::Timeout",
+                                   "Searchkick::ImportError",]
 
     # TODO: add release support
     # https://docs.sentry.io/clients/ruby/config/

@@ -17,10 +17,10 @@ describe Eve::FactionsImporter do
 
       let(:esi) do
         instance_double(EveOnline::ESI::UniverseFactions,
-                        not_modified?: false,
-                        url: url,
-                        etag: new_etag,
-                        factions: [faction])
+          not_modified?: false,
+          url: url,
+          etag: new_etag,
+          factions: [faction])
       end
 
       before { expect(EveOnline::ESI::UniverseFactions).to receive(:new).and_return(esi) }
@@ -47,8 +47,8 @@ describe Eve::FactionsImporter do
 
       let(:esi) do
         instance_double(EveOnline::ESI::UniverseFactions,
-                        not_modified?: true,
-                        url: url)
+          not_modified?: true,
+          url: url)
       end
 
       before { expect(EveOnline::ESI::UniverseFactions).to receive(:new).and_return(esi) }

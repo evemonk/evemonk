@@ -18,7 +18,7 @@ describe CharacterAttributesImporter do
 
     let(:esi) do
       instance_double(EveOnline::ESI::CharacterAttributes,
-                      as_json: json)
+        as_json: json)
     end
 
     before { expect(EveOnline::ESI::CharacterAttributes).to receive(:new).with(character_id: character_id, token: access_token).and_return(esi) }

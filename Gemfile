@@ -8,13 +8,19 @@ gem "puma"
 gem "sass-rails"
 gem "webpacker", "~> 4.0"
 gem "jbuilder", "~> 2.7"
+gem "devise"
+gem "omniauth-rails_csrf_protection"
 gem "bootsnap", ">= 1.4.2", require: false
-# gem 'rufus-scheduler'
+gem "meta-tags"
+gem "metricky"
+gem "dalli"
+gem "foundation_emails"
+# gem "rufus-scheduler"
 gem "bcrypt"
-# gem 'eve_online'
+# gem "eve_online"
 gem "eve_online", git: "https://github.com/evemonk/eve_online.git", branch: "master"
-# gem 'eve_online', git: 'https://github.com/evemonk/eve_online.git', branch: 'dev'
-# gem 'eve_online', path: '~/opensource/eve_online'
+# gem "eve_online", git: "https://github.com/evemonk/eve_online.git", branch: "dev"
+# gem "eve_online", path: "~/opensource/eve_online"
 gem "omniauth-eve_online-sso"
 gem "jwt"
 gem "rack-cors", require: "rack/cors"
@@ -31,7 +37,7 @@ gem "sinatra", require: false
 gem "rpush"
 gem "pghero"
 gem "pg_query"
-# gem 'rubycritic', require: false
+# gem "rubycritic", require: false
 gem "swagger-blocks"
 gem "http_logger"
 gem "responders"
@@ -48,8 +54,9 @@ gem "server_timing"
 gem "awesome_print", require: "ap"
 gem "pry-rails"
 
-gem "act-fluent-logger-rails", git: "https://github.com/actindi/act-fluent-logger-rails.git",
-                               branch: "master"
+# gem "act-fluent-logger-rails", git: "https://github.com/actindi/act-fluent-logger-rails.git",
+#                                branch: "master"
+
 gem "lograge"
 
 gem "prometheus-client"
@@ -116,7 +123,7 @@ group :test do
   gem "shoulda-matchers", git: "https://github.com/thoughtbot/shoulda-matchers.git",
                           branch: "master"
   gem "rspec-its"
-  gem "shoulda-callback-matchers", git: "https://github.com/jdliss/shoulda-callback-matchers.git",
+  gem "shoulda-callback-matchers", git: "https://github.com/just806me/shoulda-callback-matchers.git",
                                    branch: "master"
   gem "simplecov"
   gem "database_rewinder"

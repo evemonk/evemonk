@@ -1,2 +1,70 @@
-<div id="app">
-</div>
+<% set_meta_tags title: "Welcome",
+                 og: {
+                   title: :title,
+                   url: root_url,
+                   type: "website",
+                   site_name: "EveMonk: EveOnline management suite",
+                   locale: "en_US",
+                 } %>
+
+<% cache(expires_in: 10.minutes) do %>
+  <div class="row">
+    <div class="col">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item active" aria-current="page">Home</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+      <h4 class="text-center"><%= link_to("Alliances", universe_alliances_path) %></h4>
+
+      <table class="table table-striped table-bordered">
+        <thead>
+          <tr>
+            <td>&nbsp;</td>
+            <td>Name</td>
+            <td class="text-right">Corps</td>
+            <td class="text-right">Members</td>
+          </tr>
+        </thead>
+        <tbody>
+          <% @alliances.each do |alliance| %>
+            <tr>
+              <td class="align-middle text-center"><%= image_tag(alliance.icon_tiny, class: "rounded") %></td>
+              <td class="text-break"><%= link_to(alliance.name, universe_alliance_path(alliance.alliance_id)) %> (<%= alliance.ticker %>)</td>
+              <td class="text-right"><%= alliance.formatted_corporations_count %></td>
+              <td class="text-right"><%= alliance.formatted_characters_count %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+      <h4 class="text-center"><%= link_to("Corporations", universe_corporations_path) %></h4>
+
+      <table class="table table-striped table-bordered">
+        <thead>
+          <tr>
+            <td>&nbsp;</td>
+            <td>Name</td>
+            <td class="text-right">Members</td>
+          </tr>
+        </thead>
+        <tbody>
+          <% @corporations.each do |corporation| %>
+            <tr>
+              <td class="align-middle text-center"><%= image_tag(corporation.icon_tiny, class: "rounded") %></td>
+              <td class="text-break"><%= link_to(corporation.name, universe_corporation_path(corporation.corporation_id)) %> (<%= corporation.ticker %>)</td>
+              <td class="text-right"><%= corporation.formatted_member_count %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+<% end %>

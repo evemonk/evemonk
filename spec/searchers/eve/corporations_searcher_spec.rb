@@ -50,8 +50,8 @@ describe Eve::CorporationsSearcher do
       context "when name match" do
         let!(:corporation) do
           create(:eve_corporation,
-                 name: "MyLittleDragon",
-                 ticker: nil)
+            name: "MyLittleDragon",
+            ticker: nil)
         end
 
         let(:query) { "MyLittleDragon" }

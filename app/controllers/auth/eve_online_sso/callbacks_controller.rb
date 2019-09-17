@@ -16,6 +16,8 @@ module Auth
 
         form.save!
 
+        skip_authorization
+
         redirect_to "/autosignin/#{form.session.token}"
       end
 

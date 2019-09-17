@@ -22,10 +22,10 @@ describe Eve::GraphicImporter do
 
         let(:esi) do
           instance_double(EveOnline::ESI::UniverseGraphic,
-                          url: url,
-                          not_modified?: false,
-                          etag: new_etag,
-                          as_json: json)
+            url: url,
+            not_modified?: false,
+            etag: new_etag,
+            as_json: json)
         end
 
         before { expect(EveOnline::ESI::UniverseGraphic).to receive(:new).with(id: graphic_id).and_return(esi) }
@@ -73,8 +73,8 @@ describe Eve::GraphicImporter do
 
       let(:esi) do
         instance_double(EveOnline::ESI::UniverseGraphic,
-                        url: url,
-                        not_modified?: true)
+          url: url,
+          not_modified?: true)
       end
 
       before { expect(EveOnline::ESI::UniverseGraphic).to receive(:new).with(id: graphic_id).and_return(esi) }

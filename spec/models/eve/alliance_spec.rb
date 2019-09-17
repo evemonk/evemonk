@@ -11,42 +11,48 @@ describe Eve::Alliance do
 
   it { expect(described_class.table_name).to eq("eve_alliances") }
 
-  it { should belong_to(:creator_corporation).with_primary_key(:corporation_id).class_name("Eve::Corporation").optional }
+  it { should belong_to(:creator_corporation).with_primary_key(:corporation_id).class_name("Eve::Corporation").optional(true) }
 
-  it { should belong_to(:creator).with_primary_key(:character_id).class_name("Eve::Character").optional }
+  it { should belong_to(:creator).with_primary_key(:character_id).class_name("Eve::Character").optional(true) }
 
-  it { should belong_to(:executor_corporation).with_foreign_key(:executor_corporation_id).with_primary_key(:corporation_id).class_name("Eve::Corporation").optional }
+  it { should belong_to(:executor_corporation).with_foreign_key(:executor_corporation_id).with_primary_key(:corporation_id).class_name("Eve::Corporation").optional(true) }
 
-  it { should belong_to(:faction).with_primary_key(:faction_id).optional }
+  it { should belong_to(:faction).with_primary_key(:faction_id).optional(true) }
 
   it { should have_many(:alliance_corporations).with_primary_key(:alliance_id) }
 
   it { should have_many(:corporations).through(:alliance_corporations) }
 
-  describe "#characters_count" do
-    let!(:alliance) { create(:eve_alliance, alliance_id: 123) }
-
-    let!(:corporation1) { create(:eve_corporation, corporation_id: 124, alliance_id: 123, member_count: 123) }
-
-    let!(:corporation2) { create(:eve_corporation, corporation_id: 125, alliance_id: 123, member_count: 123) }
-
-    let!(:alliance_corporation1) { create(:eve_alliance_corporation, corporation_id: 124, alliance_id: 123) }
-
-    let!(:alliance_corporation2) { create(:eve_alliance_corporation, corporation_id: 125, alliance_id: 123) }
-
-    specify { expect(alliance.characters_count).to eq(246) }
-  end
+  it { should callback(:reset_characters_count).after(:commit).on(:create) }
 
   describe "#search_data" do
-    let!(:alliance) do
+    let!(:eve_alliance) do
       create(:eve_alliance,
-             name: "Kids With Guns Alliance",
-             ticker: "-KWG-")
+        name: "Kids With Guns Alliance",
+        ticker: "-KWG-")
     end
 
     specify do
-      expect(alliance.search_data).to eq(name: "Kids With Guns Alliance",
-                                         ticker: "-KWG-")
+      expect(eve_alliance.search_data).to eq(name: "Kids With Guns Alliance",
+                                             ticker: "-KWG-")
     end
+  end
+
+  describe "#reset_characters_count" do
+    let!(:eve_alliance) { create(:eve_alliance, alliance_id: 12_345) }
+
+    let!(:eve_alliance_corporation1) { create(:eve_alliance_corporation, alliance_id: 12_345, corporation_id: 123) }
+
+    let!(:eve_alliance_corporation2) { create(:eve_alliance_corporation, alliance_id: 12_345, corporation_id: 321) }
+
+    let!(:eve_corporation1) { create(:eve_corporation, corporation_id: 123, alliance_id: 12_345, member_count: 123) }
+
+    let!(:eve_corporation2) { create(:eve_corporation, corporation_id: 321, alliance_id: 12_345, member_count: 123) }
+
+    subject { eve_alliance }
+
+    before { subject.update!(characters_count: 0) }
+
+    specify { expect { subject.reset_characters_count }.to change { subject.characters_count }.from(0).to(246) }
   end
 end

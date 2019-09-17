@@ -25,15 +25,15 @@ describe Eve::AllianceCorporationsImporter do
     context "when fresh data available" do
       let(:etag) do
         instance_double(Eve::Etag,
-                        etag: "97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a")
+          etag: "97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a")
       end
 
       let(:new_etag) { double }
 
       let(:esi) do
         instance_double(EveOnline::ESI::AllianceCorporations,
-                        not_modified?: false,
-                        etag: new_etag)
+          not_modified?: false,
+          etag: new_etag)
       end
 
       before do
@@ -65,12 +65,12 @@ describe Eve::AllianceCorporationsImporter do
     context "when no fresh data available" do
       let(:etag) do
         instance_double(Eve::Etag,
-                        etag: "97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a")
+          etag: "97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a")
       end
 
       let(:esi) do
         instance_double(EveOnline::ESI::AllianceCorporations,
-                        not_modified?: true)
+          not_modified?: true)
       end
 
       before do
@@ -126,8 +126,8 @@ describe Eve::AllianceCorporationsImporter do
 
     let(:esi) do
       instance_double(EveOnline::ESI::AllianceCorporations,
-                      not_modified?: false,
-                      corporation_ids: remote_corporation_ids)
+        not_modified?: false,
+        corporation_ids: remote_corporation_ids)
     end
 
     before do
@@ -182,8 +182,8 @@ describe Eve::AllianceCorporationsImporter do
 
     let(:esi) do
       instance_double(EveOnline::ESI::AllianceCorporations,
-                      not_modified?: false,
-                      corporation_ids: remote_corporation_ids)
+        not_modified?: false,
+        corporation_ids: remote_corporation_ids)
     end
 
     before do
@@ -249,7 +249,7 @@ describe Eve::AllianceCorporationsImporter do
 
       let(:esi) do
         instance_double(EveOnline::ESI::AllianceCorporations,
-                        url: url)
+          url: url)
       end
 
       let(:etag) { instance_double(Eve::Etag) }

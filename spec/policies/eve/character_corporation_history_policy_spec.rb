@@ -9,7 +9,7 @@ describe Eve::CharacterCorporationHistoryPolicy do
 
   let!(:record) do
     create(:eve_character_corporation_history,
-           character_id: eve_character.character_id)
+      character_id: eve_character.character_id)
   end
 
   describe "#initialize" do

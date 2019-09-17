@@ -15,7 +15,7 @@ OmniAuth.config.full_host = "https://evemonk.com"
 
 Rails.application.config.middleware.use OmniAuth::Builder do
   provider :eve_online_sso,
-           Setting.eve_online_sso_client_id,
-           Setting.eve_online_sso_secret_key,
-           scope: SCOPES.join(" ")
+    Setting.eve_online_sso_client_id,
+    Setting.eve_online_sso_secret_key,
+    scope: SCOPES.join(" ")
 end

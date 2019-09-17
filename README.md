@@ -7,42 +7,20 @@
 
 EveMonk is helper software for EveOnline MMORPG.
 
+Styled with Twitter Bootstrap.
+
+Mobile first design.
+
 ## Features
 
-* API Sign Up
-* API Sign In
-* API Sign Out
-* API Session list
-* API End session
-* API current user profile
-* Multiple API sessions for clients
-* API list characters
-* API remove character
-* Sign Up page
-* Sign In page
-* Sign Out
-* Change password
-* Reset password
-* Profile page
-* Character page with:
-  * Name
-  * Bio
-  * Birthday
-  * Gender
-  * Race
-  * Bloodline
-  * Ancestry
-  * Faction
-  * Alliance
-  * Corporation
-  * Security status
-  * Wallet
-  * Perception
-  * Memory
-  * Willpower
-  * Intelligence
-  * Charisma
-  * Bonus Remaps Available
+* Alliances list
+* Corporations list
+* Characters list
+* Alliance show
+* Corporation show
+* Character show
+* Open Graph tags
+* SEO friendly
 
 ## Environment
 
@@ -50,20 +28,17 @@ EveMonk is helper software for EveOnline MMORPG.
 * [ruby-build](https://github.com/rbenv/ruby-build)
 * [asdf](https://github.com/asdf-vm/asdf)
 * [asdf-nodejs](https://github.com/asdf-vm/asdf-nodejs)
-* Ruby 2.6.3
+* Ruby 2.6.4
 * RubyGems 3.0.6
 * Bundler 2.0.2
 * Ruby on Rails 6.0.0
 * PostgreSQL 11.5
 * Redis 5.0.5
-* Elasticsearch 7.3.0
+* Elasticsearch 7.3.2
 * Node 10.16.3
-* NPM 6.11.2
+* NPM 6.11.3
 * Yarn 1.17.3
-* Vue 2.6.10
-* vuex 3.1.1
-* vue-router 3.1.3
-* Vuetify 2.0.14
+* Twitter Bootstrap 4.3.1
 
 ## Configure
 

@@ -28,10 +28,10 @@ describe Eve::CorporationAllianceHistoryImporter do
 
         let(:esi) do
           instance_double(EveOnline::ESI::CorporationAllianceHistory,
-                          url: url,
-                          not_modified?: false,
-                          etag: new_etag,
-                          entries: entries)
+            url: url,
+            not_modified?: false,
+            etag: new_etag,
+            entries: entries)
         end
 
         before { expect(EveOnline::ESI::CorporationAllianceHistory).to receive(:new).with(corporation_id: corporation_id).and_return(esi) }
@@ -115,8 +115,8 @@ describe Eve::CorporationAllianceHistoryImporter do
 
       let(:esi) do
         instance_double(EveOnline::ESI::CorporationAllianceHistory,
-                        url: url,
-                        not_modified?: true)
+          url: url,
+          not_modified?: true)
       end
 
       before { expect(EveOnline::ESI::CorporationAllianceHistory).to receive(:new).with(corporation_id: corporation_id).and_return(esi) }

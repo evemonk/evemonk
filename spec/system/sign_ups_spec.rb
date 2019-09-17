@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe "Sign up features" do
+xdescribe "Sign up features" do
   it "when user successfully sign up" do
     create(:eve_server_status)
 

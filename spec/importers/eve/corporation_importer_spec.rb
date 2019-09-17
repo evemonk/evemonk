@@ -22,10 +22,10 @@ describe Eve::CorporationImporter do
 
         let(:esi) do
           instance_double(EveOnline::ESI::Corporation,
-                          url: url,
-                          not_modified?: false,
-                          etag: new_etag,
-                          as_json: json)
+            url: url,
+            not_modified?: false,
+            etag: new_etag,
+            as_json: json)
         end
 
         before { expect(EveOnline::ESI::Corporation).to receive(:new).with(corporation_id: corporation_id).and_return(esi) }
@@ -73,8 +73,8 @@ describe Eve::CorporationImporter do
 
       let(:esi) do
         instance_double(EveOnline::ESI::Corporation,
-                        url: url,
-                        not_modified?: true)
+          url: url,
+          not_modified?: true)
       end
 
       before { expect(EveOnline::ESI::Corporation).to receive(:new).with(corporation_id: corporation_id).and_return(esi) }

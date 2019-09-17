@@ -2,30 +2,17 @@
   "name": "evemonk",
   "private": true,
   "dependencies": {
-    "@rails/actioncable": "^6.0.0",
-    "@rails/webpacker": "^4.0.2",
-    "@sentry/browser": "^5.1.1",
-    "@sentry/integrations": "^5.1.0",
-    "axios": "^0.19.0",
-    "prerender": "^5.6.0",
-    "rails-erb-loader": "^5.5.2",
-    "vue": "^2.6.10",
-    "vue-analytics": "^5.16.4",
-    "vue-headful": "^2.0.1",
-    "vue-loader": "^15.7.0",
-    "vue-qrcode": "^0.0.2",
-    "vue-router": "^3.0.6",
-    "vue-template-compiler": "^2.6.10",
-    "vuetify": "^2.0.3",
-    "vuex": "^3.1.0"
+    "@rails/actioncable": "^6.0.0-alpha",
+    "@rails/ujs": "^6.0.0-alpha",
+    "@rails/webpacker": "^4.0.7",
+    "@sentry/browser": "^5.6.3",
+    "bootstrap": "^4.3.1",
+    "jquery": "^3.4.1",
+    "popper.js": "^1.15.0",
+    "turbolinks": "^5.2.0"
   },
   "version": "0.1.0",
   "devDependencies": {
-    "eslint": "^6.1.0",
-    "eslint-config-airbnb-base": "^14.0.0",
-    "eslint-plugin-import": "^2.17.2",
-    "eslint-plugin-vuetify": "^1.0.0-beta.3",
-    "fx": "^14.0.1",
-    "webpack-dev-server": "^3.3.1"
+    "webpack-dev-server": "^3.8.0"
   }
 }

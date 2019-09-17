@@ -13,11 +13,11 @@ module Eve
       ids = Eve::Character.search(query, load: false).map(&:id) if query.present?
 
       relation = scope.includes(:alliance,
-                                :ancestry,
-                                :bloodline,
-                                :corporation,
-                                :faction,
-                                :race)
+        :ancestry,
+        :bloodline,
+        :corporation,
+        :faction,
+        :race)
 
       relation = relation.where(id: ids) if ids.present?
 
