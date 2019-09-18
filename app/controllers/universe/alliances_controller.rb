@@ -18,6 +18,7 @@ module Universe
 
       @corporations = policy_scope(::Eve::Corporation)
         .where(alliance: @alliance)
+        .order(:name)
         .includes(:faction)
         .decorate
 
