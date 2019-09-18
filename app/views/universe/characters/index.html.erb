@@ -1,4 +1,5 @@
 <% set_meta_tags title: "Characters",
+                 description: "EveOnline characters",
                  canonical: universe_characters_url,
                  og: {
                    title: :title,
@@ -6,6 +7,7 @@
                    type: "website",
                    site_name: "EveMonk: EveOnline management suite",
                    locale: "en_US",
+                   description: "EveOnline characters",
                  } %>
 
 <div class="row">
@@ -24,15 +26,22 @@
     <table class="table table-striped table-bordered">
       <thead>
         <tr>
-          <th>&nbsp;</th>
-          <th>Name</th>
+          <th colspan="2" class="text-center">Name</th>
         </tr>
       </thead>
       <tbody>
         <% @characters.each do |character| %>
           <tr>
-            <td class="align-middle text-center"><%= image_tag(character.icon_tiny, class: "rounded") %></td>
-            <td class="text-break"><%= link_to(character.name, universe_character_path(character.character_id)) %></td>
+            <td class="align-middle text-center border-right-0 m-0 p-2">
+              <%= image_tag(character.icon_tiny,
+                            alt: character.name,
+                            class: "rounded border",
+                            size: "34x34",
+                            loading: "lazy") %>
+            </td>
+            <td class="align-middle text-break border-left-0">
+              <%= link_to(character.name, universe_character_path(character.character_id)) %>
+            </td>
           </tr>
         <% end %>
       </tbody>
