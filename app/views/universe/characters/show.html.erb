@@ -35,14 +35,12 @@
           <li class="list-group-item text-break">
             Alliance: <%= link_to(@character.alliance.name,
                                   universe_alliance_path(@character.alliance.alliance_id)) %>
-            (<%= @character.alliance.ticker %>)
           </li>
         <% end %>
         <% if @character.corporation %>
           <li class="list-group-item text-break">
             Corporation: <%= link_to(@character.corporation.name,
                                      universe_corporation_path(@character.corporation.corporation_id)) %>
-            (<%= @character.corporation.ticker %>)
           </li>
         <% end %>
       </ul>
@@ -69,7 +67,7 @@
           <% if record.corporation %>
             <tr>
               <td class="align-middle text-center"><%= image_tag(record.corporation.icon_tiny, class: "rounded") %></td>
-              <td class="text-break"><%= link_to(record.corporation.name, universe_corporation_path(record.corporation.corporation_id)) %> (<%= record.corporation.ticker %>)</td>
+              <td class="text-break"><%= link_to(record.corporation.name, universe_corporation_path(record.corporation.corporation_id)) %></td>
               <td class="text-right"><%= time_ago_in_words record.start_date %></td>
             </tr>
           <% else %>
