@@ -1,10 +1,12 @@
 <% set_meta_tags title: "Welcome",
+                 description: "EveOnline alliances and corporations",
                  og: {
                    title: :title,
                    url: root_url,
                    type: "website",
                    site_name: "EveMonk: EveOnline management suite",
                    locale: "en_US",
+                   description: "EveOnline alliances and corporations",
                  } %>
 
 <% cache(expires_in: 10.minutes) do %>
@@ -25,8 +27,7 @@
       <table class="table table-striped table-bordered">
         <thead>
           <tr>
-            <th>&nbsp;</th>
-            <th>Name</th>
+            <th colspan="2" class="text-center">Name</th>
             <th class="text-right">Corps</th>
             <th class="text-right">Members</th>
             <!-- <th>&Delta;</th> -->
@@ -35,10 +36,22 @@
         <tbody>
           <% @alliances.each do |alliance| %>
             <tr>
-              <td class="align-middle text-center"><%= image_tag(alliance.icon_tiny, class: "rounded") %></td>
-              <td class="text-break"><%= link_to(alliance.name, universe_alliance_path(alliance.alliance_id)) %> (<%= alliance.ticker %>)</td>
-              <td class="text-right"><%= alliance.formatted_corporations_count %></td>
-              <td class="text-right"><%= alliance.formatted_characters_count %></td>
+              <td class="text-center align-middle border-right-0 m-0 p-2">
+                <%= image_tag(alliance.icon_tiny,
+                              alt: alliance.name,
+                              class: "rounded border",
+                              size: "34x34",
+                              loading: "lazy") %>
+              </td>
+              <td class="text-break align-middle border-left-0">
+                <%= link_to(alliance.name, universe_alliance_path(alliance.alliance_id)) %>
+              </td>
+              <td class="text-right align-middle">
+                <%= alliance.formatted_corporations_count %>
+              </td>
+              <td class="text-right align-middle">
+                <%= alliance.formatted_characters_count %>
+              </td>
             </tr>
           <% end %>
         </tbody>
@@ -51,8 +64,7 @@
       <table class="table table-striped table-bordered">
         <thead>
           <tr>
-            <th>&nbsp;</th>
-            <th>Name</th>
+            <th colspan="2" class="text-center">Name</th>
             <th class="text-right">Members</th>
             <!-- <th>&Delta;</th> -->
           </tr>
@@ -60,9 +72,19 @@
         <tbody>
           <% @corporations.each do |corporation| %>
             <tr>
-              <td class="align-middle text-center"><%= image_tag(corporation.icon_tiny, class: "rounded") %></td>
-              <td class="text-break"><%= link_to(corporation.name, universe_corporation_path(corporation.corporation_id)) %> (<%= corporation.ticker %>)</td>
-              <td class="text-right"><%= corporation.formatted_member_count %></td>
+              <td class="text-center align-middle border-right-0 m-0 p-2">
+                <%= image_tag(corporation.icon_tiny,
+                              alt: corporation.name,
+                              class: "rounded border",
+                              size: "34x34",
+                              loading: "lazy") %>
+              </td>
+              <td class="text-break align-middle border-left-0">
+                <%= link_to(corporation.name, universe_corporation_path(corporation.corporation_id)) %>
+              </td>
+              <td class="text-right align-middle">
+                <%= corporation.formatted_member_count %>
+              </td>
             </tr>
           <% end %>
         </tbody>
