@@ -30,7 +30,7 @@
       <ul class="list-group list-group-flush">
         <li class="list-group-item text-center">
           <%= image_tag(@alliance.icon_medium,
-                        alt: "#{ @alliance.name } (#{ @alliance.ticker })",
+                        alt: @alliance.name,
                         class: "rounded border",
                         size: "130x130",
                         loading: "lazy") %>
@@ -79,13 +79,13 @@
           <tr>
             <td class="align-middle text-center">
               <%= image_tag(corporation.icon_tiny,
-                            alt: "#{ corporation.name } (#{ corporation.ticker })",
+                            alt: corporation.name,
                             class: "rounded border",
                             size: "34x34",
                             loading: "lazy") %>
             </td>
             <td class="text-break">
-              <%= link_to(corporation.name, universe_corporation_path(corporation.corporation_id)) %> (<%= corporation.ticker %>)
+              <%= link_to(corporation.name, universe_corporation_path(corporation.corporation_id)) %>
             </td>
             <td class="text-right">
               <%= corporation.formatted_member_count %>
