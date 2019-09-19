@@ -1,6 +1,17 @@
 # frozen_string_literal: true
 
+if Rails.env.development?
+  require "sidekiq/web"
+  require "sidekiq-scheduler/web"
+end
+
 Rails.application.routes.draw do
+  if Rails.env.development?
+    namespace :backoffice do
+      mount Sidekiq::Web, at: "sidekiq"
+    end
+  end
+
   namespace :universe do
     resources :alliances, only: [:index, :show]
 
