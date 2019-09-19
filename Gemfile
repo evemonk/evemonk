@@ -31,7 +31,7 @@ gem "draper"
 gem "mobility"
 gem "paper_trail"
 gem "rails-settings-cached"
-gem "sidekiq", "< 6", require: false
+gem "sidekiq", require: false
 gem "sidekiq-scheduler", require: false
 gem "rpush"
 gem "pghero"
