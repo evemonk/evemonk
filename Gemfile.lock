@@ -684,7 +684,7 @@ DEPENDENCIES
   server_timing
   shoulda-callback-matchers!
   shoulda-matchers!
-  sidekiq (< 6)
+  sidekiq
   sidekiq-scheduler
   simplecov
   sitemap_generator
