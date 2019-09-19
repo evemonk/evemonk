@@ -1,25 +1,26 @@
-<% set_meta_tags title: "Welcome",
-                 description: "EveOnline alliances and corporations",
+<% set_meta_tags title: "Largest alliances and corporations",
+                 description: "Largest alliances and corporations in EVE Online",
                  og: {
-                   title: :title,
+                   title: "Largest alliances and corporations in EVE Online",
                    url: root_url,
                    type: "website",
-                   site_name: "EveMonk: EveOnline management suite",
+                   site_name: "EveMonk: EVE Online management suite",
                    locale: "en_US",
-                   description: "EveOnline alliances and corporations",
+                   description: "Largest alliances and corporations in EVE Online",
+                   image: @alliances.first&.icon_medium,
                  } %>
 
-<% cache(expires_in: 10.minutes) do %>
-  <div class="row">
-    <div class="col">
-      <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item active" aria-current="page">Home</li>
-        </ol>
-      </nav>
-    </div>
+<div class="row">
+  <div class="col">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item active" aria-current="page">Home</li>
+      </ol>
+    </nav>
   </div>
+</div>
 
+<% cache(expires_in: 10.minutes) do %>
   <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
       <h4 class="text-center"><%= link_to("Alliances", universe_alliances_path) %></h4>
@@ -30,7 +31,6 @@
             <th colspan="2" class="text-center">Name</th>
             <th class="text-right">Corps</th>
             <th class="text-right">Members</th>
-            <!-- <th>&Delta;</th> -->
           </tr>
         </thead>
         <tbody>
@@ -66,7 +66,6 @@
           <tr>
             <th colspan="2" class="text-center">Name</th>
             <th class="text-right">Members</th>
-            <!-- <th>&Delta;</th> -->
           </tr>
         </thead>
         <tbody>

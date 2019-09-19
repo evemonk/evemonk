@@ -88,14 +88,19 @@ describe Universe::AlliancesController do
       #
       # subject.policy_scope(::Eve::Corporation)
       #        .where(alliance: @alliance)
+      #        .order(:name)
       #        .includes(:faction)
       #        .decorate
       #
       expect(eve_corporation_policy).to receive(:where).with(alliance: eve_alliance) do
         double.tap do |a|
-          expect(a).to receive(:includes).with(:faction) do
+          expect(a).to receive(:order).with(:name) do
             double.tap do |b|
-              expect(b).to receive(:decorate)
+              expect(b).to receive(:includes).with(:faction) do
+                double.tap do |c|
+                  expect(c).to receive(:decorate)
+                end
+              end
             end
           end
         end

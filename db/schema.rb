@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_17_200638) do
+ActiveRecord::Schema.define(version: 2019_09_18_200452) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -131,6 +131,7 @@ ActiveRecord::Schema.define(version: 2019_09_17_200638) do
     t.integer "corporations_count", default: 0
     t.bigint "characters_count", default: 0
     t.index ["alliance_id"], name: "index_eve_alliances_on_alliance_id", unique: true
+    t.index ["characters_count"], name: "index_eve_alliances_on_characters_count"
     t.index ["name"], name: "index_eve_alliances_on_name"
   end
 

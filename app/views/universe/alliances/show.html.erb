@@ -75,7 +75,7 @@
         </tr>
       </thead>
       <tbody>
-        <% @corporations.order(:name).each do |corporation| %>
+        <% @corporations.each do |corporation| %>
           <tr>
             <td class="align-middle text-center">
               <%= image_tag(corporation.icon_tiny,
