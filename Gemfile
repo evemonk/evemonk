@@ -8,7 +8,7 @@ gem "puma"
 gem "sass-rails"
 gem "webpacker", "~> 4.0"
 gem "jbuilder", "~> 2.7"
-gem "devise"
+gem "sorcery"
 gem "omniauth-rails_csrf_protection"
 gem "bootsnap", ">= 1.4.2", require: false
 gem "meta-tags"
