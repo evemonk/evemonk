@@ -12,13 +12,13 @@ module Auth
       rescue_from EveOnline::Exceptions::Timeout, with: :handle_timeout
 
       def show
-        form = Api::EveOnlineForm.new(request)
+        service = EveOnlineService.new(current_user, request)
 
-        form.save!
+        service.save!
 
         skip_authorization
 
-        redirect_to "/autosignin/#{form.session.token}"
+        redirect_to characters_path
       end
 
       private

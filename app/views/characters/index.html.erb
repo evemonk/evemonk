@@ -1,0 +1,11 @@
+<table class="table">
+  <% @characters.each do |character| %>
+    <tr>
+      <td>Name: <%= character.name %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= form_with(url: "/auth/eve_online_sso") do |f| %>
+  <%= f.button "Sign in via EVE Online" %>
+<% end %>

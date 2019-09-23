@@ -609,7 +609,6 @@ DEPENDENCIES
   active_record_doctor
   activerecord-nulldb-adapter
   awesome_print
-  bcrypt
   bootsnap (>= 1.4.2)
   brakeman
   bullet
