@@ -2,7 +2,7 @@
 
 class SignOutsController < ApplicationController
   def destroy
-    sign_out current_user
+    logout
 
     redirect_to root_path
   end

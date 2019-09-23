@@ -4,13 +4,15 @@ class SignInsController < ApplicationController
   skip_before_action :require_login
 
   def show
-    @service = SignInService.new
+    @service = SignInService.new(controller: self)
 
     skip_authorization
   end
 
   def create
-    @service = SignInService.new(resource_params)
+    @service = SignInService.new(resource_params.merge(controller: self))
+
+    skip_authorization
 
     if @service.save
       redirect_to characters_path
@@ -23,6 +25,6 @@ class SignInsController < ApplicationController
 
   def resource_params
     params.require(:sign_in)
-          .permit(:email, :password)
+          .permit(:email, :password, :remember_me)
   end
 end
