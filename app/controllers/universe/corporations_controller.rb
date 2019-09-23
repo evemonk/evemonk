@@ -2,6 +2,8 @@
 
 module Universe
   class CorporationsController < ApplicationController
+    skip_before_action :require_login
+
     def index
       @corporations = ::Eve::CorporationsSearcher
         .new(params[:q], policy_scope(::Eve::Corporation))

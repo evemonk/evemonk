@@ -20,6 +20,14 @@ Rails.application.routes.draw do
     resources :characters, only: [:index, :show]
   end
 
+  resources :characters, only: [:index, :show, :destroy]
+
+  resource :sign_up, only: [:show, :create]
+
+  resource :sign_in, only: [:show, :create]
+
+  resource :sign_out, only: :destroy
+
   namespace :auth do
     namespace :eve_online_sso do
       resource :callback, only: :show
