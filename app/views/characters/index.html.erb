@@ -1,9 +1,28 @@
+<div class="row">
+  <div class="col">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><%= link_to("Home", root_path) %></li>
+        <li class="breadcrumb-item active" aria-current="page">My characters</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
 <table class="table">
-  <% @characters.each do |character| %>
+  <thead>
     <tr>
-      <td>Name: <%= character.name %></td>
+      <th>Name</th>
     </tr>
-  <% end %>
+  </thead>
+
+  <tbody>
+    <% @characters.each do |character| %>
+      <tr>
+        <td><%= link_to(character.name, character_path(character.character_id)) %></td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
 
 <%= form_with(url: "/auth/eve_online_sso") do |f| %>
