@@ -1,5 +1,16 @@
+<div class="row">
+  <div class="col">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><%= link_to("Home", root_path) %></li>
+        <li class="breadcrumb-item active" aria-current="page">Sign In</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
 <div class="row justify-content-center">
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+  <div class="col-xs-12 col-sm-12 col-md-8 col-lg-4 col-xl-4">
     <%= form_with(url: sign_in_path, model: @service, scope: :sign_in) do |f| %>
       <div class="form-group">
         <%= f.label :email, "Email address" %>
@@ -11,10 +22,10 @@
         <%= f.password_field :password, class: "form-control", placeholder: "Password", required: true %>
       </div>
 
-<!--      <div class="form-group form-check">-->
-        <%#= f.label :remember_me, "Remember me" %>
-        <%#= f.check_box :remember_me, class: "form-check-input" %>
-<!--      </div>-->
+      <div class="form-group form-check">
+        <%= f.check_box :remember_me, class: "form-check-input" %>
+        <%= f.label :remember_me, "Remember me", class: "form-check-label" %>
+      </div>
 
       <div class="text-center">
         <%= f.submit "Sign in", class: "btn btn-primary" %>
