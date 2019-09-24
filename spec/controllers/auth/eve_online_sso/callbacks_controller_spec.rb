@@ -14,24 +14,26 @@ describe Auth::EveOnlineSso::CallbacksController do
   it { should rescue_from(EveOnline::Exceptions::Timeout).with(:handle_timeout) }
 
   describe "#show" do
-    let(:session) { instance_double(Session, token: "token123") }
+    let(:current_user) { instance_double(User) }
 
-    let(:form) { instance_double(Api::EveOnlineForm, session: session) }
+    before { expect(subject).to receive(:current_user).and_return(current_user).twice }
+
+    let(:service) { instance_double(EveOnlineCallbackService) }
 
     before do
       #
-      # Api::EveOnlineForm.new(request) => form
+      # EveOnlineCallbackService.new(current_user, request) # => service
       #
-      expect(Api::EveOnlineForm).to receive(:new).with(any_args).and_return(form)
+      expect(EveOnlineCallbackService).to receive(:new).with(any_args).and_return(service) # TODO: replace `any_args` with real data
     end
 
-    before { expect(form).to receive(:save!) }
+    before { expect(service).to receive(:save!) }
 
     before { get :show }
 
     it { should respond_with(:found) }
 
-    it { should redirect_to("/autosignin/token123") }
+    it { should redirect_to("/characters") }
   end
 
   # private methods
