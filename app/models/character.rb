@@ -19,6 +19,8 @@ class Character < ApplicationRecord
 
   has_many :character_assets, dependent: :destroy
 
+  has_many :character_implants, dependent: :destroy
+
   def token_expired?
     token_expires_at <= Time.zone.now
   end
