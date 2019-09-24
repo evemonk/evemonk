@@ -9,7 +9,5 @@ class User < ApplicationRecord
 
   has_many :characters, dependent: :destroy
 
-  # has_secure_password validations: false
-
   has_secure_token :reset_password_token
 end
