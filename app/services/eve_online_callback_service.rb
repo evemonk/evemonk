@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class EveOnlineService
+class EveOnlineCallbackService
   attr_reader :user, :request
 
   def initialize(user, request)
