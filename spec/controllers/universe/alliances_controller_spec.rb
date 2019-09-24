@@ -5,6 +5,8 @@ require "rails_helper"
 describe Universe::AlliancesController do
   it { should be_a(ApplicationController) }
 
+  it { should_not use_before_action(:require_login) }
+
   describe "#index" do
     let(:eve_alliance_policy) { Eve::Alliance }
 
