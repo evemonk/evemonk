@@ -4,7 +4,7 @@ require "rails_helper"
 
 describe SignInsController do
   describe "routing" do
-    it "should route GET sign_in to sign_ins#show" do
+    it "should route GET /sign_in to sign_ins#show" do
       expect(get: "/sign_in").to route_to(
         controller: "sign_ins",
         action: "show"

@@ -4,14 +4,14 @@ require "rails_helper"
 
 describe CharactersController do
   describe "routing" do
-    it "should route GET characters to characters#index" do
+    it "should route GET /characters to characters#index" do
       expect(get: "/characters").to route_to(
         controller: "characters",
         action: "index"
       )
     end
 
-    it "should route GET characters/90729314 to characters#show" do
+    it "should route GET /characters/90729314 to characters#show" do
       expect(get: "/characters/90729314").to route_to(
         controller: "characters",
         action: "show",
@@ -19,7 +19,7 @@ describe CharactersController do
       )
     end
 
-    it "should route DELETE characters/90729314 to characters#destroy" do
+    it "should route DELETE /characters/90729314 to characters#destroy" do
       expect(delete: "/characters/90729314").to route_to(
         controller: "characters",
         action: "destroy",
