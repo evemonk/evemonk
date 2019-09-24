@@ -140,7 +140,7 @@
       <tbody>
         <% @character.loyalty_points.each do |lp| %>
           <tr>
-            <td><%= lp.corporation_id %></td>
+            <td><%= lp.corporation&.name %></td>
             <td><%= lp.loyalty_points %></td>
           </tr>
         <% end %>
@@ -149,7 +149,7 @@
   </div>
 
   <div class="">
-    <h2>Implants</h2>
+    <h2>Implants (<%= @character.implants.size %>)</h2>
 
     <table class="table">
       <thead>
