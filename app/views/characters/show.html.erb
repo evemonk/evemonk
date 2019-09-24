@@ -147,5 +147,26 @@
       </tbody>
     </table>
   </div>
-</div>
 
+  <div class="">
+    <h2>Implants</h2>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @character.implants.each do |implant| %>
+          <tr>
+            <td><%= implant.name %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+
+</div>
