@@ -7,7 +7,7 @@
 
 EveMonk is helper software for EVE Online.
 
-Styled with Twitter Bootstrap. And Darkly.
+Styled with Twitter Bootstrap. And Bootswatch Darkly theme.
 
 Mobile first design.
 
