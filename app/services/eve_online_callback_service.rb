@@ -75,8 +75,8 @@ class EveOnlineCallbackService
 
   def remove_old_characters
     Character.where(character_id: character_id)
-             .where.not(character_owner_hash: character_owner_hash)
-             .destroy_all
+      .where.not(character_owner_hash: character_owner_hash)
+      .destroy_all
   end
 
   def update_character_info
