@@ -41,6 +41,12 @@
         <li class="list-group-item">
           Members: <%= @alliance.formatted_characters_count %>
         </li>
+<!--        <li class="list-group-item">-->
+<!--          Delta: -1-->
+<!--        </li>-->
+<!--        <li class="list-group-item">-->
+<!--          Security status: 1.111-->
+<!--        </li>-->
         <% if @alliance.creator %>
           <li class="list-group-item text-break">
             Creator: <%= link_to(@alliance.creator.name, universe_character_path(@alliance.creator.character_id)) %>
@@ -69,25 +75,24 @@
     <table class="table table-striped table-bordered">
       <thead>
         <tr>
-          <th>&nbsp;</th>
-          <th>Name</th>
+          <th colspan="2" class="text-center">Name</th>
           <th class="text-right">Members</th>
         </tr>
       </thead>
       <tbody>
         <% @corporations.each do |corporation| %>
           <tr>
-            <td class="align-middle text-center">
+            <td class="align-middle text-center border-right-0 m-0 p-2">
               <%= image_tag(corporation.icon_tiny,
                             alt: corporation.name,
                             class: "rounded border",
                             size: "34x34",
                             loading: "lazy") %>
             </td>
-            <td class="text-break">
+            <td class="align-middle text-break border-left-0">
               <%= link_to(corporation.name, universe_corporation_path(corporation.corporation_id)) %>
             </td>
-            <td class="text-right">
+            <td class="align-middle text-right">
               <%= corporation.formatted_member_count %>
             </td>
           </tr>
