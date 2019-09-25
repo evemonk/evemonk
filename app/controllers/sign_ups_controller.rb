@@ -19,6 +19,6 @@ class SignUpsController < ApplicationController
 
   def resource_params
     params.require(:sign_up)
-          .permit(:email, :password, :password_confirmation)
+      .permit(:email, :password, :password_confirmation)
   end
 end

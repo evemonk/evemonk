@@ -25,6 +25,6 @@ class SignInsController < ApplicationController
 
   def resource_params
     params.require(:sign_in)
-          .permit(:email, :password, :remember_me)
+      .permit(:email, :password, :remember_me)
   end
 end
