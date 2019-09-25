@@ -18,6 +18,8 @@ Rails.application.routes.draw do
     resources :corporations, only: [:index, :show]
 
     resources :characters, only: [:index, :show]
+
+    resources :types, only: [:index, :show]
   end
 
   resources :characters, only: [:index, :show, :destroy]
