@@ -103,7 +103,7 @@ describe EveOnlineCallbackService do
       expect(request).to receive(:env) do
         double.tap do |a|
           expect(a).to receive(:dig).with("omniauth.auth", "credentials", "expires_at")
-                           .and_return(expires_at)
+            .and_return(expires_at)
         end
       end
     end
@@ -264,14 +264,14 @@ describe EveOnlineCallbackService do
       #                             character_id: character_id)
       #
       expect(character).to receive(:assign_attributes)
-                               .with(name: name,
-                                     access_token: access_token,
-                                     refresh_token: refresh_token,
-                                     token_expires_at: token_expires_at,
-                                     token_expires: token_expires,
-                                     scopes: scopes,
-                                     token_type: token_type,
-                                     character_id: character_id)
+        .with(name: name,
+              access_token: access_token,
+              refresh_token: refresh_token,
+              token_expires_at: token_expires_at,
+              token_expires: token_expires,
+              scopes: scopes,
+              token_type: token_type,
+              character_id: character_id)
     end
 
     specify { expect { subject.send(:assign_character_attributes) }.not_to raise_error }
