@@ -466,7 +466,7 @@ GEM
       rubocop (>= 0.71.0)
     ruby-progressbar (1.10.1)
     ruby_dep (1.5.0)
-    ruby_parser (3.13.1)
+    ruby_parser (3.14.0)
       sexp_processor (~> 4.9)
     rubyzip (1.2.4)
     rufus-scheduler (3.6.0)
