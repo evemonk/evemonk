@@ -197,7 +197,7 @@ GEM
       multi_json
     equatable (0.6.1)
     errbase (0.1.1)
-    erubi (1.8.0)
+    erubi (1.9.0)
     erubis (2.7.0)
     et-orbi (1.2.2)
       tzinfo
