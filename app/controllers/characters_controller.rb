@@ -10,14 +10,9 @@ class CharactersController < ApplicationController
   end
 
   def show
-    @character = Character.eager_load(:race,
-                                      :bloodline,
-                                      :ancestry,
-                                      :faction,
-                                      :alliance,
-                                      :corporation)
-                     .find_by!(character_id: params[:id])
-                     .decorate
+    @character = Character.eager_load(:race, :bloodline, :ancestry, :faction, :alliance, :corporation)
+      .find_by!(character_id: params[:id])
+      .decorate
 
     authorize(@character)
   end
