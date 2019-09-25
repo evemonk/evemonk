@@ -1,13 +1,14 @@
 <% set_meta_tags title: "Characters",
-                 description: "EveOnline characters",
                  canonical: universe_characters_url,
+                 description: "EVE Online Characters",
                  og: {
-                   title: :title,
+                   title: "EVE Online Characters",
                    url: universe_characters_url,
                    type: "website",
                    site_name: "EveMonk: EVE Online management suite",
                    locale: "en_US",
-                   description: "EveOnline characters",
+                   description: "EVE Online Characters",
+                   image: @characters.first&.icon_medium,
                  } %>
 
 <div class="row">
