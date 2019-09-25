@@ -2,9 +2,12 @@
 
 FactoryBot.define do
   factory :character_asset do
-    character_id { "" }
-    is_blueprint_copy { false }
-    is_singleton { false }
+    character
+
+    is_blueprint_copy { [true, false].sample }
+
+    is_singleton { [true, false].sample }
+
     item_id { "" }
     location_flag { "MyString" }
     location_id { "" }

@@ -3,5 +3,7 @@
 require "rails_helper"
 
 describe ApplicationController do
-  # protect_from_forgery with: :exception, unless: -> { request.format.json? }
+  it { should be_a(Pundit) }
+
+  it { should use_before_action(:require_login) }
 end

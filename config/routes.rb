@@ -1,13 +1,34 @@
 # frozen_string_literal: true
 
+if Rails.env.development?
+  require "sidekiq/web"
+  require "sidekiq-scheduler/web"
+end
+
 Rails.application.routes.draw do
+  if Rails.env.development?
+    namespace :backoffice do
+      mount Sidekiq::Web, at: "sidekiq"
+    end
+  end
+
   namespace :universe do
     resources :alliances, only: [:index, :show]
 
     resources :corporations, only: [:index, :show]
 
     resources :characters, only: [:index, :show]
+
+    resources :types, only: [:index, :show]
   end
+
+  resources :characters, only: [:index, :show, :destroy]
+
+  resource :sign_up, only: [:show, :create]
+
+  resource :sign_in, only: [:show, :create]
+
+  resource :sign_out, only: :destroy
 
   namespace :auth do
     namespace :eve_online_sso do

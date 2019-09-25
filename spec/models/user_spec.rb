@@ -11,7 +11,5 @@ describe User do
 
   it { should have_many(:characters).dependent(:destroy) }
 
-  it { should have_secure_password } # TODO: validations: false
-
   it { should have_secure_token(:reset_password_token) }
 end

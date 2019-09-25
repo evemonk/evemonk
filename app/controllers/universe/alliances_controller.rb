@@ -2,6 +2,8 @@
 
 module Universe
   class AlliancesController < ApplicationController
+    skip_before_action :require_login
+
     def index
       @alliances = ::Eve::AlliancesSearcher
         .new(params[:q], policy_scope(::Eve::Alliance))

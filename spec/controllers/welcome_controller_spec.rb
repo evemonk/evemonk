@@ -5,6 +5,8 @@ require "rails_helper"
 describe WelcomeController do
   it { should be_a(ApplicationController) }
 
+  it { should_not use_before_action(:require_login) }
+
   describe "#index" do
     before do
       #

@@ -2,6 +2,8 @@
 
 module Universe
   class CharactersController < ApplicationController
+    skip_before_action :require_login
+
     def index
       @characters = ::Eve::CharactersSearcher
         .new(params[:q], policy_scope(::Eve::Character))

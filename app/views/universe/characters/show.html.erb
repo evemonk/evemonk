@@ -1,13 +1,13 @@
 <% set_meta_tags title: "Character &quot;#{ @character.name }&quot;",
-                 description: @character.description,
+                 description: "Character &quot;#{ @character.name }&quot;",
                  og: {
-                   title: :title,
+                   title: "EVE Online Character &quot;#{ @character.name }&quot;",
                    url: universe_character_url(@character.character_id),
                    type: "website",
-                   site_name: "EveMonk: EveOnline management suite",
+                   site_name: "EveMonk: EVE Online management suite",
                    locale: "en_US",
+                   description: "EVE Online Character &quot;#{ @character.name }&quot;",
                    image: @character.icon_medium,
-                   description: @character.description,
                  } %>
 
 <div class="row">
@@ -29,7 +29,11 @@
     <div class="card">
       <ul class="list-group list-group-flush">
         <li class="list-group-item text-center">
-          <%= image_tag(@character.icon_medium, class: "rounded") %>
+          <%= image_tag(@character.icon_medium,
+                        alt: @character.name,
+                        class: "rounded border",
+                        size: "130x130",
+                        loading: "lazy") %>
         </li>
         <% if @character.alliance %>
           <li class="list-group-item text-break">
@@ -45,19 +49,20 @@
         <% end %>
       </ul>
       <p class="card-text text-center">
-        <small class="text-muted">Last updated <%= time_ago_in_words(@character.updated_at) %> ago</small>
+        <small class="text-muted">
+          Last updated <%= time_ago_in_words(@character.updated_at) %> ago
+        </small>
       </p>
     </div>
   </div>
 
   <div class="col">
-    <h4 class="text-center">Corporation history (<%= @character.character_corporation_histories.size %>)</h4>
+    <h4 class="text-center">Employment History (<%= @character.character_corporation_histories.size %>)</h4>
 
     <table class="table table-striped table-bordered">
       <thead>
         <tr>
-          <th>&nbsp;</th>
-          <th>Corporation</th>
+          <th colspan="2" class="text-center">Corporation</th>
           <th class="text-right">Joined at</th>
         </tr>
       </thead>
@@ -66,14 +71,23 @@
           <%# In some cases we don't have corporation yet in db %>
           <% if record.corporation %>
             <tr>
-              <td class="align-middle text-center"><%= image_tag(record.corporation.icon_tiny, class: "rounded") %></td>
-              <td class="text-break"><%= link_to(record.corporation.name, universe_corporation_path(record.corporation.corporation_id)) %></td>
-              <td class="text-right"><%= time_ago_in_words record.start_date %></td>
+              <td class="align-middle text-center border-right-0 m-0 p-2">
+                <%= image_tag(record.corporation.icon_tiny,
+                              alt: record.corporation.name,
+                              class: "rounded border",
+                              size: "34x34",
+                              loading: "lazy") %>
+              </td>
+              <td class="align-middle text-break border-left-0">
+                <%= link_to(record.corporation.name, universe_corporation_path(record.corporation.corporation_id)) %>
+              </td>
+              <td class="align-middle text-right">
+                <%= time_ago_in_words(record.start_date) %>
+              </td>
             </tr>
           <% else %>
             <tr>
-              <td>&nbsp;</td>
-              <td>&nbsp;</td>
+              <td colspan="2">&nbsp;</td>
               <td class="text-right"><%= time_ago_in_words(record.start_date) %></td>
             </tr>
           <% end %>

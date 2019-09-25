@@ -1,13 +1,13 @@
 <% set_meta_tags title: "Corporation &quot;#{ @corporation.name }&quot;",
-                 description: @corporation.description,
+                 description: "Corporation &quot;#{ @corporation.name }&quot;",
                  og: {
-                   title: :title,
+                   title: "EVE Online Corporation &quot;#{ @corporation.name }&quot;",
                    url: universe_corporation_url(@corporation.corporation_id),
                    type: "website",
-                   site_name: "EveMonk: EveOnline management suite",
-                   image: @corporation.icon_medium,
+                   site_name: "EveMonk: EVE Online management suite",
                    locale: "en_US",
-                   description: @corporation.description,
+                   description: "EVE Online Corporation &quot;#{ @corporation.name }&quot;",
+                   image: @corporation.icon_medium,
                  } %>
 
 <div class="row">
@@ -28,35 +28,59 @@
 
     <div class="card">
       <ul class="list-group list-group-flush">
-        <li class="list-group-item text-center"><%= image_tag(@corporation.icon_medium, class: "rounded") %></li>
+        <li class="list-group-item text-center">
+          <%= image_tag(@corporation.icon_medium,
+                        alt: @corporation.name,
+                        class: "rounded border",
+                        size: "130x130",
+                        loading: "lazy") %>
+        </li>
         <% if @corporation.alliance %>
-          <li class="list-group-item text-break">Alliance: <%= link_to(@corporation.alliance.name, universe_alliance_path(@corporation.alliance.alliance_id)) %> (<%= @corporation.alliance.ticker %>)</li>
+          <li class="list-group-item text-break">
+            Alliance: <%= link_to(@corporation.alliance.name,
+                                  universe_alliance_path(@corporation.alliance.alliance_id)) %>
+            (<%= @corporation.alliance.ticker %>)
+          </li>
         <% end %>
         <li class="list-group-item text-break">Ticker: <%= @corporation.ticker %></li>
         <li class="list-group-item">Members: <%= @corporation.formatted_member_count %></li>
         <% if @corporation.ceo %>
-          <li class="list-group-item text-break">CEO: <%= link_to(@corporation.ceo.name, universe_character_path(@corporation.ceo.character_id)) %></li>
+          <li class="list-group-item text-break">
+            CEO: <%= link_to(@corporation.ceo.name,
+                             universe_character_path(@corporation.ceo.character_id)) %>
+          </li>
         <% end %>
       </ul>
-      <p class="card-text text-center"><small class="text-muted">Last updated <%= time_ago_in_words(@corporation.updated_at) %> ago</small></p>
+      <p class="card-text text-center">
+        <small class="text-muted">
+          Last updated <%= time_ago_in_words(@corporation.updated_at) %> ago
+        </small>
+      </p>
     </div>
   </div>
 
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-8 col-xl-8">
-    <h4 class="text-center">Characters</h4>
+    <h4 class="text-center">Members (<%= @characters.size %>)</h4>
 
     <table class="table table-striped table-bordered">
       <thead>
         <tr>
-          <th>&nbsp;</th>
-          <th>Name</th>
+          <th colspan="2" class="text-center">Name</th>
         </tr>
       </thead>
       <tbody>
         <% @characters.each do |character| %>
           <tr>
-            <td class="align-middle text-center"><%= image_tag(character.icon_tiny, class: "rounded") %></td>
-            <td class="text-break"><%= link_to(character.name, universe_character_path(character.character_id)) %></td>
+            <td class="align-middle text-center border-right-0 m-0 p-2">
+              <%= image_tag(character.icon_tiny,
+                            alt: character.name,
+                            class: "rounded border",
+                            size: "34x34",
+                            loading: "lazy") %>
+            </td>
+            <td class="align-middle text-break border-left-0">
+              <%= link_to(character.name, universe_character_path(character.character_id)) %>
+            </td>
           </tr>
         <% end %>
       </tbody>
