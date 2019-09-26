@@ -29,11 +29,10 @@ describe SignInsController do
         #                   controller: self) # => service
         #
         expect(SignInService).to receive(:new)
-                                       .with(permitter(email: "me@example.com",
-                                                       password: "password",
-                                                       remember_me: "1")
-                                                 .merge(controller: subject))
-                                       .and_return(service)
+          .with(permitter(email: "me@example.com",
+                          password: "password",
+                          remember_me: "1").merge(controller: subject))
+          .and_return(service)
       end
 
       before do
@@ -62,11 +61,10 @@ describe SignInsController do
         #                   controller: self) # => service
         #
         expect(SignInService).to receive(:new)
-                                     .with(permitter(email: "me@example.com",
-                                                     password: "password",
-                                                     remember_me: "1")
-                                               .merge(controller: subject))
-                                     .and_return(service)
+          .with(permitter(email: "me@example.com",
+                          password: "password",
+                          remember_me: "1").merge(controller: subject))
+          .and_return(service)
       end
 
       before do
