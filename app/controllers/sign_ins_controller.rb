@@ -15,7 +15,7 @@ class SignInsController < ApplicationController
     skip_authorization
 
     if @service.save
-      redirect_to characters_path
+      redirect_to characters_path, notice: "Successful signed in!"
     else
       render :show
     end
