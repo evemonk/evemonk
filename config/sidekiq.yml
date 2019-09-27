@@ -3,7 +3,7 @@
   - mailers
   - default
 
-:concurrency: 5
+:concurrency: 10
 
 :schedule:
   pg_hero_query_stats:
