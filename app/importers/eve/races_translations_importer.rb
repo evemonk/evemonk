@@ -15,22 +15,24 @@ module Eve
     private
 
     def update_eve_races(locale)
-      esi = EveOnline::ESI::UniverseRaces.new(language: locale)
+      ActiveRecord::Base.transaction do
+        esi = EveOnline::ESI::UniverseRaces.new(language: locale)
 
-      etag = Eve::Etag.find_or_initialize_by(url: esi.url)
+        etag = Eve::Etag.find_or_initialize_by(url: esi.url)
 
-      esi.etag = etag.etag
+        esi.etag = etag.etag
 
-      return if esi.not_modified?
+        return if esi.not_modified?
 
-      esi.races.each do |race|
-        eve_race = Eve::Race.find_or_initialize_by(race_id: race.race_id)
+        esi.races.each do |race|
+          eve_race = Eve::Race.find_or_initialize_by(race_id: race.race_id)
 
-        eve_race.update!(name: race.name,
-                         description: race.description)
+          eve_race.update!(name: race.name,
+                           description: race.description)
+        end
+
+        etag.update!(etag: esi.etag)
       end
-
-      etag.update!(etag: esi.etag)
     end
   end
 end
