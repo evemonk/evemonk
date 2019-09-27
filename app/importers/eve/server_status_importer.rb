@@ -3,17 +3,19 @@
 module Eve
   class ServerStatusImporter
     def import
-      esi = EveOnline::ESI::ServerStatus.new
+      ActiveRecord::Base.transaction do
+        esi = EveOnline::ESI::ServerStatus.new
 
-      etag = Eve::Etag.find_or_initialize_by(url: esi.url)
+        etag = Eve::Etag.find_or_initialize_by(url: esi.url)
 
-      esi.etag = etag.etag
+        esi.etag = etag.etag
 
-      return if esi.not_modified?
+        return if esi.not_modified?
 
-      Eve::ServerStatus.create!(esi.as_json)
+        Eve::ServerStatus.create!(esi.as_json)
 
-      etag.update!(etag: esi.etag)
+        etag.update!(etag: esi.etag)
+      end
     end
   end
 end
