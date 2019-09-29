@@ -92,7 +92,11 @@
         <% @character.implants.each do |implant| %>
           <tr>
             <td class="align-middle text-center border-right-0 m-0 p-2">
-              <%= image_tag(implant.icon_tiny) %>
+              <%= image_tag(implant.icon_tiny,
+                            alt: implant.name,
+                            class: "rounded border",
+                            size: "34x34",
+                            loading: "lazy") %>
             </td>
             <td class="align-middle text-break border-left-0">
               <%= implant.name %>
