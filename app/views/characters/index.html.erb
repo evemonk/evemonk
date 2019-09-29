@@ -9,22 +9,50 @@
   </div>
 </div>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>Name</th>
-    </tr>
-  </thead>
+<div class="row">
+  <% @characters.each do |character| %>
+    <div class="col-xs-12 col-sm-12 col-md-8 col-lg-4 col-xl-4">
+      <h4 class="text-center text-break">
+        <%= link_to(character.name, character_path(character.character_id)) %>
+      </h4>
 
-  <tbody>
-    <% @characters.each do |character| %>
-      <tr>
-        <td><%= link_to(character.name, character_path(character.character_id)) %></td>
-      </tr>
+      <div class="card">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item text-center">
+            <%= image_tag(character.icon_medium,
+                          alt: character.name,
+                          class: "rounded border",
+                          size: "130x130",
+                          loading: "lazy") %>
+          </li>
+          <% if character.alliance %>
+            <li class="list-group-item text-break">
+              Alliance: <%= link_to(character.alliance.name,
+                                    universe_alliance_path(character.alliance.alliance_id)) %>
+            </li>
+          <% end %>
+          <% if character.corporation %>
+            <li class="list-group-item text-break">
+              Corporation: <%= link_to(character.corporation.name,
+                                       universe_corporation_path(character.corporation.corporation_id)) %>
+            </li>
+          <% end %>
+          <li class="list-group-item text-break">
+            Security status: <%= character.security_status %>
+          </li>
+        </ul>
+        <p class="card-text text-center">
+          <small class="text-muted">
+            Last updated <%= time_ago_in_words(character.updated_at) %> ago
+          </small>
+        </p>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="col-xs-12 col-sm-12 col-md-8 col-lg-4 col-xl-4">
+    <%= form_with(url: "/auth/eve_online_sso") do |f| %>
+      <%= f.button "Sign in via EVE Online" %>
     <% end %>
-  </tbody>
-</table>
-
-<%= form_with(url: "/auth/eve_online_sso") do |f| %>
-  <%= f.button "Sign in via EVE Online" %>
-<% end %>
+  </div>
+</div>
