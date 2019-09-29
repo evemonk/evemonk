@@ -11,162 +11,221 @@
 </div>
 
 <div class="row">
-  <div class="">
-    <h2>Summary</h2>
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+    <h4 class="text-center text-break"><%= @character.name %></h4>
 
-    <table class="table">
-      <tbody>
-        <tr>
-          <td><%= @character.character_id %></td>
-        </tr>
-
-        <tr>
-          <td><%= @character.name %></td>
-        </tr>
-
-        <tr>
-          <td><%= @character.gender %></td>
-        </tr>
-
-        <tr>
-          <td><%= @character.description %></td>
-        </tr>
-
-        <tr>
-          <td><%= @character.security_status %></td>
-        </tr>
-
-        <tr>
-          <td><%= @character.wallet %></td>
-        </tr>
-
-        <tr>
-          <td><%= @character.charisma %></td>
-        </tr>
-
-        <tr>
-          <td><%= @character.intelligence %></td>
-        </tr>
-
-        <tr>
-          <td><%= @character.memory %></td>
-        </tr>
-
-        <tr>
-          <td><%= @character.perception %></td>
-        </tr>
-
-        <tr>
-          <td><%= @character.willpower %></td>
-        </tr>
-
-        <tr>
-          <td><%= @character.bonus_remaps %></td>
-        </tr>
-
-        <tr>
-          <td><%= @character.last_remap_date %></td>
-        </tr>
-
-        <tr>
-          <td><%= @character.accrued_remap_cooldown_date %></td>
-        </tr>
-
-        <tr>
-          <td><%= @character.alliance_id %></td>
-        </tr>
-
-        <tr>
-          <td><%= @character.corporation_id %></td>
-        </tr>
-
-        <tr>
-          <td><%= @character.race_id %></td>
-        </tr>
-
-        <tr>
-          <td><%= @character.bloodline_id %></td>
-        </tr>
-
-        <tr>
-          <td><%= @character.ancestry_id %></td>
-        </tr>
-
-        <tr>
-          <td><%= @character.faction_id %></td>
-        </tr>
-
-        <tr>
-          <td><%= @character.current_solar_system_id %></td>
-        </tr>
-
-        <tr>
-          <td><%= @character.current_station_id %></td>
-        </tr>
-
-        <tr>
-          <td><%= @character.current_structure_id %></td>
-        </tr>
-
-        <tr>
-          <td><%= @character.current_ship_item_id %></td>
-        </tr>
-
-        <tr>
-          <td><%= @character.current_ship_name %></td>
-        </tr>
-
-        <tr>
-          <td><%= @character.current_ship_type_id %></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="">
-    <h2>Skills</h2>
-  </div>
-
-  <div class="">
-    <h2>Loyalty points</h2>
-
-    <table class="table">
-      <thead>
-        <tr>
-          <th>corporation_id</th>
-          <th>loyalty_points</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @character.loyalty_points.each do |lp| %>
-          <tr>
-            <td><%= lp.corporation&.name %></td>
-            <td><%= lp.loyalty_points %></td>
-          </tr>
+    <div class="card">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item text-center">
+          <%= image_tag(@character.icon_medium,
+                        alt: @character.name,
+                        class: "rounded border",
+                        size: "130x130",
+                        loading: "lazy") %>
+        </li>
+        <% if @character.alliance %>
+          <li class="list-group-item text-break">
+            Alliance: <%= link_to(@character.alliance.name,
+                                  universe_alliance_path(@character.alliance.alliance_id)) %>
+          </li>
         <% end %>
-      </tbody>
-    </table>
+        <% if @character.corporation %>
+          <li class="list-group-item text-break">
+            Corporation: <%= link_to(@character.corporation.name,
+                                     universe_corporation_path(@character.corporation.corporation_id)) %>
+          </li>
+        <% end %>
+        <li class="list-group-item text-break">
+          Security status: <%= @character.security_status %>
+        </li>
+      </ul>
+      <p class="card-text text-center">
+        <small class="text-muted">
+          Last updated <%= time_ago_in_words(@character.updated_at) %> ago
+        </small>
+      </p>
+    </div>
   </div>
 
-  <div class="">
-    <h2>Implants (<%= @character.implants.size %>)</h2>
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+    <h4 class="text-center text-break">Implants</h4>
 
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Name</th>
-        </tr>
-      </thead>
-
+    <table class="table table-striped table-bordered">
       <tbody>
         <% @character.implants.each do |implant| %>
           <tr>
-            <td><%= implant.name %></td>
+            <td class="align-middle text-center border-right-0 m-0 p-2">
+              <%= image_tag(implant.icon_tiny) %>
+            </td>
+            <td class="align-middle text-break border-left-0">
+              <%= implant.name %>
+            </td>
           </tr>
         <% end %>
       </tbody>
     </table>
+
   </div>
-
-
 </div>
+
+
+<!--<div class="row">-->
+<!--  <div class="">-->
+<!--    <h2>Summary</h2>-->
+
+<!--    <table class="table">-->
+<!--      <tbody>-->
+<!--        <tr>-->
+<!--          <td><%#= @character.character_id %></td>-->
+<!--        </tr>-->
+
+<!--        <tr>-->
+<!--          <td><%#= @character.name %></td>-->
+<!--        </tr>-->
+
+<!--        <tr>-->
+<!--          <td><%#= @character.gender %></td>-->
+<!--        </tr>-->
+
+<!--        <tr>-->
+<!--          <td><%#= @character.description %></td>-->
+<!--        </tr>-->
+
+<!--        <tr>-->
+<!--          <td><%#= @character.security_status %></td>-->
+<!--        </tr>-->
+
+<!--        <tr>-->
+<!--          <td><%#= @character.wallet %></td>-->
+<!--        </tr>-->
+
+<!--        <tr>-->
+<!--          <td><%#= @character.charisma %></td>-->
+<!--        </tr>-->
+
+<!--        <tr>-->
+<!--          <td><%#= @character.intelligence %></td>-->
+<!--        </tr>-->
+
+<!--        <tr>-->
+<!--          <td><%#= @character.memory %></td>-->
+<!--        </tr>-->
+
+<!--        <tr>-->
+<!--          <td><%#= @character.perception %></td>-->
+<!--        </tr>-->
+
+<!--        <tr>-->
+<!--          <td><%#= @character.willpower %></td>-->
+<!--        </tr>-->
+
+<!--        <tr>-->
+<!--          <td><%#= @character.bonus_remaps %></td>-->
+<!--        </tr>-->
+
+<!--        <tr>-->
+<!--          <td><%#= @character.last_remap_date %></td>-->
+<!--        </tr>-->
+
+<!--        <tr>-->
+<!--          <td><%#= @character.accrued_remap_cooldown_date %></td>-->
+<!--        </tr>-->
+
+<!--        <tr>-->
+<!--          <td><%#= @character.alliance_id %></td>-->
+<!--        </tr>-->
+
+<!--        <tr>-->
+<!--          <td><%#= @character.corporation_id %></td>-->
+<!--        </tr>-->
+
+<!--        <tr>-->
+<!--          <td><%#= @character.race_id %></td>-->
+<!--        </tr>-->
+
+<!--        <tr>-->
+<!--          <td><%#= @character.bloodline_id %></td>-->
+<!--        </tr>-->
+
+<!--        <tr>-->
+<!--          <td><%#= @character.ancestry_id %></td>-->
+<!--        </tr>-->
+
+<!--        <tr>-->
+<!--          <td><%#= @character.faction_id %></td>-->
+<!--        </tr>-->
+
+<!--        <tr>-->
+<!--          <td><%#= @character.current_solar_system_id %></td>-->
+<!--        </tr>-->
+
+<!--        <tr>-->
+<!--          <td><%#= @character.current_station_id %></td>-->
+<!--        </tr>-->
+
+<!--        <tr>-->
+<!--          <td><%#= @character.current_structure_id %></td>-->
+<!--        </tr>-->
+
+<!--        <tr>-->
+<!--          <td><%#= @character.current_ship_item_id %></td>-->
+<!--        </tr>-->
+
+<!--        <tr>-->
+<!--          <td><%#= @character.current_ship_name %></td>-->
+<!--        </tr>-->
+
+<!--        <tr>-->
+<!--          <td><%#= @character.current_ship_type_id %></td>-->
+<!--        </tr>-->
+<!--      </tbody>-->
+<!--    </table>-->
+<!--  </div>-->
+
+<!--  <div class="">-->
+<!--    <h2>Skills</h2>-->
+<!--  </div>-->
+
+<!--  <div class="">-->
+<!--    <h2>Loyalty points</h2>-->
+
+<!--    <table class="table">-->
+<!--      <thead>-->
+<!--        <tr>-->
+<!--          <th>corporation_id</th>-->
+<!--          <th>loyalty_points</th>-->
+<!--        </tr>-->
+<!--      </thead>-->
+<!--      <tbody>-->
+        <%# @character.loyalty_points.each do |lp| %>
+<!--          <tr>-->
+<!--            <td><%#= lp.corporation&.name %></td>-->
+<!--            <td><%#= lp.loyalty_points %></td>-->
+<!--          </tr>-->
+        <%# end %>
+<!--      </tbody>-->
+<!--    </table>-->
+<!--  </div>-->
+
+<!--  <div class="">-->
+<!--    <h2>Implants (<%#= @character.implants.size %>)</h2>-->
+
+<!--    <table class="table">-->
+<!--      <thead>-->
+<!--        <tr>-->
+<!--          <th>Name</th>-->
+<!--        </tr>-->
+<!--      </thead>-->
+
+<!--      <tbody>-->
+        <%# @character.implants.each do |implant| %>
+<!--          <tr>-->
+<!--            <td><%#= implant.name %></td>-->
+<!--          </tr>-->
+        <%# end %>
+<!--      </tbody>-->
+<!--    </table>-->
+<!--  </div>-->
+
+
+<!--</div>-->
