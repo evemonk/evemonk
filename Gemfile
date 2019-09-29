@@ -7,6 +7,7 @@ gem "pg", ">= 0.18", "< 2.0"
 gem "puma"
 gem "sass-rails"
 gem "webpacker", "~> 4.0"
+gem "turbolinks", "~> 5"
 gem "jbuilder", "~> 2.7"
 gem "sorcery"
 gem "bootsnap", ">= 1.4.2", require: false
