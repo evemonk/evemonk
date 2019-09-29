@@ -38,6 +38,9 @@
         <li class="list-group-item text-break">
           Security status: <%= @character.security_status %>
         </li>
+        <li class="list-group-item text-break">
+          Wallet: <%= @character.wallet %>
+        </li>
       </ul>
       <p class="card-text text-center">
         <small class="text-muted">
@@ -45,6 +48,40 @@
         </small>
       </p>
     </div>
+  </div>
+
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+    <h4 class="text-center text-break">Attributes</h4>
+
+    <table class="table table-striped table-bordered">
+      <tbody>
+        <tr>
+          <td class="align-middle text-break border-left-0">
+            Charisma: <%= @character.charisma %>
+          </td>
+        </tr>
+        <tr>
+          <td class="align-middle text-break border-left-0">
+            Intelligence: <%= @character.intelligence %>
+          </td>
+        </tr>
+        <tr>
+          <td class="align-middle text-break border-left-0">
+            Memory: <%= @character.memory %>
+          </td>
+        </tr>
+        <tr>
+          <td class="align-middle text-break border-left-0">
+            Perception: <%= @character.perception %>
+          </td>
+        </tr>
+        <tr>
+          <td class="align-middle text-break border-left-0">
+            Willpower: <%= @character.willpower %>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
