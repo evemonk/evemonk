@@ -30,7 +30,7 @@ Mobile first design.
 * [asdf-nodejs](https://github.com/asdf-vm/asdf-nodejs)
 * Ruby 2.6.4
 * RubyGems 3.0.6
-* Bundler 2.0.2
+* Bundler 2.1.0.pre.2
 * Ruby on Rails 6.0.0
 * PostgreSQL 11.5
 * Redis 5.0.5

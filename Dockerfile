@@ -29,7 +29,7 @@ COPY Gemfile.lock Gemfile.lock
 
 ENV RAILS_ENV production
 
-ENV BUNDLER_VERSION 2.0.2
+ENV BUNDLER_VERSION 2.1.0.pre.2
 
 RUN gem install bundler --version "$BUNDLER_VERSION" --force
 

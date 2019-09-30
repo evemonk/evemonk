@@ -26,7 +26,7 @@ jobs:
             - ruby-264-v1-dependencies-{{ checksum "Gemfile.lock" }}
             - ruby-264-v1-dependencies-
       - run: sudo gem update --system '3.0.6'
-      - run: gem install bundler -v '2.0.2'
+      - run: gem install bundler -v '2.1.0.pre.2'
       - run: bundle check || bundle install --clean --jobs=2 --retry=5 --path vendor/bundle
       - save_cache:
           paths:
