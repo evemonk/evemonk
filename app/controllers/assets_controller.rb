@@ -6,6 +6,8 @@ class AssetsController < ApplicationController
       .find_by!(character_id: params[:character_id])
       .decorate
 
-    @assets = @character.character_assets.includes(:type)
+    @assets = @character.character_assets
+      .includes(:type)
+      .decorate
   end
 end
