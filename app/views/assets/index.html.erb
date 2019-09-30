@@ -1,0 +1,51 @@
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+    <h4 class="text-center text-break"><%= @character.name %></h4>
+
+    <div class="card">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item text-center">
+          <%= image_tag(@character.icon_medium,
+                        alt: @character.name,
+                        class: "rounded border",
+                        size: "130x130",
+                        loading: "lazy") %>
+        </li>
+        <% if @character.alliance %>
+          <li class="list-group-item text-break">
+            Alliance: <%= link_to(@character.alliance.name,
+                                  universe_alliance_path(@character.alliance.alliance_id)) %>
+          </li>
+        <% end %>
+        <% if @character.corporation %>
+          <li class="list-group-item text-break">
+            Corporation: <%= link_to(@character.corporation.name,
+                                     universe_corporation_path(@character.corporation.corporation_id)) %>
+          </li>
+        <% end %>
+        <li class="list-group-item text-break">
+          Security status: <%= @character.security_status %>
+        </li>
+        <li class="list-group-item text-break">
+          Wallet: <%= @character.wallet %>
+        </li>
+      </ul>
+      <p class="card-text text-center">
+        <small class="text-muted">
+          Last updated <%= time_ago_in_words(@character.updated_at) %> ago
+        </small>
+      </p>
+    </div>
+  </div>
+
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-8 col-xl-8">
+    <table class="table">
+      <% @assets.each do |asset| %>
+        <tr>
+          <td>Icon</td>
+          <td><%= asset.type&.name %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
