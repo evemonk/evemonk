@@ -10,6 +10,17 @@
   </div>
 </div>
 
+<ul class="nav nav-pills">
+  <li class="nav-item">
+    <%= link_to("Sheet", character_path(@character.character_id), class: "nav-link active") %>
+  </li>
+  <li class="nav-item">
+    <%= link_to("Assets", character_assets_path(@character.character_id), class: "nav-link") %>
+  </li>
+</ul>
+
+<hr>
+
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
     <h4 class="text-center text-break"><%= @character.name %></h4>
