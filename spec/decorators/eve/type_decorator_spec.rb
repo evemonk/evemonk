@@ -10,7 +10,7 @@ describe Eve::TypeDecorator do
   describe "#icon_tiny" do
     let(:eve_type) do
       build(:eve_type,
-            type_id: 123)
+        type_id: 123)
     end
 
     subject { eve_type.decorate }
@@ -31,7 +31,7 @@ describe Eve::TypeDecorator do
   describe "#icon_small" do
     let(:eve_type) do
       build(:eve_type,
-            type_id: 123)
+        type_id: 123)
     end
 
     subject { eve_type.decorate }

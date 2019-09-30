@@ -21,7 +21,7 @@ describe Eve::FactionDecorator do
   describe "#icon_tiny" do
     let(:eve_faction) do
       build(:eve_faction,
-            faction_id: 123)
+        faction_id: 123)
     end
 
     subject { eve_faction.decorate }
@@ -42,7 +42,7 @@ describe Eve::FactionDecorator do
   describe "#icon_small" do
     let(:eve_faction) do
       build(:eve_faction,
-            faction_id: 123)
+        faction_id: 123)
     end
 
     subject { eve_faction.decorate }
@@ -63,7 +63,7 @@ describe Eve::FactionDecorator do
   describe "#icon_medium" do
     let(:eve_faction) do
       build(:eve_faction,
-            faction_id: 123)
+        faction_id: 123)
     end
 
     subject { eve_faction.decorate }
