@@ -8,6 +8,5 @@ class AssetsController < ApplicationController
 
     @assets = @character.character_assets
       .includes(:type)
-      .decorate
   end
 end

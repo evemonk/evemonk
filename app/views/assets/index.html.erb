@@ -42,8 +42,21 @@
     <table class="table">
       <% @assets.each do |asset| %>
         <tr>
-          <td>Icon</td>
+          <td>
+            <%= image_tag(asset.type&.icon_tiny,
+                          alt: asset.type&.name,
+                          class: "rounded border",
+                          size: "34x34",
+                          loading: "lazy") %>
+          </td>
           <td><%= asset.type&.name %></td>
+          <td><%= asset.is_blueprint_copy %></td>
+          <td><%= asset.is_singleton %></td>
+          <td><%= asset.item_id %></td>
+          <td><%= asset.location_flag %></td>
+          <td><%= asset.location_id %></td>
+          <td><%= asset.location_type %></td>
+          <td><%= asset.quantity %></td>
         </tr>
       <% end %>
     </table>
