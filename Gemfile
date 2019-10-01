@@ -20,6 +20,7 @@ gem "foundation_emails"
 gem "eve_online", git: "https://github.com/evemonk/eve_online.git", branch: "master"
 # gem "eve_online", git: "https://github.com/evemonk/eve_online.git", branch: "dev"
 # gem "eve_online", path: "~/opensource/eve_online"
+gem "oauth2", "1.4.1" # lock due bug in 1.4.2
 gem "omniauth-eve_online-sso"
 gem "omniauth-rails_csrf_protection"
 gem "jwt"
