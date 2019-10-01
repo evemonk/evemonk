@@ -13,7 +13,7 @@ describe "Sign in features" do
 
     click_button "Sign in"
 
-    # expect(page).to have_content("Successful signed in!")
+    expect(page).to have_content("Successful signed in!")
 
     expect(current_path).to eq("/characters")
   end
@@ -28,7 +28,7 @@ describe "Sign in features" do
 
     click_button "Sign in"
 
-    # expect(page).to have_content("Successful signed in!")
+    expect(page).to have_content("Successful signed in!")
 
     expect(current_path).to eq("/characters")
   end

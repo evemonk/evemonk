@@ -29,21 +29,21 @@ COPY Gemfile.lock Gemfile.lock
 
 ENV RAILS_ENV production
 
-ENV BUNDLER_VERSION 2.0.2
+ENV BUNDLER_VERSION 2.1.0.pre.2
 
 RUN gem install bundler --version "$BUNDLER_VERSION" --force
 
 # throw errors if Gemfile has been modified since Gemfile.lock
-RUN bundle config --global frozen 1
+RUN bundle config set --global frozen 1
 
 # two jobs
-RUN bundle config --global jobs 2
+RUN bundle config set --global jobs 2
 
 # install only production gems without development and test
-RUN bundle config --global without development test
+RUN bundle config set --global without development test
 
 # retry 5 times before fail
-RUN bundle config --global retry 5
+RUN bundle config set --global retry 5
 
 RUN bundle install
 

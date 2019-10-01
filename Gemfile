@@ -7,6 +7,7 @@ gem "pg", ">= 0.18", "< 2.0"
 gem "puma"
 gem "sass-rails"
 gem "webpacker", "~> 4.0"
+gem "turbolinks", "~> 5"
 gem "jbuilder", "~> 2.7"
 gem "sorcery"
 gem "bootsnap", ">= 1.4.2", require: false
@@ -19,6 +20,7 @@ gem "foundation_emails"
 gem "eve_online", git: "https://github.com/evemonk/eve_online.git", branch: "master"
 # gem "eve_online", git: "https://github.com/evemonk/eve_online.git", branch: "dev"
 # gem "eve_online", path: "~/opensource/eve_online"
+gem "oauth2", "1.4.1" # lock due bug in 1.4.2
 gem "omniauth-eve_online-sso"
 gem "omniauth-rails_csrf_protection"
 gem "jwt"
@@ -95,6 +97,7 @@ group :development, :test do
   gem "brakeman", require: false
   gem "fasterer", require: false
   gem "license_finder", require: false
+  gem "isolator"
 end
 
 group :development do
@@ -122,6 +125,7 @@ group :test do
   gem "shoulda-matchers", git: "https://github.com/thoughtbot/shoulda-matchers.git",
                           branch: "master"
   gem "rspec-its"
+  # gem "rspec-stubbed_env"
   gem "shoulda-callback-matchers", git: "https://github.com/just806me/shoulda-callback-matchers.git",
                                    branch: "master"
   gem "simplecov"

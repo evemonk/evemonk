@@ -94,6 +94,10 @@ GEM
       erubi (~> 1.4)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.1, >= 1.2.0)
+    active_attr (0.15.0)
+      actionpack (>= 3.0.2, < 6.1)
+      activemodel (>= 3.0.2, < 6.1)
+      activesupport (>= 3.0.2, < 6.1)
     active_record_doctor (1.6.0)
       activerecord (>= 4.2)
       railties (>= 4.2)
@@ -124,6 +128,7 @@ GEM
       zeitwerk (~> 2.1, >= 2.1.8)
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
+    anyway_config (1.4.4)
     ast (2.4.0)
     awesome_print (1.8.0)
     bcrypt (3.1.13)
@@ -207,9 +212,9 @@ GEM
     factory_bot_rails (5.1.0)
       factory_bot (~> 5.1.0)
       railties (>= 4.2.0)
-    faker (2.4.0)
+    faker (2.5.0)
       i18n (~> 1.6.0)
-    faker-bot (0.5.1)
+    faker-bot (0.5.2)
       faker
       pastel (~> 0.7.2)
       thor (~> 0.20.0)
@@ -218,7 +223,7 @@ GEM
       tty-tree
     faraday (0.15.4)
       multipart-post (>= 1.2, < 3)
-    fasterer (0.7.0)
+    fasterer (0.7.1)
       colorize (~> 0.7)
       ruby_parser (>= 3.13.0)
     ffi (1.11.1)
@@ -243,6 +248,8 @@ GEM
     http_logger (0.5.1)
     i18n (1.6.0)
       concurrent-ruby (~> 1.0)
+    isolator (0.6.1)
+      sniffer (~> 0.3.1)
     jaro_winkler (1.5.3)
     jbuilder (2.9.1)
       activesupport (>= 4.2.0)
@@ -279,7 +286,7 @@ GEM
       activesupport (>= 4)
       railties (>= 4)
       request_store (~> 1.0)
-    loofah (2.2.3)
+    loofah (2.3.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     mail (2.7.1)
@@ -301,7 +308,7 @@ GEM
     mimemagic (0.3.3)
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
-    minitest (5.12.0)
+    minitest (5.12.2)
     mixlib-cli (1.7.0)
     mixlib-config (2.2.18)
       tomlrb
@@ -493,9 +500,9 @@ GEM
       activemodel (>= 5)
       elasticsearch (>= 6)
       hashie
-    selenium-webdriver (3.142.4)
+    selenium-webdriver (3.142.5)
       childprocess (>= 0.5, < 3.0)
-      rubyzip (~> 1.2, >= 1.2.2)
+      rubyzip (>= 1.2.2)
     sentry-raven (2.11.3)
       faraday (>= 0.7.6, < 1.0)
     server_timing (1.0.2)
@@ -518,6 +525,9 @@ GEM
     simplecov-html (0.10.2)
     sitemap_generator (6.0.2)
       builder (~> 3.0)
+    sniffer (0.3.2)
+      active_attr (>= 0.10.2)
+      anyway_config (~> 1.0)
     sorcery (0.14.0)
       bcrypt (~> 3.1)
       oauth (~> 0.4, >= 0.4.4)
@@ -562,6 +572,9 @@ GEM
     tty-screen (0.7.0)
     tty-tree (0.3.0)
     tty-which (0.4.1)
+    turbolinks (5.2.1)
+      turbolinks-source (~> 5.2)
+    turbolinks-source (5.2.0)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
     unicode-display_width (1.6.0)
@@ -572,7 +585,7 @@ GEM
       nokogiri (~> 1.6)
       rubyzip (~> 1.0)
       selenium-webdriver (>= 3.0, < 4.0)
-    webmock (3.7.5)
+    webmock (3.7.6)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
       hashdiff (>= 0.4.0, < 2.0.0)
@@ -633,6 +646,7 @@ DEPENDENCIES
   foundation_emails
   gemdiff
   http_logger
+  isolator
   jbuilder (~> 2.7)
   jwt
   kaminari
@@ -645,6 +659,7 @@ DEPENDENCIES
   mobility
   newrelic_rpm
   niceql
+  oauth2 (= 1.4.1)
   omniauth-eve_online-sso
   omniauth-rails_csrf_protection
   paper_trail
@@ -693,6 +708,7 @@ DEPENDENCIES
   squasher
   standard
   swagger-blocks
+  turbolinks (~> 5)
   vcr
   webdrivers
   webmock
@@ -703,4 +719,4 @@ DEPENDENCIES
   yabeda-sidekiq
 
 BUNDLED WITH
-   2.0.2
+   2.1.0.pre.2

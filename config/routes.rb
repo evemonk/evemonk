@@ -22,7 +22,9 @@ Rails.application.routes.draw do
     resources :types, only: [:index, :show]
   end
 
-  resources :characters, only: [:index, :show, :destroy]
+  resources :characters, only: [:index, :show, :destroy] do
+    resources :assets, only: :index
+  end
 
   resource :sign_up, only: [:show, :create]
 
