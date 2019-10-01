@@ -5,7 +5,7 @@
         <li class="breadcrumb-item"><%= link_to("Home", root_path) %></li>
         <li class="breadcrumb-item"><%= link_to("My characters", characters_path) %></li>
         <li class="breadcrumb-item"><%= link_to(@character.name, character_path(@character.character_id)) %></li>
-        <li class="breadcrumb-item active" aria-current="page">Assets</li>
+        <li class="breadcrumb-item active" aria-current="page">Loyalty points</li>
       </ol>
     </nav>
   </div>
@@ -16,10 +16,10 @@
     <%= link_to("Sheet", character_path(@character.character_id), class: "nav-link") %>
   </li>
   <li class="nav-item">
-    <%= link_to("Assets", character_assets_path(@character.character_id), class: "nav-link active") %>
+    <%= link_to("Assets", character_assets_path(@character.character_id), class: "nav-link") %>
   </li>
   <li class="nav-item">
-    <%= link_to("Loyalty points", character_loyalty_points_path(@character.character_id), class: "nav-link") %>
+    <%= link_to("Loyalty points", character_loyalty_points_path(@character.character_id), class: "nav-link active") %>
   </li>
 </ul>
 
@@ -65,27 +65,19 @@
     </div>
   </div>
 
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-8 col-xl-8">
-    <table class="table">
-      <% @assets.each do |asset| %>
-        <tr>
-          <td>
-            <%= image_tag(asset.type&.icon_tiny,
-                          alt: asset.type&.name,
-                          class: "rounded border",
-                          size: "34x34",
-                          loading: "lazy") %>
-          </td>
-          <td><%= asset.type&.name %></td>
-          <td><%= asset.is_blueprint_copy %></td>
-          <td><%= asset.is_singleton %></td>
-          <td><%= asset.item_id %></td>
-          <td><%= asset.location_flag %></td>
-          <td><%= asset.location_id %></td>
-          <td><%= asset.location_type %></td>
-          <td><%= asset.quantity %></td>
-        </tr>
-      <% end %>
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+    <h4 class="text-center text-break">Loyalty points</h4>
+
+    <table class="table table-striped table-bordered">
+      <tbody>
+        <% @loyalty_points.each do |loyalty_point| %>
+          <tr>
+            <td>icon</td>
+            <td><%= loyalty_point.corporation&.name %></td>
+            <td><%= loyalty_point.loyalty_points %></td>
+          </tr>
+        <% end %>
+      </tbody>
     </table>
   </div>
 </div>

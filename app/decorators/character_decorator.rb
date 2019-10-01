@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class CharacterDecorator < ApplicationDecorator
+  include ActionView::Helpers::NumberHelper
+
   decorates_associations :user, :race, :bloodline, :faction, :ancestry,
     :alliance, :corporation, :loyalty_points, :character_assets, :character_implants,
     :implants
@@ -50,6 +52,6 @@ class CharacterDecorator < ApplicationDecorator
   end
 
   def wallet
-    "#{object.wallet} ISK"
+    number_with_delimiter(object.wallet.to_i, delimiter: " ")
   end
 end

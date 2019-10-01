@@ -17,6 +17,9 @@
   <li class="nav-item">
     <%= link_to("Assets", character_assets_path(@character.character_id), class: "nav-link") %>
   </li>
+  <li class="nav-item">
+    <%= link_to("Loyalty points", character_loyalty_points_path(@character.character_id), class: "nav-link") %>
+  </li>
 </ul>
 
 <hr>
@@ -50,7 +53,7 @@
           Security status: <%= @character.security_status %>
         </li>
         <li class="list-group-item text-break">
-          Wallet: <%= @character.wallet %>
+          ISK: <%= @character.wallet %>
         </li>
       </ul>
       <p class="card-text text-center">
@@ -196,27 +199,6 @@
 
 <!--  <div class="">-->
 <!--    <h2>Skills</h2>-->
-<!--  </div>-->
-
-<!--  <div class="">-->
-<!--    <h2>Loyalty points</h2>-->
-
-<!--    <table class="table">-->
-<!--      <thead>-->
-<!--        <tr>-->
-<!--          <th>corporation_id</th>-->
-<!--          <th>loyalty_points</th>-->
-<!--        </tr>-->
-<!--      </thead>-->
-<!--      <tbody>-->
-        <%# @character.loyalty_points.each do |lp| %>
-<!--          <tr>-->
-<!--            <td><%#= lp.corporation&.name %></td>-->
-<!--            <td><%#= lp.loyalty_points %></td>-->
-<!--          </tr>-->
-        <%# end %>
-<!--      </tbody>-->
-<!--    </table>-->
 <!--  </div>-->
 
 <!--</div>-->
