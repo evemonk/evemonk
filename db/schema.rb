@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_24_213954) do
+ActiveRecord::Schema.define(version: 2019_10_01_215440) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -495,6 +495,21 @@ ActiveRecord::Schema.define(version: 2019_09_24_213954) do
     t.index ["var"], name: "index_settings_on_var", unique: true
   end
 
+  create_table "skillqueues", force: :cascade do |t|
+    t.bigint "character_id", null: false
+    t.datetime "finish_date"
+    t.integer "finished_level"
+    t.integer "level_end_sp"
+    t.integer "level_start_sp"
+    t.integer "queue_position"
+    t.bigint "skill_id"
+    t.datetime "start_date"
+    t.integer "training_start_sp"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["character_id"], name: "index_skillqueues_on_character_id"
+  end
+
   create_table "users", id: :serial, force: :cascade do |t|
     t.string "email"
     t.datetime "created_at", null: false
@@ -522,4 +537,5 @@ ActiveRecord::Schema.define(version: 2019_09_24_213954) do
   add_foreign_key "character_assets", "characters"
   add_foreign_key "characters", "users"
   add_foreign_key "sessions", "users"
+  add_foreign_key "skillqueues", "characters"
 end
