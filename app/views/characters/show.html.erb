@@ -20,6 +20,12 @@
   <li class="nav-item">
     <%= link_to("Loyalty points", character_loyalty_points_path(@character.character_id), class: "nav-link") %>
   </li>
+  <li class="nav-item">
+    <%= link_to("Skill queue", nil, class: "nav-link") %>
+  </li>
+  <li class="nav-item">
+    <%= link_to("Skills", nil, class: "nav-link") %>
+  </li>
 </ul>
 
 <hr>
@@ -47,6 +53,14 @@
           <li class="list-group-item text-break">
             Corporation: <%= link_to(@character.corporation.name,
                                      universe_corporation_path(@character.corporation.corporation_id)) %>
+          </li>
+        <% end %>
+        <li class="list-group-item text-break">
+          SP: <%= @character.total_sp %>
+        </li>
+        <% if @character.unallocated_sp && @character.unallocated_sp > 0 %>
+          <li class="list-group-item text-break">
+            Unallocated SP: <%= @character.unallocated_sp %>
           </li>
         <% end %>
         <li class="list-group-item text-break">
