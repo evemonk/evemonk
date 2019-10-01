@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_01_215440) do
+ActiveRecord::Schema.define(version: 2019_10_01_221811) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -77,6 +77,8 @@ ActiveRecord::Schema.define(version: 2019_10_01_215440) do
     t.bigint "current_ship_item_id"
     t.string "current_ship_name"
     t.bigint "current_ship_type_id"
+    t.bigint "total_sp"
+    t.bigint "unallocated_sp"
     t.index ["alliance_id"], name: "index_characters_on_alliance_id"
     t.index ["ancestry_id"], name: "index_characters_on_ancestry_id"
     t.index ["bloodline_id"], name: "index_characters_on_bloodline_id"
@@ -510,6 +512,17 @@ ActiveRecord::Schema.define(version: 2019_10_01_215440) do
     t.index ["character_id"], name: "index_skillqueues_on_character_id"
   end
 
+  create_table "skills", force: :cascade do |t|
+    t.bigint "character_id", null: false
+    t.integer "active_skill_level"
+    t.integer "skill_id"
+    t.integer "skillpoints_in_skill"
+    t.integer "trained_skill_level"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["character_id"], name: "index_skills_on_character_id"
+  end
+
   create_table "users", id: :serial, force: :cascade do |t|
     t.string "email"
     t.datetime "created_at", null: false
@@ -538,4 +551,5 @@ ActiveRecord::Schema.define(version: 2019_10_01_215440) do
   add_foreign_key "characters", "users"
   add_foreign_key "sessions", "users"
   add_foreign_key "skillqueues", "characters"
+  add_foreign_key "skills", "characters"
 end

@@ -25,6 +25,8 @@ class Character < ApplicationRecord
 
   has_many :skillqueues, dependent: :destroy
 
+  has_many :skills, dependent: :destroy
+
   def token_expired?
     token_expires_at <= Time.zone.now
   end
