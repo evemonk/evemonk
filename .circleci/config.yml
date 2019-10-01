@@ -4,7 +4,7 @@ jobs:
   build:
     working_directory: ~/evemonk
     docker:
-      - image: circleci/ruby:2.6.4-node-browsers
+      - image: circleci/ruby:2.6.5-node-browsers
         environment:
           RAILS_ENV: test
           PGHOST: localhost
@@ -13,7 +13,7 @@ jobs:
           POSTGRES_USER: circleci
           POSTGRES_DB: evemonk_test
           POSTGRES_PASSWORD: ""
-      - image: elasticsearch:7.3.2
+      - image: elasticsearch:7.4.0
         environment:
           - discovery.type: single-node
     steps:
@@ -35,7 +35,7 @@ jobs:
       - run: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run: dockerize -wait tcp://localhost:9200 -timeout 2m
       - run: sudo npm install -g npm@6.11.3
-      - run: sudo npm install -g yarn@1.17.3
+      - run: sudo npm install -g yarn@1.19.0
       - run: yarn install
       - run: bundle exec rails db:create
       - run: bundle exec rails db:migrate
