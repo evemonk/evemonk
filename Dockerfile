@@ -29,6 +29,10 @@ COPY Gemfile.lock Gemfile.lock
 
 ENV RAILS_ENV production
 
+ENV RUBYGEMS_VERSION 3.0.6
+
+RUN gem update --system "$RUBYGEMS_VERSION"
+
 ENV BUNDLER_VERSION 2.1.0.pre.2
 
 RUN gem install bundler --version "$BUNDLER_VERSION" --force
