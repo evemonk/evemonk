@@ -1,5 +1,7 @@
-require 'rails_helper'
+# frozen_string_literal: true
 
-RSpec.describe Skill, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+require "rails_helper"
+
+describe Skill do
+  it { should belong_to(:character) }
 end
