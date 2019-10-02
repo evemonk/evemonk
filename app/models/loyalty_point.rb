@@ -5,6 +5,6 @@ class LoyaltyPoint < ApplicationRecord
 
   belongs_to :corporation,
     class_name: "Eve::Corporation",
-    primary_key: :corporation_id,
+    primary_key: "corporation_id",
     optional: true
 end
