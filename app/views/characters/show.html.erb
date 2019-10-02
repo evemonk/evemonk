@@ -56,11 +56,11 @@
           </li>
         <% end %>
         <li class="list-group-item text-break">
-          SP: <%= @character.total_sp %>
+          SP: <%= @character.total_sp_formatted %>
         </li>
         <% if @character.unallocated_sp && @character.unallocated_sp > 0 %>
           <li class="list-group-item text-break">
-            Unallocated SP: <%= @character.unallocated_sp %>
+            Unallocated SP: <%= @character.unallocated_sp_formatted %>
           </li>
         <% end %>
         <li class="list-group-item text-break">

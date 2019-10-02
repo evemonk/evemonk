@@ -54,4 +54,12 @@ class CharacterDecorator < ApplicationDecorator
   def wallet
     number_with_delimiter(object.wallet.to_i, delimiter: " ")
   end
+
+  def total_sp_formatted
+    number_with_delimiter(object.total_sp, delimiter: " ")
+  end
+
+  def unallocated_sp_formatted
+    number_with_delimiter(object.unallocated_sp, delimiter: " ")
+  end
 end
