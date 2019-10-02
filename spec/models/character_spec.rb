@@ -27,6 +27,10 @@ describe Character do
 
   it { should have_many(:implants).through(:character_implants) }
 
+  it { should have_many(:skillqueues).dependent(:destroy) }
+
+  it { should have_many(:skills).dependent(:destroy) }
+
   describe "#token_expired?" do
     context "when expired" do
       subject { create(:character, token_expires_at: Time.zone.now - 1.hour) }
