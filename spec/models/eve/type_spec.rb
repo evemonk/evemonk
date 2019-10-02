@@ -15,9 +15,9 @@ describe Eve::Type do
 
   it { expect(described_class.table_name).to eq("eve_types") }
 
-  it { should have_many(:type_dogma_attributes).with_primary_key(:type_id).with_foreign_key(:type_id).dependent(:destroy) }
+  it { should have_many(:type_dogma_attributes).with_primary_key("type_id").with_foreign_key("type_id").dependent(:destroy) }
 
-  it { should have_many(:type_dogma_effects).with_primary_key(:type_id).with_foreign_key(:type_id).dependent(:destroy) }
+  it { should have_many(:type_dogma_effects).with_primary_key("type_id").with_foreign_key("type_id").dependent(:destroy) }
 
   describe "#search_data" do
     let!(:type) { create(:eve_type, name: "Ragnarok") }

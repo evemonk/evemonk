@@ -11,15 +11,15 @@ describe Eve::Alliance do
 
   it { expect(described_class.table_name).to eq("eve_alliances") }
 
-  it { should belong_to(:creator_corporation).with_primary_key(:corporation_id).class_name("Eve::Corporation").optional(true) }
+  it { should belong_to(:creator_corporation).with_primary_key("corporation_id").class_name("Eve::Corporation").optional(true) }
 
-  it { should belong_to(:creator).with_primary_key(:character_id).class_name("Eve::Character").optional(true) }
+  it { should belong_to(:creator).with_primary_key("character_id").class_name("Eve::Character").optional(true) }
 
-  it { should belong_to(:executor_corporation).with_foreign_key(:executor_corporation_id).with_primary_key(:corporation_id).class_name("Eve::Corporation").optional(true) }
+  it { should belong_to(:executor_corporation).with_foreign_key("executor_corporation_id").with_primary_key("corporation_id").class_name("Eve::Corporation").optional(true) }
 
-  it { should belong_to(:faction).with_primary_key(:faction_id).optional(true) }
+  it { should belong_to(:faction).with_primary_key("faction_id").optional(true) }
 
-  it { should have_many(:alliance_corporations).with_primary_key(:alliance_id) }
+  it { should have_many(:alliance_corporations).with_primary_key("alliance_id") }
 
   it { should have_many(:corporations).through(:alliance_corporations) }
 
