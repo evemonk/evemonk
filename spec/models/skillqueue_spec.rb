@@ -1,5 +1,9 @@
-require 'rails_helper'
+# frozen_string_literal: true
 
-RSpec.describe Skillqueue, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+require "rails_helper"
+
+describe Skillqueue do
+  it { should be_a(ApplicationRecord) }
+
+  it { should belong_to(:character) }
 end
