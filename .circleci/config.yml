@@ -53,4 +53,5 @@ jobs:
       - run: bundle exec rubocop
       - run: bundle exec license_finder || true
       - run: bundle exec rails zeitwerk:check
+      - run: bundle exec rails factory_bot:lint
       - run: ./cc-test-reporter after-build
