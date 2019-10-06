@@ -568,6 +568,8 @@ GEM
     toml (0.2.0)
       parslet (~> 1.8.0)
     tomlrb (1.2.8)
+    traceroute (0.8.0)
+      rails (>= 3.0.0)
     tty-color (0.5.0)
     tty-pager (0.12.1)
       strings (~> 0.1.4)
@@ -713,6 +715,7 @@ DEPENDENCIES
   squasher
   standard
   swagger-blocks
+  traceroute
   turbolinks (~> 5)
   vcr
   webdrivers

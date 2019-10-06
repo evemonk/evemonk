@@ -51,6 +51,7 @@ gem "errbase"
 gem "activerecord-nulldb-adapter"
 gem "niceql"
 gem "server_timing"
+gem "traceroute"
 # gem "strong_migrations"
 
 gem "awesome_print", require: "ap"
