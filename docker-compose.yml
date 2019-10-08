@@ -65,3 +65,20 @@ services:
       - .:/app:cached
       - ruby_bundle_cache:/bundle
       - node_modules:/app/node_modules
+
+  runner:
+    build:
+      context: .
+      dockerfile: ./Dockerfile.dev
+    stdin_open: true
+    tty: true
+    command: "/bin/bash"
+    depends_on:
+      - postgresql
+      - elasticsearch
+      - redis
+      - memcached
+    volumes:
+      - .:/app:cached
+      - ruby_bundle_cache:/bundle
+      - node_modules:/app/node_modules
