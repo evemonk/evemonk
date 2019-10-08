@@ -4,6 +4,8 @@ volumes:
   postresql_data: {}
   redis_data: {}
   elasticsearch_data: {}
+  ruby_bundle_cache: {}
+  node_modules: {}
 
 services:
   postgresql:
@@ -46,8 +48,12 @@ services:
       - "11211:11211"
 
   backend:
-    build: .
-    command: "bin/rails server -b 0.0.0.0"
+    build:
+      context: .
+      dockerfile: ./Dockerfile.dev
+    stdin_open: true
+    tty: true
+    command: "bundle exec rails server -b 0.0.0.0"
     ports:
       - "3000:3000"
     depends_on:
@@ -56,4 +62,6 @@ services:
       - redis
       - memcached
     volumes:
-      - .:/app
+      - .:/app:cached
+      - ruby_bundle_cache:/bundle
+      - node_modules:/app/node_modules
