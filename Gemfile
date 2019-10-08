@@ -61,7 +61,7 @@ gem "pry-rails"
 
 gem "lograge"
 
-gem "prometheus-client"
+gem "prometheus-client", "0.9.0"
 gem "yabeda-prometheus"
 gem "yabeda-rails"
 gem "yabeda-sidekiq"
