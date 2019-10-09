@@ -15,39 +15,6 @@ GIT
       activesupport (>= 3)
 
 GIT
-  remote: https://github.com/rspec/rspec-core.git
-  revision: b2df62e42ad8cc8d1710f4f47f39880d4bf9dfd2
-  branch: master
-  specs:
-    rspec-core (3.9.0.pre)
-      rspec-support (= 3.9.0.pre)
-
-GIT
-  remote: https://github.com/rspec/rspec-expectations.git
-  revision: 4c178e157b07eb0ece1e006d9cdae0c90c833c04
-  branch: master
-  specs:
-    rspec-expectations (3.9.0.pre)
-      diff-lcs (>= 1.2.0, < 2.0)
-      rspec-support (= 3.9.0.pre)
-
-GIT
-  remote: https://github.com/rspec/rspec-mocks.git
-  revision: 10243d77ce5ab587c09c94bfa9ef9ec156d138e7
-  branch: master
-  specs:
-    rspec-mocks (3.9.0.pre)
-      diff-lcs (>= 1.2.0, < 2.0)
-      rspec-support (= 3.9.0.pre)
-
-GIT
-  remote: https://github.com/rspec/rspec-support.git
-  revision: e179d8f208a4a8a5413e7fe10cb36ba20331bf23
-  branch: master
-  specs:
-    rspec-support (3.9.0.pre)
-
-GIT
   remote: https://github.com/thoughtbot/shoulda-matchers.git
   revision: ed962dee3e56fa6e209b5e6747827caa7155e9db
   branch: master
@@ -456,17 +423,26 @@ GEM
       chunky_png (~> 1.0)
       rqrcode_core (~> 0.1.0)
     rqrcode_core (0.1.0)
+    rspec-core (3.9.0)
+      rspec-support (~> 3.9.0)
+    rspec-expectations (3.9.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.9.0)
     rspec-its (1.3.0)
       rspec-core (>= 3.0.0)
       rspec-expectations (>= 3.0.0)
-    rspec-rails (4.0.0.beta2)
-      actionpack (>= 4.2)
-      activesupport (>= 4.2)
-      railties (>= 4.2)
-      rspec-core (~> 3.8)
-      rspec-expectations (~> 3.8)
-      rspec-mocks (~> 3.8)
-      rspec-support (~> 3.8)
+    rspec-mocks (3.9.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.9.0)
+    rspec-rails (3.9.0)
+      actionpack (>= 3.0)
+      activesupport (>= 3.0)
+      railties (>= 3.0)
+      rspec-core (~> 3.9.0)
+      rspec-expectations (~> 3.9.0)
+      rspec-mocks (~> 3.9.0)
+      rspec-support (~> 3.9.0)
+    rspec-support (3.9.0)
     rubocop (0.72.0)
       jaro_winkler (~> 1.5.1)
       parallel (~> 1.10)
@@ -687,12 +663,8 @@ DEPENDENCIES
   rotp
   rpush
   rqrcode
-  rspec-core!
-  rspec-expectations!
   rspec-its
-  rspec-mocks!
-  rspec-rails (= 4.0.0.beta2)
-  rspec-support!
+  rspec-rails
   rubocop
   sass-rails
   searchkick

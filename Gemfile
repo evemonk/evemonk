@@ -80,10 +80,7 @@ end
 
 group :development, :test do
   gem "dotenv-rails"
-  gem "rspec-rails", "4.0.0.beta2"
-  ["rspec-core", "rspec-expectations", "rspec-mocks", "rspec-support"].each do |lib|
-    gem lib, git: "https://github.com/rspec/#{lib}.git", branch: "master"
-  end
+  gem "rspec-rails"
   gem "bullet"
   gem "factory_bot_rails"
   gem "faker"
