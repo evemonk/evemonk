@@ -15,8 +15,6 @@ services:
     volumes:
       - "postresql_data:/var/lib/postgresql/data"
       - "./postgres:/docker-entrypoint-initdb.d"
-    ports:
-      - "5432:5432"
 
   elasticsearch:
     image: "docker.elastic.co/elasticsearch/elasticsearch:7.4.0"
@@ -27,8 +25,6 @@ services:
     environment:
       - "discovery.type=single-node"
       - "ES_JAVA_OPTS=-Xms256M -Xmx256M"
-    ports:
-      - "9200:9200"
 
   redis:
     image: "redis:5.0.6"
@@ -36,16 +32,12 @@ services:
     restart: unless-stopped
     volumes:
       - "redis_data:/data"
-    ports:
-      - "6379:6379"
 
   memcached:
     image: "memcached:1.5.19"
     container_name: evemonk_memcached
     restart: unless-stopped
     command: memcached -m 64
-    ports:
-      - "11211:11211"
 
   backend:
     build:
