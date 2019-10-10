@@ -226,6 +226,17 @@ describe CharacterDecorator do
 
     subject { character.decorate }
 
-    specify { expect(subject.wallet).to eq("8252.49 ISK") }
+    specify { expect(subject.wallet).to eq(8252) }
+  end
+
+  describe "#wallet_formatted" do
+    let(:character) do
+      build(:character,
+            wallet: 8252.49)
+    end
+
+    subject { character.decorate }
+
+    specify { expect(subject.wallet_formatted).to eq("8 252") }
   end
 end

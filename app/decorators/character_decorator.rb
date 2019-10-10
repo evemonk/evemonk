@@ -52,6 +52,10 @@ class CharacterDecorator < ApplicationDecorator
   end
 
   def wallet
+    object.wallet.to_i
+  end
+
+  def wallet_formatted
     number_with_delimiter(object.wallet.to_i, delimiter: " ")
   end
 
