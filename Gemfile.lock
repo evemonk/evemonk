@@ -16,29 +16,29 @@ GIT
 
 GIT
   remote: https://github.com/rspec/rspec-core.git
-  revision: b2df62e42ad8cc8d1710f4f47f39880d4bf9dfd2
+  revision: 82928aac51e1e7a06f155f73a72d6a5a88e7b2a8
   branch: master
   specs:
-    rspec-core (3.9.0.pre)
-      rspec-support (= 3.9.0.pre)
+    rspec-core (3.10.0.pre)
+      rspec-support (= 3.10.0.pre)
 
 GIT
   remote: https://github.com/rspec/rspec-expectations.git
-  revision: 4c178e157b07eb0ece1e006d9cdae0c90c833c04
+  revision: 74871dfec85e656cddc80672f8b1eaf766651cf6
   branch: master
   specs:
-    rspec-expectations (3.9.0.pre)
+    rspec-expectations (3.10.0.pre)
       diff-lcs (>= 1.2.0, < 2.0)
-      rspec-support (= 3.9.0.pre)
+      rspec-support (= 3.10.0.pre)
 
 GIT
   remote: https://github.com/rspec/rspec-mocks.git
-  revision: 10243d77ce5ab587c09c94bfa9ef9ec156d138e7
+  revision: 903c342e14080c40a8aa62a604d13cf23963ecfa
   branch: master
   specs:
-    rspec-mocks (3.9.0.pre)
+    rspec-mocks (3.10.0.pre)
       diff-lcs (>= 1.2.0, < 2.0)
-      rspec-support (= 3.9.0.pre)
+      rspec-support (= 3.10.0.pre)
 
 GIT
   remote: https://github.com/rspec/rspec-rails.git
@@ -56,10 +56,10 @@ GIT
 
 GIT
   remote: https://github.com/rspec/rspec-support.git
-  revision: e179d8f208a4a8a5413e7fe10cb36ba20331bf23
+  revision: 3d227e50f7a3c1e88e3cb113a93537f7d524c1be
   branch: master
   specs:
-    rspec-support (3.9.0.pre)
+    rspec-support (3.10.0.pre)
 
 GIT
   remote: https://github.com/thoughtbot/shoulda-matchers.git
