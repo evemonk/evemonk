@@ -235,7 +235,7 @@ describe Api::CharactersController do
                                               "willpower" => 24,
                                               "intelligence" => 21,
                                               "charisma" => 20,
-                                              "wallet" => "252",
+                                              "wallet" => 123_252,
                                               "bonus_remaps" => 2,
                                               "last_remap_date" => "2011-05-07T12:58:06Z",
                                               "accrued_remap_cooldown_date" => "2012-05-06T12:58:06Z",
