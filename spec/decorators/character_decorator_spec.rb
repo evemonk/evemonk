@@ -232,7 +232,7 @@ describe CharacterDecorator do
   describe "#wallet_formatted" do
     let(:character) do
       build(:character,
-            wallet: 8252.49)
+        wallet: 8252.49)
     end
 
     subject { character.decorate }
