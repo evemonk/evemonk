@@ -312,7 +312,7 @@ GEM
       mixlib-cli (~> 1.7, >= 1.7.0)
       mixlib-config (~> 2.2, >= 2.2.1)
     memory_profiler (0.9.14)
-    meta-tags (2.12.0)
+    meta-tags (2.13.0)
       actionpack (>= 3.2.0, < 6.1)
     method_source (0.9.2)
     metricky (0.8.6)
