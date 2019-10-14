@@ -9,5 +9,5 @@ describe Eve::TypeDogmaAttribute do
 
   it { expect(described_class.table_name).to eq("eve_type_dogma_attributes") }
 
-  it { should belong_to(:type).with_primary_key(:type_id).with_foreign_key(:type_id) }
+  it { should belong_to(:type).with_primary_key("type_id").with_foreign_key("type_id") }
 end

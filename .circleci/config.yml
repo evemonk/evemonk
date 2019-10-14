@@ -4,7 +4,7 @@ jobs:
   build:
     working_directory: ~/evemonk
     docker:
-      - image: circleci/ruby:2.6.4-node-browsers
+      - image: circleci/ruby:2.6.5-node-browsers
         environment:
           RAILS_ENV: test
           PGHOST: localhost
@@ -13,7 +13,7 @@ jobs:
           POSTGRES_USER: circleci
           POSTGRES_DB: evemonk_test
           POSTGRES_PASSWORD: ""
-      - image: elasticsearch:7.3.2
+      - image: elasticsearch:7.4.0
         environment:
           - discovery.type: single-node
     steps:
@@ -23,19 +23,19 @@ jobs:
       - run: ./cc-test-reporter before-build
       - restore_cache:
           keys:
-            - ruby-264-v1-dependencies-{{ checksum "Gemfile.lock" }}
-            - ruby-264-v1-dependencies-
+            - ruby-265-v1-dependencies-{{ checksum "Gemfile.lock" }}
+            - ruby-265-v1-dependencies-
       - run: sudo gem update --system '3.0.6'
       - run: gem install bundler -v '2.1.0.pre.2'
       - run: bundle check || bundle install --clean --jobs=2 --retry=5 --path vendor/bundle
       - save_cache:
           paths:
             - ./vendor/bundle
-          key: ruby-264-v1-dependencies-{{ checksum "Gemfile.lock" }}
+          key: ruby-265-v1-dependencies-{{ checksum "Gemfile.lock" }}
       - run: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run: dockerize -wait tcp://localhost:9200 -timeout 2m
-      - run: sudo npm install -g npm@6.11.3
-      - run: sudo npm install -g yarn@1.17.3
+      - run: sudo npm install -g npm@6.12.0
+      - run: sudo npm install -g yarn@1.19.1
       - run: yarn install
       - run: bundle exec rails db:create
       - run: bundle exec rails db:migrate
@@ -53,4 +53,6 @@ jobs:
       - run: bundle exec rubocop
       - run: bundle exec license_finder || true
       - run: bundle exec rails zeitwerk:check
+      - run: bundle exec rails factory_bot:lint || true
+      - run: bundle exec rake traceroute FAIL_ON_ERROR=1 || true
       - run: ./cc-test-reporter after-build

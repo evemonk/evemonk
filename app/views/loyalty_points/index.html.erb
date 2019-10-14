@@ -1,0 +1,97 @@
+<div class="row">
+  <div class="col">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><%= link_to("Home", root_path) %></li>
+        <li class="breadcrumb-item"><%= link_to("My characters", characters_path) %></li>
+        <li class="breadcrumb-item"><%= link_to(@character.name, character_path(@character.character_id)) %></li>
+        <li class="breadcrumb-item active" aria-current="page">Loyalty points</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+<ul class="nav nav-pills">
+  <li class="nav-item">
+    <%= link_to("Sheet", character_path(@character.character_id), class: "nav-link") %>
+  </li>
+  <li class="nav-item">
+    <%= link_to("Assets", character_assets_path(@character.character_id), class: "nav-link") %>
+  </li>
+  <li class="nav-item">
+    <%= link_to("Loyalty points", character_loyalty_points_path(@character.character_id), class: "nav-link active") %>
+  </li>
+  <li class="nav-item">
+    <%= link_to("Skill queue", nil, class: "nav-link") %>
+  </li>
+  <li class="nav-item">
+    <%= link_to("Skills", nil, class: "nav-link") %>
+  </li>
+</ul>
+
+<hr>
+
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+    <h4 class="text-center text-break"><%= @character.name %></h4>
+
+    <div class="card">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item text-center">
+          <%= image_tag(@character.icon_medium,
+                        alt: @character.name,
+                        class: "rounded border",
+                        size: "130x130",
+                        loading: "lazy") %>
+        </li>
+        <% if @character.alliance %>
+          <li class="list-group-item text-break">
+            Alliance: <%= link_to(@character.alliance.name,
+                                  universe_alliance_path(@character.alliance.alliance_id)) %>
+          </li>
+        <% end %>
+        <% if @character.corporation %>
+          <li class="list-group-item text-break">
+            Corporation: <%= link_to(@character.corporation.name,
+                                     universe_corporation_path(@character.corporation.corporation_id)) %>
+          </li>
+        <% end %>
+        <li class="list-group-item text-break">
+          SP: <%= @character.total_sp_formatted %>
+        </li>
+        <% if @character.unallocated_sp && @character.unallocated_sp > 0 %>
+          <li class="list-group-item text-break">
+            Unallocated SP: <%= @character.unallocated_sp_formatted %>
+          </li>
+        <% end %>
+        <li class="list-group-item text-break">
+          Security status: <%= @character.security_status %>
+        </li>
+        <li class="list-group-item text-break">
+          ISK: <%= @character.wallet_formatted %>
+        </li>
+      </ul>
+      <p class="card-text text-center">
+        <small class="text-muted">
+          Last updated <%= time_ago_in_words(@character.updated_at) %> ago
+        </small>
+      </p>
+    </div>
+  </div>
+
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+    <h4 class="text-center text-break">Loyalty points</h4>
+
+    <table class="table table-striped table-bordered">
+      <tbody>
+        <% @loyalty_points.each do |loyalty_point| %>
+          <tr>
+            <td>icon</td>
+            <td><%= loyalty_point.corporation&.name %></td>
+            <td><%= loyalty_point.loyalty_points %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

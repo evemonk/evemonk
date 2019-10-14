@@ -2,8 +2,10 @@
 
 FactoryBot.define do
   factory :eve_type_dogma_attribute, class: Eve::TypeDogmaAttribute do
-    sequence(:type_id) # TODO: replace type_id with factory "type"
+    sequence(:type_id)
+
     sequence(:attribute_id)
+
     value { 1 }
   end
 end

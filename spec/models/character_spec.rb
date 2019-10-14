@@ -7,17 +7,17 @@ describe Character do
 
   it { should belong_to(:user) }
 
-  it { should belong_to(:race).class_name("Eve::Race").with_primary_key(:race_id).optional(true) }
+  it { should belong_to(:race).class_name("Eve::Race").with_primary_key("race_id").optional(true) }
 
-  it { should belong_to(:bloodline).class_name("Eve::Bloodline").with_primary_key(:bloodline_id).optional(true) }
+  it { should belong_to(:bloodline).class_name("Eve::Bloodline").with_primary_key("bloodline_id").optional(true) }
 
-  it { should belong_to(:faction).class_name("Eve::Faction").with_primary_key(:faction_id).optional(true) }
+  it { should belong_to(:faction).class_name("Eve::Faction").with_primary_key("faction_id").optional(true) }
 
-  it { should belong_to(:ancestry).class_name("Eve::Ancestry").with_primary_key(:ancestry_id).optional(true) }
+  it { should belong_to(:ancestry).class_name("Eve::Ancestry").with_primary_key("ancestry_id").optional(true) }
 
-  it { should belong_to(:alliance).class_name("Eve::Alliance").with_primary_key(:alliance_id).optional(true) }
+  it { should belong_to(:alliance).class_name("Eve::Alliance").with_primary_key("alliance_id").optional(true) }
 
-  it { should belong_to(:corporation).class_name("Eve::Corporation").with_primary_key(:corporation_id).optional(true) }
+  it { should belong_to(:corporation).class_name("Eve::Corporation").with_primary_key("corporation_id").optional(true) }
 
   it { should have_many(:loyalty_points).dependent(:destroy) }
 
@@ -26,6 +26,10 @@ describe Character do
   it { should have_many(:character_implants).dependent(:destroy) }
 
   it { should have_many(:implants).through(:character_implants) }
+
+  it { should have_many(:skillqueues).dependent(:destroy) }
+
+  it { should have_many(:skills).dependent(:destroy) }
 
   describe "#token_expired?" do
     context "when expired" do

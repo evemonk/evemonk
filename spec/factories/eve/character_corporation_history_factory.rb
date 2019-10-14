@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 FactoryBot.define do
-  factory :eve_character_corporation_history, class: "Eve::CharacterCorporationHistory" do
+  factory :eve_character_corporation_history, class: Eve::CharacterCorporationHistory do
     sequence(:character_id)
 
     sequence(:corporation_id)

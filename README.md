@@ -28,16 +28,16 @@ Mobile first design.
 * [ruby-build](https://github.com/rbenv/ruby-build)
 * [asdf](https://github.com/asdf-vm/asdf)
 * [asdf-nodejs](https://github.com/asdf-vm/asdf-nodejs)
-* Ruby 2.6.4
+* Ruby 2.6.5
 * RubyGems 3.0.6
 * Bundler 2.1.0.pre.2
 * Ruby on Rails 6.0.0
 * PostgreSQL 11.5
-* Redis 5.0.5
-* Elasticsearch 7.3.2
+* Redis 5.0.6
+* Elasticsearch 7.4.0
 * Node 10.16.3
-* NPM 6.11.3
-* Yarn 1.17.3
+* NPM 6.12.0
+* Yarn 1.19.1
 * Twitter Bootstrap 4.3.1
 * Bootswatch Darkly
 

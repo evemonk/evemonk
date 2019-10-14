@@ -24,6 +24,8 @@ Rails.application.routes.draw do
 
   resources :characters, only: [:index, :show, :destroy] do
     resources :assets, only: :index
+
+    resources :loyalty_points, only: :index
   end
 
   resource :sign_up, only: [:show, :create]

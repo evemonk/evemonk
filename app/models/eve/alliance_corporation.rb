@@ -5,11 +5,11 @@ module Eve
     # TODO: has_paper_trail
 
     belongs_to :alliance,
-      primary_key: :alliance_id,
+      primary_key: "alliance_id",
       counter_cache: :corporations_count,
       optional: true
 
-    belongs_to :corporation, primary_key: :corporation_id, optional: true
+    belongs_to :corporation, primary_key: "corporation_id", optional: true
 
     after_commit :eve_alliance_reset_characters_count, on: [:create, :update, :destroy]
 

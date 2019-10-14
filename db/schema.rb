@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_24_213954) do
+ActiveRecord::Schema.define(version: 2019_10_02_111809) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -77,6 +77,8 @@ ActiveRecord::Schema.define(version: 2019_09_24_213954) do
     t.bigint "current_ship_item_id"
     t.string "current_ship_name"
     t.bigint "current_ship_type_id"
+    t.bigint "total_sp"
+    t.bigint "unallocated_sp"
     t.index ["alliance_id"], name: "index_characters_on_alliance_id"
     t.index ["ancestry_id"], name: "index_characters_on_ancestry_id"
     t.index ["bloodline_id"], name: "index_characters_on_bloodline_id"
@@ -169,6 +171,19 @@ ActiveRecord::Schema.define(version: 2019_09_24_213954) do
     t.text "description_ru"
     t.text "description_zh"
     t.index ["bloodline_id"], name: "index_eve_bloodlines_on_bloodline_id", unique: true
+  end
+
+  create_table "eve_categories", force: :cascade do |t|
+    t.bigint "category_id"
+    t.string "name_en"
+    t.string "name_de"
+    t.string "name_fr"
+    t.string "name_ja"
+    t.string "name_ru"
+    t.string "name_zh"
+    t.boolean "published"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "eve_character_corporation_histories", force: :cascade do |t|
@@ -287,6 +302,20 @@ ActiveRecord::Schema.define(version: 2019_09_24_213954) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["graphic_id"], name: "index_eve_graphics_on_graphic_id", unique: true
+  end
+
+  create_table "eve_groups", force: :cascade do |t|
+    t.bigint "category_id"
+    t.bigint "group_id"
+    t.string "name_en"
+    t.string "name_de"
+    t.string "name_fr"
+    t.string "name_ja"
+    t.string "name_ru"
+    t.string "name_zh"
+    t.boolean "published"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "eve_races", force: :cascade do |t|
@@ -495,6 +524,32 @@ ActiveRecord::Schema.define(version: 2019_09_24_213954) do
     t.index ["var"], name: "index_settings_on_var", unique: true
   end
 
+  create_table "skillqueues", force: :cascade do |t|
+    t.bigint "character_id", null: false
+    t.datetime "finish_date"
+    t.integer "finished_level"
+    t.integer "level_end_sp"
+    t.integer "level_start_sp"
+    t.integer "queue_position"
+    t.bigint "skill_id"
+    t.datetime "start_date"
+    t.integer "training_start_sp"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["character_id"], name: "index_skillqueues_on_character_id"
+  end
+
+  create_table "skills", force: :cascade do |t|
+    t.bigint "character_id", null: false
+    t.integer "active_skill_level"
+    t.integer "skill_id"
+    t.integer "skillpoints_in_skill"
+    t.integer "trained_skill_level"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["character_id"], name: "index_skills_on_character_id"
+  end
+
   create_table "users", id: :serial, force: :cascade do |t|
     t.string "email"
     t.datetime "created_at", null: false
@@ -522,4 +577,6 @@ ActiveRecord::Schema.define(version: 2019_09_24_213954) do
   add_foreign_key "character_assets", "characters"
   add_foreign_key "characters", "users"
   add_foreign_key "sessions", "users"
+  add_foreign_key "skillqueues", "characters"
+  add_foreign_key "skills", "characters"
 end

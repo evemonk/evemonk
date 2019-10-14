@@ -10,6 +10,7 @@ gem "webpacker", "~> 4.0"
 gem "turbolinks", "~> 5"
 gem "jbuilder", "~> 2.7"
 gem "sorcery"
+gem "rqrcode"
 gem "bootsnap", ">= 1.4.2", require: false
 gem "meta-tags"
 gem "metricky"
@@ -20,7 +21,6 @@ gem "foundation_emails"
 gem "eve_online", git: "https://github.com/evemonk/eve_online.git", branch: "master"
 # gem "eve_online", git: "https://github.com/evemonk/eve_online.git", branch: "dev"
 # gem "eve_online", path: "~/opensource/eve_online"
-gem "oauth2", "1.4.1" # lock due bug in 1.4.2
 gem "omniauth-eve_online-sso"
 gem "omniauth-rails_csrf_protection"
 gem "jwt"
@@ -50,6 +50,7 @@ gem "errbase"
 gem "activerecord-nulldb-adapter"
 gem "niceql"
 gem "server_timing"
+gem "traceroute"
 # gem "strong_migrations"
 
 gem "awesome_print", require: "ap"
@@ -60,7 +61,7 @@ gem "pry-rails"
 
 gem "lograge"
 
-gem "prometheus-client"
+gem "prometheus-client", "0.9.0"
 gem "yabeda-prometheus"
 gem "yabeda-rails"
 gem "yabeda-sidekiq"
@@ -79,7 +80,7 @@ end
 
 group :development, :test do
   gem "dotenv-rails"
-  gem "rspec-rails", "4.0.0.beta2"
+  gem "rspec-rails", git: "https://github.com/rspec/rspec-rails.git", branch: "4-0-dev"
   ["rspec-core", "rspec-expectations", "rspec-mocks", "rspec-support"].each do |lib|
     gem lib, git: "https://github.com/rspec/#{lib}.git", branch: "master"
   end

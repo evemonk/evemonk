@@ -226,6 +226,39 @@ describe CharacterDecorator do
 
     subject { character.decorate }
 
-    specify { expect(subject.wallet).to eq("8252.49 ISK") }
+    specify { expect(subject.wallet).to eq(8252) }
+  end
+
+  describe "#wallet_formatted" do
+    let(:character) do
+      build(:character,
+        wallet: 8252.49)
+    end
+
+    subject { character.decorate }
+
+    specify { expect(subject.wallet_formatted).to eq("8 252") }
+  end
+
+  describe "#total_sp_formatted" do
+    let(:character) do
+      build(:character,
+        total_sp: 50_362_576)
+    end
+
+    subject { character.decorate }
+
+    specify { expect(subject.total_sp_formatted).to eq("50 362 576") }
+  end
+
+  describe "#unallocated_sp_formatted" do
+    let(:character) do
+      build(:character,
+        unallocated_sp: 906_000)
+    end
+
+    subject { character.decorate }
+
+    specify { expect(subject.unallocated_sp_formatted).to eq("906 000") }
   end
 end

@@ -1,4 +1,4 @@
-FROM ruby:2.6.4-slim
+FROM ruby:2.6.5-slim
 
 LABEL maintainer="Igor Zubkov <igor.zubkov@gmail.com>"
 
@@ -28,6 +28,10 @@ COPY Gemfile Gemfile
 COPY Gemfile.lock Gemfile.lock
 
 ENV RAILS_ENV production
+
+ENV RUBYGEMS_VERSION 3.0.6
+
+RUN gem update --system "$RUBYGEMS_VERSION"
 
 ENV BUNDLER_VERSION 2.1.0.pre.2
 
