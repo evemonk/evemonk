@@ -27,7 +27,7 @@ Rails.application.routes.draw do
 
     resources :loyalty_points, only: :index
 
-    resources :employment_history, only: :index
+    resources :employment_histories, only: :index
   end
 
   resource :sign_up, only: [:show, :create]
