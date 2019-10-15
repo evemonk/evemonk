@@ -40,6 +40,9 @@
           <li class="list-group-item text-break">
             Security status: <%= character.security_status %>
           </li>
+          <li class="list-group-item text-break">
+            ISK: <%= character.wallet_formatted %>
+          </li>
         </ul>
         <p class="card-text text-center">
           <small class="text-muted">
@@ -55,4 +58,8 @@
       <%= f.button "Sign in via EVE Online" %>
     <% end %>
   </div>
+
+  <div class="w-100"></div>
+
+  <%= paginate @characters %>
 </div>
