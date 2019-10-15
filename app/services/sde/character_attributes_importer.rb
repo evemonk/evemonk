@@ -3,7 +3,7 @@
 # SDE = Sde
 
 module Sde
-  class CharacterAttributes
+  class CharacterAttributesImporter
     attr_reader :file
 
     def initialize(file)
