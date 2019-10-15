@@ -11,23 +11,17 @@ module Sde
     def import
       entries = YAML.safe_load(File.read(file))
 
-      # entries.each_pair do |key, value|
-      #   icon = Eve::Icon.find_  by(icon_id: key)
-      # end
+      entries.each_pair do |key, hash|
+        icon = Eve::Icon.find_or_initialize_by(icon_id: key)
 
-      # => [["backgrounds", "description", "iconFile"],
-      #     ["description", "iconFile"],
-      #     ["backgrounds", "description", "foregrounds", "iconFile"],
-      #     ["description", "foregrounds", "iconFile"],
-      #     ["iconFile"],
-      #     ["description", "iconFile", "obsolete"],
-      #     ["foregrounds", "iconFile"]]
+        icon.description = hash["description"]
+        icon.icon_file = hash["iconFile"]
+        icon.obsolete = hash["obsolete"]
+        icon.backgrounds = hash["backgrounds"]
+        icon.foregrounds = hash["foregrounds"]
 
-      # content.keys
-      #
-      # keys = content.values.map { |val| val.keys if val.is_a?(Hash) }
-      #
-      # keys.uniq
+        icon.save!
+      end
     end
   end
 end
