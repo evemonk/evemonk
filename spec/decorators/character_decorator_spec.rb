@@ -237,7 +237,7 @@ describe CharacterDecorator do
 
     subject { character.decorate }
 
-    specify { expect(subject.wallet_formatted).to eq("8 252") }
+    specify { expect(subject.wallet_formatted).to eq("8,252") }
   end
 
   describe "#total_sp_formatted" do
@@ -248,7 +248,7 @@ describe CharacterDecorator do
 
     subject { character.decorate }
 
-    specify { expect(subject.total_sp_formatted).to eq("50 362 576") }
+    specify { expect(subject.total_sp_formatted).to eq("50,362,576") }
   end
 
   describe "#unallocated_sp_formatted" do
@@ -259,6 +259,6 @@ describe CharacterDecorator do
 
     subject { character.decorate }
 
-    specify { expect(subject.unallocated_sp_formatted).to eq("906 000") }
+    specify { expect(subject.unallocated_sp_formatted).to eq("906,000") }
   end
 end
