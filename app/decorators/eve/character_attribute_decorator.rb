@@ -2,6 +2,8 @@
 
 module Eve
   class CharacterAttributeDecorator < ApplicationDecorator
+    decorates_associations :icon
+
     def icon_url
       case object.attribute_name
       when "Charisma"

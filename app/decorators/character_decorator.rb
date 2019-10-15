@@ -11,6 +11,10 @@ class CharacterDecorator < ApplicationDecorator
     object.birthday&.iso8601
   end
 
+  def birthday_formatted
+    object.birthday&.strftime("%b %d, %Y")
+  end
+
   def icon_tiny
     "#{imageproxy_url}https://imageserver.eveonline.com/Character/#{character_id}_32.jpg"
   end

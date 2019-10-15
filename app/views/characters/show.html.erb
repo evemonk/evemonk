@@ -72,6 +72,9 @@
         <li class="list-group-item text-break">
           ISK: <%= @character.wallet_formatted %>
         </li>
+        <li class="list-group-item text-break">
+          DOB: <%= @character.birthday_formatted %>
+        </li>
       </ul>
       <p class="card-text text-center">
         <small class="text-muted">
@@ -88,27 +91,27 @@
       <tbody>
         <tr>
           <td class="align-middle text-break">
-            Charisma: <%= @character.charisma %>
+            <abbr title="<%= @character.charisma_attribute&.description %>">Charisma:</abbr> <%= @character.charisma %>
           </td>
         </tr>
         <tr>
           <td class="align-middle text-break">
-            Intelligence: <%= @character.intelligence %>
+            <abbr title="<%= @character.intelligence_attribute&.description %>">Intelligence:</abbr> <%= @character.intelligence %>
           </td>
         </tr>
         <tr>
           <td class="align-middle text-break">
-            Memory: <%= @character.memory %>
+            <abbr title="<%= @character.memory_attribute&.description %>">Memory:</abbr> <%= @character.memory %>
           </td>
         </tr>
         <tr>
           <td class="align-middle text-break">
-            Perception: <%= @character.perception %>
+            <abbr title="<%= @character.perception_attribute&.description %>">Perception:</abbr> <%= @character.perception %>
           </td>
         </tr>
         <tr>
           <td class="align-middle text-break">
-            Willpower: <%= @character.willpower %>
+            <abbr title="<%= @character.willpower_attribute&.description %>">Willpower:</abbr> <%= @character.willpower %>
           </td>
         </tr>
       </tbody>
