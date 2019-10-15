@@ -26,6 +26,8 @@ Rails.application.routes.draw do
     resources :assets, only: :index
 
     resources :loyalty_points, only: :index
+
+    resources :employment_history, only: :index
   end
 
   resource :sign_up, only: [:show, :create]
