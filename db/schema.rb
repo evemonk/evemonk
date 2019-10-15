@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_15_161412) do
+ActiveRecord::Schema.define(version: 2019_10_15_202332) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -325,6 +325,17 @@ ActiveRecord::Schema.define(version: 2019_10_15_161412) do
     t.string "name_ru"
     t.string "name_zh"
     t.boolean "published"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "eve_icons", force: :cascade do |t|
+    t.integer "icon_id"
+    t.text "description"
+    t.string "icon_file"
+    t.boolean "obsolete"
+    t.string "backgrounds", array: true
+    t.string "foregrounds", array: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
