@@ -3,7 +3,7 @@
 module Eve
   class IconDecorator < ApplicationDecorator
     def icon_url
-      return icon_file.gsub("res:/ui/texture/icons/", "https://static.evemonk.com/sde/Icons/items/") if icon_file.start_with?("res:/ui/texture/icons/")
+      return icon_file.gsub("res:/ui/texture/icons/", "https://static.evemonk.com/Invasion_1.0/Icons/items/") if icon_file.start_with?("res:/ui/texture/icons/")
 
       nil
     end
