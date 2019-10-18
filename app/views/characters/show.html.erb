@@ -90,29 +90,69 @@
     <table class="table table-striped table-bordered">
       <tbody>
         <tr>
-          <td class="align-middle text-break">
-            <abbr title="<%= @character.charisma_attribute&.description %>">Charisma:</abbr> <%= @character.charisma %>
+          <td>
+            <%= image_tag(@character.charisma_attribute&.icon&.icon_url,
+                          alt: "Charisma icon",
+                          class: "rounded border",
+                          size: "34x34",
+                          loading: "lazy") %>
           </td>
+          <td>
+            <abbr title="<%= @character.charisma_attribute&.description %>">Charisma:</abbr>
+          </td>
+          <td><%= @character.charisma %></td>
         </tr>
         <tr>
-          <td class="align-middle text-break">
-            <abbr title="<%= @character.intelligence_attribute&.description %>">Intelligence:</abbr> <%= @character.intelligence %>
+          <td>
+            <%= image_tag(@character.intelligence_attribute&.icon&.icon_url,
+                          alt: "Intelligence icon",
+                          class: "rounded border",
+                          size: "34x34",
+                          loading: "lazy") %>
           </td>
+          <td>
+            <abbr title="<%= @character.intelligence_attribute&.description %>">Intelligence:</abbr>
+          </td>
+          <td><%= @character.intelligence %></td>
         </tr>
         <tr>
-          <td class="align-middle text-break">
-            <abbr title="<%= @character.memory_attribute&.description %>">Memory:</abbr> <%= @character.memory %>
+          <td>
+            <%= image_tag(@character.memory_attribute&.icon&.icon_url,
+                          alt: "Memory icon",
+                          class: "rounded border",
+                          size: "34x34",
+                          loading: "lazy") %>
           </td>
+          <td class="align-middle text-break">
+            <abbr title="<%= @character.memory_attribute&.description %>">Memory:</abbr>
+          </td>
+          <td><%= @character.memory %></td>
         </tr>
         <tr>
-          <td class="align-middle text-break">
-            <abbr title="<%= @character.perception_attribute&.description %>">Perception:</abbr> <%= @character.perception %>
+          <td>
+            <%= image_tag(@character.perception_attribute&.icon&.icon_url,
+                          alt: "Perception icon",
+                          class: "rounded border",
+                          size: "34x34",
+                          loading: "lazy") %>
           </td>
+          <td class="align-middle text-break">
+            <abbr title="<%= @character.perception_attribute&.description %>">Perception:</abbr>
+          </td>
+          <td><%= @character.perception %></td>
         </tr>
         <tr>
-          <td class="align-middle text-break">
-            <abbr title="<%= @character.willpower_attribute&.description %>">Willpower:</abbr> <%= @character.willpower %>
+          <td>
+            <%= image_tag(@character.willpower_attribute&.icon&.icon_url,
+                          alt: "Willpower icon",
+                          class: "rounded border",
+                          size: "34x34",
+                          loading: "lazy") %>
           </td>
+          <td class="align-middle text-break">
+            <abbr title="<%= @character.willpower_attribute&.description %>">Willpower:</abbr>
+          </td>
+          <td><%= @character.willpower %></td>
         </tr>
       </tbody>
     </table>
