@@ -139,9 +139,32 @@ describe Character do
     end
   end
 
-  # def willpower_attribute
-  #   @willpower_attribute ||= Eve::CharacterAttribute.find_by(attribute_name: "Willpower").decorate
-  # end
+  describe "#willpower_attribute" do
+    context "when @willpower_attribute is set" do
+      let(:eve_willpower_attribute) { double }
+
+      before { subject.instance_variable_set(:@willpower_attribute, eve_willpower_attribute) }
+
+      specify { expect(subject.willpower_attribute).to eq(eve_willpower_attribute) }
+    end
+
+    context "when @willpower_attribute is not set" do
+      let(:eve_willpower_attribute) { instance_double(Eve::CharacterAttribute) }
+
+      before do
+        #
+        # Eve::CharacterAttribute.find_by(attribute_name: "Willpower") # => eve_willpower_attribute
+        #
+        expect(Eve::CharacterAttribute).to receive(:find_by).with(attribute_name: "Willpower").and_return(eve_willpower_attribute)
+      end
+
+      let(:eve_willpower_attribute_decorated) { double }
+
+      before { expect(eve_willpower_attribute).to receive(:decorate).and_return(eve_willpower_attribute_decorated) }
+
+      specify { expect(subject.willpower_attribute).to eq(eve_willpower_attribute_decorated) }
+    end
+  end
 
   describe "#token_expired?" do
     context "when expired" do
