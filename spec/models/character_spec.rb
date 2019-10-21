@@ -31,6 +31,72 @@ describe Character do
 
   it { should have_many(:skills).dependent(:destroy) }
 
+  describe "#charisma_attribute" do
+    context "when @charisma_attribute is set" do
+      let(:eve_charisma_attribute) { double }
+
+      before { subject.instance_variable_set(:@charisma_attribute, eve_charisma_attribute) }
+
+      specify { expect(subject.charisma_attribute).to eq(eve_charisma_attribute) }
+    end
+
+    context "when @charisma_attribute is not set" do
+      let(:eve_charisma_attribute) { instance_double(Eve::CharacterAttribute) }
+
+      before do
+        #
+        # Eve::CharacterAttribute.find_by(attribute_name: "Charisma") # => eve_charisma_attribute
+        #
+        expect(Eve::CharacterAttribute).to receive(:find_by).with(attribute_name: "Charisma").and_return(eve_charisma_attribute)
+      end
+
+      let(:eve_charisma_attribute_decorated) { double }
+
+      before { expect(eve_charisma_attribute).to receive(:decorate).and_return(eve_charisma_attribute_decorated) }
+
+      specify { expect(subject.charisma_attribute).to eq(eve_charisma_attribute_decorated) }
+    end
+  end
+
+  describe "#intelligence_attribute" do
+    context "when @intelligence_attribute is set" do
+      let(:eve_intelligence_attribute) { double }
+
+      before { subject.instance_variable_set(:@intelligence_attribute, eve_intelligence_attribute) }
+
+      specify { expect(subject.intelligence_attribute).to eq(eve_intelligence_attribute) }
+    end
+
+    context "when @intelligence_attribute is not set" do
+      let(:eve_intelligence_attribute) { instance_double(Eve::CharacterAttribute) }
+
+      before do
+        #
+        # Eve::CharacterAttribute.find_by(attribute_name: "Intelligence") # => eve_charisma_attribute
+        #
+        expect(Eve::CharacterAttribute).to receive(:find_by).with(attribute_name: "Intelligence").and_return(eve_intelligence_attribute)
+      end
+
+      let(:eve_intelligence_attribute_decorated) { double }
+
+      before { expect(eve_intelligence_attribute).to receive(:decorate).and_return(eve_intelligence_attribute_decorated) }
+
+      specify { expect(subject.intelligence_attribute).to eq(eve_intelligence_attribute_decorated) }
+    end
+  end
+
+  # def memory_attribute
+  #   @memory_attribute ||= Eve::CharacterAttribute.find_by(attribute_name: "Memory").decorate
+  # end
+  #
+  # def perception_attribute
+  #   @perception_attribute ||= Eve::CharacterAttribute.find_by(attribute_name: "Perception").decorate
+  # end
+  #
+  # def willpower_attribute
+  #   @willpower_attribute ||= Eve::CharacterAttribute.find_by(attribute_name: "Willpower").decorate
+  # end
+
   describe "#token_expired?" do
     context "when expired" do
       subject { create(:character, token_expires_at: Time.zone.now - 1.hour) }
