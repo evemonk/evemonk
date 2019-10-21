@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_15_202332) do
+ActiveRecord::Schema.define(version: 2019_10_21_205052) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,19 @@ ActiveRecord::Schema.define(version: 2019_10_15_202332) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["character_id"], name: "index_character_assets_on_character_id"
+  end
+
+  create_table "character_corporation_histories", force: :cascade do |t|
+    t.bigint "character_id"
+    t.bigint "corporation_id"
+    t.boolean "is_deleted"
+    t.bigint "record_id"
+    t.datetime "start_date"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["character_id", "corporation_id"], name: "index_char_corp_histories_on_char_id_and_corp_id"
+    t.index ["corporation_id"], name: "index_character_corporation_histories_on_corporation_id"
+    t.index ["record_id"], name: "index_character_corporation_histories_on_record_id"
   end
 
   create_table "character_implants", force: :cascade do |t|
