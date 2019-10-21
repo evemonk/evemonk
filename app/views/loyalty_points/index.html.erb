@@ -89,7 +89,15 @@
       <tbody>
         <% @loyalty_points.each do |loyalty_point| %>
           <tr>
-            <td>icon</td>
+            <td>
+              <% if loyalty_point.corporation.present? %>
+                <%= image_tag(loyalty_point.corporation&.icon_tiny,
+                              alt: loyalty_point.corporation&.name,
+                              class: "rounded border",
+                              size: "34x34",
+                              loading: "lazy") %>
+              <% end %>
+            </td>
             <td><%= loyalty_point.corporation&.name %></td>
             <td><%= loyalty_point.loyalty_points %></td>
           </tr>
