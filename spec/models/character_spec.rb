@@ -112,10 +112,33 @@ describe Character do
     end
   end
 
-  # def perception_attribute
-  #   @perception_attribute ||= Eve::CharacterAttribute.find_by(attribute_name: "Perception").decorate
-  # end
-  #
+  describe "#perception_attribute" do
+    context "when @perception_attribute is set" do
+      let(:eve_perception_attribute) { double }
+
+      before { subject.instance_variable_set(:@perception_attribute, eve_perception_attribute) }
+
+      specify { expect(subject.perception_attribute).to eq(eve_perception_attribute) }
+    end
+
+    context "when @perception_attribute is not set" do
+      let(:eve_perception_attribute) { instance_double(Eve::CharacterAttribute) }
+
+      before do
+        #
+        # Eve::CharacterAttribute.find_by(attribute_name: "Perception") # => eve_perception_attribute
+        #
+        expect(Eve::CharacterAttribute).to receive(:find_by).with(attribute_name: "Perception").and_return(eve_perception_attribute)
+      end
+
+      let(:eve_perception_attribute_decorated) { double }
+
+      before { expect(eve_perception_attribute).to receive(:decorate).and_return(eve_perception_attribute_decorated) }
+
+      specify { expect(subject.perception_attribute).to eq(eve_perception_attribute_decorated) }
+    end
+  end
+
   # def willpower_attribute
   #   @willpower_attribute ||= Eve::CharacterAttribute.find_by(attribute_name: "Willpower").decorate
   # end
