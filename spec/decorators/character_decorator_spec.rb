@@ -28,6 +28,27 @@ describe CharacterDecorator do
     end
   end
 
+  describe "#birthday_formatted" do
+    context "when birthday is present" do
+      let(:character) do
+        build(:character,
+          birthday: "Sun, 03 May 2015 19:45:17 UTC +00:00")
+      end
+
+      subject { character.decorate }
+
+      specify { expect(subject.birthday_formatted).to eq("May 03, 2015") }
+    end
+
+    context "when birthday is empty" do
+      let(:character) { build(:character, birthday: nil) }
+
+      subject { character.decorate }
+
+      specify { expect(subject.birthday_formatted).to eq(nil) }
+    end
+  end
+
   describe "#icon_tiny" do
     let(:character) do
       build(:character,
@@ -237,7 +258,7 @@ describe CharacterDecorator do
 
     subject { character.decorate }
 
-    specify { expect(subject.wallet_formatted).to eq("8 252") }
+    specify { expect(subject.wallet_formatted).to eq("8,252") }
   end
 
   describe "#total_sp_formatted" do
@@ -248,7 +269,7 @@ describe CharacterDecorator do
 
     subject { character.decorate }
 
-    specify { expect(subject.total_sp_formatted).to eq("50 362 576") }
+    specify { expect(subject.total_sp_formatted).to eq("50,362,576") }
   end
 
   describe "#unallocated_sp_formatted" do
@@ -259,6 +280,6 @@ describe CharacterDecorator do
 
     subject { character.decorate }
 
-    specify { expect(subject.unallocated_sp_formatted).to eq("906 000") }
+    specify { expect(subject.unallocated_sp_formatted).to eq("906,000") }
   end
 end

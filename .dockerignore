@@ -1,3 +1,4 @@
+.idea/*
 .env
 .env.example
 .env_docker

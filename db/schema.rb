@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_02_111809) do
+ActiveRecord::Schema.define(version: 2019_10_15_202332) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -186,6 +186,17 @@ ActiveRecord::Schema.define(version: 2019_10_02_111809) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "eve_character_attributes", force: :cascade do |t|
+    t.integer "attribute_id"
+    t.string "attribute_name"
+    t.text "description"
+    t.integer "icon_id"
+    t.text "notes"
+    t.text "short_description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "eve_character_corporation_histories", force: :cascade do |t|
     t.bigint "character_id", null: false
     t.bigint "corporation_id"
@@ -314,6 +325,17 @@ ActiveRecord::Schema.define(version: 2019_10_02_111809) do
     t.string "name_ru"
     t.string "name_zh"
     t.boolean "published"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "eve_icons", force: :cascade do |t|
+    t.integer "icon_id"
+    t.text "description"
+    t.string "icon_file"
+    t.boolean "obsolete"
+    t.string "backgrounds", array: true
+    t.string "foregrounds", array: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

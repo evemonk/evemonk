@@ -11,6 +11,10 @@ class CharacterDecorator < ApplicationDecorator
     object.birthday&.iso8601
   end
 
+  def birthday_formatted
+    object.birthday&.strftime("%b %d, %Y")
+  end
+
   def icon_tiny
     "#{imageproxy_url}https://imageserver.eveonline.com/Character/#{character_id}_32.jpg"
   end
@@ -56,14 +60,14 @@ class CharacterDecorator < ApplicationDecorator
   end
 
   def wallet_formatted
-    number_with_delimiter(object.wallet.to_i, delimiter: " ")
+    number_with_delimiter(object.wallet.to_i, delimiter: ",")
   end
 
   def total_sp_formatted
-    number_with_delimiter(object.total_sp, delimiter: " ")
+    number_with_delimiter(object.total_sp, delimiter: ",")
   end
 
   def unallocated_sp_formatted
-    number_with_delimiter(object.unallocated_sp, delimiter: " ")
+    number_with_delimiter(object.unallocated_sp, delimiter: ",")
   end
 end
