@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
 class CharacterCorporationHistoryDecorator < ApplicationDecorator
-  decorates_associations :corporation
+  decorates_associations :corporation, :character
 end
