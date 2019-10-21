@@ -10,7 +10,7 @@ describe Eve::CharacterAttributeDecorator do
   describe "#description" do
     let(:eve_character_attribute) do
       build(:eve_character_attribute,
-            description: "<b>Test</b>")
+        description: "<b>Test</b>")
     end
 
     subject { eve_character_attribute.decorate }

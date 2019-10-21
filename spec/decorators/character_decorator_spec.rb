@@ -32,7 +32,7 @@ describe CharacterDecorator do
     context "when birthday is present" do
       let(:character) do
         build(:character,
-              birthday: "Sun, 03 May 2015 19:45:17 UTC +00:00")
+          birthday: "Sun, 03 May 2015 19:45:17 UTC +00:00")
       end
 
       subject { character.decorate }
