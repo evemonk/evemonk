@@ -28,6 +28,27 @@ describe CharacterDecorator do
     end
   end
 
+  describe "#birthday_formatted" do
+    context "when birthday is present" do
+      let(:character) do
+        build(:character,
+              birthday: "Sun, 03 May 2015 19:45:17 UTC +00:00")
+      end
+
+      subject { character.decorate }
+
+      specify { expect(subject.birthday_formatted).to eq("May 03, 2015") }
+    end
+
+    context "when birthday is empty" do
+      let(:character) { build(:character, birthday: nil) }
+
+      subject { character.decorate }
+
+      specify { expect(subject.birthday_formatted).to eq(nil) }
+    end
+  end
+
   describe "#icon_tiny" do
     let(:character) do
       build(:character,
