@@ -72,7 +72,7 @@ describe Character do
 
       before do
         #
-        # Eve::CharacterAttribute.find_by(attribute_name: "Intelligence") # => eve_charisma_attribute
+        # Eve::CharacterAttribute.find_by(attribute_name: "Intelligence") # => eve_intelligence_attribute
         #
         expect(Eve::CharacterAttribute).to receive(:find_by).with(attribute_name: "Intelligence").and_return(eve_intelligence_attribute)
       end
@@ -85,10 +85,33 @@ describe Character do
     end
   end
 
-  # def memory_attribute
-  #   @memory_attribute ||= Eve::CharacterAttribute.find_by(attribute_name: "Memory").decorate
-  # end
-  #
+  describe "#memory_attribute" do
+    context "when @memory_attribute is set" do
+      let(:eve_memory_attribute) { double }
+
+      before { subject.instance_variable_set(:@memory_attribute, eve_memory_attribute) }
+
+      specify { expect(subject.memory_attribute).to eq(eve_memory_attribute) }
+    end
+
+    context "when @memory_attribute is not set" do
+      let(:eve_memory_attribute) { instance_double(Eve::CharacterAttribute) }
+
+      before do
+        #
+        # Eve::CharacterAttribute.find_by(attribute_name: "Memory") # => eve_memory_attribute
+        #
+        expect(Eve::CharacterAttribute).to receive(:find_by).with(attribute_name: "Memory").and_return(eve_memory_attribute)
+      end
+
+      let(:eve_memory_attribute_decorated) { double }
+
+      before { expect(eve_memory_attribute).to receive(:decorate).and_return(eve_memory_attribute_decorated) }
+
+      specify { expect(subject.memory_attribute).to eq(eve_memory_attribute_decorated) }
+    end
+  end
+
   # def perception_attribute
   #   @perception_attribute ||= Eve::CharacterAttribute.find_by(attribute_name: "Perception").decorate
   # end
