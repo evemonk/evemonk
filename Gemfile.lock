@@ -33,7 +33,7 @@ GIT
 
 GIT
   remote: https://github.com/rspec/rspec-mocks.git
-  revision: 903c342e14080c40a8aa62a604d13cf23963ecfa
+  revision: 5b897e8f74f3059aef43f1ed5f91719f2267a04e
   branch: master
   specs:
     rspec-mocks (3.10.0.pre)
