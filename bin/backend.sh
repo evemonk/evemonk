@@ -6,7 +6,9 @@ cp -R /app/public/ /shared/
 
 sentry-cli releases new -p evemonk-backend "$COMMIT_SHA"
 
-sentry-cli releases set-commits --auto "$COMMIT_SHA"
+#sentry-cli releases set-commits --auto "$COMMIT_SHA"
+
+sentry-cli releases set-commits "$COMMIT_SHA" --commit "evemonk@$COMMIT_SHA"
 
 sentry-cli releases deploys "$COMMIT_SHA" new -e production
 
