@@ -43,7 +43,7 @@ class Character < ApplicationRecord
 
   has_many :skillqueues, dependent: :destroy
 
-  has_many :skills, dependent: :destroy
+  has_many :character_skills, dependent: :destroy
 
   has_many :character_corporation_histories,
            primary_key: "character_id",
