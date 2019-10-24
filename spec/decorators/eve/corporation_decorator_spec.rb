@@ -157,7 +157,7 @@ describe Eve::CorporationDecorator do
 
       subject { eve_corporation.decorate }
 
-      specify { expect(subject.formatted_member_count).to eq("111 222") }
+      specify { expect(subject.formatted_member_count).to eq("111,222") }
     end
   end
 end
