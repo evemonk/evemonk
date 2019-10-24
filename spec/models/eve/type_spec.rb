@@ -15,6 +15,14 @@ describe Eve::Type do
 
   it { expect(described_class.table_name).to eq("eve_types") }
 
+  it { should belong_to(:graphic).with_primary_key("graphic_id").optional(true) }
+
+  # it { should belong_to(:group).with_primary_key("group_id").optional(true) }
+
+  it { should belong_to(:icon).with_primary_key("icon_id").optional(true) }
+
+  # it { should belong_to(:market_group).with_primary_key("market_group_id").optional(true) }
+
   it { should have_many(:type_dogma_attributes).with_primary_key("type_id").with_foreign_key("type_id").dependent(:destroy) }
 
   it { should have_many(:type_dogma_effects).with_primary_key("type_id").with_foreign_key("type_id").dependent(:destroy) }
