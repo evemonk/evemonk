@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
-class SkillDecorator < ApplicationDecorator
+class CharacterSkillDecorator < ApplicationDecorator
   decorates_associations :character
 end

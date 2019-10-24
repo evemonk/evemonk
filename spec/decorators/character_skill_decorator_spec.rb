@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe SkillDecorator do
+describe CharacterSkillDecorator do
   subject { described_class.new(double) }
 
   it { should be_a(ApplicationDecorator) }
