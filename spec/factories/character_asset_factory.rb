@@ -9,10 +9,15 @@ FactoryBot.define do
     is_singleton { [true, false].sample }
 
     item_id { "" }
+
     location_flag { "MyString" }
+
     location_id { "" }
+
     location_type { "MyString" }
+
     quantity { "" }
+
     type_id { "" }
   end
 end
