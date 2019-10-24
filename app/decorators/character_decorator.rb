@@ -5,7 +5,7 @@ class CharacterDecorator < ApplicationDecorator
 
   decorates_associations :user, :race, :bloodline, :faction, :ancestry,
     :alliance, :corporation, :loyalty_points, :character_assets, :character_implants,
-    :implants, :character_corporation_histories, :skills
+    :implants, :character_corporation_histories, :character_skills
 
   def birthday
     object.birthday&.iso8601
