@@ -46,8 +46,8 @@ class Character < ApplicationRecord
   has_many :character_skills, dependent: :destroy
 
   has_many :character_corporation_histories,
-           primary_key: "character_id",
-           dependent: :destroy
+    primary_key: "character_id",
+    dependent: :destroy
 
   def charisma_attribute
     @charisma_attribute ||= Eve::CharacterAttribute.find_by(attribute_name: "Charisma").decorate
