@@ -4,13 +4,11 @@ rm -rf /shared/*
 
 cp -R /app/public/ /shared/
 
-VERSION=$(sentry-cli releases propose-version)
+sentry-cli releases new -p evemonk-backend "$COMMIT_SHA"
 
-sentry-cli releases new -p evemonk-backend "$VERSION"
+sentry-cli releases set-commits --auto "$COMMIT_SHA"
 
-sentry-cli releases set-commits --auto "$VERSION"
-
-sentry-cli releases deploys "$VERSION" new -e production
+sentry-cli releases deploys "$COMMIT_SHA" new -e production
 
 wait-for-it "redis:6379" -- echo "Redis up and running"
 

@@ -1,5 +1,7 @@
 FROM ruby:2.6.5-slim
 
+ARG COMMIT=""
+
 LABEL maintainer="Igor Zubkov <igor.zubkov@gmail.com>"
 
 RUN apt-get update -y && \
@@ -60,6 +62,8 @@ RUN yarn install
 COPY . .
 
 RUN bundle exec rake SECRET_KEY_BASE=blablabla DB_ADAPTER=nulldb DATABASE_URL="postgres://postgres@postgresql/evemonk_production?pool=1&encoding=unicode" assets:precompile
+
+ENV COMMIT_SHA=${COMMIT}
 
 RUN curl -sL https://sentry.io/get-cli/ | bash
 

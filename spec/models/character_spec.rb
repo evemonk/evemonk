@@ -29,7 +29,9 @@ describe Character do
 
   it { should have_many(:skillqueues).dependent(:destroy) }
 
-  it { should have_many(:skills).dependent(:destroy) }
+  it { should have_many(:character_skills).dependent(:destroy) }
+
+  it { should have_many(:character_corporation_histories).with_primary_key("character_id").dependent(:destroy) }
 
   describe "#charisma_attribute" do
     context "when @charisma_attribute is set" do

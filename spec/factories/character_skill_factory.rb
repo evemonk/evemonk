@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 FactoryBot.define do
-  factory :skill do
+  factory :character_skill do
     character
 
     active_skill_level { 1 }

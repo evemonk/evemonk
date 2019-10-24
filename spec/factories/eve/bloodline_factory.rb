@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-# TODO: update
 FactoryBot.define do
   factory :eve_bloodline, class: Eve::Bloodline do
     sequence(:bloodline_id)
