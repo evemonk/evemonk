@@ -7,5 +7,5 @@ describe CharacterSkill do
 
   it { should belong_to(:character) }
 
-  it { should belong_to(:skill).class_name("Eve::Race").with_primary_key("type_id").with_foreign_key("skill_id").optional(true) }
+  it { should belong_to(:skill).class_name("Eve::Type").with_primary_key("type_id").with_foreign_key("skill_id").optional(true) }
 end
