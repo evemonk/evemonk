@@ -2,4 +2,4 @@
 
 env
 
-docker build --build-arg COMMIT="$(git rev-parse --short HEAD)" -f $DOCKERFILE_PATH -t $IMAGE_NAME .
+docker build --build-arg COMMIT="$(git rev-parse --short HEAD)" -f "$DOCKERFILE_PATH" -t "$IMAGE_NAME" .
