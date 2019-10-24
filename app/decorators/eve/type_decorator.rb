@@ -3,7 +3,7 @@
 module Eve
   class TypeDecorator < ApplicationDecorator
     decorates_associations :type_dogma_attributes, :type_dogma_effects,
-                           :graphic, :icon
+      :graphic, :icon # :group, :market_group
 
     def icon_tiny
       "#{imageproxy_url}https://imageserver.eveonline.com/Type/#{type_id}_32.png"

@@ -15,17 +15,17 @@ module Eve
     # market_group_id: 370,
 
     belongs_to :graphic,
-               primary_key: "graphic_id",
-               optional: true
+      primary_key: "graphic_id",
+      optional: true
 
     # TODO: import eve groups
     # belongs_to :group,
-    #            primary_key: "group_id",
-    #            optional: true
+    #   primary_key: "group_id",
+    #   optional: true
 
     belongs_to :icon,
-               primary_key: "icon_id",
-               optional: true
+      primary_key: "icon_id",
+      optional: true
 
     # TODO: import eve market groups
     # belongs_to :market_group,
