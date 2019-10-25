@@ -4,11 +4,13 @@ rm -rf /shared/*
 
 cp -R /app/public/ /shared/
 
-sentry-cli releases new -p evemonk-backend "$COMMIT_SHA"
+if [ -n "${SENTRY_AUTH_TOKEN}" ]; then
+  sentry-cli releases new -p evemonk-backend "$COMMIT_SHA"
 
-sentry-cli releases set-commits "$COMMIT_SHA" --commit "evemonk/evemonk@$COMMIT_SHA"
+  sentry-cli releases set-commits "$COMMIT_SHA" --commit "evemonk/evemonk@$COMMIT_SHA"
 
-sentry-cli releases deploys "$COMMIT_SHA" new -e production
+  sentry-cli releases deploys "$COMMIT_SHA" new -e production
+fi
 
 wait-for-it "redis:6379" -- echo "Redis up and running"
 
