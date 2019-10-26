@@ -521,7 +521,7 @@ GEM
     server_timing (1.0.2)
       scout_apm
     sexp_processor (4.13.0)
-    sidekiq (6.0.2)
+    sidekiq (6.0.3)
       connection_pool (>= 2.2.2)
       rack (>= 2.0.0)
       rack-protection (>= 2.0.0)
