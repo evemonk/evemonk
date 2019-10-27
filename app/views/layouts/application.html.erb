@@ -63,5 +63,9 @@
         </div>
       </div>
     </div>
+
+    <% if Setting.use_gauges %>
+      <%= render "shared/gauges" %>
+    <% end %>
   </body>
 </html>
