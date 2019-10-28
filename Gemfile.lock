@@ -216,7 +216,7 @@ GEM
       faraday
       multi_json
     equatable (0.6.1)
-    errbase (0.1.1)
+    errbase (0.2.0)
     erubi (1.9.0)
     erubis (2.7.0)
     et-orbi (1.2.2)
