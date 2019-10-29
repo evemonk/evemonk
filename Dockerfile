@@ -69,8 +69,6 @@ RUN curl -sL https://sentry.io/get-cli/ | bash
 
 ENV LD_PRELOAD /usr/lib/x86_64-linux-gnu/libjemalloc.so.2
 
-VOLUME ['/shared']
-
 EXPOSE 3000
 
 CMD ['rails', 'server', '-b', '0.0.0.0']
