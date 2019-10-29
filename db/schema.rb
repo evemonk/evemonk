@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_29_161204) do
+ActiveRecord::Schema.define(version: 2019_10_29_202814) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -471,6 +471,7 @@ ActiveRecord::Schema.define(version: 2019_10_29_161204) do
     t.datetime "started"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["war_id"], name: "index_eve_wars_on_war_id", unique: true
   end
 
   create_table "loyalty_points", force: :cascade do |t|
