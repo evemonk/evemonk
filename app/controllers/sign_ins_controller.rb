@@ -15,8 +15,11 @@ class SignInsController < ApplicationController
     skip_authorization
 
     if @service.save
-      redirect_to characters_path, notice: "Successful signed in!"
+      redirect_back_or_to characters_path, notice: "Successful signed in!"
     else
+      # flash.now[:alert] = "Email and/or password is invalid"
+      # flash[:alert] = "Email and/or password is invalid"
+
       render :show
     end
   end
