@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_24_145614) do
+ActiveRecord::Schema.define(version: 2019_10_29_161204) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -459,6 +459,18 @@ ActiveRecord::Schema.define(version: 2019_10_24_145614) do
     t.text "description_ru"
     t.text "description_zh"
     t.index ["type_id"], name: "index_eve_types_on_type_id", unique: true
+  end
+
+  create_table "eve_wars", force: :cascade do |t|
+    t.bigint "war_id"
+    t.datetime "declared"
+    t.datetime "finished"
+    t.boolean "mutual"
+    t.boolean "open_for_allies"
+    t.datetime "retracted"
+    t.datetime "started"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "loyalty_points", force: :cascade do |t|
