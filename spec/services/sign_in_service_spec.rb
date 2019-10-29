@@ -14,6 +14,7 @@ describe SignInService, type: :model do
       {
         email: "me@example.com",
         password: "password",
+        remember_me: "1",
       }
     end
 
@@ -22,6 +23,8 @@ describe SignInService, type: :model do
     it { should validate_presence_of(:email) }
 
     it { should validate_presence_of(:password) }
+
+    it { should validate_inclusion_of(:remember_me).in_array(["0", "1"]) }
   end
 
   describe "#save" do
@@ -29,12 +32,13 @@ describe SignInService, type: :model do
       {
         email: "me@example.com",
         password: "password",
+        remember_me: "1",
       }
     end
 
     let(:controller) { instance_double(ApplicationController) }
 
-    before { expect(controller).to receive(:login).with("me@example.com", "password") }
+    before { expect(controller).to receive(:login).with("me@example.com", "password", true) }
 
     subject { described_class.new(params.merge(controller: controller)) }
 
