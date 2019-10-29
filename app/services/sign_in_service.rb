@@ -9,14 +9,13 @@ class SignInService
 
   validates :password, presence: true
 
-  delegate :login, to: :controller
+  validates :remember_me, inclusion: { in: ["0", "1"] }
 
-  # validates :remember_me, inclusion: { in: ["0", "1"] }
+  delegate :login, to: :controller
 
   def save
     return false unless valid?
 
-    # TODO: add remember_me e.g. controller.login(email, password, remember_me == 1)
-    login(email, password)
+    login(email, password, remember_me == "1")
   end
 end
