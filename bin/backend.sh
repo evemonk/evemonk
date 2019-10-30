@@ -12,6 +12,8 @@ if [ -n "${SENTRY_AUTH_TOKEN}" ]; then
   sentry-cli releases deploys "$COMMIT_SHA" new -e production
 fi
 
+bundle exec newrelic deployment --revision=$COMMIT_SHA
+
 wait-for-it "redis:6379" -- echo "Redis up and running"
 
 wait-for-it "memcached:11211" -- echo "Memcached up and running"
