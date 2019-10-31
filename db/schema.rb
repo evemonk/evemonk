@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_24_145614) do
+ActiveRecord::Schema.define(version: 2019_10_29_202923) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -461,6 +461,19 @@ ActiveRecord::Schema.define(version: 2019_10_24_145614) do
     t.index ["type_id"], name: "index_eve_types_on_type_id", unique: true
   end
 
+  create_table "eve_wars", force: :cascade do |t|
+    t.bigint "war_id"
+    t.datetime "declared"
+    t.datetime "finished"
+    t.boolean "mutual"
+    t.boolean "open_for_allies"
+    t.datetime "retracted"
+    t.datetime "started"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["war_id"], name: "index_eve_wars_on_war_id", unique: true
+  end
+
   create_table "loyalty_points", force: :cascade do |t|
     t.bigint "character_id"
     t.bigint "corporation_id"
@@ -594,7 +607,10 @@ ActiveRecord::Schema.define(version: 2019_10_24_145614) do
     t.string "reset_password_token"
     t.string "crypted_password"
     t.string "salt"
+    t.string "remember_me_token"
+    t.datetime "remember_me_token_expires_at"
     t.index "lower((email)::text)", name: "index_users_on_LOWER_email", unique: true
+    t.index ["remember_me_token"], name: "index_users_on_remember_me_token"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
