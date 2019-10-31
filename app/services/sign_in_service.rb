@@ -9,7 +9,7 @@ class SignInService
 
   validates :password, presence: true
 
-  validates :remember_me, inclusion: { in: ["0", "1"] }
+  validates :remember_me, inclusion: {in: ["0", "1"]}
 
   delegate :login, to: :controller
 
