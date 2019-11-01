@@ -36,7 +36,7 @@ Mobile first design.
 * Redis 5.0.6
 * Elasticsearch 7.4.2
 * Node 12.13.0
-* NPM 6.12.0
+* NPM 6.12.1
 * Yarn 1.19.1
 * Twitter Bootstrap 4.3.1
 * Bootswatch Darkly 4.3.1
