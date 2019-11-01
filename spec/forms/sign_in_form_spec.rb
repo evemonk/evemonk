@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe SignInService, type: :model do
+describe SignInForm, type: :model do
   it { should be_a(ActiveModel::Model) }
 
   it { should delegate_method(:login).to(:controller) }

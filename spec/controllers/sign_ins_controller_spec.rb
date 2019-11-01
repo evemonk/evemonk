@@ -8,7 +8,7 @@ describe SignInsController do
   it { should_not use_before_action(:require_login) }
 
   describe "#show" do
-    before { expect(SignInService).to receive(:new).with(controller: subject) }
+    before { expect(SignInForm).to receive(:new).with(controller: subject) }
 
     before { get :show }
 
@@ -19,20 +19,20 @@ describe SignInsController do
 
   describe "#create" do
     context "when user successful authorize" do
-      let(:service) { instance_double(SignInService, save: true) }
+      let(:form) { instance_double(SignInForm, save: true) }
 
       before do
         #
-        # SignInService.new(email: "me@example.com",
-        #                   password: "password",
-        #                   remember_me: "1",
-        #                   controller: self) # => service
+        # SignInForm.new(email: "me@example.com",
+        #                password: "password",
+        #                remember_me: "1",
+        #                controller: self) # => form
         #
-        expect(SignInService).to receive(:new)
+        expect(SignInForm).to receive(:new)
           .with(permitter(email: "me@example.com",
                           password: "password",
                           remember_me: "1").merge(controller: subject))
-          .and_return(service)
+          .and_return(form)
       end
 
       before do
@@ -51,20 +51,20 @@ describe SignInsController do
     end
 
     context "when user not successful authorize" do
-      let(:service) { instance_double(SignInService, save: false) }
+      let(:form) { instance_double(SignInForm, save: false) }
 
       before do
         #
-        # SignInService.new(email: "me@example.com",
-        #                   password: "password",
-        #                   remember_me: "1",
-        #                   controller: self) # => service
+        # SignInForm.new(email: "me@example.com",
+        #                password: "password",
+        #                remember_me: "1",
+        #                controller: self) # => form
         #
-        expect(SignInService).to receive(:new)
+        expect(SignInForm).to receive(:new)
           .with(permitter(email: "me@example.com",
                           password: "password",
                           remember_me: "1").merge(controller: subject))
-          .and_return(service)
+          .and_return(form)
       end
 
       before do
