@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class SignInService
+class SignInForm
   include ActiveModel::Model
 
   attr_accessor :email, :password, :remember_me, :controller

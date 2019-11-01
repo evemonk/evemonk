@@ -343,7 +343,7 @@ GEM
     newrelic_rpm (6.7.0.359)
     niceql (0.1.25)
     nio4r (2.5.2)
-    nokogiri (1.10.4)
+    nokogiri (1.10.5)
       mini_portile2 (~> 2.4.0)
     oauth (0.5.4)
     oauth2 (1.4.2)
@@ -507,7 +507,7 @@ GEM
     sawyer (0.8.2)
       addressable (>= 2.3.5)
       faraday (> 0.8, < 2.0)
-    scout_apm (2.6.2)
+    scout_apm (2.6.3)
       parser
     searchkick (4.1.0)
       activemodel (>= 5)
@@ -630,7 +630,7 @@ GEM
     yabeda-sidekiq (0.1.4)
       sidekiq
       yabeda
-    zeitwerk (2.2.0)
+    zeitwerk (2.2.1)
 
 PLATFORMS
   ruby

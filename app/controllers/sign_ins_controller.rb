@@ -4,13 +4,13 @@ class SignInsController < ApplicationController
   skip_before_action :require_login
 
   def show
-    @service = SignInService.new(controller: self)
+    @service = SignInForm.new(controller: self)
 
     skip_authorization
   end
 
   def create
-    @service = SignInService.new(resource_params.merge(controller: self))
+    @service = SignInForm.new(resource_params.merge(controller: self))
 
     skip_authorization
 

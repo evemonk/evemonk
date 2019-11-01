@@ -4,7 +4,7 @@ class ApplicationDecorator < Draper::Decorator
   delegate_all
 
   def imageproxy_url
-    "https://imageproxy.evemonk.com/" if ENV["IMAGEPROXY_ENABLED"]
+    Setting.image_proxy_url if Setting.use_image_proxy
   end
 
   def self.collection_decorator_class

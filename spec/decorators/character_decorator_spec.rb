@@ -57,14 +57,14 @@ describe CharacterDecorator do
 
     subject { character.decorate }
 
-    context "when IMAGEPROXY_ENABLED is set" do
-      before { ENV["IMAGEPROXY_ENABLED"] = "yes, please" }
+    context "when Setting.use_image_proxy is true" do
+      before { Setting.use_image_proxy = true }
 
       specify { expect(subject.icon_tiny).to eq("https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Character/123_32.jpg") }
     end
 
-    context "when IMAGEPROXY_ENABLED is not set" do
-      before { ENV["IMAGEPROXY_ENABLED"] = nil }
+    context "when Setting.use_image_proxy is false" do
+      before { Setting.use_image_proxy = false }
 
       specify { expect(subject.icon_tiny).to eq("https://imageserver.eveonline.com/Character/123_32.jpg") }
     end
@@ -78,14 +78,14 @@ describe CharacterDecorator do
 
     subject { character.decorate }
 
-    context "when IMAGEPROXY_ENABLED is set" do
-      before { ENV["IMAGEPROXY_ENABLED"] = "yes, please" }
+    context "when Setting.use_image_proxy is true" do
+      before { Setting.use_image_proxy = true }
 
       specify { expect(subject.icon_small).to eq("https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Character/123_64.jpg") }
     end
 
-    context "when IMAGEPROXY_ENABLED is not set" do
-      before { ENV["IMAGEPROXY_ENABLED"] = nil }
+    context "when Setting.use_image_proxy is false" do
+      before { Setting.use_image_proxy = false }
 
       specify { expect(subject.icon_small).to eq("https://imageserver.eveonline.com/Character/123_64.jpg") }
     end
@@ -99,14 +99,14 @@ describe CharacterDecorator do
 
     subject { character.decorate }
 
-    context "when IMAGEPROXY_ENABLED is set" do
-      before { ENV["IMAGEPROXY_ENABLED"] = "yes, please" }
+    context "when Setting.use_image_proxy is true" do
+      before { Setting.use_image_proxy = true }
 
       specify { expect(subject.icon_medium).to eq("https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Character/123_128.jpg") }
     end
 
-    context "when IMAGEPROXY_ENABLED is not set" do
-      before { ENV["IMAGEPROXY_ENABLED"] = nil }
+    context "when Setting.use_image_proxy is false" do
+      before { Setting.use_image_proxy = false }
 
       specify { expect(subject.icon_medium).to eq("https://imageserver.eveonline.com/Character/123_128.jpg") }
     end
@@ -120,14 +120,14 @@ describe CharacterDecorator do
 
     subject { character.decorate }
 
-    context "when IMAGEPROXY_ENABLED is set" do
-      before { ENV["IMAGEPROXY_ENABLED"] = "yes, please" }
+    context "when Setting.use_image_proxy is true" do
+      before { Setting.use_image_proxy = true }
 
       specify { expect(subject.icon_large).to eq("https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Character/123_256.jpg") }
     end
 
-    context "when IMAGEPROXY_ENABLED is not set" do
-      before { ENV["IMAGEPROXY_ENABLED"] = nil }
+    context "when Setting.use_image_proxy is false" do
+      before { Setting.use_image_proxy = false }
 
       specify { expect(subject.icon_large).to eq("https://imageserver.eveonline.com/Character/123_256.jpg") }
     end
@@ -141,14 +141,14 @@ describe CharacterDecorator do
 
     subject { character.decorate }
 
-    context "when IMAGEPROXY_ENABLED is set" do
-      before { ENV["IMAGEPROXY_ENABLED"] = "yes, please" }
+    context "when Setting.use_image_proxy is true" do
+      before { Setting.use_image_proxy = true }
 
       specify { expect(subject.icon_huge).to eq("https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Character/123_512.jpg") }
     end
 
-    context "when IMAGEPROXY_ENABLED is not set" do
-      before { ENV["IMAGEPROXY_ENABLED"] = nil }
+    context "when Setting.use_image_proxy is false" do
+      before { Setting.use_image_proxy = false }
 
       specify { expect(subject.icon_huge).to eq("https://imageserver.eveonline.com/Character/123_512.jpg") }
     end
@@ -162,14 +162,14 @@ describe CharacterDecorator do
 
     subject { character.decorate }
 
-    context "when IMAGEPROXY_ENABLED is set" do
-      before { ENV["IMAGEPROXY_ENABLED"] = "yes, please" }
+    context "when Setting.use_image_proxy is true" do
+      before { Setting.use_image_proxy = true }
 
       specify { expect(subject.icon_gigantic).to eq("https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Character/123_1024.jpg") }
     end
 
-    context "when IMAGEPROXY_ENABLED is not set" do
-      before { ENV["IMAGEPROXY_ENABLED"] = nil }
+    context "when Setting.use_image_proxy is false" do
+      before { Setting.use_image_proxy = false }
 
       specify { expect(subject.icon_gigantic).to eq("https://imageserver.eveonline.com/Character/123_1024.jpg") }
     end
