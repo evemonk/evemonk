@@ -8,14 +8,14 @@ describe ApplicationDecorator do
   it { should be_a(Draper::Decorator) }
 
   describe "#imageproxy_url" do
-    context "when IMAGEPROXY_ENABLED is set" do
-      before { ENV["IMAGEPROXY_ENABLED"] = "yes, please" }
+    context "when Setting.use_image_proxy is true" do
+      before { Setting.use_image_proxy = true }
 
       specify { expect(subject.imageproxy_url).to eq("https://imageproxy.evemonk.com/") }
     end
 
-    context "when IMAGEPROXY_ENABLED is not set" do
-      before { ENV["IMAGEPROXY_ENABLED"] = nil }
+    context "when Setting.use_image_proxy is false" do
+      before { Setting.use_image_proxy = false }
 
       specify { expect(subject.imageproxy_url).to eq(nil) }
     end
