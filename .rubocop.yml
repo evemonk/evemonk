@@ -68,3 +68,6 @@ Style/EmptyMethod:
 
 Metrics/ClassLength:
   Enabled: false
+
+Style/Lambda:
+  Enabled: false
