@@ -56,9 +56,6 @@ gem "traceroute"
 gem "awesome_print", require: "ap"
 gem "pry-rails"
 
-# gem "act-fluent-logger-rails", git: "https://github.com/actindi/act-fluent-logger-rails.git",
-#                                branch: "master"
-
 gem "lograge"
 
 gem "prometheus-client", "0.9.0"
@@ -66,12 +63,6 @@ gem "yabeda-prometheus"
 gem "yabeda-rails"
 gem "yabeda-sidekiq"
 gem "yabeda-puma-plugin"
-
-# Use Redis adapter to run Action Cable in production
-# gem 'redis', '~> 4.0'
-
-# Use ActiveStorage variant
-# gem 'image_processing', '~> 1.2'
 
 group :production do
   gem "newrelic_rpm"
