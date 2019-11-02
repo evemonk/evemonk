@@ -15,5 +15,7 @@ if Rails.env.production? && ENV["SENTRY_DSN"]
     # TODO: add release support
     # https://docs.sentry.io/clients/ruby/config/
     # config.release = '721e41770371db95eee98ca2707686226b993eda'
+
+    config.async = lambda { |event| SentryJob.perform_later(event) }
   end
 end
