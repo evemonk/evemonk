@@ -17,5 +17,9 @@ FactoryBot.define do
     name { Faker::Lorem.word }
 
     ticker { Faker::Lorem.word.upcase }
+
+    corporations_count { 0 } # TODO: fix
+
+    characters_count { 0 } # TODO: fix
   end
 end
