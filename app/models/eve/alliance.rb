@@ -7,19 +7,19 @@ module Eve
     searchkick
 
     belongs_to :creator_corporation,
-      primary_key: "corporation_id",
       class_name: "Eve::Corporation",
+      primary_key: "corporation_id",
       optional: true
 
     belongs_to :creator,
-      primary_key: "character_id",
       class_name: "Eve::Character",
+      primary_key: "character_id",
       optional: true
 
     belongs_to :executor_corporation,
-      foreign_key: "executor_corporation_id",
-      primary_key: "corporation_id",
       class_name: "Eve::Corporation",
+      primary_key: "corporation_id",
+      foreign_key: "executor_corporation_id",
       optional: true
 
     belongs_to :faction,
