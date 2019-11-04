@@ -1,5 +1,6 @@
 .git/*
 .idea/*
+.generators
 .env
 .env.example
 .env_docker
