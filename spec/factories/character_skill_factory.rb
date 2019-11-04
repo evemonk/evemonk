@@ -4,12 +4,12 @@ FactoryBot.define do
   factory :character_skill do
     character
 
-    active_skill_level { 1 }
+    active_skill_level { 1 } # TODO: fix
 
-    skill_id { 1 }
+    skill_id { 1 } # TODO: fix
 
-    skillpoints_in_skill { 1 }
+    skillpoints_in_skill { 1 } # TODO: fix
 
-    trained_skill_level { 1 }
+    trained_skill_level { 1 } # TODO: fix
   end
 end
