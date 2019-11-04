@@ -27,7 +27,7 @@ describe Eve::Character do
 
   describe "#search_data" do
     let!(:character) do
-      create(:eve_character,
+      build(:eve_character,
         name: "Green Black")
     end
 
