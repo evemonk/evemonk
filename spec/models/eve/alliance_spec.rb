@@ -23,6 +23,8 @@ describe Eve::Alliance do
 
   it { should have_many(:corporations).through(:alliance_corporations) }
 
+  it { should have_many(:characters).through(:corporations) }
+
   it { should callback(:reset_characters_count).after(:commit).on(:create) }
 
   describe "#search_data" do
