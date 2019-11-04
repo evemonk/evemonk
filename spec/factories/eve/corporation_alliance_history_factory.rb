@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :corporation_alliance_history, class: Eve::CorporationAllianceHistory do
-    sequence(:corporation_id)
+    association :corporation, factory: :eve_corporation
 
     sequence(:alliance_id)
 
