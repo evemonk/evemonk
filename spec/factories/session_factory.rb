@@ -16,8 +16,8 @@ FactoryBot.define do
 
     name
 
-    device_type { Session.device_types.keys.sample }
-
     device_token
+
+    device_type { Session.device_types.keys.sample }
   end
 end

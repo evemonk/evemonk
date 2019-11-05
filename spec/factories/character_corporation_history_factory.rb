@@ -6,10 +6,10 @@ FactoryBot.define do
 
     sequence(:corporation_id)
 
-    is_deleted { false }
+    is_deleted { [true, false].sample }
 
     sequence(:record_id)
 
-    start_date { "2019-10-21 23:50:52" }
+    start_date { Time.zone.now }
   end
 end

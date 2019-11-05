@@ -10,10 +10,6 @@ module Eve
 
     searchkick
 
-    # TODO: add
-    # group_id: 258,
-    # market_group_id: 370,
-
     belongs_to :graphic,
       primary_key: "graphic_id",
       optional: true

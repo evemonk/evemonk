@@ -17,5 +17,7 @@ describe Eve::Faction do
 
   it { should belong_to(:corporation).with_primary_key("corporation_id").optional(true) }
 
-  it { should belong_to(:solar_system).with_foreign_key("solar_system_id").with_primary_key("system_id").class_name("Eve::System").optional(true) }
+  # belongs_to :militia_corporation_id
+
+  it { should belong_to(:solar_system).class_name("Eve::System").with_primary_key("system_id").with_foreign_key("solar_system_id").optional(true) }
 end

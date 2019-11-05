@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 FactoryBot.define do
-  factory :eve_character_corporation_history, class: Eve::CharacterCorporationHistory do
-    association :character, factory: :eve_character
-
+  factory :eve_corporation_alliance_history, class: Eve::CorporationAllianceHistory do
     association :corporation, factory: :eve_corporation
+
+    sequence(:alliance_id)
 
     is_deleted { [true, false].sample }
 

@@ -20,6 +20,6 @@ FactoryBot.define do
 
     sequence(:station_system_count)
 
-    is_unique { false }
+    is_unique { [true, false].sample }
   end
 end

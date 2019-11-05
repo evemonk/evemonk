@@ -45,7 +45,7 @@ jobs:
       - run: bundle exec rspec --profile
       - run: bundle exec bundle-audit update
       - run: bundle exec bundle-leak update
-      - run: bundle exec bundle-audit || true
+      - run: bundle exec bundle-audit --ignore CVE-2015-9284
       - run: yarn audit
       - run: bundle exec brakeman
       - run: bundle exec bundle-leak
@@ -56,7 +56,7 @@ jobs:
       - run: bundle exec rubocop
       - run: bundle exec license_finder || true
       - run: bundle exec rails zeitwerk:check
-      - run: bundle exec rails factory_bot:lint || true
+      - run: bundle exec rails factory_bot:lint
       - run: bundle exec rake traceroute FAIL_ON_ERROR=1 || true
       - run: bundle exec rake SECRET_KEY_BASE=blablabla DB_ADAPTER=nulldb assets:precompile
       - run: ./cc-test-reporter after-build

@@ -7,5 +7,7 @@ FactoryBot.define do
     end
 
     etag { SecureRandom.hex }
+
+    body { "" } # TODO: add json example
   end
 end

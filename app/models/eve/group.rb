@@ -7,5 +7,7 @@ module Eve
     has_paper_trail
 
     translates :name
+
+    # belongs_to :category_id
   end
 end

@@ -25,6 +25,7 @@ yarn-debug.log*
 /spec/examples.txt
 
 /.idea/*
+/.generators
 /coverage/*
 /.env
 /.env_docker

@@ -4,20 +4,20 @@ FactoryBot.define do
   factory :skillqueue do
     character
 
-    finish_date { "2019-10-02 00:54:40" }
+    finish_date { "2019-10-02 00:54:40" } # TODO: fix
 
-    finished_level { 1 }
+    finished_level { 1 } # TODO: fix
 
-    level_end_sp { 1 }
+    level_end_sp { 1 } # TODO: fix
 
-    level_start_sp { 1 }
+    level_start_sp { 1 } # TODO: fix
 
-    queue_position { 1 }
+    queue_position { 1 } # TODO: fix
 
-    skill_id { "" }
+    skill_id { "" } # TODO: fix
 
-    start_date { "2019-10-02 00:54:40" }
+    start_date { "2019-10-02 00:54:40" } # TODO: fix
 
-    training_start_sp { 1 }
+    training_start_sp { 1 } # TODO: fix
   end
 end

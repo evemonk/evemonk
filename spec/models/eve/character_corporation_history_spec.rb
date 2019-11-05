@@ -7,7 +7,7 @@ describe Eve::CharacterCorporationHistory do
 
   it { expect(described_class.table_name).to eq("eve_character_corporation_histories") }
 
-  it { should belong_to(:character).with_primary_key("character_id").class_name("Eve::Character") }
+  it { should belong_to(:character).class_name("Eve::Character").with_primary_key("character_id") }
 
-  it { should belong_to(:corporation).with_primary_key("corporation_id").class_name("Eve::Corporation").optional(true) }
+  it { should belong_to(:corporation).class_name("Eve::Corporation").with_primary_key("corporation_id").optional(true) }
 end

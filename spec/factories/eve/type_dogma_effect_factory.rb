@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :eve_type_dogma_effect, class: Eve::TypeDogmaEffect do
-    sequence(:type_id)
+    association :type, factory: :eve_type
 
     sequence(:effect_id)
 

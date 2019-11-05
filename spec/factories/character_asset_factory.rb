@@ -8,16 +8,16 @@ FactoryBot.define do
 
     is_singleton { [true, false].sample }
 
-    item_id { "" }
+    sequence(:item_id)
 
-    location_flag { "MyString" }
+    location_flag { "MyString" } # TODO: fix
 
-    location_id { "" }
+    location_id { "" } # TODO: fix
 
-    location_type { "MyString" }
+    location_type { "MyString" } # TODO: fix
 
-    quantity { "" }
+    sequence(:quantity)
 
-    type_id { "" }
+    sequence(:type_id)
   end
 end

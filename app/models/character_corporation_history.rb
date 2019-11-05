@@ -7,7 +7,7 @@ class CharacterCorporationHistory < ApplicationRecord
     primary_key: "character_id"
 
   belongs_to :corporation,
-    primary_key: "corporation_id",
     class_name: "Eve::Corporation",
+    primary_key: "corporation_id",
     optional: true
 end

@@ -2,16 +2,16 @@
 
 source "https://rubygems.org"
 
-gem "rails", "6.0.0"
+gem "rails", "6.0.1"
 gem "pg", ">= 0.18", "< 2.0"
 gem "puma"
 gem "sass-rails"
 gem "webpacker", "~> 4.0"
 gem "turbolinks", "~> 5"
 gem "jbuilder", "~> 2.7"
+gem "bootsnap", ">= 1.4.2", require: false
 gem "sorcery"
 gem "rqrcode"
-gem "bootsnap", ">= 1.4.2", require: false
 gem "meta-tags"
 gem "metricky"
 gem "dalli"
@@ -56,9 +56,6 @@ gem "traceroute"
 gem "awesome_print", require: "ap"
 gem "pry-rails"
 
-# gem "act-fluent-logger-rails", git: "https://github.com/actindi/act-fluent-logger-rails.git",
-#                                branch: "master"
-
 gem "lograge"
 
 gem "prometheus-client", "0.9.0"
@@ -66,12 +63,6 @@ gem "yabeda-prometheus"
 gem "yabeda-rails"
 gem "yabeda-sidekiq"
 gem "yabeda-puma-plugin"
-
-# Use Redis adapter to run Action Cable in production
-# gem 'redis', '~> 4.0'
-
-# Use ActiveStorage variant
-# gem 'image_processing', '~> 1.2'
 
 group :production do
   gem "newrelic_rpm"

@@ -10,6 +10,8 @@ FactoryBot.define do
 
     reset_password_token { SecureRandom.base58 }
 
+    notifications_count { 0 } # TODO: fix
+
     trait :oauth do
       kind { :oauth }
 
