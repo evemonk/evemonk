@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :eve_type_dogma_attribute, class: Eve::TypeDogmaAttribute do
-    sequence(:type_id)
+    association :type, factory: :eve_type
 
     sequence(:attribute_id)
 
