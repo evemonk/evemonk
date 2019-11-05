@@ -2,9 +2,9 @@
 
 FactoryBot.define do
   factory :eve_character_corporation_history, class: Eve::CharacterCorporationHistory do
-    sequence(:character_id)
+    association :character, factory: :eve_character
 
-    sequence(:corporation_id)
+    association :corporation, factory: :eve_corporation
 
     is_deleted { [true, false].sample }
 
