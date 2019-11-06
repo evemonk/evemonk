@@ -17,27 +17,27 @@ class CharacterDecorator < ApplicationDecorator
   end
 
   def icon_tiny
-    "#{imageproxy_url}https://imageserver.eveonline.com/Character/#{character_id}_32.jpg"
+    "#{imageproxy_url}https://images.evetech.net/characters/#{character_id}/portrait?size=32&tenant=tranquility"
   end
 
   def icon_small
-    "#{imageproxy_url}https://imageserver.eveonline.com/Character/#{character_id}_64.jpg"
+    "#{imageproxy_url}https://images.evetech.net/characters/#{character_id}/portrait?size=64&tenant=tranquility"
   end
 
   def icon_medium
-    "#{imageproxy_url}https://imageserver.eveonline.com/Character/#{character_id}_128.jpg"
+    "#{imageproxy_url}https://images.evetech.net/characters/#{character_id}/portrait?size=128&tenant=tranquility"
   end
 
   def icon_large
-    "#{imageproxy_url}https://imageserver.eveonline.com/Character/#{character_id}_256.jpg"
+    "#{imageproxy_url}https://images.evetech.net/characters/#{character_id}/portrait?size=256&tenant=tranquility"
   end
 
   def icon_huge
-    "#{imageproxy_url}https://imageserver.eveonline.com/Character/#{character_id}_512.jpg"
+    "#{imageproxy_url}https://images.evetech.net/characters/#{character_id}/portrait?size=512&tenant=tranquility"
   end
 
   def icon_gigantic
-    "#{imageproxy_url}https://imageserver.eveonline.com/Character/#{character_id}_1024.jpg"
+    "#{imageproxy_url}https://images.evetech.net/characters/#{character_id}/portrait?size=1024&tenant=tranquility"
   end
 
   def description
