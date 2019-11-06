@@ -5,8 +5,8 @@ module Eve
     include ActionView::Helpers::NumberHelper
 
     decorates_associations :creator_corporation, :creator,
-      :executor_corporation, :faction,
-      :corporations, :characters
+      :executor_corporation, :faction, :alliance_corporations, :corporations,
+      :characters
 
     def date_founded
       object.date_founded.iso8601

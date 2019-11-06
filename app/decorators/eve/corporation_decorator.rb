@@ -4,7 +4,8 @@ module Eve
   class CorporationDecorator < ApplicationDecorator
     include ActionView::Helpers::NumberHelper
 
-    decorates_associations :alliance, :ceo, :creator, :faction, :characters
+    decorates_associations :alliance, :ceo, :creator, :faction, :characters,
+      :corporation_alliance_histories
 
     def date_founded
       object.date_founded&.iso8601

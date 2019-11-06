@@ -2,7 +2,7 @@
 
 module Eve
   class FactionDecorator < ApplicationDecorator
-    decorates_associations :alliances, :corporation
+    decorates_associations :alliances, :corporation, :solar_system
 
     def size_factor
       object.size_factor.to_s
