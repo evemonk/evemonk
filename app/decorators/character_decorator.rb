@@ -3,9 +3,9 @@
 class CharacterDecorator < ApplicationDecorator
   include ActionView::Helpers::NumberHelper
 
-  decorates_associations :user, :race, :bloodline, :faction, :ancestry,
-    :alliance, :corporation, :loyalty_points, :character_assets, :character_implants,
-    :implants, :character_corporation_histories, :character_skills
+  decorates_associations :race, :bloodline, :faction, :ancestry, :alliance,
+    :corporation, :loyalty_points, :character_assets, :character_implants, :implants,
+    :skillqueues, :character_skills, :character_corporation_histories
 
   def birthday
     object.birthday&.iso8601
