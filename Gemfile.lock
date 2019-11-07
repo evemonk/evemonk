@@ -206,7 +206,7 @@ GEM
       activemodel-serializers-xml (>= 1.0)
       activesupport (>= 5.0)
       request_store (>= 1.0)
-    dry-initializer (3.0.1)
+    dry-initializer (3.0.2)
     elasticsearch (7.4.0)
       elasticsearch-api (= 7.4.0)
       elasticsearch-transport (= 7.4.0)
