@@ -469,9 +469,9 @@ GEM
       railties
       rainbow
       thor (>= 0.18.1, < 2.0)
-    rqrcode (1.1.1)
+    rqrcode (1.1.2)
       chunky_png (~> 1.0)
-      rqrcode_core (~> 0.1.0)
+      rqrcode_core (~> 0.1)
     rqrcode_core (0.1.1)
     rspec-its (1.3.0)
       rspec-core (>= 3.0.0)
