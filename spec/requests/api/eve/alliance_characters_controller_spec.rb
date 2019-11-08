@@ -5,7 +5,7 @@ require "rails_helper"
 describe Api::Eve::AllianceCharactersController do
   before { Setting.use_image_proxy = true }
 
-  xdescribe "#index" do
+  describe "#index" do
     it "returns list of Eve Alliance Characters" do
       create(:eve_alliance,
         alliance_id: 123,

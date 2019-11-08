@@ -5,7 +5,7 @@ require "rails_helper"
 describe Api::Eve::AlliancesController do
   before { Setting.use_image_proxy = true }
 
-  xdescribe "#index" do
+  describe "#index" do
     it "returns list of Eve Alliances" do
       create(:eve_faction,
         faction_id: 777,
@@ -195,7 +195,7 @@ describe Api::Eve::AlliancesController do
     end
   end
 
-  xdescribe "#show" do
+  describe "#show" do
     it "returns Eve Alliance" do
       create(:eve_faction,
         faction_id: 777,

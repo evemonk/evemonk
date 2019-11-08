@@ -5,7 +5,7 @@ require "rails_helper"
 describe Api::CharactersController do
   before { Setting.use_image_proxy = true }
 
-  xdescribe "#index" do
+  describe "#index" do
     it "returns list of user characters" do
       user = create(:user)
 
@@ -111,7 +111,7 @@ describe Api::CharactersController do
     end
   end
 
-  xdescribe "#show" do
+  describe "#show" do
     it "returns user character info" do
       user = create(:user)
 

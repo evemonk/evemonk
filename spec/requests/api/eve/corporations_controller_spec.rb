@@ -5,7 +5,7 @@ require "rails_helper"
 describe Api::Eve::CorporationsController do
   before { Setting.use_image_proxy = true }
 
-  xdescribe "#index" do
+  describe "#index" do
     it "returns list of Eve Corporations" do
       create(:eve_alliance,
         alliance_id: 123)
@@ -60,7 +60,7 @@ describe Api::Eve::CorporationsController do
     end
   end
 
-  xdescribe "#show" do
+  describe "#show" do
     it "returns Eve Corporation" do
       create(:eve_alliance,
         alliance_id: 123,
