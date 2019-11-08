@@ -31,7 +31,7 @@ describe Eve::CharacterDecorator do
   describe "#icon_tiny" do
     let(:eve_character) do
       build(:eve_character,
-        character_id: 123)
+        character_id: 90_729_314)
     end
 
     subject { eve_character.decorate }
@@ -39,20 +39,20 @@ describe Eve::CharacterDecorator do
     context "when Setting.use_image_proxy is true" do
       before { Setting.use_image_proxy = true }
 
-      specify { expect(subject.icon_tiny).to eq("https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Character/123_32.jpg") }
+      specify { expect(subject.icon_tiny).to eq("https://imageproxy.evemonk.com/https://images.evetech.net/characters/90729314/portrait?size=32&tenant=tranquility") }
     end
 
     context "when Setting.use_image_proxy is false" do
       before { Setting.use_image_proxy = false }
 
-      specify { expect(subject.icon_tiny).to eq("https://imageserver.eveonline.com/Character/123_32.jpg") }
+      specify { expect(subject.icon_tiny).to eq("https://images.evetech.net/characters/90729314/portrait?size=32&tenant=tranquility") }
     end
   end
 
   describe "#icon_small" do
     let(:eve_character) do
       build(:eve_character,
-        character_id: 123)
+        character_id: 90_729_314)
     end
 
     subject { eve_character.decorate }
@@ -60,20 +60,20 @@ describe Eve::CharacterDecorator do
     context "when Setting.use_image_proxy is true" do
       before { Setting.use_image_proxy = true }
 
-      specify { expect(subject.icon_small).to eq("https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Character/123_64.jpg") }
+      specify { expect(subject.icon_small).to eq("https://imageproxy.evemonk.com/https://images.evetech.net/characters/90729314/portrait?size=64&tenant=tranquility") }
     end
 
     context "when Setting.use_image_proxy is false" do
       before { Setting.use_image_proxy = false }
 
-      specify { expect(subject.icon_small).to eq("https://imageserver.eveonline.com/Character/123_64.jpg") }
+      specify { expect(subject.icon_small).to eq("https://images.evetech.net/characters/90729314/portrait?size=64&tenant=tranquility") }
     end
   end
 
   describe "#icon_medium" do
     let(:eve_character) do
       build(:eve_character,
-        character_id: 123)
+        character_id: 90_729_314)
     end
 
     subject { eve_character.decorate }
@@ -81,20 +81,20 @@ describe Eve::CharacterDecorator do
     context "when Setting.use_image_proxy is true" do
       before { Setting.use_image_proxy = true }
 
-      specify { expect(subject.icon_medium).to eq("https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Character/123_128.jpg") }
+      specify { expect(subject.icon_medium).to eq("https://imageproxy.evemonk.com/https://images.evetech.net/characters/90729314/portrait?size=128&tenant=tranquility") }
     end
 
     context "when Setting.use_image_proxy is false" do
       before { Setting.use_image_proxy = false }
 
-      specify { expect(subject.icon_medium).to eq("https://imageserver.eveonline.com/Character/123_128.jpg") }
+      specify { expect(subject.icon_medium).to eq("https://images.evetech.net/characters/90729314/portrait?size=128&tenant=tranquility") }
     end
   end
 
   describe "#icon_large" do
     let(:eve_character) do
       build(:eve_character,
-        character_id: 123)
+        character_id: 90_729_314)
     end
 
     subject { eve_character.decorate }
@@ -102,20 +102,20 @@ describe Eve::CharacterDecorator do
     context "when Setting.use_image_proxy is true" do
       before { Setting.use_image_proxy = true }
 
-      specify { expect(subject.icon_large).to eq("https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Character/123_256.jpg") }
+      specify { expect(subject.icon_large).to eq("https://imageproxy.evemonk.com/https://images.evetech.net/characters/90729314/portrait?size=256&tenant=tranquility") }
     end
 
     context "when Setting.use_image_proxy is false" do
       before { Setting.use_image_proxy = false }
 
-      specify { expect(subject.icon_large).to eq("https://imageserver.eveonline.com/Character/123_256.jpg") }
+      specify { expect(subject.icon_large).to eq("https://images.evetech.net/characters/90729314/portrait?size=256&tenant=tranquility") }
     end
   end
 
   describe "#icon_huge" do
     let(:eve_character) do
       build(:eve_character,
-        character_id: 123)
+        character_id: 90_729_314)
     end
 
     subject { eve_character.decorate }
@@ -123,20 +123,20 @@ describe Eve::CharacterDecorator do
     context "when Setting.use_image_proxy is true" do
       before { Setting.use_image_proxy = true }
 
-      specify { expect(subject.icon_huge).to eq("https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Character/123_512.jpg") }
+      specify { expect(subject.icon_huge).to eq("https://imageproxy.evemonk.com/https://images.evetech.net/characters/90729314/portrait?size=512&tenant=tranquility") }
     end
 
     context "when Setting.use_image_proxy is false" do
       before { Setting.use_image_proxy = false }
 
-      specify { expect(subject.icon_huge).to eq("https://imageserver.eveonline.com/Character/123_512.jpg") }
+      specify { expect(subject.icon_huge).to eq("https://images.evetech.net/characters/90729314/portrait?size=512&tenant=tranquility") }
     end
   end
 
   describe "#icon_gigantic" do
     let(:eve_character) do
       build(:eve_character,
-        character_id: 123)
+        character_id: 90_729_314)
     end
 
     subject { eve_character.decorate }
@@ -144,13 +144,13 @@ describe Eve::CharacterDecorator do
     context "when Setting.use_image_proxy is true" do
       before { Setting.use_image_proxy = true }
 
-      specify { expect(subject.icon_gigantic).to eq("https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Character/123_1024.jpg") }
+      specify { expect(subject.icon_gigantic).to eq("https://imageproxy.evemonk.com/https://images.evetech.net/characters/90729314/portrait?size=1024&tenant=tranquility") }
     end
 
     context "when Setting.use_image_proxy is false" do
       before { Setting.use_image_proxy = false }
 
-      specify { expect(subject.icon_gigantic).to eq("https://imageserver.eveonline.com/Character/123_1024.jpg") }
+      specify { expect(subject.icon_gigantic).to eq("https://images.evetech.net/characters/90729314/portrait?size=1024&tenant=tranquility") }
     end
   end
 
