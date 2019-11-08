@@ -21,7 +21,7 @@ describe Eve::FactionDecorator do
   describe "#icon_tiny" do
     let(:eve_faction) do
       build(:eve_faction,
-        faction_id: 123)
+        faction_id: 500_001)
     end
 
     subject { eve_faction.decorate }
@@ -29,20 +29,20 @@ describe Eve::FactionDecorator do
     context "when Setting.use_image_proxy is true" do
       before { Setting.use_image_proxy = true }
 
-      specify { expect(subject.icon_tiny).to eq("https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Alliance/123_32.png") }
+      specify { expect(subject.icon_tiny).to eq("https://imageproxy.evemonk.com/https://images.evetech.net/alliances/500001/logo?size=32&tenant=tranquility") }
     end
 
     context "when Setting.use_image_proxy is false" do
       before { Setting.use_image_proxy = false }
 
-      specify { expect(subject.icon_tiny).to eq("https://imageserver.eveonline.com/Alliance/123_32.png") }
+      specify { expect(subject.icon_tiny).to eq("https://images.evetech.net/alliances/500001/logo?size=32&tenant=tranquility") }
     end
   end
 
   describe "#icon_small" do
     let(:eve_faction) do
       build(:eve_faction,
-        faction_id: 123)
+        faction_id: 500_001)
     end
 
     subject { eve_faction.decorate }
@@ -50,20 +50,20 @@ describe Eve::FactionDecorator do
     context "when Setting.use_image_proxy is true" do
       before { Setting.use_image_proxy = true }
 
-      specify { expect(subject.icon_small).to eq("https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Alliance/123_64.png") }
+      specify { expect(subject.icon_small).to eq("https://imageproxy.evemonk.com/https://images.evetech.net/alliances/500001/logo?size=64&tenant=tranquility") }
     end
 
     context "when Setting.use_image_proxy is false" do
       before { Setting.use_image_proxy = false }
 
-      specify { expect(subject.icon_small).to eq("https://imageserver.eveonline.com/Alliance/123_64.png") }
+      specify { expect(subject.icon_small).to eq("https://images.evetech.net/alliances/500001/logo?size=64&tenant=tranquility") }
     end
   end
 
   describe "#icon_medium" do
     let(:eve_faction) do
       build(:eve_faction,
-        faction_id: 123)
+        faction_id: 500_001)
     end
 
     subject { eve_faction.decorate }
@@ -71,13 +71,13 @@ describe Eve::FactionDecorator do
     context "when Setting.use_image_proxy is true" do
       before { Setting.use_image_proxy = true }
 
-      specify { expect(subject.icon_medium).to eq("https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Alliance/123_128.png") }
+      specify { expect(subject.icon_medium).to eq("https://imageproxy.evemonk.com/https://images.evetech.net/alliances/500001/logo?size=128&tenant=tranquility") }
     end
 
     context "when Setting.use_image_proxy is false" do
       before { Setting.use_image_proxy = false }
 
-      specify { expect(subject.icon_medium).to eq("https://imageserver.eveonline.com/Alliance/123_128.png") }
+      specify { expect(subject.icon_medium).to eq("https://images.evetech.net/alliances/500001/logo?size=128&tenant=tranquility") }
     end
   end
 end

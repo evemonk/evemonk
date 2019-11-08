@@ -4,7 +4,8 @@ module Eve
   class CorporationDecorator < ApplicationDecorator
     include ActionView::Helpers::NumberHelper
 
-    decorates_associations :alliance, :ceo, :creator, :faction, :characters
+    decorates_associations :alliance, :ceo, :creator, :faction, :characters,
+      :corporation_alliance_histories
 
     def date_founded
       object.date_founded&.iso8601
@@ -15,19 +16,19 @@ module Eve
     end
 
     def icon_tiny
-      "#{imageproxy_url}https://imageserver.eveonline.com/Corporation/#{corporation_id}_32.png"
+      "#{imageproxy_url}https://images.evetech.net/corporations/#{corporation_id}/logo?size=32&tenant=tranquility"
     end
 
     def icon_small
-      "#{imageproxy_url}https://imageserver.eveonline.com/Corporation/#{corporation_id}_64.png"
+      "#{imageproxy_url}https://images.evetech.net/corporations/#{corporation_id}/logo?size=64&tenant=tranquility"
     end
 
     def icon_medium
-      "#{imageproxy_url}https://imageserver.eveonline.com/Corporation/#{corporation_id}_128.png"
+      "#{imageproxy_url}https://images.evetech.net/corporations/#{corporation_id}/logo?size=128&tenant=tranquility"
     end
 
     def icon_large
-      "#{imageproxy_url}https://imageserver.eveonline.com/Corporation/#{corporation_id}_256.png"
+      "#{imageproxy_url}https://images.evetech.net/corporations/#{corporation_id}/logo?size=256&tenant=tranquility"
     end
 
     def tax_rate

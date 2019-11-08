@@ -31,7 +31,7 @@ Mobile first design.
 * Ruby 2.6.5
 * RubyGems 3.0.6
 * Bundler 2.1.0.pre.2
-* Ruby on Rails 6.0.0
+* Ruby on Rails 6.0.1
 * PostgreSQL 12.0
 * Redis 5.0.6
 * Elasticsearch 7.4.2

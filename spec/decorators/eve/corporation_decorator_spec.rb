@@ -45,7 +45,7 @@ describe Eve::CorporationDecorator do
   describe "#icon_tiny" do
     let(:eve_corporation) do
       build(:eve_corporation,
-        corporation_id: 123)
+        corporation_id: 1_344_654_522)
     end
 
     subject { eve_corporation.decorate }
@@ -53,20 +53,20 @@ describe Eve::CorporationDecorator do
     context "when Setting.use_image_proxy is true" do
       before { Setting.use_image_proxy = true }
 
-      specify { expect(subject.icon_tiny).to eq("https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Corporation/123_32.png") }
+      specify { expect(subject.icon_tiny).to eq("https://imageproxy.evemonk.com/https://images.evetech.net/corporations/1344654522/logo?size=32&tenant=tranquility") }
     end
 
     context "when Setting.use_image_proxy is false" do
       before { Setting.use_image_proxy = false }
 
-      specify { expect(subject.icon_tiny).to eq("https://imageserver.eveonline.com/Corporation/123_32.png") }
+      specify { expect(subject.icon_tiny).to eq("https://images.evetech.net/corporations/1344654522/logo?size=32&tenant=tranquility") }
     end
   end
 
   describe "#icon_small" do
     let(:eve_corporation) do
       build(:eve_corporation,
-        corporation_id: 123)
+        corporation_id: 1_344_654_522)
     end
 
     subject { eve_corporation.decorate }
@@ -74,20 +74,20 @@ describe Eve::CorporationDecorator do
     context "when Setting.use_image_proxy is true" do
       before { Setting.use_image_proxy = true }
 
-      specify { expect(subject.icon_small).to eq("https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Corporation/123_64.png") }
+      specify { expect(subject.icon_small).to eq("https://imageproxy.evemonk.com/https://images.evetech.net/corporations/1344654522/logo?size=64&tenant=tranquility") }
     end
 
     context "when Setting.use_image_proxy is false" do
       before { Setting.use_image_proxy = false }
 
-      specify { expect(subject.icon_small).to eq("https://imageserver.eveonline.com/Corporation/123_64.png") }
+      specify { expect(subject.icon_small).to eq("https://images.evetech.net/corporations/1344654522/logo?size=64&tenant=tranquility") }
     end
   end
 
   describe "#icon_medium" do
     let(:eve_corporation) do
       build(:eve_corporation,
-        corporation_id: 123)
+        corporation_id: 1_344_654_522)
     end
 
     subject { eve_corporation.decorate }
@@ -95,20 +95,20 @@ describe Eve::CorporationDecorator do
     context "when Setting.use_image_proxy is true" do
       before { Setting.use_image_proxy = true }
 
-      specify { expect(subject.icon_medium).to eq("https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Corporation/123_128.png") }
+      specify { expect(subject.icon_medium).to eq("https://imageproxy.evemonk.com/https://images.evetech.net/corporations/1344654522/logo?size=128&tenant=tranquility") }
     end
 
     context "when Setting.use_image_proxy is false" do
       before { Setting.use_image_proxy = false }
 
-      specify { expect(subject.icon_medium).to eq("https://imageserver.eveonline.com/Corporation/123_128.png") }
+      specify { expect(subject.icon_medium).to eq("https://images.evetech.net/corporations/1344654522/logo?size=128&tenant=tranquility") }
     end
   end
 
   describe "#icon_large" do
     let(:eve_corporation) do
       build(:eve_corporation,
-        corporation_id: 123)
+        corporation_id: 1_344_654_522)
     end
 
     subject { eve_corporation.decorate }
@@ -116,13 +116,13 @@ describe Eve::CorporationDecorator do
     context "when Setting.use_image_proxy is true" do
       before { Setting.use_image_proxy = true }
 
-      specify { expect(subject.icon_large).to eq("https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Corporation/123_256.png") }
+      specify { expect(subject.icon_large).to eq("https://imageproxy.evemonk.com/https://images.evetech.net/corporations/1344654522/logo?size=256&tenant=tranquility") }
     end
 
     context "when Setting.use_image_proxy is false" do
       before { Setting.use_image_proxy = false }
 
-      specify { expect(subject.icon_large).to eq("https://imageserver.eveonline.com/Corporation/123_256.png") }
+      specify { expect(subject.icon_large).to eq("https://images.evetech.net/corporations/1344654522/logo?size=256&tenant=tranquility") }
     end
   end
 
