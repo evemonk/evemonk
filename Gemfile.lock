@@ -258,6 +258,7 @@ GEM
     hashdiff (1.0.0)
     hashie (3.6.0)
     heapy (0.1.4)
+    hodel_3000_compliant_logger (0.1.1)
     http-2 (0.10.1)
     http_logger (0.5.1)
     i18n (1.7.0)
@@ -354,6 +355,9 @@ GEM
       rack (>= 1.2, < 3)
     octokit (4.14.0)
       sawyer (~> 0.8.0, >= 0.5.3)
+    oink (0.10.1)
+      activerecord
+      hodel_3000_compliant_logger
     omniauth (1.9.0)
       hashie (>= 3.4.6, < 3.7.0)
       rack (>= 1.6.2, < 3)
@@ -675,6 +679,7 @@ DEPENDENCIES
   mobility
   newrelic_rpm
   niceql
+  oink
   omniauth-eve_online-sso
   omniauth-rails_csrf_protection
   paper_trail

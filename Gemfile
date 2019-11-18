@@ -64,6 +64,8 @@ gem "yabeda-rails"
 gem "yabeda-sidekiq"
 gem "yabeda-puma-plugin"
 
+gem "oink"
+
 group :production do
   gem "newrelic_rpm"
   gem "rack-timeout"
