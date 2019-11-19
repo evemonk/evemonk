@@ -389,8 +389,6 @@ GEM
     public_suffix (4.0.1)
     puma (4.3.0)
       nio4r (~> 2.0)
-    pundit (2.1.0)
-      activesupport (>= 3.0.0)
     quantile (0.2.1)
     raabro (1.1.6)
     rack (2.0.7)
@@ -684,7 +682,6 @@ DEPENDENCIES
   prometheus-client (= 0.9.0)
   pry-rails
   puma
-  pundit
   rack-cors
   rack-health
   rack-timeout
