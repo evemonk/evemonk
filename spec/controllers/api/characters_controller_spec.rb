@@ -90,8 +90,6 @@ describe Api::CharactersController do
 
       before { expect(subject).to receive(:authorize).with(character) }
 
-      before { subject.instance_variable_set(:@_pundit_policy_authorized, true) }
-
       before { get :show, params: {id: "1", format: :json} }
 
       it { should respond_with(:ok) }
@@ -123,8 +121,6 @@ describe Api::CharactersController do
       before { expect(subject).to receive(:authorize).with(character) }
 
       before { expect(character).to receive(:destroy!) }
-
-      before { subject.instance_variable_set(:@_pundit_policy_authorized, true) }
 
       before { delete :destroy, params: {id: "1", format: :json} }
 

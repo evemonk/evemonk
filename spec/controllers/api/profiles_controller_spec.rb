@@ -9,8 +9,6 @@ describe Api::ProfilesController do
     context "when user signed in" do
       before { sign_in }
 
-      before { subject.instance_variable_set(:@_pundit_policy_authorized, true) }
-
       before { get :show, params: {format: :json} }
 
       it { should respond_with(:ok) }

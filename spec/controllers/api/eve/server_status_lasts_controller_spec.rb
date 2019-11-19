@@ -25,8 +25,6 @@ describe Api::Eve::ServerStatusLastsController do
 
       before { expect(eve_server_status).to receive(:decorate) }
 
-      before { subject.instance_variable_set(:@_pundit_policy_authorized, true) }
-
       before { get :show, params: {format: :json} }
 
       it { should respond_with(:ok) }
