@@ -13,6 +13,11 @@
     <!-- Disable translation prompt -->
     <meta name="google" content="notranslate">
 
+    <% if Setting.use_google_search_console %>
+      <!-- Google Search Console -->
+      <meta name="google-site-verification" content="<%= Setting.google_site_verification_token %>">
+    <% %>
+
     <!-- Force IE 8/9/10 to use its latest rendering engine -->
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
