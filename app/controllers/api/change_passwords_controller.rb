@@ -5,8 +5,6 @@ module Api
     def create
       @form = ChangePasswordForm.new(change_password_params.merge(user: current_user))
 
-      skip_authorization
-
       if @form.save
         render :create
       else

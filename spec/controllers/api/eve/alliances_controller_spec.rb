@@ -85,8 +85,6 @@ describe Api::Eve::AlliancesController do
 
       before { expect(eve_alliance).to receive(:decorate) }
 
-      before { expect(subject).to receive(:skip_authorization) }
-
       before { subject.instance_variable_set(:@_pundit_policy_authorized, true) }
 
       before { get :show, params: {id: "99005443", format: :json} }
