@@ -3,9 +3,6 @@
 module Api
   class ProfilesController < BaseController
     def show
-      @user = current_user
-
-      skip_authorization
     end
   end
 end
