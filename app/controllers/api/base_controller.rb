@@ -2,13 +2,7 @@
 
 module Api
   class BaseController < ActionController::Base
-    include Pundit
-
     protect_from_forgery with: :exception, unless: -> { request.format.json? }
-
-    after_action :verify_authorized, except: :index
-
-    after_action :verify_policy_scoped, only: :index
 
     before_action :verify_requested_format!
 
