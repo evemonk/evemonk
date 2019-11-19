@@ -9,8 +9,6 @@ describe Api::Eve::TypesController do
 
   describe "#index" do
     context "with supported content type" do
-      before { subject.instance_variable_set(:@_pundit_policy_scoped, true) }
-
       before { get :index, params: {format: :json, page: "1", q: "search string"} }
 
       it { should respond_with(:ok) }
@@ -27,8 +25,6 @@ describe Api::Eve::TypesController do
 
   describe "#show" do
     context "with supported content type" do
-      before { subject.instance_variable_set(:@_pundit_policy_authorized, true) }
-
       before { get :show, params: {id: "23773", format: :json} }
 
       it { should respond_with(:ok) }

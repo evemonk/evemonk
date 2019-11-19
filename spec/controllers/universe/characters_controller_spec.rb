@@ -39,8 +39,6 @@ describe Universe::CharactersController do
       end
     end
 
-    before { subject.instance_variable_set(:@_pundit_policy_scoped, true) }
-
     before { get :index, params: {q: "character", page: "2"} }
 
     it { should respond_with(:ok) }

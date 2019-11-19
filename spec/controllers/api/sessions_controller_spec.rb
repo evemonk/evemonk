@@ -27,8 +27,6 @@ describe Api::SessionsController do
         end
       end
 
-      before { subject.instance_variable_set(:@_pundit_policy_scoped, true) }
-
       before { get :index, params: {format: :json, page: "1"} }
 
       it { should respond_with(:ok) }
@@ -60,8 +58,6 @@ describe Api::SessionsController do
       before { expect(subject).to receive(:authorize).with(session) }
 
       before { expect(session).to receive(:destroy!) }
-
-      before { subject.instance_variable_set(:@_pundit_policy_authorized, true) }
 
       before { delete :destroy, params: {id: "1", format: :json} }
 

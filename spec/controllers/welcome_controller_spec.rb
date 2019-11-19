@@ -46,8 +46,6 @@ describe WelcomeController do
       end
     end
 
-    before { subject.instance_variable_set(:@_pundit_policy_scoped, true) }
-
     before { get :index }
 
     it { should respond_with(:ok) }

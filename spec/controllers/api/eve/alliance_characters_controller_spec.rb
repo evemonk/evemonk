@@ -64,8 +64,6 @@ describe Api::Eve::AllianceCharactersController do
         end
       end
 
-      before { subject.instance_variable_set(:@_pundit_policy_scoped, true) }
-
       before { get :index, params: {format: :json, page: "1", alliance_id: "12345"} }
 
       it { should respond_with(:ok) }

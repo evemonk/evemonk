@@ -39,8 +39,6 @@ describe Api::Eve::CharactersController do
         end
       end
 
-      before { subject.instance_variable_set(:@_pundit_policy_scoped, true) }
-
       before { get :index, params: {format: :json, page: "1", q: "search string"} }
 
       it { should respond_with(:ok) }
@@ -73,8 +71,6 @@ describe Api::Eve::CharactersController do
       end
 
       before { expect(eve_character).to receive(:decorate) }
-
-      before { subject.instance_variable_set(:@_pundit_policy_authorized, true) }
 
       before { get :show, params: {id: "90729314", format: :json} }
 

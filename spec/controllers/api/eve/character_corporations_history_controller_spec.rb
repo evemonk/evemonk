@@ -60,8 +60,6 @@ describe Api::Eve::CharacterCorporationsHistoryController do
         end
       end
 
-      before { subject.instance_variable_set(:@_pundit_policy_scoped, true) }
-
       before { get :index, params: {character_id: "99005443", page: "1", format: :json} }
 
       it { should respond_with(:ok) }
