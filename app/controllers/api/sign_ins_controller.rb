@@ -7,8 +7,6 @@ module Api
     def create
       @form = SignInForm.new(sign_in_params)
 
-      skip_authorization
-
       if @form.save
         render :create
       else

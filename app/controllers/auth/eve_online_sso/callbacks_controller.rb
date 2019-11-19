@@ -16,27 +16,25 @@ module Auth
 
         service.save!
 
-        skip_authorization
-
         redirect_to characters_path
       end
 
       private
 
       def handle_service_unavailable
-        render inline: "Service Unavailable (503). Try again later."
+        render inline: "Service Unavailable (503). Please, try again later."
       end
 
       def handle_internal_server_error
-        render inline: "Internal Server Error (500). Try again later."
+        render inline: "Internal Server Error (500). Please, try again later."
       end
 
       def handle_bad_gateway
-        render inline: "Bad Gateway (502). Try again later."
+        render inline: "Bad Gateway (502). Please, try again later."
       end
 
       def handle_timeout
-        render inline: "Timeout Error. Try again later."
+        render inline: "Timeout Error. Please, try again later."
       end
     end
   end

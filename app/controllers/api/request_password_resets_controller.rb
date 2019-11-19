@@ -7,8 +7,6 @@ module Api
     def create
       @form = RequestResetPasswordForm.new(resource_params)
 
-      skip_authorization
-
       if @form.save
         head :ok
       else

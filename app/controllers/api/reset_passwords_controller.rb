@@ -7,8 +7,6 @@ module Api
     def create
       @form = ResetPasswordForm.new(resource_params)
 
-      skip_authorization
-
       if @form.save
         render :create
       else

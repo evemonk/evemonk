@@ -17,8 +17,6 @@ module Api
         @character = policy_scope(::Eve::Character)
           .find_by!(character_id: params[:id])
           .decorate
-
-        skip_authorization
       end
     end
   end

@@ -2,7 +2,7 @@
 
 class EmploymentHistoriesController < ApplicationController
   def index
-    @character = policy_scope(Character)
+    @character = current_user.characters
       .includes(character_corporation_histories: :corporation)
       .find_by!(character_id: params[:character_id])
       .decorate

@@ -7,8 +7,6 @@ module Api
 
       def show
         @server_status = policy_scope(::Eve::ServerStatus).last.decorate
-
-        skip_authorization
       end
     end
   end

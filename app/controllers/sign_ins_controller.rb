@@ -5,14 +5,10 @@ class SignInsController < ApplicationController
 
   def show
     @service = SignInForm.new(controller: self)
-
-    skip_authorization
   end
 
   def create
     @service = SignInForm.new(resource_params.merge(controller: self))
-
-    skip_authorization
 
     if @service.save
       redirect_back_or_to characters_path, notice: "Successful signed in!"
