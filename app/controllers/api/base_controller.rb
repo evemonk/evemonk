@@ -26,10 +26,6 @@ module Api
     rescue_from ActionController::UnknownFormat do
       head :not_acceptable
     end
-
-    rescue_from Pundit::NotAuthorizedError do
-      head :forbidden
-    end
     # :nocov:
 
     def index
