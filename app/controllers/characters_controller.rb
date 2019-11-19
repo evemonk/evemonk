@@ -2,7 +2,7 @@
 
 class CharactersController < ApplicationController
   def index
-    @characters = policy_scope(Character)
+    @characters = current_user.characters
       .includes(:alliance, :corporation)
       .order(created_at: :asc)
       .page(params[:page])
@@ -10,17 +10,14 @@ class CharactersController < ApplicationController
   end
 
   def show
-    @character = Character.eager_load(:race, :bloodline, :ancestry, :faction, :alliance, :corporation)
+    @character = current_user.characters
+      .eager_load(:race, :bloodline, :ancestry, :faction, :alliance, :corporation)
       .find_by!(character_id: params[:id])
       .decorate
-
-    authorize(@character)
   end
 
   def destroy
-    # character = Character.find_by!(character_id: params[:id])
-    #
-    # authorize(character)
+    # character = current_user.characters.find_by!(character_id: params[:id])
     #
     # character.destroy!
     #
