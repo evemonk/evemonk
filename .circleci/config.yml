@@ -40,6 +40,7 @@ jobs:
       - run: npm -v
       - run: yarn -v
       - run: yarn install
+      - run: docker run --rm -i hadolint/hadolint < Dockerfile
       - run: bundle exec rails db:create
       - run: bundle exec rails db:migrate
       - run: bundle exec rspec --profile
