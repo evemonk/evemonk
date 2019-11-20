@@ -40,7 +40,7 @@ jobs:
       - run: npm -v
       - run: yarn -v
       - run: yarn install
-      - run: docker run --rm -i hadolint/hadolint < Dockerfile
+      - run: curl -L https://github.com/hadolint/hadolint/releases/download/v1.17.2/hadolint-Linux-x86_64 > ./hadolint
       - run: bundle exec rails db:create
       - run: bundle exec rails db:migrate
       - run: bundle exec rspec --profile
@@ -60,4 +60,5 @@ jobs:
       - run: bundle exec rails factory_bot:lint
       - run: bundle exec rake traceroute FAIL_ON_ERROR=1 || true
       - run: bundle exec rake SECRET_KEY_BASE=blablabla DB_ADAPTER=nulldb assets:precompile
+      - run: ./hadolint Dockerfile
       - run: ./cc-test-reporter after-build
