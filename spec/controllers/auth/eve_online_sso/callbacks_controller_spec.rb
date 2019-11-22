@@ -39,25 +39,25 @@ describe Auth::EveOnlineSso::CallbacksController do
   # private methods
 
   describe "#handle_service_unavailable" do
-    before { expect(subject).to receive(:render).with(inline: "Service Unavailable (503). Try again later.") }
+    before { expect(subject).to receive(:render).with(inline: "Service Unavailable (503). Please, try again later.") }
 
     specify { expect { subject.send(:handle_service_unavailable) }.not_to raise_error }
   end
 
   describe "#handle_internal_server_error" do
-    before { expect(subject).to receive(:render).with(inline: "Internal Server Error (500). Try again later.") }
+    before { expect(subject).to receive(:render).with(inline: "Internal Server Error (500). Please, try again later.") }
 
     specify { expect { subject.send(:handle_internal_server_error) }.not_to raise_error }
   end
 
   describe "#handle_bad_gateway" do
-    before { expect(subject).to receive(:render).with(inline: "Bad Gateway (502). Try again later.") }
+    before { expect(subject).to receive(:render).with(inline: "Bad Gateway (502). Please, try again later.") }
 
     specify { expect { subject.send(:handle_bad_gateway) }.not_to raise_error }
   end
 
   describe "#handle_timeout" do
-    before { expect(subject).to receive(:render).with(inline: "Timeout Error. Try again later.") }
+    before { expect(subject).to receive(:render).with(inline: "Timeout Error. Please, try again later.") }
 
     specify { expect { subject.send(:handle_timeout) }.not_to raise_error }
   end
