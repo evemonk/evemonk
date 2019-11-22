@@ -9,9 +9,7 @@ module Api
     end
 
     def destroy
-      session = current_user.sessions.find(params[:id])
-
-      session.destroy!
+      current_user.sessions.find(params[:id]).destroy!
 
       head :no_content
     end
