@@ -9,22 +9,14 @@ describe Api::Eve::CharactersController do
 
   describe "#index" do
     context "with supported content type" do
-      let(:scoped_eve_character) { instance_double(Eve::Character) }
-
-      before do
-        expect(subject).to receive(:policy_scope).with(::Eve::Character)
-          .and_return(scoped_eve_character)
-      end
-
       before do
         #
-        # Eve::CharactersSearcher.new(params[:q],
-        #                             policy_scope(::Eve::Character))
+        # Eve::CharactersSearcher.new(params[:q])
         #                        .search
         #                        .page(params[:page])
         #                        .decorate
         #
-        expect(Eve::CharactersSearcher).to receive(:new).with("search string", scoped_eve_character) do
+        expect(Eve::CharactersSearcher).to receive(:new).with("search string") do
           double.tap do |a|
             expect(a).to receive(:search) do
               double.tap do |b|
@@ -59,18 +51,16 @@ describe Api::Eve::CharactersController do
 
       before do
         #
-        # subject.policy_scope(::Eve::Character)
-        #        .find_by!(character_id: params[:id]) # => eve_character
+        # Eve::Character
+        #   .find_by!(character_id: params[:id])
+        #   .decorate
         #
-        expect(subject).to receive(:policy_scope).with(Eve::Character) do
+        expect(Eve::Character).to receive(:find_by!).with(character_id: "90729314") do
           double.tap do |a|
-            expect(a).to receive(:find_by!).with(character_id: "90729314")
-              .and_return(eve_character)
+            expect(a).to receive(:decorate)
           end
         end
       end
-
-      before { expect(eve_character).to receive(:decorate) }
 
       before { get :show, params: {id: "90729314", format: :json} }
 
