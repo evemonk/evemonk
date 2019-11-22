@@ -35,7 +35,7 @@ Mobile first design.
 * PostgreSQL 12.1
 * Redis 5.0.7
 * Elasticsearch 7.4.2
-* Node 12.13.0
+* Node 12.13.1
 * NPM 6.13.0
 * Yarn 1.19.1
 * Twitter Bootstrap 4.3.1
