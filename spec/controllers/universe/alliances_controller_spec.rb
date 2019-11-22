@@ -38,24 +38,14 @@ describe Universe::AlliancesController do
   end
 
   describe "#show" do
-    let(:eve_alliance_policy) { Eve::Alliance }
-
-    before do
-      #
-      # subject.policy_scope(::Eve::Alliance) # => eve_alliance_policy
-      #
-      expect(subject).to receive(:policy_scope).with(::Eve::Alliance).and_return(eve_alliance_policy)
-    end
-
     let(:eve_alliance) { instance_double(Eve::Alliance) }
 
     before do
       #
-      # subject.policy_scope(::Eve::Alliance)
-      #        .includes(:faction, :creator_corporation, :creator, :executor_corporation)
-      #        .find_by!(alliance_id: params[:id])
-      #        .decorate
-      expect(eve_alliance_policy).to receive(:includes).with(:faction, :creator_corporation, :creator, :executor_corporation) do
+      # Eve::Alliance.includes(:faction, :creator_corporation, :creator, :executor_corporation)
+      #              .find_by!(alliance_id: params[:id])
+      #              .decorate
+      expect(Eve::Alliance).to receive(:includes).with(:faction, :creator_corporation, :creator, :executor_corporation) do
         double.tap do |a|
           expect(a).to receive(:find_by!).with(alliance_id: "1354830081") do
             double.tap do |b|
@@ -66,24 +56,14 @@ describe Universe::AlliancesController do
       end
     end
 
-    let(:eve_corporation_policy) { Eve::Corporation }
-
     before do
       #
-      # subject.policy_scope(::Eve::Corporation) # => eve_corporation_policy
+      # Eve::Corporation.where(alliance: @alliance)
+      #                 .order(:name)
+      #                 .includes(:faction)
+      #                 .decorate
       #
-      expect(subject).to receive(:policy_scope).with(Eve::Corporation).and_return(eve_corporation_policy)
-    end
-
-    before do
-      #
-      # subject.policy_scope(::Eve::Corporation)
-      #        .where(alliance: @alliance)
-      #        .order(:name)
-      #        .includes(:faction)
-      #        .decorate
-      #
-      expect(eve_corporation_policy).to receive(:where).with(alliance: eve_alliance) do
+      expect(Eve::Corporation).to receive(:where).with(alliance: eve_alliance) do
         double.tap do |a|
           expect(a).to receive(:order).with(:name) do
             double.tap do |b|
