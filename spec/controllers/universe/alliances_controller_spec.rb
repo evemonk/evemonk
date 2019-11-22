@@ -8,23 +8,14 @@ describe Universe::AlliancesController do
   it { should_not use_before_action(:require_login) }
 
   describe "#index" do
-    let(:eve_alliance_policy) { Eve::Alliance }
-
     before do
       #
-      # subject.policy_scope(::Eve::Alliance) # => eve_alliance_policy
-      #
-      expect(subject).to receive(:policy_scope).with(::Eve::Alliance).and_return(eve_alliance_policy)
-    end
-
-    before do
-      #
-      # Eve::AlliancesSearcher.new(params[:q], policy_scope(::Eve::Alliance))
+      # Eve::AlliancesSearcher.new(params[:q])
       #                       .search
       #                       .page(params[:page])
       #                       .decorate
       #
-      expect(Eve::AlliancesSearcher).to receive(:new).with("alliance", eve_alliance_policy) do
+      expect(Eve::AlliancesSearcher).to receive(:new).with("alliance") do
         double.tap do |a|
           expect(a).to receive(:search) do
             double.tap do |b|
