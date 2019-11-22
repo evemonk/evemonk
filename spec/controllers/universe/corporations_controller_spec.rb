@@ -8,23 +8,14 @@ describe Universe::CorporationsController do
   it { should_not use_before_action(:require_login) }
 
   describe "#index" do
-    let(:eve_corporation_policy) { Eve::Corporation }
-
     before do
       #
-      # subject.policy_scope(::Eve::Corporation) # => eve_corporation_policy
-      #
-      expect(subject).to receive(:policy_scope).with(::Eve::Corporation).and_return(eve_corporation_policy)
-    end
-
-    before do
-      #
-      # Eve::CorporationsSearcher.new(params[:q], policy_scope(::Eve::Corporation))
+      # Eve::CorporationsSearcher.new(params[:q])
       #                          .search
       #                          .page(params[:page])
       #                          .decorate
       #
-      expect(Eve::CorporationsSearcher).to receive(:new).with("corporation", eve_corporation_policy) do
+      expect(Eve::CorporationsSearcher).to receive(:new).with("corporation") do
         double.tap do |a|
           expect(a).to receive(:search) do
             double.tap do |b|
