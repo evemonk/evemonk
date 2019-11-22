@@ -44,24 +44,5 @@ describe Api::Eve::AllianceCharactersController do
 
       it { should respond_with(:not_acceptable) }
     end
-
-    context "when alliance not found" do
-      before do
-        #
-        # subject.policy_scope(::Eve::Alliance)
-        #        .find_by!(alliance_id: params[:alliance_id]) # => ActiveRecord::RecordNotFound
-        #
-        expect(subject).to receive(:policy_scope).with(Eve::Alliance) do
-          double.tap do |a|
-            expect(a).to receive(:find_by!).with(alliance_id: "12345")
-              .and_raise(ActiveRecord::RecordNotFound)
-          end
-        end
-      end
-
-      before { get :index, params: {alliance_id: "12345", format: :json} }
-
-      it { should respond_with(:not_found) }
-    end
   end
 end
