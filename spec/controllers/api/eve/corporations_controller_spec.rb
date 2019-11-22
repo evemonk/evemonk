@@ -47,22 +47,18 @@ describe Api::Eve::CorporationsController do
 
   describe "#show" do
     context "with supported content type" do
-      let(:eve_corporation) { instance_double(Eve::Corporation) }
-
       before do
         #
-        # subject.policy_scope(::Eve::Corporation)
-        #        .find_by!(corporation_id: params[:id]) # => eve_corporation
+        # Eve::Corporation
+        #   .find_by!(corporation_id: params[:id])
+        #   .decorate
         #
-        expect(subject).to receive(:policy_scope).with(Eve::Corporation) do
+        expect(Eve::Corporation).to receive(:find_by!).with(corporation_id: "98005120") do
           double.tap do |a|
-            expect(a).to receive(:find_by!).with(corporation_id: "98005120")
-              .and_return(eve_corporation)
+            expect(a).to receive(:decorate)
           end
         end
       end
-
-      before { expect(eve_corporation).to receive(:decorate) }
 
       before { get :show, params: {id: "98005120", format: :json} }
 
