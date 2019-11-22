@@ -84,24 +84,17 @@ describe Api::Eve::AlliancesController do
     context "when alliance not found" do
       before do
         #
-        # subject.policy_scope(::Eve::Alliance)
-        #        .includes(:faction,
-        #                  :creator_corporation,
-        #                  :creator,
-        #                  :executor_corporation)
-        #        .find_by!(alliance_id: params[:id]) # => ActiveRecord::RecordNotFound
+        # Eve::Alliance
+        #   .includes(:faction,
+        #             :creator_corporation,
+        #             :creator,
+        #             :executor_corporation)
+        #   .find_by!(alliance_id: params[:id]) # => ActiveRecord::RecordNotFound
         #
-        expect(subject).to receive(:policy_scope).with(Eve::Alliance) do
-          double.tap do |a|
-            expect(a).to receive(:includes).with(:faction,
-              :creator_corporation,
-              :creator,
-              :executor_corporation) do
-              double.tap do |b|
-                expect(b).to receive(:find_by!).with(alliance_id: "99005443")
-                  .and_raise(ActiveRecord::RecordNotFound)
-              end
-            end
+        expect(Eve::Alliance).to receive(:includes).with(:faction, :creator_corporation, :creator, :executor_corporation) do
+          double.tap do |b|
+            expect(b).to receive(:find_by!).with(alliance_id: "99005443")
+              .and_raise(ActiveRecord::RecordNotFound)
           end
         end
       end
