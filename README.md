@@ -37,7 +37,7 @@ Mobile first design.
 * Elasticsearch 7.4.2
 * Node 12.13.1
 * NPM 6.13.1
-* Yarn 1.19.1
+* Yarn 1.19.2
 * Twitter Bootstrap 4.3.1
 * Bootswatch Darkly 4.3.1
 
