@@ -7,16 +7,19 @@ describe Api::CharactersController do
 
   describe "#index" do
     context "when user signed in" do
-      before { sign_in }
+      let(:current_user) { instance_double(User) }
+
+      before { sign_in(current_user) }
 
       before do
         #
-        # subject.policy_scope(Character).includes(:alliance, :corporation)
-        #                                .order(created_at: :asc)
-        #                                .page(params[:page])
-        #                                .decorate
+        # current_user.characters
+        #   .includes(:alliance, :corporation)
+        #   .order(created_at: :asc)
+        #   .page(params[:page])
+        #   .decorate
         #
-        expect(subject).to receive(:policy_scope).with(Character) do
+        expect(current_user).to receive(:characters) do
           double.tap do |a|
             expect(a).to receive(:includes).with(:alliance, :corporation) do
               double.tap do |b|
