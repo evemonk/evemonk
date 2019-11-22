@@ -6,7 +6,7 @@ module Api
       skip_before_action :authenticate
 
       def show
-        @server_status = policy_scope(::Eve::ServerStatus).last.decorate
+        @server_status = ::Eve::ServerStatus.last.decorate
       end
     end
   end
