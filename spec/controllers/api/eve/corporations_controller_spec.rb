@@ -76,15 +76,11 @@ describe Api::Eve::CorporationsController do
     context "when corporation not found" do
       before do
         #
-        # subject.policy_scope(::Eve::Corporation)
-        #        .find_by!(corporation_id: params[:id]) # => ActiveRecord::RecordNotFound
+        # Eve::Corporation
+        #   .find_by!(corporation_id: params[:id]) # => ActiveRecord::RecordNotFound
         #
-        expect(subject).to receive(:policy_scope).with(Eve::Corporation) do
-          double.tap do |a|
-            expect(a).to receive(:find_by!).with(corporation_id: "98005120")
-              .and_raise(ActiveRecord::RecordNotFound)
-          end
-        end
+        expect(Eve::Corporation).to receive(:find_by!).with(corporation_id: "98005120")
+          .and_raise(ActiveRecord::RecordNotFound)
       end
 
       before { get :show, params: {id: "98005120", format: :json} }
