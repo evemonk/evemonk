@@ -33,7 +33,7 @@ Mobile first design.
 * Bundler 2.1.0.pre.3
 * Ruby on Rails 6.0.1
 * PostgreSQL 12.1
-* Redis 5.0.6
+* Redis 5.0.7
 * Elasticsearch 7.4.2
 * Node 12.13.0
 * NPM 6.13.0
