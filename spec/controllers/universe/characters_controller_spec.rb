@@ -38,28 +38,17 @@ describe Universe::CharactersController do
   end
 
   describe "#show" do
-    let(:eve_character_policy) { Eve::Character }
-
     before do
       #
-      # subject.policy_scope(::Eve::Character) # => eve_character_policy
-      #
-      expect(subject).to receive(:policy_scope).with(::Eve::Character).and_return(eve_character_policy)
-    end
-
-    let(:eve_character) { instance_double(Eve::Character) }
-
-    before do
-      #
-      # subject.policy_scope(::Eve::Character)
-      #        .includes(character_corporation_histories: :corporation)
-      #        .find_by!(character_id: params[:id])
-      #        .decorate
-      expect(eve_character_policy).to receive(:includes).with(character_corporation_histories: :corporation) do
+      # Eve::Character
+      #   .includes(character_corporation_histories: :corporation)
+      #   .find_by!(character_id: params[:id])
+      #   .decorate
+      expect(Eve::Character).to receive(:includes).with(character_corporation_histories: :corporation) do
         double.tap do |a|
           expect(a).to receive(:find_by!).with(character_id: "91752503") do
             double.tap do |b|
-              expect(b).to receive(:decorate).and_return(eve_character)
+              expect(b).to receive(:decorate)
             end
           end
         end
