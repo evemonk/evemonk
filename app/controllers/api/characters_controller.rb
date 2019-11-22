@@ -12,15 +12,13 @@ module Api
 
     def show
       @character = current_user.characters
-        .eager_load(:race, :bloodline, :ancestry, :faction, :alliance, :corporation)
+        .includes(:race, :bloodline, :ancestry, :faction, :alliance, :corporation)
         .find_by!(character_id: params[:id])
         .decorate
     end
 
     def destroy
-      character = current_user.characters.find_by!(character_id: params[:id])
-
-      character.destroy!
+      current_user.characters.find_by!(character_id: params[:id]).destroy!
 
       head :no_content
     end
