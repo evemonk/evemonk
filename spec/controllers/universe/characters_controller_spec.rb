@@ -8,23 +8,14 @@ describe Universe::CharactersController do
   it { should_not use_before_action(:require_login) }
 
   describe "#index" do
-    let(:eve_character_policy) { Eve::Character }
-
     before do
       #
-      # subject.policy_scope(::Eve::Character) # => eve_character_policy
-      #
-      expect(subject).to receive(:policy_scope).with(::Eve::Character).and_return(eve_character_policy)
-    end
-
-    before do
-      #
-      # Eve::CharactersSearcher.new(params[:q], policy_scope(::Eve::Character))
+      # Eve::CharactersSearcher.new(params[:q])
       #                       .search
       #                       .page(params[:page])
       #                       .decorate
       #
-      expect(Eve::CharactersSearcher).to receive(:new).with("character", eve_character_policy) do
+      expect(Eve::CharactersSearcher).to receive(:new).with("character") do
         double.tap do |a|
           expect(a).to receive(:search) do
             double.tap do |b|
