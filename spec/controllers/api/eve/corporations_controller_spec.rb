@@ -9,22 +9,14 @@ describe Api::Eve::CorporationsController do
 
   describe "#index" do
     context "with supported content type" do
-      let(:scoped_eve_corporation) { instance_double(Eve::Corporation) }
-
-      before do
-        expect(subject).to receive(:policy_scope).with(::Eve::Corporation)
-          .and_return(scoped_eve_corporation)
-      end
-
       before do
         #
-        # Eve::CorporationsSearcher.new(params[:q],
-        #                               policy_scope(::Eve::Corporation))
+        # Eve::CorporationsSearcher.new(params[:q])
         #                          .search
         #                          .page(params[:page])
         #                          .decorate
         #
-        expect(Eve::CorporationsSearcher).to receive(:new).with("search string", scoped_eve_corporation) do
+        expect(Eve::CorporationsSearcher).to receive(:new).with("search string") do
           double.tap do |a|
             expect(a).to receive(:search) do
               double.tap do |b|
