@@ -8,8 +8,7 @@ module Api
       def index
         @characters = ::Eve::Character
           .where(corporation_id: params[:corporation_id])
-          .includes(:alliance, :ancestry, :bloodline, :corporation, :faction,
-            :race)
+          .includes(:alliance, :ancestry, :bloodline, :corporation, :faction, :race)
           .page(params[:page])
           .decorate
       end
