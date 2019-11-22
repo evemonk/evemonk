@@ -9,14 +9,17 @@ describe Api::SessionsController do
 
   describe "#index" do
     context "when user signed in" do
-      before { sign_in }
+      let(:current_user) { instance_double(User) }
+
+      before { sign_in(current_user) }
 
       before do
         #
-        # subject.policy_scope(Session).order(created_at: :asc)
-        #                              .page(params[:page])
+        # current_user.sessions
+        #   .order(created_at: :asc)
+        #   .page(params[:page])
         #
-        expect(subject).to receive(:policy_scope).with(Session) do
+        expect(current_user).to receive(:sessions) do
           double.tap do |a|
             expect(a).to receive(:order).with(created_at: :asc) do
               double.tap do |b|
