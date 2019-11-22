@@ -52,15 +52,24 @@ describe Api::SessionsController do
 
   describe "#destroy" do
     context "when user signed in" do
-      let(:session) { instance_double(Session) }
+      let(:current_user) { instance_double(User) }
 
-      before { sign_in }
+      before { sign_in(current_user) }
 
-      before { expect(Session).to receive(:find).with("1").and_return(session) }
-
-      before { expect(subject).to receive(:authorize).with(session) }
-
-      before { expect(session).to receive(:destroy!) }
+      before do
+        #
+        # current_user.sessions.find(params[:id]).destroy!
+        #
+        expect(current_user).to receive(:sessions) do
+          double.tap do |a|
+            expect(a).to receive(:find).with("1") do
+              double.tap do |b|
+                expect(b).to receive(:destroy!)
+              end
+            end
+          end
+        end
+      end
 
       before { delete :destroy, params: {id: "1", format: :json} }
 
