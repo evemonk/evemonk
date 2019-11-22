@@ -60,38 +60,31 @@ describe Api::CharactersController do
 
   describe "#show" do
     context "when user signed in" do
-      let(:character) { instance_double(Character, character_id: 1) }
+      let(:current_user) { instance_double(User) }
 
-      before { sign_in }
+      before { sign_in(current_user) }
 
       before do
         #
-        # Character.eager_load(:race,
-        #                      :bloodline,
-        #                      :ancestry,
-        #                      :faction,
-        #                      :alliance,
-        #                      :corporation)
-        #          .find_by!(character_id: params[:id])
-        #          .decorate
+        # current_user.characters
+        #   .includes(:race, :bloodline, :ancestry, :faction, :alliance, :corporation)
+        #   .find_by!(character_id: params[:id])
+        #   .decorate
         #
-        expect(Character).to receive(:eager_load).with(:race,
-          :bloodline,
-          :ancestry,
-          :faction,
-          :alliance,
-          :corporation) do
+        expect(current_user).to receive(:characters) do
           double.tap do |a|
-            expect(a).to receive(:find_by!).with(character_id: "1") do
+            expect(a).to receive(:includes).with(:race, :bloodline, :ancestry, :faction, :alliance, :corporation) do
               double.tap do |b|
-                expect(b).to receive(:decorate).and_return(character)
+                expect(b).to receive(:find_by!).with(character_id: "1") do
+                  double.tap do |c|
+                    expect(c).to receive(:decorate)
+                  end
+                end
               end
             end
           end
         end
       end
-
-      before { expect(subject).to receive(:authorize).with(character) }
 
       before { get :show, params: {id: "1", format: :json} }
 
@@ -115,15 +108,24 @@ describe Api::CharactersController do
 
   describe "#destroy" do
     context "when user signed in" do
-      let(:character) { instance_double(Character, character_id: 1) }
+      let(:current_user) { instance_double(User) }
 
-      before { sign_in }
+      before { sign_in(current_user) }
 
-      before { expect(Character).to receive(:find_by!).with(character_id: "1").and_return(character) }
-
-      before { expect(subject).to receive(:authorize).with(character) }
-
-      before { expect(character).to receive(:destroy!) }
+      before do
+        #
+        # current_user.characters.find_by!(character_id: params[:id]).destroy!
+        #
+        expect(current_user).to receive(:characters) do
+          double.tap do |a|
+            expect(a).to receive(:find_by!).with(character_id: "1") do
+              double.tap do |b|
+                expect(b).to receive(:destroy!)
+              end
+            end
+          end
+        end
+      end
 
       before { delete :destroy, params: {id: "1", format: :json} }
 
