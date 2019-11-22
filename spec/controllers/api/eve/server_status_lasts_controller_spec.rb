@@ -13,17 +13,14 @@ describe Api::Eve::ServerStatusLastsController do
 
       before do
         #
-        # subject.policy_scope(::Eve::ServerStatus)
-        #        .last # => eve_server_status
+        # Eve::ServerStatus.last.decorate
         #
-        expect(subject).to receive(:policy_scope).with(Eve::ServerStatus) do
+        expect(Eve::ServerStatus).to receive(:last) do
           double.tap do |a|
-            expect(a).to receive(:last).and_return(eve_server_status)
+            expect(a).to receive(:decorate)
           end
         end
       end
-
-      before { expect(eve_server_status).to receive(:decorate) }
 
       before { get :show, params: {format: :json} }
 
