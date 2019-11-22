@@ -42,17 +42,17 @@ GIT
 
 GIT
   remote: https://github.com/rspec/rspec-rails.git
-  revision: 6728e9d51c2f9195f48a664e2f45b1962606f5a7
-  branch: 4-0-dev
+  revision: d0f81dfccf92df655caeacfd1ce0ba1808779f99
+  branch: master
   specs:
-    rspec-rails (4.0.0.beta2)
+    rspec-rails (4.0.0.pre)
       actionpack (>= 4.2)
       activesupport (>= 4.2)
       railties (>= 4.2)
-      rspec-core (~> 3.8)
-      rspec-expectations (~> 3.8)
-      rspec-mocks (~> 3.8)
-      rspec-support (~> 3.8)
+      rspec-core (= 3.10.0.pre)
+      rspec-expectations (= 3.10.0.pre)
+      rspec-mocks (= 3.10.0.pre)
+      rspec-support (= 3.10.0.pre)
 
 GIT
   remote: https://github.com/rspec/rspec-support.git
@@ -729,4 +729,4 @@ DEPENDENCIES
   yabeda-sidekiq
 
 BUNDLED WITH
-   2.1.0.pre.2
+   2.1.0.pre.3

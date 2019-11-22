@@ -72,8 +72,7 @@ end
 
 group :development, :test do
   gem "dotenv-rails"
-  gem "rspec-rails", git: "https://github.com/rspec/rspec-rails.git", branch: "4-0-dev"
-  ["rspec-core", "rspec-expectations", "rspec-mocks", "rspec-support"].each do |lib|
+  ["rspec-core", "rspec-expectations", "rspec-mocks", "rspec-support", "rspec-rails"].each do |lib|
     gem lib, git: "https://github.com/rspec/#{lib}.git", branch: "master"
   end
   gem "bullet"
