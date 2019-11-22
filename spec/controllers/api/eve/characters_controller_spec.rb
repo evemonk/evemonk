@@ -78,15 +78,11 @@ describe Api::Eve::CharactersController do
     context "when character not found" do
       before do
         #
-        # subject.policy_scope(::Eve::Character)
-        #        .find_by!(character_id: params[:id]) # => ActiveRecord::RecordNotFound
+        # Eve::Character
+        #   .find_by!(character_id: params[:id]) # => ActiveRecord::RecordNotFound
         #
-        expect(subject).to receive(:policy_scope).with(Eve::Character) do
-          double.tap do |a|
-            expect(a).to receive(:find_by!).with(character_id: "90729314")
-              .and_raise(ActiveRecord::RecordNotFound)
-          end
-        end
+        expect(Eve::Character).to receive(:find_by!).with(character_id: "90729314")
+          .and_raise(ActiveRecord::RecordNotFound)
       end
 
       before { get :show, params: {id: "90729314", format: :json} }
