@@ -572,7 +572,7 @@ GEM
     tilt (2.0.10)
     toml (0.2.0)
       parslet (~> 1.8.0)
-    tomlrb (1.2.8)
+    tomlrb (1.2.9)
     traceroute (0.8.0)
       rails (>= 3.0.0)
     tty-color (0.5.0)
