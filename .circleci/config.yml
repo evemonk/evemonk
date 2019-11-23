@@ -41,6 +41,7 @@ jobs:
       - run: yarn -v
       - run: yarn install
       - run: curl -L https://github.com/hadolint/hadolint/releases/download/v1.17.2/hadolint-Linux-x86_64 > ./hadolint
+      - run: chmod +x ./hadolint
       - run: bundle exec rails db:create
       - run: bundle exec rails db:migrate
       - run: bundle exec rspec --profile
