@@ -51,10 +51,10 @@ describe Api::Eve::CharacterCorporationsHistoryController do
                                                 "corporation" => {
                                                   "id" => 456,
                                                   "icon" => {
-                                                    "large" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Corporation/456_256.png",
-                                                    "medium" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Corporation/456_128.png",
-                                                    "small" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Corporation/456_64.png",
-                                                    "tiny" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Corporation/456_32.png",
+                                                    "tiny" => "https://imageproxy.evemonk.com/https://images.evetech.net/corporations/456/logo?size=32&tenant=tranquility",
+                                                    "small" => "https://imageproxy.evemonk.com/https://images.evetech.net/corporations/456/logo?size=64&tenant=tranquility",
+                                                    "medium" => "https://imageproxy.evemonk.com/https://images.evetech.net/corporations/456/logo?size=128&tenant=tranquility",
+                                                    "large" => "https://imageproxy.evemonk.com/https://images.evetech.net/corporations/456/logo?size=256&tenant=tranquility",
                                                   },
                                                   "name" => "Character corporation name",
                                                   "description" => "Character corporation description",
