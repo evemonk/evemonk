@@ -61,5 +61,5 @@ jobs:
       - run: bundle exec rails factory_bot:lint
       - run: bundle exec rake traceroute FAIL_ON_ERROR=1 || true
       - run: bundle exec rake SECRET_KEY_BASE=blablabla DB_ADAPTER=nulldb assets:precompile
-      - run: ./hadolint Dockerfile
+      - run: ./hadolint --ignore DL3008 --ignore DL3009 --ignore DL3028 --ignore DL4006 --ignore DL3025 Dockerfile # TODO: remove DL3028
       - run: ./cc-test-reporter after-build
