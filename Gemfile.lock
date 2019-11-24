@@ -564,7 +564,7 @@ GEM
     standard (0.1.6)
       rubocop (~> 0.75.0)
       rubocop-performance (~> 1.5.0)
-    strings (0.1.7)
+    strings (0.1.8)
       strings-ansi (~> 0.1)
       unicode-display_width (~> 1.5)
       unicode_utils (~> 1.4)
