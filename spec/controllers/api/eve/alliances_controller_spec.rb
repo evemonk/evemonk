@@ -9,22 +9,14 @@ describe Api::Eve::AlliancesController do
 
   describe "#index" do
     context "with supported content type" do
-      let(:scoped_eve_alliance) { instance_double(Eve::Alliance) }
-
-      before do
-        expect(subject).to receive(:policy_scope).with(::Eve::Alliance)
-          .and_return(scoped_eve_alliance)
-      end
-
       before do
         #
-        # Eve::AlliancesSearcher.new(params[:q],
-        #                            policy_scope(::Eve::Alliance))
+        # Eve::AlliancesSearcher.new(params[:q])
         #                       .search
         #                       .page(params[:page])
         #                       .decorate
         #
-        expect(Eve::AlliancesSearcher).to receive(:new).with("search string", scoped_eve_alliance) do
+        expect(Eve::AlliancesSearcher).to receive(:new).with("search string") do
           double.tap do |a|
             expect(a).to receive(:search) do
               double.tap do |b|
@@ -38,8 +30,6 @@ describe Api::Eve::AlliancesController do
           end
         end
       end
-
-      before { subject.instance_variable_set(:@_pundit_policy_scoped, true) }
 
       before { get :index, params: {format: :json, page: "1", q: "search string"} }
 
@@ -57,37 +47,26 @@ describe Api::Eve::AlliancesController do
 
   describe "#show" do
     context "with supported content type" do
-      let(:eve_alliance) { instance_double(Eve::Alliance) }
-
       before do
         #
-        # subject.policy_scope(::Eve::Alliance)
-        #        .includes(:faction,
-        #                  :creator_corporation,
-        #                  :creator,
-        #                  :executor_corporation)
-        #        .find_by!(corporation_id: params[:id]) # => eve_alliance
+        # Eve::Alliance
+        #   .includes(:faction,
+        #             :creator_corporation,
+        #             :creator,
+        #             :executor_corporation)
+        #   .find_by!(corporation_id: params[:id])
+        #   .decorate
         #
-        expect(subject).to receive(:policy_scope).with(Eve::Alliance) do
+        expect(Eve::Alliance).to receive(:includes).with(:faction, :creator_corporation, :creator, :executor_corporation) do
           double.tap do |a|
-            expect(a).to receive(:includes).with(:faction,
-              :creator_corporation,
-              :creator,
-              :executor_corporation) do
+            expect(a).to receive(:find_by!).with(alliance_id: "99005443") do
               double.tap do |b|
-                expect(b).to receive(:find_by!).with(alliance_id: "99005443")
-                  .and_return(eve_alliance)
+                expect(b).to receive(:decorate)
               end
             end
           end
         end
       end
-
-      before { expect(eve_alliance).to receive(:decorate) }
-
-      before { expect(subject).to receive(:skip_authorization) }
-
-      before { subject.instance_variable_set(:@_pundit_policy_authorized, true) }
 
       before { get :show, params: {id: "99005443", format: :json} }
 
@@ -105,24 +84,17 @@ describe Api::Eve::AlliancesController do
     context "when alliance not found" do
       before do
         #
-        # subject.policy_scope(::Eve::Alliance)
-        #        .includes(:faction,
-        #                  :creator_corporation,
-        #                  :creator,
-        #                  :executor_corporation)
-        #        .find_by!(alliance_id: params[:id]) # => ActiveRecord::RecordNotFound
+        # Eve::Alliance
+        #   .includes(:faction,
+        #             :creator_corporation,
+        #             :creator,
+        #             :executor_corporation)
+        #   .find_by!(alliance_id: params[:id]) # => ActiveRecord::RecordNotFound
         #
-        expect(subject).to receive(:policy_scope).with(Eve::Alliance) do
-          double.tap do |a|
-            expect(a).to receive(:includes).with(:faction,
-              :creator_corporation,
-              :creator,
-              :executor_corporation) do
-              double.tap do |b|
-                expect(b).to receive(:find_by!).with(alliance_id: "99005443")
-                  .and_raise(ActiveRecord::RecordNotFound)
-              end
-            end
+        expect(Eve::Alliance).to receive(:includes).with(:faction, :creator_corporation, :creator, :executor_corporation) do
+          double.tap do |b|
+            expect(b).to receive(:find_by!).with(alliance_id: "99005443")
+              .and_raise(ActiveRecord::RecordNotFound)
           end
         end
       end

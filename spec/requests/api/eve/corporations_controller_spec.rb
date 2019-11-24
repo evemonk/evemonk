@@ -5,7 +5,7 @@ require "rails_helper"
 describe Api::Eve::CorporationsController do
   before { Setting.use_image_proxy = true }
 
-  xdescribe "#index" do
+  describe "#index" do
     it "returns list of Eve Corporations" do
       create(:eve_alliance,
         alliance_id: 123)
@@ -37,10 +37,10 @@ describe Api::Eve::CorporationsController do
                                               "corporations" => [{
                                                 "id" => 456,
                                                 "icon" => {
-                                                  "large" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Corporation/456_256.png",
-                                                  "medium" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Corporation/456_128.png",
-                                                  "small" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Corporation/456_64.png",
-                                                  "tiny" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Corporation/456_32.png",
+                                                  "tiny" => "https://imageproxy.evemonk.com/https://images.evetech.net/corporations/456/logo?size=32&tenant=tranquility",
+                                                  "small" => "https://imageproxy.evemonk.com/https://images.evetech.net/corporations/456/logo?size=64&tenant=tranquility",
+                                                  "medium" => "https://imageproxy.evemonk.com/https://images.evetech.net/corporations/456/logo?size=128&tenant=tranquility",
+                                                  "large" => "https://imageproxy.evemonk.com/https://images.evetech.net/corporations/456/logo?size=256&tenant=tranquility",
                                                 },
                                                 "alliance_id" => 123,
                                                 "ceo_id" => 1234,
@@ -60,7 +60,7 @@ describe Api::Eve::CorporationsController do
     end
   end
 
-  xdescribe "#show" do
+  describe "#show" do
     it "returns Eve Corporation" do
       create(:eve_alliance,
         alliance_id: 123,
@@ -141,10 +141,10 @@ describe Api::Eve::CorporationsController do
 
       expect(JSON.parse(response.body)).to eq("id" => 456,
                                               "icon" => {
-                                                "large" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Corporation/456_256.png",
-                                                "medium" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Corporation/456_128.png",
-                                                "small" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Corporation/456_64.png",
-                                                "tiny" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Corporation/456_32.png",
+                                                "tiny" => "https://imageproxy.evemonk.com/https://images.evetech.net/corporations/456/logo?size=32&tenant=tranquility",
+                                                "small" => "https://imageproxy.evemonk.com/https://images.evetech.net/corporations/456/logo?size=64&tenant=tranquility",
+                                                "medium" => "https://imageproxy.evemonk.com/https://images.evetech.net/corporations/456/logo?size=128&tenant=tranquility",
+                                                "large" => "https://imageproxy.evemonk.com/https://images.evetech.net/corporations/456/logo?size=256&tenant=tranquility",
                                               },
                                               "alliance_id" => 123,
                                               "ceo_id" => 1234,
@@ -163,9 +163,9 @@ describe Api::Eve::CorporationsController do
                                               "alliance" => {
                                                 "id" => 123,
                                                 "icon" => {
-                                                  "medium" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Alliance/123_128.png",
-                                                  "small" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Alliance/123_64.png",
-                                                  "tiny" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Alliance/123_32.png",
+                                                  "tiny" => "https://imageproxy.evemonk.com/https://images.evetech.net/alliances/123/logo?size=32&tenant=tranquility",
+                                                  "small" => "https://imageproxy.evemonk.com/https://images.evetech.net/alliances/123/logo?size=64&tenant=tranquility",
+                                                  "medium" => "https://imageproxy.evemonk.com/https://images.evetech.net/alliances/123/logo?size=128&tenant=tranquility",
                                                 },
                                                 "creator_corporation_id" => 2222,
                                                 "creator_id" => 3333,
@@ -180,12 +180,12 @@ describe Api::Eve::CorporationsController do
                                               "ceo" => {
                                                 "id" => 1234,
                                                 "icon" => {
-                                                  "gigantic" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Character/1234_1024.jpg",
-                                                  "huge" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Character/1234_512.jpg",
-                                                  "large" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Character/1234_256.jpg",
-                                                  "medium" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Character/1234_128.jpg",
-                                                  "small" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Character/1234_64.jpg",
-                                                  "tiny" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Character/1234_32.jpg",
+                                                  "tiny" => "https://imageproxy.evemonk.com/https://images.evetech.net/characters/1234/portrait?size=32&tenant=tranquility",
+                                                  "small" => "https://imageproxy.evemonk.com/https://images.evetech.net/characters/1234/portrait?size=64&tenant=tranquility",
+                                                  "medium" => "https://imageproxy.evemonk.com/https://images.evetech.net/characters/1234/portrait?size=128&tenant=tranquility",
+                                                  "large" => "https://imageproxy.evemonk.com/https://images.evetech.net/characters/1234/portrait?size=256&tenant=tranquility",
+                                                  "huge" => "https://imageproxy.evemonk.com/https://images.evetech.net/characters/1234/portrait?size=512&tenant=tranquility",
+                                                  "gigantic" => "https://imageproxy.evemonk.com/https://images.evetech.net/characters/1234/portrait?size=1024&tenant=tranquility",
                                                 },
                                                 "alliance_id" => 123,
                                                 "ancestry_id" => 10,
@@ -203,12 +203,12 @@ describe Api::Eve::CorporationsController do
                                               "creator" => {
                                                 "id" => 4321,
                                                 "icon" => {
-                                                  "gigantic" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Character/4321_1024.jpg",
-                                                  "huge" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Character/4321_512.jpg",
-                                                  "large" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Character/4321_256.jpg",
-                                                  "medium" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Character/4321_128.jpg",
-                                                  "small" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Character/4321_64.jpg",
-                                                  "tiny" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Character/4321_32.jpg",
+                                                  "tiny" => "https://imageproxy.evemonk.com/https://images.evetech.net/characters/4321/portrait?size=32&tenant=tranquility",
+                                                  "small" => "https://imageproxy.evemonk.com/https://images.evetech.net/characters/4321/portrait?size=64&tenant=tranquility",
+                                                  "medium" => "https://imageproxy.evemonk.com/https://images.evetech.net/characters/4321/portrait?size=128&tenant=tranquility",
+                                                  "large" => "https://imageproxy.evemonk.com/https://images.evetech.net/characters/4321/portrait?size=256&tenant=tranquility",
+                                                  "huge" => "https://imageproxy.evemonk.com/https://images.evetech.net/characters/4321/portrait?size=512&tenant=tranquility",
+                                                  "gigantic" => "https://imageproxy.evemonk.com/https://images.evetech.net/characters/4321/portrait?size=1024&tenant=tranquility",
                                                 },
                                                 "alliance_id" => 123,
                                                 "ancestry_id" => 10,

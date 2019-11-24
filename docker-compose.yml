@@ -7,7 +7,7 @@ volumes:
 
 services:
   postgresql:
-    image: "postgres:11.5"
+    image: "postgres:12.1"
     container_name: evemonk_postgresql
     restart: unless-stopped
     volumes:
@@ -29,7 +29,7 @@ services:
       - "9200:9200"
 
   redis:
-    image: "redis:5.0.6"
+    image: "redis:5.0.7"
     container_name: evemonk_redis
     restart: unless-stopped
     volumes:
@@ -38,7 +38,7 @@ services:
       - "6379:6379"
 
   memcached:
-    image: "memcached:1.5.19"
+    image: "memcached:1.5.20"
     container_name: evemonk_memcached
     restart: unless-stopped
     command: memcached -m 64

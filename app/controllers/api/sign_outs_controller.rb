@@ -7,8 +7,6 @@ module Api
 
       form.destroy!
 
-      skip_authorization
-
       head :no_content
     end
   end

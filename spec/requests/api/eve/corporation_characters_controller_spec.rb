@@ -5,7 +5,7 @@ require "rails_helper"
 describe Api::Eve::CorporationCharactersController do
   before { Setting.use_image_proxy = true }
 
-  xdescribe "#index" do
+  describe "#index" do
     it "returns list of Eve Corporation Characters" do
       create(:eve_alliance,
         alliance_id: 123,
@@ -102,12 +102,12 @@ describe Api::Eve::CorporationCharactersController do
                                               "characters" => [{
                                                 "id" => 123_123_123,
                                                 "icon" => {
-                                                  "gigantic" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Character/123123123_1024.jpg",
-                                                  "huge" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Character/123123123_512.jpg",
-                                                  "large" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Character/123123123_256.jpg",
-                                                  "medium" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Character/123123123_128.jpg",
-                                                  "small" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Character/123123123_64.jpg",
-                                                  "tiny" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Character/123123123_32.jpg",
+                                                  "tiny" => "https://imageproxy.evemonk.com/https://images.evetech.net/characters/123123123/portrait?size=32&tenant=tranquility",
+                                                  "small" => "https://imageproxy.evemonk.com/https://images.evetech.net/characters/123123123/portrait?size=64&tenant=tranquility",
+                                                  "medium" => "https://imageproxy.evemonk.com/https://images.evetech.net/characters/123123123/portrait?size=128&tenant=tranquility",
+                                                  "large" => "https://imageproxy.evemonk.com/https://images.evetech.net/characters/123123123/portrait?size=256&tenant=tranquility",
+                                                  "huge" => "https://imageproxy.evemonk.com/https://images.evetech.net/characters/123123123/portrait?size=512&tenant=tranquility",
+                                                  "gigantic" => "https://imageproxy.evemonk.com/https://images.evetech.net/characters/123123123/portrait?size=1024&tenant=tranquility",
                                                 },
                                                 "alliance_id" => 123,
                                                 "ancestry_id" => 10,
@@ -124,9 +124,9 @@ describe Api::Eve::CorporationCharactersController do
                                                 "alliance" => {
                                                   "id" => 123,
                                                   "icon" => {
-                                                    "medium" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Alliance/123_128.png",
-                                                    "small" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Alliance/123_64.png",
-                                                    "tiny" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Alliance/123_32.png",
+                                                    "tiny" => "https://imageproxy.evemonk.com/https://images.evetech.net/alliances/123/logo?size=32&tenant=tranquility",
+                                                    "small" => "https://imageproxy.evemonk.com/https://images.evetech.net/alliances/123/logo?size=64&tenant=tranquility",
+                                                    "medium" => "https://imageproxy.evemonk.com/https://images.evetech.net/alliances/123/logo?size=128&tenant=tranquility",
                                                   },
                                                   "creator_corporation_id" => 2222,
                                                   "creator_id" => 3333,
@@ -180,10 +180,10 @@ describe Api::Eve::CorporationCharactersController do
                                                 "corporation" => {
                                                   "id" => 456,
                                                   "icon" => {
-                                                    "large" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Corporation/456_256.png",
-                                                    "medium" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Corporation/456_128.png",
-                                                    "small" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Corporation/456_64.png",
-                                                    "tiny" => "https://imageproxy.evemonk.com/https://imageserver.eveonline.com/Corporation/456_32.png",
+                                                    "tiny" => "https://imageproxy.evemonk.com/https://images.evetech.net/corporations/456/logo?size=32&tenant=tranquility",
+                                                    "small" => "https://imageproxy.evemonk.com/https://images.evetech.net/corporations/456/logo?size=64&tenant=tranquility",
+                                                    "medium" => "https://imageproxy.evemonk.com/https://images.evetech.net/corporations/456/logo?size=128&tenant=tranquility",
+                                                    "large" => "https://imageproxy.evemonk.com/https://images.evetech.net/corporations/456/logo?size=256&tenant=tranquility",
                                                   },
                                                   "name" => "Character corporation name",
                                                   "description" => "Character corporation description",
@@ -203,7 +203,7 @@ describe Api::Eve::CorporationCharactersController do
                                               }])
     end
 
-    it "returns 404" do
+    xit "returns 404" do
       get "/api/eve/corporations/123/characters"
 
       expect(response).to have_http_status(:not_found)

@@ -3,7 +3,7 @@
 module Api
   class CharactersController < BaseController
     def index
-      @characters = policy_scope(Character)
+      @characters = current_user.characters
         .includes(:alliance, :corporation)
         .order(created_at: :asc)
         .page(params[:page])
@@ -11,24 +11,14 @@ module Api
     end
 
     def show
-      @character = Character.eager_load(:race,
-        :bloodline,
-        :ancestry,
-        :faction,
-        :alliance,
-        :corporation)
+      @character = current_user.characters
+        .includes(:race, :bloodline, :ancestry, :faction, :alliance, :corporation)
         .find_by!(character_id: params[:id])
         .decorate
-
-      authorize(@character)
     end
 
     def destroy
-      character = Character.find_by!(character_id: params[:id])
-
-      authorize(character)
-
-      character.destroy!
+      current_user.characters.find_by!(character_id: params[:id]).destroy!
 
       head :no_content
     end

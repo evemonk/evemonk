@@ -8,7 +8,7 @@ jobs:
         environment:
           RAILS_ENV: test
           PGHOST: localhost
-      - image: postgres:12.0
+      - image: postgres:12.1
         environment:
           POSTGRES_USER: circleci
           POSTGRES_DB: evemonk_test
@@ -26,7 +26,7 @@ jobs:
             - ruby-265-v1-dependencies-{{ checksum "Gemfile.lock" }}
             - ruby-265-v1-dependencies-
       - run: sudo gem update --system '3.0.6'
-      - run: gem install bundler -v '2.1.0.pre.2'
+      - run: gem install bundler -v '2.1.0.pre.3'
       - run: bundle check || bundle install --clean --jobs=2 --retry=5 --path vendor/bundle
       - save_cache:
           paths:
@@ -34,12 +34,14 @@ jobs:
           key: ruby-265-v1-dependencies-{{ checksum "Gemfile.lock" }}
       - run: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run: dockerize -wait tcp://localhost:9200 -timeout 2m
-      - run: sudo npm install -g npm@6.12.1
-      - run: sudo npm install -g yarn@1.19.1
+      - run: sudo npm install -g npm@6.13.1
+      - run: sudo npm install -g yarn@1.19.2
       - run: node -v
       - run: npm -v
       - run: yarn -v
       - run: yarn install
+      - run: curl -L https://github.com/hadolint/hadolint/releases/download/v1.17.2/hadolint-Linux-x86_64 > ./hadolint
+      - run: chmod +x ./hadolint
       - run: bundle exec rails db:create
       - run: bundle exec rails db:migrate
       - run: bundle exec rspec --profile
@@ -59,4 +61,5 @@ jobs:
       - run: bundle exec rails factory_bot:lint
       - run: bundle exec rake traceroute FAIL_ON_ERROR=1 || true
       - run: bundle exec rake SECRET_KEY_BASE=blablabla DB_ADAPTER=nulldb assets:precompile
+      - run: ./hadolint --ignore DL3008 --ignore DL3009 --ignore DL3028 --ignore DL4006 --ignore DL3025 Dockerfile # TODO: remove DL3028
       - run: ./cc-test-reporter after-build

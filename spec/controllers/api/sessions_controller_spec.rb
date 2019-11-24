@@ -9,14 +9,17 @@ describe Api::SessionsController do
 
   describe "#index" do
     context "when user signed in" do
-      before { sign_in }
+      let(:current_user) { instance_double(User) }
+
+      before { sign_in(current_user) }
 
       before do
         #
-        # subject.policy_scope(Session).order(created_at: :asc)
-        #                              .page(params[:page])
+        # current_user.sessions
+        #   .order(created_at: :asc)
+        #   .page(params[:page])
         #
-        expect(subject).to receive(:policy_scope).with(Session) do
+        expect(current_user).to receive(:sessions) do
           double.tap do |a|
             expect(a).to receive(:order).with(created_at: :asc) do
               double.tap do |b|
@@ -26,8 +29,6 @@ describe Api::SessionsController do
           end
         end
       end
-
-      before { subject.instance_variable_set(:@_pundit_policy_scoped, true) }
 
       before { get :index, params: {format: :json, page: "1"} }
 
@@ -51,17 +52,24 @@ describe Api::SessionsController do
 
   describe "#destroy" do
     context "when user signed in" do
-      let(:session) { instance_double(Session) }
+      let(:current_user) { instance_double(User) }
 
-      before { sign_in }
+      before { sign_in(current_user) }
 
-      before { expect(Session).to receive(:find).with("1").and_return(session) }
-
-      before { expect(subject).to receive(:authorize).with(session) }
-
-      before { expect(session).to receive(:destroy!) }
-
-      before { subject.instance_variable_set(:@_pundit_policy_authorized, true) }
+      before do
+        #
+        # current_user.sessions.find(params[:id]).destroy!
+        #
+        expect(current_user).to receive(:sessions) do
+          double.tap do |a|
+            expect(a).to receive(:find).with("1") do
+              double.tap do |b|
+                expect(b).to receive(:destroy!)
+              end
+            end
+          end
+        end
+      end
 
       before { delete :destroy, params: {id: "1", format: :json} }
 

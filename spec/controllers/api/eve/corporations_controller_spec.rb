@@ -9,22 +9,14 @@ describe Api::Eve::CorporationsController do
 
   describe "#index" do
     context "with supported content type" do
-      let(:scoped_eve_corporation) { instance_double(Eve::Corporation) }
-
-      before do
-        expect(subject).to receive(:policy_scope).with(::Eve::Corporation)
-          .and_return(scoped_eve_corporation)
-      end
-
       before do
         #
-        # Eve::CorporationsSearcher.new(params[:q],
-        #                               policy_scope(::Eve::Corporation))
+        # Eve::CorporationsSearcher.new(params[:q])
         #                          .search
         #                          .page(params[:page])
         #                          .decorate
         #
-        expect(Eve::CorporationsSearcher).to receive(:new).with("search string", scoped_eve_corporation) do
+        expect(Eve::CorporationsSearcher).to receive(:new).with("search string") do
           double.tap do |a|
             expect(a).to receive(:search) do
               double.tap do |b|
@@ -38,8 +30,6 @@ describe Api::Eve::CorporationsController do
           end
         end
       end
-
-      before { subject.instance_variable_set(:@_pundit_policy_scoped, true) }
 
       before { get :index, params: {format: :json, page: "1", q: "search string"} }
 
@@ -57,26 +47,18 @@ describe Api::Eve::CorporationsController do
 
   describe "#show" do
     context "with supported content type" do
-      let(:eve_corporation) { instance_double(Eve::Corporation) }
-
       before do
         #
-        # subject.policy_scope(::Eve::Corporation)
-        #        .find_by!(corporation_id: params[:id]) # => eve_corporation
+        # Eve::Corporation
+        #   .find_by!(corporation_id: params[:id])
+        #   .decorate
         #
-        expect(subject).to receive(:policy_scope).with(Eve::Corporation) do
+        expect(Eve::Corporation).to receive(:find_by!).with(corporation_id: "98005120") do
           double.tap do |a|
-            expect(a).to receive(:find_by!).with(corporation_id: "98005120")
-              .and_return(eve_corporation)
+            expect(a).to receive(:decorate)
           end
         end
       end
-
-      before { expect(eve_corporation).to receive(:decorate) }
-
-      before { expect(subject).to receive(:skip_authorization) }
-
-      before { subject.instance_variable_set(:@_pundit_policy_authorized, true) }
 
       before { get :show, params: {id: "98005120", format: :json} }
 
@@ -94,15 +76,11 @@ describe Api::Eve::CorporationsController do
     context "when corporation not found" do
       before do
         #
-        # subject.policy_scope(::Eve::Corporation)
-        #        .find_by!(corporation_id: params[:id]) # => ActiveRecord::RecordNotFound
+        # Eve::Corporation
+        #   .find_by!(corporation_id: params[:id]) # => ActiveRecord::RecordNotFound
         #
-        expect(subject).to receive(:policy_scope).with(Eve::Corporation) do
-          double.tap do |a|
-            expect(a).to receive(:find_by!).with(corporation_id: "98005120")
-              .and_raise(ActiveRecord::RecordNotFound)
-          end
-        end
+        expect(Eve::Corporation).to receive(:find_by!).with(corporation_id: "98005120")
+          .and_raise(ActiveRecord::RecordNotFound)
       end
 
       before { get :show, params: {id: "98005120", format: :json} }
