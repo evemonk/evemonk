@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_26_183051) do
+ActiveRecord::Schema.define(version: 2019_11_26_183311) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -325,6 +325,7 @@ ActiveRecord::Schema.define(version: 2019_11_26_183051) do
     t.text "description_ru"
     t.text "description_zh"
     t.string "name_ko"
+    t.text "description_ko"
     t.index ["faction_id"], name: "index_eve_factions_on_faction_id", unique: true
   end
 
