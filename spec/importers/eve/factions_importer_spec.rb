@@ -3,6 +3,20 @@
 require "rails_helper"
 
 describe Eve::FactionsImporter do
+  describe "#initialize" do
+    context "without locale" do
+      its(:locale) { should eq(:en) }
+    end
+
+    context "with locale" do
+      let(:locale) { :ru }
+
+      subject { described_class.new(locale) }
+
+      its(:locale) { should eq(:ru) }
+    end
+  end
+
   describe "#import" do
     context "when fresh data available" do
       let(:url) { double }
@@ -23,7 +37,7 @@ describe Eve::FactionsImporter do
           factions: [faction])
       end
 
-      before { expect(EveOnline::ESI::UniverseFactions).to receive(:new).and_return(esi) }
+      before { expect(EveOnline::ESI::UniverseFactions).to receive(:new).with(language: "en-us").and_return(esi) }
 
       let(:etag) { instance_double(Eve::Etag, etag: "e3f6a76b4a1287f54966c6253f8f5d6ac6460bc43d47570331b43e0b") }
 
@@ -51,7 +65,7 @@ describe Eve::FactionsImporter do
           url: url)
       end
 
-      before { expect(EveOnline::ESI::UniverseFactions).to receive(:new).and_return(esi) }
+      before { expect(EveOnline::ESI::UniverseFactions).to receive(:new).with(language: "en-us").and_return(esi) }
 
       let(:etag) { instance_double(Eve::Etag, etag: "e3f6a76b4a1287f54966c6253f8f5d6ac6460bc43d47570331b43e0b") }
 
