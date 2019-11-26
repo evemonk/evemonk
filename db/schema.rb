@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_26_183449) do
+ActiveRecord::Schema.define(version: 2019_11_26_185017) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -195,6 +195,8 @@ ActiveRecord::Schema.define(version: 2019_11_26_183449) do
     t.text "description_ja"
     t.text "description_ru"
     t.text "description_zh"
+    t.string "name_ko"
+    t.text "description_ko"
     t.index ["bloodline_id"], name: "index_eve_bloodlines_on_bloodline_id", unique: true
   end
 
