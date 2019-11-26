@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_04_182145) do
+ActiveRecord::Schema.define(version: 2019_11_26_130139) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -383,6 +383,8 @@ ActiveRecord::Schema.define(version: 2019_11_04_182145) do
     t.text "description_ja"
     t.text "description_ru"
     t.text "description_zh"
+    t.string "name_ko"
+    t.string "description_ko"
     t.index ["race_id"], name: "index_eve_races_on_race_id", unique: true
   end
 
