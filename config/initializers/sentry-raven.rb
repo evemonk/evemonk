@@ -10,6 +10,7 @@ if Rails.env.production? && ENV["SENTRY_DSN"]
                                    "EveOnline::Exceptions::BadGateway",
                                    "EveOnline::Exceptions::ServiceUnavailable",
                                    "EveOnline::Exceptions::Timeout",
+                                   "EveOnline::Exceptions::ResourceNotFound",
                                    "Searchkick::ImportError",]
 
     config.silence_ready = true

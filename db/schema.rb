@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_04_182145) do
+ActiveRecord::Schema.define(version: 2019_11_26_192605) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -168,6 +168,8 @@ ActiveRecord::Schema.define(version: 2019_11_04_182145) do
     t.text "description_ja"
     t.text "description_ru"
     t.text "description_zh"
+    t.string "name_ko"
+    t.text "description_ko"
     t.index ["ancestry_id"], name: "index_eve_ancestries_on_ancestry_id", unique: true
   end
 
@@ -195,6 +197,8 @@ ActiveRecord::Schema.define(version: 2019_11_04_182145) do
     t.text "description_ja"
     t.text "description_ru"
     t.text "description_zh"
+    t.string "name_ko"
+    t.text "description_ko"
     t.index ["bloodline_id"], name: "index_eve_bloodlines_on_bloodline_id", unique: true
   end
 
@@ -324,6 +328,8 @@ ActiveRecord::Schema.define(version: 2019_11_04_182145) do
     t.text "description_ja"
     t.text "description_ru"
     t.text "description_zh"
+    t.string "name_ko"
+    t.text "description_ko"
     t.index ["faction_id"], name: "index_eve_factions_on_faction_id", unique: true
   end
 
@@ -383,6 +389,8 @@ ActiveRecord::Schema.define(version: 2019_11_04_182145) do
     t.text "description_ja"
     t.text "description_ru"
     t.text "description_zh"
+    t.string "name_ko"
+    t.text "description_ko"
     t.index ["race_id"], name: "index_eve_races_on_race_id", unique: true
   end
 

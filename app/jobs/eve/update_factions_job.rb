@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Eve
-  class UpdateRacesJob < ActiveJob::Base
+  class UpdateFactionsJob < ActiveJob::Base
     queue_as :default
 
     retry_on EveOnline::Exceptions::Timeout,
@@ -11,7 +11,7 @@ module Eve
 
     def perform
       LanguageMapper::LANGUAGES.each_key do |locale|
-        Eve::RacesImporter.new(locale).import
+        Eve::FactionsImporter.new(locale).import
       end
     end
   end

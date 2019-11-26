@@ -2,10 +2,16 @@
 
 module Eve
   class BloodlinesImporter
+    attr_reader :locale
+
+    def initialize(locale = :en)
+      @locale = locale
+    end
+
     def import
-      Mobility.with_locale(:en) do
+      Mobility.with_locale(locale) do
         ActiveRecord::Base.transaction do
-          esi = EveOnline::ESI::UniverseBloodlines.new
+          esi = EveOnline::ESI::UniverseBloodlines.new(language: LanguageMapper::LANGUAGES[locale])
 
           etag = Eve::Etag.find_or_initialize_by(url: esi.url)
 
