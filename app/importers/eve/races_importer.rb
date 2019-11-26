@@ -25,7 +25,7 @@ module Eve
             eve_race.update!(race.as_json)
           end
 
-          etag.update!(etag: esi.etag)
+          etag.update!(etag: esi.etag, body: esi.response)
         end
       end
     end
