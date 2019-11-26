@@ -8,11 +8,15 @@ describe Eve::BloodlinesImporterWorker do
   describe "#perform" do
     before do
       #
-      # Eve::BloodlinesImporter.new.import
+      # LanguageMapper::LANGUAGES.each_key do |locale|
+      #   Eve::BloodlinesImporter.new(locale).import
+      # end
       #
-      expect(Eve::BloodlinesImporter).to receive(:new) do
-        double.tap do |a|
-          expect(a).to receive(:import)
+      LanguageMapper::LANGUAGES.each_key do |locale|
+        expect(Eve::BloodlinesImporter).to receive(:new).with(locale) do
+          double.tap do |a|
+            expect(a).to receive(:import)
+          end
         end
       end
     end
