@@ -25,7 +25,7 @@ module Eve
             eve_bloodline.update!(bloodline.as_json)
           end
 
-          etag.update!(etag: esi.etag)
+          etag.update!(etag: esi.etag, body: esi.response)
         end
       end
     end
