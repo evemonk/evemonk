@@ -14,6 +14,8 @@ describe Eve::RacesTranslationsImporter do
 
     before { expect(subject).to receive(:update_eve_races).with(:zh) }
 
+    before { expect(subject).to receive(:update_eve_races).with(:ko) }
+
     specify { expect { subject.import }.not_to raise_error }
   end
 
