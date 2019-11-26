@@ -4,18 +4,15 @@ module Eve
   class UpdateRacesJob < ActiveJob::Base
     queue_as :default
 
+    retry_on EveOnline::Exceptions::Timeout,
+             EveOnline::Exceptions::ServiceUnavailable,
+             EveOnline::Exceptions::BadGateway,
+             EveOnline::Exceptions::InternalServerError
+
     def perform
-      # Eve::RacesImporter.new(:en).import
-      # Eve::RacesImporter.new(:en).import
-      # Eve::RacesImporter.new(:en).import
-      # Eve::RacesImporter.new(:en).import
-      # Eve::RacesImporter.new(:en).import
-      # Eve::RacesImporter.new(:en).import
-      # Eve::RacesImporter.new(:en).import
-      # Eve::RacesImporter.new(:en).import
-      # Eve::RacesImporter.new(:en).import
-      #
-      # de, en-us, fr, ja, ru, zh, ko
+      LanguageMapper::LANGUAGES.each_key do |locale|
+        Eve::RacesImporter.new(locale).import
+      end
     end
   end
 end
