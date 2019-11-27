@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_26_232107) do
+ActiveRecord::Schema.define(version: 2019_11_27_125729) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -468,6 +468,7 @@ ActiveRecord::Schema.define(version: 2019_11_26_232107) do
     t.text "description_ja"
     t.text "description_ru"
     t.text "description_zh"
+    t.text "description_ko"
     t.index ["type_id"], name: "index_eve_types_on_type_id", unique: true
   end
 
