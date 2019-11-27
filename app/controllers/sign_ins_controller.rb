@@ -4,13 +4,13 @@ class SignInsController < ApplicationController
   skip_before_action :require_login
 
   def show
-    @service = SignInForm.new(controller: self)
+    @form = SignInForm.new(controller: self)
   end
 
   def create
-    @service = SignInForm.new(resource_params.merge(controller: self))
+    @form = SignInForm.new(resource_params.merge(controller: self))
 
-    if @service.save
+    if @form.save
       redirect_back_or_to characters_path, notice: "Successful signed in!"
     else
       # flash.now[:alert] = "Email and/or password is invalid"
