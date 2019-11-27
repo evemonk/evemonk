@@ -84,11 +84,11 @@ class EveOnlineCallbackService
 
     CharacterWalletJob.perform_later(character_id)
 
-    CharacterAttributesJob.new.perform_later(character_id)
+    CharacterAttributesJob.perform_later(character_id)
 
-    CharacterImplantsJob.new.perform_later(character_id)
+    CharacterImplantsJob.perform_later(character_id)
 
-    CharacterLoyaltyPointsJob.new.perform_later(character_id)
+    CharacterLoyaltyPointsJob.perform_later(character_id)
 
     CharacterSkillsJob.perform_later(character_id)
 
