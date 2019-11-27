@@ -6,5 +6,8 @@ namespace :evemonk do
     Eve::UpdateFactionsJob.new.perform
     Eve::UpdateBloodlinesJob.new.perform
     Eve::UpdateAncestriesJob.new.perform
+
+    Sde::CharacterAttributesImporter.new("static/sde/bsd/chrAttributes.yaml").import
+    Sde::IconsImporter.new("static/sde/fsd/iconIDs.yaml").import
   end
 end
