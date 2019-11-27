@@ -28,6 +28,8 @@ describe SignInForm, type: :model do
   end
 
   describe "#save" do
+    let!(:user) { create(:user, email: "me@example.com", password: "password") }
+
     let(:params) do
       {
         email: "me@example.com",
@@ -43,7 +45,7 @@ describe SignInForm, type: :model do
     context "when form valid" do
       before { expect(subject).to receive(:valid?).and_return(true) }
 
-      before { expect(controller).to receive(:login).with("me@example.com", "password", true) }
+      before { expect(controller).to receive(:login).with("me@example.com", "password", true).and_return(user) }
 
       specify { expect(subject.save).to eq(true) }
     end
