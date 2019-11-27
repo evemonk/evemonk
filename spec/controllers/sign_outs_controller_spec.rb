@@ -19,4 +19,3 @@ describe SignOutsController do
     it { should set_flash[:notice].to("Logged out!") }
   end
 end
-
