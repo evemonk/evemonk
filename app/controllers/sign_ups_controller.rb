@@ -1,12 +1,14 @@
 # frozen_string_literal: true
 
 class SignUpsController < ApplicationController
+  skip_before_action :require_login
+
   def show
-    @service = SignUpService.new
+    @service = SignUpForm.new
   end
 
   def create
-    @service = SignUpService.new(resource_params)
+    @service = SignUpForm.new(resource_params)
 
     if @service.save
       redirect_to characters_path
