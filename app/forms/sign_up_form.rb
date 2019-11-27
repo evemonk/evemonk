@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class SignUpService
+class SignUpForm
   include ActiveModel::Model
 
   attr_accessor :email, :password, :password_confirmation, :controller
@@ -14,6 +14,6 @@ class SignUpService
   validates :password, confirmation: true
 
   def save
-    false
+    return false unless valid?
   end
 end
