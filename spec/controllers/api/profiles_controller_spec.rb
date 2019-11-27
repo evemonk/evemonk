@@ -7,7 +7,7 @@ describe Api::ProfilesController do
 
   describe "#show" do
     context "when user signed in" do
-      before { sign_in }
+      before { api_sign_in }
 
       before { get :show, params: {format: :json} }
 

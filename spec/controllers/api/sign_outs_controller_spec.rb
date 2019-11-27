@@ -9,7 +9,7 @@ describe Api::SignOutsController do
 
   describe "#destroy" do
     context "when user authorized" do
-      before { sign_in }
+      before { api_sign_in }
 
       let(:form) { instance_double(Api::SignOutForm) }
 
