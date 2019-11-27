@@ -310,17 +310,28 @@ describe EveOnlineCallbackService do
   end
 
   describe "#update_character_info" do
-    let(:character) { instance_double(Character) }
+    let(:character_id) { double }
 
-    before { expect(subject).to receive(:character).and_return(character) }
+    before { expect(subject).to receive(:character_id).and_return(character_id).twice }
 
     before do
       #
-      # Api::UpdateCharacterInfo.new(character).update!
+      # CharacterJob.new.perform_later(character_id)
       #
-      expect(Api::UpdateCharacterInfo).to receive(:new).with(character) do
+      expect(CharacterJob).to receive(:new) do
         double.tap do |a|
-          expect(a).to receive(:update!)
+          expect(a).to receive(:perform_later).with(character_id)
+        end
+      end
+    end
+
+    before do
+      #
+      # CharacterWalletJob.new.perform_later(character_id)
+      #
+      expect(CharacterWalletJob).to receive(:new) do
+        double.tap do |a|
+          expect(a).to receive(:perform_later).with(character_id)
         end
       end
     end
