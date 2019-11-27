@@ -80,18 +80,23 @@ class EveOnlineCallbackService
   end
 
   def update_character_info
+    # TODO: remove!
     # Api::UpdateCharacterInfo.new(character).update!
 
     CharacterJob.perform_later(character_id)
 
     CharacterWalletJob.perform_later(character_id)
 
-    # CharacterAttributesJob.new.perform_later(character_id)
-    #
-    # CharacterLoyaltyPointsJob.new.perform_later(character_id)
+    CharacterAttributesJob.new.perform_later(character_id)
+
+    CharacterImplantsJob.new.perform_later(character_id)
+
+    CharacterLoyaltyPointsJob.new.perform_later(character_id)
 
     CharacterSkillsJob.perform_later(character_id)
 
     CharacterSkillqueueJob.perform_later(character_id)
+
+    CharacterAssetsJob.perform_later(character_id)
   end
 end
