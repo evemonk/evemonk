@@ -23,6 +23,8 @@ describe Eve::RacesImporter do
 
       let(:new_etag) { double }
 
+      let(:response) { double }
+
       let(:race_id) { double }
 
       let(:as_json) { double }
@@ -34,7 +36,8 @@ describe Eve::RacesImporter do
           not_modified?: false,
           url: url,
           etag: new_etag,
-          races: [race])
+          races: [race],
+          response: response)
       end
 
       before { expect(EveOnline::ESI::UniverseRaces).to receive(:new).with(language: "en-us").and_return(esi) }
@@ -51,7 +54,7 @@ describe Eve::RacesImporter do
 
       before { expect(eve_race).to receive(:update!).with(as_json) }
 
-      before { expect(etag).to receive(:update!).with(etag: new_etag) }
+      before { expect(etag).to receive(:update!).with(etag: new_etag, body: response) }
 
       specify { expect { subject.import }.not_to raise_error }
     end

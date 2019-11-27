@@ -8,11 +8,15 @@ describe Eve::RacesImporterWorker do
   describe "#perform" do
     before do
       #
-      # Eve::RacesImporter.new.import
+      # LanguageMapper::LANGUAGES.each_key do |locale|
+      #   Eve::RacesImporter.new(locale).import
+      # end
       #
-      expect(Eve::RacesImporter).to receive(:new) do
-        double.tap do |a|
-          expect(a).to receive(:import)
+      LanguageMapper::LANGUAGES.each_key do |locale|
+        expect(Eve::RacesImporter).to receive(:new).with(locale) do
+          double.tap do |a|
+            expect(a).to receive(:import)
+          end
         end
       end
     end

@@ -23,6 +23,8 @@ describe Eve::FactionsImporter do
 
       let(:new_etag) { double }
 
+      let(:response) { double }
+
       let(:faction_id) { double }
 
       let(:as_json) { double }
@@ -34,7 +36,8 @@ describe Eve::FactionsImporter do
           not_modified?: false,
           url: url,
           etag: new_etag,
-          factions: [faction])
+          factions: [faction],
+          response: response)
       end
 
       before { expect(EveOnline::ESI::UniverseFactions).to receive(:new).with(language: "en-us").and_return(esi) }
@@ -51,7 +54,7 @@ describe Eve::FactionsImporter do
 
       before { expect(eve_faction).to receive(:update!).with(as_json) }
 
-      before { expect(etag).to receive(:update!).with(etag: new_etag) }
+      before { expect(etag).to receive(:update!).with(etag: new_etag, body: response) }
 
       specify { expect { subject.import }.not_to raise_error }
     end

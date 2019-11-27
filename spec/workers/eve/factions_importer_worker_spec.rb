@@ -8,11 +8,15 @@ describe Eve::FactionsImporterWorker do
   describe "#perform" do
     before do
       #
-      # Eve::FactionsImporter.new.import
+      # LanguageMapper::LANGUAGES.each_key do |locale|
+      #   Eve::FactionsImporter.new(locale).import
+      # end
       #
-      expect(Eve::FactionsImporter).to receive(:new) do
-        double.tap do |a|
-          expect(a).to receive(:import)
+      LanguageMapper::LANGUAGES.each_key do |locale|
+        expect(Eve::FactionsImporter).to receive(:new).with(locale) do
+          double.tap do |a|
+            expect(a).to receive(:import)
+          end
         end
       end
     end

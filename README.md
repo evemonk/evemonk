@@ -38,8 +38,8 @@ Mobile first design.
 * Node 12.13.1
 * NPM 6.13.1
 * Yarn 1.19.2
-* Twitter Bootstrap 4.3.1
-* Bootswatch Darkly 4.3.1
+* Twitter Bootstrap 4.4.0
+* Bootswatch Darkly 4.4.0
 
 ## Configure
 

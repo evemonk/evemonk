@@ -5,7 +5,9 @@ module Eve
     include Sidekiq::Worker
 
     def perform(*)
-      Eve::FactionsImporter.new.import
+      LanguageMapper::LANGUAGES.each_key do |locale|
+        Eve::FactionsImporter.new(locale).import
+      end
     end
   end
 end

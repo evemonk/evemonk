@@ -2,12 +2,9 @@
 
 namespace :evemonk do
   task init: :environment do
-    Eve::RacesImporter.new.import
-
-    Eve::FactionsImporter.new.import
-
-    Eve::BloodlinesImporter.new.import
-
-    Eve::AncestriesImporter.new.import
+    Eve::UpdateRacesJob.new.perform
+    Eve::UpdateFactionsJob.new.perform
+    Eve::UpdateBloodlinesJob.new.perform
+    Eve::UpdateAncestriesJob.new.perform
   end
 end
