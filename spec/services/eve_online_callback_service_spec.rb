@@ -320,6 +320,8 @@ describe EveOnlineCallbackService do
 
     before { expect(CharacterSkillsJob).to receive(:perform_later).with(character_id) }
 
+    before { expect(CharacterSkillqueueJob).to receive(:perform_later).with(character_id) }
+
     specify { expect { subject.send(:update_character_info) }.not_to raise_error }
   end
 end
