@@ -312,7 +312,7 @@ describe EveOnlineCallbackService do
   describe "#update_character_info" do
     let(:character_id) { double }
 
-    before { expect(subject).to receive(:character_id).and_return(character_id).twice }
+    before { expect(subject).to receive(:character_id).and_return(character_id).exactly(8).times }
 
     before { expect(CharacterJob).to receive(:perform_later).with(character_id) }
 
