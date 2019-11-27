@@ -18,7 +18,7 @@ describe SignInsController do
   end
 
   describe "#create" do
-    context "when user successful authorize" do
+    context "when user successful sign in" do
       let(:form) { instance_double(SignInForm, save: true) }
 
       before do
@@ -50,7 +50,7 @@ describe SignInsController do
       it { should set_flash[:notice].to("Successful signed in!") }
     end
 
-    context "when user not successful authorize" do
+    context "when user not successful sign in" do
       let(:form) { instance_double(SignInForm, save: false) }
 
       before do
