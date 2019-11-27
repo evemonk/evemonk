@@ -314,27 +314,9 @@ describe EveOnlineCallbackService do
 
     before { expect(subject).to receive(:character_id).and_return(character_id).twice }
 
-    before do
-      #
-      # CharacterJob.new.perform_later(character_id)
-      #
-      expect(CharacterJob).to receive(:new) do
-        double.tap do |a|
-          expect(a).to receive(:perform_later).with(character_id)
-        end
-      end
-    end
+    before { expect(CharacterJob).to receive(:perform_later).with(character_id) }
 
-    before do
-      #
-      # CharacterWalletJob.new.perform_later(character_id)
-      #
-      expect(CharacterWalletJob).to receive(:new) do
-        double.tap do |a|
-          expect(a).to receive(:perform_later).with(character_id)
-        end
-      end
-    end
+    before { expect(CharacterWalletJob).to receive(:perform_later).with(character_id) }
 
     specify { expect { subject.send(:update_character_info) }.not_to raise_error }
   end
