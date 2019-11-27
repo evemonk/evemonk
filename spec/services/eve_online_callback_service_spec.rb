@@ -318,6 +318,8 @@ describe EveOnlineCallbackService do
 
     before { expect(CharacterWalletJob).to receive(:perform_later).with(character_id) }
 
+    before { expect(CharacterSkillsJob).to receive(:perform_later).with(character_id) }
+
     specify { expect { subject.send(:update_character_info) }.not_to raise_error }
   end
 end

@@ -89,5 +89,7 @@ class EveOnlineCallbackService
     # CharacterAttributesJob.new.perform_later(character_id)
     #
     # CharacterLoyaltyPointsJob.new.perform_later(character_id)
+
+    CharacterSkillsJob.perform_later(character_id)
   end
 end
