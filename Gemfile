@@ -22,7 +22,7 @@ gem "eve_online", git: "https://github.com/evemonk/eve_online.git", branch: "mas
 # gem "eve_online", git: "https://github.com/evemonk/eve_online.git", branch: "dev"
 # gem "eve_online", path: "~/opensource/eve_online"
 gem "omniauth-eve_online-sso"
-gem "omniauth-rails_csrf_protection"
+# gem "omniauth-rails_csrf_protection"
 gem "jwt"
 gem "rack-cors", require: "rack/cors"
 gem "kaminari"
