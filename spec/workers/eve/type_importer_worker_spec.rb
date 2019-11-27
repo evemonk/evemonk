@@ -10,11 +10,15 @@ describe Eve::TypeImporterWorker do
 
     before do
       #
-      # Eve::TypeImporter.new(type_id).import
+      # LanguageMapper::LANGUAGES.each_key do |locale|
+      #   Eve::TypeImporter.new(type_id, locale).import
+      # end
       #
-      expect(Eve::TypeImporter).to receive(:new).with(type_id) do
-        double.tap do |a|
-          expect(a).to receive(:import)
+      LanguageMapper::LANGUAGES.each_key do |locale|
+        expect(Eve::TypeImporter).to receive(:new).with(type_id, locale) do
+          double.tap do |a|
+            expect(a).to receive(:import)
+          end
         end
       end
     end
