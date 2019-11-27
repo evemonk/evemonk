@@ -4,6 +4,30 @@ require "rails_helper"
 
 describe Eve::TypeImporter do
   describe "#initialize" do
+    context "without locale" do
+      let(:type_id) { double }
+
+      subject { described_class.new(type_id) }
+
+      its(:type_id) { should eq(type_id) }
+
+      its(:locale) { should eq(:en) }
+    end
+
+    context "with locale" do
+      let(:type_id) { double }
+
+      let(:locale) { :ru }
+
+      subject { described_class.new(type_id, locale) }
+
+      its(:type_id) { should eq(type_id) }
+
+      its(:locale) { should eq(:ru) }
+    end
+  end
+
+  describe "#initialize" do
     let(:type_id) { double }
 
     subject { described_class.new(type_id) }
@@ -28,6 +52,8 @@ describe Eve::TypeImporter do
 
         let(:new_etag) { double }
 
+        let(:response) { double }
+
         let(:dogma_attribute_json) { double }
 
         let(:dogma_attribute) { instance_double(EveOnline::ESI::Models::DogmaAttributeShort, as_json: dogma_attribute_json) }
@@ -47,10 +73,11 @@ describe Eve::TypeImporter do
             etag: new_etag,
             dogma_attributes: dogma_attributes,
             dogma_effects: dogma_effects,
+            response: response,
             as_json: json)
         end
 
-        before { expect(EveOnline::ESI::UniverseType).to receive(:new).with(id: type_id).and_return(esi) }
+        before { expect(EveOnline::ESI::UniverseType).to receive(:new).with(id: type_id, language: "en-us").and_return(esi) }
 
         let(:etag) { instance_double(Eve::Etag, etag: "6780e53a01c7d9715b5f445126c4f2c137da4be79e4debe541ce3ab2") }
 
@@ -104,7 +131,7 @@ describe Eve::TypeImporter do
           end
         end
 
-        before { expect(etag).to receive(:update!).with(etag: new_etag) }
+        before { expect(etag).to receive(:update!).with(etag: new_etag, body: response) }
 
         specify { expect { importer.import }.not_to raise_error }
       end
@@ -118,7 +145,7 @@ describe Eve::TypeImporter do
 
         before { expect(Eve::Type).to receive(:find_or_initialize_by).with(type_id: type_id).and_return(eve_type) }
 
-        before { expect(EveOnline::ESI::UniverseType).to receive(:new).with(id: type_id).and_raise(EveOnline::Exceptions::ResourceNotFound) }
+        before { expect(EveOnline::ESI::UniverseType).to receive(:new).with(id: type_id, language: "en-us").and_raise(EveOnline::Exceptions::ResourceNotFound) }
 
         before { expect(eve_type).to receive(:destroy!) }
 
@@ -143,7 +170,7 @@ describe Eve::TypeImporter do
           not_modified?: true)
       end
 
-      before { expect(EveOnline::ESI::UniverseType).to receive(:new).with(id: type_id).and_return(esi) }
+      before { expect(EveOnline::ESI::UniverseType).to receive(:new).with(id: type_id, language: "en-us").and_return(esi) }
 
       let(:etag) { instance_double(Eve::Etag, etag: "6780e53a01c7d9715b5f445126c4f2c137da4be79e4debe541ce3ab2") }
 
