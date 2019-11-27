@@ -8,9 +8,7 @@ describe SignOutsController do
   it { should use_before_action(:require_login) }
 
   describe "#destroy" do
-    let(:current_user) { instance_double(User) }
-
-    before { expect(subject).to receive(:current_user).and_return(current_user) }
+    before { sign_in }
 
     before { expect(subject).to receive(:logout) }
 
