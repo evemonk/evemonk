@@ -45,7 +45,7 @@ describe SignInForm, type: :model do
 
       before { expect(controller).to receive(:login).with("me@example.com", "password", true) }
 
-      specify { expect { subject.save }.not_to raise_error }
+      specify { expect(subject.save).to eq(true) }
     end
 
     context "when form not valid" do
@@ -53,7 +53,7 @@ describe SignInForm, type: :model do
 
       before { expect(controller).not_to receive(:login) }
 
-      specify { expect { subject.save }.not_to raise_error }
+      specify { expect(subject.save).to eq(false) }
     end
   end
 end

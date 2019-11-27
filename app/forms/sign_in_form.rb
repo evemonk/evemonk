@@ -17,5 +17,7 @@ class SignInForm
     return false unless valid?
 
     login(email, password, remember_me == "1")
+
+    true
   end
 end
