@@ -29,7 +29,7 @@ describe CharacterImplantsImporter do
 
     let(:esi) do
       instance_double(EveOnline::ESI::CharacterImplants,
-                      implant_ids: [implant_id])
+        implant_ids: [implant_id])
     end
 
     before { expect(EveOnline::ESI::CharacterImplants).to receive(:new).with(character_id: character_id, token: access_token).and_return(esi) }
