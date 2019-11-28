@@ -38,7 +38,7 @@ Mobile first design.
 * Node 12.13.1
 * NPM 6.13.1
 * Yarn 1.19.2
-* Bootstrap 4.4.0
+* Bootstrap 4.4.1
 * Bootstrap Icons 1.0.0-alpha
 * Bootswatch Darkly 4.4.0
 
