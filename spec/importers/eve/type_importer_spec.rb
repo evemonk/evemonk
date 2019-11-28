@@ -40,7 +40,7 @@ describe Eve::TypeImporter do
       context "when type found" do
         let(:type_id) { double }
 
-        subject(:importer) { described_class.new(type_id) }
+        subject { described_class.new(type_id) }
 
         let(:eve_type) { instance_double(Eve::Type) }
 
@@ -87,59 +87,63 @@ describe Eve::TypeImporter do
 
         before { expect(eve_type).to receive(:update!).with(json) }
 
-        before do
-          #
-          # eve_type.type_dogma_attributes.destroy_all
-          #
-          expect(eve_type).to receive(:type_dogma_attributes) do
-            double.tap do |a|
-              expect(a).to receive(:destroy_all)
-            end
-          end
-        end
+        before { expect(subject).to receive(:import_type_dogma_attributes).with(esi, eve_type) }
 
-        before do
-          #
-          # eve_type.type_dogma_effects.destroy_all
-          #
-          expect(eve_type).to receive(:type_dogma_effects) do
-            double.tap do |a|
-              expect(a).to receive(:destroy_all)
-            end
-          end
-        end
+        before { expect(subject).to receive(:import_type_dogma_effects).with(esi, eve_type) }
 
-        before do
-          #
-          # eve_type.type_dogma_attributes.create!(dogma_attribute.as_json)
-          #
-          expect(eve_type).to receive(:type_dogma_attributes) do
-            double.tap do |a|
-              expect(a).to receive(:create!).with(dogma_attribute_json)
-            end
-          end
-        end
+        # before do
+        #   #
+        #   # eve_type.type_dogma_attributes.destroy_all
+        #   #
+        #   expect(eve_type).to receive(:type_dogma_attributes) do
+        #     double.tap do |a|
+        #       expect(a).to receive(:destroy_all)
+        #     end
+        #   end
+        # end
 
-        before do
-          #
-          # eve_type.type_dogma_effects.create!(dogma_effect.as_json)
-          #
-          expect(eve_type).to receive(:type_dogma_effects) do
-            double.tap do |a|
-              expect(a).to receive(:create!).with(dogma_effect_json)
-            end
-          end
-        end
+        # before do
+        #   #
+        #   # eve_type.type_dogma_effects.destroy_all
+        #   #
+        #   expect(eve_type).to receive(:type_dogma_effects) do
+        #     double.tap do |a|
+        #       expect(a).to receive(:destroy_all)
+        #     end
+        #   end
+        # end
+
+        # before do
+        #   #
+        #   # eve_type.type_dogma_attributes.create!(dogma_attribute.as_json)
+        #   #
+        #   expect(eve_type).to receive(:type_dogma_attributes) do
+        #     double.tap do |a|
+        #       expect(a).to receive(:create!).with(dogma_attribute_json)
+        #     end
+        #   end
+        # end
+
+        # before do
+        #   #
+        #   # eve_type.type_dogma_effects.create!(dogma_effect.as_json)
+        #   #
+        #   expect(eve_type).to receive(:type_dogma_effects) do
+        #     double.tap do |a|
+        #       expect(a).to receive(:create!).with(dogma_effect_json)
+        #     end
+        #   end
+        # end
 
         before { expect(etag).to receive(:update!).with(etag: new_etag, body: response) }
 
-        specify { expect { importer.import }.not_to raise_error }
+        specify { expect { subject.import }.not_to raise_error }
       end
 
       context "when type not found" do
         let(:type_id) { double }
 
-        subject(:importer) { described_class.new(type_id) }
+        subject { described_class.new(type_id) }
 
         let(:eve_type) { instance_double(Eve::Type) }
 
@@ -149,14 +153,14 @@ describe Eve::TypeImporter do
 
         before { expect(eve_type).to receive(:destroy!) }
 
-        specify { expect { importer.import }.not_to raise_error }
+        specify { expect { subject.import }.not_to raise_error }
       end
     end
 
     context "when no fresh data available" do
       let(:type_id) { double }
 
-      subject(:importer) { described_class.new(type_id) }
+      subject { described_class.new(type_id) }
 
       let(:eve_type) { instance_double(Eve::Type) }
 
@@ -182,7 +186,29 @@ describe Eve::TypeImporter do
 
       before { expect(etag).not_to receive(:update!) }
 
-      specify { expect { importer.import }.not_to raise_error }
+      specify { expect { subject.import }.not_to raise_error }
     end
   end
+
+  # private methods
+
+  # describe "#import_type_dogma_attributes" do
+  #   context "when locale is :en" do
+  #     let(:eve_type) { instance_double(Eve::Type) }
+  #
+  #     specify { expect { subject.import }.not_to raise_error }
+  #   end
+  #
+  #   context "when locale is not :en" do
+  #   end
+  # end
+  #
+  # describe "#import_type_dogma_effects" do
+  #   context "when locale is :en" do
+  #     let(:eve_type) { instance_double(Eve::Type) }
+  #   end
+  #
+  #   context "when locale is not :en" do
+  #   end
+  # end
 end

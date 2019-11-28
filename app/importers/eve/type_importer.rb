@@ -24,22 +24,34 @@ module Eve
 
           eve_type.update!(esi.as_json)
 
-          eve_type.type_dogma_attributes.destroy_all
+          import_type_dogma_attributes(esi, eve_type)
 
-          eve_type.type_dogma_effects.destroy_all
-
-          esi.dogma_attributes.each do |dogma_attribute|
-            eve_type.type_dogma_attributes.create!(dogma_attribute.as_json)
-          end
-
-          esi.dogma_effects.each do |dogma_effect|
-            eve_type.type_dogma_effects.create!(dogma_effect.as_json)
-          end
+          import_type_dogma_effects(esi, eve_type)
 
           etag.update!(etag: esi.etag, body: esi.response)
         rescue EveOnline::Exceptions::ResourceNotFound
           eve_type.destroy!
         end
+      end
+    end
+
+    def import_type_dogma_attributes(esi, eve_type)
+      return unless locale == :en
+
+      eve_type.type_dogma_attributes.destroy_all
+
+      esi.dogma_attributes.each do |dogma_attribute|
+        eve_type.type_dogma_attributes.create!(dogma_attribute.as_json)
+      end
+    end
+
+    def import_type_dogma_effects(esi, eve_type)
+      return unless locale == :en
+
+      eve_type.type_dogma_effects.destroy_all
+
+      esi.dogma_effects.each do |dogma_effect|
+        eve_type.type_dogma_effects.create!(dogma_effect.as_json)
       end
     end
   end
