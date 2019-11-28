@@ -24,5 +24,7 @@ class CharacterSkillsImporter
         character.character_skills.create!(skill.as_json)
       end
     end
+  rescue ActiveRecord::RecordNotFound
+    Rails.logger.info("Character with ID #{character_id} not found")
   end
 end
