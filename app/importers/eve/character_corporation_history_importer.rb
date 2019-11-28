@@ -27,7 +27,7 @@ module Eve
           history.update!(entry.as_json)
         end
 
-        etag.update!(etag: esi.etag)
+        etag.update!(etag: esi.etag, body: esi.response)
       rescue ActiveRecord::RecordNotFound
         Rails.logger.info("Character with ID #{character_id} not found")
       end
