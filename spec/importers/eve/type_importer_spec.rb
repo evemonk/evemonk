@@ -192,23 +192,53 @@ describe Eve::TypeImporter do
 
   # private methods
 
-  # describe "#import_type_dogma_attributes" do
+  describe "#import_type_dogma_attributes" do
   #   context "when locale is :en" do
   #     let(:eve_type) { instance_double(Eve::Type) }
   #
   #     specify { expect { subject.import }.not_to raise_error }
   #   end
-  #
-  #   context "when locale is not :en" do
-  #   end
-  # end
-  #
-  # describe "#import_type_dogma_effects" do
+
+    context "when locale is not :en" do
+      let(:type_id) { double }
+
+      let(:locale) { :ru }
+
+      subject { described_class.new(type_id, locale) }
+
+      let(:eve_type) { instance_double(Eve::Type) }
+
+      let(:esi) { double }
+
+      before { expect(eve_type).not_to receive(:type_dogma_attributes) }
+
+      before { expect(esi).not_to receive(:dogma_attributes) }
+
+      specify { expect { subject.import_type_dogma_attributes(esi, eve_type) }.not_to raise_error }
+    end
+  end
+
+  describe "#import_type_dogma_effects" do
   #   context "when locale is :en" do
   #     let(:eve_type) { instance_double(Eve::Type) }
   #   end
-  #
-  #   context "when locale is not :en" do
-  #   end
-  # end
+
+    context "when locale is not :en" do
+      let(:type_id) { double }
+
+      let(:locale) { :ru }
+
+      subject { described_class.new(type_id, locale) }
+
+      let(:eve_type) { instance_double(Eve::Type) }
+
+      let(:esi) { double }
+
+      before { expect(eve_type).not_to receive(:type_dogma_effects) }
+
+      before { expect(esi).not_to receive(:dogma_effects) }
+
+      specify { expect { subject.import_type_dogma_effects(esi, eve_type) }.not_to raise_error }
+    end
+  end
 end
