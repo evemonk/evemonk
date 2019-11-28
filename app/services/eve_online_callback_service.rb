@@ -95,5 +95,7 @@ class EveOnlineCallbackService
     CharacterSkillqueueJob.perform_later(character_id)
 
     CharacterAssetsJob.perform_later(character_id)
+
+    CharacterCorporationHistoryJob.perform_later(character_id)
   end
 end

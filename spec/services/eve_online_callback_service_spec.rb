@@ -312,7 +312,7 @@ describe EveOnlineCallbackService do
   describe "#update_character_info" do
     let(:character_id) { double }
 
-    before { expect(subject).to receive(:character_id).and_return(character_id).exactly(8).times }
+    before { expect(subject).to receive(:character_id).and_return(character_id).exactly(9).times }
 
     before { expect(CharacterJob).to receive(:perform_later).with(character_id) }
 
@@ -329,6 +329,8 @@ describe EveOnlineCallbackService do
     before { expect(CharacterSkillqueueJob).to receive(:perform_later).with(character_id) }
 
     before { expect(CharacterAssetsJob).to receive(:perform_later).with(character_id) }
+
+    before { expect(CharacterCorporationHistoryJob).to receive(:perform_later).with(character_id) }
 
     specify { expect { subject.send(:update_character_info) }.not_to raise_error }
   end
