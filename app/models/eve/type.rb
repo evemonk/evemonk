@@ -6,7 +6,7 @@ module Eve
 
     has_paper_trail
 
-    translates :description
+    translates :name, :description
 
     searchkick
 
