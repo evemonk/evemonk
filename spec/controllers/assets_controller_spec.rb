@@ -40,15 +40,10 @@ describe AssetsController do
       #
       # character.character_assets
       #          .includes(:type)
-      #          .decorate
       #
       expect(character).to receive(:character_assets) do
         double.tap do |a|
-          expect(a).to receive(:includes).with(:type) do
-            double.tap do |b|
-              expect(b).to receive(:decorate)
-            end
-          end
+          expect(a).to receive(:includes).with(:type)
         end
       end
     end
