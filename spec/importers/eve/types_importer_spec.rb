@@ -37,12 +37,15 @@ describe Eve::TypesImporter do
 
       let(:new_etag) { double }
 
+      let(:response) { double }
+
       let(:url) { double }
 
       let(:esi) do
         instance_double(EveOnline::ESI::UniverseTypes,
           not_modified?: false,
           etag: new_etag,
+          response: response,
           url: url)
       end
 
@@ -58,7 +61,7 @@ describe Eve::TypesImporter do
 
       before { expect(subject).to receive(:import_other_pages) }
 
-      before { expect(etag).to receive(:update!).with(etag: new_etag) }
+      before { expect(etag).to receive(:update!).with(etag: new_etag, body: response) }
 
       specify { expect { subject.import }.not_to raise_error }
     end
