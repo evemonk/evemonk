@@ -28,8 +28,6 @@ module Eve
         end
 
         etag.update!(etag: esi.etag)
-      rescue EveOnline::Exceptions::ResourceNotFound
-        eve_character.destroy!
       rescue ActiveRecord::RecordNotFound
         Rails.logger.info("Character with ID #{character_id} not found")
       end

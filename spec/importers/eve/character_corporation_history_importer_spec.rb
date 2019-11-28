@@ -64,22 +64,6 @@ describe Eve::CharacterCorporationHistoryImporter do
         specify { expect { subject.import }.not_to raise_error }
       end
 
-      context "when character not found (404)" do
-        let(:character_id) { double }
-
-        subject { described_class.new(character_id) }
-
-        let(:eve_character) { instance_double(Eve::Character) }
-
-        before { expect(Eve::Character).to receive(:find_by!).with(character_id: character_id).and_return(eve_character) }
-
-        before { expect(EveOnline::ESI::CharacterCorporationHistory).to receive(:new).with(character_id: character_id).and_raise(EveOnline::Exceptions::ResourceNotFound) }
-
-        before { expect(eve_character).to receive(:destroy!) }
-
-        specify { expect { subject.import }.not_to raise_error }
-      end
-
       context "when character not found (ActiveRecord::RecordNotFound)" do
         let(:character_id) { double }
 
