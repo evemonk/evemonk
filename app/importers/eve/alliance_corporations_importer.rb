@@ -19,10 +19,10 @@ module Eve
 
         remove_old_corporations
 
-        etag.update!(etag: esi.etag)
-      rescue ActiveRecord::RecordNotFound
-        Rails.logger.info("Alliance with ID #{alliance_id} not found")
+        etag.update!(etag: esi.etag, body: esi.response)
       end
+    rescue ActiveRecord::RecordNotFound
+      Rails.logger.info("Alliance with ID #{alliance_id} not found")
     end
 
     private
