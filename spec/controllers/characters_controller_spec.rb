@@ -38,7 +38,7 @@ describe CharactersController do
       end
     end
 
-    before { get :index, params: { page: "1" } }
+    before { get :index, params: {page: "1"} }
 
     it { should respond_with(:ok) }
 
@@ -72,7 +72,7 @@ describe CharactersController do
       end
     end
 
-    before { get :show, params: { id: "1" } }
+    before { get :show, params: {id: "1"} }
 
     it { should respond_with(:ok) }
 
