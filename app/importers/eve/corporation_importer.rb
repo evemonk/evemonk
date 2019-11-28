@@ -22,7 +22,7 @@ module Eve
 
         eve_corporation.update!(esi.as_json)
 
-        etag.update!(etag: esi.etag)
+        etag.update!(etag: esi.etag, body: esi.response)
       rescue EveOnline::Exceptions::ResourceNotFound
         eve_corporation.destroy!
       end
