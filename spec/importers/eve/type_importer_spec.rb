@@ -54,25 +54,11 @@ describe Eve::TypeImporter do
 
         let(:response) { double }
 
-        let(:dogma_attribute_json) { double }
-
-        let(:dogma_attribute) { instance_double(EveOnline::ESI::Models::DogmaAttributeShort, as_json: dogma_attribute_json) }
-
-        let(:dogma_attributes) { [dogma_attribute] }
-
-        let(:dogma_effect_json) { double }
-
-        let(:dogma_effect) { instance_double(EveOnline::ESI::Models::DogmaEffectShort, as_json: dogma_effect_json) }
-
-        let(:dogma_effects) { [dogma_effect] }
-
         let(:esi) do
           instance_double(EveOnline::ESI::UniverseType,
             url: url,
             not_modified?: false,
             etag: new_etag,
-            dogma_attributes: dogma_attributes,
-            dogma_effects: dogma_effects,
             response: response,
             as_json: json)
         end
