@@ -87,11 +87,13 @@
       <% @assets.each do |asset| %>
         <tr>
           <td>
-            <%= image_tag(asset.type&.icon_tiny,
-                          alt: asset.type&.name,
-                          class: "rounded border",
-                          size: "34x34",
-                          loading: "lazy") %>
+            <% if asset.type %>
+              <%= image_tag(asset.type&.icon_tiny,
+                            alt: asset.type&.name,
+                            class: "rounded border",
+                            size: "34x34",
+                            loading: "lazy") %>
+            <% end %>
           </td>
           <td><%= asset.type&.name %></td>
           <td><%= asset.is_blueprint_copy %></td>
