@@ -18,7 +18,7 @@ module Eve
 
         remove_old_alliances
 
-        etag.update!(etag: esi.etag)
+        etag.update!(etag: esi.etag, body: esi.response)
       end
     end
 
