@@ -18,11 +18,13 @@ class CharacterSkillsImporter
 
       character.update!(unallocated_sp: esi.unallocated_sp)
 
-      character.skills.destroy_all
+      character.character_skills.destroy_all
 
       esi.skills.each do |skill|
-        character.skills.create!(skill.as_json)
+        character.character_skills.create!(skill.as_json)
       end
     end
+  rescue ActiveRecord::RecordNotFound
+    Rails.logger.info("Character with ID #{character_id} not found")
   end
 end

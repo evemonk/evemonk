@@ -5,7 +5,9 @@ module Eve
     include Sidekiq::Worker
 
     def perform(type_id)
-      Eve::TypeImporter.new(type_id).import
+      LanguageMapper::LANGUAGES.each_key do |locale|
+        Eve::TypeImporter.new(type_id, locale).import
+      end
     end
   end
 end

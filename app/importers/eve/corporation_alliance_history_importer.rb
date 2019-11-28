@@ -27,9 +27,7 @@ module Eve
           history.update!(entry.as_json)
         end
 
-        etag.update!(etag: esi.etag)
-      rescue EveOnline::Exceptions::ResourceNotFound
-        eve_corporation.destroy!
+        etag.update!(etag: esi.etag, body: esi.response)
       rescue ActiveRecord::RecordNotFound
         Rails.logger.info("Corporation with ID #{corporation_id} not found")
       end

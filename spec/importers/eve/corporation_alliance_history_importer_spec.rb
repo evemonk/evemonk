@@ -26,12 +26,15 @@ describe Eve::CorporationAllianceHistoryImporter do
 
         let(:entries) { [entry] }
 
+        let(:response) { double }
+
         let(:esi) do
           instance_double(EveOnline::ESI::CorporationAllianceHistory,
             url: url,
             not_modified?: false,
             etag: new_etag,
-            entries: entries)
+            entries: entries,
+            response: response)
         end
 
         before { expect(EveOnline::ESI::CorporationAllianceHistory).to receive(:new).with(corporation_id: corporation_id).and_return(esi) }
@@ -59,23 +62,7 @@ describe Eve::CorporationAllianceHistoryImporter do
 
         before { expect(corporation_alliance_history).to receive(:update!).with(json) }
 
-        before { expect(etag).to receive(:update!).with(etag: new_etag) }
-
-        specify { expect { subject.import }.not_to raise_error }
-      end
-
-      context "when corporation not found (404)" do
-        let(:corporation_id) { double }
-
-        subject { described_class.new(corporation_id) }
-
-        let(:eve_corporation) { instance_double(Eve::Corporation) }
-
-        before { expect(Eve::Corporation).to receive(:find_by!).with(corporation_id: corporation_id).and_return(eve_corporation) }
-
-        before { expect(EveOnline::ESI::CorporationAllianceHistory).to receive(:new).with(corporation_id: corporation_id).and_raise(EveOnline::Exceptions::ResourceNotFound) }
-
-        before { expect(eve_corporation).to receive(:destroy!) }
+        before { expect(etag).to receive(:update!).with(etag: new_etag, body: response) }
 
         specify { expect { subject.import }.not_to raise_error }
       end

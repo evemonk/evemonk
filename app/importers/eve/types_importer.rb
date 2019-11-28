@@ -21,7 +21,7 @@ module Eve
 
         import_other_pages
 
-        etag.update!(etag: esi.etag)
+        etag.update!(etag: esi.etag, body: esi.response)
       end
     end
 

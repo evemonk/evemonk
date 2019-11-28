@@ -28,6 +28,8 @@ describe SignInForm, type: :model do
   end
 
   describe "#save" do
+    let!(:user) { create(:user, email: "me@example.com", password: "password") }
+
     let(:params) do
       {
         email: "me@example.com",
@@ -38,10 +40,22 @@ describe SignInForm, type: :model do
 
     let(:controller) { instance_double(ApplicationController) }
 
-    before { expect(controller).to receive(:login).with("me@example.com", "password", true) }
-
     subject { described_class.new(params.merge(controller: controller)) }
 
-    specify { expect { subject.save }.not_to raise_error }
+    context "when form valid" do
+      before { expect(subject).to receive(:valid?).and_return(true) }
+
+      before { expect(controller).to receive(:login).with("me@example.com", "password", true).and_return(user) }
+
+      specify { expect(subject.save).to eq(true) }
+    end
+
+    context "when form not valid" do
+      before { expect(subject).to receive(:valid?).and_return(false) }
+
+      before { expect(controller).not_to receive(:login) }
+
+      specify { expect(subject.save).to eq(false) }
+    end
   end
 end

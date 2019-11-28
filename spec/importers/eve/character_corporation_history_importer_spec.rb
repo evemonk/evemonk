@@ -26,12 +26,15 @@ describe Eve::CharacterCorporationHistoryImporter do
 
         let(:entries) { [entry] }
 
+        let(:response) { double }
+
         let(:esi) do
           instance_double(EveOnline::ESI::CharacterCorporationHistory,
             url: url,
             not_modified?: false,
             etag: new_etag,
-            entries: entries)
+            entries: entries,
+            response: response)
         end
 
         before { expect(EveOnline::ESI::CharacterCorporationHistory).to receive(:new).with(character_id: character_id).and_return(esi) }
@@ -59,23 +62,7 @@ describe Eve::CharacterCorporationHistoryImporter do
 
         before { expect(character_corporation_history).to receive(:update!).with(json) }
 
-        before { expect(etag).to receive(:update!).with(etag: new_etag) }
-
-        specify { expect { subject.import }.not_to raise_error }
-      end
-
-      context "when character not found (404)" do
-        let(:character_id) { double }
-
-        subject { described_class.new(character_id) }
-
-        let(:eve_character) { instance_double(Eve::Character) }
-
-        before { expect(Eve::Character).to receive(:find_by!).with(character_id: character_id).and_return(eve_character) }
-
-        before { expect(EveOnline::ESI::CharacterCorporationHistory).to receive(:new).with(character_id: character_id).and_raise(EveOnline::Exceptions::ResourceNotFound) }
-
-        before { expect(eve_character).to receive(:destroy!) }
+        before { expect(etag).to receive(:update!).with(etag: new_etag, body: response) }
 
         specify { expect { subject.import }.not_to raise_error }
       end

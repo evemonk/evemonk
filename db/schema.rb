@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_26_232107) do
+ActiveRecord::Schema.define(version: 2019_11_28_172754) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -213,6 +213,7 @@ ActiveRecord::Schema.define(version: 2019_11_26_232107) do
     t.boolean "published"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "name_ko"
   end
 
   create_table "eve_character_attributes", force: :cascade do |t|
@@ -359,6 +360,7 @@ ActiveRecord::Schema.define(version: 2019_11_26_232107) do
     t.boolean "published"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "name_ko"
   end
 
   create_table "eve_icons", force: :cascade do |t|
@@ -454,7 +456,7 @@ ActiveRecord::Schema.define(version: 2019_11_26_232107) do
     t.bigint "icon_id"
     t.bigint "market_group_id"
     t.float "mass"
-    t.string "name"
+    t.string "name_en"
     t.float "packaged_volume"
     t.integer "portion_size"
     t.boolean "published"
@@ -468,6 +470,13 @@ ActiveRecord::Schema.define(version: 2019_11_26_232107) do
     t.text "description_ja"
     t.text "description_ru"
     t.text "description_zh"
+    t.text "description_ko"
+    t.string "name_de"
+    t.string "name_fr"
+    t.string "name_ja"
+    t.string "name_ru"
+    t.string "name_zh"
+    t.string "name_ko"
     t.index ["type_id"], name: "index_eve_types_on_type_id", unique: true
   end
 

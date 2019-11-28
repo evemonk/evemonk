@@ -11,7 +11,7 @@ describe Api::ChangePasswordsController do
     context "when user successful change password" do
       let(:current_user) { instance_double(User) }
 
-      before { sign_in(current_user) }
+      before { api_sign_in(current_user) }
 
       let(:form) { instance_double(Api::ChangePasswordForm, save: true) }
 
@@ -58,7 +58,7 @@ describe Api::ChangePasswordsController do
     context "when user not successful change password" do
       let(:current_user) { instance_double(User) }
 
-      before { sign_in(current_user) }
+      before { api_sign_in(current_user) }
 
       let(:form) { instance_double(Api::ChangePasswordForm, save: false) }
 

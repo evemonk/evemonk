@@ -14,8 +14,6 @@ class CharacterWalletImporter
                                               token: character.access_token)
 
     character.update!(esi.as_json)
-  rescue EveOnline::Exceptions::ResourceNotFound
-    character.destroy!
   rescue ActiveRecord::RecordNotFound
     Rails.logger.info("Character with ID #{character_id} not found")
   end

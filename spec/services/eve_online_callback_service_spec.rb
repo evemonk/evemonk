@@ -310,20 +310,27 @@ describe EveOnlineCallbackService do
   end
 
   describe "#update_character_info" do
-    let(:character) { instance_double(Character) }
+    let(:character_id) { double }
 
-    before { expect(subject).to receive(:character).and_return(character) }
+    before { expect(subject).to receive(:character_id).and_return(character_id).exactly(9).times }
 
-    before do
-      #
-      # Api::UpdateCharacterInfo.new(character).update!
-      #
-      expect(Api::UpdateCharacterInfo).to receive(:new).with(character) do
-        double.tap do |a|
-          expect(a).to receive(:update!)
-        end
-      end
-    end
+    before { expect(CharacterJob).to receive(:perform_later).with(character_id) }
+
+    before { expect(CharacterWalletJob).to receive(:perform_later).with(character_id) }
+
+    before { expect(CharacterAttributesJob).to receive(:perform_later).with(character_id) }
+
+    before { expect(CharacterImplantsJob).to receive(:perform_later).with(character_id) }
+
+    before { expect(CharacterLoyaltyPointsJob).to receive(:perform_later).with(character_id) }
+
+    before { expect(CharacterSkillsJob).to receive(:perform_later).with(character_id) }
+
+    before { expect(CharacterSkillqueueJob).to receive(:perform_later).with(character_id) }
+
+    before { expect(CharacterAssetsJob).to receive(:perform_later).with(character_id) }
+
+    before { expect(CharacterCorporationHistoryJob).to receive(:perform_later).with(character_id) }
 
     specify { expect { subject.send(:update_character_info) }.not_to raise_error }
   end

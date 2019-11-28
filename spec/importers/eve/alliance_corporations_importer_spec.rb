@@ -30,10 +30,13 @@ describe Eve::AllianceCorporationsImporter do
 
       let(:new_etag) { double }
 
+      let(:response) { double }
+
       let(:esi) do
         instance_double(EveOnline::ESI::AllianceCorporations,
           not_modified?: false,
-          etag: new_etag)
+          etag: new_etag,
+          response: response)
       end
 
       before do
@@ -57,7 +60,7 @@ describe Eve::AllianceCorporationsImporter do
 
       before { expect(subject).to receive(:remove_old_corporations) }
 
-      before { expect(etag).to receive(:update!).with(etag: new_etag) }
+      before { expect(etag).to receive(:update!).with(etag: new_etag, body: response) }
 
       specify { expect { subject.import }.not_to raise_error }
     end

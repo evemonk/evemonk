@@ -24,7 +24,7 @@ GIT
 
 GIT
   remote: https://github.com/rspec/rspec-expectations.git
-  revision: 99f9bcaff2a6f3d82f4e350e829eca6ab015694f
+  revision: 85d6188d7bb41cc860bdd3330f7accd1f78418bd
   branch: master
   specs:
     rspec-expectations (3.10.0.pre)
@@ -63,7 +63,7 @@ GIT
 
 GIT
   remote: https://github.com/thoughtbot/shoulda-matchers.git
-  revision: 5b8875e4941b7816ed04153ee896f5ef473dd748
+  revision: 65e13ae040ef0c2a50d7f3b88fa802115061988f
   branch: master
   specs:
     shoulda-matchers (4.1.2)
@@ -235,7 +235,7 @@ GEM
       tty-pager
       tty-screen
       tty-tree
-    faraday (0.17.0)
+    faraday (0.17.1)
       multipart-post (>= 1.2, < 3)
     fasterer (0.8.1)
       colorize (~> 0.7)
@@ -362,9 +362,6 @@ GEM
     omniauth-oauth2 (1.6.0)
       oauth2 (~> 1.1)
       omniauth (~> 1.9)
-    omniauth-rails_csrf_protection (0.1.2)
-      actionpack (>= 4.2)
-      omniauth (>= 1.3.1)
     paper_trail (10.3.1)
       activerecord (>= 4.2)
       request_store (~> 1.1)
@@ -674,7 +671,6 @@ DEPENDENCIES
   newrelic_rpm
   niceql
   omniauth-eve_online-sso
-  omniauth-rails_csrf_protection
   paper_trail
   pg (>= 0.18, < 2.0)
   pg_query

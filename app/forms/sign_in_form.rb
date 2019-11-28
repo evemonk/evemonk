@@ -16,6 +16,8 @@ class SignInForm
   def save
     return false unless valid?
 
-    login(email, password, remember_me == "1")
+    return false unless login(email, password, remember_me == "1")
+
+    true
   end
 end

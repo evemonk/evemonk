@@ -28,24 +28,6 @@ describe CharacterAttributesImporter do
     specify { expect { subject.import }.not_to raise_error }
   end
 
-  context "when character not found (404)" do
-    let(:character_id) { double }
-
-    subject { described_class.new(character_id) }
-
-    let(:access_token) { double }
-
-    let(:character) { instance_double(Character, access_token: access_token) }
-
-    before { expect(Character).to receive(:find_by!).with(character_id: character_id).and_return(character) }
-
-    before { expect(EveOnline::ESI::CharacterAttributes).to receive(:new).with(character_id: character_id, token: access_token).and_raise(EveOnline::Exceptions::ResourceNotFound) }
-
-    before { expect(character).to receive(:destroy!) }
-
-    specify { expect { subject.import }.not_to raise_error }
-  end
-
   context "when character not found (ActiveRecord::RecordNotFound)" do
     let(:character_id) { double }
 

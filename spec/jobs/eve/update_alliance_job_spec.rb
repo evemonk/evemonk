@@ -6,7 +6,7 @@ describe Eve::UpdateAllianceJob do
   it { expect(described_class.queue_name).to eq("default") }
 
   describe "#perform" do
-    let(:alliance_id) { 1_354_830_081 }
+    let(:alliance_id) { double }
 
     before do
       #

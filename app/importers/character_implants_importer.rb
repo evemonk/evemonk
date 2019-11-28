@@ -20,7 +20,9 @@ class CharacterImplantsImporter
         character.character_implants.create!(type_id: implant_id)
       end
     end
-  rescue EveOnline::Exceptions::Forbidden
-    Api::RefreshCharacterAccessToken.new(character_id).refresh
+  rescue ActiveRecord::RecordNotFound
+    Rails.logger.info("Character with ID #{character_id} not found")
+    # rescue EveOnline::Exceptions::Forbidden
+    #   Api::RefreshCharacterAccessToken.new(character_id).refresh
   end
 end

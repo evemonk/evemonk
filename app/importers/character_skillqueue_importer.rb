@@ -20,5 +20,7 @@ class CharacterSkillqueueImporter
         character.skillqueues.create!(skill.as_json)
       end
     end
+  rescue ActiveRecord::RecordNotFound
+    Rails.logger.info("Character with ID #{character_id} not found")
   end
 end

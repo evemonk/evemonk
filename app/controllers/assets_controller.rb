@@ -3,12 +3,11 @@
 class AssetsController < ApplicationController
   def index
     @character = current_user.characters
-      .eager_load(:race, :bloodline, :ancestry, :faction, :alliance, :corporation)
+      .includes(:race, :bloodline, :ancestry, :faction, :alliance, :corporation)
       .find_by!(character_id: params[:character_id])
       .decorate
 
     @assets = @character.character_assets
       .includes(:type)
-      .decorate
   end
 end

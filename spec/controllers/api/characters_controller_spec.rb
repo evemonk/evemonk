@@ -9,7 +9,7 @@ describe Api::CharactersController do
     context "when user signed in" do
       let(:current_user) { instance_double(User) }
 
-      before { sign_in(current_user) }
+      before { api_sign_in(current_user) }
 
       before do
         #
@@ -62,7 +62,7 @@ describe Api::CharactersController do
     context "when user signed in" do
       let(:current_user) { instance_double(User) }
 
-      before { sign_in(current_user) }
+      before { api_sign_in(current_user) }
 
       before do
         #
@@ -110,7 +110,7 @@ describe Api::CharactersController do
     context "when user signed in" do
       let(:current_user) { instance_double(User) }
 
-      before { sign_in(current_user) }
+      before { api_sign_in(current_user) }
 
       before do
         #

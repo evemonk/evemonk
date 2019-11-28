@@ -24,12 +24,15 @@ describe Eve::AllianceImporter do
 
         let(:new_etag) { double }
 
+        let(:response) { double }
+
         let(:esi) do
           instance_double(EveOnline::ESI::Alliance,
             url: url,
             not_modified?: false,
             etag: new_etag,
-            as_json: json)
+            as_json: json,
+            response: response)
         end
 
         before do
@@ -56,7 +59,7 @@ describe Eve::AllianceImporter do
 
         before { expect(eve_alliance).to receive(:update!).with(json) }
 
-        before { expect(etag).to receive(:update!).with(etag: new_etag) }
+        before { expect(etag).to receive(:update!).with(etag: new_etag, body: response) }
 
         specify { expect { subject.import }.not_to raise_error }
       end

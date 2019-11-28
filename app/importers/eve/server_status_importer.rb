@@ -14,7 +14,7 @@ module Eve
 
         Eve::ServerStatus.create!(esi.as_json)
 
-        etag.update!(etag: esi.etag)
+        etag.update!(etag: esi.etag, body: esi.response)
       end
     end
   end
