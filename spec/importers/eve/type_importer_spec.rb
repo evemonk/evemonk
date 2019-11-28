@@ -91,50 +91,6 @@ describe Eve::TypeImporter do
 
         before { expect(subject).to receive(:import_type_dogma_effects).with(esi, eve_type) }
 
-        # before do
-        #   #
-        #   # eve_type.type_dogma_attributes.destroy_all
-        #   #
-        #   expect(eve_type).to receive(:type_dogma_attributes) do
-        #     double.tap do |a|
-        #       expect(a).to receive(:destroy_all)
-        #     end
-        #   end
-        # end
-
-        # before do
-        #   #
-        #   # eve_type.type_dogma_effects.destroy_all
-        #   #
-        #   expect(eve_type).to receive(:type_dogma_effects) do
-        #     double.tap do |a|
-        #       expect(a).to receive(:destroy_all)
-        #     end
-        #   end
-        # end
-
-        # before do
-        #   #
-        #   # eve_type.type_dogma_attributes.create!(dogma_attribute.as_json)
-        #   #
-        #   expect(eve_type).to receive(:type_dogma_attributes) do
-        #     double.tap do |a|
-        #       expect(a).to receive(:create!).with(dogma_attribute_json)
-        #     end
-        #   end
-        # end
-
-        # before do
-        #   #
-        #   # eve_type.type_dogma_effects.create!(dogma_effect.as_json)
-        #   #
-        #   expect(eve_type).to receive(:type_dogma_effects) do
-        #     double.tap do |a|
-        #       expect(a).to receive(:create!).with(dogma_effect_json)
-        #     end
-        #   end
-        # end
-
         before { expect(etag).to receive(:update!).with(etag: new_etag, body: response) }
 
         specify { expect { subject.import }.not_to raise_error }
@@ -193,11 +149,50 @@ describe Eve::TypeImporter do
   # private methods
 
   describe "#import_type_dogma_attributes" do
-  #   context "when locale is :en" do
-  #     let(:eve_type) { instance_double(Eve::Type) }
-  #
-  #     specify { expect { subject.import }.not_to raise_error }
-  #   end
+    context "when locale is :en" do
+      let(:type_id) { double }
+
+      let(:locale) { :en }
+
+      subject { described_class.new(type_id, locale) }
+
+      let(:eve_type) { instance_double(Eve::Type) }
+
+      let(:dogma_attribute_json) { double }
+
+      let(:dogma_attribute) { instance_double(EveOnline::ESI::Models::DogmaAttributeShort, as_json: dogma_attribute_json) }
+
+      let(:dogma_attributes) { [dogma_attribute] }
+
+      let(:esi) do
+        instance_double(EveOnline::ESI::UniverseType,
+          dogma_attributes: dogma_attributes)
+      end
+
+      before do
+        #
+        # eve_type.type_dogma_attributes.destroy_all
+        #
+        expect(eve_type).to receive(:type_dogma_attributes) do
+          double.tap do |a|
+            expect(a).to receive(:destroy_all)
+          end
+        end
+      end
+
+      before do
+        #
+        # eve_type.type_dogma_attributes.create!(dogma_attribute.as_json)
+        #
+        expect(eve_type).to receive(:type_dogma_attributes) do
+          double.tap do |a|
+            expect(a).to receive(:create!).with(dogma_attribute_json)
+          end
+        end
+      end
+
+      specify { expect { subject.import_type_dogma_attributes(esi, eve_type) }.not_to raise_error }
+    end
 
     context "when locale is not :en" do
       let(:type_id) { double }
@@ -219,9 +214,50 @@ describe Eve::TypeImporter do
   end
 
   describe "#import_type_dogma_effects" do
-  #   context "when locale is :en" do
-  #     let(:eve_type) { instance_double(Eve::Type) }
-  #   end
+    context "when locale is :en" do
+      let(:type_id) { double }
+
+      let(:locale) { :en }
+
+      subject { described_class.new(type_id, locale) }
+
+      let(:eve_type) { instance_double(Eve::Type) }
+
+      let(:dogma_effect_json) { double }
+
+      let(:dogma_effect) { instance_double(EveOnline::ESI::Models::DogmaEffectShort, as_json: dogma_effect_json) }
+
+      let(:dogma_effects) { [dogma_effect] }
+
+      let(:esi) do
+        instance_double(EveOnline::ESI::UniverseType,
+          dogma_effects: dogma_effects)
+      end
+
+      before do
+        #
+        # eve_type.type_dogma_effects.destroy_all
+        #
+        expect(eve_type).to receive(:type_dogma_effects) do
+          double.tap do |a|
+            expect(a).to receive(:destroy_all)
+          end
+        end
+      end
+
+      before do
+        #
+        # eve_type.type_dogma_effects.create!(dogma_effect.as_json)
+        #
+        expect(eve_type).to receive(:type_dogma_effects) do
+          double.tap do |a|
+            expect(a).to receive(:create!).with(dogma_effect_json)
+          end
+        end
+      end
+
+      specify { expect { subject.import_type_dogma_effects(esi, eve_type) }.not_to raise_error }
+    end
 
     context "when locale is not :en" do
       let(:type_id) { double }
