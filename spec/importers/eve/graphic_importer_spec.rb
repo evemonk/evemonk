@@ -20,12 +20,15 @@ describe Eve::GraphicImporter do
 
         let(:new_etag) { double }
 
+        let(:response) { double }
+
         let(:esi) do
           instance_double(EveOnline::ESI::UniverseGraphic,
             url: url,
             not_modified?: false,
             etag: new_etag,
-            as_json: json)
+            as_json: json,
+            response: response)
         end
 
         before { expect(EveOnline::ESI::UniverseGraphic).to receive(:new).with(id: graphic_id).and_return(esi) }
@@ -38,7 +41,7 @@ describe Eve::GraphicImporter do
 
         before { expect(eve_graphic).to receive(:update!).with(json) }
 
-        before { expect(etag).to receive(:update!).with(etag: new_etag) }
+        before { expect(etag).to receive(:update!).with(etag: new_etag, body: response) }
 
         specify { expect { subject.import }.not_to raise_error }
       end
