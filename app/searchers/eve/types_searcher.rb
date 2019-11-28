@@ -16,7 +16,8 @@ module Eve
 
       relation = relation.where(id: ids) if ids.present?
 
-      relation = relation.order(name: :asc) if ids.blank?
+      # TODO: fix this
+      relation = relation.order(name_en: :asc) if ids.blank?
 
       relation
     end
