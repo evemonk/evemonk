@@ -11,12 +11,15 @@ describe Eve::ServerStatusImporter do
 
       let(:as_json) { double }
 
+      let(:response) { double }
+
       let(:esi) do
         instance_double(EveOnline::ESI::ServerStatus,
           not_modified?: false,
           url: url,
           etag: new_etag,
-          as_json: as_json)
+          as_json: as_json,
+          response: response)
       end
 
       before { expect(EveOnline::ESI::ServerStatus).to receive(:new).and_return(esi) }
@@ -29,7 +32,7 @@ describe Eve::ServerStatusImporter do
 
       before { expect(Eve::ServerStatus).to receive(:create!).with(as_json) }
 
-      before { expect(etag).to receive(:update!).with(etag: new_etag) }
+      before { expect(etag).to receive(:update!).with(etag: new_etag, body: response) }
 
       specify { expect { subject.import }.not_to raise_error }
     end
