@@ -40,7 +40,7 @@ Mobile first design.
 * Yarn 1.19.2
 * Bootstrap 4.4.1
 * Bootstrap Icons 1.0.0-alpha
-* Bootswatch Darkly 4.4.0
+* Bootswatch Darkly 4.4.1
 
 ## Configure
 
