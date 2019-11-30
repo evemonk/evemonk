@@ -15,9 +15,9 @@ class EveOnlineCallbackService
       remove_old_characters
 
       character.save!
-
-      update_character_info
     end
+
+    update_character_info
   end
 
   private
