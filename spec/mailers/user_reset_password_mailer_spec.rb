@@ -10,14 +10,14 @@ describe UserResetPasswordMailer do
         reset_password_token: "reset-token-123")
     end
 
-    subject(:mailer) { described_class.with(user: user).email }
+    subject { described_class.with(user: user).email }
 
-    specify { expect(mailer.subject).to eq("Reset password at evemonk.com") }
+    specify { expect(subject.subject).to eq("Reset password at evemonk.com") }
 
-    specify { expect(mailer.to).to eq(["me@example.com"]) }
+    specify { expect(subject.to).to eq(["me@example.com"]) }
 
-    specify { expect(mailer.from).to eq(["from@example.com"]) }
+    specify { expect(subject.from).to eq(["from@example.com"]) }
 
-    specify { expect(mailer.body).to include("reset-token-123") }
+    specify { expect(subject.body).to include("reset-token-123") }
   end
 end
