@@ -9,7 +9,7 @@ describe PushNotifications::Base do
 
   let(:notifications_count) { double }
 
-  subject(:service) { described_class.new(device, device_token, notifications_count) }
+  subject { described_class.new(device, device_token, notifications_count) }
 
   describe "#initialize" do
     its(:device) { should eq(device) }
@@ -22,11 +22,11 @@ describe PushNotifications::Base do
   describe "#execute!" do
     let(:notification) { double }
 
-    before { expect(service).to receive(:notification).and_return(notification).exactly(5).times }
+    before { expect(subject).to receive(:notification).and_return(notification).exactly(5).times }
 
     let(:app) { double }
 
-    before { expect(service).to receive(:app).and_return(app) }
+    before { expect(subject).to receive(:app).and_return(app) }
 
     before { expect(notification).to receive(:app=).with(app) }
 
@@ -34,19 +34,19 @@ describe PushNotifications::Base do
 
     let(:alert) { double }
 
-    before { expect(service).to receive(:alert).and_return(alert) }
+    before { expect(subject).to receive(:alert).and_return(alert) }
 
     before { expect(notification).to receive(:alert=).with(alert) }
 
     let(:badge) { double }
 
-    before { expect(service).to receive(:badge).and_return(badge) }
+    before { expect(subject).to receive(:badge).and_return(badge) }
 
     before { expect(notification).to receive(:badge=).with(badge) }
 
     before { expect(notification).to receive(:save!) }
 
-    specify { expect { service.execute! }.not_to raise_error }
+    specify { expect { subject.execute! }.not_to raise_error }
   end
 
   # private methods
@@ -55,9 +55,9 @@ describe PushNotifications::Base do
     context "@notification is set" do
       let(:notification) { double }
 
-      before { service.instance_variable_set(:@notification, notification) }
+      before { subject.instance_variable_set(:@notification, notification) }
 
-      specify { expect(service.send(:notification)).to eq(notification) }
+      specify { expect(subject.send(:notification)).to eq(notification) }
     end
 
     context "ios" do
@@ -67,15 +67,15 @@ describe PushNotifications::Base do
 
       before { expect(Rpush::Apns::Notification).to receive(:new).and_return(notification) }
 
-      specify { expect { service.send(:notification) }.not_to raise_error }
+      specify { expect { subject.send(:notification) }.not_to raise_error }
 
-      specify { expect { service.send(:notification) }.to change { service.instance_variable_get(:@notification) }.from(nil).to(notification) }
+      specify { expect { subject.send(:notification) }.to change { subject.instance_variable_get(:@notification) }.from(nil).to(notification) }
     end
 
     context "not supported" do
       let(:device) { "not-supported" }
 
-      specify { expect { service.send(:notification) }.to raise_error(NotImplementedError) }
+      specify { expect { subject.send(:notification) }.to raise_error(NotImplementedError) }
     end
   end
 
@@ -85,21 +85,21 @@ describe PushNotifications::Base do
 
       before { expect(Rpush::Apns::App).to receive(:find_by_name).with(device) }
 
-      specify { expect { service.send(:app) }.not_to raise_error }
+      specify { expect { subject.send(:app) }.not_to raise_error }
     end
 
     context "not supported" do
       let(:device) { "not-supported" }
 
-      specify { expect { service.send(:app) }.to raise_error(NotImplementedError) }
+      specify { expect { subject.send(:app) }.to raise_error(NotImplementedError) }
     end
   end
 
   describe "#alert" do
-    specify { expect { service.send(:alert) }.to raise_error(NotImplementedError) }
+    specify { expect { subject.send(:alert) }.to raise_error(NotImplementedError) }
   end
 
   describe "#badge" do
-    specify { expect(service.send(:badge)).to eq(notifications_count) }
+    specify { expect(subject.send(:badge)).to eq(notifications_count) }
   end
 end
