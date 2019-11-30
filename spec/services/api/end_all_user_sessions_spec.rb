@@ -20,8 +20,8 @@ describe Api::EndAllUserSessions do
 
     let!(:session3) { create(:session, user: user) }
 
-    subject(:service) { described_class.new(user) }
+    subject { described_class.new(user) }
 
-    specify { expect { service.execute }.to change { user.sessions.count }.from(3).to(0) }
+    specify { expect { subject.execute }.to change { user.sessions.count }.from(3).to(0) }
   end
 end
