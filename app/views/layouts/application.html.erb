@@ -55,11 +55,11 @@
               </li>
             <% end %>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+              <a class="nav-link dropdown-toggle" href="#" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Universe</a>
               <div class="dropdown-menu" aria-labelledby="dropdown">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
+                <%= link_to("Alliances", universe_alliances_path, class: "dropdown-item") %>
+                <%= link_to("Corporations", universe_corporations_path, class: "dropdown-item") %>
+                <%= link_to("Characters", universe_characters_path, class: "dropdown-item") %>
               </div>
             </li>
           </ul>
