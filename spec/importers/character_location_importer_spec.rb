@@ -3,16 +3,20 @@
 require "rails_helper"
 
 describe CharacterLocationImporter do
+  let(:character_id) { double }
+
+  subject { described_class.new(character_id) }
+
+  it { should be_a(CharacterAccessToken) }
+
   context "when character found" do
-    let(:character_id) { double }
-
-    subject { described_class.new(character_id) }
-
     let(:access_token) { double }
 
     let(:character) { instance_double(Character, access_token: access_token) }
 
     before { expect(Character).to receive(:find_by!).with(character_id: character_id).and_return(character) }
+
+    before { expect(subject).to receive(:refresh_character_access_token) }
 
     let(:solar_system_id) { double }
 
@@ -44,10 +48,6 @@ describe CharacterLocationImporter do
   end
 
   context "when character not found (ActiveRecord::RecordNotFound)" do
-    let(:character_id) { double }
-
-    subject { described_class.new(character_id) }
-
     before { expect(Character).to receive(:find_by!).with(character_id: character_id).and_raise(ActiveRecord::RecordNotFound) }
 
     before do

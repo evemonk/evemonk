@@ -3,11 +3,11 @@
 require "rails_helper"
 
 describe CharacterImporter do
+  let(:character_id) { double }
+
+  subject { described_class.new(character_id) }
+
   context "when character found" do
-    let(:character_id) { double }
-
-    subject { described_class.new(character_id) }
-
     let(:character) { instance_double(Character) }
 
     before { expect(Character).to receive(:find_by!).with(character_id: character_id).and_return(character) }
@@ -27,10 +27,6 @@ describe CharacterImporter do
   end
 
   context "when character not found (404)" do
-    let(:character_id) { double }
-
-    subject { described_class.new(character_id) }
-
     let(:character) { instance_double(Character) }
 
     before { expect(Character).to receive(:find_by!).with(character_id: character_id).and_return(character) }
@@ -43,10 +39,6 @@ describe CharacterImporter do
   end
 
   context "when character not found (ActiveRecord::RecordNotFound)" do
-    let(:character_id) { double }
-
-    subject { described_class.new(character_id) }
-
     before { expect(Character).to receive(:find_by!).with(character_id: character_id).and_raise(ActiveRecord::RecordNotFound) }
 
     before do

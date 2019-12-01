@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class CharacterAssetsImporter
+  include CharacterAccessToken
+
   attr_reader :character_id
 
   def initialize(character_id)
@@ -9,6 +11,8 @@ class CharacterAssetsImporter
 
   def import
     character = Character.find_by!(character_id: character_id)
+
+    refresh_character_access_token
 
     esi = EveOnline::ESI::CharacterAssets.new(character_id: character_id,
                                               token: character.access_token)
