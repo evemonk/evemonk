@@ -697,6 +697,7 @@ DEPENDENCIES
   rspec-rails!
   rspec-support!
   rubocop
+  rufus-scheduler
   sass-rails
   searchkick
   selenium-webdriver
