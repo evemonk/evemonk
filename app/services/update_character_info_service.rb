@@ -14,6 +14,10 @@ class UpdateCharacterInfoService
 
     CharacterAttributesJob.perform_later(character_id)
 
+    CharacterLocationJob.perform_later(character_id)
+
+    CharacterShipJob.perform_later(character_id)
+
     CharacterImplantsJob.perform_later(character_id)
 
     CharacterLoyaltyPointsJob.perform_later(character_id)

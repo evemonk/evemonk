@@ -14,6 +14,10 @@ describe UpdateCharacterInfoService do
 
     before { expect(CharacterAttributesJob).to receive(:perform_later).with(character_id) }
 
+    before { expect(CharacterLocationJob).to receive(:perform_later).with(character_id) }
+
+    before { expect(CharacterShipJob).to receive(:perform_later).with(character_id) }
+
     before { expect(CharacterImplantsJob).to receive(:perform_later).with(character_id) }
 
     before { expect(CharacterLoyaltyPointsJob).to receive(:perform_later).with(character_id) }
