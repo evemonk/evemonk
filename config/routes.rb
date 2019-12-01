@@ -22,7 +22,7 @@ Rails.application.routes.draw do
     resources :types, only: [:index, :show]
   end
 
-  resources :characters, only: [:index, :show, :destroy] do
+  resources :characters, only: [:index, :show, :update, :destroy] do
     resources :assets, only: :index
 
     resources :loyalty_points, only: :index

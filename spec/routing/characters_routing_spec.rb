@@ -19,6 +19,22 @@ describe CharactersController do
       )
     end
 
+    it "should route PUT /characters/90729314 to characters#update" do
+      expect(put: "/characters/90729314").to route_to(
+        controller: "characters",
+        action: "update",
+        id: "90729314"
+      )
+    end
+
+    it "should route PATCH /characters/90729314 to characters#update" do
+      expect(patch: "/characters/90729314").to route_to(
+        controller: "characters",
+        action: "update",
+        id: "90729314"
+      )
+    end
+
     it "should route DELETE /characters/90729314 to characters#destroy" do
       expect(delete: "/characters/90729314").to route_to(
         controller: "characters",
