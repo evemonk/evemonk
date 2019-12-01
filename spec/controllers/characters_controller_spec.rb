@@ -79,5 +79,7 @@ describe CharactersController do
     it { should render_template(:show) }
   end
 
+  describe "#update"
+
   describe "#destroy"
 end
