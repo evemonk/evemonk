@@ -3,21 +3,23 @@
 class CharacterLoyaltyPointsImporter
   include CharacterAccessToken
 
-  attr_reader :character_id
+  attr_reader :character_id, :character
 
   def initialize(character_id)
     @character_id = character_id
   end
 
   def import
-    character = Character.find_by!(character_id: character_id)
-
-    refresh_character_access_token
-
-    esi = EveOnline::ESI::CharacterLoyaltyPoints.new(character_id: character_id,
-                                                     token: character.access_token)
-
     ActiveRecord::Base.transaction do
+      character = Character.lock.find_by!(character_id: character_id)
+
+      refresh_character_access_token(character)
+
+      esi = EveOnline::ESI::CharacterLoyaltyPoints.new(character_id: character.character_id,
+                                                       token: character.access_token)
+
+      return unless character.scopes.include?(esi.scope)
+
       character.loyalty_points.destroy_all
 
       esi.loyalty_points.each do |lp|

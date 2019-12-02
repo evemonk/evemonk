@@ -10,14 +10,16 @@ class CharacterImplantsImporter
   end
 
   def import
-    character = Character.find_by!(character_id: character_id)
-
-    refresh_character_access_token
-
-    esi = EveOnline::ESI::CharacterImplants.new(character_id: character_id,
-                                                token: character.access_token)
-
     ActiveRecord::Base.transaction do
+      character = Character.lock.find_by!(character_id: character_id)
+
+      refresh_character_access_token(character)
+
+      esi = EveOnline::ESI::CharacterImplants.new(character_id: character.character_id,
+                                                  token: character.access_token)
+
+      return unless character.scopes.include?(esi.scope)
+
       character.character_implants.destroy_all
 
       esi.implant_ids.each do |implant_id|
@@ -26,7 +28,5 @@ class CharacterImplantsImporter
     end
   rescue ActiveRecord::RecordNotFound
     Rails.logger.info("Character with ID #{character_id} not found")
-    # rescue EveOnline::Exceptions::Forbidden
-    #   Api::RefreshCharacterAccessToken.new(character_id).refresh
   end
 end
