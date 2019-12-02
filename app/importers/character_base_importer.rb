@@ -25,7 +25,7 @@ class CharacterBaseImporter
     raise NotImplementedError
   end
 
-  def refresh_character_access_token(character)
+  def refresh_character_access_token
     Api::RefreshCharacterAccessToken.new(character).refresh
   end
 

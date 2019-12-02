@@ -2,7 +2,7 @@
 
 class CharacterAssetsImporter < CharacterBaseImporter
   def update!
-    refresh_character_access_token(character)
+    refresh_character_access_token
 
     esi = EveOnline::ESI::CharacterAssets.new(character_id: character.character_id,
                                               token: character.access_token)
