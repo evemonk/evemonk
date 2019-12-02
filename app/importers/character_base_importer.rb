@@ -28,4 +28,8 @@ class CharacterBaseImporter
   def refresh_character_access_token(character)
     Api::RefreshCharacterAccessToken.new(character).refresh
   end
+
+  def character_scope_present?(scope)
+    character.scopes.include?(scope)
+  end
 end

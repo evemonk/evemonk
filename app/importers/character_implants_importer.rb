@@ -1,32 +1,18 @@
 # frozen_string_literal: true
 
-class CharacterImplantsImporter
-  include CharacterAccessToken
+class CharacterImplantsImporter < CharacterBaseImporter
+  def update!
+    refresh_character_access_token(character)
 
-  attr_reader :character_id
+    esi = EveOnline::ESI::CharacterImplants.new(character_id: character.character_id,
+                                                token: character.access_token)
 
-  def initialize(character_id)
-    @character_id = character_id
-  end
+    return unless character_scope_present?(esi.scope)
 
-  def import
-    ActiveRecord::Base.transaction do
-      character = Character.lock.find_by!(character_id: character_id)
+    character.character_implants.destroy_all
 
-      refresh_character_access_token(character)
-
-      esi = EveOnline::ESI::CharacterImplants.new(character_id: character.character_id,
-                                                  token: character.access_token)
-
-      return unless character.scopes.include?(esi.scope)
-
-      character.character_implants.destroy_all
-
-      esi.implant_ids.each do |implant_id|
-        character.character_implants.create!(type_id: implant_id)
-      end
+    esi.implant_ids.each do |implant_id|
+      character.character_implants.create!(type_id: implant_id)
     end
-  rescue ActiveRecord::RecordNotFound
-    Rails.logger.info("Character with ID #{character_id} not found")
   end
 end
