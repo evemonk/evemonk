@@ -2,15 +2,13 @@
 
 module Api
   class RefreshCharacterAccessToken
-    attr_reader :character_id
+    attr_reader :character
 
-    def initialize(character_id)
-      @character_id = character_id
+    def initialize(character)
+      @character = character
     end
 
     def refresh
-      character = Character.find_by(character_id: character_id)
-
       return unless character.token_expired?
 
       oauth_client_options = OmniAuth::Strategies::EveOnlineSso.default_options["client_options"]
