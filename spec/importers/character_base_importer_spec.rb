@@ -53,5 +53,40 @@ describe CharacterBaseImporter do
     end
   end
 
-  # TODO: more
+  describe "#character" do
+
+  end
+
+  # def character
+  #   @character ||= Character.lock.find_by!(character_id: character_id)
+  # end
+
+  describe "#update!" do
+    specify { expect { subject.update! }.to raise_error(NotImplementedError) }
+  end
+
+  describe "#refresh_character_access_token" do
+    let(:character) { instance_double(Character) }
+
+    before { expect(subject).to receive(:character).and_return(character) }
+
+    before do
+      #
+      # Api::RefreshCharacterAccessToken.new(character).refresh
+      #
+      expect(Api::RefreshCharacterAccessToken).to receive(:new).with(character) do
+        double.tap do |a|
+          expect(a).to receive(:refresh)
+        end
+      end
+    end
+
+    specify { expect { subject.refresh_character_access_token }.not_to raise_error }
+  end
+
+
+  #   def character_scope_present?(scope)
+  #     character.scopes.include?(scope)
+  #   end
+
 end
