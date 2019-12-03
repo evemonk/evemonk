@@ -7,7 +7,7 @@ describe CharacterAssetsImporter do
 
   subject { described_class.new(character_id) }
 
-  it { should be_a(CharacterAccessToken) }
+  it { should be_a(CharacterBaseImporter) }
 
   context "when character found" do
     let(:access_token) { double }
@@ -52,6 +52,14 @@ describe CharacterAssetsImporter do
     end
 
     specify { expect { subject.import }.not_to raise_error }
+
+    context "when scope missing" do
+
+    end
+
+    context "when scope active" do
+
+    end
   end
 
   context "when character not found (ActiveRecord::RecordNotFound)" do

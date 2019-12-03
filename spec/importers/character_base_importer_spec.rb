@@ -79,10 +79,6 @@ describe CharacterBaseImporter do
     end
   end
 
-  # def character
-  #   @character ||= Character.lock.find_by!(character_id: character_id)
-  # end
-
   describe "#update!" do
     specify { expect { subject.update! }.to raise_error(NotImplementedError) }
   end
@@ -105,6 +101,7 @@ describe CharacterBaseImporter do
 
     specify { expect { subject.refresh_character_access_token }.not_to raise_error }
   end
+
 
 
   #   def character_scope_present?(scope)

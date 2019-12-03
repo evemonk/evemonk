@@ -7,7 +7,7 @@ describe CharacterShipImporter do
 
   subject { described_class.new(character_id) }
 
-  it { should be_a(CharacterAccessToken) }
+  it { should be_a(CharacterBaseImporter) }
 
   context "when character found" do
     let(:access_token) { double }

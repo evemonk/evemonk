@@ -7,6 +7,8 @@ describe CharacterImporter do
 
   subject { described_class.new(character_id) }
 
+  it { should be_a(CharacterBaseImporter) }
+
   context "when character found" do
     let(:character) { instance_double(Character) }
 
