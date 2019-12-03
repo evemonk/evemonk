@@ -59,7 +59,7 @@ describe CharacterBaseImporter do
     context "when @character is set" do
       before { subject.instance_variable_set(:@character, character) }
 
-      specify { expect(subject.send(:character)).to eq(character) }
+      specify { expect(subject.character).to eq(character) }
     end
 
     context "when @character not set" do
@@ -75,7 +75,7 @@ describe CharacterBaseImporter do
         end
       end
 
-      specify { expect(subject.send(:character)).to eq(character) }
+      specify { expect(subject.character).to eq(character) }
     end
   end
 
@@ -102,10 +102,25 @@ describe CharacterBaseImporter do
     specify { expect { subject.refresh_character_access_token }.not_to raise_error }
   end
 
+  describe "#character_scope_present?" do
+    context "when scope present" do
+      let(:scope) { "esi-location.read_ship_type.v1" }
 
+      let(:character) { instance_double(Character, scopes: "esi-location.read_location.v1 esi-location.read_ship_type.v1") }
 
-  #   def character_scope_present?(scope)
-  #     character.scopes.include?(scope)
-  #   end
+      before { expect(subject).to receive(:character).and_return(character) }
 
+      specify { expect(subject.character_scope_present?(scope)).to eq(true) }
+    end
+
+    context "when scope not present" do
+      let(:scope) { "esi-location.read_ship_type.v1" }
+
+      let(:character) { instance_double(Character, scopes: "") }
+
+      before { expect(subject).to receive(:character).and_return(character) }
+
+      specify { expect(subject.character_scope_present?(scope)).to eq(false) }
+    end
+  end
 end
