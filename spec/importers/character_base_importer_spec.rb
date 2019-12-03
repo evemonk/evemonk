@@ -54,7 +54,29 @@ describe CharacterBaseImporter do
   end
 
   describe "#character" do
+    let(:character) { instance_double(Character) }
 
+    context "when @character is set" do
+      before { subject.instance_variable_set(:@character, character) }
+
+      specify { expect(subject.send(:character)).to eq(character) }
+    end
+
+    context "when @character not set" do
+      before do
+        #
+        # Character.lock.find_by!(character_id: character_id)
+        #
+        expect(Character).to receive(:lock) do
+          double.tap do |a|
+            expect(a).to receive(:find_by!).with(character_id: character_id)
+              .and_return(character)
+          end
+        end
+      end
+
+      specify { expect(subject.send(:character)).to eq(character) }
+    end
   end
 
   # def character
