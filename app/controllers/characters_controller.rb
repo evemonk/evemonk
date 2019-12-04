@@ -31,9 +31,5 @@ class CharactersController < ApplicationController
     @character = current_user.characters.find_by!(character_id: params[:id])
 
     @character.destroy!
-
-    respond_to do |format|
-      format.js
-    end
   end
 end
