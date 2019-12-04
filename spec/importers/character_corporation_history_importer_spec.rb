@@ -12,8 +12,8 @@ describe CharacterCorporationHistoryImporter do
   describe "#update!" do
     let(:character) do
       instance_double(Character,
-                      character_id: character_id,
-                      scopes: "esi-wallet.read_character_wallet.v1")
+        character_id: character_id,
+        scopes: "esi-wallet.read_character_wallet.v1")
     end
 
     before { expect(subject).to receive(:character).and_return(character).twice }
