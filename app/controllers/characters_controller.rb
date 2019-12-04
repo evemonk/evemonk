@@ -28,10 +28,12 @@ class CharactersController < ApplicationController
   end
 
   def destroy
-    #@character = current_user.characters.find_by!(character_id: params[:id])
-    #
-    #@character.destroy!
-    #
-    ## head :no_content
+    @character = current_user.characters.find_by!(character_id: params[:id])
+
+    @character.destroy!
+
+    respond_to do |format|
+      format.js
+    end
   end
 end

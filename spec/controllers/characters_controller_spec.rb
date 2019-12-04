@@ -124,5 +124,31 @@ describe CharactersController do
     end
   end
 
-  describe "#destroy"
+  describe "#destroy" do
+    let(:current_user) { instance_double(User) }
+
+    before { sign_in(current_user) }
+
+    let(:character) { instance_double(Character) }
+
+    before do
+      #
+      # current_user.characters.find_by!(character_id: params[:id])
+      #
+      expect(current_user).to receive(:characters) do
+        double.tap do |a|
+          expect(a).to receive(:find_by!).with(character_id: "1")
+            .and_return(character)
+        end
+      end
+    end
+
+    before { expect(character).to receive(:destroy!) }
+
+    before { delete :destroy, params: {id: "1", format: "js"} }
+
+    it { should respond_with(:ok) }
+
+    it { should render_template(:destroy) }
+  end
 end
