@@ -13,7 +13,7 @@ jobs:
           POSTGRES_USER: circleci
           POSTGRES_DB: evemonk_test
           POSTGRES_PASSWORD: ""
-      - image: elasticsearch:7.4.2
+      - image: elasticsearch:7.5.0
         environment:
           - discovery.type: single-node
     steps:
@@ -35,13 +35,15 @@ jobs:
       - run: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run: dockerize -wait tcp://localhost:9200 -timeout 2m
       - run: sudo npm install -g npm@6.13.1
-      - run: sudo npm install -g yarn@1.19.2
+      - run: sudo npm install -g yarn@1.21.0
       - run: node -v
       - run: npm -v
       - run: yarn -v
       - run: yarn install
-      - run: curl -L https://github.com/hadolint/hadolint/releases/download/v1.17.2/hadolint-Linux-x86_64 > ./hadolint
+      - run: curl -L https://github.com/hadolint/hadolint/releases/download/v1.17.3/hadolint-Linux-x86_64 > ./hadolint
       - run: chmod +x ./hadolint
+      - run: wget -qO- https://storage.googleapis.com/shellcheck/shellcheck-stable.linux.x86_64.tar.xz | tar -xJv
+      - run: shellcheck-stable/shellcheck --version
       - run: bundle exec rails db:create
       - run: bundle exec rails db:migrate
       - run: bundle exec rspec --profile
@@ -62,4 +64,5 @@ jobs:
       - run: bundle exec rake traceroute FAIL_ON_ERROR=1 || true
       - run: bundle exec rake SECRET_KEY_BASE=blablabla DB_ADAPTER=nulldb assets:precompile
       - run: ./hadolint --ignore DL3008 --ignore DL3009 --ignore DL3028 --ignore DL4006 --ignore DL3025 Dockerfile # TODO: remove DL3028
+      - run: shellcheck-stable/shellcheck bin/backend.sh bin/sidekiq.sh bin/cron.sh
       - run: ./cc-test-reporter after-build

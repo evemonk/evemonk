@@ -3,71 +3,88 @@
 require "rails_helper"
 
 describe CharacterAssetsImporter do
-  context "when character found" do
-    let(:character_id) { double }
+  let(:character_id) { double }
 
-    subject { described_class.new(character_id) }
+  subject { described_class.new(character_id) }
 
-    let(:access_token) { double }
+  it { should be_a(CharacterBaseImporter) }
 
-    let(:character) { instance_double(Character, access_token: access_token) }
+  describe "#update!" do
+    context "when scope present" do
+      before { expect(subject).to receive(:refresh_character_access_token) }
 
-    before { expect(Character).to receive(:find_by!).with(character_id: character_id).and_return(character) }
+      let(:access_token) { double }
 
-    let(:json) { double }
+      let(:character) do
+        instance_double(Character,
+          character_id: character_id,
+          access_token: access_token,
+          scopes: "esi-assets.read_assets.v1")
+      end
 
-    let(:asset) { instance_double(EveOnline::ESI::Models::Asset, as_json: json) }
+      before { expect(subject).to receive(:character).and_return(character).exactly(5).times }
 
-    let(:esi) do
-      instance_double(EveOnline::ESI::CharacterAssets,
-        assets: [asset])
-    end
+      let(:json) { double }
 
-    before { expect(EveOnline::ESI::CharacterAssets).to receive(:new).with(character_id: character_id, token: access_token).and_return(esi) }
+      let(:asset) { instance_double(EveOnline::ESI::Models::Asset, as_json: json) }
 
-    before do
-      #
-      # character.character_assets.destroy_all
-      #
-      expect(character).to receive(:character_assets) do
-        double.tap do |a|
-          expect(a).to receive(:destroy_all)
+      let(:esi) do
+        instance_double(EveOnline::ESI::CharacterAssets,
+          assets: [asset],
+          scope: "esi-assets.read_assets.v1")
+      end
+
+      before { expect(EveOnline::ESI::CharacterAssets).to receive(:new).with(character_id: character_id, token: access_token).and_return(esi) }
+
+      before do
+        #
+        # character.character_assets.destroy_all
+        #
+        expect(character).to receive(:character_assets) do
+          double.tap do |a|
+            expect(a).to receive(:destroy_all)
+          end
         end
       end
-    end
 
-    before do
-      #
-      # character.character_assets.create!(asset.as_json)
-      #
-      expect(character).to receive(:character_assets) do
-        double.tap do |a|
-          expect(a).to receive(:create!).with(json)
+      before do
+        #
+        # character.character_assets.create!(asset.as_json)
+        #
+        expect(character).to receive(:character_assets) do
+          double.tap do |a|
+            expect(a).to receive(:create!).with(json)
+          end
         end
       end
+
+      specify { expect { subject.update! }.not_to raise_error }
     end
 
-    specify { expect { subject.import }.not_to raise_error }
-  end
+    context "when scope not present" do
+      before { expect(subject).to receive(:refresh_character_access_token) }
 
-  context "when character not found (ActiveRecord::RecordNotFound)" do
-    let(:character_id) { double }
+      let(:access_token) { double }
 
-    subject { described_class.new(character_id) }
-
-    before { expect(Character).to receive(:find_by!).with(character_id: character_id).and_raise(ActiveRecord::RecordNotFound) }
-
-    before do
-      #
-      # Rails.logger.info("Character with ID #{ character_id } not found")
-      #
-      expect(Rails).to receive(:logger) do
-        double.tap do |a|
-          expect(a).to receive(:info).with("Character with ID #{character_id} not found")
-        end
+      let(:character) do
+        instance_double(Character,
+          character_id: character_id,
+          access_token: access_token,
+          scopes: "")
       end
-    end
 
-    specify { expect { subject.import }.not_to raise_error }
+      before { expect(subject).to receive(:character).and_return(character).exactly(3).times }
+
+      let(:esi) do
+        instance_double(EveOnline::ESI::CharacterAssets,
+          scope: "esi-assets.read_assets.v1")
+      end
+
+      before { expect(EveOnline::ESI::CharacterAssets).to receive(:new).with(character_id: character_id, token: access_token).and_return(esi) }
+
+      before { expect(character).not_to receive(:character_assets) }
+
+      specify { expect { subject.update! }.not_to raise_error }
+    end
   end
 end

@@ -24,7 +24,7 @@ GIT
 
 GIT
   remote: https://github.com/rspec/rspec-expectations.git
-  revision: 85d6188d7bb41cc860bdd3330f7accd1f78418bd
+  revision: ecef292bcb4e7fe55e9486eefaa49965f47dcade
   branch: master
   specs:
     rspec-expectations (3.10.0.pre)
@@ -226,7 +226,7 @@ GEM
     factory_bot_rails (5.1.1)
       factory_bot (~> 5.1.0)
       railties (>= 4.2.0)
-    faker (2.7.0)
+    faker (2.8.0)
       i18n (>= 1.6, < 1.8)
     faker-bot (0.5.2)
       faker
@@ -343,7 +343,7 @@ GEM
     newrelic_rpm (6.7.0.359)
     niceql (0.1.25)
     nio4r (2.5.2)
-    nokogiri (1.10.5)
+    nokogiri (1.10.7)
       mini_portile2 (~> 2.4.0)
     oauth (0.5.4)
     oauth2 (1.4.2)
@@ -626,7 +626,7 @@ GEM
     yabeda-sidekiq (0.1.4)
       sidekiq
       yabeda
-    zeitwerk (2.2.1)
+    zeitwerk (2.2.2)
 
 PLATFORMS
   ruby
@@ -697,6 +697,7 @@ DEPENDENCIES
   rspec-rails!
   rspec-support!
   rubocop
+  rufus-scheduler
   sass-rails
   searchkick
   selenium-webdriver

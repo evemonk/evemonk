@@ -9,11 +9,11 @@ describe PushNotifications::NewSignIn do
 
   let(:notifications_count) { double }
 
-  subject(:service) { described_class.new(device, device_token, notifications_count) }
+  subject { described_class.new(device, device_token, notifications_count) }
 
-  specify { expect(service).to be_a(PushNotifications::Base) }
+  specify { expect(subject).to be_a(PushNotifications::Base) }
 
   describe "#alert" do
-    specify { expect(service.send(:alert)).to eq("New sign-in from Location (IP)") }
+    specify { expect(subject.send(:alert)).to eq("New sign-in from Location (IP)") }
   end
 end

@@ -30,24 +30,58 @@
   </head>
 
   <body>
-<!--    <div>-->
-      <%# if current_user %>
-        <%#= link_to("Sign Out", sign_out_path, method: :delete) %>
-      <%# else %>
-<!--        <%#= link_to("Sign In", sign_in_path) %><br>-->
-        <%#= link_to("Sign Up", sign_up_path) %>
-      <%# end %>
-<!--    </div>-->
-
     <div class="container">
-      <% if flash[:notice] %>
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-          <%= flash[:notice] %>
-          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+      <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <%= link_to("EveMonk", root_url, class: "navbar-brand") %>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbar">
+          <ul class="navbar-nav mr-auto">
+<!--            <li class="nav-item active">-->
+<!--              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>-->
+<!--            </li>-->
+            <% if current_user %>
+              <li class="nav-item">
+                <%= link_to("My characters", characters_path, class: "nav-link") %>
+              </li>
+              <li class="nav-item">
+                <%= link_to("Sign Out", sign_out_path, method: :delete, class: "nav-link") %>
+              </li>
+            <% else %>
+              <li class="nav-item">
+                <%= link_to("Sign In", sign_in_path, class: "nav-link") %>
+              </li>
+              <li class="nav-item">
+                <%= link_to("Sign Up", sign_up_path, class: "nav-link") %>
+              </li>
+            <% end %>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Universe</a>
+              <div class="dropdown-menu" aria-labelledby="dropdown">
+                <%= link_to("Alliances", universe_alliances_path, class: "dropdown-item") %>
+                <%= link_to("Corporations", universe_corporations_path, class: "dropdown-item") %>
+                <%= link_to("Characters", universe_characters_path, class: "dropdown-item") %>
+              </div>
+            </li>
+          </ul>
+<!--          <form class="form-inline">-->
+<!--            <input class="form-control" type="text" placeholder="Search">-->
+<!--          </form>-->
         </div>
-      <% end %>
+      </nav>
+
+      <div id="alerts">
+        <% if flash[:notice] %>
+          <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <%= flash[:notice] %>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        <% end %>
+      </div>
 
       <% if flash[:alert] %>
         <div class="alert alert-danger alert-dismissible fade show" role="alert">

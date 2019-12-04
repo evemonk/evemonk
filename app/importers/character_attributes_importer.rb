@@ -1,22 +1,14 @@
 # frozen_string_literal: true
 
-class CharacterAttributesImporter
-  attr_reader :character_id
+class CharacterAttributesImporter < CharacterBaseImporter
+  def update!
+    refresh_character_access_token
 
-  def initialize(character_id)
-    @character_id = character_id
-  end
-
-  def import
-    character = Character.find_by!(character_id: character_id)
-
-    esi = EveOnline::ESI::CharacterAttributes.new(character_id: character_id,
+    esi = EveOnline::ESI::CharacterAttributes.new(character_id: character.character_id,
                                                   token: character.access_token)
 
+    return unless character_scope_present?(esi.scope)
+
     character.update!(esi.as_json)
-  rescue ActiveRecord::RecordNotFound
-    Rails.logger.info("Character with ID #{character_id} not found")
-    # rescue EveOnline::Exceptions::Forbidden
-    #   Api::RefreshCharacterAccessToken.new(character_id).refresh
   end
 end

@@ -1,26 +1,18 @@
 # frozen_string_literal: true
 
-class CharacterSkillqueueImporter
-  attr_reader :character_id
+class CharacterSkillqueueImporter < CharacterBaseImporter
+  def update!
+    refresh_character_access_token
 
-  def initialize(character_id)
-    @character_id = character_id
-  end
-
-  def import
-    character = Character.find_by!(character_id: character_id)
-
-    esi = EveOnline::ESI::CharacterSkillQueue.new(character_id: character_id,
+    esi = EveOnline::ESI::CharacterSkillQueue.new(character_id: character.character_id,
                                                   token: character.access_token)
 
-    ActiveRecord::Base.transaction do
-      character.skillqueues.destroy_all
+    return unless character_scope_present?(esi.scope)
 
-      esi.skills.each do |skill|
-        character.skillqueues.create!(skill.as_json)
-      end
+    character.skillqueues.destroy_all
+
+    esi.skills.each do |skill|
+      character.skillqueues.create!(skill.as_json)
     end
-  rescue ActiveRecord::RecordNotFound
-    Rails.logger.info("Character with ID #{character_id} not found")
   end
 end

@@ -11,10 +11,15 @@
 
 <div class="row">
   <% @characters.each do |character| %>
-    <div class="col-xs-12 col-sm-12 col-md-8 col-lg-4 col-xl-4">
-      <h4 class="text-center text-break">
-        <%= link_to(character.name, character_path(character.character_id)) %>
-      </h4>
+    <div id="character_<%= character.character_id %>" class="col-xs-12 col-sm-12 col-md-8 col-lg-4 col-xl-4">
+      <div class="clearfix">
+        <h4 class="float-left"><%= link_to(character.name, character_path(character.character_id)) %></h4>
+        <%= form_with(url: character_path(character.character_id), model: character, class: "float-right") do %>
+          <%= button_tag("Refresh", class: "btn btn-primary mb-2") do %>
+            <%= image_tag("bootstrap-icons/icons/arrow-repeat.svg") %>
+          <% end %>
+        <% end %>
+      </div>
 
       <div class="card">
         <ul class="list-group list-group-flush">
@@ -42,6 +47,14 @@
           </li>
           <li class="list-group-item text-break">
             ISK: <%= character.wallet_formatted %>
+          </li>
+          <li class="list-group-item text-break text-center">
+            <%= form_with(url: character_path(character.character_id), model: character, method: :delete) do %>
+              <%= button_tag("Refresh", class: "btn btn-danger") do %>
+                Remove character
+                <%= image_tag("bootstrap-icons/icons/alert-circle.svg") %>
+              <% end %>
+            <% end %>
           </li>
         </ul>
         <p class="card-text text-center">

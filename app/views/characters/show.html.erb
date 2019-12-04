@@ -35,7 +35,14 @@
 
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
-    <h4 class="text-center text-break"><%= @character.name %></h4>
+    <div class="clearfix">
+      <h4 class="float-left"><%= @character.name %></h4>
+      <%= form_with(url: character_path(@character.character_id), model: @character, class: "float-right") do %>
+        <%= button_tag("Refresh", class: "btn btn-primary mb-2") do %>
+          <%= image_tag("bootstrap-icons/icons/arrow-repeat.svg") %>
+        <% end %>
+      <% end %>
+    </div>
 
     <div class="card">
       <ul class="list-group list-group-flush">
@@ -113,6 +120,12 @@
           </td>
           <td class="align-middle text-break">
             <abbr title="<%= @character.charisma_attribute&.description %>">Charisma:</abbr>
+            <%#= link_to("Charisma:", "#collapseCharisma", "data-toggle": "collapse", role: "button") %>
+<!--            <div id="collapseCharisma" class="collapse">-->
+<!--              <div class="card-body">-->
+                <%#= @character.charisma_attribute&.description %>
+<!--              </div>-->
+<!--            </div>-->
           </td>
           <td><%= @character.charisma %></td>
         </tr>
@@ -171,43 +184,6 @@
       </tbody>
     </table>
 
-    <div id="attributes_chart">
-    </div>
-
-    <script>
-        document.addEventListener("turbolinks:load", () => {
-            console.log("test");
-
-            var options = {
-                chart: {
-                    height: 350,
-                    type: "radar",
-                },
-                series: [{
-                    name: 'Base',
-                    data: [<%= @character.charisma %>,
-                           <%= @character.intelligence %>,
-                           <%= @character.memory %>,
-                           <%= @character.perception %>,
-                           <%= @character.willpower %>],
-                }],
-                title: {
-                    text: "Character attributes radar",
-                },
-                labels: ["Charisma", "Intelligence", "Memory", "Perception", "Willpower"],
-                yaxis: {
-                    min: 0,
-                    max: 30,
-                },
-            };
-
-            document.querySelector("#attributes_chart").innerHTML = "";
-
-            var chart = new ApexCharts(document.querySelector("#attributes_chart"), options);
-
-            chart.render();
-        });
-    </script>
   </div>
 
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
@@ -264,22 +240,6 @@
 
 <!--        <tr>-->
 <!--          <td><%#= @character.accrued_remap_cooldown_date %></td>-->
-<!--        </tr>-->
-
-<!--        <tr>-->
-<!--          <td><%#= @character.race_id %></td>-->
-<!--        </tr>-->
-
-<!--        <tr>-->
-<!--          <td><%#= @character.bloodline_id %></td>-->
-<!--        </tr>-->
-
-<!--        <tr>-->
-<!--          <td><%#= @character.ancestry_id %></td>-->
-<!--        </tr>-->
-
-<!--        <tr>-->
-<!--          <td><%#= @character.faction_id %></td>-->
 <!--        </tr>-->
 
 <!--        <tr>-->

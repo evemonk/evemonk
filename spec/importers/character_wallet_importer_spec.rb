@@ -3,49 +3,66 @@
 require "rails_helper"
 
 describe CharacterWalletImporter do
-  context "when character found" do
-    let(:character_id) { double }
+  let(:character_id) { double }
 
-    subject { described_class.new(character_id) }
+  subject { described_class.new(character_id) }
 
-    let(:access_token) { double }
+  it { should be_a(CharacterBaseImporter) }
 
-    let(:character) { instance_double(Character, access_token: access_token) }
+  describe "#update!" do
+    context "when scope present" do
+      before { expect(subject).to receive(:refresh_character_access_token) }
 
-    before { expect(Character).to receive(:find_by!).with(character_id: character_id).and_return(character) }
+      let(:access_token) { double }
 
-    let(:json) { double }
-
-    let(:esi) do
-      instance_double(EveOnline::ESI::CharacterWallet,
-        as_json: json)
-    end
-
-    before { expect(EveOnline::ESI::CharacterWallet).to receive(:new).with(character_id: character_id, token: access_token).and_return(esi) }
-
-    before { expect(character).to receive(:update!).with(json) }
-
-    specify { expect { subject.import }.not_to raise_error }
-  end
-
-  context "when character not found (ActiveRecord::RecordNotFound)" do
-    let(:character_id) { double }
-
-    subject { described_class.new(character_id) }
-
-    before { expect(Character).to receive(:find_by!).with(character_id: character_id).and_raise(ActiveRecord::RecordNotFound) }
-
-    before do
-      #
-      # Rails.logger.info("Character with ID #{ character_id } not found")
-      #
-      expect(Rails).to receive(:logger) do
-        double.tap do |a|
-          expect(a).to receive(:info).with("Character with ID #{character_id} not found")
-        end
+      let(:character) do
+        instance_double(Character,
+          character_id: character_id,
+          access_token: access_token,
+          scopes: "esi-wallet.read_character_wallet.v1")
       end
+
+      before { expect(subject).to receive(:character).and_return(character).exactly(4).times }
+
+      let(:json) { double }
+
+      let(:esi) do
+        instance_double(EveOnline::ESI::CharacterWallet,
+          scope: "esi-wallet.read_character_wallet.v1",
+          as_json: json)
+      end
+
+      before { expect(EveOnline::ESI::CharacterWallet).to receive(:new).with(character_id: character_id, token: access_token).and_return(esi) }
+
+      before { expect(character).to receive(:update!).with(json) }
+
+      specify { expect { subject.update! }.not_to raise_error }
     end
 
-    specify { expect { subject.import }.not_to raise_error }
+    context "when scope not present" do
+      before { expect(subject).to receive(:refresh_character_access_token) }
+
+      let(:access_token) { double }
+
+      let(:character) do
+        instance_double(Character,
+          character_id: character_id,
+          access_token: access_token,
+          scopes: "")
+      end
+
+      before { expect(subject).to receive(:character).and_return(character).exactly(3).times }
+
+      let(:esi) do
+        instance_double(EveOnline::ESI::CharacterWallet,
+          scope: "esi-wallet.read_character_wallet.v1")
+      end
+
+      before { expect(EveOnline::ESI::CharacterWallet).to receive(:new).with(character_id: character_id, token: access_token).and_return(esi) }
+
+      before { expect(character).not_to receive(:update!) }
+
+      specify { expect { subject.update! }.not_to raise_error }
+    end
   end
 end

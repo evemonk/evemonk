@@ -16,9 +16,20 @@ class CharactersController < ApplicationController
       .decorate
   end
 
+  def update
+    @character = current_user.characters.find_by!(character_id: params[:id])
+
+    UpdateCharacterInfoService.new(@character.character_id).execute
+
+    respond_to do |format|
+      format.js
+      format.html { redirect_to character_path(@character.character_id) }
+    end
+  end
+
   def destroy
-    # current_user.characters.find_by!(character_id: params[:id]).destroy!
-    #
-    # head :no_content
+    @character = current_user.characters.find_by!(character_id: params[:id])
+
+    @character.destroy!
   end
 end

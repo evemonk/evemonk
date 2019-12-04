@@ -9,7 +9,7 @@ describe Api::RefreshCharacterAccessToken do
         token_expires_at: Time.zone.now + 1.day)
     end
 
-    subject { described_class.new(character.character_id) }
+    subject { described_class.new(character) }
 
     before { expect(character).not_to receive(:update!) }
 
@@ -33,9 +33,7 @@ describe Api::RefreshCharacterAccessToken do
         token_expires_at: Time.zone.now)
     end
 
-    subject { described_class.new(character.character_id) }
-
-    before { expect(Character).to receive(:find_by).with(character_id: 1_337_512_245).and_return(character) }
+    subject { described_class.new(character) }
 
     before { expect(character).to receive(:update!) }
 
