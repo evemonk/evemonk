@@ -2,8 +2,6 @@
 
 require_relative "config/environment"
 
-# require_relative "app/jobs/update_characters_job"
-
 scheduler = Rufus::Scheduler.new
 
 scheduler.in "3s" do
