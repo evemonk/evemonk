@@ -79,7 +79,50 @@ describe CharactersController do
     it { should render_template(:show) }
   end
 
-  describe "#update"
+  describe "#update" do
+    let(:current_user) { instance_double(User) }
+
+    before { sign_in(current_user) }
+
+    let(:character) { build(:character, character_id: 1) }
+
+    before do
+      #
+      # current_user.characters.find_by!(character_id: params[:id])
+      #
+      expect(current_user).to receive(:characters) do
+        double.tap do |a|
+          expect(a).to receive(:find_by!).with(character_id: "1")
+            .and_return(character)
+        end
+      end
+    end
+
+    before do
+      #
+      # UpdateCharacterInfoService.new(@character.character_id).execute
+      #
+      expect(UpdateCharacterInfoService).to receive(:new).with(1) do
+        double.tap do |a|
+          expect(a).to receive(:execute)
+        end
+      end
+    end
+
+    context "when format js" do
+      before { patch :update, params: {id: "1", format: "js"} }
+
+      it { should respond_with(:ok) }
+
+      it { should render_template(:update) }
+    end
+
+    context "when format html" do
+      before { patch :update, params: {id: "1", format: "html"} }
+
+      it { should redirect_to(character_path(character.character_id)) }
+    end
+  end
 
   describe "#destroy"
 end
