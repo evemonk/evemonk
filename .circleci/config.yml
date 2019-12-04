@@ -42,7 +42,7 @@ jobs:
       - run: yarn install
       - run: curl -L https://github.com/hadolint/hadolint/releases/download/v1.17.3/hadolint-Linux-x86_64 > ./hadolint
       - run: chmod +x ./hadolint
-      - run: wget -qO- https://shellcheck.storage.googleapis.com/shellcheck-stable.darwin.x86_64.tar.xz | tar -xJv
+      - run: wget -qO- https://storage.googleapis.com/shellcheck/shellcheck-stable.linux.x86_64.tar.xz | tar -xJv
       - run: shellcheck-stable/shellcheck -v
       - run: bundle exec rails db:create
       - run: bundle exec rails db:migrate
