@@ -42,6 +42,8 @@ jobs:
       - run: yarn install
       - run: curl -L https://github.com/hadolint/hadolint/releases/download/v1.17.3/hadolint-Linux-x86_64 > ./hadolint
       - run: chmod +x ./hadolint
+      - run: wget -qO- https://shellcheck.storage.googleapis.com/shellcheck-stable.darwin.x86_64.tar.xz | tar -xJv
+      - run: shellcheck-stable/shellcheck -v
       - run: bundle exec rails db:create
       - run: bundle exec rails db:migrate
       - run: bundle exec rspec --profile
@@ -62,4 +64,5 @@ jobs:
       - run: bundle exec rake traceroute FAIL_ON_ERROR=1 || true
       - run: bundle exec rake SECRET_KEY_BASE=blablabla DB_ADAPTER=nulldb assets:precompile
       - run: ./hadolint --ignore DL3008 --ignore DL3009 --ignore DL3028 --ignore DL4006 --ignore DL3025 Dockerfile # TODO: remove DL3028
+      - run: shellcheck-stable/shellcheck bin/backend.sh bin/sidekiq.sh
       - run: ./cc-test-reporter after-build
