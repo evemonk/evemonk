@@ -40,7 +40,13 @@ module Eve
 
     def search_data
       {
-        name: name,
+        name_en: name_en,
+        name_de: name_de,
+        name_fr: name_fr,
+        name_ja: name_ja,
+        name_ru: name_ru,
+        name_zh: name_zh,
+        name_ko: name_ko,
       }
     end
   end

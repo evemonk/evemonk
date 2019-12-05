@@ -28,10 +28,25 @@ describe Eve::Type do
   it { should have_many(:type_dogma_effects).with_primary_key("type_id").with_foreign_key("type_id").dependent(:destroy) }
 
   describe "#search_data" do
-    let!(:type) { build(:eve_type, name: "Ragnarok") }
+    let!(:type) do
+      build(:eve_type,
+        name_en: "Ragnarok",
+        name_de: "Ragnarok1",
+        name_fr: "Ragnarok2",
+        name_ja: "ラグナロク",
+        name_ru: "Ragnarok3",
+        name_zh: "拉格纳洛克级",
+        name_ko: "라그나로크")
+    end
 
     specify do
-      expect(type.search_data).to eq(name: "Ragnarok")
+      expect(type.search_data).to eq(name_en: "Ragnarok",
+                                     name_de: "Ragnarok1",
+                                     name_fr: "Ragnarok2",
+                                     name_ja: "ラグナロク",
+                                     name_ru: "Ragnarok3",
+                                     name_zh: "拉格纳洛克级",
+                                     name_ko: "라그나로크")
     end
   end
 end
