@@ -3,6 +3,7 @@
 [![CircleCI](https://circleci.com/gh/evemonk/evemonk/tree/master.svg?style=svg)](https://circleci.com/gh/evemonk/evemonk/tree/master)
 [![Test Coverage](https://codeclimate.com/github/evemonk/evemonk/badges/coverage.svg)](https://codeclimate.com/github/evemonk/evemonk/coverage)
 [![security](https://hakiri.io/github/evemonk/evemonk/master.svg)](https://hakiri.io/github/evemonk/evemonk/master)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fevemonk%2Fevemonk.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fevemonk%2Fevemonk?ref=badge_shield)
 [![](https://images.microbadger.com/badges/image/biow0lf/evemonk.svg)](https://microbadger.com/images/biow0lf/evemonk)
 
 EveMonk is helper software for EVE Online.
@@ -86,3 +87,6 @@ app.save!
 ## License
 
 EveMonk is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
+
+
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fevemonk%2Fevemonk.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fevemonk%2Fevemonk?ref=badge_large)
