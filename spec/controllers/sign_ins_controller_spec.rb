@@ -74,6 +74,7 @@ describe SignInsController do
             password: "password",
             remember_me: "1",
           },
+          format: "js"
         }
       end
 
