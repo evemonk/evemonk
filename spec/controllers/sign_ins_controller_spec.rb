@@ -74,12 +74,15 @@ describe SignInsController do
             password: "password",
             remember_me: "1",
           },
+          format: "js",
         }
       end
 
+      it { should set_flash[:alert].to("Email and/or password is invalid") }
+
       it { should respond_with(:ok) }
 
-      it { should render_template(:show) }
+      it { should render_template(:create) }
     end
   end
 end
