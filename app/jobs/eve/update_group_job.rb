@@ -10,9 +10,9 @@ module Eve
       EveOnline::Exceptions::InternalServerError
 
     def perform(group_id)
-      # LanguageMapper::LANGUAGES.each_key do |locale|
+      LanguageMapper::LANGUAGES.each_key do |locale|
       #   Eve::GroupImporter.new(group_id, locale).import
-      # end
+      end
     end
   end
 end

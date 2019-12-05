@@ -9,10 +9,8 @@ module Eve
       EveOnline::Exceptions::BadGateway,
       EveOnline::Exceptions::InternalServerError
 
-    def perform
-      # LanguageMapper::LANGUAGES.each_key do |locale|
-      #   Eve::GroupsImporter.new(locale).import
-      # end
+    def perform(page = 1)
+      Eve::GroupsImporter.new(page).import
     end
   end
 end
