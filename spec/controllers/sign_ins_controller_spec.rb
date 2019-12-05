@@ -80,7 +80,7 @@ describe SignInsController do
 
       it { should respond_with(:ok) }
 
-      it { should render_template(:show) }
+      it { should render_template(:create) }
     end
   end
 end
