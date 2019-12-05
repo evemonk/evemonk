@@ -12,15 +12,15 @@ module Eve
 
         return if esi.not_modified?
 
-        import_new_categories
+        import_new_categories(esi)
 
-        remove_old_categories
+        remove_old_categories(esi)
 
         etag.update!(etag: esi.etag, body: esi.response)
       end
     end
 
-    def import_new_categories
+    def import_new_categories(esi)
       esi.category_ids.each do |category_id|
         unless Eve::Category.exists?(category_id: category_id)
           Eve::UpdateCategoryJob.perform_later(category_id)
@@ -28,7 +28,7 @@ module Eve
       end
     end
 
-    def remove_old_categories
+    def remove_old_categories(esi)
       eve_categories_ids = Eve::Category.pluck(:category_id)
 
       categories_ids_to_remove = eve_categories_ids - esi.category_ids

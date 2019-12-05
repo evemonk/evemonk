@@ -10,9 +10,9 @@ module Eve
       EveOnline::Exceptions::InternalServerError
 
     def perform(category_id)
-      # LanguageMapper::LANGUAGES.each_key do |locale|
-      #   Eve::CategoryImporter.new(category_id, locale).import
-      # end
+      LanguageMapper::LANGUAGES.each_key do |locale|
+        Eve::CategoryImporter.new(category_id, locale).import
+      end
     end
   end
 end
