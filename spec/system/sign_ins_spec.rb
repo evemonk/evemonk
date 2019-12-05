@@ -49,17 +49,17 @@ describe "Sign in features" do
   end
 
   it "when password wrong" do
-   create(:user, email: "me@example.com", password: "eidii7EeooVe8ahk")
+    create(:user, email: "me@example.com", password: "eidii7EeooVe8ahk")
 
-   visit "/sign_in"
+    visit "/sign_in"
 
-   fill_in "sign_in[email]", with: "me@example.com"
-   fill_in "sign_in[password]", with: "wrong-password"
+    fill_in "sign_in[email]", with: "me@example.com"
+    fill_in "sign_in[password]", with: "wrong-password"
 
-   click_button "Sign in"
+    click_button "Sign in"
 
-   expect(page).to have_content("Email and/or password is invalid")
+    expect(page).to have_content("Email and/or password is invalid")
 
-   expect(current_path).to eq("/sign_in")
+    expect(current_path).to eq("/sign_in")
   end
 end
