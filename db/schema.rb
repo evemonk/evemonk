@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_04_120147) do
+ActiveRecord::Schema.define(version: 2019_12_06_141046) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -370,6 +370,27 @@ ActiveRecord::Schema.define(version: 2019_12_04_120147) do
     t.boolean "obsolete"
     t.string "backgrounds", array: true
     t.string "foregrounds", array: true
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "eve_market_groups", force: :cascade do |t|
+    t.text "description_en"
+    t.text "description_de"
+    t.text "description_fr"
+    t.text "description_ja"
+    t.text "description_ru"
+    t.text "description_zh"
+    t.text "description_ko"
+    t.bigint "market_group_id"
+    t.string "name_en"
+    t.string "name_de"
+    t.string "name_fr"
+    t.string "name_ja"
+    t.string "name_ru"
+    t.string "name_zh"
+    t.string "name_ko"
+    t.bigint "parent_group_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
