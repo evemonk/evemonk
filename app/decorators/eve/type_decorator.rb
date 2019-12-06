@@ -2,8 +2,8 @@
 
 module Eve
   class TypeDecorator < ApplicationDecorator
-    decorates_associations :graphic, :icon, :type_dogma_attributes,
-      :type_dogma_effects
+    decorates_associations :graphic, :group, :icon, # :market_group,
+      :type_dogma_attributes, :type_dogma_effects
 
     def icon_tiny
       "#{imageproxy_url}https://images.evetech.net/types/#{type_id}/icon?size=32&tenant=tranquility"
