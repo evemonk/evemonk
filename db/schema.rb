@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_28_172754) do
+ActiveRecord::Schema.define(version: 2019_12_04_120147) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -628,7 +628,11 @@ ActiveRecord::Schema.define(version: 2019_11_28_172754) do
     t.string "salt"
     t.string "remember_me_token"
     t.datetime "remember_me_token_expires_at"
+    t.string "activation_state"
+    t.string "activation_token"
+    t.datetime "activation_token_expires_at"
     t.index "lower((email)::text)", name: "index_users_on_LOWER_email", unique: true
+    t.index ["activation_token"], name: "index_users_on_activation_token"
     t.index ["remember_me_token"], name: "index_users_on_remember_me_token"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
