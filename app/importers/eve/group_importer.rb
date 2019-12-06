@@ -5,7 +5,7 @@ module Eve
     attr_reader :group_id, :locale
 
     def initialize(group_id, locale = :en)
-      @type_id = group_id
+      @group_id = group_id
       @locale = locale
     end
 
