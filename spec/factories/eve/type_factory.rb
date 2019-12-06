@@ -4,7 +4,19 @@ FactoryBot.define do
   factory :eve_type, class: Eve::Type do
     capacity { 1.5 }
 
-    description { Faker::Lorem.paragraph }
+    description_en { Faker::Lorem.paragraph }
+
+    description_de { Faker::Lorem.paragraph }
+
+    description_fr { Faker::Lorem.paragraph }
+
+    description_ja { Faker::Lorem.paragraph }
+
+    description_ru { Faker::Lorem.paragraph }
+
+    description_zh { Faker::Lorem.paragraph }
+
+    description_ko { Faker::Lorem.paragraph }
 
     sequence(:graphic_id)
 

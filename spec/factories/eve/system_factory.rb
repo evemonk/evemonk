@@ -4,6 +4,7 @@ FactoryBot.define do
   factory :eve_system, class: Eve::System do
     sequence(:constellation_id)
 
+    # TODO: add translations
     name { Faker::Lorem.word }
 
     security_class { "B" }
