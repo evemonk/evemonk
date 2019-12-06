@@ -2,6 +2,8 @@
 
 module Eve
   class MarketGroupImporter
+    attr_reader :market_group_id, :locale
+
     def initialize(market_group_id, locale = :en)
       @market_group_id = market_group_id
       @locale = locale
