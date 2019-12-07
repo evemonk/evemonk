@@ -22,9 +22,9 @@ module Eve
       primary_key: "icon_id",
       optional: true
 
-    # belongs_to :market_group,
-    #   primary_key: "market_group_id",
-    #   optional: true
+    belongs_to :market_group,
+      primary_key: "market_group_id",
+      optional: true
 
     has_many :type_dogma_attributes,
       primary_key: "type_id",
