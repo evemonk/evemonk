@@ -111,75 +111,69 @@
     <table class="table table-striped table-bordered">
       <tbody>
         <tr>
-          <td>
+          <td class="align-middle text-center border-right-0 m-0 p-2">
             <%= image_tag(@character.charisma_attribute&.icon&.icon_url,
                           alt: "Charisma icon",
                           class: "rounded border",
                           size: "34x34",
                           loading: "lazy") %>
           </td>
-          <td class="align-middle text-break">
+          <td class="align-middle text-break border-left-0">
             <abbr title="<%= @character.charisma_attribute&.description %>">Charisma:</abbr>
-            <%#= link_to("Charisma:", "#collapseCharisma", "data-toggle": "collapse", role: "button") %>
-<!--            <div id="collapseCharisma" class="collapse">-->
-<!--              <div class="card-body">-->
-                <%#= @character.charisma_attribute&.description %>
-<!--              </div>-->
-<!--            </div>-->
           </td>
-          <td><%= @character.charisma %></td>
+          <td class="align-middle text-center"><%= @character.charisma %></td>
         </tr>
         <tr>
-          <td>
+          <td class="align-middle text-center border-right-0 m-0 p-2">
             <%= image_tag(@character.intelligence_attribute&.icon&.icon_url,
                           alt: "Intelligence icon",
                           class: "rounded border",
                           size: "34x34",
                           loading: "lazy") %>
           </td>
-          <td class="align-middle text-break">
+          <td class="align-middle text-break border-left-0">
             <abbr title="<%= @character.intelligence_attribute&.description %>">Intelligence:</abbr>
           </td>
-          <td><%= @character.intelligence %></td>
+          <td class="align-middle text-center"><%= @character.intelligence %></td>
         </tr>
         <tr>
-          <td>
+          <td class="align-middle text-center border-right-0 m-0 p-2">
             <%= image_tag(@character.memory_attribute&.icon&.icon_url,
                           alt: "Memory icon",
                           class: "rounded border",
                           size: "34x34",
                           loading: "lazy") %>
           </td>
-          <td class="align-middle text-break">
+          <td class="align-middle text-break border-left-0">
             <abbr title="<%= @character.memory_attribute&.description %>">Memory:</abbr>
           </td>
-          <td><%= @character.memory %></td>
+          <td class="align-middle text-center"><%= @character.memory %></td>
         </tr>
         <tr>
-          <td>
+          <td class="align-middle text-center border-right-0 m-0 p-2">
             <%= image_tag(@character.perception_attribute&.icon&.icon_url,
                           alt: "Perception icon",
                           class: "rounded border",
                           size: "34x34",
                           loading: "lazy") %>
           </td>
-          <td class="align-middle text-break">
+          <td class="align-middle text-break border-left-0">
             <abbr title="<%= @character.perception_attribute&.description %>">Perception:</abbr>
           </td>
-          <td><%= @character.perception %></td>
+          <td class="align-middle text-center"><%= @character.perception %></td>
         </tr>
         <tr>
-          <td>
+          <td class="align-middle text-center border-right-0 m-0 p-2">
             <%= image_tag(@character.willpower_attribute&.icon&.icon_url,
                           alt: "Willpower icon",
                           class: "rounded border",
                           size: "34x34",
                           loading: "lazy") %>
           </td>
-          <td class="align-middle text-break">
+          <td class="align-middle text-break border-left-0">
             <abbr title="<%= @character.willpower_attribute&.description %>">Willpower:</abbr>
           </td>
-          <td><%= @character.willpower %></td>
+          <td class="align-middle text-center"><%= @character.willpower %></td>
         </tr>
       </tbody>
     </table>
