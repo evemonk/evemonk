@@ -29,4 +29,19 @@ scheduler.every "7d" do
   Eve::UpdateFactionsJob.perform_later
 end
 
+scheduler.every "7d" do
+  Rails.logger.info "Update eve categories"
+  Eve::UpdateCategoriesJob.perform_later
+end
+
+scheduler.every "7d" do
+  Rails.logger.info "Update eve groups"
+  Eve::UpdateGroupsJob.perform_later
+end
+
+scheduler.every "7d" do
+  Rails.logger.info "Update eve market groups"
+  Eve::UpdateMarketGroupsJob.perform_later
+end
+
 scheduler.join
