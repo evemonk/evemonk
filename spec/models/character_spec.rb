@@ -19,6 +19,8 @@ describe Character do
 
   it { should belong_to(:corporation).class_name("Eve::Corporation").with_primary_key("corporation_id").optional(true) }
 
+  it { should belong_to(:current_ship_type).class_name("Eve::Type").with_primary_key("type_id").with_foreign_key("current_ship_type_id").optional(true) }
+
   it { should have_many(:loyalty_points).dependent(:destroy) }
 
   it { should have_many(:character_assets).dependent(:destroy) }
