@@ -22,22 +22,6 @@
     every: 1m
     class: Eve::ServerStatusImporterWorker
     description: 'Server status'
-  eve_races:
-    every: 7d
-    class: Eve::RacesImporterWorker
-    description: 'Import Races'
-  eve_bloodlines:
-    every: 7d
-    class: Eve::BloodlinesImporterWorker
-    description: 'Import Bloodlines'
-  eve_ancestries:
-    every: 7d
-    class: Eve::AncestriesImporterWorker
-    description: 'Import Ancestries'
-  eve_factions:
-    every: 7d
-    class: Eve::FactionsImporterWorker
-    description: 'Import Factions'
   eve_alliances:
     every: 1d
     class: Eve::AlliancesImporterWorker
