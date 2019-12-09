@@ -79,6 +79,9 @@
             Faction: <%= @character.faction.name %>
           </li>
         <% end %>
+        <li class="list-group-item">
+          Gender: <%= @character.gender %>
+        </li>
         <li class="list-group-item text-break">
           SP: <%= @character.total_sp_formatted %>
         </li>
@@ -195,7 +198,7 @@
                             loading: "lazy") %>
             </td>
             <td class="align-middle text-break border-left-0">
-              <%= implant.name %>
+              <%= link_to(implant.name, universe_type_path(implant.type_id)) %>
             </td>
           </tr>
         <% end %>
@@ -214,10 +217,6 @@
 <!--      <tbody>-->
 <!--        <tr>-->
 <!--          <td><%#= @character.character_id %></td>-->
-<!--        </tr>-->
-
-<!--        <tr>-->
-<!--          <td><%#= @character.gender %></td>-->
 <!--        </tr>-->
 
 <!--        <tr>-->
