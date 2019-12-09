@@ -78,6 +78,7 @@ app.save!
 * [Idiosyncratic Ruby](https://github.com/janlelis/idiosyncratic-ruby.com)
 * [Fundamental programming with ruby examples](https://github.com/khusnetdinov/ruby.fundamental)
 * [Rails Directory Structure Guide](https://github.com/jwipeout/rails-directory-structure-guide)
+* [A free guide to HTML5 <head> elements](https://htmlhead.dev)
 
 ## Author
 
