@@ -2,7 +2,7 @@
 
 module Eve
   class TypeDecorator < ApplicationDecorator
-    decorates_associations :graphic, :group, :icon, # :market_group,
+    decorates_associations :graphic, :group, :icon, :market_group,
       :type_dogma_attributes, :type_dogma_effects
 
     def icon_tiny
