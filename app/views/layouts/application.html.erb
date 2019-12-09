@@ -14,6 +14,9 @@
     <!-- Disable translation prompt -->
     <meta name="google" content="notranslate">
 
+    <!-- Disable automatic detection and formatting of possible phone numbers -->
+    <meta name="format-detection" content="telephone=no">
+
     <% if Setting.use_google_search_console %>
       <!-- Google Search Console -->
       <meta name="google-site-verification" content="<%= Setting.google_site_verification_token %>">
