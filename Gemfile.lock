@@ -277,6 +277,9 @@ GEM
       activerecord
       kaminari-core (= 1.1.1)
     kaminari-core (1.1.1)
+    kaminari-i18n (0.5.0)
+      kaminari
+      rails
     kramdown (2.1.0)
     kramdown-parser-gfm (1.1.0)
       kramdown (~> 2.0)
@@ -662,6 +665,7 @@ DEPENDENCIES
   jbuilder (~> 2.7)
   jwt
   kaminari
+  kaminari-i18n
   license_finder
   listen (>= 3.0.5, < 3.2)
   lograge
