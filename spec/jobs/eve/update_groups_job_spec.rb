@@ -6,11 +6,13 @@ describe Eve::UpdateGroupsJob do
   it { expect(described_class.queue_name).to eq("default") }
 
   describe "#perform" do
+    let(:page) { double }
+
     before do
       #
       # Eve::GroupsImporter.new(page).import
       #
-      expect(Eve::GroupsImporter).to receive(:new).with(1) do
+      expect(Eve::GroupsImporter).to receive(:new).with(page) do
         double.tap do |a|
           expect(a).to receive(:import)
         end
@@ -19,6 +21,6 @@ describe Eve::UpdateGroupsJob do
 
     subject { described_class.new }
 
-    specify { expect { subject.perform }.not_to raise_error }
+    specify { expect { subject.perform(page) }.not_to raise_error }
   end
 end
