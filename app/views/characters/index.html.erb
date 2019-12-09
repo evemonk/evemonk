@@ -66,13 +66,10 @@
     </div>
   <% end %>
 
-  <div class="col-xs-12 col-sm-12 col-md-8 col-lg-4 col-xl-4">
-    <%= link_to("Sign in via EVE Online", "/auth/eve_online_sso") %>
-
-    <!--TODO-->
-    <%#= form_with(url: "/auth/eve_online_sso") do |f| %>
-      <%#= f.button "Sign in via EVE Online" %>
-    <%# end %>
+  <div class="col-xs-12 col-sm-12 col-md-8 col-lg-4 col-xl-4 text-center">
+    <%= link_to(image_tag("#{ Setting.image_proxy_url if Setting.use_image_proxy }https://web.ccpgamescdn.com/eveonlineassets/developers/eve-sso-login-black-large.png",
+                          alt: "Sign in via EVE Online"),
+                "/auth/eve_online_sso") %>
   </div>
 
   <div class="w-100"></div>
