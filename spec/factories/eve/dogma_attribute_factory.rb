@@ -2,24 +2,24 @@
 
 FactoryBot.define do
   factory :eve_dogma_attribute, class: Eve::DogmaAttribute do
-    attribute_id { "" }
+    sequence(:attribute_id)
 
     default_value { 1.5 }
 
-    description { "MyString" }
+    description { Faker::Lorem.paragraph }
 
-    display_name { "MyString" }
+    display_name { Faker::Lorem.word }
 
-    high_is_good { false }
+    high_is_good { [true, false].sample }
 
-    icon_id { "" }
+    sequence(:icon_id)
 
-    name { "MyString" }
+    name { Faker::Lorem.word }
 
-    published { false }
+    published { [true, false].sample }
 
-    stackable { false }
+    stackable { [true, false].sample }
 
-    unit_id { "" }
+    sequence(:unit_id)
   end
 end
