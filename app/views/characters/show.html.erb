@@ -115,8 +115,12 @@
       <ul class="list-group list-group-flush">
         <% if @character.current_ship_type %>
           <li class="list-group-item text-center">
-            <%= @character.current_ship_name %> / <%= link_to(@character.current_ship_type.name, universe_type_path(@character.current_ship_type.type_id)) %>
+            Name: <%= @character.current_ship_name %>
           </li>
+          <li class="list-group-item text-center">
+            <%= link_to(@character.current_ship_type.name, universe_type_path(@character.current_ship_type.type_id)) %>
+          </li>
+
           <li class="list-group-item text-center">
             <%= image_tag(@character.current_ship_type.render_large,
                           alt: @character.current_ship_type.name,
