@@ -1,0 +1,36 @@
+<div class="row">
+  <div class="col">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><%= link_to("Home", root_path) %></li>
+        <li class="breadcrumb-item"><%= link_to("My characters", characters_path) %></li>
+        <li class="breadcrumb-item"><%= link_to(@character.name, character_path(@character.character_id)) %></li>
+        <li class="breadcrumb-item active" aria-current="page">Skills</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+<ul class="nav nav-pills">
+  <li class="nav-item">
+    <%= link_to("Sheet", character_path(@character.character_id), class: "nav-link") %>
+  </li>
+  <li class="nav-item">
+    <%= link_to("Employment History", character_employment_histories_path(@character.character_id), class: "nav-link") %>
+  </li>
+  <li class="nav-item">
+    <%= link_to("Assets", character_assets_path(@character.character_id), class: "nav-link") %>
+  </li>
+  <li class="nav-item">
+    <%= link_to("Loyalty points", character_loyalty_points_path(@character.character_id), class: "nav-link") %>
+  </li>
+  <li class="nav-item">
+    <%= link_to("Skill queue", nil, class: "nav-link") %>
+  </li>
+  <li class="nav-item">
+    <%= link_to("Skills", character_skills_path(@character.character_id), class: "nav-link active") %>
+  </li>
+</ul>
+
+<hr>
+
