@@ -21,8 +21,6 @@ describe Eve::CorporationsSearcher do
 
       before { expect(Eve::Corporation).to receive(:all).and_return(scope) }
 
-      subject { described_class.new }
-
       its(:query) { should eq(nil) }
 
       its(:scope) { should eq(scope) }
@@ -36,8 +34,6 @@ describe Eve::CorporationsSearcher do
       let!(:corporation2) { create(:eve_corporation, name: "b") }
 
       let!(:corporation3) { create(:eve_corporation, name: "c") }
-
-      subject { described_class.new }
 
       specify { expect(subject.search.count).to eq(3) }
 

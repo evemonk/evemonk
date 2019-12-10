@@ -21,8 +21,6 @@ describe Eve::AlliancesSearcher do
 
       before { expect(Eve::Alliance).to receive(:all).and_return(scope) }
 
-      subject { described_class.new }
-
       its(:query) { should eq(nil) }
 
       its(:scope) { should eq(scope) }
@@ -36,8 +34,6 @@ describe Eve::AlliancesSearcher do
       let!(:alliance2) { create(:eve_alliance, name: "b") }
 
       let!(:alliance3) { create(:eve_alliance, name: "c") }
-
-      subject { described_class.new }
 
       specify { expect(subject.search.count).to eq(3) }
 

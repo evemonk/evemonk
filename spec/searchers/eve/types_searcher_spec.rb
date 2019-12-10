@@ -21,8 +21,6 @@ describe Eve::TypesSearcher do
 
       before { expect(Eve::Type).to receive(:all).and_return(scope) }
 
-      subject { described_class.new }
-
       its(:query) { should eq(nil) }
 
       its(:scope) { should eq(scope) }
@@ -36,8 +34,6 @@ describe Eve::TypesSearcher do
       let!(:type2) { create(:eve_type, name: "b", published: true) }
 
       let!(:type3) { create(:eve_type, name: "c", published: true) }
-
-      subject { described_class.new }
 
       specify { expect(subject.search.count).to eq(3) }
 
