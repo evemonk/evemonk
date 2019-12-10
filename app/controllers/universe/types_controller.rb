@@ -8,6 +8,7 @@ module Universe
     end
 
     def show
+      @type = Eve::Type.find_by!(type_id: params[:id]).decorate
     end
   end
 end
