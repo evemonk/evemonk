@@ -20,13 +20,13 @@ describe Eve::CharactersImporter do
 
     before { expect(Eve::Corporation).to receive(:pluck).with(:creator_id).and_return(corporation_creator_ids) }
 
-    before { expect(Eve::CharacterImporterWorker).to receive(:perform_async).with(1) }
+    before { expect(Eve::UpdateCharacterJob).to receive(:perform_later).with(1) }
 
-    before { expect(Eve::CharacterImporterWorker).to receive(:perform_async).with(2) }
+    before { expect(Eve::UpdateCharacterJob).to receive(:perform_later).with(2) }
 
-    before { expect(Eve::CharacterImporterWorker).to receive(:perform_async).with(3) }
+    before { expect(Eve::UpdateCharacterJob).to receive(:perform_later).with(3) }
 
-    before { expect(Eve::CharacterImporterWorker).to receive(:perform_async).with(4) }
+    before { expect(Eve::UpdateCharacterJob).to receive(:perform_later).with(4) }
 
     specify { expect { subject.import }.not_to raise_error }
   end
