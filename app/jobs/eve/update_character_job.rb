@@ -11,7 +11,6 @@ module Eve
 
     def perform(character_id)
       Eve::CharacterImporter.new(character_id).import
-      # Eve::CharacterCorporationHistoryImporter.new(character_id).import
     end
   end
 end
