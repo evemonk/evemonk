@@ -45,6 +45,7 @@ describe Universe::AlliancesController do
       # Eve::Alliance.includes(:faction, :creator_corporation, :creator, :executor_corporation)
       #              .find_by!(alliance_id: params[:id])
       #              .decorate
+      #
       expect(Eve::Alliance).to receive(:includes).with(:faction, :creator_corporation, :creator, :executor_corporation) do
         double.tap do |a|
           expect(a).to receive(:find_by!).with(alliance_id: "1354830081") do
