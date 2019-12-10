@@ -36,6 +36,8 @@ Rails.application.routes.draw do
 
   resource :sign_out, only: :destroy
 
+  resource :faq, only: :show
+
   namespace :auth do
     namespace :eve_online_sso do
       resource :callback, only: :show
