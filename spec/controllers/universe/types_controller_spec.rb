@@ -21,7 +21,7 @@ describe Universe::TypesController do
       end
     end
 
-    before { get :index, params: {id: "9899"} }
+    before { get :show, params: {id: "9899"} }
 
     it { should respond_with(:ok) }
 
