@@ -23,8 +23,6 @@ describe Eve::UpdateTypeJob do
       end
     end
 
-    subject { described_class.new }
-
     specify { expect { subject.perform(type_id) }.not_to raise_error }
   end
 end

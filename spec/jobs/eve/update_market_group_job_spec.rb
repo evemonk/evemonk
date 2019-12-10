@@ -23,8 +23,6 @@ describe Eve::UpdateMarketGroupJob do
       end
     end
 
-    subject { described_class.new }
-
     specify { expect { subject.perform(market_group_id) }.not_to raise_error }
   end
 end

@@ -19,8 +19,6 @@ describe Eve::UpdateGroupsJob do
       end
     end
 
-    subject { described_class.new }
-
     specify { expect { subject.perform(page) }.not_to raise_error }
   end
 end

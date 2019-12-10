@@ -23,8 +23,6 @@ describe Eve::UpdateCategoryJob do
       end
     end
 
-    subject { described_class.new }
-
     specify { expect { subject.perform(category_id) }.not_to raise_error }
   end
 end
