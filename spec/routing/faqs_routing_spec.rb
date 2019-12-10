@@ -7,7 +7,7 @@ describe FaqsController do
     it "should route GET /faq to faqs#show" do
       expect(get: "/faq").to route_to(
         controller: "faqs",
-        action: "show",
+        action: "show"
       )
     end
   end
