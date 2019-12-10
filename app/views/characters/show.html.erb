@@ -218,20 +218,20 @@
 
     <table class="table table-striped table-bordered">
       <tbody>
-      <% @character.implants.each do |implant| %>
-        <tr>
-          <td class="align-middle text-center border-right-0 m-0 p-2">
-            <%= image_tag(implant.icon_tiny,
-                          alt: implant.name,
-                          class: "rounded border",
-                          size: "34x34",
-                          loading: "lazy") %>
-          </td>
-          <td class="align-middle text-break border-left-0">
-            <%= link_to(implant.name, universe_type_path(implant.type_id)) %>
-          </td>
-        </tr>
-      <% end %>
+        <% @character.implants.each do |implant| %>
+          <tr>
+            <td class="align-middle text-center border-right-0 m-0 p-2">
+              <%= image_tag(implant.icon_tiny,
+                            alt: implant.name,
+                            class: "rounded border",
+                            size: "34x34",
+                            loading: "lazy") %>
+            </td>
+            <td class="align-middle text-break border-left-0">
+              <%= link_to(implant.name, universe_type_path(implant.type_id)) %>
+            </td>
+          </tr>
+        <% end %>
       </tbody>
     </table>
   </div>
