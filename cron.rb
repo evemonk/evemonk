@@ -49,4 +49,9 @@ scheduler.every "7d" do
   Eve::UpdateCharactersJob.perform_later
 end
 
+scheduler.every "7d" do
+  Rails.logger.info "Update eve characters corporation history"
+  Eve::UpdateCharactersCorporationHistoryJob.perform_later
+end
+
 scheduler.join
