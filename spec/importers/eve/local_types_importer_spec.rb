@@ -13,7 +13,7 @@ describe Eve::LocalTypesImporter do
       expect(Eve::Type).to receive(:pluck).with(:type_id).and_return([type_id])
     end
 
-    before { expect(Eve::TypeImporterWorker).to receive(:perform_async).with(type_id) }
+    before { expect(Eve::UpdateTypeJob).to receive(:perform_later).with(type_id) }
 
     specify { expect { subject.import }.not_to raise_error }
   end
