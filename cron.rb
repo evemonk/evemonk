@@ -40,6 +40,11 @@ scheduler.every "7d" do
 end
 
 scheduler.every "7d" do
+  Rails.logger.info "Update eve graphics"
+  Eve::UpdateGraphicsJob.perform_later
+end
+
+scheduler.every "7d" do
   Rails.logger.info "Update eve market groups"
   Eve::UpdateMarketGroupsJob.perform_later
 end
