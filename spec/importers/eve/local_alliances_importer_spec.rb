@@ -13,7 +13,7 @@ describe Eve::LocalAlliancesImporter do
       expect(Eve::Alliance).to receive(:pluck).with(:alliance_id).and_return([alliance_id])
     end
 
-    before { expect(Eve::AllianceImporterWorker).to receive(:perform_async).with(alliance_id) }
+    before { expect(Eve::UpdateAllianceJob).to receive(:perform_later).with(alliance_id) }
 
     specify { expect { subject.import }.not_to raise_error }
   end
