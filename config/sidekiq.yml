@@ -30,10 +30,6 @@
     every: 1d
     class: Eve::AlliancesCorporationsImporterWorker
     description: 'Import Alliances Corporations info'
-  eve_corporations:
-    every: 1d
-    class: Eve::CorporationsImporterWorker
-    description: 'Import Corporations info'
   eve_graphics_local:
     every: 7d
     class: Eve::LocalGraphicsImporterWorker
