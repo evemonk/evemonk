@@ -54,4 +54,9 @@ scheduler.every "7d" do
   Eve::UpdateCharactersCorporationHistoryJob.perform_later
 end
 
+scheduler.every "1d" do
+  Rails.logger.info "Update eve alliances"
+  Eve::UpdateAlliancesJob.perform_later
+end
+
 scheduler.join
