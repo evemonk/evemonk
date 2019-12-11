@@ -115,7 +115,7 @@ describe Eve::TypesImporter do
     context "when type not imported" do
       before { expect(Eve::Type).to receive(:exists?).with(type_id: universe_type_id).and_return(false) }
 
-      before { expect(Eve::TypeImporterWorker).to receive(:perform_async).with(universe_type_id) }
+      before { expect(Eve::UpdateTypeJob).to receive(:perform_later).with(universe_type_id) }
 
       specify { expect { subject.send(:import_types) }.not_to raise_error }
     end
@@ -123,7 +123,7 @@ describe Eve::TypesImporter do
     context "when type is imported" do
       before { expect(Eve::Type).to receive(:exists?).with(type_id: universe_type_id).and_return(true) }
 
-      before { expect(Eve::TypeImporterWorker).not_to receive(:perform_async) }
+      before { expect(Eve::UpdateTypeJob).not_to receive(:perform_later) }
 
       specify { expect { subject.send(:import_types) }.not_to raise_error }
     end
