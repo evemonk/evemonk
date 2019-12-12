@@ -35,6 +35,8 @@ describe Character do
 
   it { should have_many(:character_corporation_histories).with_primary_key("character_id").dependent(:destroy) }
 
+  it { should have_many(:character_mail_labels).dependent(:destroy) }
+
   describe "#charisma_attribute" do
     context "when @charisma_attribute is set" do
       let(:eve_charisma_attribute) { double }

@@ -55,6 +55,8 @@ class Character < ApplicationRecord
     primary_key: "character_id",
     dependent: :destroy
 
+  has_many :character_mail_labels, dependent: :destroy
+
   def charisma_attribute
     @charisma_attribute ||= Eve::CharacterAttribute.find_by(attribute_name: "Charisma").decorate
   end
