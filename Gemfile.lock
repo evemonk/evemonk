@@ -1,4 +1,12 @@
 GIT
+  remote: https://github.com/evemonk/eve_online.git
+  revision: 15a5c0b4e885dea8d8fd6caf860d446d9934c0dc
+  branch: dev
+  specs:
+    eve_online (0.30.0)
+      activesupport (>= 4.2.0)
+
+GIT
   remote: https://github.com/just806me/shoulda-callback-matchers.git
   revision: b3a93d43490cdb3062a437e2edfbd50d25eda79a
   branch: master
@@ -215,8 +223,6 @@ GEM
       tzinfo
     ethon (0.12.0)
       ffi (>= 1.3.0)
-    eve_online (0.30.0)
-      activesupport (>= 4.2.0)
     factory_bot (5.1.1)
       activesupport (>= 4.2.0)
     factory_bot_rails (5.1.1)
@@ -653,7 +659,7 @@ DEPENDENCIES
   dotenv-rails
   draper
   errbase
-  eve_online
+  eve_online!
   factory_bot_rails
   faker
   faker-bot
