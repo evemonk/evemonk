@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_10_194837) do
+ActiveRecord::Schema.define(version: 2019_12_12_182833) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,17 @@ ActiveRecord::Schema.define(version: 2019_12_10_194837) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["character_id"], name: "index_character_implants_on_character_id"
+  end
+
+  create_table "character_mail_labels", force: :cascade do |t|
+    t.bigint "character_id", null: false
+    t.string "color"
+    t.integer "label_id"
+    t.string "name"
+    t.integer "unread_count"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["character_id"], name: "index_character_mail_labels_on_character_id"
   end
 
   create_table "character_skills", force: :cascade do |t|
@@ -692,6 +703,7 @@ ActiveRecord::Schema.define(version: 2019_12_10_194837) do
   end
 
   add_foreign_key "character_assets", "characters"
+  add_foreign_key "character_mail_labels", "characters"
   add_foreign_key "character_skills", "characters"
   add_foreign_key "characters", "users"
   add_foreign_key "sessions", "users"
