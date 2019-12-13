@@ -8,7 +8,7 @@ FactoryBot.define do
 
     sequence(:label_id)
 
-    name { ["Inbox", "Sent", "[Corp]", "[Alliance]"].sample  }
+    name { ["Inbox", "Sent", "[Corp]", "[Alliance]"].sample }
 
     unread_count { 0 }
   end

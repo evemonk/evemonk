@@ -13,9 +13,8 @@ describe ApplicationHelper do
       # image_tag("#{Setting.image_proxy_url if Setting.use_image_proxy}#{image_uri}",
       #           alt: "Sign in via EVE Online")
       #
-      expect(helper).to receive(:image_tag).with(image_url,
-                                                 alt: "Sign in via EVE Online")
-                            .and_return(image_tag)
+      expect(helper).to receive(:image_tag).with(image_url, alt: "Sign in via EVE Online")
+        .and_return(image_tag)
     end
 
     before do
