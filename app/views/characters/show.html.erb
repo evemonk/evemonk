@@ -29,6 +29,9 @@
   <li class="nav-item">
     <%= link_to("Skills", character_skills_path(@character.character_id), class: "nav-link") %>
   </li>
+  <li class="nav-item">
+    <%= link_to("Mail", nil, class: "nav-link") %>
+  </li>
 </ul>
 
 <hr>
@@ -109,16 +112,13 @@
   </div>
 
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
-    <h4 class="text-center text-break">Current ship</h4>
+    <h4 class="text-center text-break">Current location &amp; ship</h4>
 
     <div class="card">
       <ul class="list-group list-group-flush">
         <% if @character.current_ship_type %>
           <li class="list-group-item text-center">
-            Name: <%= @character.current_ship_name %>
-          </li>
-          <li class="list-group-item text-center">
-            <%= link_to(@character.current_ship_type.name, universe_type_path(@character.current_ship_type.type_id)) %>
+            Ship: <%= link_to(@character.current_ship_type.name, universe_type_path(@character.current_ship_type.type_id)) %>
           </li>
 
           <li class="list-group-item text-center">
@@ -127,6 +127,8 @@
                           class: "rounded border",
                           size: "258x258",
                           loading: "lazy") %>
+            <br>
+            <%= @character.current_ship_name %>
           </li>
         <% end %>
       </ul>
@@ -138,6 +140,16 @@
 
     <table class="table table-striped table-bordered">
       <tbody>
+        <tr>
+          <td colspan="3" class="align-middle">
+            Neural Remap Available: <%#= @character.neural_remap_available %>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="3" class="align-middle">
+            Bonus Remap Available: <%= @character.bonus_remaps %>
+          </td>
+        </tr>
         <tr>
           <td class="align-middle text-center border-right-0 m-0 p-2">
             <%= image_tag(@character.charisma_attribute&.icon&.icon_url,
@@ -253,18 +265,6 @@
 <!--        </tr>-->
 
 <!--        <tr>-->
-<!--          <td><%#= @character.bonus_remaps %></td>-->
-<!--        </tr>-->
-
-<!--        <tr>-->
-<!--          <td><%#= @character.last_remap_date %></td>-->
-<!--        </tr>-->
-
-<!--        <tr>-->
-<!--          <td><%#= @character.accrued_remap_cooldown_date %></td>-->
-<!--        </tr>-->
-
-<!--        <tr>-->
 <!--          <td><%#= @character.current_solar_system_id %></td>-->
 <!--        </tr>-->
 
@@ -276,17 +276,6 @@
 <!--          <td><%#= @character.current_structure_id %></td>-->
 <!--        </tr>-->
 
-<!--        <tr>-->
-<!--          <td><%#= @character.current_ship_item_id %></td>-->
-<!--        </tr>-->
-
-<!--        <tr>-->
-<!--          <td><%#= @character.current_ship_name %></td>-->
-<!--        </tr>-->
-
-<!--        <tr>-->
-<!--          <td><%#= @character.current_ship_type_id %></td>-->
-<!--        </tr>-->
 <!--      </tbody>-->
 <!--    </table>-->
 <!--  </div>-->
