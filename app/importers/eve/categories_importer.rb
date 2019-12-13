@@ -21,10 +21,12 @@ module Eve
     end
 
     def import_new_categories(esi)
-      esi.category_ids.each do |category_id|
-        unless Eve::Category.exists?(category_id: category_id)
-          Eve::UpdateCategoryJob.perform_later(category_id)
-        end
+      eve_category_ids = Eve::Category.pluck(:category_id)
+
+      categories_ids_to_create = esi.category_ids - eve_category_ids
+
+      categories_ids_to_create.each do |category_id|
+        Eve::UpdateCategoryJob.perform_later(category_id)
       end
     end
 
@@ -35,10 +37,6 @@ module Eve
 
       categories_ids_to_remove.each do |category_id|
         eve_category = Eve::Category.find_or_initialize_by(category_id: category_id)
-
-        # eve_alliance.corporations.each do |corporation|
-        #   Eve::CorporationImporterWorker.perform_async(corporation.corporation_id)
-        # end
 
         eve_category.destroy!
       end
