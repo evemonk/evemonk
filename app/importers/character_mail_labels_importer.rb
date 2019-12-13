@@ -11,6 +11,8 @@ class CharacterMailLabelsImporter < CharacterBaseImporter
 
     character.character_mail_labels.destroy_all
 
+    character.update!(total_unread_count: esi.total_unread_count)
+
     esi.labels.each do |label|
       character.character_mail_labels.create!(label.as_json)
     end

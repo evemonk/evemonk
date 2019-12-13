@@ -22,7 +22,9 @@ describe CharacterMailLabelsImporter do
           scopes: "esi-mail.read_mail.v1")
       end
 
-      before { expect(subject).to receive(:character).and_return(character).exactly(5).times }
+      before { expect(subject).to receive(:character).and_return(character).exactly(6).times }
+
+      let(:total_unread_count) { double }
 
       let(:json) { double }
 
@@ -34,6 +36,7 @@ describe CharacterMailLabelsImporter do
       let(:esi) do
         instance_double(EveOnline::ESI::CharacterMailLabels,
           labels: [label],
+          total_unread_count: total_unread_count,
           scope: "esi-mail.read_mail.v1")
       end
 
@@ -49,6 +52,8 @@ describe CharacterMailLabelsImporter do
           end
         end
       end
+
+      before { expect(character).to receive(:update!).with(total_unread_count: total_unread_count) }
 
       before do
         #
@@ -84,6 +89,8 @@ describe CharacterMailLabelsImporter do
       end
 
       before { expect(EveOnline::ESI::CharacterMailLabels).to receive(:new).with(character_id: character_id, token: access_token).and_return(esi) }
+
+      before { expect(character).not_to receive(:update!) }
 
       before { expect(character).not_to receive(:character_mail_labels) }
 
