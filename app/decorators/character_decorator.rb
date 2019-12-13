@@ -6,7 +6,7 @@ class CharacterDecorator < ApplicationDecorator
   decorates_associations :user, :race, :bloodline, :faction, :ancestry,
     :alliance, :corporation, :current_ship_type, :loyalty_points,
     :character_assets, :character_implants, :implants, :skillqueues,
-    :character_skills, :character_corporation_histories
+    :character_skills, :character_corporation_histories, :character_mail_labels
 
   def birthday
     object.birthday&.iso8601
@@ -71,4 +71,12 @@ class CharacterDecorator < ApplicationDecorator
   def unallocated_sp_formatted
     number_with_delimiter(object.unallocated_sp)
   end
+
+  # def neural_remap_available
+  #   if object.accrued_remap_cooldown_date&.past?
+  #     "Now"
+  #   else
+  #     object.accrued_remap_cooldown_date&.strftime("%b %d, %Y")
+  #   end
+  # end
 end
