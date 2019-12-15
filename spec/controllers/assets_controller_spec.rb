@@ -59,9 +59,17 @@ describe AssetsController do
     end
 
     context "when user not signed in" do
-      before { get :index, params: {character_id: "1"} }
+      context "when format js" do
+        before { get :index, params: {character_id: "1", format: "js"} }
 
-      it { should redirect_to(sign_in_path) }
+        it { should redirect_to(sign_in_path) }
+      end
+
+      context "when format html" do
+        before { get :index, params: {character_id: "1", format: "html"} }
+
+        it { should redirect_to(sign_in_path) }
+      end
     end
   end
 end
