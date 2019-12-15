@@ -88,7 +88,35 @@ describe Eve::CategoryImporter do
     end
 
     context "when no fresh data available" do
+      let(:category_id) { double }
 
+      subject { described_class.new(category_id) }
+
+      let(:eve_category) { instance_double(Eve::Category) }
+
+      before { expect(Eve::Category).to receive(:find_or_initialize_by).with(category_id: category_id).and_return(eve_category) }
+
+      let(:url) { double }
+
+      let(:esi) do
+        instance_double(EveOnline::ESI::UniverseCategory,
+          url: url,
+          not_modified?: true)
+      end
+
+      before { expect(EveOnline::ESI::UniverseCategory).to receive(:new).with(id: category_id, language: "en-us").and_return(esi) }
+
+      let(:etag) { instance_double(Eve::Etag, etag: "6780e53a01c7d9715b5f445126c4f2c137da4be79e4debe541ce3ab2") }
+
+      before { expect(Eve::Etag).to receive(:find_or_initialize_by).with(url: url).and_return(etag) }
+
+      before { expect(esi).to receive(:etag=).with("6780e53a01c7d9715b5f445126c4f2c137da4be79e4debe541ce3ab2") }
+
+      before { expect(eve_category).not_to receive(:update!) }
+
+      before { expect(etag).not_to receive(:update!) }
+
+      specify { expect { subject.import }.not_to raise_error }
     end
   end
 end
