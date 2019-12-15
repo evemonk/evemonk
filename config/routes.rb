@@ -38,6 +38,8 @@ Rails.application.routes.draw do
 
   resource :sign_out, only: :destroy
 
+  resource :profile, only: :show
+
   resource :faq, only: :show
 
   namespace :auth do
