@@ -38,6 +38,8 @@ describe CharactersController do
       end
     end
 
+    before { expect(current_user).to receive(:set_last_activity_at).with(any_args) }
+
     before { get :index, params: {page: "1"} }
 
     it { should respond_with(:ok) }
@@ -71,6 +73,8 @@ describe CharactersController do
         end
       end
     end
+
+    before { expect(current_user).to receive(:set_last_activity_at).with(any_args) }
 
     before { get :show, params: {id: "1"} }
 
@@ -109,6 +113,8 @@ describe CharactersController do
       end
     end
 
+    before { expect(current_user).to receive(:set_last_activity_at).with(any_args) }
+
     context "when format js" do
       before { patch :update, params: {id: "1", format: "js"} }
 
@@ -144,6 +150,8 @@ describe CharactersController do
     end
 
     before { expect(character).to receive(:destroy!) }
+
+    before { expect(current_user).to receive(:set_last_activity_at).with(any_args) }
 
     before { delete :destroy, params: {id: "1", format: "js"} }
 
