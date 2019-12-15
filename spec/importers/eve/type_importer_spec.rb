@@ -27,14 +27,6 @@ describe Eve::TypeImporter do
     end
   end
 
-  describe "#initialize" do
-    let(:type_id) { double }
-
-    subject { described_class.new(type_id) }
-
-    its(:type_id) { should eq(type_id) }
-  end
-
   describe "#import" do
     context "when fresh data available" do
       context "when type found" do
