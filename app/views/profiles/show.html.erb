@@ -18,7 +18,10 @@
           Characters count: <%= current_user.characters.count %>
         </li>
         <li class="list-group-item text-break">
-          <%= link_to("Change password", nil) %>
+          <%= link_to("Change password", change_password_path) %>
+        </li>
+        <li class="list-group-item text-break">
+          <%= link_to("Enable 2FA auth", nil) %>
         </li>
         <li class="list-group-item text-break">
           <%= link_to("Remove my profile with all data", nil) %>
