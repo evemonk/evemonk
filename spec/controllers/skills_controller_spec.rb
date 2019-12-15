@@ -36,6 +36,8 @@ describe SkillsController do
       end
     end
 
+    before { expect(current_user).to receive(:set_last_activity_at).with(any_args) }
+
     before { get :index, params: {character_id: "1"} }
 
     it { should respond_with(:ok) }
