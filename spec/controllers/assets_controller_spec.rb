@@ -8,52 +8,60 @@ describe AssetsController do
   it { should use_before_action(:require_login) }
 
   describe "#index" do
-    let(:current_user) { instance_double(User) }
+    context "when user signed in" do
+      let(:current_user) { instance_double(User) }
 
-    before { sign_in(current_user) }
+      before { sign_in(current_user) }
 
-    let(:character) { instance_double(Character) }
+      let(:character) { instance_double(Character) }
 
-    before do
-      #
-      # current_user.characters
-      #             .includes(:race, :bloodline, :ancestry, :faction, :alliance, :corporation)
-      #             .find_by!(character_id: params[:character_id])
-      #             .decorate
-      #
-      expect(current_user).to receive(:characters) do
-        double.tap do |a|
-          expect(a).to receive(:includes).with(:race, :bloodline, :ancestry, :faction, :alliance, :corporation) do
-            double.tap do |b|
-              expect(b).to receive(:find_by!).with(character_id: "1") do
-                double.tap do |c|
-                  expect(c).to receive(:decorate).and_return(character)
+      before do
+        #
+        # current_user.characters
+        #             .includes(:race, :bloodline, :ancestry, :faction, :alliance, :corporation)
+        #             .find_by!(character_id: params[:character_id])
+        #             .decorate
+        #
+        expect(current_user).to receive(:characters) do
+          double.tap do |a|
+            expect(a).to receive(:includes).with(:race, :bloodline, :ancestry, :faction, :alliance, :corporation) do
+              double.tap do |b|
+                expect(b).to receive(:find_by!).with(character_id: "1") do
+                  double.tap do |c|
+                    expect(c).to receive(:decorate).and_return(character)
+                  end
                 end
               end
             end
           end
         end
       end
-    end
 
-    before do
-      #
-      # character.character_assets
-      #          .includes(:type)
-      #
-      expect(character).to receive(:character_assets) do
-        double.tap do |a|
-          expect(a).to receive(:includes).with(:type)
+      before do
+        #
+        # character.character_assets
+        #          .includes(:type)
+        #
+        expect(character).to receive(:character_assets) do
+          double.tap do |a|
+            expect(a).to receive(:includes).with(:type)
+          end
         end
       end
+
+      before { expect(current_user).to receive(:set_last_activity_at).with(any_args) }
+
+      before { get :index, params: {character_id: "1"} }
+
+      it { should respond_with(:ok) }
+
+      it { should render_template(:index) }
     end
 
-    before { expect(current_user).to receive(:set_last_activity_at).with(any_args) }
+    context "when user not signed in" do
+      before { get :index, params: {character_id: "1"} }
 
-    before { get :index, params: {character_id: "1"} }
-
-    it { should respond_with(:ok) }
-
-    it { should render_template(:index) }
+      it { should redirect_to(sign_in_path) }
+    end
   end
 end
