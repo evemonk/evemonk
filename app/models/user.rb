@@ -9,7 +9,4 @@ class User < ApplicationRecord
   has_many :sessions, dependent: :destroy
 
   has_many :characters, dependent: :destroy
-
-  # TODO: remove this
-  # has_secure_token :reset_password_token
 end

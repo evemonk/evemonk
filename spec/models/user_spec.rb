@@ -10,6 +10,4 @@ describe User do
   it { should have_many(:sessions).dependent(:destroy) }
 
   it { should have_many(:characters).dependent(:destroy) }
-
-  # it { should have_secure_token(:reset_password_token) }
 end
