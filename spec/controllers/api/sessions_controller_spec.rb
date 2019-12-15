@@ -30,6 +30,8 @@ describe Api::SessionsController do
         end
       end
 
+      before { expect(current_user).to receive(:set_last_activity_at).with(any_args) }
+
       before { get :index, params: {format: :json, page: "1"} }
 
       it { should respond_with(:ok) }
@@ -70,6 +72,8 @@ describe Api::SessionsController do
           end
         end
       end
+
+      before { expect(current_user).to receive(:set_last_activity_at).with(any_args) }
 
       before { delete :destroy, params: {id: "1", format: :json} }
 
