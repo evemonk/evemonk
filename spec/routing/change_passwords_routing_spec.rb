@@ -10,5 +10,19 @@ describe ChangePasswordsController do
         action: "show"
       )
     end
+
+    it "should route PUT /change_password to change_passwords#update" do
+      expect(put: "/change_password").to route_to(
+        controller: "change_passwords",
+        action: "update"
+      )
+    end
+
+    it "should route PATCH /change_password to change_passwords#update" do
+      expect(patch: "/change_password").to route_to(
+        controller: "change_passwords",
+        action: "update"
+      )
+    end
   end
 end

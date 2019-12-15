@@ -38,7 +38,7 @@ Rails.application.routes.draw do
 
   resource :sign_out, only: :destroy
 
-  resource :change_password, only: :show
+  resource :change_password, only: [:show, :update]
 
   resource :profile, only: :show
 
