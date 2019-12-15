@@ -1,4 +1,13 @@
-<hr>
+<div class="row">
+  <div class="col">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><%= link_to("Home", root_path) %></li>
+        <li class="breadcrumb-item active" aria-current="page">Profile</li>
+      </ol>
+    </nav>
+  </div>
+</div>
 
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
@@ -10,6 +19,9 @@
         </li>
         <li class="list-group-item text-break">
           <%= link_to("Change password", nil) %>
+        </li>
+        <li class="list-group-item text-break">
+          <%= link_to("Remove my profile with all data", nil) %>
         </li>
       </ul>
     </div>
