@@ -627,7 +627,7 @@ GEM
       dry-initializer
     yabeda-prometheus (0.1.5)
       yabeda
-    yabeda-puma-plugin (0.2.0)
+    yabeda-puma-plugin (0.2.1)
       json
       puma
       yabeda
