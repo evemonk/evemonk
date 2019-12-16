@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_15_162248) do
+ActiveRecord::Schema.define(version: 2019_12_16_202036) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -680,19 +680,7 @@ ActiveRecord::Schema.define(version: 2019_12_15_162248) do
     t.integer "kind", default: 0
     t.string "crypted_password"
     t.string "salt"
-    t.string "remember_me_token"
-    t.datetime "remember_me_token_expires_at"
-    t.string "activation_state"
-    t.string "activation_token"
-    t.datetime "activation_token_expires_at"
-    t.datetime "last_login_at"
-    t.datetime "last_logout_at"
-    t.datetime "last_activity_at"
-    t.string "last_login_from_ip_address"
     t.index "lower((email)::text)", name: "index_users_on_LOWER_email", unique: true
-    t.index ["activation_token"], name: "index_users_on_activation_token"
-    t.index ["last_logout_at", "last_activity_at"], name: "index_users_on_last_logout_at_and_last_activity_at"
-    t.index ["remember_me_token"], name: "index_users_on_remember_me_token"
   end
 
   create_table "versions", force: :cascade do |t|
