@@ -200,6 +200,8 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    devise-i18n (1.9.0)
+      devise (>= 4.7.1)
     diff-lcs (1.3)
     docile (1.3.2)
     dotenv (2.7.5)
@@ -662,6 +664,7 @@ DEPENDENCIES
   database_rewinder
   derailed_benchmarks
   devise
+  devise-i18n
   dotenv-rails
   draper
   errbase
