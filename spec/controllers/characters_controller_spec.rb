@@ -5,28 +5,81 @@ require "rails_helper"
 describe CharactersController do
   it { should be_a(ApplicationController) }
 
-  it { should use_before_action(:require_login) }
+  it { should use_before_action(:authenticate_user!) }
 
   describe "#index" do
     context "when user signed in" do
-      let(:current_user) { instance_double(User) }
+      let(:user) { create(:user) }
 
-      before { sign_in(current_user) }
+      before { sign_in(user) }
 
       before do
         #
-        # current_user.characters
-        #             .includes(:alliance, :corporation)
-        #             .order(created_at: :asc)
-        #             .page(params[:page])
-        #             .decorate
-        expect(current_user).to receive(:characters) do
+        # subject.current_user
+        #        .characters
+        #        .includes(:alliance, :corporation)
+        #        .order(created_at: :asc)
+        #        .page(params[:page])
+        #        .decorate
+        #
+        expect(subject).to receive(:current_user) do
           double.tap do |a|
-            expect(a).to receive(:includes).with(:alliance, :corporation) do
+            expect(a).to receive(:characters) do
               double.tap do |b|
-                expect(b).to receive(:order).with(created_at: :asc) do
+                expect(b).to receive(:includes).with(:alliance, :corporation) do
                   double.tap do |c|
-                    expect(c).to receive(:page).with("1") do
+                    expect(c).to receive(:order).with(created_at: :asc) do
+                      double.tap do |d|
+                        expect(d).to receive(:page).with("1") do
+                          double.tap do |e|
+                            expect(e).to receive(:decorate)
+                          end
+                        end
+                      end
+                    end
+                  end
+                end
+              end
+            end
+          end
+        end
+      end
+
+      before { get :index, params: {page: "1"} }
+
+      it { should respond_with(:ok) }
+
+      it { should render_template(:index) }
+    end
+
+    context "when user not signed in" do
+      before { get :index, params: {page: "1"} }
+
+      it { should redirect_to(new_user_session_path) }
+    end
+  end
+
+  describe "#show" do
+    context "when user signed in" do
+      let(:user) { create(:user) }
+
+      before { sign_in(user) }
+
+      before do
+        #
+        # subject.current_user
+        #        .characters
+        #        .includes(:race, :bloodline, :ancestry, :faction, :alliance, :corporation, :current_ship_type)
+        #        .find_by!(character_id: params[:id])
+        #        .decorate
+        #
+        expect(subject).to receive(:current_user) do
+          double.tap do |a|
+            expect(a).to receive(:characters) do
+              double.tap do |b|
+                expect(b).to receive(:includes).with(:race, :bloodline, :ancestry, :faction, :alliance, :corporation, :current_ship_type) do
+                  double.tap do |c|
+                    expect(c).to receive(:find_by!).with(character_id: "1") do
                       double.tap do |d|
                         expect(d).to receive(:decorate)
                       end
@@ -39,60 +92,6 @@ describe CharactersController do
         end
       end
 
-      before { expect(current_user).to receive(:set_last_activity_at).with(any_args) }
-
-      before { get :index, params: {page: "1"} }
-
-      it { should respond_with(:ok) }
-
-      it { should render_template(:index) }
-    end
-
-    context "when user not signed in" do
-      context "when format js" do
-        before { get :index, params: {page: "1", format: "js"} }
-
-        it { should redirect_to(sign_in_path) }
-      end
-
-      context "when format html" do
-        before { get :index, params: {page: "1", format: "html"} }
-
-        it { should redirect_to(sign_in_path) }
-      end
-    end
-  end
-
-  describe "#show" do
-    context "when user signed in" do
-      let(:current_user) { instance_double(User) }
-
-      before { sign_in(current_user) }
-
-      before do
-        #
-        # current_user.characters
-        #             .includes(:race, :bloodline, :ancestry, :faction, :alliance, :corporation, :current_ship_type)
-        #             .find_by!(character_id: params[:id])
-        #             .decorate
-        #
-        expect(current_user).to receive(:characters) do
-          double.tap do |a|
-            expect(a).to receive(:includes).with(:race, :bloodline, :ancestry, :faction, :alliance, :corporation, :current_ship_type) do
-              double.tap do |b|
-                expect(b).to receive(:find_by!).with(character_id: "1") do
-                  double.tap do |c|
-                    expect(c).to receive(:decorate)
-                  end
-                end
-              end
-            end
-          end
-        end
-      end
-
-      before { expect(current_user).to receive(:set_last_activity_at).with(any_args) }
-
       before { get :show, params: {id: "1"} }
 
       it { should respond_with(:ok) }
@@ -101,36 +100,32 @@ describe CharactersController do
     end
 
     context "when user not signed in" do
-      context "when format js" do
-        before { get :show, params: {id: "1", format: "js"} }
+      before { get :show, params: {id: "1"} }
 
-        it { should redirect_to(sign_in_path) }
-      end
-
-      context "when format html" do
-        before { get :show, params: {id: "1", format: "html"} }
-
-        it { should redirect_to(sign_in_path) }
-      end
+      it { should redirect_to(new_user_session_path) }
     end
   end
 
   describe "#update" do
     context "when user signed in" do
-      let(:current_user) { instance_double(User) }
+      let(:user) { create(:user) }
 
-      before { sign_in(current_user) }
+      before { sign_in(user) }
 
       let(:character) { build(:character, character_id: 1) }
 
       before do
         #
-        # current_user.characters.find_by!(character_id: params[:id])
+        # subject.current_user.characters.find_by!(character_id: params[:id])
         #
-        expect(current_user).to receive(:characters) do
+        expect(subject).to receive(:current_user) do
           double.tap do |a|
-            expect(a).to receive(:find_by!).with(character_id: "1")
-                             .and_return(character)
+            expect(a).to receive(:characters) do
+              double.tap do |b|
+                expect(b).to receive(:find_by!).with(character_id: "1")
+                                 .and_return(character)
+              end
+            end
           end
         end
       end
@@ -145,8 +140,6 @@ describe CharactersController do
           end
         end
       end
-
-      before { expect(current_user).to receive(:set_last_activity_at).with(any_args) }
 
       context "when format js" do
         before { patch :update, params: {id: "1", format: "js"} }
@@ -164,43 +157,37 @@ describe CharactersController do
     end
 
     context "when user not signed in" do
-      context "when format js" do
-        before { patch :update, params: {id: "1", format: "js"} }
+      before { patch :update, params: {id: "1"} }
 
-        it { should redirect_to(sign_in_path) }
-      end
-
-      context "when format html" do
-        before { patch :update, params: {id: "1", format: "html"} }
-
-        it { should redirect_to(sign_in_path) }
-      end
+      it { should redirect_to(new_user_session_path) }
     end
   end
 
   describe "#destroy" do
     context "when user signed in" do
-      let(:current_user) { instance_double(User) }
+      let(:user) { create(:user) }
 
-      before { sign_in(current_user) }
+      before { sign_in(user) }
 
       let(:character) { instance_double(Character) }
 
       before do
         #
-        # current_user.characters.find_by!(character_id: params[:id])
+        # subject.current_user.characters.find_by!(character_id: params[:id])
         #
-        expect(current_user).to receive(:characters) do
+        expect(subject).to receive(:current_user) do
           double.tap do |a|
-            expect(a).to receive(:find_by!).with(character_id: "1")
-                             .and_return(character)
+            expect(a).to receive(:characters) do
+              double.tap do |b|
+                expect(b).to receive(:find_by!).with(character_id: "1")
+                                 .and_return(character)
+              end
+            end
           end
         end
       end
 
       before { expect(character).to receive(:destroy!) }
-
-      before { expect(current_user).to receive(:set_last_activity_at).with(any_args) }
 
       before { delete :destroy, params: {id: "1", format: "js"} }
 
@@ -210,17 +197,9 @@ describe CharactersController do
     end
 
     context "when user not signed in" do
-      context "when format js" do
-        before { delete :destroy, params: {id: "1", format: "js"} }
+      before { delete :destroy, params: {id: "1"} }
 
-        it { should redirect_to(sign_in_path) }
-      end
-
-      context "when format html" do
-        before { delete :destroy, params: {id: "1", format: "html"} }
-
-        it { should redirect_to(sign_in_path) }
-      end
+      it { should redirect_to(new_user_session_path) }
     end
   end
 end
