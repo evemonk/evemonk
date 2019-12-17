@@ -4,8 +4,7 @@
 
 require_relative "config/environment"
 
-# For New Relic health check
-# use Rack::Health # TODO: fix
+use Rack::Health
 
 # Export metrics for prometheus
 use Yabeda::Prometheus::Exporter
