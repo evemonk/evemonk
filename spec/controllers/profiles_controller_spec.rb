@@ -21,7 +21,7 @@ describe ProfilesController do
     end
 
     context "when user not signed in" do
-      before { get :show, params: {format: "html"} }
+      before { get :show }
 
       it { should redirect_to(new_user_session_path) }
     end
