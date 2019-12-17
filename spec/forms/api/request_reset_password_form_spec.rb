@@ -3,17 +3,17 @@
 require "rails_helper"
 
 describe Api::RequestResetPasswordForm, type: :model do
-  #it { should be_a(ActiveModel::Model) }
+  # it { should be_a(ActiveModel::Model) }
   #
-  #describe "validations" do
+  # describe "validations" do
   #  let(:params) { {email: "me@example.com"} }
   #
   #  subject { described_class.new(params) }
   #
   #  it { should validate_presence_of(:email) }
-  #end
+  # end
   #
-  #describe "#save" do
+  # describe "#save" do
   #  context "when user with given email not found" do
   #    let(:params) { {email: "me@example.com"} }
   #
@@ -77,5 +77,5 @@ describe Api::RequestResetPasswordForm, type: :model do
   #
   #    specify { expect { form.save }.to(change { user.reload.reset_password_token }) }
   #  end
-  #end
+  # end
 end

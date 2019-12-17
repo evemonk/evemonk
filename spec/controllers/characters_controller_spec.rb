@@ -123,7 +123,7 @@ describe CharactersController do
             expect(a).to receive(:characters) do
               double.tap do |b|
                 expect(b).to receive(:find_by!).with(character_id: "1")
-                                 .and_return(character)
+                  .and_return(character)
               end
             end
           end
@@ -180,7 +180,7 @@ describe CharactersController do
             expect(a).to receive(:characters) do
               double.tap do |b|
                 expect(b).to receive(:find_by!).with(character_id: "1")
-                                 .and_return(character)
+                  .and_return(character)
               end
             end
           end

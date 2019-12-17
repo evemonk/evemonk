@@ -4,7 +4,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :recoverable,
-         :rememberable, :validatable, :confirmable, :trackable
+    :rememberable, :validatable, :confirmable, :trackable
 
   # TODO: drop oauth kind and then drop kind from users
   enum kind: [:normal, :oauth]
