@@ -5,15 +5,13 @@ require "rails_helper"
 describe ProfilesController do
   it { should be_a(ApplicationController) }
 
-  it { should use_before_action(:require_login) }
+  it { should use_before_action(:authenticate_user!) }
 
   describe "#show" do
     context "when user signed in" do
-      let(:current_user) { instance_double(User) }
+      let(:user) { create(:user) }
 
-      before { sign_in(current_user) }
-
-      before { expect(current_user).to receive(:set_last_activity_at).with(any_args) }
+      before { sign_in(user) }
 
       before { get :show }
 
@@ -23,17 +21,9 @@ describe ProfilesController do
     end
 
     context "when user not signed in" do
-      context "when format js" do
-        before { get :show, params: {format: "js"} }
+      before { get :show, params: {format: "html"} }
 
-        it { should redirect_to(sign_in_path) }
-      end
-
-      context "when format html" do
-        before { get :show, params: {format: "html"} }
-
-        it { should redirect_to(sign_in_path) }
-      end
+      it { should redirect_to(new_user_session_path) }
     end
   end
 end
