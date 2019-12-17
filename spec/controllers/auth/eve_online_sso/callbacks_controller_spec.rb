@@ -14,9 +14,11 @@ describe Auth::EveOnlineSso::CallbacksController do
   it { should rescue_from(EveOnline::Exceptions::Timeout).with(:handle_timeout) }
 
   describe "#show" do
-    let(:current_user) { instance_double(User) }
+    let(:user) { create(:user) }
 
-    before { expect(subject).to receive(:current_user).and_return(current_user).twice }
+    before { sign_in(user) }
+
+    before { expect(subject).to receive(:current_user).and_return(user) }
 
     let(:service) { instance_double(EveOnlineCallbackService) }
 
