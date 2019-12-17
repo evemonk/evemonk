@@ -4,17 +4,21 @@ require "rails_helper"
 
 describe "Sign up features" do
   it "when user successfully sign up" do
-    visit "/sign_up"
+    visit "/"
 
-    fill_in "sign_up[email]", with: "me@example.com"
-    fill_in "sign_up[password]", with: "eidii7EeooVe8ahk"
-    fill_in "sign_up[password_confirmation]", with: "eidii7EeooVe8ahk"
+    click_link "Sign Up"
+
+    fill_in "user[email]", with: "me@example.com"
+    fill_in "user[password]", with: "eidii7EeooVe8ahk"
+    fill_in "user[password_confirmation]", with: "eidii7EeooVe8ahk"
 
     click_button "Sign up"
 
-    expect(page).to have_content("Successful signed up!")
+    expect(page).to have_content("A message with a confirmation link has been sent to your email address. Please follow the link to activate your account.")
 
-    expect(current_path).to eq("/characters")
+    # expect(page).to have_content("Successful signed up!")
+
+    # expect(current_path).to eq("/characters")
 
     expect(User.count).to eq(1)
   end
