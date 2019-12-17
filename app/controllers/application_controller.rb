@@ -9,11 +9,7 @@ class ApplicationController < ActionController::Base
 
   private
 
-  #def not_authenticated
-  #  redirect_to sign_in_path, alert: "Please login first"
-  #end
-
-  #def current_user_locale
-  #  I18n.locale = :ru
-  #end
+  # def current_user_locale
+  #   I18n.locale = :ru
+  # end
 end
