@@ -54,14 +54,14 @@
                 <%= link_to("Profile", profile_path, class: "nav-link") %>
               </li>
               <li class="nav-item">
-                <%= link_to("Sign Out", sign_out_path, method: :delete, class: "nav-link") %>
+                <%#= link_to("Sign Out", sign_out_path, method: :delete, class: "nav-link") %>
               </li>
             <% else %>
               <li class="nav-item">
-                <%= link_to("Sign In", sign_in_path, class: "nav-link") %>
+                <%= link_to("Sign In", new_user_session_path, class: "nav-link") %>
               </li>
               <li class="nav-item">
-                <%= link_to("Sign Up", sign_up_path, class: "nav-link") %>
+                <%= link_to("Sign Up", new_user_registration_path, class: "nav-link") %>
               </li>
             <% end %>
             <li class="nav-item dropdown">
@@ -88,16 +88,16 @@
             </button>
           </div>
         <% end %>
-      </div>
 
-      <% if flash[:alert] %>
-        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-          <%= flash[:alert] %>
-          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-      <% end %>
+        <% if flash[:alert] %>
+          <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <%= flash[:alert] %>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        <% end %>
+      </div>
 
       <%= yield %>
 
@@ -126,7 +126,7 @@
         </div>
         <div class="col-6 col-md-3">
           <ul class="list-unstyled mb-0">
-            <li><a href="#">Other link</a></li>
+            <li><a href="#">GitHub</a></li>
             <li><a href="#">Last link</a></li>
           </ul>
         </div>
