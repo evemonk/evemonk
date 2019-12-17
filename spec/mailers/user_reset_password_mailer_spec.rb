@@ -16,7 +16,7 @@ describe UserResetPasswordMailer do
 
     specify { expect(subject.to).to eq(["me@example.com"]) }
 
-    specify { expect(subject.from).to eq(["from@example.com"]) }
+    specify { expect(subject.from).to eq(["robot@evemonk.com"]) }
 
     specify { expect(subject.body).to include("reset-token-123") }
   end
