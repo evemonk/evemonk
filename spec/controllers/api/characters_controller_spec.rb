@@ -38,8 +38,6 @@ describe Api::CharactersController do
         end
       end
 
-      before { expect(current_user).to receive(:set_last_activity_at).with(any_args) }
-
       before { get :index, params: {format: :json, page: "1"} }
 
       it { should respond_with(:ok) }
@@ -88,8 +86,6 @@ describe Api::CharactersController do
         end
       end
 
-      before { expect(current_user).to receive(:set_last_activity_at).with(any_args) }
-
       before { get :show, params: {id: "1", format: :json} }
 
       it { should respond_with(:ok) }
@@ -130,8 +126,6 @@ describe Api::CharactersController do
           end
         end
       end
-
-      before { expect(current_user).to receive(:set_last_activity_at).with(any_args) }
 
       before { delete :destroy, params: {id: "1", format: :json} }
 
