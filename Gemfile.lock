@@ -185,7 +185,7 @@ GEM
     crass (1.0.5)
     dalli (2.7.10)
     database_rewinder (0.9.1)
-    derailed_benchmarks (1.4.2)
+    derailed_benchmarks (1.4.3)
       benchmark-ips (~> 2)
       get_process_mem (~> 0)
       heapy (~> 0)
