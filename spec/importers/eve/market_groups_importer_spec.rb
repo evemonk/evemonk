@@ -142,4 +142,35 @@ describe Eve::MarketGroupsImporter do
       specify { expect { subject.send(:import_new_market_groups) }.not_to raise_error }
     end
   end
+
+  describe "#remove_old_market_groups" do
+    let(:market_group_id) { double }
+
+    let(:market_group_ids) { [market_group_id] }
+
+    let(:esi) do
+      instance_double(EveOnline::ESI::MarketGroups,
+        market_group_ids: market_group_ids)
+    end
+
+    before { expect(EveOnline::ESI::MarketGroups).to receive(:new).and_return(esi) }
+
+    let(:eve_market_group_ids) { double }
+
+    before { expect(Eve::MarketGroup).to receive(:pluck).with(:market_group_id).and_return(eve_market_group_ids) }
+
+    let(:eve_market_group_id_to_remove) { double }
+
+    let(:eve_market_group_ids_to_remove) { [eve_market_group_id_to_remove] }
+
+    before { expect(eve_market_group_ids).to receive(:-).with(market_group_ids).and_return(eve_market_group_ids_to_remove) }
+
+    let(:eve_market_group) { instance_double(Eve::MarketGroup) }
+
+    before { expect(Eve::MarketGroup).to receive(:find_or_initialize_by).with(market_group_id: eve_market_group_id_to_remove).and_return(eve_market_group) }
+
+    before { expect(eve_market_group).to receive(:destroy!) }
+
+    specify { expect { subject.send(:remove_old_market_groups) }.not_to raise_error }
+  end
 end

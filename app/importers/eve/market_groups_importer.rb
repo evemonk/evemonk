@@ -35,20 +35,15 @@ module Eve
     end
 
     def remove_old_market_groups
-      #eve_alliance_ids = Eve::Alliance.pluck(:alliance_id)
-      #
-      #alliance_ids_to_remove = eve_alliance_ids - esi.alliance_ids
-      #
-      #alliance_ids_to_remove.each do |alliance_id|
-      #  eve_alliance = Eve::Alliance.find_or_initialize_by(alliance_id: alliance_id)
-      #
-      #  eve_alliance.corporations.each do |corporation|
-      #    Eve::CorporationImporterWorker.perform_async(corporation.corporation_id)
-      #  end
-      #
-      #  eve_alliance.destroy!
-      #end
-      #
+      eve_market_group_ids = Eve::MarketGroup.pluck(:market_group_id)
+
+      eve_market_group_ids_to_remove = eve_market_group_ids - esi.market_group_ids
+
+      eve_market_group_ids_to_remove.each do |market_group_id|
+        eve_market_group = Eve::MarketGroup.find_or_initialize_by(market_group_id: market_group_id)
+
+        eve_market_group.destroy!
+      end
     end
   end
 end
