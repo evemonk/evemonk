@@ -16,9 +16,20 @@ describe "Sign up features" do
 
     expect(page).to have_content("A message with a confirmation link has been sent to your email address. Please follow the link to activate your account.")
 
-    # expect(page).to have_content("Successful signed up!")
+    User.find_by(email: "me@example.com").confirm
 
-    # expect(current_path).to eq("/characters")
+    visit "/"
+
+    click_link "Sign In"
+
+    fill_in "user[email]", with: "me@example.com"
+    fill_in "user[password]", with: "eidii7EeooVe8ahk"
+
+    click_button "Sign in"
+
+    expect(page).to have_content("Signed in successfully.")
+
+    expect(current_path).to eq("/characters")
 
     expect(User.count).to eq(1)
   end
