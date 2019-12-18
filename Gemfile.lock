@@ -401,7 +401,7 @@ GEM
       nio4r (~> 2.0)
     quantile (0.2.1)
     raabro (1.1.6)
-    rack (2.0.7)
+    rack (2.0.8)
     rack-cors (1.1.0)
       rack (>= 2.0.0)
     rack-health (0.1.2)
@@ -752,4 +752,4 @@ DEPENDENCIES
   yabeda-sidekiq
 
 BUNDLED WITH
-   2.1.0.pre.3
+   2.1.1
