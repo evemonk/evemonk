@@ -28,7 +28,10 @@
     <%= link_to("Skill queue", nil, class: "nav-link") %>
   </li>
   <li class="nav-item">
-    <%= link_to("Skills", nil, class: "nav-link") %>
+    <%= link_to("Skills", character_skills_path(@character.character_id), class: "nav-link") %>
+  </li>
+  <li class="nav-item">
+    <%= link_to("Mail", nil, class: "nav-link") %>
   </li>
 </ul>
 
@@ -80,6 +83,9 @@
             Faction: <%= @character.faction.name %>
           </li>
         <% end %>
+        <li class="list-group-item">
+          Gender: <%= @character.gender %>
+        </li>
         <li class="list-group-item text-break">
           SP: <%= @character.total_sp_formatted %>
         </li>
@@ -93,6 +99,9 @@
         </li>
         <li class="list-group-item text-break">
           ISK: <%= @character.wallet_formatted %>
+        </li>
+        <li class="list-group-item text-break">
+          DOB: <%= @character.birthday_formatted %>
         </li>
       </ul>
       <p class="card-text text-center">

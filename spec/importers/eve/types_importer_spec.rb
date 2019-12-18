@@ -112,18 +112,18 @@ describe Eve::TypesImporter do
 
     before { expect(EveOnline::ESI::UniverseTypes).to receive(:new).with(page: page).and_return(esi) }
 
-    context "when type not imported" do
+    context "when eve type not imported" do
       before { expect(Eve::Type).to receive(:exists?).with(type_id: universe_type_id).and_return(false) }
 
-      before { expect(Eve::TypeImporterWorker).to receive(:perform_async).with(universe_type_id) }
+      before { expect(Eve::UpdateTypeJob).to receive(:perform_later).with(universe_type_id) }
 
       specify { expect { subject.send(:import_types) }.not_to raise_error }
     end
 
-    context "when type is imported" do
+    context "when eve type is imported" do
       before { expect(Eve::Type).to receive(:exists?).with(type_id: universe_type_id).and_return(true) }
 
-      before { expect(Eve::TypeImporterWorker).not_to receive(:perform_async) }
+      before { expect(Eve::UpdateTypeJob).not_to receive(:perform_later) }
 
       specify { expect { subject.send(:import_types) }.not_to raise_error }
     end

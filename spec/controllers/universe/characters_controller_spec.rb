@@ -44,6 +44,7 @@ describe Universe::CharactersController do
       #   .includes(character_corporation_histories: :corporation)
       #   .find_by!(character_id: params[:id])
       #   .decorate
+      #
       expect(Eve::Character).to receive(:includes).with(character_corporation_histories: :corporation) do
         double.tap do |a|
           expect(a).to receive(:find_by!).with(character_id: "91752503") do

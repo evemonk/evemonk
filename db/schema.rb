@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_28_172754) do
+ActiveRecord::Schema.define(version: 2019_12_17_130952) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,17 @@ ActiveRecord::Schema.define(version: 2019_11_28_172754) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["character_id"], name: "index_character_implants_on_character_id"
+  end
+
+  create_table "character_mail_labels", force: :cascade do |t|
+    t.bigint "character_id", null: false
+    t.string "color"
+    t.integer "label_id"
+    t.string "name"
+    t.integer "unread_count"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["character_id"], name: "index_character_mail_labels_on_character_id"
   end
 
   create_table "character_skills", force: :cascade do |t|
@@ -103,6 +114,7 @@ ActiveRecord::Schema.define(version: 2019_11_28_172754) do
     t.bigint "current_ship_type_id"
     t.bigint "total_sp"
     t.bigint "unallocated_sp"
+    t.integer "total_unread_count", default: 0
     t.index ["alliance_id"], name: "index_characters_on_alliance_id"
     t.index ["ancestry_id"], name: "index_characters_on_ancestry_id"
     t.index ["bloodline_id"], name: "index_characters_on_bloodline_id"
@@ -297,6 +309,21 @@ ActiveRecord::Schema.define(version: 2019_11_28_172754) do
     t.index ["name"], name: "index_eve_corporations_on_name"
   end
 
+  create_table "eve_dogma_attributes", force: :cascade do |t|
+    t.bigint "attribute_id"
+    t.float "default_value"
+    t.string "description"
+    t.string "display_name"
+    t.boolean "high_is_good"
+    t.bigint "icon_id"
+    t.string "name"
+    t.boolean "published"
+    t.boolean "stackable"
+    t.bigint "unit_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "eve_etags", force: :cascade do |t|
     t.text "url", null: false
     t.text "etag", null: false
@@ -374,6 +401,28 @@ ActiveRecord::Schema.define(version: 2019_11_28_172754) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "eve_market_groups", force: :cascade do |t|
+    t.text "description_en"
+    t.text "description_de"
+    t.text "description_fr"
+    t.text "description_ja"
+    t.text "description_ru"
+    t.text "description_zh"
+    t.text "description_ko"
+    t.bigint "market_group_id"
+    t.string "name_en"
+    t.string "name_de"
+    t.string "name_fr"
+    t.string "name_ja"
+    t.string "name_ru"
+    t.string "name_zh"
+    t.string "name_ko"
+    t.bigint "parent_group_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["market_group_id"], name: "index_eve_market_groups_on_market_group_id", unique: true
+  end
+
   create_table "eve_races", force: :cascade do |t|
     t.bigint "alliance_id"
     t.text "description_en"
@@ -418,13 +467,19 @@ ActiveRecord::Schema.define(version: 2019_11_28_172754) do
 
   create_table "eve_systems", force: :cascade do |t|
     t.bigint "constellation_id"
-    t.string "name"
+    t.string "name_en"
     t.string "security_class"
     t.float "security_status"
     t.bigint "star_id"
     t.bigint "system_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name_de"
+    t.string "name_fr"
+    t.string "name_ja"
+    t.string "name_ru"
+    t.string "name_zh"
+    t.string "name_ko"
     t.index ["constellation_id"], name: "index_eve_systems_on_constellation_id"
     t.index ["star_id"], name: "index_eve_systems_on_star_id"
     t.index ["system_id"], name: "index_eve_systems_on_system_id", unique: true
@@ -623,13 +678,21 @@ ActiveRecord::Schema.define(version: 2019_11_28_172754) do
     t.datetime "updated_at", null: false
     t.integer "notifications_count", default: 0
     t.integer "kind", default: 0
+    t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
-    t.string "crypted_password"
-    t.string "salt"
-    t.string "remember_me_token"
-    t.datetime "remember_me_token_expires_at"
-    t.index "lower((email)::text)", name: "index_users_on_LOWER_email", unique: true
-    t.index ["remember_me_token"], name: "index_users_on_remember_me_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer "sign_in_count", default: 0, null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.inet "current_sign_in_ip"
+    t.inet "last_sign_in_ip"
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string "unconfirmed_email"
+    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
+    t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
@@ -645,6 +708,7 @@ ActiveRecord::Schema.define(version: 2019_11_28_172754) do
   end
 
   add_foreign_key "character_assets", "characters"
+  add_foreign_key "character_mail_labels", "characters"
   add_foreign_key "character_skills", "characters"
   add_foreign_key "characters", "users"
   add_foreign_key "sessions", "users"

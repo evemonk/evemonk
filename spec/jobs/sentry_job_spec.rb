@@ -10,8 +10,6 @@ describe SentryJob do
 
     before { expect(Raven).to receive(:send_event).with(event) }
 
-    subject { described_class.new }
-
     specify { expect { subject.perform(event) }.not_to raise_error }
   end
 end

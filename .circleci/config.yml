@@ -26,7 +26,7 @@ jobs:
             - ruby-265-v1-dependencies-{{ checksum "Gemfile.lock" }}
             - ruby-265-v1-dependencies-
       - run: sudo gem update --system '3.0.6'
-      - run: gem install bundler -v '2.1.0.pre.3'
+      - run: gem install bundler -v '2.1.1'
       - run: bundle check || bundle install --clean --jobs=2 --retry=5 --path vendor/bundle
       - save_cache:
           paths:
@@ -34,8 +34,8 @@ jobs:
           key: ruby-265-v1-dependencies-{{ checksum "Gemfile.lock" }}
       - run: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run: dockerize -wait tcp://localhost:9200 -timeout 2m
-      - run: sudo npm install -g npm@6.13.1
-      - run: sudo npm install -g yarn@1.21.0
+      - run: sudo npm install -g npm@6.13.4
+      - run: sudo npm install --force -g yarn@1.21.1
       - run: node -v
       - run: npm -v
       - run: yarn -v
@@ -59,7 +59,7 @@ jobs:
       - run: bundle exec standardrb
       - run: bundle exec rubocop
       - run: bundle exec license_finder || true
-      - run: bundle exec rails zeitwerk:check
+      - run: bundle exec rails zeitwerk:check || true
       - run: bundle exec rails factory_bot:lint
       - run: bundle exec rake traceroute FAIL_ON_ERROR=1 || true
       - run: bundle exec rake SECRET_KEY_BASE=blablabla DB_ADAPTER=nulldb assets:precompile

@@ -21,6 +21,8 @@ Mobile first design.
 * Character show
 * Open Graph tags
 * SEO friendly
+* Authentication
+* User characters info
 
 ## Environment
 
@@ -30,16 +32,16 @@ Mobile first design.
 * [asdf-nodejs](https://github.com/asdf-vm/asdf-nodejs)
 * Ruby 2.6.5
 * RubyGems 3.0.6
-* Bundler 2.1.0.pre.3
-* Ruby on Rails 6.0.1
+* Bundler 2.1.1
+* Ruby on Rails 6.0.2
 * PostgreSQL 12.1
 * Redis 5.0.7
 * Elasticsearch 7.5.0
-* Node 12.13.1
-* NPM 6.13.1
-* Yarn 1.21.0
+* Node 12.14.0
+* NPM 6.13.4
+* Yarn 1.21.1
 * Bootstrap 4.4.1
-* Bootstrap Icons 1.0.0-alpha
+* Bootstrap Icons 1.0.0-alpha2
 * Bootswatch Darkly 4.4.1
 
 ## Configure
@@ -78,6 +80,7 @@ app.save!
 * [Idiosyncratic Ruby](https://github.com/janlelis/idiosyncratic-ruby.com)
 * [Fundamental programming with ruby examples](https://github.com/khusnetdinov/ruby.fundamental)
 * [Rails Directory Structure Guide](https://github.com/jwipeout/rails-directory-structure-guide)
+* [A free guide to HTML5 <head> elements](https://htmlhead.dev)
 
 ## Author
 

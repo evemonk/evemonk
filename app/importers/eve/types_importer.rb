@@ -30,7 +30,7 @@ module Eve
     def import_types
       esi.universe_type_ids.each do |type_id|
         unless Eve::Type.exists?(type_id: type_id)
-          Eve::TypeImporterWorker.perform_async(type_id)
+          Eve::UpdateTypeJob.perform_later(type_id)
         end
       end
     end

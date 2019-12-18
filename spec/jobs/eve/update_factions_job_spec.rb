@@ -21,8 +21,6 @@ describe Eve::UpdateFactionsJob do
       end
     end
 
-    subject { described_class.new }
-
     specify { expect { subject.perform }.not_to raise_error }
   end
 end

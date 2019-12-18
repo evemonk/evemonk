@@ -19,8 +19,6 @@ describe Eve::UpdateAllianceJob do
       end
     end
 
-    subject { described_class.new }
-
     specify { expect { subject.perform(alliance_id) }.not_to raise_error }
   end
 end

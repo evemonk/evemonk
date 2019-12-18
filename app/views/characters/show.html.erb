@@ -27,7 +27,10 @@
     <%= link_to("Skill queue", nil, class: "nav-link") %>
   </li>
   <li class="nav-item">
-    <%= link_to("Skills", nil, class: "nav-link") %>
+    <%= link_to("Skills", character_skills_path(@character.character_id), class: "nav-link") %>
+  </li>
+  <li class="nav-item">
+    <%= link_to("Mail", nil, class: "nav-link") %>
   </li>
 </ul>
 
@@ -79,6 +82,9 @@
             Faction: <%= @character.faction.name %>
           </li>
         <% end %>
+        <li class="list-group-item">
+          Gender: <%= @character.gender %>
+        </li>
         <li class="list-group-item text-break">
           SP: <%= @character.total_sp_formatted %>
         </li>
@@ -106,88 +112,122 @@
   </div>
 
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
-    <h4 class="text-center text-break">Attributes</h4>
+    <h4 class="text-center text-break">Current location &amp; ship</h4>
+
+    <div class="card">
+      <ul class="list-group list-group-flush">
+        <% if @character.current_ship_type %>
+          <li class="list-group-item text-center">
+            Ship: <%= link_to(@character.current_ship_type.name,
+                              universe_type_path(@character.current_ship_type.type_id)) %>
+          </li>
+
+          <li class="list-group-item text-center">
+            <%= image_tag(@character.current_ship_type.render_large,
+                          alt: @character.current_ship_type.name,
+                          class: "rounded border",
+                          size: "258x258",
+                          loading: "lazy") %>
+            <br>
+            <%= @character.current_ship_name %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+    <h4 class="text-center text-break">Attributes &amp; Implants (<%= @character.implants.size %>)</h4>
 
     <table class="table table-striped table-bordered">
       <tbody>
         <tr>
-          <td>
+          <td colspan="3" class="align-middle">
+            Neural Remap Available: <%#= @character.neural_remap_available %>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="3" class="align-middle">
+            Bonus Remap Available: <%= @character.bonus_remaps %>
+          </td>
+        </tr>
+        <tr>
+          <td class="align-middle text-center border-right-0 m-0 p-2">
             <%= image_tag(@character.charisma_attribute&.icon&.icon_url,
                           alt: "Charisma icon",
                           class: "rounded border",
                           size: "34x34",
                           loading: "lazy") %>
           </td>
-          <td class="align-middle text-break">
+          <td class="align-middle text-break border-left-0">
             <abbr title="<%= @character.charisma_attribute&.description %>">Charisma:</abbr>
-            <%#= link_to("Charisma:", "#collapseCharisma", "data-toggle": "collapse", role: "button") %>
-<!--            <div id="collapseCharisma" class="collapse">-->
-<!--              <div class="card-body">-->
-                <%#= @character.charisma_attribute&.description %>
-<!--              </div>-->
-<!--            </div>-->
           </td>
-          <td><%= @character.charisma %></td>
+          <td class="align-middle text-right">
+            <%= @character.charisma %>
+          </td>
         </tr>
         <tr>
-          <td>
+          <td class="align-middle text-center border-right-0 m-0 p-2">
             <%= image_tag(@character.intelligence_attribute&.icon&.icon_url,
                           alt: "Intelligence icon",
                           class: "rounded border",
                           size: "34x34",
                           loading: "lazy") %>
           </td>
-          <td class="align-middle text-break">
+          <td class="align-middle text-break border-left-0">
             <abbr title="<%= @character.intelligence_attribute&.description %>">Intelligence:</abbr>
           </td>
-          <td><%= @character.intelligence %></td>
+          <td class="align-middle text-right">
+            <%= @character.intelligence %>
+          </td>
         </tr>
         <tr>
-          <td>
+          <td class="align-middle text-center border-right-0 m-0 p-2">
             <%= image_tag(@character.memory_attribute&.icon&.icon_url,
                           alt: "Memory icon",
                           class: "rounded border",
                           size: "34x34",
                           loading: "lazy") %>
           </td>
-          <td class="align-middle text-break">
+          <td class="align-middle text-break border-left-0">
             <abbr title="<%= @character.memory_attribute&.description %>">Memory:</abbr>
           </td>
-          <td><%= @character.memory %></td>
+          <td class="align-middle text-right">
+            <%= @character.memory %>
+          </td>
         </tr>
         <tr>
-          <td>
+          <td class="align-middle text-center border-right-0 m-0 p-2">
             <%= image_tag(@character.perception_attribute&.icon&.icon_url,
                           alt: "Perception icon",
                           class: "rounded border",
                           size: "34x34",
                           loading: "lazy") %>
           </td>
-          <td class="align-middle text-break">
+          <td class="align-middle text-break border-left-0">
             <abbr title="<%= @character.perception_attribute&.description %>">Perception:</abbr>
           </td>
-          <td><%= @character.perception %></td>
+          <td class="align-middle text-right">
+            <%= @character.perception %>
+          </td>
         </tr>
         <tr>
-          <td>
+          <td class="align-middle text-center border-right-0 m-0 p-2">
             <%= image_tag(@character.willpower_attribute&.icon&.icon_url,
                           alt: "Willpower icon",
                           class: "rounded border",
                           size: "34x34",
                           loading: "lazy") %>
           </td>
-          <td class="align-middle text-break">
+          <td class="align-middle text-break border-left-0">
             <abbr title="<%= @character.willpower_attribute&.description %>">Willpower:</abbr>
           </td>
-          <td><%= @character.willpower %></td>
+          <td class="align-middle text-right">
+            <%= @character.willpower %>
+          </td>
         </tr>
       </tbody>
     </table>
-
-  </div>
-
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
-    <h4 class="text-center text-break">Implants (<%= @character.implants.size %>)</h4>
 
     <table class="table table-striped table-bordered">
       <tbody>
@@ -201,13 +241,12 @@
                             loading: "lazy") %>
             </td>
             <td class="align-middle text-break border-left-0">
-              <%= implant.name %>
+              <%= link_to(implant.name, universe_type_path(implant.type_id)) %>
             </td>
           </tr>
         <% end %>
       </tbody>
     </table>
-
   </div>
 </div>
 
@@ -223,23 +262,7 @@
 <!--        </tr>-->
 
 <!--        <tr>-->
-<!--          <td><%#= @character.gender %></td>-->
-<!--        </tr>-->
-
-<!--        <tr>-->
 <!--          <td><%#= @character.description %></td>-->
-<!--        </tr>-->
-
-<!--        <tr>-->
-<!--          <td><%#= @character.bonus_remaps %></td>-->
-<!--        </tr>-->
-
-<!--        <tr>-->
-<!--          <td><%#= @character.last_remap_date %></td>-->
-<!--        </tr>-->
-
-<!--        <tr>-->
-<!--          <td><%#= @character.accrued_remap_cooldown_date %></td>-->
 <!--        </tr>-->
 
 <!--        <tr>-->
@@ -254,23 +277,7 @@
 <!--          <td><%#= @character.current_structure_id %></td>-->
 <!--        </tr>-->
 
-<!--        <tr>-->
-<!--          <td><%#= @character.current_ship_item_id %></td>-->
-<!--        </tr>-->
-
-<!--        <tr>-->
-<!--          <td><%#= @character.current_ship_name %></td>-->
-<!--        </tr>-->
-
-<!--        <tr>-->
-<!--          <td><%#= @character.current_ship_type_id %></td>-->
-<!--        </tr>-->
 <!--      </tbody>-->
 <!--    </table>-->
 <!--  </div>-->
-
-<!--  <div class="">-->
-<!--    <h2>Skills</h2>-->
-<!--  </div>-->
-
 <!--</div>-->

@@ -106,7 +106,7 @@ describe Eve::GraphicsImporter do
     context "when graphic not imported" do
       before { expect(Eve::Graphic).to receive(:exists?).with(graphic_id: graphic_id).and_return(false) }
 
-      before { expect(Eve::GraphicImporterWorker).to receive(:perform_async).with(graphic_id) }
+      before { expect(Eve::UpdateGraphicJob).to receive(:perform_later).with(graphic_id) }
 
       specify { expect { subject.send(:import_new_graphics) }.not_to raise_error }
     end
@@ -114,7 +114,7 @@ describe Eve::GraphicsImporter do
     context "when graphic already imported" do
       before { expect(Eve::Graphic).to receive(:exists?).with(graphic_id: graphic_id).and_return(true) }
 
-      before { expect(Eve::GraphicImporterWorker).not_to receive(:perform_async) }
+      before { expect(Eve::UpdateGraphicJob).not_to receive(:perform_later) }
 
       specify { expect { subject.send(:import_new_graphics) }.not_to raise_error }
     end

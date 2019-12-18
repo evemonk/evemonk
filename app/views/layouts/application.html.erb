@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
     <% if Setting.use_google_analytics %>
       <%= render "shared/google_analytics" %>
     <% end %>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <%= display_meta_tags site: "EveMonk: EVE Online management suite",
                           reverse: true %>
 
     <!-- Disable translation prompt -->
     <meta name="google" content="notranslate">
+
+    <!-- Disable automatic detection and formatting of possible phone numbers -->
+    <meta name="format-detection" content="telephone=no">
 
     <% if Setting.use_google_search_console %>
       <!-- Google Search Console -->
@@ -47,14 +51,17 @@
                 <%= link_to("My characters", characters_path, class: "nav-link") %>
               </li>
               <li class="nav-item">
-                <%= link_to("Sign Out", sign_out_path, method: :delete, class: "nav-link") %>
+                <%= link_to("Profile", profile_path, class: "nav-link") %>
+              </li>
+              <li class="nav-item">
+                <%= link_to("Sign Out", destroy_user_session_path, method: :delete, class: "nav-link") %>
               </li>
             <% else %>
               <li class="nav-item">
-                <%= link_to("Sign In", sign_in_path, class: "nav-link") %>
+                <%= link_to("Sign In", new_user_session_path, class: "nav-link") %>
               </li>
               <li class="nav-item">
-                <%= link_to("Sign Up", sign_up_path, class: "nav-link") %>
+                <%= link_to("Sign Up", new_user_registration_path, class: "nav-link") %>
               </li>
             <% end %>
             <li class="nav-item dropdown">
@@ -81,22 +88,51 @@
             </button>
           </div>
         <% end %>
-      </div>
 
-      <% if flash[:alert] %>
-        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-          <%= flash[:alert] %>
-          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-      <% end %>
+        <% if flash[:alert] %>
+          <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <%= flash[:alert] %>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        <% end %>
+      </div>
 
       <%= yield %>
 
       <div class="w-100"></div>
 
+      <hr>
+
       <div class="row text-center">
+        <div class="col-6 col-md-3">
+          <ul class="list-unstyled mb-0">
+            <li><%= link_to("FAQ", faq_path) %></li>
+            <li><a href="#">Privacy policy</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-md-3">
+          <ul class="list-unstyled mb-0">
+            <li><a href="#">Terms of use</a></li>
+            <li><a href="#">About</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-md-3">
+          <ul class="list-unstyled mb-0">
+            <li><a href="#">API</a></li>
+            <li><a href="#">Swagger</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-md-3">
+          <ul class="list-unstyled mb-0">
+            <li><a href="#">GitHub</a></li>
+            <li><a href="#">Last link</a></li>
+          </ul>
+        </div>
+
+        <div class="w-100"></div>
+
         <div class="col">
           &copy; 2016 &mdash; 2019 <strong>EveMonk</strong>
         </div>

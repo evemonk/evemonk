@@ -3,8 +3,6 @@
 require "rails_helper"
 
 describe Eve::CorporationsImporter do
-  subject { described_class.new }
-
   describe "#import" do
     let(:corporation_id1) { double }
 

@@ -36,7 +36,7 @@ Layout/MultilineMethodCallIndentation:
 Style/TrailingCommaInArrayLiteral:
   Enabled: false
 
-Layout/IndentFirstHashElement:
+Layout/FirstHashElementIndentation:
   Enabled: false
 
 Naming/FileName:
@@ -60,7 +60,7 @@ Style/BracesAroundHashParameters:
 Layout/SpaceAfterComma:
   Enabled: false
 
-Layout/AlignArguments:
+Layout/ArgumentAlignment:
   Enabled: false
 
 Style/EmptyMethod:

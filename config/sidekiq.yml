@@ -22,26 +22,6 @@
     every: 1m
     class: Eve::ServerStatusImporterWorker
     description: 'Server status'
-  eve_races:
-    every: 7d
-    class: Eve::RacesImporterWorker
-    description: 'Import Races'
-  eve_bloodlines:
-    every: 7d
-    class: Eve::BloodlinesImporterWorker
-    description: 'Import Bloodlines'
-  eve_ancestries:
-    every: 7d
-    class: Eve::AncestriesImporterWorker
-    description: 'Import Ancestries'
-  eve_factions:
-    every: 7d
-    class: Eve::FactionsImporterWorker
-    description: 'Import Factions'
-  eve_alliances:
-    every: 1d
-    class: Eve::AlliancesImporterWorker
-    description: 'Import Alliances index'
   eve_alliances_local:
     every: 1d
     class: Eve::LocalAlliancesImporterWorker
@@ -50,18 +30,6 @@
     every: 1d
     class: Eve::AlliancesCorporationsImporterWorker
     description: 'Import Alliances Corporations info'
-  eve_corporations:
-    every: 1d
-    class: Eve::CorporationsImporterWorker
-    description: 'Import Corporations info'
-  eve_characters:
-    every: 7d
-    class: Eve::CharactersImporterWorker
-    description: 'Import Characters info'
-  eve_graphics:
-    every: 7d
-    class: Eve::GraphicsImporterWorker
-    description: 'Import Graphics index'
   eve_graphics_local:
     every: 7d
     class: Eve::LocalGraphicsImporterWorker

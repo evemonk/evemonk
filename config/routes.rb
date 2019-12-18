@@ -6,6 +6,8 @@ if Rails.env.development?
 end
 
 Rails.application.routes.draw do
+  devise_for :users
+
   if Rails.env.development?
     namespace :backoffice do
       mount Sidekiq::Web, at: "sidekiq"
@@ -28,13 +30,13 @@ Rails.application.routes.draw do
     resources :loyalty_points, only: :index
 
     resources :employment_histories, only: :index
+
+    resources :skills, only: :index
   end
 
-  resource :sign_up, only: [:show, :create]
+  resource :profile, only: :show
 
-  resource :sign_in, only: [:show, :create]
-
-  resource :sign_out, only: :destroy
+  resource :faq, only: :show
 
   namespace :auth do
     namespace :eve_online_sso do

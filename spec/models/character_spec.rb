@@ -19,6 +19,8 @@ describe Character do
 
   it { should belong_to(:corporation).class_name("Eve::Corporation").with_primary_key("corporation_id").optional(true) }
 
+  it { should belong_to(:current_ship_type).class_name("Eve::Type").with_primary_key("type_id").with_foreign_key("current_ship_type_id").optional(true) }
+
   it { should have_many(:loyalty_points).dependent(:destroy) }
 
   it { should have_many(:character_assets).dependent(:destroy) }
@@ -32,6 +34,8 @@ describe Character do
   it { should have_many(:character_skills).dependent(:destroy) }
 
   it { should have_many(:character_corporation_histories).with_primary_key("character_id").dependent(:destroy) }
+
+  it { should have_many(:character_mail_labels).dependent(:destroy) }
 
   describe "#charisma_attribute" do
     context "when @charisma_attribute is set" do

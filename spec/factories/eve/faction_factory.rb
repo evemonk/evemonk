@@ -4,9 +4,33 @@ FactoryBot.define do
   factory :eve_faction, class: Eve::Faction do
     sequence(:faction_id)
 
-    name { Faker::Lorem.word }
+    name_en { Faker::Lorem.word }
 
-    description { Faker::Lorem.paragraph }
+    name_de { Faker::Lorem.word }
+
+    name_fr { Faker::Lorem.word }
+
+    name_ja { Faker::Lorem.word }
+
+    name_ru { Faker::Lorem.word }
+
+    name_zh { Faker::Lorem.word }
+
+    name_ko { Faker::Lorem.word }
+
+    description_en { Faker::Lorem.paragraph }
+
+    description_de { Faker::Lorem.paragraph }
+
+    description_fr { Faker::Lorem.paragraph }
+
+    description_ja { Faker::Lorem.paragraph }
+
+    description_ru { Faker::Lorem.paragraph }
+
+    description_zh { Faker::Lorem.paragraph }
+
+    description_ko { Faker::Lorem.paragraph }
 
     sequence(:solar_system_id)
 

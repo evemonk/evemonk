@@ -6,10 +6,6 @@ module Authentication
 
     allow(controller).to receive(:current_user).and_return(user)
   end
-
-  def sign_in(user = User.new)
-    allow(controller).to receive(:current_user).and_return(user)
-  end
 end
 
 RSpec.configure do |config|

@@ -1,0 +1,37 @@
+<div class="row">
+  <div class="col">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><%= link_to("Home", root_path) %></li>
+        <li class="breadcrumb-item"><%= link_to("Types", universe_types_path) %></li>
+        <li class="breadcrumb-item active" aria-current="page"><%= @type.name %></li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+    <h4 class="text-center text-break">Type: <%= @type.name %></h4>
+
+    <div class="card">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item text-center">
+          <%= image_tag(@type.icon_small,
+                        alt: @type.name,
+                        class: "rounded border",
+                        size: "66x66",
+                        loading: "lazy") %>
+
+        </li>
+        <li class="list-group-item text-break">
+          <p><%= @type.description %></p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div>
+  <%#= @type.inspect %>
+</div>

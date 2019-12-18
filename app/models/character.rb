@@ -33,6 +33,12 @@ class Character < ApplicationRecord
     primary_key: "corporation_id",
     optional: true
 
+  belongs_to :current_ship_type,
+    class_name: "Eve::Type",
+    primary_key: "type_id",
+    foreign_key: "current_ship_type_id",
+    optional: true
+
   has_many :loyalty_points, dependent: :destroy
 
   has_many :character_assets, dependent: :destroy
@@ -48,6 +54,8 @@ class Character < ApplicationRecord
   has_many :character_corporation_histories,
     primary_key: "character_id",
     dependent: :destroy
+
+  has_many :character_mail_labels, dependent: :destroy
 
   def charisma_attribute
     @charisma_attribute ||= Eve::CharacterAttribute.find_by(attribute_name: "Charisma").decorate

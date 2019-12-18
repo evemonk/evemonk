@@ -14,19 +14,17 @@ module Eve
       primary_key: "graphic_id",
       optional: true
 
-    # TODO: import eve groups
-    # belongs_to :group,
-    #   primary_key: "group_id",
-    #   optional: true
+    belongs_to :group,
+      primary_key: "group_id",
+      optional: true
 
     belongs_to :icon,
       primary_key: "icon_id",
       optional: true
 
-    # TODO: import eve market groups
-    # belongs_to :market_group,
-    #            primary_key: "market_group_id",
-    #            optional: true
+    belongs_to :market_group,
+      primary_key: "market_group_id",
+      optional: true
 
     has_many :type_dogma_attributes,
       primary_key: "type_id",
@@ -40,7 +38,13 @@ module Eve
 
     def search_data
       {
-        name: name,
+        name_en: name_en,
+        name_de: name_de,
+        name_fr: name_fr,
+        name_ja: name_ja,
+        name_ru: name_ru,
+        name_zh: name_zh,
+        name_ko: name_ko,
       }
     end
   end

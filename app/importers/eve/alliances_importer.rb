@@ -31,7 +31,7 @@ module Eve
     def import_new_alliances
       esi.alliance_ids.each do |alliance_id|
         unless Eve::Alliance.exists?(alliance_id: alliance_id)
-          Eve::AllianceImporterWorker.perform_async(alliance_id)
+          Eve::UpdateAllianceJob.perform_later(alliance_id)
         end
       end
     end

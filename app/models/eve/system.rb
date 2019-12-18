@@ -2,7 +2,11 @@
 
 module Eve
   class System < ApplicationRecord
+    extend Mobility
+
     has_paper_trail
+
+    translates :name
 
     # TODO: belongs_to :constellation_id
 

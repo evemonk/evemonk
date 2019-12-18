@@ -1,7 +1,10 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
-  authenticates_with_sorcery!
+  # Include default devise modules. Others available are:
+  # :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable, :recoverable,
+    :rememberable, :validatable, :confirmable, :trackable
 
   # TODO: drop oauth kind and then drop kind from users
   enum kind: [:normal, :oauth]
@@ -9,6 +12,4 @@ class User < ApplicationRecord
   has_many :sessions, dependent: :destroy
 
   has_many :characters, dependent: :destroy
-
-  has_secure_token :reset_password_token
 end

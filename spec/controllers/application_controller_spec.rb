@@ -3,13 +3,13 @@
 require "rails_helper"
 
 describe ApplicationController do
-  it { should use_before_action(:require_login) }
+  it { should use_before_action(:authenticate_user!) }
 
   # private methods
 
-  describe "#not_authenticated" do
-    before { expect(subject).to receive(:redirect_to).with(sign_in_path, alert: "Please login first") }
+  describe "#after_sign_in_path_for" do
+    let(:resource) { double }
 
-    specify { expect { subject.send(:not_authenticated) }.not_to raise_error }
+    specify { expect(subject.send(:after_sign_in_path_for, resource)).to eq("/characters") }
   end
 end

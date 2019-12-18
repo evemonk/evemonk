@@ -30,6 +30,8 @@ describe UpdateCharacterInfoService do
 
     before { expect(CharacterCorporationHistoryJob).to receive(:perform_later).with(character_id) }
 
+    before { expect(CharacterMailLabelsJob).to receive(:perform_later).with(character_id) }
+
     specify { expect { subject.execute }.not_to raise_error }
   end
 end

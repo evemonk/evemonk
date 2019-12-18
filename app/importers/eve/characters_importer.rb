@@ -14,7 +14,7 @@ module Eve
       ids = (character_ids + alliance_creator_ids + corporation_ceo_ids + corporation_creator_ids).uniq
 
       ids.each do |character_id|
-        Eve::CharacterImporterWorker.perform_async(character_id)
+        Eve::UpdateCharacterJob.perform_later(character_id)
       end
     end
   end

@@ -19,8 +19,6 @@ describe CharacterJob do
       end
     end
 
-    subject { described_class.new }
-
     specify { expect { subject.perform(character_id) }.not_to raise_error }
   end
 end

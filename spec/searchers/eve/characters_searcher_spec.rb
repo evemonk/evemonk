@@ -21,8 +21,6 @@ describe Eve::CharactersSearcher do
 
       before { expect(Eve::Character).to receive(:all).and_return(scope) }
 
-      subject { described_class.new }
-
       its(:query) { should eq(nil) }
 
       its(:scope) { should eq(scope) }
@@ -36,8 +34,6 @@ describe Eve::CharactersSearcher do
       let!(:character2) { create(:eve_character, name: "b") }
 
       let!(:character3) { create(:eve_character, name: "c") }
-
-      subject { described_class.new }
 
       specify { expect(subject.search.count).to eq(3) }
 
