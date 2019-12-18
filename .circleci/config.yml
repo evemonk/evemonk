@@ -13,7 +13,7 @@ jobs:
           POSTGRES_USER: circleci
           POSTGRES_DB: evemonk_test
           POSTGRES_PASSWORD: ""
-      - image: elasticsearch:7.5.1
+      - image: docker.elastic.co/elasticsearch/elasticsearch:7.5.1
         environment:
           - discovery.type: single-node
     steps:
