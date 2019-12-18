@@ -21,6 +21,8 @@ Mobile first design.
 * Character show
 * Open Graph tags
 * SEO friendly
+* Authentication
+* User characters info
 
 ## Environment
 
@@ -35,7 +37,7 @@ Mobile first design.
 * PostgreSQL 12.1
 * Redis 5.0.7
 * Elasticsearch 7.5.0
-* Node 12.13.1
+* Node 12.14.0
 * NPM 6.13.4
 * Yarn 1.21.1
 * Bootstrap 4.4.1
