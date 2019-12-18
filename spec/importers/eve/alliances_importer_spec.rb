@@ -141,7 +141,7 @@ describe Eve::AlliancesImporter do
         .and_return(esi)
     end
 
-    context "when alliance not imported" do
+    context "when eve alliance not imported" do
       before do
         expect(Eve::Alliance).to receive(:exists?)
           .with(alliance_id: alliance_id)
@@ -156,7 +156,7 @@ describe Eve::AlliancesImporter do
       specify { expect { subject.send(:import_new_alliances) }.not_to raise_error }
     end
 
-    context "when alliance already imported" do
+    context "when eve alliance already imported" do
       before do
         expect(Eve::Alliance).to receive(:exists?)
           .with(alliance_id: alliance_id)
