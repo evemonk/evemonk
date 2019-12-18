@@ -33,10 +33,10 @@ Mobile first design.
 * Ruby 2.6.5
 * RubyGems 3.0.6
 * Bundler 2.1.1
-* Ruby on Rails 6.0.2
+* Ruby on Rails 6.0.2.1
 * PostgreSQL 12.1
 * Redis 5.0.7
-* Elasticsearch 7.5.0
+* Elasticsearch 7.5.1
 * Node 12.14.0
 * NPM 6.13.4
 * Yarn 1.21.1
