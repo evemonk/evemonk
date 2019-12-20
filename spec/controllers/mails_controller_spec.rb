@@ -13,6 +13,8 @@ describe MailsController do
 
       before { sign_in(user) }
 
+      let(:character) { instance_double(Character) }
+
       before do
         #
         # subject.current_user
@@ -29,7 +31,7 @@ describe MailsController do
                   double.tap do |c|
                     expect(c).to receive(:find_by!).with(character_id: "1") do
                       double.tap do |d|
-                        expect(d).to receive(:decorate)
+                        expect(d).to receive(:decorate).and_return(character)
                       end
                     end
                   end
@@ -38,6 +40,13 @@ describe MailsController do
             end
           end
         end
+      end
+
+      before do
+        #
+        # character.character_mail_labels
+        #
+        expect(character).to receive(:character_mail_labels)
       end
 
       before { get :index, params: {character_id: "1"} }
