@@ -6,6 +6,5 @@ class EmailsController < ApplicationController
       .includes(:race, :bloodline, :ancestry, :faction, :alliance, :corporation)
       .find_by!(character_id: params[:character_id])
       .decorate
-
   end
 end
