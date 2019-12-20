@@ -33,7 +33,7 @@ Rails.application.routes.draw do
 
     resources :skills, only: :index
 
-    resources :emails, only: :index
+    resources :mails, only: :index
   end
 
   resource :profile, only: :show

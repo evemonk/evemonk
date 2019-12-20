@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class EmailsController < ApplicationController
+class MailsController < ApplicationController
   def index
     @character = current_user.characters
       .includes(:race, :bloodline, :ancestry, :faction, :alliance, :corporation)

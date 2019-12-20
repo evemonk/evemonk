@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe EmailsController do
+describe MailsController do
   it { should be_a(ApplicationController) }
 
   it { should use_before_action(:authenticate_user!) }
