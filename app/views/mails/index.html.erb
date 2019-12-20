@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="col">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><%= link_to("Home", root_path) %></li>
+        <li class="breadcrumb-item"><%= link_to("My characters", characters_path) %></li>
+        <li class="breadcrumb-item"><%= link_to(@character.name, character_path(@character.character_id)) %></li>
+        <li class="breadcrumb-item active" aria-current="page">Mail</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    <ul class="nav nav-tabs">
+      <% @mail_labels.each do |label| %>
+        <li class="nav-item">
+          <a class="nav-link" href="#"><%= label.name %></a>
+        </li>
+      <% end %>
+
+<!--      <li class="nav-item">-->
+<!--        <a class="nav-link active" href="#">Active</a>-->
+<!--      </li>-->
+    </ul>
+  </div>
+</div>

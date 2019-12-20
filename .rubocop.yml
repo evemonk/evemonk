@@ -71,3 +71,6 @@ Metrics/ClassLength:
 
 Style/Lambda:
   Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false

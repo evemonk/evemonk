@@ -2,8 +2,6 @@
 
 FactoryBot.define do
   factory :user do
-    kind { :normal }
-
     email { Faker::Internet.email }
 
     password { Faker::Internet.password }

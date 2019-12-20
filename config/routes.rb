@@ -32,6 +32,8 @@ Rails.application.routes.draw do
     resources :employment_histories, only: :index
 
     resources :skills, only: :index
+
+    resources :mails, only: :index
   end
 
   resource :profile, only: :show

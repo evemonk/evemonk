@@ -6,9 +6,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable, :recoverable,
     :rememberable, :validatable, :confirmable, :trackable
 
-  # TODO: drop oauth kind and then drop kind from users
-  enum kind: [:normal, :oauth]
-
   has_many :sessions, dependent: :destroy
 
   has_many :characters, dependent: :destroy
