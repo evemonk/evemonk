@@ -10,3 +10,19 @@
     </nav>
   </div>
 </div>
+
+<div class="row">
+  <div class="col">
+    <ul class="nav nav-tabs">
+      <% @mail_labels.each do |label| %>
+        <li class="nav-item">
+          <a class="nav-link" href="#"><%= label.name %></a>
+        </li>
+      <% end %>
+
+<!--      <li class="nav-item">-->
+<!--        <a class="nav-link active" href="#">Active</a>-->
+<!--      </li>-->
+    </ul>
+  </div>
+</div>
