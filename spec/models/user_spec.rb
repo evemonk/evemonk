@@ -15,8 +15,6 @@ describe User do
                                                   :trackable,])
   }
 
-  it { should define_enum_for(:kind).with_values([:normal, :oauth]) }
-
   it { should have_many(:sessions).dependent(:destroy) }
 
   it { should have_many(:characters).dependent(:destroy) }
