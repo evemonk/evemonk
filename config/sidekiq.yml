@@ -18,10 +18,6 @@
     every: 1m
     class: Eve::ServerStatusImporterWorker
     description: 'Server status'
-  eve_alliances_local:
-    every: 1d
-    class: Eve::LocalAlliancesImporterWorker
-    description: 'Import Alliances info'
   eve_alliances_corporations:
     every: 1d
     class: Eve::AlliancesCorporationsImporterWorker

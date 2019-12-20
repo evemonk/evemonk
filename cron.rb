@@ -79,4 +79,9 @@ scheduler.every "1d" do
   SitemapUpdaterJob.perform_later
 end
 
+scheduler.every "1d" do
+  Rails.logger.info "Update eve alliances"
+  Eve::LocalAlliancesJob.perform_later
+end
+
 scheduler.join
