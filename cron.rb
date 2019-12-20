@@ -74,4 +74,9 @@ scheduler.every "1d" do
   Eve::UpdateCorporationsJob.perform_later
 end
 
+scheduler.every "1d" do
+  Rails.logger.info "Update sitemap and ping google"
+  SitemapUpdaterJob.perform_later
+end
+
 scheduler.join

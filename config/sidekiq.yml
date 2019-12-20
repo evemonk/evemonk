@@ -14,10 +14,6 @@
     every: 1d
     class: Pghero::CaptureSpaceStatsWorker
     description: 'Collection postgresql space stats'
-  sitemap_updater:
-    every: 1d
-    class: SitemapUpdaterWorker
-    description: 'Update sitemap and ping google'
   eve_server_status:
     every: 1m
     class: Eve::ServerStatusImporterWorker

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-class SitemapUpdaterWorker
-  include Sidekiq::Worker
+class SitemapUpdaterJob < ActiveJob::Base
+  queue_as :default
 
   def perform
     Sitemap::Updater.new.update
