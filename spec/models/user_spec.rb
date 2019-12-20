@@ -6,7 +6,7 @@ describe User do
   it { should be_a(ApplicationRecord) }
 
   it {
-    expect(described_class.devise_modules).to eq([:database_authenticatable,
+    expect(described_class.devise_modules).to eq([:two_factor_authenticatable,
                                                   :rememberable,
                                                   :recoverable,
                                                   :registerable,
