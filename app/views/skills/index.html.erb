@@ -31,7 +31,7 @@
     <%= link_to("Skills", character_skills_path(@character.character_id), class: "nav-link active") %>
   </li>
   <li class="nav-item">
-    <%= link_to("Mail", nil, class: "nav-link") %>
+    <%= link_to("Mail", character_mails_path(@character.character_id), class: "nav-link") %>
   </li>
 </ul>
 
