@@ -65,13 +65,23 @@ scheduler.every "7d" do
 end
 
 scheduler.every "1d" do
-  Rails.logger.info "Update eve alliances"
+  Rails.logger.info "Import new eve alliances"
   Eve::UpdateAlliancesJob.perform_later
 end
 
 scheduler.every "1d" do
-  Rails.logger.info "Update eve corporations"
+  Rails.logger.info "Import new eve corporations"
   Eve::UpdateCorporationsJob.perform_later
+end
+
+scheduler.every "1d" do
+  Rails.logger.info "Update sitemap and ping google"
+  SitemapUpdaterJob.perform_later
+end
+
+scheduler.every "1d" do
+  Rails.logger.info "Update eve alliances"
+  Eve::LocalAlliancesJob.perform_later
 end
 
 scheduler.join

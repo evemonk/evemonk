@@ -2,8 +2,8 @@
 
 require "rails_helper"
 
-describe Eve::LocalAlliancesImporterWorker do
-  it { should be_a(Sidekiq::Worker) }
+describe Eve::LocalAlliancesJob do
+  it { expect(described_class.queue_name).to eq("default") }
 
   describe "#perform" do
     before do
