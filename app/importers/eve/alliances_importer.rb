@@ -29,10 +29,12 @@ module Eve
     end
 
     def import_new_alliances
-      esi.alliance_ids.each do |alliance_id|
-        unless Eve::Alliance.exists?(alliance_id: alliance_id)
-          Eve::UpdateAllianceJob.perform_later(alliance_id)
-        end
+      eve_alliance_ids = Eve::Alliance.pluck(:alliance_id)
+
+      eve_alliance_ids_to_create = esi.alliance_ids - eve_alliance_ids
+
+      eve_alliance_ids_to_create.each do |alliance_id|
+        Eve::UpdateAllianceJob.perform_later(alliance_id)
       end
     end
 

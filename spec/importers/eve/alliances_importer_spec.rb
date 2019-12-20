@@ -129,44 +129,28 @@ describe Eve::AlliancesImporter do
   end
 
   describe "#import_new_alliances" do
-    let(:alliance_id) { double }
+    let(:eve_alliance_ids) { double }
+
+    before { expect(Eve::Alliance).to receive(:pluck).with(:alliance_id).and_return(eve_alliance_ids) }
+
+    let(:alliance_ids) { double }
 
     let(:esi) do
       instance_double(EveOnline::ESI::Alliances,
-        alliance_ids: [alliance_id])
+        alliance_ids: alliance_ids)
     end
 
-    before do
-      expect(EveOnline::ESI::Alliances).to receive(:new)
-        .and_return(esi)
-    end
+    before { expect(EveOnline::ESI::Alliances).to receive(:new).and_return(esi) }
 
-    context "when eve alliance not imported" do
-      before do
-        expect(Eve::Alliance).to receive(:exists?)
-          .with(alliance_id: alliance_id)
-          .and_return(false)
-      end
+    let(:eve_alliance_id_to_create) { double }
 
-      before do
-        expect(Eve::UpdateAllianceJob).to receive(:perform_later)
-          .with(alliance_id)
-      end
+    let(:eve_alliance_ids_to_create) { [eve_alliance_id_to_create] }
 
-      specify { expect { subject.send(:import_new_alliances) }.not_to raise_error }
-    end
+    before { expect(alliance_ids).to receive(:-).with(eve_alliance_ids).and_return(eve_alliance_ids_to_create) }
 
-    context "when eve alliance already imported" do
-      before do
-        expect(Eve::Alliance).to receive(:exists?)
-          .with(alliance_id: alliance_id)
-          .and_return(true)
-      end
+    before { expect(Eve::UpdateAllianceJob).to receive(:perform_later).with(eve_alliance_id_to_create) }
 
-      before { expect(Eve::UpdateAllianceJob).not_to receive(:perform_later) }
-
-      specify { expect { subject.send(:import_new_alliances) }.not_to raise_error }
-    end
+    specify { expect { subject.send(:import_new_alliances) }.not_to raise_error }
   end
 
   describe "#remove_old_alliances" do
