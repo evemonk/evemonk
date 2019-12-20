@@ -13,8 +13,9 @@ gem "bootsnap", ">= 1.4.2", require: false
 gem "rails-i18n", "~> 6.0.0"
 gem "devise"
 gem "devise-i18n"
+gem "devise-two-factor"
 gem "strong_password"
-gem "rqrcode"
+gem "rqrcode" # TODO: remove this gem
 gem "meta-tags"
 gem "metricky"
 gem "dalli"
