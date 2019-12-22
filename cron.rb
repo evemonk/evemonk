@@ -9,22 +9,22 @@ scheduler.every "1h" do
   UpdateCharactersJob.perform_later
 end
 
-scheduler.every "7d" do
+scheduler.every "1d" do
   Rails.logger.info "Update eve races"
   Eve::UpdateRacesJob.perform_later
 end
 
-scheduler.every "7d" do
+scheduler.every "1d" do
   Rails.logger.info "Update eve bloodlines"
   Eve::UpdateBloodlinesJob.perform_later
 end
 
-scheduler.every "7d" do
+scheduler.every "1d" do
   Rails.logger.info "Update eve ancestries"
   Eve::UpdateAncestriesJob.perform_later
 end
 
-scheduler.every "7d" do
+scheduler.every "1d" do
   Rails.logger.info "Update eve factions"
   Eve::UpdateFactionsJob.perform_later
 end
@@ -56,6 +56,11 @@ end
 
 scheduler.every "7d" do
   Rails.logger.info "Update eve characters"
+  Eve::LocalCharactersJob.perform_later
+end
+
+scheduler.every "1d" do
+  Rails.logger.info "Import new eve characters"
   Eve::UpdateCharactersJob.perform_later
 end
 
