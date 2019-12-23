@@ -29,9 +29,14 @@ scheduler.every "1d" do
   Eve::UpdateFactionsJob.perform_later
 end
 
+scheduler.every "1d" do
+  Rails.logger.info "Import new eve categories"
+  Eve::UpdateCategoriesJob.perform_later
+end
+
 scheduler.every "7d" do
   Rails.logger.info "Update eve categories"
-  Eve::UpdateCategoriesJob.perform_later
+  Eve::LocalCategoriesJob.perform_later
 end
 
 scheduler.every "7d" do
