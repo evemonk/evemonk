@@ -42,7 +42,7 @@ GIT
 
 GIT
   remote: https://github.com/rspec/rspec-rails.git
-  revision: a769a4d37a65bb911c6774450e23568b5cf78f08
+  revision: 43e52bf5e6aa87d03a4fdf8ca57213ef921a3a5c
   branch: master
   specs:
     rspec-rails (4.0.0.pre)
@@ -162,7 +162,7 @@ GEM
       thor (~> 0.18)
     cacheflow (0.1.1)
       activesupport
-    capybara (3.29.0)
+    capybara (3.30.0)
       addressable
       mini_mime (>= 0.1.3)
       nokogiri (~> 1.8)
@@ -385,7 +385,7 @@ GEM
     pastel (0.7.3)
       equatable (~> 0.6)
       tty-color (~> 0.5)
-    pg (1.1.4)
+    pg (1.2.0)
     pg_query (1.2.0)
     pghero (2.4.1)
       activerecord (>= 5)
@@ -460,7 +460,7 @@ GEM
     rainbow (3.0.0)
     rake (13.0.1)
     rb-fsevent (0.10.3)
-    rb-inotify (0.10.0)
+    rb-inotify (0.10.1)
       ffi (~> 1.0)
     redis (4.1.3)
     regexp_parser (1.6.0)
@@ -495,7 +495,7 @@ GEM
       rainbow (>= 2.2.2, < 4.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 1.4.0, < 1.7)
-    rubocop-performance (1.5.1)
+    rubocop-performance (1.5.2)
       rubocop (>= 0.71.0)
     ruby-progressbar (1.10.1)
     ruby-statistics (2.1.1)
@@ -601,7 +601,7 @@ GEM
     turbolinks-source (5.2.0)
     typhoeus (1.3.1)
       ethon (>= 0.9.0)
-    tzinfo (1.2.5)
+    tzinfo (1.2.6)
       thread_safe (~> 0.1)
     unicode-display_width (1.6.0)
     unicode_utils (1.4.0)
