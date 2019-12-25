@@ -128,6 +128,30 @@ describe Eve::DogmaAttributesImporter do
     end
   end
 
-  
+  describe "#import_new_dogma_attributes" do
+    let(:eve_dogma_attribute_ids) { double }
+
+    before { expect(Eve::DogmaAttribute).to receive(:pluck).with(:attribute_id).and_return(eve_dogma_attribute_ids) }
+
+    let(:attribute_ids) { double }
+
+    let(:esi) do
+      instance_double(EveOnline::ESI::DogmaAttributes,
+        attribute_ids: attribute_ids)
+    end
+
+    before { expect(EveOnline::ESI::DogmaAttributes).to receive(:new).and_return(esi) }
+
+    let(:attribute_id) { double }
+
+    let(:attribute_ids_to_create) { [attribute_id] }
+
+    before { expect(attribute_ids).to receive(:-).with(eve_dogma_attribute_ids).and_return(attribute_ids_to_create) }
+
+    before { expect(Eve::UpdateDogmaAttributeJob).to receive(:perform_later).with(attribute_id) }
+
+    specify { expect { subject.send(:import_new_dogma_attributes) }.not_to raise_error }
+  end
+
 
 end
