@@ -64,6 +64,11 @@ scheduler.every "7d" do
   Eve::LocalCharactersJob.perform_later
 end
 
+scheduler.every "7d" do
+  Rails.logger.info "Update eve dogma attributes"
+  Eve::LocalDogmaAttributesJob.perform_later
+end
+
 scheduler.every "1d" do
   Rails.logger.info "Import new eve characters"
   Eve::UpdateCharactersJob.perform_later
