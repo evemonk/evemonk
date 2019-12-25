@@ -153,5 +153,34 @@ describe Eve::DogmaAttributesImporter do
     specify { expect { subject.send(:import_new_dogma_attributes) }.not_to raise_error }
   end
 
+  describe "#remove_old_dogma_attributes" do
+    let(:eve_dogma_attribute_ids) { double }
 
+    before { expect(Eve::DogmaAttribute).to receive(:pluck).with(:attribute_id).and_return(eve_dogma_attribute_ids) }
+
+    let(:attribute_ids) { double }
+
+    let(:esi) do
+      instance_double(EveOnline::ESI::DogmaAttributes,
+        attribute_ids: attribute_ids)
+    end
+
+    before { expect(EveOnline::ESI::DogmaAttributes).to receive(:new).and_return(esi) }
+
+    let(:eve_dogma_attribute_id_to_remove) { double }
+
+    let(:eve_dogma_attribute_ids_to_remove) { [eve_dogma_attribute_id_to_remove] }
+
+    before { expect(eve_dogma_attribute_ids).to receive(:-).with(attribute_ids).and_return(eve_dogma_attribute_ids_to_remove) }
+
+    let(:attribute_id) { double }
+
+    let(:dogma_attribute) { instance_double(Eve::DogmaAttribute, attribute_id: attribute_id) }
+
+    before { expect(Eve::DogmaAttribute).to receive(:find_or_initialize_by).with(attribute_id: eve_dogma_attribute_id_to_remove).and_return(dogma_attribute) }
+
+    before { expect(dogma_attribute).to receive(:destroy!) }
+
+    specify { expect { subject.send(:remove_old_dogma_attributes) }.not_to raise_error }
+  end
 end
