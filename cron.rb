@@ -85,6 +85,11 @@ scheduler.every "1d" do
 end
 
 scheduler.every "1d" do
+  Rails.logger.info "Import new eve dogma attributes"
+  Eve::UpdateDogmaAttributesJob.perform_later
+end
+
+scheduler.every "1d" do
   Rails.logger.info "Update sitemap and ping google"
   SitemapUpdaterJob.perform_later
 end
