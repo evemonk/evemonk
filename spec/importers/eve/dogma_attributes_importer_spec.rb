@@ -39,13 +39,13 @@ describe Eve::DogmaAttributesImporter do
 
       before do
         expect(subject).to receive(:etag)
-                               .and_return(etag)
-                               .twice
+          .and_return(etag)
+          .twice
       end
 
       before do
         expect(esi).to receive(:etag=)
-                           .with("97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a")
+          .with("97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a")
       end
 
       before { expect(subject).to receive(:import_new_dogma_attributes) }
@@ -77,7 +77,7 @@ describe Eve::DogmaAttributesImporter do
 
       before do
         expect(esi).to receive(:etag=)
-                           .with("97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a")
+          .with("97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a")
       end
 
       before { expect(subject).not_to receive(:import_new_dogma_attributes) }
