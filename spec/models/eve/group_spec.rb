@@ -13,5 +13,7 @@ describe Eve::Group do
 
   it { expect(described_class.table_name).to eq("eve_groups") }
 
-  # belongs_to :category_id
+  it { should belong_to(:category).with_primary_key("category_id").with_foreign_key("category_id").optional(true) }
+
+  it { should have_many(:types).with_primary_key("group_id").with_foreign_key("group_id") }
 end
