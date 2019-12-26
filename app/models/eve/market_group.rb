@@ -8,6 +8,14 @@ module Eve
 
     translates :name, :description
 
-    # has_many :types
+    belongs_to :parent_group,
+      class_name: "Eve::MarketGroup",
+      primary_key: "market_group_id",
+      foreign_key: "parent_group_id",
+      optional: true
+
+    has_many :types,
+      primary_key: "market_group_id",
+      foreign_key: "market_group_id"
   end
 end
