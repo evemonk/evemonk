@@ -9,7 +9,7 @@ describe Eve::TypeDogmaAttribute do
 
   it { expect(described_class.table_name).to eq("eve_type_dogma_attributes") }
 
-  it { should belong_to(:type).with_primary_key("type_id").with_foreign_key("type_id") }
+  it { should belong_to(:type).with_primary_key("type_id").with_foreign_key("type_id").optional(true) }
 
-  # TODO: attribute_id
+  it { should belong_to(:dogma_attribute).with_primary_key("attribute_id").with_foreign_key("attribute_id").optional(true) }
 end
