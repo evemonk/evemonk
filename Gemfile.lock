@@ -690,6 +690,7 @@ DEPENDENCIES
   factory_bot_rails
   faker
   faker-bot
+  fast_gettext
   fasterer
   foundation_emails
   gemdiff
