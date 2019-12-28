@@ -36,6 +36,8 @@ gem "mobility"
 gem "paper_trail"
 gem "rails-settings-cached"
 gem "sidekiq", require: false
+gem "thwait" # for sidekiq-scheduler
+gem "e2mmap" # for sidekiq-scheduler
 gem "sidekiq-scheduler", require: false
 gem "rpush"
 gem "pghero"
