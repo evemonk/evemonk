@@ -443,13 +443,13 @@ GEM
     rails-settings-cached (2.1.1)
       rails (>= 4.2.0)
       request_store
-    rails_best_practices (1.19.4)
+    rails_best_practices (1.19.5)
       activesupport
-      code_analyzer (>= 0.4.8)
+      code_analyzer (>= 0.5.1)
       erubis
       i18n
       json
-      require_all (~> 2.0)
+      require_all (~> 3.0)
       ruby-progressbar
     railties (6.0.2.1)
       actionpack (= 6.0.2.1)
@@ -466,7 +466,7 @@ GEM
     regexp_parser (1.6.0)
     request_store (1.5.0)
       rack (>= 1.4)
-    require_all (2.0.0)
+    require_all (3.0.0)
     responders (3.0.0)
       actionpack (>= 5.0)
       railties (>= 5.0)
