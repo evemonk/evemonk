@@ -1,4 +1,17 @@
 GIT
+  remote: https://github.com/biow0lf/sidekiq-scheduler
+  revision: f262f8db341fcc1767f996e30bcceb7d9d5ee2d1
+  branch: ruby-2.7.0
+  specs:
+    sidekiq-scheduler (3.0.0)
+      e2mmap
+      redis (>= 3, < 5)
+      rufus-scheduler (~> 3.2)
+      sidekiq (>= 3)
+      thwait
+      tilt (>= 1.4.0)
+
+GIT
   remote: https://github.com/evemonk/eve_online.git
   revision: 63a9e932ce55b7c8b35b8f1f4771d8e30f8757be
   branch: dev
@@ -539,11 +552,6 @@ GEM
       rack (>= 2.0.0)
       rack-protection (>= 2.0.0)
       redis (>= 4.1.0)
-    sidekiq-scheduler (3.0.0)
-      redis (>= 3, < 5)
-      rufus-scheduler (~> 3.2)
-      sidekiq (>= 3)
-      tilt (>= 1.4.0)
     simplecov (0.17.1)
       docile (~> 1.1)
       json (>= 1.8, < 3)
@@ -669,7 +677,6 @@ DEPENDENCIES
   devise-i18n
   dotenv-rails
   draper
-  e2mmap
   errbase
   eve_online!
   factory_bot_rails
@@ -730,7 +737,7 @@ DEPENDENCIES
   shoulda-callback-matchers!
   shoulda-matchers!
   sidekiq
-  sidekiq-scheduler
+  sidekiq-scheduler!
   simplecov
   sitemap_generator
   spring
@@ -742,7 +749,6 @@ DEPENDENCIES
   standard
   strong_password
   swagger-blocks
-  thwait
   traceroute
   turbolinks (~> 5)
   typhoeus
@@ -756,4 +762,4 @@ DEPENDENCIES
   yabeda-sidekiq
 
 BUNDLED WITH
-   2.1.1
+   2.1.2
