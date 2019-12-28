@@ -21,7 +21,13 @@ Rails.application.routes.draw do
 
     resources :characters, only: [:index, :show]
 
-    resources :types, only: [:index, :show]
+    resources :categories, only: [:index, :show]
+
+    resources :groups, only: :show
+
+    resources :market_groups, only: [:index, :show]
+
+    resources :types, only: :show
   end
 
   resources :characters, only: [:index, :show, :update, :destroy] do

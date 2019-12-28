@@ -7,8 +7,6 @@ describe Universe::TypesController do
 
   it { should_not use_before_action(:require_login) }
 
-  describe "#index" # TODO: write
-
   describe "#show" do
     before do
       #
