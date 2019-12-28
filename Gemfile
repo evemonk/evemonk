@@ -38,9 +38,6 @@ gem "rails-settings-cached"
 gem "sidekiq", require: false
 # https://github.com/moove-it/sidekiq-scheduler/pull/297
 gem "sidekiq-scheduler", require: false, git: "https://github.com/biow0lf/sidekiq-scheduler", branch: "ruby-2.7.0"
-gem "fast_gettext"
-gem "gettext_i18n_rails"
-gem "gettext", require: false
 gem "rpush"
 gem "pghero"
 gem "pg_query"
@@ -114,7 +111,6 @@ group :development do
   gem "cacheflow"
   gem "gemdiff", require: false
   gem "derailed_benchmarks"
-  gem "ruby_parser", require: false
 end
 
 group :test do
