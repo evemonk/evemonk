@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class ApplicationMailer < ActionMailer::Base
-  default from: "robot@evemonk.com"
+  default from: "EveMonk <robot@evemonk.com>"
 
   layout "mailer"
 end
