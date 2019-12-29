@@ -7,8 +7,8 @@ module Universe
     def show
       @type = Eve::Type
         .includes(:group,
-                  type_dogma_attributes: :dogma_attribute,
-                  market_group: { parent_group: { parent_group: :parent_group }})
+          type_dogma_attributes: :dogma_attribute,
+          market_group: {parent_group: {parent_group: :parent_group}})
         .find_by!(type_id: params[:id])
         .decorate
     end
