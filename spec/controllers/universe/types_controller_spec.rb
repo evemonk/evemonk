@@ -10,11 +10,21 @@ describe Universe::TypesController do
   describe "#show" do
     before do
       #
-      # Eve::Type.find_by!(type_id: params[:id]).decorate
+      # Eve::Type.includes(:group,
+      #                    type_dogma_attributes: :dogma_attribute,
+      #                    market_group: { parent_group: { parent_group: :parent_group }})
+      #          .find_by!(type_id: params[:id])
+      #          .decorate
       #
-      expect(Eve::Type).to receive(:find_by!).with(type_id: "9899") do
+      expect(Eve::Type).to receive(:includes).with(:group,
+                                                   type_dogma_attributes: :dogma_attribute,
+                                                   market_group: { parent_group: { parent_group: :parent_group }}) do
         double.tap do |a|
-          expect(a).to receive(:decorate)
+          expect(a).to receive(:find_by!).with(type_id: "9899") do
+            double.tap do |b|
+              expect(b).to receive(:decorate)
+            end
+          end
         end
       end
     end
