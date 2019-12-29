@@ -12,4 +12,8 @@ describe Eve::MarketGroup do
   it { expect(described_class.translated_attribute_names).to eq(["name", "description"]) }
 
   it { expect(described_class.table_name).to eq("eve_market_groups") }
+
+  it { should belong_to(:parent_group).class_name("Eve::MarketGroup").with_primary_key("market_group_id").with_foreign_key("parent_group_id").optional(true) }
+
+  it { should have_many(:types).with_primary_key("market_group_id").with_foreign_key("market_group_id") }
 end

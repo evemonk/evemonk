@@ -8,6 +8,13 @@ module Eve
 
     translates :name
 
-    # belongs_to :category_id
+    belongs_to :category,
+      primary_key: "category_id",
+      foreign_key: "category_id",
+      optional: true
+
+    has_many :types,
+      primary_key: "group_id",
+      foreign_key: "group_id"
   end
 end

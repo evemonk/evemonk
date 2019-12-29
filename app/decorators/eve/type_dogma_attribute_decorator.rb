@@ -2,6 +2,6 @@
 
 module Eve
   class TypeDogmaAttributeDecorator < ApplicationDecorator
-    decorates_associations :type
+    decorates_associations :type, :dogma_attribute
   end
 end

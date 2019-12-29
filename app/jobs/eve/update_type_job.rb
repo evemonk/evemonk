@@ -7,7 +7,9 @@ module Eve
     retry_on EveOnline::Exceptions::Timeout,
       EveOnline::Exceptions::ServiceUnavailable,
       EveOnline::Exceptions::BadGateway,
-      EveOnline::Exceptions::InternalServerError
+      EveOnline::Exceptions::InternalServerError,
+      OpenSSL::SSL::SSLError,
+      Faraday::Error::TimeoutError
 
     def perform(type_id)
       LanguageMapper::LANGUAGES.each_key do |locale|

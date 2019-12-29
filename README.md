@@ -30,7 +30,7 @@ Mobile first design.
 * [ruby-build](https://github.com/rbenv/ruby-build)
 * [asdf](https://github.com/asdf-vm/asdf)
 * [asdf-nodejs](https://github.com/asdf-vm/asdf-nodejs)
-* Ruby 2.6.5
+* Ruby 2.7.0
 * RubyGems 3.1.2
 * Bundler 2.1.2
 * Ruby on Rails 6.0.2.1

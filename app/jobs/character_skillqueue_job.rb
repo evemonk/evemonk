@@ -6,7 +6,9 @@ class CharacterSkillqueueJob < ActiveJob::Base
   retry_on EveOnline::Exceptions::Timeout,
     EveOnline::Exceptions::ServiceUnavailable,
     EveOnline::Exceptions::BadGateway,
-    EveOnline::Exceptions::InternalServerError
+    EveOnline::Exceptions::InternalServerError,
+    OpenSSL::SSL::SSLError,
+    Faraday::Error::TimeoutError
 
   def perform(character_id)
     CharacterSkillqueueImporter.new(character_id).import
