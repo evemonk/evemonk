@@ -416,7 +416,7 @@ GEM
     quantile (0.2.1)
     raabro (1.1.6)
     rack (2.0.8)
-    rack-cors (1.1.0)
+    rack-cors (1.1.1)
       rack (>= 2.0.0)
     rack-health (0.1.2)
       rack (>= 1.2.0)
