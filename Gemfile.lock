@@ -13,7 +13,7 @@ GIT
 
 GIT
   remote: https://github.com/evemonk/eve_online.git
-  revision: 63a9e932ce55b7c8b35b8f1f4771d8e30f8757be
+  revision: b83a861ce246e965cef38ea911eb7f72c5f8b4da
   branch: dev
   specs:
     eve_online (0.30.0)
@@ -69,7 +69,7 @@ GIT
 
 GIT
   remote: https://github.com/rspec/rspec-support.git
-  revision: 4e96d2f76d5f73e92019ac2b0ca2ae15818f930c
+  revision: 596198a74e6942fb9de253e590aaa71e1bf3b9d4
   branch: master
   specs:
     rspec-support (3.10.0.pre)
@@ -354,7 +354,7 @@ GEM
     mini_portile2 (2.4.0)
     minitest (5.13.0)
     mixlib-cli (2.1.5)
-    mixlib-config (3.0.5)
+    mixlib-config (3.0.6)
       tomlrb
     mobility (0.8.9)
       i18n (>= 0.6.10, < 2)
@@ -393,7 +393,7 @@ GEM
       activerecord (>= 4.2)
       request_store (~> 1.1)
     parallel (1.19.1)
-    parser (2.7.0.0)
+    parser (2.7.0.1)
       ast (~> 2.4.0)
     parslet (1.8.2)
     pastel (0.7.3)
@@ -416,7 +416,7 @@ GEM
     quantile (0.2.1)
     raabro (1.1.6)
     rack (2.0.8)
-    rack-cors (1.1.0)
+    rack-cors (1.1.1)
       rack (>= 2.0.0)
     rack-health (0.1.2)
       rack (>= 1.2.0)
