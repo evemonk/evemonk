@@ -21,13 +21,17 @@ scheduler.every "day at 2pm" do
 
   Rails.logger.info "Update eve factions"
   Eve::UpdateFactionsJob.perform_later
-end
 
-scheduler.every "1d" do
   Rails.logger.info "Import new eve categories"
   Eve::UpdateCategoriesJob.perform_later
+
+
+
+  Rails.logger.info "Update sitemap and ping google"
+  SitemapUpdaterJob.perform_later
 end
 
+# 43
 scheduler.every "7d" do
   Rails.logger.info "Update eve categories"
   Eve::LocalCategoriesJob.perform_later
@@ -86,11 +90,6 @@ end
 scheduler.every "1d" do
   Rails.logger.info "Import new eve dogma attributes"
   Eve::UpdateDogmaAttributesJob.perform_later
-end
-
-scheduler.every "1d" do
-  Rails.logger.info "Update sitemap and ping google"
-  SitemapUpdaterJob.perform_later
 end
 
 scheduler.every "1d" do
