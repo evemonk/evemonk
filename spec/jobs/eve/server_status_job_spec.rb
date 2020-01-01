@@ -5,6 +5,10 @@ require "rails_helper"
 describe Eve::ServerStatusJob do
   it { expect(described_class.queue_name).to eq("server_status") }
 
+  describe ".sidekiq_options" do
+    specify { expect(described_class.sidekiq_options["retry"]).to eq(false) }
+  end
+
   describe "#perform" do
     before do
       #
