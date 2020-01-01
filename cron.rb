@@ -81,6 +81,9 @@ scheduler.every "every friday at 2 pm" do
 end
 
 scheduler.every "every saturday at 2 pm" do
+  # Around 250k calls to esi
+  Rails.logger.info "Update eve types"
+  Eve::LocalTypesJob.perform_later
 end
 
 scheduler.every "every sunday at 2 pm" do
