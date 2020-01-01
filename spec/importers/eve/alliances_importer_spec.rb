@@ -185,7 +185,7 @@ describe Eve::AlliancesImporter do
 
     before { expect(Eve::Alliance).to receive(:find_or_initialize_by).with(alliance_id: alliance_id_to_remove).and_return(eve_alliance) }
 
-    before { expect(Eve::CorporationImporterWorker).to receive(:perform_async).with(corporation_id) }
+    before { expect(Eve::UpdateCorporationJob).to receive(:perform_later).with(corporation_id) }
 
     before { expect(eve_alliance).to receive(:destroy!) }
 

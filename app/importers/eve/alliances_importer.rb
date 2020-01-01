@@ -47,7 +47,7 @@ module Eve
         eve_alliance = Eve::Alliance.find_or_initialize_by(alliance_id: alliance_id)
 
         eve_alliance.corporations.each do |corporation|
-          Eve::CorporationImporterWorker.perform_async(corporation.corporation_id)
+          Eve::UpdateCorporationJob.perform_later(corporation.corporation_id)
         end
 
         eve_alliance.destroy!
