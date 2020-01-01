@@ -4,6 +4,11 @@ require_relative "config/environment"
 
 scheduler = Rufus::Scheduler.new
 
+scheduler.every "1m" do
+  Rails.logger.info "Update server status"
+  Eve::ServerStatusJob.perform_later
+end
+
 scheduler.every "1h" do
   Rails.logger.info "Update characters"
   UpdateCharactersJob.perform_later
