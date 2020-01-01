@@ -32,12 +32,12 @@ scheduler.every "every day at 2 pm" do
 
   # categories/market groups/groups
 
-  #category.rb -- 43
-  #dogma_attribute.rb -- 2486
-  #graphic.rb -- 3848
-  #group.rb -- 1401
-  #market_group.rb -- 1873
-  #type.rb -- 36776
+  # category.rb -- 43
+  # dogma_attribute.rb -- 2486
+  # graphic.rb -- 3848
+  # group.rb -- 1401
+  # market_group.rb -- 1873
+  # type.rb -- 36776
 
   Rails.logger.info "Import new eve alliances"
   Eve::UpdateAlliancesJob.perform_later
@@ -81,11 +81,9 @@ scheduler.every "every friday at 2 pm" do
 end
 
 scheduler.every "every saturday at 2 pm" do
-
 end
 
 scheduler.every "every sunday at 2 pm" do
-
 end
 
 ####
