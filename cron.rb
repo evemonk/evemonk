@@ -9,7 +9,7 @@ scheduler.every "1h" do
   UpdateCharactersJob.perform_later
 end
 
-scheduler.cron "every day at 2 pm" do
+scheduler.at "every day at 2 pm" do
   # 7 call to esi
   Rails.logger.info "Update eve races"
   Eve::UpdateRacesJob.perform_later
@@ -46,7 +46,7 @@ scheduler.cron "every day at 2 pm" do
   SitemapUpdaterJob.perform_later
 end
 
-scheduler.cron "every monday at 2 pm" do
+scheduler.at "every monday at 2 pm" do
   # Around 3k calls to esi
   Rails.logger.info "Update eve alliances"
   Eve::LocalAlliancesJob.perform_later
@@ -56,42 +56,42 @@ scheduler.cron "every monday at 2 pm" do
   Eve::UpdateAlliancesCorporationsJob.perform_later
 end
 
-scheduler.cron "every tuesday at 2 pm" do
+scheduler.at "every tuesday at 2 pm" do
   # Around 700k calls to esi
   Rails.logger.info "Update eve corporations"
   Eve::LocalCorporationsJob.perform_later
 end
 
-scheduler.cron "every wednesday at 2 pm" do
+scheduler.at "every wednesday at 2 pm" do
   # Around 700k calls to esi
   Rails.logger.info "Update eve corporations alliance history"
   Eve::UpdateCorporationsAllianceHistoryJob.perform_later
 end
 
-scheduler.cron "every thursday at 2 pm" do
+scheduler.at "every thursday at 2 pm" do
   # Around 700k calls to esi
   Rails.logger.info "Update eve characters"
   Eve::LocalCharactersJob.perform_later
 end
 
-scheduler.cron "every friday at 2 pm" do
+scheduler.at "every friday at 2 pm" do
   # Around 700k calls to esi
   Rails.logger.info "Update eve characters corporation history"
   Eve::UpdateCharactersCorporationHistoryJob.perform_later
 end
 
-scheduler.cron "every saturday at 2 pm" do
+scheduler.at "every saturday at 2 pm" do
   # Around 250k calls to esi
   Rails.logger.info "Update eve types"
   Eve::LocalTypesJob.perform_later
 end
 
-scheduler.cron "every sunday at 2 pm" do
+scheduler.at "every sunday at 2 pm" do
 end
 
 ####
 
-scheduler.cron "every sunday at 2pm" do
+scheduler.at "every sunday at 2pm" do
   Rails.logger.info "Update eve categories"
   Eve::LocalCategoriesJob.perform_later
 end
