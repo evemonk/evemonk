@@ -1,19 +1,12 @@
 :queues:
   - [server_status, 2]
+  - [pghero, 2]
   - mailers
   - default
 
 :concurrency: 10
 
 :schedule:
-  pg_hero_query_stats:
-    every: 5m
-    class: Pghero::CaptureQueryStatsWorker
-    description: 'Collect postgresql query stats'
-  pg_hero_space_stats:
-    every: 1d
-    class: Pghero::CaptureSpaceStatsWorker
-    description: 'Collection postgresql space stats'
   eve_graphics_local:
     every: 7d
     class: Eve::LocalGraphicsImporterWorker
