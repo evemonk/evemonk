@@ -2,8 +2,8 @@
 
 require "rails_helper"
 
-describe Pghero::CaptureQueryStatsWorker do
-  it { should be_a(Sidekiq::Worker) }
+describe Pghero::CaptureQueryStatsJob do
+  it { expect(described_class.queue_name).to eq("pghero") }
 
   describe "#perform" do
     before { expect(PgHero).to receive(:capture_query_stats) }

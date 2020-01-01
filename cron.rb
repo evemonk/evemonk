@@ -4,12 +4,25 @@ require_relative "config/environment"
 
 scheduler = Rufus::Scheduler.new
 
+scheduler.every "1m" do
+  Rails.logger.info "Update server status"
+  Eve::ServerStatusJob.perform_later
+end
+
+scheduler.every "5m" do
+  Rails.logger.info "Collect postgresql query stats"
+  Pghero::CaptureQueryStatsJob.perform_later
+end
+
 scheduler.every "1h" do
   Rails.logger.info "Update characters"
   UpdateCharactersJob.perform_later
 end
 
 scheduler.at "every day at 2 pm" do
+  Rails.logger.info "Collection postgresql space stats"
+  Pghero::CaptureSpaceStatsJob.perform_later
+
   # 7 call to esi
   Rails.logger.info "Update eve races"
   Eve::UpdateRacesJob.perform_later

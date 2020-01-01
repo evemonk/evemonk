@@ -2,13 +2,11 @@
 
 require "rails_helper"
 
-describe Eve::ServerStatusImporterWorker do
-  it { should be_a(Sidekiq::Worker) }
+describe Eve::ServerStatusJob do
+  it { expect(described_class.queue_name).to eq("server_status") }
 
   describe ".sidekiq_options" do
     specify { expect(described_class.sidekiq_options["retry"]).to eq(false) }
-
-    specify { expect(described_class.sidekiq_options["queue"]).to eq("server_status") }
   end
 
   describe "#perform" do

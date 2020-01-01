@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 module Pghero
-  class CaptureQueryStatsWorker
-    include Sidekiq::Worker
+  class CaptureQueryStatsJob < ActiveJob::Base
+    queue_as :pghero
 
     def perform
       PgHero.capture_query_stats
