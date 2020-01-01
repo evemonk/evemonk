@@ -120,10 +120,51 @@ describe Eve::CorporationsImporter do
       end
     end
 
-    # TODO: addd this
-    # corporation_ids8 = Eve::Faction.where.not(corporation_id: nil).pluck(:corporation_id).uniq
-    #
-    # corporation_ids9 = Eve::Faction.where.not(militia_corporation_id: nil).pluck(:militia_corporation_id).uniq
+    let(:corporation_id8) { double }
+
+    let(:corporation_ids8) { [corporation_id8] }
+
+    before do
+      #
+      # Eve::Faction.where.not(corporation_id: nil).pluck(:corporation_id).uniq # => corporation_ids8
+      #
+      expect(Eve::Faction).to receive(:where) do
+        double.tap do |a|
+          expect(a).to receive(:not).with(corporation_id: nil) do
+            double.tap do |b|
+              expect(b).to receive(:pluck).with(:corporation_id) do
+                double.tap do |c|
+                  expect(c).to receive(:uniq).and_return(corporation_ids8)
+                end
+              end
+            end
+          end
+        end
+      end
+    end
+
+    let(:corporation_id9) { double }
+
+    let(:corporation_ids9) { [corporation_id9] }
+
+    before do
+      #
+      # Eve::Faction.where.not(militia_corporation_id: nil).pluck(:militia_corporation_id).uniq # => corporation_ids9
+      #
+      expect(Eve::Faction).to receive(:where) do
+        double.tap do |a|
+          expect(a).to receive(:not).with(militia_corporation_id: nil) do
+            double.tap do |b|
+              expect(b).to receive(:pluck).with(:militia_corporation_id) do
+                double.tap do |c|
+                  expect(c).to receive(:uniq).and_return(corporation_ids9)
+                end
+              end
+            end
+          end
+        end
+      end
+    end
 
     before { expect(Eve::UpdateCorporationJob).to receive(:perform_later).with(corporation_id1) }
 
@@ -138,6 +179,10 @@ describe Eve::CorporationsImporter do
     before { expect(Eve::UpdateCorporationJob).to receive(:perform_later).with(corporation_id6) }
 
     before { expect(Eve::UpdateCorporationJob).to receive(:perform_later).with(corporation_id7) }
+
+    before { expect(Eve::UpdateCorporationJob).to receive(:perform_later).with(corporation_id8) }
+
+    before { expect(Eve::UpdateCorporationJob).to receive(:perform_later).with(corporation_id9) }
 
     specify { expect { subject.import }.not_to raise_error }
   end
