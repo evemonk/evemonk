@@ -13,7 +13,7 @@ GIT
 
 GIT
   remote: https://github.com/evemonk/eve_online.git
-  revision: b83a861ce246e965cef38ea911eb7f72c5f8b4da
+  revision: 92083319e0fbbf62eabeddf46e50944cdb5c333f
   branch: dev
   specs:
     eve_online (0.30.0)
@@ -46,7 +46,7 @@ GIT
 
 GIT
   remote: https://github.com/rspec/rspec-mocks.git
-  revision: 8efc835c14eb411cf5f8b160de7e0b992ce79c31
+  revision: e6057a61d8a15c4638dec116f68579d83fdd5ad5
   branch: master
   specs:
     rspec-mocks (3.10.0.pre)
@@ -76,7 +76,7 @@ GIT
 
 GIT
   remote: https://github.com/thoughtbot/shoulda-matchers.git
-  revision: 94b5b2a852e4a7c6004934d88e1fbf5896bcc90e
+  revision: d97bdd6cab8dcb4e344f18d44db7a73fc906e58f
   branch: master
   specs:
     shoulda-matchers (4.1.2)
@@ -198,7 +198,7 @@ GEM
     crass (1.0.5)
     dalli (2.7.10)
     database_rewinder (0.9.1)
-    derailed_benchmarks (1.4.3)
+    derailed_benchmarks (1.5.0)
       benchmark-ips (~> 2)
       get_process_mem (~> 0)
       heapy (~> 0)
@@ -259,7 +259,7 @@ GEM
       tty-pager
       tty-screen
       tty-tree
-    faraday (0.17.1)
+    faraday (0.17.3)
       multipart-post (>= 1.2, < 3)
     fasterer (0.8.1)
       colorize (~> 0.7)
@@ -367,7 +367,7 @@ GEM
       connection_pool (~> 2.2)
     net-http2 (0.18.2)
       http-2 (~> 0.10.1)
-    newrelic_rpm (6.7.0.359)
+    newrelic_rpm (6.8.0.360)
     niceql (0.1.25)
     nio4r (2.5.2)
     nokogiri (1.10.7)
@@ -420,7 +420,7 @@ GEM
       rack (>= 2.0.0)
     rack-health (0.1.2)
       rack (>= 1.2.0)
-    rack-protection (2.0.7)
+    rack-protection (2.0.8.1)
       rack
     rack-proxy (0.6.5)
       rack

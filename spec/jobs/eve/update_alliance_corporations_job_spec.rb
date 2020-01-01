@@ -2,8 +2,8 @@
 
 require "rails_helper"
 
-describe Eve::AllianceCorporationsImporterWorker do
-  it { should be_a(Sidekiq::Worker) }
+describe Eve::UpdateAllianceCorporationsJob do
+  it { expect(described_class.queue_name).to eq("default") }
 
   describe "#perform" do
     let(:alliance_id) { double }
