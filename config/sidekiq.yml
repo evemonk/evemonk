@@ -26,10 +26,6 @@
     every: 1d
     class: Eve::TypesImporterWorker
     description: 'Import Types index'
-  eve_types_local:
-    every: 7d
-    class: Eve::LocalTypesImporterWorker
-    description: 'Import Types info'
 #  eve_systems:
 #    every: 1d
 #    class: Eve::SystemsImporterWorker
