@@ -53,11 +53,17 @@ scheduler.at "every day at 2 pm" do
   # group.rb -- 1401
   # market_group.rb -- 1873
 
+  Rails.logger.info "Import new eve types"
+  Eve::UpdateTypesJob.perform_later
+
   Rails.logger.info "Import new eve alliances"
   Eve::UpdateAlliancesJob.perform_later
 
-  Rails.logger.info "Import new eve types"
-  Eve::UpdateTypesJob.perform_later
+  Rails.logger.info "Import new eve corporations"
+  Eve::UpdateCorporationsJob.perform_later
+
+  Rails.logger.info "Import new eve characters"
+  Eve::UpdateCharactersJob.perform_later
 
   Rails.logger.info "Update sitemap and ping google"
   SitemapUpdaterJob.perform_later
@@ -128,16 +134,6 @@ end
 scheduler.every "7d" do
   Rails.logger.info "Update eve dogma attributes"
   Eve::LocalDogmaAttributesJob.perform_later
-end
-
-scheduler.every "1d" do
-  Rails.logger.info "Import new eve characters"
-  Eve::UpdateCharactersJob.perform_later
-end
-
-scheduler.every "1d" do
-  Rails.logger.info "Import new eve corporations"
-  Eve::UpdateCorporationsJob.perform_later
 end
 
 scheduler.every "1d" do
