@@ -139,7 +139,7 @@ describe Eve::TypesImporter do
 
       before { expect(EveOnline::ESI::UniverseTypes).to receive(:new).with(page: page).and_return(esi) }
 
-      before { expect(Eve::TypesImporterWorker).not_to receive(:perform_async) }
+      before { expect(Eve::UpdateTypesJob).not_to receive(:perform_later) }
 
       specify { expect { subject.send(:import_other_pages) }.not_to raise_error }
     end
@@ -153,7 +153,7 @@ describe Eve::TypesImporter do
 
       before { expect(EveOnline::ESI::UniverseTypes).to receive(:new).with(page: page).and_return(esi) }
 
-      before { expect(Eve::TypesImporterWorker).not_to receive(:perform_async) }
+      before { expect(Eve::UpdateTypesJob).not_to receive(:perform_later) }
 
       specify { expect { subject.send(:import_other_pages) }.not_to raise_error }
     end
@@ -167,7 +167,7 @@ describe Eve::TypesImporter do
 
       before { expect(EveOnline::ESI::UniverseTypes).to receive(:new).with(page: page).and_return(esi) }
 
-      before { expect(Eve::TypesImporterWorker).to receive(:perform_async).with(2) }
+      before { expect(Eve::UpdateTypesJob).to receive(:perform_later).with(2) }
 
       specify { expect { subject.send(:import_other_pages) }.not_to raise_error }
     end
