@@ -47,7 +47,17 @@ scheduler.at "every day at 2 pm" do
   Rails.logger.info "Import new eve groups"
   Eve::UpdateGroupsJob.perform_later
 
-  # categories/market groups/groups
+  # 1 + new market groups calls to esi
+  Rails.logger.info "Import new eve market groups"
+  Eve::UpdateMarketGroupsJob.perform_later
+
+  # 1 + new graphics calls to esi
+  Rails.logger.info "Import new eve graphics"
+  Eve::UpdateGraphicsJob.perform_later
+
+  # 1 + new dogma attribute calls to esi
+  Rails.logger.info "Import new eve dogma attributes"
+  Eve::UpdateDogmaAttributesJob.perform_later
 
   # dogma_attribute.rb -- 2486
   # group.rb -- 1401
@@ -117,28 +127,10 @@ scheduler.at "every sunday at 2 pm" do
   # Around 300 calls to esi
   Rails.logger.info "Update eve categories"
   Eve::LocalCategoriesJob.perform_later
-end
 
-####
-
-scheduler.every "7d" do
-  Rails.logger.info "Update eve graphics"
-  Eve::UpdateGraphicsJob.perform_later
-end
-
-scheduler.every "7d" do
-  Rails.logger.info "Update eve market groups"
-  Eve::UpdateMarketGroupsJob.perform_later
-end
-
-scheduler.every "7d" do
+  # Around 2500 calls to esi
   Rails.logger.info "Update eve dogma attributes"
   Eve::LocalDogmaAttributesJob.perform_later
-end
-
-scheduler.every "1d" do
-  Rails.logger.info "Import new eve dogma attributes"
-  Eve::UpdateDogmaAttributesJob.perform_later
 end
 
 scheduler.join
