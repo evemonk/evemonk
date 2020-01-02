@@ -1,20 +1,8 @@
 :queues:
   - [server_status, 2]
   - [pghero, 2]
+  - [sentry, 2]
   - mailers
   - default
 
 :concurrency: 10
-
-:schedule:
-  eve_graphics_local:
-    every: 7d
-    class: Eve::LocalGraphicsImporterWorker
-    description: 'Import Graphics info'
-  eve_types:
-    every: 1d
-    class: Eve::TypesImporterWorker
-    description: 'Import Types index'
-#  eve_systems:
-#    every: 1d
-#    class: Eve::SystemsImporterWorker

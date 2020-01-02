@@ -47,13 +47,14 @@ scheduler.at "every day at 2 pm" do
 
   # category.rb -- 43
   # dogma_attribute.rb -- 2486
-  # graphic.rb -- 3848
   # group.rb -- 1401
   # market_group.rb -- 1873
-  # type.rb -- 36776
 
   Rails.logger.info "Import new eve alliances"
   Eve::UpdateAlliancesJob.perform_later
+
+  Rails.logger.info "Import new eve types"
+  Eve::UpdateTypesJob.perform_later
 
   Rails.logger.info "Update sitemap and ping google"
   SitemapUpdaterJob.perform_later
@@ -100,6 +101,9 @@ scheduler.at "every saturday at 2 pm" do
 end
 
 scheduler.at "every sunday at 2 pm" do
+  # Around 4k calls to esi
+  Rails.logger.info "Update eve graphics"
+  Eve::LocalGraphicsJob.perform_later
 end
 
 ####

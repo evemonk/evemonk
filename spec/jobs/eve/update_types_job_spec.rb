@@ -2,8 +2,8 @@
 
 require "rails_helper"
 
-describe Eve::TypesImporterWorker do
-  it { should be_a(Sidekiq::Worker) }
+describe Eve::UpdateTypesJob do
+  it { expect(described_class.queue_name).to eq("default") }
 
   describe "#perform" do
     let(:page) { double }

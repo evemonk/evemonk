@@ -39,7 +39,7 @@ module Eve
       return if page != 1 || esi.total_pages == 1
 
       (2..esi.total_pages).each do |next_page|
-        Eve::TypesImporterWorker.perform_async(next_page)
+        Eve::UpdateTypesJob.perform_later(next_page)
       end
     end
   end
