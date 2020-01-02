@@ -2,7 +2,6 @@
 
 if Rails.env.development?
   require "sidekiq/web"
-  require "sidekiq-scheduler/web"
 end
 
 Rails.application.routes.draw do
