@@ -7,10 +7,6 @@
 :concurrency: 10
 
 :schedule:
-  eve_graphics_local:
-    every: 7d
-    class: Eve::LocalGraphicsImporterWorker
-    description: 'Import Graphics info'
   eve_types:
     every: 1d
     class: Eve::TypesImporterWorker
