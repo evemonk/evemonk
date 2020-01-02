@@ -1,17 +1,4 @@
 GIT
-  remote: https://github.com/biow0lf/sidekiq-scheduler
-  revision: f262f8db341fcc1767f996e30bcceb7d9d5ee2d1
-  branch: ruby-2.7.0
-  specs:
-    sidekiq-scheduler (3.0.0)
-      e2mmap
-      redis (>= 3, < 5)
-      rufus-scheduler (~> 3.2)
-      sidekiq (>= 3)
-      thwait
-      tilt (>= 1.4.0)
-
-GIT
   remote: https://github.com/evemonk/eve_online.git
   revision: 975a99c8310f8ba9daa01ec5b8845c9b5af81b73
   branch: dev
@@ -228,7 +215,6 @@ GEM
       activesupport (>= 5.0)
       request_store (>= 1.0)
     dry-initializer (3.0.2)
-    e2mmap (0.1.0)
     elasticsearch (7.4.0)
       elasticsearch-api (= 7.4.0)
       elasticsearch-transport (= 7.4.0)
@@ -591,7 +577,6 @@ GEM
     swagger-blocks (3.0.0)
     thor (0.20.3)
     thread_safe (0.3.6)
-    thwait (0.1.0)
     tilt (2.0.10)
     toml (0.2.0)
       parslet (~> 1.8.0)
@@ -737,7 +722,6 @@ DEPENDENCIES
   shoulda-callback-matchers!
   shoulda-matchers!
   sidekiq
-  sidekiq-scheduler!
   simplecov
   sitemap_generator
   spring

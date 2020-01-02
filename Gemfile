@@ -36,8 +36,6 @@ gem "mobility"
 gem "paper_trail"
 gem "rails-settings-cached"
 gem "sidekiq", require: false
-# https://github.com/moove-it/sidekiq-scheduler/pull/297
-gem "sidekiq-scheduler", require: false, git: "https://github.com/biow0lf/sidekiq-scheduler", branch: "ruby-2.7.0"
 gem "rpush"
 gem "pghero"
 gem "pg_query"
