@@ -5,12 +5,3 @@
   - default
 
 :concurrency: 10
-
-:schedule:
-  eve_types:
-    every: 1d
-    class: Eve::TypesImporterWorker
-    description: 'Import Types index'
-#  eve_systems:
-#    every: 1d
-#    class: Eve::SystemsImporterWorker

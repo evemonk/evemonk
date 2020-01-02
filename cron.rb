@@ -54,6 +54,9 @@ scheduler.at "every day at 2 pm" do
   Rails.logger.info "Import new eve alliances"
   Eve::UpdateAlliancesJob.perform_later
 
+  Rails.logger.info "Import new eve types"
+  Eve::UpdateTypesJob.perform_later
+
   Rails.logger.info "Update sitemap and ping google"
   SitemapUpdaterJob.perform_later
 end
