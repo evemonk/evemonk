@@ -49,7 +49,6 @@ scheduler.at "every day at 2 pm" do
   # dogma_attribute.rb -- 2486
   # group.rb -- 1401
   # market_group.rb -- 1873
-  # type.rb -- 36776
 
   Rails.logger.info "Import new eve alliances"
   Eve::UpdateAlliancesJob.perform_later
