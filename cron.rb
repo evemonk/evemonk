@@ -14,6 +14,10 @@ scheduler.every "5m" do
   Pghero::CaptureQueryStatsJob.perform_later
 end
 
+# stargate.rb
+# system.rb
+# war.rb
+
 scheduler.every "1h" do
   Rails.logger.info "Update characters"
   UpdateCharactersJob.perform_later
@@ -43,18 +47,36 @@ scheduler.at "every day at 2 pm" do
   Rails.logger.info "Import new eve categories"
   Eve::UpdateCategoriesJob.perform_later
 
-  # categories/market groups/groups
+  # 1 + new groups calls to esi
+  Rails.logger.info "Import new eve groups"
+  Eve::UpdateGroupsJob.perform_later
 
-  # category.rb -- 43
-  # dogma_attribute.rb -- 2486
-  # group.rb -- 1401
-  # market_group.rb -- 1873
+  # 1 + new market groups calls to esi
+  Rails.logger.info "Import new eve market groups"
+  Eve::UpdateMarketGroupsJob.perform_later
 
+  # 1 + new graphics calls to esi
+  Rails.logger.info "Import new eve graphics"
+  Eve::UpdateGraphicsJob.perform_later
+
+  # 1 + new dogma attribute calls to esi
+  Rails.logger.info "Import new eve dogma attributes"
+  Eve::UpdateDogmaAttributesJob.perform_later
+
+  # 1 + new types calls to esi
+  Rails.logger.info "Import new eve types"
+  Eve::UpdateTypesJob.perform_later
+
+  # 1 + new alliances calls to esi
   Rails.logger.info "Import new eve alliances"
   Eve::UpdateAlliancesJob.perform_later
 
-  Rails.logger.info "Import new eve types"
-  Eve::UpdateTypesJob.perform_later
+  # number of new corporations calls to esi
+  Rails.logger.info "Import new eve corporations"
+  Eve::UpdateCorporationsJob.perform_later
+
+  Rails.logger.info "Import new eve characters"
+  Eve::UpdateCharactersJob.perform_later
 
   Rails.logger.info "Update sitemap and ping google"
   SitemapUpdaterJob.perform_later
@@ -104,48 +126,22 @@ scheduler.at "every sunday at 2 pm" do
   # Around 4k calls to esi
   Rails.logger.info "Update eve graphics"
   Eve::LocalGraphicsJob.perform_later
-end
 
-####
-
-scheduler.at "every sunday at 2pm" do
+  # Around 300 calls to esi
   Rails.logger.info "Update eve categories"
   Eve::LocalCategoriesJob.perform_later
-end
 
-scheduler.every "7d" do
-  Rails.logger.info "Update eve groups"
-  Eve::UpdateGroupsJob.perform_later
-end
-
-scheduler.every "7d" do
-  Rails.logger.info "Update eve graphics"
-  Eve::UpdateGraphicsJob.perform_later
-end
-
-scheduler.every "7d" do
-  Rails.logger.info "Update eve market groups"
-  Eve::UpdateMarketGroupsJob.perform_later
-end
-
-scheduler.every "7d" do
+  # Around 2500 calls to esi
   Rails.logger.info "Update eve dogma attributes"
   Eve::LocalDogmaAttributesJob.perform_later
-end
 
-scheduler.every "1d" do
-  Rails.logger.info "Import new eve characters"
-  Eve::UpdateCharactersJob.perform_later
-end
+  # Around 10k calls to esi
+  Rails.logger.info "Update eve groups"
+  Eve::LocalGroupsJob.perform_later
 
-scheduler.every "1d" do
-  Rails.logger.info "Import new eve corporations"
-  Eve::UpdateCorporationsJob.perform_later
-end
-
-scheduler.every "1d" do
-  Rails.logger.info "Import new eve dogma attributes"
-  Eve::UpdateDogmaAttributesJob.perform_later
+  # Around 13k calls to esi
+  Rails.logger.info "Update eve market groups"
+  Eve::LocalMarketGroupsJob.perform_later
 end
 
 scheduler.join
