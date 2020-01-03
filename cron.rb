@@ -14,21 +14,11 @@ scheduler.every "5m" do
   Pghero::CaptureQueryStatsJob.perform_later
 end
 
-#alliance.rb
-#alliance_corporation.rb
-#character.rb
-#character_attribute.rb
-#character_corporation_history.rb
-#corporation.rb
-#corporation_alliance_history.rb
-#dogma_attribute.rb
-#icon.rb
-#stargate.rb
-#system.rb
-#type.rb
-#type_dogma_attribute.rb
-#type_dogma_effect.rb
-#war.rb
+# character.rb
+# character_corporation_history.rb
+# stargate.rb
+# system.rb
+# war.rb
 
 scheduler.every "1h" do
   Rails.logger.info "Update characters"
@@ -71,20 +61,19 @@ scheduler.at "every day at 2 pm" do
   Rails.logger.info "Import new eve graphics"
   Eve::UpdateGraphicsJob.perform_later
 
-  ###
-
   # 1 + new dogma attribute calls to esi
   Rails.logger.info "Import new eve dogma attributes"
   Eve::UpdateDogmaAttributesJob.perform_later
 
-  # dogma_attribute.rb -- 2486
-
+  # 1 + new types calls to esi
   Rails.logger.info "Import new eve types"
   Eve::UpdateTypesJob.perform_later
 
+  # 1 + new alliances calls to esi
   Rails.logger.info "Import new eve alliances"
   Eve::UpdateAlliancesJob.perform_later
 
+  # number of new corporations calls to esi
   Rails.logger.info "Import new eve corporations"
   Eve::UpdateCorporationsJob.perform_later
 
