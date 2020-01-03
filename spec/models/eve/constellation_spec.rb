@@ -12,4 +12,6 @@ describe Eve::Constellation do
   it { expect(described_class.translated_attribute_names).to eq(["name"]) }
 
   it { expect(described_class.table_name).to eq("eve_constellations") }
+
+  it { should have_one(:position).dependent(:destroy) }
 end

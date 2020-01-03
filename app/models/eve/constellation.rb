@@ -7,5 +7,7 @@ module Eve
     has_paper_trail
 
     translates :name
+
+    has_one :position, as: :positionable, dependent: :destroy
   end
 end
