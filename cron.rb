@@ -136,12 +136,12 @@ scheduler.at "every sunday at 2 pm" do
   Eve::LocalDogmaAttributesJob.perform_later
 
   # Around 10k calls to esi
-  # Rails.logger.info "Update eve groups"
-  # Eve::LocalGroupsJob.perform_later
+  Rails.logger.info "Update eve groups"
+  Eve::LocalGroupsJob.perform_later
 
   # Around 13k calls to esi
-  # Rails.logger.info "Update eve market groups"
-  # Eve::LocalMarketGroupsJob.perform_later
+  Rails.logger.info "Update eve market groups"
+  Eve::LocalMarketGroupsJob.perform_later
 end
 
 scheduler.join
