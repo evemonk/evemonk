@@ -14,8 +14,6 @@ scheduler.every "5m" do
   Pghero::CaptureQueryStatsJob.perform_later
 end
 
-# character.rb
-# character_corporation_history.rb
 # stargate.rb
 # system.rb
 # war.rb
