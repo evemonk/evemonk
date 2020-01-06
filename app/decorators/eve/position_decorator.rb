@@ -2,6 +2,6 @@
 
 module Eve
   class PositionDecorator < ApplicationDecorator
-    # decorates_associations :positionable
+    decorates_associations :positionable
   end
 end
