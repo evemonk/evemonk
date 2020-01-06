@@ -88,7 +88,31 @@ describe Eve::ConstellationsImporter do
 
   # private methods
 
-  describe "#import_new_constellations"
+  describe "#import_new_constellations" do
+    let(:eve_constellation_ids) { double }
 
-  describe "#remove_old_constellations"
+    before { expect(Eve::Constellation).to receive(:pluck).with(:constellation_id).and_return(eve_constellation_ids) }
+
+    let(:constellation_ids) { double }
+
+    let(:esi) do
+      instance_double(EveOnline::ESI::UniverseConstellations,
+        constellation_ids: constellation_ids)
+    end
+
+    before { expect(EveOnline::ESI::UniverseConstellations).to receive(:new).and_return(esi) }
+
+    let(:eve_constellation_id_to_create) { double }
+
+    let(:eve_constellation_ids_to_create) { [eve_constellation_id_to_create] }
+
+    before { expect(constellation_ids).to receive(:-).with(eve_constellation_ids).and_return(eve_constellation_ids_to_create) }
+
+    before { expect(Eve::UpdateConstellationJob).to receive(:perform_later).with(eve_constellation_id_to_create) }
+
+    specify { expect { subject.send(:import_new_constellations) }.not_to raise_error }
+  end
+
+  describe "#remove_old_constellations" do
+  end
 end
