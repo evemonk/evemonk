@@ -114,5 +114,31 @@ describe Eve::ConstellationsImporter do
   end
 
   describe "#remove_old_constellations" do
+    let(:eve_constellation_ids) { double }
+
+    before { expect(Eve::Constellation).to receive(:pluck).with(:constellation_id).and_return(eve_constellation_ids) }
+
+    let(:constellation_ids) { double }
+
+    let(:esi) do
+      instance_double(EveOnline::ESI::UniverseConstellations,
+        constellation_ids: constellation_ids)
+    end
+
+    before { expect(EveOnline::ESI::UniverseConstellations).to receive(:new).and_return(esi) }
+
+    let(:eve_constellation_id_to_remove) { double }
+
+    let(:eve_constellation_ids_to_remove) { [eve_constellation_id_to_remove] }
+
+    before { expect(eve_constellation_ids).to receive(:-).with(constellation_ids).and_return(eve_constellation_ids_to_remove) }
+
+    let(:eve_constellation) { instance_double(Eve::Constellation) }
+
+    before { expect(Eve::Constellation).to receive(:find_or_initialize_by).with(constellation_id: eve_constellation_id_to_remove).and_return(eve_constellation) }
+
+    before { expect(eve_constellation).to receive(:destroy!) }
+
+    specify { expect { subject.send(:remove_old_constellations) }.not_to raise_error }
   end
 end
