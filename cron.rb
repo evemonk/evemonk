@@ -142,6 +142,10 @@ scheduler.at "every sunday at 2 pm" do
   # Around 13k calls to esi
   Rails.logger.info "Update eve market groups"
   Eve::LocalMarketGroupsJob.perform_later
+
+  # Around 10k calls to esi
+  Rails.logger.info "Update eve constellations"
+  Eve::LocalConstellationsJob.perform_later
 end
 
 scheduler.join
