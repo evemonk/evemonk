@@ -67,6 +67,10 @@ scheduler.at "every day at 2 pm" do
   Rails.logger.info "Import new eve types"
   Eve::UpdateTypesJob.perform_later
 
+  # 1+ new constellations calls to esi
+  Rails.logger.info "Import eve constellations"
+  Eve::UpdateConstellationsJob.perform_later
+
   # 1 + new alliances calls to esi
   Rails.logger.info "Import new eve alliances"
   Eve::UpdateAlliancesJob.perform_later
