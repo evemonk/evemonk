@@ -54,7 +54,35 @@ describe Eve::ConstellationsImporter do
     end
 
     context "when no fresh data available" do
+      let(:url) { double }
 
+      let(:esi) do
+        instance_double(EveOnline::ESI::UniverseConstellations,
+          url: url,
+          not_modified?: true)
+      end
+
+      before do
+        expect(EveOnline::ESI::UniverseConstellations).to receive(:new)
+          .and_return(esi)
+      end
+
+      let(:etag) { instance_double(Eve::Etag, etag: "97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a") }
+
+      before { expect(Eve::Etag).to receive(:find_or_initialize_by).with(url: url).and_return(etag) }
+
+      before do
+        expect(esi).to receive(:etag=)
+          .with("97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a")
+      end
+
+      before { expect(subject).not_to receive(:import_new_constellations) }
+
+      before { expect(subject).not_to receive(:remove_old_constellations) }
+
+      before { expect(etag).not_to receive(:update!) }
+
+      specify { expect { subject.import }.not_to raise_error }
     end
   end
 
