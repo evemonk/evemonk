@@ -4,6 +4,8 @@ module Eve
   class Station < ApplicationRecord
     has_paper_trail
 
+    has_one :position, as: :positionable, dependent: :destroy
+
     # t.bigint :owner
     # t.bigint :race_id
     # t.bigint :station_id
