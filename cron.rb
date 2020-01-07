@@ -67,9 +67,13 @@ scheduler.at "every day at 2 pm" do
   Rails.logger.info "Import new eve types"
   Eve::UpdateTypesJob.perform_later
 
-  # 1+ new constellations calls to esi
-  Rails.logger.info "Import eve constellations"
+  # 1 + new constellations calls to esi
+  Rails.logger.info "Import new eve constellations"
   Eve::UpdateConstellationsJob.perform_later
+
+  # 1 + new regions calls to esi
+  Rails.logger.info "Import new eve regions"
+  Eve::UpdateRegionsJob.perform_later
 
   # 1 + new alliances calls to esi
   Rails.logger.info "Import new eve alliances"
@@ -150,6 +154,10 @@ scheduler.at "every sunday at 2 pm" do
   # Around 10k calls to esi
   Rails.logger.info "Update eve constellations"
   Eve::LocalConstellationsJob.perform_later
+
+  # Around 700 calls to esi
+  Rails.logger.info "Update eve regions"
+  Eve::LocalRegionsJob.perform_later
 end
 
 scheduler.join
