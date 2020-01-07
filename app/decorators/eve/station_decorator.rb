@@ -2,6 +2,6 @@
 
 module Eve
   class StationDecorator < ApplicationDecorator
-    decorates_associations :position
+    decorates_associations :race, :type, :position
   end
 end
