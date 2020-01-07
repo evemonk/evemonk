@@ -4,11 +4,17 @@ module Eve
   class Station < ApplicationRecord
     has_paper_trail
 
+    belongs_to :race,
+      primary_key: "race_id",
+      optional: true
+
+    belongs_to :type,
+      primary_key: "type_id",
+      optional: true
+
     has_one :position, as: :positionable, dependent: :destroy
 
     # t.bigint :owner
-    # t.bigint :race_id
     # t.bigint :system_id
-    # t.bigint :type_id
   end
 end
