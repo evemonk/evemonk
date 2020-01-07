@@ -10,4 +10,6 @@ describe Eve::Region do
   it { expect(described_class.translated_attribute_names).to eq(["name", "description"]) }
 
   it { expect(described_class.table_name).to eq("eve_regions") }
+
+  it { should have_many(:constellations).with_primary_key("region_id") }
 end
