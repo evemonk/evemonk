@@ -82,7 +82,19 @@ describe Eve::StargateImporter do
       end
 
       context "when stargate not found" do
-        # TODO: write
+        let(:stargate_id) { double }
+
+        subject { described_class.new(stargate_id) }
+
+        let(:eve_stargate) { instance_double(Eve::Stargate) }
+
+        before { expect(Eve::Stargate).to receive(:find_or_initialize_by).with(stargate_id: stargate_id).and_return(eve_stargate) }
+
+        before { expect(EveOnline::ESI::UniverseStargate).to receive(:new).and_raise(EveOnline::Exceptions::ResourceNotFound) }
+
+        before { expect(eve_stargate).to receive(:destroy!) }
+
+        specify { expect { subject.import }.not_to raise_error }
       end
     end
 
