@@ -8,7 +8,6 @@ module Eve
 
     # t.bigint :owner
     # t.bigint :race_id
-    # t.bigint :station_id
     # t.bigint :system_id
     # t.bigint :type_id
   end
