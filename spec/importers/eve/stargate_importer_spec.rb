@@ -99,7 +99,35 @@ describe Eve::StargateImporter do
     end
 
     context "when no fresh data available" do
-      # TODO: write
+      let(:stargate_id) { double }
+
+      subject { described_class.new(stargate_id) }
+
+      let(:eve_stargate) { instance_double(Eve::Stargate) }
+
+      before { expect(Eve::Stargate).to receive(:find_or_initialize_by).with(stargate_id: stargate_id).and_return(eve_stargate) }
+
+      let(:url) { double }
+
+      let(:esi) do
+        instance_double(EveOnline::ESI::UniverseStargate,
+          url: url,
+          not_modified?: true)
+      end
+
+      before { expect(EveOnline::ESI::UniverseStargate).to receive(:new).with(id: stargate_id).and_return(esi) }
+
+      let(:etag) { instance_double(Eve::Etag, etag: "68ad4a11893776c0ffc80845edeb2687c0122f56287d2aecadf8739b") }
+
+      before { expect(Eve::Etag).to receive(:find_or_initialize_by).with(url: url).and_return(etag) }
+
+      before { expect(esi).to receive(:etag=).with("68ad4a11893776c0ffc80845edeb2687c0122f56287d2aecadf8739b") }
+
+      before { expect(eve_stargate).not_to receive(:update!) }
+
+      before { expect(etag).not_to receive(:update!) }
+
+      specify { expect { subject.import }.not_to raise_error }
     end
   end
 end
