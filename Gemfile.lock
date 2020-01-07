@@ -1,4 +1,16 @@
 GIT
+  remote: https://github.com/drapergem/draper.git
+  revision: 6a3bf0dae9a15f6ff980aaeb398b811e1903d1e9
+  branch: master
+  specs:
+    draper (3.1.0)
+      actionpack (>= 5.0)
+      activemodel (>= 5.0)
+      activemodel-serializers-xml (>= 1.0)
+      activesupport (>= 5.0)
+      request_store (>= 1.0)
+
+GIT
   remote: https://github.com/evemonk/eve_online.git
   revision: fa489ac92c062ce7a3ee2808f70e9f8ab9ad43db
   branch: dev
@@ -211,12 +223,6 @@ GEM
     dotenv-rails (2.7.5)
       dotenv (= 2.7.5)
       railties (>= 3.2, < 6.1)
-    draper (3.1.0)
-      actionpack (>= 5.0)
-      activemodel (>= 5.0)
-      activemodel-serializers-xml (>= 1.0)
-      activesupport (>= 5.0)
-      request_store (>= 1.0)
     dry-initializer (3.0.2)
     elasticsearch (7.4.0)
       elasticsearch-api (= 7.4.0)
@@ -674,7 +680,7 @@ DEPENDENCIES
   devise-i18n
   devise_zxcvbn
   dotenv-rails
-  draper
+  draper!
   errbase
   eve_online!
   factory_bot_rails
