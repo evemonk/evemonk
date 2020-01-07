@@ -8,6 +8,12 @@ module Eve
 
     translates :name
 
+    belongs_to :region,
+      primary_key: "region_id",
+      optional: true
+
+    # has_many :systems
+
     has_one :position, as: :positionable, dependent: :destroy
   end
 end
