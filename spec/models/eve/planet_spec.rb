@@ -8,4 +8,6 @@ describe Eve::Planet do
   it { should respond_to(:versions) }
 
   it { expect(described_class.table_name).to eq("eve_planets") }
+
+  it { should have_one(:position).dependent(:destroy) }
 end

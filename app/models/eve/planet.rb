@@ -6,5 +6,7 @@ module Eve
 
     # t.bigint "system_id"
     # t.bigint "type_id"
+
+    has_one :position, as: :positionable, dependent: :destroy
   end
 end
