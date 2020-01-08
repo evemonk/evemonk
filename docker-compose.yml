@@ -8,8 +8,8 @@ volumes:
 services:
   postgresql:
     image: "postgres:12.1"
-    container_name: evemonk_postgresql
-    restart: unless-stopped
+    container_name: "evemonk_postgresql"
+    restart: "unless-stopped"
     volumes:
       - "postresql_data:/var/lib/postgresql/data"
       - "./postgres:/docker-entrypoint-initdb.d"
@@ -18,8 +18,8 @@ services:
 
   elasticsearch:
     image: "docker.elastic.co/elasticsearch/elasticsearch:7.5.1"
-    container_name: evemonk_elasticsearch
-    restart: unless-stopped
+    container_name: "evemonk_elasticsearch"
+    restart: "unless-stopped"
     volumes:
       - "elasticsearch_data:/usr/share/elasticsearch/data"
     environment:
@@ -30,8 +30,8 @@ services:
 
   redis:
     image: "redis:5.0.7"
-    container_name: evemonk_redis
-    restart: unless-stopped
+    container_name: "evemonk_redis"
+    restart: "unless-stopped"
     volumes:
       - "redis_data:/data"
     ports:
@@ -39,8 +39,8 @@ services:
 
   memcached:
     image: "memcached:1.5.20"
-    container_name: evemonk_memcached
-    restart: unless-stopped
+    container_name: "evemonk_memcached"
+    restart: "unless-stopped"
     command: memcached -m 64
     ports:
       - "11211:11211"
