@@ -280,7 +280,7 @@ GEM
     heapy (0.1.4)
     http-2 (0.10.1)
     http_logger (0.5.1)
-    i18n (1.7.0)
+    i18n (1.7.1)
       concurrent-ruby (~> 1.0)
     isolator (0.6.1)
       sniffer (~> 0.3.1)
