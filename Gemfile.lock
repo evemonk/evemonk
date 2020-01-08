@@ -223,7 +223,7 @@ GEM
     dotenv-rails (2.7.5)
       dotenv (= 2.7.5)
       railties (>= 3.2, < 6.1)
-    dry-initializer (3.0.2)
+    dry-initializer (3.0.3)
     elasticsearch (7.4.0)
       elasticsearch-api (= 7.4.0)
       elasticsearch-transport (= 7.4.0)
