@@ -2,7 +2,9 @@
 
 source "https://rubygems.org"
 
-gem "rails", "6.0.2.1"
+# Till next release 6.0.3
+# gem "rails", "6.0.2.1"
+gem "rails", git: "https://github.com/rails/rails.git", branch: "6-0-stable"
 gem "pg", ">= 0.18", "< 2.0"
 gem "puma"
 gem "sass-rails"
