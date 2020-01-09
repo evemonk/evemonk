@@ -27,6 +27,14 @@ GIT
       activesupport (>= 3)
 
 GIT
+  remote: https://github.com/rails/jbuilder.git
+  revision: bec0d6c840c3486ee589d5de0ba9c348ccbc27ee
+  branch: master
+  specs:
+    jbuilder (2.9.1)
+      activesupport (>= 5.0.0)
+
+GIT
   remote: https://github.com/rails/rails.git
   revision: 8350fa56d255f89d9a88faba8cc1e472a364065d
   branch: 6-0-stable
@@ -304,8 +312,6 @@ GEM
     isolator (0.6.1)
       sniffer (~> 0.3.1)
     jaro_winkler (1.5.4)
-    jbuilder (2.9.1)
-      activesupport (>= 4.2.0)
     json (2.3.0)
     jwt (2.2.1)
     kaminari (1.1.1)
@@ -693,7 +699,7 @@ DEPENDENCIES
   gemdiff
   http_logger
   isolator
-  jbuilder (~> 2.7)
+  jbuilder!
   jwt
   kaminari
   kaminari-i18n

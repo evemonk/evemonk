@@ -10,7 +10,9 @@ gem "puma"
 gem "sass-rails"
 gem "webpacker", "~> 4.0"
 gem "turbolinks", "~> 5"
-gem "jbuilder", "~> 2.7"
+# gem "jbuilder", "~> 2.7"
+# till next release
+gem "jbuilder", git: "https://github.com/rails/jbuilder.git", branch: "master"
 gem "bootsnap", ">= 1.4.2", require: false
 gem "rails-i18n", "~> 6.0.0"
 gem "devise"
