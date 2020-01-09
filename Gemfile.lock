@@ -455,10 +455,9 @@ GEM
     rails-i18n (6.0.0)
       i18n (>= 0.7, < 2)
       railties (>= 6.0.0, < 7)
-    rails-pg-extras (0.5.2)
+    rails-pg-extras (0.6.2)
       activerecord
-      pg
-      terminal-table
+      ruby-pg-extras (= 0.6.2)
     rails-settings-cached (2.1.1)
       rails (>= 4.2.0)
       request_store
@@ -510,6 +509,9 @@ GEM
       unicode-display_width (>= 1.4.0, < 1.7)
     rubocop-performance (1.5.2)
       rubocop (>= 0.71.0)
+    ruby-pg-extras (0.6.2)
+      pg
+      terminal-table
     ruby-progressbar (1.10.1)
     ruby-statistics (2.1.1)
     ruby_dep (1.5.0)
