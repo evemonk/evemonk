@@ -155,14 +155,6 @@ GIT
   specs:
     rspec-support (3.10.0.pre)
 
-GIT
-  remote: https://github.com/thoughtbot/shoulda-matchers.git
-  revision: a9f9192c5b56a779b3f0d20d97d1cc6775c53d5e
-  branch: master
-  specs:
-    shoulda-matchers (4.1.2)
-      activesupport (>= 4.2.0)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -554,6 +546,8 @@ GEM
     server_timing (1.0.2)
       scout_apm
     sexp_processor (4.13.0)
+    shoulda-matchers (4.2.0)
+      activesupport (>= 4.2.0)
     sidekiq (6.0.4)
       connection_pool (>= 2.2.2)
       rack (>= 2.0.0)
@@ -746,7 +740,7 @@ DEPENDENCIES
   sentry-raven
   server_timing
   shoulda-callback-matchers!
-  shoulda-matchers!
+  shoulda-matchers
   sidekiq
   simplecov
   sitemap_generator
