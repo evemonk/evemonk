@@ -78,7 +78,6 @@ describe Eve::StargateImporter do
         before { expect(etag).to receive(:update!).with(etag: new_etag, body: response) }
 
         specify { expect { subject.import }.not_to raise_error }
-
       end
 
       context "when stargate not found" do
