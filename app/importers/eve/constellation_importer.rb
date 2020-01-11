@@ -26,9 +26,7 @@ module Eve
 
           eve_constellation.position&.destroy
 
-          eve_constellation.create_position!(x: esi.position.x,
-                                             y: esi.position.y,
-                                             z: esi.position.z)
+          eve_constellation.create_position!(esi.position.as_json)
 
           etag.update!(etag: esi.etag, body: esi.response)
         rescue EveOnline::Exceptions::ResourceNotFound

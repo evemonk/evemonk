@@ -46,17 +46,11 @@ describe Eve::ConstellationImporter do
 
         let(:response) { double }
 
-        let(:x) { double }
-
-        let(:y) { double }
-
-        let(:z) { double }
+        let(:position_json) { double }
 
         let(:position) do
           instance_double(EveOnline::ESI::Models::Position,
-            x: x,
-            y: y,
-            z: z)
+            as_json: position_json)
         end
 
         let(:esi) do
@@ -92,11 +86,9 @@ describe Eve::ConstellationImporter do
 
         before do
           #
-          # eve_constellation.create_position!(x: esi.position.x,
-          #                                    y: esi.position.y,
-          #                                    z: esi.position.z)
+          # eve_constellation.create_position!(esi.position.as_json)
           #
-          expect(eve_constellation).to receive(:create_position!).with(x: x, y: y, z: z)
+          expect(eve_constellation).to receive(:create_position!).with(position_json)
         end
 
         before { expect(etag).to receive(:update!).with(etag: new_etag, body: response) }
