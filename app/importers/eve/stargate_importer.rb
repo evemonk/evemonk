@@ -24,9 +24,7 @@ module Eve
 
         eve_stargate.position&.destroy
 
-        eve_stargate.create_position!(x: esi.position.x,
-                                      y: esi.position.y,
-                                      z: esi.position.z)
+        eve_stargate.create_position!(esi.position.as_json)
 
         etag.update!(etag: esi.etag, body: esi.response)
       rescue EveOnline::Exceptions::ResourceNotFound
