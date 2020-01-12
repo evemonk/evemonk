@@ -13,5 +13,7 @@ module Eve
     has_many :stargates, primary_key: "system_id"
 
     # TODO: belongs_to :star_id
+
+    has_one :position, as: :positionable, dependent: :destroy
   end
 end
