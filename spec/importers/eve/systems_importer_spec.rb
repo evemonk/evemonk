@@ -81,4 +81,33 @@ describe Eve::SystemsImporter do
   end
 
   # private methods
+
+  describe "#import_new_systems" do
+    let(:eve_systems_ids) { double }
+
+    before { expect(Eve::System).to receive(:pluck).with(:system_id).and_return(eve_systems_ids) }
+
+    let(:universe_system_ids) { double }
+
+    let(:esi) do
+      instance_double(EveOnline::ESI::UniverseSystems,
+        universe_system_ids: universe_system_ids)
+    end
+
+    before { expect(EveOnline::ESI::UniverseSystems).to receive(:new).and_return(esi) }
+
+    let(:eve_system_id_to_create) { double }
+
+    let(:eve_system_ids_to_create) { [eve_system_id_to_create] }
+
+    before { expect(universe_system_ids).to receive(:-).with(eve_systems_ids).and_return(eve_system_ids_to_create) }
+
+    before { expect(Eve::UpdateSystemJob).to receive(:perform_later).with(eve_system_id_to_create) }
+
+    specify { expect { subject.send(:import_new_systems) }.not_to raise_error }
+  end
+
+  describe "#remove_old_systems" do
+
+  end
 end
