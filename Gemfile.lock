@@ -1,4 +1,11 @@
 GIT
+  remote: https://github.com/biow0lf/http_logger.git
+  revision: 41adf43ccc2528b27b774cc1ae8e17291d307721
+  branch: master
+  specs:
+    http_logger (0.5.1)
+
+GIT
   remote: https://github.com/drapergem/draper.git
   revision: e31a54e92db572d4d2580e39d90591fbe5d8047f
   branch: master
@@ -306,7 +313,6 @@ GEM
     hashie (3.6.0)
     heapy (0.1.4)
     http-2 (0.10.1)
-    http_logger (0.5.1)
     i18n (1.7.1)
       concurrent-ruby (~> 1.0)
     isolator (0.6.1)
@@ -373,7 +379,7 @@ GEM
     mimemagic (0.3.3)
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
-    minitest (5.13.0)
+    minitest (5.14.0)
     mixlib-cli (2.1.5)
     mixlib-config (3.0.6)
       tomlrb
@@ -697,7 +703,7 @@ DEPENDENCIES
   fasterer
   foundation_emails
   gemdiff
-  http_logger
+  http_logger!
   isolator
   jbuilder!
   jwt
