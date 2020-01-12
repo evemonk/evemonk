@@ -159,7 +159,35 @@ describe Eve::SystemImporter do
     end
 
     context "when no fresh data available" do
+      let(:system_id) { double }
 
+      subject { described_class.new(system_id) }
+
+      let(:eve_system) { instance_double(Eve::System) }
+
+      before { expect(Eve::System).to receive(:find_or_initialize_by).with(system_id: system_id).and_return(eve_system) }
+
+      let(:url) { double }
+
+      let(:esi) do
+        instance_double(EveOnline::ESI::UniverseSystem,
+          url: url,
+          not_modified?: true)
+      end
+
+      before { expect(EveOnline::ESI::UniverseSystem).to receive(:new).with(id: system_id, language: "en-us").and_return(esi) }
+
+      let(:etag) { instance_double(Eve::Etag, etag: "6780e53a01c7d9715b5f445126c4f2c137da4be79e4debe541ce3ab2") }
+
+      before { expect(Eve::Etag).to receive(:find_or_initialize_by).with(url: url).and_return(etag) }
+
+      before { expect(esi).to receive(:etag=).with("6780e53a01c7d9715b5f445126c4f2c137da4be79e4debe541ce3ab2") }
+
+      before { expect(eve_system).not_to receive(:update!) }
+
+      before { expect(etag).not_to receive(:update!) }
+
+      specify { expect { subject.import }.not_to raise_error }
     end
   end
 end
