@@ -63,6 +63,25 @@ describe Eve::SystemImporter do
 
         let(:station_ids) { [station_id] }
 
+        let(:planet_id) { double }
+
+        let(:asteroid_belt_id) { double }
+
+        let(:asteroid_belt_ids) { [asteroid_belt_id] }
+
+        let(:moon_id) { double }
+
+        let(:moon_ids) { [moon_id] }
+
+        let(:planet) do
+          instance_double(EveOnline::ESI::Models::PlanetShort,
+            planet_id: planet_id,
+            asteroid_belt_ids: asteroid_belt_ids,
+            moon_ids: moon_ids)
+        end
+
+        let(:planets) { [planet] }
+
         let(:esi) do
           instance_double(EveOnline::ESI::UniverseSystem,
             url: url,
@@ -73,6 +92,7 @@ describe Eve::SystemImporter do
             star_id: star_id,
             stargate_ids: stargate_ids,
             station_ids: station_ids,
+            planets: planets,
             as_json: json)
         end
 
@@ -110,17 +130,11 @@ describe Eve::SystemImporter do
 
         before { expect(Eve::UpdateStationJob).to receive(:perform_later).with(station_id) }
 
-        #esi.planets.each do |planet|
-        #  Eve::UpdatePlanetJob.perform_later(planet.planet_id)
-        #
-        #  planet.asteroid_belt_ids.each do |asteroid_belt_id|
-        #    Eve::UpdateAsteroidBeltJob.perform_later(planet.planet_id, asteroid_belt_id)
-        #  end
-        #
-        #  planet.moon_ids.each do |moon_id|
-        #    Eve::UpdateMoonJob.perform_later(planet.planet_id, moon_id)
-        #  end
-        #end
+        before { expect(Eve::UpdatePlanetJob).to receive(:perform_later).with(planet_id) }
+
+        before { expect(Eve::UpdateAsteroidBeltJob).to receive(:perform_later).with(planet_id, asteroid_belt_id) }
+
+        before { expect(Eve::UpdateMoonJob).to receive(:perform_later).with(planet_id, moon_id) }
 
         before { expect(etag).to receive(:update!).with(etag: new_etag, body: response) }
 

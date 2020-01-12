@@ -38,17 +38,17 @@ module Eve
             Eve::UpdateStationJob.perform_later(station_id)
           end
 
-          #esi.planets.each do |planet|
-          #  Eve::UpdatePlanetJob.perform_later(planet.planet_id)
-          #
-          #  planet.asteroid_belt_ids.each do |asteroid_belt_id|
-          #    Eve::UpdateAsteroidBeltJob.perform_later(planet.planet_id, asteroid_belt_id)
-          #  end
-          #
-          #  planet.moon_ids.each do |moon_id|
-          #    Eve::UpdateMoonJob.perform_later(planet.planet_id, moon_id)
-          #  end
-          #end
+          esi.planets.each do |planet|
+            Eve::UpdatePlanetJob.perform_later(planet.planet_id)
+
+            planet.asteroid_belt_ids.each do |asteroid_belt_id|
+              Eve::UpdateAsteroidBeltJob.perform_later(planet.planet_id, asteroid_belt_id)
+            end
+
+            planet.moon_ids.each do |moon_id|
+              Eve::UpdateMoonJob.perform_later(planet.planet_id, moon_id)
+            end
+          end
 
           etag.update!(etag: esi.etag, body: esi.response)
         rescue EveOnline::Exceptions::ResourceNotFound
