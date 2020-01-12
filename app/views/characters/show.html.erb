@@ -116,6 +116,12 @@
 
     <div class="card">
       <ul class="list-group list-group-flush">
+        <% if @character.current_station %>
+          <li class="list-group-item text-center">
+            Station: <%= @character.current_station.name %>
+          </li>
+        <% end %>
+
         <% if @character.current_ship_type %>
           <li class="list-group-item text-center">
             Ship: <%= link_to(@character.current_ship_type.name,
