@@ -1148,9 +1148,9 @@ anymatch@^2.0.0:
     normalize-path "^2.1.1"
 
 apexcharts@^3.10.1:
-  version "3.14.0"
-  resolved "https://registry.yarnpkg.com/apexcharts/-/apexcharts-3.14.0.tgz#6c9d2343e8511acfe2527cea46679f3b4ea9b647"
-  integrity sha512-5n12kX9pn7bzVSQOKMezVs14YQqyV+aKv5oy4tWrevie+q3oGtkihc4DmmJlEnibORTX4IRl1xhodfxrBeETIA==
+  version "3.15.0"
+  resolved "https://registry.yarnpkg.com/apexcharts/-/apexcharts-3.15.0.tgz#e4b0336c31ad5415f275dfad258960bcd30af6d1"
+  integrity sha512-mFtMQ0DWsIyZqTgj5Xsd82pcGa4sUWinVwNMdBhHzhENsX2y97BDocCj8REDgAscNE/J6EJkb/gEwTzIbIKc2w==
   dependencies:
     svg.draggable.js "^2.2.2"
     svg.easing.js "^2.0.0"
@@ -7052,9 +7052,9 @@ terser-webpack-plugin@^2.2.1:
     webpack-sources "^1.4.3"
 
 terser@^4.1.2, terser@^4.4.3:
-  version "4.6.2"
-  resolved "https://registry.yarnpkg.com/terser/-/terser-4.6.2.tgz#cb1cf055e7f70caa5863f00ba3e67dc3c97b5150"
-  integrity sha512-6FUjJdY2i3WZAtYBtnV06OOcOfzl+4hSKYE9wgac8rkLRBToPDDrBB2AcHwQD/OKDxbnvhVy2YgOPWO2SsKWqg==
+  version "4.6.3"
+  resolved "https://registry.yarnpkg.com/terser/-/terser-4.6.3.tgz#e33aa42461ced5238d352d2df2a67f21921f8d87"
+  integrity sha512-Lw+ieAXmY69d09IIc/yqeBqXpEQIpDGZqT34ui1QWXIUpR2RjbqEkT8X7Lgex19hslSqcWM5iMN2kM11eMsESQ==
   dependencies:
     commander "^2.20.0"
     source-map "~0.6.1"
