@@ -116,6 +116,12 @@
 
     <div class="card">
       <ul class="list-group list-group-flush">
+        <% if @character.current_solar_system %>
+          <li class="list-group-item text-center">
+            System: <%= @character.current_solar_system.name %>
+          </li>
+        <% end %>
+
         <% if @character.current_station %>
           <li class="list-group-item text-center">
             Station: <%= @character.current_station.name %>
