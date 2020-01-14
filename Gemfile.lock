@@ -434,8 +434,7 @@ GEM
     pg_query (1.2.0)
     pghero (2.4.1)
       activerecord (>= 5)
-    prometheus-client (0.9.0)
-      quantile (~> 0.2.1)
+    prometheus-client (1.0.0)
     pry (0.12.2)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
@@ -444,7 +443,6 @@ GEM
     public_suffix (4.0.3)
     puma (4.3.1)
       nio4r (~> 2.0)
-    quantile (0.2.1)
     raabro (1.1.6)
     rack (2.1.1)
     rack-cors (1.1.1)
@@ -665,8 +663,9 @@ GEM
     yabeda (0.2.0)
       concurrent-ruby
       dry-initializer
-    yabeda-prometheus (0.1.5)
-      yabeda
+    yabeda-prometheus (0.2.0)
+      prometheus-client (~> 1.0)
+      yabeda (~> 0.2)
     yabeda-puma-plugin (0.2.1)
       json
       puma
@@ -732,7 +731,6 @@ DEPENDENCIES
   pg (>= 0.18, < 2.0)
   pg_query
   pghero
-  prometheus-client (= 0.9.0)
   pry-rails
   puma
   rack-cors
