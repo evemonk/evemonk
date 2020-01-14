@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_20_175501) do
+ActiveRecord::Schema.define(version: 2020_01_08_211232) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -185,6 +185,18 @@ ActiveRecord::Schema.define(version: 2019_12_20_175501) do
     t.index ["ancestry_id"], name: "index_eve_ancestries_on_ancestry_id", unique: true
   end
 
+  create_table "eve_asteroid_belts", force: :cascade do |t|
+    t.bigint "asteroid_belt_id"
+    t.string "name"
+    t.bigint "system_id"
+    t.bigint "planet_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["asteroid_belt_id"], name: "index_eve_asteroid_belts_on_asteroid_belt_id", unique: true
+    t.index ["planet_id"], name: "index_eve_asteroid_belts_on_planet_id"
+    t.index ["system_id"], name: "index_eve_asteroid_belts_on_system_id"
+  end
+
   create_table "eve_bloodlines", force: :cascade do |t|
     t.bigint "bloodline_id"
     t.integer "charisma"
@@ -226,6 +238,7 @@ ActiveRecord::Schema.define(version: 2019_12_20_175501) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "name_ko"
+    t.index ["category_id"], name: "index_eve_categories_on_category_id", unique: true
   end
 
   create_table "eve_character_attributes", force: :cascade do |t|
@@ -272,6 +285,21 @@ ActiveRecord::Schema.define(version: 2019_12_20_175501) do
     t.index ["character_id"], name: "index_eve_characters_on_character_id", unique: true
     t.index ["corporation_id"], name: "index_eve_characters_on_corporation_id"
     t.index ["name"], name: "index_eve_characters_on_name"
+  end
+
+  create_table "eve_constellations", force: :cascade do |t|
+    t.bigint "constellation_id"
+    t.string "name_en"
+    t.string "name_de"
+    t.string "name_fr"
+    t.string "name_ja"
+    t.string "name_ru"
+    t.string "name_zh"
+    t.string "name_ko"
+    t.bigint "region_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["constellation_id"], name: "index_eve_constellations_on_constellation_id", unique: true
   end
 
   create_table "eve_corporation_alliance_histories", force: :cascade do |t|
@@ -322,6 +350,7 @@ ActiveRecord::Schema.define(version: 2019_12_20_175501) do
     t.bigint "unit_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["attribute_id"], name: "index_eve_dogma_attributes_on_attribute_id", unique: true
   end
 
   create_table "eve_etags", force: :cascade do |t|
@@ -388,6 +417,7 @@ ActiveRecord::Schema.define(version: 2019_12_20_175501) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "name_ko"
+    t.index ["group_id"], name: "index_eve_groups_on_group_id", unique: true
   end
 
   create_table "eve_icons", force: :cascade do |t|
@@ -399,6 +429,7 @@ ActiveRecord::Schema.define(version: 2019_12_20_175501) do
     t.string "foregrounds", array: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["icon_id"], name: "index_eve_icons_on_icon_id", unique: true
   end
 
   create_table "eve_market_groups", force: :cascade do |t|
@@ -423,6 +454,39 @@ ActiveRecord::Schema.define(version: 2019_12_20_175501) do
     t.index ["market_group_id"], name: "index_eve_market_groups_on_market_group_id", unique: true
   end
 
+  create_table "eve_moons", force: :cascade do |t|
+    t.bigint "moon_id"
+    t.string "name"
+    t.bigint "system_id"
+    t.bigint "planet_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["moon_id"], name: "index_eve_moons_on_moon_id", unique: true
+    t.index ["planet_id"], name: "index_eve_moons_on_planet_id"
+    t.index ["system_id"], name: "index_eve_moons_on_system_id"
+  end
+
+  create_table "eve_planets", force: :cascade do |t|
+    t.string "name"
+    t.bigint "planet_id"
+    t.bigint "system_id"
+    t.bigint "type_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["planet_id"], name: "index_eve_planets_on_planet_id", unique: true
+  end
+
+  create_table "eve_positions", force: :cascade do |t|
+    t.bigint "positionable_id"
+    t.string "positionable_type"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "x"
+    t.string "y"
+    t.string "z"
+    t.index ["positionable_id", "positionable_type"], name: "index_eve_positions_on_positionable_id_and_positionable_type", unique: true
+  end
+
   create_table "eve_races", force: :cascade do |t|
     t.bigint "alliance_id"
     t.text "description_en"
@@ -445,6 +509,27 @@ ActiveRecord::Schema.define(version: 2019_12_20_175501) do
     t.index ["race_id"], name: "index_eve_races_on_race_id", unique: true
   end
 
+  create_table "eve_regions", force: :cascade do |t|
+    t.bigint "region_id"
+    t.string "name_en"
+    t.string "name_de"
+    t.string "name_fr"
+    t.string "name_ja"
+    t.string "name_ru"
+    t.string "name_zh"
+    t.string "name_ko"
+    t.text "description_en"
+    t.text "description_de"
+    t.text "description_fr"
+    t.text "description_ja"
+    t.text "description_ru"
+    t.text "description_zh"
+    t.text "description_ko"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["region_id"], name: "index_eve_regions_on_region_id", unique: true
+  end
+
   create_table "eve_server_statuses", force: :cascade do |t|
     t.bigint "players"
     t.string "server_version"
@@ -461,8 +546,42 @@ ActiveRecord::Schema.define(version: 2019_12_20_175501) do
     t.bigint "type_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "destination_stargate_id"
+    t.bigint "destination_system_id"
     t.index ["stargate_id"], name: "index_eve_stargates_on_stargate_id", unique: true
     t.index ["system_id"], name: "index_eve_stargates_on_system_id"
+  end
+
+  create_table "eve_stars", force: :cascade do |t|
+    t.bigint "age"
+    t.float "luminosity"
+    t.string "name"
+    t.bigint "radius"
+    t.bigint "solar_system_id"
+    t.string "spectral_class"
+    t.bigint "temperature"
+    t.bigint "type_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "star_id"
+    t.index ["star_id"], name: "index_eve_stars_on_star_id", unique: true
+  end
+
+  create_table "eve_stations", force: :cascade do |t|
+    t.float "max_dockable_ship_volume"
+    t.string "name"
+    t.float "office_rental_cost"
+    t.bigint "owner"
+    t.bigint "race_id"
+    t.float "reprocessing_efficiency"
+    t.float "reprocessing_stations_take"
+    t.string "services", array: true
+    t.bigint "station_id"
+    t.bigint "system_id"
+    t.bigint "type_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["station_id"], name: "index_eve_stations_on_station_id", unique: true
   end
 
   create_table "eve_systems", force: :cascade do |t|
