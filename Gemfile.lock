@@ -603,8 +603,7 @@ GEM
       unicode-display_width (~> 1.5)
       unicode_utils (~> 1.4)
     strings-ansi (0.2.0)
-    super_diff (0.3.0)
-      activerecord (> 4.2, < 7.0)
+    super_diff (0.4.0)
       attr_extras
       diff-lcs
       patience_diff
