@@ -625,7 +625,7 @@ GEM
       tty-screen (~> 0.6)
       tty-which (~> 0.4)
     tty-screen (0.7.0)
-    tty-tree (0.3.0)
+    tty-tree (0.4.0)
     tty-which (0.4.1)
     turbolinks (5.2.1)
       turbolinks-source (~> 5.2)
