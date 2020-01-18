@@ -121,14 +121,6 @@ end
 # end
 #
 # scheduler.at "every sunday at 2 pm" do
-#  # Around 10k calls to esi
-#  Rails.logger.info "Update eve constellations"
-#  Eve::LocalConstellationsJob.perform_later
-#
-#  # Around 700 calls to esi
-#  Rails.logger.info "Update eve regions"
-#  Eve::LocalRegionsJob.perform_later
-#
 #  # TODO: Eve::LocalStarsJob.perform_later
 # end
 

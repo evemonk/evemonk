@@ -90,6 +90,22 @@ namespace :evemonk do
     Rails.logger.info "Update eve types"
     Eve::LocalTypesJob.perform_later
 
+    # 1 + new constellations calls to esi
+    Rails.logger.info "Import new eve constellations"
+    Eve::UpdateConstellationsJob.perform_later
+
+    # Around 10k calls to esi
+    Rails.logger.info "Update eve constellations"
+    Eve::LocalConstellationsJob.perform_later
+
+    # 1 + new regions calls to esi
+    Rails.logger.info "Import new eve regions"
+    Eve::UpdateRegionsJob.perform_later
+
+    # Around 700 calls to esi
+    Rails.logger.info "Update eve regions"
+    Eve::LocalRegionsJob.perform_later
+
     #alliance.rb
     #alliance_corporation.rb
     #character.rb
@@ -98,33 +114,12 @@ namespace :evemonk do
     #corporation_alliance_history.rb
 
     #asteroid_belt.rb
-    #constellation.rb
     #moon.rb
     #planet.rb
-    #region.rb
     #star.rb
     #stargate.rb
     #station.rb
     #system.rb
-
-    ## 1 + new constellations calls to esi
-    # Rails.logger.info "Import new eve constellations"
-    # Eve::UpdateConstellationsJob.perform_later
-    #
-    ## 1 + new regions calls to esi
-    # Rails.logger.info "Import new eve regions"
-    # Eve::UpdateRegionsJob.perform_later
-    #
-    ## 1 + new alliances calls to esi
-    # Rails.logger.info "Import new eve alliances"
-    # Eve::UpdateAlliancesJob.perform_later
-    #
-    ## number of new corporations calls to esi
-    # Rails.logger.info "Import new eve corporations"
-    # Eve::UpdateCorporationsJob.perform_later
-    #
-    # Rails.logger.info "Import new eve characters"
-    # Eve::UpdateCharactersJob.perform_later
 
     Rails.logger.info "Update sitemap and ping google"
     SitemapUpdaterJob.perform_later
