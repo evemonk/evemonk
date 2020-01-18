@@ -2,13 +2,17 @@
 
 source "https://rubygems.org"
 
-gem "rails", "6.0.2.1"
+# Till next release 6.0.3
+# gem "rails", "6.0.2.1"
+gem "rails", git: "https://github.com/rails/rails.git", branch: "6-0-stable"
 gem "pg", ">= 0.18", "< 2.0"
 gem "puma"
 gem "sass-rails"
 gem "webpacker", "~> 4.0"
 gem "turbolinks", "~> 5"
-gem "jbuilder", "~> 2.7"
+# gem "jbuilder", "~> 2.7"
+# till next release
+gem "jbuilder", git: "https://github.com/rails/jbuilder.git", branch: "master"
 gem "bootsnap", ">= 1.4.2", require: false
 gem "rails-i18n", "~> 6.0.0"
 gem "devise"
@@ -21,10 +25,7 @@ gem "metricky"
 gem "dalli"
 gem "foundation_emails"
 gem "rufus-scheduler"
-# gem "eve_online"
-# gem "eve_online", git: "https://github.com/evemonk/eve_online.git", branch: "master"
-gem "eve_online", git: "https://github.com/evemonk/eve_online.git", branch: "dev"
-# gem "eve_online", path: "~/opensource/eve_online"
+gem "eve_online"
 gem "omniauth-eve_online-sso"
 # gem "omniauth-rails_csrf_protection"
 gem "jwt"
@@ -32,7 +33,8 @@ gem "rack-cors", require: "rack/cors"
 gem "kaminari"
 gem "kaminari-i18n"
 gem "rails-html-sanitizer"
-gem "draper"
+# Until next release due https://github.com/drapergem/draper/pull/870
+gem "draper", git: "https://github.com/drapergem/draper.git", branch: "master"
 gem "mobility"
 gem "paper_trail"
 gem "rails-settings-cached"
@@ -42,7 +44,8 @@ gem "pghero"
 gem "pg_query"
 # gem "rubycritic", require: false
 gem "swagger-blocks"
-gem "http_logger"
+# Fix annoying deprecation warning
+gem "http_logger", git: "https://github.com/biow0lf/http_logger.git", branch: "master"
 gem "responders"
 gem "rack-health"
 gem "sitemap_generator"
@@ -62,7 +65,6 @@ gem "pry-rails"
 
 gem "lograge"
 
-gem "prometheus-client", "0.9.0"
 gem "yabeda-prometheus"
 gem "yabeda-rails"
 gem "yabeda-sidekiq"
@@ -118,10 +120,9 @@ group :test do
   # Easy installation and use of web drivers to run system tests with browsers
   gem "webdrivers"
   gem "rails-controller-testing"
-  # https://github.com/thoughtbot/shoulda-matchers/pull/1237
-  gem "shoulda-matchers", git: "https://github.com/thoughtbot/shoulda-matchers.git",
-                          branch: "master"
+  gem "shoulda-matchers"
   gem "rspec-its"
+  gem "super_diff"
   # gem "rspec-stubbed_env"
   gem "shoulda-callback-matchers", git: "https://github.com/just806me/shoulda-callback-matchers.git",
                                    branch: "master"

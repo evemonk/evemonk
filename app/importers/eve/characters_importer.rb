@@ -7,9 +7,9 @@ module Eve
 
       alliance_creator_ids = Eve::Alliance.pluck(:creator_id)
 
-      corporation_ceo_ids = Eve::Corporation.pluck(:ceo_id)
+      corporation_ceo_ids = Eve::Corporation.where.not(ceo_id: 0).pluck(:ceo_id)
 
-      corporation_creator_ids = Eve::Corporation.pluck(:creator_id)
+      corporation_creator_ids = Eve::Corporation.where.not(creator_id: 1).pluck(:creator_id)
 
       character_ids_to_create = (alliance_creator_ids + corporation_ceo_ids + corporation_creator_ids).uniq - character_ids
 

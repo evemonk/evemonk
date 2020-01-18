@@ -34,7 +34,7 @@ jobs:
           key: ruby-270-v1-dependencies-{{ checksum "Gemfile.lock" }}
       - run: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run: dockerize -wait tcp://localhost:9200 -timeout 2m
-      - run: sudo npm install -g npm@6.13.4
+      - run: sudo npm install -g npm@6.13.6
       - run: sudo npm install --force -g yarn@1.21.1
       - run: node -v
       - run: npm -v
@@ -59,7 +59,7 @@ jobs:
       - run: bundle exec standardrb
       - run: bundle exec rubocop
       - run: bundle exec license_finder || true
-      - run: bundle exec rails zeitwerk:check || true
+      - run: bundle exec rails zeitwerk:check
       - run: bundle exec rails factory_bot:lint
       - run: bundle exec rake traceroute FAIL_ON_ERROR=1 || true
       - run: bundle exec rake SECRET_KEY_BASE=blablabla DB_ADAPTER=nulldb assets:precompile

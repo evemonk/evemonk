@@ -39,6 +39,24 @@ class Character < ApplicationRecord
     foreign_key: "current_ship_type_id",
     optional: true
 
+  belongs_to :current_solar_system,
+    class_name: "Eve::System",
+    primary_key: "system_id",
+    foreign_key: "current_solar_system_id",
+    optional: true
+
+  belongs_to :current_station,
+    class_name: "Eve::Station",
+    primary_key: "station_id",
+    foreign_key: "current_station_id",
+    optional: true
+
+  # belongs_to :current_structure,
+  #  class_name: "Eve::Structure",
+  #  primary_key: "structure_id",
+  #  foreign_key: "current_structure_id",
+  #  optional: true
+
   has_many :loyalty_points, dependent: :destroy
 
   has_many :character_assets, dependent: :destroy

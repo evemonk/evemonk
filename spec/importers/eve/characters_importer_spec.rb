@@ -16,9 +16,35 @@ describe Eve::CharactersImporter do
 
     before { expect(Eve::Alliance).to receive(:pluck).with(:creator_id).and_return(alliance_creator_ids) }
 
-    before { expect(Eve::Corporation).to receive(:pluck).with(:ceo_id).and_return(corporation_ceo_ids) }
+    before do
+      #
+      # Eve::Corporation.where.not(ceo_id: 0).pluck(:ceo_id) # => corporation_ceo_ids
+      #
+      expect(Eve::Corporation).to receive(:where) do
+        double.tap do |a|
+          expect(a).to receive(:not).with(ceo_id: 0) do
+            double.tap do |b|
+              expect(b).to receive(:pluck).with(:ceo_id).and_return(corporation_ceo_ids)
+            end
+          end
+        end
+      end
+    end
 
-    before { expect(Eve::Corporation).to receive(:pluck).with(:creator_id).and_return(corporation_creator_ids) }
+    before do
+      #
+      # Eve::Corporation.where.not(creator_id: 1).pluck(:creator_id) # => corporation_creator_ids
+      #
+      expect(Eve::Corporation).to receive(:where) do
+        double.tap do |a|
+          expect(a).to receive(:not).with(creator_id: 1) do
+            double.tap do |b|
+              expect(b).to receive(:pluck).with(:creator_id).and_return(corporation_creator_ids)
+            end
+          end
+        end
+      end
+    end
 
     before { expect(Eve::UpdateCharacterJob).to receive(:perform_later).with(2) }
 

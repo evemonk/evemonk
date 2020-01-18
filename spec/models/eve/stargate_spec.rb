@@ -10,4 +10,6 @@ describe Eve::Stargate do
   it { expect(described_class.table_name).to eq("eve_stargates") }
 
   it { should belong_to(:system).with_primary_key("system_id").optional(true) }
+
+  it { should have_one(:position).dependent(:destroy) }
 end
