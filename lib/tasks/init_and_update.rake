@@ -106,20 +106,55 @@ namespace :evemonk do
     Rails.logger.info "Update eve regions"
     Eve::LocalRegionsJob.perform_later
 
+    # 1 + new systems
+    Rails.logger.info "Import new eve systems"
+    Eve::UpdateSystemsJob.perform_later
+
+    # TODO: update ??? with real value
+    # Around ??? calls to esi
+    Rails.logger.info "Update eve systems"
+    Eve::LocalSystemsJob.perform_later
+
+    # TODO: update ??? with real value
+    # Around ??? calls to esi
+    Rails.logger.info "Update eve stars"
+    Eve::LocalStarsJob.perform_later
+
+    # TODO: update ??? with real value
+    # Around ??? calls to esi
+    Rails.logger.info "Update eve stargates"
+    # TODO: write LocalStargatesJob
+    # Eve::LocalStargatesJob.perform_later
+
+    # TODO: update ??? with real value
+    # Around ??? calls to esi
+    Rails.logger.info "Update eve stations"
+    # TODO: write LocalStationsJob
+    # Eve::LocalStationsJob.perform_later
+
+    # TODO: update ??? with real value
+    # Around ??? calls to esi
+    Rails.logger.info "Update eve planets"
+    Eve::LocalPlanetsJob.perform_later
+
+    # TODO: update ??? with real value
+    # Around ??? calls to esi
+    Rails.logger.info "Update eve asteroid belts"
+    # TODO: write LocalAsteroidBeltsJob
+    # Eve::LocalAsteroidBeltsJob.perform_later
+
+    # TODO: update ??? with real value
+    # Around ??? calls to esi
+    Rails.logger.info "Update eve moons"
+    # TODO: write LocalMoonsJob
+    # Eve::LocalMoonsJob.perform_later
+
     #alliance.rb
     #alliance_corporation.rb
     #character.rb
     #character_corporation_history.rb
     #corporation.rb
     #corporation_alliance_history.rb
-
-    #asteroid_belt.rb
-    #moon.rb
-    #planet.rb
-    #star.rb
-    #stargate.rb
-    #station.rb
-    #system.rb
 
     Rails.logger.info "Update sitemap and ping google"
     SitemapUpdaterJob.perform_later
