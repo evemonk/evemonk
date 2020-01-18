@@ -24,6 +24,43 @@ namespace :evemonk do
 
     Rails.logger.info "Import icons from SDE"
     Sde::IconsImporter.new("static/sde/fsd/iconIDs.yaml").import
+
+    # Around 300 calls to esi
+    Rails.logger.info "Import eve categories"
+    Eve::UpdateCategoriesJob.perform_later
+
+    # Around 10k calls to esi
+    Rails.logger.info "Import eve groups"
+    Eve::UpdateGroupsJob.perform_later
+
+    # Around 13k calls to esi
+    Rails.logger.info "Import eve market groups"
+    Eve::UpdateMarketGroupsJob.perform_later
+
+    # Around 4k calls to esi
+    Rails.logger.info "Import eve graphics"
+    Eve::UpdateGraphicsJob.perform_later
+
+    # Around 2500 calls to esi
+    Rails.logger.info "Import eve dogma attributes"
+    Eve::UpdateDogmaAttributesJob.perform_later
+
+    # Around 250k calls to esi
+    Rails.logger.info "Import eve types"
+    Eve::UpdateTypesJob.perform_later
+
+    # Around 10k calls to esi
+    Rails.logger.info "Import eve constellations"
+    Eve::UpdateConstellationsJob.perform_later
+
+    # Around 700 calls to esi
+    Rails.logger.info "Import eve regions"
+    Eve::UpdateRegionsJob.perform_later
+
+    # TODO: update ??? with real value
+    # Around ??? calls to esi
+    Rails.logger.info "Import new eve systems"
+    Eve::UpdateSystemsJob.perform_later
   end
 
   desc "Update static data from new eve online release"
@@ -43,6 +80,8 @@ namespace :evemonk do
     # 7 call to esi
     Rails.logger.info "Update eve factions"
     Eve::UpdateFactionsJob.perform_later
+
+    # TODO: add SDE importers
 
     # 1 + new categories calls to esi
     Rails.logger.info "Import new eve categories"
