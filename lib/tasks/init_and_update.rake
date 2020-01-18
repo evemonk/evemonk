@@ -187,8 +187,7 @@ namespace :evemonk do
     # TODO: update ??? with real value
     # Around ??? calls to esi
     Rails.logger.info "Update eve moons"
-    # TODO: write LocalMoonsJob
-    # Eve::LocalMoonsJob.perform_later
+    Eve::LocalMoonsJob.perform_later
 
     # alliance.rb
     # alliance_corporation.rb
