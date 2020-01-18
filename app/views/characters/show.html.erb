@@ -41,7 +41,7 @@
     <div class="clearfix">
       <h4 class="float-left"><%= @character.name %></h4>
       <%= form_with(url: character_path(@character.character_id), model: @character, class: "float-right") do %>
-        <%= button_tag("Refresh", class: "btn btn-primary mb-2") do %>
+        <%= button_tag(class: "btn btn-primary mb-2") do %>
           <%= image_tag("bootstrap-icons/icons/arrow-repeat.svg") %>
         <% end %>
       <% end %>
@@ -275,14 +275,6 @@
 
 <!--        <tr>-->
 <!--          <td><%#= @character.description %></td>-->
-<!--        </tr>-->
-
-<!--        <tr>-->
-<!--          <td><%#= @character.current_solar_system_id %></td>-->
-<!--        </tr>-->
-
-<!--        <tr>-->
-<!--          <td><%#= @character.current_station_id %></td>-->
 <!--        </tr>-->
 
 <!--        <tr>-->
