@@ -3,8 +3,8 @@
 module Eve
   class LocalMoonsImporter
     def import
-      Eve::Moon.pluck(:moon_id).each do |moon_id|
-        Eve::UpdateMoonJob.perform_later(moon_id)
+      Eve::Moon.pluck(:planet_id, :moon_id).each do |planet_id, moon_id|
+        Eve::UpdateMoonJob.perform_later(planet_id, moon_id)
       end
     end
   end
