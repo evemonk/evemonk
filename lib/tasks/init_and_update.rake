@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 namespace :evemonk do
-  task init: :environment do # On new evemonk installations
+  desc "Init new evemonk installation"
+  task init: :environment do
     # 7 call to esi
     Rails.logger.info "Import eve races"
     Eve::UpdateRacesJob.new.perform
@@ -25,7 +26,8 @@ namespace :evemonk do
     Sde::IconsImporter.new("static/sde/fsd/iconIDs.yaml").import
   end
 
-  task update: :environment do # On new eve_online game release
+  desc "Update static data from new eve online release"
+  task update: :environment do
     # 7 call to esi
     Rails.logger.info "Update eve races"
     Eve::UpdateRacesJob.perform_later
