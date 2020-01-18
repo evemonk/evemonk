@@ -42,6 +42,29 @@ namespace :evemonk do
     Rails.logger.info "Update eve factions"
     Eve::UpdateFactionsJob.perform_later
 
+    # 1 + new categories calls to esi
+    Rails.logger.info "Import new eve categories"
+    Eve::UpdateCategoriesJob.perform_later
+
+    # Around 300 calls to esi
+    Rails.logger.info "Update eve categories"
+    Eve::LocalCategoriesJob.perform_later
+
+    # 1 + new groups calls to esi
+    Rails.logger.info "Import new eve groups"
+    Eve::UpdateGroupsJob.perform_later
+
+    # Around 10k calls to esi
+    Rails.logger.info "Update eve groups"
+    Eve::LocalGroupsJob.perform_later
+
+    # 1 + new market groups calls to esi
+    Rails.logger.info "Import new eve market groups"
+    Eve::UpdateMarketGroupsJob.perform_later
+
+    # Around 13k calls to esi
+    Rails.logger.info "Update eve market groups"
+    Eve::LocalMarketGroupsJob.perform_later
 
     #alliance.rb
     #alliance_corporation.rb
@@ -51,12 +74,9 @@ namespace :evemonk do
     #corporation_alliance_history.rb
 
     #asteroid_belt.rb
-    #category.rb
     #constellation.rb
     #dogma_attribute.rb
     #graphic.rb
-    #group.rb
-    #market_group.rb
     #moon.rb
     #planet.rb
     #region.rb
@@ -68,19 +88,6 @@ namespace :evemonk do
     #type_dogma_attribute.rb
     #type_dogma_effect.rb
 
-
-    ## 1 + new categories calls to esi
-    # Rails.logger.info "Import new eve categories"
-    # Eve::UpdateCategoriesJob.perform_later
-    #
-    ## 1 + new groups calls to esi
-    # Rails.logger.info "Import new eve groups"
-    # Eve::UpdateGroupsJob.perform_later
-    #
-    ## 1 + new market groups calls to esi
-    # Rails.logger.info "Import new eve market groups"
-    # Eve::UpdateMarketGroupsJob.perform_later
-    #
     ## 1 + new graphics calls to esi
     # Rails.logger.info "Import new eve graphics"
     # Eve::UpdateGraphicsJob.perform_later

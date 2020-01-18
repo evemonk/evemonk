@@ -131,21 +131,9 @@ end
 #  Rails.logger.info "Update eve graphics"
 #  Eve::LocalGraphicsJob.perform_later
 #
-#  # Around 300 calls to esi
-#  Rails.logger.info "Update eve categories"
-#  Eve::LocalCategoriesJob.perform_later
-#
 #  # Around 2500 calls to esi
 #  Rails.logger.info "Update eve dogma attributes"
 #  Eve::LocalDogmaAttributesJob.perform_later
-#
-#  # Around 10k calls to esi
-#  Rails.logger.info "Update eve groups"
-#  Eve::LocalGroupsJob.perform_later
-#
-#  # Around 13k calls to esi
-#  Rails.logger.info "Update eve market groups"
-#  Eve::LocalMarketGroupsJob.perform_later
 #
 #  # Around 10k calls to esi
 #  Rails.logger.info "Update eve constellations"
