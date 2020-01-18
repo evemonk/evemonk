@@ -14,10 +14,6 @@ scheduler.every "5m" do
   Pghero::CaptureQueryStatsJob.perform_later
 end
 
-# stargate.rb
-# system.rb
-# war.rb
-
 scheduler.every "1h" do
   Rails.logger.info "Update characters"
   UpdateCharactersJob.perform_later
@@ -85,9 +81,9 @@ scheduler.at "every day at 2 pm" do
   #
   # Rails.logger.info "Import new eve characters"
   # Eve::UpdateCharactersJob.perform_later
-  #
-  # Rails.logger.info "Update sitemap and ping google"
-  # SitemapUpdaterJob.perform_later
+
+  Rails.logger.info "Update sitemap and ping google"
+  SitemapUpdaterJob.perform_later
 end
 
 # scheduler.at "every monday at 2 pm" do

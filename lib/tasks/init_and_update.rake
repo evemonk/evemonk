@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 namespace :evemonk do
-  task init: :environment do
+  task init: :environment do # On new evemonk installations
     # 7 call to esi
     Rails.logger.info "Import eve races"
     Eve::UpdateRacesJob.new.perform
@@ -25,7 +25,7 @@ namespace :evemonk do
     Sde::IconsImporter.new("static/sde/fsd/iconIDs.yaml").import
   end
 
-  task update: :environment do
+  task update: :environment do # On new eve_online game release
     # 7 call to esi
     Rails.logger.info "Update eve races"
     Eve::UpdateRacesJob.perform_later
@@ -41,6 +41,33 @@ namespace :evemonk do
     # 7 call to esi
     Rails.logger.info "Update eve factions"
     Eve::UpdateFactionsJob.perform_later
+
+
+    #alliance.rb
+    #alliance_corporation.rb
+    #character.rb
+    #character_corporation_history.rb
+    #corporation.rb
+    #corporation_alliance_history.rb
+
+    #asteroid_belt.rb
+    #category.rb
+    #constellation.rb
+    #dogma_attribute.rb
+    #graphic.rb
+    #group.rb
+    #market_group.rb
+    #moon.rb
+    #planet.rb
+    #region.rb
+    #star.rb
+    #stargate.rb
+    #station.rb
+    #system.rb
+    #type.rb
+    #type_dogma_attribute.rb
+    #type_dogma_effect.rb
+
 
     ## 1 + new categories calls to esi
     # Rails.logger.info "Import new eve categories"
@@ -84,8 +111,8 @@ namespace :evemonk do
     #
     # Rails.logger.info "Import new eve characters"
     # Eve::UpdateCharactersJob.perform_later
-    #
-    # Rails.logger.info "Update sitemap and ping google"
-    # SitemapUpdaterJob.perform_later
+
+    Rails.logger.info "Update sitemap and ping google"
+    SitemapUpdaterJob.perform_later
   end
 end
