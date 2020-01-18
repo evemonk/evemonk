@@ -120,12 +120,6 @@ end
 #  Eve::UpdateCharactersCorporationHistoryJob.perform_later
 # end
 #
-# scheduler.at "every saturday at 2 pm" do
-#  # Around 250k calls to esi
-#  Rails.logger.info "Update eve types"
-#  Eve::LocalTypesJob.perform_later
-# end
-#
 # scheduler.at "every sunday at 2 pm" do
 #  # Around 10k calls to esi
 #  Rails.logger.info "Update eve constellations"

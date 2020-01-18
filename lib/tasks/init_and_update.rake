@@ -82,6 +82,14 @@ namespace :evemonk do
     Rails.logger.info "Update eve dogma attributes"
     Eve::LocalDogmaAttributesJob.perform_later
 
+    # 1 + new types calls to esi
+    Rails.logger.info "Import new eve types"
+    Eve::UpdateTypesJob.perform_later
+
+    # Around 250k calls to esi
+    Rails.logger.info "Update eve types"
+    Eve::LocalTypesJob.perform_later
+
     #alliance.rb
     #alliance_corporation.rb
     #character.rb
@@ -98,12 +106,7 @@ namespace :evemonk do
     #stargate.rb
     #station.rb
     #system.rb
-    #type.rb
 
-    ## 1 + new types calls to esi
-    # Rails.logger.info "Import new eve types"
-    # Eve::UpdateTypesJob.perform_later
-    #
     ## 1 + new constellations calls to esi
     # Rails.logger.info "Import new eve constellations"
     # Eve::UpdateConstellationsJob.perform_later
