@@ -149,12 +149,12 @@ namespace :evemonk do
     # TODO: write LocalMoonsJob
     # Eve::LocalMoonsJob.perform_later
 
-    #alliance.rb
-    #alliance_corporation.rb
-    #character.rb
-    #character_corporation_history.rb
-    #corporation.rb
-    #corporation_alliance_history.rb
+    # alliance.rb
+    # alliance_corporation.rb
+    # character.rb
+    # character_corporation_history.rb
+    # corporation.rb
+    # corporation_alliance_history.rb
 
     Rails.logger.info "Update sitemap and ping google"
     SitemapUpdaterJob.perform_later
