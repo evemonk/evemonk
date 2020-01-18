@@ -127,10 +127,6 @@ end
 # end
 #
 # scheduler.at "every sunday at 2 pm" do
-#  # Around 2500 calls to esi
-#  Rails.logger.info "Update eve dogma attributes"
-#  Eve::LocalDogmaAttributesJob.perform_later
-#
 #  # Around 10k calls to esi
 #  Rails.logger.info "Update eve constellations"
 #  Eve::LocalConstellationsJob.perform_later

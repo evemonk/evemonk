@@ -74,6 +74,14 @@ namespace :evemonk do
     Rails.logger.info "Update eve graphics"
     Eve::LocalGraphicsJob.perform_later
 
+    # 1 + new dogma attribute calls to esi
+    Rails.logger.info "Import new eve dogma attributes"
+    Eve::UpdateDogmaAttributesJob.perform_later
+
+    # Around 2500 calls to esi
+    Rails.logger.info "Update eve dogma attributes"
+    Eve::LocalDogmaAttributesJob.perform_later
+
     #alliance.rb
     #alliance_corporation.rb
     #character.rb
@@ -83,7 +91,6 @@ namespace :evemonk do
 
     #asteroid_belt.rb
     #constellation.rb
-    #dogma_attribute.rb
     #moon.rb
     #planet.rb
     #region.rb
@@ -92,13 +99,7 @@ namespace :evemonk do
     #station.rb
     #system.rb
     #type.rb
-    #type_dogma_attribute.rb
-    #type_dogma_effect.rb
 
-    ## 1 + new dogma attribute calls to esi
-    # Rails.logger.info "Import new eve dogma attributes"
-    # Eve::UpdateDogmaAttributesJob.perform_later
-    #
     ## 1 + new types calls to esi
     # Rails.logger.info "Import new eve types"
     # Eve::UpdateTypesJob.perform_later
