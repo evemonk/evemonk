@@ -10,7 +10,7 @@ describe Eve::LocalStationsImporter do
       #
       # Eve::Station.pluck(:station_id) => [station_id]
       #
-      expect(Eve::Station).to receive(:pluck).with(:star_id).and_return([station_id])
+      expect(Eve::Station).to receive(:pluck).with(:station_id).and_return([station_id])
     end
 
     before { expect(Eve::UpdateStationJob).to receive(:perform_later).with(station_id) }
