@@ -12,7 +12,7 @@ describe Eve::LocalAsteroidBeltsImporter do
       #
       # Eve::AsteroidBelt.pluck(:planet_id, :asteroid_belt_id) => [[planet_id, asteroid_belt_id]]
       #
-      expect(Eve::AsteroidBelt).to receive(:pluck).with(:planet_id, :moon_id).and_return([[planet_id, asteroid_belt_id]])
+      expect(Eve::AsteroidBelt).to receive(:pluck).with(:planet_id, :asteroid_belt_id).and_return([[planet_id, asteroid_belt_id]])
     end
 
     before { expect(Eve::UpdateAsteroidBeltJob).to receive(:perform_later).with(planet_id, asteroid_belt_id) }
