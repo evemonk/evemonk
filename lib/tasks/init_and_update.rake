@@ -169,8 +169,7 @@ namespace :evemonk do
     # TODO: update ??? with real value
     # Around ??? calls to esi
     Rails.logger.info "Update eve stations"
-    # TODO: write LocalStationsJob
-    # Eve::LocalStationsJob.perform_later
+    Eve::LocalStationsJob.perform_later
 
     # TODO: update ??? with real value
     # Around ??? calls to esi
