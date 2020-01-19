@@ -179,8 +179,7 @@ namespace :evemonk do
     # TODO: update ??? with real value
     # Around ??? calls to esi
     Rails.logger.info "Update eve asteroid belts"
-    # TODO: write LocalAsteroidBeltsJob
-    # Eve::LocalAsteroidBeltsJob.perform_later
+    Eve::LocalAsteroidBeltsJob.perform_later
 
     # TODO: update ??? with real value
     # Around ??? calls to esi
