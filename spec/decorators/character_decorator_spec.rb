@@ -37,7 +37,7 @@ describe CharacterDecorator do
 
       subject { character.decorate }
 
-      specify { expect(subject.birthday_formatted).to eq("May 03, 2015") }
+      specify { expect(subject.birthday_formatted).to eq("2015.05.03") }
     end
 
     context "when birthday is empty" do
