@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 namespace :evemonk do
-  task init: :environment do # On new evemonk installations
+  desc "Init new evemonk installation"
+  task init: :environment do
     # 7 call to esi
     Rails.logger.info "Import eve races"
     Eve::UpdateRacesJob.new.perform
@@ -23,9 +24,47 @@ namespace :evemonk do
 
     Rails.logger.info "Import icons from SDE"
     Sde::IconsImporter.new("static/sde/fsd/iconIDs.yaml").import
+
+    # Around 300 calls to esi
+    Rails.logger.info "Import eve categories"
+    Eve::UpdateCategoriesJob.perform_later
+
+    # Around 10k calls to esi
+    Rails.logger.info "Import eve groups"
+    Eve::UpdateGroupsJob.perform_later
+
+    # Around 13k calls to esi
+    Rails.logger.info "Import eve market groups"
+    Eve::UpdateMarketGroupsJob.perform_later
+
+    # Around 4k calls to esi
+    Rails.logger.info "Import eve graphics"
+    Eve::UpdateGraphicsJob.perform_later
+
+    # Around 2500 calls to esi
+    Rails.logger.info "Import eve dogma attributes"
+    Eve::UpdateDogmaAttributesJob.perform_later
+
+    # Around 250k calls to esi
+    Rails.logger.info "Import eve types"
+    Eve::UpdateTypesJob.perform_later
+
+    # Around 10k calls to esi
+    Rails.logger.info "Import eve constellations"
+    Eve::UpdateConstellationsJob.perform_later
+
+    # Around 700 calls to esi
+    Rails.logger.info "Import eve regions"
+    Eve::UpdateRegionsJob.perform_later
+
+    # TODO: update ??? with real value
+    # Around ??? calls to esi
+    Rails.logger.info "Import new eve systems"
+    Eve::UpdateSystemsJob.perform_later
   end
 
-  task update: :environment do # On new eve_online game release
+  desc "Update static data from new eve online release"
+  task update: :environment do
     # 7 call to esi
     Rails.logger.info "Update eve races"
     Eve::UpdateRacesJob.perform_later
@@ -41,6 +80,8 @@ namespace :evemonk do
     # 7 call to esi
     Rails.logger.info "Update eve factions"
     Eve::UpdateFactionsJob.perform_later
+
+    # TODO: add SDE importers
 
     # 1 + new categories calls to esi
     Rails.logger.info "Import new eve categories"
@@ -123,14 +164,12 @@ namespace :evemonk do
     # TODO: update ??? with real value
     # Around ??? calls to esi
     Rails.logger.info "Update eve stargates"
-    # TODO: write LocalStargatesJob
-    # Eve::LocalStargatesJob.perform_later
+    Eve::LocalStargatesJob.perform_later
 
     # TODO: update ??? with real value
     # Around ??? calls to esi
     Rails.logger.info "Update eve stations"
-    # TODO: write LocalStationsJob
-    # Eve::LocalStationsJob.perform_later
+    Eve::LocalStationsJob.perform_later
 
     # TODO: update ??? with real value
     # Around ??? calls to esi
@@ -140,14 +179,12 @@ namespace :evemonk do
     # TODO: update ??? with real value
     # Around ??? calls to esi
     Rails.logger.info "Update eve asteroid belts"
-    # TODO: write LocalAsteroidBeltsJob
-    # Eve::LocalAsteroidBeltsJob.perform_later
+    Eve::LocalAsteroidBeltsJob.perform_later
 
     # TODO: update ??? with real value
     # Around ??? calls to esi
     Rails.logger.info "Update eve moons"
-    # TODO: write LocalMoonsJob
-    # Eve::LocalMoonsJob.perform_later
+    Eve::LocalMoonsJob.perform_later
 
     # alliance.rb
     # alliance_corporation.rb

@@ -14,7 +14,7 @@ class CharacterDecorator < ApplicationDecorator
   end
 
   def birthday_formatted
-    object.birthday&.strftime("%b %d, %Y")
+    object.birthday&.strftime("%Y.%m.%d")
   end
 
   def icon_tiny
