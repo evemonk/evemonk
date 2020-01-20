@@ -42,7 +42,7 @@ GIT
 
 GIT
   remote: https://github.com/rails/rails.git
-  revision: 5209d57d4ef193987febf4f293732d8f572914c4
+  revision: a070260f2e35ddbe0a92ca32c9a6e14567319073
   branch: 6-0-stable
   specs:
     actioncable (6.0.2.1)
@@ -132,7 +132,7 @@ GIT
 
 GIT
   remote: https://github.com/rspec/rspec-expectations.git
-  revision: c085c5a6f0678ae7f88a489996e391e6b661d8a9
+  revision: fe7710ef7b656869a21468c908a4fd7cf6335343
   branch: master
   specs:
     rspec-expectations (3.10.0.pre)
@@ -150,7 +150,7 @@ GIT
 
 GIT
   remote: https://github.com/rspec/rspec-rails.git
-  revision: b1ffe94265b33b02616658ec3c1921fc0355f662
+  revision: e23efbb2cd6b40aaa8c6f33a36fe7ed4e724e2c7
   branch: master
   specs:
     rspec-rails (4.0.0.pre)

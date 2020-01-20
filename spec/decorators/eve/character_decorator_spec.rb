@@ -168,7 +168,7 @@ describe Eve::CharacterDecorator do
   describe "#security_status" do
     let(:eve_character) do
       build(:eve_character,
-        security_status: 1.1)
+        security_status: 1.1234)
     end
 
     subject { eve_character.decorate }

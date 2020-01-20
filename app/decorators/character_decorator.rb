@@ -46,7 +46,7 @@ class CharacterDecorator < ApplicationDecorator
   end
 
   def security_status
-    object.security_status.to_s
+    object.security_status.round(1).to_s
   end
 
   def last_remap_date
