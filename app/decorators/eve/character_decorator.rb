@@ -38,7 +38,7 @@ module Eve
     end
 
     def security_status
-      object.security_status.to_s
+      object.security_status.round(1).to_s
     end
   end
 end

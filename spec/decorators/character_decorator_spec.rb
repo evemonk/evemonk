@@ -189,7 +189,7 @@ describe CharacterDecorator do
   describe "#security_status" do
     let(:character) do
       build(:character,
-        security_status: 1.1)
+        security_status: 1.1234)
     end
 
     subject { character.decorate }
