@@ -42,7 +42,7 @@ GIT
 
 GIT
   remote: https://github.com/rails/rails.git
-  revision: a070260f2e35ddbe0a92ca32c9a6e14567319073
+  revision: 77aea5797c0539bf43122bcd8999f175e4c8127f
   branch: 6-0-stable
   specs:
     actioncable (6.0.2.1)
@@ -284,10 +284,10 @@ GEM
       railties (>= 4.2.0)
     faker (2.10.1)
       i18n (>= 1.6, < 2)
-    faker-bot (0.5.2)
+    faker-bot (0.5.3)
       faker
       pastel (~> 0.7.2)
-      thor (~> 0.20.0)
+      thor (>= 0.20, < 1.1)
       tty-pager
       tty-screen
       tty-tree
@@ -626,7 +626,7 @@ GEM
       tty-which (~> 0.4)
     tty-screen (0.7.0)
     tty-tree (0.4.0)
-    tty-which (0.4.1)
+    tty-which (0.4.2)
     turbolinks (5.2.1)
       turbolinks-source (~> 5.2)
     turbolinks-source (5.2.0)

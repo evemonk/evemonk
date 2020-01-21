@@ -154,45 +154,21 @@
     <table class="table table-striped table-bordered">
       <tbody>
         <tr>
-          <td colspan="3" class="align-middle">
-            Neural Remap Available: <%#= @character.neural_remap_available %>
-          </td>
-        </tr>
-        <tr>
-          <td colspan="3" class="align-middle">
-            Bonus Remap Available: <%= @character.bonus_remaps %>
-          </td>
-        </tr>
-        <tr>
           <td class="align-middle text-center border-right-0 m-0 p-2">
-            <%= image_tag(@character.charisma_attribute&.icon&.icon_url,
-                          alt: "Charisma icon",
+            <%= image_tag(@character.perception_attribute&.icon&.icon_url,
+                          alt: "Perception icon",
                           class: "rounded border",
                           size: "34x34",
                           loading: "lazy") %>
           </td>
           <td class="align-middle text-break border-left-0">
-            <abbr title="<%= @character.charisma_attribute&.description %>">Charisma:</abbr>
+            <abbr title="<%= @character.perception_attribute&.description %>">Perception:</abbr>
           </td>
           <td class="align-middle text-right">
-            <%= @character.charisma %>
+            <%= @character.perception %>
           </td>
         </tr>
-        <tr>
-          <td class="align-middle text-center border-right-0 m-0 p-2">
-            <%= image_tag(@character.intelligence_attribute&.icon&.icon_url,
-                          alt: "Intelligence icon",
-                          class: "rounded border",
-                          size: "34x34",
-                          loading: "lazy") %>
-          </td>
-          <td class="align-middle text-break border-left-0">
-            <abbr title="<%= @character.intelligence_attribute&.description %>">Intelligence:</abbr>
-          </td>
-          <td class="align-middle text-right">
-            <%= @character.intelligence %>
-          </td>
-        </tr>
+
         <tr>
           <td class="align-middle text-center border-right-0 m-0 p-2">
             <%= image_tag(@character.memory_attribute&.icon&.icon_url,
@@ -208,21 +184,7 @@
             <%= @character.memory %>
           </td>
         </tr>
-        <tr>
-          <td class="align-middle text-center border-right-0 m-0 p-2">
-            <%= image_tag(@character.perception_attribute&.icon&.icon_url,
-                          alt: "Perception icon",
-                          class: "rounded border",
-                          size: "34x34",
-                          loading: "lazy") %>
-          </td>
-          <td class="align-middle text-break border-left-0">
-            <abbr title="<%= @character.perception_attribute&.description %>">Perception:</abbr>
-          </td>
-          <td class="align-middle text-right">
-            <%= @character.perception %>
-          </td>
-        </tr>
+
         <tr>
           <td class="align-middle text-center border-right-0 m-0 p-2">
             <%= image_tag(@character.willpower_attribute&.icon&.icon_url,
@@ -236,6 +198,50 @@
           </td>
           <td class="align-middle text-right">
             <%= @character.willpower %>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="align-middle text-center border-right-0 m-0 p-2">
+            <%= image_tag(@character.intelligence_attribute&.icon&.icon_url,
+                          alt: "Intelligence icon",
+                          class: "rounded border",
+                          size: "34x34",
+                          loading: "lazy") %>
+          </td>
+          <td class="align-middle text-break border-left-0">
+            <abbr title="<%= @character.intelligence_attribute&.description %>">Intelligence:</abbr>
+          </td>
+          <td class="align-middle text-right">
+            <%= @character.intelligence %>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="align-middle text-center border-right-0 m-0 p-2">
+            <%= image_tag(@character.charisma_attribute&.icon&.icon_url,
+                          alt: "Charisma icon",
+                          class: "rounded border",
+                          size: "34x34",
+                          loading: "lazy") %>
+          </td>
+          <td class="align-middle text-break border-left-0">
+            <abbr title="<%= @character.charisma_attribute&.description %>">Charisma:</abbr>
+          </td>
+          <td class="align-middle text-right">
+            <%= @character.charisma %>
+          </td>
+        </tr>
+
+        <tr>
+          <td colspan="3" class="align-middle">
+            Neural Remap Available: <%#= @character.neural_remap_available %>
+          </td>
+        </tr>
+
+        <tr>
+          <td colspan="3" class="align-middle">
+            Bonus Remap Available: <%= @character.bonus_remaps %>
           </td>
         </tr>
       </tbody>
