@@ -128,8 +128,12 @@
                               loading: "lazy") %>
               <% end %>
             </td>
-            <td><%= loyalty_point.corporation&.name %></td>
-            <td><%= loyalty_point.loyalty_points %></td>
+            <td class="align-middle">
+              <%= loyalty_point.corporation&.name %>
+            </td>
+            <td class="align-middle text-right">
+              <%= loyalty_point.loyalty_points %>
+            </td>
           </tr>
         <% end %>
       </tbody>

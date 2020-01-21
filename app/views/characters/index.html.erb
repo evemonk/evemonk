@@ -30,16 +30,16 @@
                           size: "130x130",
                           loading: "lazy") %>
           </li>
-          <% if character.alliance %>
-            <li class="list-group-item text-break">
-              Alliance: <%= link_to(character.alliance.name,
-                                    universe_alliance_path(character.alliance.alliance_id)) %>
-            </li>
-          <% end %>
           <% if character.corporation %>
             <li class="list-group-item text-break">
               Corporation: <%= link_to(character.corporation.name,
                                        universe_corporation_path(character.corporation.corporation_id)) %>
+            </li>
+          <% end %>
+          <% if character.alliance %>
+            <li class="list-group-item text-break">
+              Alliance: <%= link_to(character.alliance.name,
+                                    universe_alliance_path(character.alliance.alliance_id)) %>
             </li>
           <% end %>
           <li class="list-group-item text-break">
