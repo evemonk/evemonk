@@ -41,10 +41,6 @@
               Alliance: <%= link_to(character.alliance.name,
                                     universe_alliance_path(character.alliance.alliance_id)) %>
             </li>
-          <% else %>
-            <li class="list-group-item text-break">
-              Alliance: <span class="text-success">None</span>
-            </li>
           <% end %>
           <li class="list-group-item text-break">
             Security status: <%= character.security_status %>
