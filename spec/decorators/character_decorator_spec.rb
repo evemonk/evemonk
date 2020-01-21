@@ -269,7 +269,7 @@ describe CharacterDecorator do
 
     subject { character.decorate }
 
-    specify { expect(subject.total_sp_formatted).to eq("50,362,576") }
+    specify { expect(subject.total_sp_formatted).to eq("50 362 576") }
   end
 
   describe "#unallocated_sp_formatted" do
@@ -280,6 +280,32 @@ describe CharacterDecorator do
 
     subject { character.decorate }
 
-    specify { expect(subject.unallocated_sp_formatted).to eq("906,000") }
+    specify { expect(subject.unallocated_sp_formatted).to eq("906 000") }
+  end
+
+  describe "#full_sp_formatted" do
+    context "when unallocated_sp is nil" do
+      let(:character) do
+        build(:character,
+          total_sp: 50_362_576,
+          unallocated_sp: nil)
+      end
+
+      subject { character.decorate }
+
+      specify { expect(subject.full_sp_formatted).to eq("50 362 576") }
+    end
+
+    context "when unallocated_sp is not nil" do
+      let(:character) do
+        build(:character,
+          total_sp: 50_362_576,
+          unallocated_sp: 906_000)
+      end
+
+      subject { character.decorate }
+
+      specify { expect(subject.full_sp_formatted).to eq("51 268 576") }
+    end
   end
 end

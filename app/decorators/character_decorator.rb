@@ -66,11 +66,15 @@ class CharacterDecorator < ApplicationDecorator
   end
 
   def total_sp_formatted
-    number_with_delimiter(object.total_sp)
+    number_with_delimiter(object.total_sp, delimiter: " ")
   end
 
   def unallocated_sp_formatted
-    number_with_delimiter(object.unallocated_sp)
+    number_with_delimiter(object.unallocated_sp, delimiter: " ")
+  end
+
+  def full_sp_formatted
+    number_with_delimiter(object.total_sp + object.unallocated_sp.to_i, delimiter: " ")
   end
 
   # def neural_remap_available
