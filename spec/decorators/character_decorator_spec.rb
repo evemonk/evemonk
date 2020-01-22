@@ -258,7 +258,7 @@ describe CharacterDecorator do
 
     subject { character.decorate }
 
-    specify { expect(subject.wallet_formatted).to eq("8,252") }
+    specify { expect(subject.wallet_formatted).to eq("8 252") }
   end
 
   describe "#total_sp_formatted" do

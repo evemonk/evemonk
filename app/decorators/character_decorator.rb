@@ -62,7 +62,7 @@ class CharacterDecorator < ApplicationDecorator
   end
 
   def wallet_formatted
-    number_with_delimiter(object.wallet.to_i)
+    number_with_delimiter(object.wallet.to_i, delimiter: " ")
   end
 
   def total_sp_formatted
