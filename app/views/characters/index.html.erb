@@ -46,7 +46,7 @@
             Security status: <%= character.security_status %>
           </li>
           <li class="list-group-item text-break">
-            ISK: <%= character.wallet_formatted %>
+            Wallet: <%= character.wallet_formatted %> ISK
           </li>
           <li class="list-group-item text-break text-center">
             <%= form_with(url: character_path(character.character_id), model: character, method: :delete) do %>
