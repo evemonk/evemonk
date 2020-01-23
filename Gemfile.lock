@@ -619,7 +619,7 @@ GEM
     traceroute (0.8.0)
       rails (>= 3.0.0)
     trollop (1.16.2)
-    tty-color (0.5.0)
+    tty-color (0.5.1)
     tty-pager (0.12.1)
       strings (~> 0.1.4)
       tty-screen (~> 0.6)
