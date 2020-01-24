@@ -2,6 +2,6 @@
 
 module Eve
   class UnitDecorator < ApplicationDecorator
-    # decorates_associations :type
+    decorates_associations :dogma_attributes
   end
 end
