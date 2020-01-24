@@ -157,18 +157,15 @@ namespace :evemonk do
     Rails.logger.info "Update eve systems"
     Eve::LocalSystemsJob.perform_later
 
-    # TODO: update ??? with real value
-    # Around ??? calls to esi
+    # Around 8k calls to esi
     Rails.logger.info "Update eve stars"
     Eve::LocalStarsJob.perform_later
 
-    # TODO: update ??? with real value
-    # Around ??? calls to esi
+    # Around 14k calls to esi
     Rails.logger.info "Update eve stargates"
     Eve::LocalStargatesJob.perform_later
 
-    # TODO: update ??? with real value
-    # Around ??? calls to esi
+    # Around 5k calls to esi
     Rails.logger.info "Update eve stations"
     Eve::LocalStationsJob.perform_later
 
