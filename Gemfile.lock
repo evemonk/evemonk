@@ -1,11 +1,4 @@
 GIT
-  remote: https://github.com/biow0lf/http_logger.git
-  revision: 41adf43ccc2528b27b774cc1ae8e17291d307721
-  branch: master
-  specs:
-    http_logger (0.5.1)
-
-GIT
   remote: https://github.com/drapergem/draper.git
   revision: e31a54e92db572d4d2580e39d90591fbe5d8047f
   branch: master
@@ -121,6 +114,13 @@ GIT
       method_source
       rake (>= 0.8.7)
       thor (>= 0.20.3, < 2.0)
+
+GIT
+  remote: https://github.com/railsware/http_logger.git
+  revision: 63eeba702fbb87858cab2a01ddffa490a865a878
+  branch: master
+  specs:
+    http_logger (0.5.1)
 
 GIT
   remote: https://github.com/rspec/rspec-core.git
