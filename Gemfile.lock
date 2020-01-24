@@ -1,11 +1,4 @@
 GIT
-  remote: https://github.com/biow0lf/http_logger.git
-  revision: 41adf43ccc2528b27b774cc1ae8e17291d307721
-  branch: master
-  specs:
-    http_logger (0.5.1)
-
-GIT
   remote: https://github.com/drapergem/draper.git
   revision: e31a54e92db572d4d2580e39d90591fbe5d8047f
   branch: master
@@ -123,8 +116,15 @@ GIT
       thor (>= 0.20.3, < 2.0)
 
 GIT
+  remote: https://github.com/railsware/http_logger.git
+  revision: 63eeba702fbb87858cab2a01ddffa490a865a878
+  branch: master
+  specs:
+    http_logger (0.5.1)
+
+GIT
   remote: https://github.com/rspec/rspec-core.git
-  revision: 7a264e98d255708a766dc77e63a328f18c19dd9b
+  revision: 12caa2907b7eb67d65e19353c15613586858546c
   branch: master
   specs:
     rspec-core (3.10.0.pre)
@@ -132,7 +132,7 @@ GIT
 
 GIT
   remote: https://github.com/rspec/rspec-expectations.git
-  revision: fe7710ef7b656869a21468c908a4fd7cf6335343
+  revision: ed736c3fc996ca0c978e869806bf41359db395a3
   branch: master
   specs:
     rspec-expectations (3.10.0.pre)
@@ -141,7 +141,7 @@ GIT
 
 GIT
   remote: https://github.com/rspec/rspec-mocks.git
-  revision: e6057a61d8a15c4638dec116f68579d83fdd5ad5
+  revision: 571e316ecdba404dd042b7107b8f1e22d485938f
   branch: master
   specs:
     rspec-mocks (3.10.0.pre)
@@ -150,7 +150,7 @@ GIT
 
 GIT
   remote: https://github.com/rspec/rspec-rails.git
-  revision: 3778862901ffe97fd1e8ebc971624ae931eb97d4
+  revision: 014b9f84a76e6dacd1e9b3b13b04b1f1bb38fecc
   branch: master
   specs:
     rspec-rails (4.0.0.pre)
@@ -164,7 +164,7 @@ GIT
 
 GIT
   remote: https://github.com/rspec/rspec-support.git
-  revision: 8c2ca4a13471e4ef2c6275990fc5f4c5b40fba6e
+  revision: 407bfa855568ce915e3cccd514e9875560c4a3eb
   branch: master
   specs:
     rspec-support (3.10.0.pre)
