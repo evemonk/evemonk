@@ -25,6 +25,9 @@ namespace :evemonk do
     Rails.logger.info "Import icons from SDE"
     Sde::IconsImporter.new("static/sde/fsd/iconIDs.yaml").import
 
+    Rails.logger.info "Import units from SDE"
+    Sde::UnitsImporter.new("static/sde/bsd/eveUnits.yaml").import
+
     # Around 300 calls to esi
     Rails.logger.info "Import eve categories"
     Eve::UpdateCategoriesJob.perform_later
@@ -57,8 +60,7 @@ namespace :evemonk do
     Rails.logger.info "Import eve regions"
     Eve::UpdateRegionsJob.perform_later
 
-    # TODO: update ??? with real value
-    # Around ??? calls to esi
+    # Around 60k calls to esi
     Rails.logger.info "Import new eve systems"
     Eve::UpdateSystemsJob.perform_later
   end
@@ -151,8 +153,7 @@ namespace :evemonk do
     Rails.logger.info "Import new eve systems"
     Eve::UpdateSystemsJob.perform_later
 
-    # TODO: update ??? with real value
-    # Around ??? calls to esi
+    # Around 60k calls to esi
     Rails.logger.info "Update eve systems"
     Eve::LocalSystemsJob.perform_later
 
