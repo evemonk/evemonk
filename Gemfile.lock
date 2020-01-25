@@ -189,7 +189,7 @@ GEM
       public_suffix (>= 2.0.2, < 5.0)
     anyway_config (1.4.4)
     ast (2.4.0)
-    attr_extras (6.2.2)
+    attr_extras (6.2.3)
     awesome_print (1.8.0)
     bcrypt (3.1.13)
     benchmark-ips (2.7.2)
