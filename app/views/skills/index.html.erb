@@ -154,7 +154,10 @@
             </h2>
           </div>
 
-          <div id="collapse_<%= group.group_id %>" class="collapse" aria-labelledby="heading_group_<%= group.group_id %>" data-parent="#skills_tree_accordion">
+          <div id="collapse_<%= group.group_id %>"
+               class="collapse"
+               aria-labelledby="heading_group_<%= group.group_id %>"
+               data-parent="#skills_tree_accordion">
             <div class="card-body">
               <div class="row">
                 Levels Trained: <%= @skills_tree.levels_trained_in_group(group) %> / <%= @skills_tree.total_levels_in_group(group) %>
