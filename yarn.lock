@@ -1148,9 +1148,9 @@ anymatch@^2.0.0:
     normalize-path "^2.1.1"
 
 apexcharts@^3.10.1:
-  version "3.15.2"
-  resolved "https://registry.yarnpkg.com/apexcharts/-/apexcharts-3.15.2.tgz#534253b15dcbd3c30f77bda749d1280b4a7ef7cf"
-  integrity sha512-8JXWy9+MQCG7cQ07G+yAjGHf/xQjxna1hpn+IpA3+PTFoo+VBur/J1bDEeFHI3OaPym44z9PYo/6J7PwJ1gBuA==
+  version "3.15.3"
+  resolved "https://registry.yarnpkg.com/apexcharts/-/apexcharts-3.15.3.tgz#e839ee30cad55c23e9bc2e80c279eae1a883c28c"
+  integrity sha512-DfXhSqFaulF3C7YyMR77Jk4ESa66QjoqrBvxw3gLvRs5KK0fhmk0kuuWtxtpBulm2oWBVsi6VKHiy+YlBRPasg==
   dependencies:
     svg.draggable.js "^2.2.2"
     svg.easing.js "^2.0.0"
@@ -1712,9 +1712,9 @@ caniuse-api@^3.0.0:
     lodash.uniq "^4.5.0"
 
 caniuse-lite@^1.0.0, caniuse-lite@^1.0.30000981, caniuse-lite@^1.0.30001020, caniuse-lite@^1.0.30001022:
-  version "1.0.30001022"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001022.tgz#9eeffe580c3a8f110b7b1742dcf06a395885e4c6"
-  integrity sha512-FjwPPtt/I07KyLPkBQ0g7/XuZg6oUkYBVnPHNj3VHJbOjmmJ/GdSo/GUY6MwINEQvjhP6WZVbX8Tvms8xh0D5A==
+  version "1.0.30001023"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001023.tgz#b82155827f3f5009077bdd2df3d8968bcbcc6fc4"
+  integrity sha512-C5TDMiYG11EOhVOA62W1p3UsJ2z4DsHtMBQtjzp3ZsUglcQn62WOUgW0y795c7A5uZ+GCEIvzkMatLIlAsbNTA==
 
 case-sensitive-paths-webpack-plugin@^2.2.0:
   version "2.3.0"
