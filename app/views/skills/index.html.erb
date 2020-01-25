@@ -178,7 +178,8 @@
 
               <% @skills_tree.skills_in_group(group).each do |skill| %>
                 <div class="row">
-                  <%= skill.name %><br>
+                  <%= link_to(skill.name, universe_type_path(skill.type_id)) %>
+                  <br>
                   <%= @skills_tree.skill(skill)&.trained_skill_level %>
                 </div>
               <% end %>
