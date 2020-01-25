@@ -14,9 +14,9 @@ module Sde
       entries.each do |hash|
         unit = Eve::Unit.find_or_initialize_by(unit_id: hash["unitID"])
 
-        unit.unit_name = hash["unitName"]
-        unit.description = hash["description"]
-        unit.display_name = hash["displayName"]
+        unit.assign_attributes(unit_name: hash["unitName"],
+                               description: hash["description"],
+                               display_name: hash["displayName"])
 
         unit.save!
       end
