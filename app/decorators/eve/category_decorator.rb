@@ -2,5 +2,6 @@
 
 module Eve
   class CategoryDecorator < ApplicationDecorator
+    decorates_associations :groups
   end
 end
