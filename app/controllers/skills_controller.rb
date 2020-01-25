@@ -6,5 +6,7 @@ class SkillsController < ApplicationController
       .includes(character_skills: :skill)
       .find_by!(character_id: params[:character_id])
       .decorate
+
+    @skills_tree = SkillsTree.new(@character)
   end
 end

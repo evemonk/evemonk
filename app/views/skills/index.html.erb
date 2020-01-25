@@ -134,4 +134,43 @@
       </tbody>
     </table>
   </div>
+
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+    <h4 class="text-center text-break">Skills Tree</h4>
+
+    <div class="accordion" id="skills_tree_accordion">
+      <% @skills_tree.groups.each do |group| %>
+        <div class="card">
+          <div class="card-header" id="heading_group_<%= group.group_id %>">
+            <h2 class="mb-0">
+              <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse_<%= group.group_id %>" aria-expanded="true" aria-controls="collapse_<%= group.group_id %>">
+                <%= group.name %>
+              </button>
+            </h2>
+          </div>
+
+          <div id="collapse_<%= group.group_id %>" class="collapse" aria-labelledby="heading_group_<%= group.group_id %>" data-parent="#skills_tree_accordion">
+            <div class="card-body">
+              <div class="row">
+                Levels Trained: <%= @skills_tree.levels_trained_in_group(group) %> / <%= @skills_tree.total_levels_in_group(group) %>
+              </div>
+              <div class="row">
+                Levels in Training Queue: x
+              </div>
+              <div class="row">
+                Skill Points: xxx xxx xxx / xxx xxx xxx
+              </div>
+              <div class="row">
+                Training Rate: 36.0 skill points per minute
+              </div>
+              <div class="row">
+                <div class="span-6">Intelligence: 22</div>
+                <div class="span-6">Memory: 22</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>
