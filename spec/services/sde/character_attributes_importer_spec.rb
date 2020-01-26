@@ -47,11 +47,13 @@ describe Sde::CharacterAttributesImporter do
 
     before { expect(Eve::CharacterAttribute).to receive(:find_or_initialize_by).with(attribute_id: attribute_id).and_return(eve_character_attribute) }
 
-    before { expect(eve_character_attribute).to receive(:assign_attributes).with(attribute_name: attribute_name,
-                                                                                 description: description,
-                                                                                 icon_id: icon_id,
-                                                                                 notes: notes,
-                                                                                 short_description: short_description) }
+    before do
+      expect(eve_character_attribute).to receive(:assign_attributes).with(attribute_name: attribute_name,
+                                                                          description: description,
+                                                                          icon_id: icon_id,
+                                                                          notes: notes,
+                                                                          short_description: short_description)
+    end
 
     before { expect(eve_character_attribute).to receive(:save!) }
 

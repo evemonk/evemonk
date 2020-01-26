@@ -30,15 +30,15 @@ describe Sde::IconsImporter do
 
     let(:entry) do
       {
-          "description" => description,
-          "iconFile" => icon_file,
-          "obsolete" => obsolete,
-          "backgrounds" => backgrounds,
-          "foregrounds" => foregrounds,
+        "description" => description,
+        "iconFile" => icon_file,
+        "obsolete" => obsolete,
+        "backgrounds" => backgrounds,
+        "foregrounds" => foregrounds,
       }
     end
 
-    let(:entries) { { key => entry } }
+    let(:entries) { {key => entry} }
 
     before { expect(YAML).to receive(:safe_load).with(content).and_return(entries) }
 
@@ -46,11 +46,13 @@ describe Sde::IconsImporter do
 
     before { expect(Eve::Icon).to receive(:find_or_initialize_by).with(icon_id: key).and_return(eve_icon) }
 
-    before { expect(eve_icon).to receive(:assign_attributes).with(description: description,
-                                                                  icon_file: icon_file,
-                                                                  obsolete: obsolete,
-                                                                  backgrounds: backgrounds,
-                                                                  foregrounds: foregrounds) }
+    before do
+      expect(eve_icon).to receive(:assign_attributes).with(description: description,
+                                                           icon_file: icon_file,
+                                                           obsolete: obsolete,
+                                                           backgrounds: backgrounds,
+                                                           foregrounds: foregrounds)
+    end
 
     before { expect(eve_icon).to receive(:save!) }
 
