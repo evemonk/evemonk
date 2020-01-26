@@ -77,6 +77,8 @@ class Character < ApplicationRecord
 
   has_many :character_mail_labels, dependent: :destroy
 
+  has_many :standings, dependent: :destroy
+
   def charisma_attribute
     @charisma_attribute ||= Eve::CharacterAttribute.find_by(attribute_name: "Charisma").decorate
   end
