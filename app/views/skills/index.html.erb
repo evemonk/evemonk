@@ -163,16 +163,22 @@
                data-parent="#skills_tree_accordion">
             <div class="card-body">
               <div class="row">
-                Levels Trained: <%= @skills_tree.levels_trained_in_group(group) %> / <%= @skills_tree.total_levels_in_group(group) %>
+                Skill description
               </div>
               <div class="row">
-                Levels in Training Queue: x
+                Levels trained: <%= @skills_tree.levels_trained_in_group(group) %> / <%= @skills_tree.total_levels_in_group(group) %>
               </div>
               <div class="row">
-                Skill Points: <%= number_with_delimiter(@skills_tree.skill_points_in_group(group), delimiter: " ") %> / xxx xxx xxx
+                Levels in training queue: x
               </div>
               <div class="row">
-                Training Rate: 36.0 skill points per minute
+                Skill points: <%= number_with_delimiter(@skills_tree.skill_points_in_group(group), delimiter: " ") %> / xxx xxx xxx
+              </div>
+              <div class="row">
+                Certificates claimed: xx / xx
+              </div>
+              <div class="row">
+                Training rate: 36.0 skill points per minute
               </div>
               <div class="row">
                 <div class="span-6">Intelligence: 22</div>
