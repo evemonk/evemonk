@@ -7,7 +7,7 @@ class CharacterDecorator < ApplicationDecorator
     :alliance, :corporation, :current_ship_type, :current_solar_system,
     :current_station, :loyalty_points, :character_assets, :character_implants,
     :implants, :skillqueues, :character_skills,
-    :character_corporation_histories, :character_mail_labels
+    :character_corporation_histories, :character_mail_labels, :standings
 
   def birthday
     object.birthday&.iso8601
