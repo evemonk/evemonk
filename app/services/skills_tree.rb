@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class SkillsTree
   SKILLS_CATEGORY_ID = 16
 
