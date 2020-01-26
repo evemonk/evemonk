@@ -141,7 +141,7 @@ GIT
 
 GIT
   remote: https://github.com/rspec/rspec-mocks.git
-  revision: 571e316ecdba404dd042b7107b8f1e22d485938f
+  revision: ae6e11d7f5100146c4b58b165975a29e2ccc60db
   branch: master
   specs:
     rspec-mocks (3.10.0.pre)
