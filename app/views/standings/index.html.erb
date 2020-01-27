@@ -116,8 +116,61 @@
   </div>
 
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
-    <h4 class="text-center">Standings</h4>
+    <h4 class="text-center">Factions standings</h4>
 
+    <table class="table table-striped table-bordered">
+      <tbody>
+        <% @factions_standings.each do |standing| %>
+          <tr>
+            <td>
+              <%= image_tag(standing.standingable.icon_tiny,
+                            alt: standing.standingable.name,
+                            class: "rounded border",
+                            size: "34x34",
+                            loading: "lazy") %>
+              </td>
+            <td><%= standing.standingable.name %></td>
+            <td><%= standing.standing.to_s %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+    <h4 class="text-center">Corporations standings</h4>
+
+    <table class="table table-striped table-bordered">
+      <tbody>
+        <% @corporations_standings.each do |standing| %>
+          <tr>
+            <td>
+              <%= image_tag(standing.standingable.icon_tiny,
+                            alt: standing.standingable.name,
+                            class: "rounded border",
+                            size: "34x34",
+                            loading: "lazy") %>
+            </td>
+            <td><%= standing.standingable.name %></td>
+            <td><%= standing.standing.to_s %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+    <h4 class="text-center">Agents standings</h4>
+
+    <table class="table table-striped table-bordered">
+      <tbody>
+        <% @agents_standings.each do |standing| %>
+          <tr>
+            <td><%= standing.standingable.name %></td>
+            <td><%= standing.standing.to_s %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
   </div>
 </div>
