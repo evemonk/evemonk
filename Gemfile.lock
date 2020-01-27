@@ -116,13 +116,6 @@ GIT
       thor (>= 0.20.3, < 2.0)
 
 GIT
-  remote: https://github.com/railsware/http_logger.git
-  revision: 63eeba702fbb87858cab2a01ddffa490a865a878
-  branch: master
-  specs:
-    http_logger (0.5.1)
-
-GIT
   remote: https://github.com/rspec/rspec-core.git
   revision: 12caa2907b7eb67d65e19353c15613586858546c
   branch: master
@@ -315,6 +308,7 @@ GEM
     hashie (3.6.0)
     heapy (0.1.4)
     http-2 (0.10.1)
+    http_logger (0.6.0)
     i18n (1.8.2)
       concurrent-ruby (~> 1.0)
     isolator (0.6.1)
@@ -710,7 +704,7 @@ DEPENDENCIES
   fasterer
   foundation_emails
   gemdiff
-  http_logger!
+  http_logger
   isolator
   jbuilder!
   jwt
