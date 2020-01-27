@@ -659,10 +659,10 @@ GEM
     yabeda-prometheus (0.2.0)
       prometheus-client (~> 1.0)
       yabeda (~> 0.2)
-    yabeda-puma-plugin (0.2.1)
+    yabeda-puma-plugin (0.3.0)
       json
       puma
-      yabeda
+      yabeda (~> 0.2)
     yabeda-rails (0.2.0)
       rails
       yabeda (~> 0.2)
