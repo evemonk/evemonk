@@ -26,7 +26,7 @@ describe StandingsController do
             expect(a).to receive(:characters) do
               double.tap do |b|
                 expect(b).to receive(:includes).with(:alliance, :corporation,
-                                                     :factions_standings, :corporations_standings, :agents_standings) do
+                  :factions_standings, :corporations_standings, :agents_standings) do
                   double.tap do |c|
                     expect(c).to receive(:find_by!).with(character_id: "1") do
                       double.tap do |d|
