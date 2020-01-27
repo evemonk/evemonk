@@ -60,35 +60,18 @@
                         size: "130x130",
                         loading: "lazy") %>
         </li>
-        <% if @character.alliance %>
-          <li class="list-group-item text-break">
-            Alliance: <%= link_to(@character.alliance.name,
-                                  universe_alliance_path(@character.alliance.alliance_id)) %>
-          </li>
-        <% end %>
         <% if @character.corporation %>
           <li class="list-group-item text-break">
             Corporation: <%= link_to(@character.corporation.name,
                                      universe_corporation_path(@character.corporation.corporation_id)) %>
           </li>
         <% end %>
-        <li class="list-group-item text-break">
-          Race: <%= @character.race.name %>
-        </li>
-        <li class="list-group-item text-break">
-          Bloodline: <%= @character.bloodline.name %>
-        </li>
-        <li class="list-group-item text-break">
-          Ancestry: <%= @character.ancestry.name %>
-        </li>
-        <% if @character.faction %>
+        <% if @character.alliance %>
           <li class="list-group-item text-break">
-            Faction: <%= @character.faction.name %>
+            Alliance: <%= link_to(@character.alliance.name,
+                                  universe_alliance_path(@character.alliance.alliance_id)) %>
           </li>
         <% end %>
-        <li class="list-group-item">
-          Gender: <%= @character.gender %>
-        </li>
         <li class="list-group-item text-break">
           SP: <%= @character.total_sp_formatted %>
         </li>
@@ -102,9 +85,6 @@
         </li>
         <li class="list-group-item text-break">
           Wallet: <%= @character.wallet_formatted %> ISK
-        </li>
-        <li class="list-group-item text-break">
-          Born: <%= @character.birthday_formatted %>
         </li>
       </ul>
       <p class="card-text text-center">
