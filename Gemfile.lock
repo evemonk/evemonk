@@ -308,7 +308,7 @@ GEM
     hashie (3.6.0)
     heapy (0.1.4)
     http-2 (0.10.1)
-    http_logger (0.6.0)
+    http_logger (0.5.1)
     i18n (1.8.2)
       concurrent-ruby (~> 1.0)
     isolator (0.6.1)
@@ -704,7 +704,7 @@ DEPENDENCIES
   fasterer
   foundation_emails
   gemdiff
-  http_logger
+  http_logger (= 0.5.1)
   isolator
   jbuilder!
   jwt
