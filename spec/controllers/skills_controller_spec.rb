@@ -17,7 +17,7 @@ describe SkillsController do
         #
         # subject.current_user
         #        .characters
-        #        .includes(character_skills: :skill)
+        #        .includes(:alliance, :corporation)
         #        .find_by!(character_id: params[:character_id])
         #        .decorate
         #
@@ -25,7 +25,7 @@ describe SkillsController do
           double.tap do |a|
             expect(a).to receive(:characters) do
               double.tap do |b|
-                expect(b).to receive(:includes).with(character_skills: :skill) do
+                expect(b).to receive(:includes).with(:alliance, :corporation) do
                   double.tap do |c|
                     expect(c).to receive(:find_by!).with(character_id: "1") do
                       double.tap do |d|
