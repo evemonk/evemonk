@@ -28,6 +28,12 @@ namespace :evemonk do
     Rails.logger.info "Import units from SDE"
     Sde::UnitsImporter.new("static/sde/bsd/eveUnits.yaml").import
 
+    Rails.logger.info "Import agents from SDE"
+    Sde::AgentsImporter.new("static/sde/bsd/agtAgents.yaml").import
+
+    Rails.logger.info "Import agent names from SDE"
+    Sde::AgentNamesImporter.new("static/sde/bsd/invNames.yaml").import
+
     # Around 300 calls to esi
     Rails.logger.info "Import eve categories"
     Eve::UpdateCategoriesJob.perform_later
