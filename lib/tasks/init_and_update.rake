@@ -89,7 +89,20 @@ namespace :evemonk do
     Rails.logger.info "Update eve factions"
     Eve::UpdateFactionsJob.perform_later
 
-    # TODO: add SDE importers
+    Rails.logger.info "Import character attributes from SDE"
+    Sde::CharacterAttributesImporter.new("static/sde/bsd/chrAttributes.yaml").import
+
+    Rails.logger.info "Import icons from SDE"
+    Sde::IconsImporter.new("static/sde/fsd/iconIDs.yaml").import
+
+    Rails.logger.info "Import units from SDE"
+    Sde::UnitsImporter.new("static/sde/bsd/eveUnits.yaml").import
+
+    Rails.logger.info "Import agents from SDE"
+    Sde::AgentsImporter.new("static/sde/bsd/agtAgents.yaml").import
+
+    Rails.logger.info "Import agent names from SDE"
+    Sde::AgentNamesImporter.new("static/sde/bsd/invNames.yaml").import
 
     # 1 + new categories calls to esi
     Rails.logger.info "Import new eve categories"
