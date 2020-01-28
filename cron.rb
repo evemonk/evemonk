@@ -119,9 +119,5 @@ end
 #  Rails.logger.info "Update eve characters corporation history"
 #  Eve::UpdateCharactersCorporationHistoryJob.perform_later
 # end
-#
-# scheduler.at "every sunday at 2 pm" do
-#  # TODO: Eve::LocalStarsJob.perform_later
-# end
 
 scheduler.join
