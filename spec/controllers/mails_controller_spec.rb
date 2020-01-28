@@ -19,7 +19,7 @@ describe MailsController do
         #
         # subject.current_user
         #        .characters
-        #        .includes(:race, :bloodline, :ancestry, :faction, :alliance, :corporation)
+        #        .includes(:alliance, :corporation)
         #        .find_by!(character_id: params[:character_id])
         #        .decorate
         #
@@ -27,7 +27,7 @@ describe MailsController do
           double.tap do |a|
             expect(a).to receive(:characters) do
               double.tap do |b|
-                expect(b).to receive(:includes).with(:race, :bloodline, :ancestry, :faction, :alliance, :corporation) do
+                expect(b).to receive(:includes).with(:alliance, :corporation) do
                   double.tap do |c|
                     expect(c).to receive(:find_by!).with(character_id: "1") do
                       double.tap do |d|
