@@ -44,7 +44,7 @@ gem "pghero"
 gem "pg_query"
 # gem "rubycritic", require: false
 gem "swagger-blocks"
-gem "http_logger", "0.5.1"
+gem "http_logger", git: "https://github.com/biow0lf/http_logger.git", branch: "master"
 gem "responders"
 gem "rack-health"
 gem "sitemap_generator"

@@ -1,4 +1,11 @@
 GIT
+  remote: https://github.com/biow0lf/http_logger.git
+  revision: 41adf43ccc2528b27b774cc1ae8e17291d307721
+  branch: master
+  specs:
+    http_logger (0.5.1)
+
+GIT
   remote: https://github.com/drapergem/draper.git
   revision: e31a54e92db572d4d2580e39d90591fbe5d8047f
   branch: master
@@ -308,7 +315,6 @@ GEM
     hashie (3.6.0)
     heapy (0.1.4)
     http-2 (0.10.1)
-    http_logger (0.5.1)
     i18n (1.8.2)
       concurrent-ruby (~> 1.0)
     isolator (0.6.1)
@@ -704,7 +710,7 @@ DEPENDENCIES
   fasterer
   foundation_emails
   gemdiff
-  http_logger (= 0.5.1)
+  http_logger!
   isolator
   jbuilder!
   jwt
