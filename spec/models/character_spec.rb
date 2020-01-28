@@ -180,6 +180,24 @@ describe Character do
     end
   end
 
+  describe "#skills_tree" do
+    context "when @skills_tree is set" do
+      let(:skills_tree) { instance_double(SkillsTree) }
+
+      before { subject.instance_variable_set(:@skills_tree, skills_tree) }
+
+      specify { expect(subject.skills_tree).to eq(skills_tree) }
+    end
+
+    context "when @skills_tree is not set" do
+      let(:skills_tree) { instance_double(SkillsTree) }
+
+      before { expect(SkillsTree).to receive(:new).with(subject).and_return(skills_tree) }
+
+      specify { expect(subject.skills_tree).to eq(skills_tree) }
+    end
+  end
+
   describe "#token_expired?" do
     context "when expired" do
       subject { build(:character, token_expires_at: Time.zone.now - 1.hour) }
