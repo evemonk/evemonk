@@ -59,8 +59,6 @@ gem "server_timing"
 gem "traceroute"
 # gem "strong_migrations"
 
-gem "rack", git: "https://github.com/rack/rack.git", ref: "f690bb71425aa31d7b9b3113829af773950d8ab5"
-
 gem "awesome_print", require: "ap"
 gem "pry-rails"
 

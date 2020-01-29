@@ -26,13 +26,6 @@ GIT
       activesupport (>= 3)
 
 GIT
-  remote: https://github.com/rack/rack.git
-  revision: f690bb71425aa31d7b9b3113829af773950d8ab5
-  ref: f690bb71425aa31d7b9b3113829af773950d8ab5
-  specs:
-    rack (2.2.0)
-
-GIT
   remote: https://github.com/rails/jbuilder.git
   revision: bec0d6c840c3486ee589d5de0ba9c348ccbc27ee
   branch: master
@@ -445,6 +438,7 @@ GEM
     puma (4.3.1)
       nio4r (~> 2.0)
     raabro (1.1.6)
+    rack (2.1.2)
     rack-cors (1.1.1)
       rack (>= 2.0.0)
     rack-health (0.1.2)
@@ -732,7 +726,6 @@ DEPENDENCIES
   pghero
   pry-rails
   puma
-  rack!
   rack-cors
   rack-health
   rack-timeout
