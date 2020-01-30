@@ -244,11 +244,13 @@
           </td>
         </tr>
 
-        <tr>
-          <td colspan="3" class="align-middle">
-            Neural Remap Available: <%#= @character.neural_remap_available %>
-          </td>
-        </tr>
+        <% if Setting.enabled_neural_map_available %>
+          <tr>
+            <td colspan="3" class="align-middle">
+              Neural Remap Available: <%#= @character.neural_remap_available %>
+            </td>
+          </tr>
+        <% end %>
 
         <tr>
           <td colspan="3" class="align-middle">

@@ -28,4 +28,6 @@ class Setting < RailsSettings::Base
   field :enabled_skills, type: :boolean, default: false
 
   field :enabled_mails, type: :boolean, default: false
+
+  field :enabled_neural_map_available, type: :boolean, default: false
 end
