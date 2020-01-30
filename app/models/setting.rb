@@ -23,7 +23,9 @@ class Setting < RailsSettings::Base
 
   field :enabled_assets, type: :boolean, default: false
 
-  # field :enabled_skills, type: :boolean, default: false
-  #
-  # field :enabled_mails, type: :boolean, default: false
+  field :enabled_skillqueue, type: :boolean, default: false
+
+  field :enabled_skills, type: :boolean, default: false
+
+  field :enabled_mails, type: :boolean, default: false
 end
