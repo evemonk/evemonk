@@ -18,9 +18,11 @@
   <li class="nav-item">
     <%= link_to("Employment History", character_employment_histories_path(@character.character_id), class: "nav-link active") %>
   </li>
-  <li class="nav-item">
-    <%= link_to("Assets", character_assets_path(@character.character_id), class: "nav-link") %>
-  </li>
+  <% if Setting.enabled_assets %>
+    <li class="nav-item">
+      <%= link_to("Assets", character_assets_path(@character.character_id), class: "nav-link") %>
+    </li>
+  <% end %>
   <li class="nav-item">
     <%= link_to("Loyalty points", character_loyalty_points_path(@character.character_id), class: "nav-link") %>
   </li>

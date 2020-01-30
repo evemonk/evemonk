@@ -20,4 +20,10 @@ class Setting < RailsSettings::Base
   field :use_gauges, type: :boolean, default: false
 
   field :gauges_data_site_id, default: ENV["GAUGES_DATA_SITE_ID"], readonly: true
+
+  field :enabled_assets, type: :boolean, default: false
+
+  # field :enabled_skills, type: :boolean, default: false
+  #
+  # field :enabled_mails, type: :boolean, default: false
 end
