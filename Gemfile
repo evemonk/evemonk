@@ -15,6 +15,7 @@ gem "turbolinks", "~> 5"
 gem "jbuilder", git: "https://github.com/rails/jbuilder.git", branch: "master"
 gem "bootsnap", ">= 1.4.2", require: false
 gem "rails-i18n", "~> 6.0.0"
+gem "stimulus_reflex", "~> 2.1"
 gem "devise"
 gem "devise-i18n"
 gem "devise_zxcvbn"
