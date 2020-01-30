@@ -1,4 +1,4 @@
 # frozen_string_literal: true
 
-class CharacterReflex < ApplicationReflex
+class CharacterInfoReflex < ApplicationReflex
 end
