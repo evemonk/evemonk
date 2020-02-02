@@ -41,9 +41,11 @@
       <%= link_to("Mail", character_mails_path(@character.character_id), class: "nav-link") %>
     </li>
   <% end %>
-  <li class="nav-item">
-    <%= link_to("Standings", character_standings_path(@character.character_id), class: "nav-link") %>
-  </li>
+  <% if Setting.enabled_standings %>
+    <li class="nav-item">
+      <%= link_to("Standings", character_standings_path(@character.character_id), class: "nav-link") %>
+    </li>
+  <% end %>
 </ul>
 
 <hr>
