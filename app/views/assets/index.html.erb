@@ -28,7 +28,7 @@
   </li>
   <% if Setting.enabled_skillqueue %>
     <li class="nav-item">
-      <%= link_to("Skill queue", nil, class: "nav-link") %>
+      <%= link_to("Skill queue", character_skillqueues_path(@character.character_id), class: "nav-link") %>
     </li>
   <% end %>
   <% if Setting.enabled_skills %>
