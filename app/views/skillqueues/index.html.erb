@@ -103,6 +103,25 @@
     </div>
   </div>
 
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+    <h4 class="text-center">Skill queue (<%= @skillqueues.size %>)</h4>
 
-  <!-- TODO -->
+    <div class="card card-body">
+      <% @skillqueues.each do |skillqueue| %>
+        <button class="btn btn-block btn-secondary btn-dark text-left link"
+                data-toggle="collapse"
+                data-target="#collapse_<%= skillqueue.id %>"
+                aria-expanded="false"
+                aria-controls="collapse_<%= skillqueue.id %>">
+          <%= skillqueue.skill.name %> - <%= skillqueue.finished_level %>
+        </button>
+
+        <div class="collapse" id="collapse_<%= skillqueue.id %>">
+          <div class="card card-body">
+            <%= skillqueue.skill.description %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>
