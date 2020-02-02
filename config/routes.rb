@@ -38,6 +38,8 @@ Rails.application.routes.draw do
 
     resources :skills, only: :index
 
+    resources :skillqueues, only: :index
+
     resources :mails, only: :index
 
     resources :standings, only: :index
