@@ -2,6 +2,6 @@
 
 module Eve
   class AgentDecorator < ApplicationDecorator
-    # decorates_associations :corporation
+    decorates_associations :standings
   end
 end

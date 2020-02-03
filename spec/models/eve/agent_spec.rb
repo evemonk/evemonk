@@ -8,4 +8,6 @@ describe Eve::Agent do
   it { expect(described_class.table_name).to eq("eve_agents") }
 
   it { should respond_to(:versions) }
+
+  it { should have_many(:standings) }
 end
