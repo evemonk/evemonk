@@ -262,24 +262,24 @@
       </tbody>
     </table>
 
-    <table class="table table-striped table-bordered">
-      <tbody>
-        <% @character.implants.each do |implant| %>
-          <tr>
-            <td class="align-middle text-center border-right-0 m-0 p-2">
-              <%= image_tag(implant.icon_tiny,
-                            alt: implant.name,
-                            class: "rounded border",
-                            size: "34x34",
-                            loading: "lazy") %>
-            </td>
-            <td class="align-middle text-break border-left-0">
+    <% @character.implants.each_with_index do |implant, index| %>
+      <div class="card <%= index % 2 == 0 ? "bg-dark" : "bg-transparent" %> rounded-0 border-secondary <%= index == 0 ? "" : "border-top-0" %>">
+        <div class="row no-gutters">
+          <div class="col-2 text-center m-auto">
+            <%= image_tag(implant.icon_tiny,
+                          alt: implant.name,
+                          class: "rounded border",
+                          size: "34x34",
+                          loading: "lazy") %>
+          </div>
+          <div class="col-10">
+            <div class="card-body">
               <%= link_to(implant.name, universe_type_path(implant.type_id)) %>
-            </td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
   </div>
 </div>
 
