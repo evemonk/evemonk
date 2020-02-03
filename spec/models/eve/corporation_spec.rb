@@ -23,6 +23,8 @@ describe Eve::Corporation do
 
   it { should have_many(:corporation_alliance_histories).with_primary_key("corporation_id") }
 
+  it { should have_many(:standings) }
+
   it { should callback(:eve_alliance_reset_characters_count).after(:commit).on([:create, :update, :destroy]) }
 
   describe "#search_data" do
