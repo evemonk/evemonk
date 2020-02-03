@@ -17,21 +17,34 @@
   <li class="nav-item">
     <%= link_to("Employment History", character_employment_histories_path(@character.character_id), class: "nav-link") %>
   </li>
-  <li class="nav-item">
-    <%= link_to("Assets", character_assets_path(@character.character_id), class: "nav-link") %>
-  </li>
+  <% if Setting.enabled_assets %>
+    <li class="nav-item">
+      <%= link_to("Assets", character_assets_path(@character.character_id), class: "nav-link") %>
+    </li>
+  <% end %>
   <li class="nav-item">
     <%= link_to("Loyalty points", character_loyalty_points_path(@character.character_id), class: "nav-link") %>
   </li>
-  <li class="nav-item">
-    <%= link_to("Skill queue", nil, class: "nav-link") %>
-  </li>
-  <li class="nav-item">
-    <%= link_to("Skills", character_skills_path(@character.character_id), class: "nav-link") %>
-  </li>
-  <li class="nav-item">
-    <%= link_to("Mail", character_mails_path(@character.character_id), class: "nav-link") %>
-  </li>
+  <% if Setting.enabled_skillqueue %>
+    <li class="nav-item">
+      <%= link_to("Skill queue", character_skillqueues_path(@character.character_id), class: "nav-link") %>
+    </li>
+  <% end %>
+  <% if Setting.enabled_skills %>
+    <li class="nav-item">
+      <%= link_to("Skills", character_skills_path(@character.character_id), class: "nav-link") %>
+    </li>
+  <% end %>
+  <% if Setting.enabled_mails %>
+    <li class="nav-item">
+      <%= link_to("Mail", character_mails_path(@character.character_id), class: "nav-link") %>
+    </li>
+  <% end %>
+  <% if Setting.enabled_standings %>
+    <li class="nav-item">
+      <%= link_to("Standings", character_standings_path(@character.character_id), class: "nav-link") %>
+    </li>
+  <% end %>
 </ul>
 
 <hr>
@@ -233,11 +246,13 @@
           </td>
         </tr>
 
-        <tr>
-          <td colspan="3" class="align-middle">
-            Neural Remap Available: <%#= @character.neural_remap_available %>
-          </td>
-        </tr>
+        <% if Setting.enabled_neural_map_available %>
+          <tr>
+            <td colspan="3" class="align-middle">
+              Neural Remap Available: <%#= @character.neural_remap_available %>
+            </td>
+          </tr>
+        <% end %>
 
         <tr>
           <td colspan="3" class="align-middle">

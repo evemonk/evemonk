@@ -25,6 +25,15 @@ namespace :evemonk do
     Rails.logger.info "Import icons from SDE"
     Sde::IconsImporter.new("static/sde/fsd/iconIDs.yaml").import
 
+    Rails.logger.info "Import units from SDE"
+    Sde::UnitsImporter.new("static/sde/bsd/eveUnits.yaml").import
+
+    Rails.logger.info "Import agents from SDE"
+    Sde::AgentsImporter.new("static/sde/bsd/agtAgents.yaml").import
+
+    Rails.logger.info "Import agent names from SDE"
+    Sde::AgentNamesImporter.new("static/sde/bsd/invNames.yaml").import
+
     # Around 300 calls to esi
     Rails.logger.info "Import eve categories"
     Eve::UpdateCategoriesJob.perform_later
@@ -57,8 +66,7 @@ namespace :evemonk do
     Rails.logger.info "Import eve regions"
     Eve::UpdateRegionsJob.perform_later
 
-    # TODO: update ??? with real value
-    # Around ??? calls to esi
+    # Around 60k calls to esi
     Rails.logger.info "Import new eve systems"
     Eve::UpdateSystemsJob.perform_later
   end
@@ -81,7 +89,20 @@ namespace :evemonk do
     Rails.logger.info "Update eve factions"
     Eve::UpdateFactionsJob.perform_later
 
-    # TODO: add SDE importers
+    Rails.logger.info "Import character attributes from SDE"
+    Sde::CharacterAttributesImporter.new("static/sde/bsd/chrAttributes.yaml").import
+
+    Rails.logger.info "Import icons from SDE"
+    Sde::IconsImporter.new("static/sde/fsd/iconIDs.yaml").import
+
+    Rails.logger.info "Import units from SDE"
+    Sde::UnitsImporter.new("static/sde/bsd/eveUnits.yaml").import
+
+    Rails.logger.info "Import agents from SDE"
+    Sde::AgentsImporter.new("static/sde/bsd/agtAgents.yaml").import
+
+    Rails.logger.info "Import agent names from SDE"
+    Sde::AgentNamesImporter.new("static/sde/bsd/invNames.yaml").import
 
     # 1 + new categories calls to esi
     Rails.logger.info "Import new eve categories"
@@ -151,38 +172,31 @@ namespace :evemonk do
     Rails.logger.info "Import new eve systems"
     Eve::UpdateSystemsJob.perform_later
 
-    # TODO: update ??? with real value
-    # Around ??? calls to esi
+    # Around 60k calls to esi
     Rails.logger.info "Update eve systems"
     Eve::LocalSystemsJob.perform_later
 
-    # TODO: update ??? with real value
-    # Around ??? calls to esi
+    # Around 8k calls to esi
     Rails.logger.info "Update eve stars"
     Eve::LocalStarsJob.perform_later
 
-    # TODO: update ??? with real value
-    # Around ??? calls to esi
+    # Around 14k calls to esi
     Rails.logger.info "Update eve stargates"
     Eve::LocalStargatesJob.perform_later
 
-    # TODO: update ??? with real value
-    # Around ??? calls to esi
+    # Around 5k calls to esi
     Rails.logger.info "Update eve stations"
     Eve::LocalStationsJob.perform_later
 
-    # TODO: update ??? with real value
-    # Around ??? calls to esi
+    # Around 68k calls to esi
     Rails.logger.info "Update eve planets"
     Eve::LocalPlanetsJob.perform_later
 
-    # TODO: update ??? with real value
-    # Around ??? calls to esi
+    # Around 56k calls to esi
     Rails.logger.info "Update eve asteroid belts"
     Eve::LocalAsteroidBeltsJob.perform_later
 
-    # TODO: update ??? with real value
-    # Around ??? calls to esi
+    # Around 342k calls to esi
     Rails.logger.info "Update eve moons"
     Eve::LocalMoonsJob.perform_later
 

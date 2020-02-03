@@ -3,7 +3,7 @@
 class SkillsController < ApplicationController
   def index
     @character = current_user.characters
-      .includes(character_skills: :skill)
+      .includes(:alliance, :corporation)
       .find_by!(character_id: params[:character_id])
       .decorate
   end

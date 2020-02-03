@@ -7,5 +7,7 @@ module Eve
     has_paper_trail
 
     translates :name
+
+    has_many :groups, primary_key: "category_id"
   end
 end

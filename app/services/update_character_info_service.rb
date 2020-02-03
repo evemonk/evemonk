@@ -31,5 +31,7 @@ class UpdateCharacterInfoService
     CharacterCorporationHistoryJob.perform_later(character_id)
 
     CharacterMailLabelsJob.perform_later(character_id)
+
+    CharacterStandingsJob.perform_later(character_id)
   end
 end

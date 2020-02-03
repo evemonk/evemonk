@@ -43,6 +43,68 @@ describe Character do
 
   it { should have_many(:character_mail_labels).dependent(:destroy) }
 
+  it { should have_many(:standings).dependent(:destroy) }
+
+  describe "#factions_standings" do
+    let!(:character) { create(:character) }
+
+    let!(:faction) { create(:eve_faction) }
+
+    let!(:corporation) { create(:eve_corporation) }
+
+    let!(:agent) { create(:eve_agent) }
+
+    let!(:standing1) { create(:standing, character: character, standingable: faction) }
+
+    let!(:standing2) { create(:standing, character: character, standingable: corporation) }
+
+    let!(:standing3) { create(:standing, character: character, standingable: agent) }
+
+    specify { expect(character.factions_standings.count).to eq(1) }
+
+    specify { expect(character.factions_standings).to eq([standing1]) }
+  end
+
+  describe "#corporations_standings" do
+    let!(:character) { create(:character) }
+
+    let!(:faction) { create(:eve_faction) }
+
+    let!(:corporation) { create(:eve_corporation) }
+
+    let!(:agent) { create(:eve_agent) }
+
+    let!(:standing1) { create(:standing, character: character, standingable: faction) }
+
+    let!(:standing2) { create(:standing, character: character, standingable: corporation) }
+
+    let!(:standing3) { create(:standing, character: character, standingable: agent) }
+
+    specify { expect(character.corporations_standings.count).to eq(1) }
+
+    specify { expect(character.corporations_standings).to eq([standing2]) }
+  end
+
+  describe "#agents_standings" do
+    let!(:character) { create(:character) }
+
+    let!(:faction) { create(:eve_faction) }
+
+    let!(:corporation) { create(:eve_corporation) }
+
+    let!(:agent) { create(:eve_agent) }
+
+    let!(:standing1) { create(:standing, character: character, standingable: faction) }
+
+    let!(:standing2) { create(:standing, character: character, standingable: corporation) }
+
+    let!(:standing3) { create(:standing, character: character, standingable: agent) }
+
+    specify { expect(character.agents_standings.count).to eq(1) }
+
+    specify { expect(character.agents_standings).to eq([standing3]) }
+  end
+
   describe "#charisma_attribute" do
     context "when @charisma_attribute is set" do
       let(:eve_charisma_attribute) { double }
@@ -175,6 +237,24 @@ describe Character do
       before { expect(eve_willpower_attribute).to receive(:decorate).and_return(eve_willpower_attribute_decorated) }
 
       specify { expect(subject.willpower_attribute).to eq(eve_willpower_attribute_decorated) }
+    end
+  end
+
+  describe "#skills_tree" do
+    context "when @skills_tree is set" do
+      let(:skills_tree) { instance_double(SkillsTree) }
+
+      before { subject.instance_variable_set(:@skills_tree, skills_tree) }
+
+      specify { expect(subject.skills_tree).to eq(skills_tree) }
+    end
+
+    context "when @skills_tree is not set" do
+      let(:skills_tree) { instance_double(SkillsTree) }
+
+      before { expect(SkillsTree).to receive(:new).with(subject).and_return(skills_tree) }
+
+      specify { expect(subject.skills_tree).to eq(skills_tree) }
     end
   end
 

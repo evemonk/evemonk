@@ -14,11 +14,11 @@ module Sde
       entries.each_pair do |key, hash|
         icon = Eve::Icon.find_or_initialize_by(icon_id: key)
 
-        icon.description = hash["description"]
-        icon.icon_file = hash["iconFile"]
-        icon.obsolete = hash["obsolete"]
-        icon.backgrounds = hash["backgrounds"]
-        icon.foregrounds = hash["foregrounds"]
+        icon.assign_attributes(description: hash["description"],
+                               icon_file: hash["iconFile"],
+                               obsolete: hash["obsolete"],
+                               backgrounds: hash["backgrounds"],
+                               foregrounds: hash["foregrounds"])
 
         icon.save!
       end

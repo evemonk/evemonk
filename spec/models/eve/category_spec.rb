@@ -12,4 +12,6 @@ describe Eve::Category do
   it { expect(described_class.translated_attribute_names).to eq(["name"]) }
 
   it { expect(described_class.table_name).to eq("eve_categories") }
+
+  it { should have_many(:groups).with_primary_key("category_id") }
 end

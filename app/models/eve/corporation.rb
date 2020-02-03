@@ -31,6 +31,8 @@ module Eve
     has_many :corporation_alliance_histories,
       primary_key: "corporation_id"
 
+    has_many :standings, as: :standingable
+
     after_commit :eve_alliance_reset_characters_count, on: [:create, :update, :destroy]
 
     def search_data

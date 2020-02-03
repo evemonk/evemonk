@@ -8,8 +8,6 @@ module Eve
 
     translates :name, :description
 
-    has_many :alliances, primary_key: "faction_id"
-
     belongs_to :corporation, primary_key: "corporation_id", optional: true
 
     # belongs_to :militia_corporation_id
@@ -19,5 +17,9 @@ module Eve
       primary_key: "system_id",
       foreign_key: "solar_system_id",
       optional: true
+
+    has_many :alliances, primary_key: "faction_id"
+
+    has_many :standings, as: :standingable
   end
 end
