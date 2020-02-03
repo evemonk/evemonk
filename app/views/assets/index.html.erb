@@ -51,7 +51,7 @@
 <hr>
 
 <div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+  <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
     <div class="clearfix">
       <h4 class="float-left"><%= @character.name %></h4>
       <%= form_with(url: character_path(@character.character_id), model: @character, class: "float-right") do %>
@@ -105,7 +105,7 @@
     </div>
   </div>
 
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-8 col-xl-8">
+  <div class="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8">
     <table class="table">
       <% @assets.each do |asset| %>
         <tr>
