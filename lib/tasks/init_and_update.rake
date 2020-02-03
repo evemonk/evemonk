@@ -5,7 +5,7 @@ namespace :evemonk do
   task init: :environment do
     # 7 call to esi
     Rails.logger.info "Import eve races"
-    Eve::UpdateRacesJob.new.perform
+    Eve::UpdateRacesJob.perform_later
 
     # 7 call to esi
     Rails.logger.info "Import eve bloodlines"
