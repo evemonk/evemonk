@@ -8,4 +8,6 @@ describe Standing do
   it { should respond_to(:versions) }
 
   it { should belong_to(:character) }
+
+  it { should belong_to(:standingable) }
 end
