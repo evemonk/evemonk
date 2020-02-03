@@ -79,26 +79,26 @@ class Character < ApplicationRecord
 
   has_many :standings, dependent: :destroy
 
-  # has_many :factions_standings, -> {
-  #   joins("LEFT JOIN eve_factions ON standings.standingable_id = eve_factions.id")
-  #     .where(standingable_type: "Eve::Faction")
-  #     .order("eve_factions.name_en": :asc)
-  #     .includes(:standingable)
-  # }, class_name: "Standing"
-  #
-  # has_many :corporations_standings, -> {
-  #   joins("LEFT JOIN eve_corporations ON standings.standingable_id = eve_corporations.id")
-  #     .where(standingable_type: "Eve::Corporation")
-  #     .order("eve_corporations.name": :asc)
-  #     .includes(:standingable)
-  # }, class_name: "Standing"
-  #
-  # has_many :agents_standings, -> {
-  #   joins("LEFT JOIN eve_agents ON standings.standingable_id = eve_agents.id")
-  #     .where(standingable_type: "Eve::Agent")
-  #     .order("eve_agents.name": :asc)
-  #     .includes(:standingable)
-  # }, class_name: "Standing"
+  has_many :factions_standings, -> {
+    joins("LEFT JOIN eve_factions ON standings.standingable_id = eve_factions.id")
+      .where(standingable_type: "Eve::Faction")
+      .order("eve_factions.name_en": :asc)
+      .includes(:standingable)
+  }, class_name: "Standing"
+
+  has_many :corporations_standings, -> {
+    joins("LEFT JOIN eve_corporations ON standings.standingable_id = eve_corporations.id")
+      .where(standingable_type: "Eve::Corporation")
+      .order("eve_corporations.name": :asc)
+      .includes(:standingable)
+  }, class_name: "Standing"
+
+  has_many :agents_standings, -> {
+    joins("LEFT JOIN eve_agents ON standings.standingable_id = eve_agents.id")
+      .where(standingable_type: "Eve::Agent")
+      .order("eve_agents.name": :asc)
+      .includes(:standingable)
+  }, class_name: "Standing"
 
   def charisma_attribute
     @charisma_attribute ||= Eve::CharacterAttribute.find_by(attribute_name: "Charisma").decorate

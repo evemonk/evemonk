@@ -45,6 +45,66 @@ describe Character do
 
   it { should have_many(:standings).dependent(:destroy) }
 
+  describe "#factions_standings" do
+    let!(:character) { create(:character) }
+
+    let!(:faction) { create(:eve_faction) }
+
+    let!(:corporation) { create(:eve_corporation) }
+
+    let!(:agent) { create(:eve_agent) }
+
+    let!(:standing1) { create(:standing, character: character, standingable: faction) }
+
+    let!(:standing2) { create(:standing, character: character, standingable: corporation) }
+
+    let!(:standing3) { create(:standing, character: character, standingable: agent) }
+
+    specify { expect(character.factions_standings.count).to eq(1) }
+
+    specify { expect(character.factions_standings).to eq([standing1]) }
+  end
+
+  describe "#corporations_standings" do
+    let!(:character) { create(:character) }
+
+    let!(:faction) { create(:eve_faction) }
+
+    let!(:corporation) { create(:eve_corporation) }
+
+    let!(:agent) { create(:eve_agent) }
+
+    let!(:standing1) { create(:standing, character: character, standingable: faction) }
+
+    let!(:standing2) { create(:standing, character: character, standingable: corporation) }
+
+    let!(:standing3) { create(:standing, character: character, standingable: agent) }
+
+    specify { expect(character.corporations_standings.count).to eq(1) }
+
+    specify { expect(character.corporations_standings).to eq([standing2]) }
+  end
+
+  describe "#agents_standings" do
+    let!(:character) { create(:character) }
+
+    let!(:faction) { create(:eve_faction) }
+
+    let!(:corporation) { create(:eve_corporation) }
+
+    let!(:agent) { create(:eve_agent) }
+
+    let!(:standing1) { create(:standing, character: character, standingable: faction) }
+
+    let!(:standing2) { create(:standing, character: character, standingable: corporation) }
+
+    let!(:standing3) { create(:standing, character: character, standingable: agent) }
+
+    specify { expect(character.agents_standings.count).to eq(1) }
+
+    specify { expect(character.agents_standings).to eq([standing3]) }
+  end
+
   describe "#charisma_attribute" do
     context "when @charisma_attribute is set" do
       let(:eve_charisma_attribute) { double }
