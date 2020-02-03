@@ -12,6 +12,6 @@ describe StandingDecorator do
 
     subject { standing.decorate }
 
-    specify { expect(subject.standing).to eq(1.6) }
+    specify { expect(subject.standing).to eq("1.6") }
   end
 end
