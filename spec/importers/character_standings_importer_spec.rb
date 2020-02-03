@@ -26,8 +26,6 @@ describe CharacterStandingsImporter do
 
       let(:from_id) { double }
 
-      let(:from_type) { double }
-
       let(:standing) { double }
 
       let(:model) do
@@ -60,11 +58,53 @@ describe CharacterStandingsImporter do
         end
       end
 
-      before { expect(character_standing).to receive(:assign_attributes).with(standing: standing) }
+      context "when from_type is faction" do
+        let(:from_type) { "faction" }
 
-      before { expect(character_standing).to receive(:save!) }
+        let(:standingable) { instance_double(Eve::Faction) }
 
-      specify { expect { subject.update! }.not_to raise_error }
+        before { expect(Eve::Faction).to receive(:find_by).with(faction_id: from_id).and_return(standingable) }
+
+        before { expect(character_standing).to receive(:assign_attributes).with(standingable: standingable, standing: standing) }
+
+        before { expect(character_standing).to receive(:save!) }
+
+        specify { expect { subject.update! }.not_to raise_error }
+      end
+
+      context "when from_type is npc_corp" do
+        let(:from_type) { "npc_corp" }
+
+        let(:standingable) { instance_double(Eve::Corporation) }
+
+        before { expect(Eve::Corporation).to receive(:find_by).with(corporation_id: from_id).and_return(standingable) }
+
+        before { expect(character_standing).to receive(:assign_attributes).with(standingable: standingable, standing: standing) }
+
+        before { expect(character_standing).to receive(:save!) }
+
+        specify { expect { subject.update! }.not_to raise_error }
+      end
+
+      context "when from_type is agent" do
+        let(:from_type) { "agent" }
+
+        let(:standingable) { instance_double(Eve::Agent) }
+
+        before { expect(Eve::Agent).to receive(:find_by).with(agent_id: from_id).and_return(standingable) }
+
+        before { expect(character_standing).to receive(:assign_attributes).with(standingable: standingable, standing: standing) }
+
+        before { expect(character_standing).to receive(:save!) }
+
+        specify { expect { subject.update! }.not_to raise_error }
+      end
+
+      context "when from_type is unknown" do
+        let(:from_type) { "unknown" }
+
+        specify { expect { subject.update! }.to raise_error("Unknown standing from type") }
+      end
     end
 
     context "when scope not present" do
