@@ -6,21 +6,25 @@ FactoryBot.define do
 
     sequence(:from_id)
 
-    from_type { ["agent", "npc_corp", "faction"].sample }
-
     standing { 1.56789 }
 
     for_agent
 
     trait :for_agent do
+      from_type { "agent" }
+
       association :standingable, factory: :eve_agent
     end
 
     trait :for_corporation do
+      from_type { "npc_corp" }
+
       association :standingable, factory: :eve_corporation
     end
 
     trait :for_faction do
+      from_type { "faction" }
+
       association :standingable, factory: :eve_faction
     end
   end
