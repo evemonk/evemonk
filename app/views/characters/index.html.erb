@@ -11,7 +11,7 @@
 
 <div class="row">
   <% @characters.each do |character| %>
-    <div id="character_<%= character.character_id %>" class="col-xs-12 col-sm-12 col-md-8 col-lg-4 col-xl-4">
+    <div id="character_<%= character.character_id %>" class="col-12 col-sm-12 col-md-8 col-lg-4 col-xl-4">
       <div class="clearfix">
         <h4 class="float-left"><%= link_to(character.name, character_path(character.character_id)) %></h4>
         <%= form_with(url: character_path(character.character_id), model: character, class: "float-right") do %>
@@ -66,7 +66,7 @@
     </div>
   <% end %>
 
-  <div class="col-xs-12 col-sm-12 col-md-8 col-lg-4 col-xl-4 text-center m-auto">
+  <div class="col-12 col-sm-12 col-md-8 col-lg-4 col-xl-4 text-center m-auto">
     <%= sign_in_via_eve_online %>
   </div>
 

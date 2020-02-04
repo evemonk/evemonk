@@ -32,4 +32,8 @@ class Setting < RailsSettings::Base
   field :enabled_neural_map_available, type: :boolean, default: false
 
   field :enabled_standings, type: :boolean, default: false
+
+  field :enabled_wallet_journal, type: :boolean, default: false
+
+  field :enabled_wallet_transactions, type: :boolean, default: false
 end
