@@ -44,3 +44,10 @@ services:
     command: memcached -m 64
     ports:
       - "11211:11211"
+
+  swagger_ui:
+    image: "swaggerapi/swagger-ui:v3.25.0"
+    container_name: "app_swagger_ui"
+    restart: "unless-stopped"
+    ports:
+      - "8080:8080"
