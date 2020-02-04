@@ -174,24 +174,6 @@
   <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
     <h4 class="text-center text-break">Attributes &amp; Implants (<%= @character.implants.size %>)</h4>
 
-    <table class="table table-striped table-bordered">
-      <tbody>
-        <% if Setting.enabled_neural_map_available %>
-          <tr>
-            <td colspan="3" class="align-middle">
-              Neural Remap Available: <%#= @character.neural_remap_available %>
-            </td>
-          </tr>
-        <% end %>
-
-        <tr>
-          <td colspan="3" class="align-middle">
-            Bonus Remap Available: <%= @character.bonus_remaps %>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-
     <div class="card bg-dark rounded-0 border-secondary">
       <div class="row no-gutters">
         <div class="col-2 text-center m-auto">
@@ -405,9 +387,13 @@
       </div>
     <% end %>
 
-    <div class="card">
-      <div class="row no-gutters">
-        Bonus Remap Available: <%= @character.bonus_remaps %>
+    <div class="card bg-transparent rounded-0 border-secondary border-top-0">
+      <div class="row">
+        <div class="col-12">
+          <div class="card-header">
+            Bonus Remap Available: <%= @character.bonus_remaps %>
+          </div>
+        </div>
       </div>
     </div>
 
