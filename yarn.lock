@@ -805,9 +805,9 @@
     webpack-sources "^1.4.3"
 
 "@sentry/browser@^5.11.2":
-  version "5.12.0"
-  resolved "https://registry.yarnpkg.com/@sentry/browser/-/browser-5.12.0.tgz#d2c5b683eca6d5489a2c5b237712a8c9de9d4427"
-  integrity sha512-e8uQML/1Wz2A6610yEvTdICf7L2IH15z6kcjwEqTsaD5uBCmpCiebGZABb45OSe9u8J0xccqi5G7M8lcxj1L7w==
+  version "5.12.1"
+  resolved "https://registry.yarnpkg.com/@sentry/browser/-/browser-5.12.1.tgz#dc1f268595269fb7277f55eb625c7e92d76dc01b"
+  integrity sha512-Zl7VdppUxctyaoqMSEhnDJp2rrupx8n8N2n3PSooH74yhB2Z91nt84mouczprBsw3JU1iggGyUw9seRFzDI1hw==
   dependencies:
     "@sentry/core" "5.12.0"
     "@sentry/types" "5.12.0"
@@ -5378,11 +5378,11 @@ postcss-env-function@^2.0.2:
     postcss-values-parser "^2.0.0"
 
 postcss-flexbugs-fixes@^4.1.0:
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/postcss-flexbugs-fixes/-/postcss-flexbugs-fixes-4.1.0.tgz#e094a9df1783e2200b7b19f875dcad3b3aff8b20"
-  integrity sha512-jr1LHxQvStNNAHlgco6PzY308zvLklh7SJVYuWUwyUQncofaAlD2l+P/gxKHOdqWKe7xJSkVLFF/2Tp+JqMSZA==
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/postcss-flexbugs-fixes/-/postcss-flexbugs-fixes-4.2.0.tgz#662b3dcb6354638b9213a55eed8913bcdc8d004a"
+  integrity sha512-QRE0n3hpkxxS/OGvzOa+PDuy4mh/Jg4o9ui22/ko5iGYOG3M5dfJabjnAZjTdh2G9F85c7Hv8hWcEDEKW/xceQ==
   dependencies:
-    postcss "^7.0.0"
+    postcss "^7.0.26"
 
 postcss-focus-visible@^4.0.0:
   version "4.0.0"
