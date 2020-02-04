@@ -178,22 +178,6 @@
       <tbody>
         <tr>
           <td class="align-middle text-center border-right-0 m-0 p-2">
-            <%= image_tag(@character.perception_attribute&.icon&.icon_url,
-                          alt: "Perception icon",
-                          class: "rounded border",
-                          size: "34x34",
-                          loading: "lazy") %>
-          </td>
-          <td class="align-middle text-break border-left-0">
-            <abbr title="<%= @character.perception_attribute&.description %>">Perception:</abbr>
-          </td>
-          <td class="align-middle text-right">
-            <%= @character.perception %>
-          </td>
-        </tr>
-
-        <tr>
-          <td class="align-middle text-center border-right-0 m-0 p-2">
             <%= image_tag(@character.memory_attribute&.icon&.icon_url,
                           alt: "Memory icon",
                           class: "rounded border",
@@ -283,11 +267,32 @@
         </div>
         <div class="col-8">
           <div class="card-body">
-            Perception:
+            <button type="button" class="btn text-success m-0 p-0" data-toggle="modal" data-target="#perception_description">
+              Perception:
+            </button>
           </div>
         </div>
         <div class="col-2 text-center m-auto">
           <%= @character.perception %>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="perception_description" tabindex="-1" role="dialog" aria-labelledby="perception_description_label" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="perception_description_label">Perception</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <%= @character.perception_attribute&.description %>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
         </div>
       </div>
     </div>
