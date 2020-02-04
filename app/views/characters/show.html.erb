@@ -380,9 +380,13 @@
     </div>
 
     <% if Setting.enabled_neural_map_available %>
-      <div class="card">
-        <div class="row no-gutters">
-          Neural Remap Available: <%#= @character.neural_remap_available %>
+      <div class="card bg-transparent rounded-0 border-secondary border-top-0">
+        <div class="row">
+          <div class="col-12">
+            <div class="card-header bg-transparent">
+              Neural Remap Available: <%#= @character.neural_remap_available %>
+            </div>
+          </div>
         </div>
       </div>
     <% end %>
