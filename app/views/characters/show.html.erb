@@ -176,70 +176,6 @@
 
     <table class="table table-striped table-bordered">
       <tbody>
-        <tr>
-          <td class="align-middle text-center border-right-0 m-0 p-2">
-            <%= image_tag(@character.memory_attribute&.icon&.icon_url,
-                          alt: "Memory icon",
-                          class: "rounded border",
-                          size: "34x34",
-                          loading: "lazy") %>
-          </td>
-          <td class="align-middle text-break border-left-0">
-            <abbr title="<%= @character.memory_attribute&.description %>">Memory:</abbr>
-          </td>
-          <td class="align-middle text-right">
-            <%= @character.memory %>
-          </td>
-        </tr>
-
-        <tr>
-          <td class="align-middle text-center border-right-0 m-0 p-2">
-            <%= image_tag(@character.willpower_attribute&.icon&.icon_url,
-                          alt: "Willpower icon",
-                          class: "rounded border",
-                          size: "34x34",
-                          loading: "lazy") %>
-          </td>
-          <td class="align-middle text-break border-left-0">
-            <abbr title="<%= @character.willpower_attribute&.description %>">Willpower:</abbr>
-          </td>
-          <td class="align-middle text-right">
-            <%= @character.willpower %>
-          </td>
-        </tr>
-
-        <tr>
-          <td class="align-middle text-center border-right-0 m-0 p-2">
-            <%= image_tag(@character.intelligence_attribute&.icon&.icon_url,
-                          alt: "Intelligence icon",
-                          class: "rounded border",
-                          size: "34x34",
-                          loading: "lazy") %>
-          </td>
-          <td class="align-middle text-break border-left-0">
-            <abbr title="<%= @character.intelligence_attribute&.description %>">Intelligence:</abbr>
-          </td>
-          <td class="align-middle text-right">
-            <%= @character.intelligence %>
-          </td>
-        </tr>
-
-        <tr>
-          <td class="align-middle text-center border-right-0 m-0 p-2">
-            <%= image_tag(@character.charisma_attribute&.icon&.icon_url,
-                          alt: "Charisma icon",
-                          class: "rounded border",
-                          size: "34x34",
-                          loading: "lazy") %>
-          </td>
-          <td class="align-middle text-break border-left-0">
-            <abbr title="<%= @character.charisma_attribute&.description %>">Charisma:</abbr>
-          </td>
-          <td class="align-middle text-right">
-            <%= @character.charisma %>
-          </td>
-        </tr>
-
         <% if Setting.enabled_neural_map_available %>
           <tr>
             <td colspan="3" class="align-middle">
@@ -308,11 +244,32 @@
         </div>
         <div class="col-8">
           <div class="card-body">
-            Memory:
+            <button type="button" class="btn text-success m-0 p-0" data-toggle="modal" data-target="#memory_description">
+              Memory:
+            </button>
           </div>
         </div>
         <div class="col-2 text-center m-auto">
           <%= @character.memory %>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="memory_description" tabindex="-1" role="dialog" aria-labelledby="memory_description_label" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="memory_description_label">Memory</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <%= @character.memory_attribute&.description %>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
         </div>
       </div>
     </div>
@@ -328,11 +285,32 @@
         </div>
         <div class="col-8">
           <div class="card-body">
-            Willpower:
+            <button type="button" class="btn text-success m-0 p-0" data-toggle="modal" data-target="#willpower_description">
+              Willpower:
+            </button>
           </div>
         </div>
         <div class="col-2 text-center m-auto">
           <%= @character.willpower %>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="willpower_description" tabindex="-1" role="dialog" aria-labelledby="willpower_description_label" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="willpower_description_label">Willpower</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <%= @character.willpower_attribute&.description %>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
         </div>
       </div>
     </div>
@@ -348,11 +326,32 @@
         </div>
         <div class="col-8">
           <div class="card-body">
-            Intelligence:
+            <button type="button" class="btn text-success m-0 p-0" data-toggle="modal" data-target="#intelligence_description">
+              Intelligence:
+            </button>
           </div>
         </div>
         <div class="col-2 text-center m-auto">
           <%= @character.intelligence %>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="intelligence_description" tabindex="-1" role="dialog" aria-labelledby="intelligence_description_label" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="intelligence_description_label">Intelligence</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <%= @character.intelligence_attribute&.description %>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
         </div>
       </div>
     </div>
@@ -368,11 +367,32 @@
         </div>
         <div class="col-8">
           <div class="card-body">
-            Charisma:
+            <button type="button" class="btn text-success m-0 p-0" data-toggle="modal" data-target="#charisma_description">
+              Charisma:
+            </button>
           </div>
         </div>
         <div class="col-2 text-center m-auto">
           <%= @character.charisma %>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="charisma_description" tabindex="-1" role="dialog" aria-labelledby="charisma_description_label" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="charisma_description_label">Charisma</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <%= @character.charisma_attribute&.description %>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
         </div>
       </div>
     </div>
