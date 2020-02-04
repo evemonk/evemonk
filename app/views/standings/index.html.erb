@@ -46,6 +46,16 @@
       <%= link_to("Standings", character_standings_path(@character.character_id), class: "nav-link active") %>
     </li>
   <% end %>
+  <% if Setting.enabled_wallet_journal %>
+    <li class="nav-item">
+      <%= link_to("Wallet journal", nil, class: "nav-link") %>
+    </li>
+  <% end %>
+  <% if Setting.enabled_wallet_transactions %>
+    <li class="nav-item">
+      <%= link_to("Wallet transactions", nil, class: "nav-link") %>
+    </li>
+  <% end %>
 </ul>
 
 <hr>
