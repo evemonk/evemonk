@@ -141,13 +141,13 @@
       <ul class="list-group list-group-flush">
         <% if @character.current_solar_system %>
           <li class="list-group-item text-center">
-            System: <%= @character.current_solar_system.name %>
+            System: <span class="text-success"><%= @character.current_solar_system.name %></span>
           </li>
         <% end %>
 
         <% if @character.current_station %>
           <li class="list-group-item text-center">
-            Station: <%= @character.current_station.name %>
+            Station: <span class="text-success"><%= @character.current_station.name %></span>
           </li>
         <% end %>
 
