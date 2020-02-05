@@ -6,18 +6,6 @@ GIT
     http_logger (0.5.1)
 
 GIT
-  remote: https://github.com/drapergem/draper.git
-  revision: e31a54e92db572d4d2580e39d90591fbe5d8047f
-  branch: master
-  specs:
-    draper (3.1.0)
-      actionpack (>= 5.0)
-      activemodel (>= 5.0)
-      activemodel-serializers-xml (>= 1.0)
-      activesupport (>= 5.0)
-      request_store (>= 1.0)
-
-GIT
   remote: https://github.com/just806me/shoulda-callback-matchers.git
   revision: b3a93d43490cdb3062a437e2edfbd50d25eda79a
   branch: master
@@ -250,6 +238,12 @@ GEM
     dotenv-rails (2.7.5)
       dotenv (= 2.7.5)
       railties (>= 3.2, < 6.1)
+    draper (4.0.0)
+      actionpack (>= 5.0)
+      activemodel (>= 5.0)
+      activemodel-serializers-xml (>= 1.0)
+      activesupport (>= 5.0)
+      request_store (>= 1.0)
     dry-initializer (3.0.3)
     elasticsearch (7.4.0)
       elasticsearch-api (= 7.4.0)
@@ -695,7 +689,7 @@ DEPENDENCIES
   devise-i18n
   devise_zxcvbn
   dotenv-rails
-  draper!
+  draper
   errbase
   eve_online
   factory_bot_rails
