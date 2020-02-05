@@ -6,18 +6,6 @@ GIT
     http_logger (0.5.1)
 
 GIT
-  remote: https://github.com/drapergem/draper.git
-  revision: e31a54e92db572d4d2580e39d90591fbe5d8047f
-  branch: master
-  specs:
-    draper (3.1.0)
-      actionpack (>= 5.0)
-      activemodel (>= 5.0)
-      activemodel-serializers-xml (>= 1.0)
-      activesupport (>= 5.0)
-      request_store (>= 1.0)
-
-GIT
   remote: https://github.com/just806me/shoulda-callback-matchers.git
   revision: b3a93d43490cdb3062a437e2edfbd50d25eda79a
   branch: master
@@ -35,7 +23,7 @@ GIT
 
 GIT
   remote: https://github.com/rails/rails.git
-  revision: b115cf9c967ed6ccbd0ce3b8a05077f8f41f9eb4
+  revision: 2691d416de212bdff99fd210be754d7b8c8dc21c
   branch: 6-0-stable
   specs:
     actioncable (6.0.2.1)
@@ -143,7 +131,7 @@ GIT
 
 GIT
   remote: https://github.com/rspec/rspec-rails.git
-  revision: bd54ec4f9c63d9e36dbb3196a59b0908561e287d
+  revision: e69be80f2d99b75fe5f9dffd3b8652d17f0c5ee1
   branch: master
   specs:
     rspec-rails (4.0.0.pre)
@@ -250,6 +238,12 @@ GEM
     dotenv-rails (2.7.5)
       dotenv (= 2.7.5)
       railties (>= 3.2, < 6.1)
+    draper (4.0.0)
+      actionpack (>= 5.0)
+      activemodel (>= 5.0)
+      activemodel-serializers-xml (>= 1.0)
+      activesupport (>= 5.0)
+      request_store (>= 1.0)
     dry-initializer (3.0.3)
     elasticsearch (7.4.0)
       elasticsearch-api (= 7.4.0)
@@ -286,7 +280,7 @@ GEM
       tty-tree
     faraday (0.17.3)
       multipart-post (>= 1.2, < 3)
-    fasterer (0.8.1)
+    fasterer (0.8.2)
       colorize (~> 0.7)
       ruby_parser (>= 3.14.1)
     ffi (1.12.2)
@@ -381,7 +375,7 @@ GEM
     mobility (0.8.9)
       i18n (>= 0.6.10, < 2)
       request_store (~> 1.0)
-    msgpack (1.3.2)
+    msgpack (1.3.3)
     multi_json (1.14.1)
     multi_xml (0.6.0)
     multipart-post (2.1.1)
@@ -695,7 +689,7 @@ DEPENDENCIES
   devise-i18n
   devise_zxcvbn
   dotenv-rails
-  draper!
+  draper
   errbase
   eve_online
   factory_bot_rails
