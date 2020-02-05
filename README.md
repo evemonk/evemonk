@@ -39,7 +39,7 @@ Mobile first design.
 * Elasticsearch 7.5.2
 * Node 12.14.1
 * NPM 6.13.7
-* Yarn 1.21.1
+* Yarn 1.22.0
 * Bootstrap 4.4.1
 * Bootstrap Icons 1.0.0-alpha2
 * Bootswatch Darkly 4.4.1
