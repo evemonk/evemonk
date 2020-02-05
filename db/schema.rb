@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_08_211232) do
+ActiveRecord::Schema.define(version: 2020_01_30_231709) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -134,6 +134,22 @@ ActiveRecord::Schema.define(version: 2020_01_08_211232) do
     t.json "body"
   end
 
+  create_table "eve_agents", force: :cascade do |t|
+    t.bigint "agent_id"
+    t.bigint "agent_type_id"
+    t.bigint "corporation_id"
+    t.bigint "division_id"
+    t.boolean "is_locator"
+    t.integer "level"
+    t.bigint "location_id"
+    t.integer "quality"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "name"
+    t.index ["agent_id"], name: "index_eve_agents_on_agent_id", unique: true
+    t.index ["corporation_id"], name: "index_eve_agents_on_corporation_id"
+  end
+
   create_table "eve_alliance_corporations", force: :cascade do |t|
     t.bigint "alliance_id"
     t.bigint "corporation_id"
@@ -239,6 +255,17 @@ ActiveRecord::Schema.define(version: 2020_01_08_211232) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "name_ko"
     t.index ["category_id"], name: "index_eve_categories_on_category_id", unique: true
+  end
+
+  create_table "eve_certificates", force: :cascade do |t|
+    t.bigint "certificate_id"
+    t.text "description"
+    t.bigint "group_id"
+    t.string "name"
+    t.bigint "recommended_for", array: true
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["certificate_id"], name: "index_eve_certificates_on_certificate_id", unique: true
   end
 
   create_table "eve_character_attributes", force: :cascade do |t|
@@ -654,6 +681,16 @@ ActiveRecord::Schema.define(version: 2020_01_08_211232) do
     t.index ["type_id"], name: "index_eve_types_on_type_id", unique: true
   end
 
+  create_table "eve_units", force: :cascade do |t|
+    t.bigint "unit_id"
+    t.text "description"
+    t.string "unit_name"
+    t.string "display_name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["unit_id"], name: "index_eve_units_on_unit_id", unique: true
+  end
+
   create_table "eve_wars", force: :cascade do |t|
     t.bigint "war_id"
     t.datetime "declared"
@@ -791,6 +828,18 @@ ActiveRecord::Schema.define(version: 2020_01_08_211232) do
     t.index ["character_id"], name: "index_skillqueues_on_character_id"
   end
 
+  create_table "standings", force: :cascade do |t|
+    t.bigint "character_id"
+    t.bigint "from_id"
+    t.string "from_type"
+    t.float "standing"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "standingable_id"
+    t.string "standingable_type"
+    t.index ["character_id"], name: "index_standings_on_character_id"
+  end
+
   create_table "users", id: :serial, force: :cascade do |t|
     t.string "email"
     t.datetime "created_at", null: false
@@ -831,4 +880,5 @@ ActiveRecord::Schema.define(version: 2020_01_08_211232) do
   add_foreign_key "characters", "users"
   add_foreign_key "sessions", "users"
   add_foreign_key "skillqueues", "characters"
+  add_foreign_key "standings", "characters"
 end
