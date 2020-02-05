@@ -23,34 +23,6 @@ scheduler.at "every day at 2 pm" do
   Rails.logger.info "Collection postgresql space stats"
   Pghero::CaptureSpaceStatsJob.perform_later
 
-  ## 7 call to esi
-  # Rails.logger.info "Update eve races"
-  # Eve::UpdateRacesJob.perform_later
-  #
-  ## 7 call to esi
-  # Rails.logger.info "Update eve bloodlines"
-  # Eve::UpdateBloodlinesJob.perform_later
-  #
-  ## 7 call to esi
-  # Rails.logger.info "Update eve ancestries"
-  # Eve::UpdateAncestriesJob.perform_later
-  #
-  ## 7 call to esi
-  # Rails.logger.info "Update eve factions"
-  # Eve::UpdateFactionsJob.perform_later
-  #
-  ## 1 + new categories calls to esi
-  # Rails.logger.info "Import new eve categories"
-  # Eve::UpdateCategoriesJob.perform_later
-  #
-  ## 1 + new groups calls to esi
-  # Rails.logger.info "Import new eve groups"
-  # Eve::UpdateGroupsJob.perform_later
-  #
-  ## 1 + new market groups calls to esi
-  # Rails.logger.info "Import new eve market groups"
-  # Eve::UpdateMarketGroupsJob.perform_later
-  #
   ## 1 + new graphics calls to esi
   # Rails.logger.info "Import new eve graphics"
   # Eve::UpdateGraphicsJob.perform_later
