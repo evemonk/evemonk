@@ -23,7 +23,7 @@ GIT
 
 GIT
   remote: https://github.com/rails/rails.git
-  revision: 2691d416de212bdff99fd210be754d7b8c8dc21c
+  revision: 811da8a6bb359ab5f416a041c17174f28ca347f4
   branch: 6-0-stable
   specs:
     actioncable (6.0.2.1)
@@ -394,7 +394,7 @@ GEM
       multi_json (~> 1.3)
       multi_xml (~> 0.5)
       rack (>= 1.2, < 3)
-    octokit (4.15.0)
+    octokit (4.16.0)
       faraday (>= 0.9)
       sawyer (~> 0.8.0, >= 0.5.3)
     omniauth (1.9.0)
@@ -516,7 +516,7 @@ GEM
     ruby-progressbar (1.10.1)
     ruby-statistics (2.1.1)
     ruby_dep (1.5.0)
-    ruby_parser (3.14.1)
+    ruby_parser (3.14.2)
       sexp_processor (~> 4.9)
     rubyzip (2.2.0)
     rufus-scheduler (3.6.0)
@@ -548,7 +548,7 @@ GEM
       faraday (>= 0.7.6, < 1.0)
     server_timing (1.0.2)
       scout_apm
-    sexp_processor (4.13.0)
+    sexp_processor (4.14.0)
     shoulda-matchers (4.2.0)
       activesupport (>= 4.2.0)
     sidekiq (6.0.4)
@@ -625,14 +625,14 @@ GEM
     unicode-display_width (1.6.1)
     unicode_utils (1.4.0)
     uniform_notifier (1.13.0)
-    vcr (5.0.0)
+    vcr (5.1.0)
     warden (1.2.8)
       rack (>= 2.0.6)
     webdrivers (4.2.0)
       nokogiri (~> 1.6)
       rubyzip (>= 1.3.0)
       selenium-webdriver (>= 3.0, < 4.0)
-    webmock (3.8.0)
+    webmock (3.8.1)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
       hashdiff (>= 0.4.0, < 2.0.0)

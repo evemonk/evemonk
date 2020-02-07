@@ -38,7 +38,7 @@ services:
       - "6379:6379"
 
   memcached:
-    image: "memcached:1.5.21"
+    image: "memcached:1.5.22"
     container_name: "evemonk_memcached"
     restart: "unless-stopped"
     command: memcached -m 64
@@ -47,7 +47,7 @@ services:
 
   swagger_ui:
     image: "swaggerapi/swagger-ui:v3.25.0"
-    container_name: "app_swagger_ui"
+    container_name: "evemonk_swagger_ui"
     restart: "unless-stopped"
     ports:
       - "8080:8080"

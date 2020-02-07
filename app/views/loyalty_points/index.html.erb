@@ -61,7 +61,7 @@
 <hr>
 
 <div class="row">
-  <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+  <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
     <div class="clearfix">
       <h4 class="float-left"><%= @character.name %></h4>
       <%= form_with(url: character_path(@character.character_id), model: @character, class: "float-right") do %>
@@ -115,31 +115,31 @@
     </div>
   </div>
 
-  <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+  <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
     <h4 class="text-center text-break">Loyalty points</h4>
 
-    <table class="table table-striped table-bordered">
-      <tbody>
-        <% @loyalty_points.each do |loyalty_point| %>
-          <tr>
-            <td>
-              <% if loyalty_point.corporation.present? %>
-                <%= image_tag(loyalty_point.corporation&.icon_tiny,
-                              alt: loyalty_point.corporation&.name,
-                              class: "rounded border",
-                              size: "34x34",
-                              loading: "lazy") %>
-              <% end %>
-            </td>
-            <td class="align-middle">
+    <% @loyalty_points.each_with_index do |loyalty_point, index| %>
+      <div class="card <%= index % 2 == 0 ? "bg-dark" : "bg-transparent" %> rounded-0 border-secondary <%= index == 0 ? "" : "border-top-0" %>">
+        <div class="row no-gutters">
+          <div class="col-2 text-center m-auto">
+            <% if loyalty_point.corporation.present? %>
+              <%= image_tag(loyalty_point.corporation&.icon_tiny,
+                            alt: loyalty_point.corporation&.name,
+                            class: "rounded border",
+                            size: "34x34",
+                            loading: "lazy") %>
+            <% end %>
+          </div>
+          <div class="col-7">
+            <div class="card-body">
               <%= loyalty_point.corporation&.name %>
-            </td>
-            <td class="align-middle text-right">
-              <%= loyalty_point.loyalty_points %>
-            </td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+            </div>
+          </div>
+          <div class="col-3 text-right m-auto p-1">
+            <%= loyalty_point.loyalty_points %>
+          </div>
+        </div>
+      </div>
+    <% end %>
   </div>
 </div>
