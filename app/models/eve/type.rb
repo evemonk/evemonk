@@ -47,5 +47,9 @@ module Eve
         name_ko: name_ko,
       }
     end
+
+    def implant_bonuses
+      @implant_bonuses ||= ImplantBonuses.new(self).implant_bonuses
+    end
   end
 end
