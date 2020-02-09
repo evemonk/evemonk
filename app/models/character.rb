@@ -124,9 +124,9 @@ class Character < ApplicationRecord
     @skills_tree ||= SkillsTree.new(self)
   end
 
-  # def attributes
-  #   @attributes ||= CharacterAttributes.new(self)
-  # end
+  def character_attributes
+    @character_attributes ||= CharacterAttributes.new(self)
+  end
 
   def token_expired?
     token_expires_at <= Time.zone.now

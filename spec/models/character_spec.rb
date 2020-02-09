@@ -260,25 +260,25 @@ describe Character do
     end
   end
 
-  # describe "#attributes" do
-  #   context "when @attributes is set" do
-  #     let(:character_attributes) { instance_double(CharacterAttributes) }
-  #
-  #     before { subject.instance_variable_set(:@attributes, character_attributes) }
-  #
-  #     specify { expect(subject.attributes).to eq(character_attributes) }
-  #   end
-  #
-  #   context "when @attributes is not set" do
-  #     let(:character_attributes) { instance_double(CharacterAttributes) }
-  #
-  #     before { expect(CharacterAttributes).to receive(:new).with(subject).and_return(character_attributes) }
-  #
-  #     specify { expect(subject.attributes).to eq(character_attributes) }
-  #
-  #     specify { expect { subject.attributes }.to change { subject.instance_variable_get(:@attributes) }.from(nil).to(character_attributes) }
-  #   end
-  # end
+  describe "#character_attributes" do
+    context "when @character_attributes is set" do
+      let(:character_attributes) { instance_double(CharacterAttributes) }
+
+      before { subject.instance_variable_set(:@character_attributes, character_attributes) }
+
+      specify { expect(subject.character_attributes).to eq(character_attributes) }
+    end
+
+    context "when @character_attributes is not set" do
+      let(:character_attributes) { instance_double(CharacterAttributes) }
+
+      before { expect(CharacterAttributes).to receive(:new).with(subject).and_return(character_attributes) }
+
+      specify { expect(subject.character_attributes).to eq(character_attributes) }
+
+      specify { expect { subject.character_attributes }.to change { subject.instance_variable_get(:@character_attributes) }.from(nil).to(character_attributes) }
+    end
+  end
 
   describe "#token_expired?" do
     context "when expired" do
