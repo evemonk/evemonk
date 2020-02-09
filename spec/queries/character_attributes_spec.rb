@@ -3,13 +3,38 @@
 require "rails_helper"
 
 describe CharacterAttributes do
-  let(:character) do
-    build(:character,
+  let!(:character) do
+    create(:character,
       perception: 23,
       memory: 24,
       willpower: 23,
       intelligence: 24,
       charisma: 20)
+  end
+
+  let!(:eve_dogma_attribute1) do
+    create(:eve_dogma_attribute,
+      name: "perceptionBonus")
+  end
+
+  let!(:eve_dogma_attribute2) do
+    create(:eve_dogma_attribute,
+      name: "memoryBonus")
+  end
+
+  let!(:eve_dogma_attribute3) do
+    create(:eve_dogma_attribute,
+      name: "willpowerBonus")
+  end
+
+  let!(:eve_dogma_attribute4) do
+    create(:eve_dogma_attribute,
+      name: "intelligenceBonus")
+  end
+
+  let!(:eve_dogma_attribute5) do
+    create(:eve_dogma_attribute,
+      name: "charismaBonus")
   end
 
   subject { described_class.new(character) }
