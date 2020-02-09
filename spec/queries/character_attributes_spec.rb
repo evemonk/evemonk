@@ -22,29 +22,39 @@ describe CharacterAttributes do
     specify { expect(subject.total_perception).to eq(26) }
   end
 
-  describe "#perception_bonus"
+  describe "#perception_bonus" do
+    specify { expect(subject.perception_bonus).to eq(3.0) }
+  end
 
   describe "#total_memory" do
     specify { expect(subject.total_memory).to eq(27) }
   end
 
-  describe "#memory_bonus"
+  describe "#memory_bonus" do
+    specify { expect(subject.memory_bonus).to eq(3.0) }
+  end
 
   describe "#total_willpower" do
     specify { expect(subject.total_willpower).to eq(26) }
   end
 
-  describe "#willpower_bonus"
+  describe "#willpower_bonus" do
+    specify { expect(subject.willpower_bonus).to eq(3.0) }
+  end
 
   describe "#total_intelligence" do
     specify { expect(subject.total_intelligence).to eq(27) }
   end
 
-  describe "#intelligence_bonus"
+  describe "#intelligence_bonus" do
+    specify { expect(subject.intelligence_bonus).to eq(3.0) }
+  end
 
   describe "#total_charisma" do
     specify { expect(subject.total_charisma).to eq(23) }
   end
 
-  describe "#charisma_bonus"
+  describe "#charisma_bonus" do
+    specify { expect(subject.charisma_bonus).to eq(3.0) }
+  end
 end
