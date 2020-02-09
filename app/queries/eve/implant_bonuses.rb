@@ -6,7 +6,7 @@ module Eve
                              "memoryBonus",
                              "willpowerBonus",
                              "intelligenceBonus",
-                             "charismaBonus"]
+                             "charismaBonus",]
 
     attr_reader :implant
 
@@ -16,11 +16,11 @@ module Eve
 
     def implant_bonuses
       implant.type_dogma_attributes
-             .where(attribute_id: attribute_ids)
-             .where.not(value: 0.0)
-             .map do |type_dogma_attribute|
-        { name: type_dogma_attribute.dogma_attribute&.display_name,
-          value: type_dogma_attribute.value }
+        .where(attribute_id: attribute_ids)
+        .where.not(value: 0.0)
+        .map do |type_dogma_attribute|
+        {name: type_dogma_attribute.dogma_attribute&.display_name,
+         value: type_dogma_attribute.value,}
       end
     end
 
@@ -28,7 +28,7 @@ module Eve
 
     def attribute_ids
       Eve::DogmaAttribute.where(name: DOGMA_ATTRIBUTE_NAMES)
-                         .pluck(:attribute_id)
+        .pluck(:attribute_id)
     end
   end
 end
