@@ -105,6 +105,26 @@ describe Character do
     specify { expect(character.agents_standings).to eq([standing3]) }
   end
 
+  it { should delegate_method(:total_perception).to(:character_attributes) }
+
+  it { should delegate_method(:perception_bonus).to(:character_attributes) }
+
+  it { should delegate_method(:total_memory).to(:character_attributes) }
+
+  it { should delegate_method(:memory_bonus).to(:character_attributes) }
+
+  it { should delegate_method(:total_willpower).to(:character_attributes) }
+
+  it { should delegate_method(:willpower_bonus).to(:character_attributes) }
+
+  it { should delegate_method(:total_intelligence).to(:character_attributes) }
+
+  it { should delegate_method(:intelligence_bonus).to(:character_attributes) }
+
+  it { should delegate_method(:total_charisma).to(:character_attributes) }
+
+  it { should delegate_method(:charisma_bonus).to(:character_attributes) }
+
   describe "#perception_attribute" do
     context "when @perception_attribute is set" do
       let(:eve_perception_attribute) { double }

@@ -100,6 +100,12 @@ class Character < ApplicationRecord
       .includes(:standingable)
   }, class_name: "Standing"
 
+  delegate :total_perception, :perception_bonus,
+    :total_memory, :memory_bonus,
+    :total_willpower, :willpower_bonus,
+    :total_intelligence, :intelligence_bonus,
+    :total_charisma, :charisma_bonus, to: :character_attributes
+
   def perception_attribute
     @perception_attribute ||= Eve::CharacterAttribute.find_by(attribute_name: "Perception").decorate
   end
