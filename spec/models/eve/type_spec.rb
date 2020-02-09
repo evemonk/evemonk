@@ -49,4 +49,28 @@ describe Eve::Type do
                                      name_ko: "라그나로크")
     end
   end
+
+  describe "#implant_bonuses" do
+    context "when @implant_bonuses is set" do
+      let(:implant_bonuses) { double }
+
+      before { subject.instance_variable_set(:@implant_bonuses, implant_bonuses) }
+
+      specify { expect(subject.implant_bonuses).to eq(implant_bonuses) }
+    end
+
+    context "when @implant_bonuses is not set" do
+      let(:implant_bonuses) { instance_double(Eve::ImplantBonuses) }
+
+      let(:out) { double }
+
+      before { expect(Eve::ImplantBonuses).to receive(:new).with(subject).and_return(implant_bonuses) }
+
+      before { expect(implant_bonuses).to receive(:implant_bonuses).and_return(out) }
+
+      specify { expect(subject.implant_bonuses).to eq(out) }
+
+      specify { expect { subject.implant_bonuses }.to change { subject.instance_variable_get(:@implant_bonuses) }.from(nil).to(out) }
+    end
+  end
 end
