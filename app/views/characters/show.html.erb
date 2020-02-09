@@ -141,7 +141,7 @@
       <ul class="list-group list-group-flush">
         <% if @character.current_solar_system %>
           <li class="list-group-item text-center">
-            System: <span class="text-success"><%= @character.current_solar_system.name %></span>
+            System: <span class="text-success"><%= @character.current_solar_system.name %></span> (<%= @character.current_solar_system.security_status %>)
           </li>
         <% end %>
 
@@ -191,7 +191,7 @@
           </div>
         </div>
         <div class="col-2 text-center m-auto">
-          <%= @character.perception %>
+          <span class="text-success"><%= @character.total_perception %></span> (<%= @character.perception %>)
         </div>
       </div>
     </div>
@@ -232,7 +232,7 @@
           </div>
         </div>
         <div class="col-2 text-center m-auto">
-          <%= @character.memory %>
+          <span class="text-success"><%= @character.total_memory %></span> (<%= @character.memory %>)
         </div>
       </div>
     </div>
@@ -273,7 +273,7 @@
           </div>
         </div>
         <div class="col-2 text-center m-auto">
-          <%= @character.willpower %>
+          <span class="text-success"><%= @character.total_willpower %></span> (<%= @character.willpower %>)
         </div>
       </div>
     </div>
@@ -314,7 +314,7 @@
           </div>
         </div>
         <div class="col-2 text-center m-auto">
-          <%= @character.intelligence %>
+          <span class="text-success"><%= @character.total_intelligence %></span> (<%= @character.intelligence %>)
         </div>
       </div>
     </div>
@@ -355,7 +355,7 @@
           </div>
         </div>
         <div class="col-2 text-center m-auto">
-          <%= @character.charisma %>
+          <span class="text-success"><%= @character.total_charisma %></span> (<%= @character.charisma %>)
         </div>
       </div>
     </div>

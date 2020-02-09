@@ -105,57 +105,50 @@ describe Character do
     specify { expect(character.agents_standings).to eq([standing3]) }
   end
 
-  describe "#charisma_attribute" do
-    context "when @charisma_attribute is set" do
-      let(:eve_charisma_attribute) { double }
+  it { should delegate_method(:total_perception).to(:character_attributes) }
 
-      before { subject.instance_variable_set(:@charisma_attribute, eve_charisma_attribute) }
+  it { should delegate_method(:perception_bonus).to(:character_attributes) }
 
-      specify { expect(subject.charisma_attribute).to eq(eve_charisma_attribute) }
+  it { should delegate_method(:total_memory).to(:character_attributes) }
+
+  it { should delegate_method(:memory_bonus).to(:character_attributes) }
+
+  it { should delegate_method(:total_willpower).to(:character_attributes) }
+
+  it { should delegate_method(:willpower_bonus).to(:character_attributes) }
+
+  it { should delegate_method(:total_intelligence).to(:character_attributes) }
+
+  it { should delegate_method(:intelligence_bonus).to(:character_attributes) }
+
+  it { should delegate_method(:total_charisma).to(:character_attributes) }
+
+  it { should delegate_method(:charisma_bonus).to(:character_attributes) }
+
+  describe "#perception_attribute" do
+    context "when @perception_attribute is set" do
+      let(:eve_perception_attribute) { double }
+
+      before { subject.instance_variable_set(:@perception_attribute, eve_perception_attribute) }
+
+      specify { expect(subject.perception_attribute).to eq(eve_perception_attribute) }
     end
 
-    context "when @charisma_attribute is not set" do
-      let(:eve_charisma_attribute) { instance_double(Eve::CharacterAttribute) }
+    context "when @perception_attribute is not set" do
+      let(:eve_perception_attribute) { instance_double(Eve::CharacterAttribute) }
 
       before do
         #
-        # Eve::CharacterAttribute.find_by(attribute_name: "Charisma") # => eve_charisma_attribute
+        # Eve::CharacterAttribute.find_by(attribute_name: "Perception") # => eve_perception_attribute
         #
-        expect(Eve::CharacterAttribute).to receive(:find_by).with(attribute_name: "Charisma").and_return(eve_charisma_attribute)
+        expect(Eve::CharacterAttribute).to receive(:find_by).with(attribute_name: "Perception").and_return(eve_perception_attribute)
       end
 
-      let(:eve_charisma_attribute_decorated) { double }
+      let(:eve_perception_attribute_decorated) { double }
 
-      before { expect(eve_charisma_attribute).to receive(:decorate).and_return(eve_charisma_attribute_decorated) }
+      before { expect(eve_perception_attribute).to receive(:decorate).and_return(eve_perception_attribute_decorated) }
 
-      specify { expect(subject.charisma_attribute).to eq(eve_charisma_attribute_decorated) }
-    end
-  end
-
-  describe "#intelligence_attribute" do
-    context "when @intelligence_attribute is set" do
-      let(:eve_intelligence_attribute) { double }
-
-      before { subject.instance_variable_set(:@intelligence_attribute, eve_intelligence_attribute) }
-
-      specify { expect(subject.intelligence_attribute).to eq(eve_intelligence_attribute) }
-    end
-
-    context "when @intelligence_attribute is not set" do
-      let(:eve_intelligence_attribute) { instance_double(Eve::CharacterAttribute) }
-
-      before do
-        #
-        # Eve::CharacterAttribute.find_by(attribute_name: "Intelligence") # => eve_intelligence_attribute
-        #
-        expect(Eve::CharacterAttribute).to receive(:find_by).with(attribute_name: "Intelligence").and_return(eve_intelligence_attribute)
-      end
-
-      let(:eve_intelligence_attribute_decorated) { double }
-
-      before { expect(eve_intelligence_attribute).to receive(:decorate).and_return(eve_intelligence_attribute_decorated) }
-
-      specify { expect(subject.intelligence_attribute).to eq(eve_intelligence_attribute_decorated) }
+      specify { expect(subject.perception_attribute).to eq(eve_perception_attribute_decorated) }
     end
   end
 
@@ -186,33 +179,6 @@ describe Character do
     end
   end
 
-  describe "#perception_attribute" do
-    context "when @perception_attribute is set" do
-      let(:eve_perception_attribute) { double }
-
-      before { subject.instance_variable_set(:@perception_attribute, eve_perception_attribute) }
-
-      specify { expect(subject.perception_attribute).to eq(eve_perception_attribute) }
-    end
-
-    context "when @perception_attribute is not set" do
-      let(:eve_perception_attribute) { instance_double(Eve::CharacterAttribute) }
-
-      before do
-        #
-        # Eve::CharacterAttribute.find_by(attribute_name: "Perception") # => eve_perception_attribute
-        #
-        expect(Eve::CharacterAttribute).to receive(:find_by).with(attribute_name: "Perception").and_return(eve_perception_attribute)
-      end
-
-      let(:eve_perception_attribute_decorated) { double }
-
-      before { expect(eve_perception_attribute).to receive(:decorate).and_return(eve_perception_attribute_decorated) }
-
-      specify { expect(subject.perception_attribute).to eq(eve_perception_attribute_decorated) }
-    end
-  end
-
   describe "#willpower_attribute" do
     context "when @willpower_attribute is set" do
       let(:eve_willpower_attribute) { double }
@@ -240,6 +206,60 @@ describe Character do
     end
   end
 
+  describe "#intelligence_attribute" do
+    context "when @intelligence_attribute is set" do
+      let(:eve_intelligence_attribute) { double }
+
+      before { subject.instance_variable_set(:@intelligence_attribute, eve_intelligence_attribute) }
+
+      specify { expect(subject.intelligence_attribute).to eq(eve_intelligence_attribute) }
+    end
+
+    context "when @intelligence_attribute is not set" do
+      let(:eve_intelligence_attribute) { instance_double(Eve::CharacterAttribute) }
+
+      before do
+        #
+        # Eve::CharacterAttribute.find_by(attribute_name: "Intelligence") # => eve_intelligence_attribute
+        #
+        expect(Eve::CharacterAttribute).to receive(:find_by).with(attribute_name: "Intelligence").and_return(eve_intelligence_attribute)
+      end
+
+      let(:eve_intelligence_attribute_decorated) { double }
+
+      before { expect(eve_intelligence_attribute).to receive(:decorate).and_return(eve_intelligence_attribute_decorated) }
+
+      specify { expect(subject.intelligence_attribute).to eq(eve_intelligence_attribute_decorated) }
+    end
+  end
+
+  describe "#charisma_attribute" do
+    context "when @charisma_attribute is set" do
+      let(:eve_charisma_attribute) { double }
+
+      before { subject.instance_variable_set(:@charisma_attribute, eve_charisma_attribute) }
+
+      specify { expect(subject.charisma_attribute).to eq(eve_charisma_attribute) }
+    end
+
+    context "when @charisma_attribute is not set" do
+      let(:eve_charisma_attribute) { instance_double(Eve::CharacterAttribute) }
+
+      before do
+        #
+        # Eve::CharacterAttribute.find_by(attribute_name: "Charisma") # => eve_charisma_attribute
+        #
+        expect(Eve::CharacterAttribute).to receive(:find_by).with(attribute_name: "Charisma").and_return(eve_charisma_attribute)
+      end
+
+      let(:eve_charisma_attribute_decorated) { double }
+
+      before { expect(eve_charisma_attribute).to receive(:decorate).and_return(eve_charisma_attribute_decorated) }
+
+      specify { expect(subject.charisma_attribute).to eq(eve_charisma_attribute_decorated) }
+    end
+  end
+
   describe "#skills_tree" do
     context "when @skills_tree is set" do
       let(:skills_tree) { instance_double(SkillsTree) }
@@ -255,6 +275,28 @@ describe Character do
       before { expect(SkillsTree).to receive(:new).with(subject).and_return(skills_tree) }
 
       specify { expect(subject.skills_tree).to eq(skills_tree) }
+
+      specify { expect { subject.skills_tree }.to change { subject.instance_variable_get(:@skills_tree) }.from(nil).to(skills_tree) }
+    end
+  end
+
+  describe "#character_attributes" do
+    context "when @character_attributes is set" do
+      let(:character_attributes) { instance_double(CharacterAttributes) }
+
+      before { subject.instance_variable_set(:@character_attributes, character_attributes) }
+
+      specify { expect(subject.character_attributes).to eq(character_attributes) }
+    end
+
+    context "when @character_attributes is not set" do
+      let(:character_attributes) { instance_double(CharacterAttributes) }
+
+      before { expect(CharacterAttributes).to receive(:new).with(subject).and_return(character_attributes) }
+
+      specify { expect(subject.character_attributes).to eq(character_attributes) }
+
+      specify { expect { subject.character_attributes }.to change { subject.instance_variable_get(:@character_attributes) }.from(nil).to(character_attributes) }
     end
   end
 

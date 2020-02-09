@@ -23,7 +23,7 @@ GIT
 
 GIT
   remote: https://github.com/rails/rails.git
-  revision: 811da8a6bb359ab5f416a041c17174f28ca347f4
+  revision: 1bc10505aa55ef5002086761b8d7b14920ea5ea3
   branch: 6-0-stable
   specs:
     actioncable (6.0.2.1)
@@ -432,7 +432,7 @@ GEM
     puma (4.3.1)
       nio4r (~> 2.0)
     raabro (1.1.6)
-    rack (2.1.2)
+    rack (2.2.1)
     rack-cors (1.1.1)
       rack (>= 2.0.0)
     rack-health (0.1.2)

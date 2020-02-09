@@ -8,12 +8,19 @@ module Eve
 
     translates :name
 
-    # TODO: belongs_to :constellation_id
+    belongs_to :constellation,
+      primary_key: "constellation_id",
+      optional: true
 
-    has_many :stargates, primary_key: "system_id"
+    belongs_to :star,
+      primary_key: "star_id",
+      optional: true
 
-    # TODO: belongs_to :star_id
+    has_many :stargates,
+      primary_key: "system_id"
 
-    has_one :position, as: :positionable, dependent: :destroy
+    has_one :position,
+      as: :positionable,
+      dependent: :destroy
   end
 end
