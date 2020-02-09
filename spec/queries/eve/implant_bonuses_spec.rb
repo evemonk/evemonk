@@ -90,13 +90,13 @@ describe Eve::ImplantBonuses do
   end
 
   describe "#implant_bonuses" do
-    specify {
+    specify do
       expect(subject.implant_bonuses).to eq([{name: "Perception Modifier", value: 3.0},
                                              {name: "Memory Modifier", value: 3.0},
                                              {name: "Willpower Modifier", value: 3.0},
                                              {name: "Intelligence Modifier", value: 3.0},
                                              {name: "Charisma Modifier", value: 3.0},])
-    }
+    end
   end
 
   # private methods

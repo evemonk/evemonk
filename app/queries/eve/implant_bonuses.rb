@@ -6,7 +6,7 @@ module Eve
                              "memoryBonus",
                              "willpowerBonus",
                              "intelligenceBonus",
-                             "charismaBonus",]
+                             "charismaBonus",].freeze
 
     attr_reader :implant
 
