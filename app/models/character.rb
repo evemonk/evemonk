@@ -100,29 +100,33 @@ class Character < ApplicationRecord
       .includes(:standingable)
   }, class_name: "Standing"
 
-  def charisma_attribute
-    @charisma_attribute ||= Eve::CharacterAttribute.find_by(attribute_name: "Charisma").decorate
-  end
-
-  def intelligence_attribute
-    @intelligence_attribute ||= Eve::CharacterAttribute.find_by(attribute_name: "Intelligence").decorate
+  def perception_attribute
+    @perception_attribute ||= Eve::CharacterAttribute.find_by(attribute_name: "Perception").decorate
   end
 
   def memory_attribute
     @memory_attribute ||= Eve::CharacterAttribute.find_by(attribute_name: "Memory").decorate
   end
 
-  def perception_attribute
-    @perception_attribute ||= Eve::CharacterAttribute.find_by(attribute_name: "Perception").decorate
-  end
-
   def willpower_attribute
     @willpower_attribute ||= Eve::CharacterAttribute.find_by(attribute_name: "Willpower").decorate
+  end
+
+  def intelligence_attribute
+    @intelligence_attribute ||= Eve::CharacterAttribute.find_by(attribute_name: "Intelligence").decorate
+  end
+
+  def charisma_attribute
+    @charisma_attribute ||= Eve::CharacterAttribute.find_by(attribute_name: "Charisma").decorate
   end
 
   def skills_tree
     @skills_tree ||= SkillsTree.new(self)
   end
+
+  # def attributes
+  #   @attributes ||= CharacterAttributes.new(self)
+  # end
 
   def token_expired?
     token_expires_at <= Time.zone.now
