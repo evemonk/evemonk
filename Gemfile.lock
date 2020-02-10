@@ -196,7 +196,7 @@ GEM
       sexp_processor
     coderay (1.1.2)
     colorize (0.8.1)
-    concurrent-ruby (1.1.5)
+    concurrent-ruby (1.1.6)
     connection_pool (2.2.2)
     consistency_fail (0.3.7)
     crack (0.4.3)
