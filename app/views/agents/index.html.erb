@@ -5,7 +5,7 @@
         <li class="breadcrumb-item"><%= link_to("Home", root_path) %></li>
         <li class="breadcrumb-item"><%= link_to("My characters", characters_path) %></li>
         <li class="breadcrumb-item"><%= link_to(@character.name, character_path(@character.character_id)) %></li>
-        <li class="breadcrumb-item active" aria-current="page">Assets</li>
+        <li class="breadcrumb-item active" aria-current="page">Agents</li>
       </ol>
     </nav>
   </div>
@@ -20,12 +20,12 @@
   </li>
   <% if Setting.enabled_agents %>
     <li class="nav-item">
-      <%= link_to("Agents", character_agents_path(@character.character_id), class: "nav-link") %>
+      <%= link_to("Agents", character_agents_path(@character.character_id), class: "nav-link active") %>
     </li>
   <% end %>
   <% if Setting.enabled_assets %>
     <li class="nav-item">
-      <%= link_to("Assets", character_assets_path(@character.character_id), class: "nav-link active") %>
+      <%= link_to("Assets", character_assets_path(@character.character_id), class: "nav-link") %>
     </li>
   <% end %>
   <li class="nav-item">
@@ -66,7 +66,7 @@
 <hr>
 
 <div class="row">
-  <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+  <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
     <div class="clearfix">
       <h4 class="float-left"><%= @character.name %></h4>
       <%= form_with(url: character_path(@character.character_id), model: @character, class: "float-right") do %>
@@ -98,7 +98,7 @@
           </li>
         <% end %>
         <li class="list-group-item text-break">
-          SP: <%= @character.total_sp_formatted %>
+          Total SP: <%= @character.full_sp_formatted %>
         </li>
         <% if @character.unallocated_sp && @character.unallocated_sp > 0 %>
           <li class="list-group-item text-break">
@@ -120,29 +120,31 @@
     </div>
   </div>
 
-  <div class="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8">
-    <table class="table">
-      <% @assets.each do |asset| %>
-        <tr>
-          <td>
-            <% if asset.type %>
-              <%= image_tag(asset.type&.icon_tiny,
-                            alt: asset.type&.name,
-                            class: "rounded border",
-                            size: "34x34",
-                            loading: "lazy") %>
-            <% end %>
-          </td>
-          <td><%= asset.type&.name %></td>
-          <td><%= asset.is_blueprint_copy %></td>
-          <td><%= asset.is_singleton %></td>
-          <td><%= asset.item_id %></td>
-          <td><%= asset.location_flag %></td>
-          <td><%= asset.location_id %></td>
-          <td><%= asset.location_type %></td>
-          <td><%= asset.quantity %></td>
-        </tr>
-      <% end %>
-    </table>
+  <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+    <h4 class="text-center">Agents</h4>
+
+    <% @character.agents_standings.each_with_index do |standing, index| %>
+      <div class="card <%= index % 2 == 0 ? "bg-dark" : "bg-transparent" %> rounded-0 border-secondary <%= index == 0 ? "" : "border-top-0" %>">
+        <div class="row no-gutters">
+          <div class="col-2 text-center m-auto">
+            <%= image_tag(standing.standingable&.icon_tiny,
+                          alt: standing.standingable&.name,
+                          class: "rounded border",
+                          size: "34x34",
+                          loading: "lazy") %>
+          </div>
+          <div class="col-8">
+            <div class="card-body">
+              <div class="card-text">
+                <%= standing.standingable&.name %>
+              </div>
+            </div>
+          </div>
+          <div class="col-2 text-center m-auto">
+            <%= standing.standing %>
+          </div>
+        </div>
+      </div>
+    <% end %>
   </div>
 </div>

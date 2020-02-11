@@ -15,7 +15,7 @@ GIT
 
 GIT
   remote: https://github.com/rails/rails.git
-  revision: 1bc10505aa55ef5002086761b8d7b14920ea5ea3
+  revision: 1605a631fb7b590117604d0208a461e55aa3df2e
   branch: 6-0-stable
   specs:
     actioncable (6.0.2.1)
@@ -366,7 +366,7 @@ GEM
     mixlib-cli (2.1.5)
     mixlib-config (3.0.6)
       tomlrb
-    mobility (0.8.9)
+    mobility (0.8.10)
       i18n (>= 0.6.10, < 2)
       request_store (~> 1.0)
     msgpack (1.3.3)
@@ -426,7 +426,7 @@ GEM
     puma (4.3.1)
       nio4r (~> 2.0)
     raabro (1.1.6)
-    rack (2.2.1)
+    rack (2.2.2)
     rack-cors (1.1.1)
       rack (>= 2.0.0)
     rack-health (0.1.2)

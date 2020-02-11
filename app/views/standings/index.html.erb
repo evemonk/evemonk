@@ -18,6 +18,11 @@
   <li class="nav-item">
     <%= link_to("Employment History", character_employment_histories_path(@character.character_id), class: "nav-link") %>
   </li>
+  <% if Setting.enabled_agents %>
+    <li class="nav-item">
+      <%= link_to("Agents", character_agents_path(@character.character_id), class: "nav-link") %>
+    </li>
+  <% end %>
   <% if Setting.enabled_assets %>
     <li class="nav-item">
       <%= link_to("Assets", character_assets_path(@character.character_id), class: "nav-link") %>
@@ -93,7 +98,7 @@
           </li>
         <% end %>
         <li class="list-group-item text-break">
-          SP: <%= @character.total_sp_formatted %>
+          Total SP: <%= @character.full_sp_formatted %>
         </li>
         <% if @character.unallocated_sp && @character.unallocated_sp > 0 %>
           <li class="list-group-item text-break">

@@ -43,6 +43,8 @@ Rails.application.routes.draw do
     resources :mails, only: :index
 
     resources :standings, only: :index
+
+    resources :agents, only: :index
   end
 
   resource :profile, only: :show
