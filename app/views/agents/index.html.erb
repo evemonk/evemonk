@@ -66,7 +66,7 @@
 <hr>
 
 <div class="row">
-  <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+  <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
     <div class="clearfix">
       <h4 class="float-left"><%= @character.name %></h4>
       <%= form_with(url: character_path(@character.character_id), model: @character, class: "float-right") do %>
@@ -120,18 +120,31 @@
     </div>
   </div>
 
-  <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+  <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
     <h4 class="text-center">Agents</h4>
 
-    <table class="table table-striped table-bordered">
-      <tbody>
-      <% @character.agents_standings.each do |standing| %>
-        <tr>
-          <td><%= standing.standingable.name %></td>
-          <td><%= standing.standing.to_s %></td>
-        </tr>
-      <% end %>
-      </tbody>
-    </table>
+    <% @character.agents_standings.each_with_index do |standing, index| %>
+      <div class="card <%= index % 2 == 0 ? "bg-dark" : "bg-transparent" %> rounded-0 border-secondary <%= index == 0 ? "" : "border-top-0" %>">
+        <div class="row no-gutters">
+          <div class="col-2 text-center m-auto">
+            <%= image_tag(standing.standingable&.icon_tiny,
+                          alt: standing.standingable&.name,
+                          class: "rounded border",
+                          size: "34x34",
+                          loading: "lazy") %>
+          </div>
+          <div class="col-8">
+            <div class="card-body">
+              <div class="card-text">
+                <%= standing.standingable&.name %>
+              </div>
+            </div>
+          </div>
+          <div class="col-2 text-center m-auto">
+            <%= standing.standing %>
+          </div>
+        </div>
+      </div>
+    <% end %>
   </div>
 </div>
