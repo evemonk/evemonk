@@ -2,21 +2,28 @@ FROM ruby:2.7.0-slim
 
 LABEL maintainer="Igor Zubkov <igor.zubkov@gmail.com>"
 
-RUN apt-get update -y && \
-    apt-get dist-upgrade -y && \
-    apt-get install gnupg2 git gcc g++ make wget curl wait-for-it libpq-dev --no-install-recommends -y
+RUN set -eux; \
+    apt-get update -y ; \
+    apt-get dist-upgrade -y ; \
+    apt-get install gnupg2 git gcc g++ make wget curl wait-for-it libpq-dev --no-install-recommends -y ; \
+    apt-get autoremove -y ; \
+    apt-get clean -y ; \
+    rm -rf /var/lib/apt/lists/*
 
-RUN sh -c 'curl -sL https://deb.nodesource.com/setup_12.x | bash -'
+RUN set -eux; \
+    sh -c 'curl -sL https://deb.nodesource.com/setup_12.x | bash -'
 
-RUN sh -c 'curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -'
+RUN set -eux; \
+    sh -c 'curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -'
 
-RUN sh -c 'echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list'
+RUN set -eux; \
+    sh -c 'echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list'
 
-RUN apt-get update -y && \
-    apt-get install nodejs yarn --no-install-recommends -y
-
-RUN apt-get autoremove -y && \
-    apt-get clean -y && \
+RUN set -eux; \
+    apt-get update -y ; \
+    apt-get install nodejs yarn --no-install-recommends -y ; \
+    apt-get autoremove -y ; \
+    apt-get clean -y ; \
     rm -rf /var/lib/apt/lists/*
 
 RUN mkdir -p /app
@@ -65,8 +72,10 @@ ARG COMMIT=""
 
 ENV COMMIT_SHA=${COMMIT}
 
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
 RUN curl -sL https://sentry.io/get-cli/ | bash
 
-EXPOSE 3000
+EXPOSE 3000/tcp
 
-CMD ['rails', 'server', '-b', '0.0.0.0']
+CMD ["rails", "server", "-b", "0.0.0.0"]
