@@ -585,7 +585,7 @@ GEM
       unicode-display_width (~> 1.5)
       unicode_utils (~> 1.4)
     strings-ansi (0.2.0)
-    super_diff (0.4.1)
+    super_diff (0.4.2)
       attr_extras
       diff-lcs
       patience_diff
