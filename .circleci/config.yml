@@ -13,7 +13,7 @@ jobs:
           POSTGRES_USER: circleci
           POSTGRES_DB: evemonk_test
           POSTGRES_PASSWORD: ""
-      - image: docker.elastic.co/elasticsearch/elasticsearch:7.5.2
+      - image: docker.elastic.co/elasticsearch/elasticsearch:7.6.0
         environment:
           - discovery.type: single-node
     steps:
@@ -63,6 +63,6 @@ jobs:
       - run: bundle exec rails factory_bot:lint
       - run: bundle exec rake traceroute FAIL_ON_ERROR=1 || true
       - run: bundle exec rake SECRET_KEY_BASE=blablabla DB_ADAPTER=nulldb assets:precompile
-      - run: ./hadolint --ignore DL3008 --ignore DL3009 --ignore DL3028 --ignore DL4006 --ignore DL3025 Dockerfile # TODO: remove DL3028
+      - run: ./hadolint --ignore DL3008 Dockerfile
       - run: shellcheck-stable/shellcheck bin/backend.sh bin/sidekiq.sh bin/cron.sh
       - run: ./cc-test-reporter after-build

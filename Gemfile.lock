@@ -15,7 +15,7 @@ GIT
 
 GIT
   remote: https://github.com/rails/rails.git
-  revision: 1605a631fb7b590117604d0208a461e55aa3df2e
+  revision: ef76b3e1aa850f9c7bbce66f6087c9a89a69fa76
   branch: 6-0-stable
   specs:
     actioncable (6.0.2.1)
@@ -585,7 +585,7 @@ GEM
       unicode-display_width (~> 1.5)
       unicode_utils (~> 1.4)
     strings-ansi (0.2.0)
-    super_diff (0.4.1)
+    super_diff (0.4.2)
       attr_extras
       diff-lcs
       patience_diff
