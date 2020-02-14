@@ -15,7 +15,7 @@ GIT
 
 GIT
   remote: https://github.com/rails/rails.git
-  revision: ef76b3e1aa850f9c7bbce66f6087c9a89a69fa76
+  revision: 0e8a01a6808cbeb1a284e4e89c1c6e74d176e2b0
   branch: 6-0-stable
   specs:
     actioncable (6.0.2.1)
@@ -382,7 +382,7 @@ GEM
     nio4r (2.5.2)
     nokogiri (1.10.8)
       mini_portile2 (~> 2.4.0)
-    oauth2 (1.4.3)
+    oauth2 (1.4.4)
       faraday (>= 0.8, < 2.0)
       jwt (>= 1.0, < 3.0)
       multi_json (~> 1.3)
@@ -545,9 +545,9 @@ GEM
     sexp_processor (4.14.1)
     shoulda-matchers (4.2.0)
       activesupport (>= 4.2.0)
-    sidekiq (6.0.4)
+    sidekiq (6.0.5)
       connection_pool (>= 2.2.2)
-      rack (>= 2.0.0)
+      rack (~> 2.0)
       rack-protection (>= 2.0.0)
       redis (>= 4.1.0)
     simplecov (0.17.1)
@@ -626,7 +626,7 @@ GEM
       nokogiri (~> 1.6)
       rubyzip (>= 1.3.0)
       selenium-webdriver (>= 3.0, < 4.0)
-    webmock (3.8.1)
+    webmock (3.8.2)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
       hashdiff (>= 0.4.0, < 2.0.0)
