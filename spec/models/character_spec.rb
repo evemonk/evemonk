@@ -45,6 +45,8 @@ describe Character do
 
   it { should have_many(:standings).dependent(:destroy) }
 
+  it { should have_many(:character_killmails).dependent(:destroy) }
+
   describe "#factions_standings" do
     let!(:character) { create(:character) }
 

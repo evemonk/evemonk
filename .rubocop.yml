@@ -9,7 +9,7 @@ AllCops:
 Style/StringLiterals:
   EnforcedStyle: double_quotes
 
-Metrics/LineLength:
+Layout/LineLength:
   Enabled: false
 
 Style/Documentation:

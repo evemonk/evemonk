@@ -187,14 +187,27 @@ describe CharacterDecorator do
   end
 
   describe "#security_status" do
-    let(:character) do
-      build(:character,
-        security_status: 1.1234)
+    context "when security status is missing" do
+      let(:character) do
+        build(:character,
+          security_status: nil)
+      end
+
+      subject { character.decorate }
+
+      specify { expect(subject.security_status).to eq(nil) }
     end
 
-    subject { character.decorate }
+    context "when security status is present" do
+      let(:character) do
+        build(:character,
+          security_status: 1.1234)
+      end
 
-    specify { expect(subject.security_status).to eq("1.1") }
+      subject { character.decorate }
+
+      specify { expect(subject.security_status).to eq("1.1") }
+    end
   end
 
   describe "#last_remap_date" do
@@ -251,14 +264,27 @@ describe CharacterDecorator do
   end
 
   describe "#wallet_formatted" do
-    let(:character) do
-      build(:character,
-        wallet: 8252.49)
+    context "when wallet is empty" do
+      let(:character) do
+        build(:character,
+          wallet: nil)
+      end
+
+      subject { character.decorate }
+
+      specify { expect(subject.wallet_formatted).to eq("0") }
     end
 
-    subject { character.decorate }
+    context "when wallet is present" do
+      let(:character) do
+        build(:character,
+          wallet: 8252.49)
+      end
 
-    specify { expect(subject.wallet_formatted).to eq("8 252") }
+      subject { character.decorate }
+
+      specify { expect(subject.wallet_formatted).to eq("8 252") }
+    end
   end
 
   describe "#total_sp_formatted" do
