@@ -8,7 +8,8 @@ class CharacterDecorator < ApplicationDecorator
     :current_station, :loyalty_points, :character_assets, :character_implants,
     :implants, :skillqueues, :character_skills,
     :character_corporation_histories, :character_mail_labels, :standings,
-    :factions_standings, :corporations_standings, :agents_standings
+    :character_killmails, :factions_standings, :corporations_standings,
+    :agents_standings
 
   def birthday
     object.birthday&.iso8601
@@ -47,7 +48,7 @@ class CharacterDecorator < ApplicationDecorator
   end
 
   def security_status
-    object.security_status.round(1).to_s
+    object.security_status&.round(1)&.to_s
   end
 
   def last_remap_date
@@ -75,7 +76,7 @@ class CharacterDecorator < ApplicationDecorator
   end
 
   def full_sp_formatted
-    number_with_delimiter(object.total_sp + object.unallocated_sp.to_i, delimiter: " ")
+    number_with_delimiter(object.total_sp.to_i + object.unallocated_sp.to_i, delimiter: " ")
   end
 
   # def neural_remap_available
