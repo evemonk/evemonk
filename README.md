@@ -34,7 +34,7 @@ Mobile first design.
 * RubyGems 3.1.2
 * Bundler 2.1.4
 * Ruby on Rails 6-0-stable
-* PostgreSQL 12.1
+* PostgreSQL 12.2
 * Redis 5.0.7
 * Elasticsearch 7.6.0
 * Node 12.16.0
