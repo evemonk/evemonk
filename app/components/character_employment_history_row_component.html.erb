@@ -1,0 +1,23 @@
+<%# In some cases we don't have corporation yet in db %>
+<% if corporation %>
+  <tr>
+    <td class="align-middle text-center border-right-0 m-0 p-2">
+      <%= image_tag(corporation.icon_tiny,
+                    alt: corporation.name,
+                    class: "rounded border",
+                    size: "34x34",
+                    loading: "lazy") %>
+    </td>
+    <td class="align-middle text-break border-left-0">
+      <%= link_to(corporation.name, universe_corporation_path(corporation.corporation_id)) %>
+    </td>
+    <td class="align-middle text-right">
+      <%= time_ago_in_words(start_date) %>
+    </td>
+  </tr>
+<% else %>
+  <tr>
+    <td colspan="2">&nbsp;</td>
+    <td class="text-right"><%= time_ago_in_words(start_date) %></td>
+  </tr>
+<% end %>
