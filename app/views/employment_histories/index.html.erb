@@ -133,29 +133,9 @@
 
       <tbody>
         <% @character.character_corporation_histories.each do |record| %>
-          <%# In some cases we don't have corporation yet in db %>
-          <% if record.corporation %>
-            <tr>
-              <td class="align-middle text-center border-right-0 m-0 p-2">
-                <%= image_tag(record.corporation.icon_tiny,
-                              alt: record.corporation.name,
-                              class: "rounded border",
-                              size: "34x34",
-                              loading: "lazy") %>
-              </td>
-              <td class="align-middle text-break border-left-0">
-                <%= link_to(record.corporation.name, universe_corporation_path(record.corporation.corporation_id)) %>
-              </td>
-              <td class="align-middle text-right">
-                <%= time_ago_in_words(record.start_date) %>
-              </td>
-            </tr>
-          <% else %>
-            <tr>
-              <td colspan="2">&nbsp;</td>
-              <td class="text-right"><%= time_ago_in_words(record.start_date) %></td>
-            </tr>
-          <% end %>
+          <%= render(CharacterEmploymentHistoryRowComponent.new(
+              corporation: record.corporation,
+              start_date: record.start_date)) %>
         <% end %>
       </tbody>
     </table>
