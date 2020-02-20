@@ -656,7 +656,7 @@ GEM
     yabeda-rails (0.4.0)
       rails
       yabeda (~> 0.4)
-    yabeda-sidekiq (0.2.0)
+    yabeda-sidekiq (0.5.0)
       sidekiq
       yabeda (~> 0.2)
     zeitwerk (2.2.2)
