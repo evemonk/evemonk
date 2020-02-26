@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CharacterEmploymentHistoryRowComponent < ActionView::Component::Base
   attr_reader :corporation, :start_date
 
