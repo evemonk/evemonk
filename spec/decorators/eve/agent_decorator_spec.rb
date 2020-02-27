@@ -18,13 +18,13 @@ describe Eve::AgentDecorator do
     context "when Setting.use_image_proxy is true" do
       before { Setting.use_image_proxy = true }
 
-      specify { expect(subject.icon_tiny).to eq("https://imageproxy.evemonk.com/https://images.evetech.net/characters/3010637/portrait?size=32&tenant=tranquility") }
+      specify { expect(subject.icon_tiny).to eq("https://imageproxy.evemonk.com/https://images.evetech.net/characters/3010637/portrait?size=32") }
     end
 
     context "when Setting.use_image_proxy is false" do
       before { Setting.use_image_proxy = false }
 
-      specify { expect(subject.icon_tiny).to eq("https://images.evetech.net/characters/3010637/portrait?size=32&tenant=tranquility") }
+      specify { expect(subject.icon_tiny).to eq("https://images.evetech.net/characters/3010637/portrait?size=32") }
     end
   end
 
@@ -39,13 +39,13 @@ describe Eve::AgentDecorator do
     context "when Setting.use_image_proxy is true" do
       before { Setting.use_image_proxy = true }
 
-      specify { expect(subject.icon_small).to eq("https://imageproxy.evemonk.com/https://images.evetech.net/characters/3010637/portrait?size=64&tenant=tranquility") }
+      specify { expect(subject.icon_small).to eq("https://imageproxy.evemonk.com/https://images.evetech.net/characters/3010637/portrait?size=64") }
     end
 
     context "when Setting.use_image_proxy is false" do
       before { Setting.use_image_proxy = false }
 
-      specify { expect(subject.icon_small).to eq("https://images.evetech.net/characters/3010637/portrait?size=64&tenant=tranquility") }
+      specify { expect(subject.icon_small).to eq("https://images.evetech.net/characters/3010637/portrait?size=64") }
     end
   end
 
@@ -60,13 +60,13 @@ describe Eve::AgentDecorator do
     context "when Setting.use_image_proxy is true" do
       before { Setting.use_image_proxy = true }
 
-      specify { expect(subject.icon_medium).to eq("https://imageproxy.evemonk.com/https://images.evetech.net/characters/3010637/portrait?size=128&tenant=tranquility") }
+      specify { expect(subject.icon_medium).to eq("https://imageproxy.evemonk.com/https://images.evetech.net/characters/3010637/portrait?size=128") }
     end
 
     context "when Setting.use_image_proxy is false" do
       before { Setting.use_image_proxy = false }
 
-      specify { expect(subject.icon_medium).to eq("https://images.evetech.net/characters/3010637/portrait?size=128&tenant=tranquility") }
+      specify { expect(subject.icon_medium).to eq("https://images.evetech.net/characters/3010637/portrait?size=128") }
     end
   end
 
@@ -81,13 +81,13 @@ describe Eve::AgentDecorator do
     context "when Setting.use_image_proxy is true" do
       before { Setting.use_image_proxy = true }
 
-      specify { expect(subject.icon_large).to eq("https://imageproxy.evemonk.com/https://images.evetech.net/characters/3010637/portrait?size=256&tenant=tranquility") }
+      specify { expect(subject.icon_large).to eq("https://imageproxy.evemonk.com/https://images.evetech.net/characters/3010637/portrait?size=256") }
     end
 
     context "when Setting.use_image_proxy is false" do
       before { Setting.use_image_proxy = false }
 
-      specify { expect(subject.icon_large).to eq("https://images.evetech.net/characters/3010637/portrait?size=256&tenant=tranquility") }
+      specify { expect(subject.icon_large).to eq("https://images.evetech.net/characters/3010637/portrait?size=256") }
     end
   end
 
@@ -102,13 +102,13 @@ describe Eve::AgentDecorator do
     context "when Setting.use_image_proxy is true" do
       before { Setting.use_image_proxy = true }
 
-      specify { expect(subject.icon_huge).to eq("https://imageproxy.evemonk.com/https://images.evetech.net/characters/3010637/portrait?size=512&tenant=tranquility") }
+      specify { expect(subject.icon_huge).to eq("https://imageproxy.evemonk.com/https://images.evetech.net/characters/3010637/portrait?size=512") }
     end
 
     context "when Setting.use_image_proxy is false" do
       before { Setting.use_image_proxy = false }
 
-      specify { expect(subject.icon_huge).to eq("https://images.evetech.net/characters/3010637/portrait?size=512&tenant=tranquility") }
+      specify { expect(subject.icon_huge).to eq("https://images.evetech.net/characters/3010637/portrait?size=512") }
     end
   end
 
@@ -123,13 +123,13 @@ describe Eve::AgentDecorator do
     context "when Setting.use_image_proxy is true" do
       before { Setting.use_image_proxy = true }
 
-      specify { expect(subject.icon_gigantic).to eq("https://imageproxy.evemonk.com/https://images.evetech.net/characters/3010637/portrait?size=1024&tenant=tranquility") }
+      specify { expect(subject.icon_gigantic).to eq("https://imageproxy.evemonk.com/https://images.evetech.net/characters/3010637/portrait?size=1024") }
     end
 
     context "when Setting.use_image_proxy is false" do
       before { Setting.use_image_proxy = false }
 
-      specify { expect(subject.icon_gigantic).to eq("https://images.evetech.net/characters/3010637/portrait?size=1024&tenant=tranquility") }
+      specify { expect(subject.icon_gigantic).to eq("https://images.evetech.net/characters/3010637/portrait?size=1024") }
     end
   end
 end
