@@ -9,7 +9,8 @@ module Eve
       EveOnline::Exceptions::BadGateway,
       EveOnline::Exceptions::InternalServerError,
       OpenSSL::SSL::SSLError,
-      Faraday::Error::TimeoutError
+      Faraday::Error::TimeoutError,
+      Faraday::ConnectionFailed
 
     def perform(stargate_id)
       Eve::StargateImporter.new(stargate_id).import

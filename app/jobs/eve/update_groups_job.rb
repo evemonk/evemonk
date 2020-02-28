@@ -9,7 +9,8 @@ module Eve
       EveOnline::Exceptions::BadGateway,
       EveOnline::Exceptions::InternalServerError,
       OpenSSL::SSL::SSLError,
-      Faraday::Error::TimeoutError
+      Faraday::Error::TimeoutError,
+      Faraday::ConnectionFailed
 
     def perform(page = 1)
       Eve::GroupsImporter.new(page).import
