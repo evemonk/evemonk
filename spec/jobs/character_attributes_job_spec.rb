@@ -3,7 +3,7 @@
 require "rails_helper"
 
 describe CharacterAttributesJob do
-  it { expect(described_class.queue_name).to eq("default") }
+  it { expect(described_class.queue_name).to eq("important") }
 
   describe "#perform" do
     let(:character_id) { double }
