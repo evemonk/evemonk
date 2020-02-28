@@ -21,9 +21,9 @@ describe Api::RequestPasswordResetsController do
       before do
         post :create, params: {
           request_password_reset: {
-            email: "me@example.com",
+            email: "me@example.com"
           },
-          format: :json,
+          format: :json
         }
       end
 
@@ -45,9 +45,9 @@ describe Api::RequestPasswordResetsController do
       before do
         post :create, params: {
           request_password_reset: {
-            email: "me@example.com",
+            email: "me@example.com"
           },
-          format: :json,
+          format: :json
         }
       end
 

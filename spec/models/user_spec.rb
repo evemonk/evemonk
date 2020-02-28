@@ -12,7 +12,7 @@ describe User do
                                                   :registerable,
                                                   :validatable,
                                                   :confirmable,
-                                                  :trackable,])
+                                                  :trackable])
   }
 
   it { should have_many(:sessions).dependent(:destroy) }
