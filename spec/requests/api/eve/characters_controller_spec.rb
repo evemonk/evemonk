@@ -107,7 +107,7 @@ describe Api::Eve::CharactersController do
                                                   "medium" => "https://imageproxy.evemonk.com/https://images.evetech.net/characters/123123123/portrait?size=128",
                                                   "large" => "https://imageproxy.evemonk.com/https://images.evetech.net/characters/123123123/portrait?size=256",
                                                   "huge" => "https://imageproxy.evemonk.com/https://images.evetech.net/characters/123123123/portrait?size=512",
-                                                  "gigantic" => "https://imageproxy.evemonk.com/https://images.evetech.net/characters/123123123/portrait?size=1024",
+                                                  "gigantic" => "https://imageproxy.evemonk.com/https://images.evetech.net/characters/123123123/portrait?size=1024"
                                                 },
                                                 "birthday" => "2015-05-03T19:45:17Z",
                                                 "description" => "Character description",
@@ -120,7 +120,7 @@ describe Api::Eve::CharactersController do
                                                   "icon" => {
                                                     "tiny" => "https://imageproxy.evemonk.com/https://images.evetech.net/alliances/123/logo?size=32",
                                                     "small" => "https://imageproxy.evemonk.com/https://images.evetech.net/alliances/123/logo?size=64",
-                                                    "medium" => "https://imageproxy.evemonk.com/https://images.evetech.net/alliances/123/logo?size=128",
+                                                    "medium" => "https://imageproxy.evemonk.com/https://images.evetech.net/alliances/123/logo?size=128"
                                                   },
                                                   "creator_corporation_id" => 2222,
                                                   "creator_id" => 3333,
@@ -130,7 +130,7 @@ describe Api::Eve::CharactersController do
                                                   "name" => "Alliance name",
                                                   "ticker" => "ALLIANCE_TICKER",
                                                   "corporations_count" => 1,
-                                                  "characters_count" => 2000,
+                                                  "characters_count" => 2000
                                                 },
                                                 "ancestry" => {
                                                   "id" => 10,
@@ -138,7 +138,7 @@ describe Api::Eve::CharactersController do
                                                   "name" => "Ancestry name",
                                                   "short_description" => "Ancestry short description",
                                                   "description" => "Ancestry description",
-                                                  "icon_id" => 14,
+                                                  "icon_id" => 14
                                                 },
                                                 "bloodline" => {
                                                   "id" => 12,
@@ -151,7 +151,7 @@ describe Api::Eve::CharactersController do
                                                   "memory" => 24,
                                                   "perception" => 21,
                                                   "willpower" => 22,
-                                                  "ship_type_id" => 30,
+                                                  "ship_type_id" => 30
                                                 },
                                                 "corporation" => {
                                                   "id" => 456,
@@ -159,7 +159,7 @@ describe Api::Eve::CharactersController do
                                                     "tiny" => "https://imageproxy.evemonk.com/https://images.evetech.net/corporations/456/logo?size=32",
                                                     "small" => "https://imageproxy.evemonk.com/https://images.evetech.net/corporations/456/logo?size=64",
                                                     "medium" => "https://imageproxy.evemonk.com/https://images.evetech.net/corporations/456/logo?size=128",
-                                                    "large" => "https://imageproxy.evemonk.com/https://images.evetech.net/corporations/456/logo?size=256",
+                                                    "large" => "https://imageproxy.evemonk.com/https://images.evetech.net/corporations/456/logo?size=256"
                                                   },
                                                   "name" => "Character corporation name",
                                                   "description" => "Character corporation description",
@@ -174,7 +174,7 @@ describe Api::Eve::CharactersController do
                                                   "creator_id" => 4321,
                                                   "faction_id" => 5555,
                                                   "home_station_id" => 999,
-                                                  "war_eligible" => false,
+                                                  "war_eligible" => false
                                                 },
                                                 "faction" => {
                                                   "id" => 5555,
@@ -186,14 +186,14 @@ describe Api::Eve::CharactersController do
                                                   "size_factor" => "2.0",
                                                   "station_count" => 10,
                                                   "station_system_count" => 100,
-                                                  "is_unique" => true,
+                                                  "is_unique" => true
                                                 },
                                                 "race" => {
                                                   "id" => 123,
                                                   "name" => "Race name",
                                                   "description" => "Race description",
-                                                  "alliance_id" => 123,
-                                                },
+                                                  "alliance_id" => 123
+                                                }
                                               }])
     end
   end
@@ -296,7 +296,7 @@ describe Api::Eve::CharactersController do
                                                 "medium" => "https://imageproxy.evemonk.com/https://images.evetech.net/characters/123123123/portrait?size=128",
                                                 "large" => "https://imageproxy.evemonk.com/https://images.evetech.net/characters/123123123/portrait?size=256",
                                                 "huge" => "https://imageproxy.evemonk.com/https://images.evetech.net/characters/123123123/portrait?size=512",
-                                                "gigantic" => "https://imageproxy.evemonk.com/https://images.evetech.net/characters/123123123/portrait?size=1024",
+                                                "gigantic" => "https://imageproxy.evemonk.com/https://images.evetech.net/characters/123123123/portrait?size=1024"
                                               },
                                               "birthday" => "2015-05-03T19:45:17Z",
                                               "description" => "Character description",
@@ -309,7 +309,7 @@ describe Api::Eve::CharactersController do
                                                 "icon" => {
                                                   "tiny" => "https://imageproxy.evemonk.com/https://images.evetech.net/alliances/123/logo?size=32",
                                                   "small" => "https://imageproxy.evemonk.com/https://images.evetech.net/alliances/123/logo?size=64",
-                                                  "medium" => "https://imageproxy.evemonk.com/https://images.evetech.net/alliances/123/logo?size=128",
+                                                  "medium" => "https://imageproxy.evemonk.com/https://images.evetech.net/alliances/123/logo?size=128"
                                                 },
                                                 "creator_corporation_id" => 2222,
                                                 "creator_id" => 3333,
@@ -319,7 +319,7 @@ describe Api::Eve::CharactersController do
                                                 "name" => "Alliance name",
                                                 "ticker" => "ALLIANCE_TICKER",
                                                 "corporations_count" => 1,
-                                                "characters_count" => 2000,
+                                                "characters_count" => 2000
                                               },
                                               "ancestry" => {
                                                 "id" => 10,
@@ -327,7 +327,7 @@ describe Api::Eve::CharactersController do
                                                 "name" => "Ancestry name",
                                                 "short_description" => "Ancestry short description",
                                                 "description" => "Ancestry description",
-                                                "icon_id" => 14,
+                                                "icon_id" => 14
                                               },
                                               "bloodline" => {
                                                 "id" => 12,
@@ -340,7 +340,7 @@ describe Api::Eve::CharactersController do
                                                 "memory" => 24,
                                                 "perception" => 21,
                                                 "willpower" => 22,
-                                                "ship_type_id" => 30,
+                                                "ship_type_id" => 30
                                               },
                                               "corporation" => {
                                                 "id" => 456,
@@ -348,7 +348,7 @@ describe Api::Eve::CharactersController do
                                                   "tiny" => "https://imageproxy.evemonk.com/https://images.evetech.net/corporations/456/logo?size=32",
                                                   "small" => "https://imageproxy.evemonk.com/https://images.evetech.net/corporations/456/logo?size=64",
                                                   "medium" => "https://imageproxy.evemonk.com/https://images.evetech.net/corporations/456/logo?size=128",
-                                                  "large" => "https://imageproxy.evemonk.com/https://images.evetech.net/corporations/456/logo?size=256",
+                                                  "large" => "https://imageproxy.evemonk.com/https://images.evetech.net/corporations/456/logo?size=256"
                                                 },
                                                 "name" => "Character corporation name",
                                                 "description" => "Character corporation description",
@@ -363,7 +363,7 @@ describe Api::Eve::CharactersController do
                                                 "creator_id" => 4321,
                                                 "faction_id" => 5555,
                                                 "home_station_id" => 999,
-                                                "war_eligible" => false,
+                                                "war_eligible" => false
                                               },
                                               "faction" => {
                                                 "id" => 5555,
@@ -375,13 +375,13 @@ describe Api::Eve::CharactersController do
                                                 "station_count" => 10,
                                                 "station_system_count" => 100,
                                                 "size_factor" => "2.0",
-                                                "is_unique" => true,
+                                                "is_unique" => true
                                               },
                                               "race" => {
                                                 "id" => 123,
                                                 "alliance_id" => 123,
                                                 "name" => "Race name",
-                                                "description" => "Race description",
+                                                "description" => "Race description"
                                               })
     end
 

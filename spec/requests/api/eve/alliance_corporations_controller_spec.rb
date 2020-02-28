@@ -93,7 +93,7 @@ describe Api::Eve::AllianceCorporationsController do
                                                   "tiny" => "https://imageproxy.evemonk.com/https://images.evetech.net/corporations/456/logo?size=32",
                                                   "small" => "https://imageproxy.evemonk.com/https://images.evetech.net/corporations/456/logo?size=64",
                                                   "medium" => "https://imageproxy.evemonk.com/https://images.evetech.net/corporations/456/logo?size=128",
-                                                  "large" => "https://imageproxy.evemonk.com/https://images.evetech.net/corporations/456/logo?size=256",
+                                                  "large" => "https://imageproxy.evemonk.com/https://images.evetech.net/corporations/456/logo?size=256"
                                                 },
                                                 "name" => "Character corporation name",
                                                 "description" => "Character corporation description",
@@ -114,7 +114,7 @@ describe Api::Eve::AllianceCorporationsController do
                                                   "icon" => {
                                                     "tiny" => "https://imageproxy.evemonk.com/https://images.evetech.net/alliances/123/logo?size=32",
                                                     "small" => "https://imageproxy.evemonk.com/https://images.evetech.net/alliances/123/logo?size=64",
-                                                    "medium" => "https://imageproxy.evemonk.com/https://images.evetech.net/alliances/123/logo?size=128",
+                                                    "medium" => "https://imageproxy.evemonk.com/https://images.evetech.net/alliances/123/logo?size=128"
                                                   },
                                                   "creator_corporation_id" => 2222,
                                                   "creator_id" => 3333,
@@ -124,7 +124,7 @@ describe Api::Eve::AllianceCorporationsController do
                                                   "name" => "Alliance name",
                                                   "ticker" => "ALLIANCE_TICKER",
                                                   "corporations_count" => 1,
-                                                  "characters_count" => 2000,
+                                                  "characters_count" => 2000
                                                 },
                                                 "ceo" => {
                                                   "id" => 1234,
@@ -134,7 +134,7 @@ describe Api::Eve::AllianceCorporationsController do
                                                     "medium" => "https://imageproxy.evemonk.com/https://images.evetech.net/characters/1234/portrait?size=128",
                                                     "large" => "https://imageproxy.evemonk.com/https://images.evetech.net/characters/1234/portrait?size=256",
                                                     "huge" => "https://imageproxy.evemonk.com/https://images.evetech.net/characters/1234/portrait?size=512",
-                                                    "gigantic" => "https://imageproxy.evemonk.com/https://images.evetech.net/characters/1234/portrait?size=1024",
+                                                    "gigantic" => "https://imageproxy.evemonk.com/https://images.evetech.net/characters/1234/portrait?size=1024"
                                                   },
                                                   "alliance_id" => 123,
                                                   "ancestry_id" => 10,
@@ -147,7 +147,7 @@ describe Api::Eve::AllianceCorporationsController do
                                                   "name" => "CEO name",
                                                   "race_id" => 123,
                                                   "security_status" => "1.1",
-                                                  "title" => "CEO title",
+                                                  "title" => "CEO title"
                                                 },
                                                 "creator" => {
                                                   "id" => 4321,
@@ -157,7 +157,7 @@ describe Api::Eve::AllianceCorporationsController do
                                                     "medium" => "https://imageproxy.evemonk.com/https://images.evetech.net/characters/4321/portrait?size=128",
                                                     "large" => "https://imageproxy.evemonk.com/https://images.evetech.net/characters/4321/portrait?size=256",
                                                     "huge" => "https://imageproxy.evemonk.com/https://images.evetech.net/characters/4321/portrait?size=512",
-                                                    "gigantic" => "https://imageproxy.evemonk.com/https://images.evetech.net/characters/4321/portrait?size=1024",
+                                                    "gigantic" => "https://imageproxy.evemonk.com/https://images.evetech.net/characters/4321/portrait?size=1024"
                                                   },
                                                   "alliance_id" => 123,
                                                   "ancestry_id" => 10,
@@ -170,7 +170,7 @@ describe Api::Eve::AllianceCorporationsController do
                                                   "name" => "Creator name",
                                                   "race_id" => 123,
                                                   "security_status" => "1.1",
-                                                  "title" => "Creator title",
+                                                  "title" => "Creator title"
                                                 },
                                                 "faction" => {
                                                   "id" => 5555,
@@ -182,8 +182,8 @@ describe Api::Eve::AllianceCorporationsController do
                                                   "station_count" => 10,
                                                   "station_system_count" => 100,
                                                   "size_factor" => "2.0",
-                                                  "is_unique" => true,
-                                                },
+                                                  "is_unique" => true
+                                                }
                                               }])
     end
 

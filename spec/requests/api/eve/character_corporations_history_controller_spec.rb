@@ -54,7 +54,7 @@ describe Api::Eve::CharacterCorporationsHistoryController do
                                                     "tiny" => "https://imageproxy.evemonk.com/https://images.evetech.net/corporations/456/logo?size=32",
                                                     "small" => "https://imageproxy.evemonk.com/https://images.evetech.net/corporations/456/logo?size=64",
                                                     "medium" => "https://imageproxy.evemonk.com/https://images.evetech.net/corporations/456/logo?size=128",
-                                                    "large" => "https://imageproxy.evemonk.com/https://images.evetech.net/corporations/456/logo?size=256",
+                                                    "large" => "https://imageproxy.evemonk.com/https://images.evetech.net/corporations/456/logo?size=256"
                                                   },
                                                   "name" => "Character corporation name",
                                                   "description" => "Character corporation description",
@@ -69,8 +69,8 @@ describe Api::Eve::CharacterCorporationsHistoryController do
                                                   "creator_id" => 4321,
                                                   "faction_id" => 5555,
                                                   "home_station_id" => 999,
-                                                  "war_eligible" => false,
-                                                },
+                                                  "war_eligible" => false
+                                                }
                                               }])
     end
 

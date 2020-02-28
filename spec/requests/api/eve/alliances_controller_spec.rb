@@ -99,7 +99,7 @@ describe Api::Eve::AlliancesController do
                                                 "icon" => {
                                                   "tiny" => "https://imageproxy.evemonk.com/https://images.evetech.net/alliances/123/logo?size=32",
                                                   "small" => "https://imageproxy.evemonk.com/https://images.evetech.net/alliances/123/logo?size=64",
-                                                  "medium" => "https://imageproxy.evemonk.com/https://images.evetech.net/alliances/123/logo?size=128",
+                                                  "medium" => "https://imageproxy.evemonk.com/https://images.evetech.net/alliances/123/logo?size=128"
                                                 },
                                                 "creator_corporation_id" => 123_123,
                                                 "creator_id" => 123_123_123,
@@ -116,7 +116,7 @@ describe Api::Eve::AlliancesController do
                                                     "tiny" => "https://imageproxy.evemonk.com/https://images.evetech.net/corporations/123123/logo?size=32",
                                                     "small" => "https://imageproxy.evemonk.com/https://images.evetech.net/corporations/123123/logo?size=64",
                                                     "medium" => "https://imageproxy.evemonk.com/https://images.evetech.net/corporations/123123/logo?size=128",
-                                                    "large" => "https://imageproxy.evemonk.com/https://images.evetech.net/corporations/123123/logo?size=256",
+                                                    "large" => "https://imageproxy.evemonk.com/https://images.evetech.net/corporations/123123/logo?size=256"
                                                   },
                                                   "name" => "Creator corporation name",
                                                   "description" => "Creator corporation description",
@@ -131,7 +131,7 @@ describe Api::Eve::AlliancesController do
                                                   "creator_id" => 4321,
                                                   "faction_id" => 5555,
                                                   "home_station_id" => 999,
-                                                  "war_eligible" => false,
+                                                  "war_eligible" => false
                                                 },
                                                 "creator" => {
                                                   "id" => 123_123_123,
@@ -141,7 +141,7 @@ describe Api::Eve::AlliancesController do
                                                     "medium" => "https://imageproxy.evemonk.com/https://images.evetech.net/characters/123123123/portrait?size=128",
                                                     "large" => "https://imageproxy.evemonk.com/https://images.evetech.net/characters/123123123/portrait?size=256",
                                                     "huge" => "https://imageproxy.evemonk.com/https://images.evetech.net/characters/123123123/portrait?size=512",
-                                                    "gigantic" => "https://imageproxy.evemonk.com/https://images.evetech.net/characters/123123123/portrait?size=1024",
+                                                    "gigantic" => "https://imageproxy.evemonk.com/https://images.evetech.net/characters/123123123/portrait?size=1024"
                                                   },
                                                   "alliance_id" => 123,
                                                   "ancestry_id" => 10,
@@ -154,7 +154,7 @@ describe Api::Eve::AlliancesController do
                                                   "name" => "Creator name",
                                                   "race_id" => 123,
                                                   "security_status" => "1.1",
-                                                  "title" => "Creator title",
+                                                  "title" => "Creator title"
                                                 },
                                                 "executor_corporation" => {
                                                   "id" => 123_123_123_123,
@@ -162,7 +162,7 @@ describe Api::Eve::AlliancesController do
                                                     "tiny" => "https://imageproxy.evemonk.com/https://images.evetech.net/corporations/123123123123/logo?size=32",
                                                     "small" => "https://imageproxy.evemonk.com/https://images.evetech.net/corporations/123123123123/logo?size=64",
                                                     "medium" => "https://imageproxy.evemonk.com/https://images.evetech.net/corporations/123123123123/logo?size=128",
-                                                    "large" => "https://imageproxy.evemonk.com/https://images.evetech.net/corporations/123123123123/logo?size=256",
+                                                    "large" => "https://imageproxy.evemonk.com/https://images.evetech.net/corporations/123123123123/logo?size=256"
                                                   },
                                                   "name" => "Executor corporation name",
                                                   "description" => "Executor corporation description",
@@ -177,7 +177,7 @@ describe Api::Eve::AlliancesController do
                                                   "creator_id" => 4321,
                                                   "faction_id" => 5555,
                                                   "home_station_id" => 999,
-                                                  "war_eligible" => false,
+                                                  "war_eligible" => false
                                                 },
                                                 "faction" => {
                                                   "id" => 777,
@@ -189,8 +189,8 @@ describe Api::Eve::AlliancesController do
                                                   "station_count" => 10,
                                                   "station_system_count" => 100,
                                                   "size_factor" => "2.0",
-                                                  "is_unique" => true,
-                                                },
+                                                  "is_unique" => true
+                                                }
                                               }])
     end
   end
@@ -285,7 +285,7 @@ describe Api::Eve::AlliancesController do
                                               "icon" => {
                                                 "tiny" => "https://imageproxy.evemonk.com/https://images.evetech.net/alliances/123/logo?size=32",
                                                 "small" => "https://imageproxy.evemonk.com/https://images.evetech.net/alliances/123/logo?size=64",
-                                                "medium" => "https://imageproxy.evemonk.com/https://images.evetech.net/alliances/123/logo?size=128",
+                                                "medium" => "https://imageproxy.evemonk.com/https://images.evetech.net/alliances/123/logo?size=128"
                                               },
                                               "creator_corporation_id" => 123_123,
                                               "creator_id" => 123_123_123,
@@ -302,7 +302,7 @@ describe Api::Eve::AlliancesController do
                                                   "tiny" => "https://imageproxy.evemonk.com/https://images.evetech.net/corporations/123123/logo?size=32",
                                                   "small" => "https://imageproxy.evemonk.com/https://images.evetech.net/corporations/123123/logo?size=64",
                                                   "medium" => "https://imageproxy.evemonk.com/https://images.evetech.net/corporations/123123/logo?size=128",
-                                                  "large" => "https://imageproxy.evemonk.com/https://images.evetech.net/corporations/123123/logo?size=256",
+                                                  "large" => "https://imageproxy.evemonk.com/https://images.evetech.net/corporations/123123/logo?size=256"
                                                 },
                                                 "name" => "Creator corporation name",
                                                 "description" => "Creator corporation description",
@@ -317,7 +317,7 @@ describe Api::Eve::AlliancesController do
                                                 "creator_id" => 4321,
                                                 "faction_id" => 5555,
                                                 "home_station_id" => 999,
-                                                "war_eligible" => false,
+                                                "war_eligible" => false
                                               },
                                               "creator" => {
                                                 "id" => 123_123_123,
@@ -327,7 +327,7 @@ describe Api::Eve::AlliancesController do
                                                   "medium" => "https://imageproxy.evemonk.com/https://images.evetech.net/characters/123123123/portrait?size=128",
                                                   "large" => "https://imageproxy.evemonk.com/https://images.evetech.net/characters/123123123/portrait?size=256",
                                                   "huge" => "https://imageproxy.evemonk.com/https://images.evetech.net/characters/123123123/portrait?size=512",
-                                                  "gigantic" => "https://imageproxy.evemonk.com/https://images.evetech.net/characters/123123123/portrait?size=1024",
+                                                  "gigantic" => "https://imageproxy.evemonk.com/https://images.evetech.net/characters/123123123/portrait?size=1024"
                                                 },
                                                 "alliance_id" => 123,
                                                 "ancestry_id" => 10,
@@ -340,7 +340,7 @@ describe Api::Eve::AlliancesController do
                                                 "name" => "Creator name",
                                                 "race_id" => 123,
                                                 "security_status" => "1.1",
-                                                "title" => "Creator title",
+                                                "title" => "Creator title"
                                               },
                                               "executor_corporation" => {
                                                 "id" => 123_123_123_123,
@@ -348,7 +348,7 @@ describe Api::Eve::AlliancesController do
                                                   "tiny" => "https://imageproxy.evemonk.com/https://images.evetech.net/corporations/123123123123/logo?size=32",
                                                   "small" => "https://imageproxy.evemonk.com/https://images.evetech.net/corporations/123123123123/logo?size=64",
                                                   "medium" => "https://imageproxy.evemonk.com/https://images.evetech.net/corporations/123123123123/logo?size=128",
-                                                  "large" => "https://imageproxy.evemonk.com/https://images.evetech.net/corporations/123123123123/logo?size=256",
+                                                  "large" => "https://imageproxy.evemonk.com/https://images.evetech.net/corporations/123123123123/logo?size=256"
                                                 },
                                                 "name" => "Executor corporation name",
                                                 "description" => "Executor corporation description",
@@ -363,7 +363,7 @@ describe Api::Eve::AlliancesController do
                                                 "creator_id" => 4321,
                                                 "faction_id" => 5555,
                                                 "home_station_id" => 999,
-                                                "war_eligible" => false,
+                                                "war_eligible" => false
                                               },
                                               "faction" => {
                                                 "id" => 777,
@@ -375,7 +375,7 @@ describe Api::Eve::AlliancesController do
                                                 "station_count" => 10,
                                                 "station_system_count" => 100,
                                                 "size_factor" => "2.0",
-                                                "is_unique" => true,
+                                                "is_unique" => true
                                               })
     end
 
