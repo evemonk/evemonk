@@ -13,7 +13,7 @@ if Rails.env.production? && ENV["SENTRY_DSN"]
                                    "EveOnline::Exceptions::ResourceNotFound",
                                    "Searchkick::ImportError",
                                    "OpenSSL::SSL::SSLError",
-                                   "Faraday::Error::TimeoutError",]
+                                   "Faraday::Error::TimeoutError"]
 
     config.silence_ready = true
 
