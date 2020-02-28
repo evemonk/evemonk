@@ -35,7 +35,7 @@ describe Sde::CharacterAttributesImporter do
         "description" => description,
         "iconID" => icon_id,
         "notes" => notes,
-        "shortDescription" => short_description,
+        "shortDescription" => short_description
       }
     end
 
