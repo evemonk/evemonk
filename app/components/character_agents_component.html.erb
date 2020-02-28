@@ -1,0 +1,9 @@
+<div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+  <h4 class="text-center">Agents</h4>
+
+  <% agents_standings.each_with_index do |standing, index| %>
+    <%= render(CharacterAgentsRowComponent.new(
+          standing: standing,
+          index: index)) %>
+  <% end %>
+</div>
