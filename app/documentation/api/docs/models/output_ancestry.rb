@@ -9,7 +9,7 @@ module Api
 
         swagger_schema :OutputAncestry do
           key :required, [:ancestry_id, :name, :bloodline_id, :description,
-                          :short_description, :icon_id,]
+                          :short_description, :icon_id]
           property :ancestry_id do
             key :type, :integer
             key :format, :int64

@@ -99,7 +99,7 @@ module Api
       # Api::Docs::Eve::CorporationCharacters,
       # Api::Docs::Eve::Characters,
 
-      self,
+      self
     ].freeze
     # :nocov:
 

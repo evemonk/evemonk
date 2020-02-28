@@ -6,7 +6,7 @@ module Eve
                              "memoryBonus",
                              "willpowerBonus",
                              "intelligenceBonus",
-                             "charismaBonus",].freeze
+                             "charismaBonus"].freeze
 
     attr_reader :implant
 
@@ -20,7 +20,7 @@ module Eve
         .where.not(value: 0.0)
         .map do |type_dogma_attribute|
         {name: type_dogma_attribute.dogma_attribute&.display_name,
-         value: type_dogma_attribute.value,}
+         value: type_dogma_attribute.value}
       end
     end
 
