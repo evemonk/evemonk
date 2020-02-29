@@ -458,7 +458,7 @@ GEM
     rails-settings-cached (2.1.1)
       rails (>= 4.2.0)
       request_store
-    rails_best_practices (1.19.5)
+    rails_best_practices (1.20.0)
       activesupport
       code_analyzer (>= 0.5.1)
       erubis
