@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_16_185638) do
+ActiveRecord::Schema.define(version: 2020_02_29_223856) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -126,6 +126,8 @@ ActiveRecord::Schema.define(version: 2020_02_16_185638) do
     t.bigint "total_sp"
     t.bigint "unallocated_sp"
     t.integer "total_unread_count", default: 0
+    t.datetime "last_clone_jump_date"
+    t.datetime "last_station_change_date"
     t.index ["alliance_id"], name: "index_characters_on_alliance_id"
     t.index ["ancestry_id"], name: "index_characters_on_ancestry_id"
     t.index ["bloodline_id"], name: "index_characters_on_bloodline_id"
