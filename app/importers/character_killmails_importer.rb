@@ -19,7 +19,7 @@ class CharacterKillmailsImporter < CharacterBaseImporter
     return unless character_scope_present?(esi.scope)
 
     esi.killmails.each do |killmail|
-      character.character_killmails.find_or_create_by(killmail.as_json)
+      character.character_killmails.find_or_create_by!(killmail.as_json)
     end
 
     import_other_pages(esi.total_pages)
