@@ -105,6 +105,34 @@ describe CharacterKillmailsImporter do
   # private methods
 
   describe "#import_other_pages" do
+    context "when page is more than 1" do
+      let(:page) { 2 }
 
+      let(:total_pages) { 2 }
+
+      before { expect(CharacterKillmailsJob).not_to receive(:perform_later) }
+
+      specify { expect { subject.send(:import_other_pages, total_pages) }.not_to raise_error }
+    end
+
+    context "when total pages is 1" do
+      let(:page) { 1 }
+
+      let(:total_pages) { 1 }
+
+      before { expect(CharacterKillmailsJob).not_to receive(:perform_later) }
+
+      specify { expect { subject.send(:import_other_pages, total_pages) }.not_to raise_error }
+    end
+
+    context "when page is 1 and total pages more than 1" do
+      let(:page) { 1 }
+
+      let(:total_pages) { 2 }
+
+      before { expect(CharacterKillmailsJob).to receive(:perform_later).with(character_id, 2) }
+
+      specify { expect { subject.send(:import_other_pages, total_pages) }.not_to raise_error }
+    end
   end
 end
