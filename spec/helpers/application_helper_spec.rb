@@ -19,9 +19,9 @@ describe ApplicationHelper do
 
     before do
       #
-      # link_to(image_tag, "/auth/eve_online_sso")
+      # link_to(image_tag, "/auth/eve_online_sso", method: :post)
       #
-      expect(helper).to receive(:link_to).with(image_tag, "/auth/eve_online_sso")
+      expect(helper).to receive(:link_to).with(image_tag, "/auth/eve_online_sso", method: :post)
     end
 
     context "without image proxy" do
