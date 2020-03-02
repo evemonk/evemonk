@@ -9,7 +9,8 @@ module Eve
       EveOnline::Exceptions::BadGateway,
       EveOnline::Exceptions::InternalServerError,
       OpenSSL::SSL::SSLError,
-      Faraday::Error::TimeoutError
+      Faraday::Error::TimeoutError,
+      Faraday::ConnectionFailed
 
     def perform(character_id)
       Eve::CharacterImporter.new(character_id).import

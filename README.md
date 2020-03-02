@@ -34,11 +34,11 @@ Mobile first design.
 * RubyGems 3.1.2
 * Bundler 2.1.4
 * Ruby on Rails 6-0-stable
-* PostgreSQL 12.1
+* PostgreSQL 12.2
 * Redis 5.0.7
 * Elasticsearch 7.6.0
-* Node 12.16.0
-* NPM 6.13.7
+* Node 12.16.1
+* NPM 6.14.1
 * Yarn 1.22.0
 * Bootstrap 4.4.1
 * Bootstrap Icons 1.0.0-alpha2
@@ -61,7 +61,7 @@ app.save!
 ## Links
 
 * [The official repository for ESI documentation](https://github.com/esi/esi-docs)
-* [EVE Swagger Interface](https://esi.evetech.net/ui/?datasource=tranquility)
+* [EVE Swagger Interface](https://esi.evetech.net/ui/)
 * [One place to hold all EVE logic recreated in ESI](https://github.com/esi/eve-glue)
 * [Eve Online Static Data Export (SDE) and Image Export Collection (IEC) downloader](https://github.com/evemonk/eveonline-sde-iec-downloader)
 

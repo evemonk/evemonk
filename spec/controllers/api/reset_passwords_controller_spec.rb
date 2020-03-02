@@ -27,9 +27,9 @@ describe Api::ResetPasswordsController do
           reset_password: {
             reset_password_token: "reset-password-token-123",
             password: "new_password",
-            password_confirmation: "new_password",
+            password_confirmation: "new_password"
           },
-          format: :json,
+          format: :json
         }
       end
 
@@ -59,9 +59,9 @@ describe Api::ResetPasswordsController do
           reset_password: {
             reset_password_token: "reset-password-token-123",
             password: "new_password",
-            password_confirmation: "new_password",
+            password_confirmation: "new_password"
           },
-          format: :json,
+          format: :json
         }
       end
 
@@ -76,9 +76,9 @@ describe Api::ResetPasswordsController do
           reset_password: {
             reset_password_token: "reset-password-token-123",
             password: "new_password",
-            password_confirmation: "new_password",
+            password_confirmation: "new_password"
           },
-          format: :html,
+          format: :html
         }
       end
 

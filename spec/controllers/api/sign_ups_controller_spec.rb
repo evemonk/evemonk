@@ -31,9 +31,9 @@ describe Api::SignUpsController do
           sign_up: {
             email: "me@example.com",
             password: "password",
-            password_confirmation: "password",
+            password_confirmation: "password"
           },
-          format: :json,
+          format: :json
         }
       end
 
@@ -65,9 +65,9 @@ describe Api::SignUpsController do
           sign_up: {
             email: "me@example.com",
             password: "password",
-            password_confirmation: "another password",
+            password_confirmation: "another password"
           },
-          format: :json,
+          format: :json
         }
       end
 
@@ -82,9 +82,9 @@ describe Api::SignUpsController do
           sign_up: {
             email: "me@example.com",
             password: "password",
-            password_confirmation: "password",
+            password_confirmation: "password"
           },
-          format: :html,
+          format: :html
         }
       end
 

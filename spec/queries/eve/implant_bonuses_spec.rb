@@ -8,7 +8,7 @@ describe Eve::ImplantBonuses do
                                                           "memoryBonus",
                                                           "willpowerBonus",
                                                           "intelligenceBonus",
-                                                          "charismaBonus",])
+                                                          "charismaBonus"])
   end
 
   let!(:eve_dogma_attribute1) do
@@ -95,7 +95,7 @@ describe Eve::ImplantBonuses do
                                              {name: "Memory Modifier", value: 3.0},
                                              {name: "Willpower Modifier", value: 3.0},
                                              {name: "Intelligence Modifier", value: 3.0},
-                                             {name: "Charisma Modifier", value: 3.0},])
+                                             {name: "Charisma Modifier", value: 3.0}])
     end
   end
 

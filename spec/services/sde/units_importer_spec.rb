@@ -29,7 +29,7 @@ describe Sde::UnitsImporter do
         "unitID" => unit_id,
         "unitName" => unit_name,
         "description" => description,
-        "displayName" => display_name,
+        "displayName" => display_name
       }
     end
 

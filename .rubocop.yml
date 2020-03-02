@@ -15,9 +15,6 @@ Layout/LineLength:
 Style/Documentation:
   Enabled: false
 
-Style/TrailingCommaInHashLiteral:
-  EnforcedStyleForMultiline: consistent_comma
-
 Bundler/OrderedGems:
   Enabled: false
 

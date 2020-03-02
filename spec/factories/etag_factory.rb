@@ -3,7 +3,7 @@
 FactoryBot.define do
   factory :etag do
     sequence :url do |n|
-      "https://esi.evetech.net/v3/alliances/#{n}/?datasource=tranquility"
+      "https://esi.evetech.net/v3/alliances/#{n}/"
     end
 
     etag { SecureRandom.hex }

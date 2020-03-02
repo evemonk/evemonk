@@ -21,7 +21,7 @@ describe Sde::AgentNamesImporter do
     let(:entry) do
       {
         "itemID" => 3_008_416,
-        "itemName" => "Antaken Kamola",
+        "itemName" => "Antaken Kamola"
       }
     end
 

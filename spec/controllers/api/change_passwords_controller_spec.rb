@@ -44,9 +44,9 @@ describe Api::ChangePasswordsController do
             password_confirmation: "new_password",
             name: "iOS session",
             device_type: "ios",
-            device_token: "token123",
+            device_token: "token123"
           },
-          format: :json,
+          format: :json
         }
       end
 
@@ -91,9 +91,9 @@ describe Api::ChangePasswordsController do
             password_confirmation: "new_password",
             name: "iOS session",
             device_type: "ios",
-            device_token: "token123",
+            device_token: "token123"
           },
-          format: :json,
+          format: :json
         }
       end
 
@@ -111,9 +111,9 @@ describe Api::ChangePasswordsController do
             password_confirmation: "new_password",
             name: "iOS session",
             device_type: "ios",
-            device_token: "token123",
+            device_token: "token123"
           },
-          format: :json,
+          format: :json
         }
       end
 
@@ -129,9 +129,9 @@ describe Api::ChangePasswordsController do
             password_confirmation: "new_password",
             name: "iOS session",
             device_type: "ios",
-            device_token: "token123",
+            device_token: "token123"
           },
-          format: :html,
+          format: :html
         }
       end
 

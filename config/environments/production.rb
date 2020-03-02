@@ -124,7 +124,7 @@ Rails.application.configure do
     user_name: ENV["SMTP_USER"],
     password: ENV["SMTP_PASSWORD"],
     authentication: "plain",
-    enable_starttls_auto: false,
+    enable_starttls_auto: false
   }
 
   config.action_mailer.default_url_options = {host: "evemonk.com", protocol: "https"}

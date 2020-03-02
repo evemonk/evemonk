@@ -51,10 +51,10 @@ describe Api::Eve::CharacterCorporationsHistoryController do
                                                 "corporation" => {
                                                   "id" => 456,
                                                   "icon" => {
-                                                    "tiny" => "https://imageproxy.evemonk.com/https://images.evetech.net/corporations/456/logo?size=32&tenant=tranquility",
-                                                    "small" => "https://imageproxy.evemonk.com/https://images.evetech.net/corporations/456/logo?size=64&tenant=tranquility",
-                                                    "medium" => "https://imageproxy.evemonk.com/https://images.evetech.net/corporations/456/logo?size=128&tenant=tranquility",
-                                                    "large" => "https://imageproxy.evemonk.com/https://images.evetech.net/corporations/456/logo?size=256&tenant=tranquility",
+                                                    "tiny" => "https://imageproxy.evemonk.com/https://images.evetech.net/corporations/456/logo?size=32",
+                                                    "small" => "https://imageproxy.evemonk.com/https://images.evetech.net/corporations/456/logo?size=64",
+                                                    "medium" => "https://imageproxy.evemonk.com/https://images.evetech.net/corporations/456/logo?size=128",
+                                                    "large" => "https://imageproxy.evemonk.com/https://images.evetech.net/corporations/456/logo?size=256"
                                                   },
                                                   "name" => "Character corporation name",
                                                   "description" => "Character corporation description",
@@ -69,8 +69,8 @@ describe Api::Eve::CharacterCorporationsHistoryController do
                                                   "creator_id" => 4321,
                                                   "faction_id" => 5555,
                                                   "home_station_id" => 999,
-                                                  "war_eligible" => false,
-                                                },
+                                                  "war_eligible" => false
+                                                }
                                               }])
     end
 

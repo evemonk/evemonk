@@ -44,7 +44,7 @@ module Eve
         name_ja: name_ja,
         name_ru: name_ru,
         name_zh: name_zh,
-        name_ko: name_ko,
+        name_ko: name_ko
       }
     end
 

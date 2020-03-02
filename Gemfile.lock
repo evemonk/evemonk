@@ -15,7 +15,7 @@ GIT
 
 GIT
   remote: https://github.com/rails/rails.git
-  revision: 0e8a01a6808cbeb1a284e4e89c1c6e74d176e2b0
+  revision: e5d692a664c963968e42c2fe385e02392e86ddae
   branch: 6-0-stable
   specs:
     actioncable (6.0.2.1)
@@ -105,7 +105,7 @@ GIT
 
 GIT
   remote: https://github.com/rspec/rspec-expectations.git
-  revision: 13fab582d6a2e857af66d1e4923fad6c94d627cc
+  revision: 866dc56065e10ddfded0078a9a108c7d115ed1ed
   branch: master
   specs:
     rspec-expectations (3.10.0.pre)
@@ -166,9 +166,9 @@ GEM
     awesome_print (1.8.0)
     bcrypt (3.1.13)
     benchmark-ips (2.7.2)
-    bootsnap (1.4.5)
+    bootsnap (1.4.6)
       msgpack (~> 1.0)
-    brakeman (4.7.2)
+    brakeman (4.8.0)
     builder (3.2.4)
     bullet (6.1.0)
       activesupport (>= 3.0.0)
@@ -237,13 +237,13 @@ GEM
       activesupport (>= 5.0)
       request_store (>= 1.0)
     dry-initializer (3.0.3)
-    elasticsearch (7.4.0)
-      elasticsearch-api (= 7.4.0)
-      elasticsearch-transport (= 7.4.0)
-    elasticsearch-api (7.4.0)
+    elasticsearch (7.5.0)
+      elasticsearch-api (= 7.5.0)
+      elasticsearch-transport (= 7.5.0)
+    elasticsearch-api (7.5.0)
       multi_json
-    elasticsearch-transport (7.4.0)
-      faraday
+    elasticsearch-transport (7.5.0)
+      faraday (>= 0.14, < 1)
       multi_json
     equatable (0.6.1)
     errbase (0.2.0)
@@ -288,10 +288,10 @@ GEM
       ffi (~> 1.0)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
-    groupdate (4.3.0)
+    groupdate (5.0.0)
       activesupport (>= 5)
-    hashdiff (1.0.0)
-    hashie (3.6.0)
+    hashdiff (1.0.1)
+    hashie (4.1.0)
     heapy (0.1.4)
     http-2 (0.10.1)
     i18n (1.8.2)
@@ -321,8 +321,8 @@ GEM
     kramdown (2.1.0)
     kramdown-parser-gfm (1.1.0)
       kramdown (~> 2.0)
-    launchy (2.4.3)
-      addressable (~> 2.3)
+    launchy (2.5.0)
+      addressable (~> 2.7)
     license_finder (6.0.0)
       bundler
       rubyzip (>= 1, < 3)
@@ -346,7 +346,7 @@ GEM
       mini_mime (>= 0.1.1)
     marcel (0.3.3)
       mimemagic (~> 0.3.2)
-    mdl (0.8.0)
+    mdl (0.9.0)
       kramdown (~> 2.0)
       kramdown-parser-gfm (~> 1.0)
       mixlib-cli (~> 2.1, >= 2.1.1)
@@ -377,10 +377,10 @@ GEM
       connection_pool (~> 2.2)
     net-http2 (0.18.2)
       http-2 (~> 0.10.1)
-    newrelic_rpm (6.8.0.360)
+    newrelic_rpm (6.9.0.363)
     niceql (0.1.25)
     nio4r (2.5.2)
-    nokogiri (1.10.8)
+    nokogiri (1.10.9)
       mini_portile2 (~> 2.4.0)
     oauth2 (1.4.4)
       faraday (>= 0.8, < 2.0)
@@ -391,8 +391,8 @@ GEM
     octokit (4.16.0)
       faraday (>= 0.9)
       sawyer (~> 0.8.0, >= 0.5.3)
-    omniauth (1.9.0)
-      hashie (>= 3.4.6, < 3.7.0)
+    omniauth (1.9.1)
+      hashie (>= 3.4.6)
       rack (>= 1.6.2, < 3)
     omniauth-eve_online-sso (0.2.0)
       omniauth-oauth2
@@ -404,7 +404,7 @@ GEM
       activerecord (>= 4.2)
       request_store (~> 1.1)
     parallel (1.19.1)
-    parser (2.7.0.2)
+    parser (2.7.0.4)
       ast (~> 2.4.0)
     parslet (1.8.2)
     pastel (0.7.3)
@@ -423,7 +423,7 @@ GEM
     pry-rails (0.3.9)
       pry (>= 0.10.4)
     public_suffix (4.0.3)
-    puma (4.3.1)
+    puma (4.3.3)
       nio4r (~> 2.0)
     raabro (1.1.6)
     rack (2.2.2)
@@ -450,13 +450,13 @@ GEM
     rails-i18n (6.0.0)
       i18n (>= 0.7, < 2)
       railties (>= 6.0.0, < 7)
-    rails-pg-extras (1.0.0)
+    rails-pg-extras (1.1.0)
       activerecord
-      ruby-pg-extras (= 1.0.0)
+      ruby-pg-extras (= 1.1.0)
     rails-settings-cached (2.1.1)
       rails (>= 4.2.0)
       request_store
-    rails_best_practices (1.19.5)
+    rails_best_practices (1.20.0)
       activesupport
       code_analyzer (>= 0.5.1)
       erubis
@@ -470,7 +470,7 @@ GEM
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     redis (4.1.3)
-    regexp_parser (1.6.0)
+    regexp_parser (1.7.0)
     request_store (1.5.0)
       rack (>= 1.4)
     require_all (3.0.0)
@@ -479,8 +479,8 @@ GEM
       railties (>= 5.0)
     rotp (5.1.0)
       addressable (~> 2.5)
-    rpush (4.2.0)
-      activesupport
+    rpush (5.0.0)
+      activesupport (>= 5.0)
       jwt (>= 1.5.6)
       multi_json (~> 1.0)
       net-http-persistent
@@ -504,11 +504,11 @@ GEM
       unicode-display_width (>= 1.4.0, < 1.7)
     rubocop-performance (1.5.2)
       rubocop (>= 0.71.0)
-    ruby-pg-extras (1.0.0)
+    ruby-pg-extras (1.1.0)
       pg
       terminal-table
     ruby-progressbar (1.10.1)
-    ruby-statistics (2.1.1)
+    ruby-statistics (2.1.2)
     ruby_dep (1.5.0)
     ruby_parser (3.14.2)
       sexp_processor (~> 4.9)
@@ -531,7 +531,7 @@ GEM
       faraday (> 0.8, < 2.0)
     scout_apm (2.6.6)
       parser
-    searchkick (4.2.1)
+    searchkick (4.3.0)
       activemodel (>= 5)
       elasticsearch (>= 6)
       hashie
@@ -543,7 +543,7 @@ GEM
     server_timing (1.0.2)
       scout_apm
     sexp_processor (4.14.1)
-    shoulda-matchers (4.2.0)
+    shoulda-matchers (4.3.0)
       activesupport (>= 4.2.0)
     sidekiq (6.0.5)
       connection_pool (>= 2.2.2)
@@ -577,7 +577,7 @@ GEM
       sprockets (>= 3.0.0)
     sql_tracker (1.2.1)
     squasher (0.6.2)
-    standard (0.1.9)
+    standard (0.2.0)
       rubocop (~> 0.79.0)
       rubocop-performance (~> 1.5.1)
     strings (0.1.8)
@@ -654,7 +654,7 @@ GEM
     yabeda-rails (0.4.0)
       rails
       yabeda (~> 0.4)
-    yabeda-sidekiq (0.2.0)
+    yabeda-sidekiq (0.5.0)
       sidekiq
       yabeda (~> 0.2)
     zeitwerk (2.2.2)

@@ -11,7 +11,7 @@ module Api
           key :required, [:faction_id, :name, :description, :solar_system_id,
                           :corporation_id, :militia_corporation_id,
                           :size_factor, :station_count, :station_system_count,
-                          :is_unique,]
+                          :is_unique]
           property :faction_id do
             key :type, :integer
             key :format, :int64

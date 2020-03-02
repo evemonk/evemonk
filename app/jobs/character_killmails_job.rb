@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class CharacterImplantsJob < ActiveJob::Base
+class CharacterKillmailsJob < ActiveJob::Base
   queue_as :important
 
   retry_on EveOnline::Exceptions::Timeout,
@@ -11,7 +11,7 @@ class CharacterImplantsJob < ActiveJob::Base
     Faraday::Error::TimeoutError,
     Faraday::ConnectionFailed
 
-  def perform(character_id)
-    CharacterImplantsImporter.new(character_id).import
+  def perform(character_id, page = 1)
+    CharacterKillmailsImporter.new(character_id, page).import
   end
 end

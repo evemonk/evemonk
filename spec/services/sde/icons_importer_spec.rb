@@ -34,7 +34,7 @@ describe Sde::IconsImporter do
         "iconFile" => icon_file,
         "obsolete" => obsolete,
         "backgrounds" => backgrounds,
-        "foregrounds" => foregrounds,
+        "foregrounds" => foregrounds
       }
     end
 

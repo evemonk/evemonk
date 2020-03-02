@@ -11,7 +11,7 @@ module Api
           key :required, [:id, :uid, :name, :description, :gender,
                           :security_status, :wallet, :charisma, :intelligence,
                           :memory, :perception, :willpower, :bonus_remaps,
-                          :created_at, :updated_at,]
+                          :created_at, :updated_at]
           property :id do
             key :type, :integer
             key :format, :int64
@@ -117,7 +117,7 @@ module Api
                           description: "Once a thriving tribal civilization, the Minmatar...",
                           race_id: 2,
                           name: "Minmatar",
-                          alliance_id: 500_002,
+                          alliance_id: 500_002
                         },
                         bloodline: {
                           bloodline_id: 4,
@@ -130,7 +130,7 @@ module Api
                           willpower: 7,
                           charisma: 6,
                           memory: 4,
-                          intelligence: 4,
+                          intelligence: 4
                         },
                         faction: {
                           faction_id: 500_002,
@@ -142,7 +142,7 @@ module Api
                           size_factor: 5.0,
                           station_count: 570,
                           station_system_count: 291,
-                          is_unique: true,
+                          is_unique: true
                         },
                         ancestry: {
                           ancestry_id: 24,
@@ -150,7 +150,7 @@ module Api
                           bloodline_id: 4,
                           description: "Millions of slaves within the Amarr Empire dream of escape...",
                           short_description: "Torn from the cold and brought to the warmth of a new life.",
-                          icon_id: 1664,
+                          icon_id: 1664
                         },
                         alliance: {
                           alliance_id: 99_005_443,
@@ -160,7 +160,7 @@ module Api
                           creator_corporation_id: 98_306_624,
                           executor_corporation_id: 98_306_624,
                           date_founded: "2015-05-03T19:45:17Z",
-                          faction_id: 500_001,
+                          faction_id: 500_001
                         },
                         corporation: {
                           corporation_id: 98_134_807,
@@ -176,7 +176,7 @@ module Api
                           corporation_url: "http://",
                           faction_id: 500_002,
                           home_station_id: 60_004_474,
-                          shares: 1000,
+                          shares: 1000
                         },
                         security_status: 1.869488166134545,
                         wallet: 409_488_252.49,

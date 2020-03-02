@@ -41,7 +41,7 @@ describe Sde::AgentsImporter do
         "isLocator" => is_locator,
         "level" => level,
         "locationID" => location_id,
-        "quality" => quality,
+        "quality" => quality
       }
     end
 

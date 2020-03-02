@@ -11,7 +11,7 @@ module Api
           key :required, [:corporation_id, :name, :ticker, :member_count,
                           :ceo_id, :alliance_id, :description, :tax_rate,
                           :date_founded, :creator_id, :corporation_url,
-                          :faction_id, :home_station_id, :shares,]
+                          :faction_id, :home_station_id, :shares]
           property :corporation_id do
             key :type, :integer
             key :format, :int64

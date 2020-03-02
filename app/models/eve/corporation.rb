@@ -38,7 +38,7 @@ module Eve
     def search_data
       {
         name: name,
-        ticker: ticker,
+        ticker: ticker
       }
     end
 

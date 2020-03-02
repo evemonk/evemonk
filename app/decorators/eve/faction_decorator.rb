@@ -9,15 +9,15 @@ module Eve
     end
 
     def icon_tiny
-      "#{imageproxy_url}https://images.evetech.net/alliances/#{faction_id}/logo?size=32&tenant=tranquility"
+      "#{imageproxy_url}https://images.evetech.net/alliances/#{faction_id}/logo?size=32"
     end
 
     def icon_small
-      "#{imageproxy_url}https://images.evetech.net/alliances/#{faction_id}/logo?size=64&tenant=tranquility"
+      "#{imageproxy_url}https://images.evetech.net/alliances/#{faction_id}/logo?size=64"
     end
 
     def icon_medium
-      "#{imageproxy_url}https://images.evetech.net/alliances/#{faction_id}/logo?size=128&tenant=tranquility"
+      "#{imageproxy_url}https://images.evetech.net/alliances/#{faction_id}/logo?size=128"
     end
   end
 end

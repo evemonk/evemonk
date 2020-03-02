@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class UpdateCharactersJob < ActiveJob::Base
-  queue_as :default
+  queue_as :important
 
   def perform
     Character.pluck(:character_id).sort.uniq.each do |character_id|

@@ -9,7 +9,7 @@ module Api
 
         swagger_schema :OutputSessionsCollection do
           key :required, [:collection, :total_pages, :current_page,
-                          :total_entries,]
+                          :total_entries]
           property :collection do
             key :type, :array
             items do
@@ -35,7 +35,7 @@ module Api
             collection: [{id: 123,
                           name: "My Computer",
                           created_at: "2016-12-12T18:35:59Z",
-                          updated_at: "2016-12-12T18:36:10Z",}],
+                          updated_at: "2016-12-12T18:36:10Z"}],
             total_pages: 4,
             current_page: 1,
             total_entries: 90

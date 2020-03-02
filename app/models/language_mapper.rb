@@ -7,5 +7,5 @@ class LanguageMapper
                ja: "ja",
                ru: "ru",
                zh: "zh",
-               ko: "ko",}.freeze
+               ko: "ko"}.freeze
 end
