@@ -18,11 +18,9 @@
   <li class="nav-item">
     <%= link_to("Employment History", character_employment_histories_path(@character.character_id), class: "nav-link") %>
   </li>
-  <% if Setting.enabled_agents %>
-    <li class="nav-item">
-      <%= link_to("Agents", character_agents_path(@character.character_id), class: "nav-link") %>
-    </li>
-  <% end %>
+  <li class="nav-item">
+    <%= link_to("Agents", character_agents_path(@character.character_id), class: "nav-link") %>
+  </li>
   <% if Setting.enabled_assets %>
     <li class="nav-item">
       <%= link_to("Assets", character_assets_path(@character.character_id), class: "nav-link") %>
@@ -69,7 +67,7 @@
   <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
     <div class="clearfix">
       <h4 class="float-left"><%= @character.name %></h4>
-      <%= form_with(url: character_path(@character.character_id), model: @character, class: "float-right") do %>
+      <%= form_with(url: character_path(@character.character_id), method: :patch, class: "float-right") do %>
         <%= button_tag(class: "btn btn-primary mb-2") do %>
           <%= image_tag("bootstrap-icons/icons/arrow-repeat.svg") %>
         <% end %>

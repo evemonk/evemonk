@@ -1,3 +1,6 @@
+<% set_meta_tags title: "My characters",
+                 description: "My characters" %>
+
 <div class="row">
   <div class="col">
     <nav aria-label="breadcrumb">
@@ -14,7 +17,7 @@
     <div id="character_<%= character.character_id %>" class="col-12 col-sm-12 col-md-8 col-lg-4 col-xl-4">
       <div class="clearfix">
         <h4 class="float-left"><%= link_to(character.name, character_path(character.character_id)) %></h4>
-        <%= form_with(url: character_path(character.character_id), model: character, class: "float-right") do %>
+        <%= form_with(url: character_path(character.character_id), method: :patch, class: "float-right") do %>
           <%= button_tag("Refresh", class: "btn btn-primary mb-2") do %>
             <%= image_tag("bootstrap-icons/icons/arrow-repeat.svg") %>
           <% end %>
