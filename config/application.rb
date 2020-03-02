@@ -35,7 +35,5 @@ module Evemonk
     config.generators.system_tests = nil
 
     config.secret_key_base = ENV["SECRET_KEY_BASE"]
-
-    config.action_view_component.preview_path = "#{Rails.root}/spec/components/previews"
   end
 end
