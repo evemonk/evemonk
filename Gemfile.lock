@@ -145,8 +145,6 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
-    actionview-component (1.12.0)
-      capybara (>= 3)
     active_attr (0.15.0)
       actionpack (>= 3.0.2, < 6.1)
       activemodel (>= 3.0.2, < 6.1)
@@ -667,7 +665,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  actionview-component
   active_record_doctor
   activerecord-nulldb-adapter
   awesome_print
