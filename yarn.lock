@@ -4551,9 +4551,9 @@ nanomatch@^1.2.9:
     to-regex "^3.0.1"
 
 needle@^2.2.1:
-  version "2.3.2"
-  resolved "https://registry.yarnpkg.com/needle/-/needle-2.3.2.tgz#3342dea100b7160960a450dc8c22160ac712a528"
-  integrity sha512-DUzITvPVDUy6vczKKYTnWc/pBZ0EnjMJnQ3y+Jo5zfKFimJs7S3HFCxCRZYB9FUZcrzUQr3WsmvZgddMEIZv6w==
+  version "2.3.3"
+  resolved "https://registry.yarnpkg.com/needle/-/needle-2.3.3.tgz#a041ad1d04a871b0ebb666f40baaf1fb47867117"
+  integrity sha512-EkY0GeSq87rWp1hoq/sH/wnTWgFVhYlnIkbJ0YJFfRgEFlz2RraCjBpFQ+vrEgEdp0ThfyHADmkChEhcb7PKyw==
   dependencies:
     debug "^3.2.6"
     iconv-lite "^0.4.4"
