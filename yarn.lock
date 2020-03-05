@@ -1150,16 +1150,16 @@ anymatch@^2.0.0:
     normalize-path "^2.1.1"
 
 apexcharts@^3.15.3:
-  version "3.16.0"
-  resolved "https://registry.yarnpkg.com/apexcharts/-/apexcharts-3.16.0.tgz#7fec05f85773c2b89a7b757cfe551a9c055807ed"
-  integrity sha512-tD7d/VJ9G2giVIOTowi89RKu4Ptp/jJdvrmkBJiaaOROCT3Wa4qyJ6QKp4dgUmpN5z0xMFxtDPaikItW2BEucw==
+  version "3.16.1"
+  resolved "https://registry.yarnpkg.com/apexcharts/-/apexcharts-3.16.1.tgz#96e6a478e71d2903562087ce2ecf2e88d4cd9a06"
+  integrity sha512-3MpUk6+clv9tGtb3OQBPRjyLc6g6nHvO2Gk1v8gBhD3tY3MiFi/RP4ItaHyW4SaqBtyK8oHugsgGlanZDTviVQ==
   dependencies:
     svg.draggable.js "^2.2.2"
     svg.easing.js "^2.0.0"
     svg.filter.js "^2.0.2"
     svg.pathmorphing.js "^0.1.3"
     svg.resize.js "^1.4.3"
-    svg.select.js "^2.1.2"
+    svg.select.js "^3.0.1"
 
 aproba@^1.0.3, aproba@^1.1.1:
   version "1.2.0"
@@ -6997,6 +6997,13 @@ svg.select.js@^2.1.2:
   integrity sha512-tH6ABEyJsAOVAhwcCjF8mw4crjXSI1aa7j2VQR8ZuJ37H2MBUbyeqYr5nEO7sSN3cy9AR9DUwNg0t/962HlDbQ==
   dependencies:
     svg.js "^2.2.5"
+
+svg.select.js@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/svg.select.js/-/svg.select.js-3.0.1.tgz#a4198e359f3825739226415f82176a90ea5cc917"
+  integrity sha512-h5IS/hKkuVCbKSieR9uQCj9w+zLHoPh+ce19bBYyqF53g6mnPB8sAtIbe1s9dh2S2fCmYX2xel1Ln3PJBbK4kw==
+  dependencies:
+    svg.js "^2.6.5"
 
 svgo@^1.0.0:
   version "1.3.2"
