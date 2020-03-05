@@ -15,6 +15,7 @@ gem "bootsnap", ">= 1.4.2", require: false
 gem "rails-i18n", "~> 6.0.0"
 gem "devise"
 gem "devise-i18n"
+gem "secure_headers"
 gem "devise_zxcvbn"
 gem "rqrcode"
 gem "meta-tags"
