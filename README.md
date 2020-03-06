@@ -36,7 +36,7 @@ Mobile first design.
 * Ruby on Rails 6-0-stable
 * PostgreSQL 12.2
 * Redis 5.0.7
-* Elasticsearch 7.6.0
+* Elasticsearch 7.6.1
 * Node 12.16.1
 * NPM 6.14.1
 * Yarn 1.22.0
