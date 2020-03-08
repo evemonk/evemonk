@@ -12,7 +12,7 @@ Rails.application.config.content_security_policy do |policy|
   # policy.font_src    :self, :https, :data
   policy.font_src "https://fonts.gstatic.com"
   # policy.img_src     :self, :https, :data
-  policy.img_src :self, "https://imageproxy.evemonk.com"
+  policy.img_src :self, "https://imageproxy.evemonk.com", "https://static.evemonk.com"
   # policy.object_src  :none
   # policy.script_src  :self, :https
   policy.script_src :self
