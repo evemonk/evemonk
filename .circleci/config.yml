@@ -50,7 +50,7 @@ jobs:
       - run: bundle exec bundle-audit update
       - run: bundle exec bundle-leak update
       - run: bundle exec bundle-audit --ignore CVE-2015-9284
-      - run: yarn audit || true
+      - run: yarn audit
       - run: bundle exec brakeman
       - run: bundle exec bundle-leak
       - run: bundle exec mdl README.md
