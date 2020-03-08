@@ -4,10 +4,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <% if Setting.use_google_analytics %>
-      <%= render "shared/google_analytics" %>
-    <% end %>
-
     <%= display_meta_tags site: "EveMonk: EVE Online management suite",
                           reverse: true %>
 
@@ -145,9 +141,5 @@
         </div>
       </div>
     </div>
-
-    <% if Setting.use_gauges %>
-      <%= render "shared/gauges" %>
-    <% end %>
   </body>
 </html>
