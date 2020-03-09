@@ -81,6 +81,9 @@ app.save!
 * [Fundamental programming with ruby examples](https://github.com/khusnetdinov/ruby.fundamental)
 * [Rails Directory Structure Guide](https://github.com/jwipeout/rails-directory-structure-guide)
 * [A free guide to HTML5 <head> elements](https://htmlhead.dev)
+* [Content Security Policy](https://developers.google.com/web/fundamentals/security/csp)
+* [CSP Evaluator](https://csp-evaluator.withgoogle.com/?csp=https://evemonk.com/)
+* [Security Headers](https://securityheaders.com/?q=https%3A%2F%2Fevemonk.com%2F&followRedirects=on)
 
 ## Author
 
