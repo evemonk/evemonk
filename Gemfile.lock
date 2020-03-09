@@ -97,7 +97,7 @@ GIT
 
 GIT
   remote: https://github.com/rspec/rspec-core.git
-  revision: da87aa0c5f25a6e6f2db6f0c8fb2a04625b80ac6
+  revision: 5de10ff73e397384a2bc243efba57900c99a5650
   branch: master
   specs:
     rspec-core (3.10.0.pre)
@@ -105,7 +105,7 @@ GIT
 
 GIT
   remote: https://github.com/rspec/rspec-expectations.git
-  revision: 866dc56065e10ddfded0078a9a108c7d115ed1ed
+  revision: 3c997d98f49731b2d28d01e070b88aef6bb3c68b
   branch: master
   specs:
     rspec-expectations (3.10.0.pre)
@@ -114,7 +114,7 @@ GIT
 
 GIT
   remote: https://github.com/rspec/rspec-mocks.git
-  revision: ae6e11d7f5100146c4b58b165975a29e2ccc60db
+  revision: 81c17e89b2722cb225d602e08b600e4a4f6148a4
   branch: master
   specs:
     rspec-mocks (3.10.0.pre)
@@ -123,7 +123,7 @@ GIT
 
 GIT
   remote: https://github.com/rspec/rspec-rails.git
-  revision: 9ab269052873c241a31404bc3bf8e672f9cf9586
+  revision: d529c435b27e52d77538bffbab3137a6d0dc61dc
   branch: master
   specs:
     rspec-rails (4.0.0.pre)
