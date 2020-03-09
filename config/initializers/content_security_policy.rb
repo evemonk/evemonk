@@ -19,6 +19,7 @@ Rails.application.config.content_security_policy do |policy|
   # policy.style_src   :self, :https
   policy.style_src :self, :unsafe_inline, "https://fonts.googleapis.com"
   # If you are using webpack-dev-server then specify webpack-dev-server host
+  policy.connect_src :self if Rails.env.production?
   policy.connect_src :self, :https, "http://localhost:3035", "ws://localhost:3035" if Rails.env.development?
 
   # Specify URI for violation reports
@@ -26,7 +27,7 @@ Rails.application.config.content_security_policy do |policy|
 end
 
 # If you are using UJS then enable automatic nonce generation
-# Rails.application.config.content_security_policy_nonce_generator = -> request { SecureRandom.base64(16) }
+Rails.application.config.content_security_policy_nonce_generator = ->(request) { SecureRandom.base64(16) }
 
 # Set the nonce only to specific directives
 # Rails.application.config.content_security_policy_nonce_directives = %w(script-src)
