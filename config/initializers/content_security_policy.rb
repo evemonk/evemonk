@@ -7,19 +7,15 @@
 # https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy
 
 Rails.application.config.content_security_policy do |policy|
+  policy.base_uri :self
   policy.default_src :none
-  # policy.default_src :self, :https
-  # policy.font_src    :self, :https, :data
   policy.font_src "https://fonts.gstatic.com"
-  # policy.img_src     :self, :https, :data
   policy.img_src :self, :data, "https://imageproxy.evemonk.com", "https://static.evemonk.com"
-  # policy.object_src  :none
-  # policy.script_src  :self, :https
   policy.script_src :self, :unsafe_inline
-  # policy.style_src   :self, :https
   policy.style_src :self, :unsafe_inline, "https://fonts.googleapis.com"
-  # If you are using webpack-dev-server then specify webpack-dev-server host
   policy.connect_src :self if Rails.env.production?
+
+  # If you are using webpack-dev-server then specify webpack-dev-server host
   policy.connect_src :self, :https, "http://localhost:3035", "ws://localhost:3035" if Rails.env.development?
 
   # Specify URI for violation reports
@@ -30,7 +26,7 @@ end
 Rails.application.config.content_security_policy_nonce_generator = ->(request) { SecureRandom.base64(16) }
 
 # Set the nonce only to specific directives
-# Rails.application.config.content_security_policy_nonce_directives = %w(script-src)
+Rails.application.config.content_security_policy_nonce_directives = %w(script-src)
 
 # Report CSP violations to a specified URI
 # For further information see the following documentation:
