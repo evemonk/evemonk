@@ -71,3 +71,6 @@ Style/Lambda:
 
 Style/ClassAndModuleChildren:
   Enabled: false
+
+Lint/UnusedBlockArgument:
+  Enabled: false
