@@ -123,7 +123,7 @@ GIT
 
 GIT
   remote: https://github.com/rspec/rspec-rails.git
-  revision: d529c435b27e52d77538bffbab3137a6d0dc61dc
+  revision: 9fb6c9c482da29b8803dd6f17b34d37a6367b8f2
   branch: master
   specs:
     rspec-rails (4.0.0.pre)
