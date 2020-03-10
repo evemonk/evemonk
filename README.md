@@ -84,6 +84,7 @@ app.save!
 * [Content Security Policy](https://developers.google.com/web/fundamentals/security/csp)
 * [CSP Evaluator](https://csp-evaluator.withgoogle.com/?csp=https://evemonk.com/)
 * [Security Headers](https://securityheaders.com/?q=https%3A%2F%2Fevemonk.com%2F&followRedirects=on)
+* [Content Security Policy - An Introduction](https://scotthelme.co.uk/content-security-policy-an-introduction/)
 
 ## Author
 
