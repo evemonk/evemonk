@@ -99,6 +99,35 @@ describe Eve::MarketPricesImporter do
   # private methods
 
   describe "#update_market_prices" do
+    let(:type_id) { double }
 
+    let(:json) { double }
+
+    let(:market_price) do
+      instance_double(EveOnline::ESI::Models::MarketPrice,
+        type_id: type_id,
+        as_json: json)
+    end
+
+    let(:esi) do
+      instance_double(EveOnline::ESI::MarketPrices,
+        market_prices: [market_price])
+    end
+
+    before do
+      expect(EveOnline::ESI::MarketPrices).to receive(:new)
+        .and_return(esi)
+    end
+
+    let(:eve_type) { instance_double(Eve::Type) }
+
+    before do
+      expect(Eve::Type).to receive(:find_or_initialize_by)
+        .with(type_id: type_id).and_return(eve_type)
+    end
+
+    before { expect(eve_type).to receive(:update!).with(json) }
+
+    specify { expect { subject.send(:update_market_prices) }.not_to raise_error }
   end
 end
