@@ -130,7 +130,7 @@ describe Eve::MarketGroupsImporter do
       specify { expect { subject.send(:import_new_market_groups) }.not_to raise_error }
     end
 
-    context "when eve alliance already imported" do
+    context "when eve market group already imported" do
       before do
         expect(Eve::MarketGroup).to receive(:exists?)
           .with(market_group_id: market_group_id)

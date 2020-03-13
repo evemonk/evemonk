@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_11_213737) do
+ActiveRecord::Schema.define(version: 2020_03_12_210553) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -472,6 +472,17 @@ ActiveRecord::Schema.define(version: 2020_03_11_213737) do
     t.index ["icon_id"], name: "index_eve_icons_on_icon_id", unique: true
   end
 
+  create_table "eve_loyalty_store_offers", force: :cascade do |t|
+    t.bigint "offer_id"
+    t.bigint "ak_cost"
+    t.bigint "isk_cost"
+    t.bigint "lp_cost"
+    t.bigint "quantity"
+    t.bigint "type_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "eve_market_groups", force: :cascade do |t|
     t.text "description_en"
     t.text "description_de"
@@ -692,6 +703,8 @@ ActiveRecord::Schema.define(version: 2020_03_11_213737) do
     t.string "name_zh"
     t.string "name_ko"
     t.float "base_price"
+    t.float "adjusted_price"
+    t.float "average_price"
     t.index ["type_id"], name: "index_eve_types_on_type_id", unique: true
   end
 
