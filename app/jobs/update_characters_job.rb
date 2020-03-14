@@ -7,5 +7,7 @@ class UpdateCharactersJob < ActiveJob::Base
     Character.pluck(:character_id).sort.uniq.each do |character_id|
       UpdateCharacterInfoService.new(character_id).execute
     end
+
+    Eve::UpdateMarketPricesJob.perform_later
   end
 end

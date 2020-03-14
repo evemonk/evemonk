@@ -3,6 +3,7 @@
 module Eve
   class TypeDecorator < ApplicationDecorator
     # include ActionView::Helpers::TextHelper
+    include ActionView::Helpers::NumberHelper
 
     decorates_associations :graphic, :group, :icon, :market_group,
       :type_dogma_attributes, :type_dogma_effects
@@ -33,6 +34,10 @@ module Eve
 
     def render_huge
       "#{imageproxy_url}https://images.evetech.net/types/#{type_id}/render?size=512"
+    end
+
+    def average_price_formatted
+      number_with_delimiter(object.average_price.to_i, delimiter: " ")
     end
 
     # def simple_description

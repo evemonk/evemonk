@@ -29,7 +29,7 @@ services:
       - "9200:9200"
 
   redis:
-    image: "redis:5.0.7"
+    image: "redis:5.0.8"
     container_name: "evemonk_redis"
     restart: "unless-stopped"
     volumes:
@@ -38,7 +38,7 @@ services:
       - "6379:6379"
 
   memcached:
-    image: "memcached:1.5.22"
+    image: "memcached:1.6.0"
     container_name: "evemonk_memcached"
     restart: "unless-stopped"
     command: memcached -m 64

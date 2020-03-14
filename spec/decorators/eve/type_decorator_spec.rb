@@ -153,4 +153,28 @@ describe Eve::TypeDecorator do
       specify { expect(subject.render_huge).to eq("https://images.evetech.net/types/23773/render?size=512") }
     end
   end
+
+  describe "#average_price_formatted" do
+    context "when average_price is empty" do
+      let(:eve_type) do
+        build(:eve_type,
+          average_price: nil)
+      end
+
+      subject { eve_type.decorate }
+
+      specify { expect(subject.average_price_formatted).to eq("0") }
+    end
+
+    context "when average_price is present" do
+      let(:eve_type) do
+        build(:eve_type,
+          average_price: 9_061_680)
+      end
+
+      subject { eve_type.decorate }
+
+      specify { expect(subject.average_price_formatted).to eq("9 061 680") }
+    end
+  end
 end

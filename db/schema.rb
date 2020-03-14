@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_12_210553) do
+ActiveRecord::Schema.define(version: 2020_03_14_201309) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -481,6 +481,8 @@ ActiveRecord::Schema.define(version: 2020_03_12_210553) do
     t.bigint "type_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "corporation_id"
+    t.index ["corporation_id"], name: "index_eve_loyalty_store_offers_on_corporation_id"
   end
 
   create_table "eve_market_groups", force: :cascade do |t|
