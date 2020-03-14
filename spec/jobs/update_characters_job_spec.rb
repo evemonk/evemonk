@@ -36,6 +36,13 @@ describe UpdateCharactersJob do
       end
     end
 
+    before do
+      #
+      # Eve::UpdateMarketPricesJob.perform_later
+      #
+      expect(Eve::UpdateMarketPricesJob).to receive(:perform_later)
+    end
+
     specify { expect { subject.perform }.not_to raise_error }
   end
 end
