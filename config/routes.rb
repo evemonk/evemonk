@@ -7,6 +7,8 @@ end
 Rails.application.routes.draw do
   devise_for :users
 
+  resource :authy, only: [:new, :show, :update], controller: :authy
+
   if Rails.env.development?
     namespace :backoffice do
       mount Sidekiq::Web, at: "sidekiq"

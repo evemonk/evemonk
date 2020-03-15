@@ -15,6 +15,8 @@ class AuthyController < ApplicationController
         country_code: current_user.country_code
       )
       current_user.update!(authy_id: authy.id)
+
+      redirect_to :show
     end
   end
 
