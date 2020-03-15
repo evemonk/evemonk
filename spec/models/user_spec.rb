@@ -12,7 +12,8 @@ describe User do
                                                   :registerable,
                                                   :validatable,
                                                   :confirmable,
-                                                  :trackable])
+                                                  :trackable,
+                                                  :authy_authenticatable])
   }
 
   it { should have_many(:sessions).dependent(:destroy) }
