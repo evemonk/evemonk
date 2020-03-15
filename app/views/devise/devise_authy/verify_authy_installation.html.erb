@@ -5,5 +5,5 @@
   <%= label_tag :token %>
   <%= text_field_tag :token, "", autocomplete: :off, id: "authy-token" %>
   <%= authy_request_sms_link %>
-  <%= submit_tag t('devise.enable_my_account'), class: "btn" %>
+  <%= submit_tag t("devise.enable_my_account"), class: "btn" %>
 <% end %>
