@@ -11,3 +11,5 @@ public/packs/*
 public/packs-test/*
 log/*
 coverage/*
+backup-*.sql.gz
+screenshots/*
