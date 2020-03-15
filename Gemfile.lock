@@ -23,7 +23,7 @@ GIT
 
 GIT
   remote: https://github.com/rails/rails.git
-  revision: 3ed7c5864ff4ac349848722fbf682a657eebddbf
+  revision: c3167874994de32e007691ecbfbf35a4764c65e1
   branch: 6-0-stable
   specs:
     actioncable (6.0.2.1)
@@ -171,6 +171,8 @@ GEM
     anyway_config (1.4.4)
     ast (2.4.0)
     attr_extras (6.2.3)
+    authy (2.7.5)
+      httpclient (>= 2.5.3.3)
     awesome_print (1.8.0)
     bcrypt (3.1.13)
     benchmark-ips (2.7.2)
@@ -207,6 +209,10 @@ GEM
     concurrent-ruby (1.1.6)
     connection_pool (2.2.2)
     consistency_fail (0.3.7)
+    countries (3.0.1)
+      i18n_data (~> 0.10.0)
+      sixarm_ruby_unaccent (~> 1.1)
+      unicode_utils (~> 1.4)
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
     crass (1.0.6)
@@ -227,6 +233,9 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    devise-authy (1.11.1)
+      authy (>= 2.7.5)
+      devise (>= 3.0.0)
     devise-i18n (1.9.0)
       devise (>= 4.7.1)
     devise_zxcvbn (5.1.0)
@@ -300,8 +309,10 @@ GEM
     hashie (4.1.0)
     heapy (0.1.4)
     http-2 (0.10.1)
+    httpclient (2.8.3)
     i18n (1.8.2)
       concurrent-ruby (~> 1.0)
+    i18n_data (0.10.0)
     isolator (0.6.1)
       sniffer (~> 0.3.1)
     jaro_winkler (1.5.4)
@@ -566,6 +577,7 @@ GEM
     simplecov-html (0.10.2)
     sitemap_generator (6.1.0)
       builder (~> 3.0)
+    sixarm_ruby_unaccent (1.2.0)
     sniffer (0.3.2)
       active_attr (>= 0.10.2)
       anyway_config (~> 1.0)
@@ -676,6 +688,7 @@ PLATFORMS
 DEPENDENCIES
   active_record_doctor
   activerecord-nulldb-adapter
+  authy
   awesome_print
   bootsnap (>= 1.4.2)
   brakeman
@@ -685,10 +698,12 @@ DEPENDENCIES
   cacheflow
   capybara (>= 2.15)
   consistency_fail
+  countries
   dalli
   database_rewinder
   derailed_benchmarks
   devise
+  devise-authy
   devise-i18n
   devise_zxcvbn
   dotenv-rails

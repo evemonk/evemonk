@@ -297,4 +297,11 @@ Devise.setup do |config|
   # When set to false, does not sign a user in automatically after their password is
   # changed. Defaults to true, so a user is signed in automatically after changing a password.
   # config.sign_in_after_change_password = true
+
+  # ==> Devise Authy Authentication Extension
+  # How long should the user's device be remembered for.
+  # config.authy_remember_device = 1.month
+
+  # Should Authy OneTouch be enabled?
+  # config.authy_enable_onetouch = false
 end
