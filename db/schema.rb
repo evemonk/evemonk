@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_15_005749) do
+ActiveRecord::Schema.define(version: 2020_03_15_011523) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -887,8 +887,6 @@ ActiveRecord::Schema.define(version: 2020_03_15_005749) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string "unconfirmed_email"
-    t.string "phone_number"
-    t.string "country_code"
     t.string "authy_id"
     t.datetime "last_sign_in_with_authy"
     t.boolean "authy_enabled", default: false
