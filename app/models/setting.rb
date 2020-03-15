@@ -28,6 +28,4 @@ class Setting < RailsSettings::Base
   field :enabled_wallet_journal, type: :boolean, default: false
 
   field :enabled_wallet_transactions, type: :boolean, default: false
-
-  field :enable_2fa_via_authy, type: :boolean, default: false
 end
