@@ -1,7 +1,26 @@
-<h2><%= t("devise.authy_register_title") %></h2>
+<div class="row">
+  <div class="col">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><%= link_to("Home", root_path) %></li>
+        <li class="breadcrumb-item active" aria-current="page"><%= t("devise.authy_register_title") %></li>
+      </ol>
+    </nav>
+  </div>
+</div>
 
-<%= enable_authy_form do %>
-  <%= text_field_tag :country_code, "", autocomplete: :off, placeholder: t("devise.country"), id: "authy-countries" %>
-  <%= text_field_tag :cellphone, "", autocomplete: :off, placeholder: t("devise.cellphone"), id: "authy-cellphone" %>
-  <p><%= submit_tag t("devise.enable_authy") %></p>
-<% end %>
+<div class="row justify-content-center">
+  <div class="col-12 col-sm-12 col-md-8 col-lg-4 col-xl-4">
+    <%= enable_authy_form do %>
+      <div class="form-group">
+        <%= text_field_tag :country_code, "", autocomplete: :off, placeholder: t("devise.country"), id: "authy-countries", class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= text_field_tag :cellphone, "", autocomplete: :off, placeholder: t("devise.cellphone"), id: "authy-cellphone", class: "form-control" %>
+      </div>
+      <div class="text-center">
+        <%= submit_tag t("devise.enable_authy"), class: "btn btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+</div>
