@@ -13,31 +13,14 @@
   <div class="col-12 col-sm-12 col-md-8 col-lg-4 col-xl-4">
     <%= enable_authy_form do %>
       <div class="form-group">
-        <% c = ISO3166::Country.new('US') %>
-
-
-        <% ISO3166::Data.codes.each do |code| %>
-          <!--
-          show -> <%= "#{ ISO3166::Country.new(code).name } (+#{ ISO3166::Country.new(code).country_code })" %>
-          value -> <%= ISO3166::Country.new(code).country_code %>
-          -->
-        <% end %>
-
-
-
-
-
-        <%= text_field_tag :country_code, "", autocomplete: :off, placeholder: t("devise.country"), id: "authy-countries", class: "form-control" %>
-      </div>
-
-
-      <div class="form-group">
-        <label for="exampleFormControlSelect1">
+        <label for="country_code">
           <%= t("devise.country") %>
         </label>
-        <select class="form-control" id="exampleFormControlSelect1">
+        <select class="form-control" name="country_code">
           <% ISO3166::Data.codes.each do |code| %>
-            <option><%= "#{ ISO3166::Country.new(code).name } (+#{ ISO3166::Country.new(code).country_code })" %></option>
+            <option value="<%= ISO3166::Country.new(code).country_code %>">
+              <%= "#{ ISO3166::Country.new(code).name } (+#{ ISO3166::Country.new(code).country_code })" %>
+            </option>
           <% end %>
         </select>
       </div>
@@ -45,6 +28,7 @@
       <div class="form-group">
         <%= text_field_tag :cellphone, "", autocomplete: :off, placeholder: t("devise.cellphone"), id: "authy-cellphone", class: "form-control" %>
       </div>
+
       <div class="text-center">
         <%= submit_tag t("devise.enable_authy"), class: "btn btn-primary" %>
       </div>
