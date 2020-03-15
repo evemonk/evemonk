@@ -22,7 +22,7 @@
         </li>
         <% if current_user.authy_enabled %>
           <li class="list-group-item text-break">
-            <%= link_to("Disable 2FA via Authy", nil) %>
+            <%= link_to("Disable 2FA via Authy", user_disable_authy_path, method: :post) %>
           </li>
         <% else %>
           <li class="list-group-item text-break">
