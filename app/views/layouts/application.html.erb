@@ -25,12 +25,12 @@
     <%= csp_meta_tag %>
     <%= action_cable_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track": "reload" %>
+    <%= stylesheet_pack_tag "application", media: "all", "data-turbolinks-track": "reload" %>
+    <%= javascript_pack_tag "application", "data-turbolinks-track": "reload" %>
     <%= javascript_include_tag "https://www.authy.com/form.authy.min.js" %>
     <%= stylesheet_link_tag "https://www.authy.com/form.authy.min.css" %>
-
+    <%= stylesheet_link_tag "devise_authy" %>
   </head>
 
   <body>
