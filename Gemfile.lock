@@ -229,6 +229,9 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    devise-authy (1.11.1)
+      authy (>= 2.7.5)
+      devise (>= 3.0.0)
     devise-i18n (1.9.0)
       devise (>= 4.7.1)
     devise_zxcvbn (5.1.0)
@@ -693,6 +696,7 @@ DEPENDENCIES
   database_rewinder
   derailed_benchmarks
   devise
+  devise-authy
   devise-i18n
   devise_zxcvbn
   dotenv-rails
