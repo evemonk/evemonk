@@ -10,9 +10,9 @@ Rails.application.config.content_security_policy do |policy|
   policy.base_uri :self
   policy.default_src :none
   policy.font_src "https://fonts.gstatic.com"
-  policy.img_src :self, :data, "https://imageproxy.evemonk.com", "https://static.evemonk.com", "https://www.authy.com"
-  policy.script_src :self, :unsafe_inline, "https://www.authy.com"
-  policy.style_src :self, :unsafe_inline, "https://fonts.googleapis.com", "https://www.authy.com"
+  policy.img_src :self, :data, "https://imageproxy.evemonk.com", "https://static.evemonk.com"
+  policy.script_src :self
+  policy.style_src :self, :unsafe_inline, "https://fonts.googleapis.com"
   policy.connect_src :self if Rails.env.production?
 
   # If you are using webpack-dev-server then specify webpack-dev-server host
