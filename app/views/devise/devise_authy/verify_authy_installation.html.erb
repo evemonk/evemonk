@@ -1,9 +1,18 @@
-<h2><%= t("devise.authy_verify_installation_title") %></h2>
+<div class="row">
+  <div class="col">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><%= link_to("Home", root_path) %></li>
+        <li class="breadcrumb-item active" aria-current="page"><%= t("devise.authy_verify_installation_title") %></li>
+      </ol>
+    </nav>
+  </div>
+</div>
 
 <%= verify_authy_installation_form do %>
   <legend><%= t("devise.submit_token_title") %></legend>
   <%= label_tag :token %>
-  <%= text_field_tag :token, "", autocomplete: :off, id: "authy-token" %>
+  <%= text_field_tag :token, "", autocomplete: "one-time-code", inputmode: "numeric", pattern: "[0-9]*", id: 'authy-token' %>
   <%= authy_request_sms_link %>
   <%= submit_tag t("devise.enable_my_account"), class: "btn" %>
 <% end %>
