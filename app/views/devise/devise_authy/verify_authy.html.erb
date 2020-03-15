@@ -1,6 +1,13 @@
-<h2>
-  <%= t("devise.submit_token_title") %>
-</h2>
+<div class="row">
+  <div class="col">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><%= link_to("Home", root_path) %></li>
+        <li class="breadcrumb-item active" aria-current="page"><%= t("devise.submit_token_title") %></li>
+      </ol>
+    </nav>
+  </div>
+</div>
 
 <%= verify_authy_form do %>
   <legend><%= t("devise.submit_token_title") %></legend>
