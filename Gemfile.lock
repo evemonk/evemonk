@@ -171,6 +171,8 @@ GEM
     anyway_config (1.4.4)
     ast (2.4.0)
     attr_extras (6.2.3)
+    authy (2.7.5)
+      httpclient (>= 2.5.3.3)
     awesome_print (1.8.0)
     bcrypt (3.1.13)
     benchmark-ips (2.7.2)
@@ -300,6 +302,7 @@ GEM
     hashie (4.1.0)
     heapy (0.1.4)
     http-2 (0.10.1)
+    httpclient (2.8.3)
     i18n (1.8.2)
       concurrent-ruby (~> 1.0)
     isolator (0.6.1)
@@ -676,6 +679,7 @@ PLATFORMS
 DEPENDENCIES
   active_record_doctor
   activerecord-nulldb-adapter
+  authy
   awesome_print
   bootsnap (>= 1.4.2)
   brakeman

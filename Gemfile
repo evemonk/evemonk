@@ -55,6 +55,7 @@ gem "niceql"
 gem "server_timing"
 gem "traceroute"
 # gem "strong_migrations"
+gem "authy"
 
 gem "awesome_print", require: "ap"
 gem "pry-rails"
