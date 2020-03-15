@@ -26,7 +26,7 @@ Mobile first design.
 
 ## Screenshots
 
-All screen are real and made from Safari.
+All screenshots are real and made in Safari on latest macOS Catalina (10.15.3).
 
 ![My Characters page](screenshots/my_characters.png)
 
