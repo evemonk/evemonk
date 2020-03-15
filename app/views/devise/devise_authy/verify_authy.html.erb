@@ -9,36 +9,27 @@
   </div>
 </div>
 
-<%= verify_authy_form do %>
-  <legend><%= t("devise.submit_token_title") %></legend>
-  <%= label_tag "authy-token" %>
-  <%= text_field_tag :token, "", autocomplete: :off, id: "authy-token" %>
-  <label>
-    <%= check_box_tag :remember_device %>
-    <span><%= t("devise.remember_device") %></span>
-  </label>
+<div class="row justify-content-center">
+  <div class="col-12 col-sm-12 col-md-8 col-lg-4 col-xl-4">
+    <h4><%= t("devise.submit_token_title") %></h4>
 
-  <!-- Help tooltip -->
-  <!-- You need to configure a help message. -->
-  <!-- See documentation: https://github.com/authy/authy-form-helpers#help-tooltip -->
-  <!-- <%= link_to '?', '#', :id => 'authy-help' %> -->
+    <%= verify_authy_form do %>
+      <div class="form-group">
+        <%= text_field_tag :token, "", autocomplete: "one-time-code", inputmode: "numeric", pattern: "[0-9]*", id: "authy-token" %>
+      </div>
 
-  <%= authy_request_sms_link %>
-  <%= submit_tag t("devise.submit_token"), class: "btn" %>
-<% end %>
+      <div class="form-group form-check">
+        <%= check_box_tag :remember_device, true, class: "form-check-input" %>
+        <%= label_tag :remember_device, t("devise.remember_device"), class: "form-check-label" %>
+      </div>
 
-<% if @onetouch_uuid %>
-    <script>
-      (function(){
-        var onetouchInterval = setInterval(function(){
-          var onetouchRequest = new XMLHttpRequest();
-          onetouchRequest.addEventListener("load", function(){
-            if(this.status !== 202) clearInterval(onetouchInterval);
-            if(this.status === 200) window.location = JSON.parse(this.responseText).redirect;
-          });
-          onetouchRequest.open("GET", "<%= polymorphic_path [resource_name, :authy_onetouch_status] %>?onetouch_uuid=<%= @onetouch_uuid %>");
-          onetouchRequest.send();
-        }, 3000);
-      })();
-    </script>
-<% end %>
+      <div class="form-group">
+        <%= authy_request_sms_link %>
+      </div>
+
+      <div class="form-group">
+        <%= submit_tag t("devise.submit_token"), class: "btn btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+</div>
