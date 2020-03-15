@@ -14,7 +14,8 @@
 * Add universe character show
 * Add Open Graph tags
 * Add SEO stuff to pages
-* Add Google Analytics
+* Add translations
+* Add authorization and 2FA via Authy
 
 ## v0.1.1
 
