@@ -17,6 +17,8 @@ class AuthyController < ApplicationController
       current_user.update!(authy_id: authy.id)
 
       redirect_to :show
+    else
+      render :new
     end
   end
 
