@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_15_011523) do
+ActiveRecord::Schema.define(version: 2020_03_16_181658) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -906,6 +906,43 @@ ActiveRecord::Schema.define(version: 2020_03_15_011523) do
     t.index ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id"
   end
 
+  create_table "wallet_journals", force: :cascade do |t|
+    t.bigint "character_id", null: false
+    t.float "amount"
+    t.float "balance"
+    t.bigint "context_id"
+    t.string "context_id_type"
+    t.datetime "date"
+    t.string "description"
+    t.bigint "first_party_id"
+    t.bigint "wallet_journal_id"
+    t.text "reason"
+    t.string "ref_type"
+    t.bigint "second_party_id"
+    t.float "tax"
+    t.bigint "tax_receiver_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["character_id"], name: "index_wallet_journals_on_character_id"
+  end
+
+  create_table "wallet_transactions", force: :cascade do |t|
+    t.bigint "character_id", null: false
+    t.bigint "client_id"
+    t.datetime "date"
+    t.boolean "is_buy"
+    t.boolean "is_personal"
+    t.bigint "journal_ref_id"
+    t.bigint "location_id"
+    t.integer "quantity"
+    t.bigint "transaction_id"
+    t.bigint "type_id"
+    t.float "unit_price"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["character_id"], name: "index_wallet_transactions_on_character_id"
+  end
+
   add_foreign_key "character_assets", "characters"
   add_foreign_key "character_killmails", "characters"
   add_foreign_key "character_mail_labels", "characters"
@@ -914,4 +951,6 @@ ActiveRecord::Schema.define(version: 2020_03_15_011523) do
   add_foreign_key "sessions", "users"
   add_foreign_key "skillqueues", "characters"
   add_foreign_key "standings", "characters"
+  add_foreign_key "wallet_journals", "characters"
+  add_foreign_key "wallet_transactions", "characters"
 end
