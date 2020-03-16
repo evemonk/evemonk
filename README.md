@@ -24,6 +24,20 @@ Mobile first design.
 * Authentication
 * User characters info
 
+## Screenshots
+
+All screenshots are real and made in Safari on latest macOS Catalina (10.15.3).
+
+![My Characters page](screenshots/my_characters.png)
+
+![My character sheet page](screenshots/character_sheet.png)
+
+![My character employment history page](screenshots/character_employment_history.png)
+
+![My character agents page](screenshots/character_agents.png)
+
+![My character loyalty points page](screenshots/character_loyalty_points.png)
+
 ## Environment
 
 * [rbenv](https://github.com/rbenv/rbenv)
