@@ -7,8 +7,8 @@ class WalletJournalsController < ApplicationController
       .find_by!(character_id: params[:character_id])
       .decorate
 
-    # @wallet_journals = @character.wallet_journals
-    #   .page(params[:page])
-    #   .per(100)
+    @wallet_journals = @character.wallet_journals
+      .page(params[:page])
+      .per(10)
   end
 end

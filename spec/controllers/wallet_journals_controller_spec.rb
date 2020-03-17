@@ -13,6 +13,8 @@ describe WalletJournalsController do
 
       before { sign_in(user) }
 
+      let(:character) { instance_double(Character) }
+
       before do
         #
         # subject.current_user.characters
@@ -28,7 +30,7 @@ describe WalletJournalsController do
                   double.tap do |c|
                     expect(c).to receive(:find_by!).with(character_id: "1") do
                       double.tap do |d|
-                        expect(d).to receive(:decorate)
+                        expect(d).to receive(:decorate).and_return(character)
                       end
                     end
                   end
@@ -39,7 +41,24 @@ describe WalletJournalsController do
         end
       end
 
-      before { get :index, params: {character_id: "1"} }
+      before do
+        #
+        # @character.wallet_journals
+        #   .page(params[:page])
+        #   .per(10)
+        #
+        expect(character).to receive(:wallet_journals) do
+          double.tap do |a|
+            expect(a).to receive(:page).with("1") do
+              double.tap do |b|
+                expect(b).to receive(:per).with(10)
+              end
+            end
+          end
+        end
+      end
+
+      before { get :index, params: {character_id: "1", page: "1"} }
 
       it { should respond_with(:ok) }
 
