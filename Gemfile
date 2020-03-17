@@ -3,7 +3,7 @@
 source "https://rubygems.org"
 
 # Till next release 6.0.3
-# gem "rails", "6.0.2.1"
+# gem "rails", "6.0.3"
 gem "rails", git: "https://github.com/rails/rails.git", branch: "6-0-stable"
 gem "pg", ">= 0.18", "< 2.0"
 gem "puma"
@@ -25,7 +25,7 @@ gem "metricky"
 gem "dalli"
 gem "foundation_emails"
 gem "rufus-scheduler"
-gem "eve_online", git: "https://github.com/evemonk/eve_online.git", branch: "master"
+gem "eve_online", git: "https://github.com/evemonk/eve_online.git", branch: "dev"
 gem "omniauth-eve_online-sso"
 gem "omniauth-rails_csrf_protection"
 gem "jwt"

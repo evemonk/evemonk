@@ -5,7 +5,7 @@
         <li class="breadcrumb-item"><%= link_to("Home", root_path) %></li>
         <li class="breadcrumb-item"><%= link_to("My characters", characters_path) %></li>
         <li class="breadcrumb-item"><%= link_to(@character.name, character_path(@character.character_id)) %></li>
-        <li class="breadcrumb-item active" aria-current="page">Skills</li>
+        <li class="breadcrumb-item active" aria-current="page">Wallet Journals</li>
       </ol>
     </nav>
   </div>
@@ -36,7 +36,7 @@
   <% end %>
   <% if Setting.enabled_skills %>
     <li class="nav-item">
-      <%= link_to("Skills", character_skills_path(@character.character_id), class: "nav-link active") %>
+      <%= link_to("Skills", character_skills_path(@character.character_id), class: "nav-link") %>
     </li>
   <% end %>
   <% if Setting.enabled_mails %>
@@ -51,7 +51,7 @@
   <% end %>
   <% if Setting.enabled_wallet_journal %>
     <li class="nav-item">
-      <%= link_to("Wallet journal", character_wallet_journals_path(@character.character_id), class: "nav-link") %>
+      <%= link_to("Wallet journal", character_wallet_journals_path(@character.character_id), class: "nav-link active") %>
     </li>
   <% end %>
   <% if Setting.enabled_wallet_transactions %>
@@ -64,7 +64,7 @@
 <hr>
 
 <div class="row">
-  <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+  <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
     <div class="clearfix">
       <h4 class="float-left"><%= @character.name %></h4>
       <%= form_with(url: character_path(@character.character_id), method: :patch, class: "float-right") do %>
@@ -96,7 +96,7 @@
           </li>
         <% end %>
         <li class="list-group-item text-break">
-          SP: <%= @character.total_sp_formatted %>
+          Total SP: <%= @character.full_sp_formatted %>
         </li>
         <% if @character.unallocated_sp && @character.unallocated_sp > 0 %>
           <li class="list-group-item text-break">
@@ -118,78 +118,36 @@
     </div>
   </div>
 
-  <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
-    <h4 class="text-center text-break">Skills Tree</h4>
+  <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+    <h4 class="text-center">Wallet Journals</h4>
 
-    <div class="accordion" id="skills_tree_accordion">
-      <% @character.skills_tree.groups.each do |group| %>
-        <div class="card">
-          <div class="card-header" id="heading_group_<%= group.group_id %>">
-            <h2 class="mb-0">
-              <button class="btn btn-link collapsed"
-                      type="button"
-                      data-toggle="collapse"
-                      data-target="#collapse_<%= group.group_id %>"
-                      aria-expanded="true"
-                      aria-controls="collapse_<%= group.group_id %>">
-                <%= group.name %>
-              </button>
-            </h2>
+    <% @wallet_journals.each_with_index do |wallet_journal, index| %>
+      <div class="card <%= index % 2 == 0 ? "bg-dark" : "bg-transparent" %> rounded-0 border-secondary <%= index == 0 ? "" : "border-top-0" %>">
+        <div class="row no-gutters">
+          <div class="col-6">
+            <span class="text-primary"><%= wallet_journal.description %></span>
           </div>
-
-          <div id="collapse_<%= group.group_id %>"
-               class="collapse"
-               aria-labelledby="heading_group_<%= group.group_id %>"
-               data-parent="#skills_tree_accordion">
-            <div class="card-body">
-              <div class="row">
-                Skill description
-              </div>
-              <div class="row">
-                Levels trained: <%= @character.skills_tree.levels_trained_in_group(group) %> / <%= @character.skills_tree.total_levels_in_group(group) %>
-              </div>
-              <div class="row">
-                Levels in training queue: x
-              </div>
-              <div class="row">
-                Skill points: <%= number_with_delimiter(@character.skills_tree.skill_points_in_group(group), delimiter: " ") %> / xxx xxx xxx
-              </div>
-              <div class="row">
-                Certificates claimed: xx / xx
-              </div>
-              <div class="row">
-                Training rate: 36.0 skill points per minute
-              </div>
-              <div class="row">
-                <div class="span-6">Intelligence: 22</div>
-                <div class="span-6">Memory: 22</div>
-              </div>
-
-              <% @character.skills_tree.skills_in_group(group).each do |skill| %>
-<!--                <div class="row">-->
-                  <%#= link_to(skill.name, universe_type_path(skill.type_id)) %>
-<!--                  <br>-->
-                  <%#= @character.skills_tree.skill(skill)&.trained_skill_level %>
-
-                  <div class="card">
-                    <div class="row no-gutters">
-                      <div class="col-md-4">
-                        <%= image_tag(skill.icon_small, class: "card-img", alt: skill.name) %>
-                      </div>
-                      <div class="col-md-8">
-                        <div class="card-body">
-                          <h4 class="card-title"><%= link_to(skill.name, universe_type_path(skill.type_id)) %></h4>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-<!--                </div>-->
-              <% end %>
-            </div>
+          <div class="col-6">
+            <% if wallet_journal.amount >= 0.0 %>
+              <span class="text-success"><%= wallet_journal.amount %></span>
+            <% else %>
+              <span class="text-danger"><%= wallet_journal.amount %></span>
+            <% end %>
           </div>
         </div>
-      <% end %>
-    </div>
+        <div class="row no-gutters">
+          <div class="col-6">
+            <%= wallet_journal.date %>
+          </div>
+          <div class="col-6">
+            Balance: <span class="text-secondary"><%= wallet_journal.balance %></span>
+          </div>
+        </div>
+      </div>
+    <% end %>
+
+    <div class="w-100"></div>
+
+    <%= paginate @wallet_journals %>
   </div>
 </div>

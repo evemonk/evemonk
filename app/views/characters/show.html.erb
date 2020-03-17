@@ -50,7 +50,7 @@
   <% end %>
   <% if Setting.enabled_wallet_journal %>
     <li class="nav-item">
-      <%= link_to("Wallet journal", nil, class: "nav-link") %>
+      <%= link_to("Wallet journal", character_wallet_journals_path(@character.character_id), class: "nav-link") %>
     </li>
   <% end %>
   <% if Setting.enabled_wallet_transactions %>

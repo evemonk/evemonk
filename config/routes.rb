@@ -45,6 +45,8 @@ Rails.application.routes.draw do
     resources :standings, only: :index
 
     resources :agents, only: :index
+
+    resources :wallet_journals, only: :index
   end
 
   resource :profile, only: :show
