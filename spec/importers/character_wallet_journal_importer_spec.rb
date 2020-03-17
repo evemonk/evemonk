@@ -28,50 +28,60 @@ describe CharacterWalletJournalImporter do
   end
 
   describe "#update!" do
-  #   context "when scope present" do
-  #     before { expect(subject).to receive(:refresh_character_access_token) }
-  #
-  #     let(:access_token) { double }
-  #
-  #     let(:character) do
-  #       instance_double(Character,
-  #                       character_id: character_id,
-  #                       access_token: access_token,
-  #                       scopes: "esi-killmails.read_killmails.v1")
-  #     end
-  #
-  #     before { expect(subject).to receive(:character).and_return(character).exactly(4).times }
-  #
-  #     let(:json) { double }
-  #
-  #     let(:killmail) { instance_double(EveOnline::ESI::Models::KillmailShort, as_json: json) }
-  #
-  #     let(:total_pages) { double }
-  #
-  #     let(:esi) do
-  #       instance_double(EveOnline::ESI::CharacterKillmailsRecent,
-  #                       killmails: [killmail],
-  #                       scope: "esi-killmails.read_killmails.v1",
-  #                       total_pages: total_pages)
-  #     end
-  #
-  #     before { expect(EveOnline::ESI::CharacterKillmailsRecent).to receive(:new).with(character_id: character_id, token: access_token, page: page).and_return(esi) }
-  #
-  #     before do
-  #       #
-  #       # character.character_killmails.find_or_create_by!(killmail.as_json)
-  #       #
-  #       expect(character).to receive(:character_killmails) do
-  #         double.tap do |a|
-  #           expect(a).to receive(:find_or_create_by!).with(json)
-  #         end
-  #       end
-  #     end
-  #
-  #     before { expect(subject).to receive(:import_other_pages).with(total_pages) }
-  #
-  #     specify { expect { subject.update! }.not_to raise_error }
-  #   end
+    context "when scope present" do
+      before { expect(subject).to receive(:refresh_character_access_token) }
+
+      let(:access_token) { double }
+
+      let(:character) do
+        instance_double(Character,
+        character_id: character_id,
+        access_token: access_token,
+        scopes: "esi-wallet.read_character_wallet.v1")
+      end
+
+      before { expect(subject).to receive(:character).and_return(character).exactly(4).times }
+
+      let(:wallet_journal_id) { double }
+
+      let(:json) { double }
+
+      let(:wallet_journal) do
+        instance_double(EveOnline::ESI::Models::WalletJournal,
+        wallet_journal_id: wallet_journal_id,
+        as_json: json)
+      end
+
+      let(:total_pages) { double }
+
+      let(:esi) do
+        instance_double(EveOnline::ESI::CharacterWalletJournal,
+        wallet_journal_entries: [wallet_journal],
+        scope: "esi-wallet.read_character_wallet.v1",
+        total_pages: total_pages)
+      end
+
+      before { expect(EveOnline::ESI::CharacterWalletJournal).to receive(:new).with(character_id: character_id, token: access_token, page: page).and_return(esi) }
+
+      let(:character_wallet_journal) { instance_double(WalletJournal) }
+
+      before do
+        #
+        # character.wallet_journals.find_or_initialize_by(wallet_journal_id: wallet_journal.wallet_journal_id)
+        #
+        expect(character).to receive(:wallet_journals) do
+          double.tap do |a|
+            expect(a).to receive(:find_or_initialize_by).with(wallet_journal_id: wallet_journal_id).and_return(character_wallet_journal)
+          end
+        end
+      end
+
+      before { expect(character_wallet_journal).to receive(:update!).with(json) }
+
+      before { expect(subject).to receive(:import_other_pages).with(total_pages) }
+
+      specify { expect { subject.update! }.not_to raise_error }
+    end
 
     context "when scope not present" do
       before { expect(subject).to receive(:refresh_character_access_token) }
