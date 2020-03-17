@@ -72,34 +72,34 @@ describe CharacterWalletJournalImporter do
   #
   #     specify { expect { subject.update! }.not_to raise_error }
   #   end
-  #
-  #   context "when scope not present" do
-  #     before { expect(subject).to receive(:refresh_character_access_token) }
-  #
-  #     let(:access_token) { double }
-  #
-  #     let(:character) do
-  #       instance_double(Character,
-  #                       character_id: character_id,
-  #                       access_token: access_token,
-  #                       scopes: "")
-  #     end
-  #
-  #     before { expect(subject).to receive(:character).and_return(character).exactly(3).times }
-  #
-  #     let(:esi) do
-  #       instance_double(EveOnline::ESI::CharacterKillmailsRecent,
-  #                       scope: "esi-killmails.read_killmails.v1")
-  #     end
-  #
-  #     before { expect(EveOnline::ESI::CharacterKillmailsRecent).to receive(:new).with(character_id: character_id, token: access_token, page: page).and_return(esi) }
-  #
-  #     before { expect(character).not_to receive(:character_killmails) }
-  #
-  #     before { expect(subject).not_to receive(:import_other_pages) }
-  #
-  #     specify { expect { subject.update! }.not_to raise_error }
-  #   end
+
+    context "when scope not present" do
+      before { expect(subject).to receive(:refresh_character_access_token) }
+
+      let(:access_token) { double }
+
+      let(:character) do
+        instance_double(Character,
+          character_id: character_id,
+          access_token: access_token,
+          scopes: "")
+      end
+
+      before { expect(subject).to receive(:character).and_return(character).exactly(3).times }
+
+      let(:esi) do
+        instance_double(EveOnline::ESI::CharacterWalletJournal,
+          scope: "esi-wallet.read_character_wallet.v1")
+      end
+
+      before { expect(EveOnline::ESI::CharacterWalletJournal).to receive(:new).with(character_id: character_id, token: access_token, page: page).and_return(esi) }
+
+      before { expect(character).not_to receive(:wallet_journals) }
+
+      before { expect(subject).not_to receive(:import_other_pages) }
+
+      specify { expect { subject.update! }.not_to raise_error }
+    end
   end
 
   # private methods
