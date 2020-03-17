@@ -35,9 +35,9 @@ describe CharacterWalletJournalImporter do
 
       let(:character) do
         instance_double(Character,
-        character_id: character_id,
-        access_token: access_token,
-        scopes: "esi-wallet.read_character_wallet.v1")
+          character_id: character_id,
+          access_token: access_token,
+          scopes: "esi-wallet.read_character_wallet.v1")
       end
 
       before { expect(subject).to receive(:character).and_return(character).exactly(4).times }
@@ -48,17 +48,17 @@ describe CharacterWalletJournalImporter do
 
       let(:wallet_journal) do
         instance_double(EveOnline::ESI::Models::WalletJournal,
-        wallet_journal_id: wallet_journal_id,
-        as_json: json)
+          wallet_journal_id: wallet_journal_id,
+          as_json: json)
       end
 
       let(:total_pages) { double }
 
       let(:esi) do
         instance_double(EveOnline::ESI::CharacterWalletJournal,
-        wallet_journal_entries: [wallet_journal],
-        scope: "esi-wallet.read_character_wallet.v1",
-        total_pages: total_pages)
+          wallet_journal_entries: [wallet_journal],
+          scope: "esi-wallet.read_character_wallet.v1",
+          total_pages: total_pages)
       end
 
       before { expect(EveOnline::ESI::CharacterWalletJournal).to receive(:new).with(character_id: character_id, token: access_token, page: page).and_return(esi) }
