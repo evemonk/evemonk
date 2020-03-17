@@ -8,8 +8,8 @@ class CharacterDecorator < ApplicationDecorator
     :current_station, :loyalty_points, :character_assets, :character_implants,
     :implants, :skillqueues, :character_skills,
     :character_corporation_histories, :character_mail_labels, :standings,
-    :character_killmails, :factions_standings, :corporations_standings,
-    :agents_standings
+    :character_killmails, :wallet_journals, :factions_standings,
+    :corporations_standings, :agents_standings
 
   def birthday
     object.birthday&.iso8601
@@ -78,6 +78,13 @@ class CharacterDecorator < ApplicationDecorator
   def full_sp_formatted
     number_with_delimiter(object.total_sp.to_i + object.unallocated_sp.to_i, delimiter: " ")
   end
+
+  # def last_clone_jump_date_formatted
+  #   object.last_clone_jump_date&.strftime("%Y.%m.%d")
+  # end
+
+  # add_column :characters, :last_clone_jump_date, :datetime
+  # add_column :characters, :last_station_change_date, :datetime
 
   # def neural_remap_available
   #   if object.accrued_remap_cooldown_date&.past?
