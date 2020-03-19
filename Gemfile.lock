@@ -433,7 +433,7 @@ GEM
       tty-color (~> 0.5)
     patience_diff (1.1.0)
       trollop (~> 1.16)
-    pg (1.2.2)
+    pg (1.2.3)
     pg_query (1.2.0)
     pghero (2.4.1)
       activerecord (>= 5)
