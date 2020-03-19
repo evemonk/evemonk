@@ -95,13 +95,13 @@
           </li>
         <% end %>
         <li class="list-group-item text-break">
-          Race: <%= @character.race.name %>
+          Race: <%= @character.race&.name %>
         </li>
         <li class="list-group-item text-break">
-          Bloodline: <%= @character.bloodline.name %>
+          Bloodline: <%= @character.bloodline&.name %>
         </li>
         <li class="list-group-item text-break">
-          Ancestry: <%= @character.ancestry.name %>
+          Ancestry: <%= @character.ancestry&.name %>
         </li>
         <% if @character.faction %>
           <li class="list-group-item text-break">
