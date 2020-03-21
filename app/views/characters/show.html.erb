@@ -94,15 +94,21 @@
                                   universe_alliance_path(@character.alliance.alliance_id)) %>
           </li>
         <% end %>
-        <li class="list-group-item text-break">
-          Race: <%= @character.race&.name %>
-        </li>
-        <li class="list-group-item text-break">
-          Bloodline: <%= @character.bloodline&.name %>
-        </li>
-        <li class="list-group-item text-break">
-          Ancestry: <%= @character.ancestry&.name %>
-        </li>
+        <% if @character.race %>
+          <li class="list-group-item text-break">
+            Race: <%= @character.race.name %>
+          </li>
+        <% end %>
+        <% if @character.bloodline %>
+          <li class="list-group-item text-break">
+            Bloodline: <%= @character.bloodline.name %>
+          </li>
+        <% end %>
+        <% if @character.ancestry %>
+          <li class="list-group-item text-break">
+            Ancestry: <%= @character.ancestry.name %>
+          </li>
+        <% end %>
         <% if @character.faction %>
           <li class="list-group-item text-break">
             Faction: <%= @character.faction.name %>
