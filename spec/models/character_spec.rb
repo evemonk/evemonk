@@ -51,6 +51,8 @@ describe Character do
 
   it { should have_many(:wallet_transactions).dependent(:destroy) }
 
+  it { should have_many(:industry_jobs).dependent(:destroy) }
+
   describe "#factions_standings" do
     let!(:character) { create(:character) }
 
