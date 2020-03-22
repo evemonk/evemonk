@@ -35,5 +35,7 @@ class UpdateCharacterInfoService
     CharacterStandingsJob.perform_later(character_id)
 
     CharacterWalletJournalJob.perform_later(character_id)
+
+    CharacterIndustryJobsJob.perform_later(character_id)
   end
 end
