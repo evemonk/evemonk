@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_22_210841) do
+ActiveRecord::Schema.define(version: 2020_03_22_231151) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,21 @@ ActiveRecord::Schema.define(version: 2020_03_22_210841) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["character_id"], name: "index_character_assets_on_character_id"
+  end
+
+  create_table "character_blueprints", force: :cascade do |t|
+    t.bigint "character_id", null: false
+    t.bigint "item_id"
+    t.string "location_flag"
+    t.bigint "location_id"
+    t.integer "material_efficiency"
+    t.integer "quantity"
+    t.integer "runs"
+    t.integer "time_efficiency"
+    t.bigint "type_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["character_id"], name: "index_character_blueprints_on_character_id"
   end
 
   create_table "character_corporation_histories", force: :cascade do |t|
@@ -973,6 +988,7 @@ ActiveRecord::Schema.define(version: 2020_03_22_210841) do
   end
 
   add_foreign_key "character_assets", "characters"
+  add_foreign_key "character_blueprints", "characters"
   add_foreign_key "character_killmails", "characters"
   add_foreign_key "character_mail_labels", "characters"
   add_foreign_key "character_skills", "characters"
