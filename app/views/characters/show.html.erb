@@ -58,6 +58,11 @@
       <%= link_to("Wallet transactions", nil, class: "nav-link") %>
     </li>
   <% end %>
+  <% if Setting.enabled_industry_jobs %>
+    <li class="nav-item">
+      <%= link_to("Industry Jobs", character_industry_jobs_path(@character.character_id), class: "nav-link") %>
+    </li>
+  <% end %>
 </ul>
 
 <hr>
