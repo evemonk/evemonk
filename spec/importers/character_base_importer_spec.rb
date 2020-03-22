@@ -23,11 +23,11 @@ describe CharacterBaseImporter do
 
       before do
         #
-        # subject.character.destroy!
+        # Rails.logger.info("WARNING: ESI response with 404 (NOT FOUND) for Character with ID #{character_id}")
         #
-        expect(subject).to receive(:character) do
+        expect(Rails).to receive(:logger) do
           double.tap do |a|
-            expect(a).to receive(:destroy!)
+            expect(a).to receive(:info).with("WARNING: ESI response with 404 (NOT FOUND) for Character with ID #{character_id}")
           end
         end
       end

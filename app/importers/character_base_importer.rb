@@ -12,7 +12,7 @@ class CharacterBaseImporter
       update!
     end
   rescue EveOnline::Exceptions::ResourceNotFound
-    character.destroy!
+    Rails.logger.info("WARNING: ESI response with 404 (NOT FOUND) for Character with ID #{character_id}")
   rescue ActiveRecord::RecordNotFound
     Rails.logger.info("Character with ID #{character_id} not found")
   end
