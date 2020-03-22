@@ -32,3 +32,5 @@ window.$ = $;
 document.addEventListener("turbolinks:load", () => {
   $('[data-toggle="tooltip"]').tooltip();
 });
+
+import "controllers"

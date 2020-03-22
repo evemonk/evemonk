@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_16_181658) do
+ActiveRecord::Schema.define(version: 2020_03_22_210841) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -733,6 +733,35 @@ ActiveRecord::Schema.define(version: 2020_03_16_181658) do
     t.index ["war_id"], name: "index_eve_wars_on_war_id", unique: true
   end
 
+  create_table "industry_jobs", force: :cascade do |t|
+    t.bigint "character_id", null: false
+    t.bigint "activity_id"
+    t.bigint "blueprint_id"
+    t.bigint "blueprint_location_id"
+    t.bigint "blueprint_type_id"
+    t.bigint "completed_character_id"
+    t.datetime "completed_date"
+    t.float "cost"
+    t.integer "duration"
+    t.datetime "end_date"
+    t.bigint "facility_id"
+    t.bigint "installer_id"
+    t.bigint "job_id"
+    t.integer "licensed_runs"
+    t.bigint "output_location_id"
+    t.datetime "pause_date"
+    t.float "probability"
+    t.integer "product_type_id"
+    t.integer "runs"
+    t.datetime "start_date"
+    t.bigint "station_id"
+    t.string "status"
+    t.integer "successful_runs"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["character_id"], name: "index_industry_jobs_on_character_id"
+  end
+
   create_table "loyalty_points", force: :cascade do |t|
     t.bigint "character_id"
     t.bigint "corporation_id"
@@ -948,6 +977,7 @@ ActiveRecord::Schema.define(version: 2020_03_16_181658) do
   add_foreign_key "character_mail_labels", "characters"
   add_foreign_key "character_skills", "characters"
   add_foreign_key "characters", "users"
+  add_foreign_key "industry_jobs", "characters"
   add_foreign_key "sessions", "users"
   add_foreign_key "skillqueues", "characters"
   add_foreign_key "standings", "characters"
