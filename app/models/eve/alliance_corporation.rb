@@ -9,7 +9,9 @@ module Eve
       counter_cache: :corporations_count,
       optional: true
 
-    belongs_to :corporation, primary_key: "corporation_id", optional: true
+    belongs_to :corporation,
+      primary_key: "corporation_id",
+      optional: true
 
     after_commit :eve_alliance_reset_characters_count, on: [:create, :update, :destroy]
 
