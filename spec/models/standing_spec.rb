@@ -9,5 +9,5 @@ describe Standing do
 
   it { should belong_to(:character) }
 
-  it { should belong_to(:standingable) }
+  it { should belong_to(:standingable).optional(true) }
 end
