@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_22_231151) do
+ActiveRecord::Schema.define(version: 2020_03_24_003517) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -406,6 +406,7 @@ ActiveRecord::Schema.define(version: 2020_03_22_231151) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["attribute_id"], name: "index_eve_dogma_attributes_on_attribute_id", unique: true
+    t.index ["name"], name: "index_eve_dogma_attributes_on_name"
   end
 
   create_table "eve_etags", force: :cascade do |t|
@@ -968,6 +969,7 @@ ActiveRecord::Schema.define(version: 2020_03_22_231151) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["character_id"], name: "index_wallet_journals_on_character_id"
+    t.index ["wallet_journal_id"], name: "index_wallet_journals_on_wallet_journal_id"
   end
 
   create_table "wallet_transactions", force: :cascade do |t|
