@@ -10,7 +10,7 @@ module Eve
 
     belongs_to :bloodline,
       primary_key: "bloodline_id",
-       optional: true
+      optional: true
 
     # belongs_to :icon_id
   end
