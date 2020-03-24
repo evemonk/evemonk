@@ -38,4 +38,15 @@ class CharacterBlueprintDecorator < ApplicationDecorator
       "#{imageproxy_url}https://images.evetech.net/types/#{type_id}/bpc?size=64"
     end
   end
+
+  def material_efficiency_formatted
+  #   return if stacked?
+  #
+  #   case material_efficiency
+  #   when 0
+  #     "#{material_efficiency} %"
+  #   when 1..10
+  #     "+#{material_efficiency} %"
+  #   end
+  end
 end

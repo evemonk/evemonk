@@ -150,9 +150,9 @@
               </div>
               <div class="card-text text-muted">
                 <% if character_blueprint.bpo? %>
-                  BPO
+                  BPO | Runs: infinity <!--| ME: <%= character_blueprint.material_efficiency_formatted %> -->
                 <% elsif character_blueprint.bpc? %>
-                  BPC
+                  BPC | Runs: <%= character_blueprint.runs %>
                 <% else %>
                   Qty: <%= character_blueprint.quantity %>
                 <% end %>
