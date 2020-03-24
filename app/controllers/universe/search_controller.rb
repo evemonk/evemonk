@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Universe
-  class SearchesController < ApplicationController
+  class SearchController < ApplicationController
     skip_before_action :authenticate_user!
 
     def index
