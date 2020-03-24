@@ -3,7 +3,7 @@
 class AssetsController < ApplicationController
   def index
     @character = current_user.characters
-      .includes(:race, :bloodline, :ancestry, :faction, :alliance, :corporation)
+      .includes(:alliance, :corporation)
       .find_by!(character_id: params[:character_id])
       .decorate
 
