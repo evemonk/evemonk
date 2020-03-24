@@ -4,7 +4,7 @@ class CharacterBlueprintDecorator < ApplicationDecorator
   decorates_associations :character, :blueprint
 
   def original?
-    object.quantity == -1
+    quantity == -1
   end
 
   def bpo?
@@ -12,7 +12,7 @@ class CharacterBlueprintDecorator < ApplicationDecorator
   end
 
   def copy?
-    object.quantity == -2
+    quantity == -2
   end
 
   def bpc?
@@ -20,7 +20,7 @@ class CharacterBlueprintDecorator < ApplicationDecorator
   end
 
   def stacked?
-    object.quantity > 0
+    quantity.positive?
   end
 
   def icon_tiny
