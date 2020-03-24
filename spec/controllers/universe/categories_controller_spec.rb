@@ -5,7 +5,7 @@ require "rails_helper"
 describe Universe::CategoriesController do
   it { should be_a(ApplicationController) }
 
-  it { should_not use_before_action(:require_login) }
+  it { should_not use_before_action(:authenticate_user!) }
 
   describe "#index" do
     before { get :index }

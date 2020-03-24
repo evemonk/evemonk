@@ -27,6 +27,8 @@ Rails.application.routes.draw do
     resources :market_groups, only: [:index, :show]
 
     resources :types, only: :show
+
+    resources :search, only: :index
   end
 
   resources :characters, only: [:index, :show, :update, :destroy] do

@@ -8,7 +8,9 @@ module Eve
 
     translates :name, :description
 
-    belongs_to :corporation, primary_key: "corporation_id", optional: true
+    belongs_to :corporation,
+      primary_key: "corporation_id",
+      optional: true
 
     # belongs_to :militia_corporation_id
 

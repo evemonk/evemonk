@@ -36,7 +36,7 @@ class Character < ApplicationRecord
     optional: true
 
   belongs_to :current_ship_type,
-    class_name: "Eve::Type",
+    class_name: "Eve::Ship",
     primary_key: "type_id",
     foreign_key: "current_ship_type_id",
     optional: true
@@ -84,6 +84,8 @@ class Character < ApplicationRecord
   has_many :wallet_journals, dependent: :destroy
 
   has_many :wallet_transactions, dependent: :destroy
+
+  has_many :character_blueprints, dependent: :destroy
 
   has_many :industry_jobs, dependent: :destroy
 

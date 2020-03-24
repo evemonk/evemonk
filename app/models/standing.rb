@@ -5,7 +5,9 @@ class Standing < ApplicationRecord
 
   belongs_to :character
 
-  belongs_to :standingable, polymorphic: true
+  belongs_to :standingable,
+    polymorphic: true,
+    optional: true
 
   # TODO: later
   # scope :factions_standings, -> do

@@ -7,7 +7,7 @@ GIT
 
 GIT
   remote: https://github.com/evemonk/eve_online.git
-  revision: 6c09bfc36b4ffa439cf8bac461926f429d4d1a34
+  revision: 0e8b4d681f602fb090ac76d3a237caeac1f10ee0
   branch: dev
   specs:
     eve_online (0.31.0)
@@ -23,7 +23,7 @@ GIT
 
 GIT
   remote: https://github.com/rails/rails.git
-  revision: 4e3fd9290059b453a2074603c3237a5c668db00a
+  revision: ca5c934aba60e1b146dc55d74f3fb8c1e01dc0a7
   branch: 6-0-stable
   specs:
     actioncable (6.0.2.2)
@@ -556,7 +556,7 @@ GEM
     sexp_processor (4.14.1)
     shoulda-matchers (4.3.0)
       activesupport (>= 4.2.0)
-    sidekiq (6.0.5)
+    sidekiq (6.0.6)
       connection_pool (>= 2.2.2)
       rack (~> 2.0)
       rack-protection (>= 2.0.0)

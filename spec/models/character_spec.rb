@@ -21,7 +21,7 @@ describe Character do
 
   it { should belong_to(:corporation).class_name("Eve::Corporation").with_primary_key("corporation_id").optional(true) }
 
-  it { should belong_to(:current_ship_type).class_name("Eve::Type").with_primary_key("type_id").with_foreign_key("current_ship_type_id").optional(true) }
+  it { should belong_to(:current_ship_type).class_name("Eve::Ship").with_primary_key("type_id").with_foreign_key("current_ship_type_id").optional(true) }
 
   it { should belong_to(:current_solar_system).class_name("Eve::System").with_primary_key("system_id").with_foreign_key("current_solar_system_id").optional(true) }
 
@@ -50,6 +50,8 @@ describe Character do
   it { should have_many(:wallet_journals).dependent(:destroy) }
 
   it { should have_many(:wallet_transactions).dependent(:destroy) }
+
+  it { should have_many(:character_blueprints).dependent(:destroy) }
 
   it { should have_many(:industry_jobs).dependent(:destroy) }
 
