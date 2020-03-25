@@ -40,13 +40,22 @@ class CharacterBlueprintDecorator < ApplicationDecorator
   end
 
   def material_efficiency_formatted
-  #   return if stacked?
-  #
-  #   case material_efficiency
-  #   when 0
-  #     "#{material_efficiency} %"
-  #   when 1..10
-  #     "+#{material_efficiency} %"
-  #   end
+    return if stacked?
+
+    if material_efficiency.zero?
+      "#{material_efficiency} %"
+    else
+      "+#{material_efficiency} %"
+    end
+  end
+
+  def time_efficiency_formatted
+    return if stacked?
+
+    if time_efficiency.zero?
+      "#{time_efficiency} %"
+    else
+      "+#{time_efficiency} %"
+    end
   end
 end
