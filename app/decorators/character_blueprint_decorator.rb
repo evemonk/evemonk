@@ -3,20 +3,14 @@
 class CharacterBlueprintDecorator < ApplicationDecorator
   decorates_associations :character, :blueprint
 
-  def original?
+  # BPO -- Blue Print Original
+  def bpo?
     quantity == -1
   end
 
-  def bpo?
-    original?
-  end
-
-  def copy?
-    quantity == -2
-  end
-
+  # BPC -- Blue Print Copy
   def bpc?
-    copy?
+    quantity == -2
   end
 
   def stacked?
