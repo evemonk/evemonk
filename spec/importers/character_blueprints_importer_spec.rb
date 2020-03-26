@@ -28,7 +28,78 @@ describe CharacterBlueprintsImporter do
   end
 
   describe "#update!" do
-    # TODO: write
+    # context "when scope present" do
+    #   before { expect(subject).to receive(:refresh_character_access_token) }
+    #
+    #   let(:access_token) { double }
+    #
+    #   let(:character) do
+    #     instance_double(Character,
+    #                     character_id: character_id,
+    #                     access_token: access_token,
+    #                     scopes: "esi-killmails.read_killmails.v1")
+    #   end
+    #
+    #   before { expect(subject).to receive(:character).and_return(character).exactly(4).times }
+    #
+    #   let(:json) { double }
+    #
+    #   let(:killmail) { instance_double(EveOnline::ESI::Models::KillmailShort, as_json: json) }
+    #
+    #   let(:total_pages) { double }
+    #
+    #   let(:esi) do
+    #     instance_double(EveOnline::ESI::CharacterKillmailsRecent,
+    #                     killmails: [killmail],
+    #                     scope: "esi-killmails.read_killmails.v1",
+    #                     total_pages: total_pages)
+    #   end
+    #
+    #   before { expect(EveOnline::ESI::CharacterKillmailsRecent).to receive(:new).with(character_id: character_id, token: access_token, page: page).and_return(esi) }
+    #
+    #   before do
+    #     #
+    #     # character.character_killmails.find_or_create_by!(killmail.as_json)
+    #     #
+    #     expect(character).to receive(:character_killmails) do
+    #       double.tap do |a|
+    #         expect(a).to receive(:find_or_create_by!).with(json)
+    #       end
+    #     end
+    #   end
+    #
+    #   before { expect(subject).to receive(:import_other_pages).with(total_pages) }
+    #
+    #   specify { expect { subject.update! }.not_to raise_error }
+    # end
+
+    context "when scope not present" do
+      before { expect(subject).to receive(:refresh_character_access_token) }
+
+      let(:access_token) { double }
+
+      let(:character) do
+        instance_double(Character,
+          character_id: character_id,
+          access_token: access_token,
+          scopes: "")
+      end
+
+      before { expect(subject).to receive(:character).and_return(character).exactly(3).times }
+
+      let(:esi) do
+        instance_double(EveOnline::ESI::CharacterBlueprints,
+          scope: "esi-characters.read_blueprints.v1")
+      end
+
+      before { expect(EveOnline::ESI::CharacterBlueprints).to receive(:new).with(character_id: character_id, token: access_token, page: page).and_return(esi) }
+
+      before { expect(character).not_to receive(:character_blueprints) }
+
+      before { expect(subject).not_to receive(:import_other_pages) }
+
+      specify { expect { subject.update! }.not_to raise_error }
+    end
   end
 
   # private methods
