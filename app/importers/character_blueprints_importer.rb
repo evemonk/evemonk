@@ -18,7 +18,7 @@ class CharacterBlueprintsImporter < CharacterBaseImporter
 
     return unless character_scope_present?(esi.scope)
 
-    character.character_blueprints.destroy_all if page == 1
+    destroy_old_character_blueprints(page)
 
     esi.blueprints.each do |blueprint|
       character.character_blueprints.create!(blueprint.as_json)
@@ -28,6 +28,10 @@ class CharacterBlueprintsImporter < CharacterBaseImporter
   end
 
   private
+
+  def destroy_old_character_blueprints(page)
+    character.character_blueprints.destroy_all if page == 1
+  end
 
   def import_other_pages(total_pages)
     return if page != 1 || total_pages == 1
