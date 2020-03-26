@@ -64,6 +64,11 @@
       <%= link_to("Industry Jobs", character_industry_jobs_path(@character.character_id), class: "nav-link") %>
     </li>
   <% end %>
+  <% if Setting.enabled_blueprints %>
+    <li class="nav-item">
+      <%= link_to("Blueprints", character_blueprints_path(@character.character_id), class: "nav-link") %>
+    </li>
+  <% end %>
 </ul>
 
 <hr>
@@ -131,8 +136,8 @@
         <div class="row no-gutters">
           <div class="col-2 text-center m-auto">
             <% if loyalty_point.corporation.present? %>
-              <%= image_tag(loyalty_point.corporation&.icon_tiny,
-                            alt: loyalty_point.corporation&.name,
+              <%= image_tag(loyalty_point.corporation.icon_tiny,
+                            alt: loyalty_point.corporation.name,
                             class: "rounded border",
                             size: "34x34",
                             loading: "lazy") %>

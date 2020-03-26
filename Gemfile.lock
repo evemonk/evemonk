@@ -23,7 +23,7 @@ GIT
 
 GIT
   remote: https://github.com/rails/rails.git
-  revision: ca5c934aba60e1b146dc55d74f3fb8c1e01dc0a7
+  revision: 5665d0867bb34b941db778630d558c7694bb1506
   branch: 6-0-stable
   specs:
     actioncable (6.0.2.2)
@@ -103,39 +103,6 @@ GIT
       rake (>= 0.8.7)
       thor (>= 0.20.3, < 2.0)
 
-GIT
-  remote: https://github.com/rspec/rspec-core.git
-  revision: 002ebcb65324bca7b3ee044e22f4c02133fce14d
-  branch: master
-  specs:
-    rspec-core (3.10.0.pre)
-      rspec-support (= 3.10.0.pre)
-
-GIT
-  remote: https://github.com/rspec/rspec-expectations.git
-  revision: 9f224eaeb5c6d7eaaab0f7f6e355efd9329328f8
-  branch: master
-  specs:
-    rspec-expectations (3.10.0.pre)
-      diff-lcs (>= 1.2.0, < 2.0)
-      rspec-support (= 3.10.0.pre)
-
-GIT
-  remote: https://github.com/rspec/rspec-mocks.git
-  revision: 81c17e89b2722cb225d602e08b600e4a4f6148a4
-  branch: master
-  specs:
-    rspec-mocks (3.10.0.pre)
-      diff-lcs (>= 1.2.0, < 2.0)
-      rspec-support (= 3.10.0.pre)
-
-GIT
-  remote: https://github.com/rspec/rspec-support.git
-  revision: 63c03e5e6f0ac858398933f820d37087f57c315a
-  branch: master
-  specs:
-    rspec-support (3.10.0.pre)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -205,15 +172,17 @@ GEM
     crass (1.0.6)
     dalli (2.7.10)
     database_rewinder (0.9.2)
-    derailed_benchmarks (1.6.0)
+    derailed_benchmarks (1.7.0)
       benchmark-ips (~> 2)
       get_process_mem (~> 0)
       heapy (~> 0)
       memory_profiler (~> 0)
+      mini_histogram (~> 0)
       rack (>= 1)
       rake (> 10, < 14)
       ruby-statistics (>= 2.1)
       thor (>= 0.19, < 2)
+      unicode_plot (>= 0.0.4, < 1.0.0)
     devise (4.7.1)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -234,7 +203,7 @@ GEM
     dotenv-rails (2.7.5)
       dotenv (= 2.7.5)
       railties (>= 3.2, < 6.1)
-    draper (4.0.0)
+    draper (4.0.1)
       actionpack (>= 5.0)
       activemodel (>= 5.0)
       activemodel-serializers-xml (>= 1.0)
@@ -249,6 +218,7 @@ GEM
     elasticsearch-transport (7.5.0)
       faraday (>= 0.14, < 1)
       multi_json
+    enumerable-statistics (2.0.1)
     equatable (0.6.1)
     errbase (0.2.0)
     erubi (1.9.0)
@@ -258,12 +228,12 @@ GEM
     ethon (0.12.0)
       ffi (>= 1.3.0)
     execjs (2.7.0)
-    factory_bot (5.1.1)
+    factory_bot (5.1.2)
       activesupport (>= 4.2.0)
     factory_bot_rails (5.1.1)
       factory_bot (~> 5.1.0)
       railties (>= 4.2.0)
-    faker (2.10.2)
+    faker (2.11.0)
       i18n (>= 1.6, < 2)
     faker-bot (0.5.3)
       faker
@@ -364,6 +334,7 @@ GEM
       groupdate (> 4.0)
       rails (> 5.1)
     mimemagic (0.3.4)
+    mini_histogram (0.1.3)
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
     minitest (5.14.0)
@@ -392,7 +363,7 @@ GEM
       multi_json (~> 1.3)
       multi_xml (~> 0.5)
       rack (>= 1.2, < 3)
-    octokit (4.17.0)
+    octokit (4.18.0)
       faraday (>= 0.9)
       sawyer (~> 0.8.0, >= 0.5.3)
     omniauth (1.9.1)
@@ -495,10 +466,18 @@ GEM
       railties
       rainbow
       thor (>= 0.18.1, < 2.0)
+    rspec-core (3.9.1)
+      rspec-support (~> 3.9.1)
+    rspec-expectations (3.9.1)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.9.0)
     rspec-its (1.3.0)
       rspec-core (>= 3.0.0)
       rspec-expectations (>= 3.0.0)
-    rspec-rails (4.0.0.rc1)
+    rspec-mocks (3.9.1)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.9.0)
+    rspec-rails (4.0.0)
       actionpack (>= 4.2)
       activesupport (>= 4.2)
       railties (>= 4.2)
@@ -506,6 +485,7 @@ GEM
       rspec-expectations (~> 3.9)
       rspec-mocks (~> 3.9)
       rspec-support (~> 3.9)
+    rspec-support (3.9.2)
     rubocop (0.79.0)
       jaro_winkler (~> 1.5.1)
       parallel (~> 1.10)
@@ -589,7 +569,7 @@ GEM
       sprockets (>= 3.0.0)
     sql_tracker (1.3.0)
     squasher (0.6.2)
-    standard (0.2.1)
+    standard (0.2.2)
       rubocop (~> 0.79.0)
       rubocop-performance (~> 1.5.1)
     stimulus_reflex (2.2.2)
@@ -634,6 +614,8 @@ GEM
     tzinfo (1.2.6)
       thread_safe (~> 0.1)
     unicode-display_width (1.6.1)
+    unicode_plot (0.0.4)
+      enumerable-statistics (>= 2.0.1)
     unicode_utils (1.4.0)
     uniform_notifier (1.13.0)
     vcr (5.1.0)
@@ -748,12 +730,8 @@ DEPENDENCIES
   responders
   rotp
   rpush
-  rspec-core!
-  rspec-expectations!
   rspec-its
-  rspec-mocks!
-  rspec-rails (= 4.0.0.rc1)
-  rspec-support!
+  rspec-rails
   rubocop
   rufus-scheduler
   sass-rails

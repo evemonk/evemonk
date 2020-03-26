@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe AssetsController do
+describe BlueprintsController do
   it { should be_a(ApplicationController) }
 
   it { should use_before_action(:authenticate_user!) }
@@ -17,11 +17,10 @@ describe AssetsController do
 
       before do
         #
-        # subject.current_user
-        #        .characters
-        #        .includes(:alliance, :corporation)
-        #        .find_by!(character_id: params[:character_id])
-        #        .decorate
+        # current_user.characters
+        #             .includes(:alliance, :corporation)
+        #             .find_by!(character_id: params[:character_id])
+        #             .decorate
         #
         expect(subject).to receive(:current_user) do
           double.tap do |a|
@@ -44,17 +43,17 @@ describe AssetsController do
 
       before do
         #
-        # character.character_assets
-        #          .includes(:type)
+        # character.character_blueprints
+        #          .includes(:blueprint)
         #
-        expect(character).to receive(:character_assets) do
+        expect(character).to receive(:character_blueprints) do
           double.tap do |a|
-            expect(a).to receive(:includes).with(:type)
+            expect(a).to receive(:includes).with(:blueprint)
           end
         end
       end
 
-      before { get :index, params: {character_id: "1"} }
+      before { get :index, params: {character_id: "1", page: "2"} }
 
       it { should respond_with(:ok) }
 
