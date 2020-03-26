@@ -129,14 +129,74 @@ describe CharacterBlueprintDecorator do
     end
   end
 
-  # def icon_small
-  #   if stacked? || bpo?
-  #     "#{imageproxy_url}https://images.evetech.net/types/#{type_id}/bp?size=64"
-  #   elsif bpc?
-  #     "#{imageproxy_url}https://images.evetech.net/types/#{type_id}/bpc?size=64"
-  #   end
-  # end
-  #
+  describe "#icon_small" do
+    context "when stacked" do
+      let(:character_blueprint) do
+        build(:character_blueprint,
+          quantity: 10,
+          type_id: 804)
+      end
+
+      subject { character_blueprint.decorate }
+
+      context "when Setting.use_image_proxy is true" do
+        before { Setting.use_image_proxy = true }
+
+        specify { expect(subject.icon_small).to eq("https://imageproxy.evemonk.com/https://images.evetech.net/types/804/bp?size=64") }
+      end
+
+      context "when Setting.use_image_proxy is false" do
+        before { Setting.use_image_proxy = false }
+
+        specify { expect(subject.icon_small).to eq("https://images.evetech.net/types/804/bp?size=64") }
+      end
+    end
+
+    context "when blueprint is original" do
+      let(:character_blueprint) do
+        build(:character_blueprint,
+          quantity: -1,
+          type_id: 804)
+      end
+
+      subject { character_blueprint.decorate }
+
+      context "when Setting.use_image_proxy is true" do
+        before { Setting.use_image_proxy = true }
+
+        specify { expect(subject.icon_small).to eq("https://imageproxy.evemonk.com/https://images.evetech.net/types/804/bp?size=64") }
+      end
+
+      context "when Setting.use_image_proxy is false" do
+        before { Setting.use_image_proxy = false }
+
+        specify { expect(subject.icon_small).to eq("https://images.evetech.net/types/804/bp?size=64") }
+      end
+    end
+
+    context "when blueprint is copy" do
+      let(:character_blueprint) do
+        build(:character_blueprint,
+          quantity: -2,
+          type_id: 804)
+      end
+
+      subject { character_blueprint.decorate }
+
+      context "when Setting.use_image_proxy is true" do
+        before { Setting.use_image_proxy = true }
+
+        specify { expect(subject.icon_small).to eq("https://imageproxy.evemonk.com/https://images.evetech.net/types/804/bpc?size=64") }
+      end
+
+      context "when Setting.use_image_proxy is false" do
+        before { Setting.use_image_proxy = false }
+
+        specify { expect(subject.icon_small).to eq("https://images.evetech.net/types/804/bpc?size=64") }
+      end
+    end
+  end
+
   # def material_efficiency_formatted
   #   return if stacked?
   #
