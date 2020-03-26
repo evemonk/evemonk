@@ -30,7 +30,9 @@ class CharacterBlueprintsImporter < CharacterBaseImporter
   private
 
   def destroy_old_character_blueprints(page)
-    character.character_blueprints.destroy_all if page == 1
+    return if page != 1
+
+    character.character_blueprints.destroy_all
   end
 
   def import_other_pages(total_pages)

@@ -107,9 +107,34 @@ describe CharacterBlueprintsImporter do
   # private methods
 
   describe "#destroy_old_character_blueprints" do
-    context "when page is first" # TODO: write
+    context "when page is first" do
+      let(:page) { 1 }
 
-    context "when page is not first" # TODO: write
+      before do
+        #
+        # character.character_blueprints.destroy_all
+        #
+        expect(subject).to receive(:character) do
+          double.tap do |a|
+            expect(a).to receive(:character_blueprints) do
+              double.tap do |b|
+                expect(b).to receive(:destroy_all)
+              end
+            end
+          end
+        end
+      end
+
+      specify { expect { subject.send(:destroy_old_character_blueprints, page) }.not_to raise_error }
+    end
+
+    context "when page is not first" do
+      let(:page) { 2 }
+
+      before { expect(subject).not_to receive(:character) }
+
+      specify { expect { subject.send(:destroy_old_character_blueprints, page) }.not_to raise_error }
+    end
   end
 
   describe "#import_other_pages" do
