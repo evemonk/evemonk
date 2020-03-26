@@ -197,16 +197,46 @@ describe CharacterBlueprintDecorator do
     end
   end
 
-  # def material_efficiency_formatted
-  #   return if stacked?
-  #
-  #   if material_efficiency.zero?
-  #     "#{material_efficiency} %"
-  #   else
-  #     "+#{material_efficiency} %"
-  #   end
-  # end
-  #
+  describe "#material_efficiency_formatted" do
+    context "when stacked" do
+      let(:character_blueprint) do
+        build(:character_blueprint,
+          quantity: 10,
+          type_id: 804)
+      end
+
+      subject { character_blueprint.decorate }
+
+      specify { expect(subject.material_efficiency_formatted).to eq(nil) }
+    end
+
+    context "when material efficiency is zero" do
+      let(:character_blueprint) do
+        build(:character_blueprint,
+          quantity: -1,
+          type_id: 804,
+          material_efficiency: 0)
+      end
+
+      subject { character_blueprint.decorate }
+
+      specify { expect(subject.material_efficiency_formatted).to eq("0 %") }
+    end
+
+    context "when material efficiency is more than zero" do
+      let(:character_blueprint) do
+        build(:character_blueprint,
+          quantity: -1,
+          type_id: 804,
+          material_efficiency: 10)
+      end
+
+      subject { character_blueprint.decorate }
+
+      specify { expect(subject.material_efficiency_formatted).to eq("+10 %") }
+    end
+  end
+
   # def time_efficiency_formatted
   #   return if stacked?
   #
