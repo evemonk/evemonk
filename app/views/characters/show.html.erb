@@ -63,11 +63,9 @@
       <%= link_to("Industry Jobs", character_industry_jobs_path(@character.character_id), class: "nav-link") %>
     </li>
   <% end %>
-  <% if Setting.enabled_blueprints %>
-    <li class="nav-item">
-      <%= link_to("Blueprints", character_blueprints_path(@character.character_id), class: "nav-link") %>
-    </li>
-  <% end %>
+  <li class="nav-item">
+    <%= link_to("Blueprints", character_blueprints_path(@character.character_id), class: "nav-link") %>
+  </li>
 </ul>
 
 <hr>
