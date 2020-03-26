@@ -45,25 +45,10 @@ describe BlueprintsController do
         #
         # character.character_blueprints
         #          .includes(:blueprint)
-        #          .page(params[:page])
-        #          .per(10)
-        #          .decorate
         #
         expect(character).to receive(:character_blueprints) do
           double.tap do |a|
-            expect(a).to receive(:includes).with(:blueprint) do
-              double.tap do |b|
-                expect(b).to receive(:page).with("2") do
-                  double.tap do |c|
-                    expect(c).to receive(:per).with(10) do
-                      double.tap do |d|
-                        expect(d).to receive(:decorate)
-                      end
-                    end
-                  end
-                end
-              end
-            end
+            expect(a).to receive(:includes).with(:blueprint)
           end
         end
       end
