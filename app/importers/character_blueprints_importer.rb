@@ -27,11 +27,13 @@ class CharacterBlueprintsImporter < CharacterBaseImporter
     import_other_pages(esi.total_pages)
   end
 
+  private
+
   def import_other_pages(total_pages)
     return if page != 1 || total_pages == 1
 
     (2..total_pages).each do |next_page|
-      CharacterBlueprintsImporter.perform_later(character_id, next_page)
+      CharacterBlueprintsJob.perform_later(character_id, next_page)
     end
   end
 end
