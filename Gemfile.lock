@@ -266,6 +266,7 @@ GEM
     hashie (4.1.0)
     heapy (0.1.4)
     http-2 (0.10.1)
+    http_accept_language (2.1.1)
     httpclient (2.8.3)
     i18n (1.8.2)
       concurrent-ruby (~> 1.0)
@@ -694,6 +695,7 @@ DEPENDENCIES
   fasterer
   foundation_emails
   gemdiff
+  http_accept_language
   http_logger!
   isolator
   jbuilder (~> 2.7)
