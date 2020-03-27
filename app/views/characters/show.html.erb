@@ -102,19 +102,9 @@
                                   universe_alliance_path(@character.alliance.alliance_id)) %>
           </li>
         <% end %>
-        <% if @character.race %>
+        <% if @character.race && @character.bloodline && @character.ancestry %>
           <li class="list-group-item text-break">
-            Race: <%= @character.race.name %>
-          </li>
-        <% end %>
-        <% if @character.bloodline %>
-          <li class="list-group-item text-break">
-            Bloodline: <%= @character.bloodline.name %>
-          </li>
-        <% end %>
-        <% if @character.ancestry %>
-          <li class="list-group-item text-break">
-            Ancestry: <%= @character.ancestry.name %>
+            <%= @character.race.name %> / <%= @character.bloodline.name %> / <%= @character.ancestry.name %>
           </li>
         <% end %>
         <% if @character.faction %>
