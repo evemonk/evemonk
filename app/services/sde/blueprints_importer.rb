@@ -12,6 +12,7 @@ module Sde
       entries = YAML.safe_load(File.read(file))
 
       entries.each_pair do |key, hash|
+        # TODO: remove after testing
         next if key.to_s != "804"
 
         eve_blueprint = Eve::Blueprint.find_or_initialize_by(type_id: key)
@@ -67,7 +68,9 @@ module Sde
       manufacturing_materials = hash.dig("activities", "manufacturing", "materials")
 
       manufacturing_materials&.each do |manufacturing_material|
-
+        Eve::BlueprintManufacturingMaterial.create!(blueprint_id: eve_blueprint.type_id,
+          quantity: manufacturing_material["quantity"],
+          type_id: manufacturing_material["typeID"])
       end
     end
 
@@ -77,7 +80,9 @@ module Sde
       manufacturing_products = hash.dig("activities", "manufacturing", "products")
 
       manufacturing_products&.each do |manufacturing_product|
-
+        Eve::BlueprintManufacturingProduct.create!(blueprint_id: eve_blueprint.type_id,
+          quantity: manufacturing_product["quantity"],
+          type_id: manufacturing_product["typeID"])
       end
     end
 
