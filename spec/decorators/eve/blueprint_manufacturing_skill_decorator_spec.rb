@@ -5,5 +5,5 @@ require "rails_helper"
 describe Eve::BlueprintManufacturingSkillDecorator do
   subject { described_class.new(double) }
 
-  it { should be_a(Eve::TypeDecorator) }
+  it { should be_a(ApplicationDecorator) }
 end
