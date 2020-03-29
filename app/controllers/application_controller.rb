@@ -22,10 +22,10 @@ class ApplicationController < ActionController::Base
   def current_user_locale
     return unless current_user
 
-    if current_user.auto_detect?
-      I18n.locale = http_accept_language.compatible_language_from(I18n.available_locales)
+    I18n.locale = if current_user.auto_detect?
+      http_accept_language.compatible_language_from(I18n.available_locales)
     else
-      I18n.locale = UserLocale.new(current_user.locale).to_locale
+      UserLocale.new(current_user.locale).to_locale
     end
   end
 end
