@@ -14,7 +14,7 @@ describe Auth::EveOnlineSso::CallbacksController do
   it { should rescue_from(EveOnline::Exceptions::Timeout).with(:handle_timeout) }
 
   describe "#show" do
-    let(:user) { create(:user) }
+    let(:user) { create(:user, locale: "english") }
 
     before { sign_in(user) }
 
