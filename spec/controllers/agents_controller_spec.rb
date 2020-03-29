@@ -13,6 +13,8 @@ describe AgentsController do
 
       before { sign_in(user) }
 
+      before { expect(subject).to receive(:current_user_locale) }
+
       before do
         #
         # subject.current_user.characters
