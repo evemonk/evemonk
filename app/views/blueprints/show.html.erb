@@ -184,11 +184,21 @@
       <div class="card-header">
         Manufacturing
       </div>
+      <div class="card-body">
+        Time: <%= @blueprint.blueprint.manufacturing_time_formatted %>
+      </div>
     </div>
 
     <div class="card">
       <div class="card-header">
         Research
+      </div>
+      <div class="card-body">
+        <ul class="list-unstyled">
+          <li>Research material efficiency: <%= @blueprint.blueprint.research_material_time_formatted %></li>
+          <li>Research time efficiency: <%= @blueprint.blueprint.research_time_time_formatted %></li>
+        </ul>
+
       </div>
     </div>
 
@@ -196,11 +206,17 @@
       <div class="card-header">
         Copying
       </div>
+      <div class="card-body">
+        Time: <%= @blueprint.blueprint.copying_time_formatted %>
+      </div>
     </div>
 
     <div class="card">
       <div class="card-header">
         Invention
+      </div>
+      <div class="card-body">
+        Time: <%= @blueprint.blueprint.invention_time_formatted %>
       </div>
     </div>
   </div>
