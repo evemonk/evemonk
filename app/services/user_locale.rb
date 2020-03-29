@@ -1,0 +1,21 @@
+class UserLocale
+  LOCALES = {
+    "english" => :en,
+    "german" => :de,
+    "french" => :fr,
+    "japanese" => :ja,
+    "russian" => :ru,
+    "chinese" => :zh,
+    "korean" => :ko
+  }
+
+  attr_reader :language
+
+  def initialize(language)
+    @language = language
+  end
+
+  def to_locale
+    LOCALES.fetch(language, :en)
+  end
+end
