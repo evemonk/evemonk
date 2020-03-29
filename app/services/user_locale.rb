@@ -16,6 +16,6 @@ class UserLocale
   end
 
   def to_locale
-    LOCALES.fetch(language, :en)
+    LOCALES.fetch(language) { |_| :en }
   end
 end
