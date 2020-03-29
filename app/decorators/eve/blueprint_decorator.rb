@@ -24,16 +24,16 @@ module Eve
 
     private
 
-    def time_to_human_time_formatted(time)
-      case time
+    def time_to_human_time_formatted(seconds)
+      case seconds
       when 0..60
-        "#{time} seconds"
+        "#{seconds} seconds"
       when 61..3600
-        "#{time / 60} minutes"
+        "#{seconds / 60} minutes"
       when 3601..86400
-        "#{time / 60 / 60} hours"
+        "#{seconds / 60 / 60} hours"
       else
-        "#{time / 60 / 60 / 24} days"
+        "#{seconds / 60 / 60 / 24} days"
       end
     end
   end
