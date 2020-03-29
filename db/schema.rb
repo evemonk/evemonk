@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_29_193907) do
+ActiveRecord::Schema.define(version: 2020_03_29_200941) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -288,6 +288,30 @@ ActiveRecord::Schema.define(version: 2020_03_29_193907) do
   end
 
   create_table "eve_blueprint_invention_skills", force: :cascade do |t|
+    t.bigint "blueprint_id"
+    t.integer "level"
+    t.bigint "type_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "eve_blueprint_manufacturing_materials", force: :cascade do |t|
+    t.bigint "blueprint_id"
+    t.integer "quantity"
+    t.bigint "type_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "eve_blueprint_manufacturing_products", force: :cascade do |t|
+    t.bigint "blueprint_id"
+    t.integer "quantity"
+    t.bigint "type_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "eve_blueprint_manufacturing_skills", force: :cascade do |t|
     t.bigint "blueprint_id"
     t.integer "level"
     t.bigint "type_id"
