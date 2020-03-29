@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_29_031128) do
+ActiveRecord::Schema.define(version: 2020_03_29_142746) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -724,6 +724,10 @@ ActiveRecord::Schema.define(version: 2020_03_29_031128) do
     t.float "adjusted_price"
     t.float "average_price"
     t.bigint "copying_time"
+    t.integer "max_production_limit"
+    t.bigint "manufacturing_time"
+    t.bigint "research_material_time"
+    t.bigint "research_time_time"
     t.index ["type_id"], name: "index_eve_types_on_type_id", unique: true
   end
 
