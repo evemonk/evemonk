@@ -37,6 +37,9 @@ namespace :evemonk do
     Rails.logger.info "Import base price for eve types from SDE"
     Sde::BasePriceImporter.new("static/sde/fsd/typeIDs.yaml").import
 
+    Rails.logger.info "Import blueprints from SDE"
+    Sde::BlueprintsImporter.new("static/sde/fsd/blueprints.yaml").import
+
     # Around 300 calls to esi
     Rails.logger.info "Import eve categories"
     Eve::UpdateCategoriesJob.perform_later
