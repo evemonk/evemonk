@@ -18,7 +18,7 @@ describe Auth::EveOnlineSso::CallbacksController do
 
     before { sign_in(user) }
 
-    before { expect(subject).to receive(:current_user).and_return(user) }
+    before { expect(subject).to receive(:current_user).and_return(user).exactly(4).times  }
 
     let(:service) { instance_double(EveOnlineCallbackService) }
 
