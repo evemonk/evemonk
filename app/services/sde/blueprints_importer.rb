@@ -12,9 +12,6 @@ module Sde
       entries = YAML.safe_load(File.read(file))
 
       entries.each_pair do |key, hash|
-        # TODO: remove after testing
-        next if key.to_s != "804"
-
         eve_blueprint = Eve::Blueprint.find_or_initialize_by(type_id: key)
 
         copying_time = hash.dig("activities", "copying", "time")
