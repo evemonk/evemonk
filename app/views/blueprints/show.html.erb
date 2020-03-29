@@ -71,3 +71,104 @@
 </ul>
 
 <hr>
+<div class="row">
+  <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+    <div class="clearfix">
+      <h4 class="float-left"><%= @character.name %></h4>
+      <%= form_with(url: character_path(@character.character_id), method: :patch, class: "float-right") do %>
+        <%= button_tag("Refresh", class: "btn btn-primary mb-2") do %>
+          <%= image_tag("bootstrap-icons/icons/arrow-repeat.svg") %>
+        <% end %>
+      <% end %>
+    </div>
+
+    <div class="card">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item text-center">
+          <%= image_tag(@character.icon_medium,
+                        alt: @character.name,
+                        class: "rounded border",
+                        size: "130x130",
+                        loading: "lazy") %>
+        </li>
+        <% if @character.corporation %>
+          <li class="list-group-item text-break">
+            Corporation: <%= link_to(@character.corporation.name,
+                                     universe_corporation_path(@character.corporation.corporation_id)) %>
+          </li>
+        <% end %>
+        <% if @character.alliance %>
+          <li class="list-group-item text-break">
+            Alliance: <%= link_to(@character.alliance.name,
+                                  universe_alliance_path(@character.alliance.alliance_id)) %>
+          </li>
+        <% end %>
+        <li class="list-group-item text-break">
+          Total SP: <%= @character.full_sp_formatted %>
+        </li>
+        <% if @character.unallocated_sp && @character.unallocated_sp > 0 %>
+          <li class="list-group-item text-break">
+            Unallocated SP: <%= @character.unallocated_sp_formatted %>
+          </li>
+        <% end %>
+        <li class="list-group-item text-break">
+          Security status: <%= @character.security_status %>
+        </li>
+        <li class="list-group-item text-break">
+          Wallet: <%= @character.wallet_formatted %> ISK
+        </li>
+      </ul>
+      <p class="card-text text-center">
+        <small class="text-muted">
+          Last updated <%= time_ago_in_words(@character.updated_at) %> ago
+        </small>
+      </p>
+    </div>
+  </div>
+
+  <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+    <h4 class="text-center text-break">Blueprints</h4>
+
+    <% @character_blueprints.each_with_index do |character_blueprint, index| %>
+      <div class="card <%= index % 2 == 0 ? "bg-dark" : "bg-transparent" %> rounded-0 border-secondary <%= index == 0 ? "" : "border-top-0" %>">
+        <div class="row no-gutters">
+          <div class="col-2 text-center m-auto">
+            <% if character_blueprint.blueprint.present? %>
+              <%= image_tag(character_blueprint.icon_tiny,
+                            alt: character_blueprint.blueprint.name,
+                            class: "rounded border",
+                            size: "34x34",
+                            loading: "lazy") %>
+            <% end %>
+          </div>
+          <div class="col-10">
+            <div class="card-body">
+              <div class="card-text">
+                <%= link_to(character_blueprint.blueprint.name,
+                            character_blueprint_path(@character.character_id, character_blueprint.item_id)) %>
+              </div>
+              <div class="card-text text-muted">
+                Located at <%= character_blueprint.location.name %>
+              </div>
+              <div class="card-text text-muted">
+                <% if character_blueprint.bpo? %>
+                  BPO | Runs: infinity |
+                  ME: <%= character_blueprint.material_efficiency_formatted %> | TE: <%= character_blueprint.time_efficiency_formatted %>
+                <% elsif character_blueprint.bpc? %>
+                  BPC | Runs: <%= character_blueprint.runs %> |
+                  ME: <%= character_blueprint.material_efficiency_formatted %> | TE: <%= character_blueprint.time_efficiency_formatted %>
+                <% else %>
+                  Qty: <%= character_blueprint.quantity %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+    <h4 class="text-center text-break"><%= @blueprint.blueprint.name %></h4>
+  </div>
+</div>
