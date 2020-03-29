@@ -4,7 +4,7 @@ require "rails_helper"
 
 describe "Sign in features" do
   it "when user successfully sign in" do
-    create(:user, email: "me@example.com", password: "eidii7EeooVe8ahk")
+    create(:user, email: "me@example.com", password: "eidii7EeooVe8ahk", locale: "english")
 
     visit "/"
 
@@ -21,7 +21,7 @@ describe "Sign in features" do
   end
 
   it "when user successfully sign in with upper cased email" do
-    create(:user, email: "me@example.com", password: "eidii7EeooVe8ahk")
+    create(:user, email: "me@example.com", password: "eidii7EeooVe8ahk", locale: "english")
 
     visit "/"
 
@@ -53,7 +53,7 @@ describe "Sign in features" do
   end
 
   it "when password wrong" do
-    create(:user, email: "me@example.com", password: "eidii7EeooVe8ahk")
+    create(:user, email: "me@example.com", password: "eidii7EeooVe8ahk", locale: "english")
 
     visit "/"
 
