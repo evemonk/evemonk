@@ -148,9 +148,6 @@
                             character_blueprint_path(@character.character_id, character_blueprint.item_id)) %>
               </div>
               <div class="card-text text-muted">
-                Located at <%= character_blueprint.location.name %>
-              </div>
-              <div class="card-text text-muted">
                 <% if character_blueprint.bpo? %>
                   BPO | Runs: infinity |
                   ME: <%= character_blueprint.material_efficiency_formatted %> | TE: <%= character_blueprint.time_efficiency_formatted %>
@@ -170,5 +167,41 @@
 
   <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
     <h4 class="text-center text-break"><%= @blueprint.blueprint.name %></h4>
+
+    <div class="card">
+      <div class="card-header">
+        Efficiency
+      </div>
+      <div class="card-body">
+        <ul class="list-unstyled">
+          <li>Material efficiency: <%= @blueprint.material_efficiency_formatted %></li>
+          <li>Time efficiency: <%= @blueprint.time_efficiency_formatted %></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        Manufacturing
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        Research
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        Copying
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        Invention
+      </div>
+    </div>
   </div>
 </div>
