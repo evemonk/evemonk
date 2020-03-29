@@ -54,8 +54,8 @@ module Sde
 
       invention_materials&.each do |invention_material|
         Eve::BlueprintInventionMaterial.create!(blueprint_id: eve_blueprint.type_id,
-          quantity: invention_material["quantity"],
-          type_id: invention_material["typeID"])
+                                                quantity: invention_material["quantity"],
+                                                type_id: invention_material["typeID"])
       end
     end
 
@@ -66,9 +66,9 @@ module Sde
 
       invention_products&.each do |invention_product|
         Eve::BlueprintInventionProduct.create!(blueprint_id: eve_blueprint.type_id,
-          probability: invention_product["probability"],
-          quantity: invention_product["quantity"],
-          type_id: invention_product["typeID"])
+                                               probability: invention_product["probability"],
+                                               quantity: invention_product["quantity"],
+                                               type_id: invention_product["typeID"])
       end
     end
 
@@ -79,8 +79,8 @@ module Sde
 
       invention_skills&.each do |invention_skill|
         Eve::BlueprintInventionSkill.create!(blueprint_id: eve_blueprint.type_id,
-          level: invention_skill["level"],
-          type_id: invention_skill["typeID"])
+                                             level: invention_skill["level"],
+                                             type_id: invention_skill["typeID"])
       end
     end
 
@@ -91,8 +91,8 @@ module Sde
 
       manufacturing_materials&.each do |manufacturing_material|
         Eve::BlueprintManufacturingMaterial.create!(blueprint_id: eve_blueprint.type_id,
-          quantity: manufacturing_material["quantity"],
-          type_id: manufacturing_material["typeID"])
+                                                    quantity: manufacturing_material["quantity"],
+                                                    type_id: manufacturing_material["typeID"])
       end
     end
 
@@ -103,8 +103,8 @@ module Sde
 
       manufacturing_products&.each do |manufacturing_product|
         Eve::BlueprintManufacturingProduct.create!(blueprint_id: eve_blueprint.type_id,
-          quantity: manufacturing_product["quantity"],
-          type_id: manufacturing_product["typeID"])
+                                                   quantity: manufacturing_product["quantity"],
+                                                   type_id: manufacturing_product["typeID"])
       end
     end
 
@@ -115,8 +115,8 @@ module Sde
 
       manufacturing_skills&.each do |manufacturing_skill|
         Eve::BlueprintManufacturingSkill.create!(blueprint_id: eve_blueprint.type_id,
-          level: manufacturing_skill["level"],
-          type_id: manufacturing_skill["typeID"])
+                                                 level: manufacturing_skill["level"],
+                                                 type_id: manufacturing_skill["typeID"])
       end
     end
   end
