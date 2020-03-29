@@ -7,13 +7,15 @@ describe UserLocale do
 
   subject { described_class.new(language) }
 
-  specify { expect(described_class::LOCALES).to eq("english" => :en,
-                                                   "german" => :de,
-                                                   "french" => :fr,
-                                                   "japanese" => :ja,
-                                                   "russian" => :ru,
-                                                   "chinese" => :zh,
-                                                   "korean" => :ko) }
+  specify do
+    expect(described_class::LOCALES).to eq("english" => :en,
+                                           "german" => :de,
+                                           "french" => :fr,
+                                           "japanese" => :ja,
+                                           "russian" => :ru,
+                                           "chinese" => :zh,
+                                           "korean" => :ko)
+  end
 
   describe "#initialize" do
     its(:language) { should eq(language) }
