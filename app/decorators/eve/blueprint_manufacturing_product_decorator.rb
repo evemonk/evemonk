@@ -2,6 +2,6 @@
 
 module Eve
   class BlueprintManufacturingProductDecorator < ApplicationDecorator
-    decorates_associations :blueprint
+    decorates_associations :blueprint, :type
   end
 end
