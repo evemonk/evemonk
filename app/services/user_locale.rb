@@ -9,7 +9,7 @@ class UserLocale
     "russian" => :ru,
     "chinese" => :zh,
     "korean" => :ko
-  }
+  }.freeze
 
   attr_reader :language
 
