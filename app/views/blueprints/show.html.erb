@@ -195,7 +195,29 @@
         Manufacturing
       </div>
       <div class="card-body">
-        Time: <%= @blueprint.blueprint.manufacturing_time_formatted %>
+        Time per run: <%= @blueprint.blueprint.manufacturing_time_formatted %>
+      </div>
+      <div class="card-header">
+        Outcome
+      </div>
+      <% @blueprint.blueprint.blueprint_manufacturing_products.each do |product| %>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-2">
+              <%= image_tag(product.type.icon_tiny,
+                            alt: product.type.name,
+                            class: "rounded border",
+                            size: "34x34",
+                            loading: "lazy") %>
+            </div>
+            <div class="col-10 m-auto">
+              <%= product.quantity %> x <%= product.type.name %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+      <div class="card-header">
+        Required skills
       </div>
     </div>
 
