@@ -217,7 +217,26 @@
         </div>
       <% end %>
       <div class="card-header">
-        Required skills
+        Required skills (<%= @blueprint.blueprint.blueprint_manufacturing_skills.size %>)
+      </div>
+      <div class="card-header">
+        Required input materials:
+      </div>
+      <div class="card-body">
+        <% @blueprint.blueprint.blueprint_manufacturing_materials.each do |material| %>
+          <div class="row">
+            <div class="col-2">
+              <%= image_tag(material.type.icon_tiny,
+                            alt: material.type.name,
+                            class: "rounded border",
+                            size: "34x34",
+                            loading: "lazy") %>
+            </div>
+            <div class="col-10 m-auto">
+              <%= material.quantity %> x <%= material.type.name %>
+            </div>
+          </div>
+        <% end %>
       </div>
     </div>
 
