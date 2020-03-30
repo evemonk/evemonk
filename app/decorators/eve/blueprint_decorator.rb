@@ -35,7 +35,7 @@ module Eve
         "#{seconds} seconds"
       when 61..3600
         "#{seconds / 60} minutes"
-      when 3601..86400
+      when 3601..86_400
         "#{seconds / 60 / 60} hours"
       else
         "#{seconds / 60 / 60 / 24} days"

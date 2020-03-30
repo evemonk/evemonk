@@ -51,9 +51,6 @@ Metrics/AbcSize:
 Style/IfUnlessModifier:
   Enabled: false
 
-Style/BracesAroundHashParameters:
-  Enabled: false
-
 Layout/SpaceAfterComma:
   Enabled: false
 
