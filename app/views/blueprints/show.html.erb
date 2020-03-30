@@ -219,6 +219,13 @@
       <div class="card-header">
         Required skills (<%= @blueprint.blueprint.blueprint_manufacturing_skills.size %>)
       </div>
+      <div class="card-body">
+        <ul class="list-unstyled">
+          <% @blueprint.blueprint.blueprint_manufacturing_skills.each do |skill| %>
+            <li><%= skill.type.name %> (Level <%= skill.level %>)</li>
+          <% end %>
+        </ul>
+      </div>
       <div class="card-header">
         Required input materials:
       </div>
