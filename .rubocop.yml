@@ -71,3 +71,12 @@ Style/ClassAndModuleChildren:
 
 Lint/UnusedBlockArgument:
   Enabled: false
+
+Layout/IndentationWidth:
+  Enabled: false
+
+Layout/ElseAlignment:
+  Enabled: false
+
+Layout/EndAlignment:
+  Enabled: false
