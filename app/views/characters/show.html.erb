@@ -182,218 +182,218 @@
     <h4 class="text-center text-break">Attributes &amp; Implants (<%= @character.implants.size %>)</h4>
 
     <% if @character.perception_attribute %>
-    <div class="card bg-dark rounded-0 border-secondary">
-      <div class="row no-gutters">
-        <div class="col-2 text-center m-auto">
-          <%= image_tag(@character.perception_attribute&.icon&.icon_url,
-                        alt: "Perception icon",
-                        class: "rounded border",
-                        size: "34x34",
-                        loading: "lazy") %>
-        </div>
-        <div class="col-8">
-          <div class="card-body">
-            <button type="button" class="btn text-success m-0 p-0" data-toggle="modal" data-target="#perception_description">
-              Perception:
-            </button>
+      <div class="card bg-dark rounded-0 border-secondary">
+        <div class="row no-gutters">
+          <div class="col-2 text-center m-auto">
+            <%= image_tag(@character.perception_attribute&.icon&.icon_url,
+                          alt: "Perception icon",
+                          class: "rounded border",
+                          size: "34x34",
+                          loading: "lazy") %>
+          </div>
+          <div class="col-8">
+            <div class="card-body">
+              <button type="button" class="btn text-success m-0 p-0" data-toggle="modal" data-target="#perception_description">
+                Perception:
+              </button>
+            </div>
+          </div>
+          <div class="col-2 text-center m-auto">
+            <span class="text-success"><%= @character.total_perception %></span> (<%= @character.perception %>)
           </div>
         </div>
-        <div class="col-2 text-center m-auto">
-          <span class="text-success"><%= @character.total_perception %></span> (<%= @character.perception %>)
-        </div>
       </div>
-    </div>
 
-    <div class="modal fade" id="perception_description" tabindex="-1" role="dialog" aria-labelledby="perception_description_label" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="perception_description_label">Perception</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <%= @character.perception_attribute&.description %>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      <div class="modal fade" id="perception_description" tabindex="-1" role="dialog" aria-labelledby="perception_description_label" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="perception_description_label">Perception</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <%= @character.perception_attribute&.description %>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
     <% end %>
 
     <% if @character.memory_attribute %>
-    <div class="card bg-transparent rounded-0 border-secondary border-top-0">
-      <div class="row no-gutters">
-        <div class="col-2 text-center m-auto">
-          <%= image_tag(@character.memory_attribute&.icon&.icon_url,
-                        alt: "Memory icon",
-                        class: "rounded border",
-                        size: "34x34",
-                        loading: "lazy") %>
-        </div>
-        <div class="col-8">
-          <div class="card-body">
-            <button type="button" class="btn text-success m-0 p-0" data-toggle="modal" data-target="#memory_description">
-              Memory:
-            </button>
+      <div class="card bg-transparent rounded-0 border-secondary border-top-0">
+        <div class="row no-gutters">
+          <div class="col-2 text-center m-auto">
+            <%= image_tag(@character.memory_attribute&.icon&.icon_url,
+                          alt: "Memory icon",
+                          class: "rounded border",
+                          size: "34x34",
+                          loading: "lazy") %>
+          </div>
+          <div class="col-8">
+            <div class="card-body">
+              <button type="button" class="btn text-success m-0 p-0" data-toggle="modal" data-target="#memory_description">
+                Memory:
+              </button>
+            </div>
+          </div>
+          <div class="col-2 text-center m-auto">
+            <span class="text-success"><%= @character.total_memory %></span> (<%= @character.memory %>)
           </div>
         </div>
-        <div class="col-2 text-center m-auto">
-          <span class="text-success"><%= @character.total_memory %></span> (<%= @character.memory %>)
-        </div>
       </div>
-    </div>
 
-    <div class="modal fade" id="memory_description" tabindex="-1" role="dialog" aria-labelledby="memory_description_label" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="memory_description_label">Memory</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <%= @character.memory_attribute&.description %>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      <div class="modal fade" id="memory_description" tabindex="-1" role="dialog" aria-labelledby="memory_description_label" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="memory_description_label">Memory</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <%= @character.memory_attribute&.description %>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
     <% end %>
 
     <% if @character.willpower_attribute %>
-    <div class="card bg-dark rounded-0 border-secondary border-top-0">
-      <div class="row no-gutters">
-        <div class="col-2 text-center m-auto">
-          <%= image_tag(@character.willpower_attribute&.icon&.icon_url,
-                        alt: "Willpower icon",
-                        class: "rounded border",
-                        size: "34x34",
-                        loading: "lazy") %>
-        </div>
-        <div class="col-8">
-          <div class="card-body">
-            <button type="button" class="btn text-success m-0 p-0" data-toggle="modal" data-target="#willpower_description">
-              Willpower:
-            </button>
+      <div class="card bg-dark rounded-0 border-secondary border-top-0">
+        <div class="row no-gutters">
+          <div class="col-2 text-center m-auto">
+            <%= image_tag(@character.willpower_attribute&.icon&.icon_url,
+                          alt: "Willpower icon",
+                          class: "rounded border",
+                          size: "34x34",
+                          loading: "lazy") %>
+          </div>
+          <div class="col-8">
+            <div class="card-body">
+              <button type="button" class="btn text-success m-0 p-0" data-toggle="modal" data-target="#willpower_description">
+                Willpower:
+              </button>
+            </div>
+          </div>
+          <div class="col-2 text-center m-auto">
+            <span class="text-success"><%= @character.total_willpower %></span> (<%= @character.willpower %>)
           </div>
         </div>
-        <div class="col-2 text-center m-auto">
-          <span class="text-success"><%= @character.total_willpower %></span> (<%= @character.willpower %>)
-        </div>
       </div>
-    </div>
 
-    <div class="modal fade" id="willpower_description" tabindex="-1" role="dialog" aria-labelledby="willpower_description_label" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="willpower_description_label">Willpower</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <%= @character.willpower_attribute&.description %>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      <div class="modal fade" id="willpower_description" tabindex="-1" role="dialog" aria-labelledby="willpower_description_label" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="willpower_description_label">Willpower</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <%= @character.willpower_attribute&.description %>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
     <% end %>
 
     <% if @character.intelligence_attribute %>
-    <div class="card bg-transparent rounded-0 border-secondary border-top-0">
-      <div class="row no-gutters">
-        <div class="col-2 text-center m-auto">
-          <%= image_tag(@character.intelligence_attribute&.icon&.icon_url,
-                        alt: "Intelligence icon",
-                        class: "rounded border",
-                        size: "34x34",
-                        loading: "lazy") %>
-        </div>
-        <div class="col-8">
-          <div class="card-body">
-            <button type="button" class="btn text-success m-0 p-0" data-toggle="modal" data-target="#intelligence_description">
-              Intelligence:
-            </button>
+      <div class="card bg-transparent rounded-0 border-secondary border-top-0">
+        <div class="row no-gutters">
+          <div class="col-2 text-center m-auto">
+            <%= image_tag(@character.intelligence_attribute&.icon&.icon_url,
+                          alt: "Intelligence icon",
+                          class: "rounded border",
+                          size: "34x34",
+                          loading: "lazy") %>
+          </div>
+          <div class="col-8">
+            <div class="card-body">
+              <button type="button" class="btn text-success m-0 p-0" data-toggle="modal" data-target="#intelligence_description">
+                Intelligence:
+              </button>
+            </div>
+          </div>
+          <div class="col-2 text-center m-auto">
+            <span class="text-success"><%= @character.total_intelligence %></span> (<%= @character.intelligence %>)
           </div>
         </div>
-        <div class="col-2 text-center m-auto">
-          <span class="text-success"><%= @character.total_intelligence %></span> (<%= @character.intelligence %>)
-        </div>
       </div>
-    </div>
 
-    <div class="modal fade" id="intelligence_description" tabindex="-1" role="dialog" aria-labelledby="intelligence_description_label" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="intelligence_description_label">Intelligence</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <%= @character.intelligence_attribute&.description %>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      <div class="modal fade" id="intelligence_description" tabindex="-1" role="dialog" aria-labelledby="intelligence_description_label" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="intelligence_description_label">Intelligence</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <%= @character.intelligence_attribute&.description %>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
     <% end %>
 
     <% if @character.charisma_attribute %>
-    <div class="card bg-dark rounded-0 border-secondary border-top-0">
-      <div class="row no-gutters">
-        <div class="col-2 text-center m-auto">
-          <%= image_tag(@character.charisma_attribute&.icon&.icon_url,
-                        alt: "Charisma icon",
-                        class: "rounded border",
-                        size: "34x34",
-                        loading: "lazy") %>
-        </div>
-        <div class="col-8">
-          <div class="card-body">
-            <button type="button" class="btn text-success m-0 p-0" data-toggle="modal" data-target="#charisma_description">
-              Charisma:
-            </button>
+      <div class="card bg-dark rounded-0 border-secondary border-top-0">
+        <div class="row no-gutters">
+          <div class="col-2 text-center m-auto">
+            <%= image_tag(@character.charisma_attribute&.icon&.icon_url,
+                          alt: "Charisma icon",
+                          class: "rounded border",
+                          size: "34x34",
+                          loading: "lazy") %>
+          </div>
+          <div class="col-8">
+            <div class="card-body">
+              <button type="button" class="btn text-success m-0 p-0" data-toggle="modal" data-target="#charisma_description">
+                Charisma:
+              </button>
+            </div>
+          </div>
+          <div class="col-2 text-center m-auto">
+            <span class="text-success"><%= @character.total_charisma %></span> (<%= @character.charisma %>)
           </div>
         </div>
-        <div class="col-2 text-center m-auto">
-          <span class="text-success"><%= @character.total_charisma %></span> (<%= @character.charisma %>)
-        </div>
       </div>
-    </div>
 
-    <div class="modal fade" id="charisma_description" tabindex="-1" role="dialog" aria-labelledby="charisma_description_label" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="charisma_description_label">Charisma</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <%= @character.charisma_attribute&.description %>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      <div class="modal fade" id="charisma_description" tabindex="-1" role="dialog" aria-labelledby="charisma_description_label" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="charisma_description_label">Charisma</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <%= @character.charisma_attribute&.description %>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
     <% end %>
 
     <% if Setting.enabled_neural_map_available %>
