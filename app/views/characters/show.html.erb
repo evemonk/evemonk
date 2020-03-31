@@ -181,6 +181,7 @@
   <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
     <h4 class="text-center text-break">Attributes &amp; Implants (<%= @character.implants.size %>)</h4>
 
+    <% if @character.perception_attribute %>
     <div class="card bg-dark rounded-0 border-secondary">
       <div class="row no-gutters">
         <div class="col-2 text-center m-auto">
@@ -221,7 +222,9 @@
         </div>
       </div>
     </div>
+    <% end %>
 
+    <% if @character.memory_attribute %>
     <div class="card bg-transparent rounded-0 border-secondary border-top-0">
       <div class="row no-gutters">
         <div class="col-2 text-center m-auto">
@@ -262,7 +265,9 @@
         </div>
       </div>
     </div>
+    <% end %>
 
+    <% if @character.willpower_attribute %>
     <div class="card bg-dark rounded-0 border-secondary border-top-0">
       <div class="row no-gutters">
         <div class="col-2 text-center m-auto">
@@ -303,7 +308,9 @@
         </div>
       </div>
     </div>
+    <% end %>
 
+    <% if @character.intelligence_attribute %>
     <div class="card bg-transparent rounded-0 border-secondary border-top-0">
       <div class="row no-gutters">
         <div class="col-2 text-center m-auto">
@@ -344,7 +351,9 @@
         </div>
       </div>
     </div>
+    <% end %>
 
+    <% if @character.charisma_attribute %>
     <div class="card bg-dark rounded-0 border-secondary border-top-0">
       <div class="row no-gutters">
         <div class="col-2 text-center m-auto">
@@ -385,6 +394,7 @@
         </div>
       </div>
     </div>
+    <% end %>
 
     <% if Setting.enabled_neural_map_available %>
       <div class="card bg-transparent rounded-0 border-secondary border-top-0">
