@@ -178,24 +178,29 @@
       </div>
     </div>
 
-    <div class="card">
-      <div class="card-header">
-        Efficiency
+    <% if !@blueprint.stacked? %>
+      <div class="card">
+        <div class="card-header">
+          Efficiency
+        </div>
+        <div class="card-body">
+          <ul class="list-unstyled">
+            <li>Material efficiency: <%= @blueprint.material_efficiency_formatted %></li>
+            <li>Time efficiency: <%= @blueprint.time_efficiency_formatted %></li>
+          </ul>
+        </div>
       </div>
-      <div class="card-body">
-        <ul class="list-unstyled">
-          <li>Material efficiency: <%= @blueprint.material_efficiency_formatted %></li>
-          <li>Time efficiency: <%= @blueprint.time_efficiency_formatted %></li>
-        </ul>
-      </div>
-    </div>
+    <% end %>
 
     <div class="card">
       <div class="card-header">
         Manufacturing
       </div>
       <div class="card-body">
-        Time per run: <%= HumanTime.new(@blueprint.blueprint.manufacturing_time) %>
+        <ul class="list-unstyled">
+          <li>Time per run: <%= HumanTime.new(@blueprint.blueprint.manufacturing_time) %></li>
+<!--          <li>With skills: </li>-->
+        </ul>
       </div>
       <div class="card-header">
         Outcome
@@ -256,7 +261,6 @@
           <li>Research material efficiency: <%= HumanTime.new(@blueprint.blueprint.research_material_time) %></li>
           <li>Research time efficiency: <%= HumanTime.new(@blueprint.blueprint.research_time_time) %></li>
         </ul>
-
       </div>
     </div>
 
@@ -265,7 +269,10 @@
         Copying
       </div>
       <div class="card-body">
-        Time: <%= HumanTime.new(@blueprint.blueprint.copying_time) %>
+        <ul class="list-unstyled">
+          <li>Time per run: <%= HumanTime.new(@blueprint.blueprint.copying_time) %></li>
+<!--          <li>With current user skils: </li>-->
+        </ul>
       </div>
     </div>
 
