@@ -127,7 +127,7 @@
   </div>
 
   <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
-    <h4 class="text-center text-break">Blueprints</h4>
+    <h4 class="text-center text-break">Blueprints (<%= @character_blueprints.size %>)</h4>
 
     <% @character_blueprints.each_with_index do |character_blueprint, index| %>
       <div class="card <%= index % 2 == 0 ? "bg-dark" : "bg-transparent" %> rounded-0 border-secondary <%= index == 0 ? "" : "border-top-0" %>">
@@ -195,7 +195,7 @@
         Manufacturing
       </div>
       <div class="card-body">
-        Time per run: <%= @blueprint.blueprint.manufacturing_time_formatted %>
+        Time per run: <%= HumanTime.new(@blueprint.blueprint.manufacturing_time) %>
       </div>
       <div class="card-header">
         Outcome
@@ -253,8 +253,8 @@
       </div>
       <div class="card-body">
         <ul class="list-unstyled">
-          <li>Research material efficiency: <%= @blueprint.blueprint.research_material_time_formatted %></li>
-          <li>Research time efficiency: <%= @blueprint.blueprint.research_time_time_formatted %></li>
+          <li>Research material efficiency: <%= HumanTime.new(@blueprint.blueprint.research_material_time) %></li>
+          <li>Research time efficiency: <%= HumanTime.new(@blueprint.blueprint.research_time_time) %></li>
         </ul>
 
       </div>
@@ -265,7 +265,7 @@
         Copying
       </div>
       <div class="card-body">
-        Time: <%= @blueprint.blueprint.copying_time_formatted %>
+        Time: <%= HumanTime.new(@blueprint.blueprint.copying_time) %>
       </div>
     </div>
 
@@ -274,7 +274,7 @@
         Invention
       </div>
       <div class="card-body">
-        Time: <%= @blueprint.blueprint.invention_time_formatted %>
+        Time: <%= HumanTime.new(@blueprint.blueprint.invention_time) %>
       </div>
     </div>
   </div>
