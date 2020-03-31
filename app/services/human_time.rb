@@ -2,6 +2,10 @@
 
 # https://stackoverflow.com/a/55333591
 class HumanTime
+  SECONDS_IN_DAY = 24 * 60 * 60
+  SECONDS_IN_HOUR = 60 * 60
+  SECONDS_IN_MINUTE = 60
+
   attr_reader :seconds
 
   def initialize(seconds)
@@ -12,36 +16,32 @@ class HumanTime
     parse
 
     output = ""
-    output += "#{@days} days " if @days > 0
-    output += "#{@hours} hours " if @hours > 0
-    output += "#{@minutes} minutes " if @minutes > 0
-    output += "#{@seconds} seconds " if @seconds > 0
+    output += "#{@days} days " if @days.positive?
+    output += "#{@hours} hours " if @hours.positive?
+    output += "#{@minutes} minutes " if @minutes.positive?
+    output += "#{@seconds} seconds " if @seconds.positive?
     output
   end
 
+  private
+
   def parse
-    day = 24 * 60 * 60
+    @days = @seconds / SECONDS_IN_DAY
 
-    @days = @seconds / day
-
-    if @days > 0
-      @seconds = @seconds % day
+    if @days.positive?
+      @seconds = @seconds % SECONDS_IN_DAY
     end
 
-    hour = 60 * 60
+    @hours = @seconds / SECONDS_IN_HOUR
 
-    @hours = @seconds / hour
-
-    if @hours > 0
-      @seconds = @seconds % hour
+    if @hours.positive?
+      @seconds = @seconds % SECONDS_IN_HOUR
     end
 
-    minute = 60
+    @minutes = @seconds / SECONDS_IN_MINUTE
 
-    @minutes = @seconds / minute
-
-    if @minutes > 0
-      @seconds = @seconds % minute
+    if @minutes.positive?
+      @seconds = @seconds % SECONDS_IN_MINUTE
     end
   end
 end
