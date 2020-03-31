@@ -40,8 +40,6 @@ class HumanTime
 
     @minutes = @seconds / SECONDS_IN_MINUTE
 
-    if @minutes.positive?
-      @seconds = @seconds % SECONDS_IN_MINUTE
-    end
+    @seconds = @seconds % SECONDS_IN_MINUTE if @minutes.positive?
   end
 end
