@@ -22,7 +22,7 @@ class HumanTime
     output += "#{@hours} hours " if @hours.positive?
     output += "#{@minutes} minutes " if @minutes.positive?
     output += "#{@seconds} seconds " if @seconds.positive?
-    output
+    output.strip
   end
 
   private
