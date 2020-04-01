@@ -6,7 +6,8 @@ module Eve
     include ActionView::Helpers::NumberHelper
 
     decorates_associations :graphic, :group, :icon, :market_group,
-      :type_dogma_attributes, :type_dogma_effects
+      :type_dogma_attributes, :dogma_attributes, :type_dogma_effects,
+      :dogma_effects
 
     def icon_tiny
       "#{imageproxy_url}https://images.evetech.net/types/#{type_id}/icon?size=32"
