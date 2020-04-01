@@ -40,9 +40,9 @@ module Eve
       foreign_key: "type_id",
       dependent: :destroy
 
-    # TODO: import
-    has_many :dogma_effects,
-      through: :type_dogma_effects
+    # # TODO: import
+    # has_many :dogma_effects,
+    #   through: :type_dogma_effects
 
     def search_data
       {

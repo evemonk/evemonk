@@ -29,7 +29,7 @@ describe Eve::Type do
 
   it { should have_many(:type_dogma_effects).with_primary_key("type_id").with_foreign_key("type_id").dependent(:destroy) }
 
-  it { should have_many(:dogma_effects).through(:type_dogma_effects) }
+  # it { should have_many(:dogma_effects).through(:type_dogma_effects) }
 
   describe "#search_data" do
     let!(:type) do
