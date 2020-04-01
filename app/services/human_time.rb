@@ -13,6 +13,8 @@ class HumanTime
   end
 
   def to_s
+    return if @seconds.blank?
+
     parse
 
     output = ""
