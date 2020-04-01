@@ -74,5 +74,4 @@ class CharacterManufacturingCopyTime
   def advanced_industry_job_time_bonus
     advanced_industry_level * advanced_industry_job_time_bonus_value
   end
-
 end
