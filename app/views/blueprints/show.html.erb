@@ -271,7 +271,7 @@
       <div class="card-body">
         <ul class="list-unstyled">
           <li>Time per run: <%= HumanTime.new(@blueprint.blueprint.copying_time) %></li>
-<!--          <li>With current user skils: </li>-->
+          <li>With current user skills: <%= HumanTime.new(CharacterManufacturingCopyTime.new(@character, @blueprint.blueprint.copying_time).manufacturing_copy_time.round) %></li>
         </ul>
       </div>
     </div>
