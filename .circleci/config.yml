@@ -54,7 +54,6 @@ jobs:
       - run: bundle exec brakeman -A
       - run: bundle exec bundle-leak
       - run: bundle exec mdl README.md
-      - run: bundle exec mdl CHANGELOG.md
       - run: bundle exec fasterer
       - run: bundle exec standardrb
       - run: bundle exec rubocop
