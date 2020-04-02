@@ -23,7 +23,7 @@ GIT
 
 GIT
   remote: https://github.com/rails/rails.git
-  revision: 1db2ae1f5f7cf9615abc83620d282d535e4bc6aa
+  revision: b60571ea8efc4d6c8d0e1d90e0b29e5eb9de186e
   branch: 6-0-stable
   specs:
     actioncable (6.0.2.2)
@@ -771,4 +771,4 @@ DEPENDENCIES
   yabeda-sidekiq
 
 BUNDLED WITH
-   2.1.2
+   2.1.4
