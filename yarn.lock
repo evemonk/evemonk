@@ -1203,9 +1203,9 @@ anymatch@^2.0.0:
     normalize-path "^2.1.1"
 
 apexcharts@^3.15.3:
-  version "3.17.1"
-  resolved "https://registry.yarnpkg.com/apexcharts/-/apexcharts-3.17.1.tgz#e7404e0838d2ad40e6469b1f3a9ef39bcae4bc3d"
-  integrity sha512-zfeyHGSkz8iyCk461mbq5cpjhkGiTXz+NaVivCAbeqqRARg7oDDrwLD6MK+mA5Zl5MBqS2lXlcJP56C4rxq3BA==
+  version "3.18.0"
+  resolved "https://registry.yarnpkg.com/apexcharts/-/apexcharts-3.18.0.tgz#a6872d9611c1f3e3cc8dee41671106142baeeee8"
+  integrity sha512-gQzAi8Mts3kRFJHchdOksD6OOkYHFxL/dwBO1VmV7BMTdkuL9u8Raap3oVfJia3JTfiYZDc5zkVBHGvksSkeRw==
   dependencies:
     svg.draggable.js "^2.2.2"
     svg.easing.js "^2.0.0"
