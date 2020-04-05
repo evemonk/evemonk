@@ -244,7 +244,7 @@ GEM
       tty-tree
     faraday (0.17.3)
       multipart-post (>= 1.2, < 3)
-    fasterer (0.8.2)
+    fasterer (0.8.3)
       colorize (~> 0.7)
       ruby_parser (>= 3.14.1)
     ffi (1.12.2)
