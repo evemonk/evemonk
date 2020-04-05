@@ -6,22 +6,36 @@ class HumanTime
   SECONDS_IN_HOUR = 60 * 60
   SECONDS_IN_MINUTE = 60
 
-  attr_reader :seconds
+  attr_reader :seconds, :parsed
 
   def initialize(seconds)
     @seconds = seconds
+    @parsed = false
   end
 
-  def to_s
+  def long_formatted
     return if @seconds.blank?
 
-    parse
+    parse if !parsed
 
     output = ""
-    output += "#{@days} days " if @days.positive?
-    output += "#{@hours} hours " if @hours.positive?
-    output += "#{@minutes} minutes " if @minutes.positive?
-    output += "#{@seconds} seconds " if @seconds.positive?
+    output += I18n.t("human_time.days", count: @days) if @days.positive?
+    output += I18n.t("human_time.hours", count: @hours) if @hours.positive?
+    output += I18n.t("human_time.minutes", count: @minutes) if @minutes.positive?
+    output += I18n.t("human_time.seconds", count: @seconds) if @seconds.positive?
+    output.strip
+  end
+
+  def short_formatted
+    return if @seconds.blank?
+
+    parse if !parsed
+
+    output = ""
+    output += "#{@days}d " if @days.positive?
+    output += "#{@hours}h " if @hours.positive?
+    output += "#{@minutes}m " if @minutes.positive?
+    output += "#{@seconds}s " if @seconds.positive?
     output.strip
   end
 
@@ -43,5 +57,7 @@ class HumanTime
     @minutes = @seconds / SECONDS_IN_MINUTE
 
     @seconds = @seconds % SECONDS_IN_MINUTE if @minutes.positive?
+
+    @parsed = true
   end
 end
