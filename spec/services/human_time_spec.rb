@@ -40,4 +40,18 @@ describe HumanTime do
       end
     end
   end
+
+  describe "#short_formatted" do
+    context "when seconds blank" do
+      let(:seconds) { nil }
+
+      specify { expect(subject.short_formatted).to eq(nil) }
+    end
+
+    context "when seconds present" do
+      let(:seconds) { 5.days.to_i + 4.hours.to_i + 3.minutes.to_i + 2.seconds.to_i }
+
+      specify { expect(subject.short_formatted).to eq("5d 4h 3m 2s") }
+    end
+  end
 end
