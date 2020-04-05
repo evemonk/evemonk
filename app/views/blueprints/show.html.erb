@@ -198,7 +198,7 @@
       </div>
       <div class="card-body">
         <ul class="list-unstyled">
-          <li>Time per run: <%= HumanTime.new(@blueprint.blueprint.manufacturing_time) %></li>
+          <li>Time per run: <%= HumanTime.new(@blueprint.blueprint.manufacturing_time).long_formatted %></li>
 <!--          <li>With skills: </li>-->
         </ul>
       </div>
@@ -258,8 +258,8 @@
       </div>
       <div class="card-body">
         <ul class="list-unstyled">
-          <li>Research material efficiency: <%= HumanTime.new(@blueprint.blueprint.research_material_time) %></li>
-          <li>Research time efficiency: <%= HumanTime.new(@blueprint.blueprint.research_time_time) %></li>
+          <li>Research material efficiency: <%= HumanTime.new(@blueprint.blueprint.research_material_time).long_formatted %></li>
+          <li>Research time efficiency: <%= HumanTime.new(@blueprint.blueprint.research_time_time).long_formatted %></li>
         </ul>
       </div>
     </div>
@@ -270,8 +270,13 @@
       </div>
       <div class="card-body">
         <ul class="list-unstyled">
-          <li>Time per run: <%= HumanTime.new(@blueprint.blueprint.copying_time) %></li>
-          <li>With current user skills: <%= HumanTime.new(CharacterManufacturingCopyTime.new(@character, @blueprint.blueprint.copying_time).manufacturing_copy_time.round) %></li>
+          <li>
+            Time per run:
+            <span class="btn-link" data-toggle="tooltip" data-placement="top" data-html="true" title="<%= render "tooltip_for_copying_time" %>">
+              <%= HumanTime.new(CharacterManufacturingCopyTime.new(@character, @blueprint.blueprint.copying_time).manufacturing_copy_time.round).long_formatted %>
+              (<%= @blueprint.blueprint.copying_time_formatted %>)
+            </span>
+          </li>
         </ul>
       </div>
     </div>
@@ -281,7 +286,7 @@
         Invention
       </div>
       <div class="card-body">
-        Time: <%= HumanTime.new(@blueprint.blueprint.invention_time) %>
+        Time: <%= HumanTime.new(@blueprint.blueprint.invention_time).long_formatted %>
       </div>
     </div>
   </div>
