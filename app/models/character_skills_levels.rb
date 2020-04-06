@@ -29,5 +29,4 @@ class CharacterSkillsLevels
     # https://www.reddit.com/r/evetech/comments/bndjwi/difference_between_active_skill_level_and_trained/
     advanced_industry_skill&.active_skill_level || 0
   end
-
 end
