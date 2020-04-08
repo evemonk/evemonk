@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_29_200941) do
+ActiveRecord::Schema.define(version: 2020_04_08_214419) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -842,6 +842,16 @@ ActiveRecord::Schema.define(version: 2020_03_29_200941) do
     t.index ["character_id", "corporation_id"], name: "index_loyalty_points_on_character_id_and_corporation_id", unique: true
   end
 
+  create_table "manufacturing_jobs", force: :cascade do |t|
+    t.bigint "character_id", null: false
+    t.string "name"
+    t.bigint "product_id"
+    t.integer "quantity"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["character_id"], name: "index_manufacturing_jobs_on_character_id"
+  end
+
   create_table "pghero_query_stats", force: :cascade do |t|
     t.text "database"
     t.text "user"
@@ -1052,6 +1062,7 @@ ActiveRecord::Schema.define(version: 2020_03_29_200941) do
   add_foreign_key "character_skills", "characters"
   add_foreign_key "characters", "users"
   add_foreign_key "industry_jobs", "characters"
+  add_foreign_key "manufacturing_jobs", "characters"
   add_foreign_key "sessions", "users"
   add_foreign_key "skillqueues", "characters"
   add_foreign_key "standings", "characters"
