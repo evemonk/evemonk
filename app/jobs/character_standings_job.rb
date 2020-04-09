@@ -8,7 +8,7 @@ class CharacterStandingsJob < ActiveJob::Base
     EveOnline::Exceptions::BadGateway,
     EveOnline::Exceptions::InternalServerError,
     OpenSSL::SSL::SSLError,
-    Faraday::Error::TimeoutError,
+    Faraday::TimeoutError,
     Faraday::ConnectionFailed
 
   def perform(character_id)
