@@ -125,7 +125,7 @@
       </ul>
       <p class="card-text text-center">
         <small class="text-muted">
-          Last updated <%= time_ago_in_words(@character.updated_at) %> ago
+          Last updated <span class="timeago" datetime="<%= @character.updated_at.iso8601 %>"></span>
         </small>
       </p>
     </div>
@@ -142,6 +142,13 @@
   <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4" id="new_manufacturing_job">
     <h4 class="text-center text-break">New Job</h4>
 
+    <form>
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name">
+      </div>
+
+    </form>
     {{ message }}
   </div>
 </div>
@@ -151,8 +158,9 @@
     el: '#new_manufacturing_job',
     data: {
       message: 'Hello Vue!',
+      eve_types: <%= raw @eve_types.map { |type| {id: type.type_id, name: type.name_en} }.to_json %>,
       character: {
-        blueprints: <%= raw Eve::Type.where("name_en ILIKE '%blueprint%'").decorate.map { |b| {name: b.name_en} }.to_json %>
+        blueprints: <%= raw @blueprints.map { |b| {name: b.name_en} }.to_json %>
       }
     }
   });
