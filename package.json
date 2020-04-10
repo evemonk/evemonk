@@ -16,7 +16,8 @@
     "stimulus_reflex": "^2.2.2",
     "timeago.js": "^4.0.2",
     "turbolinks": "^5.2.0",
-    "vue": "^2.6.11"
+    "vue": "^2.6.11",
+    "vue-instant": "^1.0.4"
   },
   "version": "0.1.0",
   "devDependencies": {
