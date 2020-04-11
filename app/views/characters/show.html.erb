@@ -66,6 +66,11 @@
   <li class="nav-item">
     <%= link_to("Blueprints", character_blueprints_path(@character.character_id), class: "nav-link") %>
   </li>
+  <% if Setting.manufacturing_jobs %>
+    <li class="nav-item">
+      <%= link_to("Manufacturing Jobs", character_manufacturing_jobs_path(@character.character_id), class: "nav-link") %>
+    </li>
+  <% end %>
 </ul>
 
 <hr>
@@ -135,7 +140,7 @@
       </ul>
       <p class="card-text text-center">
         <small class="text-muted">
-          Last updated <%= time_ago_in_words(@character.updated_at) %> ago
+          Last updated <span class="timeago" datetime="<%= @character.updated_at.iso8601 %>"></span>
         </small>
       </p>
     </div>

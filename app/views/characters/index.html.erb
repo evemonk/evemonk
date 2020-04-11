@@ -62,7 +62,7 @@
         </ul>
         <p class="card-text text-center">
           <small class="text-muted">
-            Last updated <%= time_ago_in_words(character.updated_at) %> ago
+            Last updated <span class="timeago" datetime="<%= @character.updated_at.iso8601 %>"></span>
           </small>
         </p>
       </div>
