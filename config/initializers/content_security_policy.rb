@@ -14,6 +14,7 @@ Rails.application.config.content_security_policy do |policy|
   policy.script_src :self, :unsafe_inline
   policy.style_src :self, :unsafe_inline, "https://fonts.googleapis.com"
   policy.connect_src :self if Rails.env.production?
+  policy.connect_src "https://sentry.io"
 
   # If you are using webpack-dev-server then specify webpack-dev-server host
   policy.connect_src :self, :https, "http://localhost:3035", "ws://localhost:3035" if Rails.env.development?
