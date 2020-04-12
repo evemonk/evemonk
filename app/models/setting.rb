@@ -33,5 +33,5 @@ class Setting < RailsSettings::Base
 
   field :enabled_industry_jobs, type: :boolean, default: false
 
-  field :manufacturing_jobs, type: :boolean, default: true
+  field :manufacturing_jobs, type: :boolean, default: false
 end
