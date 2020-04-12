@@ -4,7 +4,7 @@ jobs:
   build:
     working_directory: ~/evemonk
     docker:
-      - image: circleci/ruby:2.7.0-node-browsers
+      - image: circleci/ruby:2.7.1-node-browsers
         environment:
           RAILS_ENV: test
           PGHOST: localhost
@@ -13,7 +13,7 @@ jobs:
           POSTGRES_USER: circleci
           POSTGRES_DB: evemonk_test
           POSTGRES_HOST_AUTH_METHOD: trust
-      - image: docker.elastic.co/elasticsearch/elasticsearch:7.6.1
+      - image: docker.elastic.co/elasticsearch/elasticsearch:7.6.2
         environment:
           - discovery.type: single-node
     steps:
@@ -23,18 +23,18 @@ jobs:
       - run: ./cc-test-reporter before-build
       - restore_cache:
           keys:
-            - ruby-270-v1-dependencies-{{ checksum "Gemfile.lock" }}
-            - ruby-270-v1-dependencies-
+            - ruby-271-v1-dependencies-{{ checksum "Gemfile.lock" }}
+            - ruby-271-v1-dependencies-
       - run: sudo gem update --system '3.1.2'
       - run: gem install bundler -v '2.1.4'
       - run: bundle check || bundle install --clean --jobs=2 --retry=5 --path vendor/bundle
       - save_cache:
           paths:
             - ./vendor/bundle
-          key: ruby-270-v1-dependencies-{{ checksum "Gemfile.lock" }}
+          key: ruby-271-v1-dependencies-{{ checksum "Gemfile.lock" }}
       - run: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run: dockerize -wait tcp://localhost:9200 -timeout 2m
-      - run: sudo npm install -g npm@6.14.3
+      - run: sudo npm install -g npm@6.14.4
       - run: sudo npm install --force -g yarn@1.22.4
       - run: node -v
       - run: npm -v
@@ -54,7 +54,6 @@ jobs:
       - run: bundle exec brakeman -A
       - run: bundle exec bundle-leak
       - run: bundle exec mdl README.md
-      - run: bundle exec mdl CHANGELOG.md
       - run: bundle exec fasterer
       - run: bundle exec standardrb
       - run: bundle exec rubocop

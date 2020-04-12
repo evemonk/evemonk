@@ -13,6 +13,8 @@ describe LoyaltyPointsController do
 
       before { sign_in(user) }
 
+      before { expect(subject).to receive(:current_user_locale) }
+
       let(:character) { instance_double(Character) }
 
       before do

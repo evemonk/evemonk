@@ -1,0 +1,295 @@
+<div class="row">
+  <div class="col">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><%= link_to("Home", root_path) %></li>
+        <li class="breadcrumb-item"><%= link_to("My characters", characters_path) %></li>
+        <li class="breadcrumb-item"><%= link_to(@character.name, character_path(@character.character_id)) %></li>
+        <li class="breadcrumb-item"><%= link_to("Blueprints", character_blueprints_path(@character.character_id)) %></li>
+        <li class="breadcrumb-item active" aria-current="page"><%= @blueprint.blueprint.name %></li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+<ul class="nav nav-pills">
+  <li class="nav-item">
+    <%= link_to("Sheet", character_path(@character.character_id), class: "nav-link") %>
+  </li>
+  <li class="nav-item">
+    <%= link_to("Employment History", character_employment_histories_path(@character.character_id), class: "nav-link") %>
+  </li>
+  <li class="nav-item">
+    <%= link_to("Agents", character_agents_path(@character.character_id), class: "nav-link") %>
+  </li>
+  <% if Setting.enabled_assets %>
+    <li class="nav-item">
+      <%= link_to("Assets", character_assets_path(@character.character_id), class: "nav-link") %>
+    </li>
+  <% end %>
+  <li class="nav-item">
+    <%= link_to("Loyalty points", character_loyalty_points_path(@character.character_id), class: "nav-link") %>
+  </li>
+  <% if Setting.enabled_skillqueue %>
+    <li class="nav-item">
+      <%= link_to("Skill queue", character_skillqueues_path(@character.character_id), class: "nav-link") %>
+    </li>
+  <% end %>
+  <% if Setting.enabled_skills %>
+    <li class="nav-item">
+      <%= link_to("Skills", character_skills_path(@character.character_id), class: "nav-link") %>
+    </li>
+  <% end %>
+  <% if Setting.enabled_mails %>
+    <li class="nav-item">
+      <%= link_to("Mail", character_mails_path(@character.character_id), class: "nav-link") %>
+    </li>
+  <% end %>
+  <% if Setting.enabled_standings %>
+    <li class="nav-item">
+      <%= link_to("Standings", character_standings_path(@character.character_id), class: "nav-link") %>
+    </li>
+  <% end %>
+  <% if Setting.enabled_wallet_journal %>
+    <li class="nav-item">
+      <%= link_to("Wallet journal", character_wallet_journals_path(@character.character_id), class: "nav-link") %>
+    </li>
+  <% end %>
+  <% if Setting.enabled_wallet_transactions %>
+    <li class="nav-item">
+      <%= link_to("Wallet transactions", nil, class: "nav-link") %>
+    </li>
+  <% end %>
+  <% if Setting.enabled_industry_jobs %>
+    <li class="nav-item">
+      <%= link_to("Industry Jobs", character_industry_jobs_path(@character.character_id), class: "nav-link") %>
+    </li>
+  <% end %>
+  <li class="nav-item">
+    <%= link_to("Blueprints", character_blueprints_path(@character.character_id), class: "nav-link") %>
+  </li>
+</ul>
+
+<hr>
+<div class="row">
+  <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+    <div class="clearfix">
+      <h4 class="float-left"><%= @character.name %></h4>
+      <%= form_with(url: character_path(@character.character_id), method: :patch, class: "float-right") do %>
+        <%= button_tag("Refresh", class: "btn btn-primary mb-2") do %>
+          <%= image_tag("bootstrap-icons/icons/arrow-repeat.svg") %>
+        <% end %>
+      <% end %>
+    </div>
+
+    <div class="card">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item text-center">
+          <%= image_tag(@character.icon_medium,
+                        alt: @character.name,
+                        class: "rounded border",
+                        size: "130x130",
+                        loading: "lazy") %>
+        </li>
+        <% if @character.corporation %>
+          <li class="list-group-item text-break">
+            Corporation: <%= link_to(@character.corporation.name,
+                                     universe_corporation_path(@character.corporation.corporation_id)) %>
+          </li>
+        <% end %>
+        <% if @character.alliance %>
+          <li class="list-group-item text-break">
+            Alliance: <%= link_to(@character.alliance.name,
+                                  universe_alliance_path(@character.alliance.alliance_id)) %>
+          </li>
+        <% end %>
+        <li class="list-group-item text-break">
+          Total SP: <%= @character.full_sp_formatted %>
+        </li>
+        <% if @character.unallocated_sp && @character.unallocated_sp > 0 %>
+          <li class="list-group-item text-break">
+            Unallocated SP: <%= @character.unallocated_sp_formatted %>
+          </li>
+        <% end %>
+        <li class="list-group-item text-break">
+          Security status: <%= @character.security_status %>
+        </li>
+        <li class="list-group-item text-break">
+          Wallet: <%= @character.wallet_formatted %> ISK
+        </li>
+      </ul>
+      <p class="card-text text-center">
+        <small class="text-muted">
+          Last updated <span class="timeago" datetime="<%= @character.updated_at.iso8601 %>"></span>
+        </small>
+      </p>
+    </div>
+  </div>
+
+  <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+    <h4 class="text-center text-break">Blueprints (<%= @character_blueprints.size %>)</h4>
+
+    <% @character_blueprints.each_with_index do |character_blueprint, index| %>
+      <div class="card <%= index % 2 == 0 ? "bg-dark" : "bg-transparent" %> rounded-0 border-secondary <%= index == 0 ? "" : "border-top-0" %>">
+        <div class="row no-gutters">
+          <div class="col-2 text-center m-auto">
+            <% if character_blueprint.blueprint.present? %>
+              <%= image_tag(character_blueprint.icon_tiny,
+                            alt: character_blueprint.blueprint.name,
+                            class: "rounded border",
+                            size: "34x34",
+                            loading: "lazy") %>
+            <% end %>
+          </div>
+          <div class="col-10">
+            <div class="card-body">
+              <div class="card-text">
+                <%= link_to(character_blueprint.blueprint.name,
+                            character_blueprint_path(@character.character_id, character_blueprint.item_id)) %>
+              </div>
+              <div class="card-text text-muted">
+                <% if character_blueprint.bpo? %>
+                  BPO | Runs: infinity |
+                  ME: <%= character_blueprint.material_efficiency_formatted %> | TE: <%= character_blueprint.time_efficiency_formatted %>
+                <% elsif character_blueprint.bpc? %>
+                  BPC | Runs: <%= character_blueprint.runs %> |
+                  ME: <%= character_blueprint.material_efficiency_formatted %> | TE: <%= character_blueprint.time_efficiency_formatted %>
+                <% else %>
+                  Qty: <%= character_blueprint.quantity %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+    <h4 class="text-center text-break"><%= @blueprint.blueprint.name %></h4>
+
+    <div class="card">
+      <div class="card-body text-center">
+        <%= image_tag(@blueprint.icon_small,
+                      alt: @blueprint.blueprint.name,
+                      class: "rounded border",
+                      size: "66x66",
+                      loading: "lazy") %>
+      </div>
+    </div>
+
+    <% if !@blueprint.stacked? %>
+      <div class="card">
+        <div class="card-header">
+          Efficiency
+        </div>
+        <div class="card-body">
+          <ul class="list-unstyled">
+            <li>Material efficiency: <%= @blueprint.material_efficiency_formatted %></li>
+            <li>Time efficiency: <%= @blueprint.time_efficiency_formatted %></li>
+          </ul>
+        </div>
+      </div>
+    <% end %>
+
+    <div class="card">
+      <div class="card-header">
+        Manufacturing
+      </div>
+      <div class="card-body">
+        <ul class="list-unstyled">
+          <li>Time per run: <%= HumanTime.new(@blueprint.blueprint.manufacturing_time).long_formatted %></li>
+<!--          <li>With skills: </li>-->
+        </ul>
+      </div>
+      <div class="card-header">
+        Outcome
+      </div>
+      <% @blueprint.blueprint.blueprint_manufacturing_products.each do |product| %>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-2">
+              <%= image_tag(product.type.icon_tiny,
+                            alt: product.type.name,
+                            class: "rounded border",
+                            size: "34x34",
+                            loading: "lazy") %>
+            </div>
+            <div class="col-10 m-auto">
+              <%= product.quantity %> x <%= product.type.name %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+      <div class="card-header">
+        Required skills (<%= @blueprint.blueprint.blueprint_manufacturing_skills.size %>)
+      </div>
+      <div class="card-body">
+        <ul class="list-unstyled">
+          <% @blueprint.blueprint.blueprint_manufacturing_skills.each do |skill| %>
+            <li><%= skill.type.name %> (Level <%= skill.level %>)</li>
+          <% end %>
+        </ul>
+      </div>
+      <div class="card-header">
+        Required input materials:
+      </div>
+      <div class="card-body">
+        <% @blueprint.blueprint.blueprint_manufacturing_materials.each do |material| %>
+          <div class="row">
+            <div class="col-2">
+              <%= image_tag(material.type.icon_tiny,
+                            alt: material.type.name,
+                            class: "rounded border",
+                            size: "34x34",
+                            loading: "lazy") %>
+            </div>
+            <div class="col-10 m-auto">
+              <%= material.quantity %> x <%= material.type.name %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        Research
+      </div>
+      <div class="card-body">
+        <ul class="list-unstyled">
+          <li>Research material efficiency: <%= HumanTime.new(@blueprint.blueprint.research_material_time).long_formatted %></li>
+          <li>Research time efficiency: <%= HumanTime.new(@blueprint.blueprint.research_time_time).long_formatted %></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        Copying
+      </div>
+      <div class="card-body">
+        <ul class="list-unstyled">
+          <li>
+            Time per run:
+            <span class="btn-link" data-toggle="tooltip" data-placement="top" data-html="true" title="<%= render "tooltip_for_copying_time" %>">
+              <%= HumanTime.new(CharacterManufacturingCopyTime.new(@character, @blueprint.blueprint.copying_time).manufacturing_copy_time.round).long_formatted %>
+              (<%= @blueprint.blueprint.copying_time_formatted %>)
+            </span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        Invention
+      </div>
+      <div class="card-body">
+        Time: <%= HumanTime.new(@blueprint.blueprint.invention_time).long_formatted %>
+      </div>
+    </div>
+
+    <button class="btn btn-primary btn-block">Industry calculator (coming soon!)</button>
+  </div>
+</div>

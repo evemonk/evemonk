@@ -30,7 +30,6 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
   views:
     pagination:
       first: "&laquo;"
@@ -38,3 +37,16 @@ en:
       previous: "&lsaquo;"
       next: "&rsaquo;"
       truncate: "&hellip;"
+  human_time:
+    days:
+      one: "%{count} day "
+      other: "%{count} days "
+    hours:
+      one: "%{count} hour "
+      other: "%{count} hours "
+    minutes:
+      one: "%{count} minute "
+      other: "%{count} minutes "
+    seconds:
+      one: "%{count} second "
+      other: "%{count} seconds "

@@ -51,9 +51,6 @@ Metrics/AbcSize:
 Style/IfUnlessModifier:
   Enabled: false
 
-Style/BracesAroundHashParameters:
-  Enabled: false
-
 Layout/SpaceAfterComma:
   Enabled: false
 
@@ -73,4 +70,13 @@ Style/ClassAndModuleChildren:
   Enabled: false
 
 Lint/UnusedBlockArgument:
+  Enabled: false
+
+Layout/IndentationWidth:
+  Enabled: false
+
+Layout/ElseAlignment:
+  Enabled: false
+
+Layout/EndAlignment:
   Enabled: false

@@ -13,6 +13,7 @@ gem "turbolinks", "~> 5"
 gem "jbuilder", "~> 2.7"
 gem "bootsnap", ">= 1.4.2", require: false
 gem "rails-i18n", "~> 6.0.0"
+gem "http_accept_language"
 gem "countries"
 gem "authy"
 gem "devise"
@@ -102,6 +103,7 @@ group :development do
   gem "spring-watcher-listen", "~> 2.0.0"
   gem "spring-commands-rspec", require: false
   gem "spring-commands-rubocop", require: false
+  gem "spring-commands-standard", require: false
   gem "consistency_fail", require: false
   gem "rails_best_practices"
   gem "active_record_doctor"

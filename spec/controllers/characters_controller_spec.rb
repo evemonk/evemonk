@@ -13,6 +13,8 @@ describe CharactersController do
 
       before { sign_in(user) }
 
+      before { expect(subject).to receive(:current_user_locale) }
+
       before do
         #
         # subject.current_user
@@ -65,6 +67,8 @@ describe CharactersController do
 
       before { sign_in(user) }
 
+      before { expect(subject).to receive(:current_user_locale) }
+
       before do
         #
         # subject.current_user
@@ -111,6 +115,8 @@ describe CharactersController do
       let(:user) { create(:user) }
 
       before { sign_in(user) }
+
+      before { expect(subject).to receive(:current_user_locale) }
 
       let(:character) { build(:character, character_id: 1) }
 
@@ -168,6 +174,8 @@ describe CharactersController do
       let(:user) { create(:user) }
 
       before { sign_in(user) }
+
+      before { expect(subject).to receive(:current_user_locale) }
 
       let(:character) { instance_double(Character) }
 

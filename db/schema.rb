@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_24_003517) do
+ActiveRecord::Schema.define(version: 2020_04_08_214419) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -268,6 +268,55 @@ ActiveRecord::Schema.define(version: 2020_03_24_003517) do
     t.string "name_ko"
     t.text "description_ko"
     t.index ["bloodline_id"], name: "index_eve_bloodlines_on_bloodline_id", unique: true
+  end
+
+  create_table "eve_blueprint_invention_materials", force: :cascade do |t|
+    t.bigint "blueprint_id"
+    t.integer "quantity"
+    t.bigint "type_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "eve_blueprint_invention_products", force: :cascade do |t|
+    t.bigint "blueprint_id"
+    t.float "probability"
+    t.integer "quantity"
+    t.bigint "type_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "eve_blueprint_invention_skills", force: :cascade do |t|
+    t.bigint "blueprint_id"
+    t.integer "level"
+    t.bigint "type_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "eve_blueprint_manufacturing_materials", force: :cascade do |t|
+    t.bigint "blueprint_id"
+    t.integer "quantity"
+    t.bigint "type_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "eve_blueprint_manufacturing_products", force: :cascade do |t|
+    t.bigint "blueprint_id"
+    t.integer "quantity"
+    t.bigint "type_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "eve_blueprint_manufacturing_skills", force: :cascade do |t|
+    t.bigint "blueprint_id"
+    t.integer "level"
+    t.bigint "type_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "eve_categories", force: :cascade do |t|
@@ -723,6 +772,12 @@ ActiveRecord::Schema.define(version: 2020_03_24_003517) do
     t.float "base_price"
     t.float "adjusted_price"
     t.float "average_price"
+    t.bigint "copying_time"
+    t.integer "max_production_limit"
+    t.bigint "manufacturing_time"
+    t.bigint "research_material_time"
+    t.bigint "research_time_time"
+    t.bigint "invention_time"
     t.index ["type_id"], name: "index_eve_types_on_type_id", unique: true
   end
 
@@ -785,6 +840,16 @@ ActiveRecord::Schema.define(version: 2020_03_24_003517) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["character_id", "corporation_id"], name: "index_loyalty_points_on_character_id_and_corporation_id", unique: true
+  end
+
+  create_table "manufacturing_jobs", force: :cascade do |t|
+    t.bigint "character_id", null: false
+    t.string "name"
+    t.bigint "product_id"
+    t.integer "quantity"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["character_id"], name: "index_manufacturing_jobs_on_character_id"
   end
 
   create_table "pghero_query_stats", force: :cascade do |t|
@@ -935,6 +1000,7 @@ ActiveRecord::Schema.define(version: 2020_03_24_003517) do
     t.string "authy_id"
     t.datetime "last_sign_in_with_authy"
     t.boolean "authy_enabled", default: false
+    t.integer "locale", default: 0
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
@@ -996,6 +1062,7 @@ ActiveRecord::Schema.define(version: 2020_03_24_003517) do
   add_foreign_key "character_skills", "characters"
   add_foreign_key "characters", "users"
   add_foreign_key "industry_jobs", "characters"
+  add_foreign_key "manufacturing_jobs", "characters"
   add_foreign_key "sessions", "users"
   add_foreign_key "skillqueues", "characters"
   add_foreign_key "standings", "characters"

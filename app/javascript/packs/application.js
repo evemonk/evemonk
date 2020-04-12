@@ -19,8 +19,12 @@ import "bootstrap";
 import "../stylesheets/application";
 
 import ApexCharts from "apexcharts";
+import Vue from "vue/dist/vue";
+import { format, render, cancel, register } from "timeago.js";
+
 window.ApexCharts = ApexCharts;
 window.$ = $;
+window.Vue = Vue;
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
@@ -31,6 +35,12 @@ window.$ = $;
 
 document.addEventListener("turbolinks:load", () => {
   $('[data-toggle="tooltip"]').tooltip();
+});
+
+document.addEventListener("turbolinks:load", () => {
+  const nodes = document.querySelectorAll(".timeago");
+
+  render(nodes);
 });
 
 import "controllers"

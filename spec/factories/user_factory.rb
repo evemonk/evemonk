@@ -11,5 +11,7 @@ FactoryBot.define do
     notifications_count { 0 } # TODO: fix
 
     confirmed_at { Time.zone.now }
+
+    locale { User.locales.keys.sample }
   end
 end
