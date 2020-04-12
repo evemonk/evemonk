@@ -38,6 +38,8 @@ All screenshots are real and made in Safari on latest macOS Catalina (10.15.3).
 
 ![My character loyalty points page](screenshots/character_loyalty_points.png)
 
+![My character blueprints page](screenshots/character_blueprints.png)
+
 ## Environment
 
 * [rbenv](https://github.com/rbenv/rbenv)
