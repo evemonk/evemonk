@@ -32,4 +32,6 @@ class Setting < RailsSettings::Base
   field :enabled_blueprints, type: :boolean, default: false
 
   field :enabled_industry_jobs, type: :boolean, default: false
+
+  field :manufacturing_jobs, type: :boolean, default: true
 end
