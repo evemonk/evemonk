@@ -52,7 +52,7 @@ module Sde
       # import_blueprint_manufacturing_skills(eve_blueprint, hash)
     end
 
-    # def import_blueprint_invention_materials(eve_blueprint, hash)
+    def import_blueprint_invention_materials(eve_blueprint, hash)
     #   eve_blueprint.blueprint_invention_materials.destroy_all
     #
     #   invention_materials = hash.dig("activities", "invention", "materials")
@@ -62,9 +62,9 @@ module Sde
     #                                             quantity: invention_material["quantity"],
     #                                             type_id: invention_material["typeID"])
     #   end
-    # end
-    #
-    # def import_blueprint_invention_products(eve_blueprint, hash)
+    end
+
+    def import_blueprint_invention_products(eve_blueprint, hash)
     #   eve_blueprint.blueprint_invention_products.destroy_all
     #
     #   invention_products = hash.dig("activities", "invention", "products")
@@ -75,9 +75,9 @@ module Sde
     #                                            quantity: invention_product["quantity"],
     #                                            type_id: invention_product["typeID"])
     #   end
-    # end
-    #
-    # def import_blueprint_invention_skills(eve_blueprint, hash)
+    end
+
+    def import_blueprint_invention_skills(eve_blueprint, hash)
     #   eve_blueprint.blueprint_invention_skills.destroy_all
     #
     #   invention_skills = hash.dig("activities", "invention", "skills")
@@ -87,9 +87,9 @@ module Sde
     #                                          level: invention_skill["level"],
     #                                          type_id: invention_skill["typeID"])
     #   end
-    # end
-    #
-    # def import_blueprint_manufacturing_materials(eve_blueprint, hash)
+    end
+
+    def import_blueprint_manufacturing_materials(eve_blueprint, hash)
     #   eve_blueprint.blueprint_manufacturing_materials.destroy_all
     #
     #   manufacturing_materials = hash.dig("activities", "manufacturing", "materials")
@@ -99,9 +99,9 @@ module Sde
     #                                                 quantity: manufacturing_material["quantity"],
     #                                                 type_id: manufacturing_material["typeID"])
     #   end
-    # end
-    #
-    # def import_blueprint_manufacturing_products(eve_blueprint, hash)
+    end
+
+    def import_blueprint_manufacturing_products(eve_blueprint, hash)
     #   eve_blueprint.blueprint_manufacturing_products.destroy_all
     #
     #   manufacturing_products = hash.dig("activities", "manufacturing", "products")
@@ -111,9 +111,9 @@ module Sde
     #                                                quantity: manufacturing_product["quantity"],
     #                                                type_id: manufacturing_product["typeID"])
     #   end
-    # end
-    #
-    # def import_blueprint_manufacturing_skills(eve_blueprint, hash)
+    end
+
+    def import_blueprint_manufacturing_skills(eve_blueprint, hash)
     #   eve_blueprint.blueprint_manufacturing_skills.destroy_all
     #
     #   manufacturing_skills = hash.dig("activities", "manufacturing", "skills")
@@ -123,6 +123,6 @@ module Sde
     #                                              level: manufacturing_skill["level"],
     #                                              type_id: manufacturing_skill["typeID"])
     #   end
-    # end
+    end
   end
 end

@@ -87,4 +87,52 @@ describe Sde::BlueprintsImporter do
 
     specify { expect { subject.send(:import_more_information, eve_blueprint, hash) }.not_to raise_error }
   end
+
+  describe "#import_blueprint_invention_materials" do
+    let(:eve_blueprint) { double }
+
+    let(:hash) { double }
+
+    specify { expect { subject.send(:import_blueprint_invention_materials, eve_blueprint, hash) }.not_to raise_error }
+  end
+
+  describe "#import_blueprint_invention_products" do
+    let(:eve_blueprint) { double }
+
+    let(:hash) { double }
+
+    specify { expect { subject.send(:import_blueprint_invention_products, eve_blueprint, hash) }.not_to raise_error }
+  end
+
+  describe "#import_blueprint_invention_skills" do
+    let(:eve_blueprint) { double }
+
+    let(:hash) { double }
+
+    specify { expect { subject.send(:import_blueprint_invention_skills, eve_blueprint, hash) }.not_to raise_error }
+  end
+
+  describe "#import_blueprint_manufacturing_materials" do
+    let(:eve_blueprint) { double }
+
+    let(:hash) { double }
+
+    specify { expect { subject.send(:import_blueprint_manufacturing_materials, eve_blueprint, hash) }.not_to raise_error }
+  end
+
+  describe "#import_blueprint_manufacturing_products" do
+    let(:eve_blueprint) { double }
+
+    let(:hash) { double }
+
+    specify { expect { subject.send(:import_blueprint_manufacturing_products, eve_blueprint, hash) }.not_to raise_error }
+  end
+
+  describe "#import_blueprint_manufacturing_skills" do
+    let(:eve_blueprint) { double }
+
+    let(:hash) { double }
+
+    specify { expect { subject.send(:import_blueprint_manufacturing_skills, eve_blueprint, hash) }.not_to raise_error }
+  end
 end
