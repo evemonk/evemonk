@@ -28,7 +28,7 @@ module Sde
                                           research_material_time: research_material_time,
                                           research_time_time: research_time_time,
                                           invention_time: invention_time,
-                                          # max_production_limit: hash["maxProductionLimit"],
+                                          max_production_limit: hash["maxProductionLimit"],
                                           is_blueprint: true)
 
           eve_blueprint.save!

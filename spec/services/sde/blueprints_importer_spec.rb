@@ -28,6 +28,8 @@ describe Sde::BlueprintsImporter do
 
     let(:invention_time) { double }
 
+    let(:max_production_limit) { double }
+
     let(:entry) do
       {
         "activities" => {
@@ -47,6 +49,7 @@ describe Sde::BlueprintsImporter do
             "time" => invention_time
           }
         },
+        "maxProductionLimit" => max_production_limit
       }
     end
 
@@ -65,6 +68,7 @@ describe Sde::BlueprintsImporter do
                                                                        research_material_time: research_material_time,
                                                                        research_time_time: research_time_time,
                                                                        invention_time: invention_time,
+                                                                       max_production_limit: max_production_limit,
                                                                        is_blueprint: true) }
 
     before { expect(eve_blueprint).to receive(:save!) }
