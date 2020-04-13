@@ -20,9 +20,33 @@ describe Sde::BlueprintsImporter do
 
     let(:copying_time) { double }
 
+    let(:manufacturing_time) { double }
+
+    let(:research_material_time) { double }
+
+    let(:research_time_time) { double }
+
+    let(:invention_time) { double }
+
     let(:entry) do
       {
-        "activities" => { "copying" => { "time" => copying_time } }
+        "activities" => {
+          "copying" => {
+            "time" => copying_time
+          },
+          "manufacturing" => {
+            "time" => manufacturing_time
+          },
+          "research_material" => {
+            "time" => research_material_time
+          },
+          "research_time" => {
+            "time" => research_time_time
+          },
+          "invention" => {
+            "time" => invention_time
+          }
+        },
       }
     end
 
@@ -37,6 +61,10 @@ describe Sde::BlueprintsImporter do
     before { expect(eve_blueprint).to receive(:transaction).and_yield }
 
     before { expect(eve_blueprint).to receive(:assign_attributes).with(copying_time: copying_time,
+                                                                       manufacturing_time: manufacturing_time,
+                                                                       research_material_time: research_material_time,
+                                                                       research_time_time: research_time_time,
+                                                                       invention_time: invention_time,
                                                                        is_blueprint: true) }
 
     before { expect(eve_blueprint).to receive(:save!) }
