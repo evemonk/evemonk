@@ -17,7 +17,7 @@
     "timeago.js": "^4.0.2",
     "turbolinks": "^5.2.0",
     "vue": "^2.6.11",
-    "vue-instant": "^1.0.4"
+    "vue-select": "^3.10.0"
   },
   "version": "0.1.0",
   "devDependencies": {

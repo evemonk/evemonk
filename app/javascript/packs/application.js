@@ -20,15 +20,14 @@ import "../stylesheets/application";
 
 import ApexCharts from "apexcharts";
 import Vue from "vue/dist/vue";
-import VueInstant from "vue-instant";
-import { format, render, cancel, register } from "timeago.js";
+import vSelect from "vue-select";
+import * as timeago from "timeago.js";
 
 window.ApexCharts = ApexCharts;
 window.$ = $;
 window.Vue = Vue;
-window.VueInstant = VueInstant;
 
-Vue.use(VueInstant);
+Vue.component('v-select', vSelect);
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
@@ -46,7 +45,7 @@ document.addEventListener("turbolinks:load", () => {
 
   if (nodes.length > 0)
   {
-    render(nodes);
+    timeago.render(nodes);
   }
 });
 
