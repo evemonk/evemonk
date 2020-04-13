@@ -21,7 +21,7 @@ module Sde
         invention_time = hash.dig("activities", "invention", "time")
 
         eve_blueprint.transaction do
-          # import_more_information(eve_blueprint, hash)
+          import_more_information(eve_blueprint, hash)
 
           eve_blueprint.assign_attributes(copying_time: copying_time,
                                           manufacturing_time: manufacturing_time,

@@ -63,6 +63,8 @@ describe Sde::BlueprintsImporter do
 
     before { expect(eve_blueprint).to receive(:transaction).and_yield }
 
+    before { expect(subject).to receive(:import_more_information).with(eve_blueprint, entry) }
+
     before { expect(eve_blueprint).to receive(:assign_attributes).with(copying_time: copying_time,
                                                                        manufacturing_time: manufacturing_time,
                                                                        research_material_time: research_material_time,
