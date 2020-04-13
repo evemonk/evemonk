@@ -39,17 +39,17 @@ module Sde
     private
 
     def import_more_information(eve_blueprint, hash)
-      # import_blueprint_invention_materials(eve_blueprint, hash)
-      #
-      # import_blueprint_invention_products(eve_blueprint, hash)
-      #
-      # import_blueprint_invention_skills(eve_blueprint, hash)
-      #
-      # import_blueprint_manufacturing_materials(eve_blueprint, hash)
-      #
-      # import_blueprint_manufacturing_products(eve_blueprint, hash)
-      #
-      # import_blueprint_manufacturing_skills(eve_blueprint, hash)
+      import_blueprint_invention_materials(eve_blueprint, hash)
+
+      import_blueprint_invention_products(eve_blueprint, hash)
+
+      import_blueprint_invention_skills(eve_blueprint, hash)
+
+      import_blueprint_manufacturing_materials(eve_blueprint, hash)
+
+      import_blueprint_manufacturing_products(eve_blueprint, hash)
+
+      import_blueprint_manufacturing_skills(eve_blueprint, hash)
     end
 
     def import_blueprint_invention_materials(eve_blueprint, hash)

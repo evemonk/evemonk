@@ -85,6 +85,18 @@ describe Sde::BlueprintsImporter do
 
     let(:hash) { double }
 
+    before { expect(subject).to receive(:import_blueprint_invention_materials).with(eve_blueprint, hash) }
+
+    before { expect(subject).to receive(:import_blueprint_invention_products).with(eve_blueprint, hash) }
+
+    before { expect(subject).to receive(:import_blueprint_invention_skills).with(eve_blueprint, hash) }
+
+    before { expect(subject).to receive(:import_blueprint_manufacturing_materials).with(eve_blueprint, hash) }
+
+    before { expect(subject).to receive(:import_blueprint_manufacturing_products).with(eve_blueprint, hash) }
+
+    before { expect(subject).to receive(:import_blueprint_manufacturing_skills).with(eve_blueprint, hash) }
+
     specify { expect { subject.send(:import_more_information, eve_blueprint, hash) }.not_to raise_error }
   end
 
