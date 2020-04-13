@@ -101,11 +101,55 @@ describe Sde::BlueprintsImporter do
   end
 
   describe "#import_blueprint_invention_materials" do
-    let(:eve_blueprint) { double }
+    let(:eve_blueprint) { instance_double(Eve::Blueprint) }
 
-    let(:hash) { double }
+    before do
+      #
+      # eve_blueprint.blueprint_invention_materials.destroy_all
+      #
+      expect(eve_blueprint).to receive(:blueprint_invention_materials) do
+        double.tap do |a|
+          expect(a).to receive(:destroy_all)
+        end
+      end
+    end
 
-    specify { expect { subject.send(:import_blueprint_invention_materials, eve_blueprint, hash) }.not_to raise_error }
+    context "when invention materials is empty" do
+      let(:hash) { Hash.new }
+
+      let(:eve_blueprint) { instance_double(Eve::Blueprint) }
+
+      before { expect(Eve::BlueprintInventionMaterial).not_to receive(:create!) }
+
+      specify { expect { subject.send(:import_blueprint_invention_materials, eve_blueprint, hash) }.not_to raise_error }
+    end
+
+    context "when invention materials is present" do
+      let(:hash) do
+        {
+          "activities" => {
+            "invention" => {
+              "materials" => [
+                "quantity" => 10,
+                "typeID" => 20
+              ]
+            }
+          }
+        }
+      end
+
+      let(:type_id) { double }
+
+      let(:eve_blueprint) { instance_double(Eve::Blueprint, type_id: type_id) }
+
+      before do
+        expect(Eve::BlueprintInventionMaterial).to receive(:create!).with(blueprint_id: type_id,
+                                                                          quantity: 10,
+                                                                          type_id: 20)
+      end
+
+      specify { expect { subject.send(:import_blueprint_invention_materials, eve_blueprint, hash) }.not_to raise_error }
+    end
   end
 
   describe "#import_blueprint_invention_products" do

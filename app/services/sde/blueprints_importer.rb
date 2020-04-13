@@ -53,15 +53,15 @@ module Sde
     end
 
     def import_blueprint_invention_materials(eve_blueprint, hash)
-    #   eve_blueprint.blueprint_invention_materials.destroy_all
-    #
-    #   invention_materials = hash.dig("activities", "invention", "materials")
-    #
-    #   invention_materials&.each do |invention_material|
-    #     Eve::BlueprintInventionMaterial.create!(blueprint_id: eve_blueprint.type_id,
-    #                                             quantity: invention_material["quantity"],
-    #                                             type_id: invention_material["typeID"])
-    #   end
+      eve_blueprint.blueprint_invention_materials.destroy_all
+
+      invention_materials = hash.dig("activities", "invention", "materials")
+
+      invention_materials&.each do |invention_material|
+        Eve::BlueprintInventionMaterial.create!(blueprint_id: eve_blueprint.type_id,
+                                                quantity: invention_material["quantity"],
+                                                type_id: invention_material["typeID"])
+      end
     end
 
     def import_blueprint_invention_products(eve_blueprint, hash)
