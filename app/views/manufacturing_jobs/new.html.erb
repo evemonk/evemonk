@@ -150,7 +150,30 @@
 
       <div class="form-group">
         <label for="product_id">Product: {{ selected || "not selected" }}</label>
-        <v-select label="name" :options="items"></v-select>
+        <v-select v-model="selected"
+                  label="name"
+                  transition=""
+                  :options="items">
+          <template v-slot:option="option">
+            <div class="row">
+              <div class="col-2">
+                <img :src="option.icon"
+                     class="rounded border"
+                     loading="lazy"
+                     width="34"
+                     height="34">
+              </div>
+              <div class="col-10">
+                <div class="row">
+                  {{ option.name }}
+                </div>
+                <div class="row">
+                  {{ option.description }}
+                </div>
+              </div>
+            </div>
+          </template>
+        </v-select>
       </div>
 
     </form>
@@ -167,7 +190,7 @@
       product_id: '',
       selected: null,
       message: 'Hello Vue!',
-      items: <%= raw @eve_types.map { |type| { id: type.type_id, name: type.name_en } }.to_json %>,
+      items: <%= raw @eve_types.map { |type| { id: type.type_id, name: type.name_en, icon: type.icon_tiny, description: type.description_en } }.to_json %>,
 
       //character: {
       //  blueprints: <%#= raw @blueprints.map { |b| { name: b.name_en } }.to_json %>
