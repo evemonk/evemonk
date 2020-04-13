@@ -77,4 +77,14 @@ describe Sde::BlueprintsImporter do
 
     specify { expect { subject.import }.not_to raise_error }
   end
+
+  # private methods
+
+  describe "#import_more_information" do
+    let(:eve_blueprint) { double }
+
+    let(:hash) { double }
+
+    specify { expect { subject.send(:import_more_information, eve_blueprint, hash) }.not_to raise_error }
+  end
 end
