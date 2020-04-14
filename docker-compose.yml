@@ -38,7 +38,7 @@ services:
       - "6379:6379"
 
   memcached:
-    image: "memcached:1.6.3"
+    image: "memcached:1.6.5"
     container_name: "evemonk_memcached"
     restart: "unless-stopped"
     command: memcached -m 64
