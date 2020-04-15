@@ -52,7 +52,9 @@ Rails.application.routes.draw do
 
     resources :industry_jobs, only: :index
 
-    resources :blueprints, only: :index
+    resources :blueprints, only: [:index, :show]
+
+    resources :manufacturing_jobs, only: [:index, :new, :create, :update, :show]
   end
 
   resource :profile, only: :show
@@ -102,6 +104,10 @@ Rails.application.routes.draw do
       end
 
       resources :types, only: [:index, :show]
+
+      resources :blueprints, only: :index
+
+      resources :manufacturing_items, only: :index
 
       resource :server_status_last, only: :show
     end
