@@ -152,8 +152,12 @@
         <label for="product_id">Product: {{ selected || "not selected" }}</label>
         <v-select v-model="selected"
                   label="name"
-                  transition=""
-                  :options="items">
+                  :filterable="false"
+                  :options="options"
+                  @search="onSearch">
+          <template slot="no-options">
+            Type anything to search
+          </template>
           <template v-slot:option="option">
             <div class="row">
               <div class="col-2">
@@ -190,7 +194,8 @@
       product_id: '',
       selected: null,
       message: 'Hello Vue!',
-      items: <%= raw @eve_types.map { |type| { id: type.type_id, name: type.name_en, icon: type.icon_tiny, description: type.description_en } }.to_json %>,
+      options: [],
+<!--      items: <%##= raw @eve_types.map { |type| { id: type.type_id, name: type.name_en, icon: type.icon_tiny, description: type.description_en } }.to_json %>,-->
 
       //character: {
       //  blueprints: <%#= raw @blueprints.map { |b| { name: b.name_en } }.to_json %>
@@ -198,5 +203,19 @@
 
       //items: <%#= raw @eve_types.map { |type| { id: type.type_id, name: type.name_en } }.to_json %>,
     },
+    methods: {
+      onSearch(search, loading) {
+        loading(true);
+        this.search(loading, search, this);
+      },
+      search: debounce((loading, search, vm) => {
+        fetch(
+            `/api/eve/blueprints?q=${escape(search)}`
+        ).then(res => {
+          res.json().then(json => (vm.options = json.blueprints));
+          loading(false);
+        });
+      }, 350)
+    }
   });
 </script>
