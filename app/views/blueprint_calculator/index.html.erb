@@ -1,0 +1,78 @@
+<div class="row">
+  <div class="col">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><%= link_to("Home", root_path) %></li>
+        <li class="breadcrumb-item active" aria-current="page">Blueprint calculator</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+<hr>
+
+<div class="row">
+  <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4" id="blueprints">
+    <h4 class="text-center text-break">Blueprints</h4>
+
+    <form>
+      <div class="form-group">
+        <label for="product_id">Product: {{ selected || "not selected" }}</label>
+        <v-select v-model="selected"
+                  label="name"
+                  :filterable="false"
+                  :options="options"
+                  @search="onSearch">
+          <template slot="no-options">
+            Type anything to search
+          </template>
+          <template v-slot:option="option">
+            <div class="row">
+              <div class="col-2">
+                <img :src="option.icon"
+                     class="rounded border"
+                     loading="lazy"
+                     width="34"
+                     height="34">
+              </div>
+              <div class="col-10">
+                <div class="row">
+                  {{ option.name }}
+                </div>
+                <div class="row">
+                  {{ option.description }}
+                </div>
+              </div>
+            </div>
+          </template>
+        </v-select>
+      </div>
+    </form>
+
+    {{ message }}
+  </div>
+</div>
+
+<script type="text/javascript">
+  var app = new Vue({
+    el: '#blueprints',
+    data: {
+      message: 'Hello Vue!', // for testing
+      product_id: '',
+      selected: null,
+      options: [],
+    },
+    methods: {
+      onSearch(search, loading) {
+        loading(true);
+        this.search(loading, search, this);
+      },
+      search: debounce((loading, search, vm) => {
+        fetch(`/api/eve/blueprints?q=${escape(search)}`).then(res => {
+          res.json().then(json => (vm.options = json.blueprints));
+          loading(false);
+        });
+      }, 350)
+    }
+  });
+</script>
