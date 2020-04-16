@@ -121,7 +121,7 @@ GEM
       activerecord (>= 2.0.0)
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
-    anyway_config (2.0.0)
+    anyway_config (2.0.1)
       ruby-next-core (>= 0.5.1)
     ast (2.4.0)
     attr_extras (6.2.3)
