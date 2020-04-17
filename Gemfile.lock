@@ -121,8 +121,7 @@ GEM
       activerecord (>= 2.0.0)
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
-    anyway_config (2.0.1)
-      ruby-next-core (>= 0.5.1)
+    anyway_config (1.4.4)
     ast (2.4.0)
     attr_extras (6.2.3)
     authy (2.7.5)
@@ -499,7 +498,6 @@ GEM
       unicode-display_width (>= 1.4.0, < 1.7)
     rubocop-performance (1.5.2)
       rubocop (>= 0.71.0)
-    ruby-next-core (0.5.3)
     ruby-pg-extras (1.1.0)
       pg
       terminal-table
@@ -673,6 +671,7 @@ PLATFORMS
 DEPENDENCIES
   active_record_doctor
   activerecord-nulldb-adapter
+  anyway_config (< 2)
   authy
   awesome_print
   bootsnap (>= 1.4.2)

@@ -94,6 +94,7 @@ group :development, :test do
   gem "brakeman", require: false
   gem "fasterer", require: false
   gem "license_finder", require: false
+  gem "anyway_config", "< 2" # For isolator
   gem "isolator"
 end
 
