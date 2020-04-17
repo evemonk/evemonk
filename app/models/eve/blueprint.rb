@@ -2,6 +2,8 @@
 
 module Eve
   class Blueprint < Type
+    default_scope { where(is_blueprint: true) }
+
     has_many :blueprint_invention_materials,
       primary_key: "type_id",
       dependent: :destroy
