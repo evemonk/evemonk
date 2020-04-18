@@ -138,6 +138,29 @@
   <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
     <h4 class="text-center text-break">Orders</h4>
 
+    <% @orders.each_with_index do |order, index| %>
+      <div class="card <%= index % 2 == 0 ? "bg-dark" : "bg-transparent" %> rounded-0 border-secondary <%= index == 0 ? "" : "border-top-0" %>">
+        <div class="row no-gutters">
+          <div class="col-2 text-center m-auto">
+            <% if order.type.present? %>
+              <%= image_tag(order.type.icon_tiny,
+                            alt: order.type.name,
+                            class: "rounded border",
+                            size: "34x34",
+                            loading: "lazy") %>
+            <% end %>
+          </div>
+          <div class="col-10">
+            <div class="card-body">
+              <ul class="list-unstyled">
+                <li><%= order.type&.name %></li>
+                <li>Location</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
 
   </div>
 </div>
