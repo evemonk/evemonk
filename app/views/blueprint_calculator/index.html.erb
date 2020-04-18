@@ -13,43 +13,35 @@
 
 <div class="row">
   <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4" id="blueprints">
-    <h4 class="text-center text-break">Blueprints</h4>
+    <h4 class="text-center text-break">Blueprint</h4>
 
     <form>
       <div class="form-group">
-        <label for="product_id">Product: {{ selected || "not selected" }}</label>
-        <v-select v-model="selected"
-                  label="name"
-                  :filterable="false"
-                  :options="options"
-                  @search="onSearch">
-          <template slot="no-options">
-            Type anything to search
-          </template>
-          <template v-slot:option="option">
-            <div class="row">
-              <div class="col-2">
-                <img :src="option.icon"
-                     class="rounded border"
-                     loading="lazy"
-                     width="34"
-                     height="34">
-              </div>
-              <div class="col-10">
-                <div class="row">
-                  {{ option.name }}
-                </div>
-                <div class="row">
-                  {{ option.description }}
-                </div>
-              </div>
-            </div>
-          </template>
-        </v-select>
+        <input v-model="name"
+               class="form-control"
+               placeholder="Type blueprint name to find"
+               autofocus>
       </div>
     </form>
 
-    {{ message }}
+    <div class="card" v-for="blueprint in blueprints" :key="blueprint.id">
+      <div class="row no-gutters">
+        <div class="col-2 text-center m-auto">
+          <img :src="blueprint.icon"
+               :alt="blueprint.name"
+               class="rounded border"
+               size="34x34"
+               loading="lazy">
+        </div>
+        <div class="col-10">
+          <div class="card-body">
+            <div class="card-text">
+              <a :href="`/blueprint_calculator/${blueprint.id}`">{{ blueprint.name }}</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -57,20 +49,26 @@
   var app = new Vue({
     el: '#blueprints',
     data: {
-      message: 'Hello Vue!', // for testing
-      product_id: '',
-      selected: null,
-      options: [],
+      name: null,
+      blueprints: []
+    },
+    watch: {
+      name: function (value) {
+        // loading(true);
+        let loading = {};
+        this.search(loading, value, this);
+      }
     },
     methods: {
-      onSearch(search, loading) {
-        loading(true);
-        this.search(loading, search, this);
-      },
+      // onSearch(search, loading) {
+      //   loading(true);
+      //   this.search(loading, search, this);
+      // },
       search: debounce((loading, search, vm) => {
-        fetch(`/api/eve/blueprints?q=${escape(search)}`).then(res => {
-          res.json().then(json => (vm.options = json.blueprints));
-          loading(false);
+        fetch(`/api/eve/blueprints?q=${escape(search)}`).then(response => {
+          // response.json().then(json => (vm.options = json.blueprints));
+          response.json().then(json => (vm.blueprints = json.blueprints));
+          // loading(false);
         });
       }, 350)
     }
