@@ -138,29 +138,44 @@
   <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
     <h4 class="text-center text-break">Orders</h4>
 
-    <% @orders.each_with_index do |order, index| %>
-      <div class="card <%= index % 2 == 0 ? "bg-dark" : "bg-transparent" %> rounded-0 border-secondary <%= index == 0 ? "" : "border-top-0" %>">
-        <div class="row no-gutters">
-          <div class="col-2 text-center m-auto">
-            <% if order.type.present? %>
-              <%= image_tag(order.type.icon_tiny,
-                            alt: order.type.name,
-                            class: "rounded border",
-                            size: "34x34",
-                            loading: "lazy") %>
-            <% end %>
-          </div>
-          <div class="col-10">
-            <div class="card-body">
-              <ul class="list-unstyled">
-                <li><%= order.type&.name %></li>
-                <li>Location</li>
-              </ul>
+    <ul class="nav nav-tabs" id="orders" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" id="sell-orders-tab" data-toggle="tab" href="#sell" role="tab" aria-controls="sell" aria-selected="true">Sell</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="buy-orders-tab" data-toggle="tab" href="#buy" role="tab" aria-controls="buy" aria-selected="false">Buy</a>
+      </li>
+    </ul>
+
+    <div class="tab-content" id="orders-content">
+      <div class="tab-pane fade show active" id="sell" role="tabpanel" aria-labelledby="sell-orders-tab">
+        <% @orders.each_with_index do |order, index| %>
+          <div class="card <%= index % 2 == 0 ? "bg-dark" : "bg-transparent" %> rounded-0 border-secondary <%= index == 0 ? "" : "border-top-0" %>">
+            <div class="row no-gutters">
+              <div class="col-2 text-center m-auto">
+                <% if order.type.present? %>
+                  <%= image_tag(order.type.icon_tiny,
+                                alt: order.type.name,
+                                class: "rounded border",
+                                size: "34x34",
+                                loading: "lazy") %>
+                <% end %>
+              </div>
+              <div class="col-10">
+                <div class="card-body">
+                  <ul class="list-unstyled">
+                    <li><%= order.type&.name %></li>
+                    <li>Location</li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
+        <% end %>
       </div>
-    <% end %>
-
+      <div class="tab-pane fade" id="buy" role="tabpanel" aria-labelledby="buy-orders-tab">
+        TODO
+      </div>
+    </div>
   </div>
 </div>
