@@ -17,5 +17,7 @@ module Eve
       optional: true
 
     # belongs_to :eve_ship_type_id, optional: true
+
+    has_many :ancestries
   end
 end

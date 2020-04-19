@@ -16,4 +16,6 @@ describe Eve::Bloodline do
   it { should belong_to(:corporation).with_primary_key("corporation_id").optional(true) }
 
   it { should belong_to(:race).with_primary_key("race_id").optional(true) }
+
+  it { should have_many(:ancestries) }
 end
