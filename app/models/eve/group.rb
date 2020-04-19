@@ -16,5 +16,7 @@ module Eve
     has_many :types,
       primary_key: "group_id",
       foreign_key: "group_id"
+
+    scope :published, -> { where(published: true) }
   end
 end
