@@ -12,7 +12,11 @@ module Eve
       primary_key: "corporation_id",
       optional: true
 
-    # belongs_to :militia_corporation_id
+    belongs_to :militia_corporation,
+      class_name: "Eve::Corporation",
+      primary_key: "corporation_id",
+      foreign_key: "militia_corporation_id",
+      optional: true
 
     belongs_to :solar_system,
       class_name: "Eve::System",
