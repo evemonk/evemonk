@@ -2,6 +2,6 @@
 
 module Eve
   class AncestryDecorator < ApplicationDecorator
-    decorates_associations :bloodline
+    decorates_associations :bloodline, :icon
   end
 end

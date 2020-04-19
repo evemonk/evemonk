@@ -15,5 +15,5 @@ describe Eve::Ancestry do
 
   it { should belong_to(:bloodline).with_primary_key("bloodline_id").optional(true) }
 
-  # belongs_to :icon_id
+  it { should belong_to(:icon).with_primary_key("icon_id").optional(true) }
 end
