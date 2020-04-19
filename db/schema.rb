@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_18_211622) do
+ActiveRecord::Schema.define(version: 2020_04_19_230940) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -181,6 +181,7 @@ ActiveRecord::Schema.define(version: 2020_04_18_211622) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.json "body"
+    t.index ["url"], name: "index_etags_on_url", unique: true
   end
 
   create_table "eve_agents", force: :cascade do |t|
