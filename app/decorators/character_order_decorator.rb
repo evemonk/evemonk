@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
 class CharacterOrderDecorator < ApplicationDecorator
-  decorates_associations :character, :type, :region
+  decorates_associations :character, :type, :region, :location
 end
