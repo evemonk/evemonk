@@ -2,6 +2,6 @@
 
 module Eve
   class RaceDecorator < ApplicationDecorator
-    decorates_associations :alliance
+    decorates_associations :alliance, :bloodlines
   end
 end

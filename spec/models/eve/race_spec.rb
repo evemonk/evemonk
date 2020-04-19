@@ -14,4 +14,6 @@ describe Eve::Race do
   it { expect(described_class.table_name).to eq("eve_races") }
 
   it { should belong_to(:alliance).with_primary_key("alliance_id").optional(true) }
+
+  it { should have_many(:bloodlines) }
 end

@@ -9,5 +9,7 @@ module Eve
     translates :name, :description
 
     belongs_to :alliance, primary_key: "alliance_id", optional: true
+
+    has_many :bloodlines
   end
 end
