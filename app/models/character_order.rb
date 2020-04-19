@@ -16,4 +16,13 @@ class CharacterOrder < ApplicationRecord
     primary_key: "region_id",
     foreign_key: "region_id",
     optional: true
+
+  def location
+    return @location if @location
+
+    case location_id
+    when 60_000_000..64_000_000
+      @location = Eve::Station.find_by(station_id: location_id)
+    end
+  end
 end
