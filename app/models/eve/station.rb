@@ -12,9 +12,14 @@ module Eve
       primary_key: "type_id",
       optional: true
 
-    has_one :position, as: :positionable, dependent: :destroy
+    belongs_to :system,
+      primary_key: "system_id",
+      optional: true
+
+    has_one :position,
+      as: :positionable,
+      dependent: :destroy
 
     # t.bigint :owner
-    # t.bigint :system_id
   end
 end
