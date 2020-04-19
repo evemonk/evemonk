@@ -147,15 +147,17 @@
       </li>
     </ul>
 
+    <br>
+
     <div class="tab-content" id="orders-content">
       <div class="tab-pane fade show active" id="sell" role="tabpanel" aria-labelledby="sell-orders-tab">
-        <% @orders.each_with_index do |order, index| %>
+        <% @sell_orders.each_with_index do |sell_order, index| %>
           <div class="card <%= index % 2 == 0 ? "bg-dark" : "bg-transparent" %> rounded-0 border-secondary <%= index == 0 ? "" : "border-top-0" %>">
             <div class="row no-gutters">
               <div class="col-2 text-center m-auto">
-                <% if order.type.present? %>
-                  <%= image_tag(order.type.icon_tiny,
-                                alt: order.type.name,
+                <% if sell_order.type.present? %>
+                  <%= image_tag(sell_order.type.icon_tiny,
+                                alt: sell_order.type.name,
                                 class: "rounded border",
                                 size: "34x34",
                                 loading: "lazy") %>
@@ -164,12 +166,40 @@
               <div class="col-10">
                 <div class="card-body">
                   <ul class="list-unstyled">
-                    <li><%= order.type&.name %></li>
-                    <li>Location</li>
+                    <% if sell_order.type.present? %>
+                      <li><%= sell_order.type&.name %></li>
+                    <% end %>
+                    <% if sell_order.location.present? %>
+                      <% if sell_order.location.class == Eve::StationDecorator %>
+                        <li><%= sell_order.location.system&.security_status %> <%= sell_order.location.name %></li>
+                      <% end %>
+                    <% end %>
                   </ul>
                 </div>
               </div>
             </div>
+
+            <div class="row no-gutters">
+              <table class="table">
+                <tr>
+                  <td>Open:</td>
+                  <td>Expired at</td>
+                </tr>
+                <tr>
+                  <td>Price:</td>
+                  <td><%= sell_order.price %> ISK</td>
+                </tr>
+                <tr>
+                  <td>Qty:</td>
+                  <td><%= number_with_delimiter(sell_order.volume_remain) %> / <%= number_with_delimiter(sell_order.volume_total) %></td>
+                </tr>
+                <tr>
+                  <td>Updated:</td>
+                  <td></td>
+                </tr>
+              </table>
+            </div>
+
           </div>
         <% end %>
       </div>
