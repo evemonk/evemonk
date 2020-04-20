@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_19_230940) do
+ActiveRecord::Schema.define(version: 2020_04_20_114206) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -592,6 +592,7 @@ ActiveRecord::Schema.define(version: 2020_04_19_230940) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["market_group_id"], name: "index_eve_market_groups_on_market_group_id", unique: true
+    t.index ["parent_group_id"], name: "index_eve_market_groups_on_parent_group_id"
   end
 
   create_table "eve_moons", force: :cascade do |t|
