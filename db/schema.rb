@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_20_134812) do
+ActiveRecord::Schema.define(version: 2020_04_20_140526) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -461,7 +461,6 @@ ActiveRecord::Schema.define(version: 2020_04_20_134812) do
     t.index ["alliance_id"], name: "index_eve_corporations_on_alliance_id"
     t.index ["corporation_id"], name: "index_eve_corporations_on_corporation_id", unique: true
     t.index ["member_count"], name: "index_eve_corporations_on_member_count"
-    t.index ["name"], name: "index_eve_corporations_on_name"
   end
 
   create_table "eve_dogma_attributes", force: :cascade do |t|
