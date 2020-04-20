@@ -2,7 +2,6 @@
 
 module Eve
   class StarDecorator < ApplicationDecorator
-    # decorates_associations :system, :type
-    decorates_associations :type
+    decorates_associations :solar_system, :type
   end
 end

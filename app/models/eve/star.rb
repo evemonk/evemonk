@@ -4,7 +4,11 @@ module Eve
   class Star < ApplicationRecord
     has_paper_trail
 
-    # belongs_to :solar_system_id
+    belongs_to :solar_system,
+      class_name: "Eve::System",
+      primary_key: "system_id",
+      foreign_key: "solar_system_id",
+      optional: true
 
     belongs_to :type,
       primary_key: "type_id",
