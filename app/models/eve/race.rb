@@ -8,8 +8,15 @@ module Eve
 
     translates :name, :description
 
-    belongs_to :alliance, primary_key: "alliance_id", optional: true
+    # TODO: FIXME
+    # belongs_to :alliance,
+    #   primary_key: "alliance_id",
+    #   optional: true
 
-    has_many :bloodlines
+    has_many :bloodlines,
+      primary_key: "race_id"
+
+    has_many :stations,
+      primary_key: "race_id"
   end
 end
