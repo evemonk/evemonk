@@ -2,6 +2,6 @@
 
 module Eve
   class StargateDecorator < ApplicationDecorator
-    decorates_associations :system, :position
+    decorates_associations :system, :type, :position
   end
 end
