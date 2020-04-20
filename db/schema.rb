@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_20_125217) do
+ActiveRecord::Schema.define(version: 2020_04_20_134812) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -616,6 +616,8 @@ ActiveRecord::Schema.define(version: 2020_04_20_125217) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["planet_id"], name: "index_eve_planets_on_planet_id", unique: true
+    t.index ["system_id"], name: "index_eve_planets_on_system_id"
+    t.index ["type_id"], name: "index_eve_planets_on_type_id"
   end
 
   create_table "eve_positions", force: :cascade do |t|
