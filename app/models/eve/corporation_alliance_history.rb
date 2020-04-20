@@ -5,7 +5,8 @@ module Eve
     # TODO: has_paper_trail
 
     belongs_to :corporation,
-      primary_key: "corporation_id"
+      primary_key: "corporation_id",
+      optional: true
 
     belongs_to :alliance,
       primary_key: "alliance_id",
