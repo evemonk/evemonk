@@ -6,7 +6,7 @@ module Eve
 
     decorates_associations :creator_corporation, :creator,
       :executor_corporation, :faction, :alliance_corporations, :corporations,
-      :characters
+      :characters, :corporation_alliance_histories
 
     def date_founded
       object.date_founded.iso8601

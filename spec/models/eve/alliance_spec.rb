@@ -25,6 +25,8 @@ describe Eve::Alliance do
 
   it { should have_many(:characters).through(:corporations) }
 
+  it { should have_many(:corporation_alliance_histories).with_primary_key("alliance_id") }
+
   it { should callback(:reset_characters_count).after(:commit).on(:create) }
 
   describe "#search_data" do
