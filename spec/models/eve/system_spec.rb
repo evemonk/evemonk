@@ -21,5 +21,7 @@ describe Eve::System do
 
   it { should have_many(:planets).with_primary_key("system_id") }
 
+  it { should have_many(:moons).with_primary_key("system_id") }
+
   it { should have_one(:position).dependent(:destroy) }
 end
