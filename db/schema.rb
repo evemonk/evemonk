@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_20_194542) do
+ActiveRecord::Schema.define(version: 2020_04_20_203110) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -827,6 +827,10 @@ ActiveRecord::Schema.define(version: 2020_04_20_194542) do
     t.bigint "invention_time"
     t.boolean "is_blueprint"
     t.boolean "is_manufacturing_item"
+    t.index ["graphic_id"], name: "index_eve_types_on_graphic_id"
+    t.index ["group_id"], name: "index_eve_types_on_group_id"
+    t.index ["icon_id"], name: "index_eve_types_on_icon_id"
+    t.index ["market_group_id"], name: "index_eve_types_on_market_group_id"
     t.index ["type_id"], name: "index_eve_types_on_type_id", unique: true
   end
 
