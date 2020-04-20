@@ -20,6 +20,7 @@ module Eve
       as: :positionable,
       dependent: :destroy
 
+    # TODO:
     # t.bigint :owner
   end
 end
