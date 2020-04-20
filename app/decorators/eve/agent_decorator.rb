@@ -2,7 +2,7 @@
 
 module Eve
   class AgentDecorator < ApplicationDecorator
-    decorates_associations :standings
+    decorates_associations :location, :corporation, :standings
 
     def icon_tiny
       "#{imageproxy_url}https://images.evetech.net/characters/#{agent_id}/portrait?size=32"
