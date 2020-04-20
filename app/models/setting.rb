@@ -33,7 +33,7 @@ class Setting < RailsSettings::Base
 
   field :enabled_industry_jobs, type: :boolean, default: false
 
-  field :enabled_character_orders,type: :boolean, default: false
+  field :enabled_character_orders, type: :boolean, default: false
 
   field :manufacturing_jobs, type: :boolean, default: false
 end
