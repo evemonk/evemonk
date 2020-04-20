@@ -24,7 +24,11 @@ module Eve
       primary_key: "faction_id",
       optional: true
 
-    # belongs_to :home_station_id
+    belongs_to :home_station,
+      class_name: "Eve::Station",
+      primary_key: "station_id",
+      foreign_key: "home_station_id",
+      optional: true
 
     has_many :characters, primary_key: "corporation_id"
 
