@@ -15,5 +15,7 @@ describe Eve::Planet do
 
   it { should have_many(:moons).with_primary_key("planet_id") }
 
+  it { should have_many(:asteroid_belts).with_primary_key("planet_id") }
+
   it { should have_one(:position).dependent(:destroy) }
 end

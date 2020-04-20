@@ -15,6 +15,9 @@ module Eve
     has_many :moons,
       primary_key: "planet_id"
 
+    has_many :asteroid_belts,
+      primary_key: "planet_id"
+
     has_one :position,
       as: :positionable,
       dependent: :destroy
