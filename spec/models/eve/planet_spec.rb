@@ -13,5 +13,7 @@ describe Eve::Planet do
 
   it { should belong_to(:type).with_primary_key("type_id").optional(true) }
 
+  it { should have_many(:moons).with_primary_key("planet_id") }
+
   it { should have_one(:position).dependent(:destroy) }
 end

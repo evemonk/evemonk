@@ -12,6 +12,9 @@ module Eve
       primary_key: "type_id",
       optional: true
 
+    has_many :moons,
+      primary_key: "planet_id"
+
     has_one :position,
       as: :positionable,
       dependent: :destroy

@@ -2,6 +2,6 @@
 
 module Eve
   class PlanetDecorator < ApplicationDecorator
-    decorates_associations :system, :type, :position
+    decorates_associations :system, :type, :moons, :position
   end
 end
