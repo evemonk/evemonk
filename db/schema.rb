@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_20_160222) do
+ActiveRecord::Schema.define(version: 2020_04_20_163123) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -197,7 +197,10 @@ ActiveRecord::Schema.define(version: 2020_04_20_160222) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "name"
     t.index ["agent_id"], name: "index_eve_agents_on_agent_id", unique: true
+    t.index ["agent_type_id"], name: "index_eve_agents_on_agent_type_id"
     t.index ["corporation_id"], name: "index_eve_agents_on_corporation_id"
+    t.index ["division_id"], name: "index_eve_agents_on_division_id"
+    t.index ["location_id"], name: "index_eve_agents_on_location_id"
   end
 
   create_table "eve_alliance_corporations", force: :cascade do |t|
