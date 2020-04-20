@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_20_120303) do
+ActiveRecord::Schema.define(version: 2020_04_20_125217) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -690,6 +690,8 @@ ActiveRecord::Schema.define(version: 2020_04_20_120303) do
     t.datetime "updated_at", null: false
     t.bigint "destination_stargate_id"
     t.bigint "destination_system_id"
+    t.index ["destination_stargate_id"], name: "index_eve_stargates_on_destination_stargate_id"
+    t.index ["destination_system_id"], name: "index_eve_stargates_on_destination_system_id"
     t.index ["stargate_id"], name: "index_eve_stargates_on_stargate_id", unique: true
     t.index ["system_id"], name: "index_eve_stargates_on_system_id"
   end
