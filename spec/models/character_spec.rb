@@ -55,6 +55,10 @@ describe Character do
 
   it { should have_many(:industry_jobs).dependent(:destroy) }
 
+  it { should have_many(:character_orders).dependent(:destroy) }
+
+  it { should have_many(:manufacturing_jobs).dependent(:destroy) }
+
   describe "#factions_standings" do
     let!(:character) { create(:character) }
 
@@ -135,6 +139,14 @@ describe Character do
 
   it { should delegate_method(:charisma_bonus).to(:character_attributes) }
 
+  it { should delegate_method(:science_skill).to(:character_skills_levels) }
+
+  it { should delegate_method(:science_level).to(:character_skills_levels) }
+
+  it { should delegate_method(:advanced_industry_skill).to(:character_skills_levels) }
+
+  it { should delegate_method(:advanced_industry_level).to(:character_skills_levels) }
+
   describe "#perception_attribute" do
     context "when @perception_attribute is set" do
       let(:eve_perception_attribute) { double }
@@ -159,6 +171,10 @@ describe Character do
       before { expect(eve_perception_attribute).to receive(:decorate).and_return(eve_perception_attribute_decorated) }
 
       specify { expect(subject.perception_attribute).to eq(eve_perception_attribute_decorated) }
+    end
+
+    context "when character attribute not found" do
+      specify { expect(subject.perception_attribute).to eq(nil) }
     end
   end
 
@@ -187,6 +203,10 @@ describe Character do
 
       specify { expect(subject.memory_attribute).to eq(eve_memory_attribute_decorated) }
     end
+
+    context "when character attribute not found" do
+      specify { expect(subject.memory_attribute).to eq(nil) }
+    end
   end
 
   describe "#willpower_attribute" do
@@ -213,6 +233,10 @@ describe Character do
       before { expect(eve_willpower_attribute).to receive(:decorate).and_return(eve_willpower_attribute_decorated) }
 
       specify { expect(subject.willpower_attribute).to eq(eve_willpower_attribute_decorated) }
+    end
+
+    context "when character attribute not found" do
+      specify { expect(subject.willpower_attribute).to eq(nil) }
     end
   end
 
@@ -241,6 +265,10 @@ describe Character do
 
       specify { expect(subject.intelligence_attribute).to eq(eve_intelligence_attribute_decorated) }
     end
+
+    context "when character attribute not found" do
+      specify { expect(subject.intelligence_attribute).to eq(nil) }
+    end
   end
 
   describe "#charisma_attribute" do
@@ -268,6 +296,10 @@ describe Character do
 
       specify { expect(subject.charisma_attribute).to eq(eve_charisma_attribute_decorated) }
     end
+
+    context "when character attribute not found" do
+      specify { expect(subject.charisma_attribute).to eq(nil) }
+    end
   end
 
   describe "#skills_tree" do
@@ -287,6 +319,26 @@ describe Character do
       specify { expect(subject.skills_tree).to eq(skills_tree) }
 
       specify { expect { subject.skills_tree }.to change { subject.instance_variable_get(:@skills_tree) }.from(nil).to(skills_tree) }
+    end
+  end
+
+  describe "#character_skills_levels" do
+    context "when @character_skills_levels is set" do
+      let(:character_skills_levels) { instance_double(CharacterSkillsLevels) }
+
+      before { subject.instance_variable_set(:@character_skills_levels, character_skills_levels) }
+
+      specify { expect(subject.character_skills_levels).to eq(character_skills_levels) }
+    end
+
+    context "when @character_skills_levels is not set" do
+      let(:character_skills_levels) { instance_double(CharacterSkillsLevels) }
+
+      before { expect(CharacterSkillsLevels).to receive(:new).with(subject).and_return(character_skills_levels) }
+
+      specify { expect(subject.character_skills_levels).to eq(character_skills_levels) }
+
+      specify { expect { subject.character_skills_levels }.to change { subject.instance_variable_get(:@character_skills_levels) }.from(nil).to(character_skills_levels) }
     end
   end
 
