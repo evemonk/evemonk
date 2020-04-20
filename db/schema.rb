@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_20_150059) do
+ActiveRecord::Schema.define(version: 2020_04_20_160222) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -737,7 +737,10 @@ ActiveRecord::Schema.define(version: 2020_04_20_150059) do
     t.bigint "type_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["race_id"], name: "index_eve_stations_on_race_id"
     t.index ["station_id"], name: "index_eve_stations_on_station_id", unique: true
+    t.index ["system_id"], name: "index_eve_stations_on_system_id"
+    t.index ["type_id"], name: "index_eve_stations_on_type_id"
   end
 
   create_table "eve_systems", force: :cascade do |t|
