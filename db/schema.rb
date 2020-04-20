@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_20_184623) do
+ActiveRecord::Schema.define(version: 2020_04_20_194542) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -447,6 +447,8 @@ ActiveRecord::Schema.define(version: 2020_04_20_184623) do
     t.datetime "start_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["alliance_id"], name: "index_eve_corporation_alliance_histories_on_alliance_id"
+    t.index ["corporation_id"], name: "index_eve_corporation_alliance_histories_on_corporation_id"
     t.index ["record_id"], name: "index_eve_corporation_alliance_histories_on_record_id"
   end
 
