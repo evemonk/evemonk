@@ -36,8 +36,8 @@ describe CharacterOrdersImporter do
 
       let(:esi) do
         instance_double(EveOnline::ESI::CharacterOrders,
-                        orders: [order],
-                        scope: "esi-markets.read_character_orders.v1")
+          orders: [order],
+          scope: "esi-markets.read_character_orders.v1")
       end
 
       before { expect(EveOnline::ESI::CharacterOrders).to receive(:new).with(character_id: character_id, token: access_token).and_return(esi) }
