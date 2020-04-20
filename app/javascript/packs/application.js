@@ -22,10 +22,12 @@ import ApexCharts from "apexcharts";
 import Vue from "vue/dist/vue";
 import vSelect from "vue-select";
 import * as timeago from "timeago.js";
+import debounce from "lodash.debounce";
 
 window.ApexCharts = ApexCharts;
 window.$ = $;
 window.Vue = Vue;
+window.debounce = debounce;
 
 Vue.component('v-select', vSelect);
 
