@@ -19,6 +19,9 @@ module Eve
     has_many :stargates,
       primary_key: "system_id"
 
+    has_many :planets,
+      primary_key: "system_id"
+
     has_one :position,
       as: :positionable,
       dependent: :destroy
