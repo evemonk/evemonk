@@ -4,9 +4,16 @@ module Eve
   class Planet < ApplicationRecord
     has_paper_trail
 
-    # t.bigint "system_id"
-    # t.bigint "type_id"
+    belongs_to :system,
+      primary_key: "system_id",
+      optional: true
 
-    has_one :position, as: :positionable, dependent: :destroy
+    belongs_to :type,
+      primary_key: "type_id",
+      optional: true
+
+    has_one :position,
+      as: :positionable,
+      dependent: :destroy
   end
 end
