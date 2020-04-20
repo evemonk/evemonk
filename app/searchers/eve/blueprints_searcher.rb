@@ -19,7 +19,7 @@ module Eve
           Eve::Blueprint.none
         end
       else
-        scope.where(is_blueprint: true)
+        scope
       end
     end
 
