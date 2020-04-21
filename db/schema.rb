@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_20_204632) do
+ActiveRecord::Schema.define(version: 2020_04_21_114806) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -171,6 +171,11 @@ ActiveRecord::Schema.define(version: 2020_04_20_204632) do
     t.index ["character_id"], name: "index_characters_on_character_id", unique: true
     t.index ["character_owner_hash"], name: "index_characters_on_character_owner_hash", unique: true
     t.index ["corporation_id"], name: "index_characters_on_corporation_id"
+    t.index ["current_ship_item_id"], name: "index_characters_on_current_ship_item_id"
+    t.index ["current_ship_type_id"], name: "index_characters_on_current_ship_type_id"
+    t.index ["current_solar_system_id"], name: "index_characters_on_current_solar_system_id"
+    t.index ["current_station_id"], name: "index_characters_on_current_station_id"
+    t.index ["current_structure_id"], name: "index_characters_on_current_structure_id"
     t.index ["faction_id"], name: "index_characters_on_faction_id"
     t.index ["race_id"], name: "index_characters_on_race_id"
     t.index ["user_id"], name: "index_characters_on_user_id"
