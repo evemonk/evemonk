@@ -83,7 +83,6 @@ describe Eve::NpcCorporationsImporter do
       before { expect(etag).not_to receive(:update!) }
 
       specify { expect { subject.import }.not_to raise_error }
-
     end
   end
 
