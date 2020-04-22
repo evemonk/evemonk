@@ -5,6 +5,6 @@ class WelcomeController < ApplicationController
 
   def index
     @alliances = ::Eve::Alliance.order(characters_count: :desc).limit(20).decorate
-    @corporations = ::Eve::Corporation.order(member_count: :desc).limit(20).decorate
+    @corporations = ::Eve::Corporation.not_npc.order(member_count: :desc).limit(20).decorate
   end
 end

@@ -25,13 +25,17 @@ describe WelcomeController do
 
     before do
       #
-      # Eve::Corporation.order(member_count: :desc).limit(20).decorate
+      # Eve::Corporation.not_npc.order(member_count: :desc).limit(20).decorate
       #
-      expect(Eve::Corporation).to receive(:order).with(member_count: :desc) do
+      expect(Eve::Corporation).to receive(:not_npc) do
         double.tap do |a|
-          expect(a).to receive(:limit).with(20) do
+          expect(a).to receive(:order).with(member_count: :desc) do
             double.tap do |b|
-              expect(b).to receive(:decorate)
+              expect(b).to receive(:limit).with(20) do
+                double.tap do |c|
+                  expect(c).to receive(:decorate)
+                end
+              end
             end
           end
         end
