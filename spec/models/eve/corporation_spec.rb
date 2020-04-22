@@ -27,6 +27,26 @@ describe Eve::Corporation do
 
   it { should have_many(:standings) }
 
+  describe ".npc" do
+    let!(:eve_corporation1) { create(:eve_corporation, npc: false) }
+
+    let!(:eve_corporation2) { create(:eve_corporation, npc: true) }
+
+    specify { expect(described_class.npc.count).to eq(1) }
+
+    specify { expect(described_class.npc).to eq([eve_corporation2]) }
+  end
+
+  describe ".not_npc" do
+    let!(:eve_corporation1) { create(:eve_corporation, npc: false) }
+
+    let!(:eve_corporation2) { create(:eve_corporation, npc: true) }
+
+    specify { expect(described_class.not_npc.count).to eq(1) }
+
+    specify { expect(described_class.not_npc).to eq([eve_corporation1]) }
+  end
+
   it { should callback(:eve_alliance_reset_characters_count).after(:commit).on([:create, :update, :destroy]) }
 
   describe "#search_data" do

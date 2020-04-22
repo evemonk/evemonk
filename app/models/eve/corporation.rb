@@ -38,6 +38,10 @@ module Eve
 
     has_many :standings, as: :standingable
 
+    scope :npc, -> { where(npc: true) }
+
+    scope :not_npc, -> { where(npc: false) }
+
     after_commit :eve_alliance_reset_characters_count, on: [:create, :update, :destroy]
 
     def search_data
