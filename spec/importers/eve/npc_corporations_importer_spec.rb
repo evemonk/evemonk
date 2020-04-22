@@ -99,7 +99,52 @@ describe Eve::NpcCorporationsImporter do
     end
 
     context "when @etag not set" do
+      let(:url) { double }
 
+      let(:esi) do
+        instance_double(EveOnline::ESI::CorporationNPC,
+          url: url)
+      end
+
+      let(:etag) { instance_double(Eve::Etag) }
+
+      before do
+        expect(EveOnline::ESI::CorporationNPC).to receive(:new)
+          .and_return(esi)
+      end
+
+      before do
+        expect(Eve::Etag).to receive(:find_or_initialize_by)
+          .with(url: url)
+          .and_return(etag)
+      end
+
+      specify { expect { subject.send(:etag) }.not_to raise_error }
+
+      specify { expect { subject.send(:etag) }.to change { subject.instance_variable_get(:@etag) }.from(nil).to(etag) }
     end
+  end
+
+  describe "#update_npc_corporation_list" do
+    let(:corporation_npc_id) { double }
+
+    let(:corporation_npc_ids) { [corporation_npc_id] }
+
+    let(:esi) do
+      instance_double(EveOnline::ESI::CorporationNPC,
+        corporation_npc_ids: corporation_npc_ids)
+    end
+
+    before { expect(EveOnline::ESI::CorporationNPC).to receive(:new).and_return(esi) }
+
+    let(:corporation) { instance_double(Eve::Corporation) }
+
+    before { expect(Eve::Corporation).to receive(:find_or_initialize_by).with(corporation_id: corporation_npc_id).and_return(corporation) }
+
+    before { expect(corporation).to receive(:assign_attributes).with(npc: true) }
+
+    before { expect(corporation).to receive(:save!) }
+
+    specify { expect { subject.send(:update_npc_corporation_list) }.not_to raise_error }
   end
 end
