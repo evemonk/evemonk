@@ -293,7 +293,8 @@ GEM
     kaminari-i18n (0.5.0)
       kaminari
       rails
-    kramdown (2.1.0)
+    kramdown (2.2.0)
+      rexml
     kramdown-parser-gfm (1.1.0)
       kramdown (~> 2.0)
     launchy (2.5.0)
