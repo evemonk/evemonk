@@ -6,11 +6,13 @@ describe Eve::Blueprint do
   it { should be_a(Eve::Type) }
 
   describe "default_scope" do
-    let!(:eve_type1) { create(:eve_type, is_blueprint: false) }
+    let!(:blueprint1) { Eve::Blueprint.create!(attributes_for(:eve_type, is_blueprint: false)) }
 
-    let!(:eve_type2) { create(:eve_type, is_blueprint: true) }
+    let!(:blueprint2) { Eve::Blueprint.create!(attributes_for(:eve_type, is_blueprint: true)) }
 
     specify { expect(described_class.count).to eq(1) }
+
+    specify { expect(described_class.all).to eq([blueprint2]) }
   end
 
   it { should have_many(:blueprint_invention_materials).with_primary_key("type_id").dependent(:destroy) }
