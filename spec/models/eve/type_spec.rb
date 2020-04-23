@@ -37,6 +37,8 @@ describe Eve::Type do
     let!(:eve_type2) { create(:eve_type, published: true) }
 
     specify { expect(described_class.published.count).to eq(1) }
+
+    specify { expect(described_class.published).to eq([eve_type2]) }
   end
 
   describe "#search_data" do
