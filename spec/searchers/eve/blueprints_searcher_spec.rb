@@ -3,6 +3,34 @@
 require "rails_helper"
 
 describe Eve::BlueprintsSearcher do
+  describe "#initialize" do
+    context "with parameters" do
+      let(:query) { double }
+
+      let(:scope) { double }
+
+      subject { described_class.new(query, scope) }
+
+      its(:query) { should eq(query) }
+
+      its(:scope) { should eq(scope) }
+    end
+
+    context "without parameters" do
+      let(:query) { double }
+
+      let(:scope) { double }
+
+      before { expect(Eve::Blueprint).to receive(:all).and_return(scope) }
+
+      subject { described_class.new(query) }
+
+      its(:query) { should eq(query) }
+
+      its(:scope) { should eq(scope) }
+    end
+  end
+
   describe "#search" do
     context "when query is empty" do
       let!(:blueprint1) do
