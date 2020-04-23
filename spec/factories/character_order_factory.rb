@@ -18,7 +18,7 @@ FactoryBot.define do
 
     min_volume { 1 }
 
-    order_id { "" }
+    sequence(:order_id)
 
     price { 1.5 }
 
