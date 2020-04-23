@@ -4,11 +4,11 @@ require "rails_helper"
 
 describe Eve::BlueprintsSearcher do
   describe "#initialize" do
+    let(:query) { double }
+
+    let(:scope) { double }
+
     context "with parameters" do
-      let(:query) { double }
-
-      let(:scope) { double }
-
       subject { described_class.new(query, scope) }
 
       its(:query) { should eq(query) }
@@ -17,10 +17,6 @@ describe Eve::BlueprintsSearcher do
     end
 
     context "without parameters" do
-      let(:query) { double }
-
-      let(:scope) { double }
-
       before { expect(Eve::Blueprint).to receive(:all).and_return(scope) }
 
       subject { described_class.new(query) }
