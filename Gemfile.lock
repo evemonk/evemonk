@@ -458,8 +458,6 @@ GEM
       actionpack (>= 5.0)
       railties (>= 5.0)
     rexml (3.2.4)
-    rotp (5.1.0)
-      addressable (~> 2.5)
     rpush (5.0.0)
       activesupport (>= 5.0)
       jwt (>= 1.5.6)
@@ -736,7 +734,6 @@ DEPENDENCIES
   rails-settings-cached
   rails_best_practices
   responders
-  rotp
   rpush
   rspec-its
   rspec-rails

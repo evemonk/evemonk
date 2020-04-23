@@ -49,7 +49,6 @@ gem "http_logger", git: "https://github.com/biow0lf/http_logger.git", branch: "m
 gem "responders"
 gem "rack-health"
 gem "sitemap_generator"
-gem "rotp"
 gem "searchkick"
 gem "typhoeus"
 gem "sentry-raven"
