@@ -14,7 +14,7 @@ FactoryBot.define do
 
     issued { "2020-04-19 00:16:22" }
 
-    location_id { "" }
+    sequence(:location_id)
 
     min_volume { 1 }
 
@@ -24,9 +24,9 @@ FactoryBot.define do
 
     range { "MyString" }
 
-    region_id { "" }
+    sequence(:region_id)
 
-    type_id { "" }
+    sequence(:type_id)
 
     volume_remain { 1 }
 
