@@ -10,7 +10,7 @@ FactoryBot.define do
 
     owner { "" }
 
-    race_id { "" }
+    sequence(:race_id)
 
     reprocessing_efficiency { 1.5 }
 
@@ -20,8 +20,8 @@ FactoryBot.define do
 
     sequence(:station_id)
 
-    system_id { "" }
+    sequence(:system_id)
 
-    type_id { "" }
+    sequence(:type_id)
   end
 end
