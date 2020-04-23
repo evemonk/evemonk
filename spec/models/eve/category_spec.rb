@@ -21,5 +21,7 @@ describe Eve::Category do
     let!(:eve_category2) { create(:eve_category, published: true) }
 
     specify { expect(described_class.published.count).to eq(1) }
+
+    specify { expect(described_class.published).to eq([eve_category2]) }
   end
 end
