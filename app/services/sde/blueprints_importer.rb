@@ -39,23 +39,9 @@ module Sde
     private
 
     def import_more_information(eve_blueprint, hash)
-      import_blueprint_manufacturing_materials(eve_blueprint, hash)
-
       import_blueprint_manufacturing_products(eve_blueprint, hash)
 
       import_blueprint_manufacturing_skills(eve_blueprint, hash)
-    end
-
-    def import_blueprint_manufacturing_materials(eve_blueprint, hash)
-    #   eve_blueprint.blueprint_manufacturing_materials.destroy_all
-    #
-    #   manufacturing_materials = hash.dig("activities", "manufacturing", "materials")
-    #
-    #   manufacturing_materials&.each do |manufacturing_material|
-    #     Eve::BlueprintManufacturingMaterial.create!(blueprint_id: eve_blueprint.type_id,
-    #                                                 quantity: manufacturing_material["quantity"],
-    #                                                 type_id: manufacturing_material["typeID"])
-    #   end
     end
 
     def import_blueprint_manufacturing_products(eve_blueprint, hash)
