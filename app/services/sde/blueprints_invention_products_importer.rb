@@ -27,7 +27,8 @@ module Sde
                                                    quantity: invention_product["quantity"],
                                                    type_id: type_id)
 
-            Eve::Type.find_or_initialize_by(type_id: type_id).update!(is_manufacturing_item: true)
+            # TODO: write it
+            # Eve::Type.find_or_initialize_by(type_id: type_id).update!(is_manufacturing_item: true)
           end
 
           eve_blueprint.save!
