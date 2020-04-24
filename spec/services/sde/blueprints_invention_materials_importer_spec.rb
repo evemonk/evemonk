@@ -18,24 +18,7 @@ describe Sde::BlueprintsInventionMaterialsImporter do
 
     let(:key) { double }
 
-    let(:quantity) { double }
-
     let(:type_id) { double }
-
-    let(:entry) do
-      {
-        "activities" => {
-          "invention" => {
-            "materials" => [
-              {
-                "quantity" => quantity,
-                "typeID" => type_id
-              }
-            ]
-          },
-        }
-      }
-    end
 
     let(:entries) { {key => entry} }
 
@@ -58,19 +41,46 @@ describe Sde::BlueprintsInventionMaterialsImporter do
       end
     end
 
-    before do
-      #
-      # Eve::BlueprintInventionMaterial.create!(blueprint_id: eve_blueprint.type_id,
-      #                                         quantity: invention_material["quantity"],
-      #                                         type_id: invention_material["typeID"])
-      #
-      expect(Eve::BlueprintInventionMaterial).to receive(:create!).with(blueprint_id: type_id,
-                                                                        quantity: quantity,
-                                                                        type_id: type_id)
-    end
-
     before { expect(eve_blueprint).to receive(:save!) }
 
-    specify { expect { subject.import }.not_to raise_error }
+    context "when blueprint invention materials present" do
+      let(:quantity) { double }
+
+      let(:entry) do
+        {
+          "activities" => {
+            "invention" => {
+              "materials" => [
+                {
+                  "quantity" => quantity,
+                  "typeID" => type_id
+                }
+              ]
+            },
+          }
+        }
+      end
+
+      before do
+        #
+        # Eve::BlueprintInventionMaterial.create!(blueprint_id: eve_blueprint.type_id,
+        #                                         quantity: invention_material["quantity"],
+        #                                         type_id: invention_material["typeID"])
+        #
+        expect(Eve::BlueprintInventionMaterial).to receive(:create!).with(blueprint_id: type_id,
+                                                                          quantity: quantity,
+                                                                          type_id: type_id)
+      end
+
+      specify { expect { subject.import }.not_to raise_error }
+    end
+
+    context "when blueprint invention materials not present" do
+      let(:entry) { {} }
+
+      before { expect(Eve::BlueprintInventionMaterial).not_to receive(:create!) }
+
+      specify { expect { subject.import }.not_to raise_error }
+    end
   end
 end
