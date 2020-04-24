@@ -39,54 +39,11 @@ module Sde
     private
 
     def import_more_information(eve_blueprint, hash)
-      import_blueprint_invention_materials(eve_blueprint, hash)
-
-      import_blueprint_invention_products(eve_blueprint, hash)
-
-      import_blueprint_invention_skills(eve_blueprint, hash)
-
       import_blueprint_manufacturing_materials(eve_blueprint, hash)
 
       import_blueprint_manufacturing_products(eve_blueprint, hash)
 
       import_blueprint_manufacturing_skills(eve_blueprint, hash)
-    end
-
-    def import_blueprint_invention_materials(eve_blueprint, hash)
-      eve_blueprint.blueprint_invention_materials.destroy_all
-
-      invention_materials = hash.dig("activities", "invention", "materials")
-
-      invention_materials&.each do |invention_material|
-        Eve::BlueprintInventionMaterial.create!(blueprint_id: eve_blueprint.type_id,
-                                                quantity: invention_material["quantity"],
-                                                type_id: invention_material["typeID"])
-      end
-    end
-
-    def import_blueprint_invention_products(eve_blueprint, hash)
-    #   eve_blueprint.blueprint_invention_products.destroy_all
-    #
-    #   invention_products = hash.dig("activities", "invention", "products")
-    #
-    #   invention_products&.each do |invention_product|
-    #     Eve::BlueprintInventionProduct.create!(blueprint_id: eve_blueprint.type_id,
-    #                                            probability: invention_product["probability"],
-    #                                            quantity: invention_product["quantity"],
-    #                                            type_id: invention_product["typeID"])
-    #   end
-    end
-
-    def import_blueprint_invention_skills(eve_blueprint, hash)
-    #   eve_blueprint.blueprint_invention_skills.destroy_all
-    #
-    #   invention_skills = hash.dig("activities", "invention", "skills")
-    #
-    #   invention_skills&.each do |invention_skill|
-    #     Eve::BlueprintInventionSkill.create!(blueprint_id: eve_blueprint.type_id,
-    #                                          level: invention_skill["level"],
-    #                                          type_id: invention_skill["typeID"])
-    #   end
     end
 
     def import_blueprint_manufacturing_materials(eve_blueprint, hash)
