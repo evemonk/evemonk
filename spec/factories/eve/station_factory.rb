@@ -4,7 +4,7 @@ FactoryBot.define do
   factory :eve_station, class: Eve::Station do
     max_dockable_ship_volume { 1.5 }
 
-    name { "MyString" }
+    name { Faker::Lorem.word }
 
     office_rental_cost { 1.5 }
 
