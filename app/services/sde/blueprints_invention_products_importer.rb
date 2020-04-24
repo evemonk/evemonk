@@ -9,6 +9,10 @@ module Sde
     end
 
     def import
+      entries = YAML.safe_load(File.read(file))
+
+      entries.each_pair do |key, hash|
+      end
     end
   end
 end
