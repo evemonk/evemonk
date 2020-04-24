@@ -70,7 +70,7 @@ describe Eve::BlueprintsSearcher do
         let!(:blueprint1) do
           create(:eve_type,
             type_id: 1,
-            name_en: "Drake",
+            name_en: "Drake Blueprint",
             is_blueprint: true,
             published: true)
         end
