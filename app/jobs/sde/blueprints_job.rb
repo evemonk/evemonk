@@ -6,6 +6,8 @@ module Sde
 
     def perform(file)
       BlueprintsImporter.new(file).import
+
+      BlueprintsInventionMaterialsImporter.new(file).import
     end
   end
 end

@@ -19,6 +19,17 @@ describe Sde::BlueprintsJob do
       end
     end
 
+    before do
+      #
+      # Sde::BlueprintsInventionMaterialsImporter.new(file).import
+      #
+      expect(Sde::BlueprintsInventionMaterialsImporter).to receive(:new).with(file) do
+        double.tap do |a|
+          expect(a).to receive(:import)
+        end
+      end
+    end
+
     specify { expect { subject.perform(file) }.not_to raise_error }
   end
 end
