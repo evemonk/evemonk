@@ -8,10 +8,10 @@ describe Api::Eve::BlueprintsController do
   describe "#index" do
     it "returns list of blueprints" do
       create(:eve_type,
-             type_id: 24_699,
-             name: "Drake Blueprint",
-             published: true,
-             is_blueprint: true)
+        type_id: 24_699,
+        name: "Drake Blueprint",
+        published: true,
+        is_blueprint: true)
 
       get "/api/eve/blueprints"
 
