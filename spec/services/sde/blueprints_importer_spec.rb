@@ -63,13 +63,15 @@ describe Sde::BlueprintsImporter do
 
     before { expect(eve_blueprint).to receive(:transaction).and_yield }
 
-    before { expect(eve_blueprint).to receive(:assign_attributes).with(copying_time: copying_time,
-                                                                       manufacturing_time: manufacturing_time,
-                                                                       research_material_time: research_material_time,
-                                                                       research_time_time: research_time_time,
-                                                                       invention_time: invention_time,
-                                                                       max_production_limit: max_production_limit,
-                                                                       is_blueprint: true) }
+    before do
+      expect(eve_blueprint).to receive(:assign_attributes).with(copying_time: copying_time,
+                                                                manufacturing_time: manufacturing_time,
+                                                                research_material_time: research_material_time,
+                                                                research_time_time: research_time_time,
+                                                                invention_time: invention_time,
+                                                                max_production_limit: max_production_limit,
+                                                                is_blueprint: true)
+    end
 
     before { expect(eve_blueprint).to receive(:save!) }
 

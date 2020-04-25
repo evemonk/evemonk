@@ -54,12 +54,12 @@ describe Sde::BlueprintsInventionProductsImporter do
             "invention" => {
               "products" => [
                 {
-                    "quantity" => quantity,
-                    "typeID" => type_id,
-                    "probability" => probability
+                  "quantity" => quantity,
+                  "typeID" => type_id,
+                  "probability" => probability
                 }
               ]
-            },
+            }
           }
         }
       end

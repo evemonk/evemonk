@@ -10,8 +10,8 @@ describe Eve::BlueprintDecorator do
   describe "#copying_time_formatted" do
     let(:eve_blueprint) do
       Eve::Blueprint.new(attributes_for(:eve_type,
-                                        copying_time: 240,
-                                        is_blueprint: true))
+        copying_time: 240,
+        is_blueprint: true))
     end
 
     subject { eve_blueprint.decorate }
@@ -33,9 +33,9 @@ describe Eve::BlueprintDecorator do
   describe "#icon_tiny" do
     let(:eve_blueprint) do
       Eve::Blueprint.new(attributes_for(:eve_type,
-                                        type_id: 24_699,
-                                        copying_time: 240,
-                                        is_blueprint: true))
+        type_id: 24_699,
+        copying_time: 240,
+        is_blueprint: true))
     end
 
     subject { eve_blueprint.decorate }
@@ -56,9 +56,9 @@ describe Eve::BlueprintDecorator do
   describe "#icon_small" do
     let(:eve_blueprint) do
       Eve::Blueprint.new(attributes_for(:eve_type,
-                                        type_id: 24_699,
-                                        copying_time: 240,
-                                        is_blueprint: true))
+        type_id: 24_699,
+        copying_time: 240,
+        is_blueprint: true))
     end
 
     subject { eve_blueprint.decorate }

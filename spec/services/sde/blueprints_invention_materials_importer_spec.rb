@@ -56,7 +56,7 @@ describe Sde::BlueprintsInventionMaterialsImporter do
                   "typeID" => type_id
                 }
               ]
-            },
+            }
           }
         }
       end

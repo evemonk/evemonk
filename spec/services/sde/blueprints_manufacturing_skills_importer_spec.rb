@@ -56,7 +56,7 @@ describe Sde::BlueprintsManufacturingSkillsImporter do
                   "typeID" => type_id
                 }
               ]
-            },
+            }
           }
         }
       end
