@@ -2,6 +2,6 @@
 
 module Eve
   class AsteroidBeltDecorator < ApplicationDecorator
-    # decorates_associations :planet
+    decorates_associations :system, :planet, :position
   end
 end

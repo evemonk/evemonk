@@ -19,6 +19,72 @@ describe Sde::BlueprintsJob do
       end
     end
 
+    before do
+      #
+      # Sde::BlueprintsInventionMaterialsImporter.new(file).import
+      #
+      expect(Sde::BlueprintsInventionMaterialsImporter).to receive(:new).with(file) do
+        double.tap do |a|
+          expect(a).to receive(:import)
+        end
+      end
+    end
+
+    before do
+      #
+      # Sde::BlueprintsInventionProductsImporter.new(file).import
+      #
+      expect(Sde::BlueprintsInventionProductsImporter).to receive(:new).with(file) do
+        double.tap do |a|
+          expect(a).to receive(:import)
+        end
+      end
+    end
+
+    before do
+      #
+      # Sde::BlueprintsInventionSkillsImporter.new(file).import
+      #
+      expect(Sde::BlueprintsInventionSkillsImporter).to receive(:new).with(file) do
+        double.tap do |a|
+          expect(a).to receive(:import)
+        end
+      end
+    end
+
+    before do
+      #
+      # Sde::BlueprintsManufacturingMaterialsImporter.new(file).import
+      #
+      expect(Sde::BlueprintsManufacturingMaterialsImporter).to receive(:new).with(file) do
+        double.tap do |a|
+          expect(a).to receive(:import)
+        end
+      end
+    end
+
+    before do
+      #
+      # Sde::BlueprintsManufacturingProductsImporter.new(file).import
+      #
+      expect(Sde::BlueprintsManufacturingProductsImporter).to receive(:new).with(file) do
+        double.tap do |a|
+          expect(a).to receive(:import)
+        end
+      end
+    end
+
+    before do
+      #
+      # Sde::BlueprintsManufacturingSkillsImporter.new(file).import
+      #
+      expect(Sde::BlueprintsManufacturingSkillsImporter).to receive(:new).with(file) do
+        double.tap do |a|
+          expect(a).to receive(:import)
+        end
+      end
+    end
+
     specify { expect { subject.perform(file) }.not_to raise_error }
   end
 end

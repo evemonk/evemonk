@@ -31,5 +31,7 @@ FactoryBot.define do
     sequence(:shares)
 
     war_eligible { [true, false].sample }
+
+    npc { [true, false].sample }
   end
 end

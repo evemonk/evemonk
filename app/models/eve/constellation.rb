@@ -12,8 +12,11 @@ module Eve
       primary_key: "region_id",
       optional: true
 
-    # has_many :systems
+    has_many :systems,
+      primary_key: "constellation_id"
 
-    has_one :position, as: :positionable, dependent: :destroy
+    has_one :position,
+      as: :positionable,
+      dependent: :destroy
   end
 end

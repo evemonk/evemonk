@@ -9,5 +9,7 @@ module Eve
     translates :name
 
     has_many :groups, primary_key: "category_id"
+
+    scope :published, -> { where(published: true) }
   end
 end

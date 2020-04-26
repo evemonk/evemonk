@@ -24,14 +24,23 @@ module Eve
       primary_key: "faction_id",
       optional: true
 
-    # belongs_to :home_station_id
+    belongs_to :home_station,
+      class_name: "Eve::Station",
+      primary_key: "station_id",
+      foreign_key: "home_station_id",
+      optional: true
 
-    has_many :characters, primary_key: "corporation_id"
+    has_many :characters,
+      primary_key: "corporation_id"
 
     has_many :corporation_alliance_histories,
       primary_key: "corporation_id"
 
     has_many :standings, as: :standingable
+
+    scope :npc, -> { where(npc: true) }
+
+    scope :not_npc, -> { where(npc: false) }
 
     after_commit :eve_alliance_reset_characters_count, on: [:create, :update, :destroy]
 

@@ -1,0 +1,42 @@
+<div class="row">
+  <div class="col">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><%= link_to("Home", root_path) %></li>
+        <li class="breadcrumb-item"><%= link_to("Blueprint calculator", blueprint_calculator_index_path) %></li>
+        <li class="breadcrumb-item active" aria-current="page"><%= @blueprint.name %></li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+<hr>
+
+<div class="row">
+  <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+    <h4 class="text-center text-break">Manufacturing</h4>
+
+    <table class="table table-bordered table-striped">
+      <!--
+      <thead>
+        <tr>
+          <td></td>
+        </tr>
+      </thead>
+      -->
+
+      <tbody>
+        <% @blueprint.blueprint_manufacturing_materials.each do |material| %>
+          <tr>
+            <td><%= material.type.name %></td>
+            <td><%= material.quantity %></td>
+            <td><%= material.type.average_price %> per unit</td>
+            <td>Total: <%= (material.quantity * material.type.average_price) rescue "" %></td>
+          </tr>
+
+
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

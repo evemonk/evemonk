@@ -15,5 +15,7 @@ describe Eve::Constellation do
 
   it { should belong_to(:region).with_primary_key("region_id").optional(true) }
 
+  it { should have_many(:systems).with_primary_key("constellation_id") }
+
   it { should have_one(:position).dependent(:destroy) }
 end

@@ -8,7 +8,8 @@ module Eve
 
     translates :name, :description
 
-    searchkick
+    searchkick word_start: [:name_en, :name_de, :name_fr, :name_ja, :name_ru,
+                            :name_zh, :name_ko]
 
     belongs_to :graphic,
       primary_key: "graphic_id",
@@ -40,9 +41,11 @@ module Eve
       foreign_key: "type_id",
       dependent: :destroy
 
-    # # TODO: import
+    # TODO: import
     # has_many :dogma_effects,
     #   through: :type_dogma_effects
+
+    scope :published, -> { where(published: true) }
 
     def search_data
       {
@@ -52,7 +55,10 @@ module Eve
         name_ja: name_ja,
         name_ru: name_ru,
         name_zh: name_zh,
-        name_ko: name_ko
+        name_ko: name_ko,
+        published: published,
+        is_blueprint: is_blueprint,
+        is_manufacturing_item: is_manufacturing_item
       }
     end
 

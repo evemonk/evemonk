@@ -16,6 +16,12 @@ module Eve
       primary_key: "race_id",
       optional: true
 
-    # belongs_to :eve_ship_type_id, optional: true
+    belongs_to :ship_type,
+      class_name: "Eve::Ship",
+      foreign_key: "ship_type_id",
+      primary_key: "type_id",
+      optional: true
+
+    has_many :ancestries
   end
 end

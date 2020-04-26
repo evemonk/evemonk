@@ -89,6 +89,10 @@ class Character < ApplicationRecord
 
   has_many :industry_jobs, dependent: :destroy
 
+  has_many :character_orders, dependent: :destroy
+
+  has_many :manufacturing_jobs, dependent: :destroy
+
   has_many :factions_standings, -> {
     joins("LEFT JOIN eve_factions ON standings.standingable_id = eve_factions.id")
       .where(standingable_type: "Eve::Faction")
@@ -116,24 +120,27 @@ class Character < ApplicationRecord
     :total_intelligence, :intelligence_bonus,
     :total_charisma, :charisma_bonus, to: :character_attributes
 
+  delegate :science_skill, :science_level, :advanced_industry_skill,
+    :advanced_industry_level, to: :character_skills_levels
+
   def perception_attribute
-    @perception_attribute ||= Eve::CharacterAttribute.find_by(attribute_name: "Perception").decorate
+    @perception_attribute ||= Eve::CharacterAttribute.find_by(attribute_name: "Perception")&.decorate
   end
 
   def memory_attribute
-    @memory_attribute ||= Eve::CharacterAttribute.find_by(attribute_name: "Memory").decorate
+    @memory_attribute ||= Eve::CharacterAttribute.find_by(attribute_name: "Memory")&.decorate
   end
 
   def willpower_attribute
-    @willpower_attribute ||= Eve::CharacterAttribute.find_by(attribute_name: "Willpower").decorate
+    @willpower_attribute ||= Eve::CharacterAttribute.find_by(attribute_name: "Willpower")&.decorate
   end
 
   def intelligence_attribute
-    @intelligence_attribute ||= Eve::CharacterAttribute.find_by(attribute_name: "Intelligence").decorate
+    @intelligence_attribute ||= Eve::CharacterAttribute.find_by(attribute_name: "Intelligence")&.decorate
   end
 
   def charisma_attribute
-    @charisma_attribute ||= Eve::CharacterAttribute.find_by(attribute_name: "Charisma").decorate
+    @charisma_attribute ||= Eve::CharacterAttribute.find_by(attribute_name: "Charisma")&.decorate
   end
 
   def skills_tree
@@ -144,7 +151,21 @@ class Character < ApplicationRecord
     @character_attributes ||= CharacterAttributes.new(self)
   end
 
+  def character_skills_levels
+    @character_skills_levels ||= CharacterSkillsLevels.new(self)
+  end
+
   def token_expired?
     token_expires_at <= Time.zone.now
   end
+
+  # TODO: write
+  # def alpha?
+  #   true
+  # end
+
+  # TODO: write
+  # def omega?
+  #   true
+  # end
 end

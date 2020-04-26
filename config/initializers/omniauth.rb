@@ -14,7 +14,8 @@ SCOPES = ["esi-wallet.read_character_wallet.v1",
           "esi-characters.read_standings.v1",
           "esi-characters.read_blueprints.v1",
           "esi-killmails.read_killmails.v1",
-          "esi-industry.read_character_jobs.v1"].freeze
+          "esi-industry.read_character_jobs.v1",
+          "esi-markets.read_character_orders.v1"].freeze
 
 OmniAuth.config.full_host = "https://evemonk.com"
 

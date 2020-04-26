@@ -11,13 +11,14 @@
     "bootstrap-icons": "^1.0.0-alpha2",
     "bootswatch": "^4.4.1",
     "jquery": "=3.4.1",
+    "lodash.debounce": "^4.0.8",
     "popper.js": "^1.16.1",
     "stimulus": "^1.1.1",
     "stimulus_reflex": "^2.2.2",
     "timeago.js": "^4.0.2",
     "turbolinks": "^5.2.0",
     "vue": "^2.6.11",
-    "vue-instant": "^1.0.4"
+    "vue-select": "^3.10.0"
   },
   "version": "0.1.0",
   "devDependencies": {

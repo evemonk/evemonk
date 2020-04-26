@@ -31,6 +31,16 @@ describe Eve::Type do
 
   # it { should have_many(:dogma_effects).through(:type_dogma_effects) }
 
+  describe ".published" do
+    let!(:eve_type1) { create(:eve_type, published: false) }
+
+    let!(:eve_type2) { create(:eve_type, published: true) }
+
+    specify { expect(described_class.published.count).to eq(1) }
+
+    specify { expect(described_class.published).to eq([eve_type2]) }
+  end
+
   describe "#search_data" do
     let!(:type) do
       build(:eve_type,
@@ -40,7 +50,10 @@ describe Eve::Type do
         name_ja: "ラグナロク",
         name_ru: "Ragnarok4",
         name_zh: "拉格纳洛克级",
-        name_ko: "라그나로크")
+        name_ko: "라그나로크",
+        published: true,
+        is_blueprint: false,
+        is_manufacturing_item: true)
     end
 
     specify do
@@ -50,7 +63,10 @@ describe Eve::Type do
                                      name_ja: "ラグナロク",
                                      name_ru: "Ragnarok4",
                                      name_zh: "拉格纳洛克级",
-                                     name_ko: "라그나로크")
+                                     name_ko: "라그나로크",
+                                     published: true,
+                                     is_blueprint: false,
+                                     is_manufacturing_item: true)
     end
   end
 

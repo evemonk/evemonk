@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class CharacterBlueprintDecorator < ApplicationDecorator
-  decorates_associations :character, :blueprint
+  decorates_associations :character, :blueprint, :location
 
   # BPO -- Blue Print Original
   def bpo?
@@ -52,4 +52,8 @@ class CharacterBlueprintDecorator < ApplicationDecorator
       "+#{time_efficiency} %"
     end
   end
+
+  # def character_copying_time_formatted
+  #   HumanTime.new(CharacterManufacturingCopyTime.new(@character, @blueprint.blueprint.copying_time).manufacturing_copy_time.round).long_formatted
+  # end
 end

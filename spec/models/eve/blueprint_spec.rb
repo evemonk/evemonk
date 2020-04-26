@@ -5,6 +5,22 @@ require "rails_helper"
 describe Eve::Blueprint do
   it { should be_a(Eve::Type) }
 
+  describe "default_scope" do
+    let!(:blueprint1) do
+      Eve::Blueprint.create!(attributes_for(:eve_type,
+        is_blueprint: false))
+    end
+
+    let!(:blueprint2) do
+      Eve::Blueprint.create!(attributes_for(:eve_type,
+        is_blueprint: true))
+    end
+
+    specify { expect(described_class.count).to eq(1) }
+
+    specify { expect(described_class.all).to eq([blueprint2]) }
+  end
+
   it { should have_many(:blueprint_invention_materials).with_primary_key("type_id").dependent(:destroy) }
 
   it { should have_many(:blueprint_invention_products).with_primary_key("type_id").dependent(:destroy) }

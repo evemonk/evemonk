@@ -39,5 +39,7 @@ class UpdateCharacterInfoService
     CharacterBlueprintsJob.perform_later(character_id)
 
     CharacterIndustryJobsJob.perform_later(character_id)
+
+    CharacterOrdersJob.perform_later(character_id)
   end
 end

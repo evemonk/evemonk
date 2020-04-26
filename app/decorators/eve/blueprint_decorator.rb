@@ -11,8 +11,16 @@ module Eve
       HumanTime.new(copying_time).long_formatted
     end
 
-    # def copying_modifier
+    # def time_copying_modifier
     #   27.11
     # end
+
+    def icon_tiny
+      "#{imageproxy_url}https://images.evetech.net/types/#{type_id}/bp?size=32"
+    end
+
+    def icon_small
+      "#{imageproxy_url}https://images.evetech.net/types/#{type_id}/bp?size=64"
+    end
   end
 end

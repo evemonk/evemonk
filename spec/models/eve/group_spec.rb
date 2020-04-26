@@ -16,4 +16,14 @@ describe Eve::Group do
   it { should belong_to(:category).with_primary_key("category_id").with_foreign_key("category_id").optional(true) }
 
   it { should have_many(:types).with_primary_key("group_id").with_foreign_key("group_id") }
+
+  describe ".published" do
+    let!(:eve_group1) { create(:eve_group, published: false) }
+
+    let!(:eve_group2) { create(:eve_group, published: true) }
+
+    specify { expect(described_class.published.count).to eq(1) }
+
+    specify { expect(described_class.published).to eq([eve_group2]) }
+  end
 end

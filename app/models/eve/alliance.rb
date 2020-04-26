@@ -26,11 +26,17 @@ module Eve
       primary_key: "faction_id",
       optional: true
 
-    has_many :alliance_corporations, primary_key: "alliance_id"
+    has_many :alliance_corporations,
+      primary_key: "alliance_id"
 
-    has_many :corporations, through: :alliance_corporations
+    has_many :corporations,
+      through: :alliance_corporations
 
-    has_many :characters, through: :corporations
+    has_many :characters,
+      through: :corporations
+
+    has_many :corporation_alliance_histories,
+      primary_key: "alliance_id"
 
     after_create_commit :reset_characters_count
 

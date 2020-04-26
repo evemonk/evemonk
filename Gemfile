@@ -49,7 +49,6 @@ gem "http_logger", git: "https://github.com/biow0lf/http_logger.git", branch: "m
 gem "responders"
 gem "rack-health"
 gem "sitemap_generator"
-gem "rotp"
 gem "searchkick"
 gem "typhoeus"
 gem "sentry-raven"
@@ -94,6 +93,7 @@ group :development, :test do
   gem "brakeman", require: false
   gem "fasterer", require: false
   gem "license_finder", require: false
+  gem "anyway_config", "< 2" # For isolator
   gem "isolator"
 end
 

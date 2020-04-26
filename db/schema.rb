@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_08_214419) do
+ActiveRecord::Schema.define(version: 2020_04_21_223947) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(version: 2020_04_08_214419) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["character_id"], name: "index_character_implants_on_character_id"
+    t.index ["type_id"], name: "index_character_implants_on_type_id"
   end
 
   create_table "character_killmails", force: :cascade do |t|
@@ -86,6 +87,27 @@ ActiveRecord::Schema.define(version: 2020_04_08_214419) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["character_id"], name: "index_character_mail_labels_on_character_id"
+  end
+
+  create_table "character_orders", force: :cascade do |t|
+    t.bigint "character_id", null: false
+    t.integer "duration"
+    t.float "escrow"
+    t.boolean "is_buy_order"
+    t.boolean "is_corporation"
+    t.datetime "issued"
+    t.bigint "location_id"
+    t.integer "min_volume"
+    t.bigint "order_id"
+    t.float "price"
+    t.string "range"
+    t.bigint "region_id"
+    t.bigint "type_id"
+    t.integer "volume_remain"
+    t.integer "volume_total"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["character_id"], name: "index_character_orders_on_character_id"
   end
 
   create_table "character_skills", force: :cascade do |t|
@@ -149,6 +171,11 @@ ActiveRecord::Schema.define(version: 2020_04_08_214419) do
     t.index ["character_id"], name: "index_characters_on_character_id", unique: true
     t.index ["character_owner_hash"], name: "index_characters_on_character_owner_hash", unique: true
     t.index ["corporation_id"], name: "index_characters_on_corporation_id"
+    t.index ["current_ship_item_id"], name: "index_characters_on_current_ship_item_id"
+    t.index ["current_ship_type_id"], name: "index_characters_on_current_ship_type_id"
+    t.index ["current_solar_system_id"], name: "index_characters_on_current_solar_system_id"
+    t.index ["current_station_id"], name: "index_characters_on_current_station_id"
+    t.index ["current_structure_id"], name: "index_characters_on_current_structure_id"
     t.index ["faction_id"], name: "index_characters_on_faction_id"
     t.index ["race_id"], name: "index_characters_on_race_id"
     t.index ["user_id"], name: "index_characters_on_user_id"
@@ -160,6 +187,7 @@ ActiveRecord::Schema.define(version: 2020_04_08_214419) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.json "body"
+    t.index ["url"], name: "index_etags_on_url", unique: true
   end
 
   create_table "eve_agents", force: :cascade do |t|
@@ -175,7 +203,10 @@ ActiveRecord::Schema.define(version: 2020_04_08_214419) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "name"
     t.index ["agent_id"], name: "index_eve_agents_on_agent_id", unique: true
+    t.index ["agent_type_id"], name: "index_eve_agents_on_agent_type_id"
     t.index ["corporation_id"], name: "index_eve_agents_on_corporation_id"
+    t.index ["division_id"], name: "index_eve_agents_on_division_id"
+    t.index ["location_id"], name: "index_eve_agents_on_location_id"
   end
 
   create_table "eve_alliance_corporations", force: :cascade do |t|
@@ -202,7 +233,10 @@ ActiveRecord::Schema.define(version: 2020_04_08_214419) do
     t.bigint "characters_count", default: 0
     t.index ["alliance_id"], name: "index_eve_alliances_on_alliance_id", unique: true
     t.index ["characters_count"], name: "index_eve_alliances_on_characters_count"
-    t.index ["name"], name: "index_eve_alliances_on_name"
+    t.index ["creator_corporation_id"], name: "index_eve_alliances_on_creator_corporation_id"
+    t.index ["creator_id"], name: "index_eve_alliances_on_creator_id"
+    t.index ["executor_corporation_id"], name: "index_eve_alliances_on_executor_corporation_id"
+    t.index ["faction_id"], name: "index_eve_alliances_on_faction_id"
   end
 
   create_table "eve_ancestries", force: :cascade do |t|
@@ -317,6 +351,8 @@ ActiveRecord::Schema.define(version: 2020_04_08_214419) do
     t.bigint "type_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["blueprint_id"], name: "index_eve_blueprint_manufacturing_skills_on_blueprint_id"
+    t.index ["type_id"], name: "index_eve_blueprint_manufacturing_skills_on_type_id"
   end
 
   create_table "eve_categories", force: :cascade do |t|
@@ -386,9 +422,12 @@ ActiveRecord::Schema.define(version: 2020_04_08_214419) do
     t.datetime "updated_at", null: false
     t.string "title"
     t.index ["alliance_id"], name: "index_eve_characters_on_alliance_id"
+    t.index ["ancestry_id"], name: "index_eve_characters_on_ancestry_id"
+    t.index ["bloodline_id"], name: "index_eve_characters_on_bloodline_id"
     t.index ["character_id"], name: "index_eve_characters_on_character_id", unique: true
     t.index ["corporation_id"], name: "index_eve_characters_on_corporation_id"
-    t.index ["name"], name: "index_eve_characters_on_name"
+    t.index ["faction_id"], name: "index_eve_characters_on_faction_id"
+    t.index ["race_id"], name: "index_eve_characters_on_race_id"
   end
 
   create_table "eve_constellations", force: :cascade do |t|
@@ -404,6 +443,7 @@ ActiveRecord::Schema.define(version: 2020_04_08_214419) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["constellation_id"], name: "index_eve_constellations_on_constellation_id", unique: true
+    t.index ["region_id"], name: "index_eve_constellations_on_region_id"
   end
 
   create_table "eve_corporation_alliance_histories", force: :cascade do |t|
@@ -414,6 +454,8 @@ ActiveRecord::Schema.define(version: 2020_04_08_214419) do
     t.datetime "start_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["alliance_id"], name: "index_eve_corporation_alliance_histories_on_alliance_id"
+    t.index ["corporation_id"], name: "index_eve_corporation_alliance_histories_on_corporation_id"
     t.index ["record_id"], name: "index_eve_corporation_alliance_histories_on_record_id"
   end
 
@@ -435,10 +477,14 @@ ActiveRecord::Schema.define(version: 2020_04_08_214419) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "war_eligible"
+    t.boolean "npc", default: false
     t.index ["alliance_id"], name: "index_eve_corporations_on_alliance_id"
+    t.index ["ceo_id"], name: "index_eve_corporations_on_ceo_id"
     t.index ["corporation_id"], name: "index_eve_corporations_on_corporation_id", unique: true
+    t.index ["creator_id"], name: "index_eve_corporations_on_creator_id"
+    t.index ["faction_id"], name: "index_eve_corporations_on_faction_id"
+    t.index ["home_station_id"], name: "index_eve_corporations_on_home_station_id"
     t.index ["member_count"], name: "index_eve_corporations_on_member_count"
-    t.index ["name"], name: "index_eve_corporations_on_name"
   end
 
   create_table "eve_dogma_attributes", force: :cascade do |t|
@@ -455,7 +501,6 @@ ActiveRecord::Schema.define(version: 2020_04_08_214419) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["attribute_id"], name: "index_eve_dogma_attributes_on_attribute_id", unique: true
-    t.index ["name"], name: "index_eve_dogma_attributes_on_name"
   end
 
   create_table "eve_etags", force: :cascade do |t|
@@ -570,6 +615,7 @@ ActiveRecord::Schema.define(version: 2020_04_08_214419) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["market_group_id"], name: "index_eve_market_groups_on_market_group_id", unique: true
+    t.index ["parent_group_id"], name: "index_eve_market_groups_on_parent_group_id"
   end
 
   create_table "eve_moons", force: :cascade do |t|
@@ -592,6 +638,8 @@ ActiveRecord::Schema.define(version: 2020_04_08_214419) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["planet_id"], name: "index_eve_planets_on_planet_id", unique: true
+    t.index ["system_id"], name: "index_eve_planets_on_system_id"
+    t.index ["type_id"], name: "index_eve_planets_on_type_id"
   end
 
   create_table "eve_positions", force: :cascade do |t|
@@ -666,6 +714,8 @@ ActiveRecord::Schema.define(version: 2020_04_08_214419) do
     t.datetime "updated_at", null: false
     t.bigint "destination_stargate_id"
     t.bigint "destination_system_id"
+    t.index ["destination_stargate_id"], name: "index_eve_stargates_on_destination_stargate_id"
+    t.index ["destination_system_id"], name: "index_eve_stargates_on_destination_system_id"
     t.index ["stargate_id"], name: "index_eve_stargates_on_stargate_id", unique: true
     t.index ["system_id"], name: "index_eve_stargates_on_system_id"
   end
@@ -683,6 +733,7 @@ ActiveRecord::Schema.define(version: 2020_04_08_214419) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "star_id"
     t.index ["star_id"], name: "index_eve_stars_on_star_id", unique: true
+    t.index ["type_id"], name: "index_eve_stars_on_type_id"
   end
 
   create_table "eve_stations", force: :cascade do |t|
@@ -699,7 +750,10 @@ ActiveRecord::Schema.define(version: 2020_04_08_214419) do
     t.bigint "type_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["race_id"], name: "index_eve_stations_on_race_id"
     t.index ["station_id"], name: "index_eve_stations_on_station_id", unique: true
+    t.index ["system_id"], name: "index_eve_stations_on_system_id"
+    t.index ["type_id"], name: "index_eve_stations_on_type_id"
   end
 
   create_table "eve_systems", force: :cascade do |t|
@@ -778,6 +832,12 @@ ActiveRecord::Schema.define(version: 2020_04_08_214419) do
     t.bigint "research_material_time"
     t.bigint "research_time_time"
     t.bigint "invention_time"
+    t.boolean "is_blueprint"
+    t.boolean "is_manufacturing_item"
+    t.index ["graphic_id"], name: "index_eve_types_on_graphic_id"
+    t.index ["group_id"], name: "index_eve_types_on_group_id"
+    t.index ["icon_id"], name: "index_eve_types_on_icon_id"
+    t.index ["market_group_id"], name: "index_eve_types_on_market_group_id"
     t.index ["type_id"], name: "index_eve_types_on_type_id", unique: true
   end
 
@@ -1059,6 +1119,7 @@ ActiveRecord::Schema.define(version: 2020_04_08_214419) do
   add_foreign_key "character_blueprints", "characters"
   add_foreign_key "character_killmails", "characters"
   add_foreign_key "character_mail_labels", "characters"
+  add_foreign_key "character_orders", "characters"
   add_foreign_key "character_skills", "characters"
   add_foreign_key "characters", "users"
   add_foreign_key "industry_jobs", "characters"

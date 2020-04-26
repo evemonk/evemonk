@@ -19,11 +19,33 @@ describe Eve::Corporation do
 
   it { should belong_to(:faction).with_primary_key("faction_id").optional(true) }
 
+  it { should belong_to(:home_station).class_name("Eve::Station").with_primary_key("station_id").with_foreign_key("home_station_id").optional(true) }
+
   it { should have_many(:characters).with_primary_key("corporation_id") }
 
   it { should have_many(:corporation_alliance_histories).with_primary_key("corporation_id") }
 
   it { should have_many(:standings) }
+
+  describe ".npc" do
+    let!(:eve_corporation1) { create(:eve_corporation, npc: false) }
+
+    let!(:eve_corporation2) { create(:eve_corporation, npc: true) }
+
+    specify { expect(described_class.npc.count).to eq(1) }
+
+    specify { expect(described_class.npc).to eq([eve_corporation2]) }
+  end
+
+  describe ".not_npc" do
+    let!(:eve_corporation1) { create(:eve_corporation, npc: false) }
+
+    let!(:eve_corporation2) { create(:eve_corporation, npc: true) }
+
+    specify { expect(described_class.not_npc.count).to eq(1) }
+
+    specify { expect(described_class.not_npc).to eq([eve_corporation1]) }
+  end
 
   it { should callback(:eve_alliance_reset_characters_count).after(:commit).on([:create, :update, :destroy]) }
 

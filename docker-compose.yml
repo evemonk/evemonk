@@ -13,6 +13,8 @@ services:
     volumes:
       - "postresql_data:/var/lib/postgresql/data"
       - "./postgres:/docker-entrypoint-initdb.d"
+    environment:
+      POSTGRES_HOST_AUTH_METHOD: trust
     ports:
       - "5432:5432"
 
@@ -29,7 +31,7 @@ services:
       - "9200:9200"
 
   redis:
-    image: "redis:5.0.8"
+    image: "redis:5.0.9"
     container_name: "evemonk_redis"
     restart: "unless-stopped"
     volumes:
@@ -38,10 +40,10 @@ services:
       - "6379:6379"
 
   memcached:
-    image: "memcached:1.6.3"
+    image: "memcached:1.6.5"
     container_name: "evemonk_memcached"
     restart: "unless-stopped"
-    command: memcached -m 64
+    command: "memcached -m 64"
     ports:
       - "11211:11211"
 

@@ -7,7 +7,7 @@ describe Eve::CorporationAllianceHistory do
 
   it { expect(described_class.table_name).to eq("eve_corporation_alliance_histories") }
 
-  it { should belong_to(:corporation).with_primary_key("corporation_id") }
+  it { should belong_to(:corporation).with_primary_key("corporation_id").optional(true) }
 
   it { should belong_to(:alliance).with_primary_key("alliance_id").optional(true) }
 end
