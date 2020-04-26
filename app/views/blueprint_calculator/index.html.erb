@@ -54,21 +54,13 @@
     },
     watch: {
       name: function (value) {
-        // loading(true);
-        let loading = {};
-        this.search(loading, value, this);
+        this.search(value, this);
       }
     },
     methods: {
-      // onSearch(search, loading) {
-      //   loading(true);
-      //   this.search(loading, search, this);
-      // },
-      search: debounce((loading, search, vm) => {
+      search: debounce((search, vm) => {
         fetch(`/api/eve/blueprints?q=${escape(search)}`).then(response => {
-          // response.json().then(json => (vm.options = json.blueprints));
           response.json().then(json => (vm.blueprints = json.blueprints));
-          // loading(false);
         });
       }, 350)
     }
