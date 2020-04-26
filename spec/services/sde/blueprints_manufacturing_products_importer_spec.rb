@@ -72,6 +72,12 @@ describe Sde::BlueprintsManufacturingProductsImporter do
                                                                              type_id: type_id)
       end
 
+      let(:eve_type) { instance_double(Eve::Type) }
+
+      before { expect(Eve::Type).to receive(:find_or_initialize_by).with(type_id: type_id).and_return(eve_type) }
+
+      before { expect(eve_type).to receive(:update!).with(is_manufacturing_item: true) }
+
       specify { expect { subject.import }.not_to raise_error }
     end
 

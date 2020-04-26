@@ -20,9 +20,15 @@ module Sde
           manufacturing_products = hash.dig("activities", "manufacturing", "products")
 
           manufacturing_products&.each do |manufacturing_product|
+            type_id = manufacturing_product["typeID"]
+
             Eve::BlueprintManufacturingProduct.create!(blueprint_id: eve_blueprint.type_id,
                                                        quantity: manufacturing_product["quantity"],
-                                                       type_id: manufacturing_product["typeID"])
+                                                       type_id: type_id)
+
+            eve_type = Eve::Type.find_or_initialize_by(type_id: type_id)
+
+            eve_type.update!(is_manufacturing_item: true)
           end
 
           eve_blueprint.save!
