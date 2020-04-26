@@ -20,15 +20,10 @@ module Sde
           invention_products = hash.dig("activities", "invention", "products")
 
           invention_products&.each do |invention_product|
-            type_id = invention_product["typeID"]
-
             Eve::BlueprintInventionProduct.create!(blueprint_id: eve_blueprint.type_id,
                                                    probability: invention_product["probability"],
                                                    quantity: invention_product["quantity"],
-                                                   type_id: type_id)
-
-            # TODO: write it
-            # Eve::Type.find_or_initialize_by(type_id: type_id).update!(is_manufacturing_item: true)
+                                                   type_id: invention_product["typeID"])
           end
 
           eve_blueprint.save!
