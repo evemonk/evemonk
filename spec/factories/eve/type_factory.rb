@@ -55,5 +55,7 @@ FactoryBot.define do
     volume { 1.5 }
 
     is_blueprint { [false, true].sample }
+
+    is_manufacturing_item { [false, true].sample }
   end
 end
