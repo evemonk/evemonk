@@ -27,7 +27,7 @@ describe BlueprintCalculatorController do
       end
     end
 
-    before { get :show, params: { id: 24_699 } }
+    before { get :show, params: {id: 24_699} }
 
     it { should respond_with(:ok) }
 
