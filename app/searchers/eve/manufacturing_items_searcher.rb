@@ -19,7 +19,7 @@ module Eve
           Eve::Type.none
         end
       else
-        scope.where(is_blueprint: false, is_manufacturing_item: true)
+        scope.where(is_manufacturing_item: true)
       end
     end
 
@@ -38,7 +38,6 @@ module Eve
         match: :word_start,
         where: {
           published: true,
-          is_blueprint: false,
           is_manufacturing_item: true
         },
         load: false,
