@@ -27,6 +27,8 @@ describe Eve::Corporation do
 
   it { should have_many(:standings) }
 
+  it { should have_db_index(:name) }
+
   describe ".npc" do
     let!(:eve_corporation1) { create(:eve_corporation, npc: false) }
 
