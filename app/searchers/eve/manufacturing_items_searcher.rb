@@ -34,7 +34,8 @@ module Eve
           :name_ja,
           :name_ru,
           :name_zh,
-          :name_ko],
+          :name_ko
+        ],
         match: :word_start,
         where: {
           published: true,
