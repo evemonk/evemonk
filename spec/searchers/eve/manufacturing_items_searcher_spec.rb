@@ -69,10 +69,10 @@ describe Eve::ManufacturingItemsSearcher do
       context "when search find items" do
         let!(:type1) do
           create(:eve_type,
-                 type_id: 1,
-                 name_en: "Drake",
-                 is_manufacturing_item: true,
-                 published: true)
+            type_id: 1,
+            name_en: "Drake",
+            is_manufacturing_item: true,
+            published: true)
         end
 
         before { Eve::Type.reindex }
