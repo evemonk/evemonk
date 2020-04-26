@@ -8,10 +8,10 @@ describe Api::Eve::ManufacturingItemsController do
   describe "#index" do
     it "returns list of manufacturing items" do
       create(:eve_type,
-             type_id: 24_698,
-             name: "Drake",
-             published: true,
-             is_manufacturing_item: true)
+        type_id: 24_698,
+        name: "Drake",
+        published: true,
+        is_manufacturing_item: true)
 
       get "/api/eve/manufacturing_items"
 
