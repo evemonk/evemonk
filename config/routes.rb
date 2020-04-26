@@ -55,11 +55,15 @@ Rails.application.routes.draw do
     resources :blueprints, only: [:index, :show]
 
     resources :manufacturing_jobs, only: [:index, :new, :create, :update, :show]
+
+    resources :orders, only: :index
   end
 
   resource :profile, only: :show
 
   resource :faq, only: :show
+
+  resources :blueprint_calculator, only: [:index, :show]
 
   namespace :auth do
     namespace :eve_online_sso do
