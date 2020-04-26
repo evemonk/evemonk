@@ -57,23 +57,23 @@ describe Sde::BlueprintsImporter do
 
     before { expect(YAML).to receive(:safe_load).with(content).and_return(entries) }
 
-    let(:eve_blueprint) { instance_double(Eve::Blueprint) }
+    let(:eve_type) { instance_double(Eve::Type) }
 
-    before { expect(Eve::Blueprint).to receive(:find_or_initialize_by).with(type_id: key).and_return(eve_blueprint) }
+    before { expect(Eve::Type).to receive(:find_or_initialize_by).with(type_id: key).and_return(eve_type) }
 
-    before { expect(eve_blueprint).to receive(:transaction).and_yield }
+    before { expect(eve_type).to receive(:transaction).and_yield }
 
     before do
-      expect(eve_blueprint).to receive(:assign_attributes).with(copying_time: copying_time,
-                                                                manufacturing_time: manufacturing_time,
-                                                                research_material_time: research_material_time,
-                                                                research_time_time: research_time_time,
-                                                                invention_time: invention_time,
-                                                                max_production_limit: max_production_limit,
-                                                                is_blueprint: true)
+      expect(eve_type).to receive(:assign_attributes).with(copying_time: copying_time,
+                                                           manufacturing_time: manufacturing_time,
+                                                           research_material_time: research_material_time,
+                                                           research_time_time: research_time_time,
+                                                           invention_time: invention_time,
+                                                           max_production_limit: max_production_limit,
+                                                           is_blueprint: true)
     end
 
-    before { expect(eve_blueprint).to receive(:save!) }
+    before { expect(eve_type).to receive(:save!) }
 
     specify { expect { subject.import }.not_to raise_error }
   end

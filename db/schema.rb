@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_21_223947) do
+ActiveRecord::Schema.define(version: 2020_04_26_154645) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -237,6 +237,7 @@ ActiveRecord::Schema.define(version: 2020_04_21_223947) do
     t.index ["creator_id"], name: "index_eve_alliances_on_creator_id"
     t.index ["executor_corporation_id"], name: "index_eve_alliances_on_executor_corporation_id"
     t.index ["faction_id"], name: "index_eve_alliances_on_faction_id"
+    t.index ["name"], name: "index_eve_alliances_on_name"
   end
 
   create_table "eve_ancestries", force: :cascade do |t|
@@ -427,6 +428,7 @@ ActiveRecord::Schema.define(version: 2020_04_21_223947) do
     t.index ["character_id"], name: "index_eve_characters_on_character_id", unique: true
     t.index ["corporation_id"], name: "index_eve_characters_on_corporation_id"
     t.index ["faction_id"], name: "index_eve_characters_on_faction_id"
+    t.index ["name"], name: "index_eve_characters_on_name"
     t.index ["race_id"], name: "index_eve_characters_on_race_id"
   end
 
@@ -485,6 +487,7 @@ ActiveRecord::Schema.define(version: 2020_04_21_223947) do
     t.index ["faction_id"], name: "index_eve_corporations_on_faction_id"
     t.index ["home_station_id"], name: "index_eve_corporations_on_home_station_id"
     t.index ["member_count"], name: "index_eve_corporations_on_member_count"
+    t.index ["name"], name: "index_eve_corporations_on_name"
   end
 
   create_table "eve_dogma_attributes", force: :cascade do |t|
