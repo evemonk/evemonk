@@ -26,7 +26,7 @@ describe Sde::BlueprintsInventionSkillsImporter do
 
     let(:eve_blueprint) { instance_double(Eve::Blueprint, type_id: type_id) }
 
-    before { expect(Eve::Blueprint).to receive(:find_or_initialize_by).with(type_id: key).and_return(eve_blueprint) }
+    before { expect(Eve::Blueprint).to receive(:find_by!).with(type_id: key).and_return(eve_blueprint) }
 
     before { expect(eve_blueprint).to receive(:transaction).and_yield }
 

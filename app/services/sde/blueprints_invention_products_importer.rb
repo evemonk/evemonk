@@ -12,7 +12,7 @@ module Sde
       entries = YAML.safe_load(File.read(file))
 
       entries.each_pair do |key, hash|
-        eve_blueprint = Eve::Blueprint.find_or_initialize_by(type_id: key)
+        eve_blueprint = Eve::Blueprint.find_by!(type_id: key)
 
         eve_blueprint.transaction do
           eve_blueprint.blueprint_invention_products.destroy_all
