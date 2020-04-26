@@ -25,6 +25,8 @@ describe Eve::Character do
 
   it { should have_many(:character_corporation_histories).with_primary_key("character_id").dependent(:destroy) }
 
+  it { should have_db_index(:name) }
+
   describe "#search_data" do
     let!(:character) do
       build(:eve_character,

@@ -29,6 +29,8 @@ describe Eve::Alliance do
 
   it { should callback(:reset_characters_count).after(:commit).on(:create) }
 
+  it { should have_db_index(:name) }
+
   describe "#search_data" do
     let!(:eve_alliance) do
       create(:eve_alliance,
