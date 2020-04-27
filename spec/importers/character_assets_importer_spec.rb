@@ -59,17 +59,6 @@ describe CharacterAssetsImporter do
 
       before { expect(subject).to receive(:destroy_old_character_assets).with(page) }
 
-      # before do
-      #   #
-      #   # character.character_assets.destroy_all
-      #   #
-      #   expect(character).to receive(:character_assets) do
-      #     double.tap do |a|
-      #       expect(a).to receive(:destroy_all)
-      #     end
-      #   end
-      # end
-
       before do
         #
         # character.character_assets.create!(asset.as_json)
@@ -110,6 +99,71 @@ describe CharacterAssetsImporter do
       before { expect(character).not_to receive(:character_assets) }
 
       specify { expect { subject.update! }.not_to raise_error }
+    end
+  end
+
+  # private methods
+
+  describe "#destroy_old_character_assets" do
+    context "when page is first" do
+      let(:page) { 1 }
+
+      before do
+        #
+        # character.character_assets.destroy_all
+        #
+        expect(subject).to receive(:character) do
+          double.tap do |a|
+            expect(a).to receive(:character_assets) do
+              double.tap do |b|
+                expect(b).to receive(:destroy_all)
+              end
+            end
+          end
+        end
+      end
+
+      specify { expect { subject.send(:destroy_old_character_assets, page) }.not_to raise_error }
+    end
+
+    context "when page is not first" do
+      let(:page) { 2 }
+
+      before { expect(subject).not_to receive(:character) }
+
+      specify { expect { subject.send(:destroy_old_character_assets, page) }.not_to raise_error }
+    end
+  end
+
+  describe "#import_other_pages" do
+    context "when page is more than 1" do
+      let(:page) { 2 }
+
+      let(:total_pages) { 2 }
+
+      before { expect(CharacterAssetsJob).not_to receive(:perform_later) }
+
+      specify { expect { subject.send(:import_other_pages, total_pages) }.not_to raise_error }
+    end
+
+    context "when total pages is 1" do
+      let(:page) { 1 }
+
+      let(:total_pages) { 1 }
+
+      before { expect(CharacterAssetsJob).not_to receive(:perform_later) }
+
+      specify { expect { subject.send(:import_other_pages, total_pages) }.not_to raise_error }
+    end
+
+    context "when page is 1 and total pages more than 1" do
+      let(:page) { 1 }
+
+      let(:total_pages) { 2 }
+
+      before { expect(CharacterAssetsJob).to receive(:perform_later).with(character_id, 2) }
+
+      specify { expect { subject.send(:import_other_pages, total_pages) }.not_to raise_error }
     end
   end
 end
