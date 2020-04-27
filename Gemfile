@@ -50,6 +50,7 @@ gem "responders"
 gem "rack-health"
 gem "sitemap_generator"
 gem "searchkick"
+# Till 1.4.0 release
 gem "typhoeus", git: "https://github.com/typhoeus/typhoeus.git", branch: "master"
 gem "sentry-raven"
 gem "errbase"
