@@ -5,7 +5,9 @@ require "rails_helper"
 describe Eve::AgentDecorator do
   subject { described_class.new(double) }
 
-  it { should be_a(ApplicationDecorator) }
+  it { should be_an(ApplicationDecorator) }
+
+  it { should be_a(LocationableDecorator) }
 
   describe "#icon_tiny" do
     let(:eve_agent) do

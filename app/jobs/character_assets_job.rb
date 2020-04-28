@@ -11,7 +11,7 @@ class CharacterAssetsJob < ActiveJob::Base
     Faraday::TimeoutError,
     Faraday::ConnectionFailed
 
-  def perform(character_id)
-    CharacterAssetsImporter.new(character_id).import
+  def perform(character_id, page = 1)
+    CharacterAssetsImporter.new(character_id, page).import
   end
 end

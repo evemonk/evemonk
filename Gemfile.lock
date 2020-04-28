@@ -7,7 +7,7 @@ GIT
 
 GIT
   remote: https://github.com/evemonk/eve_online.git
-  revision: 6de59e353bcdb80de51592959d724b8065d8e9a7
+  revision: ddcb0d6ba093c579ac27184415bfe3c8c3e6aa57
   branch: dev
   specs:
     eve_online (0.32.0)
@@ -23,7 +23,7 @@ GIT
 
 GIT
   remote: https://github.com/rails/rails.git
-  revision: 02d07cccb736506b3dd6d465c8017c9010e74b28
+  revision: 7aea2130131dd878f0cb70f66d92edf3ed3fb2c2
   branch: 6-0-stable
   specs:
     actioncable (6.0.2.2)
@@ -103,6 +103,14 @@ GIT
       rake (>= 0.8.7)
       thor (>= 0.20.3, < 2.0)
 
+GIT
+  remote: https://github.com/typhoeus/typhoeus.git
+  revision: da478030a750475a63570432f444e3d782a135d0
+  branch: master
+  specs:
+    typhoeus (1.4.0)
+      ethon (>= 0.9.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -142,7 +150,7 @@ GEM
     bundler-leak (0.2.0)
       bundler (>= 1.2.0, < 3)
       thor (>= 0.18, < 2)
-    cable_ready (4.1.1)
+    cable_ready (4.1.2)
       rails (>= 5.2)
     cacheflow (0.1.1)
       activesupport
@@ -573,11 +581,11 @@ GEM
       sprockets (>= 3.0.0)
     sql_tracker (1.3.0)
     squasher (0.6.2)
-    standard (0.2.4)
+    standard (0.2.5)
       rubocop (~> 0.80.1)
       rubocop-performance (~> 1.5.2)
-    stimulus_reflex (3.1.3)
-      cable_ready (>= 4.1)
+    stimulus_reflex (3.1.4)
+      cable_ready (>= 4.1.2)
       nokogiri
       rack
       rails (>= 6.0)
@@ -613,8 +621,6 @@ GEM
     turbolinks (5.2.1)
       turbolinks-source (~> 5.2)
     turbolinks-source (5.2.0)
-    typhoeus (1.3.1)
-      ethon (>= 0.9.0)
     tzinfo (1.2.7)
       thread_safe (~> 0.1)
     unicode-display_width (1.6.1)
@@ -762,7 +768,7 @@ DEPENDENCIES
   swagger-blocks
   traceroute
   turbolinks (~> 5)
-  typhoeus
+  typhoeus!
   vcr
   webdrivers
   webmock
