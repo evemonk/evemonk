@@ -64,11 +64,9 @@
       <%= link_to("Industry Jobs", character_industry_jobs_path(@character.character_id), class: "nav-link") %>
     </li>
   <% end %>
-  <% if Setting.enabled_blueprints %>
-    <li class="nav-item">
-      <%= link_to("Blueprints", character_blueprints_path(@character.character_id), class: "nav-link active") %>
-    </li>
-  <% end %>
+  <li class="nav-item">
+    <%= link_to("Blueprints", character_blueprints_path(@character.character_id), class: "nav-link active") %>
+  </li>
 </ul>
 
 <hr>
@@ -122,14 +120,14 @@
       </ul>
       <p class="card-text text-center">
         <small class="text-muted">
-          Last updated <%= time_ago_in_words(@character.updated_at) %> ago
+          Last updated <span class="timeago" datetime="<%= @character.updated_at.iso8601 %>"></span>
         </small>
       </p>
     </div>
   </div>
 
   <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
-    <h4 class="text-center text-break">Blueprints</h4>
+    <h4 class="text-center text-break">Blueprints (<%= @character_blueprints.size %>)</h4>
 
     <% @character_blueprints.each_with_index do |character_blueprint, index| %>
       <div class="card <%= index % 2 == 0 ? "bg-dark" : "bg-transparent" %> rounded-0 border-secondary <%= index == 0 ? "" : "border-top-0" %>">
@@ -146,8 +144,15 @@
           <div class="col-10">
             <div class="card-body">
               <div class="card-text">
-                <%= character_blueprint.blueprint&.name %>
+                <%= character_blueprint.blueprint.name %>
+                <%#= link_to(character_blueprint.blueprint.name,
+                            character_blueprint_path(@character.character_id, character_blueprint.item_id)) %>
               </div>
+              <% if character_blueprint.location.present? %>
+                <div class="card-text text-muted">
+                  <%= character_blueprint.location_formatted %>
+                </div>
+              <% end %>
               <div class="card-text text-muted">
                 <% if character_blueprint.bpo? %>
                   BPO | Runs: infinity |
