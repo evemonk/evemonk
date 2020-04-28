@@ -653,8 +653,9 @@ GEM
     yabeda (0.5.0)
       concurrent-ruby
       dry-initializer
-    yabeda-prometheus (0.6.0)
+    yabeda-prometheus (0.6.1)
       prometheus-client (>= 0.10, < 3.0)
+      rack
       yabeda (~> 0.5)
     yabeda-puma-plugin (0.3.0)
       json
