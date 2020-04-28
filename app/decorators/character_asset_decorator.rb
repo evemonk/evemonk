@@ -3,5 +3,5 @@
 class CharacterAssetDecorator < ApplicationDecorator
   include LocationableDecorator
 
-  decorates_associations :character, :type
+  decorates_associations :character, :type, :location
 end
