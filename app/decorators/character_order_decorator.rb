@@ -3,5 +3,5 @@
 class CharacterOrderDecorator < ApplicationDecorator
   include LocationableDecorator
 
-  decorates_associations :character, :type, :region
+  decorates_associations :character, :type, :region, :location
 end
