@@ -3,7 +3,7 @@
 class CharacterBlueprintDecorator < ApplicationDecorator
   include LocationableDecorator
 
-  decorates_associations :character, :blueprint
+  decorates_associations :character, :blueprint, :location
 
   # BPO -- Blue Print Original
   def bpo?
