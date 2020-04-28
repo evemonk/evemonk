@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
 class CharacterBlueprintDecorator < ApplicationDecorator
-  decorates_associations :character, :blueprint, :location
+  include LocationableDecorator
+
+  decorates_associations :character, :blueprint
 
   # BPO -- Blue Print Original
   def bpo?

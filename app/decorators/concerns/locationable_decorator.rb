@@ -3,7 +3,9 @@
 module LocationableDecorator
   include ActiveSupport::Concern
 
-  def location_formatted
-    "Aloha"
-  end
+  decorates_association :location
+
+  # def location_formatted
+  #   "Aloha"
+  # end
 end
