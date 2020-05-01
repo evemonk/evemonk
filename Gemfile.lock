@@ -136,7 +136,7 @@ GEM
       httpclient (>= 2.5.3.3)
     awesome_print (1.8.0)
     bcrypt (3.1.13)
-    benchmark-ips (2.7.2)
+    benchmark-ips (2.8.0)
     bootsnap (1.4.6)
       msgpack (~> 1.0)
     brakeman (4.8.1)
