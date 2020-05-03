@@ -13,4 +13,10 @@ class WalletTransaction < ApplicationRecord
     primary_key: "wallet_journal_id",
     foreign_key: "journal_ref_id",
     optional: true
+
+  belongs_to :client,
+    class_name: "Eve::Character",
+    primary_key: "character_id",
+    foreign_key: "client_id",
+    optional: true
 end
