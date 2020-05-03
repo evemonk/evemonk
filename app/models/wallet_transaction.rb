@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class WalletTransaction < ApplicationRecord
+  include Locationable
+
   belongs_to :character
 
   belongs_to :type,
