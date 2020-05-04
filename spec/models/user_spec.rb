@@ -7,13 +7,13 @@ describe User do
 
   it {
     expect(described_class.devise_modules).to eq([:database_authenticatable,
-                                                  :rememberable,
-                                                  :recoverable,
-                                                  :registerable,
-                                                  :validatable,
-                                                  :confirmable,
-                                                  :trackable,
-                                                  :authy_authenticatable])
+      :rememberable,
+      :recoverable,
+      :registerable,
+      :validatable,
+      :confirmable,
+      :trackable,
+      :authy_authenticatable])
   }
 
   it { should have_many(:sessions).dependent(:destroy) }

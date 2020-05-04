@@ -5,10 +5,10 @@ require "rails_helper"
 describe Eve::ImplantBonuses do
   specify do
     expect(described_class::DOGMA_ATTRIBUTE_NAMES).to eq(["perceptionBonus",
-                                                          "memoryBonus",
-                                                          "willpowerBonus",
-                                                          "intelligenceBonus",
-                                                          "charismaBonus"])
+      "memoryBonus",
+      "willpowerBonus",
+      "intelligenceBonus",
+      "charismaBonus"])
   end
 
   let!(:eve_dogma_attribute1) do
@@ -91,11 +91,13 @@ describe Eve::ImplantBonuses do
 
   describe "#implant_bonuses" do
     specify do
-      expect(subject.implant_bonuses).to eq([{name: "Perception Modifier", value: 3.0},
-                                             {name: "Memory Modifier", value: 3.0},
-                                             {name: "Willpower Modifier", value: 3.0},
-                                             {name: "Intelligence Modifier", value: 3.0},
-                                             {name: "Charisma Modifier", value: 3.0}])
+      expect(subject.implant_bonuses).to eq([
+        {name: "Perception Modifier", value: 3.0},
+        {name: "Memory Modifier", value: 3.0},
+        {name: "Willpower Modifier", value: 3.0},
+        {name: "Intelligence Modifier", value: 3.0},
+        {name: "Charisma Modifier", value: 3.0}
+      ])
     end
   end
 
