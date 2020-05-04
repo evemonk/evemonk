@@ -3,10 +3,10 @@
 module Eve
   class ImplantBonuses
     DOGMA_ATTRIBUTE_NAMES = ["perceptionBonus",
-                             "memoryBonus",
-                             "willpowerBonus",
-                             "intelligenceBonus",
-                             "charismaBonus"].freeze
+      "memoryBonus",
+      "willpowerBonus",
+      "intelligenceBonus",
+      "charismaBonus"].freeze
 
     attr_reader :implant
 
