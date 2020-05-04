@@ -9,7 +9,7 @@ module Api
 
         swagger_schema :OutputCharactersCollection do
           key :required, [:collection, :total_pages, :current_page,
-                          :total_entries]
+            :total_entries]
           property :collection do
             key :type, :array
             items do

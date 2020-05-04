@@ -9,9 +9,8 @@ module Api
 
         swagger_schema :OutputFaction do
           key :required, [:faction_id, :name, :description, :solar_system_id,
-                          :corporation_id, :militia_corporation_id,
-                          :size_factor, :station_count, :station_system_count,
-                          :is_unique]
+            :corporation_id, :militia_corporation_id, :size_factor,
+            :station_count, :station_system_count, :is_unique]
           property :faction_id do
             key :type, :integer
             key :format, :int64

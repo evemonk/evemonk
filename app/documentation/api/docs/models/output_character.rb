@@ -9,9 +9,8 @@ module Api
 
         swagger_schema :OutputCharacter do
           key :required, [:id, :uid, :name, :description, :gender,
-                          :security_status, :wallet, :charisma, :intelligence,
-                          :memory, :perception, :willpower, :bonus_remaps,
-                          :created_at, :updated_at]
+            :security_status, :wallet, :charisma, :intelligence, :memory,
+            :perception, :willpower, :bonus_remaps, :created_at, :updated_at]
           property :id do
             key :type, :integer
             key :format, :int64

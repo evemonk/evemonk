@@ -9,8 +9,8 @@ module Api
 
         swagger_schema :OutputBloodline do
           key :required, [:bloodline_id, :name, :description, :race_id,
-                          :ship_type_id, :corporation_id, :perception,
-                          :willpower, :charisma, :memory, :intelligence]
+            :ship_type_id, :corporation_id, :perception, :willpower,
+            :charisma, :memory, :intelligence]
           property :bloodline_id do
             key :type, :integer
             key :format, :int64
