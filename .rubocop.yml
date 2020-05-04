@@ -80,3 +80,9 @@ Layout/ElseAlignment:
 
 Layout/EndAlignment:
   Enabled: false
+
+Layout/ArrayAlignment:
+  Enabled: false
+
+Layout/FirstArrayElementIndentation:
+  Enabled: false

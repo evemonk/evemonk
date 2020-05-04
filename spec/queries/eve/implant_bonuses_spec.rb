@@ -4,11 +4,13 @@ require "rails_helper"
 
 describe Eve::ImplantBonuses do
   specify do
-    expect(described_class::DOGMA_ATTRIBUTE_NAMES).to eq(["perceptionBonus",
+    expect(described_class::DOGMA_ATTRIBUTE_NAMES).to eq([
+      "perceptionBonus",
       "memoryBonus",
       "willpowerBonus",
       "intelligenceBonus",
-      "charismaBonus"])
+      "charismaBonus"
+    ])
   end
 
   let!(:eve_dogma_attribute1) do
