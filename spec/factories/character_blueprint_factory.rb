@@ -8,7 +8,7 @@ FactoryBot.define do
 
     location_flag { "MyString" } # TODO: fix
 
-    location_id { "" } # TODO: fix
+    sequence(:location_id)
 
     material_efficiency { 1 }
 
