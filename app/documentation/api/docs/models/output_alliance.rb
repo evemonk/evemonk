@@ -9,8 +9,8 @@ module Api
 
         swagger_schema :OutputAlliance do
           key :required, [:alliance_id, :name, :ticker, :creator_id,
-                          :creator_corporation_id, :executor_corporation_id,
-                          :date_founded, :faction_id]
+            :creator_corporation_id, :executor_corporation_id, :date_founded,
+            :faction_id]
           property :alliance_id do
             key :type, :integer
             key :format, :int64

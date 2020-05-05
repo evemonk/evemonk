@@ -36,6 +36,8 @@ class UpdateCharacterInfoService
 
     CharacterWalletJournalJob.perform_later(character_id)
 
+    CharacterWalletTransactionsJob.perform_later(character_id)
+
     CharacterBlueprintsJob.perform_later(character_id)
 
     CharacterIndustryJobsJob.perform_later(character_id)

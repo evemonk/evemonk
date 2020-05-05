@@ -9,7 +9,7 @@ module Api
 
         swagger_schema :OutputSession do
           key :required, [:id, :token, :name, :device_type, :device_token,
-                          :created_at, :updated_at]
+            :created_at, :updated_at]
           property :id do
             key :type, :integer
             key :format, :int64

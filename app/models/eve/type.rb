@@ -9,7 +9,7 @@ module Eve
     translates :name, :description
 
     searchkick word_start: [:name_en, :name_de, :name_fr, :name_ja, :name_ru,
-                            :name_zh, :name_ko]
+      :name_zh, :name_ko]
 
     belongs_to :graphic,
       primary_key: "graphic_id",

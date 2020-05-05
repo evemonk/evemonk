@@ -24,9 +24,9 @@
 class AddRpush < ActiveRecord::VERSION::MAJOR >= 5 ? ActiveRecord::Migration[5.0] : ActiveRecord::Migration
   def self.migrations
     [CreateRapnsNotifications, CreateRapnsFeedback,
-     AddAlertIsJsonToRapnsNotifications, AddAppToRapns,
-     CreateRapnsApps, AddGcm, AddWpns, AddAdm, RenameRapnsToRpush,
-     AddFailAfterToRpushNotifications]
+      AddAlertIsJsonToRapnsNotifications, AddAppToRapns,
+      CreateRapnsApps, AddGcm, AddWpns, AddAdm, RenameRapnsToRpush,
+      AddFailAfterToRpushNotifications]
   end
 
   def self.up
