@@ -72,6 +72,11 @@
       <%= link_to("Manufacturing Jobs", character_manufacturing_jobs_path(@character.character_id), class: "nav-link active") %>
     </li>
   <% end %>
+  <% if Setting.enabled_character_orders %>
+    <li class="nav-item">
+      <%= link_to("Orders", character_orders_path(@character.character_id), class: "nav-link") %>
+    </li>
+  <% end %>
 </ul>
 
 <hr>
