@@ -1,0 +1,4 @@
+#! /bin/bash
+
+bundle exec standardrb --fix
+yarn prettier --write "*.{yml,yaml,js,md}" "app/**/*.{yml,yaml,js,md}" ".circleci/*.{yml,yaml,js,md}" "config/**/*.{yml,yaml,js,md}" "doc/**/*.{yml,yaml,js,md}"
