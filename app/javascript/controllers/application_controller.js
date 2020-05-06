@@ -1,5 +1,5 @@
-import { Controller } from 'stimulus'
-import StimulusReflex from 'stimulus_reflex'
+import { Controller } from "stimulus";
+import StimulusReflex from "stimulus_reflex";
 
 /* This is your application's ApplicationController.
  * All StimulusReflex controllers should inherit from this class.
@@ -13,8 +13,8 @@ import StimulusReflex from 'stimulus_reflex'
  * Learn more at: https://docs.stimulusreflex.com
  */
 export default class extends Controller {
-  connect () {
-    StimulusReflex.register(this)
+  connect() {
+    StimulusReflex.register(this);
   }
 
   /* Application wide lifecycle methods.
@@ -31,19 +31,19 @@ export default class extends Controller {
    *   error - error message from the server
    */
 
-  beforeReflex (element, reflex) {
+  beforeReflex(element, reflex) {
     // document.body.classList.add('wait')
   }
 
-  reflexSuccess (element, reflex, error) {
+  reflexSuccess(element, reflex, error) {
     // show success message etc...
   }
 
-  reflexError (element, reflex, error) {
+  reflexError(element, reflex, error) {
     // show error message etc...
   }
 
-  afterReflex (element, reflex) {
+  afterReflex(element, reflex) {
     // document.body.classList.remove('wait')
   }
 }
