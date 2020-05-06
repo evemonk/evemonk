@@ -5,10 +5,11 @@ class CharacterShowReflex < ApplicationReflex
     character_id = element.dataset[:id]
 
     CharacterImporter.new(character_id).import
-
-    # @character = current_user.characters
-    #   .includes(:race, :bloodline, :ancestry, :faction, :alliance, :corporation, :current_ship_type)
-    #   .find_by!(character_id: character_id)
-    #   .decorate
+    CharacterSkillsImporter.new(character_id).import
+    CharacterWalletImporter.new(character_id).import
+    CharacterLocationImporter.new(character_id).import
+    CharacterShipImporter.new(character_id).import
+    CharacterAttributesImporter.new(character_id).import
+    CharacterImplantsImporter.new(character_id).import
   end
 end
