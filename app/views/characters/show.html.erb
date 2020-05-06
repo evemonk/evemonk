@@ -71,6 +71,11 @@
       <%= link_to("Manufacturing Jobs", character_manufacturing_jobs_path(@character.character_id), class: "nav-link") %>
     </li>
   <% end %>
+  <% if Setting.enabled_character_orders %>
+    <li class="nav-item">
+      <%= link_to("Orders", character_orders_path(@character.character_id), class: "nav-link") %>
+    </li>
+  <% end %>
 </ul>
 
 <hr>
@@ -79,11 +84,11 @@
   <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
     <div class="clearfix">
       <h4 class="float-left"><%= @character.name %></h4>
-      <%= form_with(url: character_path(@character.character_id), method: :patch, class: "float-right") do %>
-        <%= button_tag(class: "btn btn-primary mb-2") do %>
+      <div class="float-right">
+        <%= button_tag(class: "btn btn-primary mb-2", data: { reflex: "click->CharacterShowReflex#update", id: @character.character_id }) do %>
           <%= image_tag("bootstrap-icons/icons/arrow-repeat.svg") %>
         <% end %>
-      <% end %>
+      </div>
     </div>
 
     <div class="card">
