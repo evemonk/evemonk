@@ -13,16 +13,16 @@ Mobile first design.
 
 ## Features
 
-* Alliances list
-* Corporations list
-* Characters list
-* Alliance show
-* Corporation show
-* Character show
-* Open Graph tags
-* SEO friendly
-* Authentication
-* User characters info
+- Alliances list
+- Corporations list
+- Characters list
+- Alliance show
+- Corporation show
+- Character show
+- Open Graph tags
+- SEO friendly
+- Authentication
+- User characters info
 
 ## Screenshots
 
@@ -42,23 +42,23 @@ All screenshots are real and made in Safari on latest macOS Catalina (10.15.3).
 
 ## Environment
 
-* [rbenv](https://github.com/rbenv/rbenv)
-* [ruby-build](https://github.com/rbenv/ruby-build)
-* [asdf](https://github.com/asdf-vm/asdf)
-* [asdf-nodejs](https://github.com/asdf-vm/asdf-nodejs)
-* Ruby 2.7.1
-* RubyGems 3.1.2
-* Bundler 2.1.4
-* Ruby on Rails 6-0-stable
-* PostgreSQL 12.2
-* Redis 6.0.1
-* Elasticsearch 7.6.2
-* Node 12.16.3
-* NPM 6.14.4
-* Yarn 1.22.4
-* Bootstrap 4.4.1
-* Bootstrap Icons 1.0.0-alpha3
-* Bootswatch Darkly 4.4.1
+- [rbenv](https://github.com/rbenv/rbenv)
+- [ruby-build](https://github.com/rbenv/ruby-build)
+- [asdf](https://github.com/asdf-vm/asdf)
+- [asdf-nodejs](https://github.com/asdf-vm/asdf-nodejs)
+- Ruby 2.7.1
+- RubyGems 3.1.2
+- Bundler 2.1.4
+- Ruby on Rails 6-0-stable
+- PostgreSQL 12.2
+- Redis 6.0.1
+- Elasticsearch 7.6.2
+- Node 12.16.3
+- NPM 6.14.4
+- Yarn 1.22.4
+- Bootstrap 4.4.1
+- Bootstrap Icons 1.0.0-alpha3
+- Bootswatch Darkly 4.4.1
 
 ## Configure
 
@@ -76,35 +76,35 @@ app.save!
 
 ## Links
 
-* [The official repository for ESI documentation](https://github.com/esi/esi-docs)
-* [EVE Swagger Interface](https://esi.evetech.net/ui/)
-* [One place to hold all EVE logic recreated in ESI](https://github.com/esi/eve-glue)
-* [Eve Online Static Data Export (SDE) and Image Export Collection (IEC) downloader](https://github.com/evemonk/eveonline-sde-iec-downloader)
+- [The official repository for ESI documentation](https://github.com/esi/esi-docs)
+- [EVE Swagger Interface](https://esi.evetech.net/ui/)
+- [One place to hold all EVE logic recreated in ESI](https://github.com/esi/eve-glue)
+- [Eve Online Static Data Export (SDE) and Image Export Collection (IEC) downloader](https://github.com/evemonk/eveonline-sde-iec-downloader)
 
 ## Guides
 
-* [Ruby coding style guide](https://github.com/bbatsov/ruby-style-guide)
-* [Ruby on Rails style guide](https://github.com/bbatsov/rails-style-guide)
-* [Security Guide for Developers](https://github.com/FallibleInc/security-guide-for-developers)
-* [Zen Rails Security Checklist](https://github.com/brunofacca/zen-rails-security-checklist)
-* [Rails SQL Injection](http://rails-sqli.org)
-* [Timeouts for popular Ruby gems](https://github.com/ankane/the-ultimate-guide-to-ruby-timeouts)
-* [Swagger specification](http://swagger.io/specification/)
-* [HTTP access control (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS)
-* [The Twelve-Factor App](https://12factor.net/)
-* [HTTP Status Codes](https://httpstatuses.com)
-* [Idiosyncratic Ruby](https://github.com/janlelis/idiosyncratic-ruby.com)
-* [Fundamental programming with ruby examples](https://github.com/khusnetdinov/ruby.fundamental)
-* [Rails Directory Structure Guide](https://github.com/jwipeout/rails-directory-structure-guide)
-* [A free guide to HTML5 <head> elements](https://htmlhead.dev)
-* [Content Security Policy](https://developers.google.com/web/fundamentals/security/csp)
-* [CSP Evaluator](https://csp-evaluator.withgoogle.com/?csp=https://evemonk.com/)
-* [Security Headers](https://securityheaders.com/?q=https%3A%2F%2Fevemonk.com%2F&followRedirects=on)
-* [Content Security Policy - An Introduction](https://scotthelme.co.uk/content-security-policy-an-introduction/)
+- [Ruby coding style guide](https://github.com/bbatsov/ruby-style-guide)
+- [Ruby on Rails style guide](https://github.com/bbatsov/rails-style-guide)
+- [Security Guide for Developers](https://github.com/FallibleInc/security-guide-for-developers)
+- [Zen Rails Security Checklist](https://github.com/brunofacca/zen-rails-security-checklist)
+- [Rails SQL Injection](http://rails-sqli.org)
+- [Timeouts for popular Ruby gems](https://github.com/ankane/the-ultimate-guide-to-ruby-timeouts)
+- [Swagger specification](http://swagger.io/specification/)
+- [HTTP access control (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS)
+- [The Twelve-Factor App](https://12factor.net/)
+- [HTTP Status Codes](https://httpstatuses.com)
+- [Idiosyncratic Ruby](https://github.com/janlelis/idiosyncratic-ruby.com)
+- [Fundamental programming with ruby examples](https://github.com/khusnetdinov/ruby.fundamental)
+- [Rails Directory Structure Guide](https://github.com/jwipeout/rails-directory-structure-guide)
+- [A free guide to HTML5 <head> elements](https://htmlhead.dev)
+- [Content Security Policy](https://developers.google.com/web/fundamentals/security/csp)
+- [CSP Evaluator](https://csp-evaluator.withgoogle.com/?csp=https://evemonk.com/)
+- [Security Headers](https://securityheaders.com/?q=https%3A%2F%2Fevemonk.com%2F&followRedirects=on)
+- [Content Security Policy - An Introduction](https://scotthelme.co.uk/content-security-policy-an-introduction/)
 
 ## Author
 
-* Igor Zubkov (@biow0lf)
+- Igor Zubkov (@biow0lf)
 
 ## License
 
