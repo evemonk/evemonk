@@ -1,4 +1,6 @@
-#! /bin/sh
+#! /bin/bash
+
+set -eux
 
 wait-for-it "redis:6379" -- echo "Redis up and running"
 
