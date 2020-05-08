@@ -361,7 +361,7 @@ GEM
     parser (2.7.1.2)
       ast (~> 2.4.0)
     parslet (1.8.2)
-    pastel (0.7.3)
+    pastel (0.7.4)
       equatable (~> 0.6)
       tty-color (~> 0.5)
     patience_diff (1.1.0)
