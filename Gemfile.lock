@@ -13,14 +13,6 @@ GIT
     shoulda-callback-matchers (1.1.4)
       activesupport (>= 3)
 
-GIT
-  remote: https://github.com/typhoeus/typhoeus.git
-  revision: da478030a750475a63570432f444e3d782a135d0
-  branch: master
-  specs:
-    typhoeus (1.4.0)
-      ethon (>= 0.9.0)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -607,6 +599,8 @@ GEM
     turbolinks (5.2.1)
       turbolinks-source (~> 5.2)
     turbolinks-source (5.2.0)
+    typhoeus (1.4.0)
+      ethon (>= 0.9.0)
     tzinfo (1.2.7)
       thread_safe (~> 0.1)
     unicode-display_width (1.7.0)
@@ -755,7 +749,7 @@ DEPENDENCIES
   swagger-blocks
   traceroute
   turbolinks (~> 5)
-  typhoeus!
+  typhoeus
   vcr
   webdrivers
   webmock
