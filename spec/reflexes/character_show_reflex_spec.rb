@@ -10,28 +10,11 @@ describe CharacterShowReflex do
   describe "#update" do
     let(:character_id) { "1337512245" }
 
-    # let(:url) { "http://localhost:3000/characters/1337512245" }
-
-    # let(:element) do
-    #   StimulusReflex::Element.new("name"=>"button",
-    #    "type"=>"submit",
-    #    "class"=>"btn btn-primary mb-2",
-    #    "data-reflex"=>"click->CharacterShowReflex#update",
-    #    "data-id"=>"1337512245",
-    #    "data-controller"=>"stimulus-reflex",
-    #    "data-action"=>"click->stimulus-reflex#__perform",
-    #    "value"=>"",
-    #    "checked"=>false,
-    #    "selected"=>false,
-    #    "tag_name"=>"BUTTON")
-    # end
-
     let(:element) do
       StimulusReflex::Element.new("data-reflex"=>"click->CharacterShowReflex#update",
                                   "data-id"=>"1337512245")
     end
 
-    # subject { described_class.new(double, url: url, element: element) }
     subject { described_class.new(double, element: element) }
 
     before do
