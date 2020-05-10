@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_26_154645) do
+ActiveRecord::Schema.define(version: 2020_05_10_235510) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -699,6 +699,15 @@ ActiveRecord::Schema.define(version: 2020_04_26_154645) do
     t.index ["region_id"], name: "index_eve_regions_on_region_id", unique: true
   end
 
+  create_table "eve_required_items", force: :cascade do |t|
+    t.bigint "eve_loyalty_store_offers_id", null: false
+    t.integer "quantity"
+    t.bigint "type_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["eve_loyalty_store_offers_id"], name: "index_eve_required_items_on_eve_loyalty_store_offers_id"
+  end
+
   create_table "eve_server_statuses", force: :cascade do |t|
     t.bigint "players"
     t.string "server_version"
@@ -1125,6 +1134,7 @@ ActiveRecord::Schema.define(version: 2020_04_26_154645) do
   add_foreign_key "character_orders", "characters"
   add_foreign_key "character_skills", "characters"
   add_foreign_key "characters", "users"
+  add_foreign_key "eve_required_items", "eve_loyalty_store_offers", column: "eve_loyalty_store_offers_id"
   add_foreign_key "industry_jobs", "characters"
   add_foreign_key "manufacturing_jobs", "characters"
   add_foreign_key "sessions", "users"
