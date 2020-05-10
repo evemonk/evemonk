@@ -6,9 +6,11 @@
 // https://docs.sentry.io/platforms/javascript/
 
 // When using npm, import Sentry
-import * as Sentry from '@sentry/browser';
+import * as Sentry from "@sentry/browser";
 
-Sentry.init({ dsn: 'https://185a236f4b994411a9f33c3c714cb34e@sentry.io/1424888' });
+Sentry.init({
+  dsn: "https://185a236f4b994411a9f33c3c714cb34e@sentry.io/1424888",
+});
 
 require("@rails/ujs").start();
 require("turbolinks").start();
@@ -29,7 +31,7 @@ window.$ = $;
 window.Vue = Vue;
 window.debounce = debounce;
 
-Vue.component('v-select', vSelect);
+Vue.component("v-select", vSelect);
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
@@ -45,10 +47,9 @@ document.addEventListener("turbolinks:load", () => {
 document.addEventListener("turbolinks:load", () => {
   const nodes = document.querySelectorAll(".timeago");
 
-  if (nodes.length > 0)
-  {
+  if (nodes.length > 0) {
     timeago.render(nodes);
   }
 });
 
-import "controllers"
+import "controllers";

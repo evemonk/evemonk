@@ -2,12 +2,10 @@
 
 source "https://rubygems.org"
 
-# Till next release 6.0.3
-# gem "rails", "6.0.3"
-gem "rails", git: "https://github.com/rails/rails.git", branch: "6-0-stable"
+gem "rails", "~> 6.0.3"
 gem "pg", ">= 0.18", "< 2.0"
 gem "puma"
-gem "sass-rails"
+gem "sass-rails", ">= 6"
 gem "webpacker", "~> 4.0"
 gem "turbolinks", "~> 5"
 gem "jbuilder", "~> 2.7"
@@ -27,7 +25,8 @@ gem "metricky"
 gem "dalli"
 gem "foundation_emails"
 gem "rufus-scheduler"
-gem "eve_online", git: "https://github.com/evemonk/eve_online.git", branch: "dev"
+gem "eve_online"
+# gem "eve_online", git: "https://github.com/evemonk/eve_online.git", branch: "dev"
 gem "omniauth-eve_online-sso"
 gem "omniauth-rails_csrf_protection"
 gem "jwt"
@@ -50,8 +49,7 @@ gem "responders"
 gem "rack-health"
 gem "sitemap_generator"
 gem "searchkick"
-# Till 1.4.0 release
-gem "typhoeus", git: "https://github.com/typhoeus/typhoeus.git", branch: "master"
+gem "typhoeus"
 gem "sentry-raven"
 gem "errbase"
 gem "activerecord-nulldb-adapter"
@@ -99,7 +97,7 @@ group :development, :test do
 end
 
 group :development do
-  gem "listen", ">= 3.0.5", "< 3.2"
+  gem "listen", "~> 3.2"
   gem "spring"
   gem "spring-watcher-listen", "~> 2.0.0"
   gem "spring-commands-rspec", require: false

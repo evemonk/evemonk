@@ -10,6 +10,10 @@ Devise.setup do |config|
   # Should Authy OneTouch be enabled?
   # config.authy_enable_onetouch = false
 
+  # Should generating QR codes for other authenticator apps be enabled?
+  # Note: you need to enable this in your Twilio console.
+  # config.authy_enable_qr_code = false
+
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.

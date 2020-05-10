@@ -67,6 +67,11 @@
   <li class="nav-item">
     <%= link_to("Blueprints", character_blueprints_path(@character.character_id), class: "nav-link") %>
   </li>
+  <% if Setting.enabled_character_orders %>
+    <li class="nav-item">
+      <%= link_to("Orders", character_orders_path(@character.character_id), class: "nav-link") %>
+    </li>
+  <% end %>
 </ul>
 
 <hr>
