@@ -7,6 +7,8 @@ end
 Rails.application.routes.draw do
   devise_for :users
 
+  get ".well-known/change-password", to: "well_known#change_password"
+
   if Rails.env.development?
     namespace :backoffice do
       mount Sidekiq::Web, at: "sidekiq"
