@@ -729,6 +729,7 @@ DEPENDENCIES
   meta-tags
   metricky
   mobility
+  net-http-persistent
   newrelic_rpm
   niceql
   omniauth-eve_online-sso

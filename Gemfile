@@ -38,6 +38,7 @@ gem "draper"
 gem "mobility"
 gem "paper_trail"
 gem "rails-settings-cached"
+gem "net-http-persistent"
 gem "connection_pool"
 gem "sidekiq", require: false
 gem "rpush"
