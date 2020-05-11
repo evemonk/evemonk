@@ -2,6 +2,6 @@
 
 module Eve
   class LoyaltyStoreOfferDecorator < ApplicationDecorator
-    decorates_associations :corporation, :type
+    decorates_associations :corporation, :type, :required_items
   end
 end
