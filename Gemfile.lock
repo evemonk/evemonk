@@ -695,6 +695,7 @@ DEPENDENCIES
   bundler-leak
   cacheflow
   capybara (>= 2.15)
+  connection_pool
   consistency_fail
   countries
   dalli
