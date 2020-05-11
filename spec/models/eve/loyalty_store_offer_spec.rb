@@ -10,4 +10,6 @@ describe Eve::LoyaltyStoreOffer do
   it { should belong_to(:corporation).with_primary_key("corporation_id").optional(true) }
 
   it { should belong_to(:type).with_primary_key("type_id").optional(true) }
+
+  it { should have_many(:required_items).with_foreign_key("eve_loyalty_store_offer_id").dependent(:destroy) }
 end
