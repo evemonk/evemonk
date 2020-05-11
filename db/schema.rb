@@ -700,12 +700,12 @@ ActiveRecord::Schema.define(version: 2020_05_10_235510) do
   end
 
   create_table "eve_required_items", force: :cascade do |t|
-    t.bigint "eve_loyalty_store_offers_id", null: false
+    t.bigint "eve_loyalty_store_offer_id", null: false
     t.integer "quantity"
     t.bigint "type_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["eve_loyalty_store_offers_id"], name: "index_eve_required_items_on_eve_loyalty_store_offers_id"
+    t.index ["eve_loyalty_store_offer_id"], name: "index_eve_required_items_on_eve_loyalty_store_offer_id"
   end
 
   create_table "eve_server_statuses", force: :cascade do |t|
@@ -1134,7 +1134,7 @@ ActiveRecord::Schema.define(version: 2020_05_10_235510) do
   add_foreign_key "character_orders", "characters"
   add_foreign_key "character_skills", "characters"
   add_foreign_key "characters", "users"
-  add_foreign_key "eve_required_items", "eve_loyalty_store_offers", column: "eve_loyalty_store_offers_id"
+  add_foreign_key "eve_required_items", "eve_loyalty_store_offers"
   add_foreign_key "industry_jobs", "characters"
   add_foreign_key "manufacturing_jobs", "characters"
   add_foreign_key "sessions", "users"
