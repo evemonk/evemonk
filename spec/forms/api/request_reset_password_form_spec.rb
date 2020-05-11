@@ -3,7 +3,7 @@
 require "rails_helper"
 
 describe Api::RequestResetPasswordForm, type: :model do
-  # it { should be_a(ActiveModel::Model) }
+  # it { should be_an(ActiveModel::Model) }
   #
   # describe "validations" do
   #  let(:params) { {email: "me@example.com"} }
