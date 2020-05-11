@@ -5,7 +5,7 @@ require "rails_helper"
 describe Eve::CorporationDecorator do
   subject { described_class.new(double) }
 
-  it { should be_a(ApplicationDecorator) }
+  it { should be_an(ApplicationDecorator) }
 
   describe "#date_founded" do
     context "when date_founded is empty" do

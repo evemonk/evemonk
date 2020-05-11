@@ -5,7 +5,7 @@ require "rails_helper"
 describe Eve::BlueprintDecorator do
   subject { described_class.new(double) }
 
-  it { should be_a(Eve::TypeDecorator) }
+  it { should be_an(Eve::TypeDecorator) }
 
   describe "#copying_time_formatted" do
     let(:eve_blueprint) do

@@ -5,5 +5,5 @@ require "rails_helper"
 describe Eve::CategoryDecorator do
   subject { described_class.new(double) }
 
-  it { should be_a(ApplicationDecorator) }
+  it { should be_an(ApplicationDecorator) }
 end

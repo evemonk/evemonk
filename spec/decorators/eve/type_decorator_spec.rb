@@ -5,7 +5,7 @@ require "rails_helper"
 describe Eve::TypeDecorator do
   subject { described_class.new(double) }
 
-  it { should be_a(ApplicationDecorator) }
+  it { should be_an(ApplicationDecorator) }
 
   describe "#icon_tiny" do
     let(:eve_type) do

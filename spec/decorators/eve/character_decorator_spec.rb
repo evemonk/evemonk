@@ -5,7 +5,7 @@ require "rails_helper"
 describe Eve::CharacterDecorator do
   subject { described_class.new(double) }
 
-  it { should be_a(ApplicationDecorator) }
+  it { should be_an(ApplicationDecorator) }
 
   describe "#birthday" do
     context "when birthday is present" do

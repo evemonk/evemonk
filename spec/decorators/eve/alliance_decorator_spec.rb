@@ -5,7 +5,7 @@ require "rails_helper"
 describe Eve::AllianceDecorator do
   subject { described_class.new(double) }
 
-  it { should be_a(ApplicationDecorator) }
+  it { should be_an(ApplicationDecorator) }
 
   describe "#date_founded" do
     let(:eve_alliance) do

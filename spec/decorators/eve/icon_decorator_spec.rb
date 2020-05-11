@@ -5,7 +5,7 @@ require "rails_helper"
 describe Eve::IconDecorator do
   subject { described_class.new(double) }
 
-  it { should be_a(ApplicationDecorator) }
+  it { should be_an(ApplicationDecorator) }
 
   describe "#icon_url" do
     context "when icon_file start with res:/ui/texture/icons/" do
