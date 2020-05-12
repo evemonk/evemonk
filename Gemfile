@@ -96,6 +96,7 @@ group :development, :test do
   gem "license_finder", require: false
   gem "anyway_config" # For isolator
   gem "isolator"
+  gem "erb_lint", require: false
 end
 
 group :development do

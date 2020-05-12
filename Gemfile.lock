@@ -99,6 +99,14 @@ GEM
     awesome_print (1.8.0)
     bcrypt (3.1.13)
     benchmark-ips (2.8.2)
+    better_html (1.0.14)
+      actionview (>= 4.0)
+      activesupport (>= 4.0)
+      ast (~> 2.0)
+      erubi (~> 1.4)
+      html_tokenizer (~> 0.0.6)
+      parser (>= 2.4)
+      smart_properties
     bootsnap (1.4.6)
       msgpack (~> 1.0)
     brakeman (4.8.1)
@@ -194,6 +202,13 @@ GEM
     enumerable-statistics (2.0.1)
     equalizer (0.0.11)
     equatable (0.6.1)
+    erb_lint (0.0.32)
+      activesupport
+      better_html (~> 1.0.7)
+      html_tokenizer
+      rainbow
+      rubocop (~> 0.79)
+      smart_properties
     errbase (0.2.0)
     erubi (1.9.0)
     erubis (2.7.0)
@@ -241,6 +256,7 @@ GEM
     hashdiff (1.0.1)
     hashie (4.1.0)
     heapy (0.1.4)
+    html_tokenizer (0.0.7)
     http-2 (0.10.1)
     http_accept_language (2.1.1)
     httpclient (2.8.3)
@@ -557,6 +573,7 @@ GEM
     sitemap_generator (6.1.0)
       builder (~> 3.0)
     sixarm_ruby_unaccent (1.2.0)
+    smart_properties (1.15.0)
     sniffer (0.4.0)
       active_attr (>= 0.10.2)
       anyway_config (>= 1.0)
@@ -707,6 +724,7 @@ DEPENDENCIES
   devise_zxcvbn
   dotenv-rails
   draper
+  erb_lint
   errbase
   eve_online
   factory_bot_rails
