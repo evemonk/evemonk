@@ -57,6 +57,7 @@ jobs:
       - run: bundle exec fasterer
       - run: bundle exec standardrb
       - run: bundle exec rubocop
+      - run: bundle exec erblint --lint-all
       - run: yarn prettier --check "*.{yml,yaml,js,md}" "app/**/*.{js,css,scss}" ".circleci/*.{yml,yaml}" ".github/*.{yml,yaml}" "config/**/*.{yml,yaml,js}" "doc/**/*.{yml,yaml}"
       - run: bundle exec license_finder || true
       - run: bundle exec rails zeitwerk:check
