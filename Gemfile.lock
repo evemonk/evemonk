@@ -440,9 +440,9 @@ GEM
     rails-i18n (6.0.0)
       i18n (>= 0.7, < 2)
       railties (>= 6.0.0, < 7)
-    rails-pg-extras (1.1.0)
+    rails-pg-extras (1.2.1)
       activerecord
-      ruby-pg-extras (= 1.1.0)
+      ruby-pg-extras (= 1.2.1)
     rails-settings-cached (2.1.1)
       rails (>= 4.2.0)
       request_store
@@ -520,7 +520,7 @@ GEM
     ruby-next-core (0.8.0)
     ruby-next-parser (2.8.0.4)
       parser (>= 2.7.0.5)
-    ruby-pg-extras (1.1.0)
+    ruby-pg-extras (1.2.1)
       pg
       terminal-table
     ruby-progressbar (1.10.1)
