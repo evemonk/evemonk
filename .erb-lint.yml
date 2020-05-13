@@ -21,4 +21,3 @@ linters:
         Enabled: true
         EnforcedStyle: consistent
         IndentationWidth: ~
-
