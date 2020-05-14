@@ -710,6 +710,7 @@ DEPENDENCIES
   bullet
   bundler-audit
   bundler-leak
+  cable_ready
   cacheflow
   capybara (>= 2.15)
   connection_pool
