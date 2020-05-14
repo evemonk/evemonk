@@ -152,7 +152,7 @@ GEM
       safe_yaml (~> 1.0.0)
     crass (1.0.6)
     dalli (2.7.10)
-    database_rewinder (0.9.3)
+    database_rewinder (0.9.4)
     derailed_benchmarks (1.7.0)
       benchmark-ips (~> 2)
       get_process_mem (~> 0)
