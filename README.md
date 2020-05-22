@@ -50,7 +50,7 @@ All screenshots are real and made in Safari on latest macOS Catalina (10.15.3).
 - RubyGems 3.1.2
 - Bundler 2.1.4
 - Ruby on Rails 6-0-stable
-- PostgreSQL 12.2
+- PostgreSQL 12.3
 - Redis 6.0.1
 - Elasticsearch 7.7.0
 - Node 12.16.3
