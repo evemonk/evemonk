@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Eve::TypeDogmaEffectDecorator do
+describe Eve::LoyaltyStoreOfferDecorator do
   subject { described_class.new(double) }
 
   it { should be_an(ApplicationDecorator) }

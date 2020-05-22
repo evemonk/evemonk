@@ -38,6 +38,9 @@ module Eve
 
     has_many :standings, as: :standingable
 
+    has_many :loyalty_store_offers,
+      primary_key: "corporation_id"
+
     scope :npc, -> { where(npc: true) }
 
     scope :not_npc, -> { where(npc: false) }

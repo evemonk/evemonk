@@ -3,7 +3,7 @@
 require "rails_helper"
 
 describe Api::SignInForm, type: :model do
-  # it { should be_a(ActiveModel::Model) }
+  # it { should be_an(ActiveModel::Model) }
   #
   # describe "validations" do
   #   let!(:user) { create(:user, email: "me@example.com", password: "password") }

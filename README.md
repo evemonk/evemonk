@@ -50,15 +50,15 @@ All screenshots are real and made in Safari on latest macOS Catalina (10.15.3).
 - RubyGems 3.1.2
 - Bundler 2.1.4
 - Ruby on Rails 6-0-stable
-- PostgreSQL 12.2
+- PostgreSQL 12.3
 - Redis 6.0.1
-- Elasticsearch 7.6.2
+- Elasticsearch 7.7.0
 - Node 12.16.3
 - NPM 6.14.5
 - Yarn 1.22.4
-- Bootstrap 4.4.1
-- Bootstrap Icons 1.0.0-alpha3
-- Bootswatch Darkly 4.4.1
+- Bootstrap 4.5.0
+- Bootstrap Icons 1.0.0-alpha4
+- Bootswatch Darkly 4.5.0
 
 ## Configure
 

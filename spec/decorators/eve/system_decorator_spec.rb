@@ -5,7 +5,7 @@ require "rails_helper"
 describe Eve::SystemDecorator do
   subject { described_class.new(double) }
 
-  it { should be_a(ApplicationDecorator) }
+  it { should be_an(ApplicationDecorator) }
 
   describe "#security_status" do
     context "when security status is 0.14" do

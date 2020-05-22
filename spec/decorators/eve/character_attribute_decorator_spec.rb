@@ -5,7 +5,7 @@ require "rails_helper"
 describe Eve::CharacterAttributeDecorator do
   subject { described_class.new(double) }
 
-  it { should be_a(ApplicationDecorator) }
+  it { should be_an(ApplicationDecorator) }
 
   describe "#description" do
     let(:eve_character_attribute) do

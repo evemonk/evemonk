@@ -18,6 +18,7 @@ gem "devise"
 gem "devise-i18n"
 gem "devise_zxcvbn"
 gem "devise-authy"
+gem "cable_ready"
 gem "stimulus_reflex"
 gem "meta-tags"
 gem "rails-pg-extras"
@@ -38,6 +39,8 @@ gem "draper"
 gem "mobility"
 gem "paper_trail"
 gem "rails-settings-cached"
+gem "net-http-persistent"
+gem "connection_pool"
 gem "sidekiq", require: false
 gem "rpush"
 gem "pghero"
@@ -92,8 +95,9 @@ group :development, :test do
   gem "brakeman", require: false
   gem "fasterer", require: false
   gem "license_finder", require: false
-  gem "anyway_config", "< 2" # For isolator
+  gem "anyway_config" # For isolator
   gem "isolator"
+  gem "erb_lint", require: false
 end
 
 group :development do

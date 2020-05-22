@@ -1,0 +1,23 @@
+---
+EnableDefaultLinters: true
+linters:
+  ErbSafety:
+    enabled: false
+  SelfClosingTag:
+    enabled: true
+    enforced_style: "never"
+  Rubocop:
+    enabled: true
+    rubocop_config:
+      AllCops:
+        DisabledByDefault: true
+      Style/StringLiterals:
+        EnforcedStyle: double_quotes
+      Layout/SpaceInsideHashLiteralBraces:
+        Enabled: true
+        EnforcedStyle: no_space
+        EnforcedStyleForEmptyBraces: no_space
+      Layout/FirstArgumentIndentation:
+        Enabled: true
+        EnforcedStyle: consistent
+        IndentationWidth: ~

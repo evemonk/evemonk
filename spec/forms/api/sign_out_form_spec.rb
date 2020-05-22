@@ -7,7 +7,7 @@ describe Api::SignOutForm do
 
   subject { described_class.new(request) }
 
-  it { should be_a(ActionController::HttpAuthentication::Token) }
+  it { should be_an(ActionController::HttpAuthentication::Token) }
 
   describe "#destroy!" do
     let!(:user) { create(:user) }
