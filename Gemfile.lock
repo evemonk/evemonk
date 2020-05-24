@@ -245,6 +245,9 @@ GEM
     http-2 (0.10.1)
     http_accept_language (2.1.1)
     httpclient (2.8.3)
+    httplog (1.4.2)
+      rack (>= 1.0)
+      rainbow (>= 2.0.0)
     i18n (1.8.2)
       concurrent-ruby (~> 1.0)
     i18n_data (0.10.0)
@@ -700,6 +703,7 @@ DEPENDENCIES
   foundation_emails
   gemdiff
   http_accept_language
+  httplog
   isolator
   jbuilder (~> 2.7)
   jwt
