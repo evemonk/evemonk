@@ -1,11 +1,4 @@
 GIT
-  remote: https://github.com/biow0lf/http_logger.git
-  revision: 41adf43ccc2528b27b774cc1ae8e17291d307721
-  branch: master
-  specs:
-    http_logger (0.5.1)
-
-GIT
   remote: https://github.com/just806me/shoulda-callback-matchers.git
   revision: b3a93d43490cdb3062a437e2edfbd50d25eda79a
   branch: master
@@ -707,7 +700,6 @@ DEPENDENCIES
   foundation_emails
   gemdiff
   http_accept_language
-  http_logger!
   isolator
   jbuilder (~> 2.7)
   jwt
