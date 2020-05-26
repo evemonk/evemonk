@@ -2,7 +2,7 @@
 
 HttpLog.configure do |config|
   # Enable or disable all logging
-  config.enabled = !!Rails.env.development?
+  config.enabled = Rails.env.development? == true
 
   # Tweak which parts of the HTTP cycle to log...
   config.log_connect = true
