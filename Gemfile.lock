@@ -453,7 +453,7 @@ GEM
     request_store (1.5.0)
       rack (>= 1.4)
     require_all (3.0.0)
-    responders (3.0.0)
+    responders (3.0.1)
       actionpack (>= 5.0)
       railties (>= 5.0)
     rexml (3.2.4)
