@@ -114,6 +114,8 @@ class Character < ApplicationRecord
       .includes(:standingable)
   }, class_name: "Standing"
 
+  scope :with_valid_tokens, -> { where(esi_token_valid: true) }
+
   delegate :total_perception, :perception_bonus,
     :total_memory, :memory_bonus,
     :total_willpower, :willpower_bonus,
