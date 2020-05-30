@@ -10,15 +10,19 @@ describe UpdateCharactersJob do
 
     before do
       #
-      # Character.pluck(:character_id).sort.uniq.each do |character_id|
+      # Character.with_valid_tokens.pluck(:character_id).sort.uniq.each do |character_id|
       #   UpdateCharacterInfoService.new(character_id).execute
       # end
       #
-      expect(Character).to receive(:pluck).with(:character_id) do
+      expect(Character).to receive(:with_valid_tokens) do
         double.tap do |a|
-          expect(a).to receive(:sort) do
+          expect(a).to receive(:pluck).with(:character_id) do
             double.tap do |b|
-              expect(b).to receive(:uniq).and_return([character_id])
+              expect(b).to receive(:sort) do
+                double.tap do |c|
+                  expect(c).to receive(:uniq).and_return([character_id])
+                end
+              end
             end
           end
         end
