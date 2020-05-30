@@ -30,12 +30,9 @@ module Api
         character.update!(esi_token_valid: false,
                           esi_token_invalid_at: Time.zone.now,
                           esi_last_error: e.description)
-
-        Rails.logger.info("OAuth2::Error: #{e.description}")
-      else
-        Rails.logger.info(e.message)
-        Rails.logger.info(e.description)
       end
+
+      Rails.logger.info("OAuth2::Error: Character ID: #{character.character_id} / code: #{e.code} / description: #{e.description}")
 
       raise CharacterInvalidToken
     end
