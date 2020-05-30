@@ -70,7 +70,10 @@ class EveOnlineCallbackService
                                 token_expires: token_expires,
                                 scopes: scopes,
                                 token_type: token_type,
-                                character_id: character_id)
+                                character_id: character_id,
+                                esi_token_valid: true,
+                                esi_token_invalid_at: nil,
+                                esi_last_error: nil)
   end
 
   def remove_old_characters
