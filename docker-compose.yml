@@ -31,7 +31,7 @@ services:
       - "9200:9200"
 
   redis:
-    image: "redis:6.0.1"
+    image: "redis:6.0.4"
     container_name: "evemonk_redis"
     restart: "unless-stopped"
     volumes:
