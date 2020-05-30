@@ -1,7 +1,3 @@
 #! /bin/sh
 
-DOCKER_TAG="$(cat .version)"
-
-export DOCKER_TAG
-
 docker build --build-arg COMMIT="$(git rev-parse HEAD)" -f "$DOCKERFILE_PATH" -t "$IMAGE_NAME" .
