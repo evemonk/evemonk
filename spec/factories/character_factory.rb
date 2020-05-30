@@ -77,5 +77,7 @@ FactoryBot.define do
     # t.bigint "total_sp"
     #
     # t.bigint "unallocated_sp"
+
+    esi_token_valid { [true, false].sample }
   end
 end

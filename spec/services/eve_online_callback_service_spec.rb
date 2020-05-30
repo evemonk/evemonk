@@ -261,7 +261,10 @@ describe EveOnlineCallbackService do
       #                             token_expires: token_expires,
       #                             scopes: scopes,
       #                             token_type: token_type,
-      #                             character_id: character_id)
+      #                             character_id: character_id,
+      #                             esi_token_valid: true,
+      #                             esi_token_invalid_at: nil,
+      #                             esi_last_error: nil)
       #
       expect(character).to receive(:assign_attributes)
         .with(name: name,
@@ -271,7 +274,10 @@ describe EveOnlineCallbackService do
               token_expires: token_expires,
               scopes: scopes,
               token_type: token_type,
-              character_id: character_id)
+              character_id: character_id,
+              esi_token_valid: true,
+              esi_token_invalid_at: nil,
+              esi_last_error: nil)
     end
 
     specify { expect { subject.send(:assign_character_attributes) }.not_to raise_error }

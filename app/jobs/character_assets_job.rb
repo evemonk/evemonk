@@ -11,6 +11,8 @@ class CharacterAssetsJob < ActiveJob::Base
     Faraday::TimeoutError,
     Faraday::ConnectionFailed
 
+  discard_on CharacterInvalidToken
+
   def perform(character_id, page = 1)
     CharacterAssetsImporter.new(character_id, page).import
   end

@@ -11,6 +11,8 @@ class CharacterOrdersJob < ActiveJob::Base
     Faraday::TimeoutError,
     Faraday::ConnectionFailed
 
+  discard_on CharacterInvalidToken
+
   def perform(character_id)
     CharacterOrdersImporter.new(character_id).import
   end

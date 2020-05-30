@@ -11,6 +11,8 @@ class CharacterWalletJob < ActiveJob::Base
     Faraday::TimeoutError,
     Faraday::ConnectionFailed
 
+  discard_on CharacterInvalidToken
+
   def perform(character_id)
     CharacterWalletImporter.new(character_id).import
   end

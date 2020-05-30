@@ -4,7 +4,7 @@ class UpdateCharactersJob < ActiveJob::Base
   queue_as :important
 
   def perform
-    Character.pluck(:character_id).sort.uniq.each do |character_id|
+    Character.with_valid_tokens.pluck(:character_id).sort.uniq.each do |character_id|
       UpdateCharacterInfoService.new(character_id).execute
     end
 

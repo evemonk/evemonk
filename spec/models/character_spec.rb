@@ -119,6 +119,14 @@ describe Character do
     specify { expect(character.agents_standings).to eq([standing3]) }
   end
 
+  describe ".with_valid_tokens" do
+    let!(:character1) { create(:character, esi_token_valid: true) }
+
+    let!(:character2) { create(:character, esi_token_valid: false) }
+
+    specify { expect(described_class.with_valid_tokens).to eq([character1]) }
+  end
+
   it { should delegate_method(:total_perception).to(:character_attributes) }
 
   it { should delegate_method(:perception_bonus).to(:character_attributes) }

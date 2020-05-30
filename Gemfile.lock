@@ -1,11 +1,4 @@
 GIT
-  remote: https://github.com/biow0lf/http_logger.git
-  revision: 41adf43ccc2528b27b774cc1ae8e17291d307721
-  branch: master
-  specs:
-    http_logger (0.5.1)
-
-GIT
   remote: https://github.com/just806me/shoulda-callback-matchers.git
   revision: b3a93d43490cdb3062a437e2edfbd50d25eda79a
   branch: master
@@ -132,7 +125,7 @@ GEM
     childprocess (3.0.0)
     code_analyzer (0.5.1)
       sexp_processor
-    coderay (1.1.2)
+    coderay (1.1.3)
     colorize (0.8.1)
     concurrent-ruby (1.1.6)
     connection_pool (2.2.2)
@@ -252,6 +245,9 @@ GEM
     http-2 (0.10.1)
     http_accept_language (2.1.1)
     httpclient (2.8.3)
+    httplog (1.4.2)
+      rack (>= 1.0)
+      rainbow (>= 2.0.0)
     i18n (1.8.2)
       concurrent-ruby (~> 1.0)
     i18n_data (0.10.0)
@@ -261,18 +257,18 @@ GEM
       activesupport (>= 5.0.0)
     json (2.3.0)
     jwt (2.2.1)
-    kaminari (1.2.0)
+    kaminari (1.2.1)
       activesupport (>= 4.1.0)
-      kaminari-actionview (= 1.2.0)
-      kaminari-activerecord (= 1.2.0)
-      kaminari-core (= 1.2.0)
-    kaminari-actionview (1.2.0)
+      kaminari-actionview (= 1.2.1)
+      kaminari-activerecord (= 1.2.1)
+      kaminari-core (= 1.2.1)
+    kaminari-actionview (1.2.1)
       actionview
-      kaminari-core (= 1.2.0)
-    kaminari-activerecord (1.2.0)
+      kaminari-core (= 1.2.1)
+    kaminari-activerecord (1.2.1)
       activerecord
-      kaminari-core (= 1.2.0)
-    kaminari-core (1.2.0)
+      kaminari-core (= 1.2.1)
+    kaminari-core (1.2.1)
     kaminari-i18n (0.5.0)
       kaminari
       rails
@@ -325,7 +321,7 @@ GEM
     mixlib-cli (2.1.6)
     mixlib-config (3.0.6)
       tomlrb
-    mobility (0.8.12)
+    mobility (0.8.13)
       i18n (>= 0.6.10, < 2)
       request_store (~> 1.0)
     msgpack (1.3.3)
@@ -366,7 +362,7 @@ GEM
       activerecord (>= 4.2)
       request_store (~> 1.1)
     parallel (1.19.1)
-    parser (2.7.1.2)
+    parser (2.7.1.3)
       ast (~> 2.4.0)
     parslet (1.8.2)
     pastel (0.7.4)
@@ -376,7 +372,7 @@ GEM
       trollop (~> 1.16)
     pg (1.2.3)
     pg_query (1.2.0)
-    pghero (2.4.2)
+    pghero (2.5.0)
       activerecord (>= 5)
     prometheus-client (2.0.0)
     pry (0.13.1)
@@ -457,7 +453,7 @@ GEM
     request_store (1.5.0)
       rack (>= 1.4)
     require_all (3.0.0)
-    responders (3.0.0)
+    responders (3.0.1)
       actionpack (>= 5.0)
       railties (>= 5.0)
     rexml (3.2.4)
@@ -550,7 +546,7 @@ GEM
       json (>= 1.8, < 3)
       simplecov-html (~> 0.10.0)
     simplecov-html (0.10.2)
-    sitemap_generator (6.1.0)
+    sitemap_generator (6.1.1)
       builder (~> 3.0)
     sixarm_ruby_unaccent (1.2.0)
     smart_properties (1.15.0)
@@ -574,9 +570,9 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    sql_tracker (1.3.0)
+    sql_tracker (1.3.1)
     squasher (0.6.2)
-    standard (0.4.3)
+    standard (0.4.6)
       rubocop (~> 0.83.0)
       rubocop-performance (~> 1.5.2)
     stimulus_reflex (3.2.1)
@@ -606,13 +602,11 @@ GEM
       rails (>= 3.0.0)
     trollop (1.16.2)
     tty-color (0.5.1)
-    tty-pager (0.12.1)
-      strings (~> 0.1.4)
-      tty-screen (~> 0.6)
-      tty-which (~> 0.4)
-    tty-screen (0.7.1)
+    tty-pager (0.13.0)
+      strings (~> 0.1.8)
+      tty-screen (~> 0.8)
+    tty-screen (0.8.0)
     tty-tree (0.4.0)
-    tty-which (0.4.2)
     turbolinks (5.2.1)
       turbolinks-source (~> 5.2)
     turbolinks-source (5.2.0)
@@ -625,7 +619,7 @@ GEM
       enumerable-statistics (>= 2.0.1)
     unicode_utils (1.4.0)
     uniform_notifier (1.13.0)
-    vcr (5.1.0)
+    vcr (6.0.0)
     warden (1.2.8)
       rack (>= 2.0.6)
     webdrivers (4.3.0)
@@ -707,7 +701,7 @@ DEPENDENCIES
   foundation_emails
   gemdiff
   http_accept_language
-  http_logger!
+  httplog
   isolator
   jbuilder (~> 2.7)
   jwt

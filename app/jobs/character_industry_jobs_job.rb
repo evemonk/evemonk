@@ -11,6 +11,8 @@ class CharacterIndustryJobsJob < ActiveJob::Base
     Faraday::TimeoutError,
     Faraday::ConnectionFailed
 
+  discard_on CharacterInvalidToken
+
   def perform(character_id)
     CharacterIndustryJobsImporter.new(character_id).import
   end
