@@ -11,6 +11,8 @@ class CharacterSkillqueueJob < ActiveJob::Base
     Faraday::TimeoutError,
     Faraday::ConnectionFailed
 
+  discard_on CharacterInvalidToken
+
   def perform(character_id)
     CharacterSkillqueueImporter.new(character_id).import
   end
