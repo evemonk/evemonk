@@ -119,5 +119,35 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :admin do
+    namespace :eve do
+      resources :alliances
+    end
+
+    resources :settings
+
+    # resources :users
+    # resources :sessions
+    # resources :skillqueues
+    # resources :character_skills
+    # resources :character_mail_labels
+    # resources :character_orders
+    # resources :character_corporation_histories
+    # resources :loyalty_points
+    # resources :etags
+    # resources :standings
+    # resources :industry_jobs
+    # resources :characters
+    # resources :wallet_transactions
+    # resources :wallet_journals
+    # resources :character_implants
+    # resources :character_assets
+    # resources :character_killmails
+    # resources :manufacturing_jobs
+    # resources :character_blueprints
+
+    root to: "settings#index"
+  end
+
   root to: "welcome#index"
 end
