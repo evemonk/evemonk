@@ -9,14 +9,14 @@ class SettingDashboard < Administrate::BaseDashboard
     value: Field::Text,
     created_at: Field::DateTime,
     updated_at: Field::DateTime
-  }
+  }.freeze
 
   COLLECTION_ATTRIBUTES = [
     :id,
     :var,
     :value,
     :created_at
-  ]
+  ].freeze
 
   SHOW_PAGE_ATTRIBUTES = [
     :id,
@@ -24,12 +24,12 @@ class SettingDashboard < Administrate::BaseDashboard
     :value,
     :created_at,
     :updated_at
-  ]
+  ].freeze
 
   FORM_ATTRIBUTES = [
     :var,
     :value
-  ]
+  ].freeze
 
-  COLLECTION_FILTERS = {}
+  COLLECTION_FILTERS = {}.freeze
 end

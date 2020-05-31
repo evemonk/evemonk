@@ -17,9 +17,9 @@ module Eve
       characters_count: Field::Number,
       created_at: Field::DateTime,
       updated_at: Field::DateTime
-    }
+    }.freeze
 
-    COLLECTION_ATTRIBUTES = [:alliance_id, :name]
+    COLLECTION_ATTRIBUTES = [:alliance_id, :name].freeze
 
     SHOW_PAGE_ATTRIBUTES = [
       :alliance_id,
@@ -34,7 +34,7 @@ module Eve
       :characters_count,
       :created_at,
       :updated_at
-    ]
+    ].freeze
 
     FORM_ATTRIBUTES = [
       :alliance_id,
@@ -47,8 +47,8 @@ module Eve
       :ticker,
       :corporations_count,
       :characters_count
-    ]
+    ].freeze
 
-    COLLECTION_FILTERS = {}
+    COLLECTION_FILTERS = {}.freeze
   end
 end
