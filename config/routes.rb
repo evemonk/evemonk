@@ -124,6 +124,10 @@ Rails.application.routes.draw do
       resources :alliances
     end
 
+    resources :users
+
+    resources :characters
+
     resources :settings
 
     # resources :users
