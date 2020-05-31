@@ -8,28 +8,28 @@ class SettingDashboard < Administrate::BaseDashboard
     var: Field::String,
     value: Field::Text,
     created_at: Field::DateTime,
-    updated_at: Field::DateTime,
-  }.freeze
+    updated_at: Field::DateTime
+  }
 
-  COLLECTION_ATTRIBUTES = %i[
-    id
-    var
-    value
-    created_at
-  ].freeze
+  COLLECTION_ATTRIBUTES = [
+    :id,
+    :var,
+    :value,
+    :created_at
+  ]
 
-  SHOW_PAGE_ATTRIBUTES = %i[
-    id
-    var
-    value
-    created_at
-    updated_at
-  ].freeze
+  SHOW_PAGE_ATTRIBUTES = [
+    :id,
+    :var,
+    :value,
+    :created_at,
+    :updated_at
+  ]
 
-  FORM_ATTRIBUTES = %i[
-    var
-    value
-  ].freeze
+  FORM_ATTRIBUTES = [
+    :var,
+    :value
+  ]
 
-  COLLECTION_FILTERS = {}.freeze
+  COLLECTION_FILTERS = {}
 end

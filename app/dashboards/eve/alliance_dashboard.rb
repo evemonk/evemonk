@@ -16,39 +16,39 @@ module Eve
       corporations_count: Field::Number,
       characters_count: Field::Number,
       created_at: Field::DateTime,
-      updated_at: Field::DateTime,
-    }.freeze
+      updated_at: Field::DateTime
+    }
 
-    COLLECTION_ATTRIBUTES = %i[alliance_id name].freeze
+    COLLECTION_ATTRIBUTES = [:alliance_id, :name]
 
-    SHOW_PAGE_ATTRIBUTES = %i[
-      alliance_id
-      creator_corporation_id
-      creator_id
-      date_founded
-      executor_corporation_id
-      faction_id
-      name
-      ticker
-      corporations_count
-      characters_count
-      created_at
-      updated_at
-    ].freeze
+    SHOW_PAGE_ATTRIBUTES = [
+      :alliance_id,
+      :creator_corporation_id,
+      :creator_id,
+      :date_founded,
+      :executor_corporation_id,
+      :faction_id,
+      :name,
+      :ticker,
+      :corporations_count,
+      :characters_count,
+      :created_at,
+      :updated_at
+    ]
 
-    FORM_ATTRIBUTES = %i[
-      alliance_id
-      creator_corporation_id
-      creator_id
-      date_founded
-      executor_corporation_id
-      faction_id
-      name
-      ticker
-      corporations_count
-      characters_count
-    ].freeze
+    FORM_ATTRIBUTES = [
+      :alliance_id,
+      :creator_corporation_id,
+      :creator_id,
+      :date_founded,
+      :executor_corporation_id,
+      :faction_id,
+      :name,
+      :ticker,
+      :corporations_count,
+      :characters_count
+    ]
 
-    COLLECTION_FILTERS = {}.freeze
+    COLLECTION_FILTERS = {}
   end
 end
