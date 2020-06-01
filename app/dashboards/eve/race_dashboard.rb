@@ -21,14 +21,17 @@ module Eve
       description_ru: Field::Text,
       description_zh: Field::Text,
       description_ko: Field::Text,
-      # alliance_id: Field::BelongsTo,
+      # alliance: Field::BelongsTo.with_options(class_name: "Eve::Alliance"),
+      bloodlines: Field::HasMany.with_options(class_name: "Eve::Bloodline"),
+      # stations: Field::HasMany.with_options(class_name: "Eve::Station"),
       created_at: Field::DateTime,
       updated_at: Field::DateTime
     }.freeze
 
-    COLLECTION_ATTRIBUTES = [:race_id, :name_en].freeze
+    COLLECTION_ATTRIBUTES = [:id, :race_id, :name_en, :bloodlines].freeze
 
     SHOW_PAGE_ATTRIBUTES = [
+      :id,
       :race_id,
       :name_en,
       :name_de,
@@ -44,7 +47,8 @@ module Eve
       :description_ru,
       :description_zh,
       :description_ko,
-      # :alliance_id,
+      # :alliance,
+      :bloodlines,
       :created_at,
       :updated_at
     ].freeze
@@ -65,9 +69,13 @@ module Eve
       :description_ru,
       :description_zh,
       :description_ko,
-      # :alliance_id,
+      # :alliance
     ].freeze
 
     COLLECTION_FILTERS = {}.freeze
+
+    def display_resource(race)
+      race.name
+    end
   end
 end
