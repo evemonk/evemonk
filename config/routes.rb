@@ -124,6 +124,8 @@ Rails.application.routes.draw do
       resources :alliances
 
       resources :races
+
+      resources :bloodlines
     end
 
     resources :users
