@@ -122,6 +122,8 @@ Rails.application.routes.draw do
   namespace :admin do
     namespace :eve do
       resources :alliances
+
+      resources :races
     end
 
     resources :users
