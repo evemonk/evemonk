@@ -133,6 +133,8 @@ Rails.application.routes.draw do
 
       resources :groups
 
+      resources :constellations
+
       resources :units
     end
 
