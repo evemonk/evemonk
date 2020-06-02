@@ -84,7 +84,7 @@ module Eve
       :size_factor,
       :solar_system_id, # TODO: solar_system
       :station_count,
-      :station_system_count,
+      :station_system_count
     ].freeze
 
     COLLECTION_FILTERS = {}.freeze
