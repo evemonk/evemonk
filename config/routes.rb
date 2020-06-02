@@ -126,6 +126,8 @@ Rails.application.routes.draw do
       resources :races
 
       resources :bloodlines
+
+      resources :ancestries
     end
 
     resources :users
