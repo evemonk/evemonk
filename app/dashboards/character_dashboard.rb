@@ -63,7 +63,7 @@ class CharacterDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = [
     # :user,
     :character_id,
-    :name,
+    :name
   ].freeze
 
   SHOW_PAGE_ATTRIBUTES = [

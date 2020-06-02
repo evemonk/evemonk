@@ -17,7 +17,7 @@ class UserDashboard < Administrate::BaseDashboard
     locale: Field::String.with_options(searchable: false),
     admin: Field::Boolean,
     created_at: Field::DateTime,
-    updated_at: Field::DateTime,
+    updated_at: Field::DateTime
   }.freeze
 
   COLLECTION_ATTRIBUTES = [
@@ -52,7 +52,7 @@ class UserDashboard < Administrate::BaseDashboard
     :email,
     :notifications_count,
     :locale,
-    :admin,
+    :admin
   ].freeze
 
   COLLECTION_FILTERS = {}.freeze
