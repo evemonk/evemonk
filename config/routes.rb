@@ -131,6 +131,8 @@ Rails.application.routes.draw do
 
       resources :ancestries
 
+      resources :factions
+
       resources :groups
 
       resources :constellations
