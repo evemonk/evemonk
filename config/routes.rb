@@ -122,7 +122,15 @@ Rails.application.routes.draw do
   namespace :admin do
     namespace :eve do
       resources :alliances
+
+      resources :races
+
+      resources :bloodlines
     end
+
+    resources :users
+
+    resources :characters
 
     resources :settings
 
