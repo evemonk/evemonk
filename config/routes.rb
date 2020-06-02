@@ -123,6 +123,8 @@ Rails.application.routes.draw do
     namespace :eve do
       resources :alliances
 
+      resources :corporations
+
       resources :characters
 
       resources :races
