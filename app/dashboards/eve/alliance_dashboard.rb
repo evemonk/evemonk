@@ -5,6 +5,7 @@ require "administrate/base_dashboard"
 module Eve
   class AllianceDashboard < Administrate::BaseDashboard
     ATTRIBUTE_TYPES = {
+      id: Field::Number,
       alliance_id: Field::Number,
       creator_corporation_id: Field::Number,
       creator_id: Field::Number,

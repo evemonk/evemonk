@@ -68,7 +68,7 @@ module Eve
       :description_ja,
       :description_ru,
       :description_zh,
-      :description_ko,
+      :description_ko
       # :alliance
     ].freeze
 
