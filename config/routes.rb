@@ -123,9 +123,23 @@ Rails.application.routes.draw do
     namespace :eve do
       resources :alliances
 
+      resources :corporations
+
+      resources :characters
+
       resources :races
 
       resources :bloodlines
+
+      resources :ancestries
+
+      resources :factions
+
+      resources :groups
+
+      resources :constellations
+
+      resources :units
     end
 
     resources :users
