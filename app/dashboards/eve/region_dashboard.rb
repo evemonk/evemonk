@@ -23,6 +23,7 @@ module Eve
       description_ko: Field::Text,
       created_at: Field::DateTime,
       updated_at: Field::DateTime
+      # constellations
     }.freeze
 
     COLLECTION_ATTRIBUTES = [:id, :region_id, :name_en].freeze

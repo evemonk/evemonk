@@ -173,4 +173,8 @@ class CharacterDashboard < Administrate::BaseDashboard
   ].freeze
 
   COLLECTION_FILTERS = {}.freeze
+
+  def display_resource(character)
+    character.name
+  end
 end
