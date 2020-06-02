@@ -130,6 +130,8 @@ Rails.application.routes.draw do
       resources :ancestries
 
       resources :groups
+
+      resources :units
     end
 
     resources :users
