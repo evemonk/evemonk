@@ -16,7 +16,7 @@ module Eve
       name_ko: Field::String,
       constellation_id: Field::Number, # TODO: add constellation dashboard
       star_id: Field::Number, # TODO: add star dashboard
-      security_class: Field::security_status,
+      security_class: Field::String,
       security_status: Field::Number,
       created_at: Field::DateTime,
       updated_at: Field::DateTime,
