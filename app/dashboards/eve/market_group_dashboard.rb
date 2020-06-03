@@ -3,10 +3,11 @@
 require "administrate/base_dashboard"
 
 module Eve
-  class BloodlineDashboard < Administrate::BaseDashboard
+  class MarketGroupDashboard < Administrate::BaseDashboard
     ATTRIBUTE_TYPES = {
       id: Field::Number,
-      bloodline_id: Field::Number,
+      market_group_id: Field::Number,
+      parent_group_id: Field::Number,
       name_en: Field::String,
       name_de: Field::String,
       name_fr: Field::String,
@@ -21,24 +22,16 @@ module Eve
       description_ru: Field::Text,
       description_zh: Field::Text,
       description_ko: Field::Text,
-      race: Field::BelongsTo.with_options(class_name: "Eve::Race"),
-      charisma: Field::Number,
-      intelligence: Field::Number,
-      memory: Field::Number,
-      perception: Field::Number,
-      willpower: Field::Number,
-      corporation: Field::BelongsTo.with_options(class_name: "Eve::Corporation"),
-      # ship_type: Field::BelongsTo.with_options(class_name: "Eve::Ship"),
       created_at: Field::DateTime,
-      updated_at: Field::DateTime,
-      ancestries: Field::HasMany.with_options(class_name: "Eve::Ancestry")
+      updated_at: Field::DateTime
     }.freeze
 
-    COLLECTION_ATTRIBUTES = [:id, :bloodline_id, :name_en].freeze
+    COLLECTION_ATTRIBUTES = [:id, :market_group_id, :name_en].freeze
 
     SHOW_PAGE_ATTRIBUTES = [
       :id,
-      :bloodline_id,
+      :market_group_id,
+      :parent_group_id,
       :name_en,
       :name_de,
       :name_fr,
@@ -53,21 +46,13 @@ module Eve
       :description_ru,
       :description_zh,
       :description_ko,
-      :race,
-      :charisma,
-      :intelligence,
-      :memory,
-      :perception,
-      :willpower,
-      :corporation,
-      # :ship_type,
       :created_at,
-      :updated_at,
-      :ancestries
+      :updated_at
     ].freeze
 
     FORM_ATTRIBUTES = [
-      :bloodline_id,
+      :market_group_id,
+      :parent_group_id,
       :name_en,
       :name_de,
       :name_fr,
@@ -81,21 +66,13 @@ module Eve
       :description_ja,
       :description_ru,
       :description_zh,
-      :description_ko,
-      :race,
-      :charisma,
-      :intelligence,
-      :memory,
-      :perception,
-      :willpower,
-      :corporation
-      # :ship_type
+      :description_ko
     ].freeze
 
     COLLECTION_FILTERS = {}.freeze
 
-    def display_resource(bloodline)
-      bloodline.name
+    def display_resource(market_group)
+      market_group.name
     end
   end
 end

@@ -137,6 +137,10 @@ Rails.application.routes.draw do
 
       resources :groups
 
+      resources :market_groups
+
+      resources :categories
+
       resources :constellations
 
       resources :units

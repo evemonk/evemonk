@@ -7,11 +7,11 @@ module Eve
     ATTRIBUTE_TYPES = {
       id: Field::Number,
       alliance_id: Field::Number,
-      creator_corporation_id: Field::Number,
-      creator_id: Field::Number,
+      creator_corporation: Field::BelongsTo.with_options(class_name: "Eve::Corporation"),
+      creator: Field::BelongsTo.with_options(class_name: "Eve::Character"),
       date_founded: Field::DateTime,
-      executor_corporation_id: Field::Number,
-      faction_id: Field::Number,
+      executor_corporation: Field::BelongsTo.with_options(class_name: "Eve::Corporation"),
+      faction: Field::BelongsTo.with_options(class_name: "Eve::Faction"),
       name: Field::String,
       ticker: Field::String,
       corporations_count: Field::Number,
@@ -23,12 +23,13 @@ module Eve
     COLLECTION_ATTRIBUTES = [:alliance_id, :name].freeze
 
     SHOW_PAGE_ATTRIBUTES = [
+      :id,
       :alliance_id,
-      :creator_corporation_id,
-      :creator_id,
+      :creator_corporation,
+      :creator,
       :date_founded,
-      :executor_corporation_id,
-      :faction_id,
+      :executor_corporation,
+      :faction,
       :name,
       :ticker,
       :corporations_count,
@@ -39,17 +40,19 @@ module Eve
 
     FORM_ATTRIBUTES = [
       :alliance_id,
-      :creator_corporation_id,
-      :creator_id,
+      :creator_corporation,
+      :creator,
       :date_founded,
-      :executor_corporation_id,
-      :faction_id,
+      :executor_corporation,
+      :faction,
       :name,
-      :ticker,
-      :corporations_count,
-      :characters_count
+      :ticker
     ].freeze
 
     COLLECTION_FILTERS = {}.freeze
+
+    def display_resource(alliance)
+      alliance.name
+    end
   end
 end
