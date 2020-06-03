@@ -19,7 +19,7 @@ module Eve
       security_class: Field::String,
       security_status: Field::Number,
       created_at: Field::DateTime,
-      updated_at: Field::DateTime,
+      updated_at: Field::DateTime
       # stargates: Field::HasMany,
       # planets: Field::HasMany,
       # moons: Field::HasMany,

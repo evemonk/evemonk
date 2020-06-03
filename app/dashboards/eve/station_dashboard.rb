@@ -53,7 +53,7 @@ module Eve
       :max_dockable_ship_volume,
       :office_rental_cost,
       :reprocessing_efficiency,
-      :reprocessing_stations_take,
+      :reprocessing_stations_take
       # :services,
       # :position
     ].freeze
