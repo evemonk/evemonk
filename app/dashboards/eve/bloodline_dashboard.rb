@@ -27,10 +27,11 @@ module Eve
       memory: Field::Number,
       perception: Field::Number,
       willpower: Field::Number,
-      # corporation: Field::BelongsTo.with_options(class_name: "Eve::Corporation"),
-      # ship_type: Field::BelongsTo.with_options(class_name: "Eve::Type"),
+      corporation: Field::BelongsTo.with_options(class_name: "Eve::Corporation"),
+      # ship_type: Field::BelongsTo.with_options(class_name: "Eve::Ship"),
       created_at: Field::DateTime,
-      updated_at: Field::DateTime
+      updated_at: Field::DateTime,
+      ancestries: Field::HasMany.with_options(class_name: "Eve::Ancestry")
     }.freeze
 
     COLLECTION_ATTRIBUTES = [:id, :bloodline_id, :name_en].freeze
@@ -38,7 +39,6 @@ module Eve
     SHOW_PAGE_ATTRIBUTES = [
       :id,
       :bloodline_id,
-      :race,
       :name_en,
       :name_de,
       :name_fr,
@@ -53,20 +53,21 @@ module Eve
       :description_ru,
       :description_zh,
       :description_ko,
+      :race,
       :charisma,
       :intelligence,
       :memory,
       :perception,
       :willpower,
-      # :corporation,
+      :corporation,
       # :ship_type,
       :created_at,
-      :updated_at
+      :updated_at,
+      :ancestries
     ].freeze
 
     FORM_ATTRIBUTES = [
       :bloodline_id,
-      :race,
       :name_en,
       :name_de,
       :name_fr,
@@ -81,12 +82,13 @@ module Eve
       :description_ru,
       :description_zh,
       :description_ko,
+      :race,
       :charisma,
       :intelligence,
       :memory,
       :perception,
-      :willpower
-      # :corporation,
+      :willpower,
+      :corporation
       # :ship_type
     ].freeze
 
