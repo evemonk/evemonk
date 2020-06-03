@@ -8,7 +8,7 @@ module Eve
       id: Field::Number,
       station_id: Field::Number,
       name: Field::String,
-      system_id: Field::Number, # TODO: add system dashboard
+      system: Field::BelongsTo.with_options(class_name: "Eve::System"),
       type_id: Field::Number, # TODO: add type dashboard
       owner: Field::Number,
       race: Field::BelongsTo.with_options(class_name: "Eve::Race"),
@@ -29,7 +29,7 @@ module Eve
       :id,
       :station_id,
       :name,
-      :system_id,
+      :system,
       :type_id,
       :owner,
       :race,
@@ -46,7 +46,7 @@ module Eve
     FORM_ATTRIBUTES = [
       :station_id,
       :name,
-      :system_id,
+      :system,
       :type_id,
       :owner,
       :race,
