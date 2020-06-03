@@ -21,7 +21,7 @@ module Eve
       description_ru: Field::Text,
       description_zh: Field::Text,
       description_ko: Field::Text,
-      # alliance: Field::BelongsTo.with_options(class_name: "Eve::Alliance"),
+      faction: Field::BelongsTo.with_options(class_name: "Eve::Faction"),
       bloodlines: Field::HasMany.with_options(class_name: "Eve::Bloodline"),
       # stations: Field::HasMany.with_options(class_name: "Eve::Station"),
       created_at: Field::DateTime,
@@ -47,8 +47,9 @@ module Eve
       :description_ru,
       :description_zh,
       :description_ko,
-      # :alliance,
+      :faction,
       :bloodlines,
+      # :stations,
       :created_at,
       :updated_at
     ].freeze
@@ -68,8 +69,8 @@ module Eve
       :description_ja,
       :description_ru,
       :description_zh,
-      :description_ko
-      # :alliance
+      :description_ko,
+      :faction
     ].freeze
 
     COLLECTION_FILTERS = {}.freeze
