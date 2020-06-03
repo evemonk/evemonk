@@ -145,6 +145,8 @@ Rails.application.routes.draw do
 
       resources :stations
 
+      resources :systems
+
       resources :units
     end
 
