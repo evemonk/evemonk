@@ -137,7 +137,7 @@ Rails.application.routes.draw do
 
       resources :groups
 
-      resources :marker_groups
+      resources :market_groups
 
       resources :categories
 
