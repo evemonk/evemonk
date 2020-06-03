@@ -14,7 +14,7 @@ module Eve
       name_ru: Field::String,
       name_zh: Field::String,
       name_ko: Field::String,
-      constellation_id: Field::Number, # TODO: add constellation dashboard
+      constellation: Field::BelongsTo.with_options(class_name: "Eve::Constellation"),
       star_id: Field::Number, # TODO: add star dashboard
       security_class: Field::String,
       security_status: Field::Number,
@@ -40,7 +40,7 @@ module Eve
       :name_ru,
       :name_zh,
       :name_ko,
-      :constellation_id,
+      :constellation,
       :star_id,
       :security_class,
       :security_status,
@@ -63,7 +63,7 @@ module Eve
       :name_ru,
       :name_zh,
       :name_ko,
-      :constellation_id,
+      :constellation,
       :star_id,
       :security_class,
       :security_status
