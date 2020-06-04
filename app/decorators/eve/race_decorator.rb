@@ -2,7 +2,6 @@
 
 module Eve
   class RaceDecorator < ApplicationDecorator
-    # decorates_associations :alliance, :bloodlines, :stations
-    decorates_associations :bloodlines, :stations
+    decorates_associations :faction, :bloodlines, :stations
   end
 end

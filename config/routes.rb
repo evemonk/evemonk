@@ -143,6 +143,10 @@ Rails.application.routes.draw do
 
       resources :constellations
 
+      resources :stations
+
+      resources :systems
+
       resources :units
     end
 
