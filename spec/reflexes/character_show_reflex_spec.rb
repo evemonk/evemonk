@@ -10,10 +10,15 @@ describe CharacterShowReflex do
   describe "#update" do
     let(:character_id) { "1337512245" }
 
-    let(:element) do
-      StimulusReflex::Element.new("data-reflex" => "click->CharacterShowReflex#update",
-                                  "data-id" => "1337512245")
+    let(:data) do
+      {
+        "dataset" => {
+          "id" => "1337512245"
+        }
+      }
     end
+
+    let(:element) { StimulusReflex::Element.new(data) }
 
     subject { described_class.new(double, element: element) }
 
