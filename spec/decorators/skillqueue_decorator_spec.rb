@@ -18,4 +18,34 @@ describe SkillqueueDecorator do
 
     specify { expect(subject.finished_level).to eq("I") }
   end
+
+  describe "#time_left" do
+    before { travel_to Time.zone.now }
+
+    after { travel_back }
+
+    context "when start_date in past" do
+      let(:skillqueue) do
+        build(:skillqueue,
+          start_date: Time.zone.now - 10.minutes,
+          finish_date: Time.zone.now + 10.minutes)
+      end
+
+      subject { skillqueue.decorate }
+
+      specify { expect(subject.time_left).to eq("10m") }
+    end
+
+    context "when start_Date in future" do
+      let(:skillqueue) do
+        build(:skillqueue,
+          start_date: Time.zone.now + 10.minutes,
+          finish_date: Time.zone.now + 30.minutes)
+      end
+
+      subject { skillqueue.decorate }
+
+      specify { expect(subject.time_left).to eq("20m") }
+    end
+  end
 end
