@@ -67,6 +67,14 @@
   <li class="nav-item">
     <%= link_to("Blueprints", character_blueprints_path(@character.character_id), class: "nav-link active") %>
   </li>
+  <% if Setting.enabled_character_orders %>
+    <li class="nav-item">
+      <%= link_to("Orders", character_orders_path(@character.character_id), class: "nav-link") %>
+    </li>
+  <% end %>
+  <li class="nav-item">
+    <%= link_to("Training Queue", character_training_queues_path(@character.character_id), class: "nav-link") %>
+  </li>
 </ul>
 
 <hr>
@@ -142,7 +150,7 @@
             <% end %>
           </div>
           <div class="col-10">
-            <div class="card-body">
+            <div class="card-body p-2">
               <div class="card-text">
                 <%= character_blueprint.blueprint.name %>
                 <%#= link_to(character_blueprint.blueprint.name,
