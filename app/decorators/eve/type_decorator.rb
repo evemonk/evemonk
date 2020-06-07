@@ -45,22 +45,5 @@ module Eve
     #   # simple_format(SafeEveSanitizer.new.sanitize(description))
     #   SafeEveSanitizer.new.sanitize(description)
     # end
-    #
-    # def skill_level
-    #   case object.trained_skill_level
-    #   when 1
-    #     "I"
-    #   when 2
-    #     "II"
-    #   when 3
-    #     "III"
-    #   when 4
-    #     "IV"
-    #   when 5
-    #     "V"
-    #   else
-    #     raise "Unsupported trained skill level"
-    #   end
-    # end
   end
 end

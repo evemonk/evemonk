@@ -59,6 +59,8 @@ Rails.application.routes.draw do
     # resources :manufacturing_jobs, only: [:index, :new, :create, :update, :show]
 
     resources :orders, only: :index
+
+    resources :training_queues, only: :index
   end
 
   resource :profile, only: :show

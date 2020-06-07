@@ -54,4 +54,10 @@ describe HumanTime do
       specify { expect(subject.short_formatted).to eq("5d 4h 3m 2s") }
     end
   end
+
+  describe "#very_short_formatted" do
+    let(:seconds) { 5.days.to_i + 4.hours.to_i + 3.minutes.to_i + 2.seconds.to_i }
+
+    specify { expect(subject.very_short_formatted).to eq("5d 4h") }
+  end
 end

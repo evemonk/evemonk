@@ -43,6 +43,10 @@ class HumanTime
   end
   # rubocop:enable Metrics/CyclomaticComplexity
 
+  def very_short_formatted
+    short_formatted.split[0..1].join(" ")
+  end
+
   private
 
   def parse
