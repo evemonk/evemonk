@@ -8,6 +8,7 @@ class TrainingQueuesController < ApplicationController
       .decorate
 
     @skillqueues = @character.skillqueues
+      .includes(:skill)
       .order(:queue_position)
       .where("finish_date > ?", Time.zone.now)
   end

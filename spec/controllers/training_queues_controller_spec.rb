@@ -50,14 +50,19 @@ describe TrainingQueuesController do
       before do
         #
         # character.skillqueues
+        #          .includes(:skill)
         #          .order(:queue_position)
         #          .where("finish_date > ?", Time.zone.now)
         #
         expect(character).to receive(:skillqueues) do
           double.tap do |a|
-            expect(a).to receive(:order).with(:queue_position) do
+            expect(a).to receive(:includes).with(:skill) do
               double.tap do |b|
-                expect(b).to receive(:where).with("finish_date > ?", Time.zone.now)
+                expect(b).to receive(:order).with(:queue_position) do
+                  double.tap do |c|
+                    expect(c).to receive(:where).with("finish_date > ?", Time.zone.now)
+                  end
+                end
               end
             end
           end
