@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class SkillqueueDecorator < ApplicationDecorator
-  LEVELS = {1 => "I", 2 => "II", 3 => "III", 4 => "IV", 5 => "V"}
+  LEVELS = {1 => "I", 2 => "II", 3 => "III", 4 => "IV", 5 => "V"}.freeze
 
   decorates_associations :character, :skill
 
