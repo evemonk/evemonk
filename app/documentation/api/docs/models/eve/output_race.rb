@@ -9,11 +9,11 @@ module Api
           include Swagger::Blocks
 
           swagger_schema :OutputRace do
-            key :required, [:alliance_id, :description, :name, :race_id]
-            property :alliance_id do
+            key :required, [:faction_id, :description, :name, :race_id]
+            property :faction_id do
               key :type, :integer
               key :format, :int64
-              key :description, "Alliance ID"
+              key :description, "Faction ID"
             end
             property :description do
               key :type, :string
@@ -28,7 +28,7 @@ module Api
               key :format, :int64
               key :description, "Race ID"
             end
-            key :example, alliance_id: 500_002,
+            key :example, faction_id: 500_002,
                           description: "Once a thriving tribal civilization, the Minmatar...",
                           name: "Minmatar",
                           race_id: 2
