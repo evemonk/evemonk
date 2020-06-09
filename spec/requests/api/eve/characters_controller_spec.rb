@@ -90,7 +90,7 @@ describe Api::Eve::CharactersController do
         race_id: 123,
         name: "Race name",
         description: "Race description",
-        alliance_id: 123)
+        faction_id: 123)
 
       get "/api/eve/characters"
 
@@ -192,7 +192,7 @@ describe Api::Eve::CharactersController do
                                                   "id" => 123,
                                                   "name" => "Race name",
                                                   "description" => "Race description",
-                                                  "alliance_id" => 123
+                                                  "faction_id" => 123
                                                 }
                                               }])
     end
@@ -283,7 +283,7 @@ describe Api::Eve::CharactersController do
         race_id: 123,
         name: "Race name",
         description: "Race description",
-        alliance_id: 123)
+        faction_id: 123)
 
       get "/api/eve/characters/123123123"
 
@@ -379,7 +379,7 @@ describe Api::Eve::CharactersController do
                                               },
                                               "race" => {
                                                 "id" => 123,
-                                                "alliance_id" => 123,
+                                                "faction_id" => 123,
                                                 "name" => "Race name",
                                                 "description" => "Race description"
                                               })
