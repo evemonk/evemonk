@@ -4,7 +4,7 @@ FactoryBot.define do
   factory :skillqueue do
     character
 
-    finish_date { "2019-10-02 00:54:40" } # TODO: fix
+    finish_date { Time.zone.now + 1.hour }
 
     finished_level { [1, 2, 3, 4, 5].sample }
 
@@ -16,7 +16,7 @@ FactoryBot.define do
 
     sequence(:skill_id)
 
-    start_date { "2019-10-02 00:54:40" } # TODO: fix
+    start_date { Time.zone.now }
 
     training_start_sp { 1 } # TODO: fix
   end
