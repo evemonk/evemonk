@@ -32,6 +32,6 @@ FactoryBot.define do
 
     description_ko { Faker::Lorem.paragraph }
 
-    sequence(:alliance_id)
+    sequence(:faction_id)
   end
 end
