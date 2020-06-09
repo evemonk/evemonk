@@ -10,7 +10,6 @@ module Eve
 
     belongs_to :faction,
       primary_key: "faction_id",
-      foreign_key: "alliance_id",
       optional: true
 
     has_many :bloodlines,

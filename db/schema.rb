@@ -10,9 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_31_155127) do
+ActiveRecord::Schema.define(version: 2020_06_09_135403) do
 
   # These are extensions that must be enabled in order to support this database
+  enable_extension "pgcrypto"
   enable_extension "plpgsql"
 
   create_table "character_assets", force: :cascade do |t|
@@ -660,7 +661,7 @@ ActiveRecord::Schema.define(version: 2020_05_31_155127) do
   end
 
   create_table "eve_races", force: :cascade do |t|
-    t.bigint "alliance_id"
+    t.bigint "faction_id"
     t.text "description_en"
     t.string "name_en"
     t.bigint "race_id"

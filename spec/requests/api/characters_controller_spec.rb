@@ -210,7 +210,7 @@ describe Api::CharactersController do
         race_id: 123,
         name: "Race name",
         description: "Race description",
-        alliance_id: 123)
+        faction_id: 123)
 
       get "/api/characters/123123123", headers: {'Authorization': "Bearer #{session.token}"}
 
@@ -314,7 +314,7 @@ describe Api::CharactersController do
                                               },
                                               "race" => {
                                                 "id" => 123,
-                                                "alliance_id" => 123,
+                                                "faction_id" => 123,
                                                 "name" => "Race name",
                                                 "description" => "Race description"
                                               })
