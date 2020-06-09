@@ -90,7 +90,7 @@ describe Api::Eve::AllianceCharactersController do
         race_id: 123,
         name: "Race name",
         description: "Race description",
-        alliance_id: 123)
+        faction_id: 123)
 
       get "/api/eve/alliances/123/characters"
 
@@ -173,7 +173,7 @@ describe Api::Eve::AllianceCharactersController do
                                                 },
                                                 "race" => {
                                                   "id" => 123,
-                                                  "alliance_id" => 123,
+                                                  "faction_id" => 123,
                                                   "name" => "Race name",
                                                   "description" => "Race description"
                                                 },
