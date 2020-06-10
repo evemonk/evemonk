@@ -559,7 +559,7 @@ GEM
       faraday (>= 1.0)
     server_timing (1.0.2)
       scout_apm
-    sexp_processor (4.14.1)
+    sexp_processor (4.15.0)
     shoulda-matchers (4.3.0)
       activesupport (>= 4.2.0)
     sidekiq (6.0.7)
