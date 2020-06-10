@@ -48,7 +48,7 @@ services:
       - "11211:11211"
 
   swagger_ui:
-    image: "swaggerapi/swagger-ui:v3.25.5"
+    image: "swaggerapi/swagger-ui:v3.26.0"
     container_name: "evemonk_swagger_ui"
     restart: "unless-stopped"
     ports:
