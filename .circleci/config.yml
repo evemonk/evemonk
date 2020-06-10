@@ -18,9 +18,6 @@ jobs:
           - discovery.type: single-node
     steps:
       - checkout
-      - run: curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-      - run: chmod +x ./cc-test-reporter
-      - run: ./cc-test-reporter before-build
       - restore_cache:
           keys:
             - ruby-271-v1-dependencies-{{ checksum "Gemfile.lock" }}
@@ -66,4 +63,3 @@ jobs:
       - run: bundle exec rake SECRET_KEY_BASE=blablabla DB_ADAPTER=nulldb assets:precompile
       - run: ./hadolint --ignore DL3008 Dockerfile
       - run: shellcheck-stable/shellcheck bin/backend bin/sidekiq bin/cron bin/standardize
-      - run: ./cc-test-reporter after-build
