@@ -1,9 +1,11 @@
 .git/*
 .idea/*
+.circleci/*
 .generators
 .env
 .env.example
 .env_docker
+.deepsource.toml
 docker-compose.yml
 node_modules/*
 tmp/cache/*
