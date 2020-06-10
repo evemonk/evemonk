@@ -92,7 +92,7 @@ GEM
       selectize-rails (~> 0.6)
     anyway_config (2.0.5)
       ruby-next-core (>= 0.8.0)
-    ast (2.4.0)
+    ast (2.4.1)
     attr_extras (6.2.4)
     authy (2.7.5)
       httpclient (>= 2.5.3.3)
