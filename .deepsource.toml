@@ -7,4 +7,3 @@ enabled = true
 [[analyzers]]
 name = "ruby"
 enabled = true
-
