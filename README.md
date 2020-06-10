@@ -5,6 +5,7 @@
 [![security](https://hakiri.io/github/evemonk/evemonk/master.svg)](https://hakiri.io/github/evemonk/evemonk/master)
 [![](https://images.microbadger.com/badges/image/biow0lf/evemonk.svg)](https://microbadger.com/images/biow0lf/evemonk)
 [![DeepSource](https://static.deepsource.io/deepsource-badge-light-mini.svg)](https://deepsource.io/gh/evemonk/evemonk/?ref=repository-badge)
+[![codecov](https://codecov.io/gh/evemonk/evemonk/branch/master/graph/badge.svg)](https://codecov.io/gh/evemonk/evemonk)
 
 EveMonk is helper software for EVE Online.
 
