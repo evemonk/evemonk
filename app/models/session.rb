@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Session < ApplicationRecord
-  enum device_type: [:ios, :android]
+  enum device_type: {ios: 0, android: 1}
 
   belongs_to :user
 
