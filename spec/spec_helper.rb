@@ -2,6 +2,12 @@
 
 require "simplecov"
 
+if ENV["CI"] == "true"
+  require "codecov"
+
+  SimpleCov.formatter = SimpleCov::Formatter::Codecov
+end
+
 SimpleCov.start "rails" do
   add_group "Channels", "app/channels"
   add_group "Documentation", "app/documentation"

@@ -1,9 +1,11 @@
 # EveMonk back-end and web front-end
 
 [![CircleCI](https://circleci.com/gh/evemonk/evemonk/tree/master.svg?style=svg)](https://circleci.com/gh/evemonk/evemonk/tree/master)
-[![Test Coverage](https://codeclimate.com/github/evemonk/evemonk/badges/coverage.svg)](https://codeclimate.com/github/evemonk/evemonk/coverage)
+[![Known Vulnerabilities](https://snyk.io/test/github/evemonk/evemonk/badge.svg)](https://snyk.io/test/github/evemonk/evemonk)
 [![security](https://hakiri.io/github/evemonk/evemonk/master.svg)](https://hakiri.io/github/evemonk/evemonk/master)
 [![](https://images.microbadger.com/badges/image/biow0lf/evemonk.svg)](https://microbadger.com/images/biow0lf/evemonk)
+[![DeepSource](https://static.deepsource.io/deepsource-badge-light-mini.svg)](https://deepsource.io/gh/evemonk/evemonk/?ref=repository-badge)
+[![codecov](https://codecov.io/gh/evemonk/evemonk/branch/master/graph/badge.svg)](https://codecov.io/gh/evemonk/evemonk)
 
 EveMonk is helper software for EVE Online.
 
@@ -51,7 +53,7 @@ All screenshots are real and made in Safari on latest macOS Catalina (10.15.3).
 - Bundler 2.1.4
 - Ruby on Rails 6.0.3.1
 - PostgreSQL 12.3
-- Redis 6.0.4
+- Redis 6.0.5
 - Elasticsearch 7.7.1
 - Node 12.18.0
 - NPM 6.14.5

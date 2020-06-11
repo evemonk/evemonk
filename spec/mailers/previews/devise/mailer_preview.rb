@@ -18,14 +18,6 @@ class Devise::MailerPreview < ActionMailer::Preview
     Devise::Mailer.reset_password_instructions(user, token)
   end
 
-  # def unlock_instructions
-  #   user = FactoryBot.create(:user)
-  #
-  #   token = SecureRandom.base58
-  #
-  #   Devise::Mailer.unlock_instructions(user, token)
-  # end
-
   def email_changed
     user = FactoryBot.create(:user)
 
