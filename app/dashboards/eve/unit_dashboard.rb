@@ -12,6 +12,8 @@ module Eve
       display_name: Field::String,
       created_at: Field::DateTime,
       updated_at: Field::DateTime
+      # TODO: add later
+      # dogma_attributes: Field::HasMany
     }.freeze
 
     COLLECTION_ATTRIBUTES = [:id, :unit_id, :unit_name].freeze
@@ -24,6 +26,8 @@ module Eve
       :display_name,
       :created_at,
       :updated_at
+      # TODO: add later
+      # :dogma_attributes
     ].freeze
 
     FORM_ATTRIBUTES = [
@@ -36,7 +40,7 @@ module Eve
     COLLECTION_FILTERS = {}.freeze
 
     def display_resource(unit)
-      unit.unit_name
+      unit.description
     end
   end
 end
