@@ -19,11 +19,17 @@
     "timeago.js": "^4.0.2",
     "turbolinks": "^5.2.0",
     "vue": "^2.6.11",
-    "vue-select": "^3.10.3"
+    "vue-select": "^3.10.3",
+    "snyk": "^1.339.0"
   },
   "version": "0.1.0",
   "devDependencies": {
     "prettier": "^2.0.5",
     "webpack-dev-server": "^3.10.3"
-  }
+  },
+  "scripts": {
+    "snyk-protect": "snyk protect",
+    "prepare": "yarn run snyk-protect"
+  },
+  "snyk": true
 }
