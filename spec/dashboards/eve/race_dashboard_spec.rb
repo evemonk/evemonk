@@ -4,4 +4,10 @@ require "rails_helper"
 
 describe Eve::RaceDashboard do
   it { should be_an(Administrate::BaseDashboard) }
+
+  describe "#display_resource" do
+    let(:race) { build(:eve_race, name: "Caldari") }
+
+    specify { expect(subject.display_resource(race)).to eq("Caldari") }
+  end
 end
