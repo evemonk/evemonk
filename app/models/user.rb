@@ -13,10 +13,10 @@ class User < ApplicationRecord
 
   enum locale: {auto_detect: 0,
                 english: 1,
-                german: 1,
-                french: 2,
-                japanese: 3,
-                russian: 4,
-                chinese: 5,
-                korean: 6}
+                german: 2,
+                french: 3,
+                japanese: 4,
+                russian: 5,
+                chinese: 6,
+                korean: 7}
 end
