@@ -264,7 +264,7 @@ GEM
     http-2 (0.10.1)
     http_accept_language (2.1.1)
     httpclient (2.8.3)
-    httplog (1.4.2)
+    httplog (1.4.3)
       rack (>= 1.0)
       rainbow (>= 2.0.0)
     i18n (1.8.3)
