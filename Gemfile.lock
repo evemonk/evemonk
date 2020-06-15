@@ -261,7 +261,7 @@ GEM
     hashie (4.1.0)
     heapy (0.1.4)
     html_tokenizer (0.0.7)
-    http-2 (0.10.1)
+    http-2 (0.10.2)
     http_accept_language (2.1.1)
     httpclient (2.8.3)
     httplog (1.4.3)
