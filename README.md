@@ -51,7 +51,7 @@ All screenshots are real and made in Safari on latest macOS Catalina (10.15.3).
 - Ruby 2.7.1
 - RubyGems 3.1.2
 - Bundler 2.1.4
-- Ruby on Rails 6.0.3.1
+- Ruby on Rails 6.0.3.2
 - PostgreSQL 12.3
 - Redis 6.0.5
 - Elasticsearch 7.7.1
