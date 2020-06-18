@@ -196,12 +196,12 @@ GEM
       activesupport (>= 5.0)
       request_store (>= 1.0)
     dry-initializer (3.0.3)
-    elasticsearch (7.7.0)
-      elasticsearch-api (= 7.7.0)
-      elasticsearch-transport (= 7.7.0)
-    elasticsearch-api (7.7.0)
+    elasticsearch (7.8.0)
+      elasticsearch-api (= 7.8.0)
+      elasticsearch-transport (= 7.8.0)
+    elasticsearch-api (7.8.0)
       multi_json
-    elasticsearch-transport (7.7.0)
+    elasticsearch-transport (7.8.0)
       faraday (~> 1)
       multi_json
     enumerable-statistics (2.0.1)
@@ -551,7 +551,7 @@ GEM
       faraday (> 0.8, < 2.0)
     scout_apm (2.6.7)
       parser
-    searchkick (4.3.1)
+    searchkick (4.4.0)
       activemodel (>= 5)
       elasticsearch (>= 6)
       hashie
