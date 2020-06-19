@@ -614,7 +614,8 @@ GEM
       unicode-display_width (~> 1.5)
       unicode_utils (~> 1.4)
     strings-ansi (0.2.0)
-    super_diff (0.5.0)
+    super_diff (0.5.1)
+      attr_extras (>= 6.2.4)
       diff-lcs
       patience_diff
     swagger-blocks (3.0.0)
@@ -699,7 +700,6 @@ DEPENDENCIES
   activerecord-nulldb-adapter
   administrate
   anyway_config
-  attr_extras
   authy
   awesome_print
   bootsnap (>= 1.4.2)
