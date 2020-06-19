@@ -93,7 +93,6 @@ GEM
     anyway_config (2.0.5)
       ruby-next-core (>= 0.8.0)
     ast (2.4.1)
-    attr_extras (6.2.4)
     authy (2.7.5)
       httpclient (>= 2.5.3.3)
     autoprefixer-rails (9.7.6)
@@ -614,8 +613,7 @@ GEM
       unicode-display_width (~> 1.5)
       unicode_utils (~> 1.4)
     strings-ansi (0.2.0)
-    super_diff (0.4.2)
-      attr_extras
+    super_diff (0.5.0)
       diff-lcs
       patience_diff
     swagger-blocks (3.0.0)
