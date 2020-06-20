@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_09_135403) do
+ActiveRecord::Schema.define(version: 2020_06_19_204418) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -450,6 +450,28 @@ ActiveRecord::Schema.define(version: 2020_06_09_135403) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["constellation_id"], name: "index_eve_constellations_on_constellation_id", unique: true
     t.index ["region_id"], name: "index_eve_constellations_on_region_id"
+  end
+
+  create_table "eve_contracts", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.float "buyout"
+    t.float "collateral"
+    t.bigint "contract_id"
+    t.datetime "date_expired"
+    t.datetime "date_issued"
+    t.integer "days_to_complete"
+    t.bigint "end_location_id"
+    t.boolean "for_corporation"
+    t.bigint "issuer_corporation_id"
+    t.bigint "issuer_id"
+    t.float "price"
+    t.float "reward"
+    t.bigint "start_location_id"
+    t.string "title"
+    t.string "kind"
+    t.float "volume"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "region_id"
   end
 
   create_table "eve_corporation_alliance_histories", force: :cascade do |t|
