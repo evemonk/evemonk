@@ -92,6 +92,8 @@ GEM
       selectize-rails (~> 0.6)
     anyway_config (2.0.5)
       ruby-next-core (>= 0.8.0)
+    ar_lazy_preload (0.3.0)
+      rails (>= 4.2)
     ast (2.4.1)
     attr_extras (6.2.4)
     authy (2.7.5)
@@ -704,6 +706,7 @@ DEPENDENCIES
   activerecord-nulldb-adapter
   administrate
   anyway_config
+  ar_lazy_preload
   authy
   awesome_print
   bootsnap (>= 1.4.2)
