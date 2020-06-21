@@ -96,11 +96,11 @@ module Types
 
     def ships
       # TODO: load only ships!!!
-      ::Eve::Ship.all.decorate
+      ::Eve::Ship.lazy_preload(:group).all.decorate
     end
 
     def types
-      ::Eve::Type.all.decorate
+      ::Eve::Type.lazy_preload(:group).all.decorate
     end
 
     def regions
