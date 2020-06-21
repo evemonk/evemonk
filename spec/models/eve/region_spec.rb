@@ -14,4 +14,6 @@ describe Eve::Region do
   it { expect(described_class.table_name).to eq("eve_regions") }
 
   it { should have_many(:constellations).with_primary_key("region_id") }
+
+  it { should have_many(:contracts).with_primary_key("region_id") }
 end
