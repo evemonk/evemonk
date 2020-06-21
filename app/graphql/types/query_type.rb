@@ -1,13 +1,23 @@
+# frozen_string_literal: true
+
 module Types
   class QueryType < Types::BaseObject
-    # Add root-level fields here.
-    # They will be entry points for queries on your schema.
+    field :alliances,
+          [Types::EveAllianceType],
+          null: false,
+          description: "Eve Alliances"
 
-    # TODO: remove me
-    field :test_field, String, null: false,
-      description: "An example field added by the generator"
-    def test_field
-      "Hello World!"
+    field :contracts,
+          [Types::EveContractType],
+          null: false,
+          description: "Public Contracts"
+
+    def contracts
+      ::Eve::Contract.all
+    end
+
+    def alliances
+      ::Eve::Alliance.all
     end
   end
 end
