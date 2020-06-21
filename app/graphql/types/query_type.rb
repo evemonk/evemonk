@@ -27,6 +27,11 @@ module Types
       null: false,
       description: "Eve Races"
 
+    field :regions,
+      [Types::EveRegionType],
+      null: false,
+      description: "Eve Regions"
+
     field :contracts,
       [Types::EveContractType],
       null: false,
@@ -50,6 +55,10 @@ module Types
 
     def races
       ::Eve::Race.all.decorate
+    end
+
+    def regions
+      ::Eve::Region.all.decorate
     end
 
     def contracts

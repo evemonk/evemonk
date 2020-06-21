@@ -18,7 +18,8 @@ module Types
     field :title, String, null: true
     field :kind, String, null: true
     field :volume, Float, null: true
-    # field :region_id, Integer, null: true
+    field :region_id, Integer, null: true
+    field :region, Types::EveRegionType, null: true
 
     def id
       object.contract_id
