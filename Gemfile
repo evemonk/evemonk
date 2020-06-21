@@ -19,6 +19,7 @@ gem "devise-i18n"
 gem "devise_zxcvbn"
 gem "devise-authy"
 gem "graphql"
+gem "graphiql-rails"
 gem "cable_ready"
 gem "stimulus_reflex"
 gem "meta-tags"
@@ -115,7 +116,6 @@ group :development do
   gem "cacheflow"
   gem "gemdiff", require: false
   gem "derailed_benchmarks"
-  gem "graphiql-rails"
 end
 
 group :test do
