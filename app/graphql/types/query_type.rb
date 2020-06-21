@@ -27,6 +27,11 @@ module Types
       null: false,
       description: "Eve Races"
 
+    field :bloodlines,
+      [Types::EveBloodlineType],
+      null: false,
+      description: "Eve Bloodlines"
+
     field :regions,
       [Types::EveRegionType],
       null: false,
@@ -55,6 +60,10 @@ module Types
 
     def races
       ::Eve::Race.all.decorate
+    end
+
+    def bloodlines
+      ::Eve::Bloodline.all.decorate
     end
 
     def regions
