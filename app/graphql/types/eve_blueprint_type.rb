@@ -23,13 +23,12 @@ module Types
     field :base_price, Float, null: true
     field :adjusted_price, Float, null: true
     field :average_price, Float, null: true
-
-    # t.bigint "copying_time"
-    # t.integer "max_production_limit"
-    # t.bigint "manufacturing_time"
-    # t.bigint "research_material_time"
-    # t.bigint "research_time_time"
-    # t.bigint "invention_time"
+    field :copying_time, Integer, null: true
+    field :max_production_limit, Integer, null: true
+    field :manufacturing_time, Integer, null: true
+    field :research_material_time, Integer, null: true
+    field :research_time_time, Integer, null: true
+    field :invention_time, Integer, null: true
 
     def id
       object.type_id
