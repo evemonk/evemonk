@@ -3,29 +3,29 @@
 module Types
   class QueryType < Types::BaseObject
     field :alliances,
-          [Types::EveAllianceType],
-          null: false,
-          description: "Eve Alliances"
+      [Types::EveAllianceType],
+      null: false,
+      description: "Eve Alliances"
 
     field :corporations,
-          [Types::EveCorporationType],
-          null: false,
-          description: "Eve Corporations"
+      [Types::EveCorporationType],
+      null: false,
+      description: "Eve Corporations"
 
     field :characters,
-          [Types::EveCharacterType],
-          null: false,
-          description: "Eve Characters"
+      [Types::EveCharacterType],
+      null: false,
+      description: "Eve Characters"
 
     field :factions,
-          [Types::EveFactionType],
-          null: false,
-          description: "Eve Factions"
+      [Types::EveFactionType],
+      null: false,
+      description: "Eve Factions"
 
     field :contracts,
-          [Types::EveContractType],
-          null: false,
-          description: "Public Contracts"
+      [Types::EveContractType],
+      null: false,
+      description: "Public Contracts"
 
     def alliances
       ::Eve::Alliance.all
