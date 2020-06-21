@@ -16,9 +16,10 @@ class GraphqlController < ApplicationController
     }
     result = EvemonkSchema.execute(query, variables: variables, context: context, operation_name: operation_name)
     render json: result
-  rescue => e
+  rescue => e # rubocop:disable Style/RescueStandardError
     raise e unless Rails.env.development?
-    handle_error_in_development e
+
+    handle_error_in_development(e)
   end
 
   private
