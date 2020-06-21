@@ -115,6 +115,7 @@ group :development do
   gem "cacheflow"
   gem "gemdiff", require: false
   gem "derailed_benchmarks"
+  gem "graphiql-rails"
 end
 
 group :test do
