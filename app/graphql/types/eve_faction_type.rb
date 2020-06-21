@@ -3,6 +3,7 @@
 module Types
   class EveFactionType < Types::BaseObject
     field :id, ID, null: false
+    field :corporation_id, Integer, null: true
     field :corporation, Types::EveCorporationType, null: true
     field :description, GraphQL::Types::JSON, null: true
     field :is_unique, Boolean, null: true
