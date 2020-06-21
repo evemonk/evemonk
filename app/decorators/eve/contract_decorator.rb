@@ -2,6 +2,6 @@
 
 module Eve
   class ContractDecorator < ApplicationDecorator
-    decorates_associations :region
+    decorates_associations :region, :issuer, :issuer_corporation
   end
 end
