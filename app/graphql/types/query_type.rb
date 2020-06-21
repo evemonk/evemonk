@@ -32,6 +32,11 @@ module Types
       null: false,
       description: "Eve Bloodlines"
 
+    field :groups,
+      [Types::EveGroupType],
+      null: false,
+      description: "Eve Groups"
+
     field :blueprints,
       [Types::EveBlueprintType],
       null: false,
@@ -81,8 +86,12 @@ module Types
       ::Eve::Bloodline.all.decorate
     end
 
+    def groups
+      ::Eve::Group.all.decorate
+    end
+
     def blueprints
-      ::Eve::Blueprint.all.decorate
+      ::Eve::Blueprint.lazy_preload(:group).all.decorate
     end
 
     def ships

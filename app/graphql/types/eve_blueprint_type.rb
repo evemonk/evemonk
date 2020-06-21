@@ -9,7 +9,7 @@ module Types
     field :graphic_id, Integer, null: true
     # field :graphic, Types::EveGraphicType, null: true
     field :group_id, Integer, null: true
-    # field :group, Types::EveGroupType, null: true
+    field :group, Types::EveGroupType, null: true
     field :icon_id, Integer, null: true
     # field :icon, Types::EveIconType, null: true
     field :market_group_id, Integer, null: true
