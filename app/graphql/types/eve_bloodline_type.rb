@@ -9,7 +9,8 @@ module Types
     field :corporation, Types::EveCorporationType, null: true
     field :race_id, Integer, null: true
     field :race, Types::EveRaceType, null: true
-    # t.bigint "ship_type_id"
+    field :ship_type_id, Integer, null: true
+    field :ship_type, Types::EveShipType, null: true
     field :charisma, Integer, null: true
     field :intelligence, Integer, null: true
     field :memory, Integer, null: true
