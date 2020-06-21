@@ -7,17 +7,35 @@ module Types
           null: false,
           description: "Eve Alliances"
 
+    field :corporations,
+          [Types::EveCorporationType],
+          null: false,
+          description: "Eve Corporations"
+
+    field :characters,
+          [Types::EveCharacterType],
+          null: false,
+          description: "Eve Characters"
+
     field :contracts,
           [Types::EveContractType],
           null: false,
           description: "Public Contracts"
 
-    def contracts
-      ::Eve::Contract.all
-    end
-
     def alliances
       ::Eve::Alliance.all
+    end
+
+    def corporations
+      ::Eve::Corporation.all
+    end
+
+    def characters
+      ::Eve::Character.all
+    end
+
+    def contracts
+      ::Eve::Contract.all
     end
   end
 end

@@ -6,12 +6,15 @@ module Types
     field :name, String, null: true
     field :ticker, String, null: true
     field :date_founded, GraphQL::Types::ISO8601DateTime, null: true
-    # field :creator_corporation, EveCorporationType, null: true
-    # field :creator, EveCharacterType, null: true
-    # field :executor_corporation
-    # field :faction
+    field :creator_corporation, Types::EveCorporationType, null: true
+    field :creator, Types::EveCharacterType, null: true
+    field :executor_corporation, Types::EveCorporationType, null: true
+    field :faction, Types::EveFactionType, null: true
     field :corporations_count, Integer, null: true
     field :characters_count, Integer, null: true
+    field :corporations, [Types::EveCorporationType], null: true
+    field :characters, [Types::EveCharacterType], null: true
+    # field :history, [Types::AllianceHistoryType], null: true
 
     def id
       object.alliance_id
