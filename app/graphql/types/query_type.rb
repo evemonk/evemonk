@@ -22,29 +22,38 @@ module Types
       null: false,
       description: "Eve Factions"
 
+    field :races,
+      [Types::EveRaceType],
+      null: false,
+      description: "Eve Races"
+
     field :contracts,
       [Types::EveContractType],
       null: false,
       description: "Public Contracts"
 
     def alliances
-      ::Eve::Alliance.all
+      ::Eve::Alliance.all.decorate
     end
 
     def corporations
-      ::Eve::Corporation.all
+      ::Eve::Corporation.all.decorate
     end
 
     def characters
-      ::Eve::Character.all
+      ::Eve::Character.all.decorate
     end
 
     def factions
-      ::Eve::Faction.all
+      ::Eve::Faction.all.decorate
+    end
+
+    def races
+      ::Eve::Race.all.decorate
     end
 
     def contracts
-      ::Eve::Contract.all
+      ::Eve::Contract.all.decorate
     end
   end
 end

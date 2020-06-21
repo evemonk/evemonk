@@ -18,7 +18,7 @@ module Types
     field :gender, String, null: true
     field :name, String, null: true
     field :race_id, Integer, null: true
-    # field :race, Types::EveRaceType, null: true
+    field :race, Types::EveRaceType, null: true
     field :security_status, Float, null: true
     field :title, String, null: true
 
