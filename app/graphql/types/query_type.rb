@@ -32,6 +32,21 @@ module Types
       null: false,
       description: "Eve Bloodlines"
 
+    field :blueprints,
+      [Types::EveBlueprintType],
+      null: false,
+      description: "Eve Blueprints"
+
+    field :ships,
+      [Types::EveShipType],
+      null: false,
+      description: "Eve Ships"
+
+    field :types,
+      [Types::EveTypeType],
+      null: false,
+      description: "Eve Types"
+
     field :regions,
       [Types::EveRegionType],
       null: false,
@@ -64,6 +79,19 @@ module Types
 
     def bloodlines
       ::Eve::Bloodline.all.decorate
+    end
+
+    def blueprints
+      ::Eve::Blueprint.all.decorate
+    end
+
+    def ships
+      # TODO: load only ships!!!
+      ::Eve::Ship.all.decorate
+    end
+
+    def types
+      ::Eve::Type.all.decorate
     end
 
     def regions
