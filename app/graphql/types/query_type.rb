@@ -17,6 +17,11 @@ module Types
           null: false,
           description: "Eve Characters"
 
+    field :factions,
+          [Types::EveFactionType],
+          null: false,
+          description: "Eve Factions"
+
     field :contracts,
           [Types::EveContractType],
           null: false,
@@ -32,6 +37,10 @@ module Types
 
     def characters
       ::Eve::Character.all
+    end
+
+    def factions
+      ::Eve::Faction.all
     end
 
     def contracts
