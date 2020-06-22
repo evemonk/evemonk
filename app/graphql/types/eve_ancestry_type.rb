@@ -1,24 +1,18 @@
 # frozen_string_literal: true
 
 module Types
-  class EveBloodlineType < Types::BaseObject
+  class EveAncestryType < Types::BaseObject
     field :id, ID, null: false
     field :name, GraphQL::Types::JSON, null: true
     field :description, GraphQL::Types::JSON, null: true
-    field :corporation_id, Integer, null: true
-    field :corporation, Types::EveCorporationType, null: true
-    field :race_id, Integer, null: true
-    field :race, Types::EveRaceType, null: true
-    field :ship_type_id, Integer, null: true
-    field :ship_type, Types::EveShipType, null: true
-    field :charisma, Integer, null: true
-    field :intelligence, Integer, null: true
-    field :memory, Integer, null: true
-    field :perception, Integer, null: true
-    field :willpower, Integer, null: true
+    field :bloodline_id, Integer, null: true
+    field :bloodline, Types::EveBloodlineType, null: true
+    field :icon_id, Integer, null: true
+    # field :icon, Integer, null: true
+    field :short_description, String, null: true
 
     def id
-      object.bloodline_id
+      object.ancestry_id
     end
 
     def name

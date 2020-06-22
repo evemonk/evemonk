@@ -6,7 +6,7 @@ module Types
     field :alliance_id, Integer, null: true
     field :alliance, Types::EveAllianceType, null: true
     field :ancestry_id, Integer, null: true
-    # field :ancestry, Types::EveAncestryType, null: true
+    field :ancestry, Types::EveAncestryType, null: true
     field :birthday, GraphQL::Types::ISO8601DateTime, null: true
     field :bloodline_id, Integer, null: true
     field :bloodline, Types::EveBloodlineType, null: true
