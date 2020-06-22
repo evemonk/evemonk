@@ -9,7 +9,7 @@ module Types
     # field :ancestry, Types::EveAncestryType, null: true
     field :birthday, GraphQL::Types::ISO8601DateTime, null: true
     field :bloodline_id, Integer, null: true
-    # field :bloodline, Types::EveBloodlineType, null: true
+    field :bloodline, Types::EveBloodlineType, null: true
     field :corporation_id, Integer, null: true
     field :corporation, Types::EveCorporationType, null: true
     field :description, String, null: true

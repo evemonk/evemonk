@@ -13,7 +13,8 @@ module Types
     field :reprocessing_stations_take, Float, null: true
     field :services, [String], null: true
     # t.bigint "system_id"
-    # t.bigint "type_id"
+    field :type_id, Integer, null: true
+    field :type, Types::EveTypeType, null: true
 
     def id
       object.station_id
