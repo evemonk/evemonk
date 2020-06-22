@@ -18,6 +18,7 @@ module Types
     field :characters_count, Integer, null: true
     field :corporations, [Types::EveCorporationType], null: true
     field :characters, [Types::EveCharacterType], null: true
+    # TODO: corporation_alliance_histories
     # field :history, [Types::AllianceHistoryType], null: true
 
     def id
