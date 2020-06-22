@@ -13,7 +13,8 @@ module Types
     field :description, String, null: true
     field :faction_id, Integer, null: true
     field :faction, Types::EveFactionType, null: true
-    # field :home_station, Types::EveStationType, null: true
+    field :home_station_id, Integer, null: true
+    field :home_station, Types::EveStationType, null: true
     field :member_count, Integer, null: true
     field :name, String, null: true
     field :shares, GraphQL::Types::BigInt, null: true
