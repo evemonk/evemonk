@@ -12,18 +12,6 @@ module Types
       object.race_id
     end
 
-    def description
-      {
-        en: object.description_en,
-        de: object.description_de,
-        fr: object.description_fr,
-        ja: object.description_ja,
-        ru: object.description_ru,
-        zh: object.description_zh,
-        ko: object.description_ko
-      }
-    end
-
     def name
       {
         en: object.name_en,
@@ -33,6 +21,18 @@ module Types
         ru: object.name_ru,
         zh: object.name_zh,
         ko: object.name_ko
+      }
+    end
+
+    def description
+      {
+        en: object.description_en,
+        de: object.description_de,
+        fr: object.description_fr,
+        ja: object.description_ja,
+        ru: object.description_ru,
+        zh: object.description_zh,
+        ko: object.description_ko
       }
     end
   end

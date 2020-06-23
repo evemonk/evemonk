@@ -12,7 +12,8 @@ module Types
     field :reprocessing_efficiency, Float, null: true
     field :reprocessing_stations_take, Float, null: true
     field :services, [String], null: true
-    # t.bigint "system_id"
+    field :system_id, Integer, null: true
+    field :system, Types::EveSystemType, null: true
     field :type_id, Integer, null: true
     field :type, Types::EveTypeType, null: true
 
