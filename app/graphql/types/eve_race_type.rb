@@ -7,6 +7,8 @@ module Types
     field :description, GraphQL::Types::JSON, null: true
     field :faction_id, Integer, null: true
     field :faction, Types::EveFactionType, null: true
+    field :bloodlines, [Types::EveBloodlineType], null: true
+    field :stations, [Types::EveStationType], null: true
 
     def id
       object.race_id
