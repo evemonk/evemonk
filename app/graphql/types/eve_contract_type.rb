@@ -10,8 +10,10 @@ module Types
     field :days_to_complete, Integer, null: true
     # field :end_location_id, Integer, null: true
     field :for_corporation, Boolean, null: true
-    # field :issuer_corporation_id, Integer, null: true
-    # field :issuer_id, Integer, null: true
+    field :issuer_corporation_id, Integer, null: true
+    field :issuer_corporation, Types::EveCorporationType, null: true
+    field :issuer_id, Integer, null: true
+    field :issuer, Types::EveCharacterType, null: true
     field :price, Float, null: true
     field :reward, Float, null: true
     # field :start_location_id, Integer, null: true
