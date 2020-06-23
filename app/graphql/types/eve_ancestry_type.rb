@@ -8,7 +8,7 @@ module Types
     field :bloodline_id, Integer, null: true
     field :bloodline, Types::EveBloodlineType, null: true
     field :icon_id, Integer, null: true
-    # field :icon, Types::EveIconType, null: true
+    field :icon, Types::EveIconType, null: true
     field :short_description, String, null: true
 
     def id

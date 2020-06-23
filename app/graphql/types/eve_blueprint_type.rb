@@ -11,7 +11,7 @@ module Types
     field :group_id, Integer, null: true
     field :group, Types::EveGroupType, null: true
     field :icon_id, Integer, null: true
-    # field :icon, Types::EveIconType, null: true
+    field :icon, Types::EveIconType, null: true
     field :market_group_id, Integer, null: true
     # field :market_group, Types::EveMarketGroupType, null: true
     field :mass, Float, null: true
