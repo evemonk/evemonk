@@ -7,6 +7,7 @@ module Types
     field :published, Boolean, null: true
     field :category_id, Integer, null: true
     field :category, Types::EveCategoryType, null: false
+    field :types, [Types::EveTypeType], null: false
 
     def id
       object.group_id

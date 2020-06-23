@@ -6,6 +6,8 @@ module Types
     field :name, GraphQL::Types::JSON, null: true
     field :description, GraphQL::Types::JSON, null: true
     field :parent_group_id, Integer, null: true
+    field :parent_group, Types::EveMarketGroupType, null: true
+    field :types, [Types::EveTypeType], null: true
 
     def id
       object.market_group_id
