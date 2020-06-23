@@ -12,7 +12,7 @@ module Types
     field :militia_corporation, Types::EveCorporationType, null: true
     field :size_factor, Float, null: true
     field :solar_system_id, Integer, null: true
-    # field :solar_system, Types::EveSystemType, null: true
+    field :solar_system, Types::EveSystemType, null: true
     field :station_count, Integer, null: true
     field :station_system_count, Integer, null: true
     field :alliances, [Types::EveAllianceType], null: true
