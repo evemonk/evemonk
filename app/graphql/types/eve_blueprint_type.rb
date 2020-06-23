@@ -13,7 +13,7 @@ module Types
     field :icon_id, Integer, null: true
     field :icon, Types::EveIconType, null: true
     field :market_group_id, Integer, null: true
-    # field :market_group, Types::EveMarketGroupType, null: true
+    field :market_group, Types::EveMarketGroupType, null: true
     field :mass, Float, null: true
     field :packaged_volume, Float, null: true
     field :portion_size, Integer, null: true
