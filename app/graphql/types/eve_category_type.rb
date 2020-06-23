@@ -1,15 +1,13 @@
 # frozen_string_literal: true
 
 module Types
-  class EveGroupType < Types::BaseObject
+  class EveCategoryType < Types::BaseObject
     field :id, ID, null: false
     field :name, GraphQL::Types::JSON, null: true
     field :published, Boolean, null: true
-    field :category_id, Integer, null: true
-    field :category, Types::EveCategoryType, null: false
 
     def id
-      object.group_id
+      object.category_id
     end
 
     def name
