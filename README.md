@@ -55,7 +55,7 @@ All screenshots are real and made in Safari on latest macOS Catalina (10.15.3).
 - PostgreSQL 12.3
 - Redis 6.0.5
 - Elasticsearch 7.8.0
-- Node 12.18.0
+- Node 12.18.1
 - NPM 6.14.5
 - Yarn 1.22.4
 - Bootstrap 4.5.0
