@@ -557,7 +557,7 @@ GEM
       faraday (> 0.8, < 2.0)
     scout_apm (2.6.7)
       parser
-    searchkick (4.4.0)
+    searchkick (4.4.1)
       activemodel (>= 5)
       elasticsearch (>= 6)
       hashie
