@@ -59,7 +59,7 @@ All screenshots are real and made in Safari on latest macOS Catalina (10.15.3).
 - NPM 6.14.5
 - Yarn 1.22.4
 - Bootstrap 4.5.0
-- Bootstrap Icons 1.0.0-alpha4
+- Bootstrap Icons 1.0.0-alpha5
 - Bootswatch Darkly 4.5.0
 
 ## Configure
