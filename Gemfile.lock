@@ -457,7 +457,7 @@ GEM
     rails-pg-extras (1.2.1)
       activerecord
       ruby-pg-extras (= 1.2.1)
-    rails-settings-cached (2.1.1)
+    rails-settings-cached (2.2.0)
       rails (>= 4.2.0)
       request_store
     rails_best_practices (1.20.0)
