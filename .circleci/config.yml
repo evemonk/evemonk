@@ -22,7 +22,7 @@ jobs:
           keys:
             - ruby-271-v1-dependencies-{{ checksum "Gemfile.lock" }}
             - ruby-271-v1-dependencies-
-      - run: sudo gem update --system '3.1.2'
+      - run: sudo gem update --system '3.1.4'
       - run: gem install bundler -v '2.1.4'
       - run: bundle check || bundle install --clean --jobs=2 --retry=5 --path vendor/bundle
       - save_cache:
