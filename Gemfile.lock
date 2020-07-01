@@ -138,7 +138,7 @@ GEM
       xpath (~> 3.2)
     chartkick (3.3.1)
     childprocess (3.0.0)
-    code_analyzer (0.5.1)
+    code_analyzer (0.5.2)
       sexp_processor
     codecov (0.1.17)
       json
