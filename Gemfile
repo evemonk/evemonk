@@ -64,6 +64,7 @@ gem "server_timing"
 gem "traceroute"
 # gem "strong_migrations"
 gem "easymon"
+gem "good_migrations"
 
 gem "awesome_print", require: "ap"
 gem "pry-rails"
