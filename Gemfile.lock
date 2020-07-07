@@ -90,7 +90,7 @@ GEM
       momentjs-rails (~> 2.8)
       sassc-rails (~> 2.1)
       selectize-rails (~> 0.6)
-    anyway_config (2.0.5)
+    anyway_config (2.0.6)
       ruby-next-core (>= 0.8.0)
     ar_lazy_preload (0.3.0)
       rails (>= 4.2)
