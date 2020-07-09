@@ -915,21 +915,45 @@
     "@sentry/types" "5.19.1"
     tslib "^1.9.3"
 
+"@stimulus/core@^1.1.1":
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@stimulus/core/-/core-1.1.1.tgz#42b0cfe5b73ca492f41de64b77a03980bae92c82"
+  integrity sha512-PVJv7IpuQx0MVPCBblXc6O2zbCmU8dlxXNH4bC9KK6LsvGaE+PCXXrXQfXUwAsse1/CmRu/iQG7Ov58himjiGg==
+  dependencies:
+    "@stimulus/mutation-observers" "^1.1.1"
+
 "@stimulus/core@https://github.com/stimulusjs/dev-builds/archive/b8cc8c4/@stimulus/core.tar.gz":
   version "1.1.1"
   resolved "https://github.com/stimulusjs/dev-builds/archive/b8cc8c4/@stimulus/core.tar.gz#03ea0bb10e85684dab4151bd5ae1a767cc5c52a9"
   dependencies:
     "@stimulus/mutation-observers" "https://github.com/stimulusjs/dev-builds/archive/b8cc8c4/@stimulus/mutation-observers.tar.gz"
 
+"@stimulus/multimap@^1.1.1":
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@stimulus/multimap/-/multimap-1.1.1.tgz#b95e3fd607345ab36e5d5b55486ee1a12d56b331"
+  integrity sha512-26R1fI3a8uUj0WlMmta4qcfIQGlagegdP4PTz6lz852q/dXlG6r+uPS/bx+H8GtfyS+OOXVr3SkZ0Zg0iRqRfQ==
+
 "@stimulus/multimap@https://github.com/stimulusjs/dev-builds/archive/b8cc8c4/@stimulus/multimap.tar.gz":
   version "1.1.1"
   resolved "https://github.com/stimulusjs/dev-builds/archive/b8cc8c4/@stimulus/multimap.tar.gz#3f64d0aa7aa49d10060004f0e26a400810a54590"
+
+"@stimulus/mutation-observers@^1.1.1":
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@stimulus/mutation-observers/-/mutation-observers-1.1.1.tgz#0f6c6f081308427fed2a26360dda0c173b79cfc0"
+  integrity sha512-/zCnnw1KJlWO2mrx0yxYaRFZWMGnDMdOgSnI4hxDLxdWVuL2HMROU8FpHWVBLjKY3T9A+lGkcrmPGDHF3pfS9w==
+  dependencies:
+    "@stimulus/multimap" "^1.1.1"
 
 "@stimulus/mutation-observers@https://github.com/stimulusjs/dev-builds/archive/b8cc8c4/@stimulus/mutation-observers.tar.gz":
   version "1.1.1"
   resolved "https://github.com/stimulusjs/dev-builds/archive/b8cc8c4/@stimulus/mutation-observers.tar.gz#33a01c587b9fa09cb7378dc9b54a83fdebd70bfa"
   dependencies:
     "@stimulus/multimap" "https://github.com/stimulusjs/dev-builds/archive/b8cc8c4/@stimulus/multimap.tar.gz"
+
+"@stimulus/webpack-helpers@^1.1.1":
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@stimulus/webpack-helpers/-/webpack-helpers-1.1.1.tgz#eff60cd4e58b921d1a2764dc5215f5141510f2c2"
+  integrity sha512-XOkqSw53N9072FLHvpLM25PIwy+ndkSSbnTtjKuyzsv8K5yfkFB2rv68jU1pzqYa9FZLcvZWP4yazC0V38dx9A==
 
 "@stimulus/webpack-helpers@https://github.com/stimulusjs/dev-builds/archive/b8cc8c4/@stimulus/webpack-helpers.tar.gz":
   version "1.1.1"
@@ -954,9 +978,9 @@
   integrity sha512-tHq6qdbT9U1IRSGf14CL0pUlULksvY9OZ+5eEgl1N7t+OA3tGvNpxJCzuKQlsNgCVwbAs670L1vcVQi8j9HjnA==
 
 "@types/node@*":
-  version "14.0.19"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-14.0.19.tgz#994d99708822bca643a2364f8aeed04a16e0f5a1"
-  integrity sha512-yf3BP/NIXF37BjrK5klu//asUWitOEoUP5xE1mhSUjazotwJ/eJDgEmMQNlOeWOVv72j24QQ+3bqXHE++CFGag==
+  version "14.0.20"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-14.0.20.tgz#0da05cddbc761e1fa98af88a17244c8c1ff37231"
+  integrity sha512-MRn/NP3dee8yL5QhbSA6riuwkS+UOcsPUMOIOG3KMUQpuor/2TopdRBu8QaaB4fGU+gz/bzyDWt0FtUbeJ8H1A==
 
 "@types/parse-json@^4.0.0":
   version "4.0.0"
@@ -2663,9 +2687,9 @@ ee-first@1.1.1:
   integrity sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=
 
 electron-to-chromium@^1.3.488:
-  version "1.3.492"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.492.tgz#bde16082a05a124266e5ecc9cf0ce53d137f2919"
-  integrity sha512-AD6v9Y2wN0HuoRH4LwCmlSHjkKq51D1U52bTuvM5uPzisbHVm3Hms15c42TBFLewxnSqxAynK/tbeaUi4Rnjqw==
+  version "1.3.494"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.494.tgz#0d2dba65b69d696c5b71abb37552ff055fb32a5c"
+  integrity sha512-EOZuaDT3L1sCIMAVN5J0nGuGWVq5dThrdl0d8XeDYf4MOzbXqZ19OLKesN8TZj0RxtpYjqHpiw/fR6BKWdMwYA==
 
 elliptic@^6.0.0, elliptic@^6.5.2:
   version "6.5.3"
@@ -4030,9 +4054,9 @@ jquery@^3.5.1:
   integrity sha512-XwIBPqcMn57FxfT+Go5pzySnm4KWkT1Tv7gjrpT1srtf8Weynl6R273VJ5GjkRb51IzMp5nbaPjJXMWeju2MKg==
 
 js-base64@^2.1.8:
-  version "2.6.2"
-  resolved "https://registry.yarnpkg.com/js-base64/-/js-base64-2.6.2.tgz#cf9301bc5cc756892a9a6c8d7138322e5944fb0d"
-  integrity sha512-1hgLrLIrmCgZG+ID3VoLNLOSwjGnoZa8tyrUdEteMeIzsT6PH7PMLyUvbDwzNE56P3PNxyvuIOx4Uh2E5rzQIw==
+  version "2.6.3"
+  resolved "https://registry.yarnpkg.com/js-base64/-/js-base64-2.6.3.tgz#7afdb9b57aa7717e15d370b66e8f36a9cb835dc3"
+  integrity sha512-fiUvdfCaAXoQTHdKMgTvg6IkecXDcVz6V5rlftUTclF9IKBjMizvSdQaCl/z/6TApDeby5NL+axYou3i0mu1Pg==
 
 "js-tokens@^3.0.0 || ^4.0.0", js-tokens@^4.0.0:
   version "4.0.0"
@@ -4260,9 +4284,9 @@ lodash.uniq@^4.5.0:
   integrity sha1-0CJTc662Uq3BvILklFM5qEJ1R3M=
 
 lodash@^4.0.0, lodash@^4.17.11, lodash@^4.17.13, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.5, lodash@~4.17.10:
-  version "4.17.17"
-  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.17.tgz#d9018b3acc57a95c9dcf4a45c6b63b877b6c2d45"
-  integrity sha512-/B2DjOphAoqi5BX4Gg2oh4UR0Gy/A7xYAMh3aSECEKzwS3eCDEpS0Cals1Ktvxwlal3bBJNc+5W9kNIcADdw5Q==
+  version "4.17.19"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.19.tgz#e48ddedbe30b3321783c5b4301fbd353bc1e4a4b"
+  integrity sha512-JNvd8XER9GQX0v2qJgsaN/mzFCNA5BRe/j8JN9d+tWyGLSodKQHKFicdwNYzWwI3wjRnaKPsGj1XkBjx/F96DQ==
 
 loglevel@^1.6.8:
   version "1.6.8"
@@ -4615,9 +4639,9 @@ negotiator@0.6.2:
   integrity sha512-hZXc7K2e+PgeI1eDBe/10Ard4ekbfrrqG8Ep+8Jmf4JID2bNg7NvCPOZN+kfF574pFQI7mum2AUqDidoKqcTOw==
 
 neo-async@^2.5.0, neo-async@^2.6.1:
-  version "2.6.1"
-  resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.6.1.tgz#ac27ada66167fa8849a6addd837f6b189ad2081c"
-  integrity sha512-iyam8fBuCUpWeKPGpaNMetEocMt364qkCsfL9JuhjXX6dRnguRVOfk2GZaDpPjcOKiiXCPINZC1GczQ7iTq3Zw==
+  version "2.6.2"
+  resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.6.2.tgz#b4aafb93e3aeb2d8174ca53cf163ab7d7308305f"
+  integrity sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==
 
 nice-try@^1.0.4:
   version "1.0.5"
@@ -4677,9 +4701,9 @@ node-libs-browser@^2.2.1:
     vm-browserify "^1.0.1"
 
 node-releases@^1.1.58:
-  version "1.1.58"
-  resolved "https://registry.yarnpkg.com/node-releases/-/node-releases-1.1.58.tgz#8ee20eef30fa60e52755fcc0942def5a734fe935"
-  integrity sha512-NxBudgVKiRh/2aPWMgPR7bPTX0VPmGx5QBwCtdHitnqFE5/O8DeBXuIMH1nwNnw/aMo6AjOrpsHzfY3UbUJ7yg==
+  version "1.1.59"
+  resolved "https://registry.yarnpkg.com/node-releases/-/node-releases-1.1.59.tgz#4d648330641cec704bff10f8e4fe28e453ab8e8e"
+  integrity sha512-H3JrdUczbdiwxN5FuJPyCHnGHIFqQ0wWxo+9j1kAXAzqNMAHlo+4I/sYYxpyK0irQ73HgdiyzD32oqQDcU2Osw==
 
 node-sass@^4.13.0:
   version "4.14.1"
@@ -6749,7 +6773,15 @@ stdout-stream@^1.4.0:
   dependencies:
     readable-stream "^2.0.1"
 
-"stimulus@>= 1.1", "stimulus@https://github.com/stimulusjs/dev-builds/archive/b8cc8c4/stimulus.tar.gz":
+"stimulus@>= 1.1":
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/stimulus/-/stimulus-1.1.1.tgz#53c2fded6849e7b85eed3ed8dd76e33abd74bec5"
+  integrity sha512-R0mBqKp48YnRDZOxZ8hiOH4Ilph3Yj78CIFTBkCwyHs4iGCpe7xlEdQ7cjIxb+7qVCSxFKgxO+mAQbsNgt/5XQ==
+  dependencies:
+    "@stimulus/core" "^1.1.1"
+    "@stimulus/webpack-helpers" "^1.1.1"
+
+"stimulus@https://github.com/stimulusjs/dev-builds/archive/b8cc8c4/stimulus.tar.gz":
   version "1.1.1"
   resolved "https://github.com/stimulusjs/dev-builds/archive/b8cc8c4/stimulus.tar.gz#6e0e097d712641214cc066e1b7aa83d308f0488c"
   dependencies:
@@ -7401,9 +7433,9 @@ vm-browserify@^1.0.1:
   integrity sha512-2ham8XPWTONajOR0ohOKOHXkm3+gaBmGut3SRuu75xLd/RRaY6vqgh8NBYYk7+RW3u5AtzPQZG8F10LHkl0lAQ==
 
 vue-select@^3.10.3:
-  version "3.10.5"
-  resolved "https://registry.yarnpkg.com/vue-select/-/vue-select-3.10.5.tgz#2c4c3d5fdedbdc348eab581de16168c1e8d08448"
-  integrity sha512-32kJNHE9FqV2RzuIfwAYHny40+EltZjf86Jf4cIHc0QUy2/yAr0PM7cET1MBJe+puJdYrItGTwnmTC4I9gKLWg==
+  version "3.10.7"
+  resolved "https://registry.yarnpkg.com/vue-select/-/vue-select-3.10.7.tgz#58d756a7159bf923ce99abf74c5d6309ea998136"
+  integrity sha512-6rvIYBNEp9y0xK/sq2ZzDCxKA2BoVNliyctOeMtzarQzvpLlab7l8zvqr2jhGZOxozp7jd2AvZxpF3Ivems2wQ==
 
 vue@^2.6.11:
   version "2.6.11"
