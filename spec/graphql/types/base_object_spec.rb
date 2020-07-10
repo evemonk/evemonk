@@ -2,5 +2,5 @@
 
 require "rails_helper"
 
-describe Mutations::BaseMutation do
+describe Types::BaseObject do
 end
