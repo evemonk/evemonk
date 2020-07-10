@@ -24,15 +24,17 @@ describe Types::EveAllianceType do
       )
     end
 
-    let(:result) do
-      EvemonkSchema.execute(query).as_json
-    end
+    let(:result) { EvemonkSchema.execute(query).as_json }
 
     specify do
       expect(result).to eq("data" => {
         "alliances" => [
-          { "id" => "123" },
-          { "id" => "321" },
+          {
+            "id" => "123"
+          },
+          {
+            "id" => "321"
+          }
         ]
       })
     end
