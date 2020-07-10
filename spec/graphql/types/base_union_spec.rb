@@ -2,5 +2,5 @@
 
 require "rails_helper"
 
-describe Types::BaseScalar do
+describe Types::BaseUnion do
 end
