@@ -5,9 +5,7 @@ if Rails.env.development?
 end
 
 Rails.application.routes.draw do
-  if Rails.env.development?
-    mount GraphiQL::Rails::Engine, at: "/graphiql", graphql_path: "/graphql"
-  end
+  mount GraphiQL::Rails::Engine, at: "/graphiql", graphql_path: "/graphql"
 
   post "/graphql", to: "graphql#execute"
 
@@ -22,7 +20,9 @@ Rails.application.routes.draw do
   end
 
   namespace :universe do
-    resources :alliances, only: [:index, :show]
+    resources :alliances, only: [:index, :show] do
+      resource :hovercard, only: :show, controller: "alliances/hovercards"
+    end
 
     resources :corporations, only: [:index, :show]
 
