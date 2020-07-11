@@ -22,13 +22,24 @@ describe Types::EveAllianceType do
              corporation_id: 333)
     end
 
+    let!(:creator1) do
+      create(:eve_character,
+        character_id: 4_444)
+    end
+
+    let!(:creator2) do
+      create(:eve_character,
+        character_id: 5_555)
+    end
+
     let!(:eve_alliance1) do
       create(:eve_alliance,
         alliance_id: 123,
         name: "Alliance 1",
         ticker: "ALLIANCE1",
         date_founded: date_founded1,
-        creator_corporation: create_corporation1)
+        creator_corporation: create_corporation1,
+        creator: creator1)
     end
 
     let!(:eve_alliance2) do
@@ -37,7 +48,8 @@ describe Types::EveAllianceType do
         name: "Alliance 2",
         ticker: "ALLIANCE2",
         date_founded: date_founded2,
-        creator_corporation: create_corporation2)
+        creator_corporation: create_corporation2,
+        creator: creator2)
     end
 
     let(:query) do
@@ -52,6 +64,7 @@ describe Types::EveAllianceType do
             creatorCorporation {
               id
             }
+            creatorId
           }
         }
       )
@@ -70,7 +83,8 @@ describe Types::EveAllianceType do
             "creatorCorporationId" => 222,
             "creatorCorporation" => {
               "id" => "222"
-            }
+            },
+            "creatorId" => 4444
           },
           {
             "id" => "321",
@@ -80,7 +94,8 @@ describe Types::EveAllianceType do
             "creatorCorporationId" => 333,
             "creatorCorporation" => {
               "id" => "333"
-            }
+            },
+            "creatorId" => 5555
           }
         ]
       })
