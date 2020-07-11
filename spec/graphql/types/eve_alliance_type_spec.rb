@@ -12,14 +12,24 @@ describe Types::EveAllianceType do
 
     let(:date_founded2) { Time.zone.now - 1.week }
 
-    let!(:create_corporation1) do
+    let!(:creator_corporation1) do
       create(:eve_corporation,
         corporation_id: 222)
     end
 
-    let!(:create_corporation2) do
+    let!(:creator_corporation2) do
       create(:eve_corporation,
-             corporation_id: 333)
+        corporation_id: 333)
+    end
+
+    let!(:executor_corporation1) do
+      create(:eve_corporation,
+        corporation_id: 444)
+    end
+
+    let!(:executor_corporation2) do
+      create(:eve_corporation,
+        corporation_id: 555)
     end
 
     let!(:creator1) do
@@ -38,8 +48,9 @@ describe Types::EveAllianceType do
         name: "Alliance 1",
         ticker: "ALLIANCE1",
         date_founded: date_founded1,
-        creator_corporation: create_corporation1,
-        creator: creator1)
+        creator_corporation: creator_corporation1,
+        creator: creator1,
+        executor_corporation: executor_corporation1)
     end
 
     let!(:eve_alliance2) do
@@ -48,8 +59,9 @@ describe Types::EveAllianceType do
         name: "Alliance 2",
         ticker: "ALLIANCE2",
         date_founded: date_founded2,
-        creator_corporation: create_corporation2,
-        creator: creator2)
+        creator_corporation: creator_corporation2,
+        creator: creator2,
+        executor_corporation: executor_corporation2)
     end
 
     let(:query) do
@@ -66,6 +78,10 @@ describe Types::EveAllianceType do
             }
             creatorId
             creator {
+              id
+            }
+            executorCorporationId
+            executorCorporation {
               id
             }
           }
@@ -90,6 +106,10 @@ describe Types::EveAllianceType do
             "creatorId" => 4444,
             "creator" => {
               "id" => "4444"
+            },
+            "executorCorporationId" => 444,
+            "executorCorporation" => {
+              "id" => "444"
             }
           },
           {
@@ -104,6 +124,10 @@ describe Types::EveAllianceType do
             "creatorId" => 5555,
             "creator" => {
               "id" => "5555"
+            },
+            "executorCorporationId" => 555,
+            "executorCorporation" => {
+              "id" => "555"
             }
           }
         ]
