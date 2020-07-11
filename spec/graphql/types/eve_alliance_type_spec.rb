@@ -65,6 +65,9 @@ describe Types::EveAllianceType do
               id
             }
             creatorId
+            creator {
+              id
+            }
           }
         }
       )
@@ -84,7 +87,10 @@ describe Types::EveAllianceType do
             "creatorCorporation" => {
               "id" => "222"
             },
-            "creatorId" => 4444
+            "creatorId" => 4444,
+            "creator" => {
+              "id" => "4444"
+            }
           },
           {
             "id" => "321",
@@ -95,7 +101,10 @@ describe Types::EveAllianceType do
             "creatorCorporation" => {
               "id" => "333"
             },
-            "creatorId" => 5555
+            "creatorId" => 5555,
+            "creator" => {
+              "id" => "5555"
+            }
           }
         ]
       })
