@@ -76,6 +76,44 @@ describe Types::EveAllianceType do
         faction: eve_faction2)
     end
 
+    let!(:eve_corporation1) do
+      create(:eve_corporation,
+        corporation_id: 100_111,
+        alliance_id: 123,
+        member_count: 1)
+    end
+
+    let!(:eve_corporation2) do
+      create(:eve_corporation,
+        corporation_id: 100_222,
+        alliance_id: 321,
+        member_count: 1)
+    end
+
+    let!(:eve_alliance_corporation1) do
+      create(:eve_alliance_corporation,
+        corporation_id: 100_111,
+        alliance_id: 123)
+    end
+
+    let!(:eve_alliance_corporation2) do
+      create(:eve_alliance_corporation,
+        corporation_id: 100_222,
+        alliance_id: 321)
+    end
+
+    let!(:eve_character1) do
+      create(:eve_character,
+        corporation_id: 100_111,
+        character_id: 111_111)
+    end
+
+    let!(:eve_character2) do
+      create(:eve_character,
+        corporation_id: 100_222,
+        character_id: 111_222)
+    end
+
     let(:query) do
       %(
         {
@@ -98,6 +136,14 @@ describe Types::EveAllianceType do
             }
             factionId
             faction {
+              id
+            }
+            corporationsCount
+            charactersCount
+            corporations {
+              id
+            }
+            characters {
               id
             }
           }
@@ -130,7 +176,19 @@ describe Types::EveAllianceType do
             "factionId" => 10_111,
             "faction" => {
               "id" => "10111"
-            }
+            },
+            "corporationsCount" => 1,
+            "charactersCount" => 1,
+            "corporations" => [
+              {
+                "id" => "100111"
+              }
+            ],
+            "characters" => [
+              {
+                "id" => "111111"
+              }
+            ]
           },
           {
             "id" => "321",
@@ -152,7 +210,19 @@ describe Types::EveAllianceType do
             "factionId" => 10_222,
             "faction" => {
               "id" => "10222"
-            }
+            },
+            "corporationsCount" => 1,
+            "charactersCount" => 1,
+            "corporations" => [
+              {
+                "id" => "100222"
+              }
+            ],
+            "characters" => [
+              {
+                "id" => "111222"
+              }
+            ]
           }
         ]
       })
