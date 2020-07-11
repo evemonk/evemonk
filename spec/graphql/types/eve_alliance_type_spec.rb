@@ -42,6 +42,16 @@ describe Types::EveAllianceType do
         character_id: 5_555)
     end
 
+    let!(:eve_faction1) do
+      create(:eve_faction,
+        faction_id: 10_111)
+    end
+
+    let!(:eve_faction2) do
+      create(:eve_faction,
+        faction_id: 10_222)
+    end
+
     let!(:eve_alliance1) do
       create(:eve_alliance,
         alliance_id: 123,
@@ -50,7 +60,8 @@ describe Types::EveAllianceType do
         date_founded: date_founded1,
         creator_corporation: creator_corporation1,
         creator: creator1,
-        executor_corporation: executor_corporation1)
+        executor_corporation: executor_corporation1,
+        faction: eve_faction1)
     end
 
     let!(:eve_alliance2) do
@@ -61,7 +72,8 @@ describe Types::EveAllianceType do
         date_founded: date_founded2,
         creator_corporation: creator_corporation2,
         creator: creator2,
-        executor_corporation: executor_corporation2)
+        executor_corporation: executor_corporation2,
+        faction: eve_faction2)
     end
 
     let(:query) do
@@ -82,6 +94,10 @@ describe Types::EveAllianceType do
             }
             executorCorporationId
             executorCorporation {
+              id
+            }
+            factionId
+            faction {
               id
             }
           }
@@ -110,6 +126,10 @@ describe Types::EveAllianceType do
             "executorCorporationId" => 444,
             "executorCorporation" => {
               "id" => "444"
+            },
+            "factionId" => 10_111,
+            "faction" => {
+              "id" => "10111"
             }
           },
           {
@@ -128,6 +148,10 @@ describe Types::EveAllianceType do
             "executorCorporationId" => 555,
             "executorCorporation" => {
               "id" => "555"
+            },
+            "factionId" => 10_222,
+            "faction" => {
+              "id" => "10222"
             }
           }
         ]
