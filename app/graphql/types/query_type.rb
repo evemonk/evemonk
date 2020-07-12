@@ -42,6 +42,27 @@ module Types
       argument :id, ID, required: true
     end
 
+    # factions
+    # faction(id:)
+    # graphics
+    # graphic(id:)
+    # groups
+    # group(id:)
+    # icons
+    # icon(id:)
+    # market_groups
+    # market_group(id:)
+
+    field :races,
+      [Types::EveRaceType],
+      null: false,
+      description: "Eve Races"
+
+    field :race, Types::EveRaceType, null: true do
+      argument :id, ID, required: true
+    end
+
+
     # field :characters,
     #   [Types::EveCharacterType],
     #   null: false,
@@ -55,15 +76,6 @@ module Types
     # #   [Types::EveFactionType],
     # #   null: false,
     # #   description: "Eve Factions"
-    #
-    # field :races,
-    #   [Types::EveRaceType],
-    #   null: false,
-    #   description: "Eve Races"
-    #
-    # field :race, Types::EveRaceType, null: true do
-    #   argument :id, ID, required: true
-    # end
     #
     # # field :bloodlines,
     # #   [Types::EveBloodlineType],
@@ -159,6 +171,26 @@ module Types
       .find_by(corporation_id: id)&.decorate
     end
 
+    # factions
+    # faction(id:)
+    # graphics
+    # graphic(id:)
+    # groups
+    # group(id:)
+    # icons
+    # icon(id:)
+    # market_groups
+    # market_group(id:)
+
+    def races
+      ::Eve::Race.lazy_preload(:faction).all.decorate
+    end
+
+    def race(id:)
+      ::Eve::Race.lazy_preload(:faction)
+        .find_by(race_id: id)&.decorate
+    end
+
     # def characters
     #   ::Eve::Character.lazy_preload(:alliance,
     #                                 :ancestry,
@@ -185,15 +217,6 @@ module Types
     # # def factions
     # #   ::Eve::Faction.all.decorate
     # # end
-    #
-    # def races
-    #   ::Eve::Race.lazy_preload(:faction).all.decorate
-    # end
-    #
-    # def race(id:)
-    #   ::Eve::Race.lazy_preload(:faction)
-    #     .find_by(race_id: id)&.decorate
-    # end
     #
     # # def bloodlines
     # #   ::Eve::Bloodline.all.decorate
