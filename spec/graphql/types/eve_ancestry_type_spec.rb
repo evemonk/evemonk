@@ -4,14 +4,68 @@ require "rails_helper"
 
 describe Types::EveAncestryType do
   describe "get ancestries" do
+    let!(:eve_bloodline1) do
+      create(:eve_bloodline,
+        bloodline_id: 10)
+    end
+
+    let!(:eve_bloodline2) do
+      create(:eve_bloodline,
+        bloodline_id: 20)
+    end
+
+    let!(:eve_icon1) do
+      create(:eve_icon,
+        icon_id: 1_001)
+    end
+
+    let!(:eve_icon2) do
+      create(:eve_icon,
+        icon_id: 1_002)
+    end
+
     let!(:eve_ancestry1) do
       create(:eve_ancestry,
-        ancestry_id: 123)
+        ancestry_id: 123,
+        name_en: "EN: name 1",
+        name_de: "DE: name 1",
+        name_fr: "FR: name 1",
+        name_ja: "JA: name 1",
+        name_ru: "RU: name 1",
+        name_zh: "ZH: name 1",
+        name_ko: "KO: name 1",
+        description_en: "EN: description 1",
+        description_de: "DE: description 1",
+        description_fr: "FR: description 1",
+        description_ja: "JA: description 1",
+        description_ru: "RU: description 1",
+        description_zh: "ZH: description 1",
+        description_ko: "KO: description 1",
+        short_description: "Short description 1",
+        bloodline: eve_bloodline1,
+        icon: eve_icon1)
     end
 
     let!(:eve_ancestry2) do
       create(:eve_ancestry,
-        ancestry_id: 321)
+        ancestry_id: 321,
+        name_en: "EN: name 2",
+        name_de: "DE: name 2",
+        name_fr: "FR: name 2",
+        name_ja: "JA: name 2",
+        name_ru: "RU: name 2",
+        name_zh: "ZH: name 2",
+        name_ko: "KO: name 2",
+        description_en: "EN: description 2",
+        description_de: "DE: description 2",
+        description_fr: "FR: description 2",
+        description_ja: "JA: description 2",
+        description_ru: "RU: description 2",
+        description_zh: "ZH: description 2",
+        description_ko: "KO: description 2",
+        short_description: "Short description 2",
+        bloodline: eve_bloodline2,
+        icon: eve_icon2)
     end
 
     let(:query) do
@@ -42,13 +96,66 @@ describe Types::EveAncestryType do
           "ancestries" => [
             {
               "id" => "123",
+              "name" => {
+                "en" => "EN: name 1",
+                "de" => "DE: name 1",
+                "fr" => "FR: name 1",
+                "ja" => "JA: name 1",
+                "ru" => "RU: name 1",
+                "zh" => "ZH: name 1",
+                "ko" => "KO: name 1"
+              },
+              "description" => {
+                "en" => "EN: description 1",
+                "de" => "DE: description 1",
+                "fr" => "FR: description 1",
+                "ja" => "JA: description 1",
+                "ru" => "RU: description 1",
+                "zh" => "ZH: description 1",
+                "ko" => "KO: description 1"
+              },
+              "bloodlineId" => 10,
+              "bloodline" => {
+                "id" => "10"
+              },
+              "iconId" => 1_001,
+              "icon" => {
+                "id" => "1001"
+              },
+              "shortDescription" => "Short description 1"
             },
             {
               "id" => "321",
+              "name" => {
+                "en" => "EN: name 2",
+                "de" => "DE: name 2",
+                "fr" => "FR: name 2",
+                "ja" => "JA: name 2",
+                "ru" => "RU: name 2",
+                "zh" => "ZH: name 2",
+                "ko" => "KO: name 2"
+              },
+              "description" => {
+                "en" => "EN: description 2",
+                "de" => "DE: description 2",
+                "fr" => "FR: description 2",
+                "ja" => "JA: description 2",
+                "ru" => "RU: description 2",
+                "zh" => "ZH: description 2",
+                "ko" => "KO: description 2"
+              },
+              "bloodlineId" => 20,
+              "bloodline" => {
+                "id" => "20"
+              },
+              "iconId" => 1_002,
+              "icon" => {
+                "id" => "1002"
+              },
+              "shortDescription" => "Short description 2"
             }
           ]
       })
     end
-
   end
 end
