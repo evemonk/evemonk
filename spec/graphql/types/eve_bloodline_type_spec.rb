@@ -34,6 +34,18 @@ describe Types::EveBloodlineType do
         type_id: 1_002)
     end
 
+    let!(:eve_ancestry1) do
+      create(:eve_ancestry,
+        ancestry_id: 10_001,
+        bloodline: eve_bloodline1)
+    end
+
+    let!(:eve_ancestry2) do
+      create(:eve_ancestry,
+        ancestry_id: 10_002,
+        bloodline: eve_bloodline2)
+    end
+
     let!(:eve_bloodline1) do
       create(:eve_bloodline,
         bloodline_id: 123,
@@ -161,7 +173,12 @@ describe Types::EveBloodlineType do
             "intelligence" => 2,
             "memory" => 3,
             "perception" => 4,
-            "willpower" => 5
+            "willpower" => 5,
+            "ancestries" => [
+              {
+                "id" => "10001"
+              }
+            ]
           },
           {
             "id" => "321",
@@ -199,7 +216,12 @@ describe Types::EveBloodlineType do
             "intelligence" => 7,
             "memory" => 8,
             "perception" => 9,
-            "willpower" => 10
+            "willpower" => 10,
+            "ancestries" => [
+              {
+                "id" => "10002"
+              }
+            ]
           }
         ]
       })
