@@ -271,19 +271,19 @@ describe Types::EveAllianceType do
     let!(:eve_corporation) do
       create(:eve_corporation,
         corporation_id: 100_111,
-        alliance_id: 123,
+        alliance: eve_alliance,
         member_count: 1)
     end
 
     let!(:eve_alliance_corporation) do
       create(:eve_alliance_corporation,
-        corporation_id: 100_111,
-        alliance_id: 123)
+        corporation: eve_corporation,
+        alliance: eve_alliance)
     end
 
     let!(:eve_character) do
       create(:eve_character,
-        corporation_id: 100_111,
+        corporation: eve_corporation,
         character_id: 111_111)
     end
 
