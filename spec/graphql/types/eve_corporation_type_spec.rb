@@ -4,6 +4,14 @@ require "rails_helper"
 
 describe Types::EveCorporationType do
   describe "get corporations" do
+    before { travel_to Time.zone.now }
+
+    after { travel_back }
+
+    let(:date_founded1) { Time.zone.now }
+
+    let(:date_founded2) { Time.zone.now - 1.week }
+
     let!(:eve_alliance1) do
       create(:eve_alliance,
         alliance_id: 1_111)
@@ -51,7 +59,9 @@ describe Types::EveCorporationType do
         corporation_id: 123,
         alliance_id: 1_111,
         ceo_id: 10_111,
-        creator_id: 10_555)
+        creator_id: 10_555,
+        date_founded: date_founded1,
+        description: 'Corp description 1')
     end
 
     let!(:eve_corporation2) do
@@ -59,7 +69,9 @@ describe Types::EveCorporationType do
         corporation_id: 321,
         alliance_id: 1_222,
         ceo_id: 10_222,
-        creator_id: 10_666)
+        creator_id: 10_666,
+        date_founded: date_founded2,
+        description: 'Corp description 2')
     end
 
     let(:query) do
@@ -79,13 +91,13 @@ describe Types::EveCorporationType do
             creator {
               id
             }
+            dateFounded
+            description
           }
         }
       )
     end
 
-    # field :date_founded, GraphQL::Types::ISO8601DateTime, null: true
-    # field :description, String, null: true
     # field :faction_id, Integer, null: true
     # field :faction, Types::EveFactionType, null: true
     # field :home_station_id, Integer, null: true
@@ -118,7 +130,9 @@ describe Types::EveCorporationType do
             "creatorId" => 10_555,
             "creator" => {
               "id" => "10555"
-            }
+            },
+            "dateFounded" => date_founded1.iso8601,
+            "description" => "Corp description 1"
           },
           {
             "id" => "321",
@@ -133,7 +147,9 @@ describe Types::EveCorporationType do
             "creatorId" => 10_666,
             "creator" => {
               "id" => "10666"
-            }
+            },
+            "dateFounded" => date_founded2.iso8601,
+            "description" => "Corp description 2"
           }
         ]
       })
