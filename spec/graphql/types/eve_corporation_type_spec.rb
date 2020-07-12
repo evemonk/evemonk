@@ -54,6 +54,16 @@ describe Types::EveCorporationType do
         character_id: 10_666)
     end
 
+    let!(:eve_faction1) do
+      create(:eve_faction,
+        faction_id: 1_000_111)
+    end
+
+    let!(:eve_faction2) do
+      create(:eve_faction,
+        faction_id: 1_000_222)
+    end
+
     let!(:eve_corporation1) do
       create(:eve_corporation,
         corporation_id: 123,
@@ -61,7 +71,8 @@ describe Types::EveCorporationType do
         ceo_id: 10_111,
         creator_id: 10_555,
         date_founded: date_founded1,
-        description: 'Corp description 1')
+        description: 'Corp description 1',
+        faction_id: 1_000_111)
     end
 
     let!(:eve_corporation2) do
@@ -71,7 +82,8 @@ describe Types::EveCorporationType do
         ceo_id: 10_222,
         creator_id: 10_666,
         date_founded: date_founded2,
-        description: 'Corp description 2')
+        description: 'Corp description 2',
+        faction_id: 1_000_222)
     end
 
     let(:query) do
@@ -93,13 +105,15 @@ describe Types::EveCorporationType do
             }
             dateFounded
             description
+            factionId
+            faction {
+              id
+            }
           }
         }
       )
     end
 
-    # field :faction_id, Integer, null: true
-    # field :faction, Types::EveFactionType, null: true
     # field :home_station_id, Integer, null: true
     # field :home_station, Types::EveStationType, null: true
     # field :member_count, Integer, null: true
@@ -132,7 +146,11 @@ describe Types::EveCorporationType do
               "id" => "10555"
             },
             "dateFounded" => date_founded1.iso8601,
-            "description" => "Corp description 1"
+            "description" => "Corp description 1",
+            "factionId" => 1_000_111,
+            "faction" => {
+              "id" => "1000111"
+            }
           },
           {
             "id" => "321",
@@ -149,7 +167,11 @@ describe Types::EveCorporationType do
               "id" => "10666"
             },
             "dateFounded" => date_founded2.iso8601,
-            "description" => "Corp description 2"
+            "description" => "Corp description 2",
+            "factionId" => 1_000_222,
+            "faction" => {
+              "id" => "1000222"
+            }
           }
         ]
       })
