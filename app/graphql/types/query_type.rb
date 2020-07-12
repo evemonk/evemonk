@@ -62,6 +62,19 @@ module Types
       argument :id, ID, required: true
     end
 
+    # regions
+    # region(id:)
+    # ships
+    # ship(id:)
+    # stars
+    # star(id:)
+    # stations
+    # station(id:)
+    # systems
+    # system(id:)
+    # types
+    # type(id:)
+
     # field :characters,
     #   [Types::EveCharacterType],
     #   null: false,
