@@ -103,27 +103,11 @@ Rails.application.routes.draw do
     resources :characters, only: [:index, :show, :destroy]
 
     namespace :eve do
-      resources :alliances, only: [:index, :show] do
-        resources :characters, only: :index, controller: :alliance_characters
-
-        resources :corporations, only: :index, controller: :alliance_corporations
-      end
-
-      resources :corporations, only: [:index, :show] do
-        resources :characters, only: :index, controller: :corporation_characters
-      end
-
-      resources :characters, only: [:index, :show] do
-        resources :corporations_history, only: :index, controller: :character_corporations_history
-      end
-
       resources :types, only: [:index, :show]
 
       resources :blueprints, only: :index
 
       resources :manufacturing_items, only: :index
-
-      resource :server_status_last, only: :show
     end
   end
 
