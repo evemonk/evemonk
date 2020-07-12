@@ -79,38 +79,38 @@ describe Types::EveAllianceType do
     let!(:eve_corporation1) do
       create(:eve_corporation,
         corporation_id: 100_111,
-        alliance_id: 123,
+        alliance: eve_alliance1,
         member_count: 1)
     end
 
     let!(:eve_corporation2) do
       create(:eve_corporation,
         corporation_id: 100_222,
-        alliance_id: 321,
+        alliance: eve_alliance2,
         member_count: 1)
     end
 
     let!(:eve_alliance_corporation1) do
       create(:eve_alliance_corporation,
-        corporation_id: 100_111,
-        alliance_id: 123)
+        corporation: eve_corporation1,
+        alliance: eve_alliance1)
     end
 
     let!(:eve_alliance_corporation2) do
       create(:eve_alliance_corporation,
-        corporation_id: 100_222,
-        alliance_id: 321)
+        corporation: eve_corporation2,
+        alliance: eve_alliance2)
     end
 
     let!(:eve_character1) do
       create(:eve_character,
-        corporation_id: 100_111,
+        corporation: eve_corporation1,
         character_id: 111_111)
     end
 
     let!(:eve_character2) do
       create(:eve_character,
-        corporation_id: 100_222,
+        corporation: eve_corporation2,
         character_id: 111_222)
     end
 
