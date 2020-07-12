@@ -11,7 +11,27 @@ describe Types::EveBloodlineType do
 
     let!(:eve_corporation2) do
       create(:eve_corporation,
-             corporation_id: 600)
+        corporation_id: 600)
+    end
+
+    let!(:eve_race1) do
+      create(:eve_race,
+        race_id: 4)
+    end
+
+    let!(:eve_race2) do
+      create(:eve_race,
+        race_id: 8)
+    end
+
+    let!(:eve_ship_type1) do
+      create(:eve_ship,
+        type_id: 1_001)
+    end
+
+    let!(:eve_ship_type2) do
+      create(:eve_ship,
+        type_id: 1_002)
     end
 
     let!(:eve_bloodline1) do
@@ -31,7 +51,14 @@ describe Types::EveBloodlineType do
         description_ru: "RU: description 1",
         description_zh: "ZH: description 1",
         description_ko: "KO: description 1",
-        corporation: eve_corporation1)
+        corporation: eve_corporation1,
+        race: eve_race1,
+        ship_type: eve_ship_type1,
+        charisma: 1,
+        intelligence: 2,
+        memory: 3,
+        perception: 4,
+        willpower: 5)
     end
 
     let!(:eve_bloodline2) do
@@ -51,7 +78,14 @@ describe Types::EveBloodlineType do
         description_ru: "RU: description 2",
         description_zh: "ZH: description 2",
         description_ko: "KO: description 2",
-        corporation: eve_corporation2)
+        corporation: eve_corporation2,
+        race: eve_race2,
+        ship_type: eve_ship_type2,
+        charisma: 6,
+        intelligence: 7,
+        memory: 8,
+        perception: 9,
+        willpower: 10)
     end
 
     let(:query) do
@@ -114,7 +148,20 @@ describe Types::EveBloodlineType do
             "corporationId" => 500,
             "corporation" => {
               "id" => "500"
-            }
+            },
+            "raceId" => 4,
+            "race" => {
+              "id" => "4"
+            },
+            "shipTypeId" => 1_001,
+            "shipType" => {
+                "id" => "1001"
+            },
+            "charisma" => 1,
+            "intelligence" => 2,
+            "memory" => 3,
+            "perception" => 4,
+            "willpower" => 5
           },
           {
             "id" => "321",
@@ -139,7 +186,20 @@ describe Types::EveBloodlineType do
             "corporationId" => 600,
             "corporation" => {
               "id" => "600"
-            }
+            },
+            "raceId" => 8,
+            "race" => {
+              "id" => "8"
+            },
+            "shipTypeId" => 1_002,
+            "shipType" => {
+              "id" => "1002"
+            },
+            "charisma" => 6,
+            "intelligence" => 7,
+            "memory" => 8,
+            "perception" => 9,
+            "willpower" => 10
           }
         ]
       })
