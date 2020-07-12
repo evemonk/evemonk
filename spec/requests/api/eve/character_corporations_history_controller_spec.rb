@@ -2,10 +2,10 @@
 
 require "rails_helper"
 
-describe Api::Eve::CharacterCorporationsHistoryController do
+describe "Api::Eve::CharacterCorporationsHistoryController" do
   before { Setting.use_image_proxy = true }
 
-  describe "#index" do
+  xdescribe "#index" do
     it "returns Eve Character corporation history" do
       create(:eve_character,
         character_id: 123,

@@ -2,8 +2,8 @@
 
 require "rails_helper"
 
-describe Api::Eve::ServerStatusLastsController do
-  describe "#show" do
+describe "Api::Eve::ServerStatusLastsController" do
+  xdescribe "#show" do
     it "returns last eve server status" do
       create(:eve_server_status,
         players: 28_384,
