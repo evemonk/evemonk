@@ -3,7 +3,7 @@
 require "rails_helper"
 
 describe Types::EveAllianceType do
-  describe "alliances" do
+  describe "get alliances" do
     before { travel_to Time.zone.now }
 
     after { travel_back }
