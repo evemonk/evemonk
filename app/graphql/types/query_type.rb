@@ -20,15 +20,28 @@ module Types
       argument :id, ID, required: true
     end
 
-    # field :corporations,
-    #   [Types::EveCorporationType],
-    #   null: false,
-    #   description: "Eve Corporations"
-    #
-    # field :corporation, Types::EveCorporationType, null: true do
-    #   argument :id, ID, required: true
-    # end
-    #
+    # bloodlines
+    # bloodline(id:)
+    # blueprints
+    # blueprint(id:)
+    # categories
+    # category
+    # characters
+    # character(id:)
+    # constellations
+    # constellation(id:)
+    # contracts
+    # contract(id:)
+
+    field :corporations,
+      [Types::EveCorporationType],
+      null: false,
+      description: "Eve Corporations"
+
+    field :corporation, Types::EveCorporationType, null: true do
+      argument :id, ID, required: true
+    end
+
     # field :characters,
     #   [Types::EveCharacterType],
     #   null: false,
@@ -112,27 +125,40 @@ module Types
       ::Eve::Ancestry.find_by(ancestry_id: id)&.decorate
     end
 
-    # def corporations
-    #   ::Eve::Corporation.lazy_preload(:alliance,
-    #                                   :ceo,
-    #                                   :creator,
-    #                                   :faction,
-    #                                   :home_station,
-    #                                   :characters)
-    #     .all
-    #     .decorate
-    # end
-    #
-    # def corporation(id:)
-    #   ::Eve::Corporation.lazy_preload(:alliance,
-    #                                   :ceo,
-    #                                   :creator,
-    #                                   :faction,
-    #                                   :home_station,
-    #                                   :characters)
-    #   .find_by(corporation_id: id)&.decorate
-    # end
-    #
+    # bloodlines
+    # bloodline(id:)
+    # blueprints
+    # blueprint(id:)
+    # categories
+    # category
+    # characters
+    # character(id:)
+    # constellations
+    # constellation(id:)
+    # contracts
+    # contract(id:)
+
+    def corporations
+      ::Eve::Corporation.lazy_preload(:alliance,
+                                      :ceo,
+                                      :creator,
+                                      :faction,
+                                      :home_station,
+                                      :characters)
+        .all
+        .decorate
+    end
+
+    def corporation(id:)
+      ::Eve::Corporation.lazy_preload(:alliance,
+                                      :ceo,
+                                      :creator,
+                                      :faction,
+                                      :home_station,
+                                      :characters)
+      .find_by(corporation_id: id)&.decorate
+    end
+
     # def characters
     #   ::Eve::Character.lazy_preload(:alliance,
     #                                 :ancestry,
