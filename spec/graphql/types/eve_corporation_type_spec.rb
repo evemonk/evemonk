@@ -64,6 +64,16 @@ describe Types::EveCorporationType do
         faction_id: 1_000_222)
     end
 
+    let!(:eve_station1) do
+      create(:eve_station,
+        station_id: 12_123_123)
+    end
+
+    let!(:eve_station2) do
+      create(:eve_station,
+        station_id: 12_321_321)
+    end
+
     let!(:eve_corporation1) do
       create(:eve_corporation,
         corporation_id: 123,
@@ -71,8 +81,16 @@ describe Types::EveCorporationType do
         ceo_id: 10_111,
         creator_id: 10_555,
         date_founded: date_founded1,
-        description: 'Corp description 1',
-        faction_id: 1_000_111)
+        description: "Corp description 1",
+        faction_id: 1_000_111,
+        home_station_id: 12_123_123,
+        member_count: 10,
+        name: "Corp 1",
+        shares: 101,
+        tax_rate: 10.00,
+        corporation_url: "https://url1.com/",
+        war_eligible: true,
+        npc: true)
     end
 
     let!(:eve_corporation2) do
@@ -82,8 +100,28 @@ describe Types::EveCorporationType do
         ceo_id: 10_222,
         creator_id: 10_666,
         date_founded: date_founded2,
-        description: 'Corp description 2',
-        faction_id: 1_000_222)
+        description: "Corp description 2",
+        faction_id: 1_000_222,
+        home_station_id: 12_321_321,
+        member_count: 100,
+        name: "Corp 2",
+        shares: 102,
+        tax_rate: 20.00,
+        corporation_url: "https://url2.com/",
+        war_eligible: false,
+        npc: false)
+    end
+
+    let!(:eve_character1) do
+      create(:eve_character,
+        character_id: 12_998,
+        corporation_id: 123)
+    end
+
+    let!(:eve_character2) do
+      create(:eve_character,
+        character_id: 12_999,
+        corporation_id: 321)
     end
 
     let(:query) do
@@ -109,22 +147,25 @@ describe Types::EveCorporationType do
             faction {
               id
             }
+            homeStationId
+            homeStation {
+              id
+            }
+            memberCount
+            name
+            shares
+            taxRate
+            ticker
+            url
+            warEligible
+            npc
+            characters {
+              id
+            }
           }
         }
       )
     end
-
-    # field :home_station_id, Integer, null: true
-    # field :home_station, Types::EveStationType, null: true
-    # field :member_count, Integer, null: true
-    # field :name, String, null: true
-    # field :shares, GraphQL::Types::BigInt, null: true
-    # field :tax_rate, Float, null: true
-    # field :ticker, String, null: true
-    # field :url, String, null: true
-    # field :war_eligible, Boolean, null: true
-    # field :npc, Boolean, null: true
-    # field :characters, [Types::EveCharacterType], null: true
 
     let(:result) { EvemonkSchema.execute(query).as_json }
 
@@ -150,7 +191,24 @@ describe Types::EveCorporationType do
             "factionId" => 1_000_111,
             "faction" => {
               "id" => "1000111"
-            }
+            },
+            "homeStationId" => 12_123_123,
+            "homeStation" => {
+              "id" => "12123123"
+            },
+            "memberCount" => 10,
+            "name" => "Corp 1",
+            "shares" => "101",
+            "taxRate" => 10.0,
+            "ticker" => "CORP 1",
+            "url" => "https://url1.com/",
+            "warEligible" => true,
+            "npc" => true,
+            "characters" => [
+              {
+                "id" => "12998"
+              }
+            ]
           },
           {
             "id" => "321",
@@ -171,7 +229,24 @@ describe Types::EveCorporationType do
             "factionId" => 1_000_222,
             "faction" => {
               "id" => "1000222"
-            }
+            },
+            "homeStationId" => 12_321_321,
+            "homeStation" => {
+              "id" => "12321321"
+            },
+            "memberCount" => 100,
+            "name" => "Corp 2",
+            "shares" => "102",
+            "taxRate" => 20.0,
+            "ticker" => "CORP 2",
+            "url" => "https://url2.com/",
+            "warEligible" => false,
+            "npc" => false,
+            "characters" => [
+              {
+                "id" => "12999"
+              }
+            ]
           }
         ]
       })
