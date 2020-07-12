@@ -26,16 +26,40 @@ describe Types::EveCorporationType do
         corporation_id: 321)
     end
 
+    let!(:ceo1) do
+      create(:eve_character,
+        character_id: 10_111)
+    end
+
+    let!(:ceo2) do
+      create(:eve_character,
+        character_id: 10_222)
+    end
+
+    let!(:creator1) do
+      create(:eve_character,
+        character_id: 10_555)
+    end
+
+    let!(:creator2) do
+      create(:eve_character,
+        character_id: 10_666)
+    end
+
     let!(:eve_corporation1) do
       create(:eve_corporation,
         corporation_id: 123,
-        alliance_id: 1_111)
+        alliance_id: 1_111,
+        ceo_id: 10_111,
+        creator_id: 10_555)
     end
 
     let!(:eve_corporation2) do
       create(:eve_corporation,
         corporation_id: 321,
-        alliance_id: 1_222)
+        alliance_id: 1_222,
+        ceo_id: 10_222,
+        creator_id: 10_666)
     end
 
     let(:query) do
@@ -47,10 +71,34 @@ describe Types::EveCorporationType do
             alliance {
               id
             }
+            ceoId
+            ceo {
+              id
+            }
+            creatorId
+            creator {
+              id
+            }
           }
         }
       )
     end
+
+    # field :date_founded, GraphQL::Types::ISO8601DateTime, null: true
+    # field :description, String, null: true
+    # field :faction_id, Integer, null: true
+    # field :faction, Types::EveFactionType, null: true
+    # field :home_station_id, Integer, null: true
+    # field :home_station, Types::EveStationType, null: true
+    # field :member_count, Integer, null: true
+    # field :name, String, null: true
+    # field :shares, GraphQL::Types::BigInt, null: true
+    # field :tax_rate, Float, null: true
+    # field :ticker, String, null: true
+    # field :url, String, null: true
+    # field :war_eligible, Boolean, null: true
+    # field :npc, Boolean, null: true
+    # field :characters, [Types::EveCharacterType], null: true
 
     let(:result) { EvemonkSchema.execute(query).as_json }
 
@@ -62,13 +110,29 @@ describe Types::EveCorporationType do
             "allianceId" => 1_111,
             "alliance" => {
               "id" => "1111"
+            },
+            "ceoId" => 10_111,
+            "ceo" => {
+              "id" => "10111"
+            },
+            "creatorId" => 10_555,
+            "creator" => {
+              "id" => "10555"
             }
           },
           {
             "id" => "321",
-            "allianceId" => 1222,
+            "allianceId" => 1_222,
             "alliance" => {
               "id" => "1222"
+            },
+            "ceoId" => 10_222,
+            "ceo" => {
+              "id" => "10222"
+            },
+            "creatorId" => 10_666,
+            "creator" => {
+              "id" => "10666"
             }
           }
         ]
