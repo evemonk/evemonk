@@ -160,7 +160,7 @@ describe Types::EveAllianceType do
             "id" => "123",
             "name" => "Alliance 1",
             "ticker" => "ALLIANCE1",
-            "dateFounded" => Time.zone.now.iso8601,
+            "dateFounded" => date_founded1.iso8601,
             "creatorCorporationId" => 222,
             "creatorCorporation" => {
               "id" => "222"
@@ -194,7 +194,7 @@ describe Types::EveAllianceType do
             "id" => "321",
             "name" => "Alliance 2",
             "ticker" => "ALLIANCE2",
-            "dateFounded" => (Time.zone.now - 1.week).iso8601,
+            "dateFounded" => date_founded2.iso8601,
             "creatorCorporationId" => 333,
             "creatorCorporation" => {
               "id" => "333"
