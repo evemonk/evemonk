@@ -11,11 +11,15 @@ module Types
       argument :id, ID, required: true
     end
 
-    # field :ancestries,
-    #   [Types::EveAncestryType],
-    #   null: false,
-    #   description: "Eve Ancestries"
-    #
+    field :ancestries,
+      [Types::EveAncestryType],
+      null: false,
+      description: "Eve Ancestries"
+
+    field :ancestry, Types::EveAncestryType, null: true do
+      argument :id, ID, required: true
+    end
+
     # field :corporations,
     #   [Types::EveCorporationType],
     #   null: false,
@@ -100,10 +104,14 @@ module Types
         .find_by(alliance_id: id)&.decorate
     end
 
-    # def ancestries
-    #   ::Eve::Ancestry.all.decorate
-    # end
-    #
+    def ancestries
+      ::Eve::Ancestry.all.decorate
+    end
+
+    def ancestry(id:)
+      ::Eve::Ancestry.find_by(ancestry_id: id)&.decorate
+    end
+
     # def corporations
     #   ::Eve::Corporation.lazy_preload(:alliance,
     #                                   :ceo,
