@@ -62,7 +62,6 @@ module Types
       argument :id, ID, required: true
     end
 
-
     # field :characters,
     #   [Types::EveCharacterType],
     #   null: false,
@@ -114,18 +113,18 @@ module Types
 
     def alliances
       ::Eve::Alliance.lazy_preload(:creator_corporation,
-                                   :creator,
-                                   :executor_corporation,
-                                   :faction)
+        :creator,
+        :executor_corporation,
+        :faction)
         .all
         .decorate
     end
 
     def alliance(id:)
       ::Eve::Alliance.lazy_preload(:creator_corporation,
-                                   :creator,
-                                   :executor_corporation,
-                                   :faction)
+        :creator,
+        :executor_corporation,
+        :faction)
         .find_by(alliance_id: id)&.decorate
     end
 
@@ -152,23 +151,23 @@ module Types
 
     def corporations
       ::Eve::Corporation.lazy_preload(:alliance,
-                                      :ceo,
-                                      :creator,
-                                      :faction,
-                                      :home_station,
-                                      :characters)
+        :ceo,
+        :creator,
+        :faction,
+        :home_station,
+        :characters)
         .all
         .decorate
     end
 
     def corporation(id:)
       ::Eve::Corporation.lazy_preload(:alliance,
-                                      :ceo,
-                                      :creator,
-                                      :faction,
-                                      :home_station,
-                                      :characters)
-      .find_by(corporation_id: id)&.decorate
+        :ceo,
+        :creator,
+        :faction,
+        :home_station,
+        :characters)
+        .find_by(corporation_id: id)&.decorate
     end
 
     # factions
