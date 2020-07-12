@@ -20,6 +20,15 @@ module Types
       argument :id, ID, required: true
     end
 
+    field :bloodlines,
+      [Types::EveBloodlineType],
+      null: false,
+      description: "Eve Bloodlines"
+
+    field :bloodline, Types::EveBloodlineType, null: true do
+      argument :id, ID, required: true
+    end
+
     # bloodlines
     # bloodline(id:)
     # blueprints
@@ -89,11 +98,6 @@ module Types
     # #   null: false,
     # #   description: "Eve Factions"
     #
-    # # field :bloodlines,
-    # #   [Types::EveBloodlineType],
-    # #   null: false,
-    # #   description: "Eve Bloodlines"
-    # #
     # # field :groups,
     # #   [Types::EveGroupType],
     # #   null: false,
@@ -149,8 +153,14 @@ module Types
       ::Eve::Ancestry.find_by(ancestry_id: id)&.decorate
     end
 
-    # bloodlines
-    # bloodline(id:)
+    def bloodlines
+      ::Eve::Bloodline.all.decorate
+    end
+
+    def bloodline(id:)
+      ::Eve::Bloodline.find_by(bloodline_id: id)&.decorate
+    end
+
     # blueprints
     # blueprint(id:)
     # categories
@@ -230,10 +240,6 @@ module Types
     # #   ::Eve::Faction.all.decorate
     # # end
     #
-    # # def bloodlines
-    # #   ::Eve::Bloodline.all.decorate
-    # # end
-    # #
     # # def groups
     # #   ::Eve::Group.all.decorate
     # # end
