@@ -24,14 +24,14 @@ describe Types::EveCorporationType do
 
     let!(:eve_alliance_corporation1) do
       create(:eve_alliance_corporation,
-        alliance_id: 1_111,
-        corporation_id: 123)
+        alliance: eve_alliance1,
+        corporation: eve_corporation1)
     end
 
     let!(:eve_alliance_corporation2) do
       create(:eve_alliance_corporation,
-        alliance_id: 1_222,
-        corporation_id: 321)
+        alliance: eve_alliance2,
+        corporation: eve_corporation1)
     end
 
     let!(:ceo1) do
@@ -77,13 +77,13 @@ describe Types::EveCorporationType do
     let!(:eve_corporation1) do
       create(:eve_corporation,
         corporation_id: 123,
-        alliance_id: 1_111,
-        ceo_id: 10_111,
-        creator_id: 10_555,
+        alliance: eve_alliance1,
+        ceo: ceo1,
+        creator: creator1,
         date_founded: date_founded1,
         description: "Corp description 1",
-        faction_id: 1_000_111,
-        home_station_id: 12_123_123,
+        faction: eve_faction1,
+        home_station: eve_station1,
         member_count: 10,
         name: "Corp 1",
         shares: 101,
@@ -96,13 +96,13 @@ describe Types::EveCorporationType do
     let!(:eve_corporation2) do
       create(:eve_corporation,
         corporation_id: 321,
-        alliance_id: 1_222,
-        ceo_id: 10_222,
-        creator_id: 10_666,
+        alliance: eve_alliance2,
+        ceo: ceo2,
+        creator: creator2,
         date_founded: date_founded2,
         description: "Corp description 2",
-        faction_id: 1_000_222,
-        home_station_id: 12_321_321,
+        faction: eve_faction2,
+        home_station: eve_station2,
         member_count: 100,
         name: "Corp 2",
         shares: 102,
@@ -115,13 +115,13 @@ describe Types::EveCorporationType do
     let!(:eve_character1) do
       create(:eve_character,
         character_id: 12_998,
-        corporation_id: 123)
+        corporation: eve_corporation1)
     end
 
     let!(:eve_character2) do
       create(:eve_character,
         character_id: 12_999,
-        corporation_id: 321)
+        corporation: eve_corporation2)
     end
 
     let(:query) do
