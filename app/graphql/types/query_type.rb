@@ -31,8 +31,16 @@ module Types
 
     # blueprints
     # blueprint(id:)
-    # categories
-    # category
+
+    field :categories,
+      [Types::EveCategoryType],
+      null: false,
+      description: "Eve Categories"
+
+    field :category, Types::EveCategoryType, null: true do
+      argument :id, ID, required: true
+    end
+
     # characters
     # character(id:)
     # constellations
@@ -161,8 +169,15 @@ module Types
 
     # blueprints
     # blueprint(id:)
-    # categories
-    # category
+
+    def categories
+      ::Eve::Category.all.decorate
+    end
+
+    def category(id:)
+      ::Eve::Category.find_by(category_id: id)&.decorate
+    end
+
     # characters
     # character(id:)
     # constellations
