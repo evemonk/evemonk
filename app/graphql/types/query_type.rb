@@ -57,8 +57,15 @@ module Types
       argument :id, ID, required: true
     end
 
-    # factions
-    # faction(id:)
+    field :factions,
+      [Types::EveFactionType],
+      null: false,
+      description: "Eve Factions"
+
+    field :faction, Types::EveFactionType, null: true do
+      argument :id, ID, required: true
+    end
+
     # graphics
     # graphic(id:)
     # groups
@@ -98,11 +105,6 @@ module Types
     # field :character, Types::EveCharacterType, null: true do
     #   argument :id, ID, required: true
     # end
-    #
-    # field :factions,
-    #   [Types::EveFactionType],
-    #   null: false,
-    #   description: "Eve Factions"
     #
     # field :groups,
     #   [Types::EveGroupType],
@@ -206,8 +208,14 @@ module Types
         .find_by(corporation_id: id)&.decorate
     end
 
-    # factions
-    # faction(id:)
+    def factions
+      ::Eve::Faction.all.decorate
+    end
+
+    def faction(id:)
+      ::Eve::Faction.find_by(faction_id: id)&.decorate
+    end
+
     # graphics
     # graphic(id:)
     # groups
@@ -247,10 +255,6 @@ module Types
     #                                 :race,
     #                                 :character_corporation_histories)
     #   .find_by(character_id: id)&.decorate
-    # end
-    #
-    # def factions
-    #   ::Eve::Faction.all.decorate
     # end
     #
     # def groups
