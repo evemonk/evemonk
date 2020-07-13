@@ -14,6 +14,16 @@ describe Types::EveFactionType do
         corporation_id: 1_222)
     end
 
+    let!(:eve_militia_corporation1) do
+      create(:eve_corporation,
+             corporation_id: 2_111)
+    end
+
+    let!(:eve_militia_corporation2) do
+      create(:eve_corporation,
+             corporation_id: 2_222)
+    end
+
     let!(:eve_faction1) do
       create(:eve_faction,
         faction_id: 123,
@@ -32,7 +42,8 @@ describe Types::EveFactionType do
         description_ru: "RU: description 1",
         description_zh: "ZH: description 1",
         description_ko: "KO: description 1",
-        is_unique: true)
+        is_unique: true,
+        militia_corporation: eve_militia_corporation1)
     end
 
     let!(:eve_faction2) do
@@ -53,7 +64,8 @@ describe Types::EveFactionType do
         description_ru: "RU: description 2",
         description_zh: "ZH: description 2",
         description_ko: "KO: description 2",
-        is_unique: false)
+        is_unique: false,
+        militia_corporation: eve_militia_corporation2)
     end
 
     let(:query) do
@@ -116,13 +128,17 @@ describe Types::EveFactionType do
               "ru" => "RU: name 1",
               "zh" => "ZH: name 1",
               "ko" => "KO: name 1"
+            },
+            "militiaCorporationId" => 2_111,
+            "militiaCorporation" => {
+              "id" => "2111"
             }
           },
           {
             "id" => "321",
             "corporationId" => 1_222,
             "corporation" => {
-                "id" => "1222"
+              "id" => "1222"
             },
             "description" => {
               "en" => "EN: description 2",
@@ -142,6 +158,10 @@ describe Types::EveFactionType do
               "ru" => "RU: name 2",
               "zh" => "ZH: name 2",
               "ko" => "KO: name 2"
+            },
+            "militiaCorporationId" => 2_222,
+            "militiaCorporation" => {
+              "id" => "2222"
             }
           }
         ]
