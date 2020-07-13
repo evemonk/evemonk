@@ -167,7 +167,7 @@ describe Types::EveBloodlineType do
             },
             "shipTypeId" => 1_001,
             "shipType" => {
-                "id" => "1001"
+              "id" => "1001"
             },
             "charisma" => 1,
             "intelligence" => 2,
