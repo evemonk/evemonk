@@ -34,6 +34,18 @@ describe Types::EveFactionType do
         system_id: 10_222)
     end
 
+    let!(:eve_alliance1) do
+      create(:eve_alliance,
+        alliance_id: 12_345,
+        faction: eve_faction1)
+    end
+
+    let!(:eve_alliance2) do
+      create(:eve_alliance,
+        alliance_id: 67_890,
+        faction: eve_faction2)
+    end
+
     let!(:eve_faction1) do
       create(:eve_faction,
         faction_id: 123,
@@ -155,7 +167,12 @@ describe Types::EveFactionType do
               "id" => "10111"
             },
             "stationCount" => 100,
-            "stationSystemCount" => 1_000
+            "stationSystemCount" => 1_000,
+            "alliances" => [
+              {
+                "id" => "12345"
+              }
+            ]
           },
           {
             "id" => "321",
@@ -192,7 +209,12 @@ describe Types::EveFactionType do
               "id" => "10222"
             },
             "stationCount" => 200,
-            "stationSystemCount" => 2_000
+            "stationSystemCount" => 2_000,
+            "alliances" => [
+              {
+                "id" => "67890"
+              }
+            ]
           }
         ]
       })
