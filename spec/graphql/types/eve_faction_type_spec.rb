@@ -132,7 +132,8 @@ describe Types::EveFactionType do
             "militiaCorporationId" => 2_111,
             "militiaCorporation" => {
               "id" => "2111"
-            }
+            },
+            "sizeFactor" => 1.5
           },
           {
             "id" => "321",
@@ -162,7 +163,8 @@ describe Types::EveFactionType do
             "militiaCorporationId" => 2_222,
             "militiaCorporation" => {
               "id" => "2222"
-            }
+            },
+            "sizeFactor" => 1.5
           }
         ]
       })
