@@ -29,8 +29,6 @@ module Types
       argument :id, ID, required: true
     end
 
-    # bloodlines
-    # bloodline(id:)
     # blueprints
     # blueprint(id:)
     # categories
