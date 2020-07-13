@@ -4,6 +4,16 @@ require "rails_helper"
 
 describe Types::EveGroupType do
   describe "get groups" do
+    let!(:eve_category1) do
+      create(:eve_category,
+        category_id: 1_111)
+    end
+
+    let!(:eve_category2) do
+      create(:eve_category,
+        category_id: 1_222)
+    end
+
     let!(:eve_group1) do
       create(:eve_group,
         group_id: 123,
@@ -13,7 +23,9 @@ describe Types::EveGroupType do
         name_ja: "JA: name 1",
         name_ru: "RU: name 1",
         name_zh: "ZH: name 1",
-        name_ko: "KO: name 1")
+        name_ko: "KO: name 1",
+        published: true,
+        category: eve_category1)
     end
 
     let!(:eve_group2) do
@@ -25,7 +37,9 @@ describe Types::EveGroupType do
         name_ja: "JA: name 2",
         name_ru: "RU: name 2",
         name_zh: "ZH: name 2",
-        name_ko: "KO: name 2")
+        name_ko: "KO: name 2",
+        published: false,
+        category: eve_category2)
     end
 
     let(:query) do
@@ -63,6 +77,11 @@ describe Types::EveGroupType do
               "zh" => "ZH: name 1",
               "ko" => "KO: name 1"
             },
+            "published" => true,
+            "categoryId" => 1_111,
+            "category" => {
+              "id" => "1111"
+            }
           },
           {
             "id" => "321",
@@ -74,6 +93,11 @@ describe Types::EveGroupType do
               "ru" => "RU: name 2",
               "zh" => "ZH: name 2",
               "ko" => "KO: name 2"
+            },
+            "published" => false,
+            "categoryId" => 1_222,
+            "category" => {
+              "id" => "1222"
             }
           }
         ]
