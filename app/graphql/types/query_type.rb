@@ -91,40 +91,40 @@ module Types
     #   argument :id, ID, required: true
     # end
     #
-    # # field :factions,
-    # #   [Types::EveFactionType],
-    # #   null: false,
-    # #   description: "Eve Factions"
+    # field :factions,
+    #   [Types::EveFactionType],
+    #   null: false,
+    #   description: "Eve Factions"
     #
-    # # field :groups,
-    # #   [Types::EveGroupType],
-    # #   null: false,
-    # #   description: "Eve Groups"
-    # #
-    # # field :blueprints,
-    # #   [Types::EveBlueprintType],
-    # #   null: false,
-    # #   description: "Eve Blueprints"
-    # #
-    # # field :ships,
-    # #   [Types::EveShipType],
-    # #   null: false,
-    # #   description: "Eve Ships"
-    # #
-    # # field :types,
-    # #   [Types::EveTypeType],
-    # #   null: false,
-    # #   description: "Eve Types"
-    # #
-    # # field :regions,
-    # #   [Types::EveRegionType],
-    # #   null: false,
-    # #   description: "Eve Regions"
-    # #
-    # # field :contracts,
-    # #   [Types::EveContractType],
-    # #   null: false,
-    # #   description: "Public Contracts"
+    # field :groups,
+    #   [Types::EveGroupType],
+    #   null: false,
+    #   description: "Eve Groups"
+    #
+    # field :blueprints,
+    #   [Types::EveBlueprintType],
+    #   null: false,
+    #   description: "Eve Blueprints"
+    #
+    # field :ships,
+    #   [Types::EveShipType],
+    #   null: false,
+    #   description: "Eve Ships"
+    #
+    # field :types,
+    #   [Types::EveTypeType],
+    #   null: false,
+    #   description: "Eve Types"
+    #
+    # field :regions,
+    #   [Types::EveRegionType],
+    #   null: false,
+    #   description: "Eve Regions"
+    #
+    # field :contracts,
+    #   [Types::EveContractType],
+    #   null: false,
+    #   description: "Public Contracts"
 
     def alliances
       ::Eve::Alliance.lazy_preload(:creator_corporation,
@@ -234,33 +234,33 @@ module Types
     #   .find_by(character_id: id)&.decorate
     # end
     #
-    # # def factions
-    # #   ::Eve::Faction.all.decorate
-    # # end
+    # def factions
+    #   ::Eve::Faction.all.decorate
+    # end
     #
-    # # def groups
-    # #   ::Eve::Group.all.decorate
-    # # end
-    # #
-    # # def blueprints
-    # #   ::Eve::Blueprint.lazy_preload(:group).all.decorate
-    # # end
-    # #
-    # # def ships
-    # #   # TODO: load only ships!!!
-    # #   ::Eve::Ship.lazy_preload(:group).all.decorate
-    # # end
-    # #
-    # # def types
-    # #   ::Eve::Type.lazy_preload(:group).all.decorate
-    # # end
-    # #
-    # # def regions
-    # #   ::Eve::Region.all.decorate
-    # # end
-    # #
-    # # def contracts
-    # #   ::Eve::Contract.all.decorate
-    # # end
+    # def groups
+    #   ::Eve::Group.all.decorate
+    # end
+    #
+    # def blueprints
+    #   ::Eve::Blueprint.lazy_preload(:group).all.decorate
+    # end
+    #
+    # def ships
+    #   # TODO: load only ships!!!
+    #   ::Eve::Ship.lazy_preload(:group).all.decorate
+    # end
+    #
+    # def types
+    #   ::Eve::Type.lazy_preload(:group).all.decorate
+    # end
+    #
+    # def regions
+    #   ::Eve::Region.all.decorate
+    # end
+    #
+    # def contracts
+    #   ::Eve::Contract.all.decorate
+    # end
   end
 end
