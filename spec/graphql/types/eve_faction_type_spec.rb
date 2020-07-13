@@ -16,12 +16,22 @@ describe Types::EveFactionType do
 
     let!(:eve_militia_corporation1) do
       create(:eve_corporation,
-             corporation_id: 2_111)
+        corporation_id: 2_111)
     end
 
     let!(:eve_militia_corporation2) do
       create(:eve_corporation,
-             corporation_id: 2_222)
+        corporation_id: 2_222)
+    end
+
+    let!(:eve_system1) do
+      create(:eve_system,
+        system_id: 10_111)
+    end
+
+    let!(:eve_system2) do
+      create(:eve_system,
+        system_id: 10_222)
     end
 
     let!(:eve_faction1) do
@@ -43,7 +53,10 @@ describe Types::EveFactionType do
         description_zh: "ZH: description 1",
         description_ko: "KO: description 1",
         is_unique: true,
-        militia_corporation: eve_militia_corporation1)
+        militia_corporation: eve_militia_corporation1,
+        solar_system: eve_system1,
+        station_count: 100,
+        station_system_count: 1_000)
     end
 
     let!(:eve_faction2) do
@@ -65,7 +78,10 @@ describe Types::EveFactionType do
         description_zh: "ZH: description 2",
         description_ko: "KO: description 2",
         is_unique: false,
-        militia_corporation: eve_militia_corporation2)
+        militia_corporation: eve_militia_corporation2,
+        solar_system: eve_system2,
+        station_count: 200,
+        station_system_count: 2_000)
     end
 
     let(:query) do
@@ -133,7 +149,13 @@ describe Types::EveFactionType do
             "militiaCorporation" => {
               "id" => "2111"
             },
-            "sizeFactor" => 1.5
+            "sizeFactor" => 1.5,
+            "solarSystemId" => 10_111,
+            "solarSystem" => {
+              "id" => "10111"
+            },
+            "stationCount" => 100,
+            "stationSystemCount" => 1_000
           },
           {
             "id" => "321",
@@ -164,7 +186,13 @@ describe Types::EveFactionType do
             "militiaCorporation" => {
               "id" => "2222"
             },
-            "sizeFactor" => 1.5
+            "sizeFactor" => 1.5,
+            "solarSystemId" => 10_222,
+            "solarSystem" => {
+              "id" => "10222"
+            },
+            "stationCount" => 200,
+            "stationSystemCount" => 2_000
           }
         ]
       })
