@@ -68,8 +68,16 @@ module Types
 
     # graphics
     # graphic(id:)
-    # groups
-    # group(id:)
+
+    field :groups,
+      [Types::EveGroupType],
+      null: false,
+      description: "Eve Groups"
+
+    field :group, Types::EveGroupType, null: true do
+      argument :id, ID, required: true
+    end
+
     # icons
     # icon(id:)
     # market_groups
@@ -105,11 +113,6 @@ module Types
     # field :character, Types::EveCharacterType, null: true do
     #   argument :id, ID, required: true
     # end
-    #
-    # field :groups,
-    #   [Types::EveGroupType],
-    #   null: false,
-    #   description: "Eve Groups"
     #
     # field :blueprints,
     #   [Types::EveBlueprintType],
@@ -218,8 +221,15 @@ module Types
 
     # graphics
     # graphic(id:)
-    # groups
-    # group(id:)
+
+    def groups
+      ::Eve::Group.lazy_preload(:category, :types).decorate
+    end
+
+    def group(id:)
+      ::Eve::Group.find_by(group_id: id)&.decorate
+    end
+
     # icons
     # icon(id:)
     # market_groups
@@ -255,10 +265,6 @@ module Types
     #                                 :race,
     #                                 :character_corporation_histories)
     #   .find_by(character_id: id)&.decorate
-    # end
-    #
-    # def groups
-    #   ::Eve::Group.all.decorate
     # end
     #
     # def blueprints
