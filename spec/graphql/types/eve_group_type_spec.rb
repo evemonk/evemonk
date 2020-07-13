@@ -14,6 +14,18 @@ describe Types::EveGroupType do
         category_id: 1_222)
     end
 
+    let!(:eve_type1) do
+      create(:eve_type,
+        type_id: 10_111,
+        group: eve_group1)
+    end
+
+    let!(:eve_type2) do
+      create(:eve_type,
+        type_id: 10_222,
+        group: eve_group2)
+    end
+
     let!(:eve_group1) do
       create(:eve_group,
         group_id: 123,
@@ -81,7 +93,12 @@ describe Types::EveGroupType do
             "categoryId" => 1_111,
             "category" => {
               "id" => "1111"
-            }
+            },
+            "types" => [
+              {
+                "id" => "10111"
+              }
+            ]
           },
           {
             "id" => "321",
@@ -98,7 +115,12 @@ describe Types::EveGroupType do
             "categoryId" => 1_222,
             "category" => {
               "id" => "1222"
-            }
+            },
+            "types" => [
+              {
+                "id" => "10222"
+              }
+            ]
           }
         ]
       })
