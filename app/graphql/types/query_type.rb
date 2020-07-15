@@ -73,8 +73,14 @@ module Types
       argument :id, ID, required: true
     end
 
-    # graphics
-    # graphic(id:)
+    field :graphics,
+      [Types::EveGraphicType],
+      null: false,
+      description: "Eve Graphics"
+
+    field :graphic, Types::EveGraphicType, null: true do
+      argument :id, ID, required: true
+    end
 
     field :groups,
       [Types::EveGroupType],
@@ -238,8 +244,13 @@ module Types
       ::Eve::Faction.find_by(faction_id: id)&.decorate
     end
 
-    # graphics
-    # graphic(id:)
+    def graphics
+      ::Eve::Graphic.all.decorate
+    end
+
+    def graphic(id:)
+      ::Eve::Graphic.find_by(graphic_id: id)&.decorate
+    end
 
     def groups
       ::Eve::Group.lazy_preload(:category, :types).decorate
