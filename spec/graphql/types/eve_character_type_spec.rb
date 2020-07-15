@@ -64,6 +64,16 @@ describe Types::EveCharacterType do
         faction_id: 4_096)
     end
 
+    let!(:eve_race1) do
+      create(:eve_race,
+        race_id: 5_000)
+    end
+
+    let!(:eve_race2) do
+      create(:eve_race,
+        race_id: 6_000)
+    end
+
     let!(:eve_character1) do
       create(:eve_character,
         character_id: 123,
@@ -75,7 +85,10 @@ describe Types::EveCharacterType do
         description: "Description 1",
         faction: eve_faction1,
         gender: "male",
-        name: "Name 1")
+        name: "Name 1",
+        race: eve_race1,
+        security_status: 3.5,
+        title: "Title 1")
     end
 
     let!(:eve_character2) do
@@ -89,7 +102,10 @@ describe Types::EveCharacterType do
         description: "Description 2",
         faction: eve_faction2,
         gender: "female",
-        name: "Name 2")
+        name: "Name 2",
+        race: eve_race2,
+        security_status: -10.0,
+        title: "Title 2")
     end
 
     let(:query) do
@@ -162,7 +178,13 @@ describe Types::EveCharacterType do
               "id" => "2048"
             },
             "gender" => "male",
-            "name" => "Name 1"
+            "name" => "Name 1",
+            "raceId" => 5_000,
+            "race" => {
+              "id" => "5000"
+            },
+            "securityStatus" => 3.5,
+            "title" => "Title 1"
           },
           {
             "id" => "321",
@@ -189,7 +211,13 @@ describe Types::EveCharacterType do
               "id" => "4096"
             },
             "gender" => "female",
-            "name" => "Name 2"
+            "name" => "Name 2",
+            "raceId" => 6_000,
+            "race" => {
+              "id" => "6000"
+            },
+            "securityStatus" => -10.0,
+            "title" => "Title 2"
           }
         ]
       })
