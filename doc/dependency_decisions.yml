@@ -92,39 +92,33 @@
 - - :approve
   - brakeman
   - :who: biow0lf
-    :why:
+    :why: dev dependency
     :versions: []
     :when: 2020-02-03 21:17:43.222203000 Z
 - - :approve
   - bundler-audit
   - :who: biow0lf
-    :why:
+    :why: dev dependency
     :versions: []
     :when: 2020-02-03 21:17:48.083602000 Z
 - - :approve
   - bundler-leak
   - :who: biow0lf
-    :why:
+    :why: dev dependency
     :versions: []
     :when: 2020-02-03 21:17:52.656276000 Z
 - - :approve
   - newrelic_rpm
   - :who: biow0lf
-    :why:
+    :why: dev dependency
     :versions: []
     :when: 2020-02-03 21:17:57.608505000 Z
 - - :approve
   - scout_apm
   - :who: biow0lf
-    :why:
+    :why: dev dependency
     :versions: []
     :when: 2020-02-03 21:18:03.434292000 Z
-- - :approve
-  - sidekiq
-  - :who: biow0lf
-    :why:
-    :versions: []
-    :when: 2020-02-03 21:19:08.881864000 Z
 - - :permit
   - CC0-1.0
   - :who: biow0lf
