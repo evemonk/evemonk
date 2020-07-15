@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_19_204418) do
+ActiveRecord::Schema.define(version: 2020_07_15_233452) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -604,8 +604,6 @@ ActiveRecord::Schema.define(version: 2020_06_19_204418) do
     t.text "description"
     t.string "icon_file"
     t.boolean "obsolete"
-    t.string "backgrounds", array: true
-    t.string "foregrounds", array: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["icon_id"], name: "index_eve_icons_on_icon_id", unique: true
