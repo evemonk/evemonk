@@ -24,17 +24,11 @@ describe Sde::IconsImporter do
 
     let(:obsolete) { double }
 
-    let(:backgrounds) { double }
-
-    let(:foregrounds) { double }
-
     let(:entry) do
       {
         "description" => description,
         "iconFile" => icon_file,
-        "obsolete" => obsolete,
-        "backgrounds" => backgrounds,
-        "foregrounds" => foregrounds
+        "obsolete" => obsolete
       }
     end
 
@@ -49,9 +43,7 @@ describe Sde::IconsImporter do
     before do
       expect(eve_icon).to receive(:assign_attributes).with(description: description,
                                                            icon_file: icon_file,
-                                                           obsolete: obsolete,
-                                                           backgrounds: backgrounds,
-                                                           foregrounds: foregrounds)
+                                                           obsolete: obsolete)
     end
 
     before { expect(eve_icon).to receive(:save!) }
