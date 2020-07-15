@@ -41,8 +41,15 @@ module Types
       argument :id, ID, required: true
     end
 
-    # characters
-    # character(id:)
+    field :characters,
+      [Types::EveCharacterType],
+      null: false,
+      description: "Eve Characters"
+
+    field :character, Types::EveCharacterType, null: true do
+      argument :id, ID, required: true
+    end
+
     # constellations
     # constellation(id:)
     # contracts
@@ -105,15 +112,6 @@ module Types
     # types
     # type(id:)
 
-    # field :characters,
-    #   [Types::EveCharacterType],
-    #   null: false,
-    #   description: "Eve Characters"
-    #
-    # field :character, Types::EveCharacterType, null: true do
-    #   argument :id, ID, required: true
-    # end
-    #
     # field :blueprints,
     #   [Types::EveBlueprintType],
     #   null: false,
@@ -183,8 +181,29 @@ module Types
       ::Eve::Category.find_by(category_id: id)&.decorate
     end
 
-    # characters
-    # character(id:)
+    def characters
+      ::Eve::Character.lazy_preload(:alliance,
+                                    :ancestry,
+                                    :bloodline,
+                                    :corporation,
+                                    :faction,
+                                    :race,
+                                    :character_corporation_histories)
+        .all
+        .decorate
+    end
+
+    def character(id:)
+      ::Eve::Character.lazy_preload(:alliance,
+                                    :ancestry,
+                                    :bloodline,
+                                    :corporation,
+                                    :faction,
+                                    :race,
+                                    :character_corporation_histories)
+      .find_by(character_id: id)&.decorate
+    end
+
     # constellations
     # constellation(id:)
     # contracts
@@ -244,29 +263,6 @@ module Types
         .find_by(race_id: id)&.decorate
     end
 
-    # def characters
-    #   ::Eve::Character.lazy_preload(:alliance,
-    #                                 :ancestry,
-    #                                 :bloodline,
-    #                                 :corporation,
-    #                                 :faction,
-    #                                 :race,
-    #                                 :character_corporation_histories)
-    #     .all
-    #     .decorate
-    # end
-    #
-    # def character(id:)
-    #   ::Eve::Character.lazy_preload(:alliance,
-    #                                 :ancestry,
-    #                                 :bloodline,
-    #                                 :corporation,
-    #                                 :faction,
-    #                                 :race,
-    #                                 :character_corporation_histories)
-    #   .find_by(character_id: id)&.decorate
-    # end
-    #
     # def blueprints
     #   ::Eve::Blueprint.lazy_preload(:group).all.decorate
     # end
