@@ -4,6 +4,18 @@ require "rails_helper"
 
 describe Types::EveMarketGroupType do
   describe "get market groups" do
+    let!(:eve_type1) do
+      create(:eve_type,
+        type_id: 400,
+        market_group: eve_market_group1)
+    end
+
+    let!(:eve_type2) do
+      create(:eve_type,
+        type_id: 500,
+        market_group: eve_market_group2)
+    end
+
     let!(:eve_market_group1) do
       create(:eve_market_group,
         market_group_id: 123,
@@ -20,7 +32,8 @@ describe Types::EveMarketGroupType do
         description_ja: "JA: description 1",
         description_ru: "RU: description 1",
         description_zh: "ZH: description 1",
-        description_ko: "KO: description 1")
+        description_ko: "KO: description 1",
+        parent_group_id: nil)
     end
 
     let!(:eve_market_group2) do
@@ -39,7 +52,8 @@ describe Types::EveMarketGroupType do
         description_ja: "JA: description 2",
         description_ru: "RU: description 2",
         description_zh: "ZH: description 2",
-        description_ko: "KO: description 2")
+        description_ko: "KO: description 2",
+        parent_group: eve_market_group1)
     end
 
     let(:query) do
@@ -85,7 +99,14 @@ describe Types::EveMarketGroupType do
               "ru" => "RU: description 1",
               "zh" => "ZH: description 1",
               "ko" => "KO: description 1"
-            }
+            },
+            "parentGroupId" => nil,
+            "parentGroup" => nil,
+            "types" => [
+              {
+                "id" => "400"
+              }
+            ]
           },
           {
             "id" => "321",
@@ -106,7 +127,16 @@ describe Types::EveMarketGroupType do
               "ru" => "RU: description 2",
               "zh" => "ZH: description 2",
               "ko" => "KO: description 2"
-            }
+            },
+            "parentGroupId" => 123,
+            "parentGroup" => {
+              "id" => "123"
+            },
+            "types" => [
+              {
+                "id" => "500"
+              }
+            ]
           }
         ]
       })
