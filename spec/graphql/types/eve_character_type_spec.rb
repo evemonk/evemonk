@@ -4,6 +4,14 @@ require "rails_helper"
 
 describe Types::EveCharacterType do
   describe "get characters" do
+    before { travel_to Time.zone.now }
+
+    after { travel_back }
+
+    let!(:birthday1) { Time.zone.now }
+
+    let!(:birthday2) { Time.zone.now - 1.week }
+
     let!(:eve_alliance1) do
       create(:eve_alliance,
         alliance_id: 1_111)
@@ -14,16 +22,74 @@ describe Types::EveCharacterType do
         alliance_id: 1_222)
     end
 
+    let!(:eve_corporation1) do
+      create(:eve_corporation,
+        corporation_id: 1_333,
+        alliance: eve_alliance1)
+    end
+
+    let!(:eve_corporation2) do
+      create(:eve_corporation,
+        corporation_id: 1_444,
+        alliance: eve_alliance2)
+    end
+
+    let!(:eve_ancestry1) do
+      create(:eve_ancestry,
+        ancestry_id: 128)
+    end
+
+    let!(:eve_ancestry2) do
+      create(:eve_ancestry,
+        ancestry_id: 256)
+    end
+
+    let!(:eve_bloodline1) do
+      create(:eve_bloodline,
+        bloodline_id: 512)
+    end
+
+    let!(:eve_bloodline2) do
+      create(:eve_bloodline,
+        bloodline_id: 1_024)
+    end
+
+    let!(:eve_faction1) do
+      create(:eve_faction,
+        faction_id: 2_048)
+    end
+
+    let!(:eve_faction2) do
+      create(:eve_faction,
+        faction_id: 4_096)
+    end
+
     let!(:eve_character1) do
       create(:eve_character,
         character_id: 123,
-        alliance: eve_alliance1)
+        ancestry: eve_ancestry1,
+        birthday: birthday1,
+        bloodline: eve_bloodline1,
+        alliance: eve_alliance1,
+        corporation: eve_corporation1,
+        description: "Description 1",
+        faction: eve_faction1,
+        gender: "male",
+        name: "Name 1")
     end
 
     let!(:eve_character2) do
       create(:eve_character,
         character_id: 321,
-        alliance: eve_alliance2)
+        ancestry: eve_ancestry2,
+        birthday: birthday2,
+        bloodline: eve_bloodline2,
+        alliance: eve_alliance2,
+        corporation: eve_corporation2,
+        description: "Description 2",
+        faction: eve_faction2,
+        gender: "female",
+        name: "Name 2")
     end
 
     let(:query) do
@@ -76,14 +142,54 @@ describe Types::EveCharacterType do
             "allianceId" => 1_111,
             "alliance" => {
               "id" => "1111"
-            }
+            },
+            "ancestryId" => 128,
+            "ancestry" => {
+              "id" => "128"
+            },
+            "birthday" => birthday1.iso8601,
+            "bloodlineId" => 512,
+            "bloodline" => {
+              "id" => "512"
+            },
+            "corporationId" => 1_333,
+            "corporation" => {
+              "id" => "1333"
+            },
+            "description" => "Description 1",
+            "factionId" => 2_048,
+            "faction" => {
+              "id" => "2048"
+            },
+            "gender" => "male",
+            "name" => "Name 1"
           },
           {
             "id" => "321",
             "allianceId" => 1_222,
             "alliance" => {
               "id" => "1222"
-            }
+            },
+            "ancestryId" => 256,
+            "ancestry" => {
+              "id" => "256"
+            },
+            "birthday" => birthday2.iso8601,
+            "bloodlineId" => 1_024,
+            "bloodline" => {
+              "id" => "1024"
+            },
+            "corporationId" => 1_444,
+            "corporation" => {
+              "id" => "1444"
+            },
+            "description" => "Description 2",
+            "factionId" => 4_096,
+            "faction" => {
+              "id" => "4096"
+            },
+            "gender" => "female",
+            "name" => "Name 2"
           }
         ]
       })
