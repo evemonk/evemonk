@@ -99,7 +99,7 @@ module Types
       null: false,
       description: "Eve Market Groups"
 
-    field :group, Types::EveMarketGroupType, null: true do
+    field :market_group, Types::EveMarketGroupType, null: true do
       argument :id, ID, required: true
     end
 
