@@ -50,8 +50,15 @@ module Types
       argument :id, ID, required: true
     end
 
-    # constellations
-    # constellation(id:)
+    field :constellations,
+      [Types::EveConstellationType],
+      null: false,
+      description: "Eve Constellations"
+
+    field :constellation, Types::EveConstellationType, null: true do
+      argument :id, ID, required: true
+    end
+
     # contracts
     # contract(id:)
 
@@ -223,8 +230,14 @@ module Types
         .find_by(character_id: id)&.decorate
     end
 
-    # constellations
-    # constellation(id:)
+    def constellations
+      ::Eve::Constellation.all.decorate
+    end
+
+    def constellation(id:)
+      ::Eve::Constellation.find_by(constellation_id: id)&.decorate
+    end
+
     # contracts
     # contract(id:)
 
