@@ -4,14 +4,26 @@ require "rails_helper"
 
 describe Types::EveCharacterType do
   describe "get characters" do
+    let!(:eve_alliance1) do
+      create(:eve_alliance,
+        alliance_id: 1_111)
+    end
+
+    let!(:eve_alliance2) do
+      create(:eve_alliance,
+        alliance_id: 1_222)
+    end
+
     let!(:eve_character1) do
       create(:eve_character,
-        character_id: 123)
+        character_id: 123,
+        alliance: eve_alliance1)
     end
 
     let!(:eve_character2) do
       create(:eve_character,
-        character_id: 321)
+        character_id: 321,
+        alliance: eve_alliance2)
     end
 
     let(:query) do
@@ -60,10 +72,18 @@ describe Types::EveCharacterType do
       expect(result).to eq("data" => {
         "characters" => [
           {
-            "id" => "123"
+            "id" => "123",
+            "allianceId" => 1_111,
+            "alliance" => {
+              "id" => "1111"
+            }
           },
           {
-            "id" => "321"
+            "id" => "321",
+            "allianceId" => 1_222,
+            "alliance" => {
+              "id" => "1222"
+            }
           }
         ]
       })
