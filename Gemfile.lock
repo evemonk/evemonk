@@ -140,7 +140,7 @@ GEM
     childprocess (3.0.0)
     code_analyzer (0.5.2)
       sexp_processor
-    codecov (0.2.0)
+    codecov (0.2.1)
       colorize
       json
       simplecov
