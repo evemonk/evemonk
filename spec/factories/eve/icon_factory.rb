@@ -9,9 +9,5 @@ FactoryBot.define do
     icon_file { "res:/ui/texture/icons/1.png" }
 
     obsolete { [true, false].sample }
-
-    backgrounds { [] } # TODO: fix
-
-    foregrounds { [] } # TODO: fix
   end
 end
