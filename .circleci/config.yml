@@ -24,7 +24,9 @@ jobs:
             - ruby-271-v1-dependencies-
       - run: sudo gem update --system '3.1.4'
       - run: gem install bundler -v '2.1.4'
-      - run: bundle check || bundle install --clean --jobs=2 --retry=5 --path vendor/bundle
+      - run: bundle config set clean 'true'
+      - run: bundle config set path 'vendor/bundle'
+      - run: bundle check || bundle install --jobs=2 --retry=5
       - save_cache:
           paths:
             - ./vendor/bundle
