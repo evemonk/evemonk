@@ -93,8 +93,15 @@ module Types
 
     # icons
     # icon(id:)
-    # market_groups
-    # market_group(id:)
+
+    field :market_groups,
+      [Types::EveMarketGroupType],
+      null: false,
+      description: "Eve Market Groups"
+
+    field :group, Types::EveMarketGroupType, null: true do
+      argument :id, ID, required: true
+    end
 
     field :races,
       [Types::EveRaceType],
@@ -262,8 +269,14 @@ module Types
 
     # icons
     # icon(id:)
-    # market_groups
-    # market_group(id:)
+
+    def market_groups
+      ::Eve::MarketGroup.all.decorate
+    end
+
+    def market_group(id:)
+      ::Eve::MarketGroup.find_by(market_group_id: id)&.decorate
+    end
 
     def races
       ::Eve::Race.lazy_preload(:faction).all.decorate
