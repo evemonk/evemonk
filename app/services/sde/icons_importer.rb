@@ -16,9 +16,7 @@ module Sde
 
         icon.assign_attributes(description: hash["description"],
                                icon_file: hash["iconFile"],
-                               obsolete: hash["obsolete"],
-                               backgrounds: hash["backgrounds"],
-                               foregrounds: hash["foregrounds"])
+                               obsolete: hash["obsolete"])
 
         icon.save!
       end
