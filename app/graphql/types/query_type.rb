@@ -91,8 +91,14 @@ module Types
       argument :id, ID, required: true
     end
 
-    # icons
-    # icon(id:)
+    field :icons,
+      [Types::EveIconType],
+      null: false,
+      description: "Eve Icons"
+
+    field :icon, Types::EveIconType, null: true do
+      argument :id, ID, required: true
+    end
 
     field :market_groups,
       [Types::EveMarketGroupType],
@@ -267,8 +273,13 @@ module Types
       ::Eve::Group.find_by(group_id: id)&.decorate
     end
 
-    # icons
-    # icon(id:)
+    def icons
+      ::Eve::Icon.all.decorate
+    end
+
+    def icon(id:)
+      ::Eve::Icon.find_by(icon_id: id)&.decorate
+    end
 
     def market_groups
       ::Eve::MarketGroup.all.decorate
