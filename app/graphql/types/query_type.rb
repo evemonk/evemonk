@@ -183,25 +183,25 @@ module Types
 
     def characters
       ::Eve::Character.lazy_preload(:alliance,
-                                    :ancestry,
-                                    :bloodline,
-                                    :corporation,
-                                    :faction,
-                                    :race,
-                                    :character_corporation_histories)
+        :ancestry,
+        :bloodline,
+        :corporation,
+        :faction,
+        :race,
+        :character_corporation_histories)
         .all
         .decorate
     end
 
     def character(id:)
       ::Eve::Character.lazy_preload(:alliance,
-                                    :ancestry,
-                                    :bloodline,
-                                    :corporation,
-                                    :faction,
-                                    :race,
-                                    :character_corporation_histories)
-      .find_by(character_id: id)&.decorate
+        :ancestry,
+        :bloodline,
+        :corporation,
+        :faction,
+        :race,
+        :character_corporation_histories)
+        .find_by(character_id: id)&.decorate
     end
 
     # constellations
