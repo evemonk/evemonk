@@ -6,8 +6,6 @@ module Types
     field :description, String, null: true
     field :icon_file, String, null: true
     field :obsolete, Boolean, null: true
-    field :backgrounds, [String], null: true
-    field :foregrounds, [String], null: true
 
     def id
       object.icon_id
