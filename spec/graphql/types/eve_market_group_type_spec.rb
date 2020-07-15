@@ -144,5 +144,84 @@ describe Types::EveMarketGroupType do
   end
 
   describe "get market group by id" do
+    let!(:eve_type) do
+      create(:eve_type,
+        type_id: 400,
+        market_group: eve_market_group)
+    end
+
+    let!(:eve_market_group) do
+      create(:eve_market_group,
+        market_group_id: 123,
+        name_en: "EN: name 1",
+        name_de: "DE: name 1",
+        name_fr: "FR: name 1",
+        name_ja: "JA: name 1",
+        name_ru: "RU: name 1",
+        name_zh: "ZH: name 1",
+        name_ko: "KO: name 1",
+        description_en: "EN: description 1",
+        description_de: "DE: description 1",
+        description_fr: "FR: description 1",
+        description_ja: "JA: description 1",
+        description_ru: "RU: description 1",
+        description_zh: "ZH: description 1",
+        description_ko: "KO: description 1",
+        parent_group_id: nil)
+    end
+
+    let(:query) do
+      %(
+        {
+          marketGroup(id: 123) {
+            id
+            name
+            description
+            parentGroupId
+            parentGroup {
+              id
+            }
+            types {
+              id
+            }
+          }
+        }
+      )
+    end
+
+    let(:result) { EvemonkSchema.execute(query).as_json }
+
+    specify do
+      expect(result).to eq("data" => {
+        "marketGroup" => {
+          "id" => "123",
+          "name" => {
+            "en" => "EN: name 1",
+            "de" => "DE: name 1",
+            "fr" => "FR: name 1",
+            "ja" => "JA: name 1",
+            "ru" => "RU: name 1",
+            "zh" => "ZH: name 1",
+            "ko" => "KO: name 1"
+          },
+          "description" => {
+            "en" => "EN: description 1",
+            "de" => "DE: description 1",
+            "fr" => "FR: description 1",
+            "ja" => "JA: description 1",
+            "ru" => "RU: description 1",
+            "zh" => "ZH: description 1",
+            "ko" => "KO: description 1"
+          },
+          "parentGroupId" => nil,
+          "parentGroup" => nil,
+          "types" => [
+            {
+              "id" => "400"
+            }
+          ]
+        }
+      })
+    end
   end
 end
