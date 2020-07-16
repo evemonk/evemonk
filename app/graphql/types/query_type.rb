@@ -125,8 +125,15 @@ module Types
       argument :id, ID, required: true
     end
 
-    # regions
-    # region(id:)
+    field :regions,
+      [Types::EveRegionType],
+      null: false,
+      description: "Eve Regions"
+
+    field :region, Types::EveRegionType, null: true do
+      argument :id, ID, required: true
+    end
+
     # ships
     # ship(id:)
     # stars
@@ -152,11 +159,6 @@ module Types
     #   [Types::EveTypeType],
     #   null: false,
     #   description: "Eve Types"
-    #
-    # field :regions,
-    #   [Types::EveRegionType],
-    #   null: false,
-    #   description: "Eve Regions"
     #
     # field :contracts,
     #   [Types::EveContractType],
@@ -311,6 +313,14 @@ module Types
         .find_by(race_id: id)&.decorate
     end
 
+    def regions
+      ::Eve::Region.all.decorate
+    end
+
+    def region(id:)
+      ::Eve::Region.find_by(region_id: id)&.decorate
+    end
+
     # def blueprints
     #   ::Eve::Blueprint.lazy_preload(:group).all.decorate
     # end
@@ -322,10 +332,6 @@ module Types
     #
     # def types
     #   ::Eve::Type.lazy_preload(:group).all.decorate
-    # end
-    #
-    # def regions
-    #   ::Eve::Region.all.decorate
     # end
     #
     # def contracts
