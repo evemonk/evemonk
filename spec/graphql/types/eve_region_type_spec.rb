@@ -96,7 +96,12 @@ describe Types::EveRegionType do
               "ru" => "RU: description 1",
               "zh" => "ZH: description 1",
               "ko" => "KO: description 1"
-            }
+            },
+            "constellations" => [
+              {
+                "id" => "300"
+              }
+            ]
           },
           {
             "id" => "321",
@@ -117,7 +122,12 @@ describe Types::EveRegionType do
               "ru" => "RU: description 2",
               "zh" => "ZH: description 2",
               "ko" => "KO: description 2"
-            }
+            },
+            "constellations" => [
+              {
+                "id" => "400"
+              }
+            ]
           }
         ]
       })
