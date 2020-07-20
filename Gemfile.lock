@@ -295,7 +295,7 @@ GEM
     kaminari-i18n (0.5.0)
       kaminari
       rails
-    kramdown (2.2.1)
+    kramdown (2.3.0)
       rexml
     kramdown-parser-gfm (1.1.0)
       kramdown (~> 2.0)
@@ -742,7 +742,7 @@ DEPENDENCIES
   license_finder
   listen (~> 3.2)
   lograge
-  mdl
+  mdl (>= 0.9.0)
   meta-tags
   metricky
   mobility
@@ -807,4 +807,4 @@ DEPENDENCIES
   yabeda-sidekiq
 
 BUNDLED WITH
-   2.1.4
+   1.17.3
