@@ -56,7 +56,7 @@ All screenshots are real and made in Safari on latest macOS Catalina (10.15.3).
 - Redis 6.0.6
 - Elasticsearch 7.8.0
 - Node 12.18.3
-- NPM 6.14.6
+- NPM 6.14.7
 - Yarn 1.22.4
 - Bootstrap 4.5.0
 - Bootstrap Icons 1.0.0-alpha5
