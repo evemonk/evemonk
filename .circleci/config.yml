@@ -13,7 +13,7 @@ jobs:
           POSTGRES_USER: circleci
           POSTGRES_DB: evemonk_test
           POSTGRES_HOST_AUTH_METHOD: trust
-      - image: docker.elastic.co/elasticsearch/elasticsearch:7.8.0
+      - image: docker.elastic.co/elasticsearch/elasticsearch:7.8.1
         environment:
           - discovery.type: single-node
     steps:
@@ -61,7 +61,6 @@ jobs:
       - run: bundle exec license_finder || true
       - run: bundle exec rails zeitwerk:check
       - run: bundle exec rails factory_bot:lint
-      # - run: bundle exec rake traceroute FAIL_ON_ERROR=1 || true
       - run: bundle exec rake SECRET_KEY_BASE=blablabla DB_ADAPTER=nulldb assets:precompile
       - run: ./hadolint --ignore DL3008 Dockerfile
       - run: shellcheck-stable/shellcheck bin/backend bin/sidekiq bin/cron bin/standardize
