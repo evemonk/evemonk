@@ -267,7 +267,7 @@ GEM
     httplog (1.4.3)
       rack (>= 1.0)
       rainbow (>= 2.0.0)
-    i18n (1.8.3)
+    i18n (1.8.5)
       concurrent-ruby (~> 1.0)
     i18n_data (0.10.0)
     isolator (0.6.2)
@@ -397,7 +397,7 @@ GEM
       trollop (~> 1.16)
     pg (1.2.3)
     pg_query (1.2.0)
-    pghero (2.5.0)
+    pghero (2.7.0)
       activerecord (>= 5)
     prometheus-client (2.0.0)
     pry (0.13.1)
@@ -688,7 +688,7 @@ GEM
     yabeda-sidekiq (0.5.0)
       sidekiq
       yabeda (~> 0.2)
-    zeitwerk (2.3.0)
+    zeitwerk (2.4.0)
     zxcvbn-js (4.4.3)
       execjs
 
