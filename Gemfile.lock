@@ -210,10 +210,11 @@ GEM
       multi_json
     enumerable-statistics (2.0.1)
     equatable (0.6.1)
-    erb_lint (0.0.34)
+    erb_lint (0.0.35)
       activesupport
       better_html (~> 1.0.7)
       html_tokenizer
+      parser (>= 2.7.1.4)
       rainbow
       rubocop (~> 0.79)
       smart_properties
