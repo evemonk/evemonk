@@ -43,7 +43,7 @@ gem "net-http-persistent"
 gem "connection_pool"
 gem "sidekiq", require: false
 gem "rpush"
-gem "pghero"
+gem "pghero", ">= 2.7.0"
 gem "pg_query"
 # gem "rubycritic", require: false
 gem "swagger-blocks"
