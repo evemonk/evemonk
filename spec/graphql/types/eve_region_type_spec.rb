@@ -16,6 +16,18 @@ describe Types::EveRegionType do
         region: eve_region2)
     end
 
+    let!(:eve_contract1) do
+      create(:eve_contract,
+        region_id: 123,
+        contract_id: 1_123)
+    end
+
+    let!(:eve_contract2) do
+      create(:eve_contract,
+        region_id: 321,
+        contract_id: 1_124)
+    end
+
     let!(:eve_region1) do
       create(:eve_region,
         region_id: 123,
@@ -101,6 +113,11 @@ describe Types::EveRegionType do
               {
                 "id" => "300"
               }
+            ],
+            "contracts" => [
+              {
+                "id" => "1123"
+              }
             ]
           },
           {
@@ -126,6 +143,11 @@ describe Types::EveRegionType do
             "constellations" => [
               {
                 "id" => "400"
+              }
+            ],
+            "contracts" => [
+              {
+                "id" => "1124"
               }
             ]
           }
