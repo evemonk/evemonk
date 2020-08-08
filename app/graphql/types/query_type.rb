@@ -142,8 +142,15 @@ module Types
     # station(id:)
     # systems
     # system(id:)
-    # types
-    # type(id:)
+
+    field :types,
+      [Types::EveTypeType],
+      null: false,
+      description: "Eve Types"
+
+    field :type, Types::EveTypeType, null: true do
+      argument :id, ID, required: true
+    end
 
     # field :blueprints,
     #   [Types::EveBlueprintType],
@@ -154,11 +161,6 @@ module Types
     #   [Types::EveShipType],
     #   null: false,
     #   description: "Eve Ships"
-    #
-    # field :types,
-    #   [Types::EveTypeType],
-    #   null: false,
-    #   description: "Eve Types"
     #
     # field :contracts,
     #   [Types::EveContractType],
@@ -329,11 +331,15 @@ module Types
     #   # TODO: load only ships!!!
     #   ::Eve::Ship.lazy_preload(:group).all.decorate
     # end
-    #
-    # def types
-    #   ::Eve::Type.lazy_preload(:group).all.decorate
-    # end
-    #
+
+    def types
+      ::Eve::Type.lazy_preload(:group).all.decorate
+    end
+
+    def type(id:)
+      ::Eve::Type.find_by(type_id: id)&.decorate
+    end
+
     # def contracts
     #   ::Eve::Contract.all.decorate
     # end
