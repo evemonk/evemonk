@@ -155,12 +155,32 @@ module Types
       argument :id, ID, required: true
     end
 
-    # stars
-    # star(id:)
-    # stations
-    # station(id:)
-    # systems
-    # system(id:)
+    field :stars,
+      [Types::EveStarType],
+      null: false,
+      description: "Eve Stars"
+
+    field :star, Types::EveStarType, null: true do
+      argument :id, ID, required: true
+    end
+
+    field :stations,
+      [Types::EveStationType],
+      null: false,
+      description: "Eve Stations"
+
+    field :station, Types::EveStationType, null: true do
+      argument :id, ID, required: true
+    end
+
+    field :systems,
+      [Types::EveSystemType],
+      null: false,
+      description: "Eve Systems"
+
+    field :system, Types::EveSystemType, null: true do
+      argument :id, ID, required: true
+    end
 
     field :types,
       [Types::EveTypeType],
@@ -345,6 +365,30 @@ module Types
     def ship(id:)
       # TODO: load only ships!!!
       ::Eve::Ship.find_by(type_id: id)&.decorate
+    end
+
+    def stars
+      ::Eve::Star.all.decorate
+    end
+
+    def star(id:)
+      ::Eve::Star.find_by(star_id: id)&.decorate
+    end
+
+    def stations
+      ::Eve::Station.all.decorate
+    end
+
+    def station(id:)
+      ::Eve::Station.find_by(station_id: id)&.decorate
+    end
+
+    def systems
+      ::Eve::System.all.decorate
+    end
+
+    def system(id:)
+      ::Eve::System.find_by(system_id: id)&.decorate
     end
 
     def types
