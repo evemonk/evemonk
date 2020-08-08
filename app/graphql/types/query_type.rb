@@ -146,8 +146,15 @@ module Types
       argument :id, ID, required: true
     end
 
-    # ships
-    # ship(id:)
+    field :ships,
+      [Types::EveShipType],
+      null: false,
+      description: "Eve Ships"
+
+    field :ship, Types::EveShipType, null: true do
+      argument :id, ID, required: true
+    end
+
     # stars
     # star(id:)
     # stations
@@ -163,11 +170,6 @@ module Types
     field :type, Types::EveTypeType, null: true do
       argument :id, ID, required: true
     end
-
-    # field :ships,
-    #   [Types::EveShipType],
-    #   null: false,
-    #   description: "Eve Ships"
 
     def alliances
       ::Eve::Alliance.lazy_preload(:creator_corporation,
@@ -335,10 +337,15 @@ module Types
       ::Eve::Region.find_by(region_id: id)&.decorate
     end
 
-    # def ships
-    #   # TODO: load only ships!!!
-    #   ::Eve::Ship.lazy_preload(:group).all.decorate
-    # end
+    def ships
+      # TODO: load only ships!!!
+      ::Eve::Ship.lazy_preload(:group).all.decorate
+    end
+
+    def ship(id:)
+      # TODO: load only ships!!!
+      ::Eve::Ship.find_by(type_id: id)&.decorate
+    end
 
     def types
       ::Eve::Type.lazy_preload(:group).all.decorate
