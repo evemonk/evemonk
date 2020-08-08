@@ -65,8 +65,14 @@ module Types
       argument :id, ID, required: true
     end
 
-    # contracts
-    # contract(id:)
+    field :contracts,
+      [Types::EveContractType],
+      null: false,
+      description: "Public Contracts"
+
+    field :contract, Types::EveContractType, null: true do
+      argument :id, ID, required: true
+    end
 
     field :corporations,
       [Types::EveCorporationType],
@@ -162,11 +168,6 @@ module Types
     #   [Types::EveShipType],
     #   null: false,
     #   description: "Eve Ships"
-    #
-    # field :contracts,
-    #   [Types::EveContractType],
-    #   null: false,
-    #   description: "Public Contracts"
 
     def alliances
       ::Eve::Alliance.lazy_preload(:creator_corporation,
@@ -248,8 +249,13 @@ module Types
       ::Eve::Constellation.find_by(constellation_id: id)&.decorate
     end
 
-    # contracts
-    # contract(id:)
+    def contracts
+      ::Eve::Contract.all.decorate
+    end
+
+    def contract(id:)
+      ::Eve::Contract.find_by(contract_id: id)&.decorate
+    end
 
     def corporations
       ::Eve::Corporation.lazy_preload(:alliance,
@@ -341,9 +347,5 @@ module Types
     def type(id:)
       ::Eve::Type.find_by(type_id: id)&.decorate
     end
-
-    # def contracts
-    #   ::Eve::Contract.all.decorate
-    # end
   end
 end
