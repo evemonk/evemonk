@@ -29,8 +29,14 @@ module Types
       argument :id, ID, required: true
     end
 
-    # blueprints
-    # blueprint(id:)
+    field :blueprints,
+      [Types::EveBlueprintType],
+      null: false,
+      description: "Eve Blueprints"
+
+    field :blueprint, Types::EveBlueprintType, null: true do
+      argument :id, ID, required: true
+    end
 
     field :categories,
       [Types::EveCategoryType],
@@ -152,11 +158,6 @@ module Types
       argument :id, ID, required: true
     end
 
-    # field :blueprints,
-    #   [Types::EveBlueprintType],
-    #   null: false,
-    #   description: "Eve Blueprints"
-    #
     # field :ships,
     #   [Types::EveShipType],
     #   null: false,
@@ -200,8 +201,13 @@ module Types
       ::Eve::Bloodline.find_by(bloodline_id: id)&.decorate
     end
 
-    # blueprints
-    # blueprint(id:)
+    def blueprints
+      ::Eve::Blueprint.all.decorate
+    end
+
+    def blueprint(id:)
+      ::Eve::Blueprint.find_by(type_id: id)&.decorate
+    end
 
     def categories
       ::Eve::Category.all.decorate
@@ -323,10 +329,6 @@ module Types
       ::Eve::Region.find_by(region_id: id)&.decorate
     end
 
-    # def blueprints
-    #   ::Eve::Blueprint.lazy_preload(:group).all.decorate
-    # end
-    #
     # def ships
     #   # TODO: load only ships!!!
     #   ::Eve::Ship.lazy_preload(:group).all.decorate
