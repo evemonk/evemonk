@@ -17,6 +17,7 @@ SimpleCov.start "rails" do
   add_group "Decorators", "app/decorators"
   add_group "Services", "app/services"
   add_group "Dashboards", "app/dashboards"
+  add_group "GraphQL", "app/graphql"
   add_group "Reflexes", "app/reflexes"
 end
 
