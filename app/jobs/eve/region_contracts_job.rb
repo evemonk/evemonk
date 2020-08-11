@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Eve
-  class RegionContractsJob < ActiveJob::Base
+  class RegionContractsJob < ApplicationJob
     queue_as :default
 
     retry_on EveOnline::Exceptions::Timeout,
