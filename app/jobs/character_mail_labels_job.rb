@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class CharacterMailLabelsJob < ActiveJob::Base
+class CharacterMailLabelsJob < ApplicationJob
   queue_as :important
 
   retry_on EveOnline::Exceptions::Timeout,

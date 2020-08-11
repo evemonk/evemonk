@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class CharacterWalletJournalJob < ActiveJob::Base
+class CharacterWalletJournalJob < ApplicationJob
   queue_as :important
 
   retry_on EveOnline::Exceptions::Timeout,
