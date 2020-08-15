@@ -13,7 +13,7 @@ services:
     volumes:
       - "postresql_data:/var/lib/postgresql/data"
     environment:
-      POSTGRES_HOST_AUTH_METHOD: trust
+      POSTGRES_HOST_AUTH_METHOD: "trust"
     ports:
       - "5432:5432"
 
