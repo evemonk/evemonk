@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# TODO: remove this
 module Types
   class MutationType < Types::BaseObject
     # TODO: remove me
