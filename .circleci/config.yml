@@ -13,7 +13,7 @@ jobs:
           POSTGRES_USER: circleci
           POSTGRES_DB: evemonk_test
           POSTGRES_HOST_AUTH_METHOD: trust
-      - image: docker.elastic.co/elasticsearch/elasticsearch:7.8.1
+      - image: docker.elastic.co/elasticsearch/elasticsearch-oss:7.8.1
         environment:
           - discovery.type: single-node
     steps:
