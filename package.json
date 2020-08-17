@@ -5,13 +5,13 @@
     "@github/hotkey": "^1.4.2",
     "@rails/actioncable": "^6.0.0",
     "@rails/ujs": "^6.0.0",
-    "@rails/webpacker": "4.2.2",
-    "@sentry/browser": "^5.15.5",
-    "apexcharts": "^3.19.0",
+    "@rails/webpacker": "4.3.0",
+    "@sentry/browser": "^5.18.1",
+    "apexcharts": "^3.19.3",
     "bootstrap": "^4.4.1",
     "bootstrap-icons": "^1.0.0-alpha3",
     "bootswatch": "^4.4.1",
-    "cable_ready": "^4.1.2",
+    "cable_ready": "^4.3.0",
     "jquery": "^3.5.1",
     "lodash.debounce": "^4.0.8",
     "popper.js": "^1.16.1",
@@ -20,7 +20,7 @@
     "timeago.js": "^4.0.2",
     "turbolinks": "^5.2.0",
     "vue": "^2.6.11",
-    "vue-select": "^3.10.3"
+    "vue-select": "^3.10.5"
   },
   "version": "0.1.0",
   "devDependencies": {
