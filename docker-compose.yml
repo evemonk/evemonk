@@ -7,19 +7,18 @@ volumes:
 
 services:
   postgresql:
-    image: "postgres:12.3"
+    image: "docker.io/library/postgres:12.4"
     container_name: "evemonk_postgresql"
     restart: "unless-stopped"
     volumes:
       - "postresql_data:/var/lib/postgresql/data"
-      - "./postgres:/docker-entrypoint-initdb.d"
     environment:
-      POSTGRES_HOST_AUTH_METHOD: trust
+      POSTGRES_HOST_AUTH_METHOD: "trust"
     ports:
       - "5432:5432"
 
   elasticsearch:
-    image: "docker.elastic.co/elasticsearch/elasticsearch:7.8.0"
+    image: "docker.elastic.co/elasticsearch/elasticsearch-oss:7.8.1"
     container_name: "evemonk_elasticsearch"
     restart: "unless-stopped"
     volumes:
@@ -31,7 +30,7 @@ services:
       - "9200:9200"
 
   redis:
-    image: "redis:6.0.5"
+    image: "docker.io/library/redis:6.0.6"
     container_name: "evemonk_redis"
     restart: "unless-stopped"
     volumes:
@@ -40,16 +39,9 @@ services:
       - "6379:6379"
 
   memcached:
-    image: "memcached:1.6.6"
+    image: "docker.io/library/memcached:1.6.6"
     container_name: "evemonk_memcached"
     restart: "unless-stopped"
     command: "memcached -m 64"
     ports:
       - "11211:11211"
-
-  swagger_ui:
-    image: "swaggerapi/swagger-ui:v3.26.0"
-    container_name: "evemonk_swagger_ui"
-    restart: "unless-stopped"
-    ports:
-      - "8080:8080"

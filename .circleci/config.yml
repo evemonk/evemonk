@@ -8,12 +8,12 @@ jobs:
         environment:
           RAILS_ENV: test
           PGHOST: localhost
-      - image: postgres:12.3
+      - image: postgres:12.4
         environment:
           POSTGRES_USER: circleci
           POSTGRES_DB: evemonk_test
           POSTGRES_HOST_AUTH_METHOD: trust
-      - image: docker.elastic.co/elasticsearch/elasticsearch:7.8.0
+      - image: docker.elastic.co/elasticsearch/elasticsearch-oss:7.8.1
         environment:
           - discovery.type: single-node
     steps:
@@ -22,16 +22,18 @@ jobs:
           keys:
             - ruby-271-v1-dependencies-{{ checksum "Gemfile.lock" }}
             - ruby-271-v1-dependencies-
-      - run: sudo gem update --system '3.1.2'
+      - run: sudo gem update --system '3.1.4'
       - run: gem install bundler -v '2.1.4'
-      - run: bundle check || bundle install --clean --jobs=2 --retry=5 --path vendor/bundle
+      - run: bundle config set clean 'true'
+      - run: bundle config set path 'vendor/bundle'
+      - run: bundle check || bundle install --jobs=2 --retry=5
       - save_cache:
           paths:
             - ./vendor/bundle
           key: ruby-271-v1-dependencies-{{ checksum "Gemfile.lock" }}
       - run: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run: dockerize -wait tcp://localhost:9200 -timeout 2m
-      - run: sudo npm install -g npm@6.14.5
+      - run: sudo npm install -g npm@6.14.7
       - run: sudo npm install --force -g yarn@1.22.4
       - run: node -v
       - run: npm -v
@@ -47,7 +49,7 @@ jobs:
       - run: bundle exec bundle-audit update
       - run: bundle exec bundle-leak update
       - run: bundle exec bundle-audit --ignore CVE-2015-9284
-      - run: yarn audit
+      - run: yarn audit || true
       - run: bundle exec brakeman -A
       - run: bundle exec bundle-leak
       - run: bundle exec mdl README.md
@@ -59,7 +61,6 @@ jobs:
       - run: bundle exec license_finder || true
       - run: bundle exec rails zeitwerk:check
       - run: bundle exec rails factory_bot:lint
-      - run: bundle exec rake traceroute FAIL_ON_ERROR=1 || true
       - run: bundle exec rake SECRET_KEY_BASE=blablabla DB_ADAPTER=nulldb assets:precompile
       - run: ./hadolint --ignore DL3008 Dockerfile
       - run: shellcheck-stable/shellcheck bin/backend bin/sidekiq bin/cron bin/standardize

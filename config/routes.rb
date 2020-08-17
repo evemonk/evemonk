@@ -5,6 +5,10 @@ if Rails.env.development?
 end
 
 Rails.application.routes.draw do
+  mount GraphiQL::Rails::Engine, at: "/graphiql", graphql_path: "/graphql"
+
+  post "/graphql", to: "graphql#execute"
+
   devise_for :users
 
   get ".well-known/change-password", to: "well_known#change_password"
@@ -16,7 +20,9 @@ Rails.application.routes.draw do
   end
 
   namespace :universe do
-    resources :alliances, only: [:index, :show]
+    resources :alliances, only: [:index, :show] do
+      resource :hovercard, only: :show, controller: "alliances/hovercards"
+    end
 
     resources :corporations, only: [:index, :show]
 
@@ -97,27 +103,11 @@ Rails.application.routes.draw do
     resources :characters, only: [:index, :show, :destroy]
 
     namespace :eve do
-      resources :alliances, only: [:index, :show] do
-        resources :characters, only: :index, controller: :alliance_characters
-
-        resources :corporations, only: :index, controller: :alliance_corporations
-      end
-
-      resources :corporations, only: [:index, :show] do
-        resources :characters, only: :index, controller: :corporation_characters
-      end
-
-      resources :characters, only: [:index, :show] do
-        resources :corporations_history, only: :index, controller: :character_corporations_history
-      end
-
       resources :types, only: [:index, :show]
 
       resources :blueprints, only: :index
 
       resources :manufacturing_items, only: :index
-
-      resource :server_status_last, only: :show
     end
   end
 

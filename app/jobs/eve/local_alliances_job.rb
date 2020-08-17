@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Eve
-  class LocalAlliancesJob < ActiveJob::Base
+  class LocalAlliancesJob < ApplicationJob
     queue_as :default
 
     retry_on EveOnline::Exceptions::Timeout,

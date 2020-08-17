@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class UpdateCharactersJob < ActiveJob::Base
+class UpdateCharactersJob < ApplicationJob
   queue_as :important
 
   def perform

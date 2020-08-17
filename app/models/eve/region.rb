@@ -9,5 +9,7 @@ module Eve
     translates :name, :description
 
     has_many :constellations, primary_key: "region_id"
+
+    has_many :contracts, primary_key: "region_id"
   end
 end

@@ -2,6 +2,7 @@
   "name": "evemonk",
   "private": true,
   "dependencies": {
+    "@github/hotkey": "^1.4.2",
     "@rails/actioncable": "^6.0.0",
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "4.2.2",

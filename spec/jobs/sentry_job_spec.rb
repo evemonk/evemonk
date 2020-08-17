@@ -3,6 +3,8 @@
 require "rails_helper"
 
 describe SentryJob do
+  it { should be_an(ApplicationJob) }
+
   it { expect(described_class.queue_name).to eq("sentry") }
 
   describe "#perform" do

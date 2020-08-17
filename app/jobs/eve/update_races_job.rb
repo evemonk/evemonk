@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Eve
-  class UpdateRacesJob < ActiveJob::Base
+  class UpdateRacesJob < ApplicationJob
     queue_as :default
 
     retry_on EveOnline::Exceptions::Timeout,

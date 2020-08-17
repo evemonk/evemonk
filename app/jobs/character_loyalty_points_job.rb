@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class CharacterLoyaltyPointsJob < ActiveJob::Base
+class CharacterLoyaltyPointsJob < ApplicationJob
   queue_as :important
 
   retry_on EveOnline::Exceptions::Timeout,

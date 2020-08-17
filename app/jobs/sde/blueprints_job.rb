@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Sde
-  class BlueprintsJob < ActiveJob::Base
+  class BlueprintsJob < ApplicationJob
     queue_as :default
 
     def perform(file)

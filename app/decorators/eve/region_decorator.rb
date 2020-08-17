@@ -2,6 +2,6 @@
 
 module Eve
   class RegionDecorator < ApplicationDecorator
-    decorates_associations :constellations
+    decorates_associations :constellations, :contracts
   end
 end

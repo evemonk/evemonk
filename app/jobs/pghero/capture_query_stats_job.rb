@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Pghero
-  class CaptureQueryStatsJob < ActiveJob::Base
+  class CaptureQueryStatsJob < ApplicationJob
     queue_as :pghero
 
     def perform

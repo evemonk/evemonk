@@ -72,18 +72,8 @@ module Api
       Api::Docs::Models::OutputSessionWithoutToken,
       Api::Docs::Models::OutputSessionsCollection,
       Api::Docs::Models::OutputUser,
-      Api::Docs::Models::OutputCharacter,
-      Api::Docs::Models::OutputCharactersCollection,
-      Api::Docs::Models::OutputRace,
-      Api::Docs::Models::OutputBloodline,
-      Api::Docs::Models::OutputFaction,
-      Api::Docs::Models::OutputAncestry,
-      Api::Docs::Models::OutputAlliance,
-      Api::Docs::Models::OutputCorporation,
       Api::Docs::Models::SignInsUnprocessableEntity,
       Api::Docs::Models::SignUpsUnprocessableEntity,
-
-      # Api::Docs::Models::Eve::OutputRace,
 
       Api::Docs::Profiles,
       Api::Docs::Sessions,
@@ -91,13 +81,6 @@ module Api
       Api::Docs::SignOuts,
       Api::Docs::SignUps,
       Api::Docs::Characters,
-
-      # Api::Docs::Eve::Alliances,
-      # Api::Docs::Eve::AllianceCorporations,
-      # Api::Docs::Eve::AllianceCharacters,
-      # Api::Docs::Eve::Corporations,
-      # Api::Docs::Eve::CorporationCharacters,
-      # Api::Docs::Eve::Characters,
 
       self
     ].freeze

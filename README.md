@@ -49,18 +49,18 @@ All screenshots are real and made in Safari on latest macOS Catalina (10.15.3).
 - [asdf](https://github.com/asdf-vm/asdf)
 - [asdf-nodejs](https://github.com/asdf-vm/asdf-nodejs)
 - Ruby 2.7.1
-- RubyGems 3.1.2
+- RubyGems 3.1.4
 - Bundler 2.1.4
 - Ruby on Rails 6.0.3.2
-- PostgreSQL 12.3
-- Redis 6.0.5
-- Elasticsearch 7.8.0
-- Node 12.18.0
-- NPM 6.14.5
+- PostgreSQL 12.4
+- Redis 6.0.6
+- Elasticsearch OSS 7.8.1
+- Node 12.18.3
+- NPM 6.14.7
 - Yarn 1.22.4
-- Bootstrap 4.5.0
-- Bootstrap Icons 1.0.0-alpha4
-- Bootswatch Darkly 4.5.0
+- Bootstrap 4.5.2
+- Bootstrap Icons 1.0.0-alpha5
+- Bootswatch Darkly 4.5.2
 
 ## Configure
 

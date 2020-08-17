@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Eve
-  class UpdateMarketPricesJob < ActiveJob::Base
+  class UpdateMarketPricesJob < ApplicationJob
     queue_as :important
 
     retry_on EveOnline::Exceptions::Timeout,

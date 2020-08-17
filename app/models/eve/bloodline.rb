@@ -22,6 +22,7 @@ module Eve
       primary_key: "type_id",
       optional: true
 
-    has_many :ancestries
+    has_many :ancestries,
+      primary_key: "bloodline_id"
   end
 end

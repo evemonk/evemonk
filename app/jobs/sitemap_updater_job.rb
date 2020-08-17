@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class SitemapUpdaterJob < ActiveJob::Base
+class SitemapUpdaterJob < ApplicationJob
   queue_as :default
 
   def perform

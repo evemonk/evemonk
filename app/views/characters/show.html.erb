@@ -76,6 +76,9 @@
       <%= link_to("Orders", character_orders_path(@character.character_id), class: "nav-link") %>
     </li>
   <% end %>
+  <li class="nav-item">
+    <%= link_to("Training Queue", character_training_queues_path(@character.character_id), class: "nav-link") %>
+  </li>
 </ul>
 
 <hr>

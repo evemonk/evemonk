@@ -86,3 +86,6 @@ Layout/ArrayAlignment:
 
 Layout/FirstArrayElementIndentation:
   Enabled: false
+
+Naming/MethodParameterName:
+  Enabled: false
