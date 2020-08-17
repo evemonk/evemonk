@@ -904,7 +904,7 @@
     webpack-cli "^3.3.10"
     webpack-sources "^1.4.3"
 
-"@sentry/browser@^5.15.5":
+"@sentry/browser@^5.18.1":
   version "5.21.1"
   resolved "https://registry.yarnpkg.com/@sentry/browser/-/browser-5.21.1.tgz#864b7fe63e1be8a0162642f8541fcdef74f1ce94"
   integrity sha512-sUxsW545klZxJE4iBAYQ8SuVS85HTOGNmIIIZWFUogB5oW3O0L+nJluXEqf/pHU82LnjDIzqsWCYQ0cRUaeYow==
