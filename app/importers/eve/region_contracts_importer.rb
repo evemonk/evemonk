@@ -30,8 +30,8 @@ module Eve
       # end
     end
 
-    private
-
+    # private
+    #
     # def region
     #   @region ||= Eve::Region.find_by!(region_id: region_id)
     # end
@@ -45,13 +45,13 @@ module Eve
     #     region.contracts.create!(contract.as_json)
     #   end
     # end
-
-    def import_other_pages(esi)
-      return if page != 1 || esi.total_pages == 1
-
-      (2..esi.total_pages).each do |next_page|
-        Eve::RegionContractsJob.perform_later(region_id, next_page)
-      end
-    end
+    #
+    # def import_other_pages(esi)
+    #   return if page != 1 || esi.total_pages == 1
+    #
+    #   (2..esi.total_pages).each do |next_page|
+    #     Eve::RegionContractsJob.perform_later(region_id, next_page)
+    #   end
+    # end
   end
 end
