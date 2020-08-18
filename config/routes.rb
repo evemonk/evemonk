@@ -90,12 +90,6 @@ Rails.application.routes.draw do
 
     resource :sign_out, only: :destroy
 
-    resource :change_password, only: :create
-
-    resource :request_password_reset, only: :create
-
-    resource :reset_password, only: :create
-
     resources :sessions, only: [:index, :destroy]
 
     resource :profile, only: :show
