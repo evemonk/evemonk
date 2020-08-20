@@ -137,7 +137,7 @@ GEM
       regexp_parser (~> 1.5)
       xpath (~> 3.2)
     chartkick (3.4.0)
-    chef-utils (16.4.38)
+    chef-utils (16.4.41)
     childprocess (3.0.0)
     code_analyzer (0.5.2)
       sexp_processor
@@ -573,7 +573,7 @@ GEM
     selenium-webdriver (3.142.7)
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
-    sentry-raven (3.0.0)
+    sentry-raven (3.0.2)
       faraday (>= 1.0)
     server_timing (1.0.2)
       scout_apm
