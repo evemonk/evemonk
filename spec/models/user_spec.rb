@@ -3,7 +3,7 @@
 require "rails_helper"
 
 describe User do
-  it { should be_a(ApplicationRecord) }
+  it { should be_an(ApplicationRecord) }
 
   it {
     expect(described_class.devise_modules).to eq([:database_authenticatable,
