@@ -3,7 +3,7 @@
 require "rails_helper"
 
 describe Eve::Blueprint do
-  it { should be_a(Eve::Type) }
+  it { should be_an(Eve::Type) }
 
   describe "default_scope" do
     let!(:blueprint1) do
