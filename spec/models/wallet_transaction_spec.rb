@@ -3,7 +3,7 @@
 require "rails_helper"
 
 describe WalletTransaction do
-  it { should be_a(ApplicationRecord) }
+  it { should be_an(ApplicationRecord) }
 
   it { should be_a(Locationable) }
 

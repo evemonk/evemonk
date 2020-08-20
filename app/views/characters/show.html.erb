@@ -88,7 +88,7 @@
     <div class="clearfix">
       <h4 class="float-left"><%= @character.name %></h4>
       <div class="float-right">
-        <%= button_tag(class: "btn btn-primary mb-2", data: { reflex: "click->CharacterShowReflex#update", id: @character.character_id }) do %>
+        <%= button_tag(class: "btn btn-primary mb-2", data: {reflex: "click->CharacterShowReflex#update", id: @character.character_id}) do %>
           <%= image_tag("bootstrap-icons/icons/arrow-repeat.svg") %>
         <% end %>
       </div>

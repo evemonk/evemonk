@@ -1,5 +1,6 @@
 ---
 EnableDefaultLinters: true
+glob: "app/**/*.{html,text,js}{+*,}.erb"
 linters:
   ErbSafety:
     enabled: false
