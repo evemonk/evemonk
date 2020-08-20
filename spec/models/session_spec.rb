@@ -3,7 +3,7 @@
 require "rails_helper"
 
 describe Session do
-  it { should be_a(ApplicationRecord) }
+  it { should be_an(ApplicationRecord) }
 
   it { should define_enum_for(:device_type).with_values(ios: 0, android: 1) }
 

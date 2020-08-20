@@ -3,7 +3,7 @@
 require "rails_helper"
 
 describe Eve::Race do
-  it { should be_a(ApplicationRecord) }
+  it { should be_an(ApplicationRecord) }
 
   it { should respond_to(:versions) }
 
