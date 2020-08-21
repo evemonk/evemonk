@@ -65,6 +65,7 @@ gem "server_timing"
 # gem "strong_migrations"
 gem "easymon"
 gem "good_migrations"
+# gem "elastic-apm"
 
 gem "awesome_print", require: "ap"
 gem "pry-rails"
