@@ -5,7 +5,7 @@
     "@github/hotkey": "^1.4.2",
     "@rails/actioncable": "^6.0.0",
     "@rails/ujs": "^6.0.0",
-    "@rails/webpacker": "4.3.0",
+    "@rails/webpacker": "^5.2.1",
     "@sentry/browser": "^5.18.1",
     "apexcharts": "^3.19.3",
     "bootstrap": "^4.4.1",
