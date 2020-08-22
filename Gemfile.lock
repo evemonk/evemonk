@@ -814,7 +814,7 @@ DEPENDENCIES
   vcr
   webdrivers
   webmock
-  webpacker (~> 4.0)
+  webpacker
   yabeda-prometheus
   yabeda-puma-plugin
   yabeda-rails
