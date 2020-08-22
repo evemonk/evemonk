@@ -695,9 +695,9 @@ GEM
     yabeda-rails (0.7.0)
       rails
       yabeda (~> 0.8)
-    yabeda-sidekiq (0.6.0)
+    yabeda-sidekiq (0.7.0)
       sidekiq
-      yabeda (~> 0.2)
+      yabeda (~> 0.6)
     zeitwerk (2.4.0)
     zxcvbn-js (4.4.3)
       execjs
