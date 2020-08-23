@@ -18,6 +18,8 @@ class EveOnlineCallbackService
     end
 
     update_character_info
+
+    import_corporation_members
   end
 
   private
@@ -84,5 +86,9 @@ class EveOnlineCallbackService
 
   def update_character_info
     UpdateCharacterInfoService.new(character_id).execute
+  end
+
+  def import_corporation_members
+    CorporationMembersJob.perform_later(character_id)
   end
 end
