@@ -13,7 +13,6 @@ class HumanTime
     @parsed = false
   end
 
-  # rubocop:disable Metrics/CyclomaticComplexity
   def long_formatted
     return if @seconds.blank?
 
@@ -26,9 +25,7 @@ class HumanTime
     output += I18n.t("human_time.seconds", count: @seconds) if @seconds.positive?
     output.strip
   end
-  # rubocop:enable Metrics/CyclomaticComplexity
 
-  # rubocop:disable Metrics/CyclomaticComplexity
   def short_formatted
     return if @seconds.blank?
 
@@ -41,7 +38,6 @@ class HumanTime
     output += "#{@seconds}s " if @seconds.positive?
     output.strip
   end
-  # rubocop:enable Metrics/CyclomaticComplexity
 
   def very_short_formatted
     short_formatted.split[0..1].join(" ")
