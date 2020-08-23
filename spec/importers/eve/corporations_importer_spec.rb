@@ -166,6 +166,21 @@ describe Eve::CorporationsImporter do
       end
     end
 
+    let(:corporation_id10) { double }
+
+    let(:corporation_ids10) { [corporation_id10] }
+
+    before do
+      #
+      # Character.pluck(:corporation_id).uniq # => corporation_ids10
+      #
+      expect(Character).to receive(:pluck).with(:corporation_id) do
+        double.tap do |a|
+          expect(a).to receive(:uniq).and_return(corporation_ids10)
+        end
+      end
+    end
+
     before { expect(Eve::UpdateCorporationJob).to receive(:perform_later).with(corporation_id1) }
 
     before { expect(Eve::UpdateCorporationJob).to receive(:perform_later).with(corporation_id2) }
@@ -183,6 +198,8 @@ describe Eve::CorporationsImporter do
     before { expect(Eve::UpdateCorporationJob).to receive(:perform_later).with(corporation_id8) }
 
     before { expect(Eve::UpdateCorporationJob).to receive(:perform_later).with(corporation_id9) }
+
+    before { expect(Eve::UpdateCorporationJob).to receive(:perform_later).with(corporation_id10) }
 
     specify { expect { subject.import }.not_to raise_error }
   end
