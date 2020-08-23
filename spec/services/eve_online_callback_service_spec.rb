@@ -28,7 +28,7 @@ describe EveOnlineCallbackService do
 
     before { expect(subject).to receive(:update_character_info) }
 
-    before { expect(subject).to receive(:import_corporation_members) }
+    before { expect(subject).not_to receive(:import_corporation_members) }
 
     specify { expect { subject.save! }.not_to raise_error }
   end

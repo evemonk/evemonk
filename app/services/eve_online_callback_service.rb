@@ -19,7 +19,7 @@ class EveOnlineCallbackService
 
     update_character_info
 
-    import_corporation_members
+    # import_corporation_members
   end
 
   private
