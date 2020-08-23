@@ -9,6 +9,8 @@ module Eve
       @locale = locale
     end
 
+    # rubocop:disable Metrics/CyclomaticComplexity
+    # rubocop:disable Metrics/PerceivedComplexity
     def import
       Mobility.with_locale(locale) do
         ActiveRecord::Base.transaction do
@@ -55,6 +57,8 @@ module Eve
           eve_system.destroy!
         end
       end
+      # rubocop:enable Metrics/CyclomaticComplexity
+      # rubocop:enable Metrics/PerceivedComplexity
     end
   end
 end
