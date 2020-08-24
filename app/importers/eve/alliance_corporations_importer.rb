@@ -10,17 +10,15 @@ module Eve
     end
 
     def import
-      ActiveRecord::Base.transaction do
-        esi.etag = etag.etag
+      esi.etag = etag.etag
 
-        return if esi.not_modified?
+      return if esi.not_modified?
 
-        import_new_corporations
+      import_new_corporations
 
-        remove_old_corporations
+      remove_old_corporations
 
-        etag.update!(etag: esi.etag, body: esi.response)
-      end
+      etag.update!(etag: esi.etag, body: esi.response)
     rescue ActiveRecord::RecordNotFound
       Rails.logger.info("Alliance with ID #{alliance_id} not found")
     end
@@ -28,17 +26,19 @@ module Eve
     private
 
     def import_new_corporations
-      corporation_ids = esi.corporation_ids - eve_alliance.alliance_corporations.pluck(:corporation_id)
+      corporation_ids = esi.corporation_ids - eve_alliance.corporations.pluck(:corporation_id)
 
       corporation_ids.each do |corporation_id|
-        eve_alliance.alliance_corporations.create!(corporation_id: corporation_id)
+        Eve::UpdateCorporationJob.perform_later(corporation_id)
       end
     end
 
     def remove_old_corporations
-      corporation_ids = eve_alliance.alliance_corporations.pluck(:corporation_id) - esi.corporation_ids
+      corporation_ids = eve_alliance.corporations.pluck(:corporation_id) - esi.corporation_ids
 
-      eve_alliance.alliance_corporations.where(corporation_id: corporation_ids).destroy_all
+      corporation_ids.each do |corporation_id|
+        Eve::UpdateCorporationJob.perform_later(corporation_id)
+      end
     end
 
     def etag

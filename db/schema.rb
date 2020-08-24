@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_15_233452) do
+ActiveRecord::Schema.define(version: 2020_08_24_105401) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -211,15 +211,6 @@ ActiveRecord::Schema.define(version: 2020_07_15_233452) do
     t.index ["corporation_id"], name: "index_eve_agents_on_corporation_id"
     t.index ["division_id"], name: "index_eve_agents_on_division_id"
     t.index ["location_id"], name: "index_eve_agents_on_location_id"
-  end
-
-  create_table "eve_alliance_corporations", force: :cascade do |t|
-    t.bigint "alliance_id"
-    t.bigint "corporation_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["alliance_id", "corporation_id"], name: "index_eve_ac_on_alliance_id_and_corporation_id", unique: true
-    t.index ["corporation_id"], name: "index_eve_alliance_corporations_on_corporation_id"
   end
 
   create_table "eve_alliances", force: :cascade do |t|

@@ -45,6 +45,8 @@ module Eve
 
     scope :not_npc, -> { where(npc: false) }
 
+    after_commit :eve_alliance_reset_corporations_count, on: [:create, :update, :destroy]
+
     after_commit :eve_alliance_reset_characters_count, on: [:create, :update, :destroy]
 
     def search_data
@@ -52,6 +54,10 @@ module Eve
         name: name,
         ticker: ticker
       }
+    end
+
+    def eve_alliance_reset_corporations_count
+      alliance&.reset_corporations_count
     end
 
     def eve_alliance_reset_characters_count
