@@ -38,10 +38,6 @@ describe Api::CharactersController do
         home_station_id: 999,
         war_eligible: true)
 
-      create(:eve_alliance_corporation,
-        alliance_id: 123,
-        corporation_id: 456)
-
       create(:character,
         user: user,
         alliance_id: 123,
@@ -143,10 +139,6 @@ describe Api::CharactersController do
         faction_id: 5555,
         home_station_id: 999,
         war_eligible: false)
-
-      create(:eve_alliance_corporation,
-        alliance_id: 123,
-        corporation_id: 456)
 
       create(:character,
         user: user,
