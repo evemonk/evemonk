@@ -22,18 +22,6 @@ describe Types::EveCorporationType do
         alliance_id: 1_222)
     end
 
-    let!(:eve_alliance_corporation1) do
-      create(:eve_alliance_corporation,
-        alliance: eve_alliance1,
-        corporation: eve_corporation1)
-    end
-
-    let!(:eve_alliance_corporation2) do
-      create(:eve_alliance_corporation,
-        alliance: eve_alliance2,
-        corporation: eve_corporation1)
-    end
-
     let!(:ceo1) do
       create(:eve_character,
         character_id: 10_111)
@@ -263,12 +251,6 @@ describe Types::EveCorporationType do
     let!(:eve_alliance) do
       create(:eve_alliance,
         alliance_id: 1_111)
-    end
-
-    let!(:eve_alliance_corporation) do
-      create(:eve_alliance_corporation,
-        alliance: eve_alliance,
-        corporation: eve_corporation)
     end
 
     let!(:ceo) do
