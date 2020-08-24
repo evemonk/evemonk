@@ -35,6 +35,8 @@ module Eve
     has_many :corporation_alliance_histories,
       primary_key: "alliance_id"
 
+    after_create_commit :reset_corporations_count
+
     after_create_commit :reset_characters_count
 
     def search_data
@@ -42,6 +44,10 @@ module Eve
         name: name,
         ticker: ticker
       }
+    end
+
+    def reset_corporations_count
+      update_columns(corporations_count: corporations.count)
     end
 
     def reset_characters_count

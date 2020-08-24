@@ -25,6 +25,8 @@ describe Eve::Alliance do
 
   it { should have_many(:corporation_alliance_histories).with_primary_key("alliance_id") }
 
+  it { should callback(:reset_corporations_count).after(:commit).on(:create) }
+
   it { should callback(:reset_characters_count).after(:commit).on(:create) }
 
   it { should have_db_index(:name) }
@@ -42,12 +44,26 @@ describe Eve::Alliance do
     end
   end
 
+  describe "#reset_corporations_count" do
+    let!(:eve_alliance) { create(:eve_alliance) }
+
+    let!(:eve_corporation1) { create(:eve_corporation, alliance: eve_alliance) }
+
+    let!(:eve_corporation2) { create(:eve_corporation, alliance: eve_alliance) }
+
+    subject { eve_alliance }
+
+    before { subject.update!(corporations_count: 0) }
+
+    specify { expect { subject.reset_corporations_count }.to change { subject.corporations_count }.from(0).to(2) }
+  end
+
   describe "#reset_characters_count" do
-    let!(:eve_alliance) { create(:eve_alliance, alliance_id: 12_345) }
+    let!(:eve_alliance) { create(:eve_alliance) }
 
-    let!(:eve_corporation1) { create(:eve_corporation, corporation_id: 123, alliance: eve_alliance, member_count: 123) }
+    let!(:eve_corporation1) { create(:eve_corporation, alliance: eve_alliance, member_count: 123) }
 
-    let!(:eve_corporation2) { create(:eve_corporation, corporation_id: 321, alliance: eve_alliance, member_count: 123) }
+    let!(:eve_corporation2) { create(:eve_corporation, alliance: eve_alliance, member_count: 123) }
 
     subject { eve_alliance }
 
