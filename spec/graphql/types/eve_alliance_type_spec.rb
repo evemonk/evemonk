@@ -263,12 +263,6 @@ describe Types::EveAllianceType do
         member_count: 1)
     end
 
-    let!(:eve_alliance_corporation) do
-      create(:eve_alliance_corporation,
-        corporation: eve_corporation,
-        alliance: eve_alliance)
-    end
-
     let!(:eve_character) do
       create(:eve_character,
         corporation: eve_corporation,
