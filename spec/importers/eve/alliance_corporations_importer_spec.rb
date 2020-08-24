@@ -144,7 +144,6 @@ describe Eve::AllianceCorporationsImporter do
     before do
       expect(subject).to receive(:eve_alliance)
         .and_return(eve_alliance)
-        .twice
     end
 
     let(:local_corporation_id) { double }
@@ -153,9 +152,9 @@ describe Eve::AllianceCorporationsImporter do
 
     before do
       #
-      # eve_alliance.alliance_corporations.pluck(:corporation_id)
+      # eve_alliance.corporations.pluck(:corporation_id)
       #
-      expect(eve_alliance).to receive(:alliance_corporations) do
+      expect(eve_alliance).to receive(:corporations) do
         double.tap do |a|
           expect(a).to receive(:pluck).with(:corporation_id)
             .and_return(local_corporation_ids)
@@ -165,14 +164,9 @@ describe Eve::AllianceCorporationsImporter do
 
     before do
       #
-      # eve_alliance.alliance_corporations.create!(corporation_id: corporation_id)
+      # Eve::UpdateCorporationJob.perform_later(corporation_id)
       #
-      expect(eve_alliance).to receive(:alliance_corporations) do
-        double.tap do |a|
-          expect(a).to receive(:create!)
-            .with(corporation_id: remote_corporation_id)
-        end
-      end
+      expect(Eve::UpdateCorporationJob).to receive(:perform_later).with(remote_corporation_id)
     end
 
     specify { expect { subject.send(:import_new_corporations) }.not_to raise_error }
@@ -200,7 +194,6 @@ describe Eve::AllianceCorporationsImporter do
     before do
       expect(subject).to receive(:eve_alliance)
         .and_return(eve_alliance)
-        .twice
     end
 
     let(:local_corporation_id) { double }
@@ -209,9 +202,9 @@ describe Eve::AllianceCorporationsImporter do
 
     before do
       #
-      # eve_alliance.alliance_corporations.pluck(:corporation_id)
+      # eve_alliance.corporations.pluck(:corporation_id)
       #
-      expect(eve_alliance).to receive(:alliance_corporations) do
+      expect(eve_alliance).to receive(:corporations) do
         double.tap do |a|
           expect(a).to receive(:pluck)
             .with(:corporation_id)
@@ -222,17 +215,9 @@ describe Eve::AllianceCorporationsImporter do
 
     before do
       #
-      # eve_alliance.alliance_corporations.where(corporation_id: corporation_ids).destroy_all
+      # Eve::UpdateCorporationJob.perform_later(corporation_id)
       #
-      expect(eve_alliance).to receive(:alliance_corporations) do
-        double.tap do |a|
-          expect(a).to receive(:where).with(corporation_id: local_corporation_ids) do
-            double.tap do |b|
-              expect(b).to receive(:destroy_all)
-            end
-          end
-        end
-      end
+      expect(Eve::UpdateCorporationJob).to receive(:perform_later).with(local_corporation_id)
     end
 
     specify { expect { subject.send(:remove_old_corporations) }.not_to raise_error }
