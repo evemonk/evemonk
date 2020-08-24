@@ -75,6 +75,10 @@ namespace :evemonk do
     # Around 60k calls to esi
     Rails.logger.info "Import new eve systems"
     Eve::UpdateSystemsJob.perform_later
+
+    # 1 call to esi
+    Rails.logger.info "Import NPC Corporations"
+    Eve::NpcCorporationsJob.perform_later
   end
 
   desc "Update static data from new eve online release"
@@ -219,7 +223,13 @@ namespace :evemonk do
     # corporation.rb
     # corporation_alliance_history.rb
 
+    # 1 call to esi
+    Rails.logger.info "Update NPC Corporations"
+    Eve::NpcCorporationsJob.perform_later
+
     Rails.logger.info "Update sitemap and ping google"
     SitemapUpdaterJob.perform_later
   end
+
+  # update sde task
 end
