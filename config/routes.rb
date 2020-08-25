@@ -107,40 +107,39 @@ Rails.application.routes.draw do
     namespace :eve do
       resources :alliances, only: [:index, :show]
 
-      resources :corporations, only: [:index, :show]
-
-      resources :characters, only: [:index, :show]
-
-      resources :races, only: [:index, :show]
+      # resources :corporations, only: [:index, :show]
+      #
+      # resources :characters, only: [:index, :show]
+      #
+      # resources :races, only: [:index, :show]
 
       resources :bloodlines, only: [:index, :show]
 
       resources :ancestries, only: [:index, :show]
 
-      resources :factions, only: [:index, :show]
-
-      resources :groups, only: [:index, :show]
-
-      resources :market_groups, only: [:index, :show]
-
-      resources :categories, only: [:index, :show]
-
-      resources :constellations, only: [:index, :show]
-
-      resources :stations, only: [:index, :show]
-
-      resources :systems, only: [:index, :show]
-
-      resources :units, only: [:index, :show]
+      # resources :factions, only: [:index, :show]
+      #
+      # resources :groups, only: [:index, :show]
+      #
+      # resources :market_groups, only: [:index, :show]
+      #
+      # resources :categories, only: [:index, :show]
+      #
+      # resources :constellations, only: [:index, :show]
+      #
+      # resources :stations, only: [:index, :show]
+      #
+      # resources :systems, only: [:index, :show]
+      #
+      # resources :units, only: [:index, :show]
     end
 
-    resources :users
-
-    resources :characters, only: [:index, :show]
-
-    resources :settings
-
     # resources :users
+    #
+    # resources :characters, only: [:index, :show]
+    #
+    # resources :settings
+
     # resources :sessions
     # resources :skillqueues
     # resources :character_skills
