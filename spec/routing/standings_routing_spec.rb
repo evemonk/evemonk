@@ -4,7 +4,7 @@ require "rails_helper"
 
 describe StandingsController do
   describe "routing" do
-    it "should route GET /characters/90729314/standings to standings#index" do
+    it "should route GET /characters/:character_id/standings to standings#index" do
       expect(get: "/characters/90729314/standings").to route_to(
         controller: "standings",
         action: "index",

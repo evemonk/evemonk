@@ -11,7 +11,7 @@ describe Universe::CorporationsController do
       )
     end
 
-    it "should route GET /universe/corporations/98005120 to universe/corporations#show" do
+    it "should route GET /universe/corporations/:id to universe/corporations#show" do
       expect(get: "/universe/corporations/98005120").to route_to(
         controller: "universe/corporations",
         action: "show",

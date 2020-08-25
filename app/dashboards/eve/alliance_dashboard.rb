@@ -17,7 +17,10 @@ module Eve
       corporations_count: Field::Number,
       characters_count: Field::Number,
       created_at: Field::DateTime,
-      updated_at: Field::DateTime
+      updated_at: Field::DateTime,
+      corporations: Field::HasMany.with_options(class_name: "Eve::Corporation"),
+      characters: Field::HasMany.with_options(class_name: "Eve::Character")
+      # TODO: add corporation_alliance_histories
     }.freeze
 
     COLLECTION_ATTRIBUTES = [:alliance_id, :name].freeze
@@ -35,18 +38,9 @@ module Eve
       :corporations_count,
       :characters_count,
       :created_at,
-      :updated_at
-    ].freeze
-
-    FORM_ATTRIBUTES = [
-      :alliance_id,
-      :creator_corporation,
-      :creator,
-      :date_founded,
-      :executor_corporation,
-      :faction,
-      :name,
-      :ticker
+      :updated_at,
+      :corporations,
+      :characters
     ].freeze
 
     COLLECTION_FILTERS = {}.freeze

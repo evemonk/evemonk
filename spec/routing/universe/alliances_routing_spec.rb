@@ -11,7 +11,7 @@ describe Universe::AlliancesController do
       )
     end
 
-    it "should route GET /universe/alliances/99005443 to universe/alliances#show" do
+    it "should route GET /universe/alliances/:id to universe/alliances#show" do
       expect(get: "/universe/alliances/99005443").to route_to(
         controller: "universe/alliances",
         action: "show",

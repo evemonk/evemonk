@@ -3,6 +3,7 @@
 module Admin
   module Eve
     class CorporationsController < Admin::ApplicationController
+      include DisableModifications
     end
   end
 end
