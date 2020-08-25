@@ -11,7 +11,7 @@ module Eve
 
     def search
       if query.present? && query.length > 2
-        ids = Eve::Type.search(query, options).map(&:id)
+        ids = Eve::Type.search(query, **options).map(&:id)
 
         if ids.present?
           scope.where(id: ids)
