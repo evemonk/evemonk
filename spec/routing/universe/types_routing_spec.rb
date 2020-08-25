@@ -4,7 +4,7 @@ require "rails_helper"
 
 describe Universe::TypesController do
   describe "routing" do
-    it "should route GET /universe/types/4259 to universe/types#show" do
+    it "should route GET /universe/types/:id to universe/types#show" do
       expect(get: "/universe/types/4259").to route_to(
         controller: "universe/types",
         action: "show",

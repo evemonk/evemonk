@@ -11,7 +11,7 @@ describe Universe::MarketGroupsController do
       )
     end
 
-    it "should route GET /universe/market_groups/1 to universe/market_groups#show" do
+    it "should route GET /universe/market_groups/:id to universe/market_groups#show" do
       expect(get: "/universe/market_groups/1").to route_to(
         controller: "universe/market_groups",
         action: "show",

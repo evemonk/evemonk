@@ -12,7 +12,7 @@ describe Api::Eve::TypesController do
       )
     end
 
-    it "should route GET /api/eve/types/23773 to api/eve/types#show" do
+    it "should route GET /api/eve/types/:id to api/eve/types#show" do
       expect(get: "/api/eve/types/23773").to route_to(
         controller: "api/eve/types",
         action: "show",

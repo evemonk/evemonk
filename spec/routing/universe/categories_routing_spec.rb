@@ -11,7 +11,7 @@ describe Universe::CategoriesController do
       )
     end
 
-    it "should route GET /universe/categories/1 to universe/categories#show" do
+    it "should route GET /universe/categories/:id to universe/categories#show" do
       expect(get: "/universe/categories/1").to route_to(
         controller: "universe/categories",
         action: "show",

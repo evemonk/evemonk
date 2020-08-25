@@ -4,7 +4,7 @@ require "rails_helper"
 
 describe LoyaltyPointsController do
   describe "routing" do
-    it "should route GET /characters/90729314/loyalty_points to loyalty_points#index" do
+    it "should route GET /characters/:character_id/loyalty_points to loyalty_points#index" do
       expect(get: "/characters/90729314/loyalty_points").to route_to(
         controller: "loyalty_points",
         action: "index",

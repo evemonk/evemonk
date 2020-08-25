@@ -11,7 +11,7 @@ describe BlueprintCalculatorController do
       )
     end
 
-    it "should route GET /blueprint_calculator/24699 to blueprint_calculator#show" do
+    it "should route GET /blueprint_calculator/:id to blueprint_calculator#show" do
       expect(get: "/blueprint_calculator/24699").to route_to(
         controller: "blueprint_calculator",
         action: "show",

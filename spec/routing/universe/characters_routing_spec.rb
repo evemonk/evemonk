@@ -11,7 +11,7 @@ describe Universe::CharactersController do
       )
     end
 
-    it "should route GET /universe/characters/90729314 to universe/characters#show" do
+    it "should route GET /universe/characters/:id to universe/characters#show" do
       expect(get: "/universe/characters/90729314").to route_to(
         controller: "universe/characters",
         action: "show",
