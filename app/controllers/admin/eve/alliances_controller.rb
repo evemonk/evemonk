@@ -3,7 +3,7 @@
 module Admin
   module Eve
     class AlliancesController < Admin::ApplicationController
-      include ::Admin::DisableModifications
+      include DisableModifications
     end
   end
 end
