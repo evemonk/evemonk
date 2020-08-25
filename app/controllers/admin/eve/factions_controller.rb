@@ -3,6 +3,7 @@
 module Admin
   module Eve
     class FactionsController < Admin::ApplicationController
+      include DisableModifications
     end
   end
 end
