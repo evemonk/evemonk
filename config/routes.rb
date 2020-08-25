@@ -138,7 +138,7 @@ Rails.application.routes.draw do
 
     resources :characters, only: [:index, :show]
 
-    # resources :settings
+    resources :settings
 
     # resources :sessions
     # resources :skillqueues
