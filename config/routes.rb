@@ -135,9 +135,9 @@ Rails.application.routes.draw do
     end
 
     # resources :users
-    #
-    # resources :characters, only: [:index, :show]
-    #
+
+    resources :characters, only: [:index, :show]
+
     # resources :settings
 
     # resources :sessions
