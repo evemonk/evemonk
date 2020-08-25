@@ -111,7 +111,7 @@ Rails.application.routes.draw do
 
       resources :characters, only: [:index, :show]
 
-      # resources :races, only: [:index, :show]
+      resources :races, only: [:index, :show]
 
       resources :bloodlines, only: [:index, :show]
 
@@ -121,7 +121,7 @@ Rails.application.routes.draw do
 
       resources :groups, only: [:index, :show]
 
-      # resources :market_groups, only: [:index, :show]
+      resources :market_groups, only: [:index, :show]
 
       resources :categories, only: [:index, :show]
 
