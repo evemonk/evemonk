@@ -117,8 +117,8 @@ Rails.application.routes.draw do
 
       resources :ancestries, only: [:index, :show]
 
-      # resources :factions, only: [:index, :show]
-      #
+      resources :factions, only: [:index, :show]
+
       # resources :groups, only: [:index, :show]
       #
       # resources :market_groups, only: [:index, :show]
