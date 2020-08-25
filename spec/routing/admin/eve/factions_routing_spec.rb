@@ -11,7 +11,7 @@ describe Admin::Eve::FactionsController do
       )
     end
 
-    it "should route GET /admin/eve/factions/1 to admin/eve/factions#show" do
+    it "should route GET /admin/eve/factions/:id to admin/eve/factions#show" do
       expect(get: "/admin/eve/factions/1").to route_to(
         controller: "admin/eve/factions",
         action: "show",

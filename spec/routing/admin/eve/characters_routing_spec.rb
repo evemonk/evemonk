@@ -11,7 +11,7 @@ describe Admin::Eve::CharactersController do
       )
     end
 
-    it "should route GET /admin/eve/characters/1 to admin/eve/characters#show" do
+    it "should route GET /admin/eve/characters/:id to admin/eve/characters#show" do
       expect(get: "/admin/eve/characters/1").to route_to(
         controller: "admin/eve/characters",
         action: "show",

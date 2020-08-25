@@ -11,7 +11,7 @@ describe Admin::Eve::AncestriesController do
       )
     end
 
-    it "should route GET /admin/eve/ancestries/1 to admin/eve/ancestries#show" do
+    it "should route GET /admin/eve/ancestries/:id to admin/eve/ancestries#show" do
       expect(get: "/admin/eve/ancestries/1").to route_to(
         controller: "admin/eve/ancestries",
         action: "show",

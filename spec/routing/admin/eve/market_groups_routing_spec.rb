@@ -11,7 +11,7 @@ describe Admin::Eve::MarketGroupsController do
       )
     end
 
-    it "should route GET /admin/eve/market_groups/1 to admin/eve/market_groups#show" do
+    it "should route GET /admin/eve/market_groups/:id to admin/eve/market_groups#show" do
       expect(get: "/admin/eve/market_groups/1").to route_to(
         controller: "admin/eve/market_groups",
         action: "show",

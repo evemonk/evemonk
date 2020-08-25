@@ -11,7 +11,7 @@ describe Admin::Eve::ConstellationsController do
       )
     end
 
-    it "should route GET /admin/eve/constellations/1 to admin/eve/constellations#show" do
+    it "should route GET /admin/eve/constellations/:id to admin/eve/constellations#show" do
       expect(get: "/admin/eve/constellations/1").to route_to(
         controller: "admin/eve/constellations",
         action: "show",

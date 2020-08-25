@@ -11,7 +11,7 @@ describe Admin::Eve::BloodlinesController do
       )
     end
 
-    it "should route GET /admin/eve/bloodlines/1 to admin/eve/bloodlines#show" do
+    it "should route GET /admin/eve/bloodlines/:id to admin/eve/bloodlines#show" do
       expect(get: "/admin/eve/bloodlines/1").to route_to(
         controller: "admin/eve/bloodlines",
         action: "show",

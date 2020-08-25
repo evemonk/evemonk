@@ -11,7 +11,7 @@ describe Admin::Eve::CorporationsController do
       )
     end
 
-    it "should route GET /admin/eve/corporations/1 to admin/eve/corporations#show" do
+    it "should route GET /admin/eve/corporations/:id to admin/eve/corporations#show" do
       expect(get: "/admin/eve/corporations/1").to route_to(
         controller: "admin/eve/corporations",
         action: "show",

@@ -25,7 +25,7 @@ describe Admin::UsersController do
       )
     end
 
-    it "should route GET /admin/users/1/edit to admin/users#edit" do
+    it "should route GET /admin/users/:id/edit to admin/users#edit" do
       expect(get: "/admin/users/1/edit").to route_to(
         controller: "admin/users",
         action: "edit",
@@ -33,7 +33,7 @@ describe Admin::UsersController do
       )
     end
 
-    it "should route GET /admin/users/1 to admin/users#show" do
+    it "should route GET /admin/users/:id to admin/users#show" do
       expect(get: "/admin/users/1").to route_to(
         controller: "admin/users",
         action: "show",
@@ -41,7 +41,7 @@ describe Admin::UsersController do
       )
     end
 
-    it "should route PATCH /admin/users/1 to admin/users#update" do
+    it "should route PATCH /admin/users/:id to admin/users#update" do
       expect(patch: "/admin/users/1").to route_to(
         controller: "admin/users",
         action: "update",
@@ -49,7 +49,7 @@ describe Admin::UsersController do
       )
     end
 
-    it "should route PUT /admin/users/1 to admin/users#update" do
+    it "should route PUT /admin/users/:id to admin/users#update" do
       expect(put: "/admin/users/1").to route_to(
         controller: "admin/users",
         action: "update",
@@ -57,7 +57,7 @@ describe Admin::UsersController do
       )
     end
 
-    it "should route DELETE /admin/users/1 to admin/users#destroy" do
+    it "should route DELETE /admin/users/:id to admin/users#destroy" do
       expect(delete: "/admin/users/1").to route_to(
         controller: "admin/users",
         action: "destroy",

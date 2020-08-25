@@ -11,7 +11,7 @@ describe Admin::Eve::AlliancesController do
       )
     end
 
-    it "should route GET /admin/eve/alliances/1 to admin/eve/alliances#show" do
+    it "should route GET /admin/eve/alliances/:id to admin/eve/alliances#show" do
       expect(get: "/admin/eve/alliances/1").to route_to(
         controller: "admin/eve/alliances",
         action: "show",

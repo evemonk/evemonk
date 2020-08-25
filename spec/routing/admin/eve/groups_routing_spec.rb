@@ -11,7 +11,7 @@ describe Admin::Eve::GroupsController do
       )
     end
 
-    it "should route GET /admin/eve/groups/1 to admin/eve/groups#show" do
+    it "should route GET /admin/eve/groups/:id to admin/eve/groups#show" do
       expect(get: "/admin/eve/groups/1").to route_to(
         controller: "admin/eve/groups",
         action: "show",
