@@ -122,9 +122,9 @@ Rails.application.routes.draw do
       # resources :groups, only: [:index, :show]
       #
       # resources :market_groups, only: [:index, :show]
-      #
-      # resources :categories, only: [:index, :show]
-      #
+
+      resources :categories, only: [:index, :show]
+
       # resources :constellations, only: [:index, :show]
       #
       # resources :stations, only: [:index, :show]
