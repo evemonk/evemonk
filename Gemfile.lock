@@ -266,7 +266,7 @@ GEM
     graphiql-rails (1.7.0)
       railties
       sprockets-rails
-    graphql (1.11.3)
+    graphql (1.11.4)
     groupdate (5.1.0)
       activesupport (>= 5)
     hashdiff (1.0.1)
