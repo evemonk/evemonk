@@ -125,8 +125,8 @@ Rails.application.routes.draw do
 
       resources :categories, only: [:index, :show]
 
-      # resources :constellations, only: [:index, :show]
-      #
+      resources :constellations, only: [:index, :show]
+
       # resources :stations, only: [:index, :show]
       #
       # resources :systems, only: [:index, :show]
