@@ -108,9 +108,9 @@ Rails.application.routes.draw do
       resources :alliances, only: [:index, :show]
 
       # resources :corporations, only: [:index, :show]
-      #
-      # resources :characters, only: [:index, :show]
-      #
+
+      resources :characters, only: [:index, :show]
+
       # resources :races, only: [:index, :show]
 
       resources :bloodlines, only: [:index, :show]
