@@ -2,5 +2,6 @@
 
 module Admin
   class CharactersController < Admin::ApplicationController
+    include DisableModifications
   end
 end
