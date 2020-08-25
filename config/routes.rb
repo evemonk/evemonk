@@ -134,7 +134,7 @@ Rails.application.routes.draw do
       resources :units, only: [:index, :show]
     end
 
-    # resources :users
+    resources :users
 
     resources :characters, only: [:index, :show]
 
