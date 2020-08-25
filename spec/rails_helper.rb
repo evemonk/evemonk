@@ -24,9 +24,9 @@ require "rspec/rails"
 
 # rubocop:disable Lint/NonDeterministicRequireOrder
 Dir[Rails.root.join("spec", "support", "**", "*.rb")].each { |f| require f }
-# rubocop:enable Lint/NonDeterministicRequireOrder
 
 Dir[Rails.root.join("spec", "shared", "**", "*.rb")].each { |f| require f }
+# rubocop:enable Lint/NonDeterministicRequireOrder
 
 # Checks for pending migrations and applies them before tests are run.
 # If you are not using ActiveRecord, you can remove these lines.
