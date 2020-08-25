@@ -127,11 +127,11 @@ Rails.application.routes.draw do
 
       resources :constellations, only: [:index, :show]
 
-      # resources :stations, only: [:index, :show]
-      #
-      # resources :systems, only: [:index, :show]
-      #
-      # resources :units, only: [:index, :show]
+      resources :stations, only: [:index, :show]
+
+      resources :systems, only: [:index, :show]
+
+      resources :units, only: [:index, :show]
     end
 
     # resources :users
