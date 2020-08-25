@@ -119,8 +119,8 @@ Rails.application.routes.draw do
 
       resources :factions, only: [:index, :show]
 
-      # resources :groups, only: [:index, :show]
-      #
+      resources :groups, only: [:index, :show]
+
       # resources :market_groups, only: [:index, :show]
 
       resources :categories, only: [:index, :show]
