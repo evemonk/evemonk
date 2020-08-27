@@ -50,25 +50,6 @@ module Eve
       :updated_at
     ].freeze
 
-    FORM_ATTRIBUTES = [
-      :corporation_id,
-      :alliance,
-      :ceo,
-      :creator,
-      :date_founded,
-      :description,
-      :faction,
-      :home_station_id, # TODO: home_station
-      :member_count,
-      :name,
-      :shares,
-      :tax_rate,
-      :ticker,
-      :corporation_url,
-      :war_eligible,
-      :npc
-    ].freeze
-
     COLLECTION_FILTERS = {}.freeze
 
     def display_resource(corporation)

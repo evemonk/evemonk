@@ -62,31 +62,6 @@ module Eve
       :updated_at
     ].freeze
 
-    FORM_ATTRIBUTES = [
-      :faction_id,
-      :corporation,
-      :description_en,
-      :description_de,
-      :description_fr,
-      :description_ja,
-      :description_ru,
-      :description_zh,
-      :description_ko,
-      :name_en,
-      :name_de,
-      :name_fr,
-      :name_ja,
-      :name_ru,
-      :name_zh,
-      :name_ko,
-      :is_unique,
-      :militia_corporation_id, # TODO: militia_corporation
-      :size_factor,
-      :solar_system_id, # TODO: solar_system
-      :station_count,
-      :station_system_count
-    ].freeze
-
     COLLECTION_FILTERS = {}.freeze
 
     def display_resource(faction)

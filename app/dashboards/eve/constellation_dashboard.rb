@@ -36,19 +36,6 @@ module Eve
       :updated_at
     ].freeze
 
-    FORM_ATTRIBUTES = [
-      :id,
-      :constellation_id,
-      :name_en,
-      :name_de,
-      :name_fr,
-      :name_ja,
-      :name_ru,
-      :name_zh,
-      :name_ko,
-      :region
-    ].freeze
-
     COLLECTION_FILTERS = {}.freeze
 
     def display_resource(constellation)

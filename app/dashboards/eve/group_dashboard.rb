@@ -39,19 +39,6 @@ module Eve
       :updated_at
     ].freeze
 
-    FORM_ATTRIBUTES = [
-      :group_id,
-      # :category,
-      :name_en,
-      :name_de,
-      :name_fr,
-      :name_ja,
-      :name_ru,
-      :name_zh,
-      :name_ko,
-      :published
-    ].freeze
-
     COLLECTION_FILTERS = {}.freeze
 
     def display_resource(group)
