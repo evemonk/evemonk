@@ -36,18 +36,6 @@ module Eve
       :updated_at
     ].freeze
 
-    FORM_ATTRIBUTES = [
-      :agent_id,
-      :agent_type_id,
-      :corporation,
-      :division_id,
-      :is_locator,
-      :level,
-      :location_id,
-      :quality,
-      :name
-    ].freeze
-
     COLLECTION_FILTERS = {}.freeze
 
     def display_resource(agent)

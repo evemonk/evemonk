@@ -43,21 +43,6 @@ module Eve
       # :position
     ].freeze
 
-    FORM_ATTRIBUTES = [
-      :station_id,
-      :name,
-      :system,
-      :type_id,
-      :owner,
-      :race,
-      :max_dockable_ship_volume,
-      :office_rental_cost,
-      :reprocessing_efficiency,
-      :reprocessing_stations_take
-      # :services,
-      # :position
-    ].freeze
-
     COLLECTION_FILTERS = {}.freeze
 
     def display_resource(station)

@@ -66,32 +66,6 @@ module Eve
       :ancestries
     ].freeze
 
-    FORM_ATTRIBUTES = [
-      :bloodline_id,
-      :name_en,
-      :name_de,
-      :name_fr,
-      :name_ja,
-      :name_ru,
-      :name_zh,
-      :name_ko,
-      :description_en,
-      :description_de,
-      :description_fr,
-      :description_ja,
-      :description_ru,
-      :description_zh,
-      :description_ko,
-      :race,
-      :charisma,
-      :intelligence,
-      :memory,
-      :perception,
-      :willpower,
-      :corporation
-      # :ship_type
-    ].freeze
-
     COLLECTION_FILTERS = {}.freeze
 
     def display_resource(bloodline)

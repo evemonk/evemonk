@@ -30,13 +30,6 @@ module Eve
       # :dogma_attributes
     ].freeze
 
-    FORM_ATTRIBUTES = [
-      :unit_id,
-      :description,
-      :unit_name,
-      :display_name
-    ].freeze
-
     COLLECTION_FILTERS = {}.freeze
 
     def display_resource(unit)

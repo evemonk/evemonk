@@ -44,22 +44,6 @@ module Eve
       :updated_at
     ].freeze
 
-    FORM_ATTRIBUTES = [
-      :character_id,
-      :alliance,
-      :ancestry,
-      :birthday,
-      :bloodline,
-      :corporation,
-      :description,
-      :faction_id, # TODO: faction
-      :gender,
-      :name,
-      :race,
-      :security_status,
-      :title
-    ].freeze
-
     COLLECTION_FILTERS = {}.freeze
 
     def display_resource(character)
