@@ -25,6 +25,8 @@ module Eve
         esi.offers.each do |offer|
           eve_corporation.loyalty_store_offers.create!(offer.as_json)
         end
+
+        etag.update!(etag: esi.etag, body: esi.response)
       end
     end
   end
