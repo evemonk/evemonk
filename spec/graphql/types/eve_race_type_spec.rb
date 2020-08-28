@@ -81,19 +81,31 @@ describe Types::EveRaceType do
     let(:query) do
       %(
         {
-          races {
-            id
-            name
-            description
-            factionId
-            faction {
-              id
-            }
-            bloodlines {
-              id
-            }
-            stations {
-              id
+          races(first: 2) {
+            edges {
+              node {
+                id
+                name
+                description
+                factionId
+                faction {
+                  id
+                }
+                bloodlines {
+                  edges {
+                    node {
+                      id
+                    }
+                  }
+                }
+                stations {
+                  edges {
+                    node {
+                      id
+                    }
+                  }
+                }
+              }
             }
           }
         }
@@ -104,78 +116,100 @@ describe Types::EveRaceType do
 
     specify do
       expect(result).to eq("data" => {
-        "races" => [
-          {
-            "id" => "4",
-            "name" => {
-              "en" => "EN: name 1",
-              "de" => "DE: name 1",
-              "fr" => "FR: name 1",
-              "ja" => "JA: name 1",
-              "ru" => "RU: name 1",
-              "zh" => "ZH: name 1",
-              "ko" => "KO: name 1"
-            },
-            "description" => {
-              "en" => "EN: description 1",
-              "de" => "DE: description 1",
-              "fr" => "FR: description 1",
-              "ja" => "JA: description 1",
-              "ru" => "RU: description 1",
-              "zh" => "ZH: description 1",
-              "ko" => "KO: description 1"
-            },
-            "factionId" => 1_000_111,
-            "faction" => {
-              "id" => "1000111"
-            },
-            "bloodlines" => [
-              {
-                "id" => "10"
+        "races" => {
+          "edges" => [
+            {
+              "node" => {
+                "id" => "4",
+                "name" => {
+                  "en" => "EN: name 1",
+                  "de" => "DE: name 1",
+                  "fr" => "FR: name 1",
+                  "ja" => "JA: name 1",
+                  "ru" => "RU: name 1",
+                  "zh" => "ZH: name 1",
+                  "ko" => "KO: name 1"
+                },
+                "description" => {
+                  "en" => "EN: description 1",
+                  "de" => "DE: description 1",
+                  "fr" => "FR: description 1",
+                  "ja" => "JA: description 1",
+                  "ru" => "RU: description 1",
+                  "zh" => "ZH: description 1",
+                  "ko" => "KO: description 1"
+                },
+                "factionId" => 1_000_111,
+                "faction" => {
+                  "id" => "1000111"
+                },
+                "bloodlines" => {
+                  "edges" => [
+                    {
+                      "node" => {
+                        "id" => "10"
+                      }
+                    }
+                  ]
+                },
+                "stations" => {
+                  "edges" => [
+                    {
+                      "node" => {
+                        "id" => "100"
+                      }
+                    }
+                  ]
+                }
               }
-            ],
-            "stations" => [
-              {
-                "id" => "100"
-              }
-            ]
-          },
-          {
-            "id" => "8",
-            "name" => {
-              "en" => "EN: name 2",
-              "de" => "DE: name 2",
-              "fr" => "FR: name 2",
-              "ja" => "JA: name 2",
-              "ru" => "RU: name 2",
-              "zh" => "ZH: name 2",
-              "ko" => "KO: name 2"
             },
-            "description" => {
-              "en" => "EN: description 2",
-              "de" => "DE: description 2",
-              "fr" => "FR: description 2",
-              "ja" => "JA: description 2",
-              "ru" => "RU: description 2",
-              "zh" => "ZH: description 2",
-              "ko" => "KO: description 2"
-            },
-            "factionId" => 1_000_222,
-            "faction" => {
-              "id" => "1000222"
-            },
-            "bloodlines" => [
-              {
-                "id" => "20"
+            {
+              "node" => {
+                "id" => "8",
+                "name" => {
+                  "en" => "EN: name 2",
+                  "de" => "DE: name 2",
+                  "fr" => "FR: name 2",
+                  "ja" => "JA: name 2",
+                  "ru" => "RU: name 2",
+                  "zh" => "ZH: name 2",
+                  "ko" => "KO: name 2"
+                },
+                "description" => {
+                  "en" => "EN: description 2",
+                  "de" => "DE: description 2",
+                  "fr" => "FR: description 2",
+                  "ja" => "JA: description 2",
+                  "ru" => "RU: description 2",
+                  "zh" => "ZH: description 2",
+                  "ko" => "KO: description 2"
+                },
+                "factionId" => 1_000_222,
+                "faction" => {
+                  "id" => "1000222"
+                },
+                "bloodlines" => {
+                  "edges" => [
+                    {
+                      "node" => {
+                        "id" => "20"
+                      }
+                    }
+                  ]
+                },
+                "stations" => {
+                  "edges" => [
+                    {
+                      "node" => {
+                        "id" => "200"
+                      }
+                    }
+                  ]
+                }
               }
-            ],
-            "stations" => [
-              {
-                "id" => "200"
-              }
-            ]
-          }
-        ]
+            }
+          ]
+        }
       })
     end
   end
@@ -230,10 +264,18 @@ describe Types::EveRaceType do
               id
             }
             bloodlines {
-              id
+              edges {
+                node {
+                  id
+                }
+              }
             }
             stations {
-              id
+              edges {
+                node {
+                  id
+                }
+              }
             }
           }
         }
@@ -268,16 +310,25 @@ describe Types::EveRaceType do
           "faction" => {
             "id" => "1000111"
           },
-          "bloodlines" => [
-            {
-              "id" => "10"
-            }
-          ],
-          "stations" => [
-            {
-              "id" => "100"
-            }
-          ]
+          "bloodlines" => {
+            "edges" => [
+              {
+                "node" => {
+                  "id" => "10"
+                }
+              }
+            ]
+          },
+
+          "stations" => {
+            "edges" => [
+              {
+                "node" => {
+                  "id" => "100"
+                }
+              }
+            ]
+          }
         }
       })
     end

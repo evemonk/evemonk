@@ -17,8 +17,12 @@ describe Types::EveStationType do
     let(:query) do
       %(
         {
-          stations {
-            id
+          stations(first: 2) {
+            edges {
+              node {
+                id
+              }
+            }
           }
         }
       )
@@ -28,14 +32,20 @@ describe Types::EveStationType do
 
     specify do
       expect(result).to eq("data" => {
-        "stations" => [
-          {
-            "id" => "123"
-          },
-          {
-            "id" => "321"
-          }
-        ]
+        "stations" => {
+          "edges" => [
+            {
+              "node" => {
+                "id" => "123"
+              }
+            },
+            {
+              "node" => {
+                "id" => "321"
+              }
+            }
+          ]
+        }
       })
     end
   end

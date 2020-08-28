@@ -17,8 +17,12 @@ describe Types::EveShipType do
     let(:query) do
       %(
         {
-          ships {
-            id
+          ships(first: 2) {
+            edges {
+              node {
+                id
+              }
+            }
           }
         }
       )
@@ -28,14 +32,20 @@ describe Types::EveShipType do
 
     specify do
       expect(result).to eq("data" => {
-        "ships" => [
-          {
-            "id" => "123"
-          },
-          {
-            "id" => "321"
-          }
-        ]
+        "ships" => {
+          "edges" => [
+            {
+              "node" => {
+                "id" => "123"
+              }
+            },
+            {
+              "node" => {
+                "id" => "321"
+              }
+            }
+          ]
+        }
       })
     end
   end

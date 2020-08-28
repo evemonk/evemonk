@@ -5,7 +5,7 @@ module Types
     field :id, ID, null: false
     field :name, GraphQL::Types::JSON, null: true
     field :published, Boolean, null: true
-    field :groups, [Types::EveGroupType], null: true
+    field :groups, Types::EveGroupType.connection_type, null: true
 
     def id
       object.category_id

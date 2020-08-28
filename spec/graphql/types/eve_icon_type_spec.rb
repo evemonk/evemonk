@@ -23,11 +23,15 @@ describe Types::EveIconType do
     let(:query) do
       %(
         {
-          icons {
-            id
-            description
-            iconFile
-            obsolete
+          icons(first: 2) {
+            edges {
+              node {
+                id
+                description
+                iconFile
+                obsolete
+              }
+            }
           }
         }
       )
@@ -37,20 +41,26 @@ describe Types::EveIconType do
 
     specify do
       expect(result).to eq("data" => {
-        "icons" => [
-          {
-            "id" => "123",
-            "description" => "Description 1",
-            "iconFile" => "res:/ui/texture/icons/123.png",
-            "obsolete" => nil
-          },
-          {
-            "id" => "321",
-            "description" => "Description 2",
-            "iconFile" => "res:/ui/texture/icons/321.png",
-            "obsolete" => false
-          }
-        ]
+        "icons" => {
+          "edges" => [
+            {
+              "node" => {
+                "id" => "123",
+                "description" => "Description 1",
+                "iconFile" => "res:/ui/texture/icons/123.png",
+                "obsolete" => nil
+              }
+            },
+            {
+              "node" => {
+                "id" => "321",
+                "description" => "Description 2",
+                "iconFile" => "res:/ui/texture/icons/321.png",
+                "obsolete" => false
+              }
+            }
+          ]
+        }
       })
     end
   end

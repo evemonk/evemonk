@@ -55,15 +55,23 @@ describe Types::EveConstellationType do
     let(:query) do
       %(
         {
-          constellations {
-            id
-            name
-            regionId
-            region {
-              id
-            }
-            systems {
-              id
+          constellations(first: 2) {
+            edges {
+              node {
+                id
+                name
+                regionId
+                region {
+                  id
+                }
+                systems(first: 1) {
+                  edges {
+                    node {
+                      id
+                    }
+                  }
+                }
+              }
             }
           }
         }
@@ -74,50 +82,64 @@ describe Types::EveConstellationType do
 
     specify do
       expect(result).to eq("data" => {
-        "constellations" => [
-          {
-            "id" => "123",
-            "name" => {
-              "en" => "EN: name 1",
-              "de" => "DE: name 1",
-              "fr" => "FR: name 1",
-              "ja" => "JA: name 1",
-              "ru" => "RU: name 1",
-              "zh" => "ZH: name 1",
-              "ko" => "KO: name 1"
-            },
-            "regionId" => 400,
-            "region" => {
-              "id" => "400"
-            },
-            "systems" => [
-              {
-                "id" => "600"
+        "constellations" => {
+          "edges" => [
+            {
+              "node" => {
+                "id" => "123",
+                "name" => {
+                  "en" => "EN: name 1",
+                  "de" => "DE: name 1",
+                  "fr" => "FR: name 1",
+                  "ja" => "JA: name 1",
+                  "ru" => "RU: name 1",
+                  "zh" => "ZH: name 1",
+                  "ko" => "KO: name 1"
+                },
+                "regionId" => 400,
+                "region" => {
+                  "id" => "400"
+                },
+                "systems" => {
+                  "edges" => [
+                    {
+                      "node" => {
+                        "id" => "600"
+                      }
+                    }
+                  ]
+                }
               }
-            ]
-          },
-          {
-            "id" => "321",
-            "name" => {
-              "en" => "EN: name 2",
-              "de" => "DE: name 2",
-              "fr" => "FR: name 2",
-              "ja" => "JA: name 2",
-              "ru" => "RU: name 2",
-              "zh" => "ZH: name 2",
-              "ko" => "KO: name 2"
             },
-            "regionId" => 500,
-            "region" => {
-              "id" => "500"
-            },
-            "systems" => [
-              {
-                "id" => "700"
+            {
+              "node" => {
+                "id" => "321",
+                "name" => {
+                  "en" => "EN: name 2",
+                  "de" => "DE: name 2",
+                  "fr" => "FR: name 2",
+                  "ja" => "JA: name 2",
+                  "ru" => "RU: name 2",
+                  "zh" => "ZH: name 2",
+                  "ko" => "KO: name 2"
+                },
+                "regionId" => 500,
+                "region" => {
+                  "id" => "500"
+                },
+                "systems" => {
+                  "edges" => [
+                    {
+                      "node" => {
+                        "id" => "700"
+                      }
+                    }
+                  ]
+                }
               }
-            ]
-          }
-        ]
+            }
+          ]
+        }
       })
     end
   end
@@ -157,8 +179,12 @@ describe Types::EveConstellationType do
             region {
               id
             }
-            systems {
-              id
+            systems(first: 1) {
+              edges {
+                node {
+                  id
+                }
+              }
             }
           }
         }
@@ -184,11 +210,15 @@ describe Types::EveConstellationType do
           "region" => {
             "id" => "400"
           },
-          "systems" => [
-            {
-              "id" => "600"
-            }
-          ]
+          "systems" => {
+            "edges" => [
+              {
+                "node" => {
+                  "id" => "600"
+                }
+              }
+            ]
+          }
         }
       })
     end

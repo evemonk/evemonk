@@ -19,8 +19,12 @@ describe Types::EveBlueprintType do
     let(:query) do
       %(
         {
-          blueprints {
-            id
+          blueprints(first: 2) {
+            edges {
+              node {
+                id
+              }
+            }
           }
         }
       )
@@ -30,14 +34,20 @@ describe Types::EveBlueprintType do
 
     specify do
       expect(result).to eq("data" => {
-        "blueprints" => [
-          {
-            "id" => "4001"
-          },
-          {
-            "id" => "5001"
-          }
-        ]
+        "blueprints" => {
+          "edges" => [
+            {
+              "node" => {
+                "id" => "4001"
+              }
+            },
+            {
+              "node" => {
+                "id" => "5001"
+              }
+            }
+          ]
+        }
       })
     end
   end

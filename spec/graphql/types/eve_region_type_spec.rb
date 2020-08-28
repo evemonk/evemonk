@@ -69,15 +69,27 @@ describe Types::EveRegionType do
     let(:query) do
       %(
         {
-          regions {
-            id
-            name
-            description
-            constellations {
-              id
-            }
-            contracts {
-              id
+          regions(first: 2) {
+            edges {
+              node {
+                id
+                name
+                description
+                constellations(first: 1) {
+                  edges {
+                    node {
+                      id
+                    }
+                  }
+                }
+                contracts(first: 1) {
+                  edges {
+                    node {
+                      id
+                    }
+                  }
+                }
+              }
             }
           }
         }
@@ -88,70 +100,92 @@ describe Types::EveRegionType do
 
     specify do
       expect(result).to eq("data" => {
-        "regions" => [
-          {
-            "id" => "123",
-            "name" => {
-              "en" => "EN: name 1",
-              "de" => "DE: name 1",
-              "fr" => "FR: name 1",
-              "ja" => "JA: name 1",
-              "ru" => "RU: name 1",
-              "zh" => "ZH: name 1",
-              "ko" => "KO: name 1"
-            },
-            "description" => {
-              "en" => "EN: description 1",
-              "de" => "DE: description 1",
-              "fr" => "FR: description 1",
-              "ja" => "JA: description 1",
-              "ru" => "RU: description 1",
-              "zh" => "ZH: description 1",
-              "ko" => "KO: description 1"
-            },
-            "constellations" => [
-              {
-                "id" => "300"
+        "regions" => {
+          "edges" => [
+            {
+              "node" => {
+                "id" => "123",
+                "name" => {
+                  "en" => "EN: name 1",
+                  "de" => "DE: name 1",
+                  "fr" => "FR: name 1",
+                  "ja" => "JA: name 1",
+                  "ru" => "RU: name 1",
+                  "zh" => "ZH: name 1",
+                  "ko" => "KO: name 1"
+                },
+                "description" => {
+                  "en" => "EN: description 1",
+                  "de" => "DE: description 1",
+                  "fr" => "FR: description 1",
+                  "ja" => "JA: description 1",
+                  "ru" => "RU: description 1",
+                  "zh" => "ZH: description 1",
+                  "ko" => "KO: description 1"
+                },
+                "constellations" => {
+                  "edges" => [
+                    {
+                      "node" => {
+                        "id" => "300"
+                      }
+                    }
+                  ]
+                },
+                "contracts" => {
+                  "edges" => [
+                    {
+                      "node" => {
+                        "id" => "1123"
+                      }
+                    }
+                  ]
+                }
               }
-            ],
-            "contracts" => [
-              {
-                "id" => "1123"
-              }
-            ]
-          },
-          {
-            "id" => "321",
-            "name" => {
-              "en" => "EN: name 2",
-              "de" => "DE: name 2",
-              "fr" => "FR: name 2",
-              "ja" => "JA: name 2",
-              "ru" => "RU: name 2",
-              "zh" => "ZH: name 2",
-              "ko" => "KO: name 2"
             },
-            "description" => {
-              "en" => "EN: description 2",
-              "de" => "DE: description 2",
-              "fr" => "FR: description 2",
-              "ja" => "JA: description 2",
-              "ru" => "RU: description 2",
-              "zh" => "ZH: description 2",
-              "ko" => "KO: description 2"
-            },
-            "constellations" => [
-              {
-                "id" => "400"
+            {
+              "node" => {
+                "id" => "321",
+                "name" => {
+                  "en" => "EN: name 2",
+                  "de" => "DE: name 2",
+                  "fr" => "FR: name 2",
+                  "ja" => "JA: name 2",
+                  "ru" => "RU: name 2",
+                  "zh" => "ZH: name 2",
+                  "ko" => "KO: name 2"
+                },
+                "description" => {
+                  "en" => "EN: description 2",
+                  "de" => "DE: description 2",
+                  "fr" => "FR: description 2",
+                  "ja" => "JA: description 2",
+                  "ru" => "RU: description 2",
+                  "zh" => "ZH: description 2",
+                  "ko" => "KO: description 2"
+                },
+                "constellations" => {
+                  "edges" => [
+                    {
+                      "node" => {
+                        "id" => "400"
+                      }
+                    }
+                  ]
+                },
+                "contracts" => {
+                  "edges" => [
+                    {
+                      "node" => {
+                        "id" => "1124"
+                      }
+                    }
+                  ]
+                }
               }
-            ],
-            "contracts" => [
-              {
-                "id" => "1124"
-              }
-            ]
-          }
-        ]
+            }
+          ]
+        }
       })
     end
   end
@@ -196,10 +230,18 @@ describe Types::EveRegionType do
             name
             description
             constellations {
-              id
+              edges {
+                node {
+                  id
+                }
+              }
             }
             contracts {
-              id
+              edges {
+                node {
+                  id
+                }
+              }
             }
           }
         }
@@ -230,16 +272,24 @@ describe Types::EveRegionType do
             "zh" => "ZH: description 1",
             "ko" => "KO: description 1"
           },
-          "constellations" => [
-            {
-              "id" => "300"
-            }
-          ],
-          "contracts" => [
-            {
-              "id" => "1123"
-            }
-          ]
+          "constellations" => {
+            "edges" => [
+              {
+                "node" => {
+                  "id" => "300"
+                }
+              }
+            ]
+          },
+          "contracts" => {
+            "edges" => [
+              {
+                "node" => {
+                  "id" => "1123"
+                }
+              }
+            ]
+          }
         }
       })
     end

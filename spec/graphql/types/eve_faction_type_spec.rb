@@ -99,28 +99,36 @@ describe Types::EveFactionType do
     let(:query) do
       %(
         {
-          factions {
-            id
-            corporationId
-            corporation {
-              id
-            }
-            description
-            isUnique
-            name
-            militiaCorporationId
-            militiaCorporation {
-              id
-            }
-            sizeFactor
-            solarSystemId
-            solarSystem {
-              id
-            }
-            stationCount
-            stationSystemCount
-            alliances {
-              id
+          factions(first: 2) {
+            edges {
+              node {
+                id
+                corporationId
+                corporation {
+                  id
+                }
+                description
+                isUnique
+                name
+                militiaCorporationId
+                militiaCorporation {
+                  id
+                }
+                sizeFactor
+                solarSystemId
+                solarSystem {
+                  id
+                }
+                stationCount
+                stationSystemCount
+                alliances(first: 1) {
+                  edges {
+                    node {
+                      id
+                    }
+                  }
+                }
+              }
             }
           }
         }
@@ -131,92 +139,106 @@ describe Types::EveFactionType do
 
     specify do
       expect(result).to eq("data" => {
-        "factions" => [
-          {
-            "id" => "123",
-            "corporationId" => 1_111,
-            "corporation" => {
-              "id" => "1111"
-            },
-            "description" => {
-              "en" => "EN: description 1",
-              "de" => "DE: description 1",
-              "fr" => "FR: description 1",
-              "ja" => "JA: description 1",
-              "ru" => "RU: description 1",
-              "zh" => "ZH: description 1",
-              "ko" => "KO: description 1"
-            },
-            "isUnique" => true,
-            "name" => {
-              "en" => "EN: name 1",
-              "de" => "DE: name 1",
-              "fr" => "FR: name 1",
-              "ja" => "JA: name 1",
-              "ru" => "RU: name 1",
-              "zh" => "ZH: name 1",
-              "ko" => "KO: name 1"
-            },
-            "militiaCorporationId" => 2_111,
-            "militiaCorporation" => {
-              "id" => "2111"
-            },
-            "sizeFactor" => 1.5,
-            "solarSystemId" => 10_111,
-            "solarSystem" => {
-              "id" => "10111"
-            },
-            "stationCount" => 100,
-            "stationSystemCount" => 1_000,
-            "alliances" => [
-              {
-                "id" => "12345"
+        "factions" => {
+          "edges" => [
+            {
+              "node" => {
+                "id" => "123",
+                "corporationId" => 1_111,
+                "corporation" => {
+                  "id" => "1111"
+                },
+                "description" => {
+                  "en" => "EN: description 1",
+                  "de" => "DE: description 1",
+                  "fr" => "FR: description 1",
+                  "ja" => "JA: description 1",
+                  "ru" => "RU: description 1",
+                  "zh" => "ZH: description 1",
+                  "ko" => "KO: description 1"
+                },
+                "isUnique" => true,
+                "name" => {
+                  "en" => "EN: name 1",
+                  "de" => "DE: name 1",
+                  "fr" => "FR: name 1",
+                  "ja" => "JA: name 1",
+                  "ru" => "RU: name 1",
+                  "zh" => "ZH: name 1",
+                  "ko" => "KO: name 1"
+                },
+                "militiaCorporationId" => 2_111,
+                "militiaCorporation" => {
+                  "id" => "2111"
+                },
+                "sizeFactor" => 1.5,
+                "solarSystemId" => 10_111,
+                "solarSystem" => {
+                  "id" => "10111"
+                },
+                "stationCount" => 100,
+                "stationSystemCount" => 1_000,
+                "alliances" => {
+                  "edges" => [
+                    {
+                      "node" => {
+                        "id" => "12345"
+                      }
+                    }
+                  ]
+                }
               }
-            ]
-          },
-          {
-            "id" => "321",
-            "corporationId" => 1_222,
-            "corporation" => {
-              "id" => "1222"
             },
-            "description" => {
-              "en" => "EN: description 2",
-              "de" => "DE: description 2",
-              "fr" => "FR: description 2",
-              "ja" => "JA: description 2",
-              "ru" => "RU: description 2",
-              "zh" => "ZH: description 2",
-              "ko" => "KO: description 2"
-            },
-            "isUnique" => false,
-            "name" => {
-              "en" => "EN: name 2",
-              "de" => "DE: name 2",
-              "fr" => "FR: name 2",
-              "ja" => "JA: name 2",
-              "ru" => "RU: name 2",
-              "zh" => "ZH: name 2",
-              "ko" => "KO: name 2"
-            },
-            "militiaCorporationId" => 2_222,
-            "militiaCorporation" => {
-              "id" => "2222"
-            },
-            "sizeFactor" => 1.5,
-            "solarSystemId" => 10_222,
-            "solarSystem" => {
-              "id" => "10222"
-            },
-            "stationCount" => 200,
-            "stationSystemCount" => 2_000,
-            "alliances" => [
-              {
-                "id" => "67890"
+            {
+              "node" => {
+                "id" => "321",
+                "corporationId" => 1_222,
+                "corporation" => {
+                  "id" => "1222"
+                },
+                "description" => {
+                  "en" => "EN: description 2",
+                  "de" => "DE: description 2",
+                  "fr" => "FR: description 2",
+                  "ja" => "JA: description 2",
+                  "ru" => "RU: description 2",
+                  "zh" => "ZH: description 2",
+                  "ko" => "KO: description 2"
+                },
+                "isUnique" => false,
+                "name" => {
+                  "en" => "EN: name 2",
+                  "de" => "DE: name 2",
+                  "fr" => "FR: name 2",
+                  "ja" => "JA: name 2",
+                  "ru" => "RU: name 2",
+                  "zh" => "ZH: name 2",
+                  "ko" => "KO: name 2"
+                },
+                "militiaCorporationId" => 2_222,
+                "militiaCorporation" => {
+                  "id" => "2222"
+                },
+                "sizeFactor" => 1.5,
+                "solarSystemId" => 10_222,
+                "solarSystem" => {
+                  "id" => "10222"
+                },
+                "stationCount" => 200,
+                "stationSystemCount" => 2_000,
+                "alliances" => {
+                  "edges" => [
+                    {
+                      "node" => {
+                        "id" => "67890"
+                      }
+                    }
+                  ]
+                }
               }
-            ]
-          }
-        ]
+            }
+          ]
+        }
       })
     end
   end
@@ -292,7 +314,11 @@ describe Types::EveFactionType do
             stationCount
             stationSystemCount
             alliances {
-              id
+              edges {
+                node {
+                  id
+                }
+              }
             }
           }
         }
@@ -339,11 +365,15 @@ describe Types::EveFactionType do
           },
           "stationCount" => 100,
           "stationSystemCount" => 1_000,
-          "alliances" => [
-            {
-              "id" => "12345"
-            }
-          ]
+          "alliances" => {
+            "edges" => [
+              {
+                "node" => {
+                  "id" => "12345"
+                }
+              }
+            ]
+          }
         }
       })
     end

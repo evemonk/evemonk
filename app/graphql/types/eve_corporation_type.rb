@@ -23,7 +23,7 @@ module Types
     field :url, String, null: true
     field :war_eligible, Boolean, null: true
     field :npc, Boolean, null: true
-    field :characters, [Types::EveCharacterType], null: true
+    field :characters, Types::EveCharacterType.connection_type, null: true
     # TODO: :corporation_alliance_histories
     # field :history
     # TODO: :standings

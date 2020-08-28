@@ -16,7 +16,7 @@ module Types
     field :memory, Integer, null: true
     field :perception, Integer, null: true
     field :willpower, Integer, null: true
-    field :ancestries, [Types::EveAncestryType], null: true
+    field :ancestries, Types::EveAncestryType.connection_type, null: true
 
     def id
       object.bloodline_id

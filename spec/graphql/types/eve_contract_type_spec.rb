@@ -17,8 +17,12 @@ describe Types::EveContractType do
     let(:query) do
       %(
         {
-          contracts {
-            id
+          contracts(first: 2) {
+            edges {
+              node {
+                id
+              }
+            }
           }
         }
       )
@@ -28,14 +32,20 @@ describe Types::EveContractType do
 
     specify do
       expect(result).to eq("data" => {
-        "contracts" => [
-          {
-            "id" => "123"
-          },
-          {
-            "id" => "321"
-          }
-        ]
+        "contracts" => {
+          "edges" => [
+            {
+              "node" => {
+                "id" => "123"
+              }
+            },
+            {
+              "node" => {
+                "id" => "321"
+              }
+            }
+          ]
+        }
       })
     end
   end

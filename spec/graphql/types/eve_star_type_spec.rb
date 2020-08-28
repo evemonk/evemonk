@@ -17,8 +17,12 @@ describe Types::EveStarType do
     let(:query) do
       %(
         {
-          stars {
-            id
+          stars(first: 2) {
+            edges {
+              node {
+                id
+              }
+            }
           }
         }
       )
@@ -28,14 +32,20 @@ describe Types::EveStarType do
 
     specify do
       expect(result).to eq("data" => {
-        "stars" => [
-          {
-            "id" => "123"
-          },
-          {
-            "id" => "321"
-          }
-        ]
+        "stars" => {
+          "edges" => [
+            {
+              "node" => {
+                "id" => "123"
+              }
+            },
+            {
+              "node" => {
+                "id" => "321"
+              }
+            }
+          ]
+        }
       })
     end
   end

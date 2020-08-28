@@ -105,34 +105,46 @@ describe Types::EveAllianceType do
     let(:query) do
       %(
         {
-          alliances {
-            id
-            name
-            ticker
-            dateFounded
-            creatorCorporationId
-            creatorCorporation {
-              id
-            }
-            creatorId
-            creator {
-              id
-            }
-            executorCorporationId
-            executorCorporation {
-              id
-            }
-            factionId
-            faction {
-              id
-            }
-            corporationsCount
-            charactersCount
-            corporations {
-              id
-            }
-            characters {
-              id
+          alliances(first: 2) {
+            edges {
+              node {
+                id
+                name
+                ticker
+                dateFounded
+                creatorCorporationId
+                creatorCorporation {
+                  id
+                }
+                creatorId
+                creator {
+                  id
+                }
+                executorCorporationId
+                executorCorporation {
+                  id
+                }
+                factionId
+                faction {
+                  id
+                }
+                corporationsCount
+                charactersCount
+                corporations(first: 1) {
+                  edges {
+                    node {
+                      id
+                    }
+                  }
+                }
+                characters(first: 1) {
+                  edges {
+                    node {
+                      id
+                    }
+                  }
+                }
+              }
             }
           }
         }
@@ -143,76 +155,98 @@ describe Types::EveAllianceType do
 
     specify do
       expect(result).to eq("data" => {
-        "alliances" => [
-          {
-            "id" => "123",
-            "name" => "Alliance 1",
-            "ticker" => "ALLIANCE1",
-            "dateFounded" => date_founded1.iso8601,
-            "creatorCorporationId" => 222,
-            "creatorCorporation" => {
-              "id" => "222"
-            },
-            "creatorId" => 4444,
-            "creator" => {
-              "id" => "4444"
-            },
-            "executorCorporationId" => 444,
-            "executorCorporation" => {
-              "id" => "444"
-            },
-            "factionId" => 10_111,
-            "faction" => {
-              "id" => "10111"
-            },
-            "corporationsCount" => 1,
-            "charactersCount" => 1,
-            "corporations" => [
-              {
-                "id" => "100111"
+        "alliances" => {
+          "edges" => [
+            {
+              "node" => {
+                "id" => "123",
+                "name" => "Alliance 1",
+                "ticker" => "ALLIANCE1",
+                "dateFounded" => date_founded1.iso8601,
+                "creatorCorporationId" => 222,
+                "creatorCorporation" => {
+                  "id" => "222"
+                },
+                "creatorId" => 4444,
+                "creator" => {
+                  "id" => "4444"
+                },
+                "executorCorporationId" => 444,
+                "executorCorporation" => {
+                  "id" => "444"
+                },
+                "factionId" => 10_111,
+                "faction" => {
+                  "id" => "10111"
+                },
+                "corporationsCount" => 1,
+                "charactersCount" => 1,
+                "corporations" => {
+                  "edges" => [
+                    {
+                      "node" => {
+                        "id" => "100111"
+                      }
+                    }
+                  ]
+                },
+                "characters" => {
+                  "edges" => [
+                    {
+                      "node" => {
+                        "id" => "111111"
+                      }
+                    }
+                  ]
+                }
               }
-            ],
-            "characters" => [
-              {
-                "id" => "111111"
+            },
+            {
+              "node" => {
+                "id" => "321",
+                "name" => "Alliance 2",
+                "ticker" => "ALLIANCE2",
+                "dateFounded" => date_founded2.iso8601,
+                "creatorCorporationId" => 333,
+                "creatorCorporation" => {
+                  "id" => "333"
+                },
+                "creatorId" => 5555,
+                "creator" => {
+                  "id" => "5555"
+                },
+                "executorCorporationId" => 555,
+                "executorCorporation" => {
+                  "id" => "555"
+                },
+                "factionId" => 10_222,
+                "faction" => {
+                  "id" => "10222"
+                },
+                "corporationsCount" => 1,
+                "charactersCount" => 1,
+                "corporations" => {
+                  "edges" => [
+                    {
+                      "node" => {
+                        "id" => "100222"
+                      }
+                    }
+                  ]
+                },
+                "characters" => {
+                  "edges" => [
+                    {
+                      "node" => {
+                        "id" => "111222"
+                      }
+                    }
+                  ]
+                }
               }
-            ]
-          },
-          {
-            "id" => "321",
-            "name" => "Alliance 2",
-            "ticker" => "ALLIANCE2",
-            "dateFounded" => date_founded2.iso8601,
-            "creatorCorporationId" => 333,
-            "creatorCorporation" => {
-              "id" => "333"
-            },
-            "creatorId" => 5555,
-            "creator" => {
-              "id" => "5555"
-            },
-            "executorCorporationId" => 555,
-            "executorCorporation" => {
-              "id" => "555"
-            },
-            "factionId" => 10_222,
-            "faction" => {
-              "id" => "10222"
-            },
-            "corporationsCount" => 1,
-            "charactersCount" => 1,
-            "corporations" => [
-              {
-                "id" => "100222"
-              }
-            ],
-            "characters" => [
-              {
-                "id" => "111222"
-              }
-            ]
-          }
-        ]
+            }
+          ]
+        }
       })
     end
   end
@@ -295,11 +329,19 @@ describe Types::EveAllianceType do
             }
             corporationsCount
             charactersCount
-            corporations {
-              id
+            corporations(first: 1) {
+              edges {
+                node {
+                  id
+                }
+              }
             }
-            characters {
-              id
+            characters(first: 1) {
+              edges {
+                node {
+                  id
+                }
+              }
             }
           }
         }
@@ -333,16 +375,24 @@ describe Types::EveAllianceType do
           },
           "corporationsCount" => 1,
           "charactersCount" => 1,
-          "corporations" => [
-            {
-              "id" => "100111"
-            }
-          ],
-          "characters" => [
-            {
-              "id" => "111111"
-            }
-          ]
+          "corporations" => {
+            "edges" => [
+              {
+                "node" => {
+                  "id" => "100111"
+                }
+              }
+            ]
+          },
+          "characters" => {
+            "edges" => [
+              {
+                "node" => {
+                  "id" => "111111"
+                }
+              }
+            ]
+          }
         }
       })
     end

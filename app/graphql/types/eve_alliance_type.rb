@@ -16,8 +16,8 @@ module Types
     field :faction, Types::EveFactionType, null: true
     field :corporations_count, Integer, null: true
     field :characters_count, Integer, null: true
-    field :corporations, [Types::EveCorporationType], null: true
-    field :characters, [Types::EveCharacterType], null: true
+    field :corporations, Types::EveCorporationType.connection_type, null: true
+    field :characters, Types::EveCharacterType.connection_type, null: true
     # TODO: corporation_alliance_histories
     # field :history, [Types::AllianceHistoryType], null: true
 

@@ -115,40 +115,48 @@ describe Types::EveCorporationType do
     let(:query) do
       %(
         {
-          corporations {
-            id
-            allianceId
-            alliance {
-              id
-            }
-            ceoId
-            ceo {
-              id
-            }
-            creatorId
-            creator {
-              id
-            }
-            dateFounded
-            description
-            factionId
-            faction {
-              id
-            }
-            homeStationId
-            homeStation {
-              id
-            }
-            memberCount
-            name
-            shares
-            taxRate
-            ticker
-            url
-            warEligible
-            npc
-            characters {
-              id
+          corporations(first: 2) {
+            edges {
+              node {
+                id
+                allianceId
+                alliance {
+                  id
+                }
+                ceoId
+                ceo {
+                  id
+                }
+                creatorId
+                creator {
+                  id
+                }
+                dateFounded
+                description
+                factionId
+                faction {
+                  id
+                }
+                homeStationId
+                homeStation {
+                  id
+                }
+                memberCount
+                name
+                shares
+                taxRate
+                ticker
+                url
+                warEligible
+                npc
+                characters(first: 1) {
+                  edges {
+                    node {
+                      id
+                    }
+                  }
+                }
+              }
             }
           }
         }
@@ -159,84 +167,98 @@ describe Types::EveCorporationType do
 
     specify do
       expect(result).to eq("data" => {
-        "corporations" => [
-          {
-            "id" => "123",
-            "allianceId" => 1_111,
-            "alliance" => {
-              "id" => "1111"
-            },
-            "ceoId" => 10_111,
-            "ceo" => {
-              "id" => "10111"
-            },
-            "creatorId" => 10_555,
-            "creator" => {
-              "id" => "10555"
-            },
-            "dateFounded" => date_founded1.iso8601,
-            "description" => "Corp description 1",
-            "factionId" => 1_000_111,
-            "faction" => {
-              "id" => "1000111"
-            },
-            "homeStationId" => 12_123_123,
-            "homeStation" => {
-              "id" => "12123123"
-            },
-            "memberCount" => 10,
-            "name" => "Corp 1",
-            "shares" => "101",
-            "taxRate" => 10.0,
-            "ticker" => "CORP 1",
-            "url" => "https://url1.com/",
-            "warEligible" => true,
-            "npc" => true,
-            "characters" => [
-              {
-                "id" => "12998"
+        "corporations" => {
+          "edges" => [
+            {
+              "node" => {
+                "id" => "123",
+                "allianceId" => 1_111,
+                "alliance" => {
+                  "id" => "1111"
+                },
+                "ceoId" => 10_111,
+                "ceo" => {
+                  "id" => "10111"
+                },
+                "creatorId" => 10_555,
+                "creator" => {
+                  "id" => "10555"
+                },
+                "dateFounded" => date_founded1.iso8601,
+                "description" => "Corp description 1",
+                "factionId" => 1_000_111,
+                "faction" => {
+                  "id" => "1000111"
+                },
+                "homeStationId" => 12_123_123,
+                "homeStation" => {
+                  "id" => "12123123"
+                },
+                "memberCount" => 10,
+                "name" => "Corp 1",
+                "shares" => "101",
+                "taxRate" => 10.0,
+                "ticker" => "CORP 1",
+                "url" => "https://url1.com/",
+                "warEligible" => true,
+                "npc" => true,
+                "characters" => {
+                  "edges" => [
+                    {
+                      "node" => {
+                        "id" => "12998"
+                      }
+                    }
+                  ]
+                }
               }
-            ]
-          },
-          {
-            "id" => "321",
-            "allianceId" => 1_222,
-            "alliance" => {
-              "id" => "1222"
             },
-            "ceoId" => 10_222,
-            "ceo" => {
-              "id" => "10222"
-            },
-            "creatorId" => 10_666,
-            "creator" => {
-              "id" => "10666"
-            },
-            "dateFounded" => date_founded2.iso8601,
-            "description" => "Corp description 2",
-            "factionId" => 1_000_222,
-            "faction" => {
-              "id" => "1000222"
-            },
-            "homeStationId" => 12_321_321,
-            "homeStation" => {
-              "id" => "12321321"
-            },
-            "memberCount" => 100,
-            "name" => "Corp 2",
-            "shares" => "102",
-            "taxRate" => 20.0,
-            "ticker" => "CORP 2",
-            "url" => "https://url2.com/",
-            "warEligible" => false,
-            "npc" => false,
-            "characters" => [
-              {
-                "id" => "12999"
+            {
+              "node" => {
+                "id" => "321",
+                "allianceId" => 1_222,
+                "alliance" => {
+                  "id" => "1222"
+                },
+                "ceoId" => 10_222,
+                "ceo" => {
+                  "id" => "10222"
+                },
+                "creatorId" => 10_666,
+                "creator" => {
+                  "id" => "10666"
+                },
+                "dateFounded" => date_founded2.iso8601,
+                "description" => "Corp description 2",
+                "factionId" => 1_000_222,
+                "faction" => {
+                  "id" => "1000222"
+                },
+                "homeStationId" => 12_321_321,
+                "homeStation" => {
+                  "id" => "12321321"
+                },
+                "memberCount" => 100,
+                "name" => "Corp 2",
+                "shares" => "102",
+                "taxRate" => 20.0,
+                "ticker" => "CORP 2",
+                "url" => "https://url2.com/",
+                "warEligible" => false,
+                "npc" => false,
+                "characters" => {
+                  "edges" => [
+                    {
+                      "node" => {
+                        "id" => "12999"
+                      }
+                    }
+                  ]
+                }
               }
-            ]
-          }
-        ]
+            }
+          ]
+        }
       })
     end
   end
@@ -333,8 +355,12 @@ describe Types::EveCorporationType do
             url
             warEligible
             npc
-            characters {
-              id
+            characters(first: 1) {
+              edges {
+                node {
+                  id
+                }
+              }
             }
           }
         }
@@ -377,11 +403,15 @@ describe Types::EveCorporationType do
           "url" => "https://url1.com/",
           "warEligible" => true,
           "npc" => true,
-          "characters" => [
-            {
-              "id" => "12998"
-            }
-          ]
+          "characters" => {
+            "edges" => [
+              {
+                "node" => {
+                  "id" => "12998"
+                }
+              }
+            ]
+          }
         }
       })
     end

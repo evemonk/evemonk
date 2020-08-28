@@ -31,15 +31,19 @@ describe Types::EveGraphicType do
     let(:query) do
       %(
         {
-          graphics {
-            id
-            collisionFile
-            graphicFile
-            iconFolder
-            sofDna
-            sofFationName
-            sofHullName
-            sofRaceName
+          graphics(first: 2) {
+            edges {
+              node {
+                id
+                collisionFile
+                graphicFile
+                iconFolder
+                sofDna
+                sofFationName
+                sofHullName
+                sofRaceName
+              }
+            }
           }
         }
       )
@@ -49,28 +53,34 @@ describe Types::EveGraphicType do
 
     specify do
       expect(result).to eq("data" => {
-        "graphics" => [
-          {
-            "id" => "123",
-            "collisionFile" => "collision_file1",
-            "graphicFile" => "graphic_file1",
-            "iconFolder" => "icon_folder1",
-            "sofDna" => "sof_dna1",
-            "sofFationName" => "sof_fation_name1",
-            "sofHullName" => "sof_hull_name1",
-            "sofRaceName" => "sof_race_name1"
-          },
-          {
-            "id" => "321",
-            "collisionFile" => "collision_file2",
-            "graphicFile" => "graphic_file2",
-            "iconFolder" => "icon_folder2",
-            "sofDna" => "sof_dna2",
-            "sofFationName" => "sof_fation_name2",
-            "sofHullName" => "sof_hull_name2",
-            "sofRaceName" => "sof_race_name2"
-          }
-        ]
+        "graphics" => {
+          "edges" => [
+            {
+              "node" => {
+                "id" => "123",
+                "collisionFile" => "collision_file1",
+                "graphicFile" => "graphic_file1",
+                "iconFolder" => "icon_folder1",
+                "sofDna" => "sof_dna1",
+                "sofFationName" => "sof_fation_name1",
+                "sofHullName" => "sof_hull_name1",
+                "sofRaceName" => "sof_race_name1"
+              }
+            },
+            {
+              "node" => {
+                "id" => "321",
+                "collisionFile" => "collision_file2",
+                "graphicFile" => "graphic_file2",
+                "iconFolder" => "icon_folder2",
+                "sofDna" => "sof_dna2",
+                "sofFationName" => "sof_fation_name2",
+                "sofHullName" => "sof_hull_name2",
+                "sofRaceName" => "sof_race_name2"
+              }
+            }
+          ]
+        }
       })
     end
   end

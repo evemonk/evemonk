@@ -59,16 +59,24 @@ describe Types::EveMarketGroupType do
     let(:query) do
       %(
         {
-          marketGroups {
-            id
-            name
-            description
-            parentGroupId
-            parentGroup {
-              id
-            }
-            types {
-              id
+          marketGroups(first: 2) {
+            edges {
+              node {
+                id
+                name
+                description
+                parentGroupId
+                parentGroup {
+                  id
+                }
+                types(first: 1) {
+                  edges {
+                    node {
+                      id
+                    }
+                  }
+                }
+              }
             }
           }
         }
@@ -79,66 +87,80 @@ describe Types::EveMarketGroupType do
 
     specify do
       expect(result).to eq("data" => {
-        "marketGroups" => [
-          {
-            "id" => "123",
-            "name" => {
-              "en" => "EN: name 1",
-              "de" => "DE: name 1",
-              "fr" => "FR: name 1",
-              "ja" => "JA: name 1",
-              "ru" => "RU: name 1",
-              "zh" => "ZH: name 1",
-              "ko" => "KO: name 1"
-            },
-            "description" => {
-              "en" => "EN: description 1",
-              "de" => "DE: description 1",
-              "fr" => "FR: description 1",
-              "ja" => "JA: description 1",
-              "ru" => "RU: description 1",
-              "zh" => "ZH: description 1",
-              "ko" => "KO: description 1"
-            },
-            "parentGroupId" => nil,
-            "parentGroup" => nil,
-            "types" => [
-              {
-                "id" => "400"
+        "marketGroups" => {
+          "edges" => [
+            {
+              "node" => {
+                "id" => "123",
+                "name" => {
+                  "en" => "EN: name 1",
+                  "de" => "DE: name 1",
+                  "fr" => "FR: name 1",
+                  "ja" => "JA: name 1",
+                  "ru" => "RU: name 1",
+                  "zh" => "ZH: name 1",
+                  "ko" => "KO: name 1"
+                },
+                "description" => {
+                  "en" => "EN: description 1",
+                  "de" => "DE: description 1",
+                  "fr" => "FR: description 1",
+                  "ja" => "JA: description 1",
+                  "ru" => "RU: description 1",
+                  "zh" => "ZH: description 1",
+                  "ko" => "KO: description 1"
+                },
+                "parentGroupId" => nil,
+                "parentGroup" => nil,
+                "types" => {
+                  "edges" => [
+                    {
+                      "node" => {
+                        "id" => "400"
+                      }
+                    }
+                  ]
+                }
               }
-            ]
-          },
-          {
-            "id" => "321",
-            "name" => {
-              "en" => "EN: name 2",
-              "de" => "DE: name 2",
-              "fr" => "FR: name 2",
-              "ja" => "JA: name 2",
-              "ru" => "RU: name 2",
-              "zh" => "ZH: name 2",
-              "ko" => "KO: name 2"
             },
-            "description" => {
-              "en" => "EN: description 2",
-              "de" => "DE: description 2",
-              "fr" => "FR: description 2",
-              "ja" => "JA: description 2",
-              "ru" => "RU: description 2",
-              "zh" => "ZH: description 2",
-              "ko" => "KO: description 2"
-            },
-            "parentGroupId" => 123,
-            "parentGroup" => {
-              "id" => "123"
-            },
-            "types" => [
-              {
-                "id" => "500"
+            {
+              "node" => {
+                "id" => "321",
+                "name" => {
+                  "en" => "EN: name 2",
+                  "de" => "DE: name 2",
+                  "fr" => "FR: name 2",
+                  "ja" => "JA: name 2",
+                  "ru" => "RU: name 2",
+                  "zh" => "ZH: name 2",
+                  "ko" => "KO: name 2"
+                },
+                "description" => {
+                  "en" => "EN: description 2",
+                  "de" => "DE: description 2",
+                  "fr" => "FR: description 2",
+                  "ja" => "JA: description 2",
+                  "ru" => "RU: description 2",
+                  "zh" => "ZH: description 2",
+                  "ko" => "KO: description 2"
+                },
+                "parentGroupId" => 123,
+                "parentGroup" => {
+                  "id" => "123"
+                },
+                "types" => {
+                  "edges" => [
+                    {
+                      "node" => {
+                        "id" => "500"
+                      }
+                    }
+                  ]
+                }
               }
-            ]
-          }
-        ]
+            }
+          ]
+        }
       })
     end
   end
@@ -181,8 +203,12 @@ describe Types::EveMarketGroupType do
             parentGroup {
               id
             }
-            types {
-              id
+            types(first: 1) {
+              edges {
+                node {
+                  id
+                }
+              }
             }
           }
         }
@@ -215,11 +241,15 @@ describe Types::EveMarketGroupType do
           },
           "parentGroupId" => nil,
           "parentGroup" => nil,
-          "types" => [
-            {
-              "id" => "400"
-            }
-          ]
+          "types" => {
+            "edges" => [
+              {
+                "node" => {
+                  "id" => "400"
+                }
+              }
+            ]
+          }
         }
       })
     end
