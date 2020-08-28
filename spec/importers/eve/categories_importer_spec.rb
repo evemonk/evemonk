@@ -91,12 +91,12 @@ describe Eve::CategoriesImporter do
   describe "#import_new_categories" do
     let(:remote_category_id) { double }
 
-    let(:remote_category_ids) { [remote_category_id] }
+    let(:remote_categories_ids) { [remote_category_id] }
 
     let(:esi) do
       instance_double(EveOnline::ESI::UniverseCategories,
         not_modified?: false,
-        category_ids: remote_category_ids)
+        category_ids: remote_categories_ids)
     end
 
     before do
@@ -106,14 +106,14 @@ describe Eve::CategoriesImporter do
 
     let(:local_category_id) { double }
 
-    let(:local_category_ids) { [local_category_id] }
+    let(:local_categories_ids) { [local_category_id] }
 
     before do
       #
-      # Eve::Category.pluck(:category_id) # => local_category_ids
+      # Eve::Category.pluck(:category_id) # => local_categories_ids
       #
       expect(Eve::Category).to receive(:pluck).with(:category_id)
-        .and_return(local_category_ids)
+        .and_return(local_categories_ids)
     end
 
     before do
@@ -126,9 +126,30 @@ describe Eve::CategoriesImporter do
     specify { expect { subject.send(:import_new_categories) }.not_to raise_error }
   end
 
-  xdescribe "#remove_old_categories" do
-    let(:esi) { instance_double(EveOnline::ESI::UniverseCategories) }
+  describe "#remove_old_categories" do
+    let(:remote_category_id) { double }
 
-    specify { expect { subject.send(:remove_old_categories, esi) }.not_to raise_error }
+    let(:remote_categories_ids) { [remote_category_id] }
+
+    let(:esi) do
+      instance_double(EveOnline::ESI::UniverseCategories,
+        category_ids: remote_categories_ids)
+    end
+
+    before { expect(EveOnline::ESI::UniverseCategories).to receive(:new).and_return(esi) }
+
+    let(:local_category_id) { double }
+
+    let(:local_categories_ids) { [local_category_id] }
+
+    before { expect(Eve::Category).to receive(:pluck).with(:category_id).and_return(local_categories_ids) }
+
+    let(:eve_category) { instance_double(Eve::Category) }
+
+    before { expect(Eve::Category).to receive(:find_or_initialize_by).with(category_id: local_category_id).and_return(eve_category) }
+
+    before { expect(eve_category).to receive(:destroy!) }
+
+    specify { expect { subject.send(:remove_old_categories) }.not_to raise_error }
   end
 end
