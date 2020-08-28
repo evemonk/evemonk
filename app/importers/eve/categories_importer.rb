@@ -2,25 +2,31 @@
 
 module Eve
   class CategoriesImporter
+    attr_reader :esi
+
+    def initialize
+      @esi = EveOnline::ESI::UniverseCategories.new
+    end
+
     def import
       ActiveRecord::Base.transaction do
-        esi = EveOnline::ESI::UniverseCategories.new
-
         etag = Eve::Etag.find_or_initialize_by(url: esi.url)
 
         esi.etag = etag.etag
 
         return if esi.not_modified?
 
-        import_new_categories(esi)
+        import_new_categories
 
-        remove_old_categories(esi)
+        remove_old_categories
 
         etag.update!(etag: esi.etag, body: esi.response)
       end
     end
 
-    def import_new_categories(esi)
+    private
+
+    def import_new_categories
       eve_category_ids = Eve::Category.pluck(:category_id)
 
       categories_ids_to_create = esi.category_ids - eve_category_ids
@@ -30,7 +36,7 @@ module Eve
       end
     end
 
-    def remove_old_categories(esi)
+    def remove_old_categories
       eve_categories_ids = Eve::Category.pluck(:category_id)
 
       categories_ids_to_remove = eve_categories_ids - esi.category_ids

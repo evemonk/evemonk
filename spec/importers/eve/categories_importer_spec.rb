@@ -3,6 +3,17 @@
 require "rails_helper"
 
 describe Eve::CategoriesImporter do
+  describe "#initialize" do
+    let(:esi) { instance_double(EveOnline::ESI::UniverseCategories) }
+
+    before do
+      expect(EveOnline::ESI::UniverseCategories).to receive(:new)
+        .and_return(esi)
+    end
+
+    its(:esi) { should eq(esi) }
+  end
+
   describe "#import" do
     context "when fresh data available" do
       let(:new_etag) { double }
@@ -33,9 +44,9 @@ describe Eve::CategoriesImporter do
           .with("97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a")
       end
 
-      before { expect(subject).to receive(:import_new_categories).with(esi) }
+      before { expect(subject).to receive(:import_new_categories) }
 
-      before { expect(subject).to receive(:remove_old_categories).with(esi) }
+      before { expect(subject).to receive(:remove_old_categories) }
 
       before { expect(etag).to receive(:update!).with(etag: new_etag, body: response) }
 
@@ -73,5 +84,51 @@ describe Eve::CategoriesImporter do
 
       specify { expect { subject.import }.not_to raise_error }
     end
+  end
+
+  # private methods
+
+  describe "#import_new_categories" do
+    let(:remote_category_id) { double }
+
+    let(:remote_category_ids) { [remote_category_id] }
+
+    let(:esi) do
+      instance_double(EveOnline::ESI::UniverseCategories,
+        not_modified?: false,
+        category_ids: remote_category_ids)
+    end
+
+    before do
+      expect(EveOnline::ESI::UniverseCategories).to receive(:new)
+        .and_return(esi)
+    end
+
+    let(:local_category_id) { double }
+
+    let(:local_category_ids) { [local_category_id] }
+
+    before do
+      #
+      # Eve::Category.pluck(:category_id) # => local_category_ids
+      #
+      expect(Eve::Category).to receive(:pluck).with(:category_id)
+        .and_return(local_category_ids)
+    end
+
+    before do
+      #
+      # Eve::UpdateCategoryJob.perform_later(category_id)
+      #
+      expect(Eve::UpdateCategoryJob).to receive(:perform_later).with(remote_category_id)
+    end
+
+    specify { expect { subject.send(:import_new_categories) }.not_to raise_error }
+  end
+
+  xdescribe "#remove_old_categories" do
+    let(:esi) { instance_double(EveOnline::ESI::UniverseCategories) }
+
+    specify { expect { subject.send(:remove_old_categories, esi) }.not_to raise_error }
   end
 end
