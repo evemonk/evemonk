@@ -9,19 +9,17 @@ module Eve
     end
 
     def import
-      ActiveRecord::Base.transaction do
-        etag = Eve::Etag.find_or_initialize_by(url: esi.url)
+      etag = Eve::Etag.find_or_initialize_by(url: esi.url)
 
-        esi.etag = etag.etag
+      esi.etag = etag.etag
 
-        return if esi.not_modified?
+      return if esi.not_modified?
 
-        import_new_categories
+      import_new_categories
 
-        remove_old_categories
+      remove_old_categories
 
-        etag.update!(etag: esi.etag, body: esi.response)
-      end
+      etag.update!(etag: esi.etag, body: esi.response)
     end
 
     private
