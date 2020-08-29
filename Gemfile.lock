@@ -102,7 +102,7 @@ GEM
       execjs
     awesome_print (1.8.0)
     bcrypt (3.1.15)
-    benchmark-ips (2.8.2)
+    benchmark-ips (2.8.3)
     better_html (1.0.15)
       actionview (>= 4.0)
       activesupport (>= 4.0)
