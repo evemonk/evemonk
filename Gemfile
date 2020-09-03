@@ -116,10 +116,11 @@ group :development do
   gem "consistency_fail", require: false
   gem "rails_best_practices"
   gem "active_record_doctor"
-  # gem 'overcommit', require: false
+  # gem "overcommit", require: false
   gem "cacheflow"
   gem "gemdiff", require: false
   gem "derailed_benchmarks"
+  gem "graphql-rails_logger"
 end
 
 group :test do
