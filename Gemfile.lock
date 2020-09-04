@@ -101,7 +101,7 @@ GEM
     autoprefixer-rails (9.8.6.3)
       execjs
     awesome_print (1.8.0)
-    bcrypt (3.1.15)
+    bcrypt (3.1.16)
     benchmark-ips (2.8.3)
     better_html (1.0.15)
       actionview (>= 4.0)
