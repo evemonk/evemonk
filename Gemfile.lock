@@ -633,7 +633,7 @@ GEM
       unicode-display_width (~> 1.5)
       unicode_utils (~> 1.4)
     strings-ansi (0.2.0)
-    super_diff (0.5.1)
+    super_diff (0.5.2)
       attr_extras (>= 6.2.4)
       diff-lcs
       patience_diff
