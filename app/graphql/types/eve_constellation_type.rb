@@ -6,7 +6,7 @@ module Types
     field :name, GraphQL::Types::JSON, null: true
     field :region_id, Integer, null: true
     field :region, Types::EveRegionType, null: true
-    field :systems, [Types::EveSystemType], null: true
+    field :systems, Types::EveSystemType.connection_type, null: true
     # TODO: position
 
     def id

@@ -17,8 +17,12 @@ describe Types::EveRegionType do
     let(:query) do
       %(
         {
-          types {
-            id
+          types(first: 2) {
+            edges {
+              node {
+                id
+              }
+            }
           }
         }
       )
@@ -28,14 +32,20 @@ describe Types::EveRegionType do
 
     specify do
       expect(result).to eq("data" => {
-        "types" => [
-          {
-            "id" => "400"
-          },
-          {
-            "id" => "500"
-          }
-        ]
+        "types" => {
+          "edges" => [
+            {
+              "node" => {
+                "id" => "400"
+              }
+            },
+            {
+              "node" => {
+                "id" => "500"
+              }
+            }
+          ]
+        }
       })
     end
   end

@@ -2,401 +2,342 @@
 
 module Types
   class QueryType < Types::BaseObject
-    field :alliances,
-      [Types::EveAllianceType],
-      null: false,
-      description: "Eve Alliances"
+    field :alliances, Types::EveAllianceType.connection_type, null: true, description: "Eve Alliances", max_page_size: 25
 
     field :alliance, Types::EveAllianceType, null: true do
       argument :id, ID, required: true
     end
 
-    field :ancestries,
-      [Types::EveAncestryType],
-      null: false,
-      description: "Eve Ancestries"
+    field :ancestries, Types::EveAncestryType.connection_type, null: true, description: "Eve Ancestries"
 
     field :ancestry, Types::EveAncestryType, null: true do
       argument :id, ID, required: true
     end
 
-    field :bloodlines,
-      [Types::EveBloodlineType],
-      null: false,
-      description: "Eve Bloodlines"
+    field :bloodlines, Types::EveBloodlineType.connection_type, null: true, description: "Eve Bloodlines"
 
     field :bloodline, Types::EveBloodlineType, null: true do
       argument :id, ID, required: true
     end
 
-    field :blueprints,
-      [Types::EveBlueprintType],
-      null: false,
-      description: "Eve Blueprints"
+    field :blueprints, Types::EveBlueprintType.connection_type, null: true, description: "Eve Blueprints"
 
     field :blueprint, Types::EveBlueprintType, null: true do
       argument :id, ID, required: true
     end
 
-    field :categories,
-      [Types::EveCategoryType],
-      null: false,
-      description: "Eve Categories"
+    field :categories, Types::EveCategoryType.connection_type, null: true, description: "Eve Categories"
 
     field :category, Types::EveCategoryType, null: true do
       argument :id, ID, required: true
     end
 
-    field :characters,
-      [Types::EveCharacterType],
-      null: false,
-      description: "Eve Characters"
+    field :characters, Types::EveCharacterType.connection_type, null: true, description: "Eve Characters"
 
     field :character, Types::EveCharacterType, null: true do
       argument :id, ID, required: true
     end
 
-    field :constellations,
-      [Types::EveConstellationType],
-      null: false,
-      description: "Eve Constellations"
+    field :constellations, Types::EveConstellationType.connection_type, null: true, description: "Eve Constellations"
 
     field :constellation, Types::EveConstellationType, null: true do
       argument :id, ID, required: true
     end
 
-    field :contracts,
-      [Types::EveContractType],
-      null: false,
-      description: "Public Contracts"
+    field :contracts, Types::EveContractType.connection_type, null: true, description: "Public Contracts"
 
     field :contract, Types::EveContractType, null: true do
       argument :id, ID, required: true
     end
 
-    field :corporations,
-      [Types::EveCorporationType],
-      null: false,
-      description: "Eve Corporations"
+    field :corporations, Types::EveCorporationType.connection_type, null: true, description: "Eve Corporations"
 
     field :corporation, Types::EveCorporationType, null: true do
       argument :id, ID, required: true
     end
 
-    field :factions,
-      [Types::EveFactionType],
-      null: false,
-      description: "Eve Factions"
+    field :factions, Types::EveFactionType.connection_type, null: true, description: "Eve Factions"
 
     field :faction, Types::EveFactionType, null: true do
       argument :id, ID, required: true
     end
 
-    field :graphics,
-      [Types::EveGraphicType],
-      null: false,
-      description: "Eve Graphics"
+    field :graphics, Types::EveGraphicType.connection_type, null: true, description: "Eve Graphics"
 
     field :graphic, Types::EveGraphicType, null: true do
       argument :id, ID, required: true
     end
 
-    field :groups,
-      [Types::EveGroupType],
-      null: false,
-      description: "Eve Groups"
+    field :groups, Types::EveGroupType.connection_type, null: true, description: "Eve Groups"
 
     field :group, Types::EveGroupType, null: true do
       argument :id, ID, required: true
     end
 
-    field :icons,
-      [Types::EveIconType],
-      null: false,
-      description: "Eve Icons"
+    field :icons, Types::EveIconType.connection_type, null: true, description: "Eve Icons"
 
     field :icon, Types::EveIconType, null: true do
       argument :id, ID, required: true
     end
 
-    field :market_groups,
-      [Types::EveMarketGroupType],
-      null: false,
-      description: "Eve Market Groups"
+    field :market_groups, Types::EveMarketGroupType.connection_type, null: true, description: "Eve Market Groups"
 
     field :market_group, Types::EveMarketGroupType, null: true do
       argument :id, ID, required: true
     end
 
-    field :races,
-      [Types::EveRaceType],
-      null: false,
-      description: "Eve Races"
+    field :races, Types::EveRaceType.connection_type, null: true, description: "Eve Races"
 
     field :race, Types::EveRaceType, null: true do
       argument :id, ID, required: true
     end
 
-    field :regions,
-      [Types::EveRegionType],
-      null: false,
-      description: "Eve Regions"
+    field :regions, Types::EveRegionType.connection_type, null: true, description: "Eve Regions"
 
     field :region, Types::EveRegionType, null: true do
       argument :id, ID, required: true
     end
 
-    field :ships,
-      [Types::EveShipType],
-      null: false,
-      description: "Eve Ships"
+    field :ships, Types::EveShipType.connection_type, null: true, description: "Eve Ships"
 
     field :ship, Types::EveShipType, null: true do
       argument :id, ID, required: true
     end
 
-    field :stars,
-      [Types::EveStarType],
-      null: false,
-      description: "Eve Stars"
+    field :stars, Types::EveStarType.connection_type, null: true, description: "Eve Stars"
 
     field :star, Types::EveStarType, null: true do
       argument :id, ID, required: true
     end
 
-    field :stations,
-      [Types::EveStationType],
-      null: false,
-      description: "Eve Stations"
+    field :stations, Types::EveStationType.connection_type, null: true, description: "Eve Stations"
 
     field :station, Types::EveStationType, null: true do
       argument :id, ID, required: true
     end
 
-    field :systems,
-      [Types::EveSystemType],
-      null: false,
-      description: "Eve Systems"
+    field :systems, Types::EveSystemType.connection_type, null: true, description: "Eve Systems"
 
     field :system, Types::EveSystemType, null: true do
       argument :id, ID, required: true
     end
 
-    field :types,
-      [Types::EveTypeType],
-      null: false,
-      description: "Eve Types"
+    field :types, Types::EveTypeType.connection_type, null: true, description: "Eve Types"
 
     field :type, Types::EveTypeType, null: true do
       argument :id, ID, required: true
     end
 
     def alliances
-      ::Eve::Alliance.lazy_preload(:creator_corporation,
-        :creator,
-        :executor_corporation,
-        :faction)
-        .all
-        .decorate
+      ::Eve::Alliance.preload_associations_lazily
+        .order(:alliance_id)
     end
 
     def alliance(id:)
-      ::Eve::Alliance.lazy_preload(:creator_corporation,
-        :creator,
-        :executor_corporation,
-        :faction)
-        .find_by(alliance_id: id)&.decorate
+      ::Eve::Alliance.preload_associations_lazily
+        .find_by(alliance_id: id)
     end
 
     def ancestries
-      ::Eve::Ancestry.all.decorate
+      ::Eve::Ancestry.preload_associations_lazily
+        .order(:ancestry_id)
     end
 
     def ancestry(id:)
-      ::Eve::Ancestry.find_by(ancestry_id: id)&.decorate
+      ::Eve::Ancestry.preload_associations_lazily
+        .find_by(ancestry_id: id)
     end
 
     def bloodlines
-      ::Eve::Bloodline.all.decorate
+      ::Eve::Bloodline.preload_associations_lazily
+        .order(:bloodline_id)
     end
 
     def bloodline(id:)
-      ::Eve::Bloodline.find_by(bloodline_id: id)&.decorate
+      ::Eve::Bloodline.preload_associations_lazily
+        .find_by(bloodline_id: id)
     end
 
     def blueprints
-      ::Eve::Blueprint.all.decorate
+      ::Eve::Blueprint.preload_associations_lazily
+        .order(:type_id)
     end
 
     def blueprint(id:)
-      ::Eve::Blueprint.find_by(type_id: id)&.decorate
+      ::Eve::Blueprint.preload_associations_lazily
+        .find_by(type_id: id)
     end
 
     def categories
-      ::Eve::Category.all.decorate
+      ::Eve::Category.preload_associations_lazily
+        .order(:category_id)
     end
 
     def category(id:)
-      ::Eve::Category.find_by(category_id: id)&.decorate
+      ::Eve::Category.preload_associations_lazily
+        .find_by(category_id: id)
     end
 
     def characters
-      ::Eve::Character.lazy_preload(:alliance,
-        :ancestry,
-        :bloodline,
-        :corporation,
-        :faction,
-        :race,
-        :character_corporation_histories)
-        .all
-        .decorate
+      ::Eve::Character.preload_associations_lazily
+        .order(:character_id)
     end
 
     def character(id:)
-      ::Eve::Character.lazy_preload(:alliance,
-        :ancestry,
-        :bloodline,
-        :corporation,
-        :faction,
-        :race,
-        :character_corporation_histories)
-        .find_by(character_id: id)&.decorate
+      ::Eve::Character.preload_associations_lazily
+        .find_by(character_id: id)
     end
 
     def constellations
-      ::Eve::Constellation.all.decorate
+      ::Eve::Constellation.preload_associations_lazily
+        .order(:constellation_id)
     end
 
     def constellation(id:)
-      ::Eve::Constellation.find_by(constellation_id: id)&.decorate
+      ::Eve::Constellation.preload_associations_lazily
+        .find_by(constellation_id: id)
     end
 
     def contracts
-      ::Eve::Contract.all.decorate
+      ::Eve::Contract.preload_associations_lazily
+        .order(:contract_id)
     end
 
     def contract(id:)
-      ::Eve::Contract.find_by(contract_id: id)&.decorate
+      ::Eve::Contract.preload_associations_lazily
+        .find_by(contract_id: id)
     end
 
     def corporations
-      ::Eve::Corporation.lazy_preload(:alliance,
-        :ceo,
-        :creator,
-        :faction,
-        :home_station,
-        :characters)
-        .all
-        .decorate
+      ::Eve::Corporation.preload_associations_lazily
+        .order(:corporation_id)
     end
 
     def corporation(id:)
-      ::Eve::Corporation.lazy_preload(:alliance,
-        :ceo,
-        :creator,
-        :faction,
-        :home_station,
-        :characters)
-        .find_by(corporation_id: id)&.decorate
+      ::Eve::Corporation.preload_associations_lazily
+        .find_by(corporation_id: id)
     end
 
     def factions
-      ::Eve::Faction.all.decorate
+      ::Eve::Faction.preload_associations_lazily
+        .order(:faction_id)
     end
 
     def faction(id:)
-      ::Eve::Faction.find_by(faction_id: id)&.decorate
+      ::Eve::Faction.preload_associations_lazily
+        .find_by(faction_id: id)
     end
 
     def graphics
-      ::Eve::Graphic.all.decorate
+      ::Eve::Graphic.preload_associations_lazily
+        .order(:graphic_id)
     end
 
     def graphic(id:)
-      ::Eve::Graphic.find_by(graphic_id: id)&.decorate
+      ::Eve::Graphic.preload_associations_lazily
+        .find_by(graphic_id: id)
     end
 
     def groups
-      ::Eve::Group.lazy_preload(:category, :types).decorate
+      ::Eve::Group.preload_associations_lazily
+        .order(:group_id)
     end
 
     def group(id:)
-      ::Eve::Group.find_by(group_id: id)&.decorate
+      ::Eve::Group.preload_associations_lazily
+        .find_by(group_id: id)
     end
 
     def icons
-      ::Eve::Icon.all.decorate
+      ::Eve::Icon.preload_associations_lazily
+        .order(:icon_id)
     end
 
     def icon(id:)
-      ::Eve::Icon.find_by(icon_id: id)&.decorate
+      ::Eve::Icon.preload_associations_lazily
+        .find_by(icon_id: id)
     end
 
     def market_groups
-      ::Eve::MarketGroup.all.decorate
+      ::Eve::MarketGroup.preload_associations_lazily
+        .order(:market_group_id)
     end
 
     def market_group(id:)
-      ::Eve::MarketGroup.find_by(market_group_id: id)&.decorate
+      ::Eve::MarketGroup.preload_associations_lazily
+        .find_by(market_group_id: id)
     end
 
     def races
-      ::Eve::Race.lazy_preload(:faction).all.decorate
+      ::Eve::Race.preload_associations_lazily
+        .order(:race_id)
     end
 
     def race(id:)
-      ::Eve::Race.lazy_preload(:faction)
-        .find_by(race_id: id)&.decorate
+      ::Eve::Race.preload_associations_lazily
+        .find_by(race_id: id)
     end
 
     def regions
-      ::Eve::Region.all.decorate
+      ::Eve::Region.preload_associations_lazily
+        .order(:region_id)
     end
 
     def region(id:)
-      ::Eve::Region.find_by(region_id: id)&.decorate
+      ::Eve::Region.preload_associations_lazily
+        .find_by(region_id: id)
     end
 
     def ships
       # TODO: load only ships!!!
-      ::Eve::Ship.lazy_preload(:group).all.decorate
+      ::Eve::Ship.preload_associations_lazily
+        .order(:type_id)
     end
 
     def ship(id:)
       # TODO: load only ships!!!
-      ::Eve::Ship.find_by(type_id: id)&.decorate
+      ::Eve::Ship.preload_associations_lazily
+        .find_by(type_id: id)
     end
 
     def stars
-      ::Eve::Star.all.decorate
+      ::Eve::Star.preload_associations_lazily
+        .order(:star_id)
     end
 
     def star(id:)
-      ::Eve::Star.find_by(star_id: id)&.decorate
+      ::Eve::Star.preload_associations_lazily
+        .find_by(star_id: id)
     end
 
     def stations
-      ::Eve::Station.all.decorate
+      ::Eve::Station.preload_associations_lazily
+        .order(:station_id)
     end
 
     def station(id:)
-      ::Eve::Station.find_by(station_id: id)&.decorate
+      ::Eve::Station.preload_associations_lazily
+        .find_by(station_id: id)
     end
 
     def systems
-      ::Eve::System.all.decorate
+      ::Eve::System.preload_associations_lazily
+        .order(:system_id)
     end
 
     def system(id:)
-      ::Eve::System.find_by(system_id: id)&.decorate
+      ::Eve::System.preload_associations_lazily
+        .find_by(system_id: id)
     end
 
     def types
-      ::Eve::Type.lazy_preload(:group).all.decorate
+      ::Eve::Type.preload_associations_lazily
+        .order(:type_id)
     end
 
     def type(id:)
-      ::Eve::Type.find_by(type_id: id)&.decorate
+      ::Eve::Type.preload_associations_lazily
+        .find_by(type_id: id)
     end
   end
 end

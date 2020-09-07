@@ -45,12 +45,20 @@ describe Types::EveCategoryType do
     let(:query) do
       %(
         {
-          categories {
-            id
-            name
-            published
-            groups {
-              id
+          categories(first: 2) {
+            edges {
+              node {
+                id
+                name
+                published
+                groups(first: 1) {
+                  edges {
+                    node {
+                      id
+                    }
+                  }
+                }
+              }
             }
           }
         }
@@ -61,44 +69,58 @@ describe Types::EveCategoryType do
 
     specify do
       expect(result).to eq("data" => {
-        "categories" => [
-          {
-            "id" => "123",
-            "name" => {
-              "en" => "EN: name 1",
-              "de" => "DE: name 1",
-              "fr" => "FR: name 1",
-              "ja" => "JA: name 1",
-              "ru" => "RU: name 1",
-              "zh" => "ZH: name 1",
-              "ko" => "KO: name 1"
-            },
-            "published" => true,
-            "groups" => [
-              {
-                "id" => "1111"
+        "categories" => {
+          "edges" => [
+            {
+              "node" => {
+                "id" => "123",
+                "name" => {
+                  "en" => "EN: name 1",
+                  "de" => "DE: name 1",
+                  "fr" => "FR: name 1",
+                  "ja" => "JA: name 1",
+                  "ru" => "RU: name 1",
+                  "zh" => "ZH: name 1",
+                  "ko" => "KO: name 1"
+                },
+                "published" => true,
+                "groups" => {
+                  "edges" => [
+                    {
+                      "node" => {
+                        "id" => "1111"
+                      }
+                    }
+                  ]
+                }
               }
-            ]
-          },
-          {
-            "id" => "321",
-            "name" => {
-              "en" => "EN: name 2",
-              "de" => "DE: name 2",
-              "fr" => "FR: name 2",
-              "ja" => "JA: name 2",
-              "ru" => "RU: name 2",
-              "zh" => "ZH: name 2",
-              "ko" => "KO: name 2"
             },
-            "published" => false,
-            "groups" => [
-              {
-                "id" => "1222"
+            {
+              "node" => {
+                "id" => "321",
+                "name" => {
+                  "en" => "EN: name 2",
+                  "de" => "DE: name 2",
+                  "fr" => "FR: name 2",
+                  "ja" => "JA: name 2",
+                  "ru" => "RU: name 2",
+                  "zh" => "ZH: name 2",
+                  "ko" => "KO: name 2"
+                },
+                "published" => false,
+                "groups" => {
+                  "edges" => [
+                    {
+                      "node" => {
+                        "id" => "1222"
+                      }
+                    }
+                  ]
+                }
               }
-            ]
-          }
-        ]
+            }
+          ]
+        }
       })
     end
   end
@@ -131,7 +153,11 @@ describe Types::EveCategoryType do
             name
             published
             groups {
-              id
+              edges {
+                node {
+                  id
+                }
+              }
             }
           }
         }
@@ -154,11 +180,15 @@ describe Types::EveCategoryType do
             "ko" => "KO: name 1"
           },
           "published" => true,
-          "groups" => [
-            {
-              "id" => "1111"
-            }
-          ]
+          "groups" => {
+            "edges" => [
+              {
+                "node" => {
+                  "id" => "1111"
+                }
+              }
+            ]
+          }
         }
       })
     end

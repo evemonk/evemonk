@@ -5,8 +5,8 @@ module Types
     field :id, ID, null: false
     field :name, GraphQL::Types::JSON, null: true
     field :description, GraphQL::Types::JSON, null: true
-    field :constellations, [Types::EveConstellationType], null: true
-    field :contracts, [Types::EveContractType], null: true
+    field :constellations, Types::EveConstellationType.connection_type, null: true
+    field :contracts, Types::EveContractType.connection_type, null: true
 
     def id
       object.region_id

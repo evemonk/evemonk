@@ -111,38 +111,42 @@ describe Types::EveCharacterType do
     let(:query) do
       %(
         {
-          characters {
-            id
-            allianceId
-            alliance {
-              id
+          characters(first: 2) {
+            edges {
+              node {
+                id
+                allianceId
+                alliance {
+                  id
+                }
+                ancestryId
+                ancestry {
+                  id
+                }
+                birthday
+                bloodlineId
+                bloodline {
+                  id
+                }
+                corporationId
+                corporation {
+                  id
+                }
+                description
+                factionId
+                faction {
+                  id
+                }
+                gender
+                name
+                raceId
+                race {
+                  id
+                }
+                securityStatus
+                title
+              }
             }
-            ancestryId
-            ancestry {
-              id
-            }
-            birthday
-            bloodlineId
-            bloodline {
-              id
-            }
-            corporationId
-            corporation {
-              id
-            }
-            description
-            factionId
-            faction {
-              id
-            }
-            gender
-            name
-            raceId
-            race {
-              id
-            }
-            securityStatus
-            title
           }
         }
       )
@@ -152,74 +156,80 @@ describe Types::EveCharacterType do
 
     specify do
       expect(result).to eq("data" => {
-        "characters" => [
-          {
-            "id" => "123",
-            "allianceId" => 1_111,
-            "alliance" => {
-              "id" => "1111"
+        "characters" => {
+          "edges" => [
+            {
+              "node" => {
+                "id" => "123",
+                "allianceId" => 1_111,
+                "alliance" => {
+                  "id" => "1111"
+                },
+                "ancestryId" => 128,
+                "ancestry" => {
+                  "id" => "128"
+                },
+                "birthday" => birthday1.iso8601,
+                "bloodlineId" => 512,
+                "bloodline" => {
+                  "id" => "512"
+                },
+                "corporationId" => 1_333,
+                "corporation" => {
+                  "id" => "1333"
+                },
+                "description" => "Description 1",
+                "factionId" => 2_048,
+                "faction" => {
+                  "id" => "2048"
+                },
+                "gender" => "male",
+                "name" => "Name 1",
+                "raceId" => 5_000,
+                "race" => {
+                  "id" => "5000"
+                },
+                "securityStatus" => 3.5,
+                "title" => "Title 1"
+              }
             },
-            "ancestryId" => 128,
-            "ancestry" => {
-              "id" => "128"
-            },
-            "birthday" => birthday1.iso8601,
-            "bloodlineId" => 512,
-            "bloodline" => {
-              "id" => "512"
-            },
-            "corporationId" => 1_333,
-            "corporation" => {
-              "id" => "1333"
-            },
-            "description" => "Description 1",
-            "factionId" => 2_048,
-            "faction" => {
-              "id" => "2048"
-            },
-            "gender" => "male",
-            "name" => "Name 1",
-            "raceId" => 5_000,
-            "race" => {
-              "id" => "5000"
-            },
-            "securityStatus" => 3.5,
-            "title" => "Title 1"
-          },
-          {
-            "id" => "321",
-            "allianceId" => 1_222,
-            "alliance" => {
-              "id" => "1222"
-            },
-            "ancestryId" => 256,
-            "ancestry" => {
-              "id" => "256"
-            },
-            "birthday" => birthday2.iso8601,
-            "bloodlineId" => 1_024,
-            "bloodline" => {
-              "id" => "1024"
-            },
-            "corporationId" => 1_444,
-            "corporation" => {
-              "id" => "1444"
-            },
-            "description" => "Description 2",
-            "factionId" => 4_096,
-            "faction" => {
-              "id" => "4096"
-            },
-            "gender" => "female",
-            "name" => "Name 2",
-            "raceId" => 6_000,
-            "race" => {
-              "id" => "6000"
-            },
-            "securityStatus" => -10.0,
-            "title" => "Title 2"
-          }
-        ]
+            {
+              "node" => {
+                "id" => "321",
+                "allianceId" => 1_222,
+                "alliance" => {
+                  "id" => "1222"
+                },
+                "ancestryId" => 256,
+                "ancestry" => {
+                  "id" => "256"
+                },
+                "birthday" => birthday2.iso8601,
+                "bloodlineId" => 1_024,
+                "bloodline" => {
+                  "id" => "1024"
+                },
+                "corporationId" => 1_444,
+                "corporation" => {
+                  "id" => "1444"
+                },
+                "description" => "Description 2",
+                "factionId" => 4_096,
+                "faction" => {
+                  "id" => "4096"
+                },
+                "gender" => "female",
+                "name" => "Name 2",
+                "raceId" => 6_000,
+                "race" => {
+                  "id" => "6000"
+                },
+                "securityStatus" => -10.0,
+                "title" => "Title 2"
+              }
+            }
+          ]
+        }
       })
     end
   end

@@ -17,8 +17,12 @@ describe Types::EveSystemType do
     let(:query) do
       %(
         {
-          systems {
-            id
+          systems(first: 2) {
+            edges {
+              node {
+                id
+              }
+            }
           }
         }
       )
@@ -28,14 +32,20 @@ describe Types::EveSystemType do
 
     specify do
       expect(result).to eq("data" => {
-        "systems" => [
-          {
-            "id" => "123"
-          },
-          {
-            "id" => "321"
-          }
-        ]
+        "systems" => {
+          "edges" => [
+            {
+              "node" => {
+                "id" => "123"
+              }
+            },
+            {
+              "node" => {
+                "id" => "321"
+              }
+            }
+          ]
+        }
       })
     end
   end

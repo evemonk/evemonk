@@ -57,16 +57,24 @@ describe Types::EveGroupType do
     let(:query) do
       %(
         {
-          groups {
-            id
-            name
-            published
-            categoryId
-            category {
-              id
-            }
-            types {
-              id
+          groups(first: 2) {
+            edges {
+              node {
+                id
+                name
+                published
+                categoryId
+                category {
+                  id
+                }
+                types(first: 1) {
+                  edges {
+                    node {
+                      id
+                    }
+                  }
+                }
+              }
             }
           }
         }
@@ -77,52 +85,66 @@ describe Types::EveGroupType do
 
     specify do
       expect(result).to eq("data" => {
-        "groups" => [
-          {
-            "id" => "123",
-            "name" => {
-              "en" => "EN: name 1",
-              "de" => "DE: name 1",
-              "fr" => "FR: name 1",
-              "ja" => "JA: name 1",
-              "ru" => "RU: name 1",
-              "zh" => "ZH: name 1",
-              "ko" => "KO: name 1"
-            },
-            "published" => true,
-            "categoryId" => 1_111,
-            "category" => {
-              "id" => "1111"
-            },
-            "types" => [
-              {
-                "id" => "10111"
+        "groups" => {
+          "edges" => [
+            {
+              "node" => {
+                "id" => "123",
+                "name" => {
+                  "en" => "EN: name 1",
+                  "de" => "DE: name 1",
+                  "fr" => "FR: name 1",
+                  "ja" => "JA: name 1",
+                  "ru" => "RU: name 1",
+                  "zh" => "ZH: name 1",
+                  "ko" => "KO: name 1"
+                },
+                "published" => true,
+                "categoryId" => 1_111,
+                "category" => {
+                  "id" => "1111"
+                },
+                "types" => {
+                  "edges" => [
+                    {
+                      "node" => {
+                        "id" => "10111"
+                      }
+                    }
+                  ]
+                }
               }
-            ]
-          },
-          {
-            "id" => "321",
-            "name" => {
-              "en" => "EN: name 2",
-              "de" => "DE: name 2",
-              "fr" => "FR: name 2",
-              "ja" => "JA: name 2",
-              "ru" => "RU: name 2",
-              "zh" => "ZH: name 2",
-              "ko" => "KO: name 2"
             },
-            "published" => false,
-            "categoryId" => 1_222,
-            "category" => {
-              "id" => "1222"
-            },
-            "types" => [
-              {
-                "id" => "10222"
+            {
+              "node" => {
+                "id" => "321",
+                "name" => {
+                  "en" => "EN: name 2",
+                  "de" => "DE: name 2",
+                  "fr" => "FR: name 2",
+                  "ja" => "JA: name 2",
+                  "ru" => "RU: name 2",
+                  "zh" => "ZH: name 2",
+                  "ko" => "KO: name 2"
+                },
+                "published" => false,
+                "categoryId" => 1_222,
+                "category" => {
+                  "id" => "1222"
+                },
+                "types" => {
+                  "edges" => [
+                    {
+                      "node" => {
+                        "id" => "10222"
+                      }
+                    }
+                  ]
+                }
               }
-            ]
-          }
-        ]
+            }
+          ]
+        }
       })
     end
   end
@@ -164,8 +186,12 @@ describe Types::EveGroupType do
             category {
               id
             }
-            types {
-              id
+            types(first: 1) {
+              edges {
+                node {
+                  id
+                }
+              }
             }
           }
         }
@@ -192,11 +218,15 @@ describe Types::EveGroupType do
           "category" => {
             "id" => "1111"
           },
-          "types" => [
-            {
-              "id" => "10111"
-            }
-          ]
+          "types" => {
+            "edges" => [
+              {
+                "node" => {
+                  "id" => "10111"
+                }
+              }
+            ]
+          }
         }
       })
     end
