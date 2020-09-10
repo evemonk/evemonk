@@ -20,22 +20,44 @@ describe TrainingQueueTotalTime do
 
     let!(:character) { create(:character) }
 
-    let!(:skillqueue1) do
-      create(:skillqueue,
-        character: character,
-        start_date: Time.zone.now,
-        finish_date: Time.zone.now + 1.hour)
+    context "when start_date in future" do
+      let!(:skillqueue1) do
+        create(:skillqueue,
+          character: character,
+          start_date: Time.zone.now,
+          finish_date: Time.zone.now + 1.hour)
+      end
+
+      let!(:skillqueue2) do
+        create(:skillqueue,
+          character: character,
+          start_date: Time.zone.now + 1.hour,
+          finish_date: Time.zone.now + 2.hours)
+      end
+
+      subject { described_class.new(character.skillqueues) }
+
+      specify { expect(subject.total_time).to eq("2h") }
     end
 
-    let!(:skillqueue2) do
-      create(:skillqueue,
-        character: character,
-        start_date: Time.zone.now + 1.hour,
-        finish_date: Time.zone.now + 2.hour)
+    context "when start_date in past" do
+      let!(:skillqueue1) do
+        create(:skillqueue,
+          character: character,
+          start_date: Time.zone.now - 2.hours,
+          finish_date: Time.zone.now + 1.hour)
+      end
+
+      let!(:skillqueue2) do
+        create(:skillqueue,
+          character: character,
+          start_date: Time.zone.now + 1.hour,
+          finish_date: Time.zone.now + 2.hours)
+      end
+
+      subject { described_class.new(character.skillqueues) }
+
+      specify { expect(subject.total_time).to eq("2h") }
     end
-
-    subject { described_class.new(character.skillqueues) }
-
-    specify { expect(subject.total_time).to eq("2h") }
   end
 end
