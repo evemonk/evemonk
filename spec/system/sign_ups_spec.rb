@@ -27,7 +27,7 @@ describe "Sign up features" do
 
     click_button "Sign in"
 
-    expect(page).to have_content("Signed in successfully.")
+    expect(page).to have_content(I18n.t("devise.sessions.signed_in"))
 
     expect(current_path).to eq("/characters")
 

@@ -135,6 +135,7 @@ describe Types::EveAllianceType do
                     node {
                       id
                     }
+                    cursor
                   }
                 }
                 characters(first: 1) {
@@ -142,9 +143,17 @@ describe Types::EveAllianceType do
                     node {
                       id
                     }
+                    cursor
                   }
                 }
               }
+              cursor
+            }
+            pageInfo {
+              endCursor
+              hasNextPage
+              hasPreviousPage
+              startCursor
             }
           }
         }
@@ -186,7 +195,8 @@ describe Types::EveAllianceType do
                     {
                       "node" => {
                         "id" => "100111"
-                      }
+                      },
+                      "cursor" => "MQ"
                     }
                   ]
                 },
@@ -195,11 +205,13 @@ describe Types::EveAllianceType do
                     {
                       "node" => {
                         "id" => "111111"
-                      }
+                      },
+                      "cursor" => "MQ"
                     }
                   ]
                 }
-              }
+              },
+              "cursor" => "MQ"
             },
             {
               "node" => {
@@ -230,7 +242,8 @@ describe Types::EveAllianceType do
                     {
                       "node" => {
                         "id" => "100222"
-                      }
+                      },
+                      "cursor" => "MQ"
                     }
                   ]
                 },
@@ -239,13 +252,21 @@ describe Types::EveAllianceType do
                     {
                       "node" => {
                         "id" => "111222"
-                      }
+                      },
+                      "cursor" => "MQ"
                     }
                   ]
                 }
-              }
+              },
+              "cursor" => "Mg"
             }
-          ]
+          ],
+          "pageInfo" => {
+            "endCursor" => "Mg",
+            "hasNextPage" => false,
+            "hasPreviousPage" => false,
+            "startCursor" => "MQ"
+          }
         }
       })
     end
@@ -334,6 +355,7 @@ describe Types::EveAllianceType do
                 node {
                   id
                 }
+                cursor
               }
             }
             characters(first: 1) {
@@ -341,6 +363,7 @@ describe Types::EveAllianceType do
                 node {
                   id
                 }
+                cursor
               }
             }
           }
@@ -380,7 +403,8 @@ describe Types::EveAllianceType do
               {
                 "node" => {
                   "id" => "100111"
-                }
+                },
+                "cursor" => "MQ"
               }
             ]
           },
@@ -389,7 +413,8 @@ describe Types::EveAllianceType do
               {
                 "node" => {
                   "id" => "111111"
-                }
+                },
+                "cursor" => "MQ"
               }
             ]
           }
