@@ -87,6 +87,13 @@ describe Types::EveAncestryType do
                 }
                 shortDescription
               }
+              cursor
+            }
+            pageInfo {
+              endCursor
+              hasNextPage
+              hasPreviousPage
+              startCursor
             }
           }
         }
@@ -129,7 +136,8 @@ describe Types::EveAncestryType do
                   "id" => "1001"
                 },
                 "shortDescription" => "Short description 1"
-              }
+              },
+              "cursor" => "MQ"
             },
             {
               "node" => {
@@ -161,9 +169,16 @@ describe Types::EveAncestryType do
                   "id" => "1002"
                 },
                 "shortDescription" => "Short description 2"
-              }
+              },
+              "cursor" => "Mg"
             }
-          ]
+          ],
+          "pageInfo" => {
+            "endCursor" => "Mg",
+            "hasNextPage" => false,
+            "hasPreviousPage" => false,
+            "startCursor" => "MQ"
+          }
         }
       })
     end
