@@ -544,7 +544,7 @@ GEM
       parser (>= 2.7.1.4)
     rubocop-performance (1.8.0)
       rubocop (>= 0.87.0)
-    ruby-next-core (0.10.0)
+    ruby-next-core (0.10.2)
     ruby-pg-extras (1.2.1)
       pg
       terminal-table
