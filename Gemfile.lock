@@ -418,7 +418,7 @@ GEM
       trollop (~> 1.16)
     pg (1.2.3)
     pg_query (1.2.0)
-    pghero (2.7.1)
+    pghero (2.7.2)
       activerecord (>= 5)
     prometheus-client (2.1.0)
     pry (0.13.1)
