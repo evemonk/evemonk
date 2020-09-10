@@ -131,9 +131,17 @@ describe Types::EveBloodlineType do
                     node {
                       id
                     }
+                    cursor
                   }
                 }
               }
+              cursor
+            }
+            pageInfo {
+              endCursor
+              hasNextPage
+              hasPreviousPage
+              startCursor
             }
           }
         }
@@ -189,12 +197,13 @@ describe Types::EveBloodlineType do
                     {
                       "node" => {
                         "id" => "10001"
-                      }
+                      },
+                      "cursor" => "MQ"
                     }
                   ]
                 }
-
-              }
+              },
+              "cursor" => "MQ"
             },
             {
               "node" => {
@@ -239,13 +248,21 @@ describe Types::EveBloodlineType do
                     {
                       "node" => {
                         "id" => "10002"
-                      }
+                      },
+                      "cursor" => "MQ"
                     }
                   ]
                 }
-              }
+              },
+              "cursor" => "Mg"
             }
-          ]
+          ],
+          "pageInfo" => {
+            "endCursor" => "Mg",
+            "hasNextPage" => false,
+            "hasPreviousPage" => false,
+            "startCursor" => "MQ"
+          }
         }
       })
     end
@@ -329,6 +346,7 @@ describe Types::EveBloodlineType do
                 node {
                   id
                 }
+                cursor
               }
             }
           }
@@ -381,7 +399,8 @@ describe Types::EveBloodlineType do
             "edges" => [
               "node" => {
                 "id" => "10001"
-              }
+              },
+              "cursor" => "MQ"
             ]
           }
         }
