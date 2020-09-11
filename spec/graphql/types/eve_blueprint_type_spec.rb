@@ -24,6 +24,13 @@ describe Types::EveBlueprintType do
               node {
                 id
               }
+              cursor
+            }
+            pageInfo {
+              endCursor
+              hasNextPage
+              hasPreviousPage
+              startCursor
             }
           }
         }
@@ -39,14 +46,22 @@ describe Types::EveBlueprintType do
             {
               "node" => {
                 "id" => "4001"
-              }
+              },
+              "cursor" => "MQ"
             },
             {
               "node" => {
                 "id" => "5001"
-              }
+              },
+              "cursor" => "Mg"
             }
-          ]
+          ],
+          "pageInfo" => {
+            "endCursor" => "Mg",
+            "hasNextPage" => false,
+            "hasPreviousPage" => false,
+            "startCursor" => "MQ"
+          }
         }
       })
     end
