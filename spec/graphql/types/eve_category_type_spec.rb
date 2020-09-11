@@ -56,9 +56,11 @@ describe Types::EveCategoryType do
                     node {
                       id
                     }
+                    cursor
                   }
                 }
               }
+              cursor
             }
           }
         }
@@ -89,11 +91,13 @@ describe Types::EveCategoryType do
                     {
                       "node" => {
                         "id" => "1111"
-                      }
+                      },
+                      "cursor" => "MQ"
                     }
                   ]
                 }
-              }
+              },
+              "cursor" => "MQ"
             },
             {
               "node" => {
@@ -113,11 +117,13 @@ describe Types::EveCategoryType do
                     {
                       "node" => {
                         "id" => "1222"
-                      }
+                      },
+                      "cursor" => "MQ"
                     }
                   ]
                 }
-              }
+              },
+              "cursor" => "Mg"
             }
           ]
         }
