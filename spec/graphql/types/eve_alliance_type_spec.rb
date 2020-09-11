@@ -137,6 +137,12 @@ describe Types::EveAllianceType do
                     }
                     cursor
                   }
+                  pageInfo {
+                    endCursor
+                    hasNextPage
+                    hasPreviousPage
+                    startCursor
+                  }
                 }
                 characters(first: 1) {
                   edges {
@@ -144,6 +150,12 @@ describe Types::EveAllianceType do
                       id
                     }
                     cursor
+                  }
+                  pageInfo {
+                    endCursor
+                    hasNextPage
+                    hasPreviousPage
+                    startCursor
                   }
                 }
               }
@@ -198,7 +210,13 @@ describe Types::EveAllianceType do
                       },
                       "cursor" => "MQ"
                     }
-                  ]
+                  ],
+                  "pageInfo" => {
+                    "endCursor" => "MQ",
+                    "hasNextPage" => false,
+                    "hasPreviousPage" => false,
+                    "startCursor" => "MQ"
+                  }
                 },
                 "characters" => {
                   "edges" => [
@@ -208,7 +226,13 @@ describe Types::EveAllianceType do
                       },
                       "cursor" => "MQ"
                     }
-                  ]
+                  ],
+                  "pageInfo" => {
+                    "endCursor" => "MQ",
+                    "hasNextPage" => false,
+                    "hasPreviousPage" => false,
+                    "startCursor" => "MQ"
+                  }
                 }
               },
               "cursor" => "MQ"
@@ -245,7 +269,13 @@ describe Types::EveAllianceType do
                       },
                       "cursor" => "MQ"
                     }
-                  ]
+                  ],
+                  "pageInfo" => {
+                    "endCursor" => "MQ",
+                    "hasNextPage" => false,
+                    "hasPreviousPage" => false,
+                    "startCursor" => "MQ"
+                  }
                 },
                 "characters" => {
                   "edges" => [
@@ -255,7 +285,13 @@ describe Types::EveAllianceType do
                       },
                       "cursor" => "MQ"
                     }
-                  ]
+                  ],
+                  "pageInfo" => {
+                    "endCursor" => "MQ",
+                    "hasNextPage" => false,
+                    "hasPreviousPage" => false,
+                    "startCursor" => "MQ"
+                  }
                 }
               },
               "cursor" => "Mg"
@@ -357,6 +393,12 @@ describe Types::EveAllianceType do
                 }
                 cursor
               }
+              pageInfo {
+                endCursor
+                hasNextPage
+                hasPreviousPage
+                startCursor
+              }
             }
             characters(first: 1) {
               edges {
@@ -364,6 +406,12 @@ describe Types::EveAllianceType do
                   id
                 }
                 cursor
+              }
+              pageInfo {
+                endCursor
+                hasNextPage
+                hasPreviousPage
+                startCursor
               }
             }
           }
@@ -406,7 +454,13 @@ describe Types::EveAllianceType do
                 },
                 "cursor" => "MQ"
               }
-            ]
+            ],
+            "pageInfo" => {
+              "endCursor" => "MQ",
+              "hasNextPage" => false,
+              "hasPreviousPage" => false,
+              "startCursor" => "MQ"
+            }
           },
           "characters" => {
             "edges" => [
@@ -416,7 +470,13 @@ describe Types::EveAllianceType do
                 },
                 "cursor" => "MQ"
               }
-            ]
+            ],
+            "pageInfo" => {
+              "endCursor" => "MQ",
+              "hasNextPage" => false,
+              "hasPreviousPage" => false,
+              "startCursor" => "MQ"
+            }
           }
         }
       })
