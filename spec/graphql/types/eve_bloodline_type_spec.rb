@@ -133,6 +133,12 @@ describe Types::EveBloodlineType do
                     }
                     cursor
                   }
+                  pageInfo {
+                    endCursor
+                    hasNextPage
+                    hasPreviousPage
+                    startCursor
+                  }
                 }
               }
               cursor
@@ -200,7 +206,13 @@ describe Types::EveBloodlineType do
                       },
                       "cursor" => "MQ"
                     }
-                  ]
+                  ],
+                  "pageInfo" => {
+                    "endCursor" => "MQ",
+                    "hasNextPage" => false,
+                    "hasPreviousPage" => false,
+                    "startCursor" => "MQ"
+                  }
                 }
               },
               "cursor" => "MQ"
@@ -251,7 +263,13 @@ describe Types::EveBloodlineType do
                       },
                       "cursor" => "MQ"
                     }
-                  ]
+                  ],
+                  "pageInfo" => {
+                    "endCursor" => "MQ",
+                    "hasNextPage" => false,
+                    "hasPreviousPage" => false,
+                    "startCursor" => "MQ"
+                  }
                 }
               },
               "cursor" => "Mg"
@@ -348,6 +366,12 @@ describe Types::EveBloodlineType do
                 }
                 cursor
               }
+              pageInfo {
+                endCursor
+                hasNextPage
+                hasPreviousPage
+                startCursor
+              }
             }
           }
         }
@@ -401,7 +425,13 @@ describe Types::EveBloodlineType do
                 "id" => "10001"
               },
               "cursor" => "MQ"
-            ]
+            ],
+            "pageInfo" => {
+              "endCursor" => "MQ",
+              "hasNextPage" => false,
+              "hasPreviousPage" => false,
+              "startCursor" => "MQ"
+            }
           }
         }
       })
