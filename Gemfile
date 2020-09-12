@@ -8,7 +8,7 @@ gem "puma"
 gem "sass-rails", ">= 6"
 gem "webpacker", "~> 4.0"
 gem "turbolinks", "~> 5"
-gem "jbuilder", "~> 2.7"
+gem "jbuilder", "~> 2.10"
 gem "bootsnap", ">= 1.4.2", require: false
 gem "rails-i18n", "~> 6.0.0"
 gem "http_accept_language"
