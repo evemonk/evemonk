@@ -93,6 +93,8 @@ class Character < ApplicationRecord
 
   has_many :manufacturing_jobs, dependent: :destroy
 
+  has_many :notifications, as: :recipient, dependent: :destroy
+
   has_many :factions_standings, -> {
     joins("LEFT JOIN eve_factions ON standings.standingable_id = eve_factions.id")
       .where(standingable_type: "Eve::Faction")
