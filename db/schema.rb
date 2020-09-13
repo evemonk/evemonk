@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_25_163204) do
+ActiveRecord::Schema.define(version: 2020_09_13_125211) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -937,6 +937,17 @@ ActiveRecord::Schema.define(version: 2020_08_25_163204) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["character_id"], name: "index_manufacturing_jobs_on_character_id"
+  end
+
+  create_table "notifications", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "recipient_type", null: false
+    t.bigint "recipient_id", null: false
+    t.string "type", null: false
+    t.jsonb "params"
+    t.datetime "read_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["recipient_type", "recipient_id"], name: "index_notifications_on_recipient_type_and_recipient_id"
   end
 
   create_table "pghero_query_stats", force: :cascade do |t|
