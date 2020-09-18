@@ -154,9 +154,23 @@ describe Types::EveCorporationType do
                     node {
                       id
                     }
+                    cursor
+                  }
+                  pageInfo {
+                    endCursor
+                    hasNextPage
+                    hasPreviousPage
+                    startCursor
                   }
                 }
               }
+              cursor
+            }
+            pageInfo {
+              endCursor
+              hasNextPage
+              hasPreviousPage
+              startCursor
             }
           }
         }
@@ -207,11 +221,19 @@ describe Types::EveCorporationType do
                     {
                       "node" => {
                         "id" => "12998"
-                      }
+                      },
+                      "cursor" => "MQ"
                     }
-                  ]
+                  ],
+                  "pageInfo" => {
+                    "endCursor" => "MQ",
+                    "hasNextPage" => false,
+                    "hasPreviousPage" => false,
+                    "startCursor" => "MQ"
+                  }
                 }
-              }
+              },
+              "cursor" => "MQ"
             },
             {
               "node" => {
@@ -251,13 +273,27 @@ describe Types::EveCorporationType do
                     {
                       "node" => {
                         "id" => "12999"
-                      }
+                      },
+                      "cursor" => "MQ"
                     }
-                  ]
+                  ],
+                  "pageInfo" => {
+                    "endCursor" => "MQ",
+                    "hasNextPage" => false,
+                    "hasPreviousPage" => false,
+                    "startCursor" => "MQ"
+                  }
                 }
-              }
+              },
+              "cursor" => "Mg"
             }
-          ]
+          ],
+          "pageInfo" => {
+            "endCursor" => "Mg",
+            "hasNextPage" => false,
+            "hasPreviousPage" => false,
+            "startCursor" => "MQ"
+          }
         }
       })
     end
@@ -360,6 +396,13 @@ describe Types::EveCorporationType do
                 node {
                   id
                 }
+                cursor
+              }
+              pageInfo {
+                endCursor
+                hasNextPage
+                hasPreviousPage
+                startCursor
               }
             }
           }
@@ -408,9 +451,16 @@ describe Types::EveCorporationType do
               {
                 "node" => {
                   "id" => "12998"
-                }
+                },
+                "cursor" => "MQ"
               }
-            ]
+            ],
+            "pageInfo" => {
+              "endCursor" => "MQ",
+              "hasNextPage" => false,
+              "hasPreviousPage" => false,
+              "startCursor" => "MQ"
+            }
           }
         }
       })
