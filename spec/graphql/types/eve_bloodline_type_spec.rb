@@ -126,7 +126,7 @@ describe Types::EveBloodlineType do
                 memory
                 perception
                 willpower
-                ancestries {
+                ancestries(first: 1) {
                   edges {
                     node {
                       id
@@ -359,7 +359,7 @@ describe Types::EveBloodlineType do
             memory
             perception
             willpower
-            ancestries {
+            ancestries(first: 1) {
               edges {
                 node {
                   id
