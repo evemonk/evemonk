@@ -146,6 +146,13 @@ describe Types::EveCharacterType do
                 securityStatus
                 title
               }
+              cursor
+            }
+            pageInfo {
+              endCursor
+              hasNextPage
+              hasPreviousPage
+              startCursor
             }
           }
         }
@@ -191,7 +198,8 @@ describe Types::EveCharacterType do
                 },
                 "securityStatus" => 3.5,
                 "title" => "Title 1"
-              }
+              },
+              "cursor" => "MQ"
             },
             {
               "node" => {
@@ -226,9 +234,16 @@ describe Types::EveCharacterType do
                 },
                 "securityStatus" => -10.0,
                 "title" => "Title 2"
-              }
+              },
+              "cursor" => "Mg"
             }
-          ]
+          ],
+          "pageInfo" => {
+            "endCursor" => "Mg",
+            "hasNextPage" => false,
+            "hasPreviousPage" => false,
+            "startCursor" => "MQ"
+          }
         }
       })
     end
