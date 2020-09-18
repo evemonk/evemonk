@@ -3,8 +3,10 @@
 require "rails_helper"
 
 describe Locationable do
+  let(:klass) { Class.new }
+
   before do
-    class A
+    klass.class_eval do
       include Locationable
 
       attr_reader :location_id
@@ -17,7 +19,7 @@ describe Locationable do
 
   describe "#location" do
     context "when @location is set" do
-      subject { A.new }
+      subject { klass.new }
 
       let(:location) { double }
 
@@ -29,7 +31,7 @@ describe Locationable do
     context "when location is station" do
       let!(:station) { create(:eve_station, station_id: 60_000_000) }
 
-      subject { A.new(location_id: 60_000_000) }
+      subject { klass.new(location_id: 60_000_000) }
 
       specify { expect(subject.location).to eq(station) }
     end
