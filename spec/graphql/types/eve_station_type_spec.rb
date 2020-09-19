@@ -22,6 +22,13 @@ describe Types::EveStationType do
               node {
                 id
               }
+              cursor
+            }
+            pageInfo {
+              endCursor
+              hasNextPage
+              hasPreviousPage
+              startCursor
             }
           }
         }
@@ -37,14 +44,22 @@ describe Types::EveStationType do
             {
               "node" => {
                 "id" => "123"
-              }
+              },
+              "cursor" => "MQ"
             },
             {
               "node" => {
                 "id" => "321"
-              }
+              },
+              "cursor" => "Mg"
             }
-          ]
+          ],
+          "pageInfo" => {
+            "endCursor" => "Mg",
+            "hasNextPage" => false,
+            "hasPreviousPage" => false,
+            "startCursor" => "MQ"
+          }
         }
       })
     end
