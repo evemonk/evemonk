@@ -22,6 +22,13 @@ describe Types::EveRegionType do
               node {
                 id
               }
+              cursor
+            }
+            pageInfo {
+              endCursor
+              hasNextPage
+              hasPreviousPage
+              startCursor
             }
           }
         }
@@ -37,14 +44,22 @@ describe Types::EveRegionType do
             {
               "node" => {
                 "id" => "400"
-              }
+              },
+              "cursor" => "MQ"
             },
             {
               "node" => {
                 "id" => "500"
-              }
+              },
+              "cursor" => "Mg"
             }
-          ]
+          ],
+          "pageInfo" => {
+            "endCursor" => "Mg",
+            "hasNextPage" => false,
+            "hasPreviousPage" => false,
+            "startCursor" => "MQ"
+          }
         }
       })
     end
