@@ -373,7 +373,7 @@ GEM
     multipart-post (2.1.1)
     net-http-persistent (4.0.0)
       connection_pool (~> 2.2)
-    net-http2 (0.18.2)
+    net-http2 (0.18.3)
       http-2 (~> 0.10.1)
     newrelic_rpm (6.13.0)
     niceql (0.1.25)
