@@ -43,6 +43,13 @@ describe Types::EveGraphicType do
                 sofHullName
                 sofRaceName
               }
+              cursor
+            }
+            pageInfo {
+              endCursor
+              hasNextPage
+              hasPreviousPage
+              startCursor
             }
           }
         }
@@ -65,7 +72,8 @@ describe Types::EveGraphicType do
                 "sofFationName" => "sof_fation_name1",
                 "sofHullName" => "sof_hull_name1",
                 "sofRaceName" => "sof_race_name1"
-              }
+              },
+              "cursor" => "MQ"
             },
             {
               "node" => {
@@ -77,9 +85,16 @@ describe Types::EveGraphicType do
                 "sofFationName" => "sof_fation_name2",
                 "sofHullName" => "sof_hull_name2",
                 "sofRaceName" => "sof_race_name2"
-              }
+              },
+              "cursor" => "Mg"
             }
-          ]
+          ],
+          "pageInfo" => {
+            "endCursor" => "Mg",
+            "hasNextPage" => false,
+            "hasPreviousPage" => false,
+            "startCursor" => "MQ"
+          }
         }
       })
     end
