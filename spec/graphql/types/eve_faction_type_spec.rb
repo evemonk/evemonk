@@ -126,9 +126,23 @@ describe Types::EveFactionType do
                     node {
                       id
                     }
+                    cursor
+                  }
+                  pageInfo {
+                    endCursor
+                    hasNextPage
+                    hasPreviousPage
+                    startCursor
                   }
                 }
               }
+              cursor
+            }
+            pageInfo {
+              endCursor
+              hasNextPage
+              hasPreviousPage
+              startCursor
             }
           }
         }
@@ -183,11 +197,19 @@ describe Types::EveFactionType do
                     {
                       "node" => {
                         "id" => "12345"
-                      }
+                      },
+                      "cursor" => "MQ"
                     }
-                  ]
+                  ],
+                  "pageInfo" => {
+                    "endCursor" => "MQ",
+                    "hasNextPage" => false,
+                    "hasPreviousPage" => false,
+                    "startCursor" => "MQ"
+                  }
                 }
-              }
+              },
+              "cursor" => "MQ"
             },
             {
               "node" => {
@@ -231,13 +253,27 @@ describe Types::EveFactionType do
                     {
                       "node" => {
                         "id" => "67890"
-                      }
+                      },
+                      "cursor" => "MQ"
                     }
-                  ]
+                  ],
+                  "pageInfo" => {
+                    "endCursor" => "MQ",
+                    "hasNextPage" => false,
+                    "hasPreviousPage" => false,
+                    "startCursor" => "MQ"
+                  }
                 }
-              }
+              },
+              "cursor" => "Mg"
             }
-          ]
+          ],
+          "pageInfo" => {
+            "endCursor" => "Mg",
+            "hasNextPage" => false,
+            "hasPreviousPage" => false,
+            "startCursor" => "MQ"
+          }
         }
       })
     end
@@ -313,11 +349,18 @@ describe Types::EveFactionType do
             }
             stationCount
             stationSystemCount
-            alliances {
+            alliances(first: 1) {
               edges {
                 node {
                   id
                 }
+                cursor
+              }
+              pageInfo {
+                endCursor
+                hasNextPage
+                hasPreviousPage
+                startCursor
               }
             }
           }
@@ -370,9 +413,16 @@ describe Types::EveFactionType do
               {
                 "node" => {
                   "id" => "12345"
-                }
+                },
+                "cursor" => "MQ"
               }
-            ]
+            ],
+            "pageInfo" => {
+              "endCursor" => "MQ",
+              "hasNextPage" => false,
+              "hasPreviousPage" => false,
+              "startCursor" => "MQ"
+            }
           }
         }
       })
