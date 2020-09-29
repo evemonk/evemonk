@@ -91,21 +91,42 @@ describe Types::EveRaceType do
                 faction {
                   id
                 }
-                bloodlines {
+                bloodlines(first: 1) {
                   edges {
                     node {
                       id
                     }
+                    cursor
+                  }
+                  pageInfo {
+                    endCursor
+                    hasNextPage
+                    hasPreviousPage
+                    startCursor
                   }
                 }
-                stations {
+                stations(first: 1) {
                   edges {
                     node {
                       id
                     }
+                    cursor
+                  }
+                  pageInfo {
+                    endCursor
+                    hasNextPage
+                    hasPreviousPage
+                    startCursor
                   }
                 }
               }
+              cursor
+            }
+            pageInfo {
+              endCursor
+              hasNextPage
+              hasPreviousPage
+              startCursor
             }
           }
         }
@@ -148,20 +169,35 @@ describe Types::EveRaceType do
                     {
                       "node" => {
                         "id" => "10"
-                      }
+                      },
+                      "cursor" => "MQ"
                     }
-                  ]
+                  ],
+                  "pageInfo" => {
+                    "endCursor" => "MQ",
+                    "hasNextPage" => false,
+                    "hasPreviousPage" => false,
+                    "startCursor" => "MQ"
+                  }
                 },
                 "stations" => {
                   "edges" => [
                     {
                       "node" => {
                         "id" => "100"
-                      }
+                      },
+                      "cursor" => "MQ"
                     }
-                  ]
+                  ],
+                  "pageInfo" => {
+                    "endCursor" => "MQ",
+                    "hasNextPage" => false,
+                    "hasPreviousPage" => false,
+                    "startCursor" => "MQ"
+                  }
                 }
-              }
+              },
+              "cursor" => "MQ"
             },
             {
               "node" => {
@@ -193,22 +229,43 @@ describe Types::EveRaceType do
                     {
                       "node" => {
                         "id" => "20"
-                      }
+                      },
+                      "cursor" => "MQ"
                     }
-                  ]
+                  ],
+                  "pageInfo" => {
+                    "endCursor" => "MQ",
+                    "hasNextPage" => false,
+                    "hasPreviousPage" => false,
+                    "startCursor" => "MQ"
+                  }
                 },
                 "stations" => {
                   "edges" => [
                     {
                       "node" => {
                         "id" => "200"
-                      }
+                      },
+                      "cursor" => "MQ"
                     }
-                  ]
+                  ],
+                  "pageInfo" => {
+                    "endCursor" => "MQ",
+                    "hasNextPage" => false,
+                    "hasPreviousPage" => false,
+                    "startCursor" => "MQ"
+                  }
                 }
-              }
+              },
+              "cursor" => "Mg"
             }
-          ]
+          ],
+          "pageInfo" => {
+            "endCursor" => "Mg",
+            "hasNextPage" => false,
+            "hasPreviousPage" => false,
+            "startCursor" => "MQ"
+          }
         }
       })
     end
