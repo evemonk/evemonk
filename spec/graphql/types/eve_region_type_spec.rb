@@ -80,6 +80,13 @@ describe Types::EveRegionType do
                     node {
                       id
                     }
+                    cursor
+                  }
+                  pageInfo {
+                    endCursor
+                    hasNextPage
+                    hasPreviousPage
+                    startCursor
                   }
                 }
                 contracts(first: 1) {
@@ -87,9 +94,23 @@ describe Types::EveRegionType do
                     node {
                       id
                     }
+                    cursor
+                  }
+                  pageInfo {
+                    endCursor
+                    hasNextPage
+                    hasPreviousPage
+                    startCursor
                   }
                 }
               }
+              cursor
+            }
+            pageInfo {
+              endCursor
+              hasNextPage
+              hasPreviousPage
+              startCursor
             }
           }
         }
@@ -128,20 +149,35 @@ describe Types::EveRegionType do
                     {
                       "node" => {
                         "id" => "300"
-                      }
+                      },
+                      "cursor" => "MQ"
                     }
-                  ]
+                  ],
+                  "pageInfo" => {
+                    "endCursor" => "MQ",
+                    "hasNextPage" => false,
+                    "hasPreviousPage" => false,
+                    "startCursor" => "MQ"
+                  }
                 },
                 "contracts" => {
                   "edges" => [
                     {
                       "node" => {
                         "id" => "1123"
-                      }
+                      },
+                      "cursor" => "MQ"
                     }
-                  ]
+                  ],
+                  "pageInfo" => {
+                    "endCursor" => "MQ",
+                    "hasNextPage" => false,
+                    "hasPreviousPage" => false,
+                    "startCursor" => "MQ"
+                  }
                 }
-              }
+              },
+              "cursor" => "MQ"
             },
             {
               "node" => {
@@ -169,22 +205,43 @@ describe Types::EveRegionType do
                     {
                       "node" => {
                         "id" => "400"
-                      }
+                      },
+                      "cursor" => "MQ"
                     }
-                  ]
+                  ],
+                  "pageInfo" => {
+                    "endCursor" => "MQ",
+                    "hasNextPage" => false,
+                    "hasPreviousPage" => false,
+                    "startCursor" => "MQ"
+                  }
                 },
                 "contracts" => {
                   "edges" => [
                     {
                       "node" => {
                         "id" => "1124"
-                      }
+                      },
+                      "cursor" => "MQ"
                     }
-                  ]
+                  ],
+                  "pageInfo" => {
+                    "endCursor" => "MQ",
+                    "hasNextPage" => false,
+                    "hasPreviousPage" => false,
+                    "startCursor" => "MQ"
+                  }
                 }
-              }
+              },
+              "cursor" => "Mg"
             }
-          ]
+          ],
+          "pageInfo" => {
+            "endCursor" => "Mg",
+            "hasNextPage" => false,
+            "hasPreviousPage" => false,
+            "startCursor" => "MQ"
+          }
         }
       })
     end
@@ -229,18 +286,32 @@ describe Types::EveRegionType do
             id
             name
             description
-            constellations {
+            constellations(first: 1) {
               edges {
                 node {
                   id
                 }
+                cursor
+              }
+              pageInfo {
+                endCursor
+                hasNextPage
+                hasPreviousPage
+                startCursor
               }
             }
-            contracts {
+            contracts(first: 1) {
               edges {
                 node {
                   id
                 }
+                cursor
+              }
+              pageInfo {
+                endCursor
+                hasNextPage
+                hasPreviousPage
+                startCursor
               }
             }
           }
@@ -277,18 +348,32 @@ describe Types::EveRegionType do
               {
                 "node" => {
                   "id" => "300"
-                }
+                },
+                "cursor" => "MQ"
               }
-            ]
+            ],
+            "pageInfo" => {
+              "endCursor" => "MQ",
+              "hasNextPage" => false,
+              "hasPreviousPage" => false,
+              "startCursor" => "MQ"
+            }
           },
           "contracts" => {
             "edges" => [
               {
                 "node" => {
                   "id" => "1123"
-                }
+                },
+                "cursor" => "MQ"
               }
-            ]
+            ],
+            "pageInfo" => {
+              "endCursor" => "MQ",
+              "hasNextPage" => false,
+              "hasPreviousPage" => false,
+              "startCursor" => "MQ"
+            }
           }
         }
       })

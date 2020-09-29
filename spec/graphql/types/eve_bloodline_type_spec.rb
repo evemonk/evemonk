@@ -126,14 +126,28 @@ describe Types::EveBloodlineType do
                 memory
                 perception
                 willpower
-                ancestries {
+                ancestries(first: 1) {
                   edges {
                     node {
                       id
                     }
+                    cursor
+                  }
+                  pageInfo {
+                    endCursor
+                    hasNextPage
+                    hasPreviousPage
+                    startCursor
                   }
                 }
               }
+              cursor
+            }
+            pageInfo {
+              endCursor
+              hasNextPage
+              hasPreviousPage
+              startCursor
             }
           }
         }
@@ -189,12 +203,19 @@ describe Types::EveBloodlineType do
                     {
                       "node" => {
                         "id" => "10001"
-                      }
+                      },
+                      "cursor" => "MQ"
                     }
-                  ]
+                  ],
+                  "pageInfo" => {
+                    "endCursor" => "MQ",
+                    "hasNextPage" => false,
+                    "hasPreviousPage" => false,
+                    "startCursor" => "MQ"
+                  }
                 }
-
-              }
+              },
+              "cursor" => "MQ"
             },
             {
               "node" => {
@@ -239,13 +260,27 @@ describe Types::EveBloodlineType do
                     {
                       "node" => {
                         "id" => "10002"
-                      }
+                      },
+                      "cursor" => "MQ"
                     }
-                  ]
+                  ],
+                  "pageInfo" => {
+                    "endCursor" => "MQ",
+                    "hasNextPage" => false,
+                    "hasPreviousPage" => false,
+                    "startCursor" => "MQ"
+                  }
                 }
-              }
+              },
+              "cursor" => "Mg"
             }
-          ]
+          ],
+          "pageInfo" => {
+            "endCursor" => "Mg",
+            "hasNextPage" => false,
+            "hasPreviousPage" => false,
+            "startCursor" => "MQ"
+          }
         }
       })
     end
@@ -324,11 +359,18 @@ describe Types::EveBloodlineType do
             memory
             perception
             willpower
-            ancestries {
+            ancestries(first: 1) {
               edges {
                 node {
                   id
                 }
+                cursor
+              }
+              pageInfo {
+                endCursor
+                hasNextPage
+                hasPreviousPage
+                startCursor
               }
             }
           }
@@ -381,8 +423,15 @@ describe Types::EveBloodlineType do
             "edges" => [
               "node" => {
                 "id" => "10001"
-              }
-            ]
+              },
+              "cursor" => "MQ"
+            ],
+            "pageInfo" => {
+              "endCursor" => "MQ",
+              "hasNextPage" => false,
+              "hasPreviousPage" => false,
+              "startCursor" => "MQ"
+            }
           }
         }
       })
