@@ -195,7 +195,7 @@ GEM
       activemodel-serializers-xml (>= 1.0)
       activesupport (>= 5.0)
       request_store (>= 1.0)
-    dry-initializer (3.0.3)
+    dry-initializer (3.0.4)
     easymon (1.4.2)
       redis
     elasticsearch (7.9.0)
