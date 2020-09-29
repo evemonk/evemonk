@@ -320,18 +320,32 @@ describe Types::EveRaceType do
             faction {
               id
             }
-            bloodlines {
+            bloodlines(first: 1) {
               edges {
                 node {
                   id
                 }
+                cursor
+              }
+              pageInfo {
+                endCursor
+                hasNextPage
+                hasPreviousPage
+                startCursor
               }
             }
-            stations {
+            stations(first: 1) {
               edges {
                 node {
                   id
                 }
+                cursor
+              }
+              pageInfo {
+                endCursor
+                hasNextPage
+                hasPreviousPage
+                startCursor
               }
             }
           }
@@ -372,19 +386,32 @@ describe Types::EveRaceType do
               {
                 "node" => {
                   "id" => "10"
-                }
+                },
+                "cursor" => "MQ"
               }
-            ]
+            ],
+            "pageInfo" => {
+              "endCursor" => "MQ",
+              "hasNextPage" => false,
+              "hasPreviousPage" => false,
+              "startCursor" => "MQ"
+            }
           },
-
           "stations" => {
             "edges" => [
               {
                 "node" => {
                   "id" => "100"
-                }
+                },
+                "cursor" => "MQ"
               }
-            ]
+            ],
+            "pageInfo" => {
+              "endCursor" => "MQ",
+              "hasNextPage" => false,
+              "hasPreviousPage" => false,
+              "startCursor" => "MQ"
+            }
           }
         }
       })
