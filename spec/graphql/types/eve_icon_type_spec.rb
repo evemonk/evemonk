@@ -31,6 +31,13 @@ describe Types::EveIconType do
                 iconFile
                 obsolete
               }
+              cursor
+            }
+            pageInfo {
+              endCursor
+              hasNextPage
+              hasPreviousPage
+              startCursor
             }
           }
         }
@@ -49,7 +56,8 @@ describe Types::EveIconType do
                 "description" => "Description 1",
                 "iconFile" => "res:/ui/texture/icons/123.png",
                 "obsolete" => nil
-              }
+              },
+              "cursor" => "MQ"
             },
             {
               "node" => {
@@ -57,9 +65,16 @@ describe Types::EveIconType do
                 "description" => "Description 2",
                 "iconFile" => "res:/ui/texture/icons/321.png",
                 "obsolete" => false
-              }
+              },
+              "cursor" => "Mg"
             }
-          ]
+          ],
+          "pageInfo" => {
+            "endCursor" => "Mg",
+            "hasNextPage" => false,
+            "hasPreviousPage" => false,
+            "startCursor" => "MQ"
+          }
         }
       })
     end
