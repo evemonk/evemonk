@@ -9,13 +9,7 @@ class CharacterAssetsImporter < CharacterBaseImporter
     @page = page
   end
 
-  def update!
-    refresh_character_access_token
-
-    esi = EveOnline::ESI::CharacterAssets.new(character_id: character.character_id,
-                                              token: character.access_token,
-                                              page: page)
-
+  def import!
     return unless character_scope_present?(esi.scope)
 
     destroy_old_character_assets(page)
@@ -28,6 +22,12 @@ class CharacterAssetsImporter < CharacterBaseImporter
   end
 
   private
+
+  def esi
+    @esi ||= EveOnline::ESI::CharacterAssets.new(character_id: character.character_id,
+                                                 token: character.access_token,
+                                                 page: page)
+  end
 
   def destroy_old_character_assets(page)
     return if page != 1
