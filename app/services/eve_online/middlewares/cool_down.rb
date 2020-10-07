@@ -2,7 +2,7 @@
 
 module EveOnline
   module Middlewares
-    class UpdateRedisStats
+    class CoolDown
       attr_reader :esi, :redis
 
       def initialize(esi, redis = Redis.current)
@@ -11,14 +11,15 @@ module EveOnline
       end
 
       def call
-        update_limits
+        check_and_wait
       end
 
       private
 
-      def update_limits
-        redis.set("esi_error_limit_remain", esi.error_limit_remain) # add ttl for this key
-        redis.set("esi_error_limit_reset", esi.error_limit_reset) # add ttl for this key
+      def check_and_wait
+        return if redis.get("esi_error_limit_remain") > 50
+
+        sleep(redis.get("esi_error_limit_reset"))
       end
     end
   end

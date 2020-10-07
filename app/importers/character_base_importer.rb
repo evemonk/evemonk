@@ -38,10 +38,20 @@ class CharacterBaseImporter
   end
 
   def configure_esi_middlewares
-    middlewares = [EveOnline::Middlewares::UpdateRedisStats]
+    before_middlewares = [EveOnline::Middlewares::CoolDown]
 
-    middlewares.each do |middleware|
-      esi.add_after_middleware(middleware)
+    before_middlewares.each do |middleware|
+      middleware_instance = middleware.new(esi)
+
+      esi.add_before_middleware(middleware_instance)
+    end
+
+    after_middlewares = [EveOnline::Middlewares::UpdateRedisStats]
+
+    after_middlewares.each do |middleware|
+      middleware_instance = middleware.new(esi)
+
+      esi.add_after_middleware(middleware_instance)
     end
   end
 
