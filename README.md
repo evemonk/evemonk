@@ -51,11 +51,11 @@ All screenshots are real and made in Safari on latest macOS Catalina (10.15.3).
 - Ruby 2.7.2
 - RubyGems 3.1.4
 - Bundler 2.1.4
-- Ruby on Rails 6.0.3.3
+- Ruby on Rails 6.0.3.4
 - PostgreSQL 13.0
 - Redis 6.0.8
 - Elasticsearch OSS 7.9.2
-- Node 12.18.4
+- Node 12.19.0
 - NPM 6.14.8
 - Yarn 1.22.10
 - Bootstrap 4.5.2
