@@ -109,8 +109,7 @@ Rails.application.configure do
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
 
-  # Dalli
-  config.cache_store = :dalli_store, ENV["MEMCACHED_URL"]
+  config.cache_store = :mem_cache_store, ENV["MEMCACHED_URL"]
 
   # Sidekiq
   config.active_job.queue_adapter = :sidekiq
