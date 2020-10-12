@@ -155,6 +155,7 @@ GEM
       unicode_utils (~> 1.4)
     crack (0.4.4)
     crass (1.0.6)
+    dalli (2.7.11)
     database_rewinder (0.9.4)
     datetime_picker_rails (0.0.7)
       momentjs-rails (>= 2.8.1)
@@ -725,6 +726,7 @@ DEPENDENCIES
   connection_pool
   consistency_fail
   countries
+  dalli
   database_rewinder
   derailed_benchmarks
   devise
