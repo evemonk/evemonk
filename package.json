@@ -8,7 +8,7 @@
     "@rails/webpacker": "4.3.0",
     "@sentry/browser": "^5.26.0",
     "apexcharts": "^3.22.0",
-    "bootstrap": "^4.4.1",
+    "bootstrap": "^4.5.3",
     "bootstrap-icons": "^1.0.0",
     "bootswatch": "^4.4.1",
     "cable_ready": "^4.3.0",
