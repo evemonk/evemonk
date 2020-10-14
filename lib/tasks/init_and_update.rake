@@ -29,7 +29,7 @@ namespace :evemonk do
     Sde::UnitsImporter.new("static/sde/bsd/eveUnits.yaml").import
 
     Rails.logger.info "Import agents from SDE"
-    Sde::AgentsImporter.new("static/sde/bsd/agtAgents.yaml").import
+    Sde::AgentsImporter.new("static/sde/fsd/agents.yaml").import
 
     Rails.logger.info "Import agent names from SDE"
     Sde::AgentNamesImporter.new("static/sde/bsd/invNames.yaml").import
@@ -109,7 +109,7 @@ namespace :evemonk do
     Sde::UnitsImporter.new("static/sde/bsd/eveUnits.yaml").import
 
     Rails.logger.info "Import agents from SDE"
-    Sde::AgentsImporter.new("static/sde/bsd/agtAgents.yaml").import
+    Sde::AgentsImporter.new("static/sde/fsd/agents.yaml").import
 
     Rails.logger.info "Import agent names from SDE"
     Sde::AgentNamesImporter.new("static/sde/bsd/invNames.yaml").import
