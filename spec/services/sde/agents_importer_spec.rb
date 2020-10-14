@@ -16,7 +16,7 @@ describe Sde::AgentsImporter do
 
     before { expect(File).to receive(:read).with(file).and_return(content) }
 
-    let(:agent_id) { double }
+    let(:key) { double }
 
     let(:agent_type_id) { double }
 
@@ -34,7 +34,6 @@ describe Sde::AgentsImporter do
 
     let(:entry) do
       {
-        "agentID" => agent_id,
         "agentTypeID" => agent_type_id,
         "corporationID" => corporation_id,
         "divisionID" => division_id,
@@ -45,13 +44,13 @@ describe Sde::AgentsImporter do
       }
     end
 
-    let(:entries) { [entry] }
+    let(:entries) { {key => entry} }
 
     before { expect(YAML).to receive(:safe_load).with(content).and_return(entries) }
 
     let(:eve_agent) { instance_double(Eve::Agent) }
 
-    before { expect(Eve::Agent).to receive(:find_or_initialize_by).with(agent_id: agent_id).and_return(eve_agent) }
+    before { expect(Eve::Agent).to receive(:find_or_initialize_by).with(agent_id: key).and_return(eve_agent) }
 
     before do
       expect(eve_agent).to receive(:assign_attributes).with(agent_type_id: agent_type_id,

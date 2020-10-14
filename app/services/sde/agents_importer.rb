@@ -8,19 +8,20 @@ module Sde
       @file = file
     end
 
+    # TODO: check, maybe agents needs cleanup after update
     def import
       entries = YAML.safe_load(File.read(file))
 
-      entries.each do |entry|
-        eve_agent = Eve::Agent.find_or_initialize_by(agent_id: entry["agentID"])
+      entries.each_pair do |key, hash|
+        eve_agent = Eve::Agent.find_or_initialize_by(agent_id: key)
 
-        eve_agent.assign_attributes(agent_type_id: entry["agentTypeID"],
-                                    corporation_id: entry["corporationID"],
-                                    division_id: entry["divisionID"],
-                                    is_locator: entry["isLocator"],
-                                    level: entry["level"],
-                                    location_id: entry["locationID"],
-                                    quality: entry["quality"])
+        eve_agent.assign_attributes(agent_type_id: hash["agentTypeID"],
+                                    corporation_id: hash["corporationID"],
+                                    division_id: hash["divisionID"],
+                                    is_locator: hash["isLocator"],
+                                    level: hash["level"],
+                                    location_id: hash["locationID"],
+                                    quality: hash["quality"])
 
         eve_agent.save!
       end

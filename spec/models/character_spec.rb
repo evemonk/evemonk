@@ -169,9 +169,9 @@ describe Character do
 
       before do
         #
-        # Eve::CharacterAttribute.find_by(attribute_name: "Perception") # => eve_perception_attribute
+        # Eve::CharacterAttribute.find_by(name_en: "Perception") # => eve_perception_attribute
         #
-        expect(Eve::CharacterAttribute).to receive(:find_by).with(attribute_name: "Perception").and_return(eve_perception_attribute)
+        expect(Eve::CharacterAttribute).to receive(:find_by).with(name_en: "Perception").and_return(eve_perception_attribute)
       end
 
       let(:eve_perception_attribute_decorated) { double }
@@ -200,9 +200,9 @@ describe Character do
 
       before do
         #
-        # Eve::CharacterAttribute.find_by(attribute_name: "Memory") # => eve_memory_attribute
+        # Eve::CharacterAttribute.find_by(name_en: "Memory") # => eve_memory_attribute
         #
-        expect(Eve::CharacterAttribute).to receive(:find_by).with(attribute_name: "Memory").and_return(eve_memory_attribute)
+        expect(Eve::CharacterAttribute).to receive(:find_by).with(name_en: "Memory").and_return(eve_memory_attribute)
       end
 
       let(:eve_memory_attribute_decorated) { double }
@@ -231,9 +231,9 @@ describe Character do
 
       before do
         #
-        # Eve::CharacterAttribute.find_by(attribute_name: "Willpower") # => eve_willpower_attribute
+        # Eve::CharacterAttribute.find_by(name_en: "Willpower") # => eve_willpower_attribute
         #
-        expect(Eve::CharacterAttribute).to receive(:find_by).with(attribute_name: "Willpower").and_return(eve_willpower_attribute)
+        expect(Eve::CharacterAttribute).to receive(:find_by).with(name_en: "Willpower").and_return(eve_willpower_attribute)
       end
 
       let(:eve_willpower_attribute_decorated) { double }
@@ -262,9 +262,9 @@ describe Character do
 
       before do
         #
-        # Eve::CharacterAttribute.find_by(attribute_name: "Intelligence") # => eve_intelligence_attribute
+        # Eve::CharacterAttribute.find_by(name_en: "Intelligence") # => eve_intelligence_attribute
         #
-        expect(Eve::CharacterAttribute).to receive(:find_by).with(attribute_name: "Intelligence").and_return(eve_intelligence_attribute)
+        expect(Eve::CharacterAttribute).to receive(:find_by).with(name_en: "Intelligence").and_return(eve_intelligence_attribute)
       end
 
       let(:eve_intelligence_attribute_decorated) { double }
@@ -293,9 +293,9 @@ describe Character do
 
       before do
         #
-        # Eve::CharacterAttribute.find_by(attribute_name: "Charisma") # => eve_charisma_attribute
+        # Eve::CharacterAttribute.find_by(name_en: "Charisma") # => eve_charisma_attribute
         #
-        expect(Eve::CharacterAttribute).to receive(:find_by).with(attribute_name: "Charisma").and_return(eve_charisma_attribute)
+        expect(Eve::CharacterAttribute).to receive(:find_by).with(name_en: "Charisma").and_return(eve_charisma_attribute)
       end
 
       let(:eve_charisma_attribute_decorated) { double }
