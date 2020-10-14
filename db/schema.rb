@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_14_215911) do
+ActiveRecord::Schema.define(version: 2020_10_14_220058) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -386,6 +386,12 @@ ActiveRecord::Schema.define(version: 2020_10_14_215911) do
     t.text "short_description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "name_de"
+    t.string "name_fr"
+    t.string "name_ja"
+    t.string "name_ru"
+    t.string "name_zh"
+    t.string "name_ko"
   end
 
   create_table "eve_character_corporation_histories", force: :cascade do |t|
