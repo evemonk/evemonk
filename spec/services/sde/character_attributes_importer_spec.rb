@@ -16,13 +16,25 @@ describe Sde::CharacterAttributesImporter do
 
     before { expect(File).to receive(:read).with(file).and_return(content) }
 
-    let(:attribute_id) { double }
-
-    let(:attribute_name) { double }
+    let(:key) { double }
 
     let(:description) { double }
 
     let(:icon_id) { double }
+
+    let(:name_de) { double }
+
+    let(:name_en) { double }
+
+    let(:name_fr) { double }
+
+    let(:name_ja) { double }
+
+    let(:name_ko) { double }
+
+    let(:name_ru) { double }
+
+    let(:name_zh) { double }
 
     let(:notes) { double }
 
@@ -30,25 +42,38 @@ describe Sde::CharacterAttributesImporter do
 
     let(:entry) do
       {
-        "attributeID" => attribute_id,
-        "attributeName" => attribute_name,
         "description" => description,
         "iconID" => icon_id,
+        "nameID" => {
+          "de" => name_de,
+          "en" => name_en,
+          "fr" => name_fr,
+          "ja" => name_ja,
+          "ko" => name_ko,
+          "ru" => name_ru,
+          "zh" => name_zh
+        },
         "notes" => notes,
         "shortDescription" => short_description
       }
     end
 
-    let(:entries) { [entry] }
+    let(:entries) { {key => entry} }
 
     before { expect(YAML).to receive(:safe_load).with(content).and_return(entries) }
 
     let(:eve_character_attribute) { instance_double(Eve::CharacterAttribute) }
 
-    before { expect(Eve::CharacterAttribute).to receive(:find_or_initialize_by).with(attribute_id: attribute_id).and_return(eve_character_attribute) }
+    before { expect(Eve::CharacterAttribute).to receive(:find_or_initialize_by).with(attribute_id: key).and_return(eve_character_attribute) }
 
     before do
-      expect(eve_character_attribute).to receive(:assign_attributes).with(attribute_name: attribute_name,
+      expect(eve_character_attribute).to receive(:assign_attributes).with(name_en: name_en,
+                                                                          name_de: name_de,
+                                                                          name_fr: name_fr,
+                                                                          name_ja: name_ja,
+                                                                          name_ko: name_ko,
+                                                                          name_ru: name_ru,
+                                                                          name_zh: name_zh,
                                                                           description: description,
                                                                           icon_id: icon_id,
                                                                           notes: notes,
