@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_25_163204) do
+ActiveRecord::Schema.define(version: 2020_10_14_215911) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -379,7 +379,7 @@ ActiveRecord::Schema.define(version: 2020_08_25_163204) do
 
   create_table "eve_character_attributes", force: :cascade do |t|
     t.integer "attribute_id"
-    t.string "attribute_name"
+    t.string "name_en"
     t.text "description"
     t.integer "icon_id"
     t.text "notes"
