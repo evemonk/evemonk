@@ -239,8 +239,9 @@ GEM
       tty-pager
       tty-screen
       tty-tree
-    faraday (1.0.1)
+    faraday (1.1.0)
       multipart-post (>= 1.2, < 3)
+      ruby2_keywords
     fasterer (0.8.3)
       colorize (~> 0.7)
       ruby_parser (>= 3.14.1)
@@ -548,6 +549,7 @@ GEM
       terminal-table
     ruby-progressbar (1.10.1)
     ruby-statistics (2.1.2)
+    ruby2_keywords (0.0.2)
     ruby_parser (3.15.0)
       sexp_processor (~> 4.9)
     rubyzip (2.3.0)
