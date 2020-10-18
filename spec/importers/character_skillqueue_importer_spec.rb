@@ -10,81 +10,65 @@ describe CharacterSkillqueueImporter do
   it { should be_a(CharacterBaseImporter) }
 
   describe "#update!" do
-    context "when scope present" do
-      before { expect(subject).to receive(:refresh_character_access_token) }
+    let(:character) { instance_double(Character) }
 
-      let(:access_token) { double }
+    before { expect(subject).to receive(:character).and_return(character).twice }
 
-      let(:character) do
-        instance_double(Character,
-          character_id: character_id,
-          access_token: access_token,
-          scopes: "esi-skills.read_skillqueue.v1")
-      end
+    let(:json) { double }
 
-      before { expect(subject).to receive(:character).and_return(character).exactly(5).times }
+    let(:skill) { instance_double(EveOnline::ESI::Models::SkillQueueEntry, as_json: json) }
 
-      let(:json) { double }
-
-      let(:skill) { instance_double(EveOnline::ESI::Models::SkillQueueEntry, as_json: json) }
-
-      let(:esi) do
-        instance_double(EveOnline::ESI::CharacterSkillQueue,
-          skills: [skill],
-          scope: "esi-skills.read_skillqueue.v1")
-      end
-
-      before { expect(EveOnline::ESI::CharacterSkillQueue).to receive(:new).with(character_id: character_id, token: access_token).and_return(esi) }
-
-      before do
-        #
-        # character.skillqueues.destroy_all
-        #
-        expect(character).to receive(:skillqueues) do
-          double.tap do |a|
-            expect(a).to receive(:destroy_all)
-          end
-        end
-      end
-
-      before do
-        #
-        # character.skillqueues.create!(skill.as_json)
-        #
-        expect(character).to receive(:skillqueues) do
-          double.tap do |a|
-            expect(a).to receive(:create!).with(json)
-          end
-        end
-      end
-
-      specify { expect { subject.update! }.not_to raise_error }
+    let(:esi) do
+      instance_double(EveOnline::ESI::CharacterSkillQueue,
+        skills: [skill])
     end
 
-    context "when scope not present" do
-      before { expect(subject).to receive(:refresh_character_access_token) }
+    before { expect(subject).to receive(:esi).and_return(esi) }
 
-      let(:access_token) { double }
-
-      let(:character) do
-        instance_double(Character,
-          character_id: character_id,
-          access_token: access_token,
-          scopes: "")
+    before do
+      #
+      # character.skillqueues.destroy_all
+      #
+      expect(character).to receive(:skillqueues) do
+        double.tap do |a|
+          expect(a).to receive(:destroy_all)
+        end
       end
+    end
 
-      before { expect(subject).to receive(:character).and_return(character).exactly(3).times }
-
-      let(:esi) do
-        instance_double(EveOnline::ESI::CharacterSkillQueue,
-          scope: "esi-skills.read_skillqueue.v1")
+    before do
+      #
+      # character.skillqueues.create!(skill.as_json)
+      #
+      expect(character).to receive(:skillqueues) do
+        double.tap do |a|
+          expect(a).to receive(:create!).with(json)
+        end
       end
+    end
 
-      before { expect(EveOnline::ESI::CharacterSkillQueue).to receive(:new).with(character_id: character_id, token: access_token).and_return(esi) }
+    specify { expect { subject.update! }.not_to raise_error }
+  end
 
-      before { expect(character).not_to receive(:skillqueues) }
+  describe "#esi" do
+    context "when @esi is set" do
+      let(:esi) { instance_double(EveOnline::ESI::CharacterSkillQueue) }
 
-      specify { expect { subject.update! }.not_to raise_error }
+      before { subject.instance_variable_set(:@esi, esi) }
+
+      specify { expect(subject.esi).to eq(esi) }
+    end
+
+    context "when @esi not set" do
+      let(:esi) { instance_double(EveOnline::ESI::CharacterSkillQueue) }
+
+      let(:character) { instance_double(Character, character_id: character_id) }
+
+      before { expect(subject).to receive(:character).and_return(character) }
+
+      before { expect(EveOnline::ESI::CharacterSkillQueue).to receive(:new).with(character_id: character_id).and_return(esi) }
+
+      specify { expect { subject.esi }.to change { subject.instance_variable_get(:@esi) }.from(nil).to(esi) }
     end
   end
 end

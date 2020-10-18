@@ -2,13 +2,6 @@
 
 class CharacterSkillsImporter < CharacterBaseImporter
   def update!
-    refresh_character_access_token
-
-    esi = EveOnline::ESI::CharacterSkills.new(character_id: character.character_id,
-                                              token: character.access_token)
-
-    return unless character_scope_present?(esi.scope)
-
     character.update!(total_sp: esi.total_sp,
                       unallocated_sp: esi.unallocated_sp)
 
@@ -17,5 +10,9 @@ class CharacterSkillsImporter < CharacterBaseImporter
     esi.skills.each do |skill|
       character.character_skills.create!(skill.as_json)
     end
+  end
+
+  def esi
+    @esi ||= EveOnline::ESI::CharacterSkills.new(character_id: character.character_id)
   end
 end

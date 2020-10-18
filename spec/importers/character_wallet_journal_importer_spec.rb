@@ -28,87 +28,66 @@ describe CharacterWalletJournalImporter do
   end
 
   describe "#update!" do
-    context "when scope present" do
-      before { expect(subject).to receive(:refresh_character_access_token) }
+    let(:character) { instance_double(Character) }
 
-      let(:access_token) { double }
+    before { expect(subject).to receive(:character).and_return(character) }
 
-      let(:character) do
-        instance_double(Character,
-          character_id: character_id,
-          access_token: access_token,
-          scopes: "esi-wallet.read_character_wallet.v1")
-      end
+    let(:wallet_journal_id) { double }
 
-      before { expect(subject).to receive(:character).and_return(character).exactly(4).times }
+    let(:json) { double }
 
-      let(:wallet_journal_id) { double }
-
-      let(:json) { double }
-
-      let(:wallet_journal) do
-        instance_double(EveOnline::ESI::Models::WalletJournal,
-          wallet_journal_id: wallet_journal_id,
-          as_json: json)
-      end
-
-      let(:total_pages) { double }
-
-      let(:esi) do
-        instance_double(EveOnline::ESI::CharacterWalletJournal,
-          wallet_journal_entries: [wallet_journal],
-          scope: "esi-wallet.read_character_wallet.v1",
-          total_pages: total_pages)
-      end
-
-      before { expect(EveOnline::ESI::CharacterWalletJournal).to receive(:new).with(character_id: character_id, token: access_token, page: page).and_return(esi) }
-
-      let(:character_wallet_journal) { instance_double(WalletJournal) }
-
-      before do
-        #
-        # character.wallet_journals.find_or_initialize_by(wallet_journal_id: wallet_journal.wallet_journal_id)
-        #
-        expect(character).to receive(:wallet_journals) do
-          double.tap do |a|
-            expect(a).to receive(:find_or_initialize_by).with(wallet_journal_id: wallet_journal_id).and_return(character_wallet_journal)
-          end
-        end
-      end
-
-      before { expect(character_wallet_journal).to receive(:update!).with(json) }
-
-      before { expect(subject).to receive(:import_other_pages).with(total_pages) }
-
-      specify { expect { subject.update! }.not_to raise_error }
+    let(:wallet_journal) do
+      instance_double(EveOnline::ESI::Models::WalletJournal,
+        wallet_journal_id: wallet_journal_id,
+        as_json: json)
     end
 
-    context "when scope not present" do
-      before { expect(subject).to receive(:refresh_character_access_token) }
+    let(:esi) do
+      instance_double(EveOnline::ESI::CharacterWalletJournal,
+        wallet_journal_entries: [wallet_journal])
+    end
 
-      let(:access_token) { double }
+    before { expect(subject).to receive(:esi).and_return(esi) }
 
-      let(:character) do
-        instance_double(Character,
-          character_id: character_id,
-          access_token: access_token,
-          scopes: "")
+    let(:character_wallet_journal) { instance_double(WalletJournal) }
+
+    before do
+      #
+      # character.wallet_journals.find_or_initialize_by(wallet_journal_id: wallet_journal.wallet_journal_id)
+      #
+      expect(character).to receive(:wallet_journals) do
+        double.tap do |a|
+          expect(a).to receive(:find_or_initialize_by).with(wallet_journal_id: wallet_journal_id).and_return(character_wallet_journal)
+        end
       end
+    end
 
-      before { expect(subject).to receive(:character).and_return(character).exactly(3).times }
+    before { expect(character_wallet_journal).to receive(:update!).with(json) }
 
-      let(:esi) do
-        instance_double(EveOnline::ESI::CharacterWalletJournal,
-          scope: "esi-wallet.read_character_wallet.v1")
-      end
+    before { expect(subject).to receive(:import_other_pages) }
 
-      before { expect(EveOnline::ESI::CharacterWalletJournal).to receive(:new).with(character_id: character_id, token: access_token, page: page).and_return(esi) }
+    specify { expect { subject.update! }.not_to raise_error }
+  end
 
-      before { expect(character).not_to receive(:wallet_journals) }
+  describe "#esi" do
+    context "when @esi is set" do
+      let(:esi) { instance_double(EveOnline::ESI::CharacterWalletJournal) }
 
-      before { expect(subject).not_to receive(:import_other_pages) }
+      before { subject.instance_variable_set(:@esi, esi) }
 
-      specify { expect { subject.update! }.not_to raise_error }
+      specify { expect(subject.esi).to eq(esi) }
+    end
+
+    context "when @esi not set" do
+      let(:esi) { instance_double(EveOnline::ESI::CharacterWalletJournal) }
+
+      let(:character) { instance_double(Character, character_id: character_id) }
+
+      before { expect(subject).to receive(:character).and_return(character) }
+
+      before { expect(EveOnline::ESI::CharacterWalletJournal).to receive(:new).with(character_id: character_id, page: page).and_return(esi) }
+
+      specify { expect { subject.esi }.to change { subject.instance_variable_get(:@esi) }.from(nil).to(esi) }
     end
   end
 
@@ -118,11 +97,9 @@ describe CharacterWalletJournalImporter do
     context "when page is more than 1" do
       let(:page) { 2 }
 
-      let(:total_pages) { 2 }
-
       before { expect(CharacterWalletJournalJob).not_to receive(:perform_later) }
 
-      specify { expect { subject.send(:import_other_pages, total_pages) }.not_to raise_error }
+      specify { expect { subject.send(:import_other_pages) }.not_to raise_error }
     end
 
     context "when total pages is 1" do
@@ -130,9 +107,13 @@ describe CharacterWalletJournalImporter do
 
       let(:total_pages) { 1 }
 
+      let(:esi) { instance_double(EveOnline::ESI::CharacterAssets, total_pages: total_pages) }
+
+      before { expect(subject).to receive(:esi).and_return(esi) }
+
       before { expect(CharacterWalletJournalJob).not_to receive(:perform_later) }
 
-      specify { expect { subject.send(:import_other_pages, total_pages) }.not_to raise_error }
+      specify { expect { subject.send(:import_other_pages) }.not_to raise_error }
     end
 
     context "when page is 1 and total pages more than 1" do
@@ -140,9 +121,13 @@ describe CharacterWalletJournalImporter do
 
       let(:total_pages) { 2 }
 
+      let(:esi) { instance_double(EveOnline::ESI::CharacterAssets, total_pages: total_pages) }
+
+      before { expect(subject).to receive(:esi).and_return(esi).twice }
+
       before { expect(CharacterWalletJournalJob).to receive(:perform_later).with(character_id, 2) }
 
-      specify { expect { subject.send(:import_other_pages, total_pages) }.not_to raise_error }
+      specify { expect { subject.send(:import_other_pages) }.not_to raise_error }
     end
   end
 end

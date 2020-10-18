@@ -10,74 +10,58 @@ describe CharacterShipImporter do
   it { should be_a(CharacterBaseImporter) }
 
   describe "#update!" do
-    context "when scope present" do
-      before { expect(subject).to receive(:refresh_character_access_token) }
+    let(:character) { instance_double(Character) }
 
-      let(:access_token) { double }
+    before { expect(subject).to receive(:character).and_return(character) }
 
-      let(:character) do
-        instance_double(Character,
-          character_id: character_id,
-          access_token: access_token,
-          scopes: "esi-location.read_ship_type.v1")
-      end
+    let(:ship_item_id) { double }
 
-      before { expect(subject).to receive(:character).and_return(character).exactly(4).times }
+    let(:ship_name) { double }
 
-      let(:ship_item_id) { double }
+    let(:ship_type_id) { double }
 
-      let(:ship_name) { double }
-
-      let(:ship_type_id) { double }
-
-      let(:esi) do
-        instance_double(EveOnline::ESI::CharacterShip,
-          ship_item_id: ship_item_id,
-          ship_name: ship_name,
-          ship_type_id: ship_type_id,
-          scope: "esi-location.read_ship_type.v1")
-      end
-
-      before { expect(EveOnline::ESI::CharacterShip).to receive(:new).with(character_id: character_id, token: access_token).and_return(esi) }
-
-      before do
-        #
-        # character.update!(current_ship_item_id: esi.ship_item_id,
-        #                   current_ship_name: esi.ship_name,
-        #                   current_ship_type_id: esi.ship_type_id)
-        #
-        expect(character).to receive(:update!).with(current_ship_item_id: ship_item_id,
-                                                    current_ship_name: ship_name,
-                                                    current_ship_type_id: ship_type_id)
-      end
-
-      specify { expect { subject.update! }.not_to raise_error }
+    let(:esi) do
+      instance_double(EveOnline::ESI::CharacterShip,
+        ship_item_id: ship_item_id,
+        ship_name: ship_name,
+        ship_type_id: ship_type_id)
     end
 
-    context "when scope not present" do
-      before { expect(subject).to receive(:refresh_character_access_token) }
+    before { expect(subject).to receive(:esi).and_return(esi).exactly(3).times }
 
-      let(:access_token) { double }
+    before do
+      #
+      # character.update!(current_ship_item_id: esi.ship_item_id,
+      #                   current_ship_name: esi.ship_name,
+      #                   current_ship_type_id: esi.ship_type_id)
+      #
+      expect(character).to receive(:update!).with(current_ship_item_id: ship_item_id,
+                                                  current_ship_name: ship_name,
+                                                  current_ship_type_id: ship_type_id)
+    end
 
-      let(:character) do
-        instance_double(Character,
-          character_id: character_id,
-          access_token: access_token,
-          scopes: "")
-      end
+    specify { expect { subject.update! }.not_to raise_error }
+  end
 
-      before { expect(subject).to receive(:character).and_return(character).exactly(3).times }
+  describe "#esi" do
+    context "when @esi is set" do
+      let(:esi) { instance_double(EveOnline::ESI::CharacterShip) }
 
-      let(:esi) do
-        instance_double(EveOnline::ESI::CharacterShip,
-          scope: "esi-location.read_ship_type.v1")
-      end
+      before { subject.instance_variable_set(:@esi, esi) }
 
-      before { expect(EveOnline::ESI::CharacterShip).to receive(:new).with(character_id: character_id, token: access_token).and_return(esi) }
+      specify { expect(subject.esi).to eq(esi) }
+    end
 
-      before { expect(character).not_to receive(:update!) }
+    context "when @esi not set" do
+      let(:esi) { instance_double(EveOnline::ESI::CharacterShip) }
 
-      specify { expect { subject.update! }.not_to raise_error }
+      let(:character) { instance_double(Character, character_id: character_id) }
+
+      before { expect(subject).to receive(:character).and_return(character) }
+
+      before { expect(EveOnline::ESI::CharacterShip).to receive(:new).with(character_id: character_id).and_return(esi) }
+
+      specify { expect { subject.esi }.to change { subject.instance_variable_get(:@esi) }.from(nil).to(esi) }
     end
   end
 end

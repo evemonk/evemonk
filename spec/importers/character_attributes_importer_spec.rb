@@ -10,59 +10,43 @@ describe CharacterAttributesImporter do
   it { should be_a(CharacterBaseImporter) }
 
   describe "#update!" do
-    context "when scope present" do
-      before { expect(subject).to receive(:refresh_character_access_token) }
+    let(:json) { double }
 
-      let(:access_token) { double }
-
-      let(:character) do
-        instance_double(Character,
-          character_id: character_id,
-          access_token: access_token,
-          scopes: "esi-skills.read_skills.v1")
-      end
-
-      before { expect(subject).to receive(:character).and_return(character).exactly(4).times }
-
-      let(:json) { double }
-
-      let(:esi) do
-        instance_double(EveOnline::ESI::CharacterAttributes,
-          as_json: json,
-          scope: "esi-skills.read_skills.v1")
-      end
-
-      before { expect(EveOnline::ESI::CharacterAttributes).to receive(:new).with(character_id: character_id, token: access_token).and_return(esi) }
-
-      before { expect(character).to receive(:update!).with(json) }
-
-      specify { expect { subject.update! }.not_to raise_error }
+    let(:esi) do
+      instance_double(EveOnline::ESI::CharacterAttributes,
+        as_json: json)
     end
 
-    context "when scope not present" do
-      before { expect(subject).to receive(:refresh_character_access_token) }
+    let(:character) { instance_double(Character) }
 
-      let(:access_token) { double }
+    before { expect(subject).to receive(:character).and_return(character) }
 
-      let(:character) do
-        instance_double(Character,
-          character_id: character_id,
-          access_token: access_token,
-          scopes: "")
-      end
+    before { expect(subject).to receive(:esi).and_return(esi) }
 
-      before { expect(subject).to receive(:character).and_return(character).exactly(3).times }
+    before { expect(character).to receive(:update!).with(json) }
 
-      let(:esi) do
-        instance_double(EveOnline::ESI::CharacterAttributes,
-          scope: "esi-skills.read_skills.v1")
-      end
+    specify { expect { subject.update! }.not_to raise_error }
+  end
 
-      before { expect(EveOnline::ESI::CharacterAttributes).to receive(:new).with(character_id: character_id, token: access_token).and_return(esi) }
+  describe "#esi" do
+    context "when @esi is set" do
+      let(:esi) { instance_double(EveOnline::ESI::CharacterAttributes) }
 
-      before { expect(character).not_to receive(:update!) }
+      before { subject.instance_variable_set(:@esi, esi) }
 
-      specify { expect { subject.update! }.not_to raise_error }
+      specify { expect(subject.esi).to eq(esi) }
+    end
+
+    context "when @esi not set" do
+      let(:esi) { instance_double(EveOnline::ESI::CharacterAttributes) }
+
+      let(:character) { instance_double(Character, character_id: character_id) }
+
+      before { expect(subject).to receive(:character).and_return(character) }
+
+      before { expect(EveOnline::ESI::CharacterAttributes).to receive(:new).with(character_id: character_id).and_return(esi) }
+
+      specify { expect { subject.esi }.to change { subject.instance_variable_get(:@esi) }.from(nil).to(esi) }
     end
   end
 end

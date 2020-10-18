@@ -10,91 +10,73 @@ describe CharacterMailLabelsImporter do
   it { should be_a(CharacterBaseImporter) }
 
   describe "#update!" do
-    context "when scope present" do
-      before { expect(subject).to receive(:refresh_character_access_token) }
+    let(:character) { instance_double(Character) }
 
-      let(:access_token) { double }
+    before { expect(subject).to receive(:character).and_return(character).exactly(3).times }
 
-      let(:character) do
-        instance_double(Character,
-          character_id: character_id,
-          access_token: access_token,
-          scopes: "esi-mail.read_mail.v1")
-      end
+    let(:total_unread_count) { double }
 
-      before { expect(subject).to receive(:character).and_return(character).exactly(6).times }
+    let(:json) { double }
 
-      let(:total_unread_count) { double }
-
-      let(:json) { double }
-
-      let(:label) do
-        instance_double(EveOnline::ESI::Models::MailLabel,
-          as_json: json)
-      end
-
-      let(:esi) do
-        instance_double(EveOnline::ESI::CharacterMailLabels,
-          labels: [label],
-          total_unread_count: total_unread_count,
-          scope: "esi-mail.read_mail.v1")
-      end
-
-      before { expect(EveOnline::ESI::CharacterMailLabels).to receive(:new).with(character_id: character_id, token: access_token).and_return(esi) }
-
-      before do
-        #
-        # character.character_mail_labels.destroy_all
-        #
-        expect(character).to receive(:character_mail_labels) do
-          double.tap do |a|
-            expect(a).to receive(:destroy_all)
-          end
-        end
-      end
-
-      before { expect(character).to receive(:update!).with(total_unread_count: total_unread_count) }
-
-      before do
-        #
-        # character.character_mail_labels.create!(label.as_json)
-        #
-        expect(character).to receive(:character_mail_labels) do
-          double.tap do |a|
-            expect(a).to receive(:create!).with(json)
-          end
-        end
-      end
-
-      specify { expect { subject.update! }.not_to raise_error }
+    let(:label) do
+      instance_double(EveOnline::ESI::Models::MailLabel,
+        as_json: json)
     end
 
-    context "when scope not present" do
-      before { expect(subject).to receive(:refresh_character_access_token) }
+    let(:esi) do
+      instance_double(EveOnline::ESI::CharacterMailLabels,
+        labels: [label],
+        total_unread_count: total_unread_count)
+    end
 
-      let(:access_token) { double }
+    before { expect(subject).to receive(:esi).and_return(esi).twice }
 
-      let(:character) do
-        instance_double(Character,
-          character_id: character_id,
-          access_token: access_token,
-          scopes: "")
+    before do
+      #
+      # character.character_mail_labels.destroy_all
+      #
+      expect(character).to receive(:character_mail_labels) do
+        double.tap do |a|
+          expect(a).to receive(:destroy_all)
+        end
       end
+    end
 
-      before { expect(subject).to receive(:character).and_return(character).exactly(3).times }
+    before { expect(character).to receive(:update!).with(total_unread_count: total_unread_count) }
 
-      let(:esi) do
-        instance_double(EveOnline::ESI::CharacterMailLabels,
-          scope: "esi-mail.read_mail.v1")
+    before do
+      #
+      # character.character_mail_labels.create!(label.as_json)
+      #
+      expect(character).to receive(:character_mail_labels) do
+        double.tap do |a|
+          expect(a).to receive(:create!).with(json)
+        end
       end
+    end
 
-      before { expect(EveOnline::ESI::CharacterMailLabels).to receive(:new).with(character_id: character_id, token: access_token).and_return(esi) }
+    specify { expect { subject.update! }.not_to raise_error }
+  end
 
-      before { expect(character).not_to receive(:update!) }
+  describe "#esi" do
+    context "when @esi is set" do
+      let(:esi) { instance_double(EveOnline::ESI::CharacterMailLabels) }
 
-      before { expect(character).not_to receive(:character_mail_labels) }
+      before { subject.instance_variable_set(:@esi, esi) }
 
-      specify { expect { subject.update! }.not_to raise_error }
+      specify { expect(subject.esi).to eq(esi) }
+    end
+
+    context "when @esi not set" do
+      let(:esi) { instance_double(EveOnline::ESI::CharacterMailLabels) }
+
+      let(:character) { instance_double(Character, character_id: character_id) }
+
+      before { expect(subject).to receive(:character).and_return(character) }
+
+      before { expect(EveOnline::ESI::CharacterMailLabels).to receive(:new).with(character_id: character_id).and_return(esi) }
+
+      specify { expect { subject.esi }.to change { subject.instance_variable_get(:@esi) }.from(nil).to(esi) }
     end
   end
 end

@@ -10,59 +10,43 @@ describe CharacterWalletImporter do
   it { should be_a(CharacterBaseImporter) }
 
   describe "#update!" do
-    context "when scope present" do
-      before { expect(subject).to receive(:refresh_character_access_token) }
+    let(:character) { instance_double(Character) }
 
-      let(:access_token) { double }
+    before { expect(subject).to receive(:character).and_return(character) }
 
-      let(:character) do
-        instance_double(Character,
-          character_id: character_id,
-          access_token: access_token,
-          scopes: "esi-wallet.read_character_wallet.v1")
-      end
+    let(:json) { double }
 
-      before { expect(subject).to receive(:character).and_return(character).exactly(4).times }
-
-      let(:json) { double }
-
-      let(:esi) do
-        instance_double(EveOnline::ESI::CharacterWallet,
-          scope: "esi-wallet.read_character_wallet.v1",
-          as_json: json)
-      end
-
-      before { expect(EveOnline::ESI::CharacterWallet).to receive(:new).with(character_id: character_id, token: access_token).and_return(esi) }
-
-      before { expect(character).to receive(:update!).with(json) }
-
-      specify { expect { subject.update! }.not_to raise_error }
+    let(:esi) do
+      instance_double(EveOnline::ESI::CharacterWallet,
+        as_json: json)
     end
 
-    context "when scope not present" do
-      before { expect(subject).to receive(:refresh_character_access_token) }
+    before { expect(subject).to receive(:esi).and_return(esi) }
 
-      let(:access_token) { double }
+    before { expect(character).to receive(:update!).with(json) }
 
-      let(:character) do
-        instance_double(Character,
-          character_id: character_id,
-          access_token: access_token,
-          scopes: "")
-      end
+    specify { expect { subject.update! }.not_to raise_error }
+  end
 
-      before { expect(subject).to receive(:character).and_return(character).exactly(3).times }
+  describe "#esi" do
+    context "when @esi is set" do
+      let(:esi) { instance_double(EveOnline::ESI::CharacterWallet) }
 
-      let(:esi) do
-        instance_double(EveOnline::ESI::CharacterWallet,
-          scope: "esi-wallet.read_character_wallet.v1")
-      end
+      before { subject.instance_variable_set(:@esi, esi) }
 
-      before { expect(EveOnline::ESI::CharacterWallet).to receive(:new).with(character_id: character_id, token: access_token).and_return(esi) }
+      specify { expect(subject.esi).to eq(esi) }
+    end
 
-      before { expect(character).not_to receive(:update!) }
+    context "when @esi not set" do
+      let(:esi) { instance_double(EveOnline::ESI::CharacterWallet) }
 
-      specify { expect { subject.update! }.not_to raise_error }
+      let(:character) { instance_double(Character, character_id: character_id) }
+
+      before { expect(subject).to receive(:character).and_return(character) }
+
+      before { expect(EveOnline::ESI::CharacterWallet).to receive(:new).with(character_id: character_id).and_return(esi) }
+
+      specify { expect { subject.esi }.to change { subject.instance_variable_get(:@esi) }.from(nil).to(esi) }
     end
   end
 end
