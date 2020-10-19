@@ -38,9 +38,9 @@ class CharacterBaseImporter
   end
 
   def refresh_character_access_token
-    if character_scope_present?
-      Api::RefreshCharacterAccessToken.new(character).refresh
-    end
+    return unless character_scope_present?
+
+    Api::RefreshCharacterAccessToken.new(character).refresh
   end
 
   def character_scope_present?
@@ -58,9 +58,9 @@ class CharacterBaseImporter
   end
 
   def configure_esi_token
-    if esi.scope.present?
-      esi.token = character.access_token
-    end
+    return unless esi.scope.present?
+
+    esi.token = character.access_token
   end
 
   def statistics_middleware
