@@ -10,17 +10,17 @@ describe StatisticsMiddleware do
       let(:esi) { EveOnline::ESI::ServerStatus.new }
 
       before do
-        conn = Faraday.new do |f|
+        conn = Faraday.new { |f|
           f.use StatisticsMiddleware, esi: esi
           f.adapter Faraday.default_adapter
-        end
+        }
 
         conn.get("https://esi.evetech.net/v2/status/")
       end
 
       let(:method) { "esi_requests_#{status}_counter" }
 
-      specify { expect(Yabeda.evemonk.send(method).values).to eq({ :total => "success" } => 1) }
+      specify { expect(Yabeda.evemonk.send(method).values).to eq({total: "success"} => 1) }
     end
   end
 end
