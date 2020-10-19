@@ -10,74 +10,58 @@ describe CharacterLocationImporter do
   it { should be_a(CharacterBaseImporter) }
 
   describe "#update!" do
-    context "when scope present" do
-      before { expect(subject).to receive(:refresh_character_access_token) }
+    let(:character) { instance_double(Character) }
 
-      let(:access_token) { double }
+    before { expect(subject).to receive(:character).and_return(character) }
 
-      let(:character) do
-        instance_double(Character,
-          character_id: character_id,
-          access_token: access_token,
-          scopes: "esi-location.read_location.v1")
-      end
+    let(:solar_system_id) { double }
 
-      before { expect(subject).to receive(:character).and_return(character).exactly(4).times }
+    let(:station_id) { double }
 
-      let(:solar_system_id) { double }
+    let(:structure_id) { double }
 
-      let(:station_id) { double }
-
-      let(:structure_id) { double }
-
-      let(:esi) do
-        instance_double(EveOnline::ESI::CharacterLocation,
-          solar_system_id: solar_system_id,
-          station_id: station_id,
-          structure_id: structure_id,
-          scope: "esi-location.read_location.v1")
-      end
-
-      before { expect(EveOnline::ESI::CharacterLocation).to receive(:new).with(character_id: character_id, token: access_token).and_return(esi) }
-
-      before do
-        #
-        # character.update!(current_solar_system_id: esi.solar_system_id,
-        #                   current_station_id: esi.station_id,
-        #                   current_structure_id: esi.structure_id)
-        #
-        expect(character).to receive(:update!).with(current_solar_system_id: solar_system_id,
-                                                    current_station_id: station_id,
-                                                    current_structure_id: structure_id)
-      end
-
-      specify { expect { subject.update! }.not_to raise_error }
+    let(:esi) do
+      instance_double(EveOnline::ESI::CharacterLocation,
+        solar_system_id: solar_system_id,
+        station_id: station_id,
+        structure_id: structure_id)
     end
 
-    context "when scope not present" do
-      before { expect(subject).to receive(:refresh_character_access_token) }
+    before { expect(subject).to receive(:esi).and_return(esi).exactly(3).times }
 
-      let(:access_token) { double }
+    before do
+      #
+      # character.update!(current_solar_system_id: esi.solar_system_id,
+      #                   current_station_id: esi.station_id,
+      #                   current_structure_id: esi.structure_id)
+      #
+      expect(character).to receive(:update!).with(current_solar_system_id: solar_system_id,
+                                                  current_station_id: station_id,
+                                                  current_structure_id: structure_id)
+    end
 
-      let(:character) do
-        instance_double(Character,
-          character_id: character_id,
-          access_token: access_token,
-          scopes: "")
-      end
+    specify { expect { subject.update! }.not_to raise_error }
+  end
 
-      before { expect(subject).to receive(:character).and_return(character).exactly(3).times }
+  describe "#esi" do
+    context "when @esi is set" do
+      let(:esi) { instance_double(EveOnline::ESI::CharacterLocation) }
 
-      let(:esi) do
-        instance_double(EveOnline::ESI::CharacterLocation,
-          scope: "esi-location.read_location.v1")
-      end
+      before { subject.instance_variable_set(:@esi, esi) }
 
-      before { expect(EveOnline::ESI::CharacterLocation).to receive(:new).with(character_id: character_id, token: access_token).and_return(esi) }
+      specify { expect(subject.esi).to eq(esi) }
+    end
 
-      before { expect(character).not_to receive(:update!) }
+    context "when @esi not set" do
+      let(:esi) { instance_double(EveOnline::ESI::CharacterLocation) }
 
-      specify { expect { subject.update! }.not_to raise_error }
+      let(:character) { instance_double(Character, character_id: character_id) }
+
+      before { expect(subject).to receive(:character).and_return(character) }
+
+      before { expect(EveOnline::ESI::CharacterLocation).to receive(:new).with(character_id: character_id).and_return(esi) }
+
+      specify { expect { subject.esi }.to change { subject.instance_variable_get(:@esi) }.from(nil).to(esi) }
     end
   end
 end

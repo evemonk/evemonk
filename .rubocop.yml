@@ -89,3 +89,6 @@ Layout/FirstArrayElementIndentation:
 
 Naming/MethodParameterName:
   Enabled: false
+
+Style/BlockDelimiters:
+  Enabled: false

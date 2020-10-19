@@ -10,35 +10,32 @@ class CharacterAssetsImporter < CharacterBaseImporter
   end
 
   def update!
-    refresh_character_access_token
-
-    esi = EveOnline::ESI::CharacterAssets.new(character_id: character.character_id,
-                                              token: character.access_token,
-                                              page: page)
-
-    return unless character_scope_present?(esi.scope)
-
-    destroy_old_character_assets(page)
+    destroy_old_character_assets
 
     esi.assets.each do |asset|
       character.character_assets.create!(asset.as_json)
     end
 
-    import_other_pages(esi.total_pages)
+    import_other_pages
+  end
+
+  def esi
+    @esi ||= EveOnline::ESI::CharacterAssets.new(character_id: character.character_id,
+                                                 page: page)
   end
 
   private
 
-  def destroy_old_character_assets(page)
+  def destroy_old_character_assets
     return if page != 1
 
     character.character_assets.destroy_all
   end
 
-  def import_other_pages(total_pages)
-    return if page != 1 || total_pages == 1
+  def import_other_pages
+    return if page != 1 || esi.total_pages == 1
 
-    (2..total_pages).each do |next_page|
+    (2..esi.total_pages).each do |next_page|
       CharacterAssetsJob.perform_later(character_id, next_page)
     end
   end

@@ -2,13 +2,6 @@
 
 class CharacterLoyaltyPointsImporter < CharacterBaseImporter
   def update!
-    refresh_character_access_token
-
-    esi = EveOnline::ESI::CharacterLoyaltyPoints.new(character_id: character.character_id,
-                                                     token: character.access_token)
-
-    return unless character_scope_present?(esi.scope)
-
     character.loyalty_points.destroy_all
 
     esi.loyalty_points.each do |lp|
@@ -16,5 +9,9 @@ class CharacterLoyaltyPointsImporter < CharacterBaseImporter
       character_lp.assign_attributes(lp.as_json)
       character_lp.save!
     end
+  end
+
+  def esi
+    @esi ||= EveOnline::ESI::CharacterLoyaltyPoints.new(character_id: character.character_id)
   end
 end

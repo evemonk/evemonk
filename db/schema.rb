@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_14_220058) do
+ActiveRecord::Schema.define(version: 2020_10_19_135237) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -169,6 +169,7 @@ ActiveRecord::Schema.define(version: 2020_10_14_220058) do
     t.boolean "esi_token_valid", default: true
     t.datetime "esi_token_invalid_at"
     t.text "esi_last_error"
+    t.boolean "online"
     t.index ["alliance_id"], name: "index_characters_on_alliance_id"
     t.index ["ancestry_id"], name: "index_characters_on_ancestry_id"
     t.index ["bloodline_id"], name: "index_characters_on_bloodline_id"
@@ -1070,6 +1071,7 @@ ActiveRecord::Schema.define(version: 2020_10_14_220058) do
     t.bigint "standingable_id"
     t.string "standingable_type"
     t.index ["character_id"], name: "index_standings_on_character_id"
+    t.index ["from_id"], name: "index_standings_on_from_id"
   end
 
   create_table "users", id: :serial, force: :cascade do |t|
@@ -1147,6 +1149,7 @@ ActiveRecord::Schema.define(version: 2020_10_14_220058) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["character_id"], name: "index_wallet_transactions_on_character_id"
+    t.index ["transaction_id"], name: "index_wallet_transactions_on_transaction_id"
   end
 
   add_foreign_key "character_assets", "characters"

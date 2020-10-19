@@ -10,65 +10,41 @@ describe CorporationMembersImporter do
   it { should be_a(CharacterBaseImporter) }
 
   describe "#update!" do
-    context "when scope present" do
-      before { expect(subject).to receive(:refresh_character_access_token) }
+    let(:character_id) { double }
 
-      let(:access_token) { double }
-
-      let(:corporation_id) { double }
-
-      let(:character) do
-        instance_double(Character,
-          character_id: character_id,
-          corporation_id: corporation_id,
-          access_token: access_token,
-          scopes: "esi-corporations.read_corporation_membership.v1")
-      end
-
-      before { expect(subject).to receive(:character).and_return(character).exactly(3).times }
-
-      let(:character_id) { double }
-
-      let(:esi) do
-        instance_double(EveOnline::ESI::CorporationMembers,
-          character_ids: [character_id],
-          scope: "esi-corporations.read_corporation_membership.v1")
-      end
-
-      before { expect(EveOnline::ESI::CorporationMembers).to receive(:new).with(corporation_id: corporation_id, token: access_token).and_return(esi) }
-
-      before { expect(Eve::UpdateCharacterJob).to receive(:perform_later).with(character_id) }
-
-      specify { expect { subject.update! }.not_to raise_error }
+    let(:esi) do
+      instance_double(EveOnline::ESI::CorporationMembers,
+        character_ids: [character_id])
     end
 
-    context "when scope not present" do
-      before { expect(subject).to receive(:refresh_character_access_token) }
+    before { expect(subject).to receive(:esi).and_return(esi) }
 
-      let(:access_token) { double }
+    before { expect(Eve::UpdateCharacterJob).to receive(:perform_later).with(character_id) }
+
+    specify { expect { subject.update! }.not_to raise_error }
+  end
+
+  describe "#esi" do
+    context "when @esi is set" do
+      let(:esi) { instance_double(EveOnline::ESI::CorporationMembers) }
+
+      before { subject.instance_variable_set(:@esi, esi) }
+
+      specify { expect(subject.esi).to eq(esi) }
+    end
+
+    context "when @esi not set" do
+      let(:esi) { instance_double(EveOnline::ESI::CorporationMembers) }
 
       let(:corporation_id) { double }
 
-      let(:character) do
-        instance_double(Character,
-          character_id: character_id,
-          corporation_id: corporation_id,
-          access_token: access_token,
-          scopes: "")
-      end
+      let(:character) { instance_double(Character, corporation_id: corporation_id) }
 
-      before { expect(subject).to receive(:character).and_return(character).exactly(3).times }
+      before { expect(subject).to receive(:character).and_return(character) }
 
-      let(:esi) do
-        instance_double(EveOnline::ESI::CorporationMembers,
-          scope: "esi-corporations.read_corporation_membership.v1")
-      end
+      before { expect(EveOnline::ESI::CorporationMembers).to receive(:new).with(corporation_id: corporation_id).and_return(esi) }
 
-      before { expect(EveOnline::ESI::CorporationMembers).to receive(:new).with(corporation_id: corporation_id, token: access_token).and_return(esi) }
-
-      before { expect(Eve::UpdateCharacterJob).not_to receive(:perform_later) }
-
-      specify { expect { subject.update! }.not_to raise_error }
+      specify { expect { subject.esi }.to change { subject.instance_variable_get(:@esi) }.from(nil).to(esi) }
     end
   end
 end

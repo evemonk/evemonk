@@ -16,76 +16,60 @@ describe CharacterIndustryJobsImporter do
   end
 
   describe "#update!" do
-    context "when scope present" do
-      before { expect(subject).to receive(:refresh_character_access_token) }
+    let(:character) { instance_double(Character) }
 
-      let(:access_token) { double }
+    before { expect(subject).to receive(:character).and_return(character) }
 
-      let(:character) do
-        instance_double(Character,
-          character_id: character_id,
-          access_token: access_token,
-          scopes: "esi-industry.read_character_jobs.v1")
-      end
+    let(:job_id) { double }
 
-      before { expect(subject).to receive(:character).and_return(character).exactly(4).times }
+    let(:json) { double }
 
-      let(:job_id) { double }
+    let(:industry_job) { instance_double(EveOnline::ESI::Models::CharacterIndustryJob, job_id: job_id, as_json: json) }
 
-      let(:json) { double }
-
-      let(:industry_job) { instance_double(EveOnline::ESI::Models::CharacterIndustryJob, job_id: job_id, as_json: json) }
-
-      let(:esi) do
-        instance_double(EveOnline::ESI::CharacterIndustryJobs,
-          jobs: [industry_job],
-          scope: "esi-industry.read_character_jobs.v1")
-      end
-
-      before { expect(EveOnline::ESI::CharacterIndustryJobs).to receive(:new).with(character_id: character_id, token: access_token, include_completed: true).and_return(esi) }
-
-      let(:character_industry_job) { instance_double(IndustryJob) }
-
-      before do
-        #
-        # character.industry_jobs.find_or_initialize_by(job_id: job.job_id)
-        #
-        expect(character).to receive(:industry_jobs) do
-          double.tap do |a|
-            expect(a).to receive(:find_or_initialize_by).with(job_id: job_id).and_return(character_industry_job)
-          end
-        end
-      end
-
-      before { expect(character_industry_job).to receive(:update!).with(json) }
-
-      specify { expect { subject.update! }.not_to raise_error }
+    let(:esi) do
+      instance_double(EveOnline::ESI::CharacterIndustryJobs,
+        jobs: [industry_job])
     end
 
-    context "when scope not present" do
-      before { expect(subject).to receive(:refresh_character_access_token) }
+    before { expect(subject).to receive(:esi).and_return(esi) }
 
-      let(:access_token) { double }
+    let(:character_industry_job) { instance_double(IndustryJob) }
 
-      let(:character) do
-        instance_double(Character,
-          character_id: character_id,
-          access_token: access_token,
-          scopes: "")
+    before do
+      #
+      # character.industry_jobs.find_or_initialize_by(job_id: job.job_id)
+      #
+      expect(character).to receive(:industry_jobs) do
+        double.tap do |a|
+          expect(a).to receive(:find_or_initialize_by).with(job_id: job_id).and_return(character_industry_job)
+        end
       end
+    end
 
-      before { expect(subject).to receive(:character).and_return(character).exactly(3).times }
+    before { expect(character_industry_job).to receive(:update!).with(json) }
 
-      let(:esi) do
-        instance_double(EveOnline::ESI::CharacterIndustryJobs,
-          scope: "esi-industry.read_character_jobs.v1")
-      end
+    specify { expect { subject.update! }.not_to raise_error }
+  end
 
-      before { expect(EveOnline::ESI::CharacterIndustryJobs).to receive(:new).with(character_id: character_id, token: access_token, include_completed: true).and_return(esi) }
+  describe "#esi" do
+    context "when @esi is set" do
+      let(:esi) { instance_double(EveOnline::ESI::CharacterIndustryJobs) }
 
-      before { expect(character).not_to receive(:industry_jobs) }
+      before { subject.instance_variable_set(:@esi, esi) }
 
-      specify { expect { subject.update! }.not_to raise_error }
+      specify { expect(subject.esi).to eq(esi) }
+    end
+
+    context "when @esi not set" do
+      let(:esi) { instance_double(EveOnline::ESI::CharacterIndustryJobs) }
+
+      let(:character) { instance_double(Character, character_id: character_id) }
+
+      before { expect(subject).to receive(:character).and_return(character) }
+
+      before { expect(EveOnline::ESI::CharacterIndustryJobs).to receive(:new).with(character_id: character_id, include_completed: true).and_return(esi) }
+
+      specify { expect { subject.esi }.to change { subject.instance_variable_get(:@esi) }.from(nil).to(esi) }
     end
   end
 end
