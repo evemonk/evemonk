@@ -20,7 +20,7 @@ describe StatisticsMiddleware do
 
       let(:method) { "esi_requests_#{status}_counter" }
 
-      specify { expect(Yabeda.evemonk.send(method).values).to eq({total: "success"} => 1) }
+      specify { expect(Yabeda.evemonk.public_send(method).values).to eq({total: "success"} => 1) }
     end
   end
 end
