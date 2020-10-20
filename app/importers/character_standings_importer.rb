@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class CharacterStandingsImporter < CharacterBaseImporter
-  def update!
+  def import!
     esi.standings.each do |standing|
       character_standing = character.standings.find_or_initialize_by(from_id: standing.from_id,
                                                                      from_type: standing.from_type)

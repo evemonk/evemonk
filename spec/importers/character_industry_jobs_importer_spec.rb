@@ -15,7 +15,7 @@ describe CharacterIndustryJobsImporter do
     its(:character_id) { should eq(character_id) }
   end
 
-  describe "#update!" do
+  describe "#import!" do
     let(:character) { instance_double(Character) }
 
     before { expect(subject).to receive(:character).and_return(character) }
@@ -48,7 +48,7 @@ describe CharacterIndustryJobsImporter do
 
     before { expect(character_industry_job).to receive(:update!).with(json) }
 
-    specify { expect { subject.update! }.not_to raise_error }
+    specify { expect { subject.import! }.not_to raise_error }
   end
 
   describe "#esi" do

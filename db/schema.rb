@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_19_135237) do
+ActiveRecord::Schema.define(version: 2020_10_22_204926) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -192,7 +192,8 @@ ActiveRecord::Schema.define(version: 2020_10_19_135237) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.json "body"
-    t.index ["url"], name: "index_etags_on_url", unique: true
+    t.bigint "character_id"
+    t.index ["url"], name: "index_etags_on_url"
   end
 
   create_table "eve_agents", force: :cascade do |t|
@@ -512,6 +513,7 @@ ActiveRecord::Schema.define(version: 2020_10_19_135237) do
     t.index ["home_station_id"], name: "index_eve_corporations_on_home_station_id"
     t.index ["member_count"], name: "index_eve_corporations_on_member_count"
     t.index ["name"], name: "index_eve_corporations_on_name"
+    t.index ["npc", "member_count"], name: "index_eve_corporations_on_npc_and_member_count"
   end
 
   create_table "eve_dogma_attributes", force: :cascade do |t|
@@ -1159,6 +1161,7 @@ ActiveRecord::Schema.define(version: 2020_10_19_135237) do
   add_foreign_key "character_orders", "characters"
   add_foreign_key "character_skills", "characters"
   add_foreign_key "characters", "users"
+  add_foreign_key "etags", "characters"
   add_foreign_key "eve_required_items", "eve_loyalty_store_offers"
   add_foreign_key "industry_jobs", "characters"
   add_foreign_key "manufacturing_jobs", "characters"

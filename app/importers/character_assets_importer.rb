@@ -9,7 +9,7 @@ class CharacterAssetsImporter < CharacterBaseImporter
     @page = page
   end
 
-  def update!
+  def import!
     destroy_old_character_assets
 
     esi.assets.each do |asset|

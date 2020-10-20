@@ -5,8 +5,8 @@ class CharacterDecorator < ApplicationDecorator
 
   decorates_associations :user, :race, :bloodline, :faction, :ancestry,
     :alliance, :corporation, :current_ship_type, :current_solar_system,
-    :current_station, :loyalty_points, :character_assets, :character_implants,
-    :implants, :skillqueues, :character_skills,
+    :current_station, :etags, :loyalty_points, :character_assets,
+    :character_implants, :implants, :skillqueues, :character_skills,
     :character_corporation_histories, :character_mail_labels, :standings,
     :character_killmails, :wallet_journals, :wallet_transactions,
     :character_blueprints, :industry_jobs, :character_orders,

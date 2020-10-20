@@ -27,7 +27,7 @@ describe CharacterAssetsImporter do
     end
   end
 
-  describe "#update!" do
+  describe "#import!" do
     let(:json) { double }
 
     let(:asset) { instance_double(EveOnline::ESI::Models::Asset, as_json: json) }
@@ -58,7 +58,7 @@ describe CharacterAssetsImporter do
 
     before { expect(subject).to receive(:import_other_pages) }
 
-    specify { expect { subject.update! }.not_to raise_error }
+    specify { expect { subject.import! }.not_to raise_error }
   end
 
   describe "#esi" do

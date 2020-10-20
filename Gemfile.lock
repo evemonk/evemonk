@@ -696,6 +696,9 @@ GEM
     yabeda (0.8.0)
       concurrent-ruby
       dry-initializer
+    yabeda-graphql (0.2.0)
+      graphql (~> 1.9)
+      yabeda (~> 0.2)
     yabeda-prometheus (0.6.1)
       prometheus-client (>= 0.10, < 3.0)
       rack
@@ -828,6 +831,7 @@ DEPENDENCIES
   webdrivers
   webmock
   webpacker (~> 5.2)
+  yabeda-graphql
   yabeda-prometheus
   yabeda-puma-plugin
   yabeda-rails

@@ -9,7 +9,7 @@ describe CharacterOrdersImporter do
 
   it { should be_a(CharacterBaseImporter) }
 
-  describe "#update!" do
+  describe "#import!" do
     let(:character) { instance_double(Character) }
 
     before { expect(subject).to receive(:character).and_return(character) }
@@ -49,7 +49,7 @@ describe CharacterOrdersImporter do
 
     before { expect(character_order).to receive(:save!) }
 
-    specify { expect { subject.update! }.not_to raise_error }
+    specify { expect { subject.import! }.not_to raise_error }
   end
 
   describe "#esi" do

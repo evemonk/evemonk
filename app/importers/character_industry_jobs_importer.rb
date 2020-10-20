@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class CharacterIndustryJobsImporter < CharacterBaseImporter
-  def update!
+  def import!
     esi.jobs.each do |job|
       character_industry_job = character.industry_jobs.find_or_initialize_by(job_id: job.job_id)
 

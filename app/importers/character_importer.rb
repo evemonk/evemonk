@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class CharacterImporter < CharacterBaseImporter
-  def update!
+  def import!
     # FIXME: character security status always updates
     character.update!(esi.as_json)
   end

@@ -9,7 +9,7 @@ class CharacterKillmailsImporter < CharacterBaseImporter
     @page = page
   end
 
-  def update!
+  def import!
     esi.killmails.each do |killmail|
       character.character_killmails.find_or_create_by!(killmail.as_json)
     end

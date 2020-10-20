@@ -9,7 +9,7 @@ describe CharacterShipImporter do
 
   it { should be_a(CharacterBaseImporter) }
 
-  describe "#update!" do
+  describe "#import!" do
     let(:character) { instance_double(Character) }
 
     before { expect(subject).to receive(:character).and_return(character) }
@@ -40,7 +40,7 @@ describe CharacterShipImporter do
                                                   current_ship_type_id: ship_type_id)
     end
 
-    specify { expect { subject.update! }.not_to raise_error }
+    specify { expect { subject.import! }.not_to raise_error }
   end
 
   describe "#esi" do

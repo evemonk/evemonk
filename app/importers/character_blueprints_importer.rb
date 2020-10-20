@@ -9,7 +9,7 @@ class CharacterBlueprintsImporter < CharacterBaseImporter
     @page = page
   end
 
-  def update!
+  def import!
     destroy_old_character_blueprints
 
     esi.blueprints.each do |blueprint|

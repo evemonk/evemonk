@@ -1,31 +1,23 @@
 # frozen_string_literal: true
 
 module Eve
-  class AllianceImporter
+  class AllianceImporter < BaseImporter
     attr_reader :alliance_id
 
     def initialize(alliance_id)
       @alliance_id = alliance_id
     end
 
-    def import
-      ActiveRecord::Base.transaction do
-        eve_alliance = Eve::Alliance.find_or_initialize_by(alliance_id: alliance_id)
+    def import!
+      eve_alliance = Eve::Alliance.find_or_initialize_by(alliance_id: alliance_id)
 
-        esi = EveOnline::ESI::Alliance.new(alliance_id: alliance_id)
+      eve_alliance.update!(esi.as_json)
+    rescue EveOnline::Exceptions::ResourceNotFound
+      eve_alliance.destroy!
+    end
 
-        etag = Eve::Etag.find_or_initialize_by(url: esi.url)
-
-        esi.etag = etag.etag
-
-        return if esi.not_modified?
-
-        eve_alliance.update!(esi.as_json)
-
-        etag.update!(etag: esi.etag, body: esi.response)
-      rescue EveOnline::Exceptions::ResourceNotFound
-        eve_alliance.destroy!
-      end
+    def esi
+      @esi ||= EveOnline::ESI::Alliance.new(alliance_id: alliance_id)
     end
   end
 end

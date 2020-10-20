@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class CharacterAttributesImporter < CharacterBaseImporter
-  def update!
+  def import!
     character.update!(esi.as_json)
   end
 

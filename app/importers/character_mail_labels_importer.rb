@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class CharacterMailLabelsImporter < CharacterBaseImporter
-  def update!
+  def import!
     character.character_mail_labels.destroy_all
 
     character.update!(total_unread_count: esi.total_unread_count)

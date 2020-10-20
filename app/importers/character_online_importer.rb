@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class CharacterOnlineImporter < CharacterBaseImporter
-  def update!
+  def import!
     character.update!(online: esi.online)
   end
 
