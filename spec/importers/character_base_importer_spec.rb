@@ -27,12 +27,34 @@ describe CharacterBaseImporter do
 
       before { expect(subject).to receive(:configure_esi_token) }
 
-      before { expect(subject).to receive(:update!) }
+      before { expect(subject).to receive(:configure_etag) }
 
-      specify { expect { subject.import }.not_to raise_error }
+      context "when etag cache miss" do
+        let(:esi) { double(not_modified?: false) }
+
+        before { expect(subject).to receive(:esi).and_return(esi) }
+
+        before { expect(subject).to receive(:import!) }
+
+        before { expect(subject).to receive(:update_etag) }
+
+        specify { expect { subject.import }.not_to raise_error }
+      end
+
+      context "when etag cache hit" do
+        let(:esi) { double(not_modified?: true) }
+
+        before { expect(subject).to receive(:esi).and_return(esi) }
+
+        specify { expect { subject.import }.not_to raise_error }
+      end
     end
 
     context "when EveOnline::Exceptions::ResourceNotFound" do
+      let(:esi) { double(not_modified?: false) }
+
+      before { expect(subject).to receive(:esi).and_return(esi) }
+
       before { expect(subject).to receive(:character_scope_present?).and_return(true) }
 
       before { expect(subject).to receive(:refresh_character_access_token) }
@@ -41,7 +63,9 @@ describe CharacterBaseImporter do
 
       before { expect(subject).to receive(:configure_esi_token) }
 
-      before { expect(subject).to receive(:update!).and_raise(EveOnline::Exceptions::ResourceNotFound) }
+      before { expect(subject).to receive(:configure_etag) }
+
+      before { expect(subject).to receive(:import!).and_raise(EveOnline::Exceptions::ResourceNotFound) }
 
       before do
         #
@@ -58,6 +82,10 @@ describe CharacterBaseImporter do
     end
 
     context "when ActiveRecord::RecordNotFound" do
+      let(:esi) { double(not_modified?: false) }
+
+      before { expect(subject).to receive(:esi).and_return(esi) }
+
       before { expect(subject).to receive(:character_scope_present?).and_return(true) }
 
       before { expect(subject).to receive(:refresh_character_access_token) }
@@ -66,7 +94,9 @@ describe CharacterBaseImporter do
 
       before { expect(subject).to receive(:configure_esi_token) }
 
-      before { expect(subject).to receive(:update!).and_raise(ActiveRecord::RecordNotFound) }
+      before { expect(subject).to receive(:configure_etag) }
+
+      before { expect(subject).to receive(:import!).and_raise(ActiveRecord::RecordNotFound) }
 
       before do
         #
@@ -113,8 +143,8 @@ describe CharacterBaseImporter do
     specify { expect { subject.esi }.to raise_error(NotImplementedError) }
   end
 
-  describe "#update!" do
-    specify { expect { subject.update! }.to raise_error(NotImplementedError) }
+  describe "#import!" do
+    specify { expect { subject.import! }.to raise_error(NotImplementedError) }
   end
 
   describe "#refresh_character_access_token" do
@@ -180,18 +210,63 @@ describe CharacterBaseImporter do
     end
   end
 
+  describe "#etag" do
+    context "when @etag is set" do
+      let(:etag) { instance_double(Etag) }
+
+      before { subject.instance_variable_set(:@etag, etag) }
+
+      specify { expect(subject.etag).to eq(etag) }
+    end
+
+    context "when @etag not set" do
+      let(:url) { double }
+
+      let(:esi) { double(url: url) }
+
+      before { expect(subject).to receive(:esi).and_return(esi) }
+
+      let(:character) { instance_double(Character) }
+
+      before { expect(subject).to receive(:character).and_return(character) }
+
+      let(:etag) { instance_double(Etag) }
+
+      before do
+        #
+        # character.etags.find_or_initialize_by(url: esi.url) # => etag
+        #
+        expect(character).to receive(:etags) do
+          double.tap do |a|
+            expect(a).to receive(:find_or_initialize_by).with(url: url).and_return(etag)
+          end
+        end
+      end
+
+      specify { expect(subject.etag).to eq(etag) }
+
+      specify { expect { subject.etag }.to change { subject.instance_variable_get(:@etag) }.from(nil).to(etag) }
+    end
+  end
+
   # private methods
 
   describe "#configure_middlewares" do
     let(:statistics_middleware) { double }
 
+    let(:cool_down_middleware) { double }
+
     let(:esi) { double }
 
     before { expect(subject).to receive(:statistics_middleware).and_return(statistics_middleware) }
 
-    before { expect(subject).to receive(:esi).and_return(esi) }
+    before { expect(subject).to receive(:cool_down_middleware).and_return(cool_down_middleware) }
+
+    before { expect(subject).to receive(:esi).and_return(esi).twice }
 
     before { expect(esi).to receive(:add_middleware).and_return(statistics_middleware) }
+
+    before { expect(esi).to receive(:add_middleware).and_return(cool_down_middleware) }
 
     specify { expect { subject.send(:configure_middlewares) }.not_to raise_error }
   end
@@ -222,6 +297,38 @@ describe CharacterBaseImporter do
     end
   end
 
+  describe "#configure_etag" do
+    let(:esi) { double }
+
+    before { expect(subject).to receive(:esi).and_return(esi) }
+
+    let(:etag) { instance_double(Etag, etag: "abc123") }
+
+    before { expect(subject).to receive(:etag).and_return(etag) }
+
+    before { expect(esi).to receive(:etag=).with("abc123") }
+
+    specify { expect { subject.send(:configure_etag) }.not_to raise_error }
+  end
+
+  describe "#update_etag" do
+    let(:etag) { double }
+
+    let(:response) { double }
+
+    let(:esi) { double(etag: etag, response: response) }
+
+    before { expect(subject).to receive(:esi).and_return(esi).twice }
+
+    let(:etag) { instance_double(Etag) }
+
+    before { expect(subject).to receive(:etag).and_return(etag) }
+
+    before { expect(etag).to receive(:update!).with(etag: etag, body: response) }
+
+    specify { expect { subject.send(:update_etag) }.not_to raise_error }
+  end
+
   describe "#statistics_middleware" do
     let(:esi) { double }
 
@@ -230,6 +337,17 @@ describe CharacterBaseImporter do
     specify do
       expect(subject.send(:statistics_middleware)).to eq(class: StatisticsMiddleware,
                                                          esi: esi)
+    end
+  end
+
+  describe "#cool_down_middleware" do
+    let(:esi) { double }
+
+    before { expect(subject).to receive(:esi).and_return(esi) }
+
+    specify do
+      expect(subject.send(:cool_down_middleware)).to eq(class: CoolDownMiddleware,
+                                                        esi: esi)
     end
   end
 end

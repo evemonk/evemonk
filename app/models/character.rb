@@ -59,6 +59,8 @@ class Character < ApplicationRecord
   #  foreign_key: "current_structure_id",
   #  optional: true
 
+  has_many :etags, dependent: :destroy
+
   has_many :loyalty_points, dependent: :destroy
 
   has_many :character_assets, dependent: :destroy

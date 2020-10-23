@@ -2,6 +2,8 @@
 
 FactoryBot.define do
   factory :etag do
+    character
+
     sequence :url do |n|
       "https://esi.evetech.net/v3/alliances/#{n}/"
     end

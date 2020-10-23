@@ -11,6 +11,7 @@ Yabeda.configure do
     counter :esi_requests_404_counter, comment: "Total number of ESI requests with status 404", tags: [:total]
     counter :esi_requests_420_counter, comment: "Total number of ESI requests with status 420", tags: [:total]
     counter :esi_requests_500_counter, comment: "Total number of ESI requests with status 500", tags: [:total]
+    counter :esi_requests_502_counter, comment: "Total number of ESI requests with status 502", tags: [:total]
     counter :esi_requests_503_counter, comment: "Total number of ESI requests with status 503", tags: [:total]
     counter :esi_requests_504_counter, comment: "Total number of ESI requests with status 504", tags: [:total]
   end

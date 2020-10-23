@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class CharacterWalletTransactionsImporter < CharacterBaseImporter
-  def update!
+  def import!
     esi.wallet_transactions.each do |wallet_transaction|
       character_wallet_transaction = character.wallet_transactions.find_or_initialize_by(transaction_id: wallet_transaction.transaction_id)
 

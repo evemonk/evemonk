@@ -9,7 +9,7 @@ describe CharacterSkillqueueImporter do
 
   it { should be_a(CharacterBaseImporter) }
 
-  describe "#update!" do
+  describe "#import!" do
     let(:character) { instance_double(Character) }
 
     before { expect(subject).to receive(:character).and_return(character).twice }
@@ -47,7 +47,7 @@ describe CharacterSkillqueueImporter do
       end
     end
 
-    specify { expect { subject.update! }.not_to raise_error }
+    specify { expect { subject.import! }.not_to raise_error }
   end
 
   describe "#esi" do

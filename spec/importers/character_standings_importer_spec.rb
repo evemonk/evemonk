@@ -9,7 +9,7 @@ describe CharacterStandingsImporter do
 
   it { should be_a(CharacterBaseImporter) }
 
-  describe "#update!" do
+  describe "#import!" do
     let(:character) { instance_double(Character) }
 
     before { expect(subject).to receive(:character).and_return(character) }
@@ -58,7 +58,7 @@ describe CharacterStandingsImporter do
 
       before { expect(character_standing).to receive(:save!) }
 
-      specify { expect { subject.update! }.not_to raise_error }
+      specify { expect { subject.import! }.not_to raise_error }
     end
 
     context "when from_type is npc_corp" do
@@ -72,7 +72,7 @@ describe CharacterStandingsImporter do
 
       before { expect(character_standing).to receive(:save!) }
 
-      specify { expect { subject.update! }.not_to raise_error }
+      specify { expect { subject.import! }.not_to raise_error }
     end
 
     context "when from_type is agent" do
@@ -86,13 +86,13 @@ describe CharacterStandingsImporter do
 
       before { expect(character_standing).to receive(:save!) }
 
-      specify { expect { subject.update! }.not_to raise_error }
+      specify { expect { subject.import! }.not_to raise_error }
     end
 
     context "when from_type is unknown" do
       let(:from_type) { "unknown" }
 
-      specify { expect { subject.update! }.to raise_error("Unknown standing from type") }
+      specify { expect { subject.import! }.to raise_error("Unknown standing from type") }
     end
   end
 

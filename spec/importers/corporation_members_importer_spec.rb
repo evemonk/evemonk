@@ -9,7 +9,7 @@ describe CorporationMembersImporter do
 
   it { should be_a(CharacterBaseImporter) }
 
-  describe "#update!" do
+  describe "#import!" do
     let(:character_id) { double }
 
     let(:esi) do
@@ -21,7 +21,7 @@ describe CorporationMembersImporter do
 
     before { expect(Eve::UpdateCharacterJob).to receive(:perform_later).with(character_id) }
 
-    specify { expect { subject.update! }.not_to raise_error }
+    specify { expect { subject.import! }.not_to raise_error }
   end
 
   describe "#esi" do

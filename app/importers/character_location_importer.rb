@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class CharacterLocationImporter < CharacterBaseImporter
-  def update!
+  def import!
     character.update!(current_solar_system_id: esi.solar_system_id,
                       current_station_id: esi.station_id,
                       current_structure_id: esi.structure_id)

@@ -74,6 +74,7 @@ gem "lograge"
 
 gem "yabeda-prometheus"
 gem "yabeda-rails"
+gem "yabeda-graphql"
 gem "yabeda-sidekiq"
 gem "yabeda-puma-plugin"
 

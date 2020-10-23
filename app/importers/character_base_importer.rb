@@ -16,8 +16,14 @@ class CharacterBaseImporter
 
     configure_esi_token
 
+    configure_etag
+
+    return if esi.not_modified?
+
     ActiveRecord::Base.transaction do
-      update!
+      import!
+
+      update_etag
     end
   rescue EveOnline::Exceptions::ResourceNotFound
     Rails.logger.info("WARNING: ESI response with 404 (NOT FOUND) for Character with ID #{character_id}")
@@ -33,7 +39,7 @@ class CharacterBaseImporter
     raise NotImplementedError
   end
 
-  def update!
+  def import!
     raise NotImplementedError
   end
 
@@ -51,16 +57,30 @@ class CharacterBaseImporter
     end
   end
 
+  def etag
+    @etag ||= character.etags.find_or_initialize_by(url: esi.url)
+  end
+
   private
 
   def configure_middlewares
     esi.add_middleware(statistics_middleware)
+
+    esi.add_middleware(cool_down_middleware)
   end
 
   def configure_esi_token
     return unless esi.scope.present?
 
     esi.token = character.access_token
+  end
+
+  def configure_etag
+    esi.etag = etag.etag
+  end
+
+  def update_etag
+    etag.update!(etag: esi.etag, body: esi.response)
   end
 
   def statistics_middleware
@@ -70,10 +90,10 @@ class CharacterBaseImporter
     }
   end
 
-  # def cool_down_middleware
-  #   {
-  #     class: CoolDownMiddleware,
-  #     esi: esi
-  #   }
-  # end
+  def cool_down_middleware
+    {
+      class: CoolDownMiddleware,
+      esi: esi
+    }
+  end
 end

@@ -9,7 +9,7 @@ class CharacterWalletJournalImporter < CharacterBaseImporter
     @page = page
   end
 
-  def update!
+  def import!
     esi.wallet_journal_entries.each do |wallet_journal|
       character_wallet_journal = character.wallet_journals.find_or_initialize_by(wallet_journal_id: wallet_journal.wallet_journal_id)
 

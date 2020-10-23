@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class CharacterLoyaltyPointsImporter < CharacterBaseImporter
-  def update!
+  def import!
     character.loyalty_points.destroy_all
 
     esi.loyalty_points.each do |lp|

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class CharacterImplantsImporter < CharacterBaseImporter
-  def update!
+  def import!
     character.character_implants.destroy_all
 
     esi.implant_ids.each do |implant_id|

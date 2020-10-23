@@ -1,0 +1,61 @@
+# frozen_string_literal: true
+
+module Eve
+  class BaseImporter
+    def import
+      configure_middlewares
+
+      configure_etag
+
+      return if esi.not_modified?
+
+      ActiveRecord::Base.transaction do
+        import!
+
+        update_etag
+      end
+    end
+
+    def esi
+      raise NotImplementedError
+    end
+
+    def import!
+      raise NotImplementedError
+    end
+
+    def etag
+      @etag ||= Eve::Etag.find_or_initialize_by(url: esi.url)
+    end
+
+    private
+
+    def configure_middlewares
+      esi.add_middleware(statistics_middleware)
+
+      esi.add_middleware(cool_down_middleware)
+    end
+
+    def configure_etag
+      esi.etag = etag.etag
+    end
+
+    def update_etag
+      etag.update!(etag: esi.etag, body: esi.response)
+    end
+
+    def statistics_middleware
+      {
+        class: StatisticsMiddleware,
+        esi: esi
+      }
+    end
+
+    def cool_down_middleware
+      {
+        class: CoolDownMiddleware,
+        esi: esi
+      }
+    end
+  end
+end

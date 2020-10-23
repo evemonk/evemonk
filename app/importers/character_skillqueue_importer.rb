@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class CharacterSkillqueueImporter < CharacterBaseImporter
-  def update!
+  def import!
     character.skillqueues.destroy_all
 
     esi.skills.each do |skill|

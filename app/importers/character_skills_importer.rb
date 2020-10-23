@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class CharacterSkillsImporter < CharacterBaseImporter
-  def update!
+  def import!
     character.update!(total_sp: esi.total_sp,
                       unallocated_sp: esi.unallocated_sp)
 
