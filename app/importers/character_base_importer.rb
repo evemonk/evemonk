@@ -58,7 +58,7 @@ class CharacterBaseImporter
   end
 
   def etag
-    @etag ||= character.etags.find_or_initialize_by(url: esi.url)
+    @etag ||= Etag.find_or_initialize_by(url: esi.url, character: character)
   end
 
   private

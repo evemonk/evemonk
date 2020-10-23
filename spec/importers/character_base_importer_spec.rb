@@ -234,13 +234,10 @@ describe CharacterBaseImporter do
 
       before do
         #
-        # character.etags.find_or_initialize_by(url: esi.url) # => etag
+        # Etag.find_or_initialize_by(url: esi.url, character: character) # => etag
         #
-        expect(character).to receive(:etags) do
-          double.tap do |a|
-            expect(a).to receive(:find_or_initialize_by).with(url: url).and_return(etag)
-          end
-        end
+        expect(Etag).to receive(:find_or_initialize_by).with(url: url, character: character)
+          .and_return(etag)
       end
 
       specify { expect(subject.etag).to eq(etag) }
