@@ -1,32 +1,18 @@
 # frozen_string_literal: true
 
 module Eve
-  class AlliancesImporter
-    attr_reader :esi
+  class AlliancesImporter < BaseImporter
+    def import!
+      import_new_alliances
 
-    def initialize
-      @esi = EveOnline::ESI::Alliances.new
+      remove_old_alliances
     end
 
-    def import
-      ActiveRecord::Base.transaction do
-        esi.etag = etag.etag
-
-        return if esi.not_modified?
-
-        import_new_alliances
-
-        remove_old_alliances
-
-        etag.update!(etag: esi.etag, body: esi.response)
-      end
+    def esi
+      @esi ||= EveOnline::ESI::Alliances.new
     end
 
     private
-
-    def etag
-      @etag ||= Eve::Etag.find_or_initialize_by(url: esi.url)
-    end
 
     def import_new_alliances
       eve_alliance_ids = Eve::Alliance.pluck(:alliance_id)
