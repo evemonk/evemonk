@@ -11,7 +11,7 @@ Rails.application.config.content_security_policy do |policy|
   policy.default_src :none
   policy.font_src "https://fonts.gstatic.com"
   policy.img_src :self, :data, "https://imageproxy.evemonk.com", "https://static.evemonk.com"
-  policy.script_src :self, :unsafe_inline, :unsafe_eval
+  policy.script_src :self, :unsafe_inline, :unsafe_eval, "https://plausible.evemonk.com"
   policy.style_src :self, :unsafe_inline, "https://fonts.googleapis.com"
   # TODO: https://bugs.webkit.org/show_bug.cgi?id=201591
   # policy.connect_src :self, "https://sentry.io" if Rails.env.production?
