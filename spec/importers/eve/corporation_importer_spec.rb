@@ -13,7 +13,11 @@ describe Eve::CorporationImporter do
     context "when eve corporation found" do
       let(:eve_corporation) { instance_double(Eve::Corporation) }
 
-      before { expect(subject).to receive(:eve_corporation).and_return(eve_corporation) }
+      before do
+        expect(Eve::Corporation).to receive(:find_or_initialize_by)
+          .with(corporation_id: corporation_id)
+          .and_return(eve_corporation)
+      end
 
       let(:json) { double }
 
