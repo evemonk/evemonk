@@ -14,8 +14,6 @@ FactoryBot.define do
 
     name_ru { Faker::Lorem.word }
 
-    name_zh { Faker::Lorem.word }
-
     name_ko { Faker::Lorem.word }
 
     sequence(:bloodline_id)
@@ -29,8 +27,6 @@ FactoryBot.define do
     description_ja { Faker::Lorem.paragraph }
 
     description_ru { Faker::Lorem.paragraph }
-
-    description_zh { Faker::Lorem.paragraph }
 
     description_ko { Faker::Lorem.paragraph }
 

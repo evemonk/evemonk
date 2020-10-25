@@ -14,8 +14,6 @@ FactoryBot.define do
 
     description_ru { Faker::Lorem.paragraph }
 
-    description_zh { Faker::Lorem.paragraph }
-
     description_ko { Faker::Lorem.paragraph }
 
     sequence(:graphic_id)
@@ -37,8 +35,6 @@ FactoryBot.define do
     name_ja { Faker::Lorem.word }
 
     name_ru { Faker::Lorem.word }
-
-    name_zh { Faker::Lorem.word }
 
     name_ko { Faker::Lorem.word }
 
