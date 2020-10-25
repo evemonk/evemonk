@@ -20,7 +20,6 @@ module Sde
                                     name_ja: hash["nameID"]["ja"],
                                     name_ko: hash["nameID"]["ko"],
                                     name_ru: hash["nameID"]["ru"],
-                                    name_zh: hash["nameID"]["zh"],
                                     description: hash["description"],
                                     icon_id: hash["iconID"],
                                     notes: hash["notes"],
