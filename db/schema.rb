@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_22_204926) do
+ActiveRecord::Schema.define(version: 2020_10_25_183221) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -250,12 +250,10 @@ ActiveRecord::Schema.define(version: 2020_10_22_204926) do
     t.string "name_fr"
     t.string "name_ja"
     t.string "name_ru"
-    t.string "name_zh"
     t.text "description_de"
     t.text "description_fr"
     t.text "description_ja"
     t.text "description_ru"
-    t.text "description_zh"
     t.string "name_ko"
     t.text "description_ko"
     t.index ["ancestry_id"], name: "index_eve_ancestries_on_ancestry_id", unique: true
@@ -291,12 +289,10 @@ ActiveRecord::Schema.define(version: 2020_10_22_204926) do
     t.string "name_fr"
     t.string "name_ja"
     t.string "name_ru"
-    t.string "name_zh"
     t.text "description_de"
     t.text "description_fr"
     t.text "description_ja"
     t.text "description_ru"
-    t.text "description_zh"
     t.string "name_ko"
     t.text "description_ko"
     t.index ["bloodline_id"], name: "index_eve_bloodlines_on_bloodline_id", unique: true
@@ -360,7 +356,6 @@ ActiveRecord::Schema.define(version: 2020_10_22_204926) do
     t.string "name_fr"
     t.string "name_ja"
     t.string "name_ru"
-    t.string "name_zh"
     t.boolean "published"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -392,7 +387,6 @@ ActiveRecord::Schema.define(version: 2020_10_22_204926) do
     t.string "name_fr"
     t.string "name_ja"
     t.string "name_ru"
-    t.string "name_zh"
     t.string "name_ko"
   end
 
@@ -442,7 +436,6 @@ ActiveRecord::Schema.define(version: 2020_10_22_204926) do
     t.string "name_fr"
     t.string "name_ja"
     t.string "name_ru"
-    t.string "name_zh"
     t.string "name_ko"
     t.bigint "region_id"
     t.datetime "created_at", precision: 6, null: false
@@ -558,12 +551,10 @@ ActiveRecord::Schema.define(version: 2020_10_22_204926) do
     t.string "name_fr"
     t.string "name_ja"
     t.string "name_ru"
-    t.string "name_zh"
     t.text "description_de"
     t.text "description_fr"
     t.text "description_ja"
     t.text "description_ru"
-    t.text "description_zh"
     t.string "name_ko"
     t.text "description_ko"
     t.index ["faction_id"], name: "index_eve_factions_on_faction_id", unique: true
@@ -591,7 +582,6 @@ ActiveRecord::Schema.define(version: 2020_10_22_204926) do
     t.string "name_fr"
     t.string "name_ja"
     t.string "name_ru"
-    t.string "name_zh"
     t.boolean "published"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -628,7 +618,6 @@ ActiveRecord::Schema.define(version: 2020_10_22_204926) do
     t.text "description_fr"
     t.text "description_ja"
     t.text "description_ru"
-    t.text "description_zh"
     t.text "description_ko"
     t.bigint "market_group_id"
     t.string "name_en"
@@ -636,7 +625,6 @@ ActiveRecord::Schema.define(version: 2020_10_22_204926) do
     t.string "name_fr"
     t.string "name_ja"
     t.string "name_ru"
-    t.string "name_zh"
     t.string "name_ko"
     t.bigint "parent_group_id"
     t.datetime "created_at", precision: 6, null: false
@@ -691,12 +679,10 @@ ActiveRecord::Schema.define(version: 2020_10_22_204926) do
     t.string "name_fr"
     t.string "name_ja"
     t.string "name_ru"
-    t.string "name_zh"
     t.text "description_de"
     t.text "description_fr"
     t.text "description_ja"
     t.text "description_ru"
-    t.text "description_zh"
     t.string "name_ko"
     t.text "description_ko"
     t.index ["race_id"], name: "index_eve_races_on_race_id", unique: true
@@ -709,14 +695,12 @@ ActiveRecord::Schema.define(version: 2020_10_22_204926) do
     t.string "name_fr"
     t.string "name_ja"
     t.string "name_ru"
-    t.string "name_zh"
     t.string "name_ko"
     t.text "description_en"
     t.text "description_de"
     t.text "description_fr"
     t.text "description_ja"
     t.text "description_ru"
-    t.text "description_zh"
     t.text "description_ko"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -805,7 +789,6 @@ ActiveRecord::Schema.define(version: 2020_10_22_204926) do
     t.string "name_fr"
     t.string "name_ja"
     t.string "name_ru"
-    t.string "name_zh"
     t.string "name_ko"
     t.index ["constellation_id"], name: "index_eve_systems_on_constellation_id"
     t.index ["star_id"], name: "index_eve_systems_on_star_id"
@@ -851,13 +834,11 @@ ActiveRecord::Schema.define(version: 2020_10_22_204926) do
     t.text "description_fr"
     t.text "description_ja"
     t.text "description_ru"
-    t.text "description_zh"
     t.text "description_ko"
     t.string "name_de"
     t.string "name_fr"
     t.string "name_ja"
     t.string "name_ru"
-    t.string "name_zh"
     t.string "name_ko"
     t.float "base_price"
     t.float "adjusted_price"
