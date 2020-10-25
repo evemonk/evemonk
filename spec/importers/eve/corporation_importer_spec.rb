@@ -10,15 +10,15 @@ describe Eve::CorporationImporter do
   it { should be_a(Eve::BaseImporter) }
 
   describe "#import!" do
+    let(:eve_corporation) { instance_double(Eve::Corporation) }
+
+    before do
+      expect(Eve::Corporation).to receive(:find_or_initialize_by)
+        .with(corporation_id: corporation_id)
+        .and_return(eve_corporation)
+    end
+
     context "when eve corporation found" do
-      let(:eve_corporation) { instance_double(Eve::Corporation) }
-
-      before do
-        expect(Eve::Corporation).to receive(:find_or_initialize_by)
-          .with(corporation_id: corporation_id)
-          .and_return(eve_corporation)
-      end
-
       let(:json) { double }
 
       let(:esi) { instance_double(EveOnline::ESI::Corporation, as_json: json) }
@@ -31,10 +31,6 @@ describe Eve::CorporationImporter do
     end
 
     context "when eve corporation not found" do
-      let(:eve_corporation) { instance_double(Eve::Corporation) }
-
-      before { expect(subject).to receive(:eve_corporation).and_return(eve_corporation).twice }
-
       before { expect(subject).to receive(:esi).and_raise(EveOnline::Exceptions::ResourceNotFound) }
 
       before { expect(eve_corporation).to receive(:destroy!) }
