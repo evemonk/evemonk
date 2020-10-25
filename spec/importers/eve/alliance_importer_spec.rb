@@ -36,7 +36,7 @@ describe Eve::AllianceImporter do
       specify { expect { subject.import! }.not_to raise_error }
     end
 
-    context "when alliance not found" do
+    context "when eve alliance not found" do
       before { expect(subject).to receive(:esi).and_raise(EveOnline::Exceptions::ResourceNotFound) }
 
       before { expect(eve_alliance).to receive(:destroy!) }

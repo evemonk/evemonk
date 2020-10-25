@@ -3,96 +3,59 @@
 require "rails_helper"
 
 describe Eve::CorporationImporter do
-  describe "#import" do
-    context "when fresh data available" do
-      context "when corporation found" do
-        let(:corporation_id) { double }
+  let(:corporation_id) { double }
 
-        subject { described_class.new(corporation_id) }
+  subject { described_class.new(corporation_id) }
 
-        let(:eve_corporation) { instance_double(Eve::Corporation) }
+  it { should be_a(Eve::BaseImporter) }
 
-        before { expect(Eve::Corporation).to receive(:find_or_initialize_by).with(corporation_id: corporation_id).and_return(eve_corporation) }
-
-        let(:json) { double }
-
-        let(:url) { double }
-
-        let(:new_etag) { double }
-
-        let(:response) { double }
-
-        let(:esi) do
-          instance_double(EveOnline::ESI::Corporation,
-            url: url,
-            not_modified?: false,
-            etag: new_etag,
-            as_json: json,
-            response: response)
-        end
-
-        before { expect(EveOnline::ESI::Corporation).to receive(:new).with(corporation_id: corporation_id).and_return(esi) }
-
-        let(:etag) { instance_double(Eve::Etag, etag: "68ad4a11893776c0ffc80845edeb2687c0122f56287d2aecadf8739b") }
-
-        before { expect(Eve::Etag).to receive(:find_or_initialize_by).with(url: url).and_return(etag) }
-
-        before { expect(esi).to receive(:etag=).with("68ad4a11893776c0ffc80845edeb2687c0122f56287d2aecadf8739b") }
-
-        before { expect(eve_corporation).to receive(:update!).with(json) }
-
-        before { expect(etag).to receive(:update!).with(etag: new_etag, body: response) }
-
-        specify { expect { subject.import }.not_to raise_error }
-      end
-
-      context "when corporation not found" do
-        let(:corporation_id) { double }
-
-        subject { described_class.new(corporation_id) }
-
-        let(:eve_corporation) { instance_double(Eve::Corporation) }
-
-        before { expect(Eve::Corporation).to receive(:find_or_initialize_by).with(corporation_id: corporation_id).and_return(eve_corporation) }
-
-        before { expect(EveOnline::ESI::Corporation).to receive(:new).and_raise(EveOnline::Exceptions::ResourceNotFound) }
-
-        before { expect(eve_corporation).to receive(:destroy!) }
-
-        specify { expect { subject.import }.not_to raise_error }
-      end
-    end
-
-    context "when no fresh data available" do
-      let(:corporation_id) { double }
-
-      subject { described_class.new(corporation_id) }
-
+  describe "#import!" do
+    context "when eve corporation found" do
       let(:eve_corporation) { instance_double(Eve::Corporation) }
 
-      before { expect(Eve::Corporation).to receive(:find_or_initialize_by).with(corporation_id: corporation_id).and_return(eve_corporation) }
+      before { expect(subject).to receive(:eve_corporation).and_return(eve_corporation) }
 
-      let(:url) { double }
+      let(:json) { double }
 
-      let(:esi) do
-        instance_double(EveOnline::ESI::Corporation,
-          url: url,
-          not_modified?: true)
-      end
+      let(:esi) { instance_double(EveOnline::ESI::Corporation, as_json: json) }
+
+      before { expect(subject).to receive(:esi).and_return(esi) }
+
+      before { expect(eve_corporation).to receive(:update!).with(json) }
+
+      specify { expect { subject.import! }.not_to raise_error }
+    end
+
+    context "when eve corporation not found" do
+      let(:eve_corporation) { instance_double(Eve::Corporation) }
+
+      before { expect(subject).to receive(:eve_corporation).and_return(eve_corporation).twice }
+
+      before { expect(subject).to receive(:esi).and_raise(EveOnline::Exceptions::ResourceNotFound) }
+
+      before { expect(eve_corporation).to receive(:destroy!) }
+
+      specify { expect { subject.import! }.not_to raise_error }
+    end
+  end
+
+  describe "#esi" do
+    context "when @esi is set" do
+      let(:esi) { instance_double(EveOnline::ESI::Corporation) }
+
+      before { subject.instance_variable_set(:@esi, esi) }
+
+      specify { expect(subject.esi).to eq(esi) }
+    end
+
+    context "when @esi not set" do
+      let(:esi) { instance_double(EveOnline::ESI::Corporation) }
 
       before { expect(EveOnline::ESI::Corporation).to receive(:new).with(corporation_id: corporation_id).and_return(esi) }
 
-      let(:etag) { instance_double(Eve::Etag, etag: "68ad4a11893776c0ffc80845edeb2687c0122f56287d2aecadf8739b") }
+      specify { expect(subject.esi).to eq(esi) }
 
-      before { expect(Eve::Etag).to receive(:find_or_initialize_by).with(url: url).and_return(etag) }
-
-      before { expect(esi).to receive(:etag=).with("68ad4a11893776c0ffc80845edeb2687c0122f56287d2aecadf8739b") }
-
-      before { expect(eve_corporation).not_to receive(:update!) }
-
-      before { expect(etag).not_to receive(:update!) }
-
-      specify { expect { subject.import }.not_to raise_error }
+      specify { expect { subject.esi }.to change { subject.instance_variable_get(:@esi) }.from(nil).to(esi) }
     end
   end
 end
