@@ -7,116 +7,70 @@ describe Eve::AllianceCorporationsImporter do
 
   subject { described_class.new(alliance_id) }
 
+  it { should be_a(Eve::BaseImporter) }
+
   describe "#initialize" do
     let(:esi) { instance_double(EveOnline::ESI::AllianceCorporations) }
 
-    before do
-      expect(EveOnline::ESI::AllianceCorporations).to receive(:new)
-        .with(alliance_id: alliance_id)
-        .and_return(esi)
-    end
-
     its(:alliance_id) { should eq(alliance_id) }
-
-    its(:esi) { should eq(esi) }
   end
 
-  describe "#import" do
-    context "when fresh data available" do
-      let(:etag) do
-        instance_double(Eve::Etag,
-          etag: "97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a")
-      end
-
-      let(:new_etag) { double }
-
-      let(:response) { double }
-
-      let(:esi) do
-        instance_double(EveOnline::ESI::AllianceCorporations,
-          not_modified?: false,
-          etag: new_etag,
-          response: response)
-      end
-
-      before do
-        expect(EveOnline::ESI::AllianceCorporations).to receive(:new)
-          .with(alliance_id: alliance_id)
-          .and_return(esi)
-      end
-
-      before do
-        expect(subject).to receive(:etag)
-          .and_return(etag)
-          .twice
-      end
-
-      before do
-        expect(esi).to receive(:etag=)
-          .with("97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a")
-      end
-
+  describe "#import!" do
+    context "when eve alliance found" do
       before { expect(subject).to receive(:import_new_corporations) }
 
       before { expect(subject).to receive(:remove_old_corporations) }
 
-      before { expect(etag).to receive(:update!).with(etag: new_etag, body: response) }
-
-      specify { expect { subject.import }.not_to raise_error }
+      specify { expect { subject.import! }.not_to raise_error }
     end
 
-    context "when no fresh data available" do
-      let(:etag) do
-        instance_double(Eve::Etag,
-          etag: "97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a")
-      end
-
-      let(:esi) do
-        instance_double(EveOnline::ESI::AllianceCorporations,
-          not_modified?: true)
-      end
-
-      before do
-        expect(EveOnline::ESI::AllianceCorporations).to receive(:new)
-          .with(alliance_id: alliance_id)
-          .and_return(esi)
-      end
-
-      before { expect(subject).to receive(:etag).and_return(etag) }
-
-      before do
-        expect(esi).to receive(:etag=)
-          .with("97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a")
-      end
-
-      before { expect(subject).not_to receive(:import_new_corporations) }
-
-      before { expect(subject).not_to receive(:remove_old_corporations) }
-
-      before { expect(etag).not_to receive(:update!) }
-
-      specify { expect { subject.import }.not_to raise_error }
-    end
-
-    context "when alliance not found" do
-      before do
-        expect(subject).to receive(:etag)
-          .and_raise(ActiveRecord::RecordNotFound)
-      end
+    context "when ActiveRecord::RecordNotFound" do
+      before { expect(subject).to receive(:import_new_corporations).and_raise(ActiveRecord::RecordNotFound) }
 
       before do
         #
-        # Rails.logger.info("Alliance with ID #{ alliance_id } not found")
+        # Rails.logger.info("Alliance with ID #{alliance_id} not found")
         #
         expect(Rails).to receive(:logger) do
           double.tap do |a|
-            expect(a).to receive(:info)
-              .with("Alliance with ID #{alliance_id} not found")
+            expect(a).to receive(:info).with("Alliance with ID #{alliance_id} not found")
           end
         end
       end
 
-      specify { expect { subject.import }.not_to raise_error }
+      specify { expect { subject.import! }.not_to raise_error }
+    end
+
+    context "when eve alliance not found" do
+      let(:eve_alliance) { instance_double(Eve::Alliance) }
+
+      before { expect(subject).to receive(:eve_alliance).and_return(eve_alliance) }
+
+      before { expect(subject).to receive(:import_new_corporations).and_raise(EveOnline::Exceptions::ResourceNotFound) }
+
+      before { expect(eve_alliance).to receive(:destroy!) }
+
+      specify { expect { subject.import! }.not_to raise_error }
+    end
+  end
+
+  describe "#esi" do
+    context "when @esi is set" do
+      let(:esi) { instance_double(EveOnline::ESI::AllianceCorporations) }
+
+      before { subject.instance_variable_set(:@esi, esi) }
+
+      specify { expect(subject.esi).to eq(esi) }
+    end
+
+    context "when @esi not set" do
+      let(:esi) { instance_double(EveOnline::ESI::AllianceCorporations) }
+
+      before { expect(EveOnline::ESI::AllianceCorporations).to receive(:new).with(alliance_id: alliance_id).and_return(esi) }
+
+      specify { expect(subject.esi).to eq(esi) }
+
+      specify { expect { subject.esi }.to change { subject.instance_variable_get(:@esi) }.from(nil).to(esi) }
     end
   end
 
@@ -221,43 +175,6 @@ describe Eve::AllianceCorporationsImporter do
     end
 
     specify { expect { subject.send(:remove_old_corporations) }.not_to raise_error }
-  end
-
-  describe "#etag" do
-    context "when @etag set" do
-      let(:etag) { instance_double(Eve::Etag) }
-
-      before { subject.instance_variable_set(:@etag, etag) }
-
-      specify { expect(subject.send(:etag)).to eq(etag) }
-    end
-
-    context "when @etag not set" do
-      let(:url) { double }
-
-      let(:esi) do
-        instance_double(EveOnline::ESI::AllianceCorporations,
-          url: url)
-      end
-
-      let(:etag) { instance_double(Eve::Etag) }
-
-      before do
-        expect(EveOnline::ESI::AllianceCorporations).to receive(:new)
-          .with(alliance_id: alliance_id)
-          .and_return(esi)
-      end
-
-      before do
-        expect(Eve::Etag).to receive(:find_or_initialize_by)
-          .with(url: url)
-          .and_return(etag)
-      end
-
-      specify { expect { subject.send(:etag) }.not_to raise_error }
-
-      specify { expect { subject.send(:etag) }.to change { subject.instance_variable_get(:@etag) }.from(nil).to(etag) }
-    end
   end
 
   describe "#eve_alliance" do

@@ -1,31 +1,23 @@
 # frozen_string_literal: true
 
 module Eve
-  class CorporationImporter
+  class CorporationImporter < BaseImporter
     attr_reader :corporation_id
 
     def initialize(corporation_id)
       @corporation_id = corporation_id
     end
 
-    def import
-      ActiveRecord::Base.transaction do
-        eve_corporation = Eve::Corporation.find_or_initialize_by(corporation_id: corporation_id)
+    def import!
+      eve_corporation = Eve::Corporation.find_or_initialize_by(corporation_id: corporation_id)
 
-        esi = EveOnline::ESI::Corporation.new(corporation_id: corporation_id)
+      eve_corporation.update!(esi.as_json)
+    rescue EveOnline::Exceptions::ResourceNotFound
+      eve_corporation.destroy!
+    end
 
-        etag = Eve::Etag.find_or_initialize_by(url: esi.url)
-
-        esi.etag = etag.etag
-
-        return if esi.not_modified?
-
-        eve_corporation.update!(esi.as_json)
-
-        etag.update!(etag: esi.etag, body: esi.response)
-      rescue EveOnline::Exceptions::ResourceNotFound
-        eve_corporation.destroy!
-      end
+    def esi
+      @esi ||= EveOnline::ESI::Corporation.new(corporation_id: corporation_id)
     end
   end
 end

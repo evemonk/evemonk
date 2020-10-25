@@ -12,7 +12,6 @@ module Eve
       name_fr: Field::String,
       name_ja: Field::String,
       name_ru: Field::String,
-      name_zh: Field::String,
       name_ko: Field::String,
       constellation: Field::BelongsTo.with_options(class_name: "Eve::Constellation"),
       star_id: Field::Number, # TODO: add star dashboard
@@ -38,7 +37,6 @@ module Eve
       :name_fr,
       :name_ja,
       :name_ru,
-      :name_zh,
       :name_ko,
       :constellation,
       :star_id,

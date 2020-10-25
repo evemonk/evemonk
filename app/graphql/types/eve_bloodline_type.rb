@@ -29,7 +29,6 @@ module Types
         fr: object.name_fr,
         ja: object.name_ja,
         ru: object.name_ru,
-        zh: object.name_zh,
         ko: object.name_ko
       }
     end
@@ -41,7 +40,6 @@ module Types
         fr: object.description_fr,
         ja: object.description_ja,
         ru: object.description_ru,
-        zh: object.description_zh,
         ko: object.description_ko
       }
     end

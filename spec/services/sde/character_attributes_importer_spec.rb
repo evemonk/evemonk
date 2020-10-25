@@ -34,8 +34,6 @@ describe Sde::CharacterAttributesImporter do
 
     let(:name_ru) { double }
 
-    let(:name_zh) { double }
-
     let(:notes) { double }
 
     let(:short_description) { double }
@@ -50,8 +48,7 @@ describe Sde::CharacterAttributesImporter do
           "fr" => name_fr,
           "ja" => name_ja,
           "ko" => name_ko,
-          "ru" => name_ru,
-          "zh" => name_zh
+          "ru" => name_ru
         },
         "notes" => notes,
         "shortDescription" => short_description
@@ -73,7 +70,6 @@ describe Sde::CharacterAttributesImporter do
                                                                           name_ja: name_ja,
                                                                           name_ko: name_ko,
                                                                           name_ru: name_ru,
-                                                                          name_zh: name_zh,
                                                                           description: description,
                                                                           icon_id: icon_id,
                                                                           notes: notes,

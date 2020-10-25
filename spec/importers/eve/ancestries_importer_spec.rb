@@ -17,68 +17,43 @@ describe Eve::AncestriesImporter do
     end
   end
 
-  describe "#import" do
-    context "when fresh data available" do
-      let(:url) { double }
+  describe "#import!" do
+    let(:ancestry_id) { double }
 
-      let(:new_etag) { double }
+    let(:as_json) { double }
 
-      let(:response) { double }
+    let(:ancestry) { instance_double(EveOnline::ESI::Models::Ancestry, ancestry_id: ancestry_id, as_json: as_json) }
 
-      let(:ancestry_id) { double }
+    let(:esi) { instance_double(EveOnline::ESI::UniverseAncestries, ancestries: [ancestry]) }
 
-      let(:as_json) { double }
+    before { expect(subject).to receive(:esi).and_return(esi) }
 
-      let(:ancestry) { instance_double(EveOnline::ESI::Models::Ancestry, ancestry_id: ancestry_id, as_json: as_json) }
+    let(:eve_ancestry) { instance_double(Eve::Ancestry) }
 
-      let(:esi) do
-        instance_double(EveOnline::ESI::UniverseAncestries,
-          not_modified?: false,
-          url: url,
-          etag: new_etag,
-          ancestries: [ancestry],
-          response: response)
-      end
+    before { expect(Eve::Ancestry).to receive(:find_or_initialize_by).with(ancestry_id: ancestry_id).and_return(eve_ancestry) }
 
-      before { expect(EveOnline::ESI::UniverseAncestries).to receive(:new).with(language: "en-us").and_return(esi) }
+    before { expect(eve_ancestry).to receive(:update!).with(as_json) }
 
-      let(:etag) { instance_double(Eve::Etag, etag: "e3f6a76b4a1287f54966c6253f8f5d6ac6460bc43d47570331b43e0b") }
+    specify { expect { subject.import! }.not_to raise_error }
+  end
 
-      before { expect(Eve::Etag).to receive(:find_or_initialize_by).with(url: url).and_return(etag) }
+  describe "#esi" do
+    context "when @esi is set" do
+      let(:esi) { instance_double(EveOnline::ESI::UniverseAncestries) }
 
-      before { expect(esi).to receive(:etag=).with("e3f6a76b4a1287f54966c6253f8f5d6ac6460bc43d47570331b43e0b") }
+      before { subject.instance_variable_set(:@esi, esi) }
 
-      let(:eve_ancestry) { instance_double(Eve::Ancestry) }
-
-      before { expect(Eve::Ancestry).to receive(:find_or_initialize_by).with(ancestry_id: ancestry_id).and_return(eve_ancestry) }
-
-      before { expect(eve_ancestry).to receive(:update!).with(as_json) }
-
-      before { expect(etag).to receive(:update!).with(etag: new_etag, body: response) }
-
-      specify { expect { subject.import }.not_to raise_error }
+      specify { expect(subject.esi).to eq(esi) }
     end
 
-    context "when no fresh data available" do
-      let(:url) { double }
-
-      let(:esi) do
-        instance_double(EveOnline::ESI::UniverseAncestries,
-          not_modified?: true,
-          url: url)
-      end
+    context "when @esi not set" do
+      let(:esi) { instance_double(EveOnline::ESI::UniverseAncestries) }
 
       before { expect(EveOnline::ESI::UniverseAncestries).to receive(:new).with(language: "en-us").and_return(esi) }
 
-      let(:etag) { instance_double(Eve::Etag, etag: "e3f6a76b4a1287f54966c6253f8f5d6ac6460bc43d47570331b43e0b") }
+      specify { expect(subject.esi).to eq(esi) }
 
-      before { expect(Eve::Etag).to receive(:find_or_initialize_by).with(url: url).and_return(etag) }
-
-      before { expect(esi).to receive(:etag=).with("e3f6a76b4a1287f54966c6253f8f5d6ac6460bc43d47570331b43e0b") }
-
-      before { expect(Eve::Ancestry).not_to receive(:find_or_initialize_by) }
-
-      specify { expect { subject.import }.not_to raise_error }
+      specify { expect { subject.esi }.to change { subject.instance_variable_get(:@esi) }.from(nil).to(esi) }
     end
   end
 end

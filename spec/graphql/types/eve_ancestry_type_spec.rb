@@ -32,14 +32,12 @@ describe Types::EveAncestryType do
         name_fr: "FR: name 1",
         name_ja: "JA: name 1",
         name_ru: "RU: name 1",
-        name_zh: "ZH: name 1",
         name_ko: "KO: name 1",
         description_en: "EN: description 1",
         description_de: "DE: description 1",
         description_fr: "FR: description 1",
         description_ja: "JA: description 1",
         description_ru: "RU: description 1",
-        description_zh: "ZH: description 1",
         description_ko: "KO: description 1",
         short_description: "Short description 1",
         bloodline: eve_bloodline1,
@@ -54,14 +52,12 @@ describe Types::EveAncestryType do
         name_fr: "FR: name 2",
         name_ja: "JA: name 2",
         name_ru: "RU: name 2",
-        name_zh: "ZH: name 2",
         name_ko: "KO: name 2",
         description_en: "EN: description 2",
         description_de: "DE: description 2",
         description_fr: "FR: description 2",
         description_ja: "JA: description 2",
         description_ru: "RU: description 2",
-        description_zh: "ZH: description 2",
         description_ko: "KO: description 2",
         short_description: "Short description 2",
         bloodline: eve_bloodline2,
@@ -115,7 +111,6 @@ describe Types::EveAncestryType do
                   "fr" => "FR: name 1",
                   "ja" => "JA: name 1",
                   "ru" => "RU: name 1",
-                  "zh" => "ZH: name 1",
                   "ko" => "KO: name 1"
                 },
                 "description" => {
@@ -124,7 +119,6 @@ describe Types::EveAncestryType do
                   "fr" => "FR: description 1",
                   "ja" => "JA: description 1",
                   "ru" => "RU: description 1",
-                  "zh" => "ZH: description 1",
                   "ko" => "KO: description 1"
                 },
                 "bloodlineId" => 10,
@@ -148,7 +142,6 @@ describe Types::EveAncestryType do
                   "fr" => "FR: name 2",
                   "ja" => "JA: name 2",
                   "ru" => "RU: name 2",
-                  "zh" => "ZH: name 2",
                   "ko" => "KO: name 2"
                 },
                 "description" => {
@@ -157,7 +150,6 @@ describe Types::EveAncestryType do
                   "fr" => "FR: description 2",
                   "ja" => "JA: description 2",
                   "ru" => "RU: description 2",
-                  "zh" => "ZH: description 2",
                   "ko" => "KO: description 2"
                 },
                 "bloodlineId" => 20,
@@ -203,14 +195,12 @@ describe Types::EveAncestryType do
         name_fr: "FR: name 1",
         name_ja: "JA: name 1",
         name_ru: "RU: name 1",
-        name_zh: "ZH: name 1",
         name_ko: "KO: name 1",
         description_en: "EN: description 1",
         description_de: "DE: description 1",
         description_fr: "FR: description 1",
         description_ja: "JA: description 1",
         description_ru: "RU: description 1",
-        description_zh: "ZH: description 1",
         description_ko: "KO: description 1",
         short_description: "Short description 1",
         bloodline: eve_bloodline,
@@ -250,7 +240,6 @@ describe Types::EveAncestryType do
             "fr" => "FR: name 1",
             "ja" => "JA: name 1",
             "ru" => "RU: name 1",
-            "zh" => "ZH: name 1",
             "ko" => "KO: name 1"
           },
           "description" => {
@@ -259,7 +248,6 @@ describe Types::EveAncestryType do
             "fr" => "FR: description 1",
             "ja" => "JA: description 1",
             "ru" => "RU: description 1",
-            "zh" => "ZH: description 1",
             "ko" => "KO: description 1"
           },
           "bloodlineId" => 10,
