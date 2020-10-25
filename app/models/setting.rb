@@ -13,6 +13,8 @@ class Setting < RailsSettings::Base
 
   field :google_site_verification_token
 
+  field :use_plausible_evemonk, type: :boolean, default: false
+
   field :enabled_assets, type: :boolean, default: false
 
   field :enabled_skillqueue, type: :boolean, default: false
