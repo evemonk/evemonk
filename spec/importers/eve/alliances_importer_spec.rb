@@ -13,6 +13,26 @@ describe Eve::AlliancesImporter do
     specify { expect { subject.import! }.not_to raise_error }
   end
 
+  describe "#esi" do
+    context "when @esi is set" do
+      let(:esi) { instance_double(EveOnline::ESI::Alliances) }
+
+      before { subject.instance_variable_set(:@esi, esi) }
+
+      specify { expect(subject.esi).to eq(esi) }
+    end
+
+    context "when @esi not set" do
+      let(:esi) { instance_double(EveOnline::ESI::Alliances) }
+
+      before { expect(EveOnline::ESI::Alliances).to receive(:new).and_return(esi) }
+
+      specify { expect(subject.esi).to eq(esi) }
+
+      specify { expect { subject.esi }.to change { subject.instance_variable_get(:@esi) }.from(nil).to(esi) }
+    end
+  end
+
   # private methods
 
   describe "#import_new_alliances" do
@@ -27,7 +47,7 @@ describe Eve::AlliancesImporter do
         alliance_ids: alliance_ids)
     end
 
-    before { expect(EveOnline::ESI::Alliances).to receive(:new).and_return(esi) }
+    before { expect(subject).to receive(:esi).and_return(esi) }
 
     let(:eve_alliance_id_to_create) { double }
 
@@ -50,7 +70,7 @@ describe Eve::AlliancesImporter do
         alliance_ids: alliance_ids)
     end
 
-    before { expect(EveOnline::ESI::Alliances).to receive(:new).and_return(esi) }
+    before { expect(subject).to receive(:esi).and_return(esi) }
 
     let(:eve_alliance_ids) { double }
 
