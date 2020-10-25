@@ -20,7 +20,6 @@ module Types
         fr: object.name_fr,
         ja: object.name_ja,
         ru: object.name_ru,
-        zh: object.name_zh,
         ko: object.name_ko
       }
     end
