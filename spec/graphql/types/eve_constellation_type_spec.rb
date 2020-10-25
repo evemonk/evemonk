@@ -34,7 +34,6 @@ describe Types::EveConstellationType do
         name_fr: "FR: name 1",
         name_ja: "JA: name 1",
         name_ru: "RU: name 1",
-        name_zh: "ZH: name 1",
         name_ko: "KO: name 1",
         region: eve_region1)
     end
@@ -47,7 +46,6 @@ describe Types::EveConstellationType do
         name_fr: "FR: name 2",
         name_ja: "JA: name 2",
         name_ru: "RU: name 2",
-        name_zh: "ZH: name 2",
         name_ko: "KO: name 2",
         region: eve_region2)
     end
@@ -107,7 +105,6 @@ describe Types::EveConstellationType do
                   "fr" => "FR: name 1",
                   "ja" => "JA: name 1",
                   "ru" => "RU: name 1",
-                  "zh" => "ZH: name 1",
                   "ko" => "KO: name 1"
                 },
                 "regionId" => 400,
@@ -142,7 +139,6 @@ describe Types::EveConstellationType do
                   "fr" => "FR: name 2",
                   "ja" => "JA: name 2",
                   "ru" => "RU: name 2",
-                  "zh" => "ZH: name 2",
                   "ko" => "KO: name 2"
                 },
                 "regionId" => 500,
@@ -200,7 +196,6 @@ describe Types::EveConstellationType do
         name_fr: "FR: name 1",
         name_ja: "JA: name 1",
         name_ru: "RU: name 1",
-        name_zh: "ZH: name 1",
         name_ko: "KO: name 1",
         region: eve_region)
     end
@@ -246,7 +241,6 @@ describe Types::EveConstellationType do
             "fr" => "FR: name 1",
             "ja" => "JA: name 1",
             "ru" => "RU: name 1",
-            "zh" => "ZH: name 1",
             "ko" => "KO: name 1"
           },
           "regionId" => 400,
