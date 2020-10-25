@@ -26,7 +26,7 @@ describe Eve::AncestriesImporter do
 
     let(:esi) { instance_double(EveOnline::ESI::UniverseAncestries, ancestries: [ancestry]) }
 
-    before { expect(EveOnline::ESI::UniverseAncestries).to receive(:new).with(language: "en-us").and_return(esi) }
+    before { expect(subject).to receive(:esi).and_return(esi) }
 
     let(:eve_ancestry) { instance_double(Eve::Ancestry) }
 

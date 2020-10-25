@@ -17,68 +17,43 @@ describe Eve::BloodlinesImporter do
     end
   end
 
-  describe "#import" do
-    context "when fresh data available" do
-      let(:url) { double }
+  describe "#import!" do
+    let(:bloodline_id) { double }
 
-      let(:new_etag) { double }
+    let(:as_json) { double }
 
-      let(:response) { double }
+    let(:bloodline) { instance_double(EveOnline::ESI::Models::Bloodline, bloodline_id: bloodline_id, as_json: as_json) }
 
-      let(:bloodline_id) { double }
+    let(:esi) { instance_double(EveOnline::ESI::UniverseBloodlines, bloodlines: [bloodline]) }
 
-      let(:as_json) { double }
+    before { expect(subject).to receive(:esi).and_return(esi) }
 
-      let(:bloodline) { instance_double(EveOnline::ESI::Models::Bloodline, bloodline_id: bloodline_id, as_json: as_json) }
+    let(:eve_bloodline) { instance_double(Eve::Bloodline) }
 
-      let(:esi) do
-        instance_double(EveOnline::ESI::UniverseBloodlines,
-          not_modified?: false,
-          url: url,
-          etag: new_etag,
-          bloodlines: [bloodline],
-          response: response)
-      end
+    before { expect(Eve::Bloodline).to receive(:find_or_initialize_by).with(bloodline_id: bloodline_id).and_return(eve_bloodline) }
 
-      before { expect(EveOnline::ESI::UniverseBloodlines).to receive(:new).with(language: "en-us").and_return(esi) }
+    before { expect(eve_bloodline).to receive(:update!).with(as_json) }
 
-      let(:etag) { instance_double(Eve::Etag, etag: "e3f6a76b4a1287f54966c6253f8f5d6ac6460bc43d47570331b43e0b") }
+    specify { expect { subject.import! }.not_to raise_error }
+  end
 
-      before { expect(Eve::Etag).to receive(:find_or_initialize_by).with(url: url).and_return(etag) }
+  describe "#esi" do
+    context "when @esi is set" do
+      let(:esi) { instance_double(EveOnline::ESI::UniverseBloodlines) }
 
-      before { expect(esi).to receive(:etag=).with("e3f6a76b4a1287f54966c6253f8f5d6ac6460bc43d47570331b43e0b") }
+      before { subject.instance_variable_set(:@esi, esi) }
 
-      let(:eve_bloodline) { instance_double(Eve::Bloodline) }
-
-      before { expect(Eve::Bloodline).to receive(:find_or_initialize_by).with(bloodline_id: bloodline_id).and_return(eve_bloodline) }
-
-      before { expect(eve_bloodline).to receive(:update!).with(as_json) }
-
-      before { expect(etag).to receive(:update!).with(etag: new_etag, body: response) }
-
-      specify { expect { subject.import }.not_to raise_error }
+      specify { expect(subject.esi).to eq(esi) }
     end
 
-    context "when no fresh data available" do
-      let(:url) { double }
-
-      let(:esi) do
-        instance_double(EveOnline::ESI::UniverseBloodlines,
-          not_modified?: true,
-          url: url)
-      end
+    context "when @esi not set" do
+      let(:esi) { instance_double(EveOnline::ESI::UniverseBloodlines) }
 
       before { expect(EveOnline::ESI::UniverseBloodlines).to receive(:new).with(language: "en-us").and_return(esi) }
 
-      let(:etag) { instance_double(Eve::Etag, etag: "e3f6a76b4a1287f54966c6253f8f5d6ac6460bc43d47570331b43e0b") }
+      specify { expect(subject.esi).to eq(esi) }
 
-      before { expect(Eve::Etag).to receive(:find_or_initialize_by).with(url: url).and_return(etag) }
-
-      before { expect(esi).to receive(:etag=).with("e3f6a76b4a1287f54966c6253f8f5d6ac6460bc43d47570331b43e0b") }
-
-      before { expect(Eve::Bloodline).not_to receive(:find_or_initialize_by) }
-
-      specify { expect { subject.import }.not_to raise_error }
+      specify { expect { subject.esi }.to change { subject.instance_variable_get(:@esi) }.from(nil).to(esi) }
     end
   end
 end
