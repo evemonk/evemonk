@@ -15,10 +15,10 @@ Rails.application.config.content_security_policy do |policy|
   policy.style_src :self, :unsafe_inline, "https://fonts.googleapis.com"
   # TODO: https://bugs.webkit.org/show_bug.cgi?id=201591
   # policy.connect_src :self, "https://sentry.io" if Rails.env.production?
-  policy.connect_src :self, :wss, "https://sentry.io" if Rails.env.production?
+  policy.connect_src :self, :wss, "https://sentry.io", "https://plausible.evemonk.com" if Rails.env.production?
 
   # If you are using webpack-dev-server then specify webpack-dev-server host
-  policy.connect_src :self, :https, "https://sentry.io", "http://localhost:3035", "ws://localhost:3035", "ws://localhost:3000" if Rails.env.development?
+  policy.connect_src :self, :https, "https://sentry.io", "https://plausible.evemonk.com", "http://localhost:3035", "ws://localhost:3035", "ws://localhost:3000" if Rails.env.development?
 
   # Specify URI for violation reports
   # policy.report_uri "/csp-violation-report-endpoint"
