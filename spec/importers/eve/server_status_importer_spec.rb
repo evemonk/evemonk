@@ -3,60 +3,37 @@
 require "rails_helper"
 
 describe Eve::ServerStatusImporter do
-  describe "#import" do
-    context "when fresh data available" do
-      let(:url) { double }
+  it { should be_a(Eve::BaseImporter) }
 
-      let(:new_etag) { double }
+  describe "#import!" do
+    let(:as_json) { double }
 
-      let(:as_json) { double }
+    let(:esi) { instance_double(EveOnline::ESI::ServerStatus, as_json: as_json) }
 
-      let(:response) { double }
+    before { expect(subject).to receive(:esi).and_return(esi) }
 
-      let(:esi) do
-        instance_double(EveOnline::ESI::ServerStatus,
-          not_modified?: false,
-          url: url,
-          etag: new_etag,
-          as_json: as_json,
-          response: response)
-      end
+    before { expect(Eve::ServerStatus).to receive(:create!).with(as_json) }
 
-      before { expect(EveOnline::ESI::ServerStatus).to receive(:new).and_return(esi) }
+    specify { expect { subject.import! }.not_to raise_error }
+  end
 
-      let(:etag) { instance_double(Eve::Etag, etag: "e3f6a76b4a1287f54966c6253f8f5d6ac6460bc43d47570331b43e0b") }
+  describe "#esi" do
+    context "when @esi is set" do
+      let(:esi) { instance_double(EveOnline::ESI::ServerStatus) }
 
-      before { expect(Eve::Etag).to receive(:find_or_initialize_by).with(url: url).and_return(etag) }
+      before { subject.instance_variable_set(:@esi, esi) }
 
-      before { expect(esi).to receive(:etag=).with("e3f6a76b4a1287f54966c6253f8f5d6ac6460bc43d47570331b43e0b") }
-
-      before { expect(Eve::ServerStatus).to receive(:create!).with(as_json) }
-
-      before { expect(etag).to receive(:update!).with(etag: new_etag, body: response) }
-
-      specify { expect { subject.import }.not_to raise_error }
+      specify { expect(subject.esi).to eq(esi) }
     end
 
-    context "when no fresh data available" do
-      let(:url) { double }
-
-      let(:esi) do
-        instance_double(EveOnline::ESI::ServerStatus,
-          not_modified?: true,
-          url: url)
-      end
+    context "when @esi not set" do
+      let(:esi) { instance_double(EveOnline::ESI::ServerStatus) }
 
       before { expect(EveOnline::ESI::ServerStatus).to receive(:new).and_return(esi) }
 
-      let(:etag) { instance_double(Eve::Etag, etag: "e3f6a76b4a1287f54966c6253f8f5d6ac6460bc43d47570331b43e0b") }
+      specify { expect(subject.esi).to eq(esi) }
 
-      before { expect(Eve::Etag).to receive(:find_or_initialize_by).with(url: url).and_return(etag) }
-
-      before { expect(esi).to receive(:etag=).with("e3f6a76b4a1287f54966c6253f8f5d6ac6460bc43d47570331b43e0b") }
-
-      before { expect(Eve::ServerStatus).not_to receive(:create!) }
-
-      specify { expect { subject.import }.not_to raise_error }
+      specify { expect { subject.esi }.to change { subject.instance_variable_get(:@esi) }.from(nil).to(esi) }
     end
   end
 end
