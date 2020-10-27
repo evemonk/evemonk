@@ -1,25 +1,15 @@
 # frozen_string_literal: true
 
 module Eve
-  class CategoriesImporter
-    attr_reader :esi
-
-    def initialize
-      @esi = EveOnline::ESI::UniverseCategories.new
-    end
-
-    def import
-      etag = Eve::Etag.find_or_initialize_by(url: esi.url)
-
-      esi.etag = etag.etag
-
-      return if esi.not_modified?
-
+  class CategoriesImporter < BaseImporter
+    def import!
       import_new_categories
 
       remove_old_categories
+    end
 
-      etag.update!(etag: esi.etag, body: esi.response)
+    def esi
+      @esi ||= EveOnline::ESI::UniverseCategories.new
     end
 
     private
