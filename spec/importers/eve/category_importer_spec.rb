@@ -3,20 +3,20 @@
 require "rails_helper"
 
 describe Eve::CategoryImporter do
+  let(:category_id) { double }
+
+  subject { described_class.new(category_id) }
+
+  it { should be_a(Eve::BaseImporter) }
+
   describe "#initialize" do
     context "without locale" do
-      let(:category_id) { double }
-
-      subject { described_class.new(category_id) }
-
       its(:category_id) { should eq(category_id) }
 
       its(:locale) { should eq(:en) }
     end
 
     context "with locale" do
-      let(:category_id) { double }
-
       let(:locale) { :ru }
 
       subject { described_class.new(category_id, locale) }
@@ -27,96 +27,53 @@ describe Eve::CategoryImporter do
     end
   end
 
-  describe "#import" do
-    context "when fresh data available" do
-      context "when category found" do
-        let(:category_id) { double }
+  describe "#esi" do
+    context "when @esi is set" do
+      let(:esi) { instance_double(EveOnline::ESI::UniverseCategory) }
 
-        subject { described_class.new(category_id) }
+      before { subject.instance_variable_set(:@esi, esi) }
 
-        let(:eve_category) { instance_double(Eve::Category) }
-
-        before { expect(Eve::Category).to receive(:find_or_initialize_by).with(category_id: category_id).and_return(eve_category) }
-
-        let(:json) { double }
-
-        let(:url) { double }
-
-        let(:new_etag) { double }
-
-        let(:response) { double }
-
-        let(:esi) do
-          instance_double(EveOnline::ESI::UniverseCategory,
-            url: url,
-            not_modified?: false,
-            etag: new_etag,
-            response: response,
-            as_json: json)
-        end
-
-        before { expect(EveOnline::ESI::UniverseCategory).to receive(:new).with(id: category_id, language: "en-us").and_return(esi) }
-
-        let(:etag) { instance_double(Eve::Etag, etag: "6780e53a01c7d9715b5f445126c4f2c137da4be79e4debe541ce3ab2") }
-
-        before { expect(Eve::Etag).to receive(:find_or_initialize_by).with(url: url).and_return(etag) }
-
-        before { expect(esi).to receive(:etag=).with("6780e53a01c7d9715b5f445126c4f2c137da4be79e4debe541ce3ab2") }
-
-        before { expect(eve_category).to receive(:update!).with(json) }
-
-        before { expect(etag).to receive(:update!).with(etag: new_etag, body: response) }
-
-        specify { expect { subject.import }.not_to raise_error }
-      end
-
-      context "when category not found" do
-        let(:category_id) { double }
-
-        subject { described_class.new(category_id) }
-
-        let(:eve_category) { instance_double(Eve::Category) }
-
-        before { expect(Eve::Category).to receive(:find_or_initialize_by).with(category_id: category_id).and_return(eve_category) }
-
-        before { expect(EveOnline::ESI::UniverseCategory).to receive(:new).with(id: category_id, language: "en-us").and_raise(EveOnline::Exceptions::ResourceNotFound) }
-
-        before { expect(eve_category).to receive(:destroy!) }
-
-        specify { expect { subject.import }.not_to raise_error }
-      end
+      specify { expect(subject.esi).to eq(esi) }
     end
 
-    context "when no fresh data available" do
-      let(:category_id) { double }
+    context "when @esi not set" do
+      let(:esi) { instance_double(EveOnline::ESI::UniverseCategory) }
 
-      subject { described_class.new(category_id) }
+      before { expect(EveOnline::ESI::UniverseCategory).to receive(:new).with(id: category_id, language: "en-us").and_return(esi) }
 
+      specify { expect(subject.esi).to eq(esi) }
+
+      specify { expect { subject.esi }.to change { subject.instance_variable_get(:@esi) }.from(nil).to(esi) }
+    end
+  end
+
+  describe "#import!" do
+    context "when eve category found" do
       let(:eve_category) { instance_double(Eve::Category) }
 
       before { expect(Eve::Category).to receive(:find_or_initialize_by).with(category_id: category_id).and_return(eve_category) }
 
-      let(:url) { double }
+      let(:json) { double }
 
-      let(:esi) do
-        instance_double(EveOnline::ESI::UniverseCategory,
-          url: url,
-          not_modified?: true)
-      end
+      let(:esi) { instance_double(EveOnline::ESI::UniverseCategory, as_json: json) }
 
-      before { expect(EveOnline::ESI::UniverseCategory).to receive(:new).with(id: category_id, language: "en-us").and_return(esi) }
+      before { expect(subject).to receive(:esi).and_return(esi) }
 
-      let(:etag) { instance_double(Eve::Etag, etag: "6780e53a01c7d9715b5f445126c4f2c137da4be79e4debe541ce3ab2") }
+      before { expect(eve_category).to receive(:update!).with(json) }
 
-      before { expect(Eve::Etag).to receive(:find_or_initialize_by).with(url: url).and_return(etag) }
+      specify { expect { subject.import! }.not_to raise_error }
+    end
 
-      before { expect(esi).to receive(:etag=).with("6780e53a01c7d9715b5f445126c4f2c137da4be79e4debe541ce3ab2") }
+    context "when eve category not found" do
+      let(:eve_category) { instance_double(Eve::Category) }
 
-      before { expect(eve_category).not_to receive(:update!) }
+      before { expect(Eve::Category).to receive(:find_or_initialize_by).with(category_id: category_id).and_return(eve_category) }
 
-      before { expect(etag).not_to receive(:update!) }
+      before { expect(subject).to receive(:esi).and_raise(EveOnline::Exceptions::ResourceNotFound) }
 
-      specify { expect { subject.import }.not_to raise_error }
+      before { expect(eve_category).to receive(:destroy!) }
+
+      specify { expect { subject.import! }.not_to raise_error }
     end
   end
 end
