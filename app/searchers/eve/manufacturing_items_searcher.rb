@@ -33,7 +33,6 @@ module Eve
           :name_fr,
           :name_ja,
           :name_ru,
-          :name_zh,
           :name_ko
         ],
         match: :word_start,
