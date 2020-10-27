@@ -3,6 +3,8 @@
 require "rails_helper"
 
 describe Eve::AncestriesImporter do
+  it { should be_a(Eve::BaseImporter) }
+
   describe "#initialize" do
     context "without locale" do
       its(:locale) { should eq(:en) }
