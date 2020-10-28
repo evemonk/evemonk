@@ -43,7 +43,6 @@ jobs:
       - run: chmod +x ./hadolint
       - run: wget -qO- https://github.com/koalaman/shellcheck/releases/download/stable/shellcheck-stable.linux.x86_64.tar.xz | tar -xJv
       - run: shellcheck-stable/shellcheck --version
-      - run: bundle exec rails dev:cache
       - run: bundle exec rails db:create
       - run: bundle exec rails db:migrate
       - run: bundle exec rspec --profile
