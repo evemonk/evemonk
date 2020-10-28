@@ -2,6 +2,7 @@ FROM ruby:2.7.2-slim
 
 LABEL maintainer="Igor Zubkov <igor.zubkov@gmail.com>"
 
+# skipcq: DOK-DL3008
 RUN set -eux; \
     apt-get update -y ; \
     apt-get dist-upgrade -y ; \
