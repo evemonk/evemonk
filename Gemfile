@@ -142,6 +142,7 @@ group :test do
   gem "database_rewinder"
   gem "webmock"
   gem "vcr"
+  gem "pig-ci-rails"
 end
 
 gem "httplog"
