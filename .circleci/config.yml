@@ -45,6 +45,7 @@ jobs:
       - run: shellcheck-stable/shellcheck --version
       - run: bundle exec rails db:create
       - run: bundle exec rails db:migrate
+      - run: bundle exec rails dev:cache
       - run: bundle exec rspec --profile
       - run: bundle exec bundle-audit update
       - run: bundle exec bundle-leak update
