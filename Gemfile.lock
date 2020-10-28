@@ -638,6 +638,7 @@ GEM
       rack
       rails (>= 5.2)
       redis
+    stimulus_reflex_testing (0.1.0)
     strings (0.2.0)
       strings-ansi (~> 0.2)
       unicode-display_width (~> 1.5)
@@ -824,6 +825,7 @@ DEPENDENCIES
   squasher
   standard
   stimulus_reflex
+  stimulus_reflex_testing
   super_diff
   swagger-blocks
   turbolinks (~> 5)
