@@ -632,11 +632,12 @@ GEM
     standard (0.7)
       rubocop (= 0.92)
       rubocop-performance (= 1.8.1)
-    stimulus_reflex (3.2.3)
-      cable_ready (>= 4.1.2)
+    stimulus_reflex (3.3.0)
+      cable_ready (>= 4.3.0)
       nokogiri
       rack
       rails (>= 5.2)
+      redis
     strings (0.2.0)
       strings-ansi (~> 0.2)
       unicode-display_width (~> 1.5)

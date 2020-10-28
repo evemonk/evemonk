@@ -2,6 +2,7 @@ FROM ruby:2.7.2-slim
 
 LABEL maintainer="Igor Zubkov <igor.zubkov@gmail.com>"
 
+# skipcq: DOK-DL3008
 RUN set -eux; \
     apt-get update -y ; \
     apt-get dist-upgrade -y ; \
@@ -11,7 +12,7 @@ RUN set -eux; \
     rm -rf /var/lib/apt/lists/*
 
 RUN set -eux; \
-    sh -c 'curl -sL https://deb.nodesource.com/setup_12.x | bash -'
+    sh -c 'curl -sL https://deb.nodesource.com/setup_14.x | bash -'
 
 RUN set -eux; \
     sh -c 'curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -'
@@ -19,6 +20,7 @@ RUN set -eux; \
 RUN set -eux; \
     sh -c 'echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list'
 
+# skipcq: DOK-DL3008
 RUN set -eux; \
     apt-get update -y ; \
     apt-get install nodejs yarn --no-install-recommends -y ; \
@@ -42,6 +44,7 @@ RUN gem update --system "$RUBYGEMS_VERSION"
 
 ENV BUNDLER_VERSION 2.1.4
 
+# skipcq: DOK-DL3028
 RUN gem install bundler --version "$BUNDLER_VERSION" --force
 
 # throw errors if Gemfile has been modified since Gemfile.lock
