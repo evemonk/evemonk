@@ -11,7 +11,7 @@ RUN set -eux; \
     rm -rf /var/lib/apt/lists/*
 
 RUN set -eux; \
-    sh -c 'curl -sL https://deb.nodesource.com/setup_12.x | bash -'
+    sh -c 'curl -sL https://deb.nodesource.com/setup_14.x | bash -'
 
 RUN set -eux; \
     sh -c 'curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -'
