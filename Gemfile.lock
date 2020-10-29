@@ -274,7 +274,7 @@ GEM
     graphiql-rails (1.7.0)
       railties
       sprockets-rails
-    graphql (1.11.5)
+    graphql (1.11.6)
     graphql-rails_logger (1.2.2)
       actionpack (> 5.0)
       activesupport (> 5.0)
@@ -371,7 +371,7 @@ GEM
     mixlib-cli (2.1.8)
     mixlib-config (3.0.9)
       tomlrb
-    mixlib-shellout (3.1.6)
+    mixlib-shellout (3.1.7)
       chef-utils
     mobility (0.8.13)
       i18n (>= 0.6.10, < 2)
@@ -722,7 +722,7 @@ GEM
     yabeda-sidekiq (0.7.0)
       sidekiq
       yabeda (~> 0.6)
-    zeitwerk (2.4.0)
+    zeitwerk (2.4.1)
     zxcvbn-js (4.4.3)
       execjs
 
