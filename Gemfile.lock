@@ -722,7 +722,7 @@ GEM
     yabeda-sidekiq (0.7.0)
       sidekiq
       yabeda (~> 0.6)
-    zeitwerk (2.4.0)
+    zeitwerk (2.4.1)
     zxcvbn-js (4.4.3)
       execjs
 
