@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Sde
-  class BasePriceImporter
+  class BasePricesImporter
     attr_reader :file
 
     def initialize(file)

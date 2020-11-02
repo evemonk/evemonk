@@ -35,7 +35,7 @@ namespace :evemonk do
     Sde::AgentNamesJob.perform_later("static/sde/bsd/invNames.yaml")
 
     Rails.logger.info "Import base price for eve types from SDE"
-    Sde::BasePriceImporter.new("static/sde/fsd/typeIDs.yaml").import
+    Sde::BasePricesImporter.new("static/sde/fsd/typeIDs.yaml").import
 
     Rails.logger.info "Import blueprints from SDE"
     Sde::BlueprintsJob.perform_later("static/sde/fsd/blueprints.yaml")
@@ -115,7 +115,7 @@ namespace :evemonk do
     Sde::AgentNamesJob.perform_later("static/sde/bsd/invNames.yaml")
 
     Rails.logger.info "Import base price for eve types from SDE"
-    Sde::BasePriceImporter.new("static/sde/fsd/typeIDs.yaml").import
+    Sde::BasePricesImporter.new("static/sde/fsd/typeIDs.yaml").import
 
     Rails.logger.info "Import blueprints from SDE"
     Sde::BlueprintsJob.perform_later("static/sde/fsd/blueprints.yaml")
