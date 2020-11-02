@@ -61,6 +61,8 @@ RUN bundle config set --global retry 5
 
 RUN bundle install
 
+RUN bundle exec bootsnap precompile --gemfile app/ lib/
+
 COPY package.json package.json
 
 COPY yarn.lock yarn.lock
