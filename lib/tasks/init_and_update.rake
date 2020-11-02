@@ -103,7 +103,7 @@ namespace :evemonk do
     Sde::CharacterAttributesJob.perform_later("static/sde/fsd/characterAttributes.yaml")
 
     Rails.logger.info "Import icons from SDE"
-    Sde::IconsImporter.new("static/sde/fsd/iconIDs.yaml").import
+    Sde::IconsJob.perform_later("static/sde/fsd/iconIDs.yaml")
 
     Rails.logger.info "Import units from SDE"
     Sde::UnitsImporter.new("static/sde/bsd/eveUnits.yaml").import
