@@ -129,23 +129,23 @@ describe Character do
     specify { expect(described_class.with_valid_tokens).to eq([character1]) }
   end
 
-  it { should delegate_method(:total_perception).to(:character_attributes) }
+  it { should delegate_method(:perception_without_bonuses).to(:character_attributes) }
 
   it { should delegate_method(:perception_bonus).to(:character_attributes) }
 
-  it { should delegate_method(:total_memory).to(:character_attributes) }
+  it { should delegate_method(:memory_without_bonuses).to(:character_attributes) }
 
   it { should delegate_method(:memory_bonus).to(:character_attributes) }
 
-  it { should delegate_method(:total_willpower).to(:character_attributes) }
+  it { should delegate_method(:willpower_without_bonuses).to(:character_attributes) }
 
   it { should delegate_method(:willpower_bonus).to(:character_attributes) }
 
-  it { should delegate_method(:total_intelligence).to(:character_attributes) }
+  it { should delegate_method(:intelligence_without_bonuses).to(:character_attributes) }
 
   it { should delegate_method(:intelligence_bonus).to(:character_attributes) }
 
-  it { should delegate_method(:total_charisma).to(:character_attributes) }
+  it { should delegate_method(:charisma_without_bonuses).to(:character_attributes) }
 
   it { should delegate_method(:charisma_bonus).to(:character_attributes) }
 
