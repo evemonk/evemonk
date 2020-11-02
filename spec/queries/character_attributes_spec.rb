@@ -15,11 +15,11 @@ describe CharacterAttributes do
 
   let!(:character) do
     create(:character,
-      perception: 23,
-      memory: 24,
-      willpower: 23,
-      intelligence: 24,
-      charisma: 20)
+      perception: 20,
+      memory: 21,
+      willpower: 22,
+      intelligence: 23,
+      charisma: 24)
   end
 
   let!(:character_implant1) do
@@ -118,40 +118,40 @@ describe CharacterAttributes do
     its(:character) { should eq(character) }
   end
 
-  describe "#total_perception" do
-    specify { expect(subject.total_perception).to eq(26) }
+  describe "#perception_without_bonuses" do
+    specify { expect(subject.perception_without_bonuses).to eq(17) }
   end
 
   describe "#perception_bonus" do
     specify { expect(subject.perception_bonus).to eq(3.0) }
   end
 
-  describe "#total_memory" do
-    specify { expect(subject.total_memory).to eq(27) }
+  describe "#memory_without_bonuses" do
+    specify { expect(subject.memory_without_bonuses).to eq(18) }
   end
 
   describe "#memory_bonus" do
     specify { expect(subject.memory_bonus).to eq(3.0) }
   end
 
-  describe "#total_willpower" do
-    specify { expect(subject.total_willpower).to eq(26) }
+  describe "#willpower_without_bonuses" do
+    specify { expect(subject.willpower_without_bonuses).to eq(19) }
   end
 
   describe "#willpower_bonus" do
     specify { expect(subject.willpower_bonus).to eq(3.0) }
   end
 
-  describe "#total_intelligence" do
-    specify { expect(subject.total_intelligence).to eq(27) }
+  describe "#intelligence_without_bonuses" do
+    specify { expect(subject.intelligence_without_bonuses).to eq(20) }
   end
 
   describe "#intelligence_bonus" do
     specify { expect(subject.intelligence_bonus).to eq(3.0) }
   end
 
-  describe "#total_charisma" do
-    specify { expect(subject.total_charisma).to eq(23) }
+  describe "#charisma_without_bonuses" do
+    specify { expect(subject.charisma_without_bonuses).to eq(21) }
   end
 
   describe "#charisma_bonus" do
