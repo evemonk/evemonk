@@ -20,7 +20,7 @@ namespace :evemonk do
     Eve::UpdateFactionsJob.perform_later
 
     Rails.logger.info "Import character attributes from SDE"
-    Sde::CharacterAttributesImporter.new("static/sde/fsd/characterAttributes.yaml").import
+    Sde::CharacterAttributesJob.perform_later("static/sde/fsd/characterAttributes.yaml")
 
     Rails.logger.info "Import icons from SDE"
     Sde::IconsJob.perform_later("static/sde/fsd/iconIDs.yaml")
@@ -100,7 +100,7 @@ namespace :evemonk do
     Eve::UpdateFactionsJob.perform_later
 
     Rails.logger.info "Import character attributes from SDE"
-    Sde::CharacterAttributesImporter.new("static/sde/fsd/characterAttributes.yaml").import
+    Sde::CharacterAttributesJob.perform_later("static/sde/fsd/characterAttributes.yaml")
 
     Rails.logger.info "Import icons from SDE"
     Sde::IconsImporter.new("static/sde/fsd/iconIDs.yaml").import
