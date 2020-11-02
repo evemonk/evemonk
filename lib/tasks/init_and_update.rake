@@ -20,22 +20,22 @@ namespace :evemonk do
     Eve::UpdateFactionsJob.perform_later
 
     Rails.logger.info "Import character attributes from SDE"
-    Sde::CharacterAttributesImporter.new("static/sde/fsd/characterAttributes.yaml").import
+    Sde::CharacterAttributesJob.perform_later("static/sde/fsd/characterAttributes.yaml")
 
     Rails.logger.info "Import icons from SDE"
     Sde::IconsJob.perform_later("static/sde/fsd/iconIDs.yaml")
 
     Rails.logger.info "Import units from SDE"
-    Sde::UnitsImporter.new("static/sde/bsd/eveUnits.yaml").import
+    Sde::UnitsJob.perform_later("static/sde/bsd/eveUnits.yaml")
 
     Rails.logger.info "Import agents from SDE"
-    Sde::AgentsImporter.new("static/sde/fsd/agents.yaml").import
+    Sde::AgentsJob.perform_later("static/sde/fsd/agents.yaml")
 
     Rails.logger.info "Import agent names from SDE"
-    Sde::AgentNamesImporter.new("static/sde/bsd/invNames.yaml").import
+    Sde::AgentNamesJob.perform_later("static/sde/bsd/invNames.yaml")
 
     Rails.logger.info "Import base price for eve types from SDE"
-    Sde::BasePriceImporter.new("static/sde/fsd/typeIDs.yaml").import
+    Sde::BasePricesJob.perform_later("static/sde/fsd/typeIDs.yaml")
 
     Rails.logger.info "Import blueprints from SDE"
     Sde::BlueprintsJob.perform_later("static/sde/fsd/blueprints.yaml")
@@ -100,22 +100,22 @@ namespace :evemonk do
     Eve::UpdateFactionsJob.perform_later
 
     Rails.logger.info "Import character attributes from SDE"
-    Sde::CharacterAttributesImporter.new("static/sde/fsd/characterAttributes.yaml").import
+    Sde::CharacterAttributesJob.perform_later("static/sde/fsd/characterAttributes.yaml")
 
     Rails.logger.info "Import icons from SDE"
-    Sde::IconsImporter.new("static/sde/fsd/iconIDs.yaml").import
+    Sde::IconsJob.perform_later("static/sde/fsd/iconIDs.yaml")
 
     Rails.logger.info "Import units from SDE"
-    Sde::UnitsImporter.new("static/sde/bsd/eveUnits.yaml").import
+    Sde::UnitsJob.perform_later("static/sde/bsd/eveUnits.yaml")
 
     Rails.logger.info "Import agents from SDE"
-    Sde::AgentsImporter.new("static/sde/fsd/agents.yaml").import
+    Sde::AgentsJob.perform_later("static/sde/fsd/agents.yaml")
 
     Rails.logger.info "Import agent names from SDE"
-    Sde::AgentNamesImporter.new("static/sde/bsd/invNames.yaml").import
+    Sde::AgentNamesJob.perform_later("static/sde/bsd/invNames.yaml")
 
     Rails.logger.info "Import base price for eve types from SDE"
-    Sde::BasePriceImporter.new("static/sde/fsd/typeIDs.yaml").import
+    Sde::BasePricesJob.perform_later("static/sde/fsd/typeIDs.yaml")
 
     Rails.logger.info "Import blueprints from SDE"
     Sde::BlueprintsJob.perform_later("static/sde/fsd/blueprints.yaml")

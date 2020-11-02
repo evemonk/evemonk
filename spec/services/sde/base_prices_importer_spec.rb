@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Sde::BasePriceImporter do
+describe Sde::BasePricesImporter do
   let(:file) { double }
 
   subject { described_class.new(file) }
