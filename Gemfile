@@ -88,7 +88,7 @@ end
 group :development, :test do
   gem "dotenv-rails"
   gem "rspec-rails"
-  gem "bullet"
+  # gem "bullet"
   gem "factory_bot_rails"
   gem "faker"
   gem "faker-bot", require: false
