@@ -16,10 +16,7 @@ describe CharacterImporter do
 
     let(:json) { double }
 
-    let(:esi) do
-      instance_double(EveOnline::ESI::Character,
-        as_json: json)
-    end
+    let(:esi) { instance_double(EveOnline::ESI::Character, as_json: json) }
 
     before { expect(subject).to receive(:esi).and_return(esi) }
 

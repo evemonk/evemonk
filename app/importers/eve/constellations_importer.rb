@@ -1,27 +1,15 @@
 # frozen_string_literal: true
 
 module Eve
-  class ConstellationsImporter
-    attr_reader :esi
+  class ConstellationsImporter < BaseImporter
+    def import!
+      import_new_constellations
 
-    def initialize
-      @esi = EveOnline::ESI::UniverseConstellations.new
+      remove_old_constellations
     end
 
-    def import
-      ActiveRecord::Base.transaction do
-        etag = Eve::Etag.find_or_initialize_by(url: esi.url)
-
-        esi.etag = etag.etag
-
-        return if esi.not_modified?
-
-        import_new_constellations
-
-        remove_old_constellations
-
-        etag.update!(etag: esi.etag, body: esi.response)
-      end
+    def esi
+      @esi ||= EveOnline::ESI::UniverseConstellations.new
     end
 
     private

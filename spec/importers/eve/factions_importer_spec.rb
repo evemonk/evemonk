@@ -3,6 +3,8 @@
 require "rails_helper"
 
 describe Eve::FactionsImporter do
+  it { should be_a(Eve::BaseImporter) }
+
   describe "#initialize" do
     context "without locale" do
       its(:locale) { should eq(:en) }
@@ -17,68 +19,43 @@ describe Eve::FactionsImporter do
     end
   end
 
-  describe "#import" do
-    context "when fresh data available" do
-      let(:url) { double }
+  describe "#import!" do
+    let(:faction_id) { double }
 
-      let(:new_etag) { double }
+    let(:as_json) { double }
 
-      let(:response) { double }
+    let(:faction) { instance_double(EveOnline::ESI::Models::Faction, faction_id: faction_id, as_json: as_json) }
 
-      let(:faction_id) { double }
+    let(:esi) { instance_double(EveOnline::ESI::UniverseFactions, factions: [faction]) }
 
-      let(:as_json) { double }
+    before { expect(subject).to receive(:esi).and_return(esi) }
 
-      let(:faction) { instance_double(EveOnline::ESI::Models::Faction, faction_id: faction_id, as_json: as_json) }
+    let(:eve_faction) { instance_double(Eve::Faction) }
 
-      let(:esi) do
-        instance_double(EveOnline::ESI::UniverseFactions,
-          not_modified?: false,
-          url: url,
-          etag: new_etag,
-          factions: [faction],
-          response: response)
-      end
+    before { expect(Eve::Faction).to receive(:find_or_initialize_by).with(faction_id: faction_id).and_return(eve_faction) }
 
-      before { expect(EveOnline::ESI::UniverseFactions).to receive(:new).with(language: "en-us").and_return(esi) }
+    before { expect(eve_faction).to receive(:update!).with(as_json) }
 
-      let(:etag) { instance_double(Eve::Etag, etag: "e3f6a76b4a1287f54966c6253f8f5d6ac6460bc43d47570331b43e0b") }
+    specify { expect { subject.import! }.not_to raise_error }
+  end
 
-      before { expect(Eve::Etag).to receive(:find_or_initialize_by).with(url: url).and_return(etag) }
+  describe "#esi" do
+    context "when @esi is set" do
+      let(:esi) { instance_double(EveOnline::ESI::UniverseFactions) }
 
-      before { expect(esi).to receive(:etag=).with("e3f6a76b4a1287f54966c6253f8f5d6ac6460bc43d47570331b43e0b") }
+      before { subject.instance_variable_set(:@esi, esi) }
 
-      let(:eve_faction) { instance_double(Eve::Faction) }
-
-      before { expect(Eve::Faction).to receive(:find_or_initialize_by).with(faction_id: faction_id).and_return(eve_faction) }
-
-      before { expect(eve_faction).to receive(:update!).with(as_json) }
-
-      before { expect(etag).to receive(:update!).with(etag: new_etag, body: response) }
-
-      specify { expect { subject.import }.not_to raise_error }
+      specify { expect(subject.esi).to eq(esi) }
     end
 
-    context "when no fresh data available" do
-      let(:url) { double }
-
-      let(:esi) do
-        instance_double(EveOnline::ESI::UniverseFactions,
-          not_modified?: true,
-          url: url)
-      end
+    context "when @esi not set" do
+      let(:esi) { instance_double(EveOnline::ESI::UniverseFactions) }
 
       before { expect(EveOnline::ESI::UniverseFactions).to receive(:new).with(language: "en-us").and_return(esi) }
 
-      let(:etag) { instance_double(Eve::Etag, etag: "e3f6a76b4a1287f54966c6253f8f5d6ac6460bc43d47570331b43e0b") }
+      specify { expect(subject.esi).to eq(esi) }
 
-      before { expect(Eve::Etag).to receive(:find_or_initialize_by).with(url: url).and_return(etag) }
-
-      before { expect(esi).to receive(:etag=).with("e3f6a76b4a1287f54966c6253f8f5d6ac6460bc43d47570331b43e0b") }
-
-      before { expect(Eve::Faction).not_to receive(:find_or_initialize_by) }
-
-      specify { expect { subject.import }.not_to raise_error }
+      specify { expect { subject.esi }.to change { subject.instance_variable_get(:@esi) }.from(nil).to(esi) }
     end
   end
 end
