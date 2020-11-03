@@ -1,27 +1,15 @@
 # frozen_string_literal: true
 
 module Eve
-  class MarketGroupsImporter
-    attr_reader :esi
+  class MarketGroupsImporter < BaseImporter
+    def import!
+      import_new_market_groups
 
-    def initialize
-      @esi = EveOnline::ESI::MarketGroups.new
+      remove_old_market_groups
     end
 
-    def import
-      ActiveRecord::Base.transaction do
-        etag = Eve::Etag.find_or_initialize_by(url: esi.url)
-
-        esi.etag = etag.etag
-
-        return if esi.not_modified?
-
-        import_new_market_groups
-
-        remove_old_market_groups
-
-        etag.update!(etag: esi.etag, body: esi.response)
-      end
+    def esi
+      @esi ||= EveOnline::ESI::MarketGroups.new
     end
 
     private

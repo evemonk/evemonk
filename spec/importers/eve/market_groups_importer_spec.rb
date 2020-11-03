@@ -3,100 +3,33 @@
 require "rails_helper"
 
 describe Eve::MarketGroupsImporter do
-  describe "#initialize" do
-    let(:esi) { instance_double(EveOnline::ESI::MarketGroups) }
+  it { should be_a(Eve::BaseImporter) }
 
-    before do
-      expect(EveOnline::ESI::MarketGroups).to receive(:new)
-        .and_return(esi)
-    end
+  describe "#import!" do
+    before { expect(subject).to receive(:import_new_market_groups) }
 
-    its(:esi) { should eq(esi) }
+    before { expect(subject).to receive(:remove_old_market_groups) }
+
+    specify { expect { subject.import! }.not_to raise_error }
   end
 
-  describe "#import" do
-    context "when fresh data available" do
-      let(:etag) do
-        instance_double(Eve::Etag,
-          etag: "97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a")
-      end
+  describe "#esi" do
+    context "when @esi is set" do
+      let(:esi) { instance_double(EveOnline::ESI::MarketGroups) }
 
-      let(:new_etag) { double }
+      before { subject.instance_variable_set(:@esi, esi) }
 
-      let(:response) { double }
-
-      let(:url) { double }
-
-      let(:esi) do
-        instance_double(EveOnline::ESI::MarketGroups,
-          not_modified?: false,
-          etag: new_etag,
-          url: url,
-          response: response)
-      end
-
-      before do
-        expect(EveOnline::ESI::MarketGroups).to receive(:new)
-          .and_return(esi)
-      end
-
-      before do
-        expect(Eve::Etag).to receive(:find_or_initialize_by)
-          .with(url: url)
-          .and_return(etag)
-      end
-
-      before do
-        expect(esi).to receive(:etag=)
-          .with("97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a")
-      end
-
-      before { expect(subject).to receive(:import_new_market_groups) }
-
-      before { expect(subject).to receive(:remove_old_market_groups) }
-
-      before { expect(etag).to receive(:update!).with(etag: new_etag, body: response) }
-
-      specify { expect { subject.import }.not_to raise_error }
+      specify { expect(subject.esi).to eq(esi) }
     end
 
-    context "when no fresh data available" do
-      let(:etag) do
-        instance_double(Eve::Etag,
-          etag: "97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a")
-      end
+    context "when @esi not set" do
+      let(:esi) { instance_double(EveOnline::ESI::MarketGroups) }
 
-      let(:url) { double }
+      before { expect(EveOnline::ESI::MarketGroups).to receive(:new).and_return(esi) }
 
-      let(:esi) do
-        instance_double(EveOnline::ESI::MarketGroups,
-          url: url,
-          not_modified?: true)
-      end
+      specify { expect(subject.esi).to eq(esi) }
 
-      before do
-        expect(EveOnline::ESI::MarketGroups).to receive(:new)
-          .and_return(esi)
-      end
-
-      before do
-        expect(Eve::Etag).to receive(:find_or_initialize_by)
-          .with(url: url)
-          .and_return(etag)
-      end
-
-      before do
-        expect(esi).to receive(:etag=)
-          .with("97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a")
-      end
-
-      before { expect(subject).not_to receive(:import_new_market_groups) }
-
-      before { expect(subject).not_to receive(:remove_old_market_groups) }
-
-      before { expect(etag).not_to receive(:update!) }
-
-      specify { expect { subject.import }.not_to raise_error }
+      specify { expect { subject.esi }.to change { subject.instance_variable_get(:@esi) }.from(nil).to(esi) }
     end
   end
 
@@ -110,10 +43,7 @@ describe Eve::MarketGroupsImporter do
         market_group_ids: [market_group_id])
     end
 
-    before do
-      expect(EveOnline::ESI::MarketGroups).to receive(:new)
-        .and_return(esi)
-    end
+    before { expect(subject).to receive(:esi).and_return(esi) }
 
     context "when eve market group not imported" do
       before do
@@ -153,7 +83,7 @@ describe Eve::MarketGroupsImporter do
         market_group_ids: market_group_ids)
     end
 
-    before { expect(EveOnline::ESI::MarketGroups).to receive(:new).and_return(esi) }
+    before { expect(subject).to receive(:esi).and_return(esi) }
 
     let(:eve_market_group_ids) { double }
 

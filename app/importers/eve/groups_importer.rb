@@ -1,28 +1,21 @@
 # frozen_string_literal: true
 
 module Eve
-  class GroupsImporter
-    attr_reader :page, :esi
+  class GroupsImporter < BaseImporter
+    attr_reader :page
 
     def initialize(page = 1)
       @page = page
-      @esi = EveOnline::ESI::UniverseGroups.new(page: @page)
     end
 
-    def import
-      ActiveRecord::Base.transaction do
-        etag = Eve::Etag.find_or_initialize_by(url: esi.url)
+    def import!
+      import_groups
 
-        esi.etag = etag.etag
+      import_other_pages
+    end
 
-        return if esi.not_modified?
-
-        import_groups
-
-        import_other_pages
-
-        etag.update!(etag: esi.etag, body: esi.response)
-      end
+    def esi
+      @esi ||= EveOnline::ESI::UniverseGroups.new(page: page)
     end
 
     private
