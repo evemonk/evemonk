@@ -15,7 +15,7 @@ module Eve
     end
 
     def esi
-      @esi ||= EveOnline::ESI::UniverseGroups.new(page: @page)
+      @esi ||= EveOnline::ESI::UniverseGroups.new(page: page)
     end
 
     private
