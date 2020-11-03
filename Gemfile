@@ -2,14 +2,14 @@
 
 source "https://rubygems.org"
 
-gem "rails", "6.0.3.4"
-gem "pg", ">= 0.18", "< 2.0"
-gem "puma"
+gem "rails", "~> 6.1.0.rc1"
+gem "pg", "~> 1.1"
+gem "puma", "~> 5.0"
 gem "sass-rails", ">= 6"
-gem "webpacker", "~> 5.2"
+gem "webpacker", "~> 5.0"
 gem "turbolinks", "~> 5"
-gem "jbuilder", "~> 2.10"
-gem "bootsnap", ">= 1.4.2", require: false
+gem "jbuilder", "~> 2.7"
+gem "bootsnap", '>= 1.4.4', require: false
 gem "rails-i18n", "~> 6.0.0"
 gem "http_accept_language"
 gem "countries"
@@ -110,7 +110,6 @@ end
 group :development do
   gem "listen", "~> 3.2"
   gem "spring"
-  gem "spring-watcher-listen", "~> 2.0.0"
   gem "spring-commands-rspec", require: false
   gem "spring-commands-rubocop", require: false
   gem "spring-commands-standard", require: false
