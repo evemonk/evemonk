@@ -125,9 +125,6 @@ GEM
       msgpack (~> 1.0)
     brakeman (4.10.0)
     builder (3.2.4)
-    bullet (6.1.0)
-      activesupport (>= 3.0.0)
-      uniform_notifier (~> 1.11)
     bundler-audit (0.7.0.1)
       bundler (>= 1.2.0, < 3)
       thor (>= 0.18, < 2)
@@ -656,7 +653,6 @@ GEM
       thread_safe (~> 0.1)
     unicode-display_width (1.7.0)
     unicode_utils (1.4.0)
-    uniform_notifier (1.13.0)
     vcr (6.0.0)
     warden (1.2.9)
       rack (>= 2.0.9)
@@ -717,7 +713,6 @@ DEPENDENCIES
   awesome_print
   bootsnap (>= 1.4.2)
   brakeman
-  bullet
   bundler-audit
   bundler-leak
   cable_ready
