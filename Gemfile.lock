@@ -125,9 +125,6 @@ GEM
       msgpack (~> 1.0)
     brakeman (4.10.0)
     builder (3.2.4)
-    bullet (6.1.0)
-      activesupport (>= 3.0.0)
-      uniform_notifier (~> 1.11)
     bundler-audit (0.7.0.1)
       bundler (>= 1.2.0, < 3)
       thor (>= 0.18, < 2)
@@ -216,7 +213,6 @@ GEM
     elasticsearch-transport (7.9.0)
       faraday (~> 1)
       multi_json
-    equatable (0.6.1)
     erb_lint (0.0.35)
       activesupport
       better_html (~> 1.0.7)
@@ -240,13 +236,6 @@ GEM
       railties (>= 5.0.0)
     faker (2.14.0)
       i18n (>= 1.6, < 2)
-    faker-bot (0.5.3)
-      faker
-      pastel (~> 0.7.2)
-      thor (>= 0.20, < 1.1)
-      tty-pager
-      tty-screen
-      tty-tree
     faraday (1.1.0)
       multipart-post (>= 1.2, < 3)
       ruby2_keywords
@@ -418,9 +407,6 @@ GEM
     parallel (1.19.2)
     parser (2.7.2.0)
       ast (~> 2.4.1)
-    pastel (0.7.4)
-      equatable (~> 0.6)
-      tty-color (~> 0.5)
     patience_diff (1.1.0)
       trollop (~> 1.16)
     pg (1.2.3)
@@ -646,11 +632,6 @@ GEM
       rails (>= 5.2)
       redis
     stimulus_reflex_testing (0.1.0)
-    strings (0.2.0)
-      strings-ansi (~> 0.2)
-      unicode-display_width (~> 1.5)
-      unicode_utils (~> 1.4)
-    strings-ansi (0.2.0)
     super_diff (0.5.2)
       attr_extras (>= 6.2.4)
       diff-lcs
@@ -663,12 +644,6 @@ GEM
     tilt (2.0.10)
     tomlrb (1.3.0)
     trollop (1.16.2)
-    tty-color (0.5.2)
-    tty-pager (0.14.0)
-      strings (~> 0.2.0)
-      tty-screen (~> 0.8)
-    tty-screen (0.8.1)
-    tty-tree (0.4.0)
     turbolinks (5.2.1)
       turbolinks-source (~> 5.2)
     turbolinks-source (5.2.0)
@@ -678,7 +653,6 @@ GEM
       thread_safe (~> 0.1)
     unicode-display_width (1.7.0)
     unicode_utils (1.4.0)
-    uniform_notifier (1.13.0)
     vcr (6.0.0)
     warden (1.2.9)
       rack (>= 2.0.9)
@@ -739,7 +713,6 @@ DEPENDENCIES
   awesome_print
   bootsnap (>= 1.4.2)
   brakeman
-  bullet
   bundler-audit
   bundler-leak
   cable_ready
@@ -764,7 +737,6 @@ DEPENDENCIES
   eve_online!
   factory_bot_rails
   faker
-  faker-bot
   fasterer
   foundation_emails
   gemdiff

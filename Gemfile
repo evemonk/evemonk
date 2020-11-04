@@ -88,10 +88,8 @@ end
 group :development, :test do
   gem "dotenv-rails"
   gem "rspec-rails"
-  gem "bullet"
   gem "factory_bot_rails"
   gem "faker"
-  gem "faker-bot", require: false
   gem "sql_tracker"
   gem "bundler-audit", require: false
   gem "bundler-leak", require: false
@@ -115,9 +113,8 @@ group :development do
   gem "spring-commands-rubocop", require: false
   gem "spring-commands-standard", require: false
   gem "consistency_fail", require: false
-  gem "rails_best_practices"
+  gem "rails_best_practices", require: false
   gem "active_record_doctor"
-  # gem "overcommit", require: false
   gem "cacheflow"
   gem "gemdiff", require: false
   gem "derailed_benchmarks"
