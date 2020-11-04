@@ -91,7 +91,6 @@ group :development, :test do
   gem "bullet"
   gem "factory_bot_rails"
   gem "faker"
-  gem "faker-bot", require: false
   gem "sql_tracker"
   gem "bundler-audit", require: false
   gem "bundler-leak", require: false
