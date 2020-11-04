@@ -64,7 +64,7 @@ jobs:
       - run: bundle exec rails factory_bot:lint
       - run: bundle exec consistency_fail || true
       - run: bundle exec rails_best_practices || true
-      - run: bundle exec active_record_doctor:unindexed_foreign_keys
+      - run: bundle exec rake active_record_doctor:unindexed_foreign_keys
       - run: bundle exec rake SECRET_KEY_BASE=blablabla DB_ADAPTER=nulldb assets:precompile
       - run: ./hadolint --ignore DL3008 Dockerfile
       - run: shellcheck-stable/shellcheck bin/backend bin/sidekiq bin/cron bin/standardize
