@@ -3,95 +3,37 @@
 require "rails_helper"
 
 describe Eve::GraphicsImporter do
-  describe "#initialize" do
-    let(:esi) { instance_double(EveOnline::ESI::UniverseGraphics) }
+  it { should be_a(Eve::BaseImporter) }
 
-    before { expect(EveOnline::ESI::UniverseGraphics).to receive(:new).and_return(esi) }
+  describe "#import!" do
+    before { expect(subject).to receive(:import_new_graphics) }
 
-    its(:esi) { should eq(esi) }
+    before { expect(subject).to receive(:remove_old_graphics) }
+
+    specify { expect { subject.import! }.not_to raise_error }
   end
 
-  describe "#import" do
-    context "when fresh data available" do
-      let(:etag) { instance_double(Eve::Etag, etag: "97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a") }
+  describe "#esi" do
+    context "when @esi is set" do
+      let(:esi) { instance_double(EveOnline::ESI::UniverseGraphics) }
 
-      let(:new_etag) { double }
+      before { subject.instance_variable_set(:@esi, esi) }
 
-      let(:response) { double }
-
-      let(:esi) do
-        instance_double(EveOnline::ESI::UniverseGraphics,
-          not_modified?: false,
-          etag: new_etag,
-          response: response)
-      end
-
-      before { expect(EveOnline::ESI::UniverseGraphics).to receive(:new).and_return(esi) }
-
-      before { expect(subject).to receive(:etag).and_return(etag).twice }
-
-      before { expect(esi).to receive(:etag=).with("97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a") }
-
-      before { expect(subject).to receive(:import_new_graphics) }
-
-      before { expect(subject).to receive(:remove_old_graphics) }
-
-      before { expect(etag).to receive(:update!).with(etag: new_etag, body: response) }
-
-      specify { expect { subject.import }.not_to raise_error }
+      specify { expect(subject.esi).to eq(esi) }
     end
 
-    context "when no fresh data available" do
-      let(:etag) { instance_double(Eve::Etag, etag: "97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a") }
-
-      let(:esi) do
-        instance_double(EveOnline::ESI::UniverseGraphics,
-          not_modified?: true)
-      end
+    context "when @esi not set" do
+      let(:esi) { instance_double(EveOnline::ESI::UniverseGraphics) }
 
       before { expect(EveOnline::ESI::UniverseGraphics).to receive(:new).and_return(esi) }
 
-      before { expect(subject).to receive(:etag).and_return(etag) }
+      specify { expect(subject.esi).to eq(esi) }
 
-      before { expect(esi).to receive(:etag=).with("97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a") }
-
-      before { expect(subject).not_to receive(:import_new_graphics) }
-
-      before { expect(subject).not_to receive(:remove_old_graphics) }
-
-      before { expect(etag).not_to receive(:update!) }
-
-      specify { expect { subject.import }.not_to raise_error }
+      specify { expect { subject.esi }.to change { subject.instance_variable_get(:@esi) }.from(nil).to(esi) }
     end
   end
 
   # private methods
-
-  describe "#etag" do
-    context "when @etag set" do
-      let(:etag) { instance_double(Eve::Etag) }
-
-      before { subject.instance_variable_set(:@etag, etag) }
-
-      specify { expect(subject.send(:etag)).to eq(etag) }
-    end
-
-    context "when @etag not set" do
-      let(:url) { double }
-
-      let(:esi) { instance_double(EveOnline::ESI::UniverseGraphics, url: url) }
-
-      let(:etag) { instance_double(Eve::Etag) }
-
-      before { expect(EveOnline::ESI::UniverseGraphics).to receive(:new).and_return(esi) }
-
-      before { expect(Eve::Etag).to receive(:find_or_initialize_by).with(url: url).and_return(etag) }
-
-      specify { expect { subject.send(:etag) }.not_to raise_error }
-
-      specify { expect { subject.send(:etag) }.to change { subject.instance_variable_get(:@etag) }.from(nil).to(etag) }
-    end
-  end
 
   describe "#import_new_graphics" do
     let(:graphic_id) { double }
@@ -101,9 +43,9 @@ describe Eve::GraphicsImporter do
         graphic_ids: [graphic_id])
     end
 
-    before { expect(EveOnline::ESI::UniverseGraphics).to receive(:new).and_return(esi) }
+    before { expect(subject).to receive(:esi).and_return(esi) }
 
-    context "when graphic not imported" do
+    context "when eve graphic not imported" do
       before { expect(Eve::Graphic).to receive(:exists?).with(graphic_id: graphic_id).and_return(false) }
 
       before { expect(Eve::UpdateGraphicJob).to receive(:perform_later).with(graphic_id) }
@@ -111,7 +53,7 @@ describe Eve::GraphicsImporter do
       specify { expect { subject.send(:import_new_graphics) }.not_to raise_error }
     end
 
-    context "when graphic already imported" do
+    context "when eve graphic already imported" do
       before { expect(Eve::Graphic).to receive(:exists?).with(graphic_id: graphic_id).and_return(true) }
 
       before { expect(Eve::UpdateGraphicJob).not_to receive(:perform_later) }
@@ -130,7 +72,7 @@ describe Eve::GraphicsImporter do
         graphic_ids: graphic_ids)
     end
 
-    before { expect(EveOnline::ESI::UniverseGraphics).to receive(:new).and_return(esi) }
+    before { expect(subject).to receive(:esi).and_return(esi) }
 
     let(:eve_graphic_ids) { double }
 

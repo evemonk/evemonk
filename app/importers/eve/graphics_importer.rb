@@ -1,32 +1,18 @@
 # frozen_string_literal: true
 
 module Eve
-  class GraphicsImporter
-    attr_reader :esi
+  class GraphicsImporter < BaseImporter
+    def import!
+      import_new_graphics
 
-    def initialize
-      @esi = EveOnline::ESI::UniverseGraphics.new
+      remove_old_graphics
     end
 
-    def import
-      ActiveRecord::Base.transaction do
-        esi.etag = etag.etag
-
-        return if esi.not_modified?
-
-        import_new_graphics
-
-        remove_old_graphics
-
-        etag.update!(etag: esi.etag, body: esi.response)
-      end
+    def esi
+      @esi ||= EveOnline::ESI::UniverseGraphics.new
     end
 
     private
-
-    def etag
-      @etag ||= Eve::Etag.find_or_initialize_by(url: esi.url)
-    end
 
     def import_new_graphics
       esi.graphic_ids.each do |graphic_id|
