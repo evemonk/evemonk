@@ -3,80 +3,33 @@
 require "rails_helper"
 
 describe Eve::SystemsImporter do
-  describe "#initialize" do
-    let(:esi) { instance_double(EveOnline::ESI::UniverseSystems) }
+  it { should be_a(Eve::BaseImporter) }
 
-    before do
-      expect(EveOnline::ESI::UniverseSystems).to receive(:new)
-        .and_return(esi)
-    end
+  describe "#import!" do
+    before { expect(subject).to receive(:import_new_systems) }
 
-    its(:esi) { should eq(esi) }
+    before { expect(subject).to receive(:remove_old_systems) }
+
+    specify { expect { subject.import! }.not_to raise_error }
   end
 
-  describe "#import" do
-    context "when fresh data available" do
-      let(:etag) { instance_double(Eve::Etag, etag: "97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a") }
+  describe "#esi" do
+    context "when @esi is set" do
+      let(:esi) { instance_double(EveOnline::ESI::UniverseSystems) }
 
-      let(:url) { double }
+      before { subject.instance_variable_set(:@esi, esi) }
 
-      let(:new_etag) { double }
-
-      let(:response) { double }
-
-      let(:esi) do
-        instance_double(EveOnline::ESI::UniverseSystems,
-          not_modified?: false,
-          url: url,
-          etag: new_etag,
-          response: response)
-      end
-
-      before do
-        expect(EveOnline::ESI::UniverseSystems).to receive(:new)
-          .and_return(esi)
-      end
-
-      before { expect(Eve::Etag).to receive(:find_or_initialize_by).with(url: url).and_return(etag) }
-
-      before do
-        expect(esi).to receive(:etag=)
-          .with("97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a")
-      end
-
-      before { expect(subject).to receive(:import_new_systems) }
-
-      before { expect(subject).to receive(:remove_old_systems) }
-
-      before { expect(etag).to receive(:update!).with(etag: new_etag, body: response) }
-
-      specify { expect { subject.import }.not_to raise_error }
+      specify { expect(subject.esi).to eq(esi) }
     end
 
-    context "when no fresh data available" do
-      let(:etag) { instance_double(Eve::Etag, etag: "97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a") }
-
-      let(:url) { double }
-
-      let(:esi) do
-        instance_double(EveOnline::ESI::UniverseSystems,
-          not_modified?: true,
-          url: url)
-      end
+    context "when @esi not set" do
+      let(:esi) { instance_double(EveOnline::ESI::UniverseSystems) }
 
       before { expect(EveOnline::ESI::UniverseSystems).to receive(:new).and_return(esi) }
 
-      before { expect(Eve::Etag).to receive(:find_or_initialize_by).with(url: url).and_return(etag) }
+      specify { expect(subject.esi).to eq(esi) }
 
-      before { expect(esi).to receive(:etag=).with("97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a") }
-
-      before { expect(subject).not_to receive(:import_new_systems) }
-
-      before { expect(subject).not_to receive(:remove_old_systems) }
-
-      before { expect(etag).not_to receive(:update!) }
-
-      specify { expect { subject.import }.not_to raise_error }
+      specify { expect { subject.esi }.to change { subject.instance_variable_get(:@esi) }.from(nil).to(esi) }
     end
   end
 
@@ -94,7 +47,7 @@ describe Eve::SystemsImporter do
         universe_system_ids: universe_system_ids)
     end
 
-    before { expect(EveOnline::ESI::UniverseSystems).to receive(:new).and_return(esi) }
+    before { expect(subject).to receive(:esi).and_return(esi) }
 
     let(:eve_system_id_to_create) { double }
 
@@ -119,7 +72,7 @@ describe Eve::SystemsImporter do
         universe_system_ids: universe_system_ids)
     end
 
-    before { expect(EveOnline::ESI::UniverseSystems).to receive(:new).and_return(esi) }
+    before { expect(subject).to receive(:esi).and_return(esi) }
 
     let(:eve_system_id_to_remove) { double }
 

@@ -1,27 +1,15 @@
 # frozen_string_literal: true
 
 module Eve
-  class SystemsImporter
-    attr_reader :esi
+  class SystemsImporter < BaseImporter
+    def import!
+      import_new_systems
 
-    def initialize
-      @esi = EveOnline::ESI::UniverseSystems.new
+      remove_old_systems
     end
 
-    def import
-      ActiveRecord::Base.transaction do
-        etag = Eve::Etag.find_or_initialize_by(url: esi.url)
-
-        esi.etag = etag.etag
-
-        return if esi.not_modified?
-
-        import_new_systems
-
-        remove_old_systems
-
-        etag.update!(etag: esi.etag, body: esi.response)
-      end
+    def esi
+      @esi ||= EveOnline::ESI::UniverseSystems.new
     end
 
     private
