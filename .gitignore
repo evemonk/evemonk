@@ -32,3 +32,4 @@ yarn-debug.log*
 /.DS_Store
 /dump.rdb
 /public/sitemap*.xml.gz
+/static/*
