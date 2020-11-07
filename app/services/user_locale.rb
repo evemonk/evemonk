@@ -7,7 +7,6 @@ class UserLocale
     "french" => :fr,
     "japanese" => :ja,
     "russian" => :ru,
-    "chinese" => :zh,
     "korean" => :ko
   }.freeze
 
