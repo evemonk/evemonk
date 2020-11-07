@@ -13,7 +13,6 @@ describe UserLocale do
                                            "french" => :fr,
                                            "japanese" => :ja,
                                            "russian" => :ru,
-                                           "chinese" => :zh,
                                            "korean" => :ko)
   end
 

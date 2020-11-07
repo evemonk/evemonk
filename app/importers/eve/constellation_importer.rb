@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Eve
-  class ConstellationImporter
+  class ConstellationImporter < BaseImporter
     attr_reader :constellation_id, :locale
 
     def initialize(constellation_id, locale = :en)
@@ -9,30 +9,22 @@ module Eve
       @locale = locale
     end
 
-    def import
+    def import!
       Mobility.with_locale(locale) do
-        ActiveRecord::Base.transaction do
-          eve_constellation = Eve::Constellation.find_or_initialize_by(constellation_id: constellation_id)
+        eve_constellation = Eve::Constellation.find_or_initialize_by(constellation_id: constellation_id)
 
-          esi = EveOnline::ESI::UniverseConstellation.new(id: constellation_id, language: LanguageMapper::LANGUAGES[locale])
+        eve_constellation.update!(esi.as_json)
 
-          etag = Eve::Etag.find_or_initialize_by(url: esi.url)
+        eve_constellation.position&.destroy
 
-          esi.etag = etag.etag
-
-          return if esi.not_modified?
-
-          eve_constellation.update!(esi.as_json)
-
-          eve_constellation.position&.destroy
-
-          eve_constellation.create_position!(esi.position.as_json)
-
-          etag.update!(etag: esi.etag, body: esi.response)
-        rescue EveOnline::Exceptions::ResourceNotFound
-          eve_constellation.destroy!
-        end
+        eve_constellation.create_position!(esi.position.as_json)
+      rescue EveOnline::Exceptions::ResourceNotFound
+        eve_constellation.destroy!
       end
+    end
+
+    def esi
+      @esi ||= EveOnline::ESI::UniverseConstellation.new(id: constellation_id, language: LanguageMapper::LANGUAGES[locale])
     end
   end
 end
