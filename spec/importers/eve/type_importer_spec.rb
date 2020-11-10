@@ -3,20 +3,20 @@
 require "rails_helper"
 
 describe Eve::TypeImporter do
+  let(:type_id) { double }
+
+  subject { described_class.new(type_id) }
+
+  it { should be_a(Eve::BaseImporter) }
+
   describe "#initialize" do
     context "without locale" do
-      let(:type_id) { double }
-
-      subject { described_class.new(type_id) }
-
       its(:type_id) { should eq(type_id) }
 
       its(:locale) { should eq(:en) }
     end
 
     context "with locale" do
-      let(:type_id) { double }
-
       let(:locale) { :ru }
 
       subject { described_class.new(type_id, locale) }
@@ -27,100 +27,60 @@ describe Eve::TypeImporter do
     end
   end
 
-  describe "#import" do
-    context "when fresh data available" do
-      context "when type found" do
-        let(:type_id) { double }
-
-        subject { described_class.new(type_id) }
-
-        let(:eve_type) { instance_double(Eve::Type) }
-
-        before { expect(Eve::Type).to receive(:find_or_initialize_by).with(type_id: type_id).and_return(eve_type) }
-
-        let(:json) { double }
-
-        let(:url) { double }
-
-        let(:new_etag) { double }
-
-        let(:response) { double }
-
-        let(:esi) do
-          instance_double(EveOnline::ESI::UniverseType,
-            url: url,
-            not_modified?: false,
-            etag: new_etag,
-            response: response,
-            as_json: json)
-        end
-
-        before { expect(EveOnline::ESI::UniverseType).to receive(:new).with(id: type_id, language: "en-us").and_return(esi) }
-
-        let(:etag) { instance_double(Eve::Etag, etag: "6780e53a01c7d9715b5f445126c4f2c137da4be79e4debe541ce3ab2") }
-
-        before { expect(Eve::Etag).to receive(:find_or_initialize_by).with(url: url).and_return(etag) }
-
-        before { expect(esi).to receive(:etag=).with("6780e53a01c7d9715b5f445126c4f2c137da4be79e4debe541ce3ab2") }
-
-        before { expect(eve_type).to receive(:update!).with(json) }
-
-        before { expect(subject).to receive(:import_type_dogma_attributes).with(esi, eve_type) }
-
-        before { expect(subject).to receive(:import_type_dogma_effects).with(esi, eve_type) }
-
-        before { expect(etag).to receive(:update!).with(etag: new_etag, body: response) }
-
-        specify { expect { subject.import }.not_to raise_error }
-      end
-
-      context "when type not found" do
-        let(:type_id) { double }
-
-        subject { described_class.new(type_id) }
-
-        let(:eve_type) { instance_double(Eve::Type) }
-
-        before { expect(Eve::Type).to receive(:find_or_initialize_by).with(type_id: type_id).and_return(eve_type) }
-
-        before { expect(EveOnline::ESI::UniverseType).to receive(:new).with(id: type_id, language: "en-us").and_raise(EveOnline::Exceptions::ResourceNotFound) }
-
-        before { expect(eve_type).to receive(:destroy!) }
-
-        specify { expect { subject.import }.not_to raise_error }
-      end
-    end
-
-    context "when no fresh data available" do
-      let(:type_id) { double }
-
-      subject { described_class.new(type_id) }
-
+  describe "#import!" do
+    context "when eve type found" do
       let(:eve_type) { instance_double(Eve::Type) }
 
       before { expect(Eve::Type).to receive(:find_or_initialize_by).with(type_id: type_id).and_return(eve_type) }
 
-      let(:url) { double }
+      let(:json) { double }
 
       let(:esi) do
         instance_double(EveOnline::ESI::UniverseType,
-          url: url,
-          not_modified?: true)
+          as_json: json)
       end
+
+      before { expect(subject).to receive(:esi).and_return(esi) }
+
+      before { expect(eve_type).to receive(:update!).with(json) }
+
+      before { expect(subject).to receive(:import_type_dogma_attributes).with(eve_type) }
+
+      before { expect(subject).to receive(:import_type_dogma_effects).with(eve_type) }
+
+      specify { expect { subject.import! }.not_to raise_error }
+    end
+
+    context "when type not found" do
+      let(:eve_type) { instance_double(Eve::Type) }
+
+      before { expect(Eve::Type).to receive(:find_or_initialize_by).with(type_id: type_id).and_return(eve_type) }
+
+      before { expect(subject).to receive(:esi).and_raise(EveOnline::Exceptions::ResourceNotFound) }
+
+      before { expect(eve_type).to receive(:destroy!) }
+
+      specify { expect { subject.import! }.not_to raise_error }
+    end
+  end
+
+  describe "#esi" do
+    context "when @esi is set" do
+      let(:esi) { instance_double(EveOnline::ESI::UniverseType) }
+
+      before { subject.instance_variable_set(:@esi, esi) }
+
+      specify { expect(subject.esi).to eq(esi) }
+    end
+
+    context "when @esi not set" do
+      let(:esi) { instance_double(EveOnline::ESI::UniverseType) }
 
       before { expect(EveOnline::ESI::UniverseType).to receive(:new).with(id: type_id, language: "en-us").and_return(esi) }
 
-      let(:etag) { instance_double(Eve::Etag, etag: "6780e53a01c7d9715b5f445126c4f2c137da4be79e4debe541ce3ab2") }
+      specify { expect(subject.esi).to eq(esi) }
 
-      before { expect(Eve::Etag).to receive(:find_or_initialize_by).with(url: url).and_return(etag) }
-
-      before { expect(esi).to receive(:etag=).with("6780e53a01c7d9715b5f445126c4f2c137da4be79e4debe541ce3ab2") }
-
-      before { expect(eve_type).not_to receive(:update!) }
-
-      before { expect(etag).not_to receive(:update!) }
-
-      specify { expect { subject.import }.not_to raise_error }
+      specify { expect { subject.esi }.to change { subject.instance_variable_get(:@esi) }.from(nil).to(esi) }
     end
   end
 
@@ -128,8 +88,6 @@ describe Eve::TypeImporter do
 
   describe "#import_type_dogma_attributes" do
     context "when locale is :en" do
-      let(:type_id) { double }
-
       let(:locale) { :en }
 
       subject { described_class.new(type_id, locale) }
@@ -146,6 +104,8 @@ describe Eve::TypeImporter do
         instance_double(EveOnline::ESI::UniverseType,
           dogma_attributes: dogma_attributes)
       end
+
+      before { expect(subject).to receive(:esi).and_return(esi) }
 
       before do
         #
@@ -169,32 +129,22 @@ describe Eve::TypeImporter do
         end
       end
 
-      specify { expect { subject.import_type_dogma_attributes(esi, eve_type) }.not_to raise_error }
+      specify { expect { subject.send(:import_type_dogma_attributes, eve_type) }.not_to raise_error }
     end
 
     context "when locale is not :en" do
-      let(:type_id) { double }
-
       let(:locale) { :ru }
 
       subject { described_class.new(type_id, locale) }
 
       let(:eve_type) { instance_double(Eve::Type) }
 
-      let(:esi) { double }
-
-      before { expect(eve_type).not_to receive(:type_dogma_attributes) }
-
-      before { expect(esi).not_to receive(:dogma_attributes) }
-
-      specify { expect { subject.import_type_dogma_attributes(esi, eve_type) }.not_to raise_error }
+      specify { expect { subject.send(:import_type_dogma_attributes, eve_type) }.not_to raise_error }
     end
   end
 
   describe "#import_type_dogma_effects" do
     context "when locale is :en" do
-      let(:type_id) { double }
-
       let(:locale) { :en }
 
       subject { described_class.new(type_id, locale) }
@@ -211,6 +161,8 @@ describe Eve::TypeImporter do
         instance_double(EveOnline::ESI::UniverseType,
           dogma_effects: dogma_effects)
       end
+
+      before { expect(subject).to receive(:esi).and_return(esi) }
 
       before do
         #
@@ -234,25 +186,17 @@ describe Eve::TypeImporter do
         end
       end
 
-      specify { expect { subject.import_type_dogma_effects(esi, eve_type) }.not_to raise_error }
+      specify { expect { subject.send(:import_type_dogma_effects, eve_type) }.not_to raise_error }
     end
 
     context "when locale is not :en" do
-      let(:type_id) { double }
-
       let(:locale) { :ru }
 
       subject { described_class.new(type_id, locale) }
 
       let(:eve_type) { instance_double(Eve::Type) }
 
-      let(:esi) { double }
-
-      before { expect(eve_type).not_to receive(:type_dogma_effects) }
-
-      before { expect(esi).not_to receive(:dogma_effects) }
-
-      specify { expect { subject.import_type_dogma_effects(esi, eve_type) }.not_to raise_error }
+      specify { expect { subject.send(:import_type_dogma_effects, eve_type) }.not_to raise_error }
     end
   end
 end

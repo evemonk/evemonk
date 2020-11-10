@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Eve
-  class TypeImporter
+  class TypeImporter < BaseImporter
     attr_reader :type_id, :locale
 
     def initialize(type_id, locale = :en)
@@ -9,33 +9,27 @@ module Eve
       @locale = locale
     end
 
-    def import
+    def import!
       Mobility.with_locale(locale) do
-        ActiveRecord::Base.transaction do
-          eve_type = Eve::Type.find_or_initialize_by(type_id: type_id)
+        eve_type = Eve::Type.find_or_initialize_by(type_id: type_id)
 
-          esi = EveOnline::ESI::UniverseType.new(id: type_id, language: LanguageMapper::LANGUAGES[locale])
+        eve_type.update!(esi.as_json)
 
-          etag = Eve::Etag.find_or_initialize_by(url: esi.url)
+        import_type_dogma_attributes(eve_type)
 
-          esi.etag = etag.etag
-
-          return if esi.not_modified?
-
-          eve_type.update!(esi.as_json)
-
-          import_type_dogma_attributes(esi, eve_type)
-
-          import_type_dogma_effects(esi, eve_type)
-
-          etag.update!(etag: esi.etag, body: esi.response)
-        rescue EveOnline::Exceptions::ResourceNotFound
-          eve_type.destroy!
-        end
+        import_type_dogma_effects(eve_type)
+      rescue EveOnline::Exceptions::ResourceNotFound
+        eve_type.destroy!
       end
     end
 
-    def import_type_dogma_attributes(esi, eve_type)
+    def esi
+      @esi ||= EveOnline::ESI::UniverseType.new(id: type_id, language: LanguageMapper::LANGUAGES[locale])
+    end
+
+    private
+
+    def import_type_dogma_attributes(eve_type)
       return unless locale == :en
 
       eve_type.type_dogma_attributes.destroy_all
@@ -45,7 +39,7 @@ module Eve
       end
     end
 
-    def import_type_dogma_effects(esi, eve_type)
+    def import_type_dogma_effects(eve_type)
       return unless locale == :en
 
       eve_type.type_dogma_effects.destroy_all
