@@ -1,32 +1,18 @@
 # frozen_string_literal: true
 
 module Eve
-  class DogmaAttributesImporter
-    attr_reader :esi
+  class DogmaAttributesImporter < BaseImporter
+    def import!
+      import_new_dogma_attributes
 
-    def initialize
-      @esi = EveOnline::ESI::DogmaAttributes.new
+      remove_old_dogma_attributes
     end
 
-    def import
-      ActiveRecord::Base.transaction do
-        esi.etag = etag.etag
-
-        return if esi.not_modified?
-
-        import_new_dogma_attributes
-
-        remove_old_dogma_attributes
-
-        etag.update!(etag: esi.etag, body: esi.response)
-      end
+    def esi
+      @esi ||= EveOnline::ESI::DogmaAttributes.new
     end
 
     private
-
-    def etag
-      @etag ||= Eve::Etag.find_or_initialize_by(url: esi.url)
-    end
 
     def import_new_dogma_attributes
       eve_dogma_attribute_ids = Eve::DogmaAttribute.pluck(:attribute_id)
