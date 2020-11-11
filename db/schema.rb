@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_25_183221) do
+ActiveRecord::Schema.define(version: 2020_11_11_201440) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -304,6 +304,8 @@ ActiveRecord::Schema.define(version: 2020_10_25_183221) do
     t.bigint "type_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["blueprint_id"], name: "index_eve_blueprint_invention_materials_on_blueprint_id"
+    t.index ["type_id"], name: "index_eve_blueprint_invention_materials_on_type_id"
   end
 
   create_table "eve_blueprint_invention_products", force: :cascade do |t|
@@ -313,6 +315,8 @@ ActiveRecord::Schema.define(version: 2020_10_25_183221) do
     t.bigint "type_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["blueprint_id"], name: "index_eve_blueprint_invention_products_on_blueprint_id"
+    t.index ["type_id"], name: "index_eve_blueprint_invention_products_on_type_id"
   end
 
   create_table "eve_blueprint_invention_skills", force: :cascade do |t|
@@ -321,6 +325,8 @@ ActiveRecord::Schema.define(version: 2020_10_25_183221) do
     t.bigint "type_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["blueprint_id"], name: "index_eve_blueprint_invention_skills_on_blueprint_id"
+    t.index ["type_id"], name: "index_eve_blueprint_invention_skills_on_type_id"
   end
 
   create_table "eve_blueprint_manufacturing_materials", force: :cascade do |t|
@@ -329,6 +335,8 @@ ActiveRecord::Schema.define(version: 2020_10_25_183221) do
     t.bigint "type_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["blueprint_id"], name: "index_eve_blueprint_manufacturing_materials_on_blueprint_id"
+    t.index ["type_id"], name: "index_eve_blueprint_manufacturing_materials_on_type_id"
   end
 
   create_table "eve_blueprint_manufacturing_products", force: :cascade do |t|
@@ -337,6 +345,8 @@ ActiveRecord::Schema.define(version: 2020_10_25_183221) do
     t.bigint "type_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["blueprint_id"], name: "index_eve_blueprint_manufacturing_products_on_blueprint_id"
+    t.index ["type_id"], name: "index_eve_blueprint_manufacturing_products_on_type_id"
   end
 
   create_table "eve_blueprint_manufacturing_skills", force: :cascade do |t|
