@@ -3,86 +3,33 @@
 require "rails_helper"
 
 describe Eve::RegionsImporter do
-  describe "#initialize" do
-    let(:esi) { instance_double(EveOnline::ESI::UniverseRegions) }
+  it { should be_a(Eve::BaseImporter) }
 
-    before do
-      expect(EveOnline::ESI::UniverseRegions).to receive(:new)
-        .and_return(esi)
-    end
+  describe "#import!" do
+    before { expect(subject).to receive(:import_new_regions) }
 
-    its(:esi) { should eq(esi) }
+    before { expect(subject).to receive(:remove_old_regions) }
+
+    specify { expect { subject.import! }.not_to raise_error }
   end
 
-  describe "#import" do
-    context "when fresh data available" do
-      let(:new_etag) { double }
+  describe "#esi" do
+    context "when @esi is set" do
+      let(:esi) { instance_double(EveOnline::ESI::UniverseRegions) }
 
-      let(:url) { double }
+      before { subject.instance_variable_set(:@esi, esi) }
 
-      let(:response) { double }
-
-      let(:esi) do
-        instance_double(EveOnline::ESI::UniverseRegions,
-          not_modified?: false,
-          etag: new_etag,
-          url: url,
-          response: response)
-      end
-
-      before do
-        expect(EveOnline::ESI::UniverseRegions).to receive(:new)
-          .and_return(esi)
-      end
-
-      let(:etag) { instance_double(Eve::Etag, etag: "97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a") }
-
-      before { expect(Eve::Etag).to receive(:find_or_initialize_by).with(url: url).and_return(etag) }
-
-      before do
-        expect(esi).to receive(:etag=)
-          .with("97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a")
-      end
-
-      before { expect(subject).to receive(:import_new_regions) }
-
-      before { expect(subject).to receive(:remove_old_regions) }
-
-      before { expect(etag).to receive(:update!).with(etag: new_etag, body: response) }
-
-      specify { expect { subject.import }.not_to raise_error }
+      specify { expect(subject.esi).to eq(esi) }
     end
 
-    context "when no fresh data available" do
-      let(:url) { double }
+    context "when @esi not set" do
+      let(:esi) { instance_double(EveOnline::ESI::UniverseRegions) }
 
-      let(:esi) do
-        instance_double(EveOnline::ESI::UniverseRegions,
-          url: url,
-          not_modified?: true)
-      end
+      before { expect(EveOnline::ESI::UniverseRegions).to receive(:new).and_return(esi) }
 
-      before do
-        expect(EveOnline::ESI::UniverseRegions).to receive(:new)
-          .and_return(esi)
-      end
+      specify { expect(subject.esi).to eq(esi) }
 
-      let(:etag) { instance_double(Eve::Etag, etag: "97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a") }
-
-      before { expect(Eve::Etag).to receive(:find_or_initialize_by).with(url: url).and_return(etag) }
-
-      before do
-        expect(esi).to receive(:etag=)
-          .with("97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a")
-      end
-
-      before { expect(subject).not_to receive(:import_new_regions) }
-
-      before { expect(subject).not_to receive(:remove_old_regions) }
-
-      before { expect(etag).not_to receive(:update!) }
-
-      specify { expect { subject.import }.not_to raise_error }
+      specify { expect { subject.esi }.to change { subject.instance_variable_get(:@esi) }.from(nil).to(esi) }
     end
   end
 
@@ -100,7 +47,7 @@ describe Eve::RegionsImporter do
         universe_region_ids: universe_region_ids)
     end
 
-    before { expect(EveOnline::ESI::UniverseRegions).to receive(:new).and_return(esi) }
+    before { expect(subject).to receive(:esi).and_return(esi) }
 
     let(:eve_region_id_to_create) { double }
 
@@ -125,7 +72,7 @@ describe Eve::RegionsImporter do
         universe_region_ids: universe_region_ids)
     end
 
-    before { expect(EveOnline::ESI::UniverseRegions).to receive(:new).and_return(esi) }
+    before { expect(subject).to receive(:esi).and_return(esi) }
 
     let(:eve_region_id_to_remove) { double }
 
