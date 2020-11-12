@@ -1,27 +1,15 @@
 # frozen_string_literal: true
 
 module Eve
-  class RegionsImporter
-    attr_reader :esi
+  class RegionsImporter < BaseImporter
+    def import!
+      import_new_regions
 
-    def initialize
-      @esi = EveOnline::ESI::UniverseRegions.new
+      remove_old_regions
     end
 
-    def import
-      ActiveRecord::Base.transaction do
-        etag = Eve::Etag.find_or_initialize_by(url: esi.url)
-
-        esi.etag = etag.etag
-
-        return if esi.not_modified?
-
-        import_new_regions
-
-        remove_old_regions
-
-        etag.update!(etag: esi.etag, body: esi.response)
-      end
+    def esi
+      @esi ||= EveOnline::ESI::UniverseRegions.new
     end
 
     private
