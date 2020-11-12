@@ -69,4 +69,24 @@ describe Eve::MoonImporter do
       specify { expect { subject.import! }.not_to raise_error }
     end
   end
+
+  describe "#esi" do
+    context "when @esi is set" do
+      let(:esi) { instance_double(EveOnline::ESI::UniverseMoon) }
+
+      before { subject.instance_variable_set(:@esi, esi) }
+
+      specify { expect(subject.esi).to eq(esi) }
+    end
+
+    context "when @esi not set" do
+      let(:esi) { instance_double(EveOnline::ESI::UniverseMoon) }
+
+      before { expect(EveOnline::ESI::UniverseMoon).to receive(:new).with(id: moon_id).and_return(esi) }
+
+      specify { expect(subject.esi).to eq(esi) }
+
+      specify { expect { subject.esi }.to change { subject.instance_variable_get(:@esi) }.from(nil).to(esi) }
+    end
+  end
 end
