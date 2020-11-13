@@ -8,7 +8,7 @@ jobs:
         environment:
           RAILS_ENV: test
           PGHOST: localhost
-      - image: postgres:13.0
+      - image: postgres:13.1
         environment:
           POSTGRES_USER: circleci
           POSTGRES_DB: evemonk_test
