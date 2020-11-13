@@ -222,7 +222,7 @@ GEM
       rubocop (~> 0.79)
       smart_properties
     errbase (0.2.0)
-    erubi (1.9.0)
+    erubi (1.10.0)
     erubis (2.7.0)
     et-orbi (1.2.4)
       tzinfo
