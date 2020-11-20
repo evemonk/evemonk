@@ -375,7 +375,7 @@ GEM
       connection_pool (~> 2.2)
     net-http2 (0.18.3)
       http-2 (~> 0.10.1)
-    newrelic_rpm (6.13.1)
+    newrelic_rpm (6.14.0)
     niceql (0.1.25)
     nio4r (2.5.4)
     nokogiri (1.10.10)
