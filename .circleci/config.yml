@@ -34,13 +34,13 @@ jobs:
           key: ruby-{{ checksum ".ruby-version" }}-v1-dependencies-{{ checksum "Gemfile.lock" }}
       - run: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run: dockerize -wait tcp://localhost:9200 -timeout 2m
-      - run: sudo npm install -g npm@6.14.8
+      - run: sudo npm install -g npm@6.14.9
       - run: sudo npm install --force -g yarn@1.22.10
       - run: node -v
       - run: npm -v
       - run: yarn -v
       - run: yarn install
-      - run: curl -L https://github.com/hadolint/hadolint/releases/download/v1.18.2/hadolint-Linux-x86_64 > ./hadolint
+      - run: curl -L https://github.com/hadolint/hadolint/releases/download/v1.19.0/hadolint-Linux-x86_64 > ./hadolint
       - run: chmod +x ./hadolint
       - run: wget -qO- https://github.com/koalaman/shellcheck/releases/download/stable/shellcheck-stable.linux.x86_64.tar.xz | tar -xJv
       - run: shellcheck-stable/shellcheck --version
