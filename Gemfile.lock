@@ -246,7 +246,7 @@ GEM
       ruby_parser (>= 3.14.1)
     ffi (1.13.1)
     foundation_emails (2.2.1.0)
-    fugit (1.4.0)
+    fugit (1.4.1)
       et-orbi (~> 1.1, >= 1.1.8)
       raabro (~> 1.4)
     gemdiff (3.1.0)
