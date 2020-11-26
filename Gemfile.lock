@@ -570,7 +570,7 @@ GEM
     sawyer (0.8.2)
       addressable (>= 2.3.5)
       faraday (> 0.8, < 2.0)
-    scout_apm (2.6.10)
+    scout_apm (4.0.0)
       parser
     searchkick (4.4.2)
       activemodel (>= 5)
