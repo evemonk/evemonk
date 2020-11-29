@@ -2,8 +2,14 @@
 
 module Eve
   class ServerStatusImporter < BaseImporter
-    def import!
-      Eve::ServerStatus.create!(esi.as_json)
+    def import
+      import! do
+        return if esi.not_modified?
+
+        Eve::ServerStatus.create!(esi.as_json)
+
+        update_etag
+      end
     end
 
     def esi

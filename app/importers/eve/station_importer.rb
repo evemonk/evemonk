@@ -8,16 +8,26 @@ module Eve
       @station_id = station_id
     end
 
-    def import!
-      eve_station = Eve::Station.find_or_initialize_by(station_id: station_id)
+    def import
+      import! do
+        eve_station = Eve::Station.find_or_initialize_by(station_id: station_id)
 
-      eve_station.update!(esi.as_json)
+        return if esi.not_modified?
 
-      eve_station.position&.destroy
+        eve_station.update!(esi.as_json)
 
-      eve_station.create_position!(esi.position.as_json)
-    rescue EveOnline::Exceptions::ResourceNotFound
-      eve_station.destroy!
+        eve_station.position&.destroy
+
+        eve_station.create_position!(esi.position.as_json)
+
+        update_etag
+      rescue EveOnline::Exceptions::ResourceNotFound
+        Rails.logger.info("EveOnline::Exceptions::ResourceNotFound: Eve Station ID #{station_id}")
+
+        etag.destroy!
+
+        eve_station.destroy!
+      end
     end
 
     def esi

@@ -19,24 +19,40 @@ describe Eve::FactionsImporter do
     end
   end
 
-  describe "#import!" do
-    let(:faction_id) { double }
+  describe "#import" do
+    before { expect(subject).to receive(:configure_middlewares) }
 
-    let(:as_json) { double }
+    before { expect(subject).to receive(:configure_etag) }
 
-    let(:faction) { instance_double(EveOnline::ESI::Models::Faction, faction_id: faction_id, as_json: as_json) }
+    context "when etag cache hit" do
+      let(:esi) { instance_double(EveOnline::ESI::UniverseFactions, not_modified?: true) }
 
-    let(:esi) { instance_double(EveOnline::ESI::UniverseFactions, factions: [faction]) }
+      before { expect(subject).to receive(:esi).and_return(esi) }
 
-    before { expect(subject).to receive(:esi).and_return(esi) }
+      specify { expect { subject.import }.not_to raise_error }
+    end
 
-    let(:eve_faction) { instance_double(Eve::Faction) }
+    context "when etag cache miss" do
+      let(:faction_id) { double }
 
-    before { expect(Eve::Faction).to receive(:find_or_initialize_by).with(faction_id: faction_id).and_return(eve_faction) }
+      let(:json) { double }
 
-    before { expect(eve_faction).to receive(:update!).with(as_json) }
+      let(:faction) { instance_double(EveOnline::ESI::Models::Faction, faction_id: faction_id, as_json: json) }
 
-    specify { expect { subject.import! }.not_to raise_error }
+      let(:esi) { instance_double(EveOnline::ESI::UniverseFactions, not_modified?: false, factions: [faction]) }
+
+      before { expect(subject).to receive(:esi).and_return(esi).twice }
+
+      let(:eve_faction) { instance_double(Eve::Faction) }
+
+      before { expect(Eve::Faction).to receive(:find_or_initialize_by).with(faction_id: faction_id).and_return(eve_faction) }
+
+      before { expect(eve_faction).to receive(:update!).with(json) }
+
+      before { expect(subject).to receive(:update_etag) }
+
+      specify { expect { subject.import }.not_to raise_error }
+    end
   end
 
   describe "#esi" do

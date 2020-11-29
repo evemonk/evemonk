@@ -19,24 +19,40 @@ describe Eve::BloodlinesImporter do
     end
   end
 
-  describe "#import!" do
-    let(:bloodline_id) { double }
+  describe "#import" do
+    before { expect(subject).to receive(:configure_middlewares) }
 
-    let(:as_json) { double }
+    before { expect(subject).to receive(:configure_etag) }
 
-    let(:bloodline) { instance_double(EveOnline::ESI::Models::Bloodline, bloodline_id: bloodline_id, as_json: as_json) }
+    context "when etag cache hit" do
+      let(:esi) { instance_double(EveOnline::ESI::UniverseBloodlines, not_modified?: true) }
 
-    let(:esi) { instance_double(EveOnline::ESI::UniverseBloodlines, bloodlines: [bloodline]) }
+      before { expect(subject).to receive(:esi).and_return(esi) }
 
-    before { expect(subject).to receive(:esi).and_return(esi) }
+      specify { expect { subject.import }.not_to raise_error }
+    end
 
-    let(:eve_bloodline) { instance_double(Eve::Bloodline) }
+    context "when etag cache miss" do
+      let(:bloodline_id) { double }
 
-    before { expect(Eve::Bloodline).to receive(:find_or_initialize_by).with(bloodline_id: bloodline_id).and_return(eve_bloodline) }
+      let(:json) { double }
 
-    before { expect(eve_bloodline).to receive(:update!).with(as_json) }
+      let(:bloodline) { instance_double(EveOnline::ESI::Models::Bloodline, bloodline_id: bloodline_id, as_json: json) }
 
-    specify { expect { subject.import! }.not_to raise_error }
+      let(:esi) { instance_double(EveOnline::ESI::UniverseBloodlines, not_modified?: false, bloodlines: [bloodline]) }
+
+      before { expect(subject).to receive(:esi).and_return(esi).twice }
+
+      let(:eve_bloodline) { instance_double(Eve::Bloodline) }
+
+      before { expect(Eve::Bloodline).to receive(:find_or_initialize_by).with(bloodline_id: bloodline_id).and_return(eve_bloodline) }
+
+      before { expect(eve_bloodline).to receive(:update!).with(json) }
+
+      before { expect(subject).to receive(:update_etag) }
+
+      specify { expect { subject.import }.not_to raise_error }
+    end
   end
 
   describe "#esi" do

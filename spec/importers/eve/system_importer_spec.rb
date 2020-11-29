@@ -3,6 +3,12 @@
 require "rails_helper"
 
 describe Eve::SystemImporter do
+  let(:system_id) { double }
+
+  subject { described_class.new(system_id) }
+
+  it { should be_a(Eve::BaseImporter) }
+
   describe "#initialize" do
     context "without locale" do
       let(:system_id) { double }
@@ -28,23 +34,25 @@ describe Eve::SystemImporter do
   end
 
   describe "#import" do
-    context "when fresh data available" do
-      context "when system found" do
-        let(:system_id) { double }
+    before { expect(subject).to receive(:configure_middlewares) }
 
-        subject { described_class.new(system_id) }
+    before { expect(subject).to receive(:configure_etag) }
 
-        let(:eve_system) { instance_double(Eve::System) }
+    let(:eve_system) { instance_double(Eve::System) }
 
-        before { expect(Eve::System).to receive(:find_or_initialize_by).with(system_id: system_id).and_return(eve_system) }
+    before { expect(Eve::System).to receive(:find_or_initialize_by).with(system_id: system_id).and_return(eve_system) }
 
+    context "when etag cache hit" do
+      let(:esi) { instance_double(EveOnline::ESI::UniverseSystem, not_modified?: true) }
+
+      before { expect(subject).to receive(:esi).and_return(esi) }
+
+      specify { expect { subject.import }.not_to raise_error }
+    end
+
+    context "when etag cache miss" do
+      context "when eve system found" do
         let(:json) { double }
-
-        let(:url) { double }
-
-        let(:new_etag) { double }
-
-        let(:response) { double }
 
         let(:position_json) { double }
 
@@ -84,10 +92,7 @@ describe Eve::SystemImporter do
 
         let(:esi) do
           instance_double(EveOnline::ESI::UniverseSystem,
-            url: url,
             not_modified?: false,
-            etag: new_etag,
-            response: response,
             position: position,
             star_id: star_id,
             stargate_ids: stargate_ids,
@@ -96,13 +101,7 @@ describe Eve::SystemImporter do
             as_json: json)
         end
 
-        before { expect(EveOnline::ESI::UniverseSystem).to receive(:new).with(id: system_id, language: "en-us").and_return(esi) }
-
-        let(:etag) { instance_double(Eve::Etag, etag: "6780e53a01c7d9715b5f445126c4f2c137da4be79e4debe541ce3ab2") }
-
-        before { expect(Eve::Etag).to receive(:find_or_initialize_by).with(url: url).and_return(etag) }
-
-        before { expect(esi).to receive(:etag=).with("6780e53a01c7d9715b5f445126c4f2c137da4be79e4debe541ce3ab2") }
+        before { expect(subject).to receive(:esi).and_return(esi).exactly(7).times }
 
         before { expect(eve_system).to receive(:update!).with(json) }
 
@@ -136,58 +135,55 @@ describe Eve::SystemImporter do
 
         before { expect(Eve::UpdateMoonJob).to receive(:perform_later).with(planet_id, moon_id) }
 
-        before { expect(etag).to receive(:update!).with(etag: new_etag, body: response) }
+        before { expect(subject).to receive(:update_etag) }
 
         specify { expect { subject.import }.not_to raise_error }
       end
 
-      context "when system not found" do
-        let(:system_id) { double }
+      context "when eve system not found" do
+        before { expect(subject).to receive(:esi).and_raise(EveOnline::Exceptions::ResourceNotFound) }
 
-        subject { described_class.new(system_id) }
+        let(:eve_etag) { instance_double(Eve::Etag) }
 
-        let(:eve_system) { instance_double(Eve::System) }
+        before { expect(subject).to receive(:etag).and_return(eve_etag) }
 
-        before { expect(Eve::System).to receive(:find_or_initialize_by).with(system_id: system_id).and_return(eve_system) }
+        before do
+          #
+          # Rails.logger.info("EveOnline::Exceptions::ResourceNotFound: Eve System ID #{system_id}")
 
-        before { expect(EveOnline::ESI::UniverseSystem).to receive(:new).with(id: system_id, language: "en-us").and_raise(EveOnline::Exceptions::ResourceNotFound) }
+          expect(Rails).to receive(:logger) do
+            double.tap do |a|
+              expect(a).to receive(:info).with("EveOnline::Exceptions::ResourceNotFound: Eve System ID #{system_id}")
+            end
+          end
+        end
+
+        before { expect(eve_etag).to receive(:destroy!) }
 
         before { expect(eve_system).to receive(:destroy!) }
 
         specify { expect { subject.import }.not_to raise_error }
       end
     end
+  end
 
-    context "when no fresh data available" do
-      let(:system_id) { double }
+  describe "#esi" do
+    context "when @esi is set" do
+      let(:esi) { instance_double(EveOnline::ESI::UniverseSystem) }
 
-      subject { described_class.new(system_id) }
+      before { subject.instance_variable_set(:@esi, esi) }
 
-      let(:eve_system) { instance_double(Eve::System) }
+      specify { expect(subject.esi).to eq(esi) }
+    end
 
-      before { expect(Eve::System).to receive(:find_or_initialize_by).with(system_id: system_id).and_return(eve_system) }
-
-      let(:url) { double }
-
-      let(:esi) do
-        instance_double(EveOnline::ESI::UniverseSystem,
-          url: url,
-          not_modified?: true)
-      end
+    context "when @esi not set" do
+      let(:esi) { instance_double(EveOnline::ESI::UniverseSystem) }
 
       before { expect(EveOnline::ESI::UniverseSystem).to receive(:new).with(id: system_id, language: "en-us").and_return(esi) }
 
-      let(:etag) { instance_double(Eve::Etag, etag: "6780e53a01c7d9715b5f445126c4f2c137da4be79e4debe541ce3ab2") }
+      specify { expect(subject.esi).to eq(esi) }
 
-      before { expect(Eve::Etag).to receive(:find_or_initialize_by).with(url: url).and_return(etag) }
-
-      before { expect(esi).to receive(:etag=).with("6780e53a01c7d9715b5f445126c4f2c137da4be79e4debe541ce3ab2") }
-
-      before { expect(eve_system).not_to receive(:update!) }
-
-      before { expect(etag).not_to receive(:update!) }
-
-      specify { expect { subject.import }.not_to raise_error }
+      specify { expect { subject.esi }.to change { subject.instance_variable_get(:@esi) }.from(nil).to(esi) }
     end
   end
 end

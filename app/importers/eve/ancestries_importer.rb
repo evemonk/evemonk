@@ -8,13 +8,19 @@ module Eve
       @locale = locale
     end
 
-    def import!
-      Mobility.with_locale(locale) do
-        esi.ancestries.each do |ancestry|
-          eve_ancestry = Eve::Ancestry.find_or_initialize_by(ancestry_id: ancestry.ancestry_id)
+    def import
+      import! do
+        return if esi.not_modified?
 
-          eve_ancestry.update!(ancestry.as_json)
+        Mobility.with_locale(locale) do
+          esi.ancestries.each do |ancestry|
+            eve_ancestry = Eve::Ancestry.find_or_initialize_by(ancestry_id: ancestry.ancestry_id)
+
+            eve_ancestry.update!(ancestry.as_json)
+          end
         end
+
+        update_etag
       end
     end
 

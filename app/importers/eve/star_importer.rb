@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Eve
-  class StarImporter
+  class StarImporter < BaseImporter
     attr_reader :star_id
 
     def initialize(star_id)
@@ -9,23 +9,25 @@ module Eve
     end
 
     def import
-      ActiveRecord::Base.transaction do
+      import! do
         eve_star = Eve::Star.find_or_initialize_by(star_id: star_id)
-
-        esi = EveOnline::ESI::UniverseStar.new(id: star_id)
-
-        etag = Eve::Etag.find_or_initialize_by(url: esi.url)
-
-        esi.etag = etag.etag
 
         return if esi.not_modified?
 
         eve_star.update!(esi.as_json)
 
-        etag.update!(etag: esi.etag, body: esi.response)
+        update_etag
       rescue EveOnline::Exceptions::ResourceNotFound
+        Rails.logger.info("EveOnline::Exceptions::ResourceNotFound: Eve Star ID #{star_id}")
+
+        etag.destroy!
+
         eve_star.destroy!
       end
+    end
+
+    def esi
+      @esi ||= EveOnline::ESI::UniverseStar.new(id: star_id)
     end
   end
 end

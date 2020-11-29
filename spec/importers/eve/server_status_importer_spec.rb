@@ -5,16 +5,32 @@ require "rails_helper"
 describe Eve::ServerStatusImporter do
   it { should be_a(Eve::BaseImporter) }
 
-  describe "#import!" do
-    let(:as_json) { double }
+  describe "#import" do
+    before { expect(subject).to receive(:configure_middlewares) }
 
-    let(:esi) { instance_double(EveOnline::ESI::ServerStatus, as_json: as_json) }
+    before { expect(subject).to receive(:configure_etag) }
 
-    before { expect(subject).to receive(:esi).and_return(esi) }
+    context "when etag cache hit" do
+      let(:esi) { instance_double(EveOnline::ESI::ServerStatus, not_modified?: true) }
 
-    before { expect(Eve::ServerStatus).to receive(:create!).with(as_json) }
+      before { expect(EveOnline::ESI::ServerStatus).to receive(:new).and_return(esi) }
 
-    specify { expect { subject.import! }.not_to raise_error }
+      specify { expect { subject.import }.not_to raise_error }
+    end
+
+    context "when etag cache miss" do
+      let(:json) { double }
+
+      let(:esi) { instance_double(EveOnline::ESI::ServerStatus, not_modified?: false, as_json: json) }
+
+      before { expect(EveOnline::ESI::ServerStatus).to receive(:new).and_return(esi) }
+
+      before { expect(Eve::ServerStatus).to receive(:create!).with(json) }
+
+      before { expect(subject).to receive(:update_etag) }
+
+      specify { expect { subject.import }.not_to raise_error }
+    end
   end
 
   describe "#esi" do

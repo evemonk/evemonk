@@ -19,24 +19,40 @@ describe Eve::AncestriesImporter do
     end
   end
 
-  describe "#import!" do
-    let(:ancestry_id) { double }
+  describe "#import" do
+    before { expect(subject).to receive(:configure_middlewares) }
 
-    let(:as_json) { double }
+    before { expect(subject).to receive(:configure_etag) }
 
-    let(:ancestry) { instance_double(EveOnline::ESI::Models::Ancestry, ancestry_id: ancestry_id, as_json: as_json) }
+    context "when etag cache hit" do
+      let(:esi) { instance_double(EveOnline::ESI::UniverseAncestries, not_modified?: true) }
 
-    let(:esi) { instance_double(EveOnline::ESI::UniverseAncestries, ancestries: [ancestry]) }
+      before { expect(subject).to receive(:esi).and_return(esi) }
 
-    before { expect(subject).to receive(:esi).and_return(esi) }
+      specify { expect { subject.import }.not_to raise_error }
+    end
 
-    let(:eve_ancestry) { instance_double(Eve::Ancestry) }
+    context "when etag cache miss" do
+      let(:ancestry_id) { double }
 
-    before { expect(Eve::Ancestry).to receive(:find_or_initialize_by).with(ancestry_id: ancestry_id).and_return(eve_ancestry) }
+      let(:json) { double }
 
-    before { expect(eve_ancestry).to receive(:update!).with(as_json) }
+      let(:ancestry) { instance_double(EveOnline::ESI::Models::Ancestry, ancestry_id: ancestry_id, as_json: json) }
 
-    specify { expect { subject.import! }.not_to raise_error }
+      let(:esi) { instance_double(EveOnline::ESI::UniverseAncestries, not_modified?: false, ancestries: [ancestry]) }
+
+      before { expect(subject).to receive(:esi).and_return(esi).twice }
+
+      let(:eve_ancestry) { instance_double(Eve::Ancestry) }
+
+      before { expect(Eve::Ancestry).to receive(:find_or_initialize_by).with(ancestry_id: ancestry_id).and_return(eve_ancestry) }
+
+      before { expect(eve_ancestry).to receive(:update!).with(json) }
+
+      before { expect(subject).to receive(:update_etag) }
+
+      specify { expect { subject.import }.not_to raise_error }
+    end
   end
 
   describe "#esi" do

@@ -2,17 +2,13 @@
 
 module Eve
   class BaseImporter
-    def import
+    def import!
       configure_middlewares
 
       configure_etag
 
-      return if esi.not_modified?
-
       ActiveRecord::Base.transaction do
-        import!
-
-        update_etag
+        yield if block_given?
       end
     end
 
@@ -20,7 +16,7 @@ module Eve
       raise NotImplementedError
     end
 
-    def import!
+    def import
       raise NotImplementedError
     end
 

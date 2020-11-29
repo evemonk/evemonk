@@ -8,12 +8,22 @@ module Eve
       @alliance_id = alliance_id
     end
 
-    def import!
-      eve_alliance = Eve::Alliance.find_or_initialize_by(alliance_id: alliance_id)
+    def import
+      import! do
+        eve_alliance = Eve::Alliance.find_or_initialize_by(alliance_id: alliance_id)
 
-      eve_alliance.update!(esi.as_json)
-    rescue EveOnline::Exceptions::ResourceNotFound
-      eve_alliance.destroy!
+        return if esi.not_modified?
+
+        eve_alliance.update!(esi.as_json)
+
+        update_etag
+      rescue EveOnline::Exceptions::ResourceNotFound
+        Rails.logger.info("EveOnline::Exceptions::ResourceNotFound: Eve Alliance ID #{alliance_id}")
+
+        etag.destroy!
+
+        eve_alliance.destroy!
+      end
     end
 
     def esi

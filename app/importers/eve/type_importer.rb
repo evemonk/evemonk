@@ -9,17 +9,27 @@ module Eve
       @locale = locale
     end
 
-    def import!
-      Mobility.with_locale(locale) do
-        eve_type = Eve::Type.find_or_initialize_by(type_id: type_id)
+    def import
+      import! do
+        Mobility.with_locale(locale) do
+          eve_type = Eve::Type.find_or_initialize_by(type_id: type_id)
 
-        eve_type.update!(esi.as_json)
+          return if esi.not_modified?
 
-        import_type_dogma_attributes(eve_type)
+          eve_type.update!(esi.as_json)
 
-        import_type_dogma_effects(eve_type)
-      rescue EveOnline::Exceptions::ResourceNotFound
-        eve_type.destroy!
+          import_type_dogma_attributes(eve_type)
+
+          import_type_dogma_effects(eve_type)
+
+          update_etag
+        rescue EveOnline::Exceptions::ResourceNotFound
+          Rails.logger.info("EveOnline::Exceptions::ResourceNotFound: Eve Type ID #{type_id}")
+
+          etag.destroy!
+
+          eve_type.destroy!
+        end
       end
     end
 
