@@ -6,7 +6,7 @@
     "@rails/actioncable": "^6.0.0",
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "5.2.1",
-    "@sentry/browser": "^5.27.6",
+    "@sentry/browser": "^5.28.0",
     "apexcharts": "^3.22.2",
     "bootstrap": "^4.5.3",
     "bootstrap-icons": "^1.1.0",
