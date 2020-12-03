@@ -8,10 +8,16 @@ module Eve
       @page = page
     end
 
-    def import!
-      import_groups
+    def import
+      import! do
+        return if esi.not_modified?
 
-      import_other_pages
+        import_groups
+
+        import_other_pages
+
+        update_etag
+      end
     end
 
     def esi
