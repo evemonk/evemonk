@@ -9,13 +9,23 @@ module Eve
       @locale = locale
     end
 
-    def import!
-      Mobility.with_locale(locale) do
-        eve_category = Eve::Category.find_or_initialize_by(category_id: category_id)
+    def import
+      import! do
+        Mobility.with_locale(locale) do
+          eve_category = Eve::Category.find_or_initialize_by(category_id: category_id)
 
-        eve_category.update!(esi.as_json)
-      rescue EveOnline::Exceptions::ResourceNotFound
-        eve_category.destroy!
+          return if esi.not_modified?
+
+          eve_category.update!(esi.as_json)
+
+          update_etag
+        rescue EveOnline::Exceptions::ResourceNotFound
+          Rails.logger.info("EveOnline::Exceptions::ResourceNotFound: Eve Category ID #{category_id}")
+
+          etag.destroy!
+
+          eve_category.destroy!
+        end
       end
     end
 

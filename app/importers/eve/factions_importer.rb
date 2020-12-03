@@ -8,13 +8,19 @@ module Eve
       @locale = locale
     end
 
-    def import!
-      Mobility.with_locale(locale) do
-        esi.factions.each do |faction|
-          eve_faction = Eve::Faction.find_or_initialize_by(faction_id: faction.faction_id)
+    def import
+      import! do
+        return if esi.not_modified?
 
-          eve_faction.update!(faction.as_json)
+        Mobility.with_locale(locale) do
+          esi.factions.each do |faction|
+            eve_faction = Eve::Faction.find_or_initialize_by(faction_id: faction.faction_id)
+
+            eve_faction.update!(faction.as_json)
+          end
         end
+
+        update_etag
       end
     end
 

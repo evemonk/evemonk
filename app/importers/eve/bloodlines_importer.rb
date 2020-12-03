@@ -8,13 +8,19 @@ module Eve
       @locale = locale
     end
 
-    def import!
-      Mobility.with_locale(locale) do
-        esi.bloodlines.each do |bloodline|
-          eve_bloodline = Eve::Bloodline.find_or_initialize_by(bloodline_id: bloodline.bloodline_id)
+    def import
+      import! do
+        return if esi.not_modified?
 
-          eve_bloodline.update!(bloodline.as_json)
+        Mobility.with_locale(locale) do
+          esi.bloodlines.each do |bloodline|
+            eve_bloodline = Eve::Bloodline.find_or_initialize_by(bloodline_id: bloodline.bloodline_id)
+
+            eve_bloodline.update!(bloodline.as_json)
+          end
         end
+
+        update_etag
       end
     end
 

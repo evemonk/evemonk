@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Eve
-  class PlanetImporter
+  class PlanetImporter < BaseImporter
     attr_reader :planet_id
 
     def initialize(planet_id)
@@ -9,14 +9,8 @@ module Eve
     end
 
     def import
-      ActiveRecord::Base.transaction do
+      import! do
         eve_planet = Eve::Planet.find_or_initialize_by(planet_id: planet_id)
-
-        esi = EveOnline::ESI::UniversePlanet.new(id: planet_id)
-
-        etag = Eve::Etag.find_or_initialize_by(url: esi.url)
-
-        esi.etag = etag.etag
 
         return if esi.not_modified?
 
@@ -26,10 +20,18 @@ module Eve
 
         eve_planet.create_position!(esi.position.as_json)
 
-        etag.update!(etag: esi.etag, body: esi.response)
+        update_etag
       rescue EveOnline::Exceptions::ResourceNotFound
+        Rails.logger.info("EveOnline::Exceptions::ResourceNotFound: Eve Planet ID #{planet_id}")
+
+        etag.destroy!
+
         eve_planet.destroy!
       end
+    end
+
+    def esi
+      @esi ||= EveOnline::ESI::UniversePlanet.new(id: planet_id)
     end
   end
 end

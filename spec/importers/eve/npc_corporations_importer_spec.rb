@@ -3,138 +3,64 @@
 require "rails_helper"
 
 describe Eve::NpcCorporationsImporter do
-  describe "#initialize" do
-    let(:esi) { instance_double(EveOnline::ESI::CorporationNPC) }
-
-    before do
-      expect(EveOnline::ESI::CorporationNPC).to receive(:new)
-        .and_return(esi)
-    end
-
-    its(:esi) { should eq(esi) }
-  end
+  it { should be_a(Eve::BaseImporter) }
 
   describe "#import" do
-    context "when fresh data available" do
-      let(:etag) do
-        instance_double(Eve::Etag,
-          etag: "97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a")
-      end
+    before { expect(subject).to receive(:configure_middlewares) }
 
-      let(:new_etag) { double }
+    before { expect(subject).to receive(:configure_etag) }
 
-      let(:response) { double }
+    context "when etag cache hit" do
+      let(:esi) { instance_double(EveOnline::ESI::CorporationNPC, not_modified?: true) }
 
-      let(:esi) do
-        instance_double(EveOnline::ESI::CorporationNPC,
-          not_modified?: false,
-          etag: new_etag,
-          response: response)
-      end
+      before { expect(subject).to receive(:esi).and_return(esi) }
 
-      before do
-        expect(EveOnline::ESI::CorporationNPC).to receive(:new)
-          .and_return(esi)
-      end
+      specify { expect { subject.import }.not_to raise_error }
+    end
 
-      before do
-        expect(subject).to receive(:etag)
-          .and_return(etag)
-          .twice
-      end
+    context "when etag cache miss" do
+      let(:esi) { instance_double(EveOnline::ESI::CorporationNPC, not_modified?: false) }
 
-      before do
-        expect(esi).to receive(:etag=)
-          .with("97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a")
-      end
+      before { expect(subject).to receive(:esi).and_return(esi) }
 
       before { expect(subject).to receive(:update_npc_corporation_list) }
 
-      before { expect(etag).to receive(:update!).with(etag: new_etag, body: response) }
+      before { expect(subject).to receive(:update_etag) }
 
       specify { expect { subject.import }.not_to raise_error }
     end
+  end
 
-    context "when no fresh data available" do
-      let(:etag) do
-        instance_double(Eve::Etag,
-          etag: "97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a")
-      end
+  describe "#esi" do
+    context "when @esi is set" do
+      let(:esi) { instance_double(EveOnline::ESI::CorporationNPC) }
 
-      let(:esi) do
-        instance_double(EveOnline::ESI::CorporationNPC,
-          not_modified?: true)
-      end
+      before { subject.instance_variable_set(:@esi, esi) }
 
-      before do
-        expect(EveOnline::ESI::CorporationNPC).to receive(:new)
-          .and_return(esi)
-      end
+      specify { expect(subject.esi).to eq(esi) }
+    end
 
-      before { expect(subject).to receive(:etag).and_return(etag) }
+    context "when @esi not set" do
+      let(:esi) { instance_double(EveOnline::ESI::CorporationNPC) }
 
-      before do
-        expect(esi).to receive(:etag=)
-          .with("97f0c48679f2b200043cdbc3406291fc945bcd652ddc7fc11ccdc37a")
-      end
+      before { expect(EveOnline::ESI::CorporationNPC).to receive(:new).and_return(esi) }
 
-      before { expect(subject).not_to receive(:update_npc_corporation_list) }
+      specify { expect(subject.esi).to eq(esi) }
 
-      before { expect(etag).not_to receive(:update!) }
-
-      specify { expect { subject.import }.not_to raise_error }
+      specify { expect { subject.esi }.to change { subject.instance_variable_get(:@esi) }.from(nil).to(esi) }
     end
   end
 
   # private methods
-
-  describe "#etag" do
-    context "when @etag set" do
-      let(:etag) { instance_double(Eve::Etag) }
-
-      before { subject.instance_variable_set(:@etag, etag) }
-
-      specify { expect(subject.send(:etag)).to eq(etag) }
-    end
-
-    context "when @etag not set" do
-      let(:url) { double }
-
-      let(:esi) do
-        instance_double(EveOnline::ESI::CorporationNPC,
-          url: url)
-      end
-
-      let(:etag) { instance_double(Eve::Etag) }
-
-      before do
-        expect(EveOnline::ESI::CorporationNPC).to receive(:new)
-          .and_return(esi)
-      end
-
-      before do
-        expect(Eve::Etag).to receive(:find_or_initialize_by)
-          .with(url: url)
-          .and_return(etag)
-      end
-
-      specify { expect { subject.send(:etag) }.not_to raise_error }
-
-      specify { expect { subject.send(:etag) }.to change { subject.instance_variable_get(:@etag) }.from(nil).to(etag) }
-    end
-  end
 
   describe "#update_npc_corporation_list" do
     let(:corporation_npc_id) { double }
 
     let(:corporation_npc_ids) { [corporation_npc_id] }
 
-    let(:esi) do
-      instance_double(EveOnline::ESI::CorporationNPC,
-        corporation_npc_ids: corporation_npc_ids)
-    end
+    let(:esi) { instance_double(EveOnline::ESI::CorporationNPC, corporation_npc_ids: corporation_npc_ids) }
 
-    before { expect(EveOnline::ESI::CorporationNPC).to receive(:new).and_return(esi) }
+    before { expect(subject).to receive(:esi).and_return(esi) }
 
     let(:corporation) { instance_double(Eve::Corporation) }
 

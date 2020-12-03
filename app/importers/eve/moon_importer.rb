@@ -9,16 +9,26 @@ module Eve
       @moon_id = moon_id
     end
 
-    def import!
-      eve_moon = Eve::Moon.find_or_initialize_by(planet_id: planet_id, moon_id: moon_id)
+    def import
+      import! do
+        eve_moon = Eve::Moon.find_or_initialize_by(planet_id: planet_id, moon_id: moon_id)
 
-      eve_moon.update!(esi.as_json)
+        return if esi.not_modified?
 
-      eve_moon.position&.destroy
+        eve_moon.update!(esi.as_json)
 
-      eve_moon.create_position!(esi.position.as_json)
-    rescue EveOnline::Exceptions::ResourceNotFound
-      eve_moon.destroy!
+        eve_moon.position&.destroy
+
+        eve_moon.create_position!(esi.position.as_json)
+
+        update_etag
+      rescue EveOnline::Exceptions::ResourceNotFound
+        Rails.logger.info("EveOnline::Exceptions::ResourceNotFound: Eve Moon ID #{planet_id}/#{moon_id}")
+
+        etag.destroy!
+
+        eve_moon.destroy!
+      end
     end
 
     def esi

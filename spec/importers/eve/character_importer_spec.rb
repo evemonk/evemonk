@@ -9,33 +9,62 @@ describe Eve::CharacterImporter do
 
   it { should be_a(Eve::BaseImporter) }
 
-  describe "#import!" do
-    context "when eve character found" do
-      let(:eve_character) { instance_double(Eve::Character) }
+  describe "#import" do
+    before { expect(subject).to receive(:configure_middlewares) }
 
-      before { expect(Eve::Character).to receive(:find_or_initialize_by).with(character_id: character_id).and_return(eve_character) }
+    before { expect(subject).to receive(:configure_etag) }
 
-      let(:json) { double }
+    let(:eve_character) { instance_double(Eve::Character) }
 
-      let(:esi) { instance_double(EveOnline::ESI::Character, as_json: json) }
+    before { expect(Eve::Character).to receive(:find_or_initialize_by).with(character_id: character_id).and_return(eve_character) }
+
+    context "when etag cache hit" do
+      let(:esi) { instance_double(EveOnline::ESI::Character, not_modified?: true) }
 
       before { expect(subject).to receive(:esi).and_return(esi) }
 
-      before { expect(eve_character).to receive(:update!).with(json) }
-
-      specify { expect { subject.import! }.not_to raise_error }
+      specify { expect { subject.import }.not_to raise_error }
     end
 
-    context "when eve character not found" do
-      let(:eve_character) { instance_double(Eve::Character) }
+    context "when etag cache miss" do
+      context "when eve character found" do
+        let(:json) { double }
 
-      before { expect(Eve::Character).to receive(:find_or_initialize_by).with(character_id: character_id).and_return(eve_character) }
+        let(:esi) { instance_double(EveOnline::ESI::Character, not_modified?: false, as_json: json) }
 
-      before { expect(subject).to receive(:esi).and_raise(EveOnline::Exceptions::ResourceNotFound) }
+        before { expect(subject).to receive(:esi).and_return(esi).twice }
 
-      before { expect(eve_character).to receive(:destroy!) }
+        before { expect(eve_character).to receive(:update!).with(json) }
 
-      specify { expect { subject.import! }.not_to raise_error }
+        before { expect(subject).to receive(:update_etag) }
+
+        specify { expect { subject.import }.not_to raise_error }
+      end
+
+      context "when eve character not found" do
+        before { expect(subject).to receive(:esi).and_raise(EveOnline::Exceptions::ResourceNotFound) }
+
+        let(:eve_etag) { instance_double(Eve::Etag) }
+
+        before { expect(subject).to receive(:etag).and_return(eve_etag) }
+
+        before do
+          #
+          # Rails.logger.info("EveOnline::Exceptions::ResourceNotFound: Eve Character ID #{character_id}")
+
+          expect(Rails).to receive(:logger) do
+            double.tap do |a|
+              expect(a).to receive(:info).with("EveOnline::Exceptions::ResourceNotFound: Eve Character ID #{character_id}")
+            end
+          end
+        end
+
+        before { expect(eve_etag).to receive(:destroy!) }
+
+        before { expect(eve_character).to receive(:destroy!) }
+
+        specify { expect { subject.import }.not_to raise_error }
+      end
     end
   end
 

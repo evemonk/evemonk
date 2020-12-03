@@ -3,96 +3,92 @@
 require "rails_helper"
 
 describe Eve::StarImporter do
+  let(:star_id) { double }
+
+  subject { described_class.new(star_id) }
+
+  it { should be_a(Eve::BaseImporter) }
+
+  describe "#initialize" do
+    its(:star_id) { should eq(star_id) }
+  end
+
   describe "#import" do
-    context "when fresh data available" do
-      context "when star found" do
-        let(:star_id) { double }
+    before { expect(subject).to receive(:configure_middlewares) }
 
-        subject { described_class.new(star_id) }
+    before { expect(subject).to receive(:configure_etag) }
 
-        let(:eve_star) { instance_double(Eve::Star) }
+    let(:eve_star) { instance_double(Eve::Star) }
 
-        before { expect(Eve::Star).to receive(:find_or_initialize_by).with(star_id: star_id).and_return(eve_star) }
+    before { expect(Eve::Star).to receive(:find_or_initialize_by).with(star_id: star_id).and_return(eve_star) }
 
+    context "when etag cache hit" do
+      let(:esi) { instance_double(EveOnline::ESI::UniverseStar, not_modified?: true) }
+
+      before { expect(subject).to receive(:esi).and_return(esi) }
+
+      specify { expect { subject.import }.not_to raise_error }
+    end
+
+    context "when etag cache miss" do
+      context "when eve star found" do
         let(:json) { double }
 
-        let(:url) { double }
+        let(:esi) { instance_double(EveOnline::ESI::UniverseStar, not_modified?: false, as_json: json) }
 
-        let(:new_etag) { double }
-
-        let(:response) { double }
-
-        let(:esi) do
-          instance_double(EveOnline::ESI::UniverseStar,
-            url: url,
-            not_modified?: false,
-            etag: new_etag,
-            as_json: json,
-            response: response)
-        end
-
-        before { expect(EveOnline::ESI::UniverseStar).to receive(:new).with(id: star_id).and_return(esi) }
-
-        let(:etag) { instance_double(Eve::Etag, etag: "68ad4a11893776c0ffc80845edeb2687c0122f56287d2aecadf8739b") }
-
-        before { expect(Eve::Etag).to receive(:find_or_initialize_by).with(url: url).and_return(etag) }
-
-        before { expect(esi).to receive(:etag=).with("68ad4a11893776c0ffc80845edeb2687c0122f56287d2aecadf8739b") }
+        before { expect(subject).to receive(:esi).and_return(esi).twice }
 
         before { expect(eve_star).to receive(:update!).with(json) }
 
-        before { expect(etag).to receive(:update!).with(etag: new_etag, body: response) }
+        before { expect(subject).to receive(:update_etag) }
 
         specify { expect { subject.import }.not_to raise_error }
       end
 
-      context "when star not found" do
-        let(:star_id) { double }
+      context "when eve star not found" do
+        before { expect(subject).to receive(:esi).and_raise(EveOnline::Exceptions::ResourceNotFound) }
 
-        subject { described_class.new(star_id) }
+        let(:eve_etag) { instance_double(Eve::Etag) }
 
-        let(:eve_star) { instance_double(Eve::Star) }
+        before { expect(subject).to receive(:etag).and_return(eve_etag) }
 
-        before { expect(Eve::Star).to receive(:find_or_initialize_by).with(star_id: star_id).and_return(eve_star) }
+        before do
+          #
+          # Rails.logger.info("EveOnline::Exceptions::ResourceNotFound: Eve Star ID #{star_id}")
 
-        before { expect(EveOnline::ESI::UniverseStar).to receive(:new).and_raise(EveOnline::Exceptions::ResourceNotFound) }
+          expect(Rails).to receive(:logger) do
+            double.tap do |a|
+              expect(a).to receive(:info).with("EveOnline::Exceptions::ResourceNotFound: Eve Star ID #{star_id}")
+            end
+          end
+        end
+
+        before { expect(eve_etag).to receive(:destroy!) }
 
         before { expect(eve_star).to receive(:destroy!) }
 
         specify { expect { subject.import }.not_to raise_error }
       end
     end
+  end
 
-    context "when no fresh data available" do
-      let(:star_id) { double }
+  describe "#esi" do
+    context "when @esi is set" do
+      let(:esi) { instance_double(EveOnline::ESI::UniverseStar) }
 
-      subject { described_class.new(star_id) }
+      before { subject.instance_variable_set(:@esi, esi) }
 
-      let(:eve_star) { instance_double(Eve::Star) }
+      specify { expect(subject.esi).to eq(esi) }
+    end
 
-      before { expect(Eve::Star).to receive(:find_or_initialize_by).with(star_id: star_id).and_return(eve_star) }
-
-      let(:url) { double }
-
-      let(:esi) do
-        instance_double(EveOnline::ESI::UniverseStar,
-          url: url,
-          not_modified?: true)
-      end
+    context "when @esi not set" do
+      let(:esi) { instance_double(EveOnline::ESI::UniverseStar) }
 
       before { expect(EveOnline::ESI::UniverseStar).to receive(:new).with(id: star_id).and_return(esi) }
 
-      let(:etag) { instance_double(Eve::Etag, etag: "68ad4a11893776c0ffc80845edeb2687c0122f56287d2aecadf8739b") }
+      specify { expect(subject.esi).to eq(esi) }
 
-      before { expect(Eve::Etag).to receive(:find_or_initialize_by).with(url: url).and_return(etag) }
-
-      before { expect(esi).to receive(:etag=).with("68ad4a11893776c0ffc80845edeb2687c0122f56287d2aecadf8739b") }
-
-      before { expect(eve_star).not_to receive(:update!) }
-
-      before { expect(etag).not_to receive(:update!) }
-
-      specify { expect { subject.import }.not_to raise_error }
+      specify { expect { subject.esi }.to change { subject.instance_variable_get(:@esi) }.from(nil).to(esi) }
     end
   end
 end

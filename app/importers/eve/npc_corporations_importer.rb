@@ -1,30 +1,22 @@
 # frozen_string_literal: true
 
 module Eve
-  class NpcCorporationsImporter
-    attr_reader :esi
-
-    def initialize
-      @esi = EveOnline::ESI::CorporationNPC.new
-    end
-
+  class NpcCorporationsImporter < BaseImporter
     def import
-      ActiveRecord::Base.transaction do
-        esi.etag = etag.etag
-
+      import! do
         return if esi.not_modified?
 
         update_npc_corporation_list
 
-        etag.update!(etag: esi.etag, body: esi.response)
+        update_etag
       end
     end
 
-    private
-
-    def etag
-      @etag ||= Eve::Etag.find_or_initialize_by(url: esi.url)
+    def esi
+      @esi ||= EveOnline::ESI::CorporationNPC.new
     end
+
+    private
 
     def update_npc_corporation_list
       esi.corporation_npc_ids.each do |corporation_npc_id|

@@ -1,23 +1,19 @@
 # frozen_string_literal: true
 
 module Eve
-  class MarketPricesImporter
-    attr_reader :esi
+  class MarketPricesImporter < BaseImporter
+    def import
+      import! do
+        return if esi.not_modified?
 
-    def initialize
-      @esi = EveOnline::ESI::MarketPrices.new
+        update_market_prices
+
+        update_etag
+      end
     end
 
-    def import
-      etag = Eve::Etag.find_or_initialize_by(url: esi.url)
-
-      esi.etag = etag.etag
-
-      return if esi.not_modified?
-
-      update_market_prices
-
-      etag.update!(etag: esi.etag, body: esi.response)
+    def esi
+      @esi ||= EveOnline::ESI::MarketPrices.new
     end
 
     private

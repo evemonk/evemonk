@@ -2,10 +2,16 @@
 
 module Eve
   class SystemsImporter < BaseImporter
-    def import!
-      import_new_systems
+    def import
+      import! do
+        return if esi.not_modified?
 
-      remove_old_systems
+        import_new_systems
+
+        remove_old_systems
+
+        update_etag
+      end
     end
 
     def esi

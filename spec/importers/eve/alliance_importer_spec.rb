@@ -9,39 +9,62 @@ describe Eve::AllianceImporter do
 
   it { should be_a(Eve::BaseImporter) }
 
-  describe "#import!" do
+  describe "#import" do
+    before { expect(subject).to receive(:configure_middlewares) }
+
+    before { expect(subject).to receive(:configure_etag) }
+
     let(:eve_alliance) { instance_double(Eve::Alliance) }
 
-    before do
-      expect(Eve::Alliance).to receive(:find_or_initialize_by)
-        .with(alliance_id: alliance_id)
-        .and_return(eve_alliance)
-    end
+    before { expect(Eve::Alliance).to receive(:find_or_initialize_by).with(alliance_id: alliance_id).and_return(eve_alliance) }
 
-    context "when eve alliance found" do
-      let(:json) { double }
-
-      let(:response) { double }
-
-      let(:esi) do
-        instance_double(EveOnline::ESI::Alliance,
-          as_json: json,
-          response: response)
-      end
+    context "when etag cache hit" do
+      let(:esi) { instance_double(EveOnline::ESI::Alliance, not_modified?: true) }
 
       before { expect(subject).to receive(:esi).and_return(esi) }
 
-      before { expect(eve_alliance).to receive(:update!).with(json) }
-
-      specify { expect { subject.import! }.not_to raise_error }
+      specify { expect { subject.import }.not_to raise_error }
     end
 
-    context "when eve alliance not found" do
-      before { expect(subject).to receive(:esi).and_raise(EveOnline::Exceptions::ResourceNotFound) }
+    context "when etag cache miss" do
+      context "when eve alliance found" do
+        let(:json) { double }
 
-      before { expect(eve_alliance).to receive(:destroy!) }
+        let(:esi) { instance_double(EveOnline::ESI::Alliance, not_modified?: false, as_json: json) }
 
-      specify { expect { subject.import! }.not_to raise_error }
+        before { expect(subject).to receive(:esi).and_return(esi).twice }
+
+        before { expect(eve_alliance).to receive(:update!).with(json) }
+
+        before { expect(subject).to receive(:update_etag) }
+
+        specify { expect { subject.import }.not_to raise_error }
+      end
+
+      context "when eve alliance found" do
+        before { expect(subject).to receive(:esi).and_raise(EveOnline::Exceptions::ResourceNotFound) }
+
+        let(:eve_etag) { instance_double(Eve::Etag) }
+
+        before { expect(subject).to receive(:etag).and_return(eve_etag) }
+
+        before do
+          #
+          # Rails.logger.info("EveOnline::Exceptions::ResourceNotFound: Eve Alliance ID #{alliance_id}")
+
+          expect(Rails).to receive(:logger) do
+            double.tap do |a|
+              expect(a).to receive(:info).with("EveOnline::Exceptions::ResourceNotFound: Eve Alliance ID #{alliance_id}")
+            end
+          end
+        end
+
+        before { expect(eve_etag).to receive(:destroy!) }
+
+        before { expect(eve_alliance).to receive(:destroy!) }
+
+        specify { expect { subject.import }.not_to raise_error }
+      end
     end
   end
 
