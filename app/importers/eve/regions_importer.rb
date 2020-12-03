@@ -2,10 +2,16 @@
 
 module Eve
   class RegionsImporter < BaseImporter
-    def import!
-      import_new_regions
+    def import
+      import! do
+        return if esi.not_modified?
 
-      remove_old_regions
+        import_new_regions
+
+        remove_old_regions
+
+        update_etag
+      end
     end
 
     def esi
