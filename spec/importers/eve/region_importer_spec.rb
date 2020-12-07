@@ -3,20 +3,20 @@
 require "rails_helper"
 
 describe Eve::RegionImporter do
+  let(:region_id) { double }
+
+  subject { described_class.new(region_id) }
+
+  it { should be_a(Eve::BaseImporter) }
+
   describe "#initialize" do
     context "without locale" do
-      let(:region_id) { double }
-
-      subject { described_class.new(region_id) }
-
       its(:region_id) { should eq(region_id) }
 
       its(:locale) { should eq(:en) }
     end
 
     context "with locale" do
-      let(:region_id) { double }
-
       let(:locale) { :ru }
 
       subject { described_class.new(region_id, locale) }
@@ -28,95 +28,81 @@ describe Eve::RegionImporter do
   end
 
   describe "#import" do
-    context "when fresh data available" do
-      context "when market group found" do
-        let(:region_id) { double }
+    before { expect(subject).to receive(:configure_middlewares) }
 
-        subject { described_class.new(region_id) }
+    before { expect(subject).to receive(:configure_etag) }
 
-        let(:eve_region) { instance_double(Eve::Region) }
+    let(:eve_region) { instance_double(Eve::Region) }
 
-        before { expect(Eve::Region).to receive(:find_or_initialize_by).with(region_id: region_id).and_return(eve_region) }
+    before { expect(Eve::Region).to receive(:find_or_initialize_by).with(region_id: region_id).and_return(eve_region) }
 
+    context "when etag cache hit" do
+      let(:esi) { instance_double(EveOnline::ESI::UniverseRegion, not_modified?: true) }
+
+      before { expect(subject).to receive(:esi).and_return(esi) }
+
+      specify { expect { subject.import }.not_to raise_error }
+    end
+
+    context "when etag cache miss" do
+      context "when eve region found" do
         let(:json) { double }
 
-        let(:url) { double }
+        let(:esi) { instance_double(EveOnline::ESI::UniverseRegion, not_modified?: false, as_json: json) }
 
-        let(:new_etag) { double }
-
-        let(:response) { double }
-
-        let(:esi) do
-          instance_double(EveOnline::ESI::UniverseRegion,
-            url: url,
-            not_modified?: false,
-            etag: new_etag,
-            response: response,
-            as_json: json)
-        end
-
-        before { expect(EveOnline::ESI::UniverseRegion).to receive(:new).with(id: region_id, language: "en-us").and_return(esi) }
-
-        let(:etag) { instance_double(Eve::Etag, etag: "6780e53a01c7d9715b5f445126c4f2c137da4be79e4debe541ce3ab2") }
-
-        before { expect(Eve::Etag).to receive(:find_or_initialize_by).with(url: url).and_return(etag) }
-
-        before { expect(esi).to receive(:etag=).with("6780e53a01c7d9715b5f445126c4f2c137da4be79e4debe541ce3ab2") }
+        before { expect(subject).to receive(:esi).and_return(esi).twice }
 
         before { expect(eve_region).to receive(:update!).with(json) }
 
-        before { expect(etag).to receive(:update!).with(etag: new_etag, body: response) }
+        before { expect(subject).to receive(:update_etag) }
 
         specify { expect { subject.import }.not_to raise_error }
       end
 
-      context "when group not found" do
-        let(:region_id) { double }
+      context "when eve region not found" do
+        before { expect(subject).to receive(:esi).and_raise(EveOnline::Exceptions::ResourceNotFound) }
 
-        subject { described_class.new(region_id) }
+        let(:eve_etag) { instance_double(Eve::Etag) }
 
-        let(:eve_region) { instance_double(Eve::Region) }
+        before { expect(subject).to receive(:etag).and_return(eve_etag) }
 
-        before { expect(Eve::Region).to receive(:find_or_initialize_by).with(region_id: region_id).and_return(eve_region) }
+        before do
+          #
+          # Rails.logger.info("EveOnline::Exceptions::ResourceNotFound: Eve Region ID #{region_id}")
+          #
+          expect(Rails).to receive(:logger) do
+            double.tap do |a|
+              expect(a).to receive(:info).with("EveOnline::Exceptions::ResourceNotFound: Eve Region ID #{region_id}")
+            end
+          end
+        end
 
-        before { expect(EveOnline::ESI::UniverseRegion).to receive(:new).with(id: region_id, language: "en-us").and_raise(EveOnline::Exceptions::ResourceNotFound) }
+        before { expect(eve_etag).to receive(:destroy!) }
 
         before { expect(eve_region).to receive(:destroy!) }
 
         specify { expect { subject.import }.not_to raise_error }
       end
     end
+  end
 
-    context "when no fresh data available" do
-      let(:region_id) { double }
+  describe "#esi" do
+    context "when @esi is set" do
+      let(:esi) { instance_double(EveOnline::ESI::UniverseRegion) }
 
-      subject { described_class.new(region_id) }
+      before { subject.instance_variable_set(:@esi, esi) }
 
-      let(:eve_region) { instance_double(Eve::Region) }
+      specify { expect(subject.esi).to eq(esi) }
+    end
 
-      before { expect(Eve::Region).to receive(:find_or_initialize_by).with(region_id: region_id).and_return(eve_region) }
-
-      let(:url) { double }
-
-      let(:esi) do
-        instance_double(EveOnline::ESI::UniverseRegion,
-          url: url,
-          not_modified?: true)
-      end
+    context "when @esi not set" do
+      let(:esi) { instance_double(EveOnline::ESI::UniverseRegion) }
 
       before { expect(EveOnline::ESI::UniverseRegion).to receive(:new).with(id: region_id, language: "en-us").and_return(esi) }
 
-      let(:etag) { instance_double(Eve::Etag, etag: "6780e53a01c7d9715b5f445126c4f2c137da4be79e4debe541ce3ab2") }
+      specify { expect(subject.esi).to eq(esi) }
 
-      before { expect(Eve::Etag).to receive(:find_or_initialize_by).with(url: url).and_return(etag) }
-
-      before { expect(esi).to receive(:etag=).with("6780e53a01c7d9715b5f445126c4f2c137da4be79e4debe541ce3ab2") }
-
-      before { expect(eve_region).not_to receive(:update!) }
-
-      before { expect(etag).not_to receive(:update!) }
-
-      specify { expect { subject.import }.not_to raise_error }
+      specify { expect { subject.esi }.to change { subject.instance_variable_get(:@esi) }.from(nil).to(esi) }
     end
   end
 end
