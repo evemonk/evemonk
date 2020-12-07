@@ -9,13 +9,23 @@ module Eve
       @locale = locale
     end
 
-    def import!
-      Mobility.with_locale(locale) do
-        eve_group = Eve::Group.find_or_initialize_by(group_id: group_id)
+    def import
+      import! do
+        Mobility.with_locale(locale) do
+          eve_group = Eve::Group.find_or_initialize_by(group_id: group_id)
 
-        eve_group.update!(esi.as_json)
-      rescue EveOnline::Exceptions::ResourceNotFound
-        eve_group.destroy!
+          return if esi.not_modified?
+
+          eve_group.update!(esi.as_json)
+
+          update_etag
+        rescue EveOnline::Exceptions::ResourceNotFound
+          Rails.logger.info("EveOnline::Exceptions::ResourceNotFound: Eve Group ID #{group_id}")
+
+          etag.destroy!
+
+          eve_group.destroy!
+        end
       end
     end
 
