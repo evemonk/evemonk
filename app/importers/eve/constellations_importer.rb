@@ -2,10 +2,16 @@
 
 module Eve
   class ConstellationsImporter < BaseImporter
-    def import!
-      import_new_constellations
+    def import
+      import! do
+        return if esi.not_modified?
 
-      remove_old_constellations
+        import_new_constellations
+
+        remove_old_constellations
+
+        update_etag
+      end
     end
 
     def esi
