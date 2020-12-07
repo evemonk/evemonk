@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Eve
-  class RegionImporter
+  class RegionImporter < BaseImporter
     attr_reader :region_id, :locale
 
     def initialize(region_id, locale = :en)
@@ -10,25 +10,27 @@ module Eve
     end
 
     def import
-      Mobility.with_locale(locale) do
-        ActiveRecord::Base.transaction do
+      import! do
+        Mobility.with_locale(locale) do
           eve_region = Eve::Region.find_or_initialize_by(region_id: region_id)
-
-          esi = EveOnline::ESI::UniverseRegion.new(id: region_id, language: LanguageMapper::LANGUAGES[locale])
-
-          etag = Eve::Etag.find_or_initialize_by(url: esi.url)
-
-          esi.etag = etag.etag
 
           return if esi.not_modified?
 
           eve_region.update!(esi.as_json)
 
-          etag.update!(etag: esi.etag, body: esi.response)
+          update_etag
         rescue EveOnline::Exceptions::ResourceNotFound
+          Rails.logger.info("EveOnline::Exceptions::ResourceNotFound: Eve Region ID #{region_id}")
+
+          etag.destroy!
+
           eve_region.destroy!
         end
       end
+    end
+
+    def esi
+      @esi ||= EveOnline::ESI::UniverseRegion.new(id: region_id, language: LanguageMapper::LANGUAGES[locale])
     end
   end
 end
