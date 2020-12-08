@@ -9,17 +9,27 @@ module Eve
       @locale = locale
     end
 
-    def import!
-      Mobility.with_locale(locale) do
-        eve_constellation = Eve::Constellation.find_or_initialize_by(constellation_id: constellation_id)
+    def import
+      import! do
+        Mobility.with_locale(locale) do
+          eve_constellation = Eve::Constellation.find_or_initialize_by(constellation_id: constellation_id)
 
-        eve_constellation.update!(esi.as_json)
+          return if esi.not_modified?
 
-        eve_constellation.position&.destroy
+          eve_constellation.update!(esi.as_json)
 
-        eve_constellation.create_position!(esi.position.as_json)
-      rescue EveOnline::Exceptions::ResourceNotFound
-        eve_constellation.destroy!
+          eve_constellation.position&.destroy
+
+          eve_constellation.create_position!(esi.position.as_json)
+
+          update_etag
+        rescue EveOnline::Exceptions::ResourceNotFound
+          Rails.logger.info("EveOnline::Exceptions::ResourceNotFound: Eve Constellation ID #{constellation_id}")
+
+          etag.destroy!
+
+          eve_constellation.destroy!
+        end
       end
     end
 
