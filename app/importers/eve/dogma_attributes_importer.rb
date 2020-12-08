@@ -2,10 +2,16 @@
 
 module Eve
   class DogmaAttributesImporter < BaseImporter
-    def import!
-      import_new_dogma_attributes
+    def import
+      import! do
+        return if esi.not_modified?
 
-      remove_old_dogma_attributes
+        import_new_dogma_attributes
+
+        remove_old_dogma_attributes
+
+        update_etag
+      end
     end
 
     def esi

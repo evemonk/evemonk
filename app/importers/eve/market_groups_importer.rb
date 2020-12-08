@@ -2,10 +2,16 @@
 
 module Eve
   class MarketGroupsImporter < BaseImporter
-    def import!
-      import_new_market_groups
+    def import
+      import! do
+        return if esi.not_modified?
 
-      remove_old_market_groups
+        import_new_market_groups
+
+        remove_old_market_groups
+
+        update_etag
+      end
     end
 
     def esi

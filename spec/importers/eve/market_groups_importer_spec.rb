@@ -5,12 +5,32 @@ require "rails_helper"
 describe Eve::MarketGroupsImporter do
   it { should be_a(Eve::BaseImporter) }
 
-  describe "#import!" do
-    before { expect(subject).to receive(:import_new_market_groups) }
+  describe "#import" do
+    before { expect(subject).to receive(:configure_middlewares) }
 
-    before { expect(subject).to receive(:remove_old_market_groups) }
+    before { expect(subject).to receive(:configure_etag) }
 
-    specify { expect { subject.import! }.not_to raise_error }
+    context "when etag cache hit" do
+      let(:esi) { instance_double(EveOnline::ESI::MarketGroups, not_modified?: true) }
+
+      before { expect(EveOnline::ESI::MarketGroups).to receive(:new).and_return(esi) }
+
+      specify { expect { subject.import }.not_to raise_error }
+    end
+
+    context "when etag cache miss" do
+      let(:esi) { instance_double(EveOnline::ESI::MarketGroups, not_modified?: false) }
+
+      before { expect(EveOnline::ESI::MarketGroups).to receive(:new).and_return(esi) }
+
+      before { expect(subject).to receive(:import_new_market_groups) }
+
+      before { expect(subject).to receive(:remove_old_market_groups) }
+
+      before { expect(subject).to receive(:update_etag) }
+
+      specify { expect { subject.import }.not_to raise_error }
+    end
   end
 
   describe "#esi" do
