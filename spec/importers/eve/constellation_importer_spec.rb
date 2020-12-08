@@ -86,7 +86,7 @@ describe Eve::ConstellationImporter do
         specify { expect { subject.import }.not_to raise_error }
       end
 
-      context "when eve type not found" do
+      context "when eve constellation not found" do
         before { expect(subject).to receive(:esi).and_raise(EveOnline::Exceptions::ResourceNotFound) }
 
         let(:eve_etag) { instance_double(Eve::Etag) }
