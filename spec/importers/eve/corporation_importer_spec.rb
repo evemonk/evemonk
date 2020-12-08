@@ -9,33 +9,62 @@ describe Eve::CorporationImporter do
 
   it { should be_a(Eve::BaseImporter) }
 
-  describe "#import!" do
+  describe "#import" do
+    before { expect(subject).to receive(:configure_middlewares) }
+
+    before { expect(subject).to receive(:configure_etag) }
+
     let(:eve_corporation) { instance_double(Eve::Corporation) }
 
-    before do
-      expect(Eve::Corporation).to receive(:find_or_initialize_by)
-        .with(corporation_id: corporation_id)
-        .and_return(eve_corporation)
-    end
+    before { expect(Eve::Corporation).to receive(:find_or_initialize_by).with(corporation_id: corporation_id).and_return(eve_corporation) }
 
-    context "when eve corporation found" do
-      let(:json) { double }
-
-      let(:esi) { instance_double(EveOnline::ESI::Corporation, as_json: json) }
+    context "when etag cache hit" do
+      let(:esi) { instance_double(EveOnline::ESI::Corporation, not_modified?: true) }
 
       before { expect(subject).to receive(:esi).and_return(esi) }
 
-      before { expect(eve_corporation).to receive(:update!).with(json) }
-
-      specify { expect { subject.import! }.not_to raise_error }
+      specify { expect { subject.import }.not_to raise_error }
     end
 
-    context "when eve corporation not found" do
-      before { expect(subject).to receive(:esi).and_raise(EveOnline::Exceptions::ResourceNotFound) }
+    context "when etag cache miss" do
+      context "when eve corporation found" do
+        let(:json) { double }
 
-      before { expect(eve_corporation).to receive(:destroy!) }
+        let(:esi) { instance_double(EveOnline::ESI::Corporation, not_modified?: false, as_json: json) }
 
-      specify { expect { subject.import! }.not_to raise_error }
+        before { expect(subject).to receive(:esi).and_return(esi).twice }
+
+        before { expect(eve_corporation).to receive(:update!).with(json) }
+
+        before { expect(subject).to receive(:update_etag) }
+
+        specify { expect { subject.import }.not_to raise_error }
+      end
+
+      context "when eve group not found" do
+        before { expect(subject).to receive(:esi).and_raise(EveOnline::Exceptions::ResourceNotFound) }
+
+        let(:eve_etag) { instance_double(Eve::Etag) }
+
+        before { expect(subject).to receive(:etag).and_return(eve_etag) }
+
+        before do
+          #
+          # Rails.logger.info("EveOnline::Exceptions::ResourceNotFound: Eve Corporation ID #{corporation_id}")
+          #
+          expect(Rails).to receive(:logger) do
+            double.tap do |a|
+              expect(a).to receive(:info).with("EveOnline::Exceptions::ResourceNotFound: Eve Corporation ID #{corporation_id}")
+            end
+          end
+        end
+
+        before { expect(eve_etag).to receive(:destroy!) }
+
+        before { expect(eve_corporation).to receive(:destroy!) }
+
+        specify { expect { subject.import }.not_to raise_error }
+      end
     end
   end
 
