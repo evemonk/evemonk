@@ -470,8 +470,8 @@ GEM
     rails-pg-extras (1.2.4)
       activerecord
       ruby-pg-extras (= 1.2.4)
-    rails-settings-cached (2.4.0)
-      rails (>= 4.2.0)
+    rails-settings-cached (2.4.1)
+      rails (>= 5.0.0)
     rails_best_practices (1.20.0)
       activesupport
       code_analyzer (>= 0.5.1)
