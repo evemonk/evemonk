@@ -9,13 +9,23 @@ module Eve
       @locale = locale
     end
 
-    def import!
-      Mobility.with_locale(locale) do
-        eve_market_group = Eve::MarketGroup.find_or_initialize_by(market_group_id: market_group_id)
+    def import
+      import! do
+        Mobility.with_locale(locale) do
+          eve_market_group = Eve::MarketGroup.find_or_initialize_by(market_group_id: market_group_id)
 
-        eve_market_group.update!(esi.as_json)
-      rescue EveOnline::Exceptions::ResourceNotFound
-        eve_market_group.destroy!
+          return if esi.not_modified?
+
+          eve_market_group.update!(esi.as_json)
+
+          update_etag
+        rescue EveOnline::Exceptions::ResourceNotFound
+          Rails.logger.info("EveOnline::Exceptions::ResourceNotFound: Eve MarketGroup ID #{market_group_id}")
+
+          etag.destroy!
+
+          eve_market_group.destroy!
+        end
       end
     end
 

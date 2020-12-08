@@ -8,12 +8,22 @@ module Eve
       @attribute_id = attribute_id
     end
 
-    def import!
-      eve_dogma_attribute = Eve::DogmaAttribute.find_or_initialize_by(attribute_id: attribute_id)
+    def import
+      import! do
+        eve_dogma_attribute = Eve::DogmaAttribute.find_or_initialize_by(attribute_id: attribute_id)
 
-      eve_dogma_attribute.update!(esi.as_json)
-    rescue EveOnline::Exceptions::ResourceNotFound
-      eve_dogma_attribute.destroy!
+        return if esi.not_modified?
+
+        eve_dogma_attribute.update!(esi.as_json)
+
+        update_etag
+      rescue EveOnline::Exceptions::ResourceNotFound
+        Rails.logger.info("EveOnline::Exceptions::ResourceNotFound: Eve DogmaAttribute ID #{attribute_id}")
+
+        etag.destroy!
+
+        eve_dogma_attribute.destroy!
+      end
     end
 
     def esi
