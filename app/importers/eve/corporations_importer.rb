@@ -11,15 +11,20 @@ module Eve
 
       corporation_ids3 = Eve::Bloodline.pluck(:corporation_id).uniq
 
-      corporation_ids4 = Eve::Alliance.pluck(:creator_corporation_id).uniq
+      # WTF: CCP, how is creator_corporation with id 0?
+      # https://esi.evetech.net/latest/alliances/1966049571/?datasource=tranquility
+      corporation_ids4 = Eve::Alliance.where.not(creator_corporation_id: 0)
+        .pluck(:creator_corporation_id).uniq
 
       corporation_ids5 = Eve::Alliance.pluck(:executor_corporation_id).uniq
 
       corporation_ids6 = Eve::CorporationAllianceHistory.pluck(:corporation_id).uniq
 
-      corporation_ids7 = Eve::Faction.where.not(corporation_id: nil).pluck(:corporation_id).uniq
+      corporation_ids7 = Eve::Faction.where.not(corporation_id: nil)
+        .pluck(:corporation_id).uniq
 
-      corporation_ids8 = Eve::Faction.where.not(militia_corporation_id: nil).pluck(:militia_corporation_id).uniq
+      corporation_ids8 = Eve::Faction.where.not(militia_corporation_id: nil)
+        .pluck(:militia_corporation_id).uniq
 
       corporation_ids9 = ::Character.pluck(:corporation_id).uniq
 

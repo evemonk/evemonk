@@ -66,11 +66,20 @@ describe Eve::CorporationsImporter do
 
     before do
       #
-      # Eve::Alliance.pluck(:creator_corporation_id).uniq # => corporation_ids4
+      # Eve::Alliance.where.not(creator_corporation_id: 0)
+      #              .pluck(:creator_corporation_id).uniq # => corporation_ids4
       #
-      expect(Eve::Alliance).to receive(:pluck).with(:creator_corporation_id) do
+      expect(Eve::Alliance).to receive(:where) do
         double.tap do |a|
-          expect(a).to receive(:uniq).and_return(corporation_ids4)
+          expect(a).to receive(:not).with(creator_corporation_id: 0) do
+            double.tap do |b|
+              expect(b).to receive(:pluck).with(:creator_corporation_id) do
+                double.tap do |c|
+                  expect(c).to receive(:uniq).and_return(corporation_ids4)
+                end
+              end
+            end
+          end
         end
       end
     end
