@@ -13,36 +13,62 @@ describe Eve::DogmaAttributeImporter do
     its(:attribute_id) { should eq(attribute_id) }
   end
 
-  describe "#import!" do
-    context "when eve dogma attribute found" do
-      let(:eve_dogma_attribute) { instance_double(Eve::DogmaAttribute) }
+  describe "#import" do
+    before { expect(subject).to receive(:configure_middlewares) }
 
-      before { expect(Eve::DogmaAttribute).to receive(:find_or_initialize_by).with(attribute_id: attribute_id).and_return(eve_dogma_attribute) }
+    before { expect(subject).to receive(:configure_etag) }
 
-      let(:json) { double }
+    let(:eve_dogma_attribute) { instance_double(Eve::DogmaAttribute) }
 
-      let(:esi) do
-        instance_double(EveOnline::ESI::DogmaAttribute,
-          as_json: json)
-      end
+    before { expect(Eve::DogmaAttribute).to receive(:find_or_initialize_by).with(attribute_id: attribute_id).and_return(eve_dogma_attribute) }
+
+    context "when etag cache hit" do
+      let(:esi) { instance_double(EveOnline::ESI::DogmaAttribute, not_modified?: true) }
 
       before { expect(subject).to receive(:esi).and_return(esi) }
 
-      before { expect(eve_dogma_attribute).to receive(:update!).with(json) }
-
-      specify { expect { subject.import! }.not_to raise_error }
+      specify { expect { subject.import }.not_to raise_error }
     end
 
-    context "when eve dogma attribute not found" do
-      let(:eve_dogma_attribute) { instance_double(Eve::DogmaAttribute) }
+    context "when etag cache miss" do
+      context "when eve dogma attribute found" do
+        let(:json) { double }
 
-      before { expect(Eve::DogmaAttribute).to receive(:find_or_initialize_by).with(attribute_id: attribute_id).and_return(eve_dogma_attribute) }
+        let(:esi) { instance_double(EveOnline::ESI::DogmaAttribute, not_modified?: false, as_json: json) }
 
-      before { expect(subject).to receive(:esi).and_raise(EveOnline::Exceptions::ResourceNotFound) }
+        before { expect(subject).to receive(:esi).and_return(esi).twice }
 
-      before { expect(eve_dogma_attribute).to receive(:destroy!) }
+        before { expect(eve_dogma_attribute).to receive(:update!).with(json) }
 
-      specify { expect { subject.import! }.not_to raise_error }
+        before { expect(subject).to receive(:update_etag) }
+
+        specify { expect { subject.import }.not_to raise_error }
+      end
+
+      context "when eve dogma attribute not found" do
+        before { expect(subject).to receive(:esi).and_raise(EveOnline::Exceptions::ResourceNotFound) }
+
+        let(:eve_etag) { instance_double(Eve::Etag) }
+
+        before { expect(subject).to receive(:etag).and_return(eve_etag) }
+
+        before do
+          #
+          # Rails.logger.info("EveOnline::Exceptions::ResourceNotFound: Eve DogmaAttribute ID #{attribute_id}")
+          #
+          expect(Rails).to receive(:logger) do
+            double.tap do |a|
+              expect(a).to receive(:info).with("EveOnline::Exceptions::ResourceNotFound: Eve DogmaAttribute ID #{attribute_id}")
+            end
+          end
+        end
+
+        before { expect(eve_etag).to receive(:destroy!) }
+
+        before { expect(eve_dogma_attribute).to receive(:destroy!) }
+
+        specify { expect { subject.import }.not_to raise_error }
+      end
     end
   end
 
