@@ -9,7 +9,7 @@
     "@sentry/browser": "^5.29.0",
     "apexcharts": "^3.22.3",
     "bootstrap": "^4.5.3",
-    "bootstrap-icons": "^1.2.0",
+    "bootstrap-icons": "^1.2.1",
     "bootswatch": "^4.5.3",
     "cable_ready": "^4.4.4",
     "jquery": "^3.5.1",
