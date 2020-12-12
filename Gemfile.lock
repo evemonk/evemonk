@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/evemonk/eve_online.git
-  revision: f2677256b35794bb4cf5d41a6d8ee6d1edb084e6
+  revision: 6e01756d1aefd3a24494660a4901070c2f0e6919
   branch: faraday-with-middlewares
   specs:
     eve_online (0.36.0)
