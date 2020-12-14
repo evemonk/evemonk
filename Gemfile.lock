@@ -106,7 +106,7 @@ GEM
       rails (>= 4.2)
     ast (2.4.1)
     attr_extras (6.2.4)
-    authy (2.7.5)
+    authy (3.0.0)
       httpclient (>= 2.5.3.3)
     autoprefixer-rails (10.1.0.0)
       execjs
