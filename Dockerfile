@@ -32,6 +32,8 @@ RUN mkdir -p /app
 
 WORKDIR /app
 
+COPY .ruby-version .ruby-version
+
 COPY Gemfile Gemfile
 
 COPY Gemfile.lock Gemfile.lock
