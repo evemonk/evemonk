@@ -2,6 +2,8 @@
 
 source "https://rubygems.org"
 
+ruby File.read(".ruby-version")
+
 gem "rails", "6.0.3.4"
 gem "pg", ">= 0.18", "< 2.0"
 gem "puma"

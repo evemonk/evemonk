@@ -674,7 +674,7 @@ GEM
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
     with_env (1.1.0)
-    xml-simple (1.1.5)
+    xml-simple (1.1.7)
     xpath (3.2.0)
       nokogiri (~> 1.8)
     yabeda (0.8.0)
@@ -821,6 +821,9 @@ DEPENDENCIES
   yabeda-puma-plugin
   yabeda-rails
   yabeda-sidekiq
+
+RUBY VERSION
+   ruby 2.7.2p137
 
 BUNDLED WITH
    2.2.1
