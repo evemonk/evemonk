@@ -7,7 +7,7 @@
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "5.2.1",
     "@sentry/browser": "^5.29.0",
-    "apexcharts": "^3.22.3",
+    "apexcharts": "^3.23.0",
     "bootstrap": "^4.5.3",
     "bootstrap-icons": "^1.2.1",
     "bootswatch": "^4.5.3",
