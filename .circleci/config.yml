@@ -23,7 +23,7 @@ jobs:
             - ruby-{{ checksum ".ruby-version" }}-v1-dependencies-{{ checksum "Gemfile.lock" }}
             - ruby-{{ checksum ".ruby-version" }}-v1-dependencies-
       - run: sudo gem update --system '3.2.1'
-      - run: gem install bundler -v '2.2.1'
+      - run: gem install bundler -v '2.2.2'
       - run: bundle config set clean 'true'
       - run: bundle config set path 'vendor/bundle'
       - run: bundle check || bundle install --jobs=2 --retry=5

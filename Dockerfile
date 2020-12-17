@@ -44,7 +44,7 @@ ENV RUBYGEMS_VERSION 3.2.1
 
 RUN gem update --system "$RUBYGEMS_VERSION"
 
-ENV BUNDLER_VERSION 2.2.1
+ENV BUNDLER_VERSION 2.2.2
 
 # skipcq: DOK-DL3028
 RUN gem install bundler --version "$BUNDLER_VERSION" --force
