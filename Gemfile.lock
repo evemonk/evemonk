@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/evemonk/eve_online.git
-  revision: 6e01756d1aefd3a24494660a4901070c2f0e6919
+  revision: 373a905a68fcee58c680beb249a49ccb32b4a6ea
   branch: faraday-with-middlewares
   specs:
     eve_online (0.36.0)
@@ -826,4 +826,4 @@ RUBY VERSION
    ruby 2.7.2p137
 
 BUNDLED WITH
-   2.2.1
+   2.2.2
