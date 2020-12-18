@@ -7558,10 +7558,10 @@ vm-browserify@^1.0.1:
   resolved "https://registry.yarnpkg.com/vm-browserify/-/vm-browserify-1.1.2.tgz#78641c488b8e6ca91a75f511e7a3b32a86e5dda0"
   integrity sha512-2ham8XPWTONajOR0ohOKOHXkm3+gaBmGut3SRuu75xLd/RRaY6vqgh8NBYYk7+RW3u5AtzPQZG8F10LHkl0lAQ==
 
-vue-select@^3.10.5:
-  version "3.10.8"
-  resolved "https://registry.yarnpkg.com/vue-select/-/vue-select-3.10.8.tgz#5d0839cba228a9a5efa1a88e5436840eb3fd0c7a"
-  integrity sha512-PnjtZWCTiSr04bs8ctPIiU41qnBK+oh/SOe6Pb4gElMMxofDFwUxiUe++mz0+84aTy4zrleGxtvVVyWbiPYBiw==
+vue-select@^3.11.0:
+  version "3.11.0"
+  resolved "https://registry.yarnpkg.com/vue-select/-/vue-select-3.11.0.tgz#419834216f8cf1d4d96e7a5ddcd16627ddb8f397"
+  integrity sha512-rQpVcufCTBpXWF//3I6Oe+f089Y8e9Fa5oZjeuH5/GE4Hj3gQvwMN3mrrrcTPj3FoSqkloIiFKwKrQ2cZI40WA==
 
 vue@^2.6.11:
   version "2.6.12"
