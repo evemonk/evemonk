@@ -244,7 +244,7 @@ GEM
     fasterer (0.8.3)
       colorize (~> 0.7)
       ruby_parser (>= 3.14.1)
-    ffi (1.13.1)
+    ffi (1.14.1)
     foundation_emails (2.2.1.0)
     fugit (1.4.1)
       et-orbi (~> 1.1, >= 1.1.8)
