@@ -633,7 +633,7 @@ GEM
       rails (>= 5.2)
       redis
     stimulus_reflex_testing (0.1.0)
-    super_diff (0.5.2)
+    super_diff (0.5.3)
       attr_extras (>= 6.2.4)
       diff-lcs
       patience_diff
