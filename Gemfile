@@ -130,7 +130,6 @@ group :test do
   gem "rails-controller-testing"
   gem "shoulda-matchers"
   gem "rspec-its"
-  gem "stimulus_reflex_testing"
   gem "super_diff"
   # gem "rspec-stubbed_env"
   gem "shoulda-callback-matchers", git: "https://github.com/just806me/shoulda-callback-matchers.git",
