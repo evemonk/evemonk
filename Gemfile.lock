@@ -131,8 +131,6 @@ GEM
     bundler-leak (0.2.0)
       bundler (>= 1.2.0, < 3)
       thor (>= 0.18, < 2)
-    cable_ready (4.4.6)
-      rails (>= 5.2)
     cacheflow (0.1.1)
       activesupport
     capybara (3.34.0)
@@ -717,7 +715,6 @@ DEPENDENCIES
   brakeman
   bundler-audit
   bundler-leak
-  cable_ready
   cacheflow
   capybara (>= 2.15)
   codecov
