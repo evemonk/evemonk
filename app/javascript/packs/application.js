@@ -12,7 +12,6 @@ Sentry.init({
   dsn: "https://185a236f4b994411a9f33c3c714cb34e@sentry.io/1424888",
 });
 
-require("@rails/ujs").start();
 require("channels");
 
 import { Turbo, cable } from "@hotwired/turbo-rails";
