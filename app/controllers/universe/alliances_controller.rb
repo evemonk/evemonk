@@ -17,12 +17,6 @@ module Universe
         .includes(:faction, :creator_corporation, :creator, :executor_corporation)
         .find_by!(alliance_id: params[:id])
         .decorate
-
-      @corporations = ::Eve::Corporation
-        .where(alliance: @alliance)
-        .order(:name)
-        .includes(:faction)
-        .decorate
     end
   end
 end
