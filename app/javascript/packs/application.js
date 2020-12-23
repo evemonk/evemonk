@@ -35,11 +35,11 @@ window.debounce = debounce;
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 
-document.addEventListener("turbolinks:load", () => {
+document.addEventListener("turbo:load", () => {
   $('[data-toggle="tooltip"]').tooltip();
 });
 
-document.addEventListener("turbolinks:load", () => {
+document.addEventListener("turbo:load", () => {
   const nodes = document.querySelectorAll(".timeago");
 
   if (nodes.length > 0) {

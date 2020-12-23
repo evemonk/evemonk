@@ -70,7 +70,7 @@
   </div>
 
   <div class="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8">
-    <%= turbo_frame_tag "alliance:#{@alliance_id}:corporations", src: universe_alliance_corporations_path(@alliance.alliance_id) do %>
+    <%= turbo_frame_tag "universe:alliance:#{@alliance_id}:corporations", src: universe_alliance_corporations_path(@alliance.alliance_id), target: "_top" do %>
       <h4 class="text-center">Loading...</h4>
     <% end %>
   </div>
