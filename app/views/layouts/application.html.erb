@@ -29,12 +29,10 @@
     <%= csp_meta_tag %>
     <%= action_cable_meta_tag %>
 
-    <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track": "reload" %>
-    <%= stylesheet_pack_tag "application", media: "all", "data-turbolinks-track": "reload" %>
-    <%= javascript_pack_tag "application", "data-turbolinks-track": "reload" %>
+    <%= stylesheet_link_tag "application", media: "all" %>
+    <%= stylesheet_pack_tag "application", media: "all" %>
+    <%= javascript_pack_tag "application" %>
     <%= yield :head %>
-    <%= turbo_include_tags %>
-    <%= stimulus_include_tags %>
   </head>
 
   <body>
