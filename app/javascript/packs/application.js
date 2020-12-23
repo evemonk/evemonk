@@ -21,17 +21,12 @@ import "bootstrap";
 import "../stylesheets/application";
 
 import ApexCharts from "apexcharts";
-import Vue from "vue/dist/vue";
-import vSelect from "vue-select";
 import * as timeago from "timeago.js";
 import debounce from "lodash.debounce";
 
 window.ApexCharts = ApexCharts;
 window.$ = $;
-window.Vue = Vue;
 window.debounce = debounce;
-
-Vue.component("v-select", vSelect);
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
