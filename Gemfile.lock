@@ -650,9 +650,6 @@ GEM
     trollop (1.16.2)
     turbo-rails (0.5.0)
       rails (>= 6.0.0)
-    turbolinks (5.2.1)
-      turbolinks-source (~> 5.2)
-    turbolinks-source (5.2.0)
     typhoeus (1.4.0)
       ethon (>= 0.9.0)
     tzinfo (1.2.9)
@@ -813,7 +810,6 @@ DEPENDENCIES
   standard
   super_diff
   swagger-blocks
-  turbolinks (~> 5)
   typhoeus
   vcr
   webdrivers
