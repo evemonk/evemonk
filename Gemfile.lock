@@ -275,12 +275,6 @@ GEM
     hashie (4.1.0)
     heapy (0.2.0)
       thor
-    hotwire-rails (0.1.0)
-      hotwire-stimulus-rails
-      rails (>= 6.0.0)
-      turbo-rails
-    hotwire-stimulus-rails (0.1.0)
-      rails (>= 6.0.0)
     html_tokenizer (0.0.7)
     http-2 (0.10.2)
     http_accept_language (2.1.1)
@@ -747,7 +741,6 @@ DEPENDENCIES
   graphiql-rails
   graphql
   graphql-rails_logger
-  hotwire-rails
   http_accept_language
   httplog
   isolator
@@ -810,6 +803,7 @@ DEPENDENCIES
   standard
   super_diff
   swagger-blocks
+  turbo-rails
   typhoeus
   vcr
   webdrivers
