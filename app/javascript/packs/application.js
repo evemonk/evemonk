@@ -15,6 +15,8 @@ Sentry.init({
 require("@rails/ujs").start();
 require("channels");
 
+import { Turbo, cable } from "@hotwired/turbo-rails";
+
 import "bootstrap";
 
 import "../stylesheets/application";
@@ -46,4 +48,4 @@ document.addEventListener("turbolinks:load", () => {
   }
 });
 
-import "controllers";
+// import "controllers";
