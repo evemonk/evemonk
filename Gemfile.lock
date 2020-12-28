@@ -159,7 +159,8 @@ GEM
       i18n_data (~> 0.10.0)
       sixarm_ruby_unaccent (~> 1.1)
       unicode_utils (~> 1.4)
-    crack (0.4.4)
+    crack (0.4.5)
+      rexml
     crass (1.0.6)
     dalli (2.7.11)
     database_rewinder (0.9.4)
