@@ -552,7 +552,7 @@ GEM
     ruby-pg-extras (1.2.4)
       pg
       terminal-table
-    ruby-progressbar (1.10.1)
+    ruby-progressbar (1.11.0)
     ruby-statistics (2.1.2)
     ruby2_keywords (0.0.2)
     ruby_parser (3.15.0)
