@@ -111,8 +111,8 @@ Rails.application.configure do
 
   config.cache_store = :mem_cache_store, ENV["MEMCACHED_URL"]
 
-  # Sidekiq
-  config.active_job.queue_adapter = :sidekiq
+  # GoodJob
+  config.active_job.queue_adapter = :good_job
 
   config.action_mailer.delivery_method = :smtp
 
