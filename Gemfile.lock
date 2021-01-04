@@ -769,7 +769,6 @@ DEPENDENCIES
   net-http-persistent
   newrelic_rpm
   niceql
-  nokogiri (>= 1.11.0.rc4)
   omniauth-eve_online-sso
   omniauth-rails_csrf_protection
   paper_trail
