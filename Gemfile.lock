@@ -1,9 +1,9 @@
 GIT
   remote: https://github.com/evemonk/eve_online.git
-  revision: 373a905a68fcee58c680beb249a49ccb32b4a6ea
+  revision: bc02024f03d4587c83b80aba23f6a117bd532080
   branch: faraday-with-middlewares
   specs:
-    eve_online (0.36.0)
+    eve_online (0.37.0)
       activesupport (>= 5.2.0)
       faraday
       faraday_middleware
@@ -284,7 +284,7 @@ GEM
     httplog (1.4.3)
       rack (>= 1.0)
       rainbow (>= 2.0.0)
-    i18n (1.8.6)
+    i18n (1.8.7)
       concurrent-ruby (~> 1.0)
     i18n_data (0.10.0)
     isolator (0.7.0)
@@ -380,10 +380,10 @@ GEM
     newrelic_rpm (6.14.0)
     niceql (0.1.25)
     nio4r (2.5.4)
-    nokogiri (1.11.0.rc4)
+    nokogiri (1.11.0)
       mini_portile2 (~> 2.5.0)
       racc (~> 1.4)
-    nokogiri (1.11.0.rc4-x86_64-darwin)
+    nokogiri (1.11.0-x86_64-darwin)
       racc (~> 1.4)
     oauth2 (1.4.4)
       faraday (>= 0.8, < 2.0)
@@ -769,7 +769,6 @@ DEPENDENCIES
   net-http-persistent
   newrelic_rpm
   niceql
-  nokogiri (>= 1.11.0.rc4)
   omniauth-eve_online-sso
   omniauth-rails_csrf_protection
   paper_trail
