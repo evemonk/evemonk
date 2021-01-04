@@ -259,6 +259,13 @@ GEM
       ffi (~> 1.0)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
+    good_job (1.4.0)
+      activejob (>= 5.2.0)
+      activerecord (>= 5.2.0)
+      concurrent-ruby (>= 1.0.2)
+      railties (>= 5.2.0)
+      thor (>= 0.14.1)
+      zeitwerk (>= 2.0)
     good_migrations (0.0.2)
       activerecord (>= 3.1)
       railties (>= 3.1)
@@ -593,10 +600,6 @@ GEM
     sexp_processor (4.15.1)
     shoulda-matchers (4.4.1)
       activesupport (>= 4.2.0)
-    sidekiq (6.1.2)
-      connection_pool (>= 2.2.2)
-      rack (~> 2.0)
-      redis (>= 4.2.0)
     simplecov (0.20.0)
       docile (~> 1.1)
       simplecov-html (~> 0.11)
@@ -700,9 +703,6 @@ GEM
     yabeda-rails (0.7.1)
       rails
       yabeda (~> 0.8)
-    yabeda-sidekiq (0.7.0)
-      sidekiq
-      yabeda (~> 0.6)
     zeitwerk (2.4.2)
     zxcvbn-js (4.4.3)
       execjs
@@ -748,6 +748,7 @@ DEPENDENCIES
   fasterer
   foundation_emails
   gemdiff
+  good_job
   good_migrations
   graphiql-rails
   graphql
@@ -801,7 +802,6 @@ DEPENDENCIES
   server_timing
   shoulda-callback-matchers!
   shoulda-matchers
-  sidekiq
   simplecov
   sitemap_generator
   spring
@@ -826,7 +826,6 @@ DEPENDENCIES
   yabeda-prometheus
   yabeda-puma-plugin
   yabeda-rails
-  yabeda-sidekiq
 
 RUBY VERSION
    ruby 2.7.2p137
