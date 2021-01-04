@@ -284,7 +284,7 @@ GEM
     httplog (1.4.3)
       rack (>= 1.0)
       rainbow (>= 2.0.0)
-    i18n (1.8.6)
+    i18n (1.8.7)
       concurrent-ruby (~> 1.0)
     i18n_data (0.10.0)
     isolator (0.7.0)
