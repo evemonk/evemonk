@@ -10,4 +10,4 @@ wait-for-it "postgresql:5432" -- echo "PostgreSQL up and running"
 
 wait-for-it "elasticsearch:9200" -- echo "Elastic up and running"
 
-bundle exec sidekiq -C config/sidekiq.yml
+bundle exec good_job start
