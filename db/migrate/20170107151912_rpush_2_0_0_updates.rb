@@ -60,7 +60,9 @@ class Rpush200Updates < ActiveRecord::VERSION::MAJOR >= 5 ? ActiveRecord::Migrat
 
   def self.adapter_name
     env = defined?(Rails) && Rails.env ? Rails.env : "development"
+    # rubocop:disable Style/HashTransformKeys
     Hash[ActiveRecord::Base.configurations[env].map { |k, v| [k.to_sym, v] }][:adapter]
+    # rubocop:enable Style/HashTransformKeys
   end
 
   def self.postgresql?
