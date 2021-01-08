@@ -10,7 +10,6 @@ end
 
 SimpleCov.start "rails" do
   add_group "Channels", "app/channels"
-  add_group "Documentation", "app/documentation"
   add_group "Forms", "app/forms"
   add_group "Importers", "app/importers"
   add_group "Searchers", "app/searchers"
