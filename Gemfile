@@ -51,7 +51,6 @@ gem "rpush"
 gem "pghero"
 gem "pg_query"
 # gem "rubycritic", require: false
-gem "swagger-blocks"
 gem "responders"
 gem "rack-health"
 gem "sitemap_generator"

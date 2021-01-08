@@ -643,7 +643,6 @@ GEM
       attr_extras (>= 6.2.4)
       diff-lcs
       patience_diff
-    swagger-blocks (3.0.0)
     terminal-table (1.8.0)
       unicode-display_width (~> 1.1, >= 1.1.1)
     thor (1.0.1)
@@ -815,7 +814,6 @@ DEPENDENCIES
   stimulus_reflex
   stimulus_reflex_testing
   super_diff
-  swagger-blocks
   turbolinks (~> 5)
   typhoeus
   vcr
