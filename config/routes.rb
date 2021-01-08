@@ -82,16 +82,6 @@ Rails.application.routes.draw do
   end
 
   namespace :api, defaults: {format: "json"} do
-    resource :sign_in, only: :create
-
-    resource :sign_out, only: :destroy
-
-    resources :sessions, only: :destroy
-
-    resource :profile, only: :show
-
-    resources :characters, only: [:index, :show, :destroy]
-
     namespace :eve do
       resources :types, only: [:index, :show]
 
