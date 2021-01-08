@@ -88,7 +88,7 @@ Rails.application.routes.draw do
 
     resource :sign_out, only: :destroy
 
-    resources :sessions, only: [:index, :destroy]
+    resources :sessions, only: :destroy
 
     resource :profile, only: :show
 
