@@ -16,7 +16,7 @@
     "lodash.debounce": "^4.0.8",
     "popper.js": "^1.16.1",
     "stimulus": "^2.0.0",
-    "stimulus_reflex": "^3.3.0",
+    "stimulus_reflex": "^3.4.0",
     "timeago.js": "^4.0.2",
     "turbolinks": "^5.2.0",
     "vue": "^2.6.11",
