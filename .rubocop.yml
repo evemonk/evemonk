@@ -93,3 +93,6 @@ Naming/MethodParameterName:
 
 Style/BlockDelimiters:
   Enabled: false
+
+Lint/MissingSuper:
+  Enabled: false
