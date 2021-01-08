@@ -3,8 +3,6 @@
 module Api
   module Eve
     class ManufacturingItemsController < BaseController
-      skip_before_action :authenticate
-
       def index
         @items = ::Eve::ManufacturingItemsSearcher.new(params[:q])
           .search
