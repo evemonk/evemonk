@@ -8,17 +8,6 @@ module Api
 
     respond_to :json
 
-    before_action :authenticate
-
-    attr_reader :current_user
-
-    # :nocov:
-    # rescue_from ActionController::ParameterMissing do |exception|
-    #   @exception = exception
-
-    #   render :exception, status: :unprocessable_entity
-    # end
-
     rescue_from ActiveRecord::RecordNotFound do
       head :not_found
     end
@@ -29,23 +18,6 @@ module Api
     # :nocov:
 
     def index
-    end
-
-    private
-
-    def authenticate_by_token
-      authenticate_with_http_token do |token,|
-        @current_user = User.joins(:sessions)
-          .find_by(sessions: {token: token})
-      end
-    end
-
-    def authenticate
-      authenticate_by_token || render_unauthorized
-    end
-
-    def render_unauthorized
-      render json: {error: "Access denied"}, status: :unauthorized
     end
   end
 end
