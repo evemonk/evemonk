@@ -3,8 +3,6 @@
 module Api
   module Eve
     class TypesController < BaseController
-      skip_before_action :authenticate
-
       def index
         @types = ::Eve::Type
           .where(published: true)
