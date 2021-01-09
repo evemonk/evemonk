@@ -8,6 +8,7 @@ module Api
 
     respond_to :json
 
+    # :nocov:
     rescue_from ActiveRecord::RecordNotFound do
       head :not_found
     end
@@ -16,8 +17,5 @@ module Api
       head :not_acceptable
     end
     # :nocov:
-
-    def index
-    end
   end
 end
