@@ -632,12 +632,6 @@ GEM
     standard (0.7)
       rubocop (= 0.92)
       rubocop-performance (= 1.8.1)
-    stimulus_reflex (3.3.0)
-      cable_ready (>= 4.3.0)
-      nokogiri
-      rack
-      rails (>= 5.2)
-      redis
     super_diff (0.5.3)
       attr_extras (>= 6.2.4)
       diff-lcs
@@ -810,7 +804,6 @@ DEPENDENCIES
   sql_tracker
   squasher
   standard
-  stimulus_reflex
   super_diff
   turbolinks (~> 5)
   typhoeus
