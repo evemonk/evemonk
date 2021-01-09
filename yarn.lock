@@ -842,7 +842,7 @@
   dependencies:
     mkdirp "^1.0.4"
 
-"@rails/actioncable@>= 6.0", "@rails/actioncable@^6.0.0":
+"@rails/actioncable@^6.0.0":
   version "6.0.3"
   resolved "https://registry.yarnpkg.com/@rails/actioncable/-/actioncable-6.0.3.tgz#722b4b639936129307ddbab3a390f6bcacf3e7bc"
   integrity sha512-I01hgqxxnOgOtJTGlq0ZsGJYiTEEiSGVEGQn3vimZSqEP1HqzyFNbzGTq14Xdyeow2yGJjygjoFF1pmtE+SQaw==
@@ -1737,13 +1737,6 @@ bytes@3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/bytes/-/bytes-3.1.0.tgz#f6cf7933a360e0588fa9fde85651cdc7f805d1f6"
   integrity sha512-zauLjrfCG+xvoyaqLoV8bLVXXNGC4JqlxFCutSDWA6fJrTo2ZuvLYTqZ7aHBLZSMOopbzwv8f+wZcVzfVTI2Dg==
-
-"cable_ready@>= 4.3.0", cable_ready@^4.4.6:
-  version "4.4.6"
-  resolved "https://registry.yarnpkg.com/cable_ready/-/cable_ready-4.4.6.tgz#a46c879ec48b722d78cb1fbe0c1850d2f6b2762a"
-  integrity sha512-nqo50yrnOlV0CKc+ysXnIzwulk7q54hGYUwbJb1s0pBY0eu1yjDhgdU8g9dxfO5xapK6S7oceuEnZ4FQawbU5g==
-  dependencies:
-    morphdom "^2.6.1"
 
 cacache@^12.0.2:
   version "12.0.4"
@@ -3173,11 +3166,6 @@ form-data@~2.3.2:
     asynckit "^0.4.0"
     combined-stream "^1.0.6"
     mime-types "^2.1.12"
-
-"form-serialize@>= 0.7.2":
-  version "0.7.2"
-  resolved "https://registry.yarnpkg.com/form-serialize/-/form-serialize-0.7.2.tgz#b0a2ff0c22026fb6d3d15c9d33f6de6a432e4732"
-  integrity sha1-sKL/DCICb7bT0VydM/beakMuRzI=
 
 forwarded@~0.1.2:
   version "0.1.2"
@@ -4634,11 +4622,6 @@ mkdirp@^1.0.3, mkdirp@^1.0.4:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/mkdirp/-/mkdirp-1.0.4.tgz#3eb5ed62622756d79a5f0e2a221dfebad75c2f7e"
   integrity sha512-vVqVZQyf3WLx2Shd0qJ9xuvqgAyKPLAiqITEtqW0oIUjzo3PePDd6fW9iFz30ef7Ysp/oiWqbhszeGWW2T6Gzw==
-
-morphdom@^2.6.1:
-  version "2.6.1"
-  resolved "https://registry.yarnpkg.com/morphdom/-/morphdom-2.6.1.tgz#e868e24f989fa3183004b159aed643e628b4306e"
-  integrity sha512-Y8YRbAEP3eKykroIBWrjcfMw7mmwJfjhqdpSvoqinu8Y702nAwikpXcNFDiIkyvfCLxLM9Wu95RZqo4a9jFBaA==
 
 move-concurrently@^1.0.1:
   version "1.0.1"
@@ -6878,23 +6861,13 @@ stdout-stream@^1.4.0:
   dependencies:
     readable-stream "^2.0.1"
 
-"stimulus@>= 1.1", stimulus@^2.0.0:
+stimulus@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/stimulus/-/stimulus-2.0.0.tgz#713c8b91a72ef90914b90955f0e705f004403047"
   integrity sha512-xipy7BS5TVpg4fX6S8LhrYZp7cmHGjmk09WSAiVx1gF5S5g43IWsuetfUhIk8HfHUG+4MQ9nY0FQz4dRFLs/8w==
   dependencies:
     "@stimulus/core" "^2.0.0"
     "@stimulus/webpack-helpers" "^2.0.0"
-
-stimulus_reflex@^3.3.0:
-  version "3.3.0"
-  resolved "https://registry.yarnpkg.com/stimulus_reflex/-/stimulus_reflex-3.3.0.tgz#3de755f21374d399d5337e0c60f5350cf81cc0de"
-  integrity sha512-HfeUIGeaA7N3tJEhJKt5SoiwTNw0Q8dt1DW9U0WNQom3F1ImaXigoP19spyrGS7yJmGw3Cwj/bikwwHsIdxaKg==
-  dependencies:
-    "@rails/actioncable" ">= 6.0"
-    cable_ready ">= 4.3.0"
-    form-serialize ">= 0.7.2"
-    stimulus ">= 1.1"
 
 stream-browserify@^2.0.1:
   version "2.0.2"

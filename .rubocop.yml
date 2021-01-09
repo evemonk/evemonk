@@ -1,9 +1,11 @@
 AllCops:
   NewCops: enable
+  SuggestExtensions: false
   Exclude:
     - "bin/*"
     - "config/spring.rb"
     - "db/schema.rb"
+    - "db/migrate/20170107151911_add_rpush.rb"
     - "node_modules/**/*"
     - "vendor/**/*"
 
@@ -95,4 +97,10 @@ Style/BlockDelimiters:
   Enabled: false
 
 Lint/MissingSuper:
+  Enabled: false
+
+Lint/EmptyBlock:
+  Enabled: false
+
+Lint/EmptyClass:
   Enabled: false
