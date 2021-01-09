@@ -638,7 +638,6 @@ GEM
       rack
       rails (>= 5.2)
       redis
-    stimulus_reflex_testing (0.1.0)
     super_diff (0.5.3)
       attr_extras (>= 6.2.4)
       diff-lcs
@@ -812,7 +811,6 @@ DEPENDENCIES
   squasher
   standard
   stimulus_reflex
-  stimulus_reflex_testing
   super_diff
   turbolinks (~> 5)
   typhoeus
