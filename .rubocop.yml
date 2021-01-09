@@ -99,3 +99,6 @@ Lint/MissingSuper:
 
 Lint/EmptyBlock:
   Enabled: false
+
+Lint/EmptyClass:
+  Enabled: false
