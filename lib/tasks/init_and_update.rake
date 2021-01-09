@@ -3,19 +3,19 @@
 namespace :evemonk do
   desc "Init new evemonk installation"
   task init: :environment do
-    # 7 call to esi
+    # 6 call to esi
     Rails.logger.info "Import eve races"
     Eve::UpdateRacesJob.perform_later
 
-    # 7 call to esi
+    # 6 call to esi
     Rails.logger.info "Import eve bloodlines"
     Eve::UpdateBloodlinesJob.perform_later
 
-    # 7 call to esi
+    # 6 call to esi
     Rails.logger.info "Import eve ancestries"
     Eve::UpdateAncestriesJob.perform_later
 
-    # 7 call to esi
+    # 6 call to esi
     Rails.logger.info "Import eve factions"
     Eve::UpdateFactionsJob.perform_later
 
@@ -40,15 +40,18 @@ namespace :evemonk do
     Rails.logger.info "Import blueprints from SDE"
     Sde::BlueprintsJob.perform_later("static/sde/fsd/blueprints.yaml")
 
+    Rails.logger.info "Import certificates from SDE"
+    Sde::CertificatesJob.perform_later("static/sde/fsd/certificates.yaml")
+
     # Around 300 calls to esi
     Rails.logger.info "Import eve categories"
     Eve::UpdateCategoriesJob.perform_later
 
-    # Around 10k calls to esi
+    # Around 9k calls to esi
     Rails.logger.info "Import eve groups"
     Eve::UpdateGroupsJob.perform_later
 
-    # Around 13k calls to esi
+    # Around 11k calls to esi
     Rails.logger.info "Import eve market groups"
     Eve::UpdateMarketGroupsJob.perform_later
 
@@ -60,19 +63,19 @@ namespace :evemonk do
     Rails.logger.info "Import eve dogma attributes"
     Eve::UpdateDogmaAttributesJob.perform_later
 
-    # Around 250k calls to esi
+    # Around 235k calls to esi
     Rails.logger.info "Import eve types"
     Eve::UpdateTypesJob.perform_later
 
-    # Around 10k calls to esi
+    # Around 7k calls to esi
     Rails.logger.info "Import eve constellations"
     Eve::UpdateConstellationsJob.perform_later
 
-    # Around 700 calls to esi
+    # Around 650 calls to esi
     Rails.logger.info "Import eve regions"
     Eve::UpdateRegionsJob.perform_later
 
-    # Around 60k calls to esi
+    # Around 50k calls to esi
     Rails.logger.info "Import new eve systems"
     Eve::UpdateSystemsJob.perform_later
 
@@ -83,19 +86,19 @@ namespace :evemonk do
 
   desc "Update static data from new eve online release"
   task update: :environment do
-    # 7 call to esi
+    # 6 call to esi
     Rails.logger.info "Update eve races"
     Eve::UpdateRacesJob.perform_later
 
-    # 7 call to esi
+    # 6 call to esi
     Rails.logger.info "Update eve bloodlines"
     Eve::UpdateBloodlinesJob.perform_later
 
-    # 7 call to esi
+    # 6 call to esi
     Rails.logger.info "Update eve ancestries"
     Eve::UpdateAncestriesJob.perform_later
 
-    # 7 call to esi
+    # 6 call to esi
     Rails.logger.info "Update eve factions"
     Eve::UpdateFactionsJob.perform_later
 
@@ -120,6 +123,9 @@ namespace :evemonk do
     Rails.logger.info "Import blueprints from SDE"
     Sde::BlueprintsJob.perform_later("static/sde/fsd/blueprints.yaml")
 
+    Rails.logger.info "Import certificates from SDE"
+    Sde::CertificatesJob.perform_later("static/sde/fsd/certificates.yaml")
+
     # 1 + new categories calls to esi
     Rails.logger.info "Import new eve categories"
     Eve::UpdateCategoriesJob.perform_later
@@ -132,7 +138,7 @@ namespace :evemonk do
     Rails.logger.info "Import new eve groups"
     Eve::UpdateGroupsJob.perform_later
 
-    # Around 10k calls to esi
+    # Around 9k calls to esi
     Rails.logger.info "Update eve groups"
     Eve::LocalGroupsJob.perform_later
 
@@ -140,7 +146,7 @@ namespace :evemonk do
     Rails.logger.info "Import new eve market groups"
     Eve::UpdateMarketGroupsJob.perform_later
 
-    # Around 13k calls to esi
+    # Around 11k calls to esi
     Rails.logger.info "Update eve market groups"
     Eve::LocalMarketGroupsJob.perform_later
 
@@ -164,7 +170,7 @@ namespace :evemonk do
     Rails.logger.info "Import new eve types"
     Eve::UpdateTypesJob.perform_later
 
-    # Around 250k calls to esi
+    # Around 235k calls to esi
     Rails.logger.info "Update eve types"
     Eve::LocalTypesJob.perform_later
 
@@ -172,7 +178,7 @@ namespace :evemonk do
     Rails.logger.info "Import new eve constellations"
     Eve::UpdateConstellationsJob.perform_later
 
-    # Around 10k calls to esi
+    # Around 7k calls to esi
     Rails.logger.info "Update eve constellations"
     Eve::LocalConstellationsJob.perform_later
 
@@ -188,7 +194,7 @@ namespace :evemonk do
     Rails.logger.info "Import new eve systems"
     Eve::UpdateSystemsJob.perform_later
 
-    # Around 60k calls to esi
+    # Around 49k calls to esi
     Rails.logger.info "Update eve systems"
     Eve::LocalSystemsJob.perform_later
 
