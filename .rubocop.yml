@@ -96,3 +96,6 @@ Style/BlockDelimiters:
 
 Lint/MissingSuper:
   Enabled: false
+
+Lint/EmptyBlock:
+  Enabled: false
