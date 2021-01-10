@@ -16,3 +16,4 @@ coverage/*
 backup-*.sql.gz
 screenshots/*
 static/*
+sde.zip
