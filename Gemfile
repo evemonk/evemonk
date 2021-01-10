@@ -6,7 +6,6 @@ ruby File.read(".ruby-version")
 
 gem "rails", "6.1.1"
 gem "pg", ">= 0.18", "< 2.0"
-gem "sqlite3" # Used for asset generation
 gem "puma"
 gem "sass-rails", ">= 6"
 gem "webpacker", "~> 5.2"
