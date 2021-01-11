@@ -137,7 +137,6 @@ group :test do
                            branch: "rails62/db-config"
   gem "webmock"
   gem "vcr"
-  gem "pig-ci-rails"
 end
 
 gem "httplog"
