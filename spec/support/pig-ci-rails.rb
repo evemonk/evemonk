@@ -2,7 +2,7 @@ require "pig_ci"
 
 PigCI.start do |config|
   # Maximum memory in megabytes
-  config.thresholds.memory = 400
+  config.thresholds.memory = 650
 
   # Maximum time per a HTTP request
   # config.thresholds.request_time = 250
