@@ -10,3 +10,4 @@ use Rack::Health
 use Yabeda::Prometheus::Exporter
 
 run Rails.application
+Rails.application.load_server
