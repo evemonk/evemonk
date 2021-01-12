@@ -137,8 +137,8 @@ group :test do
   gem "shoulda-matchers"
   gem "rspec-its"
   # Till https://github.com/mcmire/super_diff/pull/118
-  gem "super_diff", git: "https://github.com/jcoyne/super_diff.git",
-                    branch: "ruby-3"
+  # gem "super_diff", git: "https://github.com/jcoyne/super_diff.git",
+  #                   branch: "ruby-3"
   # gem "rspec-stubbed_env"
   gem "shoulda-callback-matchers", git: "https://github.com/just806me/shoulda-callback-matchers.git",
                                    branch: "master"
