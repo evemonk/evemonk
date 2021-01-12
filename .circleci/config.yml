@@ -4,7 +4,7 @@ jobs:
   build:
     working_directory: ~/evemonk
     docker:
-      - image: circleci/ruby:2.7.2-node-browsers
+      - image: circleci/ruby:3.0.0-node-browsers
         environment:
           RAILS_ENV: test
           PGHOST: localhost
@@ -54,7 +54,7 @@ jobs:
       - run: bundle exec brakeman -A
       - run: bundle exec bundle-leak
       - run: bundle exec mdl README.md
-      - run: bundle exec fasterer
+      # - run: bundle exec fasterer
       - run: bundle exec standardrb
       - run: bundle exec rubocop
       - run: bundle exec erblint --lint-all || true
@@ -64,7 +64,7 @@ jobs:
       - run: bundle exec rails factory_bot:lint
       - run: bundle exec consistency_fail || true
       - run: bundle exec rails_best_practices || true
-      #      - run: bundle exec rails active_record_doctor:unindexed_foreign_keys
+      # - run: bundle exec rails active_record_doctor:unindexed_foreign_keys
       - run: bundle exec rails SECRET_KEY_BASE=blablabla assets:precompile
       - run: ./hadolint --ignore DL3008 Dockerfile
       - run: shellcheck-stable/shellcheck bin/backend bin/sidekiq bin/cron bin/standardize

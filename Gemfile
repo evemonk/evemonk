@@ -42,10 +42,13 @@ gem "draper"
 gem "mobility"
 gem "paper_trail"
 gem "rails-settings-cached"
-gem "net-http-persistent"
+# Till next release
+# gem "net-http-persistent", git: "https://github.com/drbrain/net-http-persistent.git",
+#                            branch: "master"
 gem "connection_pool"
 gem "sidekiq", require: false
-gem "rpush"
+# Till next release of net-http-persistent
+# gem "rpush"
 gem "pghero"
 gem "pg_query"
 # gem "rubycritic", require: false
@@ -58,7 +61,8 @@ gem "administrate"
 gem "sentry-raven"
 gem "errbase"
 gem "niceql"
-gem "server_timing"
+# Till scout_apm ruby 3.0
+# gem "server_timing"
 # gem "traceroute"
 # gem "strong_migrations"
 gem "easymon"
@@ -96,7 +100,8 @@ group :development, :test do
   gem "squasher", require: false
   gem "mdl", require: false
   gem "brakeman", require: false
-  gem "fasterer", require: false
+  # Till https://github.com/DamirSvrtan/fasterer/issues/84
+  # gem "fasterer", require: false
   gem "license_finder", require: false
   gem "anyway_config" # For isolator
   gem "isolator"
@@ -120,7 +125,10 @@ group :development do
 end
 
 group :test do
-  gem "codecov", require: false
+  # Till https://github.com/codecov/codecov-ruby/pull/124
+  gem "codecov", require: false,
+                 git: "https://github.com/jsantos/codecov-ruby.git",
+                 branch: "ruby3_support"
   gem "capybara", ">= 3.26"
   gem "selenium-webdriver"
   # Easy installation and use of web drivers to run system tests with browsers
@@ -128,11 +136,14 @@ group :test do
   gem "rails-controller-testing"
   gem "shoulda-matchers"
   gem "rspec-its"
-  gem "super_diff"
+  # Till https://github.com/mcmire/super_diff/pull/118
+  gem "super_diff", git: "https://github.com/jcoyne/super_diff.git",
+                    branch: "ruby-3"
   # gem "rspec-stubbed_env"
   gem "shoulda-callback-matchers", git: "https://github.com/just806me/shoulda-callback-matchers.git",
                                    branch: "master"
   gem "simplecov"
+  # Till https://github.com/amatsuda/database_rewinder/pull/70
   gem "database_rewinder", git: "https://github.com/JuanitoFatas/database_rewinder.git",
                            branch: "rails62/db-config"
   gem "webmock"
