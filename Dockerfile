@@ -40,11 +40,11 @@ COPY Gemfile.lock Gemfile.lock
 
 ENV RAILS_ENV production
 
-ENV RUBYGEMS_VERSION 3.2.3
+ENV RUBYGEMS_VERSION 3.2.5
 
 RUN gem update --system "$RUBYGEMS_VERSION"
 
-ENV BUNDLER_VERSION 2.2.3
+ENV BUNDLER_VERSION 2.2.5
 
 # skipcq: DOK-DL3028
 RUN gem install bundler --version "$BUNDLER_VERSION" --force
@@ -73,7 +73,7 @@ RUN yarn install
 
 COPY . .
 
-RUN bundle exec rake SECRET_KEY_BASE=blablabla DB_ADAPTER=nulldb DATABASE_URL="postgres://postgres@postgresql/evemonk_production?pool=1&encoding=unicode" assets:precompile
+RUN bundle exec rake SECRET_KEY_BASE=blablabla DATABASE_URL="postgres://postgres@postgresql/evemonk_production?pool=1&encoding=unicode" assets:precompile
 
 ARG COMMIT=""
 

@@ -13,6 +13,11 @@
 !/log/.keep
 !/tmp/.keep
 
+# Ignore pidfiles, but keep the directory.
+/tmp/pids/*
+!/tmp/pids/
+!/tmp/pids/.keep
+
 /public/assets
 
 /public/packs
@@ -33,3 +38,4 @@ yarn-debug.log*
 /dump.rdb
 /public/sitemap*.xml.gz
 /static/*
+/sde.zip
