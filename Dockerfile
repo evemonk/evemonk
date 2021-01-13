@@ -40,6 +40,8 @@ COPY Gemfile.lock Gemfile.lock
 
 ENV RAILS_ENV production
 
+ENV RAILS_LOG_TO_STDOUT true
+
 ENV RUBYGEMS_VERSION 3.2.5
 
 RUN gem update --system "$RUBYGEMS_VERSION"

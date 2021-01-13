@@ -2,14 +2,18 @@
   <nav>
     <ul class="pagination">
       <%= first_page_tag unless current_page.first? %>
+      <%= prev_page_tag unless current_page.first? %>
       <% each_page do |page| %>
-        <% if page.left_outer? || page.right_outer? || page.inside_window? %>
+        <% if page.display_tag? %>
           <%= page_tag page %>
-        <% elsif !page.was_truncated? -%>
+        <% elsif !page.was_truncated? %>
           <%= gap_tag %>
         <% end %>
       <% end %>
-      <%= last_page_tag unless current_page.last? %>
+      <% unless current_page.out_of_range? %>
+        <%= next_page_tag unless current_page.last? %>
+        <%= last_page_tag unless current_page.last? %>
+      <% end %>
     </ul>
   </nav>
 <% end %>
