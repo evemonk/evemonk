@@ -4,4 +4,10 @@ require "rails_helper"
 
 describe Eve::SystemDashboard do
   it { should be_an(Administrate::BaseDashboard) }
+
+  describe "#display_resource" do
+    let(:system) { build(:eve_system, name_en: "Penirgman") }
+
+    specify { expect(subject.display_resource(system)).to eq("Penirgman") }
+  end
 end
