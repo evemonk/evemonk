@@ -49,7 +49,7 @@ jobs:
       - run: bundle exec rspec --profile
       - run: bundle exec bundle-audit update
       - run: bundle exec bundle-leak update
-      - run: bundle exec bundle-audit --ignore CVE-2015-9284
+      - run: bundle exec bundle-audit
       - run: yarn audit
       - run: bundle exec brakeman -A
       - run: bundle exec bundle-leak
