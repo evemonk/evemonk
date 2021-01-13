@@ -4,4 +4,10 @@ require "rails_helper"
 
 describe Eve::ConstellationDashboard do
   it { should be_an(Administrate::BaseDashboard) }
+
+  describe "#display_resource" do
+    let(:constellation) { build(:eve_constellation, name_en: "Parud") }
+
+    specify { expect(subject.display_resource(constellation)).to eq("Parud") }
+  end
 end
