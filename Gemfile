@@ -45,8 +45,7 @@ gem "rails-settings-cached"
 gem "net-http-persistent"
 gem "connection_pool"
 gem "sidekiq", require: false
-# Till next release of net-http-persistent
-# gem "rpush"
+gem "rpush"
 gem "pghero"
 gem "pg_query"
 # gem "rubycritic", require: false
