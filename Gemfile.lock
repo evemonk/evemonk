@@ -151,7 +151,7 @@ GEM
       regexp_parser (~> 1.5)
       xpath (~> 3.2)
     chartkick (3.4.2)
-    chef-utils (16.9.17)
+    chef-utils (16.9.20)
     childprocess (3.0.0)
     code_analyzer (0.5.2)
       sexp_processor
