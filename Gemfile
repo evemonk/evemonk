@@ -42,9 +42,7 @@ gem "draper"
 gem "mobility"
 gem "paper_trail"
 gem "rails-settings-cached"
-# Till next release
-# gem "net-http-persistent", git: "https://github.com/drbrain/net-http-persistent.git",
-#                            branch: "master"
+gem "net-http-persistent"
 gem "connection_pool"
 gem "sidekiq", require: false
 # Till next release of net-http-persistent

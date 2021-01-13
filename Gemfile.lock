@@ -379,6 +379,8 @@ GEM
     multi_json (1.15.0)
     multi_xml (0.6.0)
     multipart-post (2.1.1)
+    net-http-persistent (4.0.1)
+      connection_pool (~> 2.2)
     newrelic_rpm (6.14.0)
     niceql (0.1.25)
     nio4r (2.5.4)
@@ -730,6 +732,7 @@ DEPENDENCIES
   meta-tags
   metricky
   mobility
+  net-http-persistent
   newrelic_rpm
   niceql
   omniauth-eve_online-sso
