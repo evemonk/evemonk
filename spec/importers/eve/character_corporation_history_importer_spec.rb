@@ -65,6 +65,30 @@ describe Eve::CharacterCorporationHistoryImporter do
 
         specify { expect { subject.import }.not_to raise_error }
       end
+
+      context "when eve character not found (ActiveRecord::RecordNotFound)" do
+        let(:esi) do
+          instance_double(EveOnline::ESI::CharacterCorporationHistory,
+            not_modified?: false)
+        end
+
+        before { expect(subject).to receive(:esi).and_return(esi) }
+
+        before { expect(Eve::Character).to receive(:find_by!).with(character_id: character_id).and_raise(ActiveRecord::RecordNotFound) }
+
+        before do
+          #
+          # Rails.logger.info("Character with ID #{character_id} not found")
+          #
+          expect(Rails).to receive(:logger) do
+            double.tap do |a|
+              expect(a).to receive(:info).with("Character with ID #{character_id} not found")
+            end
+          end
+        end
+
+        specify { expect { subject.import }.not_to raise_error }
+      end
     end
   end
 
