@@ -12,7 +12,15 @@ module Eve
       import! do
         return if esi.not_modified?
 
-        update_etag
+        # eve_corporation = Eve::Corporation.find_by!(corporation_id: corporation_id)
+        #
+        # eve_corporation.loyalty_store_offers.destroy_all
+        #
+        # esi.offers.each do |offer|
+        #   eve_corporation.loyalty_store_offers.create!(offer.as_json)
+        # end
+        #
+        # update_etag
       end
     end
 

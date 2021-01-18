@@ -26,9 +26,10 @@ describe Eve::CorporationLoyaltyStoreImporter do
       specify { expect { subject.import }.not_to raise_error }
     end
 
-    context "when etag cache miss" do
-      
-    end
+    # context "when etag cache miss" do
+    #   context "when eve corporation found" do
+    #   end
+    # end
   end
 
   # describe "#import!" do
