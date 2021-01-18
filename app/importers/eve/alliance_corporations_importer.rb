@@ -32,14 +32,14 @@ module Eve
 
     # private
 
-    # def import_new_corporations
-    #   corporation_ids = esi.corporation_ids - eve_alliance.corporations.pluck(:corporation_id)
-    #
-    #   corporation_ids.each do |corporation_id|
-    #     Eve::UpdateCorporationJob.perform_later(corporation_id)
-    #   end
-    # end
-    #
+    def import_new_corporations
+      corporation_ids = esi.corporation_ids - eve_alliance.corporations.pluck(:corporation_id)
+
+      corporation_ids.each do |corporation_id|
+        Eve::UpdateCorporationJob.perform_later(corporation_id)
+      end
+    end
+
     # def remove_old_corporations
     #   corporation_ids = eve_alliance.corporations.pluck(:corporation_id) - esi.corporation_ids
     #
