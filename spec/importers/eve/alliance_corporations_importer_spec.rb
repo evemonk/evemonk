@@ -28,21 +28,21 @@ describe Eve::AllianceCorporationsImporter do
       specify { expect { subject.import }.not_to raise_error }
     end
 
-  #   context "when etag cache miss" do
-  #     context "when eve alliance found" do
-  #       let(:esi) { instance_double(EveOnline::ESI::AllianceCorporations, not_modified?: false) }
-  #
-  #       before { expect(subject).to receive(:esi).and_return(esi) }
-  #
-  #       before { expect(subject).to receive(:import_new_corporations) }
-  #
-  #       before { expect(subject).to receive(:remove_old_corporations) }
-  #
-  #       before { expect(subject).to receive(:update_etag) }
-  #
-  #       specify { expect { subject.import }.not_to raise_error }
-  #     end
-  #   end
+    context "when etag cache miss" do
+      context "when eve alliance found" do
+        let(:esi) { instance_double(EveOnline::ESI::AllianceCorporations, not_modified?: false) }
+
+        before { expect(subject).to receive(:esi).and_return(esi) }
+
+        before { expect(subject).to receive(:import_new_corporations) }
+
+        before { expect(subject).to receive(:remove_old_corporations) }
+
+        before { expect(subject).to receive(:update_etag) }
+
+        specify { expect { subject.import }.not_to raise_error }
+      end
+    end
   end
 
   # describe "#import!" do

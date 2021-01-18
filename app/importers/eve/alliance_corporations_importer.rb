@@ -12,11 +12,11 @@ module Eve
       import! do
         return if esi.not_modified?
 
-    #     import_new_corporations
-    #
-    #     remove_old_corporations
-    #
-    #     update_etag
+        import_new_corporations
+
+        remove_old_corporations
+
+        update_etag
     #   rescue ActiveRecord::RecordNotFound
     #     Rails.logger.info("Alliance with ID #{alliance_id} not found")
     #   rescue EveOnline::Exceptions::ResourceNotFound
