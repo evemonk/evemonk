@@ -8,10 +8,10 @@ module Eve
       @alliance_id = alliance_id
     end
 
-    # def import
-    #   import! do
-    #     return if esi.not_modified?
-    #
+    def import
+      import! do
+        return if esi.not_modified?
+
     #     import_new_corporations
     #
     #     remove_old_corporations
@@ -23,8 +23,8 @@ module Eve
     #     etag.destroy!
     #
     #     eve_alliance.destroy!
-    #   end
-    # end
+      end
+    end
 
     def esi
       @esi ||= EveOnline::ESI::AllianceCorporations.new(alliance_id: alliance_id)

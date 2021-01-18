@@ -15,19 +15,19 @@ describe Eve::AllianceCorporationsImporter do
     its(:alliance_id) { should eq(alliance_id) }
   end
 
-  # describe "#import" do
-  #   before { expect(subject).to receive(:configure_middlewares) }
-  #
-  #   before { expect(subject).to receive(:configure_etag) }
-  #
-  #   context "when etag cache hit" do
-  #     let(:esi) { instance_double(EveOnline::ESI::AllianceCorporations, not_modified?: true) }
-  #
-  #     before { expect(subject).to receive(:esi).and_return(esi) }
-  #
-  #     specify { expect { subject.import }.not_to raise_error }
-  #   end
-  #
+  describe "#import" do
+    before { expect(subject).to receive(:configure_middlewares) }
+
+    before { expect(subject).to receive(:configure_etag) }
+
+    context "when etag cache hit" do
+      let(:esi) { instance_double(EveOnline::ESI::AllianceCorporations, not_modified?: true) }
+
+      before { expect(subject).to receive(:esi).and_return(esi) }
+
+      specify { expect { subject.import }.not_to raise_error }
+    end
+
   #   context "when etag cache miss" do
   #     context "when eve alliance found" do
   #       let(:esi) { instance_double(EveOnline::ESI::AllianceCorporations, not_modified?: false) }
@@ -43,7 +43,7 @@ describe Eve::AllianceCorporationsImporter do
   #       specify { expect { subject.import }.not_to raise_error }
   #     end
   #   end
-  # end
+  end
 
   # describe "#import!" do
     # context "when eve alliance found" do
