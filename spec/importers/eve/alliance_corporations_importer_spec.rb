@@ -151,56 +151,51 @@ describe Eve::AllianceCorporationsImporter do
     specify { expect { subject.send(:import_new_corporations) }.not_to raise_error }
   end
 
-  # describe "#remove_old_corporations" do
-  #   let(:remote_corporation_id) { double }
-  #
-  #   let(:remote_corporation_ids) { [remote_corporation_id] }
-  #
-  #   let(:esi) do
-  #     instance_double(EveOnline::ESI::AllianceCorporations,
-  #       not_modified?: false,
-  #       corporation_ids: remote_corporation_ids)
-  #   end
-  #
-  #   before do
-  #     expect(EveOnline::ESI::AllianceCorporations).to receive(:new)
-  #       .with(alliance_id: alliance_id)
-  #       .and_return(esi)
-  #   end
-  #
-  #   let(:eve_alliance) { instance_double(Eve::Alliance) }
-  #
-  #   before do
-  #     expect(subject).to receive(:eve_alliance)
-  #       .and_return(eve_alliance)
-  #   end
-  #
-  #   let(:local_corporation_id) { double }
-  #
-  #   let(:local_corporation_ids) { [local_corporation_id] }
-  #
-  #   before do
-  #     #
-  #     # eve_alliance.corporations.pluck(:corporation_id)
-  #     #
-  #     expect(eve_alliance).to receive(:corporations) do
-  #       double.tap do |a|
-  #         expect(a).to receive(:pluck)
-  #           .with(:corporation_id)
-  #           .and_return(local_corporation_ids)
-  #       end
-  #     end
-  #   end
-  #
-  #   before do
-  #     #
-  #     # Eve::UpdateCorporationJob.perform_later(corporation_id)
-  #     #
-  #     expect(Eve::UpdateCorporationJob).to receive(:perform_later).with(local_corporation_id)
-  #   end
-  #
-  #   specify { expect { subject.send(:remove_old_corporations) }.not_to raise_error }
-  # end
+  describe "#remove_old_corporations" do
+    let(:remote_corporation_id) { double }
+
+    let(:remote_corporation_ids) { [remote_corporation_id] }
+
+    let(:esi) do
+      instance_double(EveOnline::ESI::AllianceCorporations,
+        corporation_ids: remote_corporation_ids)
+    end
+
+    before { expect(subject).to receive(:esi).and_return(esi) }
+
+    let(:eve_alliance) { instance_double(Eve::Alliance) }
+
+    before do
+      expect(subject).to receive(:eve_alliance)
+        .and_return(eve_alliance)
+    end
+
+    let(:local_corporation_id) { double }
+
+    let(:local_corporation_ids) { [local_corporation_id] }
+
+    before do
+      #
+      # eve_alliance.corporations.pluck(:corporation_id)
+      #
+      expect(eve_alliance).to receive(:corporations) do
+        double.tap do |a|
+          expect(a).to receive(:pluck)
+            .with(:corporation_id)
+            .and_return(local_corporation_ids)
+        end
+      end
+    end
+
+    before do
+      #
+      # Eve::UpdateCorporationJob.perform_later(corporation_id)
+      #
+      expect(Eve::UpdateCorporationJob).to receive(:perform_later).with(local_corporation_id)
+    end
+
+    specify { expect { subject.send(:remove_old_corporations) }.not_to raise_error }
+  end
 
   describe "#eve_alliance" do
     context "when @eve_alliance set" do

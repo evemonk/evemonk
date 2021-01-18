@@ -40,13 +40,13 @@ module Eve
       end
     end
 
-    # def remove_old_corporations
-    #   corporation_ids = eve_alliance.corporations.pluck(:corporation_id) - esi.corporation_ids
-    #
-    #   corporation_ids.each do |corporation_id|
-    #     Eve::UpdateCorporationJob.perform_later(corporation_id)
-    #   end
-    # end
+    def remove_old_corporations
+      corporation_ids = eve_alliance.corporations.pluck(:corporation_id) - esi.corporation_ids
+
+      corporation_ids.each do |corporation_id|
+        Eve::UpdateCorporationJob.perform_later(corporation_id)
+      end
+    end
 
     def eve_alliance
       @eve_alliance ||= Eve::Alliance.find_by!(alliance_id: alliance_id)
