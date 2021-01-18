@@ -8,6 +8,16 @@ module Eve
       @character_id = character_id
     end
 
+    def import
+      import! do
+        return if esi.not_modified?
+
+        eve_character = Eve::Character.find_by!(character_id: character_id)
+
+        update_etag
+      end
+    end
+
     # def import!
     #   eve_character = Eve::Character.find_by!(character_id: character_id)
     #
