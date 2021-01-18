@@ -67,22 +67,24 @@ describe Eve::CharacterCorporationHistoryImporter do
   #     specify { expect { subject.import! }.not_to raise_error }
   #   end
   # end
-  #
-  # describe "#esi" do
-  #   context "when @esi is set" do
-  #     let(:esi) { instance_double(EveOnline::ESI::CharacterCorporationHistory) }
-  #
-  #     before { subject.instance_variable_set(:@esi, esi) }
-  #
-  #     specify { expect(subject.esi).to eq(esi) }
-  #   end
-  #
-  #   context "when @esi not set" do
-  #     let(:esi) { instance_double(EveOnline::ESI::CharacterCorporationHistory) }
-  #
-  #     before { expect(EveOnline::ESI::CharacterCorporationHistory).to receive(:new).with(character_id: character_id).and_return(esi) }
-  #
-  #     specify { expect { subject.esi }.to change { subject.instance_variable_get(:@esi) }.from(nil).to(esi) }
-  #   end
-  # end
+
+  describe "#esi" do
+    context "when @esi is set" do
+      let(:esi) { instance_double(EveOnline::ESI::CharacterCorporationHistory) }
+
+      before { subject.instance_variable_set(:@esi, esi) }
+
+      specify { expect(subject.esi).to eq(esi) }
+    end
+
+    context "when @esi not set" do
+      let(:esi) { instance_double(EveOnline::ESI::CharacterCorporationHistory) }
+
+      before { expect(EveOnline::ESI::CharacterCorporationHistory).to receive(:new).with(character_id: character_id).and_return(esi) }
+
+      specify { expect { subject.esi }.not_to raise_error }
+
+      specify { expect { subject.esi }.to change { subject.instance_variable_get(:@esi) }.from(nil).to(esi) }
+    end
+  end
 end

@@ -21,8 +21,8 @@ module Eve
     #   Rails.logger.info("Character with ID #{character_id} not found")
     # end
 
-    # def esi
-    #   @esi ||= EveOnline::ESI::CharacterCorporationHistory.new(character_id: character_id)
-    # end
+    def esi
+      @esi ||= EveOnline::ESI::CharacterCorporationHistory.new(character_id: character_id)
+    end
   end
 end
