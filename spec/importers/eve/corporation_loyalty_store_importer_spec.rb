@@ -74,6 +74,34 @@ describe Eve::CorporationLoyaltyStoreImporter do
 
         specify { expect { subject.import }.not_to raise_error }
       end
+
+      context "when eve corporation not found" do
+        let(:esi) do
+          instance_double(EveOnline::ESI::CorporationLoyaltyStoreOffers,
+            not_modified?: false)
+        end
+
+        before { expect(subject).to receive(:esi).and_return(esi) }
+
+        before do
+          expect(Eve::Corporation).to receive(:find_by!)
+            .with(corporation_id: corporation_id)
+            .and_raise(ActiveRecord::RecordNotFound)
+        end
+
+        before do
+          #
+          # Rails.logger.info("Corporation with ID #{corporation_id} not found")
+          #
+          expect(Rails).to receive(:logger) do
+            double.tap do |a|
+              expect(a).to receive(:info).with("Corporation with ID #{corporation_id} not found")
+            end
+          end
+        end
+
+        specify { expect { subject.import }.not_to raise_error }
+      end
     end
   end
 
