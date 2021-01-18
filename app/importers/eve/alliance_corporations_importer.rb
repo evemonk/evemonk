@@ -19,10 +19,10 @@ module Eve
         update_etag
       rescue ActiveRecord::RecordNotFound
         Rails.logger.info("Alliance with ID #{alliance_id} not found")
-    #   rescue EveOnline::Exceptions::ResourceNotFound
-    #     etag.destroy!
-    #
-    #     eve_alliance.destroy!
+      rescue EveOnline::Exceptions::ResourceNotFound
+        etag.destroy!
+
+        eve_alliance.destroy!
       end
     end
 

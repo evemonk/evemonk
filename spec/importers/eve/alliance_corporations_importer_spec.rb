@@ -67,22 +67,34 @@ describe Eve::AllianceCorporationsImporter do
 
         specify { expect { subject.import }.not_to raise_error }
       end
+
+      context "when eve alliance not found" do
+        let(:esi) do
+          instance_double(EveOnline::ESI::AllianceCorporations,
+            not_modified?: false,
+            corporation_ids: [])
+        end
+
+        before { expect(subject).to receive(:esi).and_return(esi) }
+
+        let(:eve_alliance) { instance_double(Eve::Alliance) }
+
+        before { expect(subject).to receive(:eve_alliance).and_return(eve_alliance) }
+
+        let(:eve_etag) { instance_double(Eve::Etag) }
+
+        before { expect(subject).to receive(:etag).and_return(eve_etag) }
+
+        before { expect(subject).to receive(:import_new_corporations).and_raise(EveOnline::Exceptions::ResourceNotFound) }
+
+        before { expect(eve_etag).to receive(:destroy!) }
+
+        before { expect(eve_alliance).to receive(:destroy!) }
+
+        specify { expect { subject.import }.not_to raise_error }
+      end
     end
   end
-
-  # describe "#import!" do
-    # context "when eve alliance not found" do
-    #   let(:eve_alliance) { instance_double(Eve::Alliance) }
-    #
-    #   before { expect(subject).to receive(:eve_alliance).and_return(eve_alliance) }
-    #
-    #   before { expect(subject).to receive(:import_new_corporations).and_raise(EveOnline::Exceptions::ResourceNotFound) }
-    #
-    #   before { expect(eve_alliance).to receive(:destroy!) }
-    #
-    #   specify { expect { subject.import! }.not_to raise_error }
-    # end
-  # end
 
   describe "#esi" do
     context "when @esi is set" do
