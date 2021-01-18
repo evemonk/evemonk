@@ -17,8 +17,8 @@ module Eve
         remove_old_corporations
 
         update_etag
-    #   rescue ActiveRecord::RecordNotFound
-    #     Rails.logger.info("Alliance with ID #{alliance_id} not found")
+      rescue ActiveRecord::RecordNotFound
+        Rails.logger.info("Alliance with ID #{alliance_id} not found")
     #   rescue EveOnline::Exceptions::ResourceNotFound
     #     etag.destroy!
     #

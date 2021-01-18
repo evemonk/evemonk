@@ -42,35 +42,35 @@ describe Eve::AllianceCorporationsImporter do
 
         specify { expect { subject.import }.not_to raise_error }
       end
+
+      context "when ActiveRecord::RecordNotFound" do
+        let(:esi) do
+          instance_double(EveOnline::ESI::AllianceCorporations,
+            not_modified?: false,
+            corporation_ids: [])
+        end
+
+        before { expect(subject).to receive(:esi).and_return(esi) }
+
+        before { expect(subject).to receive(:import_new_corporations).and_raise(ActiveRecord::RecordNotFound) }
+
+        before do
+          #
+          # Rails.logger.info("Alliance with ID #{alliance_id} not found")
+          #
+          expect(Rails).to receive(:logger) do
+            double.tap do |a|
+              expect(a).to receive(:info).with("Alliance with ID #{alliance_id} not found")
+            end
+          end
+        end
+
+        specify { expect { subject.import }.not_to raise_error }
+      end
     end
   end
 
   # describe "#import!" do
-    # context "when eve alliance found" do
-    #   before { expect(subject).to receive(:import_new_corporations) }
-    #
-    #   before { expect(subject).to receive(:remove_old_corporations) }
-    #
-    #   specify { expect { subject.import! }.not_to raise_error }
-    # end
-
-    # context "when ActiveRecord::RecordNotFound" do
-    #   before { expect(subject).to receive(:import_new_corporations).and_raise(ActiveRecord::RecordNotFound) }
-    #
-    #   before do
-    #     #
-    #     # Rails.logger.info("Alliance with ID #{alliance_id} not found")
-    #     #
-    #     expect(Rails).to receive(:logger) do
-    #       double.tap do |a|
-    #         expect(a).to receive(:info).with("Alliance with ID #{alliance_id} not found")
-    #       end
-    #     end
-    #   end
-    #
-    #   specify { expect { subject.import! }.not_to raise_error }
-    # end
-
     # context "when eve alliance not found" do
     #   let(:eve_alliance) { instance_double(Eve::Alliance) }
     #
