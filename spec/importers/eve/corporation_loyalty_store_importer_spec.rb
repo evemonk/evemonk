@@ -26,10 +26,55 @@ describe Eve::CorporationLoyaltyStoreImporter do
       specify { expect { subject.import }.not_to raise_error }
     end
 
-    # context "when etag cache miss" do
-    #   context "when eve corporation found" do
-    #   end
-    # end
+    context "when etag cache miss" do
+      context "when eve corporation found" do
+        let(:json) { double }
+
+        let(:loyalty_store_offer) { instance_double(EveOnline::ESI::Models::LoyaltyStoreOffer, as_json: json) }
+
+        let(:esi) do
+          instance_double(EveOnline::ESI::CorporationLoyaltyStoreOffers,
+            not_modified?: false,
+            offers: [loyalty_store_offer])
+        end
+
+        before { expect(subject).to receive(:esi).and_return(esi).twice }
+
+        let(:eve_corporation) { instance_double(Eve::Corporation) }
+
+        before do
+          expect(Eve::Corporation).to receive(:find_by!)
+            .with(corporation_id: corporation_id)
+            .and_return(eve_corporation)
+        end
+
+        before do
+          #
+          # eve_corporation.loyalty_store_offers.destroy_all
+          #
+          expect(eve_corporation).to receive(:loyalty_store_offers) do
+            double.tap do |a|
+              expect(a).to receive(:destroy_all)
+            end
+          end
+        end
+
+        before do
+          #
+          # eve_corporation.loyalty_store_offers.create!(offer.as_json)
+          #
+          expect(eve_corporation).to receive(:loyalty_store_offers) do
+            double.tap do |a|
+              expect(a).to receive(:create!).with(json)
+            end
+          end
+        end
+
+        before { expect(subject).to receive(:update_etag) }
+
+        specify { expect { subject.import }.not_to raise_error }
+      end
+    end
   end
 
   # describe "#import!" do
