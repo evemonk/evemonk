@@ -3,12 +3,12 @@
 require "rails_helper"
 
 describe Eve::CharacterCorporationHistoryImporter do
-  # let(:character_id) { double }
-  #
-  # subject { described_class.new(character_id) }
-  #
-  # it { should be_a(Eve::BaseImporter) }
-  #
+  let(:character_id) { double }
+
+  subject { described_class.new(character_id) }
+
+  it { should be_a(Eve::BaseImporter) }
+
   # describe "#import!" do
   #   context "when eve character found" do
   #     let(:eve_character) { instance_double(Eve::Character) }

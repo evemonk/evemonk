@@ -2,11 +2,11 @@
 
 module Eve
   class CharacterCorporationHistoryImporter < BaseImporter
-    # attr_reader :character_id
+    attr_reader :character_id
 
-    # def initialize(character_id)
-    #   @character_id = character_id
-    # end
+    def initialize(character_id)
+      @character_id = character_id
+    end
 
     # def import!
     #   eve_character = Eve::Character.find_by!(character_id: character_id)
