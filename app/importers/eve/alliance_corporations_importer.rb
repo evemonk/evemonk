@@ -30,7 +30,7 @@ module Eve
       @esi ||= EveOnline::ESI::AllianceCorporations.new(alliance_id: alliance_id)
     end
 
-    # private
+    private
 
     def import_new_corporations
       corporation_ids = esi.corporation_ids - eve_alliance.corporations.pluck(:corporation_id)
