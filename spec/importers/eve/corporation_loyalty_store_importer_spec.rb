@@ -13,6 +13,24 @@ describe Eve::CorporationLoyaltyStoreImporter do
     its(:corporation_id) { should eq(corporation_id) }
   end
 
+  describe "#import" do
+    before { expect(subject).to receive(:configure_middlewares) }
+
+    before { expect(subject).to receive(:configure_etag) }
+
+    context "when etag cache hit" do
+      let(:esi) { instance_double(EveOnline::ESI::CorporationLoyaltyStoreOffers, not_modified?: true) }
+
+      before { expect(subject).to receive(:esi).and_return(esi) }
+
+      specify { expect { subject.import }.not_to raise_error }
+    end
+
+    context "when etag cache miss" do
+      
+    end
+  end
+
   # describe "#import!" do
   #   context "when eve corporation found" do
   #     let(:eve_corporation) { instance_double(Eve::Corporation) }
