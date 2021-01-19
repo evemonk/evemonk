@@ -15,42 +15,84 @@ describe Eve::AllianceCorporationsImporter do
     its(:alliance_id) { should eq(alliance_id) }
   end
 
-  describe "#import!" do
-    context "when eve alliance found" do
-      before { expect(subject).to receive(:import_new_corporations) }
+  describe "#import" do
+    before { expect(subject).to receive(:configure_middlewares) }
 
-      before { expect(subject).to receive(:remove_old_corporations) }
+    before { expect(subject).to receive(:configure_etag) }
 
-      specify { expect { subject.import! }.not_to raise_error }
+    context "when etag cache hit" do
+      let(:esi) { instance_double(EveOnline::ESI::AllianceCorporations, not_modified?: true) }
+
+      before { expect(subject).to receive(:esi).and_return(esi) }
+
+      specify { expect { subject.import }.not_to raise_error }
     end
 
-    context "when ActiveRecord::RecordNotFound" do
-      before { expect(subject).to receive(:import_new_corporations).and_raise(ActiveRecord::RecordNotFound) }
+    context "when etag cache miss" do
+      context "when eve alliance found" do
+        let(:esi) { instance_double(EveOnline::ESI::AllianceCorporations, not_modified?: false) }
 
-      before do
-        #
-        # Rails.logger.info("Alliance with ID #{alliance_id} not found")
-        #
-        expect(Rails).to receive(:logger) do
-          double.tap do |a|
-            expect(a).to receive(:info).with("Alliance with ID #{alliance_id} not found")
-          end
-        end
+        before { expect(subject).to receive(:esi).and_return(esi) }
+
+        before { expect(subject).to receive(:import_new_corporations) }
+
+        before { expect(subject).to receive(:remove_old_corporations) }
+
+        before { expect(subject).to receive(:update_etag) }
+
+        specify { expect { subject.import }.not_to raise_error }
       end
 
-      specify { expect { subject.import! }.not_to raise_error }
-    end
+      context "when ActiveRecord::RecordNotFound" do
+        let(:esi) do
+          instance_double(EveOnline::ESI::AllianceCorporations,
+            not_modified?: false,
+            corporation_ids: [])
+        end
 
-    context "when eve alliance not found" do
-      let(:eve_alliance) { instance_double(Eve::Alliance) }
+        before { expect(subject).to receive(:esi).and_return(esi) }
 
-      before { expect(subject).to receive(:eve_alliance).and_return(eve_alliance) }
+        before { expect(subject).to receive(:import_new_corporations).and_raise(ActiveRecord::RecordNotFound) }
 
-      before { expect(subject).to receive(:import_new_corporations).and_raise(EveOnline::Exceptions::ResourceNotFound) }
+        before do
+          #
+          # Rails.logger.info("Alliance with ID #{alliance_id} not found")
+          #
+          expect(Rails).to receive(:logger) do
+            double.tap do |a|
+              expect(a).to receive(:info).with("Alliance with ID #{alliance_id} not found")
+            end
+          end
+        end
 
-      before { expect(eve_alliance).to receive(:destroy!) }
+        specify { expect { subject.import }.not_to raise_error }
+      end
 
-      specify { expect { subject.import! }.not_to raise_error }
+      context "when eve alliance not found" do
+        let(:esi) do
+          instance_double(EveOnline::ESI::AllianceCorporations,
+            not_modified?: false,
+            corporation_ids: [])
+        end
+
+        before { expect(subject).to receive(:esi).and_return(esi) }
+
+        let(:eve_alliance) { instance_double(Eve::Alliance) }
+
+        before { expect(subject).to receive(:eve_alliance).and_return(eve_alliance) }
+
+        let(:eve_etag) { instance_double(Eve::Etag) }
+
+        before { expect(subject).to receive(:etag).and_return(eve_etag) }
+
+        before { expect(subject).to receive(:import_new_corporations).and_raise(EveOnline::Exceptions::ResourceNotFound) }
+
+        before { expect(eve_etag).to receive(:destroy!) }
+
+        before { expect(eve_alliance).to receive(:destroy!) }
+
+        specify { expect { subject.import }.not_to raise_error }
+      end
     end
   end
 
@@ -83,15 +125,10 @@ describe Eve::AllianceCorporationsImporter do
 
     let(:esi) do
       instance_double(EveOnline::ESI::AllianceCorporations,
-        not_modified?: false,
         corporation_ids: remote_corporation_ids)
     end
 
-    before do
-      expect(EveOnline::ESI::AllianceCorporations).to receive(:new)
-        .with(alliance_id: alliance_id)
-        .and_return(esi)
-    end
+    before { expect(subject).to receive(:esi).and_return(esi) }
 
     let(:eve_alliance) { instance_double(Eve::Alliance) }
 
@@ -133,15 +170,10 @@ describe Eve::AllianceCorporationsImporter do
 
     let(:esi) do
       instance_double(EveOnline::ESI::AllianceCorporations,
-        not_modified?: false,
         corporation_ids: remote_corporation_ids)
     end
 
-    before do
-      expect(EveOnline::ESI::AllianceCorporations).to receive(:new)
-        .with(alliance_id: alliance_id)
-        .and_return(esi)
-    end
+    before { expect(subject).to receive(:esi).and_return(esi) }
 
     let(:eve_alliance) { instance_double(Eve::Alliance) }
 

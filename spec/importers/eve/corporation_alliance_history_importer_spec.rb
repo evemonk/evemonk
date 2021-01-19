@@ -3,47 +3,46 @@
 require "rails_helper"
 
 describe Eve::CorporationAllianceHistoryImporter do
+  let(:corporation_id) { double }
+
+  subject { described_class.new(corporation_id) }
+
+  it { should be_a(Eve::BaseImporter) }
+
   describe "#import" do
-    context "when fresh data available" do
-      context "when character found" do
-        let(:corporation_id) { double }
+    before { expect(subject).to receive(:configure_middlewares) }
 
-        subject { described_class.new(corporation_id) }
+    before { expect(subject).to receive(:configure_etag) }
 
-        let(:eve_corporation) { instance_double(Eve::Corporation) }
+    context "when etag cache hit" do
+      let(:esi) { instance_double(EveOnline::ESI::CorporationAllianceHistory, not_modified?: true) }
 
-        before { expect(Eve::Corporation).to receive(:find_by!).with(corporation_id: corporation_id).and_return(eve_corporation) }
+      before { expect(subject).to receive(:esi).and_return(esi) }
 
+      specify { expect { subject.import }.not_to raise_error }
+    end
+
+    context "when etag cache miss" do
+      context "when eve corporation found" do
         let(:record_id) { double }
 
         let(:json) { double }
-
-        let(:url) { double }
-
-        let(:new_etag) { double }
 
         let(:entry) { instance_double(EveOnline::ESI::Models::CorporationAllianceHistory, record_id: record_id, as_json: json) }
 
         let(:entries) { [entry] }
 
-        let(:response) { double }
-
         let(:esi) do
           instance_double(EveOnline::ESI::CorporationAllianceHistory,
-            url: url,
             not_modified?: false,
-            etag: new_etag,
-            entries: entries,
-            response: response)
+            entries: entries)
         end
 
-        before { expect(EveOnline::ESI::CorporationAllianceHistory).to receive(:new).with(corporation_id: corporation_id).and_return(esi) }
+        before { expect(subject).to receive(:esi).and_return(esi).twice }
 
-        let(:etag) { instance_double(Eve::Etag, etag: "22c39689783a86032b8d43fa0b2e8f4809c4f38a585e39471035aa8b") }
+        let(:eve_corporation) { instance_double(Eve::Corporation) }
 
-        before { expect(Eve::Etag).to receive(:find_or_initialize_by).with(url: url).and_return(etag) }
-
-        before { expect(esi).to receive(:etag=).with("22c39689783a86032b8d43fa0b2e8f4809c4f38a585e39471035aa8b") }
+        before { expect(Eve::Corporation).to receive(:find_by!).with(corporation_id: corporation_id).and_return(eve_corporation) }
 
         let(:corporation_alliance_history) { instance_double(Eve::CorporationAllianceHistory) }
 
@@ -62,21 +61,24 @@ describe Eve::CorporationAllianceHistoryImporter do
 
         before { expect(corporation_alliance_history).to receive(:update!).with(json) }
 
-        before { expect(etag).to receive(:update!).with(etag: new_etag, body: response) }
+        before { expect(subject).to receive(:update_etag) }
 
         specify { expect { subject.import }.not_to raise_error }
       end
 
-      context "when corporation not found (ActiveRecord::RecordNotFound)" do
-        let(:corporation_id) { double }
+      context "when eve corporation not found (ActiveRecord::RecordNotFound)" do
+        let(:esi) do
+          instance_double(EveOnline::ESI::CorporationAllianceHistory,
+            not_modified?: false)
+        end
 
-        subject { described_class.new(corporation_id) }
+        before { expect(subject).to receive(:esi).and_return(esi) }
 
         before { expect(Eve::Corporation).to receive(:find_by!).with(corporation_id: corporation_id).and_raise(ActiveRecord::RecordNotFound) }
 
         before do
           #
-          # Rails.logger.info("Corporation with ID #{ corporation_id } not found")
+          # Rails.logger.info("Corporation with ID #{corporation_id} not found")
           #
           expect(Rails).to receive(:logger) do
             double.tap do |a|
@@ -88,35 +90,25 @@ describe Eve::CorporationAllianceHistoryImporter do
         specify { expect { subject.import }.not_to raise_error }
       end
     end
+  end
 
-    context "when no fresh data available" do
-      let(:corporation_id) { double }
+  describe "#esi" do
+    context "when @esi is set" do
+      let(:esi) { instance_double(EveOnline::ESI::CorporationAllianceHistory) }
 
-      subject { described_class.new(corporation_id) }
+      before { subject.instance_variable_set(:@esi, esi) }
 
-      let(:eve_corporation) { instance_double(Eve::Corporation) }
+      specify { expect(subject.esi).to eq(esi) }
+    end
 
-      before { expect(Eve::Corporation).to receive(:find_by!).with(corporation_id: corporation_id).and_return(eve_corporation) }
-
-      let(:url) { double }
-
-      let(:esi) do
-        instance_double(EveOnline::ESI::CorporationAllianceHistory,
-          url: url,
-          not_modified?: true)
-      end
+    context "when @esi not set" do
+      let(:esi) { instance_double(EveOnline::ESI::CorporationAllianceHistory) }
 
       before { expect(EveOnline::ESI::CorporationAllianceHistory).to receive(:new).with(corporation_id: corporation_id).and_return(esi) }
 
-      let(:etag) { instance_double(Eve::Etag, etag: "22c39689783a86032b8d43fa0b2e8f4809c4f38a585e39471035aa8b") }
+      specify { expect(subject.esi).to eq(esi) }
 
-      before { expect(Eve::Etag).to receive(:find_or_initialize_by).with(url: url).and_return(etag) }
-
-      before { expect(esi).to receive(:etag=).with("22c39689783a86032b8d43fa0b2e8f4809c4f38a585e39471035aa8b") }
-
-      before { expect(etag).not_to receive(:update!) }
-
-      specify { expect { subject.import }.not_to raise_error }
+      specify { expect { subject.esi }.to change { subject.instance_variable_get(:@esi) }.from(nil).to(esi) }
     end
   end
 end

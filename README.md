@@ -93,7 +93,6 @@ app.save!
 - [Zen Rails Security Checklist](https://github.com/brunofacca/zen-rails-security-checklist)
 - [Rails SQL Injection](http://rails-sqli.org)
 - [Timeouts for popular Ruby gems](https://github.com/ankane/the-ultimate-guide-to-ruby-timeouts)
-- [Swagger specification](http://swagger.io/specification/)
 - [HTTP access control (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS)
 - [The Twelve-Factor App](https://12factor.net/)
 - [HTTP Status Codes](https://httpstatuses.com)
@@ -105,6 +104,7 @@ app.save!
 - [CSP Evaluator](https://csp-evaluator.withgoogle.com/?csp=https://evemonk.com/)
 - [Security Headers](https://securityheaders.com/?q=https%3A%2F%2Fevemonk.com%2F&followRedirects=on)
 - [Content Security Policy - An Introduction](https://scotthelme.co.uk/content-security-policy-an-introduction/)
+- [CLI interface for HEAD snippets](https://github.com/hemanth/head-it)
 
 ## Author
 

@@ -13,71 +13,95 @@ describe Eve::CorporationLoyaltyStoreImporter do
     its(:corporation_id) { should eq(corporation_id) }
   end
 
-  describe "#import!" do
-    context "when eve corporation found" do
-      let(:eve_corporation) { instance_double(Eve::Corporation) }
+  describe "#import" do
+    before { expect(subject).to receive(:configure_middlewares) }
 
-      before do
-        expect(Eve::Corporation).to receive(:find_by!)
-          .with(corporation_id: corporation_id)
-          .and_return(eve_corporation)
-      end
+    before { expect(subject).to receive(:configure_etag) }
 
-      let(:json) { double }
-
-      let(:loyalty_store_offer) { instance_double(EveOnline::ESI::Models::LoyaltyStoreOffer, as_json: json) }
-
-      let(:esi) do
-        instance_double(EveOnline::ESI::CorporationLoyaltyStoreOffers,
-          offers: [loyalty_store_offer])
-      end
+    context "when etag cache hit" do
+      let(:esi) { instance_double(EveOnline::ESI::CorporationLoyaltyStoreOffers, not_modified?: true) }
 
       before { expect(subject).to receive(:esi).and_return(esi) }
 
-      before do
-        #
-        # eve_corporation.loyalty_store_offers.destroy_all
-        #
-        expect(eve_corporation).to receive(:loyalty_store_offers) do
-          double.tap do |a|
-            expect(a).to receive(:destroy_all)
-          end
-        end
-      end
-
-      before do
-        #
-        # eve_corporation.loyalty_store_offers.create!(offer.as_json)
-        #
-        expect(eve_corporation).to receive(:loyalty_store_offers) do
-          double.tap do |a|
-            expect(a).to receive(:create!).with(json)
-          end
-        end
-      end
-
-      specify { expect { subject.import! }.not_to raise_error }
+      specify { expect { subject.import }.not_to raise_error }
     end
 
-    context "when eve corporation not found" do
-      before do
-        expect(Eve::Corporation).to receive(:find_by!)
-          .with(corporation_id: corporation_id)
-          .and_raise(ActiveRecord::RecordNotFound)
-      end
+    context "when etag cache miss" do
+      context "when eve corporation found" do
+        let(:json) { double }
 
-      before do
-        #
-        # Rails.logger.info("Corporation with ID #{corporation_id} not found")
-        #
-        expect(Rails).to receive(:logger) do
-          double.tap do |a|
-            expect(a).to receive(:info).with("Corporation with ID #{corporation_id} not found")
+        let(:loyalty_store_offer) { instance_double(EveOnline::ESI::Models::LoyaltyStoreOffer, as_json: json) }
+
+        let(:esi) do
+          instance_double(EveOnline::ESI::CorporationLoyaltyStoreOffers,
+            not_modified?: false,
+            offers: [loyalty_store_offer])
+        end
+
+        before { expect(subject).to receive(:esi).and_return(esi).twice }
+
+        let(:eve_corporation) { instance_double(Eve::Corporation) }
+
+        before do
+          expect(Eve::Corporation).to receive(:find_by!)
+            .with(corporation_id: corporation_id)
+            .and_return(eve_corporation)
+        end
+
+        before do
+          #
+          # eve_corporation.loyalty_store_offers.destroy_all
+          #
+          expect(eve_corporation).to receive(:loyalty_store_offers) do
+            double.tap do |a|
+              expect(a).to receive(:destroy_all)
+            end
           end
         end
+
+        before do
+          #
+          # eve_corporation.loyalty_store_offers.create!(offer.as_json)
+          #
+          expect(eve_corporation).to receive(:loyalty_store_offers) do
+            double.tap do |a|
+              expect(a).to receive(:create!).with(json)
+            end
+          end
+        end
+
+        before { expect(subject).to receive(:update_etag) }
+
+        specify { expect { subject.import }.not_to raise_error }
       end
 
-      specify { expect { subject.import! }.not_to raise_error }
+      context "when eve corporation not found" do
+        let(:esi) do
+          instance_double(EveOnline::ESI::CorporationLoyaltyStoreOffers,
+            not_modified?: false)
+        end
+
+        before { expect(subject).to receive(:esi).and_return(esi) }
+
+        before do
+          expect(Eve::Corporation).to receive(:find_by!)
+            .with(corporation_id: corporation_id)
+            .and_raise(ActiveRecord::RecordNotFound)
+        end
+
+        before do
+          #
+          # Rails.logger.info("Corporation with ID #{corporation_id} not found")
+          #
+          expect(Rails).to receive(:logger) do
+            double.tap do |a|
+              expect(a).to receive(:info).with("Corporation with ID #{corporation_id} not found")
+            end
+          end
+        end
+
+        specify { expect { subject.import }.not_to raise_error }
+      end
     end
   end
 
@@ -96,6 +120,8 @@ describe Eve::CorporationLoyaltyStoreImporter do
       before { expect(EveOnline::ESI::CorporationLoyaltyStoreOffers).to receive(:new).with(corporation_id: corporation_id).and_return(esi) }
 
       specify { expect(subject.esi).to eq(esi) }
+
+      specify { expect { subject.esi }.not_to raise_error }
 
       specify { expect { subject.esi }.to change { subject.instance_variable_get(:@esi) }.from(nil).to(esi) }
     end

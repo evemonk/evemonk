@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Eve
-  class CorporationAllianceHistoryImporter
+  class CorporationAllianceHistoryImporter < BaseImporter
     attr_reader :corporation_id
 
     def initialize(corporation_id)
@@ -9,16 +9,10 @@ module Eve
     end
 
     def import
-      ActiveRecord::Base.transaction do
-        eve_corporation = Eve::Corporation.find_by!(corporation_id: corporation_id)
-
-        esi = EveOnline::ESI::CorporationAllianceHistory.new(corporation_id: corporation_id)
-
-        etag = Eve::Etag.find_or_initialize_by(url: esi.url)
-
-        esi.etag = etag.etag
-
+      import! do
         return if esi.not_modified?
+
+        eve_corporation = Eve::Corporation.find_by!(corporation_id: corporation_id)
 
         esi.entries.each do |entry|
           history = eve_corporation.corporation_alliance_histories
@@ -27,10 +21,14 @@ module Eve
           history.update!(entry.as_json)
         end
 
-        etag.update!(etag: esi.etag, body: esi.response)
+        update_etag
       rescue ActiveRecord::RecordNotFound
         Rails.logger.info("Corporation with ID #{corporation_id} not found")
       end
+    end
+
+    def esi
+      @esi ||= EveOnline::ESI::CorporationAllianceHistory.new(corporation_id: corporation_id)
     end
   end
 end
