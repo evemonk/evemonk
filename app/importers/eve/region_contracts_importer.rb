@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Eve
-  class RegionContractsImporter
+  class RegionContractsImporter < BaseImporter
     attr_reader :region_id, :page
 
     def initialize(region_id, page)

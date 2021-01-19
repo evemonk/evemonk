@@ -9,6 +9,8 @@ describe Eve::RegionContractsImporter do
 
   subject { described_class.new(region_id, page) }
 
+  it { should be_a(Eve::BaseImporter) }
+
   describe "#initialize" do
     its(:region_id) { should eq(region_id) }
 
@@ -16,7 +18,6 @@ describe Eve::RegionContractsImporter do
   end
 
   describe "#import" do
-    # TODO: write
     specify { expect { subject.import }.not_to raise_error }
   end
 
