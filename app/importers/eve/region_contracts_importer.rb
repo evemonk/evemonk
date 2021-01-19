@@ -23,27 +23,6 @@ module Eve
       end
     end
 
-    # def import
-    #   ActiveRecord::Base.transaction do
-    #     esi = EveOnline::ESI::PublicContracts.new(region_id: region_id,
-    #                                               page: page)
-    #
-    #     etag = Eve::Etag.find_or_initialize_by(url: esi.url)
-    #
-    #     esi.etag = etag.etag
-    #
-    #     return if esi.not_modified?
-    #
-    #     remove_all_region_contracts
-    #
-    #     import_new_contracts
-    #
-    #     import_other_pages
-    #
-    #     etag.update!(etag: esi.etag, body: esi.response)
-    #   end
-    # end
-
     def esi
       @esi ||= EveOnline::ESI::PublicContracts.new(region_id: region_id, page: page)
     end
