@@ -89,6 +89,25 @@ describe Eve::RegionContractsImporter do
     end
   end
 
+  describe "#remove_all_region_contracts" do
+    let(:region) { instance_double(Eve::Region) }
+
+    before { expect(subject).to receive(:region).and_return(region) }
+
+    before do
+      #
+      # region.contracts.destroy_all
+      #
+      expect(region).to receive(:contracts) do
+        double.tap do |a|
+          expect(a).to receive(:destroy_all)
+        end
+      end
+    end
+
+    specify { expect { subject.send(:remove_all_region_contracts) }.not_to raise_error }
+  end
+
   # describe "#import_other_pages" do
   #   context "when page is more than 1" do
   #     let(:page) { 2 }
