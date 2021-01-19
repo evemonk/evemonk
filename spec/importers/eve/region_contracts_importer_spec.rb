@@ -21,6 +21,26 @@ describe Eve::RegionContractsImporter do
     specify { expect { subject.import }.not_to raise_error }
   end
 
+  describe "#esi" do
+    context "when @esi is set" do
+      let(:esi) { instance_double(EveOnline::ESI::PublicContracts) }
+
+      before { subject.instance_variable_set(:@esi, esi) }
+
+      specify { expect(subject.esi).to eq(esi) }
+    end
+
+    context "when @esi not set" do
+      let(:esi) { instance_double(EveOnline::ESI::PublicContracts) }
+
+      before { expect(EveOnline::ESI::PublicContracts).to receive(:new).with(region_id: region_id, page: page).and_return(esi) }
+
+      specify { expect(subject.esi).to eq(esi) }
+
+      specify { expect { subject.esi }.to change { subject.instance_variable_get(:@esi) }.from(nil).to(esi) }
+    end
+  end
+
   # private methods
 
   # describe "#import_other_pages" do
