@@ -38,9 +38,9 @@ module Eve
     end
 
     def import_new_contracts
-      # esi.contracts.each do |contract|
-      #   region.contracts.create!(contract.as_json)
-      # end
+      esi.contracts.each do |contract|
+        region.contracts.create!(contract.as_json)
+      end
     end
 
     def import_other_pages

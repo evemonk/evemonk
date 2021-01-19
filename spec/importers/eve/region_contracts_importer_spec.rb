@@ -108,6 +108,33 @@ describe Eve::RegionContractsImporter do
     specify { expect { subject.send(:remove_all_region_contracts) }.not_to raise_error }
   end
 
+  describe "#import_new_contracts" do
+    let(:json) { double }
+
+    let(:contract) { instance_double(EveOnline::ESI::Models::PublicContract, as_json: json) }
+
+    let(:esi) { instance_double(EveOnline::ESI::PublicContracts, contracts: [contract]) }
+
+    before { expect(subject).to receive(:esi).and_return(esi) }
+
+    let(:region) { instance_double(Eve::Region) }
+
+    before { expect(subject).to receive(:region).and_return(region) }
+
+    before do
+      #
+      # region.contracts.create!(contract.as_json)
+      #
+      expect(region).to receive(:contracts) do
+        double.tap do |a|
+          expect(a).to receive(:create!).with(json)
+        end
+      end
+    end
+
+    specify { expect { subject.send(:import_new_contracts) }.not_to raise_error }
+  end
+
   # describe "#import_other_pages" do
   #   context "when page is more than 1" do
   #     let(:page) { 2 }
