@@ -48,11 +48,11 @@ module Eve
       @esi ||= EveOnline::ESI::PublicContracts.new(region_id: region_id, page: page)
     end
 
-    # private
-    #
-    # def region
-    #   @region ||= Eve::Region.find_by!(region_id: region_id)
-    # end
+    private
+
+    def region
+      @region ||= Eve::Region.find_by!(region_id: region_id)
+    end
 
     def remove_all_contracts
       # region.contracts.destroy_all

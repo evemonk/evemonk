@@ -69,6 +69,26 @@ describe Eve::RegionContractsImporter do
 
   # private methods
 
+  describe "#region" do
+    context "when @region is set" do
+      let(:region) { instance_double(Eve::Region) }
+
+      before { subject.instance_variable_set(:@region, region) }
+
+      specify { expect(subject.send(:region)).to eq(region) }
+    end
+
+    context "when @region not set" do
+      let(:region) { instance_double(Eve::Region) }
+
+      before { expect(Eve::Region).to receive(:find_by!).with(region_id: region_id).and_return(region) }
+
+      specify { expect(subject.send(:region)).to eq(region) }
+
+      specify { expect { subject.send(:region) }.to change { subject.instance_variable_get(:@region) }.from(nil).to(region) }
+    end
+  end
+
   # describe "#import_other_pages" do
   #   context "when page is more than 1" do
   #     let(:page) { 2 }
