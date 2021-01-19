@@ -35,7 +35,7 @@ describe Eve::RegionContractsImporter do
 
       before { expect(subject).to receive(:esi).and_return(esi) }
 
-      before { expect(subject).to receive(:remove_all_contracts) }
+      before { expect(subject).to receive(:remove_all_region_contracts) }
 
       before { expect(subject).to receive(:import_new_contracts) }
 
