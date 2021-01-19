@@ -8,6 +8,12 @@ module Eve
       @corporation_id = corporation_id
     end
 
+    def import
+      import! do
+        return if esi.not_modified?
+      end
+    end
+
     # def import!
     #   eve_corporation = Eve::Corporation.find_by!(corporation_id: corporation_id)
     #
