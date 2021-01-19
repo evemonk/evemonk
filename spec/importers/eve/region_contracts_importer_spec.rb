@@ -18,7 +18,17 @@ describe Eve::RegionContractsImporter do
   end
 
   describe "#import" do
-    specify { expect { subject.import }.not_to raise_error }
+    before { expect(subject).to receive(:configure_middlewares) }
+
+    before { expect(subject).to receive(:configure_etag) }
+
+    context "when etag cache hit" do
+      let(:esi) { instance_double(EveOnline::ESI::PublicContracts, not_modified?: true) }
+
+      before { expect(subject).to receive(:esi).and_return(esi) }
+
+      specify { expect { subject.import }.not_to raise_error }
+    end
   end
 
   describe "#esi" do

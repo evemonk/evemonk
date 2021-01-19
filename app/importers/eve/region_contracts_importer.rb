@@ -10,9 +10,9 @@ module Eve
     end
 
     def import
-      # import! do
-      #
-      # end
+      import! do
+        return if esi.not_modified?
+      end
     end
 
     # def import
