@@ -12,6 +12,14 @@ module Eve
     def import
       import! do
         return if esi.not_modified?
+
+        remove_all_contracts
+
+        import_new_contracts
+
+        import_other_pages
+
+        update_etag
       end
     end
 
@@ -45,23 +53,25 @@ module Eve
     # def region
     #   @region ||= Eve::Region.find_by!(region_id: region_id)
     # end
-    #
-    # def remove_all_contracts
-    #   region.contracts.destroy_all
-    # end
-    #
+
+    def remove_all_contracts
+      # region.contracts.destroy_all
+    end
+
     # def import_new_contracts(esi)
-    #   esi.contracts.each do |contract|
-    #     region.contracts.create!(contract.as_json)
-    #   end
-    # end
-    #
+    def import_new_contracts
+      # esi.contracts.each do |contract|
+      #   region.contracts.create!(contract.as_json)
+      # end
+    end
+
     # def import_other_pages(esi)
-    #   return if page != 1 || esi.total_pages == 1
-    #
-    #   (2..esi.total_pages).each do |next_page|
-    #     Eve::RegionContractsJob.perform_later(region_id, next_page)
-    #   end
-    # end
+    def import_other_pages
+      # return if page != 1 || esi.total_pages == 1
+      #
+      # (2..esi.total_pages).each do |next_page|
+      #   Eve::RegionContractsJob.perform_later(region_id, next_page)
+      # end
+    end
   end
 end

@@ -29,6 +29,22 @@ describe Eve::RegionContractsImporter do
 
       specify { expect { subject.import }.not_to raise_error }
     end
+
+    context "when etag cache miss" do
+      let(:esi) { instance_double(EveOnline::ESI::PublicContracts, not_modified?: false) }
+
+      before { expect(subject).to receive(:esi).and_return(esi) }
+
+      before { expect(subject).to receive(:remove_all_contracts) }
+
+      before { expect(subject).to receive(:import_new_contracts) }
+
+      before { expect(subject).to receive(:import_other_pages) }
+
+      before { expect(subject).to receive(:update_etag) }
+
+      specify { expect { subject.import }.not_to raise_error }
+    end
   end
 
   describe "#esi" do
