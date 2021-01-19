@@ -44,11 +44,11 @@ module Eve
     end
 
     def import_other_pages
-      # return if page != 1 || esi.total_pages == 1
-      #
-      # (2..esi.total_pages).each do |next_page|
-      #   Eve::RegionContractsJob.perform_later(region_id, next_page)
-      # end
+      return if page != 1 || esi.total_pages == 1
+
+      (2..esi.total_pages).each do |next_page|
+        Eve::RegionContractsJob.perform_later(region_id, next_page)
+      end
     end
   end
 end

@@ -135,35 +135,37 @@ describe Eve::RegionContractsImporter do
     specify { expect { subject.send(:import_new_contracts) }.not_to raise_error }
   end
 
-  # describe "#import_other_pages" do
-  #   context "when page is more than 1" do
-  #     let(:page) { 2 }
-  #
-  #     let(:esi) { instance_double(EveOnline::ESI::PublicContracts) }
-  #
-  #     before { expect(Eve::RegionContractsJob).not_to receive(:perform_later) }
-  #
-  #     specify { expect { subject.send(:import_other_pages, esi) }.not_to raise_error }
-  #   end
-  #
-  #   context "when total pages is 1" do
-  #     let(:page) { 1 }
-  #
-  #     let(:esi) { instance_double(EveOnline::ESI::PublicContracts, total_pages: 1) }
-  #
-  #     before { expect(Eve::RegionContractsJob).not_to receive(:perform_later) }
-  #
-  #     specify { expect { subject.send(:import_other_pages, esi) }.not_to raise_error }
-  #   end
-  #
-  #   context "when page is 1 and total pages more than 1" do
-  #     let(:page) { 1 }
-  #
-  #     let(:esi) { instance_double(EveOnline::ESI::PublicContracts, total_pages: 2) }
-  #
-  #     before { expect(Eve::RegionContractsJob).to receive(:perform_later).with(region_id, 2) }
-  #
-  #     specify { expect { subject.send(:import_other_pages, esi) }.not_to raise_error }
-  #   end
-  # end
+  describe "#import_other_pages" do
+    context "when page is more than 1" do
+      let(:page) { 2 }
+
+      before { expect(Eve::RegionContractsJob).not_to receive(:perform_later) }
+
+      specify { expect { subject.send(:import_other_pages) }.not_to raise_error }
+    end
+
+    context "when total pages is 1" do
+      let(:page) { 1 }
+
+      let(:esi) { instance_double(EveOnline::ESI::PublicContracts, total_pages: 1) }
+
+      before { expect(subject).to receive(:esi).and_return(esi) }
+
+      before { expect(Eve::RegionContractsJob).not_to receive(:perform_later) }
+
+      specify { expect { subject.send(:import_other_pages) }.not_to raise_error }
+    end
+
+    context "when page is 1 and total pages more than 1" do
+      let(:page) { 1 }
+
+      let(:esi) { instance_double(EveOnline::ESI::PublicContracts, total_pages: 2) }
+
+      before { expect(subject).to receive(:esi).and_return(esi).twice }
+
+      before { expect(Eve::RegionContractsJob).to receive(:perform_later).with(region_id, 2) }
+
+      specify { expect { subject.send(:import_other_pages) }.not_to raise_error }
+    end
+  end
 end
