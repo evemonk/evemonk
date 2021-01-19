@@ -21,6 +21,51 @@ describe Eve::CorporationAllianceHistoryImporter do
 
       specify { expect { subject.import }.not_to raise_error }
     end
+
+    context "when etag cache miss" do
+      context "when eve corporation found" do
+        let(:record_id) { double }
+
+        let(:json) { double }
+
+        let(:entry) { instance_double(EveOnline::ESI::Models::CorporationAllianceHistory, record_id: record_id, as_json: json) }
+
+        let(:entries) { [entry] }
+
+        let(:esi) do
+          instance_double(EveOnline::ESI::CorporationAllianceHistory,
+            not_modified?: false,
+            entries: entries)
+        end
+
+        before { expect(subject).to receive(:esi).and_return(esi).twice }
+
+        let(:eve_corporation) { instance_double(Eve::Corporation) }
+
+        before { expect(Eve::Corporation).to receive(:find_by!).with(corporation_id: corporation_id).and_return(eve_corporation) }
+
+        let(:corporation_alliance_history) { instance_double(Eve::CorporationAllianceHistory) }
+
+        before do
+          #
+          # eve_corporation.corporation_alliance_histories
+          #                .find_or_initialize_by(record_id: entry.record_id) # => corporation_alliance_history
+          #
+          expect(eve_corporation).to receive(:corporation_alliance_histories) do
+            double.tap do |a|
+              expect(a).to receive(:find_or_initialize_by).with(record_id: record_id)
+                .and_return(corporation_alliance_history)
+            end
+          end
+        end
+
+        before { expect(corporation_alliance_history).to receive(:update!).with(json) }
+
+        before { expect(subject).to receive(:update_etag) }
+
+        specify { expect { subject.import }.not_to raise_error }
+      end
+    end
   end
 
   # describe "#import" do

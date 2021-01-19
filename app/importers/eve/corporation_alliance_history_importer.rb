@@ -11,6 +11,17 @@ module Eve
     def import
       import! do
         return if esi.not_modified?
+
+        eve_corporation = Eve::Corporation.find_by!(corporation_id: corporation_id)
+
+        esi.entries.each do |entry|
+          history = eve_corporation.corporation_alliance_histories
+            .find_or_initialize_by(record_id: entry.record_id)
+
+          history.update!(entry.as_json)
+        end
+
+        update_etag
       end
     end
 
