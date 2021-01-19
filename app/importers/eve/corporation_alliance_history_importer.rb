@@ -22,6 +22,8 @@ module Eve
         end
 
         update_etag
+      rescue ActiveRecord::RecordNotFound
+        Rails.logger.info("Corporation with ID #{corporation_id} not found")
       end
     end
 
