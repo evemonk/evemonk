@@ -16,8 +16,7 @@ default: &default
   cache_manifest: false
 
   # Extract and emit a css file
-  # https://stackoverflow.com/questions/55605980/rails-webpacker-no-longer-emitting-css
-  extract_css: true
+  extract_css: false
 
   static_assets_extensions:
     - .jpg
