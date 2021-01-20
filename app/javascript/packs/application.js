@@ -12,9 +12,12 @@ Sentry.init({
   dsn: "https://185a236f4b994411a9f33c3c714cb34e@sentry.io/1424888",
 });
 
-require("@rails/ujs").start();
-require("turbolinks").start();
-require("channels");
+import Rails from "@rails/ujs";
+import Turbolinks from "turbolinks";
+import "channels";
+
+Rails.start();
+Turbolinks.start();
 
 import "bootstrap";
 
