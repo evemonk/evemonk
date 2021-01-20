@@ -2,7 +2,7 @@ version: 2
 
 jobs:
   build:
-    working_directory: ~/project
+    working_directory: ~/evemonk
     docker:
       - image: circleci/ruby:2.7.2-node-browsers
         environment:
