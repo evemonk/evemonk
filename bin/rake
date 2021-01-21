@@ -4,7 +4,6 @@ begin
 rescue LoadError => e
   raise unless e.message.include?('spring')
 end
-load File.expand_path("spring", __dir__)
 require_relative "../config/boot"
 require "rake"
 Rake.application.run
