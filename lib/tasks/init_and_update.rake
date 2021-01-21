@@ -1,6 +1,35 @@
 # frozen_string_literal: true
 
 namespace :evemonk do
+  namespace :sde do
+    desc "Init and update SDE"
+    task update: :environment do
+      Rails.logger.info "Import character attributes from SDE"
+      Sde::CharacterAttributesJob.perform_later("static/sde/fsd/characterAttributes.yaml")
+
+      Rails.logger.info "Import icons from SDE"
+      Sde::IconsJob.perform_later("static/sde/fsd/iconIDs.yaml")
+
+      Rails.logger.info "Import units from SDE"
+      Sde::UnitsJob.perform_later("static/sde/bsd/eveUnits.yaml")
+
+      Rails.logger.info "Import agents from SDE"
+      Sde::AgentsJob.perform_later("static/sde/fsd/agents.yaml")
+
+      Rails.logger.info "Import agent names from SDE"
+      Sde::AgentNamesJob.perform_later("static/sde/bsd/invNames.yaml")
+
+      Rails.logger.info "Import base price for eve types from SDE"
+      Sde::BasePricesJob.perform_later("static/sde/fsd/typeIDs.yaml")
+
+      Rails.logger.info "Import blueprints from SDE"
+      Sde::BlueprintsJob.perform_later("static/sde/fsd/blueprints.yaml")
+
+      Rails.logger.info "Import certificates from SDE"
+      Sde::CertificatesJob.perform_later("static/sde/fsd/certificates.yaml")
+    end
+  end
+
   desc "Init new evemonk installation"
   task init: :environment do
     # 6 call to esi
@@ -18,30 +47,6 @@ namespace :evemonk do
     # 6 call to esi
     Rails.logger.info "Import eve factions"
     Eve::UpdateFactionsJob.perform_later
-
-    Rails.logger.info "Import character attributes from SDE"
-    Sde::CharacterAttributesJob.perform_later("static/sde/fsd/characterAttributes.yaml")
-
-    Rails.logger.info "Import icons from SDE"
-    Sde::IconsJob.perform_later("static/sde/fsd/iconIDs.yaml")
-
-    Rails.logger.info "Import units from SDE"
-    Sde::UnitsJob.perform_later("static/sde/bsd/eveUnits.yaml")
-
-    Rails.logger.info "Import agents from SDE"
-    Sde::AgentsJob.perform_later("static/sde/fsd/agents.yaml")
-
-    Rails.logger.info "Import agent names from SDE"
-    Sde::AgentNamesJob.perform_later("static/sde/bsd/invNames.yaml")
-
-    Rails.logger.info "Import base price for eve types from SDE"
-    Sde::BasePricesJob.perform_later("static/sde/fsd/typeIDs.yaml")
-
-    Rails.logger.info "Import blueprints from SDE"
-    Sde::BlueprintsJob.perform_later("static/sde/fsd/blueprints.yaml")
-
-    Rails.logger.info "Import certificates from SDE"
-    Sde::CertificatesJob.perform_later("static/sde/fsd/certificates.yaml")
 
     # Around 300 calls to esi
     Rails.logger.info "Import eve categories"
@@ -101,30 +106,6 @@ namespace :evemonk do
     # 6 call to esi
     Rails.logger.info "Update eve factions"
     Eve::UpdateFactionsJob.perform_later
-
-    Rails.logger.info "Import character attributes from SDE"
-    Sde::CharacterAttributesJob.perform_later("static/sde/fsd/characterAttributes.yaml")
-
-    Rails.logger.info "Import icons from SDE"
-    Sde::IconsJob.perform_later("static/sde/fsd/iconIDs.yaml")
-
-    Rails.logger.info "Import units from SDE"
-    Sde::UnitsJob.perform_later("static/sde/bsd/eveUnits.yaml")
-
-    Rails.logger.info "Import agents from SDE"
-    Sde::AgentsJob.perform_later("static/sde/fsd/agents.yaml")
-
-    Rails.logger.info "Import agent names from SDE"
-    Sde::AgentNamesJob.perform_later("static/sde/bsd/invNames.yaml")
-
-    Rails.logger.info "Import base price for eve types from SDE"
-    Sde::BasePricesJob.perform_later("static/sde/fsd/typeIDs.yaml")
-
-    Rails.logger.info "Import blueprints from SDE"
-    Sde::BlueprintsJob.perform_later("static/sde/fsd/blueprints.yaml")
-
-    Rails.logger.info "Import certificates from SDE"
-    Sde::CertificatesJob.perform_later("static/sde/fsd/certificates.yaml")
 
     # 1 + new categories calls to esi
     Rails.logger.info "Import new eve categories"
@@ -236,6 +217,4 @@ namespace :evemonk do
     Rails.logger.info "Update sitemap and ping google"
     SitemapUpdaterJob.perform_later
   end
-
-  # update sde task
 end
