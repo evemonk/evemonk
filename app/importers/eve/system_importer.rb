@@ -24,7 +24,7 @@ module Eve
 
           eve_system.create_position!(esi.position.as_json)
 
-          Eve::UpdateStarJob.perform_later(esi.star_id)
+          Eve::UpdateStarJob.perform_later(esi.star_id) if esi.star_id.present?
 
           esi.stargate_ids.each do |stargate_id|
             Eve::UpdateStargateJob.perform_later(stargate_id)

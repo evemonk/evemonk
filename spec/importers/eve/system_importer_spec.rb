@@ -61,8 +61,6 @@ describe Eve::SystemImporter do
             as_json: position_json)
         end
 
-        let(:star_id) { double }
-
         let(:stargate_id) { double }
 
         let(:stargate_ids) { [stargate_id] }
@@ -101,8 +99,6 @@ describe Eve::SystemImporter do
             as_json: json)
         end
 
-        before { expect(subject).to receive(:esi).and_return(esi).exactly(7).times }
-
         before { expect(eve_system).to receive(:update!).with(json) }
 
         before do
@@ -123,8 +119,6 @@ describe Eve::SystemImporter do
           expect(eve_system).to receive(:create_position!).with(position_json)
         end
 
-        before { expect(Eve::UpdateStarJob).to receive(:perform_later).with(star_id) }
-
         before { expect(Eve::UpdateStargateJob).to receive(:perform_later).with(stargate_id) }
 
         before { expect(Eve::UpdateStationJob).to receive(:perform_later).with(station_id) }
@@ -137,7 +131,25 @@ describe Eve::SystemImporter do
 
         before { expect(subject).to receive(:update_etag) }
 
-        specify { expect { subject.import }.not_to raise_error }
+        context "when esi star_id present" do
+          let(:star_id) { double }
+
+          before { expect(subject).to receive(:esi).and_return(esi).exactly(8).times }
+
+          before { expect(Eve::UpdateStarJob).to receive(:perform_later).with(star_id) }
+
+          specify { expect { subject.import }.not_to raise_error }
+        end
+
+        context "when esi star_id is not present" do
+          let(:star_id) { nil }
+
+          before { expect(subject).to receive(:esi).and_return(esi).exactly(7).times }
+
+          before { expect(Eve::UpdateStarJob).not_to receive(:perform_later) }
+
+          specify { expect { subject.import }.not_to raise_error }
+        end
       end
 
       context "when eve system not found" do
