@@ -9,7 +9,9 @@ describe EmploymentHistoriesController do
 
   describe "#index" do
     context "when user signed in" do
-      let(:user) { create(:user) }
+      let!(:user) { create(:user) }
+
+      let!(:character) { create(:character, user: user, character_id: 123) }
 
       before { sign_in(user) }
 
@@ -19,19 +21,19 @@ describe EmploymentHistoriesController do
         #
         # subject.current_user
         #        .characters
-        #        .includes(:alliance, :corporation, character_corporation_histories: :corporation)
+        #        .includes(:alliance, :corporation)
         #        .find_by!(character_id: params[:character_id])
-        #        .decorate
+        #        .decorate # => character
         #
         expect(subject).to receive(:current_user) do
           double.tap do |a|
             expect(a).to receive(:characters) do
               double.tap do |b|
-                expect(b).to receive(:includes).with(:alliance, :corporation, character_corporation_histories: :corporation) do
+                expect(b).to receive(:includes).with(:alliance, :corporation) do
                   double.tap do |c|
-                    expect(c).to receive(:find_by!).with(character_id: "1") do
+                    expect(c).to receive(:find_by!).with(character_id: "123") do
                       double.tap do |d|
-                        expect(d).to receive(:decorate)
+                        expect(d).to receive(:decorate).and_return(character)
                       end
                     end
                   end
@@ -42,7 +44,29 @@ describe EmploymentHistoriesController do
         end
       end
 
-      before { get :index, params: {character_id: "1"} }
+      before do
+        #
+        # CharacterCorporationHistory.where(character_id: character.character_id)
+        #                            .includes(:corporation)
+        #                            .order(start_date: :desc)
+        #                            .decorate
+        #
+        expect(CharacterCorporationHistory).to receive(:where).with(character_id: character.character_id) do
+          double.tap do |a|
+            expect(a).to receive(:includes).with(:corporation) do
+              double.tap do |b|
+                expect(b).to receive(:order).with(start_date: :desc) do
+                  double.tap do |c|
+                    expect(c).to receive(:decorate)
+                  end
+                end
+              end
+            end
+          end
+        end
+      end
+
+      before { get :index, params: {character_id: "123"} }
 
       it { should respond_with(:ok) }
 
@@ -50,7 +74,7 @@ describe EmploymentHistoriesController do
     end
 
     context "when user not signed in" do
-      before { get :index, params: {character_id: "1"} }
+      before { get :index, params: {character_id: "123"} }
 
       it { should redirect_to(new_user_session_path) }
     end
