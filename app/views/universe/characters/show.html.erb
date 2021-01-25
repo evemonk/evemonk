@@ -57,7 +57,7 @@
   </div>
 
   <div class="col">
-    <h4 class="text-center">Employment History (<%= @character.character_corporation_histories.size %>)</h4>
+    <h4 class="text-center">Employment History (<%= @character_corporation_histories.size %>)</h4>
 
     <table class="table table-striped table-bordered">
       <thead>
@@ -67,7 +67,7 @@
         </tr>
       </thead>
       <tbody>
-        <% @character.character_corporation_histories.each do |record| %>
+        <% @character_corporation_histories.each do |record| %>
           <%# In some cases we don't have corporation yet in db %>
           <% if record.corporation %>
             <tr>
