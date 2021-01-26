@@ -35,11 +35,9 @@
       <%= link_to("Skill queue", character_skillqueues_path(@character.character_id), class: "nav-link") %>
     </li>
   <% end %>
-  <% if Setting.enabled_skills %>
-    <li class="nav-item">
-      <%= link_to("Skills", character_skills_path(@character.character_id), class: "nav-link") %>
-    </li>
-  <% end %>
+  <li class="nav-item">
+    <%= link_to("Skills", character_skills_path(@character.character_id), class: "nav-link") %>
+  </li>
   <% if Setting.enabled_mails %>
     <li class="nav-item">
       <%= link_to("Mail", character_mails_path(@character.character_id), class: "nav-link") %>
