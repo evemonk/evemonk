@@ -10,12 +10,21 @@ class SkillsTree
   end
 
   def groups
-    @groups ||= Eve::Category.find_by!(category_id: SKILLS_CATEGORY_ID)
+    @groups ||= skills_category
       .groups
+      .published
       .includes(:types)
-      .where(published: true)
       .order(:name_en)
       .decorate
+  end
+
+  private
+
+  def skills_category
+    @skills_category ||= Eve::Category
+      .published
+      .find_by!(category_id: SKILLS_CATEGORY_ID)
+      # .decorate
   end
 
   # def total_levels_in_group(group)
