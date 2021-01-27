@@ -644,7 +644,7 @@ GEM
       attr_extras (>= 6.2.4)
       diff-lcs
       patience_diff
-    terminal-table (2.0.0)
+    terminal-table (3.0.0)
       unicode-display_width (~> 1.1, >= 1.1.1)
     thor (1.0.1)
     tilt (2.0.10)
