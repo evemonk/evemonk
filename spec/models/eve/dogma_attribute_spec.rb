@@ -10,7 +10,7 @@ describe Eve::DogmaAttribute do
   describe ".published" do
     let!(:eve_dogma_attribute1) { create(:eve_dogma_attribute, published: false) }
 
-    let!(:eve_dogma_attribute1) { create(:eve_dogma_attribute, published: true) }
+    let!(:eve_dogma_attribute2) { create(:eve_dogma_attribute, published: true) }
 
     specify { expect(described_class.published.count).to eq(1) }
 
