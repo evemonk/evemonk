@@ -24,7 +24,6 @@ class SkillsTree
     @skills_category ||= Eve::Category
       .published
       .find_by!(category_id: SKILLS_CATEGORY_ID)
-      # .decorate
   end
 
   # def total_levels_in_group(group)
