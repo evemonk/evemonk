@@ -27,7 +27,6 @@ describe SkillsTree do
         #                .published
         #                .includes(:types)
         #                .order(:name_en)
-        #                .decorate
         #
         expect(skills_category).to receive(:groups) do
           double.tap do |a|
@@ -35,11 +34,7 @@ describe SkillsTree do
               double.tap do |b|
                 expect(b).to receive(:includes).with(:types) do
                   double.tap do |c|
-                    expect(c).to receive(:order).with(:name_en) do
-                      double.tap do |d|
-                        expect(d).to receive(:decorate).and_return(groups)
-                      end
-                    end
+                    expect(c).to receive(:order).with(:name_en).and_return(groups)
                   end
                 end
               end
@@ -60,6 +55,16 @@ describe SkillsTree do
 
       specify { expect(subject.groups).to eq(groups) }
     end
+  end
+
+  describe "#skills_count_in_group" do
+    let!(:group) { create(:eve_group, published: true) }
+
+    let!(:eve_type1) { create(:eve_type, group: group, published: false) }
+
+    let!(:eve_type2) { create(:eve_type, group: group, published: true) }
+
+    specify { expect(subject.skills_count_in_group(group)).to eq(1) }
   end
 
   # private methods

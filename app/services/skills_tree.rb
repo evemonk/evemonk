@@ -15,7 +15,10 @@ class SkillsTree
       .published
       .includes(:types)
       .order(:name_en)
-      .decorate
+  end
+
+  def skills_count_in_group(group)
+    group.types.published.count
   end
 
   private

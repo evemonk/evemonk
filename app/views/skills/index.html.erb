@@ -146,7 +146,7 @@
                       data-target="#collapse_<%= group.group_id %>"
                       aria-expanded="true"
                       aria-controls="collapse_<%= group.group_id %>">
-                <%= group.name %>
+                <%= group.name %> (<%= @character.skills_tree.skills_count_in_group(group) %>)
               </button>
             </h2>
           </div>
@@ -157,10 +157,7 @@
                data-parent="#skills_tree_accordion">
             <div class="card-body">
               <div class="row">
-                Skill description
-              </div>
-              <div class="row">
-                Levels trained: <%#= @character.skills_tree.levels_trained_in_group(group) %> / <%#= @character.skills_tree.total_levels_in_group(group) %>
+                Levels trained: 0 <%#= @character.skills_tree.levels_trained_in_group(group) %> / 0 <%#= @character.skills_tree.total_levels_in_group(group) %>
               </div>
               <div class="row">
                 Levels in training queue: x
