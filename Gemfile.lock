@@ -130,7 +130,7 @@ GEM
       html_tokenizer (~> 0.0.6)
       parser (>= 2.4)
       smart_properties
-    bootsnap (1.5.1)
+    bootsnap (1.6.0)
       msgpack (~> 1.0)
     brakeman (5.0.0)
     builder (3.2.4)
