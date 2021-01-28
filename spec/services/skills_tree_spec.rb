@@ -102,6 +102,18 @@ describe SkillsTree do
     specify { expect(subject.levels_trained_in_group(group)).to eq(10) }
   end
 
+  describe "#total_levels_in_group" do
+    let!(:group) { create(:eve_group, published: true) }
+
+    let!(:eve_type1) { create(:eve_type, group: group, published: false) }
+
+    let!(:eve_type2) { create(:eve_type, group: group, published: true) }
+
+    let!(:eve_type3) { create(:eve_type, group: group, published: true) }
+
+    specify { expect(subject.total_levels_in_group(group)).to eq(10) }
+  end
+
   # private methods
 
   describe "#skills_category" do

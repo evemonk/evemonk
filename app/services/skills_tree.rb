@@ -30,6 +30,10 @@ class SkillsTree
       .sum
   end
 
+  def total_levels_in_group(group)
+    group.types.published.count * 5
+  end
+
   private
 
   def skills_category
@@ -38,10 +42,6 @@ class SkillsTree
       .find_by!(category_id: SKILLS_CATEGORY_ID)
   end
 
-  # def total_levels_in_group(group)
-  #   group.types.where(published: true).count * 5
-  # end
-  #
   # def skill_points_in_group(group)
   #   skill_ids = group.types.pluck(:type_id)
   #
