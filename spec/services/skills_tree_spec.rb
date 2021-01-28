@@ -67,6 +67,41 @@ describe SkillsTree do
     specify { expect(subject.skills_count_in_group(group)).to eq(1) }
   end
 
+  describe "#levels_trained_in_group" do
+    let!(:group) { create(:eve_group, published: true) }
+
+    let!(:eve_type1) { create(:eve_type, group: group, published: false) }
+
+    let!(:eve_type2) { create(:eve_type, group: group, published: true) }
+
+    let!(:eve_type3) { create(:eve_type, group: group, published: true) }
+
+    let!(:character) { create(:character) }
+
+    let!(:character_skill1) do
+      create(:character_skill,
+        character: character,
+        skill_id: eve_type1.type_id,
+        trained_skill_level: 5)
+    end
+
+    let!(:character_skill2) do
+      create(:character_skill,
+        character: character,
+        skill_id: eve_type2.type_id,
+        trained_skill_level: 5)
+    end
+
+    let!(:character_skill3) do
+      create(:character_skill,
+        character: character,
+        skill_id: eve_type3.type_id,
+        trained_skill_level: 5)
+    end
+
+    specify { expect(subject.levels_trained_in_group(group)).to eq(10) }
+  end
+
   # private methods
 
   describe "#skills_category" do
