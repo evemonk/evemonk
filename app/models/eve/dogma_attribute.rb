@@ -7,5 +7,7 @@ module Eve
       optional: true
 
     # has_many :eve_type_dogma_attributes, :class_name => 'Eve::TypeDogmaAttribute'
+
+    scope :published, -> { where(published: true) }
   end
 end

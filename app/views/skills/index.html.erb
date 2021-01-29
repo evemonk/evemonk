@@ -34,11 +34,9 @@
       <%= link_to("Skill queue", character_skillqueues_path(@character.character_id), class: "nav-link") %>
     </li>
   <% end %>
-  <% if Setting.enabled_skills %>
-    <li class="nav-item">
-      <%= link_to("Skills", character_skills_path(@character.character_id), class: "nav-link active") %>
-    </li>
-  <% end %>
+  <li class="nav-item">
+    <%= link_to("Skills", character_skills_path(@character.character_id), class: "nav-link active") %>
+  </li>
   <% if Setting.enabled_mails %>
     <li class="nav-item">
       <%= link_to("Mail", character_mails_path(@character.character_id), class: "nav-link") %>
@@ -112,7 +110,7 @@
           </li>
         <% end %>
         <li class="list-group-item text-break">
-          SP: <%= @character.total_sp_formatted %>
+          Total SP: <%= @character.full_sp_formatted %>
         </li>
         <% if @character.unallocated_sp && @character.unallocated_sp > 0 %>
           <li class="list-group-item text-break">
@@ -148,7 +146,8 @@
                       data-target="#collapse_<%= group.group_id %>"
                       aria-expanded="true"
                       aria-controls="collapse_<%= group.group_id %>">
-                <%= group.name %>
+                <!-- TODO: add icon -->
+                <%= group.name %> (<%= @character.skills_tree.skills_count_in_group(group) %>)
               </button>
             </h2>
           </div>
@@ -159,16 +158,13 @@
                data-parent="#skills_tree_accordion">
             <div class="card-body">
               <div class="row">
-                Skill description
-              </div>
-              <div class="row">
                 Levels trained: <%= @character.skills_tree.levels_trained_in_group(group) %> / <%= @character.skills_tree.total_levels_in_group(group) %>
               </div>
               <div class="row">
-                Levels in training queue: x
+                Levels in training queue: <%= @character.skills_tree.levels_in_training_queue(group) %>
               </div>
               <div class="row">
-                Skill points: <%= number_with_delimiter(@character.skills_tree.skill_points_in_group(group), delimiter: " ") %> / xxx xxx xxx
+                Skill points: <%#= number_with_delimiter(@character.skills_tree.skill_points_in_group(group), delimiter: " ") %> / xxx xxx xxx
               </div>
               <div class="row">
                 Certificates claimed: xx / xx
@@ -181,27 +177,27 @@
                 <div class="span-6">Memory: 22</div>
               </div>
 
-              <% @character.skills_tree.skills_in_group(group).each do |skill| %>
+              <%# @character.skills_tree.skills_in_group(group).each do |skill| %>
 <!--                <div class="row">-->
                   <%#= link_to(skill.name, universe_type_path(skill.type_id)) %>
 <!--                  <br>-->
                   <%#= @character.skills_tree.skill(skill)&.trained_skill_level %>
 
-                  <div class="card">
-                    <div class="row no-gutters">
-                      <div class="col-md-4">
-                        <%= image_tag(skill.icon_small, class: "card-img", alt: skill.name) %>
-                      </div>
-                      <div class="col-md-8">
-                        <div class="card-body">
-                          <h4 class="card-title"><%= link_to(skill.name, universe_type_path(skill.type_id)) %></h4>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+<!--                  <div class="card">-->
+<!--                    <div class="row no-gutters">-->
+<!--                      <div class="col-md-4">-->
+                        <%#= image_tag(skill.icon_small, class: "card-img", alt: skill.name) %>
+<!--                      </div>-->
+<!--                      <div class="col-md-8">-->
+<!--                        <div class="card-body">-->
+<!--                          <h4 class="card-title"><%##= link_to(skill.name, universe_type_path(skill.type_id)) %></h4>-->
+<!--                        </div>-->
+<!--                      </div>-->
+<!--                    </div>-->
+<!--                  </div>-->
 
 <!--                </div>-->
-              <% end %>
+              <%# end %>
             </div>
           </div>
         </div>
