@@ -114,6 +114,26 @@ describe SkillsTree do
     specify { expect(subject.total_levels_in_group(group)).to eq(10) }
   end
 
+  describe "#levels_in_training_queue" do
+    let!(:group) { create(:eve_group) }
+
+    let!(:eve_type1) { create(:eve_type, group: group, published: false) }
+
+    let!(:eve_type2) { create(:eve_type, group: group, published: true) }
+
+    let!(:character) { create(:character) }
+
+    let!(:skillqueue1) { create(:skillqueue, character: character, skill_id: eve_type1.type_id, finish_date: 1.day.from_now) }
+
+    let!(:skillqueue2) { create(:skillqueue, character: character, skill_id: eve_type1.type_id, finish_date: 1.day.ago) }
+
+    let!(:skillqueue3) { create(:skillqueue, character: character, skill_id: eve_type2.type_id, finish_date: 1.day.from_now) }
+
+    let!(:skillqueue4) { create(:skillqueue, character: character, skill_id: eve_type2.type_id, finish_date: 1.day.ago) }
+
+    specify { expect(subject.levels_in_training_queue(group)).to eq(1) }
+  end
+
   # private methods
 
   describe "#skills_category" do

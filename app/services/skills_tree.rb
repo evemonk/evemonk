@@ -34,6 +34,16 @@ class SkillsTree
     group.types.published.count * 5
   end
 
+  def levels_in_training_queue(group)
+    skill_ids = group.types.published.pluck(:type_id)
+
+    character.skillqueues
+      .order(:queue_position)
+      .where("skillqueues.finish_date > :now", now: Time.zone.now)
+      .where(skill_id: skill_ids)
+      .count
+  end
+
   private
 
   def skills_category
