@@ -229,7 +229,6 @@ GEM
       rainbow
       rubocop
       smart_properties
-    errbase (0.2.1)
     erubi (1.10.0)
     erubis (2.7.0)
     et-orbi (1.2.4)
@@ -747,7 +746,6 @@ DEPENDENCIES
   draper
   easymon
   erb_lint
-  errbase
   eve_online!
   factory_bot_rails
   faker
