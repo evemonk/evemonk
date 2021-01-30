@@ -7,8 +7,6 @@ describe Eve::AgentDecorator do
 
   it { should be_an(ApplicationDecorator) }
 
-  it { should be_a(LocationableDecorator) }
-
   describe "#icon_tiny" do
     let(:eve_agent) do
       build(:eve_agent,

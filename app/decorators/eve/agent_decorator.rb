@@ -2,8 +2,6 @@
 
 module Eve
   class AgentDecorator < ApplicationDecorator
-    include LocationableDecorator
-
     decorates_associations :location, :corporation, :standings
 
     def icon_tiny
