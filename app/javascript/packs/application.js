@@ -24,10 +24,7 @@ import "bootstrap";
 import "../stylesheets/application";
 
 import ApexCharts from "apexcharts";
-import Vue from "vue/dist/vue";
-import vSelect from "vue-select";
 import * as timeago from "timeago.js";
-import debounce from "lodash.debounce";
 
 window.ApexCharts = ApexCharts;
 window.$ = $;
