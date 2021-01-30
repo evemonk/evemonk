@@ -3,20 +3,6 @@
 class CharacterBlueprintDecorator < ApplicationDecorator
   decorates_associations :character, :blueprint, :location
 
-  # BPO -- Blue Print Original
-  def bpo?
-    quantity == -1
-  end
-
-  # BPC -- Blue Print Copy
-  def bpc?
-    quantity == -2
-  end
-
-  def stacked?
-    quantity.positive?
-  end
-
   def icon_tiny
     if stacked? || bpo?
       "#{imageproxy_url}https://images.evetech.net/types/#{type_id}/bp?size=32"

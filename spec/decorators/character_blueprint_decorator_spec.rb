@@ -7,60 +7,6 @@ describe CharacterBlueprintDecorator do
 
   it { should be_an(ApplicationDecorator) }
 
-  describe "#bpo?" do
-    context "when blueprint is original" do
-      let(:character_blueprint) { build(:character_blueprint, quantity: -1) }
-
-      subject { character_blueprint.decorate }
-
-      specify { expect(subject.bpo?).to eq(true) }
-    end
-
-    context "when blueprint is copy" do
-      let(:character_blueprint) { build(:character_blueprint, quantity: -2) }
-
-      subject { character_blueprint.decorate }
-
-      specify { expect(subject.bpo?).to eq(false) }
-    end
-  end
-
-  describe "#bpc?" do
-    context "when blueprint is original" do
-      let(:character_blueprint) { build(:character_blueprint, quantity: -1) }
-
-      subject { character_blueprint.decorate }
-
-      specify { expect(subject.bpc?).to eq(false) }
-    end
-
-    context "when blueprint is copy" do
-      let(:character_blueprint) { build(:character_blueprint, quantity: -2) }
-
-      subject { character_blueprint.decorate }
-
-      specify { expect(subject.bpc?).to eq(true) }
-    end
-  end
-
-  describe "#stacked?" do
-    context "when stacked" do
-      let(:character_blueprint) { build(:character_blueprint, quantity: 10) }
-
-      subject { character_blueprint.decorate }
-
-      specify { expect(subject.stacked?).to eq(true) }
-    end
-
-    context "when not stacked" do
-      let(:character_blueprint) { build(:character_blueprint, quantity: -1) }
-
-      subject { character_blueprint.decorate }
-
-      specify { expect(subject.stacked?).to eq(false) }
-    end
-  end
-
   describe "#icon_tiny" do
     context "when stacked" do
       let(:character_blueprint) do
