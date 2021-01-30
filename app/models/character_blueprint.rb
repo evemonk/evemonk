@@ -24,4 +24,24 @@ class CharacterBlueprint < ApplicationRecord
   def stacked?
     quantity.positive?
   end
+
+  def material_efficiency_formatted
+    return if stacked?
+
+    if material_efficiency.zero?
+      "#{material_efficiency} %"
+    else
+      "+#{material_efficiency} %"
+    end
+  end
+
+  def time_efficiency_formatted
+    return if stacked?
+
+    if time_efficiency.zero?
+      "#{time_efficiency} %"
+    else
+      "+#{time_efficiency} %"
+    end
+  end
 end
