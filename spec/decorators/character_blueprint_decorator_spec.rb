@@ -7,8 +7,6 @@ describe CharacterBlueprintDecorator do
 
   it { should be_an(ApplicationDecorator) }
 
-  it { should be_a(LocationableDecorator) }
-
   describe "#bpo?" do
     context "when blueprint is original" do
       let(:character_blueprint) { build(:character_blueprint, quantity: -1) }
