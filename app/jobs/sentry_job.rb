@@ -3,7 +3,7 @@
 class SentryJob < ApplicationJob
   queue_as :sentry
 
-  def perform(event)
-    Raven.send_event(event)
+  def perform(event, hint)
+    Sentry.send_event(event, hint)
   end
 end
