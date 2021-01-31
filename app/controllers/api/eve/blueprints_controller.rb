@@ -7,7 +7,6 @@ module Api
         @blueprints = ::Eve::BlueprintsSearcher.new(params[:q])
           .search
           .page(params[:page])
-          .decorate
       end
     end
   end
