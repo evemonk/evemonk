@@ -6,14 +6,12 @@ class CharactersController < ApplicationController
       .includes(:alliance, :corporation)
       .order(created_at: :asc)
       .page(params[:page])
-      .decorate
   end
 
   def show
     @character = current_user.characters
       .includes(:race, :bloodline, :ancestry, :faction, :alliance, :corporation, :current_ship_type)
       .find_by!(character_id: params[:id])
-      .decorate
   end
 
   def update
