@@ -5,7 +5,6 @@ class LoyaltyPointsController < ApplicationController
     @character = current_user.characters
       .includes(:alliance, :corporation)
       .find_by!(character_id: params[:character_id])
-      .decorate
 
     @loyalty_points = @character.loyalty_points
       .includes(:corporation)
