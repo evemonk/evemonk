@@ -12,17 +12,12 @@ describe Api::Eve::ManufacturingItemsController do
         # Eve::ManufacturingItemsSearcher.new(params[:q])
         #                                .search
         #                                .page(params[:page])
-        #                                .decorate
         #
         expect(Eve::ManufacturingItemsSearcher).to receive(:new).with("drake") do
           double.tap do |a|
             expect(a).to receive(:search) do
               double.tap do |b|
-                expect(b).to receive(:page).with("1") do
-                  double.tap do |c|
-                    expect(c).to receive(:decorate)
-                  end
-                end
+                expect(b).to receive(:page).with("1")
               end
             end
           end
