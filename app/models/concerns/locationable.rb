@@ -12,4 +12,11 @@ module Locationable
       @location = Eve::Station.find_by(station_id: location_id)
     end
   end
+
+  def location_formatted
+    case location
+    when Eve::Station
+      "#{location.name} (#{location.system.security_status})"
+    end
+  end
 end

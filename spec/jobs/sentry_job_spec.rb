@@ -10,8 +10,10 @@ describe SentryJob do
   describe "#perform" do
     let(:event) { double }
 
-    before { expect(Raven).to receive(:send_event).with(event) }
+    let(:hint) { double }
 
-    specify { expect { subject.perform(event) }.not_to raise_error }
+    before { expect(Sentry).to receive(:send_event).with(event, hint) }
+
+    specify { expect { subject.perform(event, hint) }.not_to raise_error }
   end
 end

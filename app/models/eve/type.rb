@@ -2,6 +2,9 @@
 
 module Eve
   class Type < ApplicationRecord
+    include ActionView::Helpers::NumberHelper
+    include ImageProxy
+
     extend Mobility
 
     has_paper_trail
@@ -64,5 +67,42 @@ module Eve
     def implant_bonuses
       @implant_bonuses ||= ImplantBonuses.new(self).implant_bonuses
     end
+
+    def icon_tiny
+      "#{imageproxy_url}https://images.evetech.net/types/#{type_id}/icon?size=32"
+    end
+
+    def icon_small
+      "#{imageproxy_url}https://images.evetech.net/types/#{type_id}/icon?size=64"
+    end
+
+    def render_tiny
+      "#{imageproxy_url}https://images.evetech.net/types/#{type_id}/render?size=32"
+    end
+
+    def render_small
+      "#{imageproxy_url}https://images.evetech.net/types/#{type_id}/render?size=64"
+    end
+
+    def render_medium
+      "#{imageproxy_url}https://images.evetech.net/types/#{type_id}/render?size=128"
+    end
+
+    def render_large
+      "#{imageproxy_url}https://images.evetech.net/types/#{type_id}/render?size=256"
+    end
+
+    def render_huge
+      "#{imageproxy_url}https://images.evetech.net/types/#{type_id}/render?size=512"
+    end
+
+    def average_price_formatted
+      number_with_delimiter(average_price.to_i, delimiter: " ")
+    end
+
+    # def simple_description
+    #   # simple_format(SafeEveSanitizer.new.sanitize(description))
+    #   SafeEveSanitizer.new.sanitize(description)
+    # end
   end
 end
