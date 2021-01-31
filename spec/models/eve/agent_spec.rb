@@ -7,6 +7,8 @@ describe Eve::Agent do
 
   it { should be_a(Locationable) }
 
+  it { should be_a(ImageProxy) }
+
   it { expect(described_class.table_name).to eq("eve_agents") }
 
   it { should respond_to(:versions) }

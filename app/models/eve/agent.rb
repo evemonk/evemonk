@@ -3,6 +3,7 @@
 module Eve
   class Agent < ApplicationRecord
     include Locationable
+    include ImageProxy
 
     has_paper_trail
 
