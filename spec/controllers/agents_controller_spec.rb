@@ -20,7 +20,6 @@ describe AgentsController do
         # subject.current_user.characters
         #        .includes(:alliance, :corporation, :agents_standings)
         #        .find_by!(character_id: params[:character_id])
-        #        .decorate
         #
         expect(subject).to receive(:current_user) do
           double.tap do |a|
@@ -28,11 +27,7 @@ describe AgentsController do
               double.tap do |b|
                 expect(b).to receive(:includes).with(:alliance, :corporation, :agents_standings) do
                   double.tap do |c|
-                    expect(c).to receive(:find_by!).with(character_id: "1") do
-                      double.tap do |d|
-                        expect(d).to receive(:decorate)
-                      end
-                    end
+                    expect(c).to receive(:find_by!).with(character_id: "1")
                   end
                 end
               end
