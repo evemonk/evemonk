@@ -18,13 +18,9 @@ describe BlueprintCalculatorController do
   describe "#show" do
     before do
       #
-      # Eve::Blueprint.find_by!(type_id: params[:id]).decorate
+      # Eve::Blueprint.find_by!(type_id: params[:id])
       #
-      expect(Eve::Blueprint).to receive(:find_by!).with(type_id: "24699") do
-        double.tap do |a|
-          expect(a).to receive(:decorate)
-        end
-      end
+      expect(Eve::Blueprint).to receive(:find_by!).with(type_id: "24699")
     end
 
     before { get :show, params: {id: 24_699} }

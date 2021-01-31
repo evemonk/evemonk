@@ -7,7 +7,6 @@ module Universe
 
       def show
         @alliance = Eve::Alliance.find_by!(alliance_id: params[:alliance_id])
-          .decorate
 
         render layout: false
       end

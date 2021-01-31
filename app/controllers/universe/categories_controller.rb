@@ -5,11 +5,11 @@ module Universe
     skip_before_action :authenticate_user!
 
     def index
-      # @categories = Eve::Category.page(params[:page]).decorate
+      # @categories = Eve::Category.page(params[:page])
     end
 
     def show
-      # @category = Eve::Category.find_by(category_id: params[:id]).decorate
+      # @category = Eve::Category.find_by(category_id: params[:id])
     end
   end
 end

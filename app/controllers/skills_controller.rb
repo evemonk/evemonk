@@ -5,6 +5,5 @@ class SkillsController < ApplicationController
     @character = current_user.characters
       .includes(:alliance, :corporation)
       .find_by!(character_id: params[:character_id])
-      .decorate
   end
 end

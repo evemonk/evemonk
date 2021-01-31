@@ -13,17 +13,12 @@ describe Universe::CharactersController do
       # Eve::CharactersSearcher.new(params[:q])
       #                        .search
       #                        .page(params[:page])
-      #                        .decorate
       #
       expect(Eve::CharactersSearcher).to receive(:new).with("character") do
         double.tap do |a|
           expect(a).to receive(:search) do
             double.tap do |b|
-              expect(b).to receive(:page).with("2") do
-                double.tap do |c|
-                  expect(c).to receive(:decorate)
-                end
-              end
+              expect(b).to receive(:page).with("2")
             end
           end
         end
@@ -44,16 +39,11 @@ describe Universe::CharactersController do
       #
       # Eve::Character
       #   .includes(:alliance, :corporation)
-      #   .find_by!(character_id: params[:id])
-      #   .decorate # => eve_character
+      #   .find_by!(character_id: params[:id]) # => eve_character
       #
       expect(Eve::Character).to receive(:includes).with(:alliance, :corporation) do
         double.tap do |a|
-          expect(a).to receive(:find_by!).with(character_id: "91752503") do
-            double.tap do |b|
-              expect(b).to receive(:decorate).and_return(eve_character)
-            end
-          end
+          expect(a).to receive(:find_by!).with(character_id: "91752503").and_return(eve_character)
         end
       end
     end
@@ -63,17 +53,12 @@ describe Universe::CharactersController do
       # Eve::CharacterCorporationHistory.where(character_id: @character.character_id)
       #                                 .includes(:corporation)
       #                                 .order(start_date: :desc)
-      #                                 .decorate
       #
       expect(Eve::CharacterCorporationHistory).to receive(:where).with(character_id: eve_character.character_id) do
         double.tap do |a|
           expect(a).to receive(:includes).with(:corporation) do
             double.tap do |b|
-              expect(b).to receive(:order).with(start_date: :desc) do
-                double.tap do |c|
-                  expect(c).to receive(:decorate)
-                end
-              end
+              expect(b).to receive(:order).with(start_date: :desc)
             end
           end
         end

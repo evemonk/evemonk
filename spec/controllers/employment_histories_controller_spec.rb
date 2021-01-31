@@ -22,8 +22,7 @@ describe EmploymentHistoriesController do
         # subject.current_user
         #        .characters
         #        .includes(:alliance, :corporation)
-        #        .find_by!(character_id: params[:character_id])
-        #        .decorate # => character
+        #        .find_by!(character_id: params[:character_id]) # => character
         #
         expect(subject).to receive(:current_user) do
           double.tap do |a|
@@ -31,11 +30,7 @@ describe EmploymentHistoriesController do
               double.tap do |b|
                 expect(b).to receive(:includes).with(:alliance, :corporation) do
                   double.tap do |c|
-                    expect(c).to receive(:find_by!).with(character_id: "123") do
-                      double.tap do |d|
-                        expect(d).to receive(:decorate).and_return(character)
-                      end
-                    end
+                    expect(c).to receive(:find_by!).with(character_id: "123").and_return(character)
                   end
                 end
               end
@@ -49,17 +44,12 @@ describe EmploymentHistoriesController do
         # CharacterCorporationHistory.where(character_id: character.character_id)
         #                            .includes(:corporation)
         #                            .order(start_date: :desc)
-        #                            .decorate
         #
         expect(CharacterCorporationHistory).to receive(:where).with(character_id: character.character_id) do
           double.tap do |a|
             expect(a).to receive(:includes).with(:corporation) do
               double.tap do |b|
-                expect(b).to receive(:order).with(start_date: :desc) do
-                  double.tap do |c|
-                    expect(c).to receive(:decorate)
-                  end
-                end
+                expect(b).to receive(:order).with(start_date: :desc)
               end
             end
           end

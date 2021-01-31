@@ -12,15 +12,10 @@ describe Api::Eve::TypesController do
         # Eve::Type
         #   .where(published: true)
         #   .includes(:type_dogma_attributes, :type_dogma_effects)
-        #   .decorate
         #
         expect(Eve::Type).to receive(:where).with(published: true) do
           double.tap do |a|
-            expect(a).to receive(:includes).with(:type_dogma_attributes, :type_dogma_effects) do
-              double.tap do |b|
-                expect(b).to receive(:decorate)
-              end
-            end
+            expect(a).to receive(:includes).with(:type_dogma_attributes, :type_dogma_effects)
           end
         end
       end
@@ -47,17 +42,12 @@ describe Api::Eve::TypesController do
         #   .where(published: true)
         #   .includes(:type_dogma_attributes, :type_dogma_effects)
         #   .find_by!(type_id: params[:id])
-        #   .decorate
         #
         expect(Eve::Type).to receive(:where).with(published: true) do
           double.tap do |a|
             expect(a).to receive(:includes).with(:type_dogma_attributes, :type_dogma_effects) do
               double.tap do |b|
-                expect(b).to receive(:find_by!).with(type_id: "23773") do
-                  double.tap do |c|
-                    expect(c).to receive(:decorate)
-                  end
-                end
+                expect(b).to receive(:find_by!).with(type_id: "23773")
               end
             end
           end

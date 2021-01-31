@@ -9,18 +9,15 @@ module Universe
         .new(params[:q])
         .search
         .page(params[:page])
-        .decorate
     end
 
     def show
       @corporation = ::Eve::Corporation
         .find_by!(corporation_id: params[:id])
-        .decorate
 
       @characters = ::Eve::Character
         .where(corporation: @corporation)
         .order(:name)
-        .decorate
     end
   end
 end

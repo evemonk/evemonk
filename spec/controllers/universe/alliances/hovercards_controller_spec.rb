@@ -11,13 +11,8 @@ describe Universe::Alliances::HovercardsController do
     before do
       #
       # Eve::Alliance.find_by!(alliance_id: params[:alliance_id])
-      #              .decorate
       #
-      expect(Eve::Alliance).to receive(:find_by!).with(alliance_id: "1354830081") do
-        double.tap do |a|
-          expect(a).to receive(:decorate)
-        end
-      end
+      expect(Eve::Alliance).to receive(:find_by!).with(alliance_id: "1354830081")
     end
 
     before { get :show, params: {alliance_id: "1354830081"} }

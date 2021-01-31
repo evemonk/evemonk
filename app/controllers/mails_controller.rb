@@ -5,7 +5,6 @@ class MailsController < ApplicationController
     @character = current_user.characters
       .includes(:alliance, :corporation)
       .find_by!(character_id: params[:character_id])
-      .decorate
 
     @mail_labels = @character.character_mail_labels
   end

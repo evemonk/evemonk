@@ -10,7 +10,6 @@ module Universe
           type_dogma_attributes: :dogma_attribute,
           market_group: {parent_group: {parent_group: :parent_group}})
         .find_by!(type_id: params[:id])
-        .decorate
     end
   end
 end

@@ -21,7 +21,6 @@ describe StandingsController do
         #        .includes(:alliance, :corporation, :factions_standings,
         #                  :corporations_standings, :agents_standings)
         #        .find_by!(character_id: params[:character_id])
-        #        .decorate
         #
         expect(subject).to receive(:current_user) do
           double.tap do |a|
@@ -30,11 +29,7 @@ describe StandingsController do
                 expect(b).to receive(:includes).with(:alliance, :corporation,
                   :factions_standings, :corporations_standings, :agents_standings) do
                   double.tap do |c|
-                    expect(c).to receive(:find_by!).with(character_id: "1") do
-                      double.tap do |d|
-                        expect(d).to receive(:decorate)
-                      end
-                    end
+                    expect(c).to receive(:find_by!).with(character_id: "1")
                   end
                 end
               end

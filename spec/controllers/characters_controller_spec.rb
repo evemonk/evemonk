@@ -22,7 +22,6 @@ describe CharactersController do
         #        .includes(:alliance, :corporation)
         #        .order(created_at: :asc)
         #        .page(params[:page])
-        #        .decorate
         #
         expect(subject).to receive(:current_user) do
           double.tap do |a|
@@ -32,11 +31,7 @@ describe CharactersController do
                   double.tap do |c|
                     expect(c).to receive(:order).with(created_at: :asc) do
                       double.tap do |d|
-                        expect(d).to receive(:page).with("1") do
-                          double.tap do |e|
-                            expect(e).to receive(:decorate)
-                          end
-                        end
+                        expect(d).to receive(:page).with("1")
                       end
                     end
                   end
@@ -75,7 +70,6 @@ describe CharactersController do
         #        .characters
         #        .includes(:race, :bloodline, :ancestry, :faction, :alliance, :corporation, :current_ship_type)
         #        .find_by!(character_id: params[:id])
-        #        .decorate
         #
         expect(subject).to receive(:current_user) do
           double.tap do |a|
@@ -83,11 +77,7 @@ describe CharactersController do
               double.tap do |b|
                 expect(b).to receive(:includes).with(:race, :bloodline, :ancestry, :faction, :alliance, :corporation, :current_ship_type) do
                   double.tap do |c|
-                    expect(c).to receive(:find_by!).with(character_id: "1") do
-                      double.tap do |d|
-                        expect(d).to receive(:decorate)
-                      end
-                    end
+                    expect(c).to receive(:find_by!).with(character_id: "1")
                   end
                 end
               end
