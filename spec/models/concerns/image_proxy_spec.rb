@@ -12,6 +12,8 @@ describe ImageProxy do
   end
 
   describe "#imageproxy_url" do
+    subject { klass.new }
+
     context "when Setting.use_image_proxy is true" do
       before { Setting.use_image_proxy = true }
 
