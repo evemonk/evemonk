@@ -3,6 +3,7 @@
 module Eve
   class Type < ApplicationRecord
     include ActionView::Helpers::NumberHelper
+    include ImageProxy
 
     extend Mobility
 
