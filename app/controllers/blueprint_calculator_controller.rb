@@ -7,6 +7,6 @@ class BlueprintCalculatorController < ApplicationController
   end
 
   def show
-    @blueprint = Eve::Blueprint.find_by!(type_id: params[:id]).decorate
+    @blueprint = Eve::Blueprint.find_by!(type_id: params[:id])
   end
 end
