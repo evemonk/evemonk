@@ -75,7 +75,7 @@ describe Eve::Agent do
   end
 
   describe "#icon_large" do
-    let(:eve_agent) do
+    subject do
       build(:eve_agent,
         agent_id: 3_010_637)
     end
@@ -115,7 +115,7 @@ describe Eve::Agent do
   describe "#icon_gigantic" do
     subject do
       build(:eve_agent,
-            agent_id: 3_010_637)
+        agent_id: 3_010_637)
     end
 
     context "when Setting.use_image_proxy is true" do
