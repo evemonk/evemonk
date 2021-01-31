@@ -2,6 +2,7 @@
 
 class CharacterBlueprint < ApplicationRecord
   include Locationable
+  include ImageProxy
 
   belongs_to :character
 
