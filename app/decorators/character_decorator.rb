@@ -17,10 +17,6 @@ class CharacterDecorator < ApplicationDecorator
     object.birthday&.iso8601
   end
 
-  def birthday_formatted
-    object.birthday&.strftime("%Y.%m.%d")
-  end
-
   def description
     Rails::Html::FullSanitizer.new.sanitize(object.description)
   end
