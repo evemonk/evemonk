@@ -2,6 +2,9 @@
 
 module Eve
   class Corporation < ApplicationRecord
+    include ActionView::Helpers::NumberHelper
+    include ImageProxy
+
     has_paper_trail
 
     searchkick
@@ -62,6 +65,26 @@ module Eve
 
     def eve_alliance_reset_characters_count
       alliance&.reset_characters_count
+    end
+
+    def icon_tiny
+      "#{imageproxy_url}https://images.evetech.net/corporations/#{corporation_id}/logo?size=32"
+    end
+
+    def icon_small
+      "#{imageproxy_url}https://images.evetech.net/corporations/#{corporation_id}/logo?size=64"
+    end
+
+    def icon_medium
+      "#{imageproxy_url}https://images.evetech.net/corporations/#{corporation_id}/logo?size=128"
+    end
+
+    def icon_large
+      "#{imageproxy_url}https://images.evetech.net/corporations/#{corporation_id}/logo?size=256"
+    end
+
+    def formatted_member_count
+      number_with_delimiter(member_count, delimiter: ",")
     end
   end
 end

@@ -42,90 +42,6 @@ describe Eve::CorporationDecorator do
     specify { expect(subject.description).to eq("Test") }
   end
 
-  describe "#icon_tiny" do
-    let(:eve_corporation) do
-      build(:eve_corporation,
-        corporation_id: 1_344_654_522)
-    end
-
-    subject { eve_corporation.decorate }
-
-    context "when Setting.use_image_proxy is true" do
-      before { Setting.use_image_proxy = true }
-
-      specify { expect(subject.icon_tiny).to eq("https://imageproxy.evemonk.com/https://images.evetech.net/corporations/1344654522/logo?size=32") }
-    end
-
-    context "when Setting.use_image_proxy is false" do
-      before { Setting.use_image_proxy = false }
-
-      specify { expect(subject.icon_tiny).to eq("https://images.evetech.net/corporations/1344654522/logo?size=32") }
-    end
-  end
-
-  describe "#icon_small" do
-    let(:eve_corporation) do
-      build(:eve_corporation,
-        corporation_id: 1_344_654_522)
-    end
-
-    subject { eve_corporation.decorate }
-
-    context "when Setting.use_image_proxy is true" do
-      before { Setting.use_image_proxy = true }
-
-      specify { expect(subject.icon_small).to eq("https://imageproxy.evemonk.com/https://images.evetech.net/corporations/1344654522/logo?size=64") }
-    end
-
-    context "when Setting.use_image_proxy is false" do
-      before { Setting.use_image_proxy = false }
-
-      specify { expect(subject.icon_small).to eq("https://images.evetech.net/corporations/1344654522/logo?size=64") }
-    end
-  end
-
-  describe "#icon_medium" do
-    let(:eve_corporation) do
-      build(:eve_corporation,
-        corporation_id: 1_344_654_522)
-    end
-
-    subject { eve_corporation.decorate }
-
-    context "when Setting.use_image_proxy is true" do
-      before { Setting.use_image_proxy = true }
-
-      specify { expect(subject.icon_medium).to eq("https://imageproxy.evemonk.com/https://images.evetech.net/corporations/1344654522/logo?size=128") }
-    end
-
-    context "when Setting.use_image_proxy is false" do
-      before { Setting.use_image_proxy = false }
-
-      specify { expect(subject.icon_medium).to eq("https://images.evetech.net/corporations/1344654522/logo?size=128") }
-    end
-  end
-
-  describe "#icon_large" do
-    let(:eve_corporation) do
-      build(:eve_corporation,
-        corporation_id: 1_344_654_522)
-    end
-
-    subject { eve_corporation.decorate }
-
-    context "when Setting.use_image_proxy is true" do
-      before { Setting.use_image_proxy = true }
-
-      specify { expect(subject.icon_large).to eq("https://imageproxy.evemonk.com/https://images.evetech.net/corporations/1344654522/logo?size=256") }
-    end
-
-    context "when Setting.use_image_proxy is false" do
-      before { Setting.use_image_proxy = false }
-
-      specify { expect(subject.icon_large).to eq("https://images.evetech.net/corporations/1344654522/logo?size=256") }
-    end
-  end
-
   describe "#tax_rate" do
     let(:eve_corporation) do
       build(:eve_corporation,
@@ -135,29 +51,5 @@ describe Eve::CorporationDecorator do
     subject { eve_corporation.decorate }
 
     specify { expect(subject.tax_rate).to eq("0.99") }
-  end
-
-  describe "#formatted_member_count" do
-    context "when number is 3" do
-      let(:eve_corporation) do
-        build(:eve_corporation,
-          member_count: 111)
-      end
-
-      subject { eve_corporation.decorate }
-
-      specify { expect(subject.formatted_member_count).to eq("111") }
-    end
-
-    context "when number is 6" do
-      let(:eve_corporation) do
-        build(:eve_corporation,
-          member_count: 111_222)
-      end
-
-      subject { eve_corporation.decorate }
-
-      specify { expect(subject.formatted_member_count).to eq("111,222") }
-    end
   end
 end
