@@ -59,17 +59,11 @@ gem "sentry-rails"
 gem "sentry-sidekiq"
 gem "niceql"
 gem "server_timing"
-# gem "traceroute"
-# gem "strong_migrations"
 gem "easymon"
 gem "good_migrations"
-# gem "elastic-apm"
-
 gem "awesome_print", require: "ap"
 gem "pry-rails"
-
 gem "lograge"
-
 gem "yabeda-prometheus"
 gem "yabeda-rails"
 gem "yabeda-graphql"
