@@ -12,7 +12,7 @@ class Skillqueue < ApplicationRecord
     optional: true
 
   def finished_level
-    LEVELS.fetch(object.finished_level)
+    LEVELS.fetch(finished_level)
   end
 
   def time_left
