@@ -16,7 +16,7 @@ describe Skillqueue do
   describe "#finished_level_formatted" do
     subject { build(:skillqueue, finished_level: 1) }
 
-    specify { expect(subject.finished_level).to eq("I") }
+    specify { expect(subject.finished_level_formatted).to eq("I") }
   end
 
   describe "#time_left" do
