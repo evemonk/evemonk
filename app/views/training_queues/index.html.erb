@@ -146,7 +146,7 @@
       <div class="card <%= index % 2 == 0 ? "bg-dark" : "bg-transparent" %> rounded-0 border-secondary <%= index == 0 ? "" : "border-top-0" %>">
         <div class="row no-gutters">
           <div class="col-9 card-body pl-2">
-            <%= skillqueue.skill&.name %> <span class="text-success"><%= skillqueue.finished_level %></span>
+            <%= skillqueue.skill&.name %> <span class="text-success"><%= skillqueue.finished_level_formatted %></span>
           </div>
           <div class="col-3 card-body text-right pr-2">
             <%= skillqueue.time_left %>

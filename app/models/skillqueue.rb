@@ -11,7 +11,7 @@ class Skillqueue < ApplicationRecord
     foreign_key: "skill_id",
     optional: true
 
-  def finished_level
+  def finished_level_formatted
     LEVELS.fetch(finished_level)
   end
 

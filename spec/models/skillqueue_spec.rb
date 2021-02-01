@@ -13,7 +13,7 @@ describe Skillqueue do
 
   it { should belong_to(:skill).class_name("Eve::Type").with_primary_key("type_id").with_foreign_key("skill_id").optional(true) }
 
-  describe "#finished_level" do
+  describe "#finished_level_formatted" do
     subject { build(:skillqueue, finished_level: 1) }
 
     specify { expect(subject.finished_level).to eq("I") }
