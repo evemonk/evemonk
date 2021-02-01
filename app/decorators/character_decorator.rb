@@ -41,22 +41,6 @@ class CharacterDecorator < ApplicationDecorator
     object.wallet.to_i
   end
 
-  def wallet_formatted
-    number_with_delimiter(object.wallet.to_i, delimiter: " ")
-  end
-
-  def total_sp_formatted
-    number_with_delimiter(object.total_sp, delimiter: " ")
-  end
-
-  def unallocated_sp_formatted
-    number_with_delimiter(object.unallocated_sp, delimiter: " ")
-  end
-
-  def full_sp_formatted
-    number_with_delimiter(object.total_sp.to_i + object.unallocated_sp.to_i, delimiter: " ")
-  end
-
   # def last_clone_jump_date_formatted
   #   object.last_clone_jump_date&.strftime("%Y.%m.%d")
   # end

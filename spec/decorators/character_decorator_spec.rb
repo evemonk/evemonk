@@ -28,27 +28,6 @@ describe CharacterDecorator do
     end
   end
 
-  describe "#birthday_formatted" do
-    context "when birthday is present" do
-      let(:character) do
-        build(:character,
-          birthday: "Sun, 03 May 2015 19:45:17 UTC +00:00")
-      end
-
-      subject { character.decorate }
-
-      specify { expect(subject.birthday_formatted).to eq("2015.05.03") }
-    end
-
-    context "when birthday is empty" do
-      let(:character) { build(:character, birthday: nil) }
-
-      subject { character.decorate }
-
-      specify { expect(subject.birthday_formatted).to eq(nil) }
-    end
-  end
-
   describe "#description" do
     let(:character) do
       build(:character,
@@ -135,77 +114,5 @@ describe CharacterDecorator do
     subject { character.decorate }
 
     specify { expect(subject.wallet).to eq(8252) }
-  end
-
-  describe "#wallet_formatted" do
-    context "when wallet is empty" do
-      let(:character) do
-        build(:character,
-          wallet: nil)
-      end
-
-      subject { character.decorate }
-
-      specify { expect(subject.wallet_formatted).to eq("0") }
-    end
-
-    context "when wallet is present" do
-      let(:character) do
-        build(:character,
-          wallet: 8252.49)
-      end
-
-      subject { character.decorate }
-
-      specify { expect(subject.wallet_formatted).to eq("8 252") }
-    end
-  end
-
-  describe "#total_sp_formatted" do
-    let(:character) do
-      build(:character,
-        total_sp: 50_362_576)
-    end
-
-    subject { character.decorate }
-
-    specify { expect(subject.total_sp_formatted).to eq("50 362 576") }
-  end
-
-  describe "#unallocated_sp_formatted" do
-    let(:character) do
-      build(:character,
-        unallocated_sp: 906_000)
-    end
-
-    subject { character.decorate }
-
-    specify { expect(subject.unallocated_sp_formatted).to eq("906 000") }
-  end
-
-  describe "#full_sp_formatted" do
-    context "when unallocated_sp is nil" do
-      let(:character) do
-        build(:character,
-          total_sp: 50_362_576,
-          unallocated_sp: nil)
-      end
-
-      subject { character.decorate }
-
-      specify { expect(subject.full_sp_formatted).to eq("50 362 576") }
-    end
-
-    context "when unallocated_sp is not nil" do
-      let(:character) do
-        build(:character,
-          total_sp: 50_362_576,
-          unallocated_sp: 906_000)
-      end
-
-      subject { character.decorate }
-
-      specify { expect(subject.full_sp_formatted).to eq("51 268 576") }
-    end
   end
 end
