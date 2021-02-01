@@ -1,24 +1,8 @@
 # frozen_string_literal: true
 
-class CharacterDecorator < ApplicationDecorator
-  include ActionView::Helpers::NumberHelper
-
-  decorates_associations :user, :race, :bloodline, :faction, :ancestry,
-    :alliance, :corporation, :current_ship_type, :current_solar_system,
-    :current_station, :etags, :loyalty_points, :character_assets,
-    :character_implants, :implants, :skillqueues, :character_skills,
-    :character_corporation_histories, :character_mail_labels, :standings,
-    :character_killmails, :wallet_journals, :wallet_transactions,
-    :character_blueprints, :industry_jobs, :character_orders,
-    :manufacturing_jobs, :factions_standings, :corporations_standings,
-    :agents_standings
-
+class CharacterDecorator
   def birthday
     object.birthday&.iso8601
-  end
-
-  def birthday_formatted
-    object.birthday&.strftime("%Y.%m.%d")
   end
 
   def description
@@ -39,22 +23,6 @@ class CharacterDecorator < ApplicationDecorator
 
   def wallet
     object.wallet.to_i
-  end
-
-  def wallet_formatted
-    number_with_delimiter(object.wallet.to_i, delimiter: " ")
-  end
-
-  def total_sp_formatted
-    number_with_delimiter(object.total_sp, delimiter: " ")
-  end
-
-  def unallocated_sp_formatted
-    number_with_delimiter(object.unallocated_sp, delimiter: " ")
-  end
-
-  def full_sp_formatted
-    number_with_delimiter(object.total_sp.to_i + object.unallocated_sp.to_i, delimiter: " ")
   end
 
   # def last_clone_jump_date_formatted

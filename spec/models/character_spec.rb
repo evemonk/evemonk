@@ -481,4 +481,81 @@ describe Character do
       specify { expect(subject.icon_gigantic).to eq("https://images.evetech.net/characters/90729314/portrait?size=1024") }
     end
   end
+
+  describe "#wallet_formatted" do
+    context "when wallet is empty" do
+      subject do
+        build(:character,
+          wallet: nil)
+      end
+
+      specify { expect(subject.wallet_formatted).to eq("0") }
+    end
+
+    context "when wallet is present" do
+      subject do
+        build(:character,
+          wallet: 8252.49)
+      end
+
+      specify { expect(subject.wallet_formatted).to eq("8 252") }
+    end
+  end
+
+  describe "#total_sp_formatted" do
+    subject do
+      build(:character,
+        total_sp: 50_362_576)
+    end
+
+    specify { expect(subject.total_sp_formatted).to eq("50 362 576") }
+  end
+
+  describe "#unallocated_sp_formatted" do
+    subject do
+      build(:character,
+        unallocated_sp: 906_000)
+    end
+
+    specify { expect(subject.unallocated_sp_formatted).to eq("906 000") }
+  end
+
+  describe "#full_sp_formatted" do
+    context "when unallocated_sp is nil" do
+      subject do
+        build(:character,
+          total_sp: 50_362_576,
+          unallocated_sp: nil)
+      end
+
+      specify { expect(subject.full_sp_formatted).to eq("50 362 576") }
+    end
+
+    context "when unallocated_sp is not nil" do
+      subject do
+        build(:character,
+          total_sp: 50_362_576,
+          unallocated_sp: 906_000)
+      end
+
+      specify { expect(subject.full_sp_formatted).to eq("51 268 576") }
+    end
+  end
+
+  describe "#birthday_formatted" do
+    context "when birthday is present" do
+      subject do
+        build(:character,
+          birthday: "Sun, 03 May 2015 19:45:17 UTC +00:00")
+      end
+
+      specify { expect(subject.birthday_formatted).to eq("2015.05.03") }
+    end
+
+    context "when birthday is empty" do
+      subject { build(:character, birthday: nil) }
+
+      specify { expect(subject.birthday_formatted).to eq(nil) }
+    end
+  end
 end

@@ -142,7 +142,7 @@
                 data-target="#collapse_<%= skillqueue.id %>"
                 aria-expanded="false"
                 aria-controls="collapse_<%= skillqueue.id %>">
-          <%= skillqueue.skill&.name %> <span class="text-success"><%= skillqueue.finished_level %></span>
+          <%= skillqueue.skill&.name %> <span class="text-success"><%= skillqueue.finished_level_formatted %></span>
         </button>
 
         <div class="collapse" id="collapse_<%= skillqueue.id %>">

@@ -76,10 +76,6 @@ GEM
       globalid (>= 0.3.6)
     activemodel (6.1.1)
       activesupport (= 6.1.1)
-    activemodel-serializers-xml (1.0.2)
-      activemodel (> 5.x)
-      activesupport (> 5.x)
-      builder (~> 3.1)
     activerecord (6.1.1)
       activemodel (= 6.1.1)
       activesupport (= 6.1.1)
@@ -204,12 +200,6 @@ GEM
     dotenv-rails (2.7.6)
       dotenv (= 2.7.6)
       railties (>= 3.2)
-    draper (4.0.1)
-      actionpack (>= 5.0)
-      activemodel (>= 5.0)
-      activemodel-serializers-xml (>= 1.0)
-      activesupport (>= 5.0)
-      request_store (>= 1.0)
     dry-initializer (3.0.4)
     easymon (1.4.2)
       redis
@@ -748,7 +738,6 @@ DEPENDENCIES
   devise-i18n
   devise_zxcvbn
   dotenv-rails
-  draper
   easymon
   erb_lint
   eve_online!
