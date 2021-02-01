@@ -23,10 +23,10 @@ import "bootstrap";
 
 import "../stylesheets/application";
 
-import ApexCharts from "apexcharts";
+// import ApexCharts from "apexcharts";
 import * as timeago from "timeago.js";
 
-window.ApexCharts = ApexCharts;
+// window.ApexCharts = ApexCharts;
 window.$ = $;
 
 // Uncomment to copy all static images under ../images to the output folder and reference
