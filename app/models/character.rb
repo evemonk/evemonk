@@ -201,22 +201,22 @@ class Character < ApplicationRecord
   end
 
   def wallet_formatted
-    number_with_delimiter(object.wallet.to_i, delimiter: " ")
+    number_with_delimiter(wallet.to_i, delimiter: " ")
   end
 
   def total_sp_formatted
-    number_with_delimiter(object.total_sp, delimiter: " ")
+    number_with_delimiter(total_sp, delimiter: " ")
   end
 
   def unallocated_sp_formatted
-    number_with_delimiter(object.unallocated_sp, delimiter: " ")
+    number_with_delimiter(unallocated_sp, delimiter: " ")
   end
 
   def full_sp_formatted
-    number_with_delimiter(object.total_sp.to_i + object.unallocated_sp.to_i, delimiter: " ")
+    number_with_delimiter(total_sp.to_i + unallocated_sp.to_i, delimiter: " ")
   end
 
   def birthday_formatted
-    object.birthday&.strftime("%Y.%m.%d")
+    birthday&.strftime("%Y.%m.%d")
   end
 end
