@@ -5,6 +5,8 @@ require "rails_helper"
 describe Eve::Faction do
   it { should be_an(ApplicationRecord) }
 
+  it { should be_a(ImageProxy) }
+
   it { should respond_to(:versions) }
 
   it { expect(described_class).to respond_to(:translates) }
@@ -22,4 +24,61 @@ describe Eve::Faction do
   it { should have_many(:alliances).with_primary_key("faction_id") }
 
   it { should have_many(:standings) }
+
+  describe "#icon_tiny" do
+    subject do
+      build(:eve_faction,
+        faction_id: 500_001)
+    end
+
+    context "when Setting.use_image_proxy is true" do
+      before { Setting.use_image_proxy = true }
+
+      specify { expect(subject.icon_tiny).to eq("https://imageproxy.evemonk.com/https://images.evetech.net/corporations/500001/logo?size=32") }
+    end
+
+    context "when Setting.use_image_proxy is false" do
+      before { Setting.use_image_proxy = false }
+
+      specify { expect(subject.icon_tiny).to eq("https://images.evetech.net/corporations/500001/logo?size=32") }
+    end
+  end
+
+  describe "#icon_small" do
+    subject do
+      build(:eve_faction,
+        faction_id: 500_001)
+    end
+
+    context "when Setting.use_image_proxy is true" do
+      before { Setting.use_image_proxy = true }
+
+      specify { expect(subject.icon_small).to eq("https://imageproxy.evemonk.com/https://images.evetech.net/corporations/500001/logo?size=64") }
+    end
+
+    context "when Setting.use_image_proxy is false" do
+      before { Setting.use_image_proxy = false }
+
+      specify { expect(subject.icon_small).to eq("https://images.evetech.net/corporations/500001/logo?size=64") }
+    end
+  end
+
+  describe "#icon_medium" do
+    subject do
+      build(:eve_faction,
+        faction_id: 500_001)
+    end
+
+    context "when Setting.use_image_proxy is true" do
+      before { Setting.use_image_proxy = true }
+
+      specify { expect(subject.icon_medium).to eq("https://imageproxy.evemonk.com/https://images.evetech.net/corporations/500001/logo?size=128") }
+    end
+
+    context "when Setting.use_image_proxy is false" do
+      before { Setting.use_image_proxy = false }
+
+      specify { expect(subject.icon_medium).to eq("https://images.evetech.net/corporations/500001/logo?size=128") }
+    end
+  end
 end
