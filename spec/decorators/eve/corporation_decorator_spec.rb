@@ -3,11 +3,7 @@
 require "rails_helper"
 
 describe Eve::CorporationDecorator do
-  subject { described_class.new(double) }
-
-  it { should be_an(ApplicationDecorator) }
-
-  describe "#date_founded" do
+  xdescribe "#date_founded" do
     context "when date_founded is empty" do
       let(:eve_corporation) do
         build(:eve_corporation,
@@ -31,7 +27,7 @@ describe Eve::CorporationDecorator do
     end
   end
 
-  describe "#description" do
+  xdescribe "#description" do
     let(:eve_corporation) do
       build(:eve_corporation,
         description: "<b>Test</b>")
@@ -42,7 +38,7 @@ describe Eve::CorporationDecorator do
     specify { expect(subject.description).to eq("Test") }
   end
 
-  describe "#tax_rate" do
+  xdescribe "#tax_rate" do
     let(:eve_corporation) do
       build(:eve_corporation,
         tax_rate: 0.99)

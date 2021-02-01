@@ -3,11 +3,7 @@
 require "rails_helper"
 
 describe Eve::CharacterDecorator do
-  subject { described_class.new(double) }
-
-  it { should be_an(ApplicationDecorator) }
-
-  describe "#birthday" do
+  xdescribe "#birthday" do
     context "when birthday is present" do
       let(:eve_character) do
         build(:eve_character,
@@ -28,7 +24,7 @@ describe Eve::CharacterDecorator do
     end
   end
 
-  describe "#description" do
+  xdescribe "#description" do
     let(:eve_character) do
       build(:eve_character,
         description: "<b>Test</b>")
@@ -39,7 +35,7 @@ describe Eve::CharacterDecorator do
     specify { expect(subject.description).to eq("Test") }
   end
 
-  describe "#security_status" do
+  xdescribe "#security_status" do
     let(:eve_character) do
       build(:eve_character,
         security_status: 1.1234)

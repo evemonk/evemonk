@@ -1,10 +1,7 @@
 # frozen_string_literal: true
 
 module Eve
-  class CharacterDecorator < ApplicationDecorator
-    decorates_associations :alliance, :ancestry, :bloodline, :corporation,
-      :faction, :race, :character_corporation_histories
-
+  class CharacterDecorator
     def birthday
       object.birthday&.iso8601
     end

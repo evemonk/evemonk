@@ -1,18 +1,6 @@
 # frozen_string_literal: true
 
-class CharacterDecorator < ApplicationDecorator
-  include ActionView::Helpers::NumberHelper
-
-  decorates_associations :user, :race, :bloodline, :faction, :ancestry,
-    :alliance, :corporation, :current_ship_type, :current_solar_system,
-    :current_station, :etags, :loyalty_points, :character_assets,
-    :character_implants, :implants, :skillqueues, :character_skills,
-    :character_corporation_histories, :character_mail_labels, :standings,
-    :character_killmails, :wallet_journals, :wallet_transactions,
-    :character_blueprints, :industry_jobs, :character_orders,
-    :manufacturing_jobs, :factions_standings, :corporations_standings,
-    :agents_standings
-
+class CharacterDecorator
   def birthday
     object.birthday&.iso8601
   end
