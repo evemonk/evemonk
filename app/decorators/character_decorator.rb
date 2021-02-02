@@ -24,19 +24,4 @@ class CharacterDecorator
   def wallet
     object.wallet.to_i
   end
-
-  # def last_clone_jump_date_formatted
-  #   object.last_clone_jump_date&.strftime("%Y.%m.%d")
-  # end
-
-  # add_column :characters, :last_clone_jump_date, :datetime
-  # add_column :characters, :last_station_change_date, :datetime
-
-  # def neural_remap_available
-  #   if object.accrued_remap_cooldown_date&.past?
-  #     "Now"
-  #   else
-  #     object.accrued_remap_cooldown_date&.strftime("%b %d, %Y")
-  #   end
-  # end
 end
