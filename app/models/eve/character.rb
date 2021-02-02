@@ -65,5 +65,9 @@ module Eve
     def icon_gigantic
       "#{imageproxy_url}https://images.evetech.net/characters/#{character_id}/portrait?size=1024"
     end
+
+    def sanitized_description
+      Rails::Html::FullSanitizer.new.sanitize(description)
+    end
   end
 end

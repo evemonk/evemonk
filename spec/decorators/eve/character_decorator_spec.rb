@@ -24,17 +24,6 @@ describe Eve::CharacterDecorator do
     end
   end
 
-  xdescribe "#description" do
-    let(:eve_character) do
-      build(:eve_character,
-        description: "<b>Test</b>")
-    end
-
-    subject { eve_character.decorate }
-
-    specify { expect(subject.description).to eq("Test") }
-  end
-
   xdescribe "#security_status" do
     let(:eve_character) do
       build(:eve_character,
