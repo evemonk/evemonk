@@ -27,17 +27,6 @@ describe Eve::CorporationDecorator do
     end
   end
 
-  xdescribe "#description" do
-    let(:eve_corporation) do
-      build(:eve_corporation,
-        description: "<b>Test</b>")
-    end
-
-    subject { eve_corporation.decorate }
-
-    specify { expect(subject.description).to eq("Test") }
-  end
-
   xdescribe "#tax_rate" do
     let(:eve_corporation) do
       build(:eve_corporation,

@@ -209,4 +209,13 @@ describe Eve::Corporation do
       specify { expect(subject.formatted_member_count).to eq("111,222") }
     end
   end
+
+  describe "#sanitized_description" do
+    subject do
+      build(:eve_corporation,
+        description: "<b>Test</b>")
+    end
+
+    specify { expect(subject.description).to eq("Test") }
+  end
 end
