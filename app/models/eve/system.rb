@@ -34,5 +34,9 @@ module Eve
     has_one :position,
       as: :positionable,
       dependent: :destroy
+
+    def rounded_security_status
+      security_status.round(1)
+    end
   end
 end
