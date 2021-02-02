@@ -236,6 +236,6 @@ class Character < ApplicationRecord
   # end
 
   def sanitized_description
-    Rails::Html::FullSanitizer.new.sanitize(object.description)
+    Rails::Html::FullSanitizer.new.sanitize(description)
   end
 end
