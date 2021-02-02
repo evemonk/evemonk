@@ -24,17 +24,6 @@ describe CharacterDecorator do
     end
   end
 
-  xdescribe "#description" do
-    let(:character) do
-      build(:character,
-        description: "<b>Test</b>")
-    end
-
-    subject { character.decorate }
-
-    specify { expect(subject.description).to eq("Test") }
-  end
-
   xdescribe "#security_status" do
     context "when security status is missing" do
       let(:character) do

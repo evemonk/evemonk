@@ -234,4 +234,8 @@ class Character < ApplicationRecord
   #     object.accrued_remap_cooldown_date&.strftime("%b %d, %Y")
   #   end
   # end
+
+  def sanitized_description
+    Rails::Html::FullSanitizer.new.sanitize(object.description)
+  end
 end

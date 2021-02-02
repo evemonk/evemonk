@@ -558,4 +558,13 @@ describe Character do
       specify { expect(subject.birthday_formatted).to eq(nil) }
     end
   end
+
+  describe "#sanitized_description" do
+    subject do
+      build(:character,
+        description: "<b>Test</b>")
+    end
+
+    specify { expect(subject.sanitized_description).to eq("Test") }
+  end
 end
