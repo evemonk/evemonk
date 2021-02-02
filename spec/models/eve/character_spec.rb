@@ -162,4 +162,13 @@ describe Eve::Character do
 
     specify { expect(subject.sanitized_description).to eq("Test") }
   end
+
+  describe "#rounded_security_status" do
+    subject do
+      build(:eve_character,
+        security_status: 1.1234)
+    end
+
+    specify { expect(subject.rounded_security_status).to eq("1.1") }
+  end
 end

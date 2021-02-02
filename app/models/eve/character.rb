@@ -69,5 +69,9 @@ module Eve
     def sanitized_description
       Rails::Html::FullSanitizer.new.sanitize(description)
     end
+
+    def rounded_security_status
+      security_status&.round(1)
+    end
   end
 end
