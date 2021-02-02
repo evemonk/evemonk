@@ -32,6 +32,6 @@ class Standing < ApplicationRecord
   # end
 
   def rounded_standing
-    standing.round(1)
+    standing.round(1).to_s
   end
 end
