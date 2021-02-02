@@ -81,6 +81,8 @@ ARG COMMIT=""
 
 ENV COMMIT_SHA=${COMMIT}
 
+ENV LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libjemalloc.so.2
+
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 RUN curl -sL https://sentry.io/get-cli/ | bash
