@@ -107,7 +107,7 @@
           </li>
         <% end %>
         <li class="list-group-item text-break">
-          Security status: <%= @character.security_status %>
+          Security status: <%= @character.rounded_security_status %>
         </li>
         <li class="list-group-item text-break">
           Wallet: <%= @character.wallet_formatted %> ISK
@@ -115,7 +115,7 @@
       </ul>
       <p class="card-text text-center">
         <small class="text-muted">
-          Last updated <%= time_ago_in_words(@character.updated_at) %> ago
+          Last updated <span class="timeago" datetime="<%= @character.updated_at.iso8601 %>"></span>
         </small>
       </p>
     </div>

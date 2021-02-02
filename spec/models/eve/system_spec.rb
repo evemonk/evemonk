@@ -28,4 +28,18 @@ describe Eve::System do
   it { should have_many(:asteroid_belts).with_primary_key("system_id") }
 
   it { should have_one(:position).dependent(:destroy) }
+
+  describe "#rounded_security_status" do
+    context "when security status is 0.14" do
+      subject { build(:eve_system, security_status: 0.14) }
+
+      specify { expect(subject.rounded_security_status).to eq(0.1) }
+    end
+
+    context "when security status is 0.15" do
+      subject { build(:eve_system, security_status: 0.15) }
+
+      specify { expect(subject.rounded_security_status).to eq(0.2) }
+    end
+  end
 end

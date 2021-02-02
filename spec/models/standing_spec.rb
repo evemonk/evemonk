@@ -10,4 +10,10 @@ describe Standing do
   it { should belong_to(:character) }
 
   it { should belong_to(:standingable).optional(true) }
+
+  describe "#rounded_standing" do
+    subject { build(:standing, standing: 1.56789) }
+
+    specify { expect(subject.rounded_standing).to eq("1.6") }
+  end
 end

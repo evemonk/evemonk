@@ -153,4 +153,22 @@ describe Eve::Character do
       specify { expect(subject.icon_gigantic).to eq("https://images.evetech.net/characters/90729314/portrait?size=1024") }
     end
   end
+
+  describe "#sanitized_description" do
+    subject do
+      build(:eve_character,
+        description: "<b>Test</b>")
+    end
+
+    specify { expect(subject.sanitized_description).to eq("Test") }
+  end
+
+  describe "#rounded_security_status" do
+    subject do
+      build(:eve_character,
+        security_status: 1.1234)
+    end
+
+    specify { expect(subject.rounded_security_status).to eq("1.1") }
+  end
 end

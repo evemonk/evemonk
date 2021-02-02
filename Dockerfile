@@ -6,7 +6,7 @@ LABEL maintainer="Igor Zubkov <igor.zubkov@gmail.com>"
 RUN set -eux; \
     apt-get update -y ; \
     apt-get dist-upgrade -y ; \
-    apt-get install gnupg2 git gcc g++ make wget curl wait-for-it libpq-dev --no-install-recommends -y ; \
+    apt-get install gnupg2 git gcc g++ make wget curl wait-for-it libpq-dev libjemalloc2 --no-install-recommends -y ; \
     apt-get autoremove -y ; \
     apt-get clean -y ; \
     rm -rf /var/lib/apt/lists/*
@@ -80,6 +80,8 @@ RUN bundle exec rake SECRET_KEY_BASE=blablabla DATABASE_URL="postgres://postgres
 ARG COMMIT=""
 
 ENV COMMIT_SHA=${COMMIT}
+
+ENV LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libjemalloc.so.2
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 

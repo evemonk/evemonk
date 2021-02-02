@@ -12,5 +12,9 @@ module Eve
       class_name: "Eve::Icon",
       primary_key: "icon_id",
       optional: true
+
+    def sanitized_description
+      Rails::Html::FullSanitizer.new.sanitize(description)
+    end
   end
 end

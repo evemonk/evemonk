@@ -86,5 +86,9 @@ module Eve
     def formatted_member_count
       number_with_delimiter(member_count, delimiter: ",")
     end
+
+    def sanitized_description
+      Rails::Html::FullSanitizer.new.sanitize(description)
+    end
   end
 end

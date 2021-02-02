@@ -25,5 +25,9 @@ module Types
     def id
       object.character_id
     end
+
+    def description
+      object.sanitized_description
+    end
   end
 end

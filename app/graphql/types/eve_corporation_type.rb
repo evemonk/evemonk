@@ -37,5 +37,9 @@ module Types
     def url
       object.corporation_url
     end
+
+    def description
+      object.sanitized_description
+    end
   end
 end

@@ -118,7 +118,7 @@
           </li>
         <% end %>
         <li class="list-group-item text-break">
-          Security status: <%= @character.security_status %>
+          Security status: <%= @character.rounded_security_status %>
         </li>
         <li class="list-group-item text-break">
           Wallet: <%= @character.wallet_formatted %> ISK
@@ -157,7 +157,7 @@
             </div>
           </div>
           <div class="col-2 text-center m-auto">
-            <%= standing.standing %>
+            <%= standing.rounded_standing %>
           </div>
         </div>
       </div>

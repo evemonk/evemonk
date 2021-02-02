@@ -30,4 +30,8 @@ class Standing < ApplicationRecord
   #     .order("eve_agents.name": :asc)
   #     .includes(:standingable)
   # end
+
+  def rounded_standing
+    standing.round(1).to_s
+  end
 end

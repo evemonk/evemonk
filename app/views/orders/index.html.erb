@@ -122,7 +122,7 @@
           </li>
         <% end %>
         <li class="list-group-item text-break">
-          Security status: <%= @character.security_status %>
+          Security status: <%= @character.rounded_security_status %>
         </li>
         <li class="list-group-item text-break">
           Wallet: <%= @character.wallet_formatted %> ISK
@@ -171,8 +171,8 @@
                       <li><%= sell_order.type&.name %></li>
                     <% end %>
                     <% if sell_order.location.present? %>
-                      <% if sell_order.location.class == Eve::StationDecorator %>
-                        <li><%= sell_order.location.system&.security_status %> <%= sell_order.location.name %></li>
+                      <% if sell_order.location.class == Eve::Station %>
+                        <li><%= sell_order.location.system&.rounded_security_status %> <%= sell_order.location.name %></li>
                       <% end %>
                     <% end %>
                   </ul>

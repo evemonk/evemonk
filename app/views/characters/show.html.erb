@@ -137,7 +137,7 @@
           </li>
         <% end %>
         <li class="list-group-item text-break">
-          Security status: <%= @character.security_status %>
+          Security status: <%= @character.rounded_security_status %>
         </li>
         <li class="list-group-item text-break">
           Wallet: <%= @character.wallet_formatted %> ISK
@@ -161,7 +161,7 @@
       <ul class="list-group list-group-flush">
         <% if @character.current_solar_system %>
           <li class="list-group-item text-center">
-            System: <span class="text-success"><%= @character.current_solar_system.name %></span> (<%= @character.current_solar_system.security_status %>)
+            System: <span class="text-success"><%= @character.current_solar_system.name %></span> (<%= @character.current_solar_system.rounded_security_status %>)
           </li>
         <% end %>
 
@@ -227,7 +227,7 @@
               </button>
             </div>
             <div class="modal-body">
-              <%= @character.perception_attribute&.description %>
+              <%= @character.perception_attribute&.sanitized_description %>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -270,7 +270,7 @@
               </button>
             </div>
             <div class="modal-body">
-              <%= @character.memory_attribute&.description %>
+              <%= @character.memory_attribute&.sanitized_description %>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -313,7 +313,7 @@
               </button>
             </div>
             <div class="modal-body">
-              <%= @character.willpower_attribute&.description %>
+              <%= @character.willpower_attribute&.sanitized_description %>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -356,7 +356,7 @@
               </button>
             </div>
             <div class="modal-body">
-              <%= @character.intelligence_attribute&.description %>
+              <%= @character.intelligence_attribute&.sanitized_description %>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -399,7 +399,7 @@
               </button>
             </div>
             <div class="modal-body">
-              <%= @character.charisma_attribute&.description %>
+              <%= @character.charisma_attribute&.sanitized_description %>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

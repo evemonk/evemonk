@@ -118,7 +118,7 @@
           </li>
         <% end %>
         <li class="list-group-item text-break">
-          Security status: <%= @character.security_status %>
+          Security status: <%= @character.rounded_security_status %>
         </li>
         <li class="list-group-item text-break">
           Wallet: <%= @character.wallet_formatted %> ISK
@@ -147,7 +147,7 @@
                             loading: "lazy") %>
               </td>
             <td><%= standing.standingable.name %></td>
-            <td><%= standing.standing.to_s %></td>
+            <td><%= standing.rounded_standing %></td>
           </tr>
         <% end %>
       </tbody>
@@ -169,7 +169,7 @@
                             loading: "lazy") %>
             </td>
             <td><%= standing.standingable.name %></td>
-            <td><%= standing.standing.to_s %></td>
+            <td><%= standing.rounded_standing %></td>
           </tr>
         <% end %>
       </tbody>
@@ -184,7 +184,7 @@
         <% @character.agents_standings.each do |standing| %>
           <tr>
             <td><%= standing.standingable.name %></td>
-            <td><%= standing.standing.to_s %></td>
+            <td><%= standing.rounded_standing %></td>
           </tr>
         <% end %>
       </tbody>

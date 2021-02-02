@@ -558,4 +558,33 @@ describe Character do
       specify { expect(subject.birthday_formatted).to eq(nil) }
     end
   end
+
+  describe "#sanitized_description" do
+    subject do
+      build(:character,
+        description: "<b>Test</b>")
+    end
+
+    specify { expect(subject.sanitized_description).to eq("Test") }
+  end
+
+  describe "#rounded_security_status" do
+    context "when security status is missing" do
+      subject do
+        build(:character,
+          security_status: nil)
+      end
+
+      specify { expect(subject.rounded_security_status).to eq(nil) }
+    end
+
+    context "when security status is present" do
+      subject do
+        build(:character,
+          security_status: 1.1234)
+      end
+
+      specify { expect(subject.rounded_security_status).to eq("1.1") }
+    end
+  end
 end

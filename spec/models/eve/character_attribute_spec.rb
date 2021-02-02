@@ -14,4 +14,13 @@ describe Eve::CharacterAttribute do
   it { expect(described_class.table_name).to eq("eve_character_attributes") }
 
   it { should belong_to(:icon).class_name("Eve::Icon").with_primary_key("icon_id").optional(true) }
+
+  describe "#sanitized_description" do
+    subject do
+      build(:eve_character_attribute,
+        description: "<b>Test</b>")
+    end
+
+    specify { expect(subject.sanitized_description).to eq("Test") }
+  end
 end
