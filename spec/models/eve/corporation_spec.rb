@@ -216,6 +216,6 @@ describe Eve::Corporation do
         description: "<b>Test</b>")
     end
 
-    specify { expect(subject.description).to eq("Test") }
+    specify { expect(subject.sanitized_description).to eq("Test") }
   end
 end
