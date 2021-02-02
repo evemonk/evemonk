@@ -48,48 +48,6 @@ describe CharacterDecorator do
     end
   end
 
-  xdescribe "#last_remap_date" do
-    context "when last_remap_date is present" do
-      let(:character) do
-        build(:character,
-          last_remap_date: "Sun, 03 May 2015 19:45:17 UTC +00:00")
-      end
-
-      subject { character.decorate }
-
-      specify { expect(subject.last_remap_date).to eq("2015-05-03T19:45:17Z") }
-    end
-
-    context "when last_remap_date is empty" do
-      let(:character) { build(:character, last_remap_date: nil) }
-
-      subject { character.decorate }
-
-      specify { expect(subject.last_remap_date).to eq(nil) }
-    end
-  end
-
-  xdescribe "#accrued_remap_cooldown_date" do
-    context "when accrued_remap_cooldown_date is present" do
-      let(:character) do
-        build(:character,
-          accrued_remap_cooldown_date: "Sun, 03 May 2015 19:45:17 UTC +00:00")
-      end
-
-      subject { character.decorate }
-
-      specify { expect(subject.accrued_remap_cooldown_date).to eq("2015-05-03T19:45:17Z") }
-    end
-
-    context "when accrued_remap_cooldown_date is empty" do
-      let(:character) { build(:character, accrued_remap_cooldown_date: nil) }
-
-      subject { character.decorate }
-
-      specify { expect(subject.accrued_remap_cooldown_date).to eq(nil) }
-    end
-  end
-
   xdescribe "#wallet" do
     let(:character) do
       build(:character,
