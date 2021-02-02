@@ -161,7 +161,7 @@
       <ul class="list-group list-group-flush">
         <% if @character.current_solar_system %>
           <li class="list-group-item text-center">
-            System: <span class="text-success"><%= @character.current_solar_system.name %></span> (<%= @character.current_solar_system.security_status %>)
+            System: <span class="text-success"><%= @character.current_solar_system.name %></span> (<%= @character.current_solar_system.rounded_security_status %>)
           </li>
         <% end %>
 

@@ -16,7 +16,7 @@ module Locationable
   def location_formatted
     case location
     when Eve::Station
-      "#{location.name} (#{location.system.security_status})"
+      "#{location.name} (#{location.system.rounded_security_status})"
     end
   end
 end
