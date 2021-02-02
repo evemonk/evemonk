@@ -3,27 +3,6 @@
 require "rails_helper"
 
 describe CharacterDecorator do
-  xdescribe "#birthday" do
-    context "when birthday is present" do
-      let(:character) do
-        build(:character,
-          birthday: "Sun, 03 May 2015 19:45:17 UTC +00:00")
-      end
-
-      subject { character.decorate }
-
-      specify { expect(subject.birthday).to eq("2015-05-03T19:45:17Z") }
-    end
-
-    context "when birthday is empty" do
-      let(:character) { build(:character, birthday: nil) }
-
-      subject { character.decorate }
-
-      specify { expect(subject.birthday).to eq(nil) }
-    end
-  end
-
   xdescribe "#security_status" do
     context "when security status is missing" do
       let(:character) do
