@@ -27,6 +27,7 @@ jobs:
       - run: bundle config set clean 'true'
       - run: bundle config set path 'vendor/bundle'
       - run: bundle check || bundle install --jobs=2 --retry=5
+      - run: bundle clean
       - run: bundle exec bootsnap precompile --gemfile app/ lib/
       - save_cache:
           paths:
