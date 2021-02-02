@@ -6,7 +6,7 @@ LABEL maintainer="Igor Zubkov <igor.zubkov@gmail.com>"
 RUN set -eux; \
     apt-get update -y ; \
     apt-get dist-upgrade -y ; \
-    apt-get install gnupg2 git gcc g++ make wget curl wait-for-it libpq-dev --no-install-recommends -y ; \
+    apt-get install gnupg2 git gcc g++ make wget curl wait-for-it libpq-dev libjemalloc2 --no-install-recommends -y ; \
     apt-get autoremove -y ; \
     apt-get clean -y ; \
     rm -rf /var/lib/apt/lists/*
