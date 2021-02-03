@@ -44,7 +44,7 @@ ENV RAILS_LOG_TO_STDOUT true
 
 ENV RUBYGEMS_VERSION 3.2.8
 
-RUN gem update --system "$RUBYGEMS_VERSION" --silent
+RUN gem update --system "$RUBYGEMS_VERSION"
 
 ENV BUNDLER_VERSION 2.2.8
 
