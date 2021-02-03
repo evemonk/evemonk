@@ -169,6 +169,6 @@ describe Eve::Character do
         security_status: 1.1234)
     end
 
-    specify { expect(subject.rounded_security_status).to eq("1.1") }
+    specify { expect(subject.rounded_security_status).to eq(1.1) }
   end
 end
