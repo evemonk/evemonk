@@ -44,12 +44,16 @@ ENV RAILS_LOG_TO_STDOUT true
 
 ENV RUBYGEMS_VERSION 3.2.8
 
-RUN gem update --system "$RUBYGEMS_VERSION"
+RUN gem update --system "$RUBYGEMS_VERSION" --silent
 
 ENV BUNDLER_VERSION 2.2.8
 
 # skipcq: DOK-DL3028
 RUN gem install bundler --version "$BUNDLER_VERSION" --force
+
+RUN gem --version
+
+RUN bundle --version
 
 # throw errors if Gemfile has been modified since Gemfile.lock
 RUN bundle config set --global frozen 1
