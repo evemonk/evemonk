@@ -240,6 +240,6 @@ class Character < ApplicationRecord
   end
 
   def rounded_security_status
-    security_status&.round(1)&.to_s
+    security_status&.round(1)
   end
 end
