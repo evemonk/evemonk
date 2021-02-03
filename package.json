@@ -14,7 +14,6 @@
     "jquery": "^3.5.1",
     "popper.js": "^1.16.1",
     "stimulus": "^2.0.0",
-    "timeago.js": "^4.0.2",
     "turbolinks": "^5.2.0"
   },
   "version": "0.1.0",
