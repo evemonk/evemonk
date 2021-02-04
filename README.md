@@ -105,6 +105,7 @@ app.save!
 - [Security Headers](https://securityheaders.com/?q=https%3A%2F%2Fevemonk.com%2F&followRedirects=on)
 - [Content Security Policy - An Introduction](https://scotthelme.co.uk/content-security-policy-an-introduction/)
 - [CLI interface for HEAD snippets](https://github.com/hemanth/head-it)
+- [EStimator](https://estimator.dev/)
 
 ## Author
 
