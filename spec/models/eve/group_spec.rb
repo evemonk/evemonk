@@ -17,6 +17,8 @@ describe Eve::Group do
 
   it { should have_many(:types).with_primary_key("group_id").with_foreign_key("group_id") }
 
+  it { should have_many(:certificates).with_primary_key("group_id").with_foreign_key("group_id") }
+
   describe ".published" do
     let!(:eve_group1) { create(:eve_group, published: false) }
 

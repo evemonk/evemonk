@@ -8,4 +8,6 @@ describe Eve::Certificate do
   it { should respond_to(:versions) }
 
   it { expect(described_class.table_name).to eq("eve_certificates") }
+
+  it { should belong_to(:group).with_primary_key("group_id").optional(true) }
 end

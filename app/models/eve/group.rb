@@ -17,6 +17,10 @@ module Eve
       primary_key: "group_id",
       foreign_key: "group_id"
 
+    has_many :certificates,
+      primary_key: "group_id",
+      foreign_key: "group_id"
+
     scope :published, -> { where(published: true) }
   end
 end
