@@ -63,7 +63,7 @@
     </li>
   <% end %>
   <li class="nav-item">
-    <%= link_to("Blueprints", character_blueprints_path(@character.character_id), class: "nav-link active") %>
+    <%= link_to("Blueprints", character_blueprints_path(@character.character_id), class: "nav-link") %>
   </li>
   <% if Setting.enabled_character_orders %>
     <li class="nav-item">
@@ -72,6 +72,9 @@
   <% end %>
   <li class="nav-item">
     <%= link_to("Training Queue", character_training_queues_path(@character.character_id), class: "nav-link") %>
+  </li>
+  <li class="nav-item">
+    <%= link_to("Certificates", character_blueprints_path(@character.character_id), class: "nav-link active") %>
   </li>
 </ul>
 
