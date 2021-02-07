@@ -150,10 +150,6 @@ class Character < ApplicationRecord
     @charisma_attribute ||= Eve::CharacterAttribute.find_by(name_en: "Charisma")
   end
 
-  def skills_tree
-    @skills_tree ||= SkillsTree.new(self)
-  end
-
   def character_attributes
     @character_attributes ||= CharacterAttributes.new(self)
   end

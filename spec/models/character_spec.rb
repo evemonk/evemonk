@@ -294,26 +294,6 @@ describe Character do
     end
   end
 
-  describe "#skills_tree" do
-    context "when @skills_tree is set" do
-      let(:skills_tree) { instance_double(SkillsTree) }
-
-      before { subject.instance_variable_set(:@skills_tree, skills_tree) }
-
-      specify { expect(subject.skills_tree).to eq(skills_tree) }
-    end
-
-    context "when @skills_tree is not set" do
-      let(:skills_tree) { instance_double(SkillsTree) }
-
-      before { expect(SkillsTree).to receive(:new).with(subject).and_return(skills_tree) }
-
-      specify { expect(subject.skills_tree).to eq(skills_tree) }
-
-      specify { expect { subject.skills_tree }.to change { subject.instance_variable_get(:@skills_tree) }.from(nil).to(skills_tree) }
-    end
-  end
-
   describe "#character_skills_levels" do
     context "when @character_skills_levels is set" do
       let(:character_skills_levels) { instance_double(CharacterSkillsLevels) }
