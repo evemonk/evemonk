@@ -61,4 +61,26 @@ describe CertificatesTree do
       specify { expect(subject.groups).to eq(groups) }
     end
   end
+
+  describe "#certificates_in_group" do
+    let!(:eve_group1) { create(:eve_group) }
+
+    let!(:eve_group2) { create(:eve_group) }
+
+    let!(:eve_certificate1) { create(:eve_certificate, group_id: eve_group1.group_id) }
+
+    let!(:eve_certificate2) { create(:eve_certificate, group_id: eve_group1.group_id) }
+
+    let!(:eve_certificate3) { create(:eve_certificate, group_id: eve_group2.group_id) }
+
+    specify { expect(subject.certificates_in_group(eve_group1.group_id).size).to eq(2) }
+
+    specify { expect(subject.certificates_in_group(eve_group1.group_id)).to include(eve_certificate1) }
+
+    specify { expect(subject.certificates_in_group(eve_group1.group_id)).to include(eve_certificate2) }
+
+    specify { expect(subject.certificates_in_group(eve_group2.group_id).size).to eq(1) }
+
+    specify { expect(subject.certificates_in_group(eve_group2.group_id)).to include(eve_certificate3) }
+  end
 end
