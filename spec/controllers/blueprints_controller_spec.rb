@@ -21,7 +21,7 @@ describe BlueprintsController do
         #
         # current_user.characters
         #             .includes(:alliance, :corporation)
-        #             .find_by!(character_id: params[:character_id])
+        #             .find_by!(character_id: params[:character_id]) # => character
         #
         expect(subject).to receive(:current_user) do
           double.tap do |a|
@@ -50,7 +50,7 @@ describe BlueprintsController do
         end
       end
 
-      before { get :index, params: {character_id: "1", page: "2"} }
+      before { get :index, params: {character_id: "1"} }
 
       it { should respond_with(:ok) }
 

@@ -67,6 +67,8 @@ Rails.application.routes.draw do
     resources :orders, only: :index
 
     resources :training_queues, only: :index
+
+    resources :certificates, only: :index
   end
 
   resource :profile, only: :show
