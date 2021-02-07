@@ -14,17 +14,18 @@ Sentry.init({
 
 import Rails from "@rails/ujs";
 import Turbolinks from "turbolinks";
+import LocalTime from "local-time";
 import "channels";
 
 Rails.start();
 Turbolinks.start();
+LocalTime.start();
 
 import "bootstrap";
 
 import "../stylesheets/application";
 
 // import ApexCharts from "apexcharts";
-import * as timeago from "timeago.js";
 
 // window.ApexCharts = ApexCharts;
 window.$ = $;
@@ -38,14 +39,6 @@ window.$ = $;
 
 document.addEventListener("turbolinks:load", () => {
   $('[data-toggle="tooltip"]').tooltip();
-});
-
-document.addEventListener("turbolinks:load", () => {
-  const nodes = document.querySelectorAll(".timeago");
-
-  if (nodes.length > 0) {
-    timeago.render(nodes);
-  }
 });
 
 // import "controllers";
