@@ -128,8 +128,7 @@ group :test do
   gem "shoulda-callback-matchers", git: "https://github.com/just806me/shoulda-callback-matchers.git",
                                    branch: "master"
   gem "simplecov"
-  gem "database_rewinder", git: "https://github.com/JuanitoFatas/database_rewinder.git",
-                           branch: "rails62/db-config"
+  gem "database_cleaner-active_record"
   gem "webmock"
   gem "vcr"
 end
