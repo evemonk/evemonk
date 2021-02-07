@@ -22,4 +22,43 @@ describe CertificatesTree do
 
     specify { expect(subject.group_ids).to eq([1, 2, 3]) }
   end
+
+  describe "#groups" do
+    context "when @groups not set" do
+      let(:group_ids) { double }
+
+      before { expect(subject).to receive(:group_ids).and_return(group_ids) }
+
+      let(:groups) { double }
+
+      before do
+        #
+        # Eve::Group.published
+        #           .where(group_id: group_ids)
+        #           .order(:name_en) # => groups
+        #
+        expect(Eve::Group).to receive(:published) do
+          double.tap do |a|
+            expect(a).to receive(:where).with(group_id: group_ids) do
+              double.tap do |b|
+                expect(b).to receive(:order).with(:name_en).and_return(groups)
+              end
+            end
+          end
+        end
+      end
+
+      specify { expect { subject.groups }.not_to raise_error }
+
+      specify { expect { subject.groups }.to change { subject.instance_variable_get(:@groups) }.from(nil).to(groups) }
+    end
+
+    context "when @groups is set" do
+      let(:groups) { double }
+
+      before { subject.instance_variable_set(:@groups, groups) }
+
+      specify { expect(subject.groups).to eq(groups) }
+    end
+  end
 end
