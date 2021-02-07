@@ -138,10 +138,26 @@
   <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
     <h4 class="text-center text-break">Certificates</h4>
 
+    <div class="accordion" id="skills_tree_accordion">
+      <% @certificates_tree.groups.each do |group| %>
+        <div class="card">
+          <div class="card-header" id="heading_group_<%= group.group_id %>">
+            <h2 class="mb-0">
+              <button class="btn btn-link collapsed"
+                      type="button"
+                      data-toggle="collapse"
+                      data-target="#collapse_<%= group.group_id %>"
+                      aria-expanded="true"
+                      aria-controls="collapse_<%= group.group_id %>">
+                <!-- TODO: add icon -->
+                <%= group.name %>
+              </button>
+            </h2>
+          </div>
 
+          <!-- -->
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
-
-<% @certificates_tree.groups.each do |group| %>
-  <h1><%= group.name %></h1>
-<% end %>
