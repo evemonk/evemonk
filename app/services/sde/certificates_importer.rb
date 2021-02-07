@@ -19,6 +19,12 @@ module Sde
                                           group_id: hash["groupID"],
                                           name: hash["name"])
 
+        eve_certificate.certificate_recommended_types.destroy_all
+
+        hash["recommendedFor"]&.each do |recommended_type_id|
+          eve_certificate.certificate_recommended_types.build(type_id: recommended_type_id)
+        end
+
         eve_certificate.save!
       end
     end

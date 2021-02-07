@@ -7,5 +7,8 @@ module Eve
     belongs_to :group,
       primary_key: "group_id",
       optional: true
+
+    has_many :certificate_recommended_types,
+      dependent: :destroy
   end
 end
