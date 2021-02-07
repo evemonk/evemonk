@@ -373,6 +373,13 @@ ActiveRecord::Schema.define(version: 2021_02_11_132247) do
     t.index ["category_id"], name: "index_eve_categories_on_category_id", unique: true
   end
 
+  create_table "eve_certificate_recommended_types", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.bigint "certificate_id"
+    t.bigint "type_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "eve_certificates", force: :cascade do |t|
     t.bigint "certificate_id"
     t.text "description"
