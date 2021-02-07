@@ -130,7 +130,7 @@
       </ul>
       <p class="card-text text-center">
         <small class="text-muted">
-          Last updated <span class="timeago" datetime="<%= @character.updated_at.iso8601 %>"></span>
+          Last updated: <%= local_time_ago(@character.updated_at) %>
         </small>
       </p>
     </div>

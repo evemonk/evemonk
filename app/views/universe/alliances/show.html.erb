@@ -63,7 +63,7 @@
       </ul>
       <p class="card-text text-center">
         <small class="text-muted">
-          Last updated <%= time_ago_in_words(@alliance.updated_at) %> ago
+          Last updated: <%= local_time_ago(@alliance.updated_at) %>
         </small>
       </p>
     </div>

@@ -53,7 +53,7 @@
       </ul>
       <p class="card-text text-center">
         <small class="text-muted">
-          Last updated <%= time_ago_in_words(@corporation.updated_at) %> ago
+          Last updated: <%= local_time_ago(@corporation.updated_at) %>
         </small>
       </p>
     </div>
