@@ -74,12 +74,12 @@
     <%= link_to("Training Queue", character_training_queues_path(@character.character_id), class: "nav-link") %>
   </li>
   <li class="nav-item">
-    <%= link_to("Certificates", character_blueprints_path(@character.character_id), class: "nav-link active") %>
+    <%= link_to("Certificates", character_certificates_path(@character.character_id), class: "nav-link active") %>
   </li>
 </ul>
 
 <hr>
 
-<% @certificates_tree.each do |group| %>
+<% @certificates_tree.groups.each do |group| %>
   <h1><%= group.name %></h1>
 <% end %>
