@@ -1,11 +1,4 @@
 GIT
-  remote: https://github.com/JuanitoFatas/database_rewinder.git
-  revision: c37626191bf84aec90b39f1ffe058970fbc888b3
-  branch: rails62/db-config
-  specs:
-    database_rewinder (0.9.2)
-
-GIT
   remote: https://github.com/evemonk/eve_online.git
   revision: bdd53abc32ab939c619c233e1f6f753d1c95ba11
   branch: faraday-with-middlewares
@@ -166,6 +159,10 @@ GEM
       rexml
     crass (1.0.6)
     dalli (2.7.11)
+    database_cleaner-active_record (2.0.0)
+      activerecord (>= 5.a)
+      database_cleaner-core (~> 2.0.0)
+    database_cleaner-core (2.0.1)
     datetime_picker_rails (0.0.7)
       momentjs-rails (>= 2.8.1)
     dead_end (1.1.4)
@@ -732,7 +729,7 @@ DEPENDENCIES
   consistency_fail
   countries
   dalli
-  database_rewinder!
+  database_cleaner-active_record
   derailed_benchmarks
   devise
   devise-authy

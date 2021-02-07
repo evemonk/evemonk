@@ -15,12 +15,14 @@ describe SkillsController do
 
       before { expect(subject).to receive(:current_user_locale) }
 
+      let(:character) { instance_double(Character) }
+
       before do
         #
         # subject.current_user
         #        .characters
         #        .includes(:alliance, :corporation)
-        #        .find_by!(character_id: params[:character_id])
+        #        .find_by!(character_id: params[:character_id]) # => character
         #
         expect(subject).to receive(:current_user) do
           double.tap do |a|
@@ -28,7 +30,7 @@ describe SkillsController do
               double.tap do |b|
                 expect(b).to receive(:includes).with(:alliance, :corporation) do
                   double.tap do |c|
-                    expect(c).to receive(:find_by!).with(character_id: "1")
+                    expect(c).to receive(:find_by!).with(character_id: "1").and_return(character)
                   end
                 end
               end
@@ -36,6 +38,8 @@ describe SkillsController do
           end
         end
       end
+
+      before { expect(SkillsTree).to receive(:new).with(character) }
 
       before { get :index, params: {character_id: "1"} }
 

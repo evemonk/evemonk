@@ -136,7 +136,7 @@
     <h4 class="text-center text-break">Skills Tree</h4>
 
     <div class="accordion" id="skills_tree_accordion">
-      <% @character.skills_tree.groups.each do |group| %>
+      <% @skills_tree.groups.each do |group| %>
         <div class="card">
           <div class="card-header" id="heading_group_<%= group.group_id %>">
             <h2 class="mb-0">
@@ -147,7 +147,7 @@
                       aria-expanded="true"
                       aria-controls="collapse_<%= group.group_id %>">
                 <!-- TODO: add icon -->
-                <%= group.name %> (<%= @character.skills_tree.skills_count_in_group(group) %>)
+                <%= group.name %> (<%= @skills_tree.skills_count_in_group(group) %>)
               </button>
             </h2>
           </div>
@@ -158,10 +158,10 @@
                data-parent="#skills_tree_accordion">
             <div class="card-body">
               <div class="row">
-                Levels trained: <%= @character.skills_tree.levels_trained_in_group(group) %> / <%= @character.skills_tree.total_levels_in_group(group) %>
+                Levels trained: <%= @skills_tree.levels_trained_in_group(group) %> / <%= @skills_tree.total_levels_in_group(group) %>
               </div>
               <div class="row">
-                Levels in training queue: <%= @character.skills_tree.levels_in_training_queue(group) %>
+                Levels in training queue: <%= @skills_tree.levels_in_training_queue(group) %>
               </div>
               <div class="row">
                 Skill points: <%#= number_with_delimiter(@character.skills_tree.skill_points_in_group(group), delimiter: " ") %> / xxx xxx xxx

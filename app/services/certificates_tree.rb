@@ -16,4 +16,9 @@ class CertificatesTree
       .where(group_id: group_ids)
       .order(:name_en)
   end
+
+  def certificates_in_group(group_id)
+    Eve::Certificate.where(group_id: group_id)
+      .order(:name)
+  end
 end

@@ -5,11 +5,12 @@ namespace :factory_bot do
   task lint: :environment do
     if Rails.env.test?
       begin
-        DatabaseRewinder.clean_all
+        DatabaseCleaner.strategy = :deletion
+        DatabaseCleaner.clean
 
         FactoryBot.lint(traits: true)
       ensure
-        DatabaseRewinder.clean_all
+        DatabaseCleaner.clean
       end
     else
       system("bundle exec rails factory_bot:lint RAILS_ENV=test")
