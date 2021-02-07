@@ -40,7 +40,7 @@ describe CertificatesController do
 
       before { expect(CertificatesTree).to receive(:new).with(character) }
 
-      before { get :index, params: {character_id: "1", page: "2"} }
+      before { get :index, params: {character_id: "1"} }
 
       it { should respond_with(:ok) }
 
