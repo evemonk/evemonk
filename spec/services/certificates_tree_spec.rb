@@ -67,20 +67,18 @@ describe CertificatesTree do
 
     let!(:eve_group2) { create(:eve_group) }
 
-    let!(:eve_certificate1) { create(:eve_certificate, group_id: eve_group1.group_id) }
+    let!(:eve_certificate1) { create(:eve_certificate, name: "Armor Tanking", group_id: eve_group1.group_id) }
 
-    let!(:eve_certificate2) { create(:eve_certificate, group_id: eve_group1.group_id) }
+    let!(:eve_certificate2) { create(:eve_certificate, name: "Capital Armor Tanking", group_id: eve_group1.group_id) }
 
-    let!(:eve_certificate3) { create(:eve_certificate, group_id: eve_group2.group_id) }
+    let!(:eve_certificate3) { create(:eve_certificate, name: "Corporation Management", group_id: eve_group2.group_id) }
 
     specify { expect(subject.certificates_in_group(eve_group1.group_id).size).to eq(2) }
 
-    specify { expect(subject.certificates_in_group(eve_group1.group_id)).to include(eve_certificate1) }
-
-    specify { expect(subject.certificates_in_group(eve_group1.group_id)).to include(eve_certificate2) }
+    specify { expect(subject.certificates_in_group(eve_group1.group_id)).to eq([eve_certificate1, eve_certificate2]) }
 
     specify { expect(subject.certificates_in_group(eve_group2.group_id).size).to eq(1) }
 
-    specify { expect(subject.certificates_in_group(eve_group2.group_id)).to include(eve_certificate3) }
+    specify { expect(subject.certificates_in_group(eve_group2.group_id)).to eq([eve_certificate3]) }
   end
 end
