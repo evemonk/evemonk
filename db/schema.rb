@@ -380,6 +380,14 @@ ActiveRecord::Schema.define(version: 2021_02_11_132247) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "eve_certificate_skills", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.bigint "certificate_id"
+    t.bigint "skill_id"
+    t.integer "level"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "eve_certificates", force: :cascade do |t|
     t.bigint "certificate_id"
     t.text "description"
