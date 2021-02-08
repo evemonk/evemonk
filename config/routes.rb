@@ -83,16 +83,6 @@ Rails.application.routes.draw do
     end
   end
 
-  namespace :api, defaults: {format: "json"} do
-    namespace :eve do
-      resources :types, only: [:index, :show]
-
-      resources :blueprints, only: :index
-
-      resources :manufacturing_items, only: :index
-    end
-  end
-
   namespace :admin do
     namespace :eve do
       resources :alliances, only: [:index, :show]
