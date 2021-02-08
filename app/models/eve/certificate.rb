@@ -10,5 +10,8 @@ module Eve
 
     has_many :certificate_recommended_types,
       dependent: :destroy
+
+    has_many :certificate_skills,
+      dependent: :destroy
   end
 end

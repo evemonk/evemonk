@@ -12,4 +12,6 @@ describe Eve::Certificate do
   it { should belong_to(:group).with_primary_key("group_id").optional(true) }
 
   it { should have_many(:certificate_recommended_types).dependent(:destroy) }
+
+  it { should have_many(:certificate_skills).dependent(:destroy) }
 end
