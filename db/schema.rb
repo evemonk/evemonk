@@ -384,6 +384,7 @@ ActiveRecord::Schema.define(version: 2021_02_11_132247) do
     t.bigint "certificate_id"
     t.bigint "skill_id"
     t.integer "level"
+    t.integer "skill_level"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

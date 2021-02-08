@@ -6,6 +6,7 @@ class CreateEveCertificateSkills < ActiveRecord::Migration[6.1]
       t.bigint :certificate_id
       t.bigint :skill_id
       t.integer :level
+      t.integer :skill_level
 
       t.timestamps
     end
