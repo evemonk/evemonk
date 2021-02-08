@@ -28,7 +28,8 @@ describe Sde::CertificatesImporter do
       {
         "description" => description,
         "groupID" => group_id,
-        "name" => name
+        "name" => name,
+        "recommendedFor" => [123_456]
       }
     end
 
@@ -47,6 +48,17 @@ describe Sde::CertificatesImporter do
       expect(eve_certificate).to receive(:certificate_recommended_types) do
         double.tap do |a|
           expect(a).to receive(:destroy_all)
+        end
+      end
+    end
+
+    before do
+      #
+      # eve_certificate.certificate_recommended_types.build(type_id: recommended_type_id)
+      #
+      expect(eve_certificate).to receive(:certificate_recommended_types) do
+        double.tap do |a|
+          expect(a).to receive(:build).with(type_id: 123_456)
         end
       end
     end
