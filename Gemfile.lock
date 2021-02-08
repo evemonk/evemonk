@@ -637,7 +637,7 @@ GEM
     standard (0.12.0)
       rubocop (= 1.8.1)
       rubocop-performance (= 1.9.2)
-    super_diff (0.5.3)
+    super_diff (0.6.0)
       attr_extras (>= 6.2.4)
       diff-lcs
       patience_diff
