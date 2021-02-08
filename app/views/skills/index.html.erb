@@ -164,7 +164,7 @@
                 Levels in training queue: <%= @skills_tree.levels_in_training_queue(group) %>
               </div>
               <div class="row">
-                Skill points: <%#= number_with_delimiter(@character.skills_tree.skill_points_in_group(group), delimiter: " ") %> / xxx xxx xxx
+                Skill points: <%= number_with_delimiter(@skills_tree.current_skill_points_in_group(group), delimiter: " ") %> / xxx xxx xxx
               </div>
               <div class="row">
                 Certificates claimed: xx / xx
