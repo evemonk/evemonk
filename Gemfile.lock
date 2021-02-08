@@ -781,7 +781,6 @@ DEPENDENCIES
   rails-pg-extras
   rails-settings-cached
   rails_best_practices
-  responders
   rpush
   rspec-its
   rspec-rails

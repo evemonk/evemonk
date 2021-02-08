@@ -48,7 +48,6 @@ gem "rpush"
 gem "pghero"
 gem "pg_query"
 # gem "rubycritic", require: false
-gem "responders"
 gem "rack-health"
 gem "sitemap_generator"
 gem "searchkick"
