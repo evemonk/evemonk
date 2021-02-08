@@ -41,6 +41,17 @@ describe Sde::CertificatesImporter do
     before { expect(Eve::Certificate).to receive(:find_or_initialize_by).with(certificate_id: key).and_return(eve_certificate) }
 
     before do
+      #
+      # eve_certificate.certificate_recommended_types.destroy_all
+      #
+      expect(eve_certificate).to receive(:certificate_recommended_types) do
+        double.tap do |a|
+          expect(a).to receive(:destroy_all)
+        end
+      end
+    end
+
+    before do
       expect(eve_certificate).to receive(:assign_attributes).with(description: description,
                                                                   group_id: group_id,
                                                                   name: name)
