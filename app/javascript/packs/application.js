@@ -7,9 +7,21 @@
 
 // When using npm, import Sentry
 import * as Sentry from "@sentry/browser";
+import { Integrations } from "@sentry/tracing";
 
 Sentry.init({
   dsn: "https://185a236f4b994411a9f33c3c714cb34e@sentry.io/1424888",
+
+  // To set your release version
+  release: "evemonk-frontend@0.4.9", // FIXME: use EVEMONK_VERSION for this
+  integrations: [new Integrations.BrowserTracing()],
+
+  // Set tracesSampleRate to 1.0 to capture 100%
+  // of transactions for performance monitoring.
+  // We recommend adjusting this value in production
+  tracesSampleRate: 1.0,
+
+  sendDefaultPii: true
 });
 
 import Rails from "@rails/ujs";
