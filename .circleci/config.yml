@@ -37,7 +37,7 @@ jobs:
           key: ruby-{{ checksum ".ruby-version" }}-v1-dependencies-{{ checksum "Gemfile.lock" }}
       - run: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run: dockerize -wait tcp://localhost:9200 -timeout 2m
-      - run: sudo npm install -g npm@7.5.2
+      - run: sudo npm install -g npm@7.5.3
       - run: sudo npm install --force -g yarn@1.22.10
       - run: node -v
       - run: npm -v
