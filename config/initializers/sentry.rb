@@ -2,9 +2,11 @@
 
 Sentry.init do |config|
   config.dsn = ENV["SENTRY_DSN"]
-  config.enabled_environments = "production"
+  config.enabled_environments = ["production"]
   config.breadcrumbs_logger = [:active_support_logger]
-  config.traces_sample_rate = 0.1
+  config.traces_sample_rate = 1.0
+  config.send_default_pii = true
+  config.release = "evemonk-backend@#{EVEMONK_VERSION}"
   config.async = lambda { |event, hint| SentryJob.perform_later(event, hint) }
   config.excluded_exceptions += ["EveOnline::Exceptions::InternalServerError",
     "EveOnline::Exceptions::BadGateway",

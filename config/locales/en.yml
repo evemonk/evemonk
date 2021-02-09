@@ -50,3 +50,7 @@ en:
     seconds:
       one: "%{count} second "
       other: "%{count} seconds "
+  welcome:
+    index:
+      alliances: "<u>A</u>lliances"
+      corporations: "<u>C</u>orporations"
