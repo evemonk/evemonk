@@ -15,6 +15,7 @@ Sentry.init({
 import Rails from "@rails/ujs";
 import Turbolinks from "turbolinks";
 import LocalTime from "local-time";
+import { install } from "@github/hotkey";
 import "channels";
 
 Rails.start();
@@ -39,6 +40,11 @@ window.$ = $;
 
 document.addEventListener("turbolinks:load", () => {
   $('[data-toggle="tooltip"]').tooltip();
+
+  // Install all the hotkeys on the page
+  for (const el of document.querySelectorAll('[data-hotkey]')) {
+    install(el);
+  }
 });
 
 // import "controllers";
