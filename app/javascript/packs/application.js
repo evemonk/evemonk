@@ -21,7 +21,7 @@ Sentry.init({
   // We recommend adjusting this value in production
   tracesSampleRate: 1.0,
 
-  sendDefaultPii: true
+  sendDefaultPii: true,
 });
 
 import Rails from "@rails/ujs";
@@ -54,7 +54,7 @@ document.addEventListener("turbolinks:load", () => {
   $('[data-toggle="tooltip"]').tooltip();
 
   // Install all the hotkeys on the page
-  for (const el of document.querySelectorAll('[data-hotkey]')) {
+  for (const el of document.querySelectorAll("[data-hotkey]")) {
     install(el);
   }
 });
