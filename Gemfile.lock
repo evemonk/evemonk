@@ -685,7 +685,7 @@ GEM
     yabeda (0.8.0)
       concurrent-ruby
       dry-initializer
-    yabeda-graphql (0.2.0)
+    yabeda-graphql (0.2.1)
       graphql (~> 1.9)
       yabeda (~> 0.2)
     yabeda-prometheus (0.6.1)
