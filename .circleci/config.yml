@@ -22,8 +22,8 @@ jobs:
           keys:
             - ruby-{{ checksum ".ruby-version" }}-v1-dependencies-{{ checksum "Gemfile.lock" }}
             - ruby-{{ checksum ".ruby-version" }}-v1-dependencies-
-      - run: sudo gem update --system '3.2.8'
-      - run: gem install bundler -v '2.2.8'
+      - run: sudo gem update --system '3.2.9'
+      - run: gem install bundler -v '2.2.9'
       - run: gem --version
       - run: bundle --version
       - run: bundle config set clean 'true'
