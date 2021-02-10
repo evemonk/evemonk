@@ -261,7 +261,7 @@ GEM
       railties
       sprockets-rails
     graphql (1.12.4)
-    graphql-rails_logger (1.2.2)
+    graphql-rails_logger (1.2.3)
       actionpack (> 5.0)
       activesupport (> 5.0)
       railties (> 5.0)
