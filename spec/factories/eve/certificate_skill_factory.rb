@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :eve_certificate_skill, class: Eve::CertificateSkill do
-    eve_certificate
+    sequence(:certificate_id)
 
     sequence(:skill_id)
 
