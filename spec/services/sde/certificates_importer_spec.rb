@@ -7,6 +7,12 @@ describe Sde::CertificatesImporter do
 
   subject { described_class.new(file) }
 
+  specify { expect(described_class::LEVELS).to eq("basic" => 1,
+                                                  "standard" => 2,
+                                                  "improved" => 3,
+                                                  "advanced" => 4,
+                                                  "elite" => 5) }
+
   describe "#initialize" do
     its(:file) { should eq(file) }
   end
@@ -67,6 +73,17 @@ describe Sde::CertificatesImporter do
       expect(eve_certificate).to receive(:assign_attributes).with(description: description,
                                                                   group_id: group_id,
                                                                   name: name)
+    end
+
+    before do
+      #
+      # eve_certificate.certificate_skills.destroy_all
+      #
+      expect(eve_certificate).to receive(:certificate_skills) do
+        double.tap do |a|
+          expect(a).to receive(:destroy_all)
+        end
+      end
     end
 
     before { expect(eve_certificate).to receive(:save!) }
