@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :eve_certificate_recommended_type, class: Eve::CertificateRecommendedType do
-    sequence(:certificate_id)
+    certificate factory: :eve_certificate
 
     sequence(:type_id)
   end
