@@ -7,11 +7,13 @@ describe Sde::CertificatesImporter do
 
   subject { described_class.new(file) }
 
-  specify { expect(described_class::LEVELS).to eq("basic" => 1,
-                                                  "standard" => 2,
-                                                  "improved" => 3,
-                                                  "advanced" => 4,
-                                                  "elite" => 5) }
+  specify do
+    expect(described_class::LEVELS).to eq("basic" => 1,
+                                          "standard" => 2,
+                                          "improved" => 3,
+                                          "advanced" => 4,
+                                          "elite" => 5)
+  end
 
   describe "#initialize" do
     its(:file) { should eq(file) }
