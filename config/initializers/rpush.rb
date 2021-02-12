@@ -22,10 +22,15 @@ Rpush.configure do |config|
   # Path to log file. Relative to current directory unless absolute.
   config.log_file = "log/rpush.log"
 
+  # config.log_level = (defined?(Rails) && Rails.logger) ? Rails.logger.level : ::Logger::Severity::INFO
   config.log_level = Rails.logger.level
 
   # Define a custom logger.
   # config.logger = MyLogger.new
+
+  # By default in foreground mode logs are directed both to the logger and to stdout.
+  # If the logger goes to stdout, you can disable foreground logging to avoid duplication.
+  # config.foreground_logging = false
 
   # config.apns.feedback_receiver.enabled = true
   # config.apns.feedback_receiver.frequency = 60
