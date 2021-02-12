@@ -1,11 +1,11 @@
 # EveMonk back-end and web front-end
 
-[![CircleCI](https://circleci.com/gh/evemonk/evemonk/tree/master.svg?style=svg)](https://circleci.com/gh/evemonk/evemonk/tree/master)
+[![CircleCI](https://circleci.com/gh/evemonk/evemonk/tree/main.svg?style=svg)](https://circleci.com/gh/evemonk/evemonk/tree/main)
 [![Known Vulnerabilities](https://snyk.io/test/github/evemonk/evemonk/badge.svg)](https://snyk.io/test/github/evemonk/evemonk)
-[![security](https://hakiri.io/github/evemonk/evemonk/master.svg)](https://hakiri.io/github/evemonk/evemonk/master)
+[![security](https://hakiri.io/github/evemonk/evemonk/main.svg)](https://hakiri.io/github/evemonk/evemonk/main)
 [![](https://images.microbadger.com/badges/image/biow0lf/evemonk.svg)](https://microbadger.com/images/biow0lf/evemonk)
 [![DeepSource](https://static.deepsource.io/deepsource-badge-light-mini.svg)](https://deepsource.io/gh/evemonk/evemonk/?ref=repository-badge)
-[![codecov](https://codecov.io/gh/evemonk/evemonk/branch/master/graph/badge.svg)](https://codecov.io/gh/evemonk/evemonk)
+[![codecov](https://codecov.io/gh/evemonk/evemonk/branch/main/graph/badge.svg)](https://codecov.io/gh/evemonk/evemonk)
 [![Ruby Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://github.com/testdouble/standard)
 
 EveMonk is helper software for EVE Online.
