@@ -126,9 +126,6 @@ GEM
     bundler-audit (0.7.0.1)
       bundler (>= 1.2.0, < 3)
       thor (>= 0.18, < 2)
-    bundler-leak (0.2.0)
-      bundler (>= 1.2.0, < 3)
-      thor (>= 0.18, < 2)
     cacheflow (0.1.1)
       activesupport
     capybara (3.35.3)
@@ -716,7 +713,6 @@ DEPENDENCIES
   bootsnap (>= 1.4.4)
   brakeman
   bundler-audit
-  bundler-leak
   cacheflow
   capybara (>= 3.26)
   codecov
