@@ -21,8 +21,4 @@ class CertificatesTree
     Eve::Certificate.where(group_id: group_id)
       .order(:name)
   end
-
-  def certification_level(certificate)
-
-  end
 end
