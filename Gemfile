@@ -85,7 +85,6 @@ group :development, :test do
   gem "faker"
   gem "sql_tracker"
   gem "bundler-audit", require: false
-  gem "bundler-leak", require: false
   gem "rubocop", require: false
   gem "standard", require: false
   gem "squasher", require: false
