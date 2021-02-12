@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rpush.configure do |config|
   # Supported clients are :active_record and :redis
   config.client = :active_record
@@ -20,7 +22,8 @@ Rpush.configure do |config|
   # Path to log file. Relative to current directory unless absolute.
   config.log_file = "log/rpush.log"
 
-  config.log_level = defined?(Rails) && Rails.logger ? Rails.logger.level : ::Logger::Severity::INFO
+  # config.log_level = (defined?(Rails) && Rails.logger) ? Rails.logger.level : ::Logger::Severity::INFO
+  config.log_level = Rails.logger.level
 
   # Define a custom logger.
   # config.logger = MyLogger.new
