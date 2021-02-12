@@ -32,13 +32,13 @@ module Sde
 
         eve_certificate.certificate_skills.destroy_all
 
-        # hash["skillTypes"]&.each_pair do |skill_id, skill_hash|
-        #   skill_hash.each do |key, value|
-        #     eve_certificate.certificate_skills.build(skill_id: skill_id,
-        #                                              level: LEVELS.fetch(key),
-        #                                              skill_level: value)
-        #   end
-        # end
+        hash["skillTypes"]&.each_pair do |skill_id, skill_hash|
+          skill_hash.each do |key, value|
+            eve_certificate.certificate_skills.build(skill_id: skill_id,
+                                                     level: LEVELS.fetch(key),
+                                                     skill_level: value)
+          end
+        end
 
         eve_certificate.save!
       end

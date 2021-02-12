@@ -32,12 +32,23 @@ describe Sde::CertificatesImporter do
 
     let(:name) { double }
 
+    let(:skill_id) { 123 }
+
+    let(:level) { "advanced" }
+
+    let(:skill_level) { 5 }
+
     let(:entry) do
       {
         "description" => description,
         "groupID" => group_id,
         "name" => name,
-        "recommendedFor" => [123_456]
+        "recommendedFor" => [123_456],
+        "skillTypes" => {
+          skill_id => {
+            level => skill_level
+          }
+        }
       }
     end
 
@@ -84,6 +95,21 @@ describe Sde::CertificatesImporter do
       expect(eve_certificate).to receive(:certificate_skills) do
         double.tap do |a|
           expect(a).to receive(:destroy_all)
+        end
+      end
+    end
+
+    before do
+      #
+      # eve_certificate.certificate_skills.build(skill_id: skill_id,
+      #                                          level: LEVELS.fetch(key),
+      #                                          skill_level: value)
+      #
+      expect(eve_certificate).to receive(:certificate_skills) do
+        double.tap do |a|
+          expect(a).to receive(:build).with(skill_id: skill_id,
+                                            level: described_class::LEVELS.fetch(level),
+                                            skill_level: skill_level)
         end
       end
     end
