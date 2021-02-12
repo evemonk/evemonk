@@ -667,6 +667,7 @@ GEM
     webpush (1.1.0)
       hkdf (~> 0.2)
       jwt (~> 2.0)
+    webrick (1.7.0)
     websocket-driver (0.7.3)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
@@ -807,6 +808,7 @@ DEPENDENCIES
   webdrivers
   webmock
   webpacker (~> 5.0)
+  webrick
   yabeda-graphql
   yabeda-prometheus
   yabeda-puma-plugin
