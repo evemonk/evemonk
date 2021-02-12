@@ -1,6 +1,5 @@
-# frozen_string_literal: true
-
 Rpush.configure do |config|
+
   # Supported clients are :active_record and :redis
   config.client = :active_record
 
@@ -17,21 +16,27 @@ Rpush.configure do |config|
   config.batch_size = 100
 
   # Path to write PID file. Relative to current directory unless absolute.
-  config.pid_file = "tmp/rpush.pid"
+  config.pid_file = 'tmp/rpush.pid'
 
   # Path to log file. Relative to current directory unless absolute.
-  config.log_file = "log/rpush.log"
+  config.log_file = 'log/rpush.log'
 
-  config.log_level = Rails.logger.level
+  config.log_level = (defined?(Rails) && Rails.logger) ? Rails.logger.level : ::Logger::Severity::INFO
 
   # Define a custom logger.
   # config.logger = MyLogger.new
 
+  # By default in foreground mode logs are directed both to the logger and to stdout.
+  # If the logger goes to stdout, you can disable foreground logging to avoid duplication.
+  # config.foreground_logging = false
+
   # config.apns.feedback_receiver.enabled = true
   # config.apns.feedback_receiver.frequency = 60
+
 end
 
 Rpush.reflect do |on|
+
   # Called with a Rpush::Apns::Feedback instance when feedback is received
   # from the APNs that a notification has failed to be delivered.
   # Further notifications should not be sent to the device.
