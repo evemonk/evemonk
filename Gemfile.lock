@@ -352,7 +352,7 @@ GEM
     mixlib-cli (2.1.8)
     mixlib-config (3.0.9)
       tomlrb
-    mixlib-shellout (3.2.2)
+    mixlib-shellout (3.2.5)
       chef-utils
     mobility (1.1.0)
       i18n (>= 0.6.10, < 2)
