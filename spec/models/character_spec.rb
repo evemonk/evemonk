@@ -57,6 +57,8 @@ describe Character do
 
   it { should have_many(:character_blueprints).dependent(:destroy) }
 
+  it { should have_many(:events).dependent(:destroy) }
+
   it { should have_many(:industry_jobs).dependent(:destroy) }
 
   it { should have_many(:character_orders).dependent(:destroy) }

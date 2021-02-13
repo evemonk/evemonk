@@ -92,6 +92,8 @@ class Character < ApplicationRecord
 
   has_many :character_blueprints, dependent: :destroy
 
+  has_many :events, dependent: :destroy
+
   has_many :industry_jobs, dependent: :destroy
 
   has_many :character_orders, dependent: :destroy
