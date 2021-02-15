@@ -50,8 +50,8 @@ All screenshots are real and made in Safari on latest macOS Catalina (10.15.3).
 - [asdf](https://github.com/asdf-vm/asdf)
 - [asdf-nodejs](https://github.com/asdf-vm/asdf-nodejs)
 - Ruby 3.0.0
-- RubyGems 3.2.9
-- Bundler 2.2.9
+- RubyGems 3.2.10
+- Bundler 2.2.10
 - Ruby on Rails 6.1.1
 - PostgreSQL 13.2
 - Redis 6.0.9
