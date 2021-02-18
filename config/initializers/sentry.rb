@@ -5,7 +5,6 @@ if Rails.env.production?
     config.dsn = ENV["SENTRY_DSN"]
     config.enabled_environments = ["production"]
     config.breadcrumbs_logger = [:active_support_logger]
-    config.release = "evemonk-backend@#{EVEMONK_VERSION}"
     config.async = lambda { |event, hint| SentryJob.perform_later(event, hint) }
     config.excluded_exceptions += ["EveOnline::Exceptions::InternalServerError",
       "EveOnline::Exceptions::BadGateway",

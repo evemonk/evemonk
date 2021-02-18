@@ -7,9 +7,6 @@ import * as Sentry from "@sentry/browser";
 
 Sentry.init({
   dsn: "https://185a236f4b994411a9f33c3c714cb34e@sentry.io/1424888",
-
-  // To set your release version
-  release: "evemonk-frontend@0.4.9", // FIXME: use EVEMONK_VERSION for this
 });
 
 import Rails from "@rails/ujs";
