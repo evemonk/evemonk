@@ -4,6 +4,8 @@ class CharacterBlueprint < ApplicationRecord
   include Locationable
   include ImageProxy
 
+  RELIC_CATEGORY_ID = 34
+
   belongs_to :character
 
   belongs_to :blueprint,
@@ -24,6 +26,10 @@ class CharacterBlueprint < ApplicationRecord
 
   def stacked?
     quantity.positive?
+  end
+
+  def relic?
+    blueprint&.group&.category_id == RELIC_CATEGORY_ID
   end
 
   def material_efficiency_formatted
@@ -47,7 +53,9 @@ class CharacterBlueprint < ApplicationRecord
   end
 
   def icon_tiny
-    if stacked? || bpo?
+    if relic?
+      "#{imageproxy_url}https://images.evetech.net/types/#{type_id}/relic?size=32"
+    elsif stacked? || bpo?
       "#{imageproxy_url}https://images.evetech.net/types/#{type_id}/bp?size=32"
     elsif bpc?
       "#{imageproxy_url}https://images.evetech.net/types/#{type_id}/bpc?size=32"
@@ -55,7 +63,9 @@ class CharacterBlueprint < ApplicationRecord
   end
 
   def icon_small
-    if stacked? || bpo?
+    if relic?
+      "#{imageproxy_url}https://images.evetech.net/types/#{type_id}/relic?size=64"
+    elsif stacked? || bpo?
       "#{imageproxy_url}https://images.evetech.net/types/#{type_id}/bp?size=64"
     elsif bpc?
       "#{imageproxy_url}https://images.evetech.net/types/#{type_id}/bpc?size=64"

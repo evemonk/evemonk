@@ -7,7 +7,7 @@ class BlueprintsController < ApplicationController
       .find_by!(character_id: params[:character_id])
 
     @character_blueprints = @character.character_blueprints
-      .includes(:blueprint)
+      .includes(blueprint: :group)
   end
 
   def show
