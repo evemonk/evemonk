@@ -276,13 +276,13 @@ describe CharacterBlueprint do
       context "when Setting.use_image_proxy is true" do
         before { Setting.use_image_proxy = true }
 
-        specify { expect(subject.icon_tiny).to eq("https://imageproxy.evemonk.com/https://images.evetech.net/types/804/relic?size=64") }
+        specify { expect(subject.icon_small).to eq("https://imageproxy.evemonk.com/https://images.evetech.net/types/804/relic?size=64") }
       end
 
       context "when Setting.use_image_proxy is false" do
         before { Setting.use_image_proxy = false }
 
-        specify { expect(subject.icon_tiny).to eq("https://images.evetech.net/types/804/relic?size=64") }
+        specify { expect(subject.icon_small).to eq("https://images.evetech.net/types/804/relic?size=64") }
       end
     end
 
