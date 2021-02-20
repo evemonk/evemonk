@@ -176,12 +176,35 @@ describe CharacterBlueprint do
   end
 
   describe "#icon_tiny" do
+    context "when relic" do
+      subject do
+        build(:character_blueprint,
+          type_id: 804)
+      end
+
+      before { expect(subject).to receive(:relic?).and_return(true) }
+
+      context "when Setting.use_image_proxy is true" do
+        before { Setting.use_image_proxy = true }
+
+        specify { expect(subject.icon_tiny).to eq("https://imageproxy.evemonk.com/https://images.evetech.net/types/804/relic?size=32") }
+      end
+
+      context "when Setting.use_image_proxy is false" do
+        before { Setting.use_image_proxy = false }
+
+        specify { expect(subject.icon_tiny).to eq("https://images.evetech.net/types/804/relic?size=32") }
+      end
+    end
+
     context "when stacked" do
       subject do
         build(:character_blueprint,
           quantity: 10,
           type_id: 804)
       end
+
+      before { expect(subject).to receive(:relic?).and_return(false) }
 
       context "when Setting.use_image_proxy is true" do
         before { Setting.use_image_proxy = true }
@@ -203,6 +226,8 @@ describe CharacterBlueprint do
           type_id: 804)
       end
 
+      before { expect(subject).to receive(:relic?).and_return(false) }
+
       context "when Setting.use_image_proxy is true" do
         before { Setting.use_image_proxy = true }
 
@@ -222,6 +247,8 @@ describe CharacterBlueprint do
           quantity: -2,
           type_id: 804)
       end
+
+      before { expect(subject).to receive(:relic?).and_return(false) }
 
       context "when Setting.use_image_proxy is true" do
         before { Setting.use_image_proxy = true }
