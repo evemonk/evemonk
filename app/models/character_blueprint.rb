@@ -28,9 +28,9 @@ class CharacterBlueprint < ApplicationRecord
     quantity.positive?
   end
 
-  # def relic?
-  #   blueprint.group.category_id
-  # end
+  def relic?
+    blueprint.group.category_id == RELIC_CATEGORY_ID
+  end
 
   def material_efficiency_formatted
     return if stacked?

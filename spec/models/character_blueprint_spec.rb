@@ -57,6 +57,56 @@ describe CharacterBlueprint do
     end
   end
 
+  describe "#relic?" do
+    context "when relic" do
+      let!(:eve_group) do
+        create(:eve_group,
+          group_id: 111,
+          category_id: described_class::RELIC_CATEGORY_ID)
+      end
+
+      let!(:eve_type) do
+        create(:eve_type,
+          type_id: 123,
+          group_id: 111,
+          is_blueprint: true)
+      end
+
+      let!(:character_blueprint) do
+        create(:character_blueprint,
+          type_id: 123)
+      end
+
+      subject { character_blueprint.reload }
+
+      specify { expect(subject.relic?).to eq(true) }
+    end
+
+    context "when not relic" do
+      let!(:eve_group) do
+        create(:eve_group,
+          group_id: 222,
+          category_id: 999)
+      end
+
+      let!(:eve_type) do
+        create(:eve_type,
+          type_id: 234,
+          group_id: 222,
+          is_blueprint: true)
+      end
+
+      let!(:character_blueprint) do
+        create(:character_blueprint,
+          type_id: 234)
+      end
+
+      subject { character_blueprint.reload }
+
+      specify { expect(subject.relic?).to eq(false) }
+    end
+  end
+
   describe "#material_efficiency_formatted" do
     context "when stacked" do
       subject do
