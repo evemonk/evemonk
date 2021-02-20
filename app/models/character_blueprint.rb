@@ -4,6 +4,8 @@ class CharacterBlueprint < ApplicationRecord
   include Locationable
   include ImageProxy
 
+  RELIC_CATEGORY_ID = 34
+
   belongs_to :character
 
   belongs_to :blueprint,
@@ -25,6 +27,10 @@ class CharacterBlueprint < ApplicationRecord
   def stacked?
     quantity.positive?
   end
+
+  # def relic?
+  #   blueprint.group.category_id
+  # end
 
   def material_efficiency_formatted
     return if stacked?
@@ -61,6 +67,18 @@ class CharacterBlueprint < ApplicationRecord
       "#{imageproxy_url}https://images.evetech.net/types/#{type_id}/bpc?size=64"
     end
   end
+
+  # def relic_tiny
+  #   if relic?
+  #     "https://images.evetech.net/types/30754/relic?size=32"
+  #   end
+  # end
+
+  # def relic_small
+  #   if relic?
+  #     "https://images.evetech.net/types/30754/relic?size=64"
+  #   end
+  # end
 
   # def character_copying_time_formatted
   #   HumanTime.new(CharacterManufacturingCopyTime.new(@character, @blueprint.blueprint.copying_time).manufacturing_copy_time.round).long_formatted

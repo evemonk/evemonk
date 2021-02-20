@@ -9,6 +9,8 @@ describe CharacterBlueprint do
 
   it { should be_a(ImageProxy) }
 
+  it { expect(described_class::RELIC_CATEGORY_ID).to eq(34) }
+
   it { should belong_to(:character) }
 
   it { should belong_to(:blueprint).class_name("Eve::Blueprint").with_primary_key("type_id").with_foreign_key("type_id").optional(true) }
