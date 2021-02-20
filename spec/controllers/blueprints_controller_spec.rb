@@ -41,11 +41,11 @@ describe BlueprintsController do
       before do
         #
         # character.character_blueprints
-        #          .includes(:blueprint)
+        #          .includes(blueprint: :group)
         #
         expect(character).to receive(:character_blueprints) do
           double.tap do |a|
-            expect(a).to receive(:includes).with(:blueprint)
+            expect(a).to receive(:includes).with(blueprint: :group)
           end
         end
       end
