@@ -5,6 +5,10 @@ require "rails_helper"
 describe SkillsTree do
   specify { expect(described_class::SKILLS_CATEGORY_ID).to eq(16) }
 
+  specify { expect(described_class::PRIMARY_ATTRIBUTE_NAME).to eq("primaryAttribute") }
+
+  specify { expect(described_class::SECONDARY_ATTRIBUTE_NAME).to eq("secondaryAttribute") }
+
   let(:character) { instance_double(Character) }
 
   subject { described_class.new(character) }

@@ -2,6 +2,8 @@
 
 class SkillsTree
   SKILLS_CATEGORY_ID = 16
+  PRIMARY_ATTRIBUTE_NAME = "primaryAttribute"
+  SECONDARY_ATTRIBUTE_NAME = "secondaryAttribute"
 
   attr_reader :character
 
@@ -62,7 +64,19 @@ class SkillsTree
   end
 
   def total_certificates_in_group(group)
-    Eve::Certificate.where(group_id: group.group_id).count
+    group.certificates.count
+  end
+
+  def primary_attribute_per_group(group)
+    type = group.types.published.first
+    value = type.type_dogma_attributes.find_by!(attribute_id: dogma_primary_attribute.attribute_id).value
+    Eve::DogmaAttribute.find_by!(attribute_id: Integer(value))
+  end
+
+  def secondary_attribute_per_group(group)
+    type = group.types.published.first
+    value = type.type_dogma_attributes.find_by!(attribute_id: dogma_secondary_attribute.attribute_id).value
+    Eve::DogmaAttribute.find_by!(attribute_id: Integer(value))
   end
 
   def training_rate_in_group(_group)
@@ -77,10 +91,24 @@ class SkillsTree
       .find_by!(category_id: SKILLS_CATEGORY_ID)
   end
 
+  def dogma_primary_attribute
+    @dogma_primary_attribute ||= Eve::DogmaAttribute.find_by!(name: PRIMARY_ATTRIBUTE_NAME)
+  end
+
+  def dogma_secondary_attribute
+    @dogma_secondary_attribute ||= Eve::DogmaAttribute.find_by!(name: SECONDARY_ATTRIBUTE_NAME)
+  end
+
   # def skills_in_group(group)
-  #   group.types.order(:name_en)
+  #   group.types.published.order(:name_en)
   # end
-  #
+
+  # def training_time_for_skill(skill, level)
+  # end
+
+  # def total_training_time_for_skill(skill, level)
+  # end
+
   # def skill(skill)
   #   character.character_skills.where(skill_id: skill.type_id).first
   # end
