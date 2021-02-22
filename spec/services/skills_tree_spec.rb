@@ -154,6 +154,34 @@ describe SkillsTree do
     specify { expect(subject.current_skill_points_in_group(eve_group)).to eq(500) }
   end
 
+  describe "#total_skill_points_in_group" do
+    let(:eve_group) { instance_double(Eve::Group) }
+
+    specify { expect(subject.total_skill_points_in_group(eve_group)).to eq(0) }
+  end
+
+  describe "#certificates_claimed_in_group" do
+    let(:eve_group) { instance_double(Eve::Group) }
+
+    specify { expect(subject.certificates_claimed_in_group(eve_group)).to eq(0) }
+  end
+
+  describe "#total_certificates_in_group" do
+    let!(:eve_group) { create(:eve_group) }
+
+    let!(:eve_certificate1) { create(:eve_certificate, group: eve_group) }
+
+    let!(:eve_certificate2) { create(:eve_certificate, group: eve_group) }
+
+    specify { expect(subject.total_certificates_in_group(eve_group)).to eq(2) }
+  end
+
+  describe "#training_rate_in_group" do
+    let(:eve_group) { instance_double(Eve::Group) }
+
+    specify { expect(subject.training_rate_in_group(eve_group)).to eq(1.0) }
+  end
+
   # private methods
 
   describe "#skills_category" do
