@@ -44,6 +44,19 @@ class SkillsTree
       .count
   end
 
+  def current_skill_points_in_group(group)
+    skill_ids = group.types.published.pluck(:type_id)
+
+    character.character_skills
+      .where(skill_id: skill_ids)
+      .pluck(:skillpoints_in_skill)
+      .sum
+  end
+
+  # def total_skill_points_in_group(group)
+  #
+  # end
+
   private
 
   def skills_category
@@ -52,15 +65,6 @@ class SkillsTree
       .find_by!(category_id: SKILLS_CATEGORY_ID)
   end
 
-  # def skill_points_in_group(group)
-  #   skill_ids = group.types.pluck(:type_id)
-  #
-  #   character.character_skills
-  #     .where(skill_id: skill_ids)
-  #     .pluck(:skillpoints_in_skill)
-  #     .sum
-  # end
-  #
   # def skills_in_group(group)
   #   group.types.order(:name_en)
   # end
