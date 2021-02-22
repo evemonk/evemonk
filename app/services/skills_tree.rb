@@ -53,9 +53,21 @@ class SkillsTree
       .sum
   end
 
-  # def total_skill_points_in_group(group)
-  #
-  # end
+  def total_skill_points_in_group(_group)
+    0
+  end
+
+  def certificates_claimed_in_group(_group)
+    0
+  end
+
+  def total_certificates_in_group(group)
+    Eve::Certificate.where(group_id: group.group_id).count
+  end
+
+  def training_rate_in_group(_group)
+    1.0
+  end
 
   private
 

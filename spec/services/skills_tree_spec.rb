@@ -58,23 +58,23 @@ describe SkillsTree do
   end
 
   describe "#skills_count_in_group" do
-    let!(:group) { create(:eve_group, published: true) }
+    let!(:eve_group) { create(:eve_group, published: true) }
 
-    let!(:eve_type1) { create(:eve_type, group: group, published: false) }
+    let!(:eve_type1) { create(:eve_type, group: eve_group, published: false) }
 
-    let!(:eve_type2) { create(:eve_type, group: group, published: true) }
+    let!(:eve_type2) { create(:eve_type, group: eve_group, published: true) }
 
-    specify { expect(subject.skills_count_in_group(group)).to eq(1) }
+    specify { expect(subject.skills_count_in_group(eve_group)).to eq(1) }
   end
 
   describe "#levels_trained_in_group" do
-    let!(:group) { create(:eve_group, published: true) }
+    let!(:eve_group) { create(:eve_group, published: true) }
 
-    let!(:eve_type1) { create(:eve_type, group: group, published: false) }
+    let!(:eve_type1) { create(:eve_type, group: eve_group, published: false) }
 
-    let!(:eve_type2) { create(:eve_type, group: group, published: true) }
+    let!(:eve_type2) { create(:eve_type, group: eve_group, published: true) }
 
-    let!(:eve_type3) { create(:eve_type, group: group, published: true) }
+    let!(:eve_type3) { create(:eve_type, group: eve_group, published: true) }
 
     let!(:character) { create(:character) }
 
@@ -99,27 +99,27 @@ describe SkillsTree do
         trained_skill_level: 5)
     end
 
-    specify { expect(subject.levels_trained_in_group(group)).to eq(10) }
+    specify { expect(subject.levels_trained_in_group(eve_group)).to eq(10) }
   end
 
   describe "#total_levels_in_group" do
-    let!(:group) { create(:eve_group, published: true) }
+    let!(:eve_group) { create(:eve_group, published: true) }
 
-    let!(:eve_type1) { create(:eve_type, group: group, published: false) }
+    let!(:eve_type1) { create(:eve_type, group: eve_group, published: false) }
 
-    let!(:eve_type2) { create(:eve_type, group: group, published: true) }
+    let!(:eve_type2) { create(:eve_type, group: eve_group, published: true) }
 
-    let!(:eve_type3) { create(:eve_type, group: group, published: true) }
+    let!(:eve_type3) { create(:eve_type, group: eve_group, published: true) }
 
-    specify { expect(subject.total_levels_in_group(group)).to eq(10) }
+    specify { expect(subject.total_levels_in_group(eve_group)).to eq(10) }
   end
 
   describe "#levels_in_training_queue" do
-    let!(:group) { create(:eve_group) }
+    let!(:eve_group) { create(:eve_group) }
 
-    let!(:eve_type1) { create(:eve_type, group: group, published: false) }
+    let!(:eve_type1) { create(:eve_type, group: eve_group, published: false) }
 
-    let!(:eve_type2) { create(:eve_type, group: group, published: true) }
+    let!(:eve_type2) { create(:eve_type, group: eve_group, published: true) }
 
     let!(:character) { create(:character) }
 
@@ -131,15 +131,17 @@ describe SkillsTree do
 
     let!(:skillqueue4) { create(:skillqueue, character: character, skill_id: eve_type2.type_id, finish_date: 1.day.ago) }
 
-    specify { expect(subject.levels_in_training_queue(group)).to eq(1) }
+    specify { expect(subject.levels_in_training_queue(eve_group)).to eq(1) }
   end
 
   describe "#current_skill_points_in_group" do
-    let!(:group) { create(:eve_group) }
+    let!(:eve_group) { create(:eve_group) }
 
-    let!(:eve_type1) { create(:eve_type, group: group, published: false) }
+    let!(:eve_type1) { create(:eve_type, group: eve_group, published: false) }
 
-    let!(:eve_type2) { create(:eve_type, group: group, published: true) }
+    let!(:eve_type2) { create(:eve_type, group: eve_group, published: true) }
+
+    let!(:eve_type3) { create(:eve_type, group: eve_group, published: true) }
 
     let!(:character) { create(:character) }
 
@@ -147,7 +149,37 @@ describe SkillsTree do
 
     let!(:character_skill2) { create(:character_skill, character: character, skill_id: eve_type2.type_id, skillpoints_in_skill: 200) }
 
-    specify { expect(subject.current_skill_points_in_group(group)).to eq(200) }
+    let!(:character_skill3) { create(:character_skill, character: character, skill_id: eve_type3.type_id, skillpoints_in_skill: 300) }
+
+    specify { expect(subject.current_skill_points_in_group(eve_group)).to eq(500) }
+  end
+
+  describe "#total_skill_points_in_group" do
+    let(:eve_group) { instance_double(Eve::Group) }
+
+    specify { expect(subject.total_skill_points_in_group(eve_group)).to eq(0) }
+  end
+
+  describe "#certificates_claimed_in_group" do
+    let(:eve_group) { instance_double(Eve::Group) }
+
+    specify { expect(subject.certificates_claimed_in_group(eve_group)).to eq(0) }
+  end
+
+  describe "#total_certificates_in_group" do
+    let!(:eve_group) { create(:eve_group) }
+
+    let!(:eve_certificate1) { create(:eve_certificate, group: eve_group) }
+
+    let!(:eve_certificate2) { create(:eve_certificate, group: eve_group) }
+
+    specify { expect(subject.total_certificates_in_group(eve_group)).to eq(2) }
+  end
+
+  describe "#training_rate_in_group" do
+    let(:eve_group) { instance_double(Eve::Group) }
+
+    specify { expect(subject.training_rate_in_group(eve_group)).to eq(1.0) }
   end
 
   # private methods

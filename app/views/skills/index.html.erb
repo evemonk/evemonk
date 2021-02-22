@@ -164,13 +164,13 @@
                 Levels in training queue: <%= @skills_tree.levels_in_training_queue(group) %>
               </div>
               <div class="row">
-                Skill points: <%= number_with_delimiter(@skills_tree.current_skill_points_in_group(group), delimiter: " ") %> / xxx xxx xxx
+                Skill points: <%= number_with_delimiter(@skills_tree.current_skill_points_in_group(group), delimiter: " ") %> / <%= number_with_delimiter(@skills_tree.total_skill_points_in_group(group), delimiter: " ") %>
               </div>
               <div class="row">
-                Certificates claimed: xx / xx
+                Certificates claimed: <%= @skills_tree.certificates_claimed_in_group(group) %> / <%= @skills_tree.total_certificates_in_group(group) %>
               </div>
               <div class="row">
-                Training rate: 36.0 skill points per minute
+                Training rate: <%= @skills_tree.training_rate_in_group(group) %> skill points per minute
               </div>
               <div class="row">
                 <div class="span-6">Intelligence: 22</div>
