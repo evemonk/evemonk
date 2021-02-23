@@ -7,6 +7,10 @@ describe Eve::Type do
 
   it { should be_a(ImageProxy) }
 
+  specify { expect(described_class::PRIMARY_ATTRIBUTE_NAME).to eq("primaryAttribute") }
+
+  specify { expect(described_class::SECONDARY_ATTRIBUTE_NAME).to eq("secondaryAttribute") }
+
   it { expect(described_class).to respond_to(:search) }
 
   it { should respond_to(:versions) }
