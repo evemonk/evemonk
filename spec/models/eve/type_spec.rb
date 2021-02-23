@@ -227,6 +227,44 @@ describe Eve::Type do
     end
   end
 
+  describe "#relic_tiny" do
+    subject do
+      build(:eve_type,
+        type_id: 23_773)
+    end
+
+    context "when Setting.use_image_proxy is true" do
+      before { Setting.use_image_proxy = true }
+
+      specify { expect(subject.relic_tiny).to eq("https://imageproxy.evemonk.com/https://images.evetech.net/types/23773/relic?size=32") }
+    end
+
+    context "when Setting.use_image_proxy is false" do
+      before { Setting.use_image_proxy = false }
+
+      specify { expect(subject.relic_tiny).to eq("https://images.evetech.net/types/23773/relic?size=32") }
+    end
+  end
+
+  describe "#relic_small" do
+    subject do
+      build(:eve_type,
+        type_id: 23_773)
+    end
+
+    context "when Setting.use_image_proxy is true" do
+      before { Setting.use_image_proxy = true }
+
+      specify { expect(subject.relic_small).to eq("https://imageproxy.evemonk.com/https://images.evetech.net/types/23773/relic?size=64") }
+    end
+
+    context "when Setting.use_image_proxy is false" do
+      before { Setting.use_image_proxy = false }
+
+      specify { expect(subject.relic_small).to eq("https://images.evetech.net/types/23773/relic?size=64") }
+    end
+  end
+
   describe "#average_price_formatted" do
     context "when average_price is empty" do
       subject do

@@ -96,6 +96,14 @@ module Eve
       "#{imageproxy_url}https://images.evetech.net/types/#{type_id}/render?size=512"
     end
 
+    def relic_tiny
+      "#{imageproxy_url}https://images.evetech.net/types/#{type_id}/relic?size=32"
+    end
+
+    def relic_small
+      "#{imageproxy_url}https://images.evetech.net/types/#{type_id}/relic?size=64"
+    end
+
     def average_price_formatted
       number_with_delimiter(average_price.to_i, delimiter: " ")
     end
