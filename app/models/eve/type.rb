@@ -73,16 +73,16 @@ module Eve
 
     def primary_attribute
       @primary_attribute ||= begin
-                               value = type_dogma_attributes.find { |tda| tda.dogma_attribute.name == PRIMARY_ATTRIBUTE_NAME }.value
-                               Eve::DogmaAttribute.find_by!(attribute_id: Integer(value))
-                             end
+        value = type_dogma_attributes.find { |tda| tda.dogma_attribute.name == PRIMARY_ATTRIBUTE_NAME }.value
+        Eve::DogmaAttribute.find_by!(attribute_id: Integer(value))
+      end
     end
 
     def secondary_attribute
       @secondary_attribute ||= begin
-                                 value = type_dogma_attributes.find { |tda| tda.dogma_attribute.name == SECONDARY_ATTRIBUTE_NAME }.value
-                                 Eve::DogmaAttribute.find_by!(attribute_id: Integer(value))
-                               end
+        value = type_dogma_attributes.find { |tda| tda.dogma_attribute.name == SECONDARY_ATTRIBUTE_NAME }.value
+        Eve::DogmaAttribute.find_by!(attribute_id: Integer(value))
+      end
     end
 
     def icon_tiny
