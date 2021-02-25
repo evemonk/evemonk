@@ -181,23 +181,55 @@ describe SkillsTree do
     specify { expect(subject.total_certificates_in_group(eve_group)).to eq(2) }
   end
 
-  # describe "#primary_attribute_per_group" do
-  #   let!(:eve_group) { create(:eve_group, published: true) }
-  #
-  #   specify { expect(subject.primary_attribute_per_group(eve_group)).to eq(2) }
-  # end
+  describe "#primary_attribute_per_group" do
+    let(:eve_group) { instance_double(Eve::Group) }
 
-  # def primary_attribute_per_group(group)
-  #   type = group.types.published.first
-  #   value = type.type_dogma_attributes.find_by!(attribute_id: dogma_primary_attribute.attribute_id).value
-  #   Eve::DogmaAttribute.find_by!(attribute_id: Integer(value))
-  # end
-  #
-  # def secondary_attribute_per_group(group)
-  #   type = group.types.published.first
-  #   value = type.type_dogma_attributes.find_by!(attribute_id: dogma_secondary_attribute.attribute_id).value
-  #   Eve::DogmaAttribute.find_by!(attribute_id: Integer(value))
-  # end
+    before do
+      #
+      # group.types.published.first.primary_attribute
+      #
+      expect(eve_group).to receive(:types) do
+        double.tap do |a|
+          expect(a).to receive(:published) do
+            double.tap do |b|
+              expect(b).to receive(:first) do
+                double.tap do |c|
+                  expect(c).to receive(:primary_attribute)
+                end
+              end
+            end
+          end
+        end
+      end
+    end
+
+    specify { expect { subject.primary_attribute_per_group(eve_group) }.not_to raise_error }
+  end
+
+  describe "#secondary_attribute_per_group" do
+    let(:eve_group) { instance_double(Eve::Group) }
+
+    before do
+      #
+      # group.types.published.first.secondary_attribute
+      #
+      expect(eve_group).to receive(:types) do
+        double.tap do |a|
+          expect(a).to receive(:published) do
+            double.tap do |b|
+              expect(b).to receive(:first) do
+                double.tap do |c|
+                  expect(c).to receive(:secondary_attribute)
+                end
+              end
+            end
+          end
+        end
+      end
+    end
+
+    specify { expect { subject.secondary_attribute_per_group(eve_group) }.not_to raise_error }
+  end
 
   describe "#training_rate_in_group" do
     let(:eve_group) { instance_double(Eve::Group) }

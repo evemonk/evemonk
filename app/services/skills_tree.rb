@@ -66,13 +66,13 @@ class SkillsTree
     group.certificates.count
   end
 
-  # def primary_attribute_per_group(group)
-  #   group.types.published.first.primary_attribute
-  # end
-  #
-  # def secondary_attribute_per_group(group)
-  #   group.types.published.first.secondary_attribute
-  # end
+  def primary_attribute_per_group(group)
+    group.types.published.first.primary_attribute
+  end
+
+  def secondary_attribute_per_group(group)
+    group.types.published.first.secondary_attribute
+  end
 
   # def character_perception
   #   # Integer(character.perception_without_bonuses + character.perception_bonus)
