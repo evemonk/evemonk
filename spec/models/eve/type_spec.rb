@@ -98,6 +98,30 @@ describe Eve::Type do
     end
   end
 
+  describe "#primary_attribute" do
+    context "when @primary_attribute is set" do
+      let(:primary_attribute) { instance_double(Eve::DogmaAttribute) }
+
+      before { subject.instance_variable_set(:@primary_attribute, primary_attribute) }
+
+      specify { expect(subject.primary_attribute).to eq(primary_attribute) }
+    end
+
+    context "when @primary_attribute is not set" do
+      let!(:eve_type) { create(:eve_type, type_id: 33078) }
+
+      let!(:eve_dogma_attribute) { create(:eve_dogma_attribute, attribute_id: 180, name: described_class::PRIMARY_ATTRIBUTE_NAME) }
+
+      let!(:eve_type_dogma_attribute) { create(:eve_type_dogma_attribute, attribute_id: 180, type_id: 33078, value: 165.0) }
+
+      let!(:primary_attribute) { create(:eve_dogma_attribute, attribute_id: 165, name: "intelligence") }
+
+      subject { eve_type }
+
+      specify { expect(subject.primary_attribute).to eq(primary_attribute) }
+    end
+  end
+
   describe "#icon_tiny" do
     subject do
       build(:eve_type,
