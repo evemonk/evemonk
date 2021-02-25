@@ -111,14 +111,6 @@ class SkillsTree
       .find_by!(category_id: SKILLS_CATEGORY_ID)
   end
 
-  def dogma_primary_attribute
-    @dogma_primary_attribute ||= Eve::DogmaAttribute.find_by!(name: PRIMARY_ATTRIBUTE_NAME)
-  end
-
-  def dogma_secondary_attribute
-    @dogma_secondary_attribute ||= Eve::DogmaAttribute.find_by!(name: SECONDARY_ATTRIBUTE_NAME)
-  end
-
   # def skills_in_group(group)
   #   group.types.published.order(:name_en)
   # end
