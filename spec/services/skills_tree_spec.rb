@@ -33,9 +33,9 @@ describe SkillsTree do
           double.tap do |a|
             expect(a).to receive(:published) do
               double.tap do |b|
-                expect(b).to receive(:includes).with(types: { type_dogma_attributes: :dogma_attribute }) do
+                expect(b).to receive(:includes).with(types: {type_dogma_attributes: :dogma_attribute}) do
                   double.tap do |c|
-                    expect(c).to receive(:where).with(types: { published: true }) do
+                    expect(c).to receive(:where).with(types: {published: true}) do
                       double.tap do |d|
                         expect(d).to receive(:order).with(:name_en).and_return(groups)
                       end

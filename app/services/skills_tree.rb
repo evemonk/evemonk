@@ -13,8 +13,8 @@ class SkillsTree
     @groups ||= skills_category
       .groups
       .published
-      .includes(types: { type_dogma_attributes: :dogma_attribute })
-      .where(types: { published: true })
+      .includes(types: {type_dogma_attributes: :dogma_attribute})
+      .where(types: {published: true})
       .order(:name_en)
   end
 
