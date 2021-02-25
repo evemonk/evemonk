@@ -352,7 +352,7 @@ GEM
     mini_histogram (0.3.1)
     mini_mime (1.0.2)
     mini_portile2 (2.5.0)
-    minitest (5.14.3)
+    minitest (5.14.4)
     mixlib-cli (2.1.8)
     mixlib-config (3.0.9)
       tomlrb
