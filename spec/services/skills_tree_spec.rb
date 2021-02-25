@@ -25,16 +25,21 @@ describe SkillsTree do
         #
         # skills_category.groups
         #                .published
-        #                .includes(:types)
+        #                .includes(types: { type_dogma_attributes: :dogma_attribute })
+        #                .where(types: { published: true })
         #                .order(:name_en)
         #
         expect(skills_category).to receive(:groups) do
           double.tap do |a|
             expect(a).to receive(:published) do
               double.tap do |b|
-                expect(b).to receive(:includes).with(:types) do
+                expect(b).to receive(:includes).with(types: {type_dogma_attributes: :dogma_attribute}) do
                   double.tap do |c|
-                    expect(c).to receive(:order).with(:name_en).and_return(groups)
+                    expect(c).to receive(:where).with(types: {published: true}) do
+                      double.tap do |d|
+                        expect(d).to receive(:order).with(:name_en).and_return(groups)
+                      end
+                    end
                   end
                 end
               end
@@ -174,6 +179,56 @@ describe SkillsTree do
     let!(:eve_certificate2) { create(:eve_certificate, group: eve_group) }
 
     specify { expect(subject.total_certificates_in_group(eve_group)).to eq(2) }
+  end
+
+  describe "#primary_attribute_per_group" do
+    let(:eve_group) { instance_double(Eve::Group) }
+
+    before do
+      #
+      # group.types.published.first.primary_attribute
+      #
+      expect(eve_group).to receive(:types) do
+        double.tap do |a|
+          expect(a).to receive(:published) do
+            double.tap do |b|
+              expect(b).to receive(:first) do
+                double.tap do |c|
+                  expect(c).to receive(:primary_attribute)
+                end
+              end
+            end
+          end
+        end
+      end
+    end
+
+    specify { expect { subject.primary_attribute_per_group(eve_group) }.not_to raise_error }
+  end
+
+  describe "#secondary_attribute_per_group" do
+    let(:eve_group) { instance_double(Eve::Group) }
+
+    before do
+      #
+      # group.types.published.first.secondary_attribute
+      #
+      expect(eve_group).to receive(:types) do
+        double.tap do |a|
+          expect(a).to receive(:published) do
+            double.tap do |b|
+              expect(b).to receive(:first) do
+                double.tap do |c|
+                  expect(c).to receive(:secondary_attribute)
+                end
+              end
+            end
+          end
+        end
+      end
+    end
+
+    specify { expect { subject.secondary_attribute_per_group(eve_group) }.not_to raise_error }
   end
 
   describe "#training_rate_in_group" do

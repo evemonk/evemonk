@@ -173,8 +173,12 @@
                 Training rate: <%= @skills_tree.training_rate_in_group(group) %> skill points per minute
               </div>
               <div class="row">
-                <div class="span-6">Intelligence: 22</div>
-                <div class="span-6">Memory: 22</div>
+                <div class="span-6">
+                  <%= @skills_tree.primary_attribute_per_group(group).display_name %>: <%= @character.send(:"#{@skills_tree.primary_attribute_per_group(group).name}") %>
+                </div>
+                <div class="span-6">
+                  <%= @skills_tree.secondary_attribute_per_group(group).display_name %>: <%= @character.send(:"#{@skills_tree.secondary_attribute_per_group(group).name}") %>
+                </div>
               </div>
 
               <%# @character.skills_tree.skills_in_group(group).each do |skill| %>

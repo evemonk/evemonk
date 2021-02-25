@@ -13,7 +13,8 @@ class SkillsTree
     @groups ||= skills_category
       .groups
       .published
-      .includes(:types)
+      .includes(types: {type_dogma_attributes: :dogma_attribute})
+      .where(types: {published: true})
       .order(:name_en)
   end
 
@@ -62,8 +63,41 @@ class SkillsTree
   end
 
   def total_certificates_in_group(group)
-    Eve::Certificate.where(group_id: group.group_id).count
+    group.certificates.count
   end
+
+  def primary_attribute_per_group(group)
+    group.types.published.first.primary_attribute
+  end
+
+  def secondary_attribute_per_group(group)
+    group.types.published.first.secondary_attribute
+  end
+
+  # def character_perception
+  #   # Integer(character.perception_without_bonuses + character.perception_bonus)
+  #   character.perception
+  # end
+  #
+  # def character_memory
+  #   # Integer(character.memory_without_bonuses + character.memory_bonus)
+  #   character.memory
+  # end
+  #
+  # def character_willpower
+  #   # Integer(character.willpower_without_bonuses + character.willpower_bonus)
+  #   character.willpower
+  # end
+  #
+  # def character_intelligence
+  #   # Integer(character.intelligence_without_bonuses + character.intelligence_bonus)
+  #   character.intelligence
+  # end
+  #
+  # def character_charisma
+  #   # Integer(character.charisma_without_bonuses + character.charisma_bonus)
+  #   character.charisma
+  # end
 
   def training_rate_in_group(_group)
     1.0
@@ -78,9 +112,15 @@ class SkillsTree
   end
 
   # def skills_in_group(group)
-  #   group.types.order(:name_en)
+  #   group.types.published.order(:name_en)
   # end
-  #
+
+  # def training_time_for_skill(skill, level)
+  # end
+
+  # def total_training_time_for_skill(skill, level)
+  # end
+
   # def skill(skill)
   #   character.character_skills.where(skill_id: skill.type_id).first
   # end

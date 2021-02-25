@@ -7,6 +7,10 @@ describe Eve::Type do
 
   it { should be_a(ImageProxy) }
 
+  specify { expect(described_class::PRIMARY_ATTRIBUTE_NAME).to eq("primaryAttribute") }
+
+  specify { expect(described_class::SECONDARY_ATTRIBUTE_NAME).to eq("secondaryAttribute") }
+
   it { expect(described_class).to respond_to(:search) }
 
   it { should respond_to(:versions) }
@@ -91,6 +95,54 @@ describe Eve::Type do
       specify { expect(subject.implant_bonuses).to eq(out) }
 
       specify { expect { subject.implant_bonuses }.to change { subject.instance_variable_get(:@implant_bonuses) }.from(nil).to(out) }
+    end
+  end
+
+  describe "#primary_attribute" do
+    context "when @primary_attribute is set" do
+      let(:primary_attribute) { instance_double(Eve::DogmaAttribute) }
+
+      before { subject.instance_variable_set(:@primary_attribute, primary_attribute) }
+
+      specify { expect(subject.primary_attribute).to eq(primary_attribute) }
+    end
+
+    context "when @primary_attribute is not set" do
+      let!(:eve_type) { create(:eve_type, type_id: 33_078) }
+
+      let!(:eve_dogma_attribute) { create(:eve_dogma_attribute, attribute_id: 180, name: described_class::PRIMARY_ATTRIBUTE_NAME) }
+
+      let!(:eve_type_dogma_attribute) { create(:eve_type_dogma_attribute, attribute_id: 180, type_id: 33_078, value: 165.0) }
+
+      let!(:primary_attribute) { create(:eve_dogma_attribute, attribute_id: 165, name: "intelligence") }
+
+      subject { eve_type }
+
+      specify { expect(subject.primary_attribute).to eq(primary_attribute) }
+    end
+  end
+
+  describe "#secondary_attribute" do
+    context "when @secondary_attribute is set" do
+      let(:secondary_attribute) { instance_double(Eve::DogmaAttribute) }
+
+      before { subject.instance_variable_set(:@secondary_attribute, secondary_attribute) }
+
+      specify { expect(subject.secondary_attribute).to eq(secondary_attribute) }
+    end
+
+    context "when @secondary_attribute is not set" do
+      let!(:eve_type) { create(:eve_type, type_id: 33_078) }
+
+      let!(:eve_dogma_attribute) { create(:eve_dogma_attribute, attribute_id: 180, name: described_class::SECONDARY_ATTRIBUTE_NAME) }
+
+      let!(:eve_type_dogma_attribute) { create(:eve_type_dogma_attribute, attribute_id: 180, type_id: 33_078, value: 166.0) }
+
+      let!(:secondary_attribute) { create(:eve_dogma_attribute, attribute_id: 166, name: "memory") }
+
+      subject { eve_type }
+
+      specify { expect(subject.secondary_attribute).to eq(secondary_attribute) }
     end
   end
 
@@ -224,6 +276,44 @@ describe Eve::Type do
       before { Setting.use_image_proxy = false }
 
       specify { expect(subject.render_huge).to eq("https://images.evetech.net/types/23773/render?size=512") }
+    end
+  end
+
+  describe "#relic_tiny" do
+    subject do
+      build(:eve_type,
+        type_id: 23_773)
+    end
+
+    context "when Setting.use_image_proxy is true" do
+      before { Setting.use_image_proxy = true }
+
+      specify { expect(subject.relic_tiny).to eq("https://imageproxy.evemonk.com/https://images.evetech.net/types/23773/relic?size=32") }
+    end
+
+    context "when Setting.use_image_proxy is false" do
+      before { Setting.use_image_proxy = false }
+
+      specify { expect(subject.relic_tiny).to eq("https://images.evetech.net/types/23773/relic?size=32") }
+    end
+  end
+
+  describe "#relic_small" do
+    subject do
+      build(:eve_type,
+        type_id: 23_773)
+    end
+
+    context "when Setting.use_image_proxy is true" do
+      before { Setting.use_image_proxy = true }
+
+      specify { expect(subject.relic_small).to eq("https://imageproxy.evemonk.com/https://images.evetech.net/types/23773/relic?size=64") }
+    end
+
+    context "when Setting.use_image_proxy is false" do
+      before { Setting.use_image_proxy = false }
+
+      specify { expect(subject.relic_small).to eq("https://images.evetech.net/types/23773/relic?size=64") }
     end
   end
 

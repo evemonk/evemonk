@@ -112,6 +112,7 @@ group :development do
   gem "gemdiff", require: false
   gem "derailed_benchmarks"
   gem "graphql-rails_logger"
+  gem "prosopite"
 end
 
 group :test do
