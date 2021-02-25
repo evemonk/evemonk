@@ -108,11 +108,11 @@ describe Eve::Type do
     end
 
     context "when @primary_attribute is not set" do
-      let!(:eve_type) { create(:eve_type, type_id: 33078) }
+      let!(:eve_type) { create(:eve_type, type_id: 33_078) }
 
       let!(:eve_dogma_attribute) { create(:eve_dogma_attribute, attribute_id: 180, name: described_class::PRIMARY_ATTRIBUTE_NAME) }
 
-      let!(:eve_type_dogma_attribute) { create(:eve_type_dogma_attribute, attribute_id: 180, type_id: 33078, value: 165.0) }
+      let!(:eve_type_dogma_attribute) { create(:eve_type_dogma_attribute, attribute_id: 180, type_id: 33_078, value: 165.0) }
 
       let!(:primary_attribute) { create(:eve_dogma_attribute, attribute_id: 165, name: "intelligence") }
 
@@ -132,11 +132,11 @@ describe Eve::Type do
     end
 
     context "when @secondary_attribute is not set" do
-      let!(:eve_type) { create(:eve_type, type_id: 33078) }
+      let!(:eve_type) { create(:eve_type, type_id: 33_078) }
 
       let!(:eve_dogma_attribute) { create(:eve_dogma_attribute, attribute_id: 180, name: described_class::SECONDARY_ATTRIBUTE_NAME) }
 
-      let!(:eve_type_dogma_attribute) { create(:eve_type_dogma_attribute, attribute_id: 180, type_id: 33078, value: 166.0) }
+      let!(:eve_type_dogma_attribute) { create(:eve_type_dogma_attribute, attribute_id: 180, type_id: 33_078, value: 166.0) }
 
       let!(:secondary_attribute) { create(:eve_dogma_attribute, attribute_id: 166, name: "memory") }
 
