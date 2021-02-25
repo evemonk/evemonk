@@ -99,8 +99,11 @@ class SkillsTree
   #   character.charisma
   # end
 
-  def training_rate_in_group(_group)
-    1.0
+  def training_rate_in_group(group)
+    primary = character.send(:"#{primary_attribute_per_group(group).name}")
+    secondary = character.send(:"#{secondary_attribute_per_group(group).name}")
+
+    primary + (secondary / 2.0)
   end
 
   private
