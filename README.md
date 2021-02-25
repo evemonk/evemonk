@@ -54,7 +54,7 @@ All screenshots are real and made in Safari on latest macOS Catalina (10.15.3).
 - Bundler 2.2.11
 - Ruby on Rails 6.1.1
 - PostgreSQL 13.2
-- Redis 6.0.9
+- Redis 6.0.11
 - Elasticsearch OSS 7.10.2
 - Node 14.15.5
 - NPM 6.14.11
