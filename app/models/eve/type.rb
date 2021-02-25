@@ -78,12 +78,12 @@ module Eve
                              end
     end
 
-    # def secondary_attribute
-    #   @secondary_attribute ||= begin
-    #                              value = type_dogma_attributes.find { |tda| tda.dogma_attribute.name == SECONDARY_ATTRIBUTE_NAME }.value
-    #                              Eve::DogmaAttribute.find_by!(attribute_id: Integer(value))
-    #                            end
-    # end
+    def secondary_attribute
+      @secondary_attribute ||= begin
+                                 value = type_dogma_attributes.find { |tda| tda.dogma_attribute.name == SECONDARY_ATTRIBUTE_NAME }.value
+                                 Eve::DogmaAttribute.find_by!(attribute_id: Integer(value))
+                               end
+    end
 
     def icon_tiny
       "#{imageproxy_url}https://images.evetech.net/types/#{type_id}/icon?size=32"

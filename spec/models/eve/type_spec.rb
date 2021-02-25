@@ -122,6 +122,30 @@ describe Eve::Type do
     end
   end
 
+  describe "#secondary_attribute" do
+    context "when @secondary_attribute is set" do
+      let(:secondary_attribute) { instance_double(Eve::DogmaAttribute) }
+
+      before { subject.instance_variable_set(:@secondary_attribute, secondary_attribute) }
+
+      specify { expect(subject.secondary_attribute).to eq(secondary_attribute) }
+    end
+
+    context "when @secondary_attribute is not set" do
+      let!(:eve_type) { create(:eve_type, type_id: 33078) }
+
+      let!(:eve_dogma_attribute) { create(:eve_dogma_attribute, attribute_id: 180, name: described_class::SECONDARY_ATTRIBUTE_NAME) }
+
+      let!(:eve_type_dogma_attribute) { create(:eve_type_dogma_attribute, attribute_id: 180, type_id: 33078, value: 166.0) }
+
+      let!(:secondary_attribute) { create(:eve_dogma_attribute, attribute_id: 166, name: "memory") }
+
+      subject { eve_type }
+
+      specify { expect(subject.secondary_attribute).to eq(secondary_attribute) }
+    end
+  end
+
   describe "#icon_tiny" do
     subject do
       build(:eve_type,
