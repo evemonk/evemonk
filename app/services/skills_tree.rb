@@ -2,8 +2,6 @@
 
 class SkillsTree
   SKILLS_CATEGORY_ID = 16
-  PRIMARY_ATTRIBUTE_NAME = "primaryAttribute"
-  SECONDARY_ATTRIBUTE_NAME = "secondaryAttribute"
 
   attr_reader :character
 
@@ -15,7 +13,8 @@ class SkillsTree
     @groups ||= skills_category
       .groups
       .published
-      .includes(:types)
+      .includes(types: { type_dogma_attributes: :dogma_attribute })
+      .where(types: { published: true })
       .order(:name_en)
   end
 
@@ -67,17 +66,38 @@ class SkillsTree
     group.certificates.count
   end
 
-  def primary_attribute_per_group(group)
-    type = group.types.published.first
-    value = type.type_dogma_attributes.find_by!(attribute_id: dogma_primary_attribute.attribute_id).value
-    Eve::DogmaAttribute.find_by!(attribute_id: Integer(value))
-  end
+  # def primary_attribute_per_group(group)
+  #   group.types.published.first.primary_attribute
+  # end
+  #
+  # def secondary_attribute_per_group(group)
+  #   group.types.published.first.secondary_attribute
+  # end
 
-  def secondary_attribute_per_group(group)
-    type = group.types.published.first
-    value = type.type_dogma_attributes.find_by!(attribute_id: dogma_secondary_attribute.attribute_id).value
-    Eve::DogmaAttribute.find_by!(attribute_id: Integer(value))
-  end
+  # def character_perception
+  #   # Integer(character.perception_without_bonuses + character.perception_bonus)
+  #   character.perception
+  # end
+  #
+  # def character_memory
+  #   # Integer(character.memory_without_bonuses + character.memory_bonus)
+  #   character.memory
+  # end
+  #
+  # def character_willpower
+  #   # Integer(character.willpower_without_bonuses + character.willpower_bonus)
+  #   character.willpower
+  # end
+  #
+  # def character_intelligence
+  #   # Integer(character.intelligence_without_bonuses + character.intelligence_bonus)
+  #   character.intelligence
+  # end
+  #
+  # def character_charisma
+  #   # Integer(character.charisma_without_bonuses + character.charisma_bonus)
+  #   character.charisma
+  # end
 
   def training_rate_in_group(_group)
     1.0

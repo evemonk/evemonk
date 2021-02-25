@@ -5,10 +5,6 @@ require "rails_helper"
 describe SkillsTree do
   specify { expect(described_class::SKILLS_CATEGORY_ID).to eq(16) }
 
-  specify { expect(described_class::PRIMARY_ATTRIBUTE_NAME).to eq("primaryAttribute") }
-
-  specify { expect(described_class::SECONDARY_ATTRIBUTE_NAME).to eq("secondaryAttribute") }
-
   let(:character) { instance_double(Character) }
 
   subject { described_class.new(character) }
@@ -29,16 +25,21 @@ describe SkillsTree do
         #
         # skills_category.groups
         #                .published
-        #                .includes(:types)
+        #                .includes(types: { type_dogma_attributes: :dogma_attribute })
+        #                .where(types: { published: true })
         #                .order(:name_en)
         #
         expect(skills_category).to receive(:groups) do
           double.tap do |a|
             expect(a).to receive(:published) do
               double.tap do |b|
-                expect(b).to receive(:includes).with(:types) do
+                expect(b).to receive(:includes).with(types: { type_dogma_attributes: :dogma_attribute }) do
                   double.tap do |c|
-                    expect(c).to receive(:order).with(:name_en).and_return(groups)
+                    expect(c).to receive(:where).with(types: { published: true }) do
+                      double.tap do |d|
+                        expect(d).to receive(:order).with(:name_en).and_return(groups)
+                      end
+                    end
                   end
                 end
               end
@@ -179,6 +180,24 @@ describe SkillsTree do
 
     specify { expect(subject.total_certificates_in_group(eve_group)).to eq(2) }
   end
+
+  # describe "#primary_attribute_per_group" do
+  #   let!(:eve_group) { create(:eve_group, published: true) }
+  #
+  #   specify { expect(subject.primary_attribute_per_group(eve_group)).to eq(2) }
+  # end
+
+  # def primary_attribute_per_group(group)
+  #   type = group.types.published.first
+  #   value = type.type_dogma_attributes.find_by!(attribute_id: dogma_primary_attribute.attribute_id).value
+  #   Eve::DogmaAttribute.find_by!(attribute_id: Integer(value))
+  # end
+  #
+  # def secondary_attribute_per_group(group)
+  #   type = group.types.published.first
+  #   value = type.type_dogma_attributes.find_by!(attribute_id: dogma_secondary_attribute.attribute_id).value
+  #   Eve::DogmaAttribute.find_by!(attribute_id: Integer(value))
+  # end
 
   describe "#training_rate_in_group" do
     let(:eve_group) { instance_double(Eve::Group) }
