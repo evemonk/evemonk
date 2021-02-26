@@ -105,7 +105,7 @@ class SkillsTree
 
     rate = primary + (secondary / 2.0)
 
-    "%0.2f" % rate
+    format("%0.2f", rate)
   end
 
   private
