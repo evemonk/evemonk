@@ -67,11 +67,11 @@ class SkillsTree
   end
 
   def primary_attribute_per_group(group)
-    group.types.published.first.primary_attribute
+    group.types.published.order(:name_en).first.primary_attribute
   end
 
   def secondary_attribute_per_group(group)
-    group.types.published.first.secondary_attribute
+    group.types.published.order(:name_en).first.secondary_attribute
   end
 
   # def character_perception
@@ -99,8 +99,13 @@ class SkillsTree
   #   character.charisma
   # end
 
-  def training_rate_in_group(_group)
-    1.0
+  def training_rate_in_group(group)
+    primary = character.send(:"#{primary_attribute_per_group(group).name}")
+    secondary = character.send(:"#{secondary_attribute_per_group(group).name}")
+
+    rate = primary + (secondary / 2.0)
+
+    format("%0.2f", rate)
   end
 
   private

@@ -186,15 +186,19 @@ describe SkillsTree do
 
     before do
       #
-      # group.types.published.first.primary_attribute
+      # group.types.published.order(:name_en).first.primary_attribute
       #
       expect(eve_group).to receive(:types) do
         double.tap do |a|
           expect(a).to receive(:published) do
             double.tap do |b|
-              expect(b).to receive(:first) do
+              expect(b).to receive(:order).with(:name_en) do
                 double.tap do |c|
-                  expect(c).to receive(:primary_attribute)
+                  expect(c).to receive(:first) do
+                    double.tap do |d|
+                      expect(d).to receive(:primary_attribute)
+                    end
+                  end
                 end
               end
             end
@@ -211,15 +215,19 @@ describe SkillsTree do
 
     before do
       #
-      # group.types.published.first.secondary_attribute
+      # group.types.published.order(:name_en).first.secondary_attribute
       #
       expect(eve_group).to receive(:types) do
         double.tap do |a|
           expect(a).to receive(:published) do
             double.tap do |b|
-              expect(b).to receive(:first) do
+              expect(b).to receive(:order).with(:name_en) do
                 double.tap do |c|
-                  expect(c).to receive(:secondary_attribute)
+                  expect(c).to receive(:first) do
+                    double.tap do |d|
+                      expect(d).to receive(:secondary_attribute)
+                    end
+                  end
                 end
               end
             end
@@ -232,9 +240,29 @@ describe SkillsTree do
   end
 
   describe "#training_rate_in_group" do
-    let(:eve_group) { instance_double(Eve::Group) }
+    let!(:character) { create(:character, intelligence: 24, memory: 24) }
 
-    specify { expect(subject.training_rate_in_group(eve_group)).to eq(1.0) }
+    let!(:eve_group) { create(:eve_group, published: true) }
+
+    let!(:primary_attribute) { create(:eve_dogma_attribute, name: "intelligence") }
+
+    before do
+      #
+      # primary_attribute_per_group(group) # => primary_attribute
+      #
+      expect(subject).to receive(:primary_attribute_per_group).with(eve_group).and_return(primary_attribute)
+    end
+
+    let!(:secondary_attribute) { create(:eve_dogma_attribute, name: "memory") }
+
+    before do
+      #
+      # secondary_attribute_per_group(group) # => secondary_attribute
+      #
+      expect(subject).to receive(:secondary_attribute_per_group).with(eve_group).and_return(secondary_attribute)
+    end
+
+    specify { expect(subject.training_rate_in_group(eve_group)).to eq("36.00") }
   end
 
   # private methods
