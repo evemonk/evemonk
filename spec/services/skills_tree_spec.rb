@@ -240,9 +240,29 @@ describe SkillsTree do
   end
 
   describe "#training_rate_in_group" do
-    let(:eve_group) { instance_double(Eve::Group) }
+    let!(:character) { create(:character, intelligence: 24, memory: 24) }
 
-    specify { expect(subject.training_rate_in_group(eve_group)).to eq(1.0) }
+    let!(:eve_group) { create(:eve_group, published: true) }
+
+    let!(:primary_attribute) { create(:eve_dogma_attribute, name: "intelligence") }
+
+    before do
+      #
+      # primary_attribute_per_group(group) # => primary_attribute
+      #
+      expect(subject).to receive(:primary_attribute_per_group).with(eve_group).and_return(primary_attribute)
+    end
+
+    let!(:secondary_attribute) { create(:eve_dogma_attribute, name: "memory") }
+
+    before do
+      #
+      # secondary_attribute_per_group(group) # => secondary_attribute
+      #
+      expect(subject).to receive(:secondary_attribute_per_group).with(eve_group).and_return(secondary_attribute)
+    end
+
+    specify { expect(subject.training_rate_in_group(eve_group)).to eq("36.00") }
   end
 
   # private methods
