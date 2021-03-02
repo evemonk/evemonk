@@ -22,8 +22,8 @@ jobs:
           keys:
             - ruby-{{ checksum ".ruby-version" }}-v1-dependencies-{{ checksum "Gemfile.lock" }}
             - ruby-{{ checksum ".ruby-version" }}-v1-dependencies-
-      - run: sudo gem update --system '3.2.11'
-      - run: gem install bundler -v '2.2.11'
+      - run: sudo gem update --system '3.2.12'
+      - run: gem install bundler -v '2.2.12'
       - run: gem --version
       - run: bundle --version
       - run: bundle config set clean 'true'
@@ -43,7 +43,7 @@ jobs:
       - run: npm -v
       - run: yarn -v
       - run: yarn install
-      - run: curl -L https://github.com/hadolint/hadolint/releases/download/v1.22.1/hadolint-Linux-x86_64 > ./hadolint
+      - run: curl -L https://github.com/hadolint/hadolint/releases/download/v1.23.0/hadolint-Linux-x86_64 > ./hadolint
       - run: chmod +x ./hadolint
       - run: wget -qO- https://github.com/koalaman/shellcheck/releases/download/stable/shellcheck-stable.linux.x86_64.tar.xz | tar -xJv
       - run: shellcheck-stable/shellcheck --version
