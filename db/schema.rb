@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_11_132247) do
+ActiveRecord::Schema.define(version: 2021_02_13_230303) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -906,6 +906,23 @@ ActiveRecord::Schema.define(version: 2021_02_11_132247) do
     t.index ["war_id"], name: "index_eve_wars_on_war_id", unique: true
   end
 
+  create_table "events", force: :cascade do |t|
+    t.bigint "character_id", null: false
+    t.bigint "event_id"
+    t.string "text"
+    t.string "title"
+    t.bigint "owner_id"
+    t.string "owner_name"
+    t.string "owner_type"
+    t.integer "duration"
+    t.datetime "event_date"
+    t.string "event_response"
+    t.integer "importance"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["character_id"], name: "index_events_on_character_id"
+  end
+
   create_table "industry_jobs", force: :cascade do |t|
     t.bigint "character_id", null: false
     t.bigint "activity_id"
@@ -1178,6 +1195,7 @@ ActiveRecord::Schema.define(version: 2021_02_11_132247) do
   add_foreign_key "characters", "users"
   add_foreign_key "etags", "characters"
   add_foreign_key "eve_required_items", "eve_loyalty_store_offers"
+  add_foreign_key "events", "characters"
   add_foreign_key "industry_jobs", "characters"
   add_foreign_key "manufacturing_jobs", "characters"
   add_foreign_key "sessions", "users"
