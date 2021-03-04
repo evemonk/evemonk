@@ -63,6 +63,8 @@ describe Character do
 
   it { should have_many(:manufacturing_jobs).dependent(:destroy) }
 
+  it { should have_many(:notifications).dependent(:destroy) }
+
   describe "#factions_standings" do
     let!(:character) { create(:character) }
 
