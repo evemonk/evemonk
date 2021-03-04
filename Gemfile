@@ -47,6 +47,7 @@ gem "sidekiq", require: false
 gem "rpush"
 gem "pghero"
 gem "pg_query"
+gem "noticed"
 # gem "rubycritic", require: false
 gem "responders"
 gem "rack-health"

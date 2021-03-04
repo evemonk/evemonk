@@ -178,6 +178,8 @@ GEM
       zxcvbn-js (~> 4.4.1)
     diff-lcs (1.4.4)
     docile (1.3.5)
+    domain_name (0.5.20190701)
+      unf (>= 0.0.5, < 1.0.0)
     dotenv (2.7.6)
     dotenv-rails (2.7.6)
       dotenv (= 2.7.6)
@@ -230,6 +232,9 @@ GEM
       colorize (~> 0.7)
       ruby_parser (>= 3.14.1)
     ffi (1.14.2)
+    ffi-compiler (1.0.1)
+      ffi (>= 1.0.0)
+      rake
     foundation_emails (2.2.1.0)
     fugit (1.4.2)
       et-orbi (~> 1.1, >= 1.1.8)
@@ -263,6 +268,16 @@ GEM
     hkdf (0.3.0)
     html_tokenizer (0.0.7)
     http-2 (0.11.0)
+    http (4.4.1)
+      addressable (~> 2.3)
+      http-cookie (~> 1.0)
+      http-form_data (~> 2.2)
+      http-parser (~> 1.2.0)
+    http-cookie (1.0.3)
+      domain_name (~> 0.5)
+    http-form_data (2.3.0)
+    http-parser (1.2.3)
+      ffi-compiler (>= 1.0, < 2.0)
     http_accept_language (2.1.1)
     httpclient (2.8.3)
     httplog (1.4.3)
@@ -372,6 +387,9 @@ GEM
       racc (~> 1.4)
     nokogiri (1.11.1-x86_64-linux)
       racc (~> 1.4)
+    noticed (1.2.21)
+      http (>= 4.0.0)
+      rails (>= 6.0.0)
     oauth2 (1.4.4)
       faraday (>= 0.8, < 2.0)
       jwt (>= 1.0, < 3.0)
@@ -645,6 +663,9 @@ GEM
       ethon (>= 0.9.0)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
+    unf (0.1.4)
+      unf_ext
+    unf_ext (0.0.7.7)
     unicode-display_width (1.7.0)
     unicode_utils (1.4.0)
     vcr (6.0.0)
@@ -757,6 +778,7 @@ DEPENDENCIES
   net-http-persistent
   newrelic_rpm
   niceql
+  noticed
   omniauth-eve_online-sso
   omniauth-rails_csrf_protection
   paper_trail
@@ -820,4 +842,4 @@ RUBY VERSION
    ruby 3.0.0p0
 
 BUNDLED WITH
-   2.2.12
+   2.2.13
