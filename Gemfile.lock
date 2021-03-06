@@ -1,4 +1,12 @@
 GIT
+  remote: https://github.com/Shopify/upgrow.git
+  revision: e1e1dcd6467eebec6d48d27c53a07f837bb8925a
+  branch: main
+  specs:
+    upgrow (0.0.1)
+      activemodel (~> 6.1)
+
+GIT
   remote: https://github.com/just806me/shoulda-callback-matchers.git
   revision: b3a93d43490cdb3062a437e2edfbd50d25eda79a
   branch: master
@@ -827,6 +835,7 @@ DEPENDENCIES
   super_diff
   turbolinks (~> 5)
   typhoeus
+  upgrow!
   vcr
   webdrivers
   webmock
