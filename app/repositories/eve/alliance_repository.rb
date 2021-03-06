@@ -2,6 +2,8 @@
 
 module Eve
   class AllianceRepository
+    def top20
 
+    end
   end
 end
