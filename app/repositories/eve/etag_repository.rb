@@ -16,6 +16,11 @@ module Eve
         to_model(record.attributes)
       end
 
+      def destroy(url)
+        record = EtagRecord.find_or_initialize_by(url: url)
+        record.destroy!
+      end
+
       private
 
       def to_model(attributes)

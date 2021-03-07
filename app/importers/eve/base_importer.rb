@@ -21,7 +21,7 @@ module Eve
     end
 
     def etag
-      @etag ||= Eve::Etag.find_or_initialize_by(url: esi.url)
+      @etag ||= EtagRepository.find_by_url(esi.url)
     end
 
     private
@@ -37,7 +37,9 @@ module Eve
     end
 
     def update_etag
-      etag.update!(etag: esi.etag, body: esi.response)
+      input = EtagInput.new(url: esi.url, etag: esi.etag, body: esi.response)
+
+      EtagRepository.update_by_url(esi.url, input)
     end
 
     def statistics_middleware
