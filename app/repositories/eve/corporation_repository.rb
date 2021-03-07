@@ -35,6 +35,10 @@ module Eve
         end
       end
 
+      def corporation_ids
+        Eve::CorporationRecord.pluck(:corporation_id).sort
+      end
+
       private
 
       def to_model(attributes)
