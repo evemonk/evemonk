@@ -10,19 +10,18 @@ module Eve
 
     def import
       import! do
-        eve_alliance = Eve::Alliance.find_or_initialize_by(alliance_id: alliance_id)
-
         return if esi.not_modified?
 
-        eve_alliance.update!(esi.as_json)
+        input = AllianceInput.new(esi.as_json.merge(alliance_id: alliance_id))
+
+        AllianceRepository.update(alliance_id, input)
 
         update_etag
       rescue EveOnline::Exceptions::ResourceNotFound
         Rails.logger.info("EveOnline::Exceptions::ResourceNotFound: Eve Alliance ID #{alliance_id}")
 
-        etag.destroy!
-
-        eve_alliance.destroy!
+        EtagRepository.destroy(esi.url)
+        AllianceRepository.destroy(alliance_id)
       end
     end
 
