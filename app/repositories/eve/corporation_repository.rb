@@ -2,16 +2,18 @@
 
 module Eve
   class CorporationRepository
-    def top20
-      CorporationRecord.where(npc: false).order(member_count: :desc).limit(20).map do |record|
-        to_model(record.attributes)
+    class << self
+      def top20
+        CorporationRecord.where(npc: false).order(member_count: :desc).limit(20).map do |record|
+          to_model(record.attributes)
+        end
       end
-    end
 
-    private
+      private
 
-    def to_model(attributes)
-      Corporation.new(**attributes.symbolize_keys)
+      def to_model(attributes)
+        Corporation.new(**attributes.symbolize_keys)
+      end
     end
   end
 end
