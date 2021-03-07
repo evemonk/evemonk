@@ -3,6 +3,14 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception, prepend: true
 
+  # before_action do
+  #   Prosopite.scan
+  # end
+  #
+  # after_action do
+  #   Prosopite.finish
+  # end
+
   before_action :authenticate_user!
 
   before_action :default_locale
