@@ -12,7 +12,14 @@ module Eve
       import! do
         return if esi.not_modified?
 
-        input = AllianceInput.new(esi.as_json.merge(alliance_id: alliance_id))
+        input = AllianceInput.new(alliance_id: esi.alliance_id,
+                                  creator_corporation_id: esi.creator_corporation_id,
+                                  creator_id: esi.creator_id,
+                                  date_founded: esi.date_founded,
+                                  executor_corporation_id: esi.executor_corporation_id,
+                                  faction_id: esi.faction_id,
+                                  name: esi.name,
+                                  ticker: esi.ticker)
 
         AllianceRepository.update(alliance_id, input)
 

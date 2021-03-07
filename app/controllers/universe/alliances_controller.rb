@@ -12,14 +12,19 @@ module Universe
     end
 
     def show
-      @alliance = ::Eve::Alliance
-        .includes(:faction, :creator_corporation, :creator, :executor_corporation)
-        .find_by!(alliance_id: params[:id])
+      action = UniverseAlliancesShowAction.new.perform(params[:id])
 
-      @corporations = ::Eve::Corporation
-        .where(alliance: @alliance)
-        .order(:name)
-        .includes(:faction)
+      @alliance = action.alliance
+      @corporations = action.corporations
+
+      # @alliance = ::Eve::Alliance
+      #   .includes(:faction, :creator_corporation, :creator, :executor_corporation)
+      #   .find_by!(alliance_id: params[:id])
+      #
+      # @corporations = ::Eve::Corporation
+      #   .where(alliance: @alliance)
+      #   .order(:name)
+      #   .includes(:faction)
     end
   end
 end
