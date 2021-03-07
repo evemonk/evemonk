@@ -426,7 +426,7 @@ GEM
     pghero (2.7.4)
       activerecord (>= 5)
     prometheus-client (2.1.0)
-    prosopite (0.1.6)
+    prosopite (0.1.7)
       pg_query (~> 1.3)
     pry (0.14.0)
       coderay (~> 1.1)
