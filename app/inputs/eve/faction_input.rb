@@ -4,10 +4,20 @@ module Eve
   class FactionInput < Upgrow::Input
     attribute :faction_id
     attribute :corporation_id
-    attribute :description
+    attribute :description_en
+    attribute :description_de
+    attribute :description_fr
+    attribute :description_ja
+    attribute :description_ru
+    attribute :description_ko
     attribute :is_unique
     attribute :militia_corporation_id
-    attribute :name
+    attribute :name_en
+    attribute :name_de
+    attribute :name_fr
+    attribute :name_ja
+    attribute :name_ru
+    attribute :name_ko
     attribute :size_factor
     attribute :solar_system_id
     attribute :station_count
