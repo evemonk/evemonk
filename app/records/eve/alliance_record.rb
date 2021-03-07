@@ -4,9 +4,6 @@ module Eve
   class AllianceRecord < ApplicationRecord
     self.table_name = "eve_alliances"
 
-    # include ActionView::Helpers::NumberHelper
-    # include ImageProxy
-    #
     # has_paper_trail
     #
     # searchkick
@@ -30,10 +27,10 @@ module Eve
     # belongs_to :faction,
     #   primary_key: "faction_id",
     #   optional: true
-    #
-    # has_many :corporations,
-    #   primary_key: "alliance_id"
-    #
+
+    has_many :corporations,
+      primary_key: "alliance_id"
+
     # has_many :characters,
     #   through: :corporations
     #
