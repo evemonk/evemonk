@@ -21,8 +21,6 @@ module Eve
     private
 
     def import_new_alliances
-      eve_alliance_ids = AllianceRepository.new.alliance_ids
-
       eve_alliance_ids_to_create = esi.alliance_ids - eve_alliance_ids
 
       eve_alliance_ids_to_create.each do |alliance_id|
@@ -31,19 +29,25 @@ module Eve
     end
 
     def remove_old_alliances
-      eve_alliance_ids = AllianceRepository.new.alliance_ids
-
       alliance_ids_to_remove = eve_alliance_ids - esi.alliance_ids
 
       alliance_ids_to_remove.each do |alliance_id|
-        # eve_alliance = Eve::Alliance.find_or_initialize_by(alliance_id: alliance_id)
-        #
-        # eve_alliance.corporations.each do |corporation|
-        #   Eve::UpdateCorporationJob.perform_later(corporation.corporation_id)
-        # end
-        #
-        # eve_alliance.destroy!
+        begin
+          eve_alliance = AllianceRepository.find_by_alliance_id(alliance_id)
+
+          eve_alliance.corporation_ids.each do |corporation_id|
+            Eve::UpdateCorporationJob.perform_later(corporation_id)
+          end
+
+          AllianceRepository.destroy(alliance_id)
+        rescue ActiveRecord::RecordNotFound
+          Rails.logger.info("Alliance ID #{alliance_id} not found")
+        end
       end
+    end
+
+    def eve_alliance_ids
+      @eve_alliance_ids ||= AllianceRepository.alliance_ids
     end
   end
 end
