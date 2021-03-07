@@ -30,7 +30,7 @@ module Eve
       end
 
       def alliance_ids
-        AllianceRecord.pluck(:alliance_id)
+        AllianceRecord.pluck(:alliance_id).sort
       end
 
       def find_by_alliance_id(alliance_id)
