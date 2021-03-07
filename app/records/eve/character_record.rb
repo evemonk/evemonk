@@ -1,0 +1,77 @@
+# frozen_string_literal: true
+
+module Eve
+  class CharacterRecord < ApplicationRecord
+    # include ImageProxy
+    #
+    # has_paper_trail
+    #
+    # searchkick
+    #
+    # belongs_to :alliance,
+    #   primary_key: "alliance_id",
+    #   optional: true
+    #
+    # belongs_to :ancestry,
+    #   primary_key: "ancestry_id",
+    #   optional: true
+    #
+    # belongs_to :bloodline,
+    #   primary_key: "bloodline_id",
+    #   optional: true
+    #
+    # belongs_to :corporation,
+    #   primary_key: "corporation_id",
+    #   optional: true
+    #
+    # belongs_to :faction,
+    #   primary_key: "faction_id",
+    #   optional: true
+    #
+    # belongs_to :race,
+    #   primary_key: "race_id",
+    #   optional: true
+    #
+    # has_many :character_corporation_histories,
+    #   primary_key: "character_id",
+    #   dependent: :destroy
+    #
+    # def search_data
+    #   {
+    #     name: name
+    #   }
+    # end
+    #
+    # def icon_tiny
+    #   "#{imageproxy_url}https://images.evetech.net/characters/#{character_id}/portrait?size=32"
+    # end
+    #
+    # def icon_small
+    #   "#{imageproxy_url}https://images.evetech.net/characters/#{character_id}/portrait?size=64"
+    # end
+    #
+    # def icon_medium
+    #   "#{imageproxy_url}https://images.evetech.net/characters/#{character_id}/portrait?size=128"
+    # end
+    #
+    # def icon_large
+    #   "#{imageproxy_url}https://images.evetech.net/characters/#{character_id}/portrait?size=256"
+    # end
+    #
+    # def icon_huge
+    #   "#{imageproxy_url}https://images.evetech.net/characters/#{character_id}/portrait?size=512"
+    # end
+    #
+    # def icon_gigantic
+    #   "#{imageproxy_url}https://images.evetech.net/characters/#{character_id}/portrait?size=1024"
+    # end
+    #
+    # def sanitized_description
+    #   Rails::Html::FullSanitizer.new.sanitize(description)
+    # end
+    #
+    # def rounded_security_status
+    #   security_status&.round(1)
+    # end
+  end
+end
