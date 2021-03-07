@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
 module Eve
-  class Ship < Type
+  class ServerStatusRecord < ApplicationRecord
   end
 end
