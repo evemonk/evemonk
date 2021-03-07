@@ -20,9 +20,8 @@ module Eve
       rescue ActiveRecord::RecordNotFound
         Rails.logger.info("Alliance with ID #{alliance_id} not found")
       rescue EveOnline::Exceptions::ResourceNotFound
-        etag.destroy!
-
-        eve_alliance.destroy!
+        EtagRepository.destroy(esi.url)
+        AllianceRepository.destroy(alliance_id)
       end
     end
 
@@ -33,7 +32,7 @@ module Eve
     private
 
     def import_new_corporations
-      corporation_ids = esi.corporation_ids - eve_alliance.corporations.pluck(:corporation_id)
+      corporation_ids = esi.corporation_ids - eve_alliance_corporation_ids
 
       corporation_ids.each do |corporation_id|
         Eve::UpdateCorporationJob.perform_later(corporation_id)
@@ -41,15 +40,15 @@ module Eve
     end
 
     def remove_old_corporations
-      corporation_ids = eve_alliance.corporations.pluck(:corporation_id) - esi.corporation_ids
+      corporation_ids = eve_alliance_corporation_ids - esi.corporation_ids
 
       corporation_ids.each do |corporation_id|
         Eve::UpdateCorporationJob.perform_later(corporation_id)
       end
     end
 
-    def eve_alliance
-      @eve_alliance ||= Eve::Alliance.find_by!(alliance_id: alliance_id)
+    def eve_alliance_corporation_ids
+      @eve_alliance_corporation_ids ||= AllianceRepository.corporation_ids(alliance_id)
     end
   end
 end
