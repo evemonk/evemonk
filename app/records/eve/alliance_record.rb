@@ -5,30 +5,33 @@ module Eve
     self.table_name = "eve_alliances"
 
     # has_paper_trail
-    #
+
     # searchkick
-    #
+
     # belongs_to :creator_corporation,
     #   class_name: "Eve::Corporation",
     #   primary_key: "corporation_id",
     #   optional: true
-    #
+
     # belongs_to :creator,
     #   class_name: "Eve::Character",
     #   primary_key: "character_id",
     #   optional: true
-    #
+
     # belongs_to :executor_corporation,
     #   class_name: "Eve::Corporation",
     #   primary_key: "corporation_id",
     #   foreign_key: "executor_corporation_id",
     #   optional: true
-    #
-    # belongs_to :faction,
-    #   primary_key: "faction_id",
-    #   optional: true
 
-    has_many :corporation_records,
+    belongs_to :faction,
+      class_name: "Eve::FactionRecord",
+      primary_key: "faction_id",
+      foreign_key: "faction_id",
+      optional: true
+
+    has_many :corporations,
+      class_name: "Eve::CorporationRecord",
       primary_key: "alliance_id",
       foreign_key: "alliance_id"
 

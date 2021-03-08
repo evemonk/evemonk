@@ -9,7 +9,9 @@ describe Eve::AllianceRecord, type: :model do
 
   # TODO: more
 
-  it { should have_many(:corporation_records).with_primary_key("alliance_id").with_foreign_key("alliance_id") }
+  it { should belong_to(:faction).class_name("Eve::FactionRecord").with_primary_key("faction_id").with_foreign_key("faction_id").optional(true) }
+
+  it { should have_many(:corporations).class_name("Eve::CorporationRecord").with_primary_key("alliance_id").with_foreign_key("alliance_id") }
 
   # TODO: more
 end
