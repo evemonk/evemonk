@@ -24,9 +24,9 @@ module Eve
     attribute :station_system_count
 
     validates :faction_id, presence: true
-    validates :description, presence: true
+    # validates :description, presence: true
     validates :is_unique, presence: true
-    validates :name, presence: true
+    # validates :name, presence: true
     validates :size_factor, presence: true
     validates :station_count, presence: true
     validates :station_system_count, presence: true
