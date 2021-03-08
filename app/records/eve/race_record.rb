@@ -2,11 +2,9 @@
 
 module Eve
   class RaceRecord < ApplicationRecord
-    # extend Mobility
-    #
+    self.table_name = "eve_races"
+
     # has_paper_trail
-    #
-    # translates :name, :description
     #
     # belongs_to :faction,
     #   primary_key: "faction_id",

@@ -12,12 +12,13 @@ module Eve
       import! do
         return if esi.not_modified?
 
-        Mobility.with_locale(locale) do
-          esi.races.each do |race|
-            eve_race = Eve::Race.find_or_initialize_by(race_id: race.race_id)
+        esi.races.each do |race|
+          input = RaceInput.new(race_id: race.race_id,
+                                faction_id: race.faction_id,
+                                "description_#{locale}": race.description,
+                                "name_#{locale}": race.name)
 
-            eve_race.update!(race.as_json)
-          end
+          RaceRepository.update(race.race_id, input, locale)
         end
 
         update_etag
