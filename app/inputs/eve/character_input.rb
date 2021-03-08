@@ -15,5 +15,13 @@ module Eve
     attribute :race_id
     attribute :security_status
     attribute :title
+
+    validates :character_id, presence: true
+    validates :birthday, presence: true
+    validates :bloodline_id, presence: true
+    validates :corporation_id, presence: true
+    validates :gender, presence: true
+    validates :name, presence: true
+    validates :race_id, presence: true
   end
 end
