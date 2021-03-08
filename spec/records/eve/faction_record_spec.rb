@@ -7,9 +7,15 @@ describe Eve::FactionRecord, type: :model do
 
   it { expect(described_class.table_name).to eq("eve_factions") }
 
-  it { should respond_to(:versions) }
+  # it { should respond_to(:versions) }
+  #
+  # it { should belong_to(:corporation).with_primary_key("corporation_id").optional(true) }
+  #
+  # it { should belong_to(:militia_corporation).class_name("Eve::Corporation").with_primary_key("corporation_id").with_foreign_key("militia_corporation_id").optional(true) }
+  #
+  # it { should belong_to(:solar_system).class_name("Eve::System").with_primary_key("system_id").with_foreign_key("solar_system_id").optional(true) }
 
-  it { expect(described_class).to respond_to(:translates) }
+  it { should have_many(:alliances).class_name("Eve::AllianceRecord").with_primary_key("faction_id").with_foreign_key("faction_id") }
 
-  it { expect(described_class.mobility_attributes).to eq(["name", "description"]) }
+  # it { should have_many(:standings) }
 end

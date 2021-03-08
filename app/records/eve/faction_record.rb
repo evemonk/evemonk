@@ -4,11 +4,7 @@ module Eve
   class FactionRecord < ApplicationRecord
     self.table_name = "eve_factions"
 
-    extend Mobility
-
-    has_paper_trail
-
-    translates :name, :description
+    # has_paper_trail
 
     # belongs_to :corporation,
     #   primary_key: "corporation_id",
@@ -25,9 +21,12 @@ module Eve
     #   primary_key: "system_id",
     #   foreign_key: "solar_system_id",
     #   optional: true
-    #
-    # has_many :alliances, primary_key: "faction_id"
-    #
+
+    has_many :alliances,
+      class_name: "Eve::AllianceRecord",
+      primary_key: "faction_id",
+      foreign_key: "faction_id"
+
     # has_many :standings, as: :standingable
   end
 end
