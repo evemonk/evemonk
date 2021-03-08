@@ -14,8 +14,6 @@ describe Eve::Alliance do
 
   it { should be_a(Upgrow::Model) }
 
-  it { should be_a(ImageProxy) }
-
   describe "#icon_tiny" do
     subject { described_class.new(**attributes.merge(alliance_id: 1_354_830_081)) }
 
