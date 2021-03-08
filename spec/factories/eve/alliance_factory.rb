@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 FactoryBot.define do
-  factory :eve_alliance, class: Eve::Alliance do
+  factory :eve_alliance, class: Eve::AllianceRecord do
     sequence(:alliance_id)
 
     sequence(:creator_corporation_id)
@@ -17,5 +17,9 @@ FactoryBot.define do
     name { Faker::Lorem.word }
 
     ticker { Faker::Lorem.word.upcase }
+
+    corporations_count { 0 }
+
+    characters_count { 0 }
   end
 end
