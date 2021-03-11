@@ -39,6 +39,18 @@ module Eve
         Eve::CorporationRecord.pluck(:corporation_id).sort
       end
 
+      def with_faction_for_alliance(alliance_id)
+        CorporationRecord.where(alliance_id: alliance_id).order(:name).includes(:faction).map do |record|
+          to_model(record.attributes)
+        end
+
+
+        # @corporations = ::Eve::Corporation
+        #   .where(alliance: @alliance)
+        #   .order(:name)
+        #   .includes(:faction)
+      end
+
       private
 
       def to_model(attributes)
