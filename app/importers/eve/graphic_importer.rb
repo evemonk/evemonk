@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# TODO: update
 module Eve
   class GraphicImporter < BaseImporter
     attr_reader :graphic_id

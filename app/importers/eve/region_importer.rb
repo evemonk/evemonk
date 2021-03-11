@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# TODO: update
 module Eve
   class RegionImporter < BaseImporter
     attr_reader :region_id, :locale

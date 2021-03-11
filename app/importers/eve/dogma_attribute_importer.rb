@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# TODO: update
 module Eve
   class DogmaAttributeImporter < BaseImporter
     attr_reader :attribute_id

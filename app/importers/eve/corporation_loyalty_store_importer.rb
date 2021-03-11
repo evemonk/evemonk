@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# TODO: update
 module Eve
   class CorporationLoyaltyStoreImporter < BaseImporter
     attr_reader :corporation_id

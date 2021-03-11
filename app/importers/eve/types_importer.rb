@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# TODO: update
 module Eve
   class TypesImporter < BaseImporter
     attr_reader :page

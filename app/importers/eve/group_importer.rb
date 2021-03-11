@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# TODO: update
 module Eve
   class GroupImporter < BaseImporter
     attr_reader :group_id, :locale

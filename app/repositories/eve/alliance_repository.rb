@@ -3,6 +3,17 @@
 module Eve
   class AllianceRepository
     class << self
+      # def find(alliance_id)
+      #   record = AllianceRecord.find_by!(alliance_id: alliance_id)
+      #   to_model(record.attributes)
+      # end
+
+      def find_with_more_info(alliance_id)
+        record = AllianceRecord.includes(:faction, :creator_corporation, :creator, :executor_corporation)
+                               .find_by!(alliance_id: alliance_id)
+        to_model(record.attributes)
+      end
+
       def update(alliance_id, input)
         record = AllianceRecord.find_or_initialize_by(alliance_id: alliance_id)
         record.update!(alliance_id: input.alliance_id,

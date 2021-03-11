@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# TODO: update
 module Eve
   class TypeImporter < BaseImporter
     attr_reader :type_id, :locale

@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# TODO: update
 module Eve
   class CharacterCorporationHistoryImporter < BaseImporter
     attr_reader :character_id

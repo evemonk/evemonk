@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# TODO: update
 module Eve
   class AsteroidBeltImporter < BaseImporter
     attr_reader :planet_id, :asteroid_belt_id

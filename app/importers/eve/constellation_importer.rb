@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# TODO: update
 module Eve
   class ConstellationImporter < BaseImporter
     attr_reader :constellation_id, :locale

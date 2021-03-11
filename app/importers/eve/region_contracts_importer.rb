@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# TODO: update
 module Eve
   class RegionContractsImporter < BaseImporter
     attr_reader :region_id, :page
