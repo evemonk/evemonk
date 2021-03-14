@@ -423,7 +423,7 @@ GEM
       optimist (~> 3.0)
     pg (1.2.3)
     pg_query (1.3.0)
-    pghero (2.7.4)
+    pghero (2.8.0)
       activerecord (>= 5)
     prometheus-client (2.1.0)
     prosopite (0.2.1)
