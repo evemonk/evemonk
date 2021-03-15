@@ -14,6 +14,7 @@ class SkillsTree
       .groups
       .published
       .includes(types: {type_dogma_attributes: :dogma_attribute})
+      .where(dogma_attribute: {published: true})
       .where(types: {published: true})
       .order(:name_en)
   end
