@@ -709,7 +709,7 @@ GEM
       json
       puma
       yabeda (~> 0.5)
-    yabeda-rails (0.7.1)
+    yabeda-rails (0.7.2)
       rails
       yabeda (~> 0.8)
     yabeda-sidekiq (0.7.0)
