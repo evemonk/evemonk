@@ -26,6 +26,7 @@ describe SkillsTree do
         # skills_category.groups
         #                .published
         #                .includes(types: { type_dogma_attributes: :dogma_attribute })
+        #                .where(dogma_attribute: {published: true})
         #                .where(types: { published: true })
         #                .order(:name_en)
         #
@@ -35,9 +36,13 @@ describe SkillsTree do
               double.tap do |b|
                 expect(b).to receive(:includes).with(types: {type_dogma_attributes: :dogma_attribute}) do
                   double.tap do |c|
-                    expect(c).to receive(:where).with(types: {published: true}) do
+                    expect(c).to receive(:where).with(dogma_attribute: {published: true}) do
                       double.tap do |d|
-                        expect(d).to receive(:order).with(:name_en).and_return(groups)
+                        expect(d).to receive(:where).with(types: {published: true}) do
+                          double.tap do |e|
+                            expect(e).to receive(:order).with(:name_en).and_return(groups)
+                          end
+                        end
                       end
                     end
                   end
