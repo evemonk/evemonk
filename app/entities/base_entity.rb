@@ -4,7 +4,11 @@ class BaseEntity
   @attributes = []
 
   class << self
+    # attr_reader :attributes
+
     def attribute(name)
+      raise ArgumentError, "name should be a Symbol" unless name.is_a?(Symbol)
+
       @attributes << name
 
       attr_reader(name)
@@ -12,10 +16,16 @@ class BaseEntity
 
     def attributes(*names)
       names.each do |name|
-        @attributes << name
-
-        attr_reader(name)
+        attribute(name)
       end
+    end
+
+    private
+
+    def inherited(subclass)
+      super
+
+      subclass.instance_variable_set(:@attributes, @attributes.dup)
     end
   end
 end
