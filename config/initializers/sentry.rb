@@ -13,6 +13,7 @@ if Rails.env.production?
       "EveOnline::Exceptions::ResourceNotFound",
       "Searchkick::ImportError",
       "OpenSSL::SSL::SSLError",
-      "Faraday::Error::TimeoutError"]
+      "Faraday::Error::TimeoutError",
+      "Sentry::ExternalError"]
   end
 end
