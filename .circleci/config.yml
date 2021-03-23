@@ -49,7 +49,7 @@ jobs:
       - run: shellcheck-stable/shellcheck --version
       - run: bundle exec rails db:create
       - run: bundle exec rails db:migrate
-      - run: bundle exec rspec --profile --format RspecJunitFormatter --out ~/test-results/rspec.xml
+      - run: bundle exec rspec --profile --format documentation --format RspecJunitFormatter --out ~/test-results/rspec.xml
       - run: bundle exec bundle-audit update
       - run: bundle exec bundle-audit
       - run: yarn audit
@@ -70,4 +70,6 @@ jobs:
       - run: ./hadolint --ignore DL3005 --ignore DL3008 Dockerfile
       - run: shellcheck-stable/shellcheck bin/backend bin/sidekiq bin/cron bin/standardize
       - store_test_results:
+          path: ~/test-results
+      - store_artifacts:
           path: ~/test-results
