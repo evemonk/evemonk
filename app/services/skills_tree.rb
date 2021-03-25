@@ -104,7 +104,7 @@ class SkillsTree
     primary = character.send(:"#{primary_attribute_per_group(group).name}")
     secondary = character.send(:"#{secondary_attribute_per_group(group).name}")
 
-    rate = primary + (secondary / 2.0)
+    rate = EveOnline::Formulas::TrainingRate.new(primary, secondary).rate
 
     format("%0.2f", rate)
   end

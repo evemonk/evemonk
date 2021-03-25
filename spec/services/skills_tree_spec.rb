@@ -267,6 +267,17 @@ describe SkillsTree do
       expect(subject).to receive(:secondary_attribute_per_group).with(eve_group).and_return(secondary_attribute)
     end
 
+    before do
+      #
+      # EveOnline::Formulas::TrainingRate.new(24, 24).rate # => 36.0
+      #
+      expect(EveOnline::Formulas::TrainingRate).to receive(:new).with(24, 24) do
+        double.tap do |a|
+          expect(a).to receive(:rate).and_return(36.0)
+        end
+      end
+    end
+
     specify { expect(subject.training_rate_in_group(eve_group)).to eq("36.00") }
   end
 
