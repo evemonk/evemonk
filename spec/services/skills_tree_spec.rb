@@ -281,6 +281,27 @@ describe SkillsTree do
     specify { expect(subject.training_rate_in_group(eve_group)).to eq("36.00") }
   end
 
+  describe "#skills_in_group" do
+    let(:group) { instance_double(Eve::Group) }
+
+    before do
+      #
+      # group.types.published.order(:name_en)
+      #
+      expect(group).to receive(:types) do
+        double.tap do |a|
+          expect(a).to receive(:published) do
+            double.tap do |b|
+              expect(b).to receive(:order).with(:name_en)
+            end
+          end
+        end
+      end
+    end
+
+    specify { expect { subject.skills_in_group(group) }.not_to raise_error }
+  end
+
   # private methods
 
   describe "#skills_category" do

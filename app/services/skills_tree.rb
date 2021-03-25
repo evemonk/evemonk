@@ -75,31 +75,6 @@ class SkillsTree
     group.types.published.order(:name_en).first.secondary_attribute
   end
 
-  # def character_perception
-  #   # Integer(character.perception_without_bonuses + character.perception_bonus)
-  #   character.perception
-  # end
-  #
-  # def character_memory
-  #   # Integer(character.memory_without_bonuses + character.memory_bonus)
-  #   character.memory
-  # end
-  #
-  # def character_willpower
-  #   # Integer(character.willpower_without_bonuses + character.willpower_bonus)
-  #   character.willpower
-  # end
-  #
-  # def character_intelligence
-  #   # Integer(character.intelligence_without_bonuses + character.intelligence_bonus)
-  #   character.intelligence
-  # end
-  #
-  # def character_charisma
-  #   # Integer(character.charisma_without_bonuses + character.charisma_bonus)
-  #   character.charisma
-  # end
-
   def training_rate_in_group(group)
     primary = character.send(:"#{primary_attribute_per_group(group).name}")
     secondary = character.send(:"#{secondary_attribute_per_group(group).name}")
@@ -109,6 +84,19 @@ class SkillsTree
     format("%0.2f", rate)
   end
 
+  def skills_in_group(group)
+    group.types.published.order(:name_en)
+  end
+
+  # def training_rate_for_skill(skill)
+  #   primary = character.send(:"#{primary_attribute_per_group(group).name}")
+  #   secondary = character.send(:"#{secondary_attribute_per_group(group).name}")
+  #
+  #   rate = EveOnline::Formulas::TrainingRate.new(primary, secondary).rate
+  #
+  #   format("%0.2f", rate)
+  # end
+
   private
 
   def skills_category
@@ -116,10 +104,6 @@ class SkillsTree
       .published
       .find_by!(category_id: SKILLS_CATEGORY_ID)
   end
-
-  # def skills_in_group(group)
-  #   group.types.published.order(:name_en)
-  # end
 
   # def training_time_for_skill(skill, level)
   # end
