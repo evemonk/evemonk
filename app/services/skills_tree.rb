@@ -75,27 +75,18 @@ class SkillsTree
     group.types.published.order(:name_en).first.secondary_attribute
   end
 
-  def training_rate_in_group(group)
-    primary = character.send(:"#{primary_attribute_per_group(group).name}")
-    secondary = character.send(:"#{secondary_attribute_per_group(group).name}")
+  def skills_in_group(group)
+    group.types.published.order(:name_en)
+  end
+
+  def training_rate_for_skill(skill)
+    primary = character.send(:"#{skill.primary_attribute.name}")
+    secondary = character.send(:"#{skill.secondary_attribute.name}")
 
     rate = EveOnline::Formulas::TrainingRate.new(primary, secondary).rate
 
     format("%0.2f", rate)
   end
-
-  def skills_in_group(group)
-    group.types.published.order(:name_en)
-  end
-
-  # def training_rate_for_skill(skill)
-  #   primary = character.send(:"#{primary_attribute_per_group(group).name}")
-  #   secondary = character.send(:"#{secondary_attribute_per_group(group).name}")
-  #
-  #   rate = EveOnline::Formulas::TrainingRate.new(primary, secondary).rate
-  #
-  #   format("%0.2f", rate)
-  # end
 
   private
 

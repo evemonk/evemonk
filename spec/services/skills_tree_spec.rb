@@ -244,43 +244,6 @@ describe SkillsTree do
     specify { expect { subject.secondary_attribute_per_group(eve_group) }.not_to raise_error }
   end
 
-  describe "#training_rate_in_group" do
-    let!(:character) { create(:character, intelligence: 24, memory: 24) }
-
-    let!(:eve_group) { create(:eve_group, published: true) }
-
-    let!(:primary_attribute) { create(:eve_dogma_attribute, name: "intelligence") }
-
-    before do
-      #
-      # primary_attribute_per_group(group) # => primary_attribute
-      #
-      expect(subject).to receive(:primary_attribute_per_group).with(eve_group).and_return(primary_attribute)
-    end
-
-    let!(:secondary_attribute) { create(:eve_dogma_attribute, name: "memory") }
-
-    before do
-      #
-      # secondary_attribute_per_group(group) # => secondary_attribute
-      #
-      expect(subject).to receive(:secondary_attribute_per_group).with(eve_group).and_return(secondary_attribute)
-    end
-
-    before do
-      #
-      # EveOnline::Formulas::TrainingRate.new(24, 24).rate # => 36.0
-      #
-      expect(EveOnline::Formulas::TrainingRate).to receive(:new).with(24, 24) do
-        double.tap do |a|
-          expect(a).to receive(:rate).and_return(36.0)
-        end
-      end
-    end
-
-    specify { expect(subject.training_rate_in_group(eve_group)).to eq("36.00") }
-  end
-
   describe "#skills_in_group" do
     let(:group) { instance_double(Eve::Group) }
 
@@ -300,6 +263,37 @@ describe SkillsTree do
     end
 
     specify { expect { subject.skills_in_group(group) }.not_to raise_error }
+  end
+
+  describe "#training_rate_for_skill" do
+    let!(:character) { create(:character, perception: 23, memory: 24) }
+
+    let!(:eve_type) { create(:eve_type, published: true) }
+
+    let!(:eve_dogma_attribute_primary) { create(:eve_dogma_attribute, name: "primaryAttribute", attribute_id: 123, published: true) }
+
+    let!(:eve_dogma_attribute_secondary) { create(:eve_dogma_attribute, name: "secondaryAttribute", attribute_id: 124, published: true) }
+
+    let!(:eve_type_dogma_attribute_primary) { create(:eve_type_dogma_attribute, type_id: eve_type.type_id, attribute_id: 123, value: 223) }
+
+    let!(:eve_type_dogma_attribute_secondary) { create(:eve_type_dogma_attribute, type_id: eve_type.type_id, attribute_id: 124, value: 224) }
+
+    let!(:eve_dogma_attribute_perception) { create(:eve_dogma_attribute, name: "perception", attribute_id: 223, published: true) }
+
+    let!(:eve_dogma_attribute_memory) { create(:eve_dogma_attribute, name: "memory", attribute_id: 224, published: true) }
+
+    before do
+      #
+      # EveOnline::Formulas::TrainingRate.new(23, 24).rate # => 35.0
+      #
+      expect(EveOnline::Formulas::TrainingRate).to receive(:new).with(23, 24) do
+        double.tap do |a|
+          expect(a).to receive(:rate).and_return(35.0)
+        end
+      end
+    end
+
+    specify { expect(subject.training_rate_for_skill(eve_type)).to eq("35.00") }
   end
 
   # private methods
