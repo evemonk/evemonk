@@ -2,28 +2,26 @@
 
 require "rails_helper"
 
-xdescribe "/.well-known/change-password" do
+describe "/.well-known/change-password" do
   it "when user successfully redirected to change password form" do
     create(:user, email: "me@example.com", password: "eidii7EeooVe8ahk")
 
-    create(:eve_server_status)
+    visit "/users/sign_in"
 
-    visit "/sign_in"
-
-    fill_in "email", with: "me@example.com"
-    fill_in "password", with: "eidii7EeooVe8ahk"
-    find("#sign_in_button").click # TODO: click on 'Sign In'
+    fill_in "Email address", with: "me@example.com"
+    fill_in "Password", with: "eidii7EeooVe8ahk"
+    click_on "Sign in"
 
     visit "/.well-known/change-password"
 
-    expect(current_path).to eq("/change_password")
+    expect(current_path).to eq("/users/edit")
 
-    expect(page).to have_content("Change password")
+    expect(page).to have_content("Change email and password")
 
-    expect(page).to have_content("Current password (leave empty if you are Sign up via Eve Online SSO)")
+    expect(page).to have_content("Password (leave blank if you don't want to change it)")
 
-    expect(page).to have_content("New password")
+    expect(page).to have_content("Password confirmation")
 
-    expect(page).to have_content("New password confirmation")
+    expect(page).to have_content("Current password (we need your current password to confirm your changes)")
   end
 end
