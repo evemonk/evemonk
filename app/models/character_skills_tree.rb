@@ -35,6 +35,10 @@ class CharacterSkillsTree
     character_skills.select { |character_skill| skill_ids.include?(character_skill.skill_id) }.map(&:trained_skill_level).sum
   end
 
+  def total_levels_in_group(group_id)
+    skills_types.select { |type| type.group_id == group_id }.size * 5
+  end
+
   private
 
   def skill_category
