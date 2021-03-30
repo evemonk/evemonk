@@ -20,6 +20,8 @@ class CharacterSkillsTree
 
     character_skillqueues
 
+    certificates
+
     self
   end
 
@@ -53,6 +55,18 @@ class CharacterSkillsTree
     character_skills.select { |character_skill| skill_ids.include?(character_skill.skill_id) }.map(&:skillpoints_in_skill).sum
   end
 
+  def total_skill_points_in_group(group_id)
+    0
+  end
+
+  def certificates_claimed_in_group(group_id)
+    0
+  end
+
+  def total_certificates_in_group(group_id)
+    certificates.select { |certificate| certificate.group_id == group_id }.size
+  end
+
   private
 
   def skill_category
@@ -61,6 +75,10 @@ class CharacterSkillsTree
 
   def skills_types
     @skills_types ||= Eve::Type.published.where(group_id: skills_groups.map(&:group_id)).to_a
+  end
+
+  def certificates
+    @certificates ||= Eve::Certificate.all.to_a
   end
 
   def character_skills
