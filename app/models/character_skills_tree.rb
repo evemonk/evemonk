@@ -18,6 +18,8 @@ class CharacterSkillsTree
 
     character_skills
 
+    character_skillqueues
+
     self
   end
 
@@ -39,6 +41,12 @@ class CharacterSkillsTree
     skills_types.select { |type| type.group_id == group_id }.size * 5
   end
 
+  def levels_in_training_queue(group_id)
+    skill_ids = skills_types.select { |type| type.group_id == group_id }.map(&:type_id)
+
+    character_skillqueues.select { |skillqueue| skill_ids.include?(skillqueue.skill_id) }.size
+  end
+
   private
 
   def skill_category
@@ -51,5 +59,9 @@ class CharacterSkillsTree
 
   def character_skills
     @character_skills ||= character.character_skills.to_a
+  end
+
+  def character_skillqueues
+    @character_skillqueues ||= character.skillqueues.order(:queue_position).where("skillqueues.finish_date > :now", now: Time.zone.now).to_a
   end
 end
