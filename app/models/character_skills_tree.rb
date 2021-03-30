@@ -2,6 +2,8 @@
 
 class CharacterSkillsTree
   SKILLS_CATEGORY_ID = 16
+  PRIMARY_ATTRIBUTE_NAME = "primaryAttribute"
+  SECONDARY_ATTRIBUTE_NAME = "secondaryAttribute"
 
   attr_reader :character
 
@@ -21,6 +23,12 @@ class CharacterSkillsTree
     character_skillqueues
 
     certificates
+
+    dogma_attributes
+
+    type_dogma_attributes
+
+    more_dogma_attributes
 
     self
   end
@@ -71,6 +79,24 @@ class CharacterSkillsTree
     skills_types.select { |type| type.group_id == group_id }.sort_by(&:name_en)
   end
 
+  def training_rate_for_skill(skill_id)
+    primary_dogma_attribute = dogma_attributes.find { |dogma_attribute| dogma_attribute.name == PRIMARY_ATTRIBUTE_NAME }
+    primary_attribute_id = type_dogma_attributes.find { |tda| tda.type_id == skill_id && tda.attribute_id == primary_dogma_attribute.attribute_id }.value.to_i
+    primary_attribute = more_dogma_attributes.find { |dogma_attribute| dogma_attribute.attribute_id == primary_attribute_id }
+
+    secondary_dogma_attribute = dogma_attributes.find { |dogma_attribute| dogma_attribute.name == SECONDARY_ATTRIBUTE_NAME }
+    secondary_attribute_id = type_dogma_attributes.find { |tda| tda.type_id == skill_id && tda.attribute_id == secondary_dogma_attribute.attribute_id }.value.to_i
+    secondary_attribute = more_dogma_attributes.find { |dogma_attribute| dogma_attribute.attribute_id == secondary_attribute_id }
+
+
+    primary = character.send(:"#{primary_attribute.name}")
+    secondary = character.send(:"#{secondary_attribute.name}")
+
+    rate = EveOnline::Formulas::TrainingRate.new(primary, secondary).rate
+
+    format("%0.2f", rate)
+  end
+
   private
 
   def skill_category
@@ -78,7 +104,7 @@ class CharacterSkillsTree
   end
 
   def skills_types
-    @skills_types ||= Eve::Type.published.where(group_id: skills_groups.map(&:group_id)).to_a
+    @skills_types ||= Eve::Type.published.where(group_id: skills_groups.map(&:group_id).sort.uniq).to_a
   end
 
   def certificates
@@ -91,5 +117,17 @@ class CharacterSkillsTree
 
   def character_skillqueues
     @character_skillqueues ||= character.skillqueues.order(:queue_position).where("skillqueues.finish_date > :now", now: Time.zone.now).to_a
+  end
+
+  def dogma_attributes
+    @dogma_attributes ||= Eve::DogmaAttribute.published.where(name: [PRIMARY_ATTRIBUTE_NAME, SECONDARY_ATTRIBUTE_NAME]).to_a
+  end
+
+  def type_dogma_attributes
+    @type_dogma_attributes ||= Eve::TypeDogmaAttribute.where(attribute_id: dogma_attributes.map(&:attribute_id).sort.uniq).to_a
+  end
+
+  def more_dogma_attributes
+    @more_dogma_attributes ||= Eve::DogmaAttribute.published.where(attribute_id: type_dogma_attributes.map(&:value).map(&:to_i).sort.uniq).to_a
   end
 end
