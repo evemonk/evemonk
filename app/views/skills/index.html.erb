@@ -169,7 +169,7 @@
               </div>
               <div class="row">
                 <div class="col-12">
-                  Skill points: <%#= number_with_delimiter(@skills_tree.current_skill_points_in_group(group), delimiter: " ") %> / <%#= number_with_delimiter(@skills_tree.total_skill_points_in_group(group), delimiter: " ") %>
+                  Skill points: <%= number_with_delimiter(@character_skills_tree.current_skill_points_in_group(group.group_id), delimiter: " ") %> / <%#= number_with_delimiter(@skills_tree.total_skill_points_in_group(group), delimiter: " ") %>
                 </div>
               </div>
               <div class="row">
