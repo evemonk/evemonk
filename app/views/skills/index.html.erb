@@ -159,7 +159,7 @@
             <div class="card-body">
               <div class="row">
                 <div class="col-12">
-                  Levels trained: <%#= @skills_tree.levels_trained_in_group(group) %> / <%#= @skills_tree.total_levels_in_group(group) %>
+                  Levels trained: <%= @character_skills_tree.levels_trained_in_group(group.group_id) %> / <%#= @skills_tree.total_levels_in_group(group) %>
                 </div>
               </div>
               <div class="row">
