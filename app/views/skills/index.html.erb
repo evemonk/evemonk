@@ -188,16 +188,16 @@
 
               <hr>
 
-              <%# @skills_tree.skills_in_group(group).each do |skill| %>
+              <% @character_skills_tree.skills_in_group(group.group_id).each do |skill| %>
                 <div class="row">
                   <div class="col-12">
-                    <%#= link_to(skill.name, universe_type_path(skill.type_id)) %><br>
+                    <%= link_to(skill.name, universe_type_path(skill.type_id)) %><br>
                     Training rate: <%#= @skills_tree.training_rate_for_skill(skill) %> skill points per minute<br>
                     Primary: <%#= skill.primary_attribute.display_name %>: <%#= @character.send(:"#{skill.primary_attribute.name}") %><br>
                     Secondary: <%#= skill.secondary_attribute.display_name %>: <%#= @character.send(:"#{skill.secondary_attribute.name}") %>
                   </div>
                 </div>
-              <%# end %>
+              <% end %>
 
               <%# @character.skills_tree.skills_in_group(group).each do |skill| %>
 <!--                <div class="row">-->

@@ -67,6 +67,10 @@ class CharacterSkillsTree
     certificates.select { |certificate| certificate.group_id == group_id }.size
   end
 
+  def skills_in_group(group_id)
+    skills_types.select { |type| type.group_id == group_id }.sort_by(&:name_en)
+  end
+
   private
 
   def skill_category
