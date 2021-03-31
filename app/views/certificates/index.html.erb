@@ -139,7 +139,7 @@
     <h4 class="text-center text-break">Certificates</h4>
 
     <div class="accordion" id="certificates_tree_accordion">
-      <% @certificates_tree.groups.each do |group| %>
+      <% @character_certificates_tree.groups.each do |group| %>
         <div class="card">
           <div class="card-header" id="heading_group_<%= group.group_id %>">
             <h2 class="mb-0">
@@ -160,7 +160,7 @@
                aria-labelledby="heading_group_<%= group.group_id %>"
                data-parent="#certificates_tree_accordion">
             <div class="card-body">
-              <% @certificates_tree.certificates_in_group(group.group_id).each do |certificate| %>
+              <% @character_certificates_tree.certificates_in_group(group.group_id).each do |certificate| %>
                 <div class="row">
                   <%= certificate.name %>
                 </div>
