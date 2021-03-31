@@ -63,9 +63,19 @@ describe CharacterCertificatesTree do
     end
   end
 
-  # def certificates_in_group(group_id)
-  #   certificates.select { |certificate| certificate.group_id == group_id }.sort_by(&:name)
-  # end
+  describe "#certificates_in_group" do
+    let(:certificate1) { instance_double(Eve::Certificate, name: "B", group_id: 1) }
+
+    let(:certificate2) { instance_double(Eve::Certificate, name: "A", group_id: 1) }
+
+    let(:certificate3) { instance_double(Eve::Certificate, name: "A", group_id: 2) }
+
+    let(:certificates) { [certificate1, certificate2, certificate3] }
+
+    before { expect(subject).to receive(:certificates).and_return(certificates) }
+
+    specify { expect(subject.certificates_in_group(1)).to eq([certificate2, certificate1]) }
+  end
 
   # private methods
 
