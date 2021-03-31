@@ -38,7 +38,7 @@ describe CertificatesController do
         end
       end
 
-      before { expect(CertificatesTree).to receive(:new).with(character) }
+      before { expect(CharacterCertificatesTree).to receive(:new).with(character) }
 
       before { get :index, params: {character_id: "1"} }
 
