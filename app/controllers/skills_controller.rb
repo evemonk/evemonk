@@ -6,8 +6,6 @@ class SkillsController < ApplicationController
       .includes(:alliance, :corporation)
       .find_by!(character_id: params[:character_id])
 
-    # @skills_tree = SkillsTree.new(@character)
-
     @character_skills_tree = CharacterSkillsTree.new(@character).preload
   end
 end
