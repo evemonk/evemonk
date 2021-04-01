@@ -162,7 +162,9 @@
             <div class="card-body">
               <% @character_certificates_tree.certificates_in_group(group.group_id).each do |certificate| %>
                 <div class="row">
-                  <%= certificate.name %>
+                  <div class="col-12">
+                    <%= certificate.name %>
+                  </div>
                 </div>
               <% end %>
             </div>
