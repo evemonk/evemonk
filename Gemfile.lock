@@ -655,8 +655,7 @@ GEM
       attr_extras (>= 6.2.4)
       diff-lcs
       patience_diff
-    terminal-table (3.0.0)
-      unicode-display_width (~> 1.1, >= 1.1.1)
+    terminal-table (1.6.0)
     thor (1.0.1)
     tilt (2.0.10)
     tomlrb (2.0.1)
@@ -670,7 +669,7 @@ GEM
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.7)
-    unicode-display_width (1.7.0)
+    unicode-display_width (2.0.0)
     unicode_utils (1.4.0)
     vcr (6.0.0)
     warden (1.2.9)
