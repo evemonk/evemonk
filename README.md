@@ -49,7 +49,7 @@ All screenshots are real and made in Safari on latest macOS Catalina (10.15.3).
 - [ruby-build](https://github.com/rbenv/ruby-build)
 - [asdf](https://github.com/asdf-vm/asdf)
 - [asdf-nodejs](https://github.com/asdf-vm/asdf-nodejs)
-- Ruby 3.0.0
+- Ruby 3.0.1
 - RubyGems 3.2.15
 - Bundler 2.2.15
 - Ruby on Rails 6.1.3
