@@ -251,9 +251,9 @@ GEM
     good_migrations (0.0.2)
       activerecord (>= 3.1)
       railties (>= 3.1)
-    google-protobuf (3.15.7)
-    google-protobuf (3.15.7-universal-darwin)
-    google-protobuf (3.15.7-x86_64-linux)
+    google-protobuf (3.15.8)
+    google-protobuf (3.15.8-universal-darwin)
+    google-protobuf (3.15.8-x86_64-linux)
     graphiql-rails (1.7.0)
       railties
       sprockets-rails
