@@ -134,7 +134,7 @@ GEM
     coderay (1.1.3)
     colorize (0.8.1)
     concurrent-ruby (1.1.8)
-    connection_pool (2.2.3)
+    connection_pool (2.2.4)
     consistency_fail (0.3.7)
     countries (3.1.0)
       i18n_data (~> 0.11.0)
