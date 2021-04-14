@@ -251,7 +251,6 @@ GEM
     good_migrations (0.0.2)
       activerecord (>= 3.1)
       railties (>= 3.1)
-    google-protobuf (3.15.8)
     google-protobuf (3.15.8-universal-darwin)
     google-protobuf (3.15.8-x86_64-linux)
     graphiql-rails (1.7.0)
@@ -359,7 +358,6 @@ GEM
       rails (> 5.1)
     mini_histogram (0.3.1)
     mini_mime (1.0.3)
-    mini_portile2 (2.5.0)
     minitest (5.14.4)
     mixlib-cli (2.1.8)
     mixlib-config (3.0.9)
@@ -382,9 +380,6 @@ GEM
     newrelic_rpm (6.15.0)
     niceql (0.1.25)
     nio4r (2.5.7)
-    nokogiri (1.11.3)
-      mini_portile2 (~> 2.5.0)
-      racc (~> 1.4)
     nokogiri (1.11.3-x86_64-darwin)
       racc (~> 1.4)
     nokogiri (1.11.3-x86_64-linux)
@@ -723,8 +718,7 @@ GEM
       execjs
 
 PLATFORMS
-  ruby
-  x86_64-darwin-19
+  x86_64-darwin-20
   x86_64-linux
 
 DEPENDENCIES
@@ -846,4 +840,4 @@ RUBY VERSION
    ruby 3.0.1p64
 
 BUNDLED WITH
-   2.2.15
+   2.2.16
