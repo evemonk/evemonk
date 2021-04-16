@@ -16,4 +16,26 @@ describe CharacterSkillsTree do
   describe "#initialize" do
     its(:character) { should eq(character) }
   end
+
+  describe "#preload" do
+    before { expect(subject).to receive(:skill_category) }
+
+    before { expect(subject).to receive(:skills_groups) }
+
+    before { expect(subject).to receive(:skills_types) }
+
+    before { expect(subject).to receive(:character_skills) }
+
+    before { expect(subject).to receive(:character_skillqueues) }
+
+    before { expect(subject).to receive(:certificates) }
+
+    before { expect(subject).to receive(:dogma_attributes) }
+
+    before { expect(subject).to receive(:type_dogma_attributes) }
+
+    before { expect(subject).to receive(:more_dogma_attributes) }
+
+    specify { expect(subject.preload).to eq(subject) }
+  end
 end
