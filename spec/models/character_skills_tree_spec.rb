@@ -85,44 +85,6 @@ describe CharacterSkillsTree do
     end
   end
 
-  # private methods
-
-  describe "#skill_category" do
-    context "when @skill_category is set" do
-      let(:skill_category) { double }
-
-      before { subject.instance_variable_set(:@skill_category, skill_category) }
-
-      specify { expect(subject.send(:skill_category)).to eq(skill_category) }
-    end
-
-    context "when @skill_category is not set" do
-      let(:skill_category) { double }
-
-      before do
-        #
-        # Eve::Category.published
-        #              .find_by!(category_id: SKILLS_CATEGORY_ID) # => skill_category
-        #
-        expect(Eve::Category).to receive(:published) do
-          double.tap do |a|
-            expect(a).to receive(:find_by!).with(category_id: described_class::SKILLS_CATEGORY_ID)
-                                           .and_return(skill_category)
-          end
-        end
-      end
-
-      specify { expect(subject.send(:skill_category)).to eq(skill_category) }
-
-      specify { expect { subject.send(:skill_category) }.to change { subject.instance_variable_get(:@skill_category) }.from(nil).to(skill_category) }
-    end
-  end
-
-  # def skill_category
-  #   @skill_category ||= Eve::Category.published.find_by!(category_id: SKILLS_CATEGORY_ID)
-  # end
-
-
   # def skills_count_in_group(group_id)
   #   skills_types.select { |type| type.group_id == group_id }.size
   # end
@@ -181,13 +143,40 @@ describe CharacterSkillsTree do
   #
   #   format("%0.2f", rate)
   # end
-  #
-  # private
-  #
-  # def skill_category
-  #   @skill_category ||= Eve::Category.published.find_by!(category_id: SKILLS_CATEGORY_ID)
-  # end
-  #
+
+  # private methods
+
+  describe "#skill_category" do
+    context "when @skill_category is set" do
+      let(:skill_category) { double }
+
+      before { subject.instance_variable_set(:@skill_category, skill_category) }
+
+      specify { expect(subject.send(:skill_category)).to eq(skill_category) }
+    end
+
+    context "when @skill_category is not set" do
+      let(:skill_category) { double }
+
+      before do
+        #
+        # Eve::Category.published
+        #              .find_by!(category_id: SKILLS_CATEGORY_ID) # => skill_category
+        #
+        expect(Eve::Category).to receive(:published) do
+          double.tap do |a|
+            expect(a).to receive(:find_by!).with(category_id: described_class::SKILLS_CATEGORY_ID)
+                                           .and_return(skill_category)
+          end
+        end
+      end
+
+      specify { expect(subject.send(:skill_category)).to eq(skill_category) }
+
+      specify { expect { subject.send(:skill_category) }.to change { subject.instance_variable_get(:@skill_category) }.from(nil).to(skill_category) }
+    end
+  end
+
   # def skills_types
   #   @skills_types ||= Eve::Type.published.where(group_id: skills_groups.map(&:group_id).sort.uniq).to_a
   # end
