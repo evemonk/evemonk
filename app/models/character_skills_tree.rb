@@ -88,7 +88,6 @@ class CharacterSkillsTree
     secondary_attribute_id = type_dogma_attributes.find { |tda| tda.type_id == skill_id && tda.attribute_id == secondary_dogma_attribute.attribute_id }.value.to_i
     secondary_attribute = more_dogma_attributes.find { |dogma_attribute| dogma_attribute.attribute_id == secondary_attribute_id }
 
-
     primary = character.send(:"#{primary_attribute.name}")
     secondary = character.send(:"#{secondary_attribute.name}")
 
