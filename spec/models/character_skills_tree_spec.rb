@@ -49,14 +49,47 @@ describe CharacterSkillsTree do
     end
 
     context "when @skills_groups not set" do
+      let(:category_id) { double }
 
+      let(:skill_category) { instance_double(Eve::Category, category_id: category_id) }
+
+      let(:skills_groups) { double }
+
+      before { expect(subject).to receive(:skill_category).and_return(skill_category) }
+
+      before do
+        #
+        # Eve::Group.published
+        #           .where(category_id: skill_category.category_id)
+        #           .order(:name_en)
+        #           .to_a # => skills_groups
+        #
+        expect(Eve::Group).to receive(:published) do
+          double.tap do |a|
+            expect(a).to receive(:where).with(category_id: category_id) do
+              double.tap do |b|
+                expect(b).to receive(:order).with(:name_en) do
+                  double.tap do |c|
+                    expect(c).to receive(:to_a).and_return(skills_groups)
+                  end
+                end
+              end
+            end
+          end
+        end
+      end
+
+      specify { expect { subject.skills_groups }.not_to raise_error }
+
+      specify { expect { subject.skills_groups }.to change { subject.instance_variable_get(:@skills_groups) }.from(nil).to(skills_groups) }
     end
   end
 
-  # def skills_groups
-  #   @skills_groups ||= Eve::Group.published.where(category_id: skill_category.category_id).order(:name_en).to_a
-  # end
-  #
+  # private methods
+
+  describe "#skill_category" do
+  end
+
   # def skills_count_in_group(group_id)
   #   skills_types.select { |type| type.group_id == group_id }.size
   # end
