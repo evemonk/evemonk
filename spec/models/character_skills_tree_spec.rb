@@ -166,7 +166,7 @@ describe CharacterSkillsTree do
         expect(Eve::Category).to receive(:published) do
           double.tap do |a|
             expect(a).to receive(:find_by!).with(category_id: described_class::SKILLS_CATEGORY_ID)
-                                           .and_return(skill_category)
+              .and_return(skill_category)
           end
         end
       end
