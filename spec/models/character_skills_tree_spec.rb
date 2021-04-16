@@ -177,30 +177,91 @@ describe CharacterSkillsTree do
     end
   end
 
-  # def skills_types
-  #   @skills_types ||= Eve::Type.published.where(group_id: skills_groups.map(&:group_id).sort.uniq).to_a
-  # end
-  #
+  describe "#skills_types" do
+    context "when @skills_types is set" do
+      let(:skills_types) { double }
+
+      before { subject.instance_variable_set(:@skills_types, skills_types) }
+
+      specify { expect(subject.send(:skills_types)).to eq(skills_types) }
+    end
+
+    context "when @skills_types is not set" do
+      let(:skills_types) { double }
+
+      let(:group1) { instance_double(Eve::Group, group_id: 123) }
+
+      let(:group2) { instance_double(Eve::Group, group_id: 123) }
+
+      let(:group3) { instance_double(Eve::Group, group_id: 124) }
+
+      let(:group4) { instance_double(Eve::Group, group_id: 125) }
+
+      let(:skills_groups) { [group1, group2, group3, group4] }
+
+      before { expect(subject).to receive(:skills_groups).and_return(skills_groups) }
+
+      before do
+        #
+        # Eve::Type.published
+        #          .where(group_id: skills_groups.map(&:group_id).sort.uniq)
+        #          .to_a # => skills_types
+        #
+        expect(Eve::Type).to receive(:published) do
+          double.tap do |a|
+            expect(a).to receive(:where).with(group_id: [123, 124, 125]) do
+              double.tap do |a|
+                expect(a).to receive(:to_a).and_return(skills_types)
+              end
+            end
+          end
+        end
+      end
+
+      specify { expect(subject.send(:skills_types)).to eq(skills_types) }
+
+      specify { expect { subject.send(:skills_types) }.to change { subject.instance_variable_get(:@skills_types) }.from(nil).to(skills_types) }
+    end
+  end
+
+  describe "#certificates" do
+  end
+
   # def certificates
   #   @certificates ||= Eve::Certificate.all.to_a
   # end
-  #
+
+  describe "#character_skills" do
+  end
+
   # def character_skills
   #   @character_skills ||= character.character_skills.to_a
   # end
-  #
+
+  describe "#character_skillqueues" do
+  end
+
   # def character_skillqueues
   #   @character_skillqueues ||= character.skillqueues.order(:queue_position).where("skillqueues.finish_date > :now", now: Time.zone.now).to_a
   # end
-  #
+
+  describe "#dogma_attributes" do
+  end
+
   # def dogma_attributes
   #   @dogma_attributes ||= Eve::DogmaAttribute.published.where(name: [PRIMARY_ATTRIBUTE_NAME, SECONDARY_ATTRIBUTE_NAME]).to_a
   # end
-  #
+
+  describe "#type_dogma_attributes" do
+  end
+
   # def type_dogma_attributes
   #   @type_dogma_attributes ||= Eve::TypeDogmaAttribute.where(attribute_id: dogma_attributes.map(&:attribute_id).sort.uniq).to_a
   # end
-  #
+
+  describe "#more_dogma_attributes" do
+  end
+
   # def more_dogma_attributes
   #   @more_dogma_attributes ||= Eve::DogmaAttribute.published.where(attribute_id: type_dogma_attributes.map(&:value).map(&:to_i).sort.uniq).to_a
   # end

@@ -102,31 +102,31 @@ class CharacterSkillsTree
     @skill_category ||= Eve::Category.published.find_by!(category_id: SKILLS_CATEGORY_ID)
   end
 
-  # def skills_types
-  #   @skills_types ||= Eve::Type.published.where(group_id: skills_groups.map(&:group_id).sort.uniq).to_a
-  # end
-  #
-  # def certificates
-  #   @certificates ||= Eve::Certificate.all.to_a
-  # end
-  #
-  # def character_skills
-  #   @character_skills ||= character.character_skills.to_a
-  # end
-  #
-  # def character_skillqueues
-  #   @character_skillqueues ||= character.skillqueues.order(:queue_position).where("skillqueues.finish_date > :now", now: Time.zone.now).to_a
-  # end
-  #
-  # def dogma_attributes
-  #   @dogma_attributes ||= Eve::DogmaAttribute.published.where(name: [PRIMARY_ATTRIBUTE_NAME, SECONDARY_ATTRIBUTE_NAME]).to_a
-  # end
-  #
-  # def type_dogma_attributes
-  #   @type_dogma_attributes ||= Eve::TypeDogmaAttribute.where(attribute_id: dogma_attributes.map(&:attribute_id).sort.uniq).to_a
-  # end
-  #
-  # def more_dogma_attributes
-  #   @more_dogma_attributes ||= Eve::DogmaAttribute.published.where(attribute_id: type_dogma_attributes.map(&:value).map(&:to_i).sort.uniq).to_a
-  # end
+  def skills_types
+    @skills_types ||= Eve::Type.published.where(group_id: skills_groups.map(&:group_id).sort.uniq).to_a
+  end
+
+  def certificates
+    # @certificates ||= Eve::Certificate.all.to_a
+  end
+
+  def character_skills
+    # @character_skills ||= character.character_skills.to_a
+  end
+
+  def character_skillqueues
+    # @character_skillqueues ||= character.skillqueues.order(:queue_position).where("skillqueues.finish_date > :now", now: Time.zone.now).to_a
+  end
+
+  def dogma_attributes
+    # @dogma_attributes ||= Eve::DogmaAttribute.published.where(name: [PRIMARY_ATTRIBUTE_NAME, SECONDARY_ATTRIBUTE_NAME]).to_a
+  end
+
+  def type_dogma_attributes
+    # @type_dogma_attributes ||= Eve::TypeDogmaAttribute.where(attribute_id: dogma_attributes.map(&:attribute_id).sort.uniq).to_a
+  end
+
+  def more_dogma_attributes
+    # @more_dogma_attributes ||= Eve::DogmaAttribute.published.where(attribute_id: type_dogma_attributes.map(&:value).map(&:to_i).sort.uniq).to_a
+  end
 end
