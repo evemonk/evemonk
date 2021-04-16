@@ -210,8 +210,8 @@ describe CharacterSkillsTree do
         expect(Eve::Type).to receive(:published) do
           double.tap do |a|
             expect(a).to receive(:where).with(group_id: [123, 124, 125]) do
-              double.tap do |a|
-                expect(a).to receive(:to_a).and_return(skills_types)
+              double.tap do |b|
+                expect(b).to receive(:to_a).and_return(skills_types)
               end
             end
           end
