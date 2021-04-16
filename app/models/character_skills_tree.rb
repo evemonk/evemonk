@@ -107,7 +107,7 @@ class CharacterSkillsTree
   end
 
   def certificates
-    # @certificates ||= Eve::Certificate.all.to_a
+    @certificates ||= Eve::Certificate.all.to_a
   end
 
   def character_skills

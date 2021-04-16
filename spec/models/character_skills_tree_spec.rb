@@ -225,6 +225,32 @@ describe CharacterSkillsTree do
   end
 
   describe "#certificates" do
+    context "when @certificates is set" do
+      let(:certificates) { double }
+
+      before { subject.instance_variable_set(:@certificates, certificates) }
+
+      specify { expect(subject.send(:certificates)).to eq(certificates) }
+    end
+
+    context "when @certificates is not set" do
+      let(:certificates) { double }
+
+      before do
+        #
+        # Eve::Certificate.all.to_a # => certificates
+        #
+        expect(Eve::Certificate).to receive(:all) do
+          double.tap do |a|
+            expect(a).to receive(:to_a).and_return(certificates)
+          end
+        end
+      end
+
+      specify { expect(subject.send(:certificates)).to eq(certificates) }
+
+      specify { expect { subject.send(:certificates) }.to change { subject.instance_variable_get(:@certificates) }.from(nil).to(certificates) }
+    end
   end
 
   # def certificates
