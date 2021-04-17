@@ -111,7 +111,7 @@ class CharacterSkillsTree
   end
 
   def character_skills
-    # @character_skills ||= character.character_skills.to_a
+    @character_skills ||= character.character_skills.to_a
   end
 
   def character_skillqueues

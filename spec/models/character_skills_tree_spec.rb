@@ -253,16 +253,34 @@ describe CharacterSkillsTree do
     end
   end
 
-  # def certificates
-  #   @certificates ||= Eve::Certificate.all.to_a
-  # end
-
   describe "#character_skills" do
-  end
+    context "when @character_skills is set" do
+      let(:character_skills) { double }
 
-  # def character_skills
-  #   @character_skills ||= character.character_skills.to_a
-  # end
+      before { subject.instance_variable_set(:@character_skills, character_skills) }
+
+      specify { expect(subject.send(:character_skills)).to eq(character_skills) }
+    end
+
+    context "when @character_skills is not set" do
+      let(:character_skills) { double }
+
+      before do
+        #
+        # character.character_skills.to_a
+        #
+        expect(character).to receive(:character_skills) do
+          double.tap do |a|
+            expect(a).to receive(:to_a).and_return(character_skills)
+          end
+        end
+      end
+
+      specify { expect(subject.send(:character_skills)).to eq(character_skills) }
+
+      specify { expect { subject.send(:character_skills) }.to change { subject.instance_variable_get(:@character_skills) }.from(nil).to(character_skills) }
+    end
+  end
 
   describe "#character_skillqueues" do
   end
