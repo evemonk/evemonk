@@ -108,14 +108,40 @@ describe CharacterSkillsTree do
   end
 
   describe "#levels_trained_in_group" do
-    specify { expect(subject.levels_trained_in_group(0)).to eq(0) }
-  end
+    let(:skill_type1) { instance_double(Eve::Type, type_id: 123, group_id: 1) }
 
-  # def levels_trained_in_group(group_id)
-  #   skill_ids = skills_types.select { |type| type.group_id == group_id }.map(&:type_id)
-  #
-  #   character_skills.select { |character_skill| skill_ids.include?(character_skill.skill_id) }.map(&:trained_skill_level).sum
-  # end
+    let(:skill_type2) { instance_double(Eve::Type, type_id: 124, group_id: 1) }
+
+    let(:skill_type3) { instance_double(Eve::Type, type_id: 125, group_id: 2) }
+
+    let(:skill_type4) { instance_double(Eve::Type, type_id: 126, group_id: 2) }
+
+    let(:skill_type5) { instance_double(Eve::Type, type_id: 127, group_id: 2) }
+
+    let(:skills_types) { [skill_type1, skill_type2, skill_type3, skill_type4, skill_type5] }
+
+    before { expect(subject).to receive(:skills_types).and_return(skills_types) }
+
+    let(:character_skill1) { instance_double(CharacterSkill, skill_id: 123, trained_skill_level: 5) }
+
+    let(:character_skill2) { instance_double(CharacterSkill, skill_id: 124, trained_skill_level: 0) }
+
+    let(:character_skill3) { instance_double(CharacterSkill, skill_id: 125, trained_skill_level: 4) }
+
+    let(:character_skill4) { instance_double(CharacterSkill, skill_id: 126, trained_skill_level: 3) }
+
+    let(:character_skill5) { instance_double(CharacterSkill, skill_id: 127, trained_skill_level: 2) }
+
+    let(:character_skills) { [character_skill1, character_skill2, character_skill3, character_skill4, character_skill5] }
+
+    before { expect(subject).to receive(:character_skills).and_return(character_skills) }
+
+    specify { expect(subject.levels_trained_in_group(1)).to eq(5) }
+
+    specify { expect(subject.levels_trained_in_group(2)).to eq(9) }
+
+    specify { expect(subject.levels_trained_in_group(3)).to eq(0) }
+  end
 
   describe "#total_levels_in_group" do
     specify { expect(subject.total_levels_in_group(0)).to eq(0) }
