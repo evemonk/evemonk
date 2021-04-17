@@ -233,12 +233,6 @@ describe CharacterSkillsTree do
     specify { expect(subject.current_skill_points_in_group(0)).to eq(0) }
   end
 
-  # def current_skill_points_in_group(group_id)
-  #   skill_ids = skills_types.select { |type| type.group_id == group_id }.map(&:type_id)
-  #
-  #   character_skills.select { |character_skill| skill_ids.include?(character_skill.skill_id) }.map(&:skillpoints_in_skill).sum
-  # end
-
   describe "#total_skill_points_in_group" do
     specify { expect(subject.total_skill_points_in_group(0)).to eq(0) }
   end
