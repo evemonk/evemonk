@@ -103,6 +103,12 @@ describe CharacterSkillsTree do
     specify { expect(subject.skills_count_in_group(1)).to eq(2) }
 
     specify { expect(subject.skills_count_in_group(2)).to eq(3) }
+
+    specify { expect(subject.skills_count_in_group(3)).to eq(0) }
+  end
+
+  describe "#levels_trained_in_group" do
+    specify { expect(subject.levels_trained_in_group(0)).to eq(0) }
   end
 
   # def levels_trained_in_group(group_id)
@@ -110,23 +116,47 @@ describe CharacterSkillsTree do
   #
   #   character_skills.select { |character_skill| skill_ids.include?(character_skill.skill_id) }.map(&:trained_skill_level).sum
   # end
-  #
+
+  describe "#total_levels_in_group" do
+    specify { expect(subject.total_levels_in_group(0)).to eq(0) }
+  end
+
   # def total_levels_in_group(group_id)
   #   skills_types.select { |type| type.group_id == group_id }.size * 5
   # end
-  #
+
+  describe "#levels_in_training_queue" do
+    specify { expect(subject.levels_in_training_queue(0)).to eq(0) }
+  end
+
   # def levels_in_training_queue(group_id)
   #   skill_ids = skills_types.select { |type| type.group_id == group_id }.map(&:type_id)
   #
   #   character_skillqueues.select { |skillqueue| skill_ids.include?(skillqueue.skill_id) }.size
   # end
-  #
+
+  describe "#current_skill_points_in_group" do
+    specify { expect(subject.current_skill_points_in_group(0)).to eq(0) }
+  end
+
   # def current_skill_points_in_group(group_id)
   #   skill_ids = skills_types.select { |type| type.group_id == group_id }.map(&:type_id)
   #
   #   character_skills.select { |character_skill| skill_ids.include?(character_skill.skill_id) }.map(&:skillpoints_in_skill).sum
   # end
-  #
+
+  describe "#total_skill_points_in_group" do
+    specify { expect(subject.total_skill_points_in_group(0)).to eq(0) }
+  end
+
+  describe "#certificates_claimed_in_group" do
+    specify { expect(subject.certificates_claimed_in_group(0)).to eq(0) }
+  end
+
+  describe "#total_certificates_in_group" do
+    specify { expect(subject.total_certificates_in_group(0)).to eq(0) }
+  end
+
   # def total_skill_points_in_group(group_id)
   #   0
   # end
@@ -138,7 +168,11 @@ describe CharacterSkillsTree do
   # def total_certificates_in_group(group_id)
   #   certificates.select { |certificate| certificate.group_id == group_id }.size
   # end
-  #
+
+  describe "#skills_in_group" do
+    specify { expect(subject.skills_in_group(0)).to eq([]) }
+  end
+
   # def skills_in_group(group_id)
   #   skills_types.select { |type| type.group_id == group_id }.sort_by(&:name_en)
   # end

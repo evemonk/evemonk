@@ -41,40 +41,64 @@ class CharacterSkillsTree
     skills_types.count { |type| type.group_id == group_id }
   end
 
+  def levels_trained_in_group(group_id)
+    0
+  end
+
   # def levels_trained_in_group(group_id)
   #   skill_ids = skills_types.select { |type| type.group_id == group_id }.map(&:type_id)
   #
   #   character_skills.select { |character_skill| skill_ids.include?(character_skill.skill_id) }.map(&:trained_skill_level).sum
   # end
-  #
+
+  def total_levels_in_group(group_id)
+    0
+  end
+
   # def total_levels_in_group(group_id)
   #   skills_types.select { |type| type.group_id == group_id }.size * 5
   # end
-  #
+
+  def levels_in_training_queue(group_id)
+    0
+  end
+
   # def levels_in_training_queue(group_id)
   #   skill_ids = skills_types.select { |type| type.group_id == group_id }.map(&:type_id)
   #
   #   character_skillqueues.select { |skillqueue| skill_ids.include?(skillqueue.skill_id) }.size
   # end
-  #
+
+  def current_skill_points_in_group(group_id)
+    0
+  end
+
   # def current_skill_points_in_group(group_id)
   #   skill_ids = skills_types.select { |type| type.group_id == group_id }.map(&:type_id)
   #
   #   character_skills.select { |character_skill| skill_ids.include?(character_skill.skill_id) }.map(&:skillpoints_in_skill).sum
   # end
-  #
-  # def total_skill_points_in_group(group_id)
-  #   0
-  # end
-  #
-  # def certificates_claimed_in_group(group_id)
-  #   0
-  # end
-  #
+
+  def total_skill_points_in_group(group_id)
+    0
+  end
+
+  def certificates_claimed_in_group(group_id)
+    0
+  end
+
+  def total_certificates_in_group(group_id)
+    0
+  end
+
   # def total_certificates_in_group(group_id)
   #   certificates.select { |certificate| certificate.group_id == group_id }.size
   # end
-  #
+
+  def skills_in_group(group_id)
+    []
+  end
+
   # def skills_in_group(group_id)
   #   skills_types.select { |type| type.group_id == group_id }.sort_by(&:name_en)
   # end
