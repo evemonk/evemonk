@@ -47,7 +47,7 @@ class CharacterSkillsTree
     character_skills.select { |character_skill| skill_ids.include?(character_skill.skill_id) }.map(&:trained_skill_level).sum
   end
 
-  def total_levels_in_group(group_id)
+  def total_levels_in_group(_)
     0
   end
 
@@ -55,7 +55,7 @@ class CharacterSkillsTree
   #   skills_types.select { |type| type.group_id == group_id }.size * 5
   # end
 
-  def levels_in_training_queue(group_id)
+  def levels_in_training_queue(_)
     0
   end
 
@@ -65,7 +65,7 @@ class CharacterSkillsTree
   #   character_skillqueues.select { |skillqueue| skill_ids.include?(skillqueue.skill_id) }.size
   # end
 
-  def current_skill_points_in_group(group_id)
+  def current_skill_points_in_group(_)
     0
   end
 
@@ -75,15 +75,15 @@ class CharacterSkillsTree
   #   character_skills.select { |character_skill| skill_ids.include?(character_skill.skill_id) }.map(&:skillpoints_in_skill).sum
   # end
 
-  def total_skill_points_in_group(group_id)
+  def total_skill_points_in_group(_)
     0
   end
 
-  def certificates_claimed_in_group(group_id)
+  def certificates_claimed_in_group(_)
     0
   end
 
-  def total_certificates_in_group(group_id)
+  def total_certificates_in_group(_)
     0
   end
 
@@ -91,7 +91,7 @@ class CharacterSkillsTree
   #   certificates.select { |certificate| certificate.group_id == group_id }.size
   # end
 
-  def skills_in_group(group_id)
+  def skills_in_group(_)
     []
   end
 
