@@ -54,7 +54,7 @@ class CharacterSkillsTree
   def levels_in_training_queue(group_id)
     skill_ids = skills_types.select { |type| type.group_id == group_id }.map(&:type_id)
 
-    character_skillqueues.select { |skillqueue| skill_ids.include?(skillqueue.skill_id) }.size
+    character_skillqueues.count { |skillqueue| skill_ids.include?(skillqueue.skill_id) }
   end
 
   def current_skill_points_in_group(_)
