@@ -327,11 +327,39 @@ describe CharacterSkillsTree do
   end
 
   describe "#dogma_attributes" do
-  end
+    context "when @dogma_attributes is set" do
+      let(:dogma_attributes) { double }
 
-  # def dogma_attributes
-  #   @dogma_attributes ||= Eve::DogmaAttribute.published.where(name: [PRIMARY_ATTRIBUTE_NAME, SECONDARY_ATTRIBUTE_NAME]).to_a
-  # end
+      before { subject.instance_variable_set(:@dogma_attributes, dogma_attributes) }
+
+      specify { expect(subject.send(:dogma_attributes)).to eq(dogma_attributes) }
+    end
+
+    context "when @dogma_attributes is not set" do
+      let(:dogma_attributes) { double }
+
+      before do
+        #
+        # Eve::DogmaAttribute.published
+        #                    .where(name: [PRIMARY_ATTRIBUTE_NAME, SECONDARY_ATTRIBUTE_NAME])
+        #                    .to_a # => dogma_attributes
+        #
+        expect(Eve::DogmaAttribute).to receive(:published) do
+          double.tap do |a|
+            expect(a).to receive(:where).with(name: [described_class::PRIMARY_ATTRIBUTE_NAME, described_class::SECONDARY_ATTRIBUTE_NAME]) do
+              double.tap do |b|
+                expect(b).to receive(:to_a).and_return(dogma_attributes)
+              end
+            end
+          end
+        end
+      end
+
+      specify { expect(subject.send(:dogma_attributes)).to eq(dogma_attributes) }
+
+      specify { expect { subject.send(:dogma_attributes) }.to change { subject.instance_variable_get(:@dogma_attributes) }.from(nil).to(dogma_attributes) }
+    end
+  end
 
   describe "#type_dogma_attributes" do
   end
