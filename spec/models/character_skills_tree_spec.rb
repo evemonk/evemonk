@@ -362,11 +362,41 @@ describe CharacterSkillsTree do
   end
 
   describe "#type_dogma_attributes" do
-  end
+    context "when @type_dogma_attributes is set" do
+      let(:type_dogma_attributes) { double }
 
-  # def type_dogma_attributes
-  #   @type_dogma_attributes ||= Eve::TypeDogmaAttribute.where(attribute_id: dogma_attributes.map(&:attribute_id).sort.uniq).to_a
-  # end
+      before { subject.instance_variable_set(:@type_dogma_attributes, type_dogma_attributes) }
+
+      specify { expect(subject.send(:type_dogma_attributes)).to eq(type_dogma_attributes) }
+    end
+
+    context "when @type_dogma_attributes is not set" do
+      let(:type_dogma_attributes) { double }
+
+      let(:dogma_attribute1) { instance_double(Eve::DogmaAttribute, attribute_id: 321) }
+
+      let(:dogma_attribute2) { instance_double(Eve::DogmaAttribute, attribute_id: 123) }
+
+      let(:dogma_attributes) { [dogma_attribute1, dogma_attribute2] }
+
+      before { expect(subject).to receive(:dogma_attributes).and_return(dogma_attributes) }
+
+      before do
+        #
+        # Eve::TypeDogmaAttribute.where(attribute_id: dogma_attributes.map(&:attribute_id).sort).to_a
+        #
+        expect(Eve::TypeDogmaAttribute).to receive(:where).with(attribute_id: [123, 321]) do
+          double.tap do |a|
+            expect(a).to receive(:to_a).and_return(type_dogma_attributes)
+          end
+        end
+      end
+
+      specify { expect(subject.send(:type_dogma_attributes)).to eq(type_dogma_attributes) }
+
+      specify { expect { subject.send(:type_dogma_attributes) }.to change { subject.instance_variable_get(:@type_dogma_attributes) }.from(nil).to(type_dogma_attributes) }
+    end
+  end
 
   describe "#more_dogma_attributes" do
   end
