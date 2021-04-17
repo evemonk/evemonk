@@ -85,10 +85,26 @@ describe CharacterSkillsTree do
     end
   end
 
-  # def skills_count_in_group(group_id)
-  #   skills_types.select { |type| type.group_id == group_id }.size
-  # end
-  #
+  describe "#skills_count_in_group" do
+    let(:skill_type1) { instance_double(Eve::Type, group_id: 1) }
+
+    let(:skill_type2) { instance_double(Eve::Type, group_id: 1) }
+
+    let(:skill_type3) { instance_double(Eve::Type, group_id: 2) }
+
+    let(:skill_type4) { instance_double(Eve::Type, group_id: 2) }
+
+    let(:skill_type5) { instance_double(Eve::Type, group_id: 2) }
+
+    let(:skills_types) { [skill_type1, skill_type2, skill_type3, skill_type4, skill_type5] }
+
+    before { expect(subject).to receive(:skills_types).and_return(skills_types) }
+
+    specify { expect(subject.skills_count_in_group(1)).to eq(2) }
+
+    specify { expect(subject.skills_count_in_group(2)).to eq(3) }
+  end
+
   # def levels_trained_in_group(group_id)
   #   skill_ids = skills_types.select { |type| type.group_id == group_id }.map(&:type_id)
   #

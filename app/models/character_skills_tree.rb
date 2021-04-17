@@ -37,10 +37,10 @@ class CharacterSkillsTree
     @skills_groups ||= Eve::Group.published.where(category_id: skill_category.category_id).order(:name_en).to_a
   end
 
-  # def skills_count_in_group(group_id)
-  #   skills_types.select { |type| type.group_id == group_id }.size
-  # end
-  #
+  def skills_count_in_group(group_id)
+    skills_types.select { |type| type.group_id == group_id }.size
+  end
+
   # def levels_trained_in_group(group_id)
   #   skill_ids = skills_types.select { |type| type.group_id == group_id }.map(&:type_id)
   #
