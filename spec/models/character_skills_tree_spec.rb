@@ -283,11 +283,48 @@ describe CharacterSkillsTree do
   end
 
   describe "#character_skillqueues" do
-  end
+    context "when @character_skillqueues is set" do
+      let(:character_skillqueues) { double }
 
-  # def character_skillqueues
-  #   @character_skillqueues ||= character.skillqueues.order(:queue_position).where("skillqueues.finish_date > :now", now: Time.zone.now).to_a
-  # end
+      before { subject.instance_variable_set(:@character_skillqueues, character_skillqueues) }
+
+      specify { expect(subject.send(:character_skillqueues)).to eq(character_skillqueues) }
+    end
+
+    context "when @character_skillqueues is not set" do
+      let(:character_skillqueues) { double }
+
+      before { travel_to Time.zone.now }
+
+      after { travel_back }
+
+      before do
+        #
+        # character.skillqueues
+        #          .order(:queue_position)
+        #          .where("skillqueues.finish_date > :now", now: Time.zone.now)
+        #          .to_a # => character_skillqueues
+        #
+        expect(character).to receive(:skillqueues) do
+          double.tap do |a|
+            expect(a).to receive(:order).with(:queue_position) do
+              double.tap do |b|
+                expect(b).to receive(:where).with("skillqueues.finish_date > :now", now: Time.zone.now) do
+                  double.tap do |c|
+                    expect(c).to receive(:to_a).and_return(character_skillqueues)
+                  end
+                end
+              end
+            end
+          end
+        end
+      end
+
+      specify { expect(subject.send(:character_skillqueues)).to eq(character_skillqueues) }
+
+      specify { expect { subject.send(:character_skillqueues) }.to change { subject.instance_variable_get(:@character_skillqueues) }.from(nil).to(character_skillqueues) }
+    end
+  end
 
   describe "#dogma_attributes" do
   end

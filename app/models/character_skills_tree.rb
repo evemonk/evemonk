@@ -115,7 +115,7 @@ class CharacterSkillsTree
   end
 
   def character_skillqueues
-    # @character_skillqueues ||= character.skillqueues.order(:queue_position).where("skillqueues.finish_date > :now", now: Time.zone.now).to_a
+    @character_skillqueues ||= character.skillqueues.order(:queue_position).where("skillqueues.finish_date > :now", now: Time.zone.now).to_a
   end
 
   def dogma_attributes
