@@ -182,13 +182,13 @@ describe CharacterSkillsTree do
 
     let(:skillqueue1) { instance_double(Skillqueue, skill_id: 123, finished_level: 1) }
 
-    let(:skillqueue2) { instance_double(Skillqueue, skill_id: 123, finished_level: 2)  }
+    let(:skillqueue2) { instance_double(Skillqueue, skill_id: 123, finished_level: 2) }
 
-    let(:skillqueue3) { instance_double(Skillqueue, skill_id: 123, finished_level: 3)  }
+    let(:skillqueue3) { instance_double(Skillqueue, skill_id: 123, finished_level: 3) }
 
-    let(:skillqueue4) { instance_double(Skillqueue, skill_id: 123, finished_level: 4)  }
+    let(:skillqueue4) { instance_double(Skillqueue, skill_id: 123, finished_level: 4) }
 
-    let(:skillqueue5) { instance_double(Skillqueue, skill_id: 123, finished_level: 5)  }
+    let(:skillqueue5) { instance_double(Skillqueue, skill_id: 123, finished_level: 5) }
 
     let(:character_skillqueues) { [skillqueue1, skillqueue2, skillqueue3, skillqueue4, skillqueue5] }
 
