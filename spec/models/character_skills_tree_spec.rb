@@ -197,14 +197,6 @@ describe CharacterSkillsTree do
     specify { expect(subject.total_certificates_in_group(0)).to eq(0) }
   end
 
-  # def total_skill_points_in_group(group_id)
-  #   0
-  # end
-  #
-  # def certificates_claimed_in_group(group_id)
-  #   0
-  # end
-  #
   # def total_certificates_in_group(group_id)
   #   certificates.select { |certificate| certificate.group_id == group_id }.size
   # end
