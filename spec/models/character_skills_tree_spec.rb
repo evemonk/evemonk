@@ -166,14 +166,40 @@ describe CharacterSkillsTree do
   end
 
   describe "#levels_in_training_queue" do
+    let(:skill_type1) { instance_double(Eve::Type, type_id: 123, group_id: 1) }
+
+    let(:skill_type2) { instance_double(Eve::Type, type_id: 124, group_id: 1) }
+
+    let(:skill_type3) { instance_double(Eve::Type, type_id: 125, group_id: 2) }
+
+    let(:skill_type4) { instance_double(Eve::Type, type_id: 126, group_id: 2) }
+
+    let(:skill_type5) { instance_double(Eve::Type, type_id: 127, group_id: 2) }
+
+    let(:skills_types) { [skill_type1, skill_type2, skill_type3, skill_type4, skill_type5] }
+
+    before { expect(subject).to receive(:skills_types).and_return(skills_types) }
+
+    let(:skillqueue1) { instance_double(Skillqueue, skill_id: 123, finished_level: 1) }
+
+    let(:skillqueue2) { instance_double(Skillqueue, skill_id: 123, finished_level: 2)  }
+
+    let(:skillqueue3) { instance_double(Skillqueue, skill_id: 123, finished_level: 3)  }
+
+    let(:skillqueue4) { instance_double(Skillqueue, skill_id: 123, finished_level: 4)  }
+
+    let(:skillqueue5) { instance_double(Skillqueue, skill_id: 123, finished_level: 5)  }
+
+    let(:character_skillqueues) { [skillqueue1, skillqueue2, skillqueue3, skillqueue4, skillqueue5] }
+
+    before { expect(subject).to receive(:character_skillqueues).and_return(character_skillqueues) }
+
+    specify { expect(subject.levels_in_training_queue(1)).to eq(5) }
+
+    specify { expect(subject.levels_in_training_queue(2)).to eq(0) }
+
     specify { expect(subject.levels_in_training_queue(0)).to eq(0) }
   end
-
-  # def levels_in_training_queue(group_id)
-  #   skill_ids = skills_types.select { |type| type.group_id == group_id }.map(&:type_id)
-  #
-  #   character_skillqueues.select { |skillqueue| skill_ids.include?(skillqueue.skill_id) }.size
-  # end
 
   describe "#current_skill_points_in_group" do
     specify { expect(subject.current_skill_points_in_group(0)).to eq(0) }
