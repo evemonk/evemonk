@@ -57,15 +57,11 @@ class CharacterSkillsTree
     character_skillqueues.count { |skillqueue| skill_ids.include?(skillqueue.skill_id) }
   end
 
-  def current_skill_points_in_group(_)
-    0
-  end
+  def current_skill_points_in_group(group_id)
+    skill_ids = skills_types.select { |type| type.group_id == group_id }.map(&:type_id)
 
-  # def current_skill_points_in_group(group_id)
-  #   skill_ids = skills_types.select { |type| type.group_id == group_id }.map(&:type_id)
-  #
-  #   character_skills.select { |character_skill| skill_ids.include?(character_skill.skill_id) }.map(&:skillpoints_in_skill).sum
-  # end
+    character_skills.select { |character_skill| skill_ids.include?(character_skill.skill_id) }.sum(&:skillpoints_in_skill)
+  end
 
   def total_skill_points_in_group(_)
     0

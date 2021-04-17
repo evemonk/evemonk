@@ -202,6 +202,34 @@ describe CharacterSkillsTree do
   end
 
   describe "#current_skill_points_in_group" do
+    let(:skill_type1) { instance_double(Eve::Type, type_id: 123, group_id: 1) }
+
+    let(:skill_type2) { instance_double(Eve::Type, type_id: 124, group_id: 1) }
+
+    let(:skill_type3) { instance_double(Eve::Type, type_id: 125, group_id: 2) }
+
+    let(:skill_type4) { instance_double(Eve::Type, type_id: 126, group_id: 2) }
+
+    let(:skill_type5) { instance_double(Eve::Type, type_id: 127, group_id: 2) }
+
+    let(:skills_types) { [skill_type1, skill_type2, skill_type3, skill_type4, skill_type5] }
+
+    before { expect(subject).to receive(:skills_types).and_return(skills_types) }
+
+    let(:character_skill1) { instance_double(CharacterSkill, skill_id: 123, skillpoints_in_skill: 512) }
+
+    let(:character_skill2) { instance_double(CharacterSkill, skill_id: 125, skillpoints_in_skill: 512) }
+
+    let(:character_skill3) { instance_double(CharacterSkill, skill_id: 126, skillpoints_in_skill: 512) }
+
+    let(:character_skills) { [character_skill1, character_skill2, character_skill3] }
+
+    before { expect(subject).to receive(:character_skills).and_return(character_skills) }
+
+    specify { expect(subject.current_skill_points_in_group(1)).to eq(512) }
+
+    specify { expect(subject.current_skill_points_in_group(2)).to eq(1024) }
+
     specify { expect(subject.current_skill_points_in_group(0)).to eq(0) }
   end
 
