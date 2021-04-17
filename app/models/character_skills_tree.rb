@@ -38,7 +38,7 @@ class CharacterSkillsTree
   end
 
   def skills_count_in_group(group_id)
-    skills_types.select { |type| type.group_id == group_id }.size
+    skills_types.count { |type| type.group_id == group_id }
   end
 
   # def levels_trained_in_group(group_id)
