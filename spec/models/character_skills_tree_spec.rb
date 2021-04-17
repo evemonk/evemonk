@@ -242,13 +242,31 @@ describe CharacterSkillsTree do
   end
 
   describe "#skills_in_group" do
+    let(:skill_type1) { instance_double(Eve::Type, group_id: 1, name_en: "B") }
+
+    let(:skill_type2) { instance_double(Eve::Type, group_id: 1, name_en: "A") }
+
+    let(:skill_type3) { instance_double(Eve::Type, group_id: 2, name_en: "E") }
+
+    let(:skill_type4) { instance_double(Eve::Type, group_id: 2, name_en: "D") }
+
+    let(:skill_type5) { instance_double(Eve::Type, group_id: 2, name_en: "C") }
+
+    let(:skills_types) { [skill_type1, skill_type2, skill_type3, skill_type4, skill_type5] }
+
+    before { expect(subject).to receive(:skills_types).and_return(skills_types) }
+
+    specify { expect(subject.skills_in_group(1)).to eq([skill_type2, skill_type1]) }
+
+    specify { expect(subject.skills_in_group(2)).to eq([skill_type5, skill_type4, skill_type3]) }
+
     specify { expect(subject.skills_in_group(0)).to eq([]) }
   end
 
-  # def skills_in_group(group_id)
-  #   skills_types.select { |type| type.group_id == group_id }.sort_by(&:name_en)
-  # end
-  #
+  describe "#training_rate_for_skill" do
+    specify { expect(subject.training_rate_for_skill(0)).to eq("0.00") }
+  end
+
   # def training_rate_for_skill(skill_id)
   #   primary_dogma_attribute = dogma_attributes.find { |dogma_attribute| dogma_attribute.name == PRIMARY_ATTRIBUTE_NAME }
   #   primary_attribute_id = type_dogma_attributes.find { |tda| tda.type_id == skill_id && tda.attribute_id == primary_dogma_attribute.attribute_id }.value.to_i
