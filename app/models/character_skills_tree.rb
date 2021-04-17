@@ -75,13 +75,9 @@ class CharacterSkillsTree
     0
   end
 
-  def total_certificates_in_group(_)
-    0
+  def total_certificates_in_group(group_id)
+    certificates.count { |certificate| certificate.group_id == group_id }
   end
-
-  # def total_certificates_in_group(group_id)
-  #   certificates.select { |certificate| certificate.group_id == group_id }.size
-  # end
 
   def skills_in_group(_)
     []

@@ -220,12 +220,26 @@ describe CharacterSkillsTree do
   end
 
   describe "#total_certificates_in_group" do
+    let(:certificate1) { instance_double(Eve::Certificate, group_id: 1) }
+
+    let(:certificate2) { instance_double(Eve::Certificate, group_id: 1) }
+
+    let(:certificate3) { instance_double(Eve::Certificate, group_id: 1) }
+
+    let(:certificate4) { instance_double(Eve::Certificate, group_id: 2) }
+
+    let(:certificate5) { instance_double(Eve::Certificate, group_id: 2) }
+
+    let(:certificates) { [certificate1, certificate2, certificate3, certificate5, certificate5] }
+
+    before { expect(subject).to receive(:certificates).and_return(certificates) }
+
+    specify { expect(subject.total_certificates_in_group(1)).to eq(3) }
+
+    specify { expect(subject.total_certificates_in_group(2)).to eq(2) }
+
     specify { expect(subject.total_certificates_in_group(0)).to eq(0) }
   end
-
-  # def total_certificates_in_group(group_id)
-  #   certificates.select { |certificate| certificate.group_id == group_id }.size
-  # end
 
   describe "#skills_in_group" do
     specify { expect(subject.skills_in_group(0)).to eq([]) }
