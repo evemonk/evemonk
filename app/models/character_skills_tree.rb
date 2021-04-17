@@ -123,10 +123,10 @@ class CharacterSkillsTree
   end
 
   def type_dogma_attributes
-    @type_dogma_attributes ||= Eve::TypeDogmaAttribute.where(attribute_id: dogma_attributes.map(&:attribute_id).sort).to_a
+    @type_dogma_attributes ||= Eve::TypeDogmaAttribute.where(attribute_id: dogma_attributes.map(&:attribute_id).sort.uniq).to_a
   end
 
   def more_dogma_attributes
-    # @more_dogma_attributes ||= Eve::DogmaAttribute.published.where(attribute_id: type_dogma_attributes.map(&:value).map(&:to_i).sort.uniq).to_a
+    @more_dogma_attributes ||= Eve::DogmaAttribute.published.where(attribute_id: type_dogma_attributes.map(&:value).map(&:to_i).sort.uniq).to_a
   end
 end
