@@ -324,13 +324,13 @@ describe CharacterSkillsTree do
 
     let(:more_dogma_attribute1) do
       instance_double(Eve::DogmaAttribute,
-        attribute_id: 12345,
+        attribute_id: 12_345,
         name: "memory")
     end
 
     let(:more_dogma_attribute2) do
       instance_double(Eve::DogmaAttribute,
-        attribute_id: 12346,
+        attribute_id: 12_346,
         name: "charisma")
     end
 
