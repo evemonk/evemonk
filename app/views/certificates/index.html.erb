@@ -159,23 +159,23 @@
                class="collapse"
                aria-labelledby="heading_group_<%= group.group_id %>"
                data-parent="#certificates_tree_accordion">
-            <div class="card-body">
+            <div class="card-body m-0 p-0">
               <% @character_certificates_tree.certificates_in_group(group.group_id).each do |certificate| %>
                 <div class="row">
                   <div class="col-12">
                     <!-- start another accordion -->
-                    <div class="accordion" id="certificate_accordion_<%= certificate.certificate_id %>">
+                    <div class="accordion " id="certificate_accordion_<%= certificate.certificate_id %>">
                       <div class="card">
                         <div class="card-header" id="heading_certificate_<%= certificate.certificate_id %>">
                           <h2 class="mb-0">
-                            <button class="btn btn-link collapsed"
+                            <button class="btn btn-link btn-dark collapsed"
                                     type="button"
                                     data-toggle="collapse"
                                     data-target="#certificate_collapse_<%= certificate.certificate_id %>"
                                     aria-expanded="true"
                                     aria-controls="certificate_collapse_<%= certificate.certificate_id %>">
                               <!-- TODO: add icon -->
-                              <%= certificate.name %>
+                              <%= certificate.name %><!-- <%#= @character_certificates_tree.certificate_level(certificate.certificate_id) %>-->
                             </button>
                           </h2>
                         </div>
@@ -184,7 +184,8 @@
                              class="collapse"
                              aria-labelledby="heading_certificate_<%= certificate.certificate_id %>"
                              data-parent="#certificate_accordion_<%= certificate.certificate_id %>">
-                          Hello
+<!--                          Hello-->
+                          TODO: later...
                         </div>
                       </div>
                     </div>
