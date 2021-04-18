@@ -286,25 +286,60 @@ describe CharacterSkillsTree do
   end
 
   describe "#training_rate_for_skill" do
-    specify { expect(subject.training_rate_for_skill(0)).to eq("0.00") }
-  end
+    let(:character) { instance_double(Character, memory: 24, charisma: 20) }
 
-  # def training_rate_for_skill(skill_id)
-  #   primary_dogma_attribute = dogma_attributes.find { |dogma_attribute| dogma_attribute.name == PRIMARY_ATTRIBUTE_NAME }
-  #   primary_attribute_id = type_dogma_attributes.find { |tda| tda.type_id == skill_id && tda.attribute_id == primary_dogma_attribute.attribute_id }.value.to_i
-  #   primary_attribute = more_dogma_attributes.find { |dogma_attribute| dogma_attribute.attribute_id == primary_attribute_id }
-  #
-  #   secondary_dogma_attribute = dogma_attributes.find { |dogma_attribute| dogma_attribute.name == SECONDARY_ATTRIBUTE_NAME }
-  #   secondary_attribute_id = type_dogma_attributes.find { |tda| tda.type_id == skill_id && tda.attribute_id == secondary_dogma_attribute.attribute_id }.value.to_i
-  #   secondary_attribute = more_dogma_attributes.find { |dogma_attribute| dogma_attribute.attribute_id == secondary_attribute_id }
-  #
-  #   primary = character.send(:"#{primary_attribute.name}")
-  #   secondary = character.send(:"#{secondary_attribute.name}")
-  #
-  #   rate = EveOnline::Formulas::TrainingRate.new(primary, secondary).rate
-  #
-  #   format("%0.2f", rate)
-  # end
+    let(:dogma_attribute1) do
+      instance_double(Eve::DogmaAttribute,
+        name: described_class::PRIMARY_ATTRIBUTE_NAME,
+        attribute_id: 111)
+    end
+
+    let(:dogma_attribute2) do
+      instance_double(Eve::DogmaAttribute,
+        name: described_class::SECONDARY_ATTRIBUTE_NAME,
+        attribute_id: 222)
+    end
+
+    let(:dogma_attributes) { [dogma_attribute1, dogma_attribute2] }
+
+    before { expect(subject).to receive(:dogma_attributes).and_return(dogma_attributes).twice }
+
+    let(:type_dogma_attribute1) do
+      instance_double(Eve::TypeDogmaAttribute,
+        attribute_id: 111,
+        type_id: 1234,
+        value: "12345")
+    end
+
+    let(:type_dogma_attribute2) do
+      instance_double(Eve::TypeDogmaAttribute,
+        attribute_id: 222,
+        type_id: 1234,
+        value: "12346")
+    end
+
+    let(:type_dogma_attributes) { [type_dogma_attribute1, type_dogma_attribute2] }
+
+    before { expect(subject).to receive(:type_dogma_attributes).and_return(type_dogma_attributes).twice }
+
+    let(:more_dogma_attribute1) do
+      instance_double(Eve::DogmaAttribute,
+        attribute_id: 12345,
+        name: "memory")
+    end
+
+    let(:more_dogma_attribute2) do
+      instance_double(Eve::DogmaAttribute,
+        attribute_id: 12346,
+        name: "charisma")
+    end
+
+    let(:more_dogma_attributes) { [more_dogma_attribute1, more_dogma_attribute2] }
+
+    before { expect(subject).to receive(:more_dogma_attributes).and_return(more_dogma_attributes).twice }
+
+    specify { expect(subject.training_rate_for_skill(1234)).to eq("34.00") }
+  end
 
   # private methods
 

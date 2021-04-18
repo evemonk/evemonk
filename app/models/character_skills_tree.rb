@@ -79,26 +79,22 @@ class CharacterSkillsTree
     skills_types.select { |type| type.group_id == group_id }.sort_by(&:name_en)
   end
 
-  def training_rate_for_skill(_)
-    format("%0.2f", 0)
-  end
+  def training_rate_for_skill(skill_id)
+    primary_dogma_attribute = dogma_attributes.find { |dogma_attribute| dogma_attribute.name == PRIMARY_ATTRIBUTE_NAME }
+    primary_attribute_id = type_dogma_attributes.find { |tda| tda.type_id == skill_id && tda.attribute_id == primary_dogma_attribute.attribute_id }.value.to_i
+    primary_attribute = more_dogma_attributes.find { |dogma_attribute| dogma_attribute.attribute_id == primary_attribute_id }
 
-  # def training_rate_for_skill(skill_id)
-  #   primary_dogma_attribute = dogma_attributes.find { |dogma_attribute| dogma_attribute.name == PRIMARY_ATTRIBUTE_NAME }
-  #   primary_attribute_id = type_dogma_attributes.find { |tda| tda.type_id == skill_id && tda.attribute_id == primary_dogma_attribute.attribute_id }.value.to_i
-  #   primary_attribute = more_dogma_attributes.find { |dogma_attribute| dogma_attribute.attribute_id == primary_attribute_id }
-  #
-  #   secondary_dogma_attribute = dogma_attributes.find { |dogma_attribute| dogma_attribute.name == SECONDARY_ATTRIBUTE_NAME }
-  #   secondary_attribute_id = type_dogma_attributes.find { |tda| tda.type_id == skill_id && tda.attribute_id == secondary_dogma_attribute.attribute_id }.value.to_i
-  #   secondary_attribute = more_dogma_attributes.find { |dogma_attribute| dogma_attribute.attribute_id == secondary_attribute_id }
-  #
-  #   primary = character.send(:"#{primary_attribute.name}")
-  #   secondary = character.send(:"#{secondary_attribute.name}")
-  #
-  #   rate = EveOnline::Formulas::TrainingRate.new(primary, secondary).rate
-  #
-  #   format("%0.2f", rate)
-  # end
+    secondary_dogma_attribute = dogma_attributes.find { |dogma_attribute| dogma_attribute.name == SECONDARY_ATTRIBUTE_NAME }
+    secondary_attribute_id = type_dogma_attributes.find { |tda| tda.type_id == skill_id && tda.attribute_id == secondary_dogma_attribute.attribute_id }.value.to_i
+    secondary_attribute = more_dogma_attributes.find { |dogma_attribute| dogma_attribute.attribute_id == secondary_attribute_id }
+
+    primary = character.send(:"#{primary_attribute.name}")
+    secondary = character.send(:"#{secondary_attribute.name}")
+
+    rate = EveOnline::Formulas::TrainingRate.new(primary, secondary).rate
+
+    format("%0.2f", rate)
+  end
 
   private
 
