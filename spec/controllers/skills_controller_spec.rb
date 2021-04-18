@@ -39,7 +39,16 @@ describe SkillsController do
         end
       end
 
-      before { expect(SkillsTree).to receive(:new).with(character) }
+      before do
+        #
+        # CharacterSkillsTree.new(@character).preload
+        #
+        expect(CharacterSkillsTree).to receive(:new).with(character) do
+          double.tap do |a|
+            expect(a).to receive(:preload)
+          end
+        end
+      end
 
       before { get :index, params: {character_id: "1"} }
 

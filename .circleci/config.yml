@@ -22,8 +22,8 @@ jobs:
           keys:
             - ruby-{{ checksum ".ruby-version" }}-v1-dependencies-{{ checksum "Gemfile.lock" }}
             - ruby-{{ checksum ".ruby-version" }}-v1-dependencies-
-      - run: sudo gem update --system '3.2.15'
-      - run: gem install bundler -v '2.2.15'
+      - run: sudo gem update --system '3.2.16'
+      - run: gem install bundler -v '2.2.16'
       - run: gem --version
       - run: bundle --version
       - run: bundle config set clean 'true'
@@ -52,8 +52,6 @@ jobs:
       - run: bundle exec rspec --profile --format documentation --format RspecJunitFormatter --out ~/test-results/rspec.xml
       - run: bundle exec bundle-audit update
       - run: bundle exec bundle-audit
-      - run: yarn audit
-      - run: bundle exec brakeman -A
       - run: bundle exec mdl README.md
       - run: bundle exec fasterer
       - run: bundle exec standardrb
@@ -69,6 +67,8 @@ jobs:
       - run: bundle exec rails SECRET_KEY_BASE=blablabla assets:precompile
       - run: ./hadolint --ignore DL3005 --ignore DL3008 Dockerfile
       - run: shellcheck-stable/shellcheck bin/backend bin/sidekiq bin/cron bin/standardize
+      - run: yarn audit
+      - run: bundle exec brakeman -A
       - store_test_results:
           path: ~/test-results
       - store_artifacts:

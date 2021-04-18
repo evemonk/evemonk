@@ -38,7 +38,16 @@ describe CertificatesController do
         end
       end
 
-      before { expect(CertificatesTree).to receive(:new).with(character) }
+      before do
+        #
+        # CharacterCertificatesTree.new(@character).preload
+        #
+        expect(CharacterCertificatesTree).to receive(:new).with(character) do
+          double.tap do |a|
+            expect(a).to receive(:preload)
+          end
+        end
+      end
 
       before { get :index, params: {character_id: "1"} }
 

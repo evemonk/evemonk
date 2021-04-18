@@ -134,7 +134,7 @@ GEM
     coderay (1.1.3)
     colorize (0.8.1)
     concurrent-ruby (1.1.8)
-    connection_pool (2.2.4)
+    connection_pool (2.2.5)
     consistency_fail (0.3.7)
     countries (3.1.0)
       i18n_data (~> 0.11.0)
@@ -222,11 +222,15 @@ GEM
       railties (>= 5.0.0)
     faker (2.17.0)
       i18n (>= 1.6, < 2)
-    faraday (1.3.0)
+    faraday (1.4.0)
+      faraday-excon (~> 1.0)
       faraday-net_http (~> 1.0)
+      faraday-net_http_persistent (~> 1.0)
       multipart-post (>= 1.2, < 3)
-      ruby2_keywords
+      ruby2_keywords (>= 0.0.4)
+    faraday-excon (1.1.0)
     faraday-net_http (1.0.1)
+    faraday-net_http_persistent (1.1.0)
     faraday_middleware (1.0.0)
       faraday (~> 1.0)
     fasterer (0.9.0)
@@ -251,7 +255,6 @@ GEM
     good_migrations (0.0.2)
       activerecord (>= 3.1)
       railties (>= 3.1)
-    google-protobuf (3.15.8)
     google-protobuf (3.15.8-universal-darwin)
     google-protobuf (3.15.8-x86_64-linux)
     graphiql-rails (1.7.0)
@@ -321,7 +324,7 @@ GEM
       kramdown (~> 2.0)
     launchy (2.5.0)
       addressable (~> 2.7)
-    license_finder (6.12.1)
+    license_finder (6.12.2)
       bundler
       rubyzip (>= 1, < 3)
       thor (~> 1.0.1)
@@ -359,7 +362,6 @@ GEM
       rails (> 5.1)
     mini_histogram (0.3.1)
     mini_mime (1.0.3)
-    mini_portile2 (2.5.0)
     minitest (5.14.4)
     mixlib-cli (2.1.8)
     mixlib-config (3.0.9)
@@ -382,9 +384,6 @@ GEM
     newrelic_rpm (6.15.0)
     niceql (0.1.25)
     nio4r (2.5.7)
-    nokogiri (1.11.3)
-      mini_portile2 (~> 2.5.0)
-      racc (~> 1.4)
     nokogiri (1.11.3-x86_64-darwin)
       racc (~> 1.4)
     nokogiri (1.11.3-x86_64-linux)
@@ -545,7 +544,7 @@ GEM
     rspec-support (3.10.2)
     rspec_junit_formatter (0.4.1)
       rspec-core (>= 2, < 4, != 2.12.0)
-    rubocop (1.11.0)
+    rubocop (1.12.1)
       parallel (~> 1.10)
       parser (>= 3.0.0.0)
       rainbow (>= 2.2.2, < 4.0)
@@ -648,10 +647,10 @@ GEM
       sprockets (>= 3.0.0)
     sql_tracker (1.3.2)
     squasher (0.6.2)
-    standard (1.0.4)
-      rubocop (= 1.11.0)
+    standard (1.0.5)
+      rubocop (= 1.12.1)
       rubocop-performance (= 1.10.1)
-    super_diff (0.6.1)
+    super_diff (0.6.2)
       attr_extras (>= 6.2.4)
       diff-lcs
       patience_diff
@@ -701,6 +700,8 @@ GEM
     yabeda (0.8.0)
       concurrent-ruby
       dry-initializer
+    yabeda-gc (0.1.1)
+      yabeda (~> 0.6)
     yabeda-graphql (0.2.1)
       graphql (~> 1.9)
       yabeda (~> 0.2)
@@ -723,8 +724,7 @@ GEM
       execjs
 
 PLATFORMS
-  ruby
-  x86_64-darwin-19
+  x86_64-darwin-20
   x86_64-linux
 
 DEPENDENCIES
@@ -836,6 +836,7 @@ DEPENDENCIES
   webmock
   webpacker (~> 5.0)
   webrick
+  yabeda-gc
   yabeda-graphql
   yabeda-prometheus
   yabeda-puma-plugin
@@ -846,4 +847,4 @@ RUBY VERSION
    ruby 3.0.1p64
 
 BUNDLED WITH
-   2.2.15
+   2.2.16

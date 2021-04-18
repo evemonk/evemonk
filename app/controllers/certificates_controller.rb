@@ -6,6 +6,6 @@ class CertificatesController < ApplicationController
       .includes(:alliance, :corporation)
       .find_by!(character_id: params[:character_id])
 
-    @certificates_tree = CertificatesTree.new(@character)
+    @character_certificates_tree = CharacterCertificatesTree.new(@character).preload
   end
 end

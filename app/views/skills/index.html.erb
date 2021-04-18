@@ -73,6 +73,9 @@
   <li class="nav-item">
     <%= link_to("Training Queue", character_training_queues_path(@character.character_id), class: "nav-link") %>
   </li>
+  <li class="nav-item">
+    <%= link_to("Certificates", character_certificates_path(@character.character_id), class: "nav-link") %>
+  </li>
 </ul>
 
 <hr>
@@ -136,7 +139,7 @@
     <h4 class="text-center text-break">Skills Tree</h4>
 
     <div class="accordion" id="skills_tree_accordion">
-      <% @skills_tree.groups.each do |group| %>
+      <% @character_skills_tree.skills_groups.each do |group| %>
         <div class="card">
           <div class="card-header" id="heading_group_<%= group.group_id %>">
             <h2 class="mb-0">
@@ -147,7 +150,7 @@
                       aria-expanded="true"
                       aria-controls="collapse_<%= group.group_id %>">
                 <!-- TODO: add icon -->
-                <%= group.name %> (<%= @skills_tree.skills_count_in_group(group) %>)
+                <%= group.name %> (<%= @character_skills_tree.skills_count_in_group(group.group_id) %>)
               </button>
             </h2>
           </div>
@@ -158,28 +161,46 @@
                data-parent="#skills_tree_accordion">
             <div class="card-body">
               <div class="row">
-                Levels trained: <%= @skills_tree.levels_trained_in_group(group) %> / <%= @skills_tree.total_levels_in_group(group) %>
-              </div>
-              <div class="row">
-                Levels in training queue: <%= @skills_tree.levels_in_training_queue(group) %>
-              </div>
-              <div class="row">
-                Skill points: <%= number_with_delimiter(@skills_tree.current_skill_points_in_group(group), delimiter: " ") %> / <%= number_with_delimiter(@skills_tree.total_skill_points_in_group(group), delimiter: " ") %>
-              </div>
-              <div class="row">
-                Certificates claimed: <%= @skills_tree.certificates_claimed_in_group(group) %> / <%= @skills_tree.total_certificates_in_group(group) %>
-              </div>
-              <div class="row">
-                Training rate: <%= @skills_tree.training_rate_in_group(group) %> skill points per minute
-              </div>
-              <div class="row">
-                <div class="span-6">
-                  <%= @skills_tree.primary_attribute_per_group(group).display_name %>: <%= @character.send(:"#{@skills_tree.primary_attribute_per_group(group).name}") %>
-                </div>
-                <div class="span-6">
-                  <%= @skills_tree.secondary_attribute_per_group(group).display_name %>: <%= @character.send(:"#{@skills_tree.secondary_attribute_per_group(group).name}") %>
+                <div class="col-12">
+                  Levels trained: <%= @character_skills_tree.levels_trained_in_group(group.group_id) %> / <%= @character_skills_tree.total_levels_in_group(group.group_id) %>
                 </div>
               </div>
+              <div class="row">
+                <div class="col-12">
+                  Levels in training queue: <%= @character_skills_tree.levels_in_training_queue(group.group_id) %>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  Skill points: <%= number_with_delimiter(@character_skills_tree.current_skill_points_in_group(group.group_id), delimiter: " ") %> / <%= number_with_delimiter(@character_skills_tree.total_skill_points_in_group(group.group_id), delimiter: " ") %>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  Certificates claimed: <%= @character_skills_tree.certificates_claimed_in_group(group.group_id) %> / <%= @character_skills_tree.total_certificates_in_group(group.group_id) %>
+                </div>
+              </div>
+<!--              <div class="row">-->
+<!--                <div class="col-6" style="border: 1px solid red">-->
+<!--                  <%##= @skills_tree.primary_attribute_per_group(group).display_name %>: <%#= @character.send(:"#{@skills_tree.primary_attribute_per_group(group).name}") %>-->
+<!--                </div>-->
+<!--                <div class="col-6" style="border: 1px solid red">-->
+<!--                  <%##= @skills_tree.secondary_attribute_per_group(group).display_name %>: <%#= @character.send(:"#{@skills_tree.secondary_attribute_per_group(group).name}") %>-->
+<!--                </div>-->
+<!--              </div>-->
+
+              <hr>
+
+              <% @character_skills_tree.skills_in_group(group.group_id).each do |skill| %>
+                <div class="row">
+                  <div class="col-12">
+                    <%= link_to(skill.name, universe_type_path(skill.type_id)) %><br>
+                    Training rate: <%= @character_skills_tree.training_rate_for_skill(skill.type_id) %> skill points per minute<br>
+<!--                    Primary: <%##= skill.primary_attribute.display_name %>: <%#= @character.send(:"#{skill.primary_attribute.name}") %><br>-->
+<!--                    Secondary: <%##= skill.secondary_attribute.display_name %>: <%#= @character.send(:"#{skill.secondary_attribute.name}") %>-->
+                  </div>
+                </div>
+              <% end %>
 
               <%# @character.skills_tree.skills_in_group(group).each do |skill| %>
 <!--                <div class="row">-->
