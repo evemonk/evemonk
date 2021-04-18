@@ -180,14 +180,14 @@
                   Certificates claimed: <%= @character_skills_tree.certificates_claimed_in_group(group.group_id) %> / <%= @character_skills_tree.total_certificates_in_group(group.group_id) %>
                 </div>
               </div>
-              <div class="row">
-                <div class="col-6" style="border: 1px solid red">
-                  <%#= @skills_tree.primary_attribute_per_group(group).display_name %>: <%#= @character.send(:"#{@skills_tree.primary_attribute_per_group(group).name}") %>
-                </div>
-                <div class="col-6" style="border: 1px solid red">
-                  <%#= @skills_tree.secondary_attribute_per_group(group).display_name %>: <%#= @character.send(:"#{@skills_tree.secondary_attribute_per_group(group).name}") %>
-                </div>
-              </div>
+<!--              <div class="row">-->
+<!--                <div class="col-6" style="border: 1px solid red">-->
+<!--                  <%##= @skills_tree.primary_attribute_per_group(group).display_name %>: <%#= @character.send(:"#{@skills_tree.primary_attribute_per_group(group).name}") %>-->
+<!--                </div>-->
+<!--                <div class="col-6" style="border: 1px solid red">-->
+<!--                  <%##= @skills_tree.secondary_attribute_per_group(group).display_name %>: <%#= @character.send(:"#{@skills_tree.secondary_attribute_per_group(group).name}") %>-->
+<!--                </div>-->
+<!--              </div>-->
 
               <hr>
 
@@ -196,8 +196,8 @@
                   <div class="col-12">
                     <%= link_to(skill.name, universe_type_path(skill.type_id)) %><br>
                     Training rate: <%= @character_skills_tree.training_rate_for_skill(skill.type_id) %> skill points per minute<br>
-                    Primary: <%#= skill.primary_attribute.display_name %>: <%#= @character.send(:"#{skill.primary_attribute.name}") %><br>
-                    Secondary: <%#= skill.secondary_attribute.display_name %>: <%#= @character.send(:"#{skill.secondary_attribute.name}") %>
+<!--                    Primary: <%##= skill.primary_attribute.display_name %>: <%#= @character.send(:"#{skill.primary_attribute.name}") %><br>-->
+<!--                    Secondary: <%##= skill.secondary_attribute.display_name %>: <%#= @character.send(:"#{skill.secondary_attribute.name}") %>-->
                   </div>
                 </div>
               <% end %>
