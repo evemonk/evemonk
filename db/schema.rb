@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_04_170644) do
+ActiveRecord::Schema.define(version: 2021_04_19_105740) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -378,6 +378,7 @@ ActiveRecord::Schema.define(version: 2021_03_04_170644) do
     t.bigint "type_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["certificate_id"], name: "index_eve_certificate_recommended_types_on_certificate_id"
   end
 
   create_table "eve_certificate_skills", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -387,6 +388,7 @@ ActiveRecord::Schema.define(version: 2021_03_04_170644) do
     t.integer "skill_level"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["certificate_id"], name: "index_eve_certificate_skills_on_certificate_id"
   end
 
   create_table "eve_certificates", force: :cascade do |t|
@@ -826,6 +828,7 @@ ActiveRecord::Schema.define(version: 2021_03_04_170644) do
     t.float "value"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["attribute_id"], name: "index_eve_type_dogma_attributes_on_attribute_id"
     t.index ["type_id"], name: "index_eve_type_dogma_attributes_on_type_id"
   end
 
