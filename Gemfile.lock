@@ -136,6 +136,7 @@ GEM
     concurrent-ruby (1.1.8)
     connection_pool (2.2.5)
     consistency_fail (0.3.7)
+    console_creep (0.3.0)
     countries (3.1.0)
       i18n_data (~> 0.11.0)
       sixarm_ruby_unaccent (~> 1.1)
@@ -742,6 +743,7 @@ DEPENDENCIES
   codecov
   connection_pool
   consistency_fail
+  console_creep
   countries
   dalli
   database_cleaner-active_record
