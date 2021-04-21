@@ -75,7 +75,9 @@ COPY package.json package.json
 
 COPY yarn.lock yarn.lock
 
-RUN yarn install
+RUN set -eux; \
+    yarn install ; \
+    yarn cache clean
 
 COPY . .
 
