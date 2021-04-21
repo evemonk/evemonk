@@ -71,7 +71,7 @@ gem "yabeda-rails"
 gem "yabeda-graphql"
 gem "yabeda-sidekiq"
 gem "yabeda-puma-plugin"
-gem "yabeda-gc"
+# gem "yabeda-gc"
 gem "console_creep"
 
 # gem "oink"
