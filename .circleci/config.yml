@@ -65,7 +65,7 @@ jobs:
       - run: bundle exec rails_best_practices || true
       # - run: bundle exec rails active_record_doctor:unindexed_foreign_keys
       - run: bundle exec rails SECRET_KEY_BASE=blablabla assets:precompile
-      - run: ./hadolint --ignore DL3005 --ignore DL3008 Dockerfile
+      - run: ./hadolint --ignore DL3005 --ignore DL3008 --ignore DL3059 Dockerfile
       - run: shellcheck-stable/shellcheck bin/backend bin/sidekiq bin/cron bin/standardize
       - run: yarn audit
       - run: bundle exec brakeman -A
