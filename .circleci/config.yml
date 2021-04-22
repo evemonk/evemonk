@@ -43,7 +43,7 @@ jobs:
       - run: npm -v
       - run: yarn -v
       - run: yarn install
-      - run: curl -L https://github.com/hadolint/hadolint/releases/download/v2.1.0/hadolint-Linux-x86_64 > ./hadolint
+      - run: curl -L https://github.com/hadolint/hadolint/releases/download/v2.3.0/hadolint-Linux-x86_64 > ./hadolint
       - run: chmod +x ./hadolint
       - run: wget -qO- https://github.com/koalaman/shellcheck/releases/download/stable/shellcheck-stable.linux.x86_64.tar.xz | tar -xJv
       - run: shellcheck-stable/shellcheck --version
