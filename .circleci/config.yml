@@ -43,7 +43,7 @@ jobs:
       - run: npm -v
       - run: yarn -v
       - run: yarn install
-      - run: curl -L https://github.com/hadolint/hadolint/releases/download/v2.1.0/hadolint-Linux-x86_64 > ./hadolint
+      - run: curl -L https://github.com/hadolint/hadolint/releases/download/v2.3.0/hadolint-Linux-x86_64 > ./hadolint
       - run: chmod +x ./hadolint
       - run: wget -qO- https://github.com/koalaman/shellcheck/releases/download/stable/shellcheck-stable.linux.x86_64.tar.xz | tar -xJv
       - run: shellcheck-stable/shellcheck --version
@@ -65,7 +65,7 @@ jobs:
       - run: bundle exec rails_best_practices || true
       # - run: bundle exec rails active_record_doctor:unindexed_foreign_keys
       - run: bundle exec rails SECRET_KEY_BASE=blablabla assets:precompile
-      - run: ./hadolint --ignore DL3005 --ignore DL3008 Dockerfile
+      - run: ./hadolint --ignore DL3005 --ignore DL3008 --ignore DL3059 Dockerfile
       - run: shellcheck-stable/shellcheck bin/backend bin/sidekiq bin/cron bin/standardize
       - run: yarn audit
       - run: bundle exec brakeman -A

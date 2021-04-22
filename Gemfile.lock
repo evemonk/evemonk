@@ -241,7 +241,7 @@ GEM
       ffi (>= 1.0.0)
       rake
     foundation_emails (2.2.1.0)
-    fugit (1.4.4)
+    fugit (1.4.5)
       et-orbi (~> 1.1, >= 1.1.8)
       raabro (~> 1.4)
     gemdiff (4.0.0)
