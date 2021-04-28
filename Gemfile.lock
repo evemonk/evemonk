@@ -439,6 +439,8 @@ GEM
     rack (2.2.3)
     rack-cors (1.1.1)
       rack (>= 2.0.0)
+    rack-floc-off (0.0.2)
+      rack
     rack-health (0.1.2)
       rack (>= 1.2.0)
     rack-protection (2.1.0)
@@ -787,6 +789,7 @@ DEPENDENCIES
   pry-rails
   puma (~> 5.2)
   rack-cors
+  rack-floc-off
   rack-health
   rack-timeout
   rails (= 6.1.3.1)
