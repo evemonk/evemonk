@@ -109,7 +109,7 @@ GEM
       smart_properties
     bootsnap (1.7.4)
       msgpack (~> 1.0)
-    brakeman (5.0.0)
+    brakeman (5.0.1)
     builder (3.2.4)
     bundler-audit (0.8.0)
       bundler (>= 1.2.0, < 3)
@@ -144,10 +144,7 @@ GEM
       rexml
     crass (1.0.6)
     dalli (2.7.11)
-    database_cleaner-active_record (2.0.0)
-      activerecord (>= 5.a)
-      database_cleaner-core (~> 2.0.0)
-    database_cleaner-core (2.0.1)
+    database_rewinder (0.9.5)
     datetime_picker_rails (0.0.7)
       momentjs-rails (>= 2.8.1)
     dead_end (1.1.6)
@@ -742,7 +739,7 @@ DEPENDENCIES
   consistency_fail
   countries
   dalli
-  database_cleaner-active_record
+  database_rewinder
   derailed_benchmarks
   devise
   devise-authy
