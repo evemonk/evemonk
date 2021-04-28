@@ -109,7 +109,7 @@ GEM
       smart_properties
     bootsnap (1.7.4)
       msgpack (~> 1.0)
-    brakeman (5.0.0)
+    brakeman (5.0.1)
     builder (3.2.4)
     bundler-audit (0.8.0)
       bundler (>= 1.2.0, < 3)
