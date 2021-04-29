@@ -69,19 +69,15 @@ RUN bundle config set --global retry 5
 
 RUN bundle install
 
+COPY . .
+
 RUN bundle exec bootsnap precompile --gemfile app/ lib/
-
-COPY package.json package.json
-
-COPY yarn.lock yarn.lock
 
 RUN set -eux; \
     yarn install ; \
-    yarn cache clean
-
-COPY . .
-
-RUN bundle exec rake SECRET_KEY_BASE=blablabla DATABASE_URL="postgres://postgres@postgresql/evemonk_production?pool=1&encoding=unicode" assets:precompile
+    yarn cache clean ; \
+    bundle exec rake SECRET_KEY_BASE=blablabla DATABASE_URL="postgres://postgres@postgresql/evemonk_production?pool=1&encoding=unicode" assets:precompile ; \
+    rm -rf node_modules/
 
 ARG COMMIT=""
 
