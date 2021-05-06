@@ -29,7 +29,6 @@ import "../stylesheets/application";
 // import ApexCharts from "apexcharts";
 
 // window.ApexCharts = ApexCharts;
-window.$ = $;
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
@@ -38,13 +37,14 @@ window.$ = $;
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 
-document.addEventListener("turbolinks:load", () => {
-  $('[data-toggle="tooltip"]').tooltip();
-
-  // Install all the hotkeys on the page
-  for (const el of document.querySelectorAll("[data-hotkey]")) {
-    install(el);
-  }
-});
+// TODO: check and remove?
+// document.addEventListener("turbolinks:load", () => {
+//   $('[data-toggle="tooltip"]').tooltip();
+//
+//   // Install all the hotkeys on the page
+//   for (const el of document.querySelectorAll("[data-hotkey]")) {
+//     install(el);
+//   }
+// });
 
 // import "controllers";
