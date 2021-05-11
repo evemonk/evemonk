@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <%= display_meta_tags site: "EveMonk: EVE Online management suite",
+                          reverse: true %>
+
+    <!-- Disable translation prompt -->
+    <meta name="google" content="notranslate">
+
+    <!-- Disable automatic detection and formatting of possible phone numbers -->
+    <meta name="format-detection" content="telephone=no">
+
+    <% if Setting.use_google_search_console %>
+      <!-- Google Search Console -->
+      <meta name="google-site-verification" content="<%= Setting.google_site_verification_token %>">
+    <% end %>
+
+    <% if Setting.use_plausible_evemonk %>
+      <%= render "shared/plausible" %>
+    <% end %>
+
+    <!-- Force IE 8/9/10 to use its latest rendering engine -->
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= action_cable_meta_tag %>
+
+    <% # TODO: remove "data-turbolinks-track" %>
+    <%= stylesheet_pack_tag "application", media: "all", "data-turbolinks-track": "reload" %>
+    <%= javascript_pack_tag "application", "data-turbolinks-track": "reload" %>
+  </head>
+
+  <body>
+    <div class="container">
+      <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <%= link_to("EveMonk", root_url, class: "navbar-brand") %>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbar">
+          <ul class="navbar-nav mr-auto">
+<!--            <li class="nav-item active">-->
+<!--              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>-->
+<!--            </li>-->
+            <% if current_user %>
+              <li class="nav-item">
+                <%= link_to("My characters", characters_path, class: "nav-link") %>
+              </li>
+              <li class="nav-item">
+                <%= link_to("Profile", profile_path, class: "nav-link") %>
+              </li>
+              <li class="nav-item">
+                <%= link_to("Sign Out", destroy_user_session_path, method: :delete, class: "nav-link") %>
+              </li>
+            <% else %>
+              <li class="nav-item">
+                <%= link_to("Sign In", new_user_session_path, class: "nav-link") %>
+              </li>
+              <li class="nav-item">
+                <%= link_to("Sign Up", new_user_registration_path, class: "nav-link") %>
+              </li>
+            <% end %>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Universe</a>
+              <div class="dropdown-menu" aria-labelledby="dropdown">
+                <%= link_to("Alliances", universe_alliances_path, class: "dropdown-item") %>
+                <%= link_to("Corporations", universe_corporations_path, class: "dropdown-item") %>
+                <%= link_to("Characters", universe_characters_path, class: "dropdown-item") %>
+                <%= link_to("Market Groups", nil, class: "dropdown-item") %>
+                <%= link_to("Inventory", nil, class: "dropdown-item") %>
+              </div>
+            </li>
+          </ul>
+<!--          <form class="form-inline">-->
+<!--            <input class="form-control" type="text" placeholder="Search">-->
+<!--          </form>-->
+        </div>
+      </nav>
+
+      <div id="alerts">
+        <% if flash[:notice] %>
+          <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <%= flash[:notice] %>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        <% end %>
+
+        <% if flash[:alert] %>
+          <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <%= flash[:alert] %>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        <% end %>
+      </div>
+
+      <%= yield %>
+
+      <div class="w-100"></div>
+
+      <hr>
+
+      <div class="row">
+        <div class="col-6 col-md-3">
+          <ul class="list-unstyled mb-0">
+            <li><%= link_to("FAQ", faq_path) %></li>
+            <li><a href="#">Privacy policy</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-md-3">
+          <ul class="list-unstyled mb-0">
+            <li><a href="#">Terms of use</a></li>
+            <li><a href="#">About</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-md-3">
+          <ul class="list-unstyled mb-0">
+            <li><%= link_to("GraphQL", graphiql_rails_path, target: "_blank") %></li>
+            <li><%= link_to("Blog", "https://blog.evemonk.com", target: "_blank") %></li>
+          </ul>
+        </div>
+        <div class="col-6 col-md-3">
+          <ul class="list-unstyled mb-0">
+            <li><%= link_to("GitHub", "https://github.com/evemonk/evemonk", target: "_blank") %></li>
+            <li><%= link_to("SDE Archive", "https://sde.evemonk.com/", target: "_blank") %></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="w-100"></div>
+
+      <hr>
+
+      <div class="row text-center">
+        <div class="col">
+          &copy; 2016 &mdash; 2021 <strong>EveMonk</strong>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
