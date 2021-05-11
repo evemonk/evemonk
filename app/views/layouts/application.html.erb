@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags for bootstrap -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <%= display_meta_tags site: "EveMonk: EVE Online management suite",
+                          reverse: true %>
+
+    <!-- Disable translation prompt -->
+    <meta name="google" content="notranslate">
+
+    <!-- Disable automatic detection and formatting of possible phone numbers -->
+    <meta name="format-detection" content="telephone=no">
+
+    <% if Setting.use_google_search_console %>
+      <!-- Google Search Console -->
+      <meta name="google-site-verification" content="<%= Setting.google_site_verification_token %>">
+    <% end %>
+
+    <% if Setting.use_plausible_evemonk %>
+      <%= render "shared/plausible" %>
+    <% end %>
+
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= action_cable_meta_tag %>
+
+    <%= stylesheet_pack_tag "application", media: "all", "data-turbo-track": "reload" %>
+    <%= javascript_pack_tag "application", "data-turbo-track": "reload" %>
+  </head>
+  <body>
+    <%= yield %>
+  </body>
+</html>
