@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 FactoryBot.define do
-  factory :eve_character_corporation_history, class: Eve::CharacterCorporationHistory do
+  factory :eve_character_corporation_history, class: "Eve::CharacterCorporationHistory" do
     association :character, factory: :eve_character
 
     association :corporation, factory: :eve_corporation

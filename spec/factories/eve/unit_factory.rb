@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 FactoryBot.define do
-  factory :eve_unit, class: Eve::Unit do
+  factory :eve_unit, class: "Eve::Unit" do
     sequence(:unit_id)
 
     description { Faker::Lorem.paragraph }

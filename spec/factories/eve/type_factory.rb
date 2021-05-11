@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 FactoryBot.define do
-  factory :eve_type, class: Eve::Type do
+  factory :eve_type, class: "Eve::Type" do
     capacity { 1.5 }
 
     description_en { Faker::Lorem.paragraph }

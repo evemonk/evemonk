@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 FactoryBot.define do
-  factory :eve_system, class: Eve::System do
+  factory :eve_system, class: "Eve::System" do
     sequence(:constellation_id)
 
     name_en { Faker::Lorem.word }
