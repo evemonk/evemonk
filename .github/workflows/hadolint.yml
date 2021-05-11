@@ -1,0 +1,17 @@
+name: Check Dockerfile with hadolint
+
+on:
+  - push
+  - pull_request
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: hadolint Dockerfile
+        run: |
+          curl -L https://github.com/hadolint/hadolint/releases/download/v2.4.0/hadolint-Linux-x86_64 > ./hadolint
+          chmod +x ./hadolint
+          ./hadolint --ignore DL3005 --ignore DL3008 --ignore DL3059 Dockerfile
