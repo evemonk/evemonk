@@ -1,0 +1,40 @@
+name: Tests
+
+on: [push, pull_request]
+
+jobs:
+  rspec:
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: "postgres:13.2"
+        env:
+          POSTGRES_HOST_AUTH_METHOD: "trust"
+        ports:
+          - "5432:5432"
+        # needed because the postgres container does not provide a healthcheck
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+      - name: Install Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - name: Update Rubygems
+        run: gem update --system '3.2.17'
+      - name: Install bundler
+        run: gem install bundler -v '2.2.17'
+      - name: Yarn install
+        run: yarn install
+      - name: rails db:create
+        run: bundle exec rails db:create
+      - name: rails db:migrate
+        run: bundle exec rails db:migrate
+      - name: Run tests
+        run: bundle exec rspec --profile --format documentation
