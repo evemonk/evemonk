@@ -42,7 +42,7 @@ jobs:
       - run: node -v
       - run: npm -v
       - run: yarn -v
-      - run: yarn install
+      - run: yarn install --frozen-lockfile
       - run: curl -L https://github.com/hadolint/hadolint/releases/download/v2.4.0/hadolint-Linux-x86_64 > ./hadolint
       - run: chmod +x ./hadolint
       - run: wget -qO- https://github.com/koalaman/shellcheck/releases/download/stable/shellcheck-stable.linux.x86_64.tar.xz | tar -xJv
