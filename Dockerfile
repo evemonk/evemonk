@@ -74,7 +74,7 @@ COPY . .
 RUN bundle exec bootsnap precompile --gemfile app/ lib/
 
 RUN set -eux; \
-    yarn install ; \
+    yarn install --frozen-lockfile ; \
     yarn cache clean ; \
     bundle exec rake SECRET_KEY_BASE=blablabla DATABASE_URL="postgres://postgres@postgresql/evemonk_production?pool=1&encoding=unicode" assets:precompile ; \
     rm -rf node_modules/

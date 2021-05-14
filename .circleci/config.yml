@@ -42,7 +42,7 @@ jobs:
       - run: node -v
       - run: npm -v
       - run: yarn -v
-      - run: yarn install
+      - run: yarn install --frozen-lockfile
       - run: curl -L https://github.com/hadolint/hadolint/releases/download/v2.4.0/hadolint-Linux-x86_64 > ./hadolint
       - run: chmod +x ./hadolint
       - run: wget -qO- https://github.com/koalaman/shellcheck/releases/download/stable/shellcheck-stable.linux.x86_64.tar.xz | tar -xJv
@@ -68,7 +68,7 @@ jobs:
       - run: ./hadolint --ignore DL3005 --ignore DL3008 --ignore DL3059 Dockerfile
       - run: shellcheck-stable/shellcheck bin/backend bin/sidekiq bin/cron bin/standardize
       - run: yarn audit || true
-      - run: bundle exec brakeman -A
+      - run: bundle exec brakeman --run-all-checks --color
       - store_test_results:
           path: ~/test-results
       - store_artifacts:
