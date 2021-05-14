@@ -67,7 +67,7 @@ jobs:
       - run: bundle exec rails SECRET_KEY_BASE=blablabla assets:precompile
       - run: ./hadolint --ignore DL3005 --ignore DL3008 --ignore DL3059 Dockerfile
       - run: shellcheck-stable/shellcheck bin/backend bin/sidekiq bin/cron bin/standardize
-      - run: yarn audit
+      - run: yarn audit || true
       - run: bundle exec brakeman -A
       - store_test_results:
           path: ~/test-results
