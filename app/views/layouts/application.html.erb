@@ -59,6 +59,16 @@
                   <%= link_to("Sign Up", new_user_registration_path, class: "nav-link") %>
                 </li>
               <% end %>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="dropdown" data-bs-toggle="dropdown" aria-expanded="false">Universe</a>
+                <ul class="dropdown-menu" aria-labelledby="dropdown">
+                  <%= link_to("Alliances", universe_alliances_path, class: "dropdown-item") %>
+                  <%= link_to("Corporations", universe_corporations_path, class: "dropdown-item") %>
+                  <%= link_to("Characters", universe_characters_path, class: "dropdown-item") %>
+                  <%= link_to("Market Groups", nil, class: "dropdown-item") %>
+                  <%= link_to("Inventory", nil, class: "dropdown-item") %>
+                </ul>
+              </li>
             </ul>
           </div>
 

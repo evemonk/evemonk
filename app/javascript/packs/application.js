@@ -5,18 +5,17 @@
 
 import * as Sentry from "@sentry/browser";
 
-Sentry.init({
-  dsn: "https://185a236f4b994411a9f33c3c714cb34e@sentry.io/1424888",
-});
+// Sentry.init({
+//   dsn: "https://185a236f4b994411a9f33c3c714cb34e@sentry.io/1424888",
+// });
 
 import Rails from "@rails/ujs";
-import Turbolinks from "turbolinks";
+import * as Turbo from "@hotwired/turbo";
 import LocalTime from "local-time";
 import { install } from "@github/hotkey";
 import "channels";
 
 Rails.start();
-Turbolinks.start();
 LocalTime.start();
 
 import "bootstrap/js/src/dropdown";
@@ -25,6 +24,8 @@ import "bootstrap/js/src/tooltip";
 import "bootstrap/js/src/modal";
 
 import "../stylesheets/application";
+
+window.Turbo = Turbo
 
 // import ApexCharts from "apexcharts";
 
