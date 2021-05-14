@@ -6,7 +6,7 @@ ruby File.read(".ruby-version")
 
 gem "rails", "6.1.3.2"
 gem "pg", "~> 1.1"
-gem "puma", "~> 5.2"
+gem "puma", "~> 5.3"
 gem "sass-rails", ">= 6"
 gem "webpacker", "~> 5.3"
 gem "turbolinks", "~> 5"
