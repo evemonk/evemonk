@@ -9,7 +9,7 @@ on:
       - main
 
 jobs:
-  hadolint:
+  rubocop:
     runs-on: ubuntu-latest
 
     steps:

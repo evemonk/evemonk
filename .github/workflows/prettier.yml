@@ -9,7 +9,7 @@ on:
       - main
 
 jobs:
-  yarn-audit:
+  prettier:
     runs-on: ubuntu-latest
 
     steps:

@@ -9,7 +9,7 @@ on:
       - main
 
 jobs:
-  hadolint:
+  rails_best_practices:
     runs-on: ubuntu-latest
 
     steps:

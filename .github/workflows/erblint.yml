@@ -9,7 +9,7 @@ on:
       - main
 
 jobs:
-  hadolint:
+  erblint:
     runs-on: ubuntu-latest
 
     steps:

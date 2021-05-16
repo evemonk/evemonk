@@ -9,7 +9,7 @@ on:
       - main
 
 jobs:
-  hadolint:
+  license_finder:
     runs-on: ubuntu-latest
 
     steps:
