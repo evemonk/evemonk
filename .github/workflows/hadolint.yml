@@ -1,4 +1,4 @@
-name: Check Dockerfile with hadolint
+name: hadolint
 
 on:
   push:
