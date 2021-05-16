@@ -47,7 +47,6 @@ jobs:
       - run: bundle exec rails db:create
       - run: bundle exec rails db:migrate
       - run: bundle exec rspec --profile --format documentation --format RspecJunitFormatter --out ~/test-results/rspec.xml
-      - run: bundle exec license_finder || true
       - run: bundle exec rails factory_bot:lint
       - run: bundle exec consistency_fail || true
       - run: bundle exec rails_best_practices || true
