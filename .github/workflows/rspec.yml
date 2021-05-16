@@ -51,28 +51,34 @@ jobs:
         env:
           POSTGRES_USER: "evemonk"
           POSTGRES_DB: "evemonk_test"
+          PGHOST: "localhost"
       - name: rails db:create
         run: bundle exec rails db:create
         env:
           POSTGRES_USER: "evemonk"
           POSTGRES_DB: "evemonk_test"
+          PGHOST: "localhost"
       - name: rails db:migrate
         run: bundle exec rails db:migrate
         env:
           POSTGRES_USER: "evemonk"
           POSTGRES_DB: "evemonk_test"
+          PGHOST: "localhost"
       - name: Run tests
         run: bundle exec rspec --force-color --profile --format documentation
         env:
           POSTGRES_USER: "evemonk"
           POSTGRES_DB: "evemonk_test"
+          PGHOST: "localhost"
       - name: factory bot
         run: bundle exec rails factory_bot:lint
         env:
           POSTGRES_USER: "evemonk"
           POSTGRES_DB: "evemonk_test"
+          PGHOST: "localhost"
       - name: precompile assets
         run: bundle exec rails SECRET_KEY_BASE=blablabla assets:precompile
         env:
           POSTGRES_USER: "evemonk"
           POSTGRES_DB: "evemonk_test"
+          PGHOST: "localhost"
