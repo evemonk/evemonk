@@ -1,20 +1,24 @@
 version: 2
 updates:
-  - package-ecosystem: bundler
+  - package-ecosystem: "bundler"
     directory: "/"
     schedule:
-      interval: daily
+      interval: "daily"
     open-pull-requests-limit: 99
     allow:
-      - dependency-type: direct
-      - dependency-type: indirect
-  - package-ecosystem: npm
+      - dependency-type: "direct"
+      - dependency-type: "indirect"
+  - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      interval: daily
+      interval: "daily"
     open-pull-requests-limit: 99
-  - package-ecosystem: docker
+  - package-ecosystem: "docker"
     directory: "/"
     schedule:
-      interval: daily
+      interval: "daily"
     open-pull-requests-limit: 99
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "daily"
