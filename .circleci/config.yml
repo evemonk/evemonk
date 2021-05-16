@@ -8,7 +8,7 @@ jobs:
         environment:
           RAILS_ENV: test
           PGHOST: localhost
-      - image: postgres:13.2
+      - image: postgres:13.3
         environment:
           POSTGRES_USER: circleci
           POSTGRES_DB: evemonk_test
@@ -43,19 +43,9 @@ jobs:
       - run: npm -v
       - run: yarn -v
       - run: yarn install --frozen-lockfile
-      - run: curl -L https://github.com/hadolint/hadolint/releases/download/v2.4.0/hadolint-Linux-x86_64 > ./hadolint
-      - run: chmod +x ./hadolint
-      - run: wget -qO- https://github.com/koalaman/shellcheck/releases/download/stable/shellcheck-stable.linux.x86_64.tar.xz | tar -xJv
-      - run: shellcheck-stable/shellcheck --version
       - run: bundle exec rails db:create
       - run: bundle exec rails db:migrate
       - run: bundle exec rspec --profile --format documentation --format RspecJunitFormatter --out ~/test-results/rspec.xml
-      - run: bundle exec bundle-audit update
-      - run: bundle exec bundle-audit
-      - run: bundle exec mdl README.md
-      - run: bundle exec fasterer
-      - run: bundle exec standardrb
-      - run: bundle exec rubocop
       - run: bundle exec erblint --lint-all || true
       - run: yarn prettier --check "*.{yml,yaml,js,md}" "app/**/*.{js,css,scss}" ".circleci/*.{yml,yaml}" ".github/*.{yml,yaml}" ".github/**/*.{yml,yaml}" "config/**/*.{yml,yaml,js}" "doc/**/*.{yml,yaml}"
       - run: bundle exec license_finder || true
@@ -65,10 +55,7 @@ jobs:
       - run: bundle exec rails_best_practices || true
       # - run: bundle exec rails active_record_doctor:unindexed_foreign_keys
       - run: bundle exec rails SECRET_KEY_BASE=blablabla assets:precompile
-      - run: ./hadolint --ignore DL3005 --ignore DL3008 --ignore DL3059 Dockerfile
-      - run: shellcheck-stable/shellcheck bin/backend bin/sidekiq bin/cron bin/standardize
       - run: yarn audit || true
-      - run: bundle exec brakeman --run-all-checks --color
       - store_test_results:
           path: ~/test-results
       - store_artifacts:
