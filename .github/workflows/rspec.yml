@@ -51,7 +51,7 @@ jobs:
       - name: rails db:migrate
         run: bundle exec rails db:migrate
       - name: Run tests
-        run: bundle exec rspec --profile --format documentation
+        run: bundle exec rspec --force-color --profile --format documentation
       - name: factory bot
         run: bundle exec rails factory_bot:lint
       - name: precompile assets
