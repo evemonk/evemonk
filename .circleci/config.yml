@@ -43,8 +43,6 @@ jobs:
       - run: npm -v
       - run: yarn -v
       - run: yarn install --frozen-lockfile
-      - run: wget -qO- https://github.com/koalaman/shellcheck/releases/download/stable/shellcheck-stable.linux.x86_64.tar.xz | tar -xJv
-      - run: shellcheck-stable/shellcheck --version
       - run: bundle exec rails db:create
       - run: bundle exec rails db:migrate
       - run: bundle exec rspec --profile --format documentation --format RspecJunitFormatter --out ~/test-results/rspec.xml
@@ -61,7 +59,6 @@ jobs:
       - run: bundle exec rails_best_practices || true
       # - run: bundle exec rails active_record_doctor:unindexed_foreign_keys
       - run: bundle exec rails SECRET_KEY_BASE=blablabla assets:precompile
-      - run: shellcheck-stable/shellcheck bin/backend bin/sidekiq bin/cron bin/standardize
       - run: yarn audit || true
       - store_test_results:
           path: ~/test-results
