@@ -9,7 +9,7 @@ class EvemonkSchema < GraphQL::Schema
   default_max_page_size 50
 
   # Union and Interface Resolution
-  def self.resolve_type(abstract_type, obj, ctx)
+  def self.resolve_type(_abstract_type, _obj, _ctx)
     # TODO: Implement this function
     # to return the correct object type for `obj`
     raise(GraphQL::RequiredImplementationMissingError)
