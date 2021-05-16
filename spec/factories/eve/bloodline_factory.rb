@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 FactoryBot.define do
-  factory :eve_bloodline, class: Eve::Bloodline do
+  factory :eve_bloodline, class: "Eve::Bloodline" do
     sequence(:bloodline_id)
 
     name_en { Faker::Lorem.word }

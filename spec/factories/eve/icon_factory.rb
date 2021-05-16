@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 FactoryBot.define do
-  factory :eve_icon, class: Eve::Icon do
+  factory :eve_icon, class: "Eve::Icon" do
     sequence(:icon_id)
 
     description { Faker::Lorem.paragraph }

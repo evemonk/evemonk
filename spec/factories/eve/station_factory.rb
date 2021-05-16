@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 FactoryBot.define do
-  factory :eve_station, class: Eve::Station do
+  factory :eve_station, class: "Eve::Station" do
     max_dockable_ship_volume { 1.5 }
 
     name { Faker::Lorem.word }
