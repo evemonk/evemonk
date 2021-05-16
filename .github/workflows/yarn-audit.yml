@@ -1,0 +1,24 @@
+name: yarn audit
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  yarn-audit:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - name: yarn install
+        run: yarn install --frozen-lockfile
+      - name: yarn audit
+        run: yarn audit
