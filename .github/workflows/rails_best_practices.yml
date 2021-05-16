@@ -1,4 +1,4 @@
-name: mdl
+name: rails_best_practices
 
 on:
   push:
@@ -9,7 +9,7 @@ on:
       - main
 
 jobs:
-  mdl:
+  rails_best_practices:
     runs-on: ubuntu-latest
 
     steps:
@@ -18,5 +18,5 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
-      - name: run mdl
-        run: bundle exec mdl README.md
+      - name: run rails_best_practices
+        run: bundle exec rails_best_practices

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 FactoryBot.define do
-  factory :eve_graphic, class: Eve::Graphic do
+  factory :eve_graphic, class: "Eve::Graphic" do
     collision_file { "" }
     graphic_file { "" }
     icon_folder { "" }

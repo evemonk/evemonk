@@ -9,7 +9,7 @@ on:
       - main
 
 jobs:
-  hadolint:
+  fasterer:
     runs-on: ubuntu-latest
 
     steps:

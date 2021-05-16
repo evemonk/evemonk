@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 FactoryBot.define do
-  factory :eve_character_attribute, class: Eve::CharacterAttribute do
+  factory :eve_character_attribute, class: "Eve::CharacterAttribute" do
     sequence(:attribute_id)
 
     name_en { Faker::Lorem.word }

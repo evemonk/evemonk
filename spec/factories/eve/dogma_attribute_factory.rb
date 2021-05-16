@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 FactoryBot.define do
-  factory :eve_dogma_attribute, class: Eve::DogmaAttribute do
+  factory :eve_dogma_attribute, class: "Eve::DogmaAttribute" do
     sequence(:attribute_id)
 
     default_value { 1.5 }

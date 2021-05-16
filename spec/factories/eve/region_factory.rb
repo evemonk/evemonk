@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 FactoryBot.define do
-  factory :eve_region, class: Eve::Region do
+  factory :eve_region, class: "Eve::Region" do
     sequence(:region_id)
 
     name_en { Faker::Lorem.word }

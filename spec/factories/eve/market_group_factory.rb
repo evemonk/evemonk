@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 FactoryBot.define do
-  factory :eve_market_group, class: Eve::MarketGroup do
+  factory :eve_market_group, class: "Eve::MarketGroup" do
     description_en { Faker::Lorem.paragraph }
 
     description_de { Faker::Lorem.paragraph }

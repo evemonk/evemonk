@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 FactoryBot.define do
-  factory :eve_agent, class: Eve::Agent do
+  factory :eve_agent, class: "Eve::Agent" do
     sequence(:agent_id)
 
     sequence(:agent_type_id)

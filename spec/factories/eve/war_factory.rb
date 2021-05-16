@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 FactoryBot.define do
-  factory :eve_war, class: Eve::War do
+  factory :eve_war, class: "Eve::War" do
     sequence(:war_id)
 
     declared { Time.zone.now }

@@ -1,0 +1,78 @@
+name: RSpec
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  rspec:
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: "postgres:13.3"
+        env:
+          POSTGRES_HOST_AUTH_METHOD: "trust"
+          POSTGRES_USER: "evemonk"
+          POSTGRES_DB: "evemonk_test"
+        ports:
+          - "5432:5432"
+        # needed because the postgres container does not provide a healthcheck
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+
+      elasticsearch:
+        image: "docker.elastic.co/elasticsearch/elasticsearch-oss:7.10.2"
+        env:
+          discovery.type: single-node
+        ports:
+          - "9200:9200"
+          - "9300:9300"
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+      - name: Install Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: "14"
+      - name: Yarn install
+        run: yarn install --frozen-lockfile
+      - name: bootsnap precompile
+        run: bundle exec bootsnap precompile --gemfile app/ lib/
+      - name: rails zeitwerk:check
+        run: bundle exec rails zeitwerk:check
+        env:
+          POSTGRES_USER: "evemonk"
+          POSTGRES_DB: "evemonk_test"
+      - name: rails db:create
+        run: bundle exec rails db:create
+        env:
+          POSTGRES_USER: "evemonk"
+          POSTGRES_DB: "evemonk_test"
+      - name: rails db:migrate
+        run: bundle exec rails db:migrate
+        env:
+          POSTGRES_USER: "evemonk"
+          POSTGRES_DB: "evemonk_test"
+      - name: Run tests
+        run: bundle exec rspec --force-color --profile --format documentation
+        env:
+          POSTGRES_USER: "evemonk"
+          POSTGRES_DB: "evemonk_test"
+      - name: factory bot
+        run: bundle exec rails factory_bot:lint
+        env:
+          POSTGRES_USER: "evemonk"
+          POSTGRES_DB: "evemonk_test"
+      - name: precompile assets
+        run: bundle exec rails SECRET_KEY_BASE=blablabla assets:precompile
+        env:
+          POSTGRES_USER: "evemonk"
+          POSTGRES_DB: "evemonk_test"
