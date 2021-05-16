@@ -48,7 +48,6 @@ jobs:
       - run: bundle exec rails db:migrate
       - run: bundle exec rspec --profile --format documentation --format RspecJunitFormatter --out ~/test-results/rspec.xml
       - run: bundle exec rails factory_bot:lint
-      - run: bundle exec consistency_fail || true
       - run: bundle exec rails_best_practices || true
       # - run: bundle exec rails active_record_doctor:unindexed_foreign_keys
       - run: bundle exec rails SECRET_KEY_BASE=blablabla assets:precompile
