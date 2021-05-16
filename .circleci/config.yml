@@ -63,7 +63,6 @@ jobs:
       - run: bundle exec rails SECRET_KEY_BASE=blablabla assets:precompile
       - run: shellcheck-stable/shellcheck bin/backend bin/sidekiq bin/cron bin/standardize
       - run: yarn audit || true
-      - run: bundle exec brakeman --run-all-checks --color
       - store_test_results:
           path: ~/test-results
       - store_artifacts:
