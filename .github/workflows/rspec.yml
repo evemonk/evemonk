@@ -8,6 +8,12 @@ on:
     branches:
       - main
 
+env:
+  POSTGRES_HOST_AUTH_METHOD: "trust"
+  POSTGRES_USER: "runner"
+  POSTGRES_DB: "evemonk_test"
+  PGHOST: "localhost"
+
 jobs:
   rspec:
     runs-on: ubuntu-latest
@@ -17,7 +23,7 @@ jobs:
         image: "postgres:13.3"
         env:
           POSTGRES_HOST_AUTH_METHOD: "trust"
-          POSTGRES_USER: "evemonk"
+          POSTGRES_USER: "runner"
           POSTGRES_DB: "evemonk_test"
         ports:
           - "5432:5432"
@@ -48,37 +54,13 @@ jobs:
         run: bundle exec bootsnap precompile --gemfile app/ lib/
       - name: rails zeitwerk:check
         run: bundle exec rails zeitwerk:check
-        env:
-          POSTGRES_USER: "evemonk"
-          POSTGRES_DB: "evemonk_test"
-          PGHOST: "localhost"
       - name: rails db:create
         run: bundle exec rails db:create
-        env:
-          POSTGRES_USER: "evemonk"
-          POSTGRES_DB: "evemonk_test"
-          PGHOST: "localhost"
       - name: rails db:migrate
         run: bundle exec rails db:migrate
-        env:
-          POSTGRES_USER: "evemonk"
-          POSTGRES_DB: "evemonk_test"
-          PGHOST: "localhost"
       - name: Run tests
         run: bundle exec rspec --force-color --profile --format documentation
-        env:
-          POSTGRES_USER: "evemonk"
-          POSTGRES_DB: "evemonk_test"
-          PGHOST: "localhost"
       - name: factory bot
         run: bundle exec rails factory_bot:lint
-        env:
-          POSTGRES_USER: "evemonk"
-          POSTGRES_DB: "evemonk_test"
-          PGHOST: "localhost"
       - name: precompile assets
         run: bundle exec rails SECRET_KEY_BASE=blablabla assets:precompile
-        env:
-          POSTGRES_USER: "evemonk"
-          POSTGRES_DB: "evemonk_test"
-          PGHOST: "localhost"
