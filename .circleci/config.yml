@@ -50,8 +50,6 @@ jobs:
       - run: bundle exec rails db:create
       - run: bundle exec rails db:migrate
       - run: bundle exec rspec --profile --format documentation --format RspecJunitFormatter --out ~/test-results/rspec.xml
-      - run: bundle exec bundle-audit update
-      - run: bundle exec bundle-audit
       - run: bundle exec mdl README.md
       - run: bundle exec fasterer
       - run: bundle exec standardrb
