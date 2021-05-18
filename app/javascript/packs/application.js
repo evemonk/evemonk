@@ -10,13 +10,12 @@ Sentry.init({
 });
 
 import Rails from "@rails/ujs";
-import Turbolinks from "turbolinks";
+import Turbo from "@hotwired/turbo"
 import LocalTime from "local-time";
 import { install } from "@github/hotkey";
 import "channels";
 
 Rails.start();
-Turbolinks.start();
 LocalTime.start();
 
 import "bootstrap/js/src/dropdown";
@@ -38,7 +37,7 @@ window.$ = $;
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 
-document.addEventListener("turbolinks:load", () => {
+document.addEventListener("turbo:load", () => {
   $('[data-toggle="tooltip"]').tooltip();
 
   // Install all the hotkeys on the page
