@@ -48,6 +48,8 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: "14"
+      - name: Setup setup-chromedriver
+        uses: nanasess/setup-chromedriver@master
       - name: Yarn install
         run: yarn install --frozen-lockfile
       - name: bootsnap precompile

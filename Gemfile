@@ -9,7 +9,7 @@ gem "pg", "~> 1.1"
 gem "puma", "~> 5.3"
 gem "sass-rails", ">= 6"
 gem "webpacker", "~> 5.4"
-gem "turbolinks", "~> 5"
+gem "turbo-rails"
 gem "jbuilder", "~> 2.11"
 gem "bootsnap", ">= 1.4.4", require: false
 gem "local_time"

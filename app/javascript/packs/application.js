@@ -10,13 +10,12 @@ Sentry.init({
 });
 
 import Rails from "@rails/ujs";
-import Turbolinks from "turbolinks";
+import * as Turbo from "@hotwired/turbo-rails";
 import LocalTime from "local-time";
 import { install } from "@github/hotkey";
 import "channels";
 
 Rails.start();
-Turbolinks.start();
 LocalTime.start();
 
 import "bootstrap/js/src/dropdown";
@@ -30,6 +29,7 @@ import "../stylesheets/application";
 
 // window.ApexCharts = ApexCharts;
 window.$ = $;
+window.Turbo = Turbo;
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
@@ -38,7 +38,7 @@ window.$ = $;
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 
-document.addEventListener("turbolinks:load", () => {
+document.addEventListener("turbo:load", () => {
   $('[data-toggle="tooltip"]').tooltip();
 
   // Install all the hotkeys on the page
