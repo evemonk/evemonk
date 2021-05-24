@@ -13,7 +13,7 @@
   <div class="col-12 col-sm-12 col-md-8 col-lg-4 col-xl-4">
     <h4><%= t("devise.submit_token_title") %></h4>
 
-    <%= verify_authy_form do %>
+    <%= verify_authy_form(data: { turbo: "false" }) do %>
       <div class="form-group">
         <%= text_field_tag :token, "", autocomplete: "one-time-code", inputmode: "numeric", pattern: "[0-9]*" %>
       </div>
