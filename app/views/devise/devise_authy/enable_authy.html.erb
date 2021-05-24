@@ -17,16 +17,17 @@
           <%= t("devise.country") %>
         </label>
         <select class="form-control" name="country_code">
-          <% ISO3166::Data.codes.each do |code| %>
-            <option value="<%= ISO3166::Country.new(code).country_code %>">
-              <%= "#{ ISO3166::Country.new(code).name } (+#{ ISO3166::Country.new(code).country_code })" %>
+          <% CountriesMapper.countries.each do |country| %>
+            <option value="<%= country[:code] %>">
+              <%= "#{ country[:name] } (#{ country[:code] })" %>
             </option>
           <% end %>
         </select>
       </div>
 
       <div class="form-group">
-        <%= text_field_tag :cellphone, "", autocomplete: :off, placeholder: t("devise.cellphone"), class: "form-control" %>
+        <%= text_field_tag :cellphone, "", autocomplete: :off, placeholder: t("devise.cellphone"),
+                           class: "form-control", inputmode: "numeric", pattern: "[0-9]*" %>
       </div>
 
       <div class="text-center">
