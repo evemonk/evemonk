@@ -96,7 +96,7 @@ GEM
       httpclient (>= 2.5.3.3)
     awesome_print (1.9.2)
     bcrypt (3.1.16)
-    benchmark-ips (2.9.0)
+    benchmark-ips (2.9.1)
     better_html (1.0.16)
       actionview (>= 4.0)
       activesupport (>= 4.0)
