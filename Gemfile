@@ -90,6 +90,7 @@ group :development, :test do
   gem "sql_tracker"
   gem "bundler-audit", require: false
   gem "rubocop", require: false
+  gem "rubocop-graphql", require: false
   gem "standard", require: false
   gem "squasher", require: false
   gem "mdl", require: false
