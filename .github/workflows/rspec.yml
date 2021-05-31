@@ -64,5 +64,3 @@ jobs:
         run: bundle exec rspec --force-color --profile --format documentation
       - name: factory bot
         run: bundle exec rails factory_bot:lint
-      - name: precompile assets
-        run: bundle exec rails SECRET_KEY_BASE=blablabla assets:precompile
