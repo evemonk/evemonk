@@ -49,7 +49,6 @@ jobs:
       - run: bundle exec rspec --profile --format documentation --format RspecJunitFormatter --out ~/test-results/rspec.xml
       - run: bundle exec rails factory_bot:lint
       # - run: bundle exec rails active_record_doctor:unindexed_foreign_keys
-      - run: bundle exec rails SECRET_KEY_BASE=blablabla assets:precompile
       - store_test_results:
           path: ~/test-results
       - store_artifacts:
