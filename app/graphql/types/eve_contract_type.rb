@@ -2,6 +2,8 @@
 
 module Types
   class EveContractType < Types::BaseObject
+    description "Eve Contract object"
+
     field :id, ID, null: false
     # field :buyout, Float, null: true
     # field :collateral, Float, null: true

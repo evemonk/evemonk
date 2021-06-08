@@ -2,6 +2,8 @@
 
 module Types
   class EveCorporationType < Types::BaseObject
+    description "Eve Corporation object"
+
     field :id, ID, null: false
     field :alliance_id, Integer, null: true
     field :alliance, Types::EveAllianceType, null: true

@@ -2,6 +2,8 @@
 
 module Types
   class EveGraphicType < Types::BaseObject
+    description "Eve Graphic object"
+
     field :id, ID, null: false
     field :collision_file, String, null: true
     field :graphic_file, String, null: true

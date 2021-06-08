@@ -2,6 +2,8 @@
 
 module Types
   class EveStarType < Types::BaseObject
+    description "Eve Star object"
+
     field :id, ID, null: false
     # field :name, String, null: true
     # field :age, Integer, null: true

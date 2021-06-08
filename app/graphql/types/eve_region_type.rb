@@ -2,6 +2,8 @@
 
 module Types
   class EveRegionType < Types::BaseObject
+    description "Eve Region object"
+
     field :id, ID, null: false
     field :name, GraphQL::Types::JSON, null: true
     field :description, GraphQL::Types::JSON, null: true

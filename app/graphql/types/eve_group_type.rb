@@ -2,6 +2,8 @@
 
 module Types
   class EveGroupType < Types::BaseObject
+    description "Eve Group object"
+
     field :id, ID, null: false
     field :name, GraphQL::Types::JSON, null: true
     field :published, Boolean, null: true
