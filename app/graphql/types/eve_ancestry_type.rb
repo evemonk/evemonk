@@ -5,12 +5,19 @@ module Types
     description "Eve Ancestry object"
 
     field :id, ID, null: false
+
     field :name, GraphQL::Types::JSON, null: true
+
     field :description, GraphQL::Types::JSON, null: true
+
     field :bloodline_id, Integer, null: true
+
     field :bloodline, Types::EveBloodlineType, null: true
+
     field :icon_id, Integer, null: true
+
     field :icon, Types::EveIconType, null: true
+
     field :short_description, String, null: true
 
     def id
