@@ -2,6 +2,8 @@
 
 module Types
   class EveStationType < Types::BaseObject
+    description "Eve Station object"
+
     field :id, ID, null: false
     # field :name, String, null: true
     # field :max_dockable_ship_volume, Float, null: true

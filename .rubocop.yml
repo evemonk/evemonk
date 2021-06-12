@@ -124,3 +124,6 @@ Lint/EmptyBlock:
 
 Lint/EmptyClass:
   Enabled: false
+
+GraphQL/OrderedFields:
+  Enabled: false

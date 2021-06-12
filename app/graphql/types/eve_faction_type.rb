@@ -2,6 +2,8 @@
 
 module Types
   class EveFactionType < Types::BaseObject
+    description "Eve Faction object"
+
     field :id, ID, null: false
     field :corporation_id, Integer, null: true
     field :corporation, Types::EveCorporationType, null: true

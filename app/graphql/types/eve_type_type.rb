@@ -2,6 +2,8 @@
 
 module Types
   class EveTypeType < Types::BaseObject
+    description "Eve Type object"
+
     field :id, ID, null: false
     # field :name, GraphQL::Types::JSON, null: true
     # field :description, GraphQL::Types::JSON, null: true

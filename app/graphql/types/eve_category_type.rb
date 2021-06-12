@@ -2,6 +2,8 @@
 
 module Types
   class EveCategoryType < Types::BaseObject
+    description "Eve Category object"
+
     field :id, ID, null: false
     field :name, GraphQL::Types::JSON, null: true
     field :published, Boolean, null: true

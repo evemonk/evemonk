@@ -2,6 +2,8 @@
 
 module Types
   class EveConstellationType < Types::BaseObject
+    description "Eve Constellation object"
+
     field :id, ID, null: false
     field :name, GraphQL::Types::JSON, null: true
     field :region_id, Integer, null: true
