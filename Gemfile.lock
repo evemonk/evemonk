@@ -663,7 +663,7 @@ GEM
     thor (1.0.1)
     tilt (2.0.10)
     tomlrb (2.0.1)
-    turbo-rails (0.5.10)
+    turbo-rails (0.5.11)
       rails (>= 6.0.0)
     typhoeus (1.4.0)
       ethon (>= 0.9.0)
