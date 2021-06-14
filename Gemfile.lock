@@ -693,7 +693,7 @@ GEM
       hkdf (~> 0.2)
       jwt (~> 2.0)
     webrick (1.7.0)
-    websocket-driver (0.7.4)
+    websocket-driver (0.7.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
     with_env (1.1.0)
