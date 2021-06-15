@@ -485,7 +485,7 @@ GEM
       ruby-pg-extras (= 1.6.0)
     rails-settings-cached (2.5.2)
       rails (>= 5.0.0)
-    rails_best_practices (1.20.1)
+    rails_best_practices (1.21.0)
       activesupport
       code_analyzer (>= 0.5.2)
       erubis
