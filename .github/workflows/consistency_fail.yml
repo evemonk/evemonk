@@ -8,9 +8,28 @@ on:
     branches:
       - main
 
+env:
+  POSTGRES_HOST_AUTH_METHOD: "trust"
+  POSTGRES_USER: "runner"
+  POSTGRES_DB: "evemonk_test"
+  PGHOST: "localhost"
+  SECRET_KEY_BASE: "df85f70fa713b189c61deba6a51206472643e53894ae9a1dcd7c97ee15a9b79e962c9ada5b12e69ab360648f74b89d1b7d26dd310b485d48d4509a3445113813"
+
 jobs:
   consistency_fail:
     runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: "postgres:13.3"
+        env:
+          POSTGRES_HOST_AUTH_METHOD: "trust"
+          POSTGRES_USER: "runner"
+          POSTGRES_DB: "evemonk_test"
+        ports:
+          - "5432:5432"
+        # needed because the postgres container does not provide a healthcheck
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
 
     steps:
       - uses: actions/checkout@v2
