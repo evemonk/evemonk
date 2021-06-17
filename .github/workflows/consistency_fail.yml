@@ -37,5 +37,9 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
+      - name: rails db:create
+        run: bundle exec rails db:create
+      - name: rails db:migrate
+        run: bundle exec rails db:migrate
       - name: run consistency_fail
         run: bundle exec consistency_fail
