@@ -706,7 +706,7 @@ GEM
     yabeda-graphql (0.2.1)
       graphql (~> 1.9)
       yabeda (~> 0.2)
-    yabeda-prometheus (0.6.1)
+    yabeda-prometheus (0.6.2)
       prometheus-client (>= 0.10, < 3.0)
       rack
       yabeda (~> 0.5)
