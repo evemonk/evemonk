@@ -1,0 +1,6 @@
+# devise_zxcvbn
+
+en:
+  errors:
+    messages:
+      weak_password: "not strong enough. Consider adding a number, symbols or more letters to make it stronger."
