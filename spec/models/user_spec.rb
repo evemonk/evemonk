@@ -13,6 +13,7 @@ describe User do
       :validatable,
       :confirmable,
       :trackable,
+      :zxcvbnable,
       :authy_authenticatable])
   }
 
