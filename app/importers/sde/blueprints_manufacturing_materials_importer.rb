@@ -21,8 +21,8 @@ module Sde
 
           manufacturing_materials&.each do |manufacturing_material|
             Eve::BlueprintManufacturingMaterial.create!(blueprint_id: eve_blueprint.type_id,
-                                                        quantity: manufacturing_material["quantity"],
-                                                        type_id: manufacturing_material["typeID"])
+              quantity: manufacturing_material["quantity"],
+              type_id: manufacturing_material["typeID"])
           end
 
           eve_blueprint.save!

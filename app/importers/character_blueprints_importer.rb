@@ -21,7 +21,7 @@ class CharacterBlueprintsImporter < CharacterBaseImporter
 
   def esi
     @esi ||= EveOnline::ESI::CharacterBlueprints.new(character_id: character.character_id,
-                                                     page: page)
+      page: page)
   end
 
   private

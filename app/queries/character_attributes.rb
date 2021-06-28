@@ -53,6 +53,6 @@ class CharacterAttributes
     dogma_attribute = Eve::DogmaAttribute.find_by!(name: bonus_name)
 
     Eve::TypeDogmaAttribute.where(attribute_id: dogma_attribute.attribute_id,
-                                  type_id: character.implant_ids).sum(:value)
+      type_id: character.implant_ids).sum(:value)
   end
 end

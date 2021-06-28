@@ -36,8 +36,8 @@ describe CharacterLocationImporter do
       #                   current_structure_id: esi.structure_id)
       #
       expect(character).to receive(:update!).with(current_solar_system_id: solar_system_id,
-                                                  current_station_id: station_id,
-                                                  current_structure_id: structure_id)
+        current_station_id: station_id,
+        current_structure_id: structure_id)
     end
 
     specify { expect { subject.import! }.not_to raise_error }

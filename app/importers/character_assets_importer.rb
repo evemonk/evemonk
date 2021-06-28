@@ -21,7 +21,7 @@ class CharacterAssetsImporter < CharacterBaseImporter
 
   def esi
     @esi ||= EveOnline::ESI::CharacterAssets.new(character_id: character.character_id,
-                                                 page: page)
+      page: page)
   end
 
   private

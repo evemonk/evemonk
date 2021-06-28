@@ -66,7 +66,7 @@ describe Eve::Corporation do
 
     specify do
       expect(eve_corporation.search_data).to eq(name: "MyLittleDragon",
-                                                ticker: "MYLID")
+        ticker: "MYLID")
     end
   end
 

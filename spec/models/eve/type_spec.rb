@@ -63,14 +63,14 @@ describe Eve::Type do
 
     specify do
       expect(type.search_data).to eq(name_en: "Ragnarok1",
-                                     name_de: "Ragnarok2",
-                                     name_fr: "Ragnarok3",
-                                     name_ja: "ラグナロク",
-                                     name_ru: "Ragnarok4",
-                                     name_ko: "라그나로크",
-                                     published: true,
-                                     is_blueprint: false,
-                                     is_manufacturing_item: true)
+        name_de: "Ragnarok2",
+        name_fr: "Ragnarok3",
+        name_ja: "ラグナロク",
+        name_ru: "Ragnarok4",
+        name_ko: "라그나로크",
+        published: true,
+        is_blueprint: false,
+        is_manufacturing_item: true)
     end
   end
 

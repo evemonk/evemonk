@@ -70,8 +70,8 @@ describe Api::RefreshCharacterAccessToken do
         #                   esi_last_error: e.description)
         #
         expect(character).to receive(:update!).with(esi_token_valid: false,
-                                                    esi_token_invalid_at: Time.zone.now,
-                                                    esi_last_error: "The refresh token is expired.")
+          esi_token_invalid_at: Time.zone.now,
+          esi_last_error: "The refresh token is expired.")
       end
 
       before do

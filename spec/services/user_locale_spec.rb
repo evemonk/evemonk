@@ -9,11 +9,11 @@ describe UserLocale do
 
   specify do
     expect(described_class::LOCALES).to eq("english" => :en,
-                                           "german" => :de,
-                                           "french" => :fr,
-                                           "japanese" => :ja,
-                                           "russian" => :ru,
-                                           "korean" => :ko)
+      "german" => :de,
+      "french" => :fr,
+      "japanese" => :ja,
+      "russian" => :ru,
+      "korean" => :ko)
   end
 
   describe "#initialize" do

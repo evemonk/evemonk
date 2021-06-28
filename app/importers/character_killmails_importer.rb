@@ -19,7 +19,7 @@ class CharacterKillmailsImporter < CharacterBaseImporter
 
   def esi
     @esi ||= EveOnline::ESI::CharacterKillmailsRecent.new(character_id: character.character_id,
-                                                          page: page)
+      page: page)
   end
 
   private

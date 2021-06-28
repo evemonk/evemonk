@@ -43,8 +43,8 @@ describe Sde::UnitsImporter do
 
     before do
       expect(eve_unit).to receive(:assign_attributes).with(unit_name: unit_name,
-                                                           description: description,
-                                                           display_name: display_name)
+        description: description,
+        display_name: display_name)
     end
 
     before { expect(eve_unit).to receive(:save!) }

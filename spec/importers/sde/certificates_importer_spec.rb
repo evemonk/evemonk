@@ -9,10 +9,10 @@ describe Sde::CertificatesImporter do
 
   specify do
     expect(described_class::LEVELS).to eq("basic" => 1,
-                                          "standard" => 2,
-                                          "improved" => 3,
-                                          "advanced" => 4,
-                                          "elite" => 5)
+      "standard" => 2,
+      "improved" => 3,
+      "advanced" => 4,
+      "elite" => 5)
   end
 
   describe "#initialize" do
@@ -84,8 +84,8 @@ describe Sde::CertificatesImporter do
 
     before do
       expect(eve_certificate).to receive(:assign_attributes).with(description: description,
-                                                                  group_id: group_id,
-                                                                  name: name)
+        group_id: group_id,
+        name: name)
     end
 
     before do
@@ -108,8 +108,8 @@ describe Sde::CertificatesImporter do
       expect(eve_certificate).to receive(:certificate_skills) do
         double.tap do |a|
           expect(a).to receive(:build).with(skill_id: skill_id,
-                                            level: described_class::LEVELS.fetch(level),
-                                            skill_level: skill_level)
+            level: described_class::LEVELS.fetch(level),
+            skill_level: skill_level)
         end
       end
     end

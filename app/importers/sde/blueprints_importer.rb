@@ -22,12 +22,12 @@ module Sde
 
         eve_type.transaction do
           eve_type.assign_attributes(copying_time: copying_time,
-                                     manufacturing_time: manufacturing_time,
-                                     research_material_time: research_material_time,
-                                     research_time_time: research_time_time,
-                                     invention_time: invention_time,
-                                     max_production_limit: hash["maxProductionLimit"],
-                                     is_blueprint: true)
+            manufacturing_time: manufacturing_time,
+            research_material_time: research_material_time,
+            research_time_time: research_time_time,
+            invention_time: invention_time,
+            max_production_limit: hash["maxProductionLimit"],
+            is_blueprint: true)
 
           eve_type.save!
         end

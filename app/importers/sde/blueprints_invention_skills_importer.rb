@@ -21,8 +21,8 @@ module Sde
 
           invention_skills&.each do |invention_skill|
             Eve::BlueprintInventionSkill.create!(blueprint_id: eve_blueprint.type_id,
-                                                 level: invention_skill["level"],
-                                                 type_id: invention_skill["typeID"])
+              level: invention_skill["level"],
+              type_id: invention_skill["typeID"])
           end
 
           eve_blueprint.save!

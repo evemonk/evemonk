@@ -15,15 +15,15 @@ module Sde
         attribute = Eve::CharacterAttribute.find_or_initialize_by(attribute_id: key)
 
         attribute.assign_attributes(name_en: hash["nameID"]["en"],
-                                    name_de: hash["nameID"]["de"],
-                                    name_fr: hash["nameID"]["fr"],
-                                    name_ja: hash["nameID"]["ja"],
-                                    name_ko: hash["nameID"]["ko"],
-                                    name_ru: hash["nameID"]["ru"],
-                                    description: hash["description"],
-                                    icon_id: hash["iconID"],
-                                    notes: hash["notes"],
-                                    short_description: hash["shortDescription"])
+          name_de: hash["nameID"]["de"],
+          name_fr: hash["nameID"]["fr"],
+          name_ja: hash["nameID"]["ja"],
+          name_ko: hash["nameID"]["ko"],
+          name_ru: hash["nameID"]["ru"],
+          description: hash["description"],
+          icon_id: hash["iconID"],
+          notes: hash["notes"],
+          short_description: hash["shortDescription"])
 
         attribute.save!
       end

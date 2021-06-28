@@ -21,8 +21,8 @@ module Sde
 
           manufacturing_skills&.each do |manufacturing_skill|
             Eve::BlueprintManufacturingSkill.create!(blueprint_id: eve_blueprint.type_id,
-                                                     level: manufacturing_skill["level"],
-                                                     type_id: manufacturing_skill["typeID"])
+              level: manufacturing_skill["level"],
+              type_id: manufacturing_skill["typeID"])
           end
 
           eve_blueprint.save!

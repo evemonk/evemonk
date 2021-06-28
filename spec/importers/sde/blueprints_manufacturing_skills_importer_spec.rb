@@ -68,8 +68,8 @@ describe Sde::BlueprintsManufacturingSkillsImporter do
         #                                          type_id: manufacturing_skill["typeID"])
         #
         expect(Eve::BlueprintManufacturingSkill).to receive(:create!).with(blueprint_id: type_id,
-                                                                           level: level,
-                                                                           type_id: type_id)
+          level: level,
+          type_id: type_id)
       end
 
       specify { expect { subject.import }.not_to raise_error }

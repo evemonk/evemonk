@@ -18,13 +18,13 @@ describe Api::Eve::BlueprintsController do
       expect(response).to have_http_status(:ok)
 
       expect(JSON.parse(response.body)).to eq("total_count" => 1,
-                                              "total_pages" => 1,
-                                              "current_page" => 1,
-                                              "blueprints" => [{
-                                                "id" => 24_699,
-                                                "name" => "Drake Blueprint",
-                                                "icon" => "https://imageproxy.evemonk.com/https://images.evetech.net/types/24699/bp?size=32"
-                                              }])
+        "total_pages" => 1,
+        "current_page" => 1,
+        "blueprints" => [{
+          "id" => 24_699,
+          "name" => "Drake Blueprint",
+          "icon" => "https://imageproxy.evemonk.com/https://images.evetech.net/types/24699/bp?size=32"
+        }])
     end
   end
 end

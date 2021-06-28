@@ -72,9 +72,9 @@ describe Sde::BlueprintsInventionProductsImporter do
         #                                        type_id: type_id)
         #
         expect(Eve::BlueprintInventionProduct).to receive(:create!).with(blueprint_id: type_id,
-                                                                         probability: probability,
-                                                                         quantity: quantity,
-                                                                         type_id: type_id)
+          probability: probability,
+          quantity: quantity,
+          type_id: type_id)
       end
 
       specify { expect { subject.import }.not_to raise_error }
