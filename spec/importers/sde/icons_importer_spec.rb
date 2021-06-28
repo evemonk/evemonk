@@ -42,8 +42,8 @@ describe Sde::IconsImporter do
 
     before do
       expect(eve_icon).to receive(:assign_attributes).with(description: description,
-                                                           icon_file: icon_file,
-                                                           obsolete: obsolete)
+        icon_file: icon_file,
+        obsolete: obsolete)
     end
 
     before { expect(eve_icon).to receive(:save!) }

@@ -68,8 +68,8 @@ describe Sde::BlueprintsInventionMaterialsImporter do
         #                                         type_id: invention_material["typeID"])
         #
         expect(Eve::BlueprintInventionMaterial).to receive(:create!).with(blueprint_id: type_id,
-                                                                          quantity: quantity,
-                                                                          type_id: type_id)
+          quantity: quantity,
+          type_id: type_id)
       end
 
       specify { expect { subject.import }.not_to raise_error }

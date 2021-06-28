@@ -117,7 +117,7 @@ describe Eve::BaseImporter do
 
     specify do
       expect(subject.send(:statistics_middleware)).to eq(class: StatisticsMiddleware,
-                                                         esi: esi)
+        esi: esi)
     end
   end
 
@@ -128,7 +128,7 @@ describe Eve::BaseImporter do
 
     specify do
       expect(subject.send(:cool_down_middleware)).to eq(class: CoolDownMiddleware,
-                                                        esi: esi)
+        esi: esi)
     end
   end
 end

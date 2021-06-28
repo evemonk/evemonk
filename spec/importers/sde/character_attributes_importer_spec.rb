@@ -65,15 +65,15 @@ describe Sde::CharacterAttributesImporter do
 
     before do
       expect(eve_character_attribute).to receive(:assign_attributes).with(name_en: name_en,
-                                                                          name_de: name_de,
-                                                                          name_fr: name_fr,
-                                                                          name_ja: name_ja,
-                                                                          name_ko: name_ko,
-                                                                          name_ru: name_ru,
-                                                                          description: description,
-                                                                          icon_id: icon_id,
-                                                                          notes: notes,
-                                                                          short_description: short_description)
+        name_de: name_de,
+        name_fr: name_fr,
+        name_ja: name_ja,
+        name_ko: name_ko,
+        name_ru: name_ru,
+        description: description,
+        icon_id: icon_id,
+        notes: notes,
+        short_description: short_description)
     end
 
     before { expect(eve_character_attribute).to receive(:save!) }

@@ -36,8 +36,8 @@ describe CharacterShipImporter do
       #                   current_ship_type_id: esi.ship_type_id)
       #
       expect(character).to receive(:update!).with(current_ship_item_id: ship_item_id,
-                                                  current_ship_name: ship_name,
-                                                  current_ship_type_id: ship_type_id)
+        current_ship_name: ship_name,
+        current_ship_type_id: ship_type_id)
     end
 
     specify { expect { subject.import! }.not_to raise_error }

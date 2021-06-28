@@ -54,12 +54,12 @@ describe Sde::AgentsImporter do
 
     before do
       expect(eve_agent).to receive(:assign_attributes).with(agent_type_id: agent_type_id,
-                                                            corporation_id: corporation_id,
-                                                            division_id: division_id,
-                                                            is_locator: is_locator,
-                                                            level: level,
-                                                            location_id: location_id,
-                                                            quality: quality)
+        corporation_id: corporation_id,
+        division_id: division_id,
+        is_locator: is_locator,
+        level: level,
+        location_id: location_id,
+        quality: quality)
     end
 
     before { expect(eve_agent).to receive(:save!) }

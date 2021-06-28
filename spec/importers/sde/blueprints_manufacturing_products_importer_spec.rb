@@ -68,8 +68,8 @@ describe Sde::BlueprintsManufacturingProductsImporter do
         #                                            type_id: manufacturing_product["typeID"])
         #
         expect(Eve::BlueprintManufacturingProduct).to receive(:create!).with(blueprint_id: type_id,
-                                                                             quantity: quantity,
-                                                                             type_id: type_id)
+          quantity: quantity,
+          type_id: type_id)
       end
 
       let(:eve_type) { instance_double(Eve::Type) }
