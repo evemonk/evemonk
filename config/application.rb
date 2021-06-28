@@ -38,5 +38,8 @@ module Evemonk
     config.generators.system_tests = nil
 
     config.secret_key_base = ENV.fetch("SECRET_KEY_BASE")
+
+    # turbo
+    config.action_view.form_with_generates_remote_forms = false
   end
 end
