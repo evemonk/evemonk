@@ -22,14 +22,14 @@ module Api
         .refresh!
 
       character.update!(access_token: response.token,
-                        refresh_token: response.refresh_token,
-                        token_expires_at: Time.zone.at(response.expires_at),
-                        token_expires: response.expires?)
+        refresh_token: response.refresh_token,
+        token_expires_at: Time.zone.at(response.expires_at),
+        token_expires: response.expires?)
     rescue OAuth2::Error => e
       if e.code == "invalid_token"
         character.update!(esi_token_valid: false,
-                          esi_token_invalid_at: Time.zone.now,
-                          esi_last_error: e.description)
+          esi_token_invalid_at: Time.zone.now,
+          esi_last_error: e.description)
       end
 
       Rails.logger.info("OAuth2::Error: Character ID: #{character.character_id} / code: #{e.code} / description: #{e.description}")

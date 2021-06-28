@@ -42,7 +42,7 @@ describe Eve::Alliance do
 
     specify do
       expect(eve_alliance.search_data).to eq(name: "Kids With Guns Alliance",
-                                             ticker: "-KWG-")
+        ticker: "-KWG-")
     end
   end
 

@@ -16,9 +16,9 @@ describe "Api::Eve::ServerStatusLastsController" do
       expect(response).to have_http_status(:ok)
 
       expect(JSON.parse(response.body)).to eq("players" => 28_384,
-                                              "server_version" => "1550977",
-                                              "start_time" => "2019-08-17T11:01:55Z",
-                                              "vip" => false)
+        "server_version" => "1550977",
+        "start_time" => "2019-08-17T11:01:55Z",
+        "vip" => false)
     end
   end
 end

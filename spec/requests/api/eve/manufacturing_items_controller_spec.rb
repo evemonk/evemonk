@@ -18,13 +18,13 @@ describe Api::Eve::ManufacturingItemsController do
       expect(response).to have_http_status(:ok)
 
       expect(JSON.parse(response.body)).to eq("total_count" => 1,
-                                              "total_pages" => 1,
-                                              "current_page" => 1,
-                                              "items" => [{
-                                                "id" => 24_698,
-                                                "name" => "Drake",
-                                                "icon" => "https://imageproxy.evemonk.com/https://images.evetech.net/types/24698/icon?size=32"
-                                              }])
+        "total_pages" => 1,
+        "current_page" => 1,
+        "items" => [{
+          "id" => 24_698,
+          "name" => "Drake",
+          "icon" => "https://imageproxy.evemonk.com/https://images.evetech.net/types/24698/icon?size=32"
+        }])
     end
   end
 end

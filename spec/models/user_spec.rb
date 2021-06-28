@@ -23,11 +23,11 @@ describe User do
 
   it {
     should define_enum_for(:locale).with_values(auto_detect: 0,
-                                                english: 1,
-                                                german: 2,
-                                                french: 3,
-                                                japanese: 4,
-                                                russian: 5,
-                                                korean: 7)
+      english: 1,
+      german: 2,
+      french: 3,
+      japanese: 4,
+      russian: 5,
+      korean: 7)
   }
 end
