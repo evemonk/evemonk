@@ -4,7 +4,7 @@ class CharacterStandingsImporter < CharacterBaseImporter
   def import!
     esi.standings.each do |standing|
       character_standing = character.standings.find_or_initialize_by(from_id: standing.from_id,
-                                                                     from_type: standing.from_type)
+        from_type: standing.from_type)
 
       case standing.from_type
       when "faction"
@@ -18,7 +18,7 @@ class CharacterStandingsImporter < CharacterBaseImporter
       end
 
       character_standing.assign_attributes(standingable: standingable,
-                                           standing: standing.standing)
+        standing: standing.standing)
       character_standing.save!
     end
   end

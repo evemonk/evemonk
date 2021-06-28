@@ -21,8 +21,8 @@ module Sde
         eve_certificate = Eve::Certificate.find_or_initialize_by(certificate_id: key)
 
         eve_certificate.assign_attributes(description: hash["description"],
-                                          group_id: hash["groupID"],
-                                          name: hash["name"])
+          group_id: hash["groupID"],
+          name: hash["name"])
 
         eve_certificate.certificate_recommended_types.destroy_all
 
@@ -35,8 +35,8 @@ module Sde
         hash["skillTypes"]&.each_pair do |skill_id, skill_hash|
           skill_hash.each do |level, value|
             eve_certificate.certificate_skills.build(skill_id: skill_id,
-                                                     level: LEVELS.fetch(level),
-                                                     skill_level: value)
+              level: LEVELS.fetch(level),
+              skill_level: value)
           end
         end
 

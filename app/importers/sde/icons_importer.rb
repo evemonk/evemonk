@@ -15,8 +15,8 @@ module Sde
         icon = Eve::Icon.find_or_initialize_by(icon_id: key)
 
         icon.assign_attributes(description: hash["description"],
-                               icon_file: hash["iconFile"],
-                               obsolete: hash["obsolete"])
+          icon_file: hash["iconFile"],
+          obsolete: hash["obsolete"])
 
         icon.save!
       end

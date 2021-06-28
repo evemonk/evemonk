@@ -21,7 +21,7 @@ class CharacterWalletJournalImporter < CharacterBaseImporter
 
   def esi
     @esi ||= EveOnline::ESI::CharacterWalletJournal.new(character_id: character.character_id,
-                                                        page: page)
+      page: page)
   end
 
   private

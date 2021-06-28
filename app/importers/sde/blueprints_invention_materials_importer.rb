@@ -21,8 +21,8 @@ module Sde
 
           invention_materials&.each do |invention_material|
             Eve::BlueprintInventionMaterial.create!(blueprint_id: eve_blueprint.type_id,
-                                                    quantity: invention_material["quantity"],
-                                                    type_id: invention_material["typeID"])
+              quantity: invention_material["quantity"],
+              type_id: invention_material["typeID"])
           end
 
           eve_blueprint.save!

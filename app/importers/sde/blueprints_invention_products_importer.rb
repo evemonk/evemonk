@@ -21,9 +21,9 @@ module Sde
 
           invention_products&.each do |invention_product|
             Eve::BlueprintInventionProduct.create!(blueprint_id: eve_blueprint.type_id,
-                                                   probability: invention_product["probability"],
-                                                   quantity: invention_product["quantity"],
-                                                   type_id: invention_product["typeID"])
+              probability: invention_product["probability"],
+              quantity: invention_product["quantity"],
+              type_id: invention_product["typeID"])
           end
 
           eve_blueprint.save!

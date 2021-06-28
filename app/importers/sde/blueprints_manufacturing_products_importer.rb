@@ -23,8 +23,8 @@ module Sde
             type_id = manufacturing_product["typeID"]
 
             Eve::BlueprintManufacturingProduct.create!(blueprint_id: eve_blueprint.type_id,
-                                                       quantity: manufacturing_product["quantity"],
-                                                       type_id: type_id)
+              quantity: manufacturing_product["quantity"],
+              type_id: type_id)
 
             eve_type = Eve::Type.find_or_initialize_by(type_id: type_id)
 

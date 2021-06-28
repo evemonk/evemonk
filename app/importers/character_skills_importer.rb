@@ -3,7 +3,7 @@
 class CharacterSkillsImporter < CharacterBaseImporter
   def import!
     character.update!(total_sp: esi.total_sp,
-                      unallocated_sp: esi.unallocated_sp)
+      unallocated_sp: esi.unallocated_sp)
 
     character.character_skills.destroy_all
 

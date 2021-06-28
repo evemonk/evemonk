@@ -16,12 +16,12 @@ module Sde
         eve_agent = Eve::Agent.find_or_initialize_by(agent_id: key)
 
         eve_agent.assign_attributes(agent_type_id: hash["agentTypeID"],
-                                    corporation_id: hash["corporationID"],
-                                    division_id: hash["divisionID"],
-                                    is_locator: hash["isLocator"],
-                                    level: hash["level"],
-                                    location_id: hash["locationID"],
-                                    quality: hash["quality"])
+          corporation_id: hash["corporationID"],
+          division_id: hash["divisionID"],
+          is_locator: hash["isLocator"],
+          level: hash["level"],
+          location_id: hash["locationID"],
+          quality: hash["quality"])
 
         eve_agent.save!
       end

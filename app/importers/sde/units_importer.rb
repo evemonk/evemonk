@@ -15,8 +15,8 @@ module Sde
         unit = Eve::Unit.find_or_initialize_by(unit_id: hash["unitID"])
 
         unit.assign_attributes(unit_name: hash["unitName"],
-                               description: hash["description"],
-                               display_name: hash["displayName"])
+          description: hash["description"],
+          display_name: hash["displayName"])
 
         unit.save!
       end

@@ -11,6 +11,6 @@ class CharacterIndustryJobsImporter < CharacterBaseImporter
 
   def esi
     @esi ||= EveOnline::ESI::CharacterIndustryJobs.new(character_id: character.character_id,
-                                                       include_completed: true)
+      include_completed: true)
   end
 end
