@@ -270,16 +270,16 @@ describe EveOnlineCallbackService do
       #
       expect(character).to receive(:assign_attributes)
         .with(name: name,
-              access_token: access_token,
-              refresh_token: refresh_token,
-              token_expires_at: token_expires_at,
-              token_expires: token_expires,
-              scopes: scopes,
-              token_type: token_type,
-              character_id: character_id,
-              esi_token_valid: true,
-              esi_token_invalid_at: nil,
-              esi_last_error: nil)
+          access_token: access_token,
+          refresh_token: refresh_token,
+          token_expires_at: token_expires_at,
+          token_expires: token_expires,
+          scopes: scopes,
+          token_type: token_type,
+          character_id: character_id,
+          esi_token_valid: true,
+          esi_token_invalid_at: nil,
+          esi_last_error: nil)
     end
 
     specify { expect { subject.send(:assign_character_attributes) }.not_to raise_error }
