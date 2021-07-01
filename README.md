@@ -65,17 +65,7 @@ All screenshots are real and made in Safari on latest macOS Catalina (10.15.3).
 
 ## Configure
 
-Apple iOS Push notifications:
-
-```ruby
-app = Rpush::Apns::App.new
-app.name = 'ios'
-app.certificate = File.read('/path/to/production.pem')
-app.environment = 'production' # APNs environment.
-app.password = 'certificate password'
-app.connections = 1
-app.save!
-```
+TODO
 
 ## Links
 
