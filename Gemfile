@@ -45,7 +45,6 @@ gem "rails-settings-cached"
 gem "net-http-persistent"
 gem "connection_pool"
 gem "sidekiq", require: false
-gem "rpush"
 gem "pghero"
 gem "pg_query"
 gem "noticed"
