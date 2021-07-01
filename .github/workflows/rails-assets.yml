@@ -24,5 +24,7 @@ jobs:
           node-version: "14"
       - name: Yarn install
         run: yarn install --frozen-lockfile
+      - name: Yarn versions
+        run: yarn versions
       - name: rails assets:precompile
         run: bundle exec rails SECRET_KEY_BASE=blablabla assets:precompile
