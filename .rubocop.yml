@@ -127,3 +127,9 @@ Lint/EmptyClass:
 
 GraphQL/OrderedFields:
   Enabled: false
+
+Layout/HashAlignment:
+  Enabled: false
+
+Layout/LineEndStringConcatenationIndentation:
+  Enabled: false
