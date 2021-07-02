@@ -15,7 +15,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: download hadolint
-        run: curl -L https://github.com/hadolint/hadolint/releases/download/v2.5.0/hadolint-Linux-x86_64 > ./hadolint
+        run: curl -L https://github.com/hadolint/hadolint/releases/download/v2.6.0/hadolint-Linux-x86_64 > ./hadolint
       - name: chmod +x ./hadolint
         run: chmod +x ./hadolint
       - name: hadolint Dockerfile
