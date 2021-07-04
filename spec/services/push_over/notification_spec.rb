@@ -11,8 +11,8 @@ describe PushOver::Notification do
     context "without title" do
       subject do
         described_class.new("app-token",
-                            "user-token",
-                            "message")
+          "user-token",
+          "message")
       end
 
       its(:app_token) { should eq("app-token") }
@@ -27,9 +27,9 @@ describe PushOver::Notification do
     context "with title" do
       subject do
         described_class.new("app-token",
-                            "user-token",
-                            "message",
-                            title: "title")
+          "user-token",
+          "message",
+          title: "title")
       end
 
       its(:app_token) { should eq("app-token") }
@@ -63,16 +63,16 @@ describe PushOver::Notification do
   describe "#data" do
     subject do
       described_class.new("app-token",
-                          "user-token",
-                          "message",
-                          title: "title")
+        "user-token",
+        "message",
+        title: "title")
     end
 
     specify do
       expect(subject.send(:data)).to eq(token: "app-token",
-                                        user: "user-token",
-                                        title: "title",
-                                        message: "message")
+        user: "user-token",
+        title: "title",
+        message: "message")
     end
   end
 
@@ -84,7 +84,7 @@ describe PushOver::Notification do
       # Faraday.new(url: API_URL, headers: {"Content-Type": "application/json"})
       #
       expect(Faraday).to receive(:new).with(url: described_class::API_URL,
-                                            headers: {"Content-Type": "application/json"})
+        headers: {"Content-Type": "application/json"})
     end
 
     specify { expect { subject.send(:connection) }.not_to raise_error }
