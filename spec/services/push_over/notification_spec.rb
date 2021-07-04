@@ -42,9 +42,21 @@ describe PushOver::Notification do
     end
   end
 
-  # def notify
-  #   connection.post(PATH, data.to_json)
-  # end
+  describe "#notify" do
+    subject { described_class.new("", "", "") }
+
+    let(:connection) { instance_double(Faraday::Connection) }
+
+    before { expect(subject).to receive(:connection).and_return(connection) }
+
+    let(:data) { double }
+
+    before { expect(subject).to receive(:data).and_return(data) }
+
+    before { expect(connection).to receive(:post).with(described_class::PATH, data.to_json) }
+
+    specify { expect { subject.notify }.not_to raise_error }
+  end
 
   # private methods
 
