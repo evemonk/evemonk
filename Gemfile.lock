@@ -251,8 +251,8 @@ GEM
       ffi (~> 1.0)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
-    google-protobuf (3.15.8-universal-darwin)
-    google-protobuf (3.15.8-x86_64-linux)
+    google-protobuf (3.17.3-universal-darwin)
+    google-protobuf (3.17.3-x86_64-linux)
     graphiql-rails (1.7.0)
       railties
       sprockets-rails
@@ -416,8 +416,8 @@ GEM
     patience_diff (1.2.0)
       optimist (~> 3.0)
     pg (1.2.3)
-    pg_query (2.0.3)
-      google-protobuf (~> 3.15.5)
+    pg_query (2.1.0)
+      google-protobuf (>= 3.17.1)
     pghero (2.8.1)
       activerecord (>= 5)
     prometheus-client (2.1.0)
