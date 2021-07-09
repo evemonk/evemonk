@@ -1,4 +1,13 @@
 GIT
+  remote: https://github.com/bitzesty/devise_zxcvbn.git
+  revision: 63c25fd6576c4009d5e758b91094c10b94829078
+  branch: master
+  specs:
+    devise_zxcvbn (5.1.0)
+      devise
+      zxcvbn-js (~> 4.4.1)
+
+GIT
   remote: https://github.com/just806me/shoulda-callback-matchers.git
   revision: b3a93d43490cdb3062a437e2edfbd50d25eda79a
   branch: master
@@ -169,9 +178,6 @@ GEM
       devise (>= 4.0.0)
     devise-i18n (1.10.0)
       devise (>= 4.8.0)
-    devise_zxcvbn (5.1.0)
-      devise
-      zxcvbn-js (~> 4.4.1)
     diff-lcs (1.4.4)
     docile (1.4.0)
     domain_name (0.5.20190701)
@@ -735,7 +741,7 @@ DEPENDENCIES
   devise
   devise-authy
   devise-i18n
-  devise_zxcvbn
+  devise_zxcvbn!
   dotenv-rails
   easymon
   erb_lint
