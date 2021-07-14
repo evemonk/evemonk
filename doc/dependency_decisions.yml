@@ -1,127 +1,55 @@
 ---
 - - :permit
   - MIT
-  - :who: biow0lf
+  - :who: "@biow0lf"
     :why:
     :versions: []
-    :when: 2020-02-03 19:42:17.204770000 Z
-- - :permit
-  - Apache 2.0
-  - :who: biow0lf
-    :why:
-    :versions: []
-    :when: 2020-02-03 19:43:13.221531000 Z
-- - :permit
-  - ISC
-  - :who: biow0lf
-    :why:
-    :versions: []
-    :when: 2020-02-03 19:44:15.766569000 Z
-- - :permit
-  - New BSD
-  - :who: biow0lf
-    :why:
-    :versions: []
-    :when: 2020-02-03 19:45:47.240144000 Z
-- - :permit
-  - "(MIT AND Zlib)"
-  - :who: biow0lf
-    :why:
-    :versions: []
-    :when: 2020-02-03 21:11:12.305659000 Z
-- - :permit
-  - "(WTFPL OR MIT)"
-  - :who: biow0lf
-    :why:
-    :versions: []
-    :when: 2020-02-03 21:11:21.400050000 Z
-- - :permit
-  - Simplified BSD
-  - :who: biow0lf
-    :why:
-    :versions: []
-    :when: 2020-02-03 21:11:30.389018000 Z
-- - :permit
-  - BSD*
-  - :who: biow0lf
-    :why:
-    :versions: []
-    :when: 2020-02-03 21:11:41.409744000 Z
-- - :permit
-  - "(BSD-3-Clause OR GPL-2.0)"
-  - :who: biow0lf
-    :why:
-    :versions: []
-    :when: 2020-02-03 21:12:33.531223000 Z
-- - :permit
-  - "(MIT OR Apache-2.0)"
-  - :who: biow0lf
-    :why:
-    :versions: []
-    :when: 2020-02-03 21:12:45.054650000 Z
-- - :permit
-  - MIT*
-  - :who: biow0lf
-    :why:
-    :versions: []
-    :when: 2020-02-03 21:12:51.681199000 Z
-- - :permit
-  - BSD-3-Clause OR MIT
-  - :who: biow0lf
-    :why:
-    :versions: []
-    :when: 2020-02-03 21:12:56.730287000 Z
+    :when: 2021-07-14 16:10:00.817440000 Z
 - - :permit
   - ruby
-  - :who: biow0lf
+  - :who: "@biow0lf"
     :why:
     :versions: []
-    :when: 2020-02-03 21:13:10.652878000 Z
+    :when: 2021-07-14 16:10:11.295131000 Z
 - - :permit
-  - "(MIT AND BSD-3-Clause)"
-  - :who: biow0lf
+  - Apache 2.0
+  - :who: "@biow0lf"
     :why:
     :versions: []
-    :when: 2020-02-03 21:14:03.773474000 Z
+    :when: 2021-07-14 16:10:34.190469000 Z
 - - :permit
-  - Unlicense
-  - :who: biow0lf
+  - ISC
+  - :who: "@biow0lf"
     :why:
     :versions: []
-    :when: 2020-02-03 21:15:13.627805000 Z
-- - :approve
-  - brakeman
-  - :who: biow0lf
-    :why: dev dependency
+    :when: 2021-07-14 16:10:40.118740000 Z
+- - :permit
+  - New BSD
+  - :who: "@biow0lf"
+    :why:
     :versions: []
-    :when: 2020-02-03 21:17:43.222203000 Z
-- - :approve
-  - bundler-audit
-  - :who: biow0lf
-    :why: dev dependency
+    :when: 2021-07-14 16:11:51.282973000 Z
+- - :permit
+  - 2-clause BSDL
+  - :who: "@biow0lf"
+    :why:
     :versions: []
-    :when: 2020-02-03 21:17:48.083602000 Z
-- - :approve
-  - bundler-leak
-  - :who: biow0lf
-    :why: dev dependency
-    :versions: []
-    :when: 2020-02-03 21:17:52.656276000 Z
-- - :approve
-  - newrelic_rpm
-  - :who: biow0lf
-    :why: dev dependency
-    :versions: []
-    :when: 2020-02-03 21:17:57.608505000 Z
-- - :approve
-  - scout_apm
-  - :who: biow0lf
-    :why: dev dependency
-    :versions: []
-    :when: 2020-02-03 21:18:03.434292000 Z
+    :when: 2021-07-14 16:11:59.118738000 Z
 - - :permit
   - CC0-1.0
-  - :who: biow0lf
+  - :who: "@biow0lf"
     :why:
     :versions: []
-    :when: 2020-04-03 17:22:19.810235000 Z
+    :when: 2021-07-14 16:13:32.732430000 Z
+- - :permit
+  - Simplified BSD
+  - :who: "@biow0lf"
+    :why:
+    :versions: []
+    :when: 2021-07-14 16:14:15.096291000 Z
+- - :permit
+  - Mozilla Public License 2.0
+  - :who: "@biow0lf"
+    :why:
+    :versions: []
+    :when: 2021-07-14 16:18:51.088143000 Z
