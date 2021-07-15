@@ -4,7 +4,10 @@ module Types
   class EveTypeType < Types::BaseObject
     description "Eve Type object"
 
-    field :id, ID, null: false
+    field :id, ID,
+      method: :type_id,
+      null: false
+
     # field :name, GraphQL::Types::JSON, null: true
     # field :description, GraphQL::Types::JSON, null: true
     # field :capacity, Float, null: true
@@ -25,10 +28,6 @@ module Types
     # field :base_price, Float, null: true
     # field :adjusted_price, Float, null: true
     # field :average_price, Float, null: true
-
-    def id
-      object.type_id
-    end
 
     # def name
     #   {
