@@ -4,7 +4,10 @@ module Types
   class EveStarType < Types::BaseObject
     description "Eve Star object"
 
-    field :id, ID, null: false
+    field :id, ID,
+      method: :star_id,
+      null: false
+
     # field :name, String, null: true
     # field :age, Integer, null: true
     # field :luminosity, Float, null: true
@@ -15,9 +18,5 @@ module Types
     # field :temperature, Integer, null: true
     # field :type_id, Integer, null: true
     # field :type, Types::EveTypeType, null: true
-
-    def id
-      object.star_id
-    end
   end
 end
