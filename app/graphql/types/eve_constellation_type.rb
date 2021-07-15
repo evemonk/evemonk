@@ -4,16 +4,23 @@ module Types
   class EveConstellationType < Types::BaseObject
     description "Eve Constellation object"
 
-    field :id, ID, null: false
-    field :name, GraphQL::Types::JSON, null: true
-    field :region_id, Integer, null: true
-    field :region, Types::EveRegionType, null: true
-    field :systems, Types::EveSystemType.connection_type, null: true
-    # TODO: position
+    field :id, ID,
+      method: :constellation_id,
+      null: false
 
-    def id
-      object.constellation_id
-    end
+    field :name, GraphQL::Types::JSON,
+      null: true
+
+    field :region_id, Integer,
+      null: true
+
+    field :region, Types::EveRegionType,
+      null: true
+
+    field :systems, Types::EveSystemType.connection_type,
+      null: true
+
+    # TODO: position
 
     def name
       {
