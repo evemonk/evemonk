@@ -5,6 +5,7 @@ module Types
     description "Eve Bloodline object"
 
     field :id, ID,
+      method: :bloodline_id,
       null: false
 
     field :name, GraphQL::Types::JSON,
@@ -48,10 +49,6 @@ module Types
 
     field :ancestries, Types::EveAncestryType.connection_type,
       null: true
-
-    def id
-      object.bloodline_id
-    end
 
     def name
       {

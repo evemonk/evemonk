@@ -6,6 +6,7 @@ module Types
 
     field :id, ID,
       description: "Eve Alliance ID",
+      method: :alliance_id,
       null: false
 
     field :name, String,
@@ -61,9 +62,5 @@ module Types
 
     # TODO: corporation_alliance_histories
     # field :history, [Types::AllianceHistoryType], null: true
-
-    def id
-      object.alliance_id
-    end
   end
 end
