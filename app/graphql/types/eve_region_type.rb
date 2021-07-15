@@ -4,15 +4,21 @@ module Types
   class EveRegionType < Types::BaseObject
     description "Eve Region object"
 
-    field :id, ID, null: false
-    field :name, GraphQL::Types::JSON, null: true
-    field :description, GraphQL::Types::JSON, null: true
-    field :constellations, Types::EveConstellationType.connection_type, null: true
-    field :contracts, Types::EveContractType.connection_type, null: true
+    field :id, ID,
+      method: :region_id,
+      null: false
 
-    def id
-      object.region_id
-    end
+    field :name, GraphQL::Types::JSON,
+      null: true
+
+    field :description, GraphQL::Types::JSON,
+      null: true
+
+    field :constellations, Types::EveConstellationType.connection_type,
+      null: true
+
+    field :contracts, Types::EveContractType.connection_type,
+      null: true
 
     def name
       {
