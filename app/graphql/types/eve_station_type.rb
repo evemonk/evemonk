@@ -4,7 +4,10 @@ module Types
   class EveStationType < Types::BaseObject
     description "Eve Station object"
 
-    field :id, ID, null: false
+    field :id, ID,
+      method: :station_id,
+      null: false
+
     # field :name, String, null: true
     # field :max_dockable_ship_volume, Float, null: true
     # field :office_rental_cost, Float, null: true
@@ -18,9 +21,5 @@ module Types
     # field :system, Types::EveSystemType, null: true
     # field :type_id, Integer, null: true
     # field :type, Types::EveTypeType, null: true
-
-    def id
-      object.station_id
-    end
   end
 end
