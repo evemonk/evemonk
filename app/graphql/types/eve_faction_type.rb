@@ -4,25 +4,50 @@ module Types
   class EveFactionType < Types::BaseObject
     description "Eve Faction object"
 
-    field :id, ID, null: false
-    field :corporation_id, Integer, null: true
-    field :corporation, Types::EveCorporationType, null: true
-    field :description, GraphQL::Types::JSON, null: true
-    field :is_unique, Boolean, null: true
-    field :name, GraphQL::Types::JSON, null: true
-    field :militia_corporation_id, Integer, null: true
-    field :militia_corporation, Types::EveCorporationType, null: true
-    field :size_factor, Float, null: true
-    field :solar_system_id, Integer, null: true
-    field :solar_system, Types::EveSystemType, null: true
-    field :station_count, Integer, null: true
-    field :station_system_count, Integer, null: true
-    field :alliances, Types::EveAllianceType.connection_type, null: true
-    # field :standings
+    field :id, ID,
+      method: :faction_id,
+      null: false
 
-    def id
-      object.faction_id
-    end
+    field :corporation_id, Integer,
+      null: true
+
+    field :corporation, Types::EveCorporationType,
+      null: true
+
+    field :description, GraphQL::Types::JSON,
+      null: true
+
+    field :is_unique, Boolean,
+      null: true
+
+    field :name, GraphQL::Types::JSON,
+      null: true
+
+    field :militia_corporation_id, Integer,
+      null: true
+
+    field :militia_corporation, Types::EveCorporationType,
+      null: true
+
+    field :size_factor, Float,
+      null: true
+
+    field :solar_system_id, Integer,
+      null: true
+
+    field :solar_system, Types::EveSystemType,
+      null: true
+
+    field :station_count, Integer,
+      null: true
+
+    field :station_system_count, Integer,
+      null: true
+
+    field :alliances, Types::EveAllianceType.connection_type,
+      null: true
+
+    # field :standings
 
     def description
       {
