@@ -4,16 +4,24 @@ module Types
   class EveMarketGroupType < Types::BaseObject
     description "Eve MarketGroup object"
 
-    field :id, ID, null: false
-    field :name, GraphQL::Types::JSON, null: true
-    field :description, GraphQL::Types::JSON, null: true
-    field :parent_group_id, Integer, null: true
-    field :parent_group, Types::EveMarketGroupType, null: true
-    field :types, Types::EveTypeType.connection_type, null: true
+    field :id, ID,
+      method: :market_group_id,
+      null: false
 
-    def id
-      object.market_group_id
-    end
+    field :name, GraphQL::Types::JSON,
+      null: true
+
+    field :description, GraphQL::Types::JSON,
+      null: true
+
+    field :parent_group_id, Integer,
+      null: true
+
+    field :parent_group, Types::EveMarketGroupType,
+      null: true
+
+    field :types, Types::EveTypeType.connection_type,
+      null: true
 
     def name
       {
