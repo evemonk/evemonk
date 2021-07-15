@@ -5,6 +5,7 @@ module Types
     description "Eve Corporation object"
 
     field :id, ID,
+      method: :corporation_id,
       null: false
 
     field :alliance_id, Integer,
@@ -29,6 +30,7 @@ module Types
       null: true
 
     field :description, String,
+      method: :sanitized_description,
       null: true
 
     field :faction_id, Integer,
@@ -59,6 +61,7 @@ module Types
       null: true
 
     field :url, String,
+      method: :corporation_url,
       null: true
 
     field :war_eligible, Boolean,
@@ -75,17 +78,5 @@ module Types
     # TODO: :standings
     # TODO: :loyalty_store_offers
     # field :loyalty_store_offers
-
-    def id
-      object.corporation_id
-    end
-
-    def url
-      object.corporation_url
-    end
-
-    def description
-      object.sanitized_description
-    end
   end
 end
