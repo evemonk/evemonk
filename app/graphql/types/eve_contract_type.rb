@@ -4,7 +4,10 @@ module Types
   class EveContractType < Types::BaseObject
     description "Eve Contract object"
 
-    field :id, ID, null: false
+    field :id, ID,
+      method: :contract_id,
+      null: false
+
     # field :buyout, Float, null: true
     # field :collateral, Float, null: true
     # field :date_expired, GraphQL::Types::ISO8601DateTime, null: true
@@ -24,9 +27,5 @@ module Types
     # field :volume, Float, null: true
     # field :region_id, Integer, null: true
     # field :region, Types::EveRegionType, null: true
-
-    def id
-      object.contract_id
-    end
   end
 end
