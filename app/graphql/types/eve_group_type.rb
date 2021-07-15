@@ -4,16 +4,24 @@ module Types
   class EveGroupType < Types::BaseObject
     description "Eve Group object"
 
-    field :id, ID, null: false
-    field :name, GraphQL::Types::JSON, null: true
-    field :published, Boolean, null: true
-    field :category_id, Integer, null: true
-    field :category, Types::EveCategoryType, null: true
-    field :types, Types::EveTypeType.connection_type, null: true
+    field :id, ID,
+      method: :group_id,
+      null: false
 
-    def id
-      object.group_id
-    end
+    field :name, GraphQL::Types::JSON,
+      null: true
+
+    field :published, Boolean,
+      null: true
+
+    field :category_id, Integer,
+      null: true
+
+    field :category, Types::EveCategoryType,
+      null: true
+
+    field :types, Types::EveTypeType.connection_type,
+      null: true
 
     def name
       {
