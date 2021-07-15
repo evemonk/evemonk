@@ -4,13 +4,17 @@ module Types
   class EveIconType < Types::BaseObject
     description "Eve Icon object"
 
-    field :id, ID, null: false
-    field :description, String, null: true
-    field :icon_file, String, null: true
-    field :obsolete, Boolean, null: true
+    field :id, ID,
+      method: :icon_id,
+      null: false
 
-    def id
-      object.icon_id
-    end
+    field :description, String,
+      null: true
+
+    field :icon_file, String,
+      null: true
+
+    field :obsolete, Boolean,
+      null: true
   end
 end
