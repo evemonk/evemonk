@@ -19,4 +19,4 @@ jobs:
         with:
           bundler-cache: true
       - name: Brakeman
-        run: bundle exec brakeman --run-all-checks --color
+        run: bundle exec brakeman --format github --quiet --run-all-checks
