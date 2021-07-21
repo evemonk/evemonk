@@ -7,13 +7,13 @@ class SignInViaEveOnline
 
   URL = "/auth/eve_online_sso"
 
-  # def form
-  #   form_with(url: URL, method: :post, data: {turbo: false}) do
-  #     button_tag do
-  #       image_tag(image_uri, alt: "Sign in via EVE Online")
-  #     end
-  #   end
-  # end
+  def form
+    form_with(url: URL, method: :post, data: {turbo: false}, class: "sign_in_via_eve_online") do
+      button_tag(class: "sign_in_button") do
+        image_tag(image_uri, alt: "Sign in via EVE Online", class: "sign_in_image")
+      end
+    end
+  end
 
   private
 
