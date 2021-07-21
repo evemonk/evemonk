@@ -9,6 +9,26 @@ describe SignInViaEveOnline do
 
   it { should be_an(ActionView::Context) }
 
+  it { expect(described_class::URL).to eq("/auth/eve_online_sso") }
+
+  describe "#form" do
+    let(:form) { described_class.new.form }
+
+    subject { Nokogiri::HTML(form) }
+
+    specify { expect(subject.xpath("//form[@class='sign_in_via_eve_online']").attribute("data-turbo").value).to eq("false") }
+
+    specify { expect(subject.xpath("//form[@class='sign_in_via_eve_online']").attribute("action").value).to eq(described_class::URL) }
+
+    specify { expect(subject.xpath("//form[@class='sign_in_via_eve_online']").attribute("method").value).to eq("post") }
+
+    specify { expect(subject.xpath("//button[@class='sign_in_button']").attribute("type").value).to eq("submit") }
+
+    specify { expect(subject.xpath("//img[@class='sign_in_image']").attribute("src").value).to eq(described_class.new.send(:image_uri)) }
+
+    specify { expect(subject.xpath("//img[@class='sign_in_image']").attribute("alt").value).to eq("Sign in via EVE Online") }
+  end
+
   # private methods
 
   describe "#image_uri" do
