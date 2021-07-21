@@ -697,10 +697,10 @@ GEM
     yabeda-graphql (0.2.1)
       graphql (~> 1.9)
       yabeda (~> 0.2)
-    yabeda-prometheus (0.6.2)
+    yabeda-prometheus (0.7.0)
       prometheus-client (>= 0.10, < 3.0)
       rack
-      yabeda (~> 0.5)
+      yabeda (~> 0.10)
     yabeda-puma-plugin (0.6.0)
       json
       puma
