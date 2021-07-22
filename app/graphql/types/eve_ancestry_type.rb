@@ -5,6 +5,7 @@ module Types
     description "Eve Ancestry object"
 
     field :id, ID,
+      method: :ancestry_id,
       null: false
 
     field :name, GraphQL::Types::JSON,
@@ -27,10 +28,6 @@ module Types
 
     field :short_description, String,
       null: true
-
-    def id
-      object.ancestry_id
-    end
 
     def name
       {

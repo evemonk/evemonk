@@ -4,7 +4,10 @@ module Types
   class EveBlueprintType < Types::BaseObject
     description "Eve Blueprint object"
 
-    field :id, ID, null: false
+    field :id, ID,
+      method: :type_id,
+      null: false
+
     # field :name, GraphQL::Types::JSON, null: true
     # field :description, GraphQL::Types::JSON, null: true
     # field :capacity, Float, null: true
@@ -31,10 +34,6 @@ module Types
     # field :research_material_time, Integer, null: true
     # field :research_time_time, Integer, null: true
     # field :invention_time, Integer, null: true
-
-    def id
-      object.type_id
-    end
 
     # def name
     #   {

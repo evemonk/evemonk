@@ -81,7 +81,7 @@
         </div>
       </nav>
 
-      <div id="alerts">
+      <div id="alerts" data-turbo-cache="false">
         <% if flash[:notice] %>
           <div class="alert alert-success alert-dismissible fade show" role="alert">
             <%= flash[:notice] %>

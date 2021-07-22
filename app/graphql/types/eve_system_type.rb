@@ -4,7 +4,10 @@ module Types
   class EveSystemType < Types::BaseObject
     description "Eve System object"
 
-    field :id, ID, null: false
+    field :id, ID,
+      method: :system_id,
+      null: false
+
     # field :name, GraphQL::Types::JSON, null: true
     # field :constellation_id, Integer, null: true
     # field :constellation, Types::EveConstellationType, null: true
@@ -12,10 +15,6 @@ module Types
     # field :star, Types::EveStarType, null: true
     # field :security_class, String, null: true
     # field :security_status, Float, null: true
-
-    def id
-      object.system_id
-    end
 
     # def name
     #   {
