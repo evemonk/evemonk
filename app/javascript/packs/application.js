@@ -9,11 +9,13 @@ Sentry.init({
   dsn: "https://185a236f4b994411a9f33c3c714cb34e@sentry.io/1424888",
 });
 
+import Rails from "@rails/ujs";
 import * as Turbo from "@hotwired/turbo-rails";
 import LocalTime from "local-time";
 import { install } from "@github/hotkey";
 import "channels";
 
+Rails.start();
 LocalTime.start();
 
 import "bootstrap/js/src/dropdown";
