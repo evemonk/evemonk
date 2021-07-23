@@ -92,7 +92,6 @@ group :development, :test do
   gem "rubocop-graphql", require: false
   gem "standard", require: false
   gem "squasher", require: false
-  gem "mdl", require: false
   gem "brakeman", require: false
   gem "fasterer", require: false
   gem "license_finder", require: false
