@@ -1,7 +1,5 @@
 FROM ruby:3.0.2-slim AS builder
 
-#ENV LANG en_US.UTF-8
-
 RUN set -eux; \
     apt-get update -y ; \
     apt-get dist-upgrade -y ; \
@@ -14,20 +12,6 @@ RUN set -eux; \
     apt-get autoremove -y ; \
     apt-get clean -y ; \
     rm -rf /var/lib/apt/lists/*
-
-#RUN apt-get update -qq \
-#  && apt-get install -y \
-#  apt-transport-https \
-#  build-essential \
-#  ca-certificates \
-#  curl \
-#  git \
-#  libpq-dev \
-#  && curl -sL https://deb.nodesource.com/setup_10.x | bash \
-#  && apt-get update -qq \
-#  && apt-get install -y nodejs \
-#  && apt-get clean \
-#  && rm -rf /var/lib/apt/lists/*
 
 RUN mkdir -p /app
 
@@ -93,11 +77,23 @@ RUN bundle install
 #  && rm -rf /usr/local/bundle/cache/*.gem \
 #  && find /usr/local/bundle/gems/ -name "*.c" -delete \
 #  && find /usr/local/bundle/gems/ -name "*.o" -delete
-#
-#COPY . /app
-#
-## The SECRET_KEY_BASE here isn't used. Precomiling assets doesn't use your
-## secret key, but Rails will fail to initialize if it isn't set.
+
+COPY . .
+
+RUN bundle exec bootsnap precompile --gemfile app/ lib/
+
+# The SECRET_KEY_BASE here isn't used. Precomiling assets doesn't use your
+# secret key, but Rails will fail to initialize if it isn't set.
+
+# The DATABASE_URL here isn't used. Precomiling assets doesn't use your
+# database, but Rails will fail to initialize if it isn't set.
+
+RUN set -eux; \
+    yarn install --frozen-lockfile ; \
+    yarn cache clean ; \
+    bundle exec rake SECRET_KEY_BASE=blablabla DATABASE_URL="postgres://postgres@postgresql/evemonk_production?pool=1&encoding=unicode" assets:precompile ; \
+    rm -rf node_modules/
+
 #RUN RAILS_ENV=production \
 #  PRECOMPILE=true \
 #  SECRET_KEY_BASE=no \
