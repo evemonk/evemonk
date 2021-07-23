@@ -19,4 +19,4 @@ jobs:
         with:
           bundler-cache: true
       - name: run mdl
-        run: bundle exec mdl README.md
+        uses: actionshub/markdownlint@main
