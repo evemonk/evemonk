@@ -3,7 +3,7 @@ FROM ruby:3.0.2-slim AS builder
 RUN set -eux; \
     apt-get update -y ; \
     apt-get dist-upgrade -y ; \
-    apt-get install git make gcc g++ libpq-dev curl wait-for-it --no-install-recommends -y ; \
+    apt-get install git make gcc g++ libpq-dev curl --no-install-recommends -y ; \
     curl -sL https://deb.nodesource.com/setup_14.x | bash -; \
     curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -; \
     echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list ; \
@@ -54,6 +54,11 @@ RUN bundle config set --global retry 5
 
 RUN bundle install
 
+RUN rm -rf /usr/local/bundle/cache/*.gem
+
+RUN find /usr/local/bundle/gems/ -name "*.c" -delete
+
+RUN find /usr/local/bundle/gems/ -name "*.o" -delete
 
 #13 4.840
 #13 4.840 ------------------------------------------------------------------------------
@@ -91,32 +96,19 @@ RUN bundle exec bootsnap precompile --gemfile app/ lib/
 RUN set -eux; \
     yarn install --frozen-lockfile ; \
     yarn cache clean ; \
-    bundle exec rake SECRET_KEY_BASE=blablabla DATABASE_URL="postgres://postgres@postgresql/evemonk_production?pool=1&encoding=unicode" assets:precompile ; \
+    bundle exec rake SECRET_KEY_BASE=no DATABASE_URL="postgres://postgres@postgresql/evemonk_production?pool=1&encoding=unicode" assets:precompile ; \
     rm -rf node_modules/
 
-#RUN RAILS_ENV=production \
-#  PRECOMPILE=true \
-#  SECRET_KEY_BASE=no \
-#  RAILS_SERVE_STATIC_FILES=true \
-#  bundle exec rake assets:precompile && \
-#  rm -rf node_modules tmp/cache spec
-
 FROM ruby:3.0.2-slim
-
-#ENV LANG en_US.UTF-8
 
 RUN set -eux; \
     apt-get update -y ; \
     apt-get dist-upgrade -y ; \
+    apt-get install wait-for-it libjemalloc2 shared-mime-info --no-install-recommends -y ; \
     apt-get autoremove -y ; \
     apt-get clean -y ; \
     rm -rf /var/lib/apt/lists/*
 
-#RUN apt-get update -qq \
-#  && apt-get install -y libjemalloc2 nodejs postgresql-client \
-#  && apt-get clean \
-#  && rm -rf /var/lib/apt/lists/*
-#
 #RUN groupadd --gid 1000 app && \
 #  useradd --uid 1000 --no-log-init --create-home --gid app app
 #USER app
