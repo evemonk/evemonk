@@ -68,21 +68,6 @@ RUN find /usr/local/bundle/gems/ -name "*.o" -delete
 #13 4.840 	/usr/local/bin/bundle
 #13 4.840 	/usr/local/bin/bundler
 
-#21 36.42 inspection.
-#21 36.42 Results logged to
-#21 36.42 /usr/local/bundle/extensions/x86_64-linux/3.0.0/pg-1.2.3/gem_make.out
-
-
-
-#COPY Gemfile* /app/
-#RUN gem install bundler \
-#  && bundle config --global frozen 1 \
-#  && bundle config --global without "development test" \
-#  && bundle install -j4 --retry 3 \
-#  && rm -rf /usr/local/bundle/cache/*.gem \
-#  && find /usr/local/bundle/gems/ -name "*.c" -delete \
-#  && find /usr/local/bundle/gems/ -name "*.o" -delete
-
 COPY . .
 
 RUN bundle exec bootsnap precompile --gemfile app/ lib/
@@ -101,6 +86,7 @@ RUN set -eux; \
 
 FROM ruby:3.0.2-slim
 
+# libpq5
 RUN set -eux; \
     apt-get update -y ; \
     apt-get dist-upgrade -y ; \
@@ -109,6 +95,8 @@ RUN set -eux; \
     apt-get clean -y ; \
     rm -rf /var/lib/apt/lists/*
 
+WORKDIR /app
+
 #RUN groupadd --gid 1000 app && \
 #  useradd --uid 1000 --no-log-init --create-home --gid app app
 #USER app
@@ -116,10 +104,32 @@ RUN set -eux; \
 COPY --from=builder --chown=app:app /usr/local/bundle/ /usr/local/bundle/
 COPY --from=builder --chown=app:app /app /app
 
-#ENV LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libjemalloc.so.2
-#ENV RACK_ENV=production
-#ENV RAILS_ENV=production
-#ENV RAILS_LOG_TO_STDOUT true
+ENV RAILS_ENV production
+
+ENV RAILS_LOG_TO_STDOUT true
+
+ENV LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libjemalloc.so.2
+
+# throw errors if Gemfile has been modified since Gemfile.lock
+RUN bundle config set --global frozen 1
+
+# two jobs
+RUN bundle config set --global jobs 2
+
+# install only production gems without development and test
+RUN bundle config set --global without development test
+
+# retry 5 times before fail
+RUN bundle config set --global retry 5
+
+RUN bundle install
+
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
+EXPOSE 3000/tcp
+
+CMD ["rails", "server", "-b", "0.0.0.0"]
+
 #ENV RAILS_SERVE_STATIC_FILES true
 #
 #WORKDIR /app
