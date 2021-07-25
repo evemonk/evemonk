@@ -97,11 +97,14 @@ RUN set -eux; \
 
 WORKDIR /app
 
-#RUN groupadd --gid 1000 app && \
-#  useradd --uid 1000 --no-log-init --create-home --gid app app
-#USER app
+RUN groupadd --gid 1000 app
 
-COPY --from=builder --chown=app:app /usr/local/bundle/ /usr/local/bundle/
+RUN useradd --uid 1000 --no-log-init --create-home --gid app app
+
+USER app
+
+COPY --from=builder /usr/local/bundle/ /usr/local/bundle/
+COPY --from=builder /usr/local/bin/ /usr/local/bin/
 COPY --from=builder --chown=app:app /app /app
 
 ENV RAILS_ENV production
@@ -131,6 +134,3 @@ EXPOSE 3000/tcp
 CMD ["rails", "server", "-b", "0.0.0.0"]
 
 #ENV RAILS_SERVE_STATIC_FILES true
-#
-#WORKDIR /app
-#CMD bundle exec puma -p $PORT -C /app/config/puma.rb
