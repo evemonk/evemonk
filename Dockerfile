@@ -60,14 +60,6 @@ RUN find /usr/local/bundle/gems/ -name "*.c" -delete
 
 RUN find /usr/local/bundle/gems/ -name "*.o" -delete
 
-#13 4.840
-#13 4.840 ------------------------------------------------------------------------------
-#13 4.840
-#13 4.840 RubyGems installed the following executables:
-#13 4.840 	/usr/local/bin/gem
-#13 4.840 	/usr/local/bin/bundle
-#13 4.840 	/usr/local/bin/bundler
-
 COPY . .
 
 RUN bundle exec bootsnap precompile --gemfile app/ lib/
@@ -89,7 +81,8 @@ FROM ruby:3.0.2-slim
 RUN set -eux; \
     apt-get update -y ; \
     apt-get dist-upgrade -y ; \
-    apt-get install libpq5 wait-for-it libjemalloc2 shared-mime-info --no-install-recommends -y ; \
+    # nodejs for zxcvbn-js
+    apt-get install libpq5 libcurl4 nodejs wait-for-it libjemalloc2 shared-mime-info --no-install-recommends -y ; \
     apt-get autoremove -y ; \
     apt-get clean -y ; \
     rm -rf /var/lib/apt/lists/*
@@ -110,14 +103,14 @@ ENV RAILS_ENV production
 
 ENV RAILS_LOG_TO_STDOUT true
 
+#ENV RAILS_SERVE_STATIC_FILES true
+
 ENV LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libjemalloc.so.2
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 EXPOSE 3000/tcp
 
-RUN rails server
+#RUN rails server
 
 CMD ["rails", "server", "-b", "0.0.0.0"]
-
-#ENV RAILS_SERVE_STATIC_FILES true
