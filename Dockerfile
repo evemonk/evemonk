@@ -1,27 +1,15 @@
-FROM ruby:3.0.2-slim
+FROM ruby:3.0.2-slim AS builder
 
-LABEL maintainer="Igor Zubkov <igor.zubkov@gmail.com>"
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 # skipcq: DOK-DL3008
 RUN set -eux; \
     apt-get update -y ; \
     apt-get dist-upgrade -y ; \
-    apt-get install gnupg2 git gcc g++ make wget curl wait-for-it libpq-dev libjemalloc2 shared-mime-info --no-install-recommends -y ; \
-    apt-get autoremove -y ; \
-    apt-get clean -y ; \
-    rm -rf /var/lib/apt/lists/*
-
-RUN set -eux; \
-    sh -c 'curl -sL https://deb.nodesource.com/setup_14.x | bash -'
-
-RUN set -eux; \
-    sh -c 'curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -'
-
-RUN set -eux; \
-    sh -c 'echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list'
-
-# skipcq: DOK-DL3008
-RUN set -eux; \
+    apt-get install git make gcc g++ libpq-dev curl --no-install-recommends -y ; \
+    curl -sL https://deb.nodesource.com/setup_14.x | bash -; \
+    curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -; \
+    echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list ; \
     apt-get update -y ; \
     apt-get install nodejs yarn --no-install-recommends -y ; \
     apt-get autoremove -y ; \
@@ -69,26 +57,64 @@ RUN bundle config set --global retry 5
 
 RUN bundle install
 
+RUN rm -rf /usr/local/bundle/cache/*.gem
+
+RUN find /usr/local/bundle/gems/ -name "*.c" -delete
+
+RUN find /usr/local/bundle/gems/ -name "*.o" -delete
+
 COPY . .
 
 RUN bundle exec bootsnap precompile --gemfile app/ lib/
 
+# The SECRET_KEY_BASE here isn't used. Precomiling assets doesn't use your
+# secret key, but Rails will fail to initialize if it isn't set.
+
+# The DATABASE_URL here isn't used. Precomiling assets doesn't use your
+# database, but Rails will fail to initialize if it isn't set.
+
 RUN set -eux; \
     yarn install --frozen-lockfile ; \
     yarn cache clean ; \
-    bundle exec rake SECRET_KEY_BASE=blablabla DATABASE_URL="postgres://postgres@postgresql/evemonk_production?pool=1&encoding=unicode" assets:precompile ; \
+    bundle exec rake SECRET_KEY_BASE=no DATABASE_URL="postgres://postgres@postgresql/evemonk_production?pool=1&encoding=unicode" assets:precompile ; \
     rm -rf node_modules/
 
-ARG COMMIT=""
+FROM ruby:3.0.2-slim
 
-ENV COMMIT_SHA=${COMMIT}
+# skipcq: DOK-DL3008
+RUN set -eux; \
+    apt-get update -y ; \
+    apt-get dist-upgrade -y ; \
+    # nodejs for zxcvbn-js
+    apt-get install libpq5 libcurl4 nodejs wait-for-it libjemalloc2 shared-mime-info --no-install-recommends -y ; \
+    apt-get autoremove -y ; \
+    apt-get clean -y ; \
+    rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app
+
+RUN groupadd --gid 1000 app
+
+RUN useradd --uid 1000 --no-log-init --create-home --gid app app
+
+USER app
+
+COPY --from=builder /usr/local/bundle/ /usr/local/bundle/
+COPY --from=builder /usr/local/bin/ /usr/local/bin/
+COPY --from=builder --chown=app:app /app /app
+
+ENV RAILS_ENV production
+
+ENV RAILS_LOG_TO_STDOUT true
+
+#ENV RAILS_SERVE_STATIC_FILES true
 
 ENV LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libjemalloc.so.2
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
-RUN curl -sL https://sentry.io/get-cli/ | bash
-
 EXPOSE 3000/tcp
+
+#RUN rails server
 
 CMD ["rails", "server", "-b", "0.0.0.0"]
