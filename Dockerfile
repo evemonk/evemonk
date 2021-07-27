@@ -1,5 +1,7 @@
 FROM ruby:3.0.2-slim AS builder
 
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
 # skipcq: DOK-DL3008
 RUN set -eux; \
     apt-get update -y ; \
