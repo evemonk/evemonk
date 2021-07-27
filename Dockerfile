@@ -115,6 +115,4 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 EXPOSE 3000/tcp
 
-#RUN rails server
-
 CMD ["bundle", "exec", "rails", "server", "--binding=0.0.0.0"]
