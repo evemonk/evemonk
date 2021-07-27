@@ -107,7 +107,7 @@ ENV RAILS_ENV production
 
 ENV RAILS_LOG_TO_STDOUT true
 
-#ENV RAILS_SERVE_STATIC_FILES true
+ENV RAILS_SERVE_STATIC_FILES true
 
 ENV LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libjemalloc.so.2
 
@@ -117,4 +117,4 @@ EXPOSE 3000/tcp
 
 #RUN rails server
 
-CMD ["rails", "server", "-b", "0.0.0.0"]
+CMD ["bundle", "exec", "rails", "server", "--binding=0.0.0.0"]

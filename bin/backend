@@ -2,9 +2,9 @@
 
 set -eux
 
-rm -rf /shared/*
+# rm -rf /shared/*
 
-cp -R /app/public/ /shared/
+# cp -R /app/public/ /shared/
 
 if [ -n "${SENTRY_AUTH_TOKEN}" ]; then
   sentry-cli releases new -p evemonk-backend "$COMMIT_SHA"
