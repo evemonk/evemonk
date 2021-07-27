@@ -103,6 +103,10 @@ COPY --from=builder /usr/local/bundle/ /usr/local/bundle/
 COPY --from=builder /usr/local/bin/ /usr/local/bin/
 COPY --from=builder --chown=app:app /app /app
 
+ARG COMMIT=""
+
+ENV COMMIT_SHA=${COMMIT}
+
 ENV RAILS_ENV production
 
 ENV RAILS_LOG_TO_STDOUT true
