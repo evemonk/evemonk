@@ -1,5 +1,6 @@
 FROM ruby:3.0.2-slim AS builder
 
+# skipcq: DOK-DL3008
 RUN set -eux; \
     apt-get update -y ; \
     apt-get dist-upgrade -y ; \
@@ -70,6 +71,7 @@ RUN bundle exec bootsnap precompile --gemfile app/ lib/
 # The DATABASE_URL here isn't used. Precomiling assets doesn't use your
 # database, but Rails will fail to initialize if it isn't set.
 
+# skipcq: DOK-DL3008
 RUN set -eux; \
     yarn install --frozen-lockfile ; \
     yarn cache clean ; \
