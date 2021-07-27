@@ -37,6 +37,7 @@ jobs:
           no-cache: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+          build-args: COMMIT="$GITHUB_SHA"
 
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
