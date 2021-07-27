@@ -386,6 +386,7 @@ GEM
     octokit (4.21.0)
       faraday (>= 0.9)
       sawyer (~> 0.8.0, >= 0.5.3)
+    oj (3.12.2)
     omniauth (2.0.4)
       hashie (>= 3.4.6)
       rack (>= 1.6.2, < 3)
@@ -757,6 +758,7 @@ DEPENDENCIES
   newrelic_rpm
   niceql
   noticed
+  oj
   omniauth-eve_online-sso
   omniauth-rails_csrf_protection
   paper_trail
