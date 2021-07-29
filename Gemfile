@@ -128,7 +128,6 @@ group :test do
   gem "shoulda-matchers"
   gem "rspec-its"
   gem "super_diff"
-  gem "rspec_junit_formatter"
   # gem "rspec-stubbed_env"
   gem "shoulda-callback-matchers", git: "https://github.com/just806me/shoulda-callback-matchers.git",
                                    branch: "master"
