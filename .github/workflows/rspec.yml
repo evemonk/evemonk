@@ -51,6 +51,11 @@ jobs:
           node-version: "14"
       - name: Setup setup-chromedriver
         uses: nanasess/setup-chromedriver@v1.0.5
+      - run: |
+          chromedriver --version
+          export DISPLAY=:99
+          chromedriver --url-base=/wd/hub &
+          sudo Xvfb -ac :99 -screen 0 1280x1024x24 > /dev/null 2>&1 & # optional
       - name: Yarn install
         run: yarn install --frozen-lockfile
       - name: bootsnap precompile
