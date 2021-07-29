@@ -1,7 +1,6 @@
 .git/*
 .github/*
 .idea/*
-.circleci/*
 .generators
 .env
 .env.example
