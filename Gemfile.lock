@@ -348,7 +348,7 @@ GEM
       mini_mime (>= 0.1.1)
     marcel (1.0.1)
     memory_profiler (1.0.0)
-    meta-tags (2.14.0)
+    meta-tags (2.15.0)
       actionpack (>= 3.2.0, < 6.2)
     method_source (1.0.0)
     metricky (0.8.6)
