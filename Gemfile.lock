@@ -187,12 +187,12 @@ GEM
     dry-initializer (3.0.4)
     easymon (1.4.2)
       redis
-    elasticsearch (7.14.0)
-      elasticsearch-api (= 7.14.0)
-      elasticsearch-transport (= 7.14.0)
-    elasticsearch-api (7.14.0)
+    elasticsearch (7.13.3)
+      elasticsearch-api (= 7.13.3)
+      elasticsearch-transport (= 7.13.3)
+    elasticsearch-api (7.13.3)
       multi_json
-    elasticsearch-transport (7.14.0)
+    elasticsearch-transport (7.13.3)
       faraday (~> 1)
       multi_json
     erb_lint (0.1.1)
