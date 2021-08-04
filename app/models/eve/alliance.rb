@@ -40,12 +40,13 @@ module Eve
 
     after_create_commit :reset_characters_count
 
-    def search_data
-      {
-        name: name,
-        ticker: ticker
-      }
-    end
+    # TODO: write new search
+    # def search_data
+    #   {
+    #     name: name,
+    #     ticker: ticker
+    #   }
+    # end
 
     def reset_corporations_count
       update_columns(corporations_count: corporations.count)

@@ -9,8 +9,6 @@ describe Eve::Alliance do
 
   it { should respond_to(:versions) }
 
-  it { expect(described_class).to respond_to(:search) }
-
   it { expect(described_class.table_name).to eq("eve_alliances") }
 
   it { should belong_to(:creator_corporation).class_name("Eve::Corporation").with_primary_key("corporation_id").optional(true) }
@@ -33,18 +31,19 @@ describe Eve::Alliance do
 
   it { should have_db_index(:name) }
 
-  describe "#search_data" do
-    let!(:eve_alliance) do
-      create(:eve_alliance,
-        name: "Kids With Guns Alliance",
-        ticker: "-KWG-")
-    end
-
-    specify do
-      expect(eve_alliance.search_data).to eq(name: "Kids With Guns Alliance",
-        ticker: "-KWG-")
-    end
-  end
+  # TODO: write new search
+  # describe "#search_data" do
+  #   let!(:eve_alliance) do
+  #     create(:eve_alliance,
+  #       name: "Kids With Guns Alliance",
+  #       ticker: "-KWG-")
+  #   end
+  #
+  #   specify do
+  #     expect(eve_alliance.search_data).to eq(name: "Kids With Guns Alliance",
+  #       ticker: "-KWG-")
+  #   end
+  # end
 
   describe "#reset_corporations_count" do
     let!(:eve_alliance) { create(:eve_alliance) }
