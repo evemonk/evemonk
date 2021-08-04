@@ -50,19 +50,20 @@ module Eve
 
     scope :published, -> { where(published: true) }
 
-    def search_data
-      {
-        name_en: name_en,
-        name_de: name_de,
-        name_fr: name_fr,
-        name_ja: name_ja,
-        name_ru: name_ru,
-        name_ko: name_ko,
-        published: published,
-        is_blueprint: is_blueprint,
-        is_manufacturing_item: is_manufacturing_item
-      }
-    end
+    # TODO: write new search
+    # def search_data
+    #   {
+    #     name_en: name_en,
+    #     name_de: name_de,
+    #     name_fr: name_fr,
+    #     name_ja: name_ja,
+    #     name_ru: name_ru,
+    #     name_ko: name_ko,
+    #     published: published,
+    #     is_blueprint: is_blueprint,
+    #     is_manufacturing_item: is_manufacturing_item
+    #   }
+    # end
 
     def implant_bonuses
       @implant_bonuses ||= ImplantBonuses.new(self).implant_bonuses

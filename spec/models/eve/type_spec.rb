@@ -11,8 +11,6 @@ describe Eve::Type do
 
   specify { expect(described_class::SECONDARY_ATTRIBUTE_NAME).to eq("secondaryAttribute") }
 
-  it { expect(described_class).to respond_to(:search) }
-
   it { should respond_to(:versions) }
 
   it { expect(described_class).to respond_to(:translates) }
@@ -47,32 +45,33 @@ describe Eve::Type do
     specify { expect(described_class.published).to eq([eve_type2]) }
   end
 
-  describe "#search_data" do
-    let!(:type) do
-      build(:eve_type,
-        name_en: "Ragnarok1",
-        name_de: "Ragnarok2",
-        name_fr: "Ragnarok3",
-        name_ja: "ラグナロク",
-        name_ru: "Ragnarok4",
-        name_ko: "라그나로크",
-        published: true,
-        is_blueprint: false,
-        is_manufacturing_item: true)
-    end
-
-    specify do
-      expect(type.search_data).to eq(name_en: "Ragnarok1",
-        name_de: "Ragnarok2",
-        name_fr: "Ragnarok3",
-        name_ja: "ラグナロク",
-        name_ru: "Ragnarok4",
-        name_ko: "라그나로크",
-        published: true,
-        is_blueprint: false,
-        is_manufacturing_item: true)
-    end
-  end
+  # TODO: write new search
+  # describe "#search_data" do
+  #   let!(:type) do
+  #     build(:eve_type,
+  #       name_en: "Ragnarok1",
+  #       name_de: "Ragnarok2",
+  #       name_fr: "Ragnarok3",
+  #       name_ja: "ラグナロク",
+  #       name_ru: "Ragnarok4",
+  #       name_ko: "라그나로크",
+  #       published: true,
+  #       is_blueprint: false,
+  #       is_manufacturing_item: true)
+  #   end
+  #
+  #   specify do
+  #     expect(type.search_data).to eq(name_en: "Ragnarok1",
+  #       name_de: "Ragnarok2",
+  #       name_fr: "Ragnarok3",
+  #       name_ja: "ラグナロク",
+  #       name_ru: "Ragnarok4",
+  #       name_ko: "라그나로크",
+  #       published: true,
+  #       is_blueprint: false,
+  #       is_manufacturing_item: true)
+  #   end
+  # end
 
   describe "#implant_bonuses" do
     context "when @implant_bonuses is set" do
