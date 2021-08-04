@@ -50,12 +50,13 @@ module Eve
 
     after_commit :eve_alliance_reset_characters_count, on: [:create, :update, :destroy]
 
-    def search_data
-      {
-        name: name,
-        ticker: ticker
-      }
-    end
+    # TODO: write new search
+    # def search_data
+    #   {
+    #     name: name,
+    #     ticker: ticker
+    #   }
+    # end
 
     def eve_alliance_reset_corporations_count
       alliance&.reset_corporations_count
