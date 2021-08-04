@@ -34,11 +34,12 @@ module Eve
       primary_key: "character_id",
       dependent: :destroy
 
-    def search_data
-      {
-        name: name
-      }
-    end
+    # TODO: write new search
+    # def search_data
+    #   {
+    #     name: name
+    #   }
+    # end
 
     def icon_tiny
       "#{imageproxy_url}https://images.evetech.net/characters/#{character_id}/portrait?size=32"
