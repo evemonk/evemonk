@@ -7,8 +7,6 @@ module Eve
 
     has_paper_trail
 
-    searchkick
-
     belongs_to :creator_corporation,
       class_name: "Eve::Corporation",
       primary_key: "corporation_id",

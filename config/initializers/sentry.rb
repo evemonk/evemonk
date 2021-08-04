@@ -11,7 +11,6 @@ if Rails.env.production?
       "EveOnline::Exceptions::ServiceUnavailable",
       "EveOnline::Exceptions::Timeout",
       "EveOnline::Exceptions::ResourceNotFound",
-      "Searchkick::ImportError",
       "OpenSSL::SSL::SSLError",
       "Faraday::Error::TimeoutError",
       "Sentry::ExternalError"]
