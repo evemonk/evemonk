@@ -9,13 +9,13 @@ describe Api::Eve::BlueprintsController do
     context "with supported content type" do
       before do
         #
-        # Eve::BlueprintsSearcher.new(params[:q])
-        #                        .search
-        #                        .page(params[:page])
+        # Eve::SearchBlueprintsQuery.new(params[:q])
+        #                           .query
+        #                           .page(params[:page])
         #
-        expect(Eve::BlueprintsSearcher).to receive(:new).with("drake") do
+        expect(Eve::SearchBlueprintsQuery).to receive(:new).with("drake") do
           double.tap do |a|
-            expect(a).to receive(:search) do
+            expect(a).to receive(:query) do
               double.tap do |b|
                 expect(b).to receive(:page).with("1")
               end
