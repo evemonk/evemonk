@@ -10,13 +10,13 @@ describe Universe::CorporationsController do
   describe "#index" do
     before do
       #
-      # Eve::CorporationsSearcher.new(params[:q])
-      #                          .search
-      #                          .page(params[:page])
+      # Eve::SearchCorporationsQuery.new(params[:q])
+      #                             .query
+      #                             .page(params[:page])
       #
-      expect(Eve::CorporationsSearcher).to receive(:new).with("corporation") do
+      expect(Eve::SearchCorporationsQuery).to receive(:new).with("corporation") do
         double.tap do |a|
-          expect(a).to receive(:search) do
+          expect(a).to receive(:query) do
             double.tap do |b|
               expect(b).to receive(:page).with("2")
             end

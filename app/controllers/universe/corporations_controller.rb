@@ -5,9 +5,9 @@ module Universe
     skip_before_action :authenticate_user!
 
     def index
-      @corporations = ::Eve::CorporationsSearcher
+      @corporations = Eve::SearchCorporationsQuery
         .new(params[:q])
-        .search
+        .query
         .page(params[:page])
     end
 
