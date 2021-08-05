@@ -5,6 +5,10 @@ require "rails_helper"
 describe Eve::Type do
   it { should be_an(ApplicationRecord) }
 
+  it { should be_a(PgSearch::Model) }
+
+  it { should be_an(ActionView::Helpers::NumberHelper) }
+
   it { should be_a(ImageProxy) }
 
   specify { expect(described_class::PRIMARY_ATTRIBUTE_NAME).to eq("primaryAttribute") }
@@ -36,42 +40,36 @@ describe Eve::Type do
   # it { should have_many(:dogma_effects).through(:type_dogma_effects) }
 
   describe ".published" do
-    let!(:eve_type1) { create(:eve_type, published: false) }
+    let!(:eve_type_1) { create(:eve_type, published: false) }
 
-    let!(:eve_type2) { create(:eve_type, published: true) }
+    let!(:eve_type_2) { create(:eve_type, published: true) }
 
     specify { expect(described_class.published.count).to eq(1) }
 
-    specify { expect(described_class.published).to eq([eve_type2]) }
+    specify { expect(described_class.published).to eq([eve_type_2]) }
   end
 
-  # TODO: write new search
-  # describe "#search_data" do
-  #   let!(:type) do
-  #     build(:eve_type,
-  #       name_en: "Ragnarok1",
-  #       name_de: "Ragnarok2",
-  #       name_fr: "Ragnarok3",
-  #       name_ja: "ラグナロク",
-  #       name_ru: "Ragnarok4",
-  #       name_ko: "라그나로크",
-  #       published: true,
-  #       is_blueprint: false,
-  #       is_manufacturing_item: true)
-  #   end
-  #
-  #   specify do
-  #     expect(type.search_data).to eq(name_en: "Ragnarok1",
-  #       name_de: "Ragnarok2",
-  #       name_fr: "Ragnarok3",
-  #       name_ja: "ラグナロク",
-  #       name_ru: "Ragnarok4",
-  #       name_ko: "라그나로크",
-  #       published: true,
-  #       is_blueprint: false,
-  #       is_manufacturing_item: true)
-  #   end
-  # end
+  describe ".blueprints" do
+    let!(:eve_type_1) { create(:eve_type, is_blueprint: false) }
+
+    let!(:eve_type_2) { create(:eve_type, is_blueprint: true) }
+
+    specify { expect(described_class.blueprints.count).to eq(1) }
+
+    specify { expect(described_class.blueprints).to eq([eve_type_2]) }
+  end
+
+  describe ".manufacturing_items" do
+    let!(:eve_type_1) { create(:eve_type, is_manufacturing_item: false) }
+
+    let!(:eve_type_2) { create(:eve_type, is_manufacturing_item: true) }
+
+    specify { expect(described_class.manufacturing_items.count).to eq(1) }
+
+    specify { expect(described_class.manufacturing_items).to eq([eve_type_2]) }
+  end
+
+  it { expect(described_class).to respond_to(:search_by_name) }
 
   describe "#implant_bonuses" do
     context "when @implant_bonuses is set" do

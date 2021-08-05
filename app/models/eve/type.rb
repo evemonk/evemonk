@@ -2,6 +2,7 @@
 
 module Eve
   class Type < ApplicationRecord
+    include PgSearch::Model
     include ActionView::Helpers::NumberHelper
     include ImageProxy
 
@@ -50,20 +51,12 @@ module Eve
 
     scope :published, -> { where(published: true) }
 
-    # TODO: write new search
-    # def search_data
-    #   {
-    #     name_en: name_en,
-    #     name_de: name_de,
-    #     name_fr: name_fr,
-    #     name_ja: name_ja,
-    #     name_ru: name_ru,
-    #     name_ko: name_ko,
-    #     published: published,
-    #     is_blueprint: is_blueprint,
-    #     is_manufacturing_item: is_manufacturing_item
-    #   }
-    # end
+    scope :blueprints, -> { where(is_blueprint: true) }
+
+    scope :manufacturing_items, -> { where(is_manufacturing_item: true) }
+
+    pg_search_scope :search_by_name,
+      against: [:name_en, :name_de, :name_fr, :name_ja, :name_ru, :name_ko]
 
     def implant_bonuses
       @implant_bonuses ||= ImplantBonuses.new(self).implant_bonuses
