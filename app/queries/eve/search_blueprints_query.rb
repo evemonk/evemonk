@@ -4,7 +4,7 @@ module Eve
   class SearchBlueprintsQuery < BaseQuery
     attr_reader :search, :scope
 
-    def initialize(search = nil, scope = Eve::Type.published_blueprints)
+    def initialize(search = nil, scope = Eve::Blueprint.published_blueprints)
       @search = search
       @scope = scope
     end

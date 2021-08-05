@@ -13,7 +13,7 @@ describe Eve::SearchBlueprintsQuery do
     context "without search and scope" do
       let(:scope) { double }
 
-      before { expect(Eve::Type).to receive(:published_blueprints).and_return(scope) }
+      before { expect(Eve::Blueprint).to receive(:published_blueprints).and_return(scope) }
 
       subject { described_class.new }
 
@@ -37,7 +37,7 @@ describe Eve::SearchBlueprintsQuery do
     context "when search is present" do
       let(:search) { "Drake" }
 
-      let(:scope) { class_double(Eve::Type) }
+      let(:scope) { class_double(Eve::Blueprint) }
 
       let(:query) { double }
 
