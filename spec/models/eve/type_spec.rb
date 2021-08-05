@@ -83,6 +83,20 @@ describe Eve::Type do
     specify { expect(described_class.manufacturing_items).to eq([eve_type_2]) }
   end
 
+  describe ".published_manufacturing_items" do
+    let!(:eve_type_1) { create(:eve_type, is_manufacturing_item: false, published: false) }
+
+    let!(:eve_type_2) { create(:eve_type, is_manufacturing_item: false, published: true) }
+
+    let!(:eve_type_3) { create(:eve_type, is_manufacturing_item: true, published: false) }
+
+    let!(:eve_type_4) { create(:eve_type, is_manufacturing_item: true, published: true) }
+
+    specify { expect(described_class.published_manufacturing_items.count).to eq(1) }
+
+    specify { expect(described_class.published_manufacturing_items).to eq([eve_type_4]) }
+  end
+
   it { expect(described_class).to respond_to(:search_by_name) }
 
   describe "#implant_bonuses" do
