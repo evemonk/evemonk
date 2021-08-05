@@ -59,19 +59,7 @@ describe Eve::Corporation do
 
   it { should callback(:eve_alliance_reset_characters_count).after(:commit).on([:create, :update, :destroy]) }
 
-  # TODO: write new search
-  # describe "#search_data" do
-  #   let!(:eve_corporation) do
-  #     create(:eve_corporation,
-  #       name: "MyLittleDragon",
-  #       ticker: "MYLID")
-  #   end
-  #
-  #   specify do
-  #     expect(eve_corporation.search_data).to eq(name: "MyLittleDragon",
-  #       ticker: "MYLID")
-  #   end
-  # end
+  it { expect(described_class).to respond_to(:search_by_name_and_ticker) }
 
   describe "#eve_alliance_reset_corporations_count" do
     context "when alliance exists" do
