@@ -2,6 +2,7 @@
 
 module Eve
   class Corporation < ApplicationRecord
+    include PgSearch::Model
     include ActionView::Helpers::NumberHelper
     include ImageProxy
 

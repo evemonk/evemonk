@@ -5,6 +5,10 @@ require "rails_helper"
 describe Eve::Corporation do
   it { should be_an(ApplicationRecord) }
 
+  it { should be_a(PgSearch::Model) }
+
+  it { should be_an(ActionView::Helpers::NumberHelper) }
+
   it { should be_an(ImageProxy) }
 
   it { should respond_to(:versions) }
