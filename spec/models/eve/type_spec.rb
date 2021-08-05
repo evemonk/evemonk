@@ -59,6 +59,20 @@ describe Eve::Type do
     specify { expect(described_class.blueprints).to eq([eve_type_2]) }
   end
 
+  describe ".published_blueprints" do
+    let!(:eve_type_1) { create(:eve_type, is_blueprint: false, published: false) }
+
+    let!(:eve_type_2) { create(:eve_type, is_blueprint: false, published: true) }
+
+    let!(:eve_type_3) { create(:eve_type, is_blueprint: true, published: false) }
+
+    let!(:eve_type_4) { create(:eve_type, is_blueprint: true, published: true) }
+
+    specify { expect(described_class.published_blueprints.count).to eq(1) }
+
+    specify { expect(described_class.published_blueprints).to eq([eve_type_4]) }
+  end
+
   describe ".manufacturing_items" do
     let!(:eve_type_1) { create(:eve_type, is_manufacturing_item: false) }
 

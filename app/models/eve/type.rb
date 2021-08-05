@@ -53,6 +53,8 @@ module Eve
 
     scope :blueprints, -> { where(is_blueprint: true) }
 
+    scope :published_blueprints, -> { published.blueprints }
+
     scope :manufacturing_items, -> { where(is_manufacturing_item: true) }
 
     pg_search_scope :search_by_name,
