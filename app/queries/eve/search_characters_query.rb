@@ -4,7 +4,7 @@ module Eve
   class SearchCharactersQuery < BaseQuery
     attr_reader :search, :scope
 
-    def initialize(search, scope = Eve::Character.all)
+    def initialize(search = nil, scope = Eve::Character.all)
       @search = search
       @scope = scope
     end

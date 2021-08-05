@@ -10,17 +10,19 @@ describe Eve::SearchCharactersQuery do
   it { should be_a(BaseQuery) }
 
   describe "#initialize" do
-    context "without scope" do
+    context "without search and scope" do
       let(:scope) { double }
 
       before { expect(Eve::Character).to receive(:all).and_return(scope) }
 
-      its(:search) { should eq(search) }
+      subject { described_class.new }
+
+      its(:search) { should eq(nil) }
 
       its(:scope) { should eq(scope) }
     end
 
-    context "with scope" do
+    context "with search and scope" do
       let(:scope) { double }
 
       subject { described_class.new(search, scope) }
