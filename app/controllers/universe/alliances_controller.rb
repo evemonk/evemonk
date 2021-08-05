@@ -5,9 +5,9 @@ module Universe
     skip_before_action :authenticate_user!
 
     def index
-      @alliances = ::Eve::AlliancesSearcher
+      @alliances = Eve::SearchAlliancesQuery
         .new(params[:q])
-        .search
+        .query
         .page(params[:page])
     end
 
