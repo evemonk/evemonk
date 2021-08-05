@@ -10,13 +10,13 @@ describe Universe::CharactersController do
   describe "#index" do
     before do
       #
-      # Eve::CharactersSearcher.new(params[:q])
-      #                        .search
-      #                        .page(params[:page])
+      # Eve::SearchCharactersQuery.new(params[:q])
+      #                           .query
+      #                           .page(params[:page])
       #
-      expect(Eve::CharactersSearcher).to receive(:new).with("character") do
+      expect(Eve::SearchCharactersQuery).to receive(:new).with("character") do
         double.tap do |a|
-          expect(a).to receive(:search) do
+          expect(a).to receive(:query) do
             double.tap do |b|
               expect(b).to receive(:page).with("2")
             end

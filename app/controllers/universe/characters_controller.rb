@@ -5,9 +5,9 @@ module Universe
     skip_before_action :authenticate_user!
 
     def index
-      @characters = ::Eve::CharactersSearcher
+      @characters = Eve::SearchCharactersQuery
         .new(params[:q])
-        .search
+        .query
         .page(params[:page])
     end
 
