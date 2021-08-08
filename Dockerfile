@@ -77,7 +77,7 @@ RUN set -eux; \
     yarn install --frozen-lockfile ; \
     yarn cache clean ; \
     bundle exec rake SECRET_KEY_BASE=no DATABASE_URL="postgres://postgres@postgresql/evemonk_production?pool=1&encoding=unicode" assets:precompile ; \
-    rm -rf node_modules/ \
+    rm -rf node_modules/
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
