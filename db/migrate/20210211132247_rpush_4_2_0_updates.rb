@@ -5,4 +5,3 @@ class Rpush420Updates < ActiveRecord::Migration["#{ActiveRecord::VERSION::MAJOR}
     # pass
   end
 end
-
