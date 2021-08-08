@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
-class Scope < ApplicationRecord
+class CharacterScope < ApplicationRecord
   belongs_to :character
 end
