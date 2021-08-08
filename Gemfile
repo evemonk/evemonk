@@ -110,7 +110,6 @@ group :development do
   gem "spring-commands-rubocop", require: false
   gem "spring-commands-standard", require: false
   gem "consistency_fail", require: false
-  gem "rails_best_practices", require: false
   gem "active_record_doctor"
   gem "cacheflow"
   gem "gemdiff", require: false
