@@ -1,11 +1,7 @@
-class Rpush331Updates < ActiveRecord::Migration[5.0]
-  def self.up
-    change_column :rpush_notifications, :device_token, :string, null: true
-    change_column :rpush_feedback, :device_token, :string, null: true
-  end
+# frozen_string_literal: true
 
-  def self.down
-    change_column :rpush_notifications, :device_token, :string, null: true, limit: 64
-    change_column :rpush_feedback, :device_token, :string, null: true, limit: 64
+class Rpush331Updates < ActiveRecord::Migration[5.0]
+  def change
+    # pass
   end
 end

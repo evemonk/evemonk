@@ -17,6 +17,7 @@ gem "rails-i18n", "~> 6.0.0"
 gem "http_accept_language"
 gem "countries"
 gem "oj"
+gem "tzinfo-data"
 gem "authy"
 gem "devise"
 gem "devise-i18n"
@@ -109,7 +110,6 @@ group :development do
   gem "spring-commands-rubocop", require: false
   gem "spring-commands-standard", require: false
   gem "consistency_fail", require: false
-  gem "rails_best_practices", require: false
   gem "active_record_doctor"
   gem "cacheflow"
   gem "gemdiff", require: false
