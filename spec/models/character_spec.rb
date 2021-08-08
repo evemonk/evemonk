@@ -338,20 +338,6 @@ describe Character do
     end
   end
 
-  describe "#token_expired?" do
-    context "when expired" do
-      subject { build(:character, token_expires_at: Time.zone.now - 1.hour) }
-
-      specify { expect(subject.token_expired?).to eq(true) }
-    end
-
-    context "when not expired" do
-      subject { build(:character, token_expires_at: Time.zone.now + 1.hour) }
-
-      specify { expect(subject.token_expired?).to eq(false) }
-    end
-  end
-
   describe "#icon_tiny" do
     subject do
       build(:character,
