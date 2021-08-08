@@ -54,7 +54,6 @@ All screenshots are real and made in Safari on latest macOS Catalina (10.15.3).
 - Ruby on Rails 6.1.4
 - PostgreSQL 13.3
 - Redis 6.2.5
-- Elasticsearch OSS 7.10.2
 - Node 14.17.4
 - NPM 6.14.14
 - Yarn 1.22.11

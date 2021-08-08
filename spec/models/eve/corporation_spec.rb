@@ -5,11 +5,13 @@ require "rails_helper"
 describe Eve::Corporation do
   it { should be_an(ApplicationRecord) }
 
+  it { should be_a(PgSearch::Model) }
+
+  it { should be_an(ActionView::Helpers::NumberHelper) }
+
   it { should be_an(ImageProxy) }
 
   it { should respond_to(:versions) }
-
-  it { expect(described_class).to respond_to(:search) }
 
   it { expect(described_class.table_name).to eq("eve_corporations") }
 
@@ -57,18 +59,7 @@ describe Eve::Corporation do
 
   it { should callback(:eve_alliance_reset_characters_count).after(:commit).on([:create, :update, :destroy]) }
 
-  describe "#search_data" do
-    let!(:eve_corporation) do
-      create(:eve_corporation,
-        name: "MyLittleDragon",
-        ticker: "MYLID")
-    end
-
-    specify do
-      expect(eve_corporation.search_data).to eq(name: "MyLittleDragon",
-        ticker: "MYLID")
-    end
-  end
+  it { expect(described_class).to respond_to(:search_by_name_and_ticker) }
 
   describe "#eve_alliance_reset_corporations_count" do
     context "when alliance exists" do

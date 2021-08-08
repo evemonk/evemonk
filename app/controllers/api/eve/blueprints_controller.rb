@@ -4,8 +4,8 @@ module Api
   module Eve
     class BlueprintsController < BaseController
       def index
-        @blueprints = ::Eve::BlueprintsSearcher.new(params[:q])
-          .search
+        @blueprints = ::Eve::SearchBlueprintsQuery.new(params[:q])
+          .query
           .page(params[:page])
       end
     end

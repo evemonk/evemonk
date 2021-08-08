@@ -5,11 +5,13 @@ require "rails_helper"
 describe Eve::Alliance do
   it { should be_an(ApplicationRecord) }
 
+  it { should be_a(PgSearch::Model) }
+
+  it { should be_a(ActionView::Helpers::NumberHelper) }
+
   it { should be_a(ImageProxy) }
 
   it { should respond_to(:versions) }
-
-  it { expect(described_class).to respond_to(:search) }
 
   it { expect(described_class.table_name).to eq("eve_alliances") }
 
@@ -33,18 +35,7 @@ describe Eve::Alliance do
 
   it { should have_db_index(:name) }
 
-  describe "#search_data" do
-    let!(:eve_alliance) do
-      create(:eve_alliance,
-        name: "Kids With Guns Alliance",
-        ticker: "-KWG-")
-    end
-
-    specify do
-      expect(eve_alliance.search_data).to eq(name: "Kids With Guns Alliance",
-        ticker: "-KWG-")
-    end
-  end
+  it { expect(described_class).to respond_to(:search_by_name_and_ticker) }
 
   describe "#reset_corporations_count" do
     let!(:eve_alliance) { create(:eve_alliance) }

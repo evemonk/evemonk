@@ -2,11 +2,10 @@
 
 module Eve
   class Character < ApplicationRecord
+    include PgSearch::Model
     include ImageProxy
 
     has_paper_trail
-
-    searchkick
 
     belongs_to :alliance,
       primary_key: "alliance_id",
@@ -36,11 +35,7 @@ module Eve
       primary_key: "character_id",
       dependent: :destroy
 
-    def search_data
-      {
-        name: name
-      }
-    end
+    pg_search_scope :search_by_name, against: :name
 
     def icon_tiny
       "#{imageproxy_url}https://images.evetech.net/characters/#{character_id}/portrait?size=32"

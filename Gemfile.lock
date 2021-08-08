@@ -187,14 +187,6 @@ GEM
     dry-initializer (3.0.4)
     easymon (1.4.2)
       redis
-    elasticsearch (7.13.3)
-      elasticsearch-api (= 7.13.3)
-      elasticsearch-transport (= 7.13.3)
-    elasticsearch-api (7.13.3)
-      multi_json
-    elasticsearch-transport (7.13.3)
-      faraday (~> 1)
-      multi_json
     erb_lint (0.1.1)
       activesupport
       better_html (~> 1.0.7)
@@ -414,6 +406,9 @@ GEM
     pg (1.2.3)
     pg_query (2.1.0)
       google-protobuf (>= 3.17.1)
+    pg_search (2.3.5)
+      activerecord (>= 5.2)
+      activesupport (>= 5.2)
     pghero (2.8.1)
       activerecord (>= 5)
     prometheus-client (2.1.0)
@@ -566,10 +561,6 @@ GEM
       faraday (> 0.8, < 2.0)
     scout_apm (4.1.1)
       parser
-    searchkick (4.5.1)
-      activemodel (>= 5)
-      elasticsearch (>= 6)
-      hashie
     selectize-rails (0.12.6)
     selenium-webdriver (3.142.7)
       childprocess (>= 0.5, < 4.0)
@@ -764,6 +755,7 @@ DEPENDENCIES
   paper_trail
   pg (~> 1.1)
   pg_query
+  pg_search
   pghero
   prosopite
   pry-rails
@@ -786,7 +778,6 @@ DEPENDENCIES
   rubocop-graphql
   rufus-scheduler
   sass-rails (>= 6)
-  searchkick
   selenium-webdriver
   sentry-rails
   sentry-ruby

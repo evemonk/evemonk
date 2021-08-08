@@ -5,11 +5,11 @@ require "rails_helper"
 describe Eve::Character do
   it { should be_an(ApplicationRecord) }
 
+  it { should be_a(PgSearch::Model) }
+
   it { should be_a(ImageProxy) }
 
   it { should respond_to(:versions) }
-
-  it { expect(described_class).to respond_to(:search) }
 
   it { expect(described_class.table_name).to eq("eve_characters") }
 
@@ -29,16 +29,7 @@ describe Eve::Character do
 
   it { should have_db_index(:name) }
 
-  describe "#search_data" do
-    let!(:character) do
-      build(:eve_character,
-        name: "Green Black")
-    end
-
-    specify do
-      expect(character.search_data).to eq(name: "Green Black")
-    end
-  end
+  it { expect(described_class).to respond_to(:search_by_name) }
 
   describe "#icon_tiny" do
     subject do

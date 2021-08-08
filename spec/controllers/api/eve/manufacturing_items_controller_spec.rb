@@ -9,13 +9,13 @@ describe Api::Eve::ManufacturingItemsController do
     context "with supported content type" do
       before do
         #
-        # Eve::ManufacturingItemsSearcher.new(params[:q])
-        #                                .search
-        #                                .page(params[:page])
+        # Eve::SearchManufacturingItemsQuery.new(params[:q])
+        #                                   .query
+        #                                   .page(params[:page])
         #
-        expect(Eve::ManufacturingItemsSearcher).to receive(:new).with("drake") do
+        expect(Eve::SearchManufacturingItemsQuery).to receive(:new).with("drake") do
           double.tap do |a|
-            expect(a).to receive(:search) do
+            expect(a).to receive(:query) do
               double.tap do |b|
                 expect(b).to receive(:page).with("1")
               end

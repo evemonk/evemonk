@@ -4,8 +4,8 @@ module Api
   module Eve
     class ManufacturingItemsController < BaseController
       def index
-        @items = ::Eve::ManufacturingItemsSearcher.new(params[:q])
-          .search
+        @items = ::Eve::SearchManufacturingItemsQuery.new(params[:q])
+          .query
           .page(params[:page])
       end
     end

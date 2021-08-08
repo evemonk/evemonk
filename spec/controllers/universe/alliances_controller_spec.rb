@@ -10,13 +10,13 @@ describe Universe::AlliancesController do
   describe "#index" do
     before do
       #
-      # Eve::AlliancesSearcher.new(params[:q])
-      #                       .search
-      #                       .page(params[:page])
+      # Eve::SearchAlliancesQuery.new(params[:q])
+      #                          .query
+      #                          .page(params[:page])
       #
-      expect(Eve::AlliancesSearcher).to receive(:new).with("alliance") do
+      expect(Eve::SearchAlliancesQuery).to receive(:new).with("alliance") do
         double.tap do |a|
-          expect(a).to receive(:search) do
+          expect(a).to receive(:query) do
             double.tap do |b|
               expect(b).to receive(:page).with("2")
             end

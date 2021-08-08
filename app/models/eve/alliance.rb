@@ -2,12 +2,11 @@
 
 module Eve
   class Alliance < ApplicationRecord
+    include PgSearch::Model
     include ActionView::Helpers::NumberHelper
     include ImageProxy
 
     has_paper_trail
-
-    searchkick
 
     belongs_to :creator_corporation,
       class_name: "Eve::Corporation",
@@ -42,12 +41,7 @@ module Eve
 
     after_create_commit :reset_characters_count
 
-    def search_data
-      {
-        name: name,
-        ticker: ticker
-      }
-    end
+    pg_search_scope :search_by_name_and_ticker, against: [:name, :ticker]
 
     def reset_corporations_count
       update_columns(corporations_count: corporations.count)
