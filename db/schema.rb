@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_08_211424) do
+ActiveRecord::Schema.define(version: 2021_08_08_212452) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -109,6 +109,18 @@ ActiveRecord::Schema.define(version: 2021_08_08_211424) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["character_id"], name: "index_character_orders_on_character_id"
+  end
+
+  create_table "character_scopes", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.bigint "character_id", null: false
+    t.string "access_token"
+    t.string "refresh_token"
+    t.datetime "token_expires_at"
+    t.boolean "token_expires"
+    t.string "token_type"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["character_id"], name: "index_character_scopes_on_character_id"
   end
 
   create_table "character_skills", force: :cascade do |t|
@@ -990,18 +1002,6 @@ ActiveRecord::Schema.define(version: 2021_08_08_211424) do
     t.index ["database", "captured_at"], name: "index_pghero_space_stats_on_database_and_captured_at"
   end
 
-  create_table "scopes", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.bigint "character_id", null: false
-    t.string "access_token"
-    t.string "refresh_token"
-    t.datetime "token_expires_at"
-    t.boolean "token_expires"
-    t.string "token_type"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["character_id"], name: "index_scopes_on_character_id"
-  end
-
   create_table "sessions", id: :serial, force: :cascade do |t|
     t.integer "user_id"
     t.string "token"
@@ -1133,13 +1133,13 @@ ActiveRecord::Schema.define(version: 2021_08_08_211424) do
   add_foreign_key "character_killmails", "characters"
   add_foreign_key "character_mail_labels", "characters"
   add_foreign_key "character_orders", "characters"
+  add_foreign_key "character_scopes", "characters"
   add_foreign_key "character_skills", "characters"
   add_foreign_key "characters", "users"
   add_foreign_key "etags", "characters"
   add_foreign_key "eve_required_items", "eve_loyalty_store_offers"
   add_foreign_key "industry_jobs", "characters"
   add_foreign_key "manufacturing_jobs", "characters"
-  add_foreign_key "scopes", "characters"
   add_foreign_key "sessions", "users"
   add_foreign_key "skillqueues", "characters"
   add_foreign_key "standings", "characters"
