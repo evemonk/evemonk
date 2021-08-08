@@ -79,6 +79,10 @@ RUN set -eux; \
     bundle exec rake SECRET_KEY_BASE=no DATABASE_URL="postgres://postgres@postgresql/evemonk_production?pool=1&encoding=unicode" assets:precompile ; \
     rm -rf node_modules/
 
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
+RUN curl -sL https://sentry.io/get-cli/ | bash
+
 FROM ruby:3.0.2-slim
 
 # skipcq: DOK-DL3008
