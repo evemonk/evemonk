@@ -1,9 +1,7 @@
-class Rpush330Updates < ActiveRecord::Migration[5.0]
-  def self.up
-    add_column :rpush_notifications, :thread_id, :string, null: true
-  end
+# frozen_string_literal: true
 
-  def self.down
-    remove_column :rpush_notifications, :thread_id
+class Rpush330Updates < ActiveRecord::Migration[5.0]
+  def change
+    # pass
   end
 end

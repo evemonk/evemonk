@@ -1,9 +1,7 @@
-class Rpush324Updates < ActiveRecord::Migration[5.0]
-  def self.up
-    change_column :rpush_apps, :apn_key, :text, null: true
-  end
+# frozen_string_literal: true
 
-  def self.down
-    change_column :rpush_apps, :apn_key, :string, null: true
+class Rpush324Updates < ActiveRecord::Migration[5.0]
+  def change
+    # pass
   end
 end

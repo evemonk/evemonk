@@ -1,10 +1,8 @@
-class Rpush420Updates < ActiveRecord::Migration["#{ActiveRecord::VERSION::MAJOR}.#{ActiveRecord::VERSION::MINOR}"]
-  def self.up
-    add_column :rpush_notifications, :sound_is_json, :boolean, null: true, default: false
-  end
+# frozen_string_literal: true
 
-  def self.down
-    remove_column :rpush_notifications, :sound_is_json
+class Rpush420Updates < ActiveRecord::Migration["#{ActiveRecord::VERSION::MAJOR}.#{ActiveRecord::VERSION::MINOR}"]
+  def change
+    # pass
   end
 end
 

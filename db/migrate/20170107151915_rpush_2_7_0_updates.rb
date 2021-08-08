@@ -1,12 +1,7 @@
-class Rpush270Updates < ActiveRecord::Migration[5.0]
-  def self.up
-    change_column :rpush_notifications, :alert, :text
-    add_column :rpush_notifications, :notification, :text
-  end
+# frozen_string_literal: true
 
-  def self.down
-    change_column :rpush_notifications, :alert, :string
-    remove_column :rpush_notifications, :notification
+class Rpush270Updates < ActiveRecord::Migration[5.0]
+  def change
+    # pass
   end
 end
-
