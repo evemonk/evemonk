@@ -10,7 +10,7 @@ FactoryBot.define do
 
     token_expires_at { Time.zone.now + 1.day }
 
-    token_expires { [true, false ].sample }
+    token_expires { [true, false].sample }
 
     # TODO: "Corporation"
     token_type { "Character" }
