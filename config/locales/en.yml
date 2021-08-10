@@ -30,13 +30,6 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  views:
-    pagination:
-      first: "&laquo;"
-      last: "&raquo;"
-      previous: "&lsaquo;"
-      next: "&rsaquo;"
-      truncate: "&hellip;"
   human_time:
     days:
       one: "%{count} day "
