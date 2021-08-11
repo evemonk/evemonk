@@ -10,8 +10,9 @@ namespace :evemonk do
       Rails.logger.info "Import icons from SDE"
       Sde::IconsJob.perform_later("static/sde/fsd/iconIDs.yaml")
 
-      Rails.logger.info "Import units from SDE"
-      Sde::UnitsJob.perform_later("static/sde/bsd/eveUnits.yaml")
+      # NOTE: Removed in 2021-02-12 release of SDE
+      # Rails.logger.info "Import units from SDE"
+      # Sde::UnitsJob.perform_later("static/sde/bsd/eveUnits.yaml")
 
       Rails.logger.info "Import agents from SDE"
       Sde::AgentsJob.perform_later("static/sde/fsd/agents.yaml")
@@ -21,6 +22,10 @@ namespace :evemonk do
 
       Rails.logger.info "Import base price for eve types from SDE"
       Sde::BasePricesJob.perform_later("static/sde/fsd/typeIDs.yaml")
+
+      # TODO: finish
+      # Rails.logger.info "Import list of blueprints from SDE"
+      # Sde::BlueprintsListJob.perform_later("static/sde/fsd/blueprints.yaml")
 
       Rails.logger.info "Import blueprints from SDE"
       Sde::BlueprintsJob.perform_later("static/sde/fsd/blueprints.yaml")
@@ -209,6 +214,42 @@ namespace :evemonk do
     # character_corporation_history.rb
     # corporation.rb
     # corporation_alliance_history.rb
+
+    # 1 + new alliances calls to esi
+    Rails.logger.info "Import new eve alliances"
+    Eve::UpdateAlliancesJob.perform_later
+
+    # Around 3k calls to esi
+    Rails.logger.info "Update eve alliances"
+    Eve::LocalAlliancesJob.perform_later
+
+    # Around 3k calls to esi
+    Rails.logger.info "Update eve alliances corporations"
+    Eve::UpdateAlliancesCorporationsJob.perform_later
+
+    # number of new corporations calls to esi
+    Rails.logger.info "Import new eve corporations"
+    Eve::UpdateCorporationsJob.perform_later
+
+    # Around 788k calls to esi
+    Rails.logger.info "Update eve corporations"
+    Eve::LocalCorporationsJob.perform_later
+
+    # Around 788k calls to esi
+    Rails.logger.info "Update eve corporations alliance history"
+    Eve::UpdateCorporationsAllianceHistoryJob.perform_later
+
+    # number of new characters calls to esi
+    Rails.logger.info "Import new eve characters"
+    Eve::UpdateCharactersJob.perform_later
+
+    # Around 700k calls to esi
+    Rails.logger.info "Update eve characters"
+    Eve::LocalCharactersJob.perform_later
+
+    # Around 700k calls to esi
+    Rails.logger.info "Update eve characters corporation history"
+    Eve::UpdateCharactersCorporationHistoryJob.perform_later
 
     # 1 call to esi
     Rails.logger.info "Update NPC Corporations"
