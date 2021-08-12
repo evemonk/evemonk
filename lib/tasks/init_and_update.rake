@@ -208,13 +208,6 @@ namespace :evemonk do
     Rails.logger.info "Update eve moons"
     Eve::LocalMoonsJob.perform_later
 
-    # alliance.rb
-    # alliance_corporation.rb
-    # character.rb
-    # character_corporation_history.rb
-    # corporation.rb
-    # corporation_alliance_history.rb
-
     # 1 + new alliances calls to esi
     Rails.logger.info "Import new eve alliances"
     Eve::UpdateAlliancesJob.perform_later
