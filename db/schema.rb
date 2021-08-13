@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_01_144331) do
+ActiveRecord::Schema.define(version: 2021_08_08_220021) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -109,6 +109,22 @@ ActiveRecord::Schema.define(version: 2021_07_01_144331) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["character_id"], name: "index_character_orders_on_character_id"
+  end
+
+  create_table "character_scopes", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.bigint "character_id", null: false
+    t.string "access_token"
+    t.string "refresh_token"
+    t.datetime "token_expires_at"
+    t.boolean "token_expires"
+    t.string "token_type"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "scope", null: false
+    t.boolean "esi_token_valid", default: true
+    t.datetime "esi_token_invalid_at"
+    t.text "esi_last_error"
+    t.index ["character_id"], name: "index_character_scopes_on_character_id"
   end
 
   create_table "character_skills", force: :cascade do |t|
@@ -1121,6 +1137,7 @@ ActiveRecord::Schema.define(version: 2021_07_01_144331) do
   add_foreign_key "character_killmails", "characters"
   add_foreign_key "character_mail_labels", "characters"
   add_foreign_key "character_orders", "characters"
+  add_foreign_key "character_scopes", "characters"
   add_foreign_key "character_skills", "characters"
   add_foreign_key "characters", "users"
   add_foreign_key "etags", "characters"
