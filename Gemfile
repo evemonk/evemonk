@@ -106,7 +106,6 @@ group :development do
   gem "listen", "~> 3.6"
   gem "spring"
   gem "spring-watcher-listen", "~> 2.0.0"
-  gem "spring-commands-rspec", require: false
   gem "consistency_fail", require: false
   gem "active_record_doctor"
   gem "cacheflow"

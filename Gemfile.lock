@@ -590,8 +590,6 @@ GEM
       active_attr (>= 0.10.2)
       anyway_config (>= 1.0)
     spring (2.1.1)
-    spring-commands-rspec (1.0.4)
-      spring (>= 0.9.1)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
       spring (>= 1.2, < 3.0)
@@ -774,7 +772,6 @@ DEPENDENCIES
   simplecov
   sitemap_generator
   spring
-  spring-commands-rspec
   spring-watcher-listen (~> 2.0.0)
   sql_tracker
   squasher
