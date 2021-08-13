@@ -589,16 +589,6 @@ GEM
     sniffer (0.4.0)
       active_attr (>= 0.10.2)
       anyway_config (>= 1.0)
-    spring (2.1.1)
-    spring-commands-rspec (1.0.4)
-      spring (>= 0.9.1)
-    spring-commands-rubocop (0.2.0)
-      spring (>= 1.0, < 3.0)
-    spring-commands-standard (0.0.1)
-      spring (>= 1.0, < 3.0)
-    spring-watcher-listen (2.0.1)
-      listen (>= 2.7, < 4.0)
-      spring (>= 1.2, < 3.0)
     sprockets (4.0.2)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
@@ -777,11 +767,6 @@ DEPENDENCIES
   sidekiq
   simplecov
   sitemap_generator
-  spring
-  spring-commands-rspec
-  spring-commands-rubocop
-  spring-commands-standard
-  spring-watcher-listen (~> 2.0.0)
   sql_tracker
   squasher
   standard
