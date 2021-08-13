@@ -62,6 +62,8 @@ class Character < ApplicationRecord
   #  foreign_key: "current_structure_id",
   #  optional: true
 
+  has_many :character_scopes, dependent: :destroy
+
   has_many :etags, dependent: :destroy
 
   has_many :loyalty_points, dependent: :destroy
@@ -158,10 +160,6 @@ class Character < ApplicationRecord
 
   def character_skills_levels
     @character_skills_levels ||= CharacterSkillsLevels.new(self)
-  end
-
-  def token_expired?
-    token_expires_at <= Time.zone.now
   end
 
   # TODO: write

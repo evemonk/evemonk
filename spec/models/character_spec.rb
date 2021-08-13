@@ -29,6 +29,8 @@ describe Character do
 
   it { should belong_to(:current_station).class_name("Eve::Station").with_primary_key("station_id").with_foreign_key("current_station_id").optional(true) }
 
+  it { should have_many(:character_scopes).dependent(:destroy) }
+
   it { should have_many(:etags).dependent(:destroy) }
 
   it { should have_many(:loyalty_points).dependent(:destroy) }
@@ -333,20 +335,6 @@ describe Character do
       specify { expect(subject.character_attributes).to eq(character_attributes) }
 
       specify { expect { subject.character_attributes }.to change { subject.instance_variable_get(:@character_attributes) }.from(nil).to(character_attributes) }
-    end
-  end
-
-  describe "#token_expired?" do
-    context "when expired" do
-      subject { build(:character, token_expires_at: Time.zone.now - 1.hour) }
-
-      specify { expect(subject.token_expired?).to eq(true) }
-    end
-
-    context "when not expired" do
-      subject { build(:character, token_expires_at: Time.zone.now + 1.hour) }
-
-      specify { expect(subject.token_expired?).to eq(false) }
     end
   end
 
