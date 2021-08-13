@@ -14,11 +14,11 @@ describe Api::EndAllUserSessions do
   describe "#execute" do
     let!(:user) { create(:user) }
 
-    let!(:session1) { create(:session, user: user) }
+    let!(:session_1) { create(:session, user: user) }
 
-    let!(:session2) { create(:session, user: user) }
+    let!(:session_2) { create(:session, user: user) }
 
-    let!(:session3) { create(:session, user: user) }
+    let!(:session_3) { create(:session, user: user) }
 
     subject { described_class.new(user) }
 
