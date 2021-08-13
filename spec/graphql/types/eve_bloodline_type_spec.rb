@@ -4,49 +4,49 @@ require "rails_helper"
 
 describe Types::EveBloodlineType do
   describe "get bloodlines" do
-    let!(:eve_corporation1) do
+    let!(:eve_corporation_1) do
       create(:eve_corporation,
         corporation_id: 500)
     end
 
-    let!(:eve_corporation2) do
+    let!(:eve_corporation_2) do
       create(:eve_corporation,
         corporation_id: 600)
     end
 
-    let!(:eve_race1) do
+    let!(:eve_race_1) do
       create(:eve_race,
         race_id: 4)
     end
 
-    let!(:eve_race2) do
+    let!(:eve_race_2) do
       create(:eve_race,
         race_id: 8)
     end
 
-    let!(:eve_ship_type1) do
+    let!(:eve_ship_type_1) do
       create(:eve_ship,
         type_id: 1_001)
     end
 
-    let!(:eve_ship_type2) do
+    let!(:eve_ship_type_2) do
       create(:eve_ship,
         type_id: 1_002)
     end
 
-    let!(:eve_ancestry1) do
+    let!(:eve_ancestry_1) do
       create(:eve_ancestry,
         ancestry_id: 10_001,
-        bloodline: eve_bloodline1)
+        bloodline: eve_bloodline_1)
     end
 
-    let!(:eve_ancestry2) do
+    let!(:eve_ancestry_2) do
       create(:eve_ancestry,
         ancestry_id: 10_002,
-        bloodline: eve_bloodline2)
+        bloodline: eve_bloodline_2)
     end
 
-    let!(:eve_bloodline1) do
+    let!(:eve_bloodline_1) do
       create(:eve_bloodline,
         bloodline_id: 123,
         name_en: "EN: name 1",
@@ -61,9 +61,9 @@ describe Types::EveBloodlineType do
         description_ja: "JA: description 1",
         description_ru: "RU: description 1",
         description_ko: "KO: description 1",
-        corporation: eve_corporation1,
-        race: eve_race1,
-        ship_type: eve_ship_type1,
+        corporation: eve_corporation_1,
+        race: eve_race_1,
+        ship_type: eve_ship_type_1,
         charisma: 1,
         intelligence: 2,
         memory: 3,
@@ -71,7 +71,7 @@ describe Types::EveBloodlineType do
         willpower: 5)
     end
 
-    let!(:eve_bloodline2) do
+    let!(:eve_bloodline_2) do
       create(:eve_bloodline,
         bloodline_id: 321,
         name_en: "EN: name 2",
@@ -86,9 +86,9 @@ describe Types::EveBloodlineType do
         description_ja: "JA: description 2",
         description_ru: "RU: description 2",
         description_ko: "KO: description 2",
-        corporation: eve_corporation2,
-        race: eve_race2,
-        ship_type: eve_ship_type2,
+        corporation: eve_corporation_2,
+        race: eve_race_2,
+        ship_type: eve_ship_type_2,
         charisma: 6,
         intelligence: 7,
         memory: 8,
