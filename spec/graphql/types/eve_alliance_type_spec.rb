@@ -8,97 +8,97 @@ describe Types::EveAllianceType do
 
     after { travel_back }
 
-    let(:date_founded1) { Time.zone.now }
+    let(:date_founded_1) { Time.zone.now }
 
-    let(:date_founded2) { Time.zone.now - 1.week }
+    let(:date_founded_2) { Time.zone.now - 1.week }
 
-    let!(:creator_corporation1) do
+    let!(:creator_corporation_1) do
       create(:eve_corporation,
         corporation_id: 222)
     end
 
-    let!(:creator_corporation2) do
+    let!(:creator_corporation_2) do
       create(:eve_corporation,
         corporation_id: 333)
     end
 
-    let!(:executor_corporation1) do
+    let!(:executor_corporation_1) do
       create(:eve_corporation,
         corporation_id: 444)
     end
 
-    let!(:executor_corporation2) do
+    let!(:executor_corporation_2) do
       create(:eve_corporation,
         corporation_id: 555)
     end
 
-    let!(:creator1) do
+    let!(:creator_1) do
       create(:eve_character,
         character_id: 4_444)
     end
 
-    let!(:creator2) do
+    let!(:creator_2) do
       create(:eve_character,
         character_id: 5_555)
     end
 
-    let!(:eve_faction1) do
+    let!(:eve_faction_1) do
       create(:eve_faction,
         faction_id: 10_111)
     end
 
-    let!(:eve_faction2) do
+    let!(:eve_faction_2) do
       create(:eve_faction,
         faction_id: 10_222)
     end
 
-    let!(:eve_alliance1) do
+    let!(:eve_alliance_1) do
       create(:eve_alliance,
         alliance_id: 123,
         name: "Alliance 1",
         ticker: "ALLIANCE1",
-        date_founded: date_founded1,
-        creator_corporation: creator_corporation1,
-        creator: creator1,
-        executor_corporation: executor_corporation1,
-        faction: eve_faction1)
+        date_founded: date_founded_1,
+        creator_corporation: creator_corporation_1,
+        creator: creator_1,
+        executor_corporation: executor_corporation_1,
+        faction: eve_faction_1)
     end
 
-    let!(:eve_alliance2) do
+    let!(:eve_alliance_2) do
       create(:eve_alliance,
         alliance_id: 321,
         name: "Alliance 2",
         ticker: "ALLIANCE2",
-        date_founded: date_founded2,
-        creator_corporation: creator_corporation2,
-        creator: creator2,
-        executor_corporation: executor_corporation2,
-        faction: eve_faction2)
+        date_founded: date_founded_2,
+        creator_corporation: creator_corporation_2,
+        creator: creator_2,
+        executor_corporation: executor_corporation_2,
+        faction: eve_faction_2)
     end
 
-    let!(:eve_corporation1) do
+    let!(:eve_corporation_1) do
       create(:eve_corporation,
         corporation_id: 100_111,
-        alliance: eve_alliance1,
+        alliance: eve_alliance_1,
         member_count: 1)
     end
 
-    let!(:eve_corporation2) do
+    let!(:eve_corporation_2) do
       create(:eve_corporation,
         corporation_id: 100_222,
-        alliance: eve_alliance2,
+        alliance: eve_alliance_2,
         member_count: 1)
     end
 
-    let!(:eve_character1) do
+    let!(:eve_character_1) do
       create(:eve_character,
-        corporation: eve_corporation1,
+        corporation: eve_corporation_1,
         character_id: 111_111)
     end
 
-    let!(:eve_character2) do
+    let!(:eve_character_2) do
       create(:eve_character,
-        corporation: eve_corporation2,
+        corporation: eve_corporation_2,
         character_id: 111_222)
     end
 
@@ -183,7 +183,7 @@ describe Types::EveAllianceType do
                 "id" => "123",
                 "name" => "Alliance 1",
                 "ticker" => "ALLIANCE1",
-                "dateFounded" => date_founded1.iso8601,
+                "dateFounded" => date_founded_1.iso8601,
                 "creatorCorporationId" => 222,
                 "creatorCorporation" => {
                   "id" => "222"
@@ -242,7 +242,7 @@ describe Types::EveAllianceType do
                 "id" => "321",
                 "name" => "Alliance 2",
                 "ticker" => "ALLIANCE2",
-                "dateFounded" => date_founded2.iso8601,
+                "dateFounded" => date_founded_2.iso8601,
                 "creatorCorporationId" => 333,
                 "creatorCorporation" => {
                   "id" => "333"
