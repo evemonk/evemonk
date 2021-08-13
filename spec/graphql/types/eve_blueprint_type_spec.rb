@@ -4,13 +4,13 @@ require "rails_helper"
 
 describe Types::EveBlueprintType do
   describe "get blueprints" do
-    let!(:eve_blueprint1) do
+    let!(:eve_blueprint_1) do
       create(:eve_type,
         type_id: 4_001,
         is_blueprint: true)
     end
 
-    let!(:eve_blueprint2) do
+    let!(:eve_blueprint_2) do
       create(:eve_type,
         type_id: 5_001,
         is_blueprint: true)
