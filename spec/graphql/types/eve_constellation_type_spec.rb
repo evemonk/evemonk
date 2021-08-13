@@ -4,29 +4,29 @@ require "rails_helper"
 
 describe Types::EveConstellationType do
   describe "get constellations" do
-    let!(:eve_region1) do
+    let!(:eve_region_1) do
       create(:eve_region,
         region_id: 400)
     end
 
-    let!(:eve_region2) do
+    let!(:eve_region_2) do
       create(:eve_region,
         region_id: 500)
     end
 
-    let!(:eve_system1) do
+    let!(:eve_system_1) do
       create(:eve_system,
         system_id: 600,
-        constellation: eve_constellation1)
+        constellation: eve_constellation_1)
     end
 
-    let!(:eve_system2) do
+    let!(:eve_system_2) do
       create(:eve_system,
         system_id: 700,
-        constellation: eve_constellation2)
+        constellation: eve_constellation_2)
     end
 
-    let!(:eve_constellation1) do
+    let!(:eve_constellation_1) do
       create(:eve_constellation,
         constellation_id: 123,
         name_en: "EN: name 1",
@@ -35,10 +35,10 @@ describe Types::EveConstellationType do
         name_ja: "JA: name 1",
         name_ru: "RU: name 1",
         name_ko: "KO: name 1",
-        region: eve_region1)
+        region: eve_region_1)
     end
 
-    let!(:eve_constellation2) do
+    let!(:eve_constellation_2) do
       create(:eve_constellation,
         constellation_id: 321,
         name_en: "EN: name 2",
@@ -47,7 +47,7 @@ describe Types::EveConstellationType do
         name_ja: "JA: name 2",
         name_ru: "RU: name 2",
         name_ko: "KO: name 2",
-        region: eve_region2)
+        region: eve_region_2)
     end
 
     let(:query) do
