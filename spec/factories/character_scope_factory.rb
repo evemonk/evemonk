@@ -4,6 +4,8 @@ FactoryBot.define do
   factory :character_scope do
     character
 
+    scope { "publicData" }
+
     access_token { Faker::Internet.device_token }
 
     refresh_token { Faker::Internet.device_token }
