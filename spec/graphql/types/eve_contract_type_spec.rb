@@ -4,12 +4,12 @@ require "rails_helper"
 
 describe Types::EveContractType do
   describe "get contracts" do
-    let!(:eve_contract1) do
+    let!(:eve_contract_1) do
       create(:eve_contract,
         contract_id: 123)
     end
 
-    let!(:eve_contract2) do
+    let!(:eve_contract_2) do
       create(:eve_contract,
         contract_id: 321)
     end
