@@ -118,3 +118,7 @@ Layout/LineEndStringConcatenationIndentation:
 
 Style/GuardClause:
   Enabled: false
+
+Naming/VariableNumber:
+  Enabled: true
+  EnforcedStyle: snake_case
