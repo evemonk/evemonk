@@ -13,35 +13,35 @@ describe Eve::ImplantBonuses do
     ])
   end
 
-  let!(:eve_dogma_attribute1) do
+  let!(:eve_dogma_attribute_1) do
     create(:eve_dogma_attribute,
       name: "perceptionBonus",
       display_name: "Perception Modifier",
       attribute_id: 101)
   end
 
-  let!(:eve_dogma_attribute2) do
+  let!(:eve_dogma_attribute_2) do
     create(:eve_dogma_attribute,
       name: "memoryBonus",
       display_name: "Memory Modifier",
       attribute_id: 102)
   end
 
-  let!(:eve_dogma_attribute3) do
+  let!(:eve_dogma_attribute_3) do
     create(:eve_dogma_attribute,
       name: "willpowerBonus",
       display_name: "Willpower Modifier",
       attribute_id: 103)
   end
 
-  let!(:eve_dogma_attribute4) do
+  let!(:eve_dogma_attribute_4) do
     create(:eve_dogma_attribute,
       name: "intelligenceBonus",
       display_name: "Intelligence Modifier",
       attribute_id: 104)
   end
 
-  let!(:eve_dogma_attribute5) do
+  let!(:eve_dogma_attribute_5) do
     create(:eve_dogma_attribute,
       name: "charismaBonus",
       display_name: "Charisma Modifier",
@@ -50,38 +50,38 @@ describe Eve::ImplantBonuses do
 
   let!(:implant) { create(:eve_type) }
 
-  let!(:type_dogma_attribute1) do
+  let!(:type_dogma_attribute_1) do
     create(:eve_type_dogma_attribute,
       type: implant,
-      attribute_id: eve_dogma_attribute1.attribute_id,
+      attribute_id: eve_dogma_attribute_1.attribute_id,
       value: 3.0)
   end
 
-  let!(:type_dogma_attribute2) do
+  let!(:type_dogma_attribute_2) do
     create(:eve_type_dogma_attribute,
       type: implant,
-      attribute_id: eve_dogma_attribute2.attribute_id,
+      attribute_id: eve_dogma_attribute_2.attribute_id,
       value: 3.0)
   end
 
-  let!(:type_dogma_attribute3) do
+  let!(:type_dogma_attribute_3) do
     create(:eve_type_dogma_attribute,
       type: implant,
-      attribute_id: eve_dogma_attribute3.attribute_id,
+      attribute_id: eve_dogma_attribute_3.attribute_id,
       value: 3.0)
   end
 
-  let!(:type_dogma_attribute4) do
+  let!(:type_dogma_attribute_4) do
     create(:eve_type_dogma_attribute,
       type: implant,
-      attribute_id: eve_dogma_attribute4.attribute_id,
+      attribute_id: eve_dogma_attribute_4.attribute_id,
       value: 3.0)
   end
 
-  let!(:type_dogma_attribute5) do
+  let!(:type_dogma_attribute_5) do
     create(:eve_type_dogma_attribute,
       type: implant,
-      attribute_id: eve_dogma_attribute5.attribute_id,
+      attribute_id: eve_dogma_attribute_5.attribute_id,
       value: 3.0)
   end
 
