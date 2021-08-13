@@ -7,7 +7,6 @@ AllCops:
   SuggestExtensions: false
   Exclude:
     - "bin/*"
-    - "config/spring.rb"
     - "db/schema.rb"
     - "node_modules/**/*"
     - "vendor/**/*"

@@ -1,4 +1,3 @@
 ignore:
   - "bin/*"
-  - "config/spring.rb"
   - "db/schema.rb"
