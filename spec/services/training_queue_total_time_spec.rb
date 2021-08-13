@@ -21,14 +21,14 @@ describe TrainingQueueTotalTime do
     let!(:character) { create(:character) }
 
     context "when start_date in future" do
-      let!(:skillqueue1) do
+      let!(:skillqueue_1) do
         create(:skillqueue,
           character: character,
           start_date: Time.zone.now,
           finish_date: Time.zone.now + 1.hour)
       end
 
-      let!(:skillqueue2) do
+      let!(:skillqueue_2) do
         create(:skillqueue,
           character: character,
           start_date: Time.zone.now + 1.hour,
@@ -41,14 +41,14 @@ describe TrainingQueueTotalTime do
     end
 
     context "when start_date in past" do
-      let!(:skillqueue1) do
+      let!(:skillqueue_1) do
         create(:skillqueue,
           character: character,
           start_date: Time.zone.now - 2.hours,
           finish_date: Time.zone.now + 1.hour)
       end
 
-      let!(:skillqueue2) do
+      let!(:skillqueue_2) do
         create(:skillqueue,
           character: character,
           start_date: Time.zone.now + 1.hour,
