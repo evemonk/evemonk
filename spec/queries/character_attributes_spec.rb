@@ -3,15 +3,15 @@
 require "rails_helper"
 
 describe CharacterAttributes do
-  let!(:implant1) { create(:eve_type, published: true) }
+  let!(:implant_1) { create(:eve_type, published: true) }
 
-  let!(:implant2) { create(:eve_type, published: true) }
+  let!(:implant_2) { create(:eve_type, published: true) }
 
-  let!(:implant3) { create(:eve_type, published: true) }
+  let!(:implant_3) { create(:eve_type, published: true) }
 
-  let!(:implant4) { create(:eve_type, published: true) }
+  let!(:implant_4) { create(:eve_type, published: true) }
 
-  let!(:implant5) { create(:eve_type, published: true) }
+  let!(:implant_5) { create(:eve_type, published: true) }
 
   let!(:character) do
     create(:character,
@@ -22,93 +22,93 @@ describe CharacterAttributes do
       charisma: 24)
   end
 
-  let!(:character_implant1) do
+  let!(:character_implant_1) do
     create(:character_implant,
       character: character,
-      type_id: implant1.type_id)
+      type_id: implant_1.type_id)
   end
 
-  let!(:character_implant2) do
+  let!(:character_implant_2) do
     create(:character_implant,
       character: character,
-      type_id: implant2.type_id)
+      type_id: implant_2.type_id)
   end
 
-  let!(:character_implant3) do
+  let!(:character_implant_3) do
     create(:character_implant,
       character: character,
-      type_id: implant3.type_id)
+      type_id: implant_3.type_id)
   end
 
-  let!(:character_implant4) do
+  let!(:character_implant_4) do
     create(:character_implant,
       character: character,
-      type_id: implant4.type_id)
+      type_id: implant_4.type_id)
   end
 
-  let!(:character_implant5) do
+  let!(:character_implant_5) do
     create(:character_implant,
       character: character,
-      type_id: implant5.type_id)
+      type_id: implant_5.type_id)
   end
 
-  let!(:eve_dogma_attribute1) do
+  let!(:eve_dogma_attribute_1) do
     create(:eve_dogma_attribute,
       name: "perceptionBonus")
   end
 
-  let!(:eve_dogma_attribute2) do
+  let!(:eve_dogma_attribute_2) do
     create(:eve_dogma_attribute,
       name: "memoryBonus")
   end
 
-  let!(:eve_dogma_attribute3) do
+  let!(:eve_dogma_attribute_3) do
     create(:eve_dogma_attribute,
       name: "willpowerBonus")
   end
 
-  let!(:eve_dogma_attribute4) do
+  let!(:eve_dogma_attribute_4) do
     create(:eve_dogma_attribute,
       name: "intelligenceBonus")
   end
 
-  let!(:eve_dogma_attribute5) do
+  let!(:eve_dogma_attribute_5) do
     create(:eve_dogma_attribute,
       name: "charismaBonus")
   end
 
-  let!(:eve_type_dogma_attribute1) do
+  let!(:eve_type_dogma_attribute_1) do
     create(:eve_type_dogma_attribute,
-      type: implant1,
-      attribute_id: eve_dogma_attribute1.attribute_id,
+      type: implant_1,
+      attribute_id: eve_dogma_attribute_1.attribute_id,
       value: 3.0)
   end
 
-  let!(:eve_type_dogma_attribute2) do
+  let!(:eve_type_dogma_attribute_2) do
     create(:eve_type_dogma_attribute,
-      type: implant2,
-      attribute_id: eve_dogma_attribute2.attribute_id,
+      type: implant_2,
+      attribute_id: eve_dogma_attribute_2.attribute_id,
       value: 3.0)
   end
 
-  let!(:eve_type_dogma_attribute3) do
+  let!(:eve_type_dogma_attribute_3) do
     create(:eve_type_dogma_attribute,
-      type: implant3,
-      attribute_id: eve_dogma_attribute3.attribute_id,
+      type: implant_3,
+      attribute_id: eve_dogma_attribute_3.attribute_id,
       value: 3.0)
   end
 
-  let!(:eve_type_dogma_attribute4) do
+  let!(:eve_type_dogma_attribute_4) do
     create(:eve_type_dogma_attribute,
-      type: implant4,
-      attribute_id: eve_dogma_attribute4.attribute_id,
+      type: implant_4,
+      attribute_id: eve_dogma_attribute_4.attribute_id,
       value: 3.0)
   end
 
-  let!(:eve_type_dogma_attribute5) do
+  let!(:eve_type_dogma_attribute_5) do
     create(:eve_type_dogma_attribute,
-      type: implant5,
-      attribute_id: eve_dogma_attribute5.attribute_id,
+      type: implant_5,
+      attribute_id: eve_dogma_attribute_5.attribute_id,
       value: 3.0)
   end
 
