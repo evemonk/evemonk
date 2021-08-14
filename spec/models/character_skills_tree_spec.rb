@@ -86,17 +86,17 @@ describe CharacterSkillsTree do
   end
 
   describe "#skills_count_in_group" do
-    let(:skill_type1) { instance_double(Eve::Type, group_id: 1) }
+    let(:skill_type_1) { instance_double(Eve::Type, group_id: 1) }
 
-    let(:skill_type2) { instance_double(Eve::Type, group_id: 1) }
+    let(:skill_type_2) { instance_double(Eve::Type, group_id: 1) }
 
-    let(:skill_type3) { instance_double(Eve::Type, group_id: 2) }
+    let(:skill_type_3) { instance_double(Eve::Type, group_id: 2) }
 
-    let(:skill_type4) { instance_double(Eve::Type, group_id: 2) }
+    let(:skill_type_4) { instance_double(Eve::Type, group_id: 2) }
 
-    let(:skill_type5) { instance_double(Eve::Type, group_id: 2) }
+    let(:skill_type_5) { instance_double(Eve::Type, group_id: 2) }
 
-    let(:skills_types) { [skill_type1, skill_type2, skill_type3, skill_type4, skill_type5] }
+    let(:skills_types) { [skill_type_1, skill_type_2, skill_type_3, skill_type_4, skill_type_5] }
 
     before { expect(subject).to receive(:skills_types).and_return(skills_types) }
 
@@ -108,31 +108,31 @@ describe CharacterSkillsTree do
   end
 
   describe "#levels_trained_in_group" do
-    let(:skill_type1) { instance_double(Eve::Type, type_id: 123, group_id: 1) }
+    let(:skill_type_1) { instance_double(Eve::Type, type_id: 123, group_id: 1) }
 
-    let(:skill_type2) { instance_double(Eve::Type, type_id: 124, group_id: 1) }
+    let(:skill_type_2) { instance_double(Eve::Type, type_id: 124, group_id: 1) }
 
-    let(:skill_type3) { instance_double(Eve::Type, type_id: 125, group_id: 2) }
+    let(:skill_type_3) { instance_double(Eve::Type, type_id: 125, group_id: 2) }
 
-    let(:skill_type4) { instance_double(Eve::Type, type_id: 126, group_id: 2) }
+    let(:skill_type_4) { instance_double(Eve::Type, type_id: 126, group_id: 2) }
 
-    let(:skill_type5) { instance_double(Eve::Type, type_id: 127, group_id: 2) }
+    let(:skill_type_5) { instance_double(Eve::Type, type_id: 127, group_id: 2) }
 
-    let(:skills_types) { [skill_type1, skill_type2, skill_type3, skill_type4, skill_type5] }
+    let(:skills_types) { [skill_type_1, skill_type_2, skill_type_3, skill_type_4, skill_type_5] }
 
     before { expect(subject).to receive(:skills_types).and_return(skills_types) }
 
-    let(:character_skill1) { instance_double(CharacterSkill, skill_id: 123, trained_skill_level: 5) }
+    let(:character_skill_1) { instance_double(CharacterSkill, skill_id: 123, trained_skill_level: 5) }
 
-    let(:character_skill2) { instance_double(CharacterSkill, skill_id: 124, trained_skill_level: 0) }
+    let(:character_skill_2) { instance_double(CharacterSkill, skill_id: 124, trained_skill_level: 0) }
 
-    let(:character_skill3) { instance_double(CharacterSkill, skill_id: 125, trained_skill_level: 4) }
+    let(:character_skill_3) { instance_double(CharacterSkill, skill_id: 125, trained_skill_level: 4) }
 
-    let(:character_skill4) { instance_double(CharacterSkill, skill_id: 126, trained_skill_level: 3) }
+    let(:character_skill_4) { instance_double(CharacterSkill, skill_id: 126, trained_skill_level: 3) }
 
-    let(:character_skill5) { instance_double(CharacterSkill, skill_id: 127, trained_skill_level: 2) }
+    let(:character_skill_5) { instance_double(CharacterSkill, skill_id: 127, trained_skill_level: 2) }
 
-    let(:character_skills) { [character_skill1, character_skill2, character_skill3, character_skill4, character_skill5] }
+    let(:character_skills) { [character_skill_1, character_skill_2, character_skill_3, character_skill_4, character_skill_5] }
 
     before { expect(subject).to receive(:character_skills).and_return(character_skills) }
 
@@ -144,17 +144,17 @@ describe CharacterSkillsTree do
   end
 
   describe "#total_levels_in_group" do
-    let(:skill_type1) { instance_double(Eve::Type, group_id: 1) }
+    let(:skill_type_1) { instance_double(Eve::Type, group_id: 1) }
 
-    let(:skill_type2) { instance_double(Eve::Type, group_id: 1) }
+    let(:skill_type_2) { instance_double(Eve::Type, group_id: 1) }
 
-    let(:skill_type3) { instance_double(Eve::Type, group_id: 2) }
+    let(:skill_type_3) { instance_double(Eve::Type, group_id: 2) }
 
-    let(:skill_type4) { instance_double(Eve::Type, group_id: 2) }
+    let(:skill_type_4) { instance_double(Eve::Type, group_id: 2) }
 
-    let(:skill_type5) { instance_double(Eve::Type, group_id: 2) }
+    let(:skill_type_5) { instance_double(Eve::Type, group_id: 2) }
 
-    let(:skills_types) { [skill_type1, skill_type2, skill_type3, skill_type4, skill_type5] }
+    let(:skills_types) { [skill_type_1, skill_type_2, skill_type_3, skill_type_4, skill_type_5] }
 
     before { expect(subject).to receive(:skills_types).and_return(skills_types) }
 
@@ -166,31 +166,31 @@ describe CharacterSkillsTree do
   end
 
   describe "#levels_in_training_queue" do
-    let(:skill_type1) { instance_double(Eve::Type, type_id: 123, group_id: 1) }
+    let(:skill_type_1) { instance_double(Eve::Type, type_id: 123, group_id: 1) }
 
-    let(:skill_type2) { instance_double(Eve::Type, type_id: 124, group_id: 1) }
+    let(:skill_type_2) { instance_double(Eve::Type, type_id: 124, group_id: 1) }
 
-    let(:skill_type3) { instance_double(Eve::Type, type_id: 125, group_id: 2) }
+    let(:skill_type_3) { instance_double(Eve::Type, type_id: 125, group_id: 2) }
 
-    let(:skill_type4) { instance_double(Eve::Type, type_id: 126, group_id: 2) }
+    let(:skill_type_4) { instance_double(Eve::Type, type_id: 126, group_id: 2) }
 
-    let(:skill_type5) { instance_double(Eve::Type, type_id: 127, group_id: 2) }
+    let(:skill_type_5) { instance_double(Eve::Type, type_id: 127, group_id: 2) }
 
-    let(:skills_types) { [skill_type1, skill_type2, skill_type3, skill_type4, skill_type5] }
+    let(:skills_types) { [skill_type_1, skill_type_2, skill_type_3, skill_type_4, skill_type_5] }
 
     before { expect(subject).to receive(:skills_types).and_return(skills_types) }
 
-    let(:skillqueue1) { instance_double(Skillqueue, skill_id: 123, finished_level: 1) }
+    let(:skillqueue_1) { instance_double(Skillqueue, skill_id: 123, finished_level: 1) }
 
-    let(:skillqueue2) { instance_double(Skillqueue, skill_id: 123, finished_level: 2) }
+    let(:skillqueue_2) { instance_double(Skillqueue, skill_id: 123, finished_level: 2) }
 
-    let(:skillqueue3) { instance_double(Skillqueue, skill_id: 123, finished_level: 3) }
+    let(:skillqueue_3) { instance_double(Skillqueue, skill_id: 123, finished_level: 3) }
 
-    let(:skillqueue4) { instance_double(Skillqueue, skill_id: 123, finished_level: 4) }
+    let(:skillqueue_4) { instance_double(Skillqueue, skill_id: 123, finished_level: 4) }
 
-    let(:skillqueue5) { instance_double(Skillqueue, skill_id: 123, finished_level: 5) }
+    let(:skillqueue_5) { instance_double(Skillqueue, skill_id: 123, finished_level: 5) }
 
-    let(:character_skillqueues) { [skillqueue1, skillqueue2, skillqueue3, skillqueue4, skillqueue5] }
+    let(:character_skillqueues) { [skillqueue_1, skillqueue_2, skillqueue_3, skillqueue_4, skillqueue_5] }
 
     before { expect(subject).to receive(:character_skillqueues).and_return(character_skillqueues) }
 
@@ -202,27 +202,27 @@ describe CharacterSkillsTree do
   end
 
   describe "#current_skill_points_in_group" do
-    let(:skill_type1) { instance_double(Eve::Type, type_id: 123, group_id: 1) }
+    let(:skill_type_1) { instance_double(Eve::Type, type_id: 123, group_id: 1) }
 
-    let(:skill_type2) { instance_double(Eve::Type, type_id: 124, group_id: 1) }
+    let(:skill_type_2) { instance_double(Eve::Type, type_id: 124, group_id: 1) }
 
-    let(:skill_type3) { instance_double(Eve::Type, type_id: 125, group_id: 2) }
+    let(:skill_type_3) { instance_double(Eve::Type, type_id: 125, group_id: 2) }
 
-    let(:skill_type4) { instance_double(Eve::Type, type_id: 126, group_id: 2) }
+    let(:skill_type_4) { instance_double(Eve::Type, type_id: 126, group_id: 2) }
 
-    let(:skill_type5) { instance_double(Eve::Type, type_id: 127, group_id: 2) }
+    let(:skill_type_5) { instance_double(Eve::Type, type_id: 127, group_id: 2) }
 
-    let(:skills_types) { [skill_type1, skill_type2, skill_type3, skill_type4, skill_type5] }
+    let(:skills_types) { [skill_type_1, skill_type_2, skill_type_3, skill_type_4, skill_type_5] }
 
     before { expect(subject).to receive(:skills_types).and_return(skills_types) }
 
-    let(:character_skill1) { instance_double(CharacterSkill, skill_id: 123, skillpoints_in_skill: 512) }
+    let(:character_skill_1) { instance_double(CharacterSkill, skill_id: 123, skillpoints_in_skill: 512) }
 
-    let(:character_skill2) { instance_double(CharacterSkill, skill_id: 125, skillpoints_in_skill: 512) }
+    let(:character_skill_2) { instance_double(CharacterSkill, skill_id: 125, skillpoints_in_skill: 512) }
 
-    let(:character_skill3) { instance_double(CharacterSkill, skill_id: 126, skillpoints_in_skill: 512) }
+    let(:character_skill_3) { instance_double(CharacterSkill, skill_id: 126, skillpoints_in_skill: 512) }
 
-    let(:character_skills) { [character_skill1, character_skill2, character_skill3] }
+    let(:character_skills) { [character_skill_1, character_skill_2, character_skill_3] }
 
     before { expect(subject).to receive(:character_skills).and_return(character_skills) }
 
@@ -242,17 +242,17 @@ describe CharacterSkillsTree do
   end
 
   describe "#total_certificates_in_group" do
-    let(:certificate1) { instance_double(Eve::Certificate, group_id: 1) }
+    let(:certificate_1) { instance_double(Eve::Certificate, group_id: 1) }
 
-    let(:certificate2) { instance_double(Eve::Certificate, group_id: 1) }
+    let(:certificate_2) { instance_double(Eve::Certificate, group_id: 1) }
 
-    let(:certificate3) { instance_double(Eve::Certificate, group_id: 1) }
+    let(:certificate_3) { instance_double(Eve::Certificate, group_id: 1) }
 
-    let(:certificate4) { instance_double(Eve::Certificate, group_id: 2) }
+    let(:certificate_4) { instance_double(Eve::Certificate, group_id: 2) }
 
-    let(:certificate5) { instance_double(Eve::Certificate, group_id: 2) }
+    let(:certificate_5) { instance_double(Eve::Certificate, group_id: 2) }
 
-    let(:certificates) { [certificate1, certificate2, certificate3, certificate5, certificate5] }
+    let(:certificates) { [certificate_1, certificate_2, certificate_3, certificate_4, certificate_5] }
 
     before { expect(subject).to receive(:certificates).and_return(certificates) }
 
@@ -264,23 +264,23 @@ describe CharacterSkillsTree do
   end
 
   describe "#skills_in_group" do
-    let(:skill_type1) { instance_double(Eve::Type, group_id: 1, name_en: "B") }
+    let(:skill_type_1) { instance_double(Eve::Type, group_id: 1, name_en: "B") }
 
-    let(:skill_type2) { instance_double(Eve::Type, group_id: 1, name_en: "A") }
+    let(:skill_type_2) { instance_double(Eve::Type, group_id: 1, name_en: "A") }
 
-    let(:skill_type3) { instance_double(Eve::Type, group_id: 2, name_en: "E") }
+    let(:skill_type_3) { instance_double(Eve::Type, group_id: 2, name_en: "E") }
 
-    let(:skill_type4) { instance_double(Eve::Type, group_id: 2, name_en: "D") }
+    let(:skill_type_4) { instance_double(Eve::Type, group_id: 2, name_en: "D") }
 
-    let(:skill_type5) { instance_double(Eve::Type, group_id: 2, name_en: "C") }
+    let(:skill_type_5) { instance_double(Eve::Type, group_id: 2, name_en: "C") }
 
-    let(:skills_types) { [skill_type1, skill_type2, skill_type3, skill_type4, skill_type5] }
+    let(:skills_types) { [skill_type_1, skill_type_2, skill_type_3, skill_type_4, skill_type_5] }
 
     before { expect(subject).to receive(:skills_types).and_return(skills_types) }
 
-    specify { expect(subject.skills_in_group(1)).to eq([skill_type2, skill_type1]) }
+    specify { expect(subject.skills_in_group(1)).to eq([skill_type_2, skill_type_1]) }
 
-    specify { expect(subject.skills_in_group(2)).to eq([skill_type5, skill_type4, skill_type3]) }
+    specify { expect(subject.skills_in_group(2)).to eq([skill_type_5, skill_type_4, skill_type_3]) }
 
     specify { expect(subject.skills_in_group(0)).to eq([]) }
   end
@@ -288,53 +288,53 @@ describe CharacterSkillsTree do
   describe "#training_rate_for_skill" do
     let(:character) { instance_double(Character, memory: 24, charisma: 20) }
 
-    let(:dogma_attribute1) do
+    let(:dogma_attribute_1) do
       instance_double(Eve::DogmaAttribute,
         name: described_class::PRIMARY_ATTRIBUTE_NAME,
         attribute_id: 111)
     end
 
-    let(:dogma_attribute2) do
+    let(:dogma_attribute_2) do
       instance_double(Eve::DogmaAttribute,
         name: described_class::SECONDARY_ATTRIBUTE_NAME,
         attribute_id: 222)
     end
 
-    let(:dogma_attributes) { [dogma_attribute1, dogma_attribute2] }
+    let(:dogma_attributes) { [dogma_attribute_1, dogma_attribute_2] }
 
     before { expect(subject).to receive(:dogma_attributes).and_return(dogma_attributes).twice }
 
-    let(:type_dogma_attribute1) do
+    let(:type_dogma_attribute_1) do
       instance_double(Eve::TypeDogmaAttribute,
         attribute_id: 111,
         type_id: 1234,
         value: "12345")
     end
 
-    let(:type_dogma_attribute2) do
+    let(:type_dogma_attribute_2) do
       instance_double(Eve::TypeDogmaAttribute,
         attribute_id: 222,
         type_id: 1234,
         value: "12346")
     end
 
-    let(:type_dogma_attributes) { [type_dogma_attribute1, type_dogma_attribute2] }
+    let(:type_dogma_attributes) { [type_dogma_attribute_1, type_dogma_attribute_2] }
 
     before { expect(subject).to receive(:type_dogma_attributes).and_return(type_dogma_attributes).twice }
 
-    let(:more_dogma_attribute1) do
+    let(:more_dogma_attribute_1) do
       instance_double(Eve::DogmaAttribute,
         attribute_id: 12_345,
         name: "memory")
     end
 
-    let(:more_dogma_attribute2) do
+    let(:more_dogma_attribute_2) do
       instance_double(Eve::DogmaAttribute,
         attribute_id: 12_346,
         name: "charisma")
     end
 
-    let(:more_dogma_attributes) { [more_dogma_attribute1, more_dogma_attribute2] }
+    let(:more_dogma_attributes) { [more_dogma_attribute_1, more_dogma_attribute_2] }
 
     before { expect(subject).to receive(:more_dogma_attributes).and_return(more_dogma_attributes).twice }
 
@@ -386,15 +386,15 @@ describe CharacterSkillsTree do
     context "when @skills_types is not set" do
       let(:skills_types) { double }
 
-      let(:group1) { instance_double(Eve::Group, group_id: 123) }
+      let(:group_1) { instance_double(Eve::Group, group_id: 123) }
 
-      let(:group2) { instance_double(Eve::Group, group_id: 123) }
+      let(:group_2) { instance_double(Eve::Group, group_id: 123) }
 
-      let(:group3) { instance_double(Eve::Group, group_id: 124) }
+      let(:group_3) { instance_double(Eve::Group, group_id: 124) }
 
-      let(:group4) { instance_double(Eve::Group, group_id: 125) }
+      let(:group_4) { instance_double(Eve::Group, group_id: 125) }
 
-      let(:skills_groups) { [group1, group2, group3, group4] }
+      let(:skills_groups) { [group_1, group_2, group_3, group_4] }
 
       before { expect(subject).to receive(:skills_groups).and_return(skills_groups) }
 
@@ -570,13 +570,13 @@ describe CharacterSkillsTree do
     context "when @type_dogma_attributes is not set" do
       let(:type_dogma_attributes) { double }
 
-      let(:dogma_attribute1) { instance_double(Eve::DogmaAttribute, attribute_id: 321) }
+      let(:dogma_attribute_1) { instance_double(Eve::DogmaAttribute, attribute_id: 321) }
 
-      let(:dogma_attribute2) { instance_double(Eve::DogmaAttribute, attribute_id: 123) }
+      let(:dogma_attribute_2) { instance_double(Eve::DogmaAttribute, attribute_id: 123) }
 
-      let(:dogma_attribute3) { instance_double(Eve::DogmaAttribute, attribute_id: 123) }
+      let(:dogma_attribute_3) { instance_double(Eve::DogmaAttribute, attribute_id: 123) }
 
-      let(:dogma_attributes) { [dogma_attribute1, dogma_attribute2, dogma_attribute3] }
+      let(:dogma_attributes) { [dogma_attribute_1, dogma_attribute_2, dogma_attribute_3] }
 
       before { expect(subject).to receive(:dogma_attributes).and_return(dogma_attributes) }
 
@@ -609,13 +609,13 @@ describe CharacterSkillsTree do
     context "when @more_dogma_attributes is not set" do
       let(:more_dogma_attributes) { double }
 
-      let(:type_dogma_attribute1) { instance_double(Eve::TypeDogmaAttribute, value: "321") }
+      let(:type_dogma_attribute_1) { instance_double(Eve::TypeDogmaAttribute, value: "321") }
 
-      let(:type_dogma_attribute2) { instance_double(Eve::TypeDogmaAttribute, value: "123") }
+      let(:type_dogma_attribute_2) { instance_double(Eve::TypeDogmaAttribute, value: "123") }
 
-      let(:type_dogma_attribute3) { instance_double(Eve::TypeDogmaAttribute, value: "123") }
+      let(:type_dogma_attribute_3) { instance_double(Eve::TypeDogmaAttribute, value: "123") }
 
-      let(:type_dogma_attributes) { [type_dogma_attribute1, type_dogma_attribute2, type_dogma_attribute3] }
+      let(:type_dogma_attributes) { [type_dogma_attribute_1, type_dogma_attribute_2, type_dogma_attribute_3] }
 
       before { expect(subject).to receive(:type_dogma_attributes).and_return(type_dogma_attributes) }
 
