@@ -8,70 +8,70 @@ describe Types::EveCorporationType do
 
     after { travel_back }
 
-    let(:date_founded1) { Time.zone.now }
+    let(:date_founded_1) { Time.zone.now }
 
-    let(:date_founded2) { Time.zone.now - 1.week }
+    let(:date_founded_2) { Time.zone.now - 1.week }
 
-    let!(:eve_alliance1) do
+    let!(:eve_alliance_1) do
       create(:eve_alliance,
         alliance_id: 1_111)
     end
 
-    let!(:eve_alliance2) do
+    let!(:eve_alliance_2) do
       create(:eve_alliance,
         alliance_id: 1_222)
     end
 
-    let!(:ceo1) do
+    let!(:ceo_1) do
       create(:eve_character,
         character_id: 10_111)
     end
 
-    let!(:ceo2) do
+    let!(:ceo_2) do
       create(:eve_character,
         character_id: 10_222)
     end
 
-    let!(:creator1) do
+    let!(:creator_1) do
       create(:eve_character,
         character_id: 10_555)
     end
 
-    let!(:creator2) do
+    let!(:creator_2) do
       create(:eve_character,
         character_id: 10_666)
     end
 
-    let!(:eve_faction1) do
+    let!(:eve_faction_1) do
       create(:eve_faction,
         faction_id: 1_000_111)
     end
 
-    let!(:eve_faction2) do
+    let!(:eve_faction_2) do
       create(:eve_faction,
         faction_id: 1_000_222)
     end
 
-    let!(:eve_station1) do
+    let!(:eve_station_1) do
       create(:eve_station,
         station_id: 12_123_123)
     end
 
-    let!(:eve_station2) do
+    let!(:eve_station_2) do
       create(:eve_station,
         station_id: 12_321_321)
     end
 
-    let!(:eve_corporation1) do
+    let!(:eve_corporation_1) do
       create(:eve_corporation,
         corporation_id: 123,
-        alliance: eve_alliance1,
-        ceo: ceo1,
-        creator: creator1,
-        date_founded: date_founded1,
+        alliance: eve_alliance_1,
+        ceo: ceo_1,
+        creator: creator_1,
+        date_founded: date_founded_1,
         description: "<b>Corp description 1</b>",
-        faction: eve_faction1,
-        home_station: eve_station1,
+        faction: eve_faction_1,
+        home_station: eve_station_1,
         member_count: 10,
         name: "Corp 1",
         shares: 101,
@@ -81,16 +81,16 @@ describe Types::EveCorporationType do
         npc: true)
     end
 
-    let!(:eve_corporation2) do
+    let!(:eve_corporation_2) do
       create(:eve_corporation,
         corporation_id: 321,
-        alliance: eve_alliance2,
-        ceo: ceo2,
-        creator: creator2,
-        date_founded: date_founded2,
+        alliance: eve_alliance_2,
+        ceo: ceo_2,
+        creator: creator_2,
+        date_founded: date_founded_2,
         description: "<b>Corp description 2</b>",
-        faction: eve_faction2,
-        home_station: eve_station2,
+        faction: eve_faction_2,
+        home_station: eve_station_2,
         member_count: 100,
         name: "Corp 2",
         shares: 102,
@@ -100,16 +100,16 @@ describe Types::EveCorporationType do
         npc: false)
     end
 
-    let!(:eve_character1) do
+    let!(:eve_character_1) do
       create(:eve_character,
         character_id: 12_998,
-        corporation: eve_corporation1)
+        corporation: eve_corporation_1)
     end
 
-    let!(:eve_character2) do
+    let!(:eve_character_2) do
       create(:eve_character,
         character_id: 12_999,
-        corporation: eve_corporation2)
+        corporation: eve_corporation_2)
     end
 
     let(:query) do
@@ -198,7 +198,7 @@ describe Types::EveCorporationType do
                 "creator" => {
                   "id" => "10555"
                 },
-                "dateFounded" => date_founded1.iso8601,
+                "dateFounded" => date_founded_1.iso8601,
                 "description" => "Corp description 1",
                 "factionId" => 1_000_111,
                 "faction" => {
@@ -250,7 +250,7 @@ describe Types::EveCorporationType do
                 "creator" => {
                   "id" => "10666"
                 },
-                "dateFounded" => date_founded2.iso8601,
+                "dateFounded" => date_founded_2.iso8601,
                 "description" => "Corp description 2",
                 "factionId" => 1_000_222,
                 "faction" => {

@@ -115,3 +115,10 @@ Layout/HashAlignment:
 
 Layout/LineEndStringConcatenationIndentation:
   Enabled: false
+
+Style/GuardClause:
+  Enabled: false
+
+Naming/VariableNumber:
+  Enabled: true
+  EnforcedStyle: snake_case

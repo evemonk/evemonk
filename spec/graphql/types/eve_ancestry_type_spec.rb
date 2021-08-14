@@ -4,27 +4,27 @@ require "rails_helper"
 
 describe Types::EveAncestryType do
   describe "get ancestries" do
-    let!(:eve_bloodline1) do
+    let!(:eve_bloodline_1) do
       create(:eve_bloodline,
         bloodline_id: 10)
     end
 
-    let!(:eve_bloodline2) do
+    let!(:eve_bloodline_2) do
       create(:eve_bloodline,
         bloodline_id: 20)
     end
 
-    let!(:eve_icon1) do
+    let!(:eve_icon_1) do
       create(:eve_icon,
         icon_id: 1_001)
     end
 
-    let!(:eve_icon2) do
+    let!(:eve_icon_2) do
       create(:eve_icon,
         icon_id: 1_002)
     end
 
-    let!(:eve_ancestry1) do
+    let!(:eve_ancestry_1) do
       create(:eve_ancestry,
         ancestry_id: 123,
         name_en: "EN: name 1",
@@ -40,11 +40,11 @@ describe Types::EveAncestryType do
         description_ru: "RU: description 1",
         description_ko: "KO: description 1",
         short_description: "Short description 1",
-        bloodline: eve_bloodline1,
-        icon: eve_icon1)
+        bloodline: eve_bloodline_1,
+        icon: eve_icon_1)
     end
 
-    let!(:eve_ancestry2) do
+    let!(:eve_ancestry_2) do
       create(:eve_ancestry,
         ancestry_id: 321,
         name_en: "EN: name 2",
@@ -60,8 +60,8 @@ describe Types::EveAncestryType do
         description_ru: "RU: description 2",
         description_ko: "KO: description 2",
         short_description: "Short description 2",
-        bloodline: eve_bloodline2,
-        icon: eve_icon2)
+        bloodline: eve_bloodline_2,
+        icon: eve_icon_2)
     end
 
     let(:query) do

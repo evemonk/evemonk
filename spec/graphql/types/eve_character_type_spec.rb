@@ -8,102 +8,102 @@ describe Types::EveCharacterType do
 
     after { travel_back }
 
-    let!(:birthday1) { Time.zone.now }
+    let!(:birthday_1) { Time.zone.now }
 
-    let!(:birthday2) { Time.zone.now - 1.week }
+    let!(:birthday_2) { Time.zone.now - 1.week }
 
-    let!(:eve_alliance1) do
+    let!(:eve_alliance_1) do
       create(:eve_alliance,
         alliance_id: 1_111)
     end
 
-    let!(:eve_alliance2) do
+    let!(:eve_alliance_2) do
       create(:eve_alliance,
         alliance_id: 1_222)
     end
 
-    let!(:eve_corporation1) do
+    let!(:eve_corporation_1) do
       create(:eve_corporation,
         corporation_id: 1_333,
-        alliance: eve_alliance1)
+        alliance: eve_alliance_1)
     end
 
-    let!(:eve_corporation2) do
+    let!(:eve_corporation_2) do
       create(:eve_corporation,
         corporation_id: 1_444,
-        alliance: eve_alliance2)
+        alliance: eve_alliance_2)
     end
 
-    let!(:eve_ancestry1) do
+    let!(:eve_ancestry_1) do
       create(:eve_ancestry,
         ancestry_id: 128)
     end
 
-    let!(:eve_ancestry2) do
+    let!(:eve_ancestry_2) do
       create(:eve_ancestry,
         ancestry_id: 256)
     end
 
-    let!(:eve_bloodline1) do
+    let!(:eve_bloodline_1) do
       create(:eve_bloodline,
         bloodline_id: 512)
     end
 
-    let!(:eve_bloodline2) do
+    let!(:eve_bloodline_2) do
       create(:eve_bloodline,
         bloodline_id: 1_024)
     end
 
-    let!(:eve_faction1) do
+    let!(:eve_faction_1) do
       create(:eve_faction,
         faction_id: 2_048)
     end
 
-    let!(:eve_faction2) do
+    let!(:eve_faction_2) do
       create(:eve_faction,
         faction_id: 4_096)
     end
 
-    let!(:eve_race1) do
+    let!(:eve_race_1) do
       create(:eve_race,
         race_id: 5_000)
     end
 
-    let!(:eve_race2) do
+    let!(:eve_race_2) do
       create(:eve_race,
         race_id: 6_000)
     end
 
-    let!(:eve_character1) do
+    let!(:eve_character_1) do
       create(:eve_character,
         character_id: 123,
-        ancestry: eve_ancestry1,
-        birthday: birthday1,
-        bloodline: eve_bloodline1,
-        alliance: eve_alliance1,
-        corporation: eve_corporation1,
+        ancestry: eve_ancestry_1,
+        birthday: birthday_1,
+        bloodline: eve_bloodline_1,
+        alliance: eve_alliance_1,
+        corporation: eve_corporation_1,
         description: "<b>Description 1</b>",
-        faction: eve_faction1,
+        faction: eve_faction_1,
         gender: "male",
         name: "Name 1",
-        race: eve_race1,
+        race: eve_race_1,
         security_status: 3.5,
         title: "Title 1")
     end
 
-    let!(:eve_character2) do
+    let!(:eve_character_2) do
       create(:eve_character,
         character_id: 321,
-        ancestry: eve_ancestry2,
-        birthday: birthday2,
-        bloodline: eve_bloodline2,
-        alliance: eve_alliance2,
-        corporation: eve_corporation2,
+        ancestry: eve_ancestry_2,
+        birthday: birthday_2,
+        bloodline: eve_bloodline_2,
+        alliance: eve_alliance_2,
+        corporation: eve_corporation_2,
         description: "<b>Description 2</b>",
-        faction: eve_faction2,
+        faction: eve_faction_2,
         gender: "female",
         name: "Name 2",
-        race: eve_race2,
+        race: eve_race_2,
         security_status: -10.0,
         title: "Title 2")
     end
@@ -176,7 +176,7 @@ describe Types::EveCharacterType do
                 "ancestry" => {
                   "id" => "128"
                 },
-                "birthday" => birthday1.iso8601,
+                "birthday" => birthday_1.iso8601,
                 "bloodlineId" => 512,
                 "bloodline" => {
                   "id" => "512"
@@ -212,7 +212,7 @@ describe Types::EveCharacterType do
                 "ancestry" => {
                   "id" => "256"
                 },
-                "birthday" => birthday2.iso8601,
+                "birthday" => birthday_2.iso8601,
                 "bloodlineId" => 1_024,
                 "bloodline" => {
                   "id" => "1024"

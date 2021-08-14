@@ -74,15 +74,15 @@ describe Character do
 
     let!(:agent) { create(:eve_agent) }
 
-    let!(:standing1) { create(:standing, character: character, standingable: faction) }
+    let!(:standing_1) { create(:standing, character: character, standingable: faction) }
 
-    let!(:standing2) { create(:standing, character: character, standingable: corporation) }
+    let!(:standing_2) { create(:standing, character: character, standingable: corporation) }
 
-    let!(:standing3) { create(:standing, character: character, standingable: agent) }
+    let!(:standing_3) { create(:standing, character: character, standingable: agent) }
 
     specify { expect(character.factions_standings.count).to eq(1) }
 
-    specify { expect(character.factions_standings).to eq([standing1]) }
+    specify { expect(character.factions_standings).to eq([standing_1]) }
   end
 
   describe "#corporations_standings" do
@@ -94,15 +94,15 @@ describe Character do
 
     let!(:agent) { create(:eve_agent) }
 
-    let!(:standing1) { create(:standing, character: character, standingable: faction) }
+    let!(:standing_1) { create(:standing, character: character, standingable: faction) }
 
-    let!(:standing2) { create(:standing, character: character, standingable: corporation) }
+    let!(:standing_2) { create(:standing, character: character, standingable: corporation) }
 
-    let!(:standing3) { create(:standing, character: character, standingable: agent) }
+    let!(:standing_3) { create(:standing, character: character, standingable: agent) }
 
     specify { expect(character.corporations_standings.count).to eq(1) }
 
-    specify { expect(character.corporations_standings).to eq([standing2]) }
+    specify { expect(character.corporations_standings).to eq([standing_2]) }
   end
 
   describe "#agents_standings" do
@@ -114,23 +114,23 @@ describe Character do
 
     let!(:agent) { create(:eve_agent) }
 
-    let!(:standing1) { create(:standing, character: character, standingable: faction) }
+    let!(:standing_1) { create(:standing, character: character, standingable: faction) }
 
-    let!(:standing2) { create(:standing, character: character, standingable: corporation) }
+    let!(:standing_2) { create(:standing, character: character, standingable: corporation) }
 
-    let!(:standing3) { create(:standing, character: character, standingable: agent) }
+    let!(:standing_3) { create(:standing, character: character, standingable: agent) }
 
     specify { expect(character.agents_standings.count).to eq(1) }
 
-    specify { expect(character.agents_standings).to eq([standing3]) }
+    specify { expect(character.agents_standings).to eq([standing_3]) }
   end
 
   describe ".with_valid_tokens" do
-    let!(:character1) { create(:character, esi_token_valid: true) }
+    let!(:character_1) { create(:character, esi_token_valid: true) }
 
-    let!(:character2) { create(:character, esi_token_valid: false) }
+    let!(:character_2) { create(:character, esi_token_valid: false) }
 
-    specify { expect(described_class.with_valid_tokens).to eq([character1]) }
+    specify { expect(described_class.with_valid_tokens).to eq([character_1]) }
   end
 
   it { should delegate_method(:perception_without_bonuses).to(:character_attributes) }
