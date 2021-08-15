@@ -26,6 +26,6 @@ describe Eve::Group do
 
     specify { expect(described_class.published.count).to eq(1) }
 
-    specify { expect(described_class.published).to eq([eve_group2]) }
+    specify { expect(described_class.published).to eq([eve_group_2]) }
   end
 end
