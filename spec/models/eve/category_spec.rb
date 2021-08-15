@@ -16,12 +16,12 @@ describe Eve::Category do
   it { should have_many(:groups).with_primary_key("category_id") }
 
   describe ".published" do
-    let!(:eve_category1) { create(:eve_category, published: false) }
+    let!(:eve_category_1) { create(:eve_category, published: false) }
 
-    let!(:eve_category2) { create(:eve_category, published: true) }
+    let!(:eve_category_2) { create(:eve_category, published: true) }
 
     specify { expect(described_class.published.count).to eq(1) }
 
-    specify { expect(described_class.published).to eq([eve_category2]) }
+    specify { expect(described_class.published).to eq([eve_category_2]) }
   end
 end
