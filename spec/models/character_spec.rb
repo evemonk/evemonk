@@ -29,6 +29,8 @@ describe Character do
 
   it { should belong_to(:current_station).class_name("Eve::Station").with_primary_key("station_id").with_foreign_key("current_station_id").optional(true) }
 
+  it { should have_many(:character_scopes).dependent(:destroy) }
+
   it { should have_many(:etags).dependent(:destroy) }
 
   it { should have_many(:loyalty_points).dependent(:destroy) }
