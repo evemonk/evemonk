@@ -154,7 +154,7 @@
           <tr>
             <td><%= scope %></td>
             <%# TODO: optimize N+1! %>
-            <td><%= @character.character_scopes.exists? { |cs| cs.scope == "publicData" } ? "Yes" : "No" %></td>
+            <td><%= @character.character_scopes.exists? { |cs| cs.scope == scope } ? "Yes" : "No" %></td>
           </tr>
         <% end %>
       </tbody>
