@@ -4,49 +4,49 @@ require "rails_helper"
 
 describe Types::EveFactionType do
   describe "get factions" do
-    let!(:eve_corporation1) do
+    let!(:eve_corporation_1) do
       create(:eve_corporation,
         corporation_id: 1_111)
     end
 
-    let!(:eve_corporation2) do
+    let!(:eve_corporation_2) do
       create(:eve_corporation,
         corporation_id: 1_222)
     end
 
-    let!(:eve_militia_corporation1) do
+    let!(:eve_militia_corporation_1) do
       create(:eve_corporation,
         corporation_id: 2_111)
     end
 
-    let!(:eve_militia_corporation2) do
+    let!(:eve_militia_corporation_2) do
       create(:eve_corporation,
         corporation_id: 2_222)
     end
 
-    let!(:eve_system1) do
+    let!(:eve_system_1) do
       create(:eve_system,
         system_id: 10_111)
     end
 
-    let!(:eve_system2) do
+    let!(:eve_system_2) do
       create(:eve_system,
         system_id: 10_222)
     end
 
-    let!(:eve_alliance1) do
+    let!(:eve_alliance_1) do
       create(:eve_alliance,
         alliance_id: 12_345,
-        faction: eve_faction1)
+        faction: eve_faction_1)
     end
 
-    let!(:eve_alliance2) do
+    let!(:eve_alliance_2) do
       create(:eve_alliance,
         alliance_id: 67_890,
-        faction: eve_faction2)
+        faction: eve_faction_2)
     end
 
-    let!(:eve_faction1) do
+    let!(:eve_faction_1) do
       create(:eve_faction,
         faction_id: 123,
         name_en: "EN: name 1",
@@ -55,7 +55,7 @@ describe Types::EveFactionType do
         name_ja: "JA: name 1",
         name_ru: "RU: name 1",
         name_ko: "KO: name 1",
-        corporation: eve_corporation1,
+        corporation: eve_corporation_1,
         description_en: "EN: description 1",
         description_de: "DE: description 1",
         description_fr: "FR: description 1",
@@ -63,13 +63,13 @@ describe Types::EveFactionType do
         description_ru: "RU: description 1",
         description_ko: "KO: description 1",
         is_unique: true,
-        militia_corporation: eve_militia_corporation1,
-        solar_system: eve_system1,
+        militia_corporation: eve_militia_corporation_1,
+        solar_system: eve_system_1,
         station_count: 100,
         station_system_count: 1_000)
     end
 
-    let!(:eve_faction2) do
+    let!(:eve_faction_2) do
       create(:eve_faction,
         faction_id: 321,
         name_en: "EN: name 2",
@@ -78,7 +78,7 @@ describe Types::EveFactionType do
         name_ja: "JA: name 2",
         name_ru: "RU: name 2",
         name_ko: "KO: name 2",
-        corporation: eve_corporation2,
+        corporation: eve_corporation_2,
         description_en: "EN: description 2",
         description_de: "DE: description 2",
         description_fr: "FR: description 2",
@@ -86,8 +86,8 @@ describe Types::EveFactionType do
         description_ru: "RU: description 2",
         description_ko: "KO: description 2",
         is_unique: false,
-        militia_corporation: eve_militia_corporation2,
-        solar_system: eve_system2,
+        militia_corporation: eve_militia_corporation_2,
+        solar_system: eve_system_2,
         station_count: 200,
         station_system_count: 2_000)
     end
