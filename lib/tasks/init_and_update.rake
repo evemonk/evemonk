@@ -252,7 +252,7 @@ namespace :evemonk do
     SitemapUpdaterJob.perform_later
   end
 
-  desc "Import missing data for local development"
+  desc "Import missing data"
   task import_missing: :environment do
     ImportMissingJob.perform_later
   end
