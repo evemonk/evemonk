@@ -4,7 +4,7 @@ require "rails_helper"
 
 describe Types::EveIconType do
   describe "get icons" do
-    let!(:eve_icon1) do
+    let!(:eve_icon_1) do
       create(:eve_icon,
         icon_id: 123,
         description: "Description 1",
@@ -12,7 +12,7 @@ describe Types::EveIconType do
         obsolete: nil)
     end
 
-    let!(:eve_icon2) do
+    let!(:eve_icon_2) do
       create(:eve_icon,
         icon_id: 321,
         description: "Description 2",

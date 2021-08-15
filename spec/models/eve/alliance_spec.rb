@@ -40,9 +40,9 @@ describe Eve::Alliance do
   describe "#reset_corporations_count" do
     let!(:eve_alliance) { create(:eve_alliance) }
 
-    let!(:eve_corporation1) { create(:eve_corporation, alliance: eve_alliance) }
+    let!(:eve_corporation_1) { create(:eve_corporation, alliance: eve_alliance) }
 
-    let!(:eve_corporation2) { create(:eve_corporation, alliance: eve_alliance) }
+    let!(:eve_corporation_2) { create(:eve_corporation, alliance: eve_alliance) }
 
     subject { eve_alliance }
 
@@ -54,9 +54,9 @@ describe Eve::Alliance do
   describe "#reset_characters_count" do
     let!(:eve_alliance) { create(:eve_alliance) }
 
-    let!(:eve_corporation1) { create(:eve_corporation, alliance: eve_alliance, member_count: 123) }
+    let!(:eve_corporation_1) { create(:eve_corporation, alliance: eve_alliance, member_count: 123) }
 
-    let!(:eve_corporation2) { create(:eve_corporation, alliance: eve_alliance, member_count: 123) }
+    let!(:eve_corporation_2) { create(:eve_corporation, alliance: eve_alliance, member_count: 123) }
 
     subject { eve_alliance }
 

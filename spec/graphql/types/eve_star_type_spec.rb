@@ -4,12 +4,12 @@ require "rails_helper"
 
 describe Types::EveStarType do
   describe "get stars" do
-    let!(:eve_star1) do
+    let!(:eve_star_1) do
       create(:eve_star,
         star_id: 123)
     end
 
-    let!(:eve_star2) do
+    let!(:eve_star_2) do
       create(:eve_star,
         star_id: 321)
     end

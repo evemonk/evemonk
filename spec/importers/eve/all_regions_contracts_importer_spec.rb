@@ -16,9 +16,9 @@ describe Eve::AllRegionsContractsImporter do
   # private methods
 
   describe "#region_ids" do
-    let!(:eve_region1) { create(:eve_region, region_id: 1) }
+    let!(:eve_region_1) { create(:eve_region, region_id: 1) }
 
-    let!(:eve_region2) { create(:eve_region, region_id: 2) }
+    let!(:eve_region_2) { create(:eve_region, region_id: 2) }
 
     specify { expect(subject.send(:region_ids)).to eq([1, 2]) }
   end

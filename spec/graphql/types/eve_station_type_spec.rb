@@ -4,12 +4,12 @@ require "rails_helper"
 
 describe Types::EveStationType do
   describe "get stations" do
-    let!(:eve_station1) do
+    let!(:eve_station_1) do
       create(:eve_station,
         station_id: 123)
     end
 
-    let!(:eve_station2) do
+    let!(:eve_station_2) do
       create(:eve_station,
         station_id: 321)
     end

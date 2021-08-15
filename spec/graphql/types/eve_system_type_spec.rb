@@ -4,12 +4,12 @@ require "rails_helper"
 
 describe Types::EveSystemType do
   describe "get systems" do
-    let!(:eve_system1) do
+    let!(:eve_system_1) do
       create(:eve_system,
         system_id: 123)
     end
 
-    let!(:eve_system2) do
+    let!(:eve_system_2) do
       create(:eve_system,
         system_id: 321)
     end

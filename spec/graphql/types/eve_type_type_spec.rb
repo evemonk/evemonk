@@ -4,12 +4,12 @@ require "rails_helper"
 
 describe Types::EveRegionType do
   describe "get types" do
-    let!(:eve_type1) do
+    let!(:eve_type_1) do
       create(:eve_type,
         type_id: 400)
     end
 
-    let!(:eve_type2) do
+    let!(:eve_type_2) do
       create(:eve_type,
         type_id: 500)
     end
