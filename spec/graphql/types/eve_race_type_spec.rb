@@ -4,41 +4,41 @@ require "rails_helper"
 
 describe Types::EveRaceType do
   describe "get races" do
-    let!(:eve_faction1) do
+    let!(:eve_faction_1) do
       create(:eve_faction,
         faction_id: 1_000_111)
     end
 
-    let!(:eve_faction2) do
+    let!(:eve_faction_2) do
       create(:eve_faction,
         faction_id: 1_000_222)
     end
 
-    let!(:eve_bloodline1) do
+    let!(:eve_bloodline_1) do
       create(:eve_bloodline,
         bloodline_id: 10,
-        race: eve_race1)
+        race: eve_race_1)
     end
 
-    let!(:eve_bloodline2) do
+    let!(:eve_bloodline_2) do
       create(:eve_bloodline,
         bloodline_id: 20,
-        race: eve_race2)
+        race: eve_race_2)
     end
 
-    let!(:eve_station1) do
+    let!(:eve_station_1) do
       create(:eve_station,
         station_id: 100,
-        race: eve_race1)
+        race: eve_race_1)
     end
 
-    let!(:eve_station2) do
+    let!(:eve_station_2) do
       create(:eve_station,
         station_id: 200,
-        race: eve_race2)
+        race: eve_race_2)
     end
 
-    let!(:eve_race1) do
+    let!(:eve_race_1) do
       create(:eve_race,
         race_id: 4,
         name_en: "EN: name 1",
@@ -53,10 +53,10 @@ describe Types::EveRaceType do
         description_ja: "JA: description 1",
         description_ru: "RU: description 1",
         description_ko: "KO: description 1",
-        faction: eve_faction1)
+        faction: eve_faction_1)
     end
 
-    let!(:eve_race2) do
+    let!(:eve_race_2) do
       create(:eve_race,
         race_id: 8,
         name_en: "EN: name 2",
@@ -71,7 +71,7 @@ describe Types::EveRaceType do
         description_ja: "JA: description 2",
         description_ru: "RU: description 2",
         description_ko: "KO: description 2",
-        faction: eve_faction2)
+        faction: eve_faction_2)
     end
 
     let(:query) do

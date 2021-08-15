@@ -4,19 +4,19 @@ require "rails_helper"
 
 describe Types::EveMarketGroupType do
   describe "get market groups" do
-    let!(:eve_type1) do
+    let!(:eve_type_1) do
       create(:eve_type,
         type_id: 400,
-        market_group: eve_market_group1)
+        market_group: eve_market_group_1)
     end
 
-    let!(:eve_type2) do
+    let!(:eve_type_2) do
       create(:eve_type,
         type_id: 500,
-        market_group: eve_market_group2)
+        market_group: eve_market_group_2)
     end
 
-    let!(:eve_market_group1) do
+    let!(:eve_market_group_1) do
       create(:eve_market_group,
         market_group_id: 123,
         name_en: "EN: name 1",
@@ -34,7 +34,7 @@ describe Types::EveMarketGroupType do
         parent_group_id: nil)
     end
 
-    let!(:eve_market_group2) do
+    let!(:eve_market_group_2) do
       create(:eve_market_group,
         market_group_id: 321,
         name_en: "EN: name 2",
@@ -49,7 +49,7 @@ describe Types::EveMarketGroupType do
         description_ja: "JA: description 2",
         description_ru: "RU: description 2",
         description_ko: "KO: description 2",
-        parent_group: eve_market_group1)
+        parent_group: eve_market_group_1)
     end
 
     let(:query) do

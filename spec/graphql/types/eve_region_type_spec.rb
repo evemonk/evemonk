@@ -4,31 +4,31 @@ require "rails_helper"
 
 describe Types::EveRegionType do
   describe "get regions" do
-    let!(:eve_constellation1) do
+    let!(:eve_constellation_1) do
       create(:eve_constellation,
         constellation_id: 300,
-        region: eve_region1)
+        region: eve_region_1)
     end
 
-    let!(:eve_constellation2) do
+    let!(:eve_constellation_2) do
       create(:eve_constellation,
         constellation_id: 400,
-        region: eve_region2)
+        region: eve_region_2)
     end
 
-    let!(:eve_contract1) do
+    let!(:eve_contract_1) do
       create(:eve_contract,
-        region: eve_region1,
+        region: eve_region_1,
         contract_id: 1_123)
     end
 
-    let!(:eve_contract2) do
+    let!(:eve_contract_2) do
       create(:eve_contract,
-        region: eve_region2,
+        region: eve_region_2,
         contract_id: 1_124)
     end
 
-    let!(:eve_region1) do
+    let!(:eve_region_1) do
       create(:eve_region,
         region_id: 123,
         name_en: "EN: name 1",
@@ -45,7 +45,7 @@ describe Types::EveRegionType do
         description_ko: "KO: description 1")
     end
 
-    let!(:eve_region2) do
+    let!(:eve_region_2) do
       create(:eve_region,
         region_id: 321,
         name_en: "EN: name 2",
