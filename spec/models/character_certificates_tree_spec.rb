@@ -64,29 +64,29 @@ describe CharacterCertificatesTree do
   end
 
   describe "#certificates_in_group" do
-    let(:certificate1) { instance_double(Eve::Certificate, name: "B", group_id: 1) }
+    let(:certificate_1) { instance_double(Eve::Certificate, name: "B", group_id: 1) }
 
-    let(:certificate2) { instance_double(Eve::Certificate, name: "A", group_id: 1) }
+    let(:certificate_2) { instance_double(Eve::Certificate, name: "A", group_id: 1) }
 
-    let(:certificate3) { instance_double(Eve::Certificate, name: "A", group_id: 2) }
+    let(:certificate_3) { instance_double(Eve::Certificate, name: "A", group_id: 2) }
 
-    let(:certificates) { [certificate1, certificate2, certificate3] }
+    let(:certificates) { [certificate_1, certificate_2, certificate_3] }
 
     before { expect(subject).to receive(:certificates).and_return(certificates) }
 
-    specify { expect(subject.certificates_in_group(1)).to eq([certificate2, certificate1]) }
+    specify { expect(subject.certificates_in_group(1)).to eq([certificate_2, certificate_1]) }
   end
 
   # private methods
 
   describe "#group_ids" do
-    let!(:eve_certificate1) { create(:eve_certificate, group_id: 1) }
+    let!(:eve_certificate_1) { create(:eve_certificate, group_id: 1) }
 
-    let!(:eve_certificate2) { create(:eve_certificate, group_id: 2) }
+    let!(:eve_certificate_2) { create(:eve_certificate, group_id: 2) }
 
-    let!(:eve_certificate3) { create(:eve_certificate, group_id: 3) }
+    let!(:eve_certificate_3) { create(:eve_certificate, group_id: 3) }
 
-    let!(:eve_certificate4) { create(:eve_certificate, group_id: 3) }
+    let!(:eve_certificate_4) { create(:eve_certificate, group_id: 3) }
 
     specify { expect(subject.send(:group_ids)).to eq([1, 2, 3]) }
   end
