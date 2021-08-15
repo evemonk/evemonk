@@ -251,4 +251,9 @@ namespace :evemonk do
     Rails.logger.info "Update sitemap and ping google"
     SitemapUpdaterJob.perform_later
   end
+
+  desc "Import missing data for local development"
+  task import_missing: :environment do
+    ImportMissingJob.perform_later
+  end
 end
