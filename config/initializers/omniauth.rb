@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
-SCOPES = ["esi-wallet.read_character_wallet.v1",
+SCOPES = [
+  "publicData",
+  "esi-wallet.read_character_wallet.v1",
   "esi-characters.read_loyalty.v1",
   "esi-clones.read_implants.v1",
   "esi-clones.read_clones.v1",
@@ -17,7 +19,8 @@ SCOPES = ["esi-wallet.read_character_wallet.v1",
   "esi-industry.read_character_jobs.v1",
   "esi-markets.read_character_orders.v1",
   "esi-corporations.read_corporation_membership.v1",
-  "esi-calendar.read_calendar_events.v1"].freeze
+  "esi-calendar.read_calendar_events.v1"
+].freeze
 
 OmniAuth.config.full_host = "https://evemonk.com" if Rails.env.production?
 
