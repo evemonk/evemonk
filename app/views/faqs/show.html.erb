@@ -8,3 +8,89 @@
     </nav>
   </div>
 </div>
+
+<div id="accordion_faq" class="accordion">
+  <div class="card">
+    <div class="card-header" id="entry_1">
+      <h2 class="mb-0">
+        <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#answer_1" aria-expanded="true" aria-controls="entry_1">
+          1. Which scopes used by EveMonk app?
+        </button>
+      </h2>
+    </div>
+
+    <div id="answer_1" class="collapse show" aria-labelledby="entry_1" data-parent="#accordion_faq">
+      <div class="card-body">
+        <p>Used scopes:</p>
+
+        <ul>
+          <li>publicData</li>
+          <li>esi-wallet.read_character_wallet.v1</li>
+          <li>esi-characters.read_loyalty.v1</li>
+          <li>esi-clones.read_implants.v1</li>
+          <li>esi-clones.read_clones.v1</li>
+          <li>esi-skills.read_skillqueue.v1</li>
+          <li>esi-skills.read_skills.v1</li>
+          <li>esi-assets.read_assets.v1</li>
+          <li>esi-location.read_location.v1</li>
+          <li>esi-location.read_online.v1</li>
+          <li>esi-location.read_ship_type.v1</li>
+          <li>esi-mail.read_mail.v1</li>
+          <li>esi-characters.read_standings.v1</li>
+          <li>esi-characters.read_blueprints.v1</li>
+          <li>esi-killmails.read_killmails.v1</li>
+          <li>esi-industry.read_character_jobs.v1</li>
+          <li>esi-markets.read_character_orders.v1</li>
+          <li>esi-corporations.read_corporation_membership.v1</li>
+          <li>esi-calendar.read_calendar_events.v1</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="accordion" id="accordionExample">
+  <div class="card">
+    <div class="card-header" id="headingOne">
+      <h2 class="mb-0">
+        <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          Collapsible Group Item #1
+        </button>
+      </h2>
+    </div>
+
+    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+      <div class="card-body">
+        Some placeholder content for the first accordion panel. This panel is shown by default, thanks to the <code>.show</code> class.
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingTwo">
+      <h2 class="mb-0">
+        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          Collapsible Group Item #2
+        </button>
+      </h2>
+    </div>
+    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+      <div class="card-body">
+        Some placeholder content for the second accordion panel. This panel is hidden by default.
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingThree">
+      <h2 class="mb-0">
+        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          Collapsible Group Item #3
+        </button>
+      </h2>
+    </div>
+    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+      <div class="card-body">
+        And lastly, the placeholder content for the third and final accordion panel. This panel is hidden by default.
+      </div>
+    </div>
+  </div>
+</div>
