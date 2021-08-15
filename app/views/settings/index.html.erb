@@ -141,11 +141,31 @@
   <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
     <h4 class="text-center text-break">Settings</h4>
 
+    <p>Old style scopes</p>
+
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th scope="col">scope</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @character.scopes.split(" ").each do |scope| %>
+          <tr>
+            <td><%= scope %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+    <p>New style scopes</p>
+
     <table class="table table-bordered table-striped">
       <thead>
         <tr>
           <th scope="col">scope</th>
           <th scope="col">present?</th>
+          <th scope="col">valid?</th>
         </tr>
       </thead>
 
