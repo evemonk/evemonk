@@ -17,7 +17,7 @@
     "popper.js": "^1.16.1",
     "stimulus": "^2.0.0",
     "webpack": "^4.46.0",
-    "webpack-cli": "^4.7.2"
+    "webpack-cli": "^3.3.12"
   },
   "version": "0.1.0",
   "devDependencies": {
