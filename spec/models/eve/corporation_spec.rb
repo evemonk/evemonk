@@ -36,23 +36,23 @@ describe Eve::Corporation do
   it { should have_db_index(:name) }
 
   describe ".npc" do
-    let!(:eve_corporation1) { create(:eve_corporation, npc: false) }
+    let!(:eve_corporation_1) { create(:eve_corporation, npc: false) }
 
-    let!(:eve_corporation2) { create(:eve_corporation, npc: true) }
+    let!(:eve_corporation_2) { create(:eve_corporation, npc: true) }
 
     specify { expect(described_class.npc.count).to eq(1) }
 
-    specify { expect(described_class.npc).to eq([eve_corporation2]) }
+    specify { expect(described_class.npc).to eq([eve_corporation_2]) }
   end
 
   describe ".not_npc" do
-    let!(:eve_corporation1) { create(:eve_corporation, npc: false) }
+    let!(:eve_corporation_1) { create(:eve_corporation, npc: false) }
 
-    let!(:eve_corporation2) { create(:eve_corporation, npc: true) }
+    let!(:eve_corporation_2) { create(:eve_corporation, npc: true) }
 
     specify { expect(described_class.not_npc.count).to eq(1) }
 
-    specify { expect(described_class.not_npc).to eq([eve_corporation1]) }
+    specify { expect(described_class.not_npc).to eq([eve_corporation_1]) }
   end
 
   it { should callback(:eve_alliance_reset_corporations_count).after(:commit).on([:create, :update, :destroy]) }
