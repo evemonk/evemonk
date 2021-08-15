@@ -4,29 +4,29 @@ require "rails_helper"
 
 describe Types::EveGroupType do
   describe "get groups" do
-    let!(:eve_category1) do
+    let!(:eve_category_1) do
       create(:eve_category,
         category_id: 1_111)
     end
 
-    let!(:eve_category2) do
+    let!(:eve_category_2) do
       create(:eve_category,
         category_id: 1_222)
     end
 
-    let!(:eve_type1) do
+    let!(:eve_type_1) do
       create(:eve_type,
         type_id: 10_111,
-        group: eve_group1)
+        group: eve_group_1)
     end
 
-    let!(:eve_type2) do
+    let!(:eve_type_2) do
       create(:eve_type,
         type_id: 10_222,
-        group: eve_group2)
+        group: eve_group_2)
     end
 
-    let!(:eve_group1) do
+    let!(:eve_group_1) do
       create(:eve_group,
         group_id: 123,
         name_en: "EN: name 1",
@@ -36,10 +36,10 @@ describe Types::EveGroupType do
         name_ru: "RU: name 1",
         name_ko: "KO: name 1",
         published: true,
-        category: eve_category1)
+        category: eve_category_1)
     end
 
-    let!(:eve_group2) do
+    let!(:eve_group_2) do
       create(:eve_group,
         group_id: 321,
         name_en: "EN: name 2",
@@ -49,7 +49,7 @@ describe Types::EveGroupType do
         name_ru: "RU: name 2",
         name_ko: "KO: name 2",
         published: false,
-        category: eve_category2)
+        category: eve_category_2)
     end
 
     let(:query) do

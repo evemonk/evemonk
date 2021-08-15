@@ -4,7 +4,7 @@ require "rails_helper"
 
 describe Types::EveGraphicType do
   describe "get graphics" do
-    let!(:eve_graphic1) do
+    let!(:eve_graphic_1) do
       create(:eve_graphic,
         graphic_id: 123,
         collision_file: "collision_file1",
@@ -16,7 +16,7 @@ describe Types::EveGraphicType do
         sof_race_name: "sof_race_name1")
     end
 
-    let!(:eve_graphic2) do
+    let!(:eve_graphic_2) do
       create(:eve_graphic,
         graphic_id: 321,
         collision_file: "collision_file2",
