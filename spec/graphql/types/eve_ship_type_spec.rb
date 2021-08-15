@@ -4,12 +4,12 @@ require "rails_helper"
 
 describe Types::EveShipType do
   describe "get ships" do
-    let!(:eve_ship1) do
+    let!(:eve_ship_1) do
       create(:eve_type,
         type_id: 123)
     end
 
-    let!(:eve_ship2) do
+    let!(:eve_ship_2) do
       create(:eve_type,
         type_id: 321)
     end
