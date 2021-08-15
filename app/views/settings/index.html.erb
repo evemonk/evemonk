@@ -140,5 +140,24 @@
 
   <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
     <h4 class="text-center text-break">Settings</h4>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">scope</th>
+          <th scope="col">present?</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% CharacterScope::SCOPES.each do |scope| %>
+          <tr>
+            <td><%= scope %></td>
+            <%# TODO: optimize N+1! %>
+            <td><%= @character.character_scopes.exists? { |cs| cs.scope == "publicData" } ? "Yes" : "No" %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
   </div>
 </div>
