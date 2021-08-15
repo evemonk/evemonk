@@ -15,59 +15,59 @@ describe Eve::CorporationsImporter do
       expect(Eve::Corporation).to receive(:pluck).with(:corporation_id).and_return(imported_corporation_ids)
     end
 
-    let(:corporation_id1) { double }
+    let(:corporation_id_1) { double }
 
-    let(:corporation_ids1) { [corporation_id1] }
+    let(:corporation_ids_1) { [corporation_id_1] }
 
     before do
       #
-      # Eve::Character.pluck(:corporation_id).uniq # => corporation_ids1
+      # Eve::Character.pluck(:corporation_id).uniq # => corporation_ids_1
       #
       expect(Eve::Character).to receive(:pluck).with(:corporation_id) do
         double.tap do |a|
-          expect(a).to receive(:uniq).and_return(corporation_ids1)
+          expect(a).to receive(:uniq).and_return(corporation_ids_1)
         end
       end
     end
 
-    let(:corporation_id2) { double }
+    let(:corporation_id_2) { double }
 
-    let(:corporation_ids2) { [corporation_id2] }
+    let(:corporation_ids_2) { [corporation_id_2] }
 
     before do
       #
-      # Eve::CharacterCorporationHistory.pluck(:corporation_id).uniq # => corporation_ids2
+      # Eve::CharacterCorporationHistory.pluck(:corporation_id).uniq # => corporation_ids_2
       #
       expect(Eve::CharacterCorporationHistory).to receive(:pluck).with(:corporation_id) do
         double.tap do |a|
-          expect(a).to receive(:uniq).and_return(corporation_ids2)
+          expect(a).to receive(:uniq).and_return(corporation_ids_2)
         end
       end
     end
 
-    let(:corporation_id3) { double }
+    let(:corporation_id_3) { double }
 
-    let(:corporation_ids3) { [corporation_id3] }
+    let(:corporation_ids_3) { [corporation_id_3] }
 
     before do
       #
-      # Eve::Bloodline.pluck(:corporation_id).uniq # => corporation_ids3
+      # Eve::Bloodline.pluck(:corporation_id).uniq # => corporation_ids_3
       #
       expect(Eve::Bloodline).to receive(:pluck).with(:corporation_id) do
         double.tap do |a|
-          expect(a).to receive(:uniq).and_return(corporation_ids3)
+          expect(a).to receive(:uniq).and_return(corporation_ids_3)
         end
       end
     end
 
-    let(:corporation_id4) { double }
+    let(:corporation_id_4) { double }
 
-    let(:corporation_ids4) { [corporation_id4] }
+    let(:corporation_ids_4) { [corporation_id_4] }
 
     before do
       #
       # Eve::Alliance.where.not(creator_corporation_id: 0)
-      #              .pluck(:creator_corporation_id).uniq # => corporation_ids4
+      #              .pluck(:creator_corporation_id).uniq # => corporation_ids_4
       #
       expect(Eve::Alliance).to receive(:where) do
         double.tap do |a|
@@ -75,7 +75,7 @@ describe Eve::CorporationsImporter do
             double.tap do |b|
               expect(b).to receive(:pluck).with(:creator_corporation_id) do
                 double.tap do |c|
-                  expect(c).to receive(:uniq).and_return(corporation_ids4)
+                  expect(c).to receive(:uniq).and_return(corporation_ids_4)
                 end
               end
             end
@@ -84,43 +84,43 @@ describe Eve::CorporationsImporter do
       end
     end
 
-    let(:corporation_id5) { double }
+    let(:corporation_id_5) { double }
 
-    let(:corporation_ids5) { [corporation_id5] }
+    let(:corporation_ids_5) { [corporation_id_5] }
 
     before do
       #
-      # Eve::Alliance.pluck(:executor_corporation_id).uniq # => corporation_ids5
+      # Eve::Alliance.pluck(:executor_corporation_id).uniq # => corporation_ids_5
       #
       expect(Eve::Alliance).to receive(:pluck).with(:executor_corporation_id) do
         double.tap do |a|
-          expect(a).to receive(:uniq).and_return(corporation_ids5)
+          expect(a).to receive(:uniq).and_return(corporation_ids_5)
         end
       end
     end
 
-    let(:corporation_id6) { double }
+    let(:corporation_id_6) { double }
 
-    let(:corporation_ids6) { [corporation_id6] }
+    let(:corporation_ids_6) { [corporation_id_6] }
 
     before do
       #
-      # Eve::CorporationAllianceHistory.pluck(:corporation_id).uniq # => corporation_ids6
+      # Eve::CorporationAllianceHistory.pluck(:corporation_id).uniq # => corporation_ids_6
       #
       expect(Eve::CorporationAllianceHistory).to receive(:pluck).with(:corporation_id) do
         double.tap do |a|
-          expect(a).to receive(:uniq).and_return(corporation_ids6)
+          expect(a).to receive(:uniq).and_return(corporation_ids_6)
         end
       end
     end
 
-    let(:corporation_id7) { double }
+    let(:corporation_id_7) { double }
 
-    let(:corporation_ids7) { [corporation_id7] }
+    let(:corporation_ids_7) { [corporation_id_7] }
 
     before do
       #
-      # Eve::Faction.where.not(corporation_id: nil).pluck(:corporation_id).uniq # => corporation_ids7
+      # Eve::Faction.where.not(corporation_id: nil).pluck(:corporation_id).uniq # => corporation_ids_7
       #
       expect(Eve::Faction).to receive(:where) do
         double.tap do |a|
@@ -128,7 +128,7 @@ describe Eve::CorporationsImporter do
             double.tap do |b|
               expect(b).to receive(:pluck).with(:corporation_id) do
                 double.tap do |c|
-                  expect(c).to receive(:uniq).and_return(corporation_ids7)
+                  expect(c).to receive(:uniq).and_return(corporation_ids_7)
                 end
               end
             end
@@ -137,13 +137,13 @@ describe Eve::CorporationsImporter do
       end
     end
 
-    let(:corporation_id8) { double }
+    let(:corporation_id_8) { double }
 
-    let(:corporation_ids8) { [corporation_id8] }
+    let(:corporation_ids_8) { [corporation_id_8] }
 
     before do
       #
-      # Eve::Faction.where.not(militia_corporation_id: nil).pluck(:militia_corporation_id).uniq # => corporation_ids8
+      # Eve::Faction.where.not(militia_corporation_id: nil).pluck(:militia_corporation_id).uniq # => corporation_ids_8
       #
       expect(Eve::Faction).to receive(:where) do
         double.tap do |a|
@@ -151,7 +151,7 @@ describe Eve::CorporationsImporter do
             double.tap do |b|
               expect(b).to receive(:pluck).with(:militia_corporation_id) do
                 double.tap do |c|
-                  expect(c).to receive(:uniq).and_return(corporation_ids8)
+                  expect(c).to receive(:uniq).and_return(corporation_ids_8)
                 end
               end
             end
@@ -160,38 +160,38 @@ describe Eve::CorporationsImporter do
       end
     end
 
-    let(:corporation_id9) { double }
+    let(:corporation_id_9) { double }
 
-    let(:corporation_ids9) { [corporation_id9] }
+    let(:corporation_ids_9) { [corporation_id_9] }
 
     before do
       #
-      # Character.pluck(:corporation_id).uniq # => corporation_ids9
+      # Character.pluck(:corporation_id).uniq # => corporation_ids_9
       #
       expect(Character).to receive(:pluck).with(:corporation_id) do
         double.tap do |a|
-          expect(a).to receive(:uniq).and_return(corporation_ids9)
+          expect(a).to receive(:uniq).and_return(corporation_ids_9)
         end
       end
     end
 
-    before { expect(Eve::UpdateCorporationJob).to receive(:perform_later).with(corporation_id1) }
+    before { expect(Eve::UpdateCorporationJob).to receive(:perform_later).with(corporation_id_1) }
 
-    before { expect(Eve::UpdateCorporationJob).to receive(:perform_later).with(corporation_id2) }
+    before { expect(Eve::UpdateCorporationJob).to receive(:perform_later).with(corporation_id_2) }
 
-    before { expect(Eve::UpdateCorporationJob).to receive(:perform_later).with(corporation_id3) }
+    before { expect(Eve::UpdateCorporationJob).to receive(:perform_later).with(corporation_id_3) }
 
-    before { expect(Eve::UpdateCorporationJob).to receive(:perform_later).with(corporation_id4) }
+    before { expect(Eve::UpdateCorporationJob).to receive(:perform_later).with(corporation_id_4) }
 
-    before { expect(Eve::UpdateCorporationJob).to receive(:perform_later).with(corporation_id5) }
+    before { expect(Eve::UpdateCorporationJob).to receive(:perform_later).with(corporation_id_5) }
 
-    before { expect(Eve::UpdateCorporationJob).to receive(:perform_later).with(corporation_id6) }
+    before { expect(Eve::UpdateCorporationJob).to receive(:perform_later).with(corporation_id_6) }
 
-    before { expect(Eve::UpdateCorporationJob).to receive(:perform_later).with(corporation_id7) }
+    before { expect(Eve::UpdateCorporationJob).to receive(:perform_later).with(corporation_id_7) }
 
-    before { expect(Eve::UpdateCorporationJob).to receive(:perform_later).with(corporation_id8) }
+    before { expect(Eve::UpdateCorporationJob).to receive(:perform_later).with(corporation_id_8) }
 
-    before { expect(Eve::UpdateCorporationJob).to receive(:perform_later).with(corporation_id9) }
+    before { expect(Eve::UpdateCorporationJob).to receive(:perform_later).with(corporation_id_9) }
 
     specify { expect { subject.import }.not_to raise_error }
   end
