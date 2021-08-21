@@ -381,7 +381,7 @@ GEM
       hashie (>= 3.4.6)
       rack (>= 1.6.2, < 3)
       rack-protection
-    omniauth-eve_online-sso (0.3.0)
+    omniauth-eve_online-sso (0.2.0)
       omniauth-oauth2
     omniauth-oauth2 (1.7.1)
       oauth2 (~> 1.4)
@@ -728,7 +728,7 @@ DEPENDENCIES
   newrelic_rpm
   noticed
   oj
-  omniauth-eve_online-sso
+  omniauth-eve_online-sso (= 0.2.0)
   omniauth-rails_csrf_protection
   paper_trail
   pg (~> 1.1)
