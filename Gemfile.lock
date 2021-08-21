@@ -359,7 +359,6 @@ GEM
     net-http-persistent (4.0.1)
       connection_pool (~> 2.2)
     newrelic_rpm (7.2.0)
-    niceql (0.1.25)
     nio4r (2.5.8)
     nokogiri (1.12.3-x86_64-darwin)
       racc (~> 1.4)
@@ -727,7 +726,6 @@ DEPENDENCIES
   mobility
   net-http-persistent
   newrelic_rpm
-  niceql
   noticed
   oj
   omniauth-eve_online-sso
