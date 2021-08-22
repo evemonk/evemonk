@@ -4,6 +4,6 @@ class ImportMissingForDevelopmentJob < ApplicationJob
   queue_as :default
 
   def perform
-    ImportMissingForDevelopment.new.import
+    ImportMissing::ForDevelopment.new.import
   end
 end
