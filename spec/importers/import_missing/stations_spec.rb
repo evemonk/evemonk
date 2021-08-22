@@ -15,15 +15,15 @@ describe ImportMissing::Stations do
 
   # private methods
 
-  # describe "#ship_ids" do
-  #   let!(:eve_type) { create(:eve_type, type_id: 638) }
-  #
-  #   let!(:character_1) { create(:character, current_ship_type_id: nil) }
-  #
-  #   let!(:character_2) { create(:character, current_ship_type_id: 638) }
-  #
-  #   let!(:character_3) { create(:character, current_ship_type_id: 28_710) }
-  #
-  #   specify { expect(subject.send(:ship_ids)).to eq([28_710]) }
-  # end
+  describe "#station_ids" do
+    let!(:eve_station) { create(:eve_station, station_id: 60_008_674) }
+
+    let!(:character_1) { create(:character, current_station_id: nil) }
+
+    let!(:character_2) { create(:character, current_station_id: 60_008_674) }
+
+    let!(:character_3) { create(:character, current_station_id: 60_008_677) }
+
+    specify { expect(subject.send(:station_ids)).to eq([60_008_677]) }
+  end
 end
