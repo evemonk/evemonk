@@ -29,6 +29,10 @@ module ImportMissing
       Corporations.new.import
 
       Ships.new.import
+
+      Systems.new.import
+
+      Stations.new.import
     end
   end
 end
