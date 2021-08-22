@@ -23,6 +23,12 @@ module ImportMissing
 
       Rails.logger.info "Import agents from SDE"
       Sde::AgentsJob.perform_later("static/sde/fsd/agents.yaml")
+
+      Alliances.new.import
+
+      Corporations.new.import
+
+      Ships.new.import
     end
   end
 end

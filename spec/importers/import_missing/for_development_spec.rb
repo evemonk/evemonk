@@ -18,6 +18,30 @@ describe ImportMissing::ForDevelopment do
 
     before { expect(Sde::AgentsJob).to receive(:perform_later).with("static/sde/fsd/agents.yaml") }
 
+    before do
+      expect(ImportMissing::Alliances).to receive(:new) do
+        double.tap do |a|
+          expect(a).to receive(:import)
+        end
+      end
+    end
+
+    before do
+      expect(ImportMissing::Corporations).to receive(:new) do
+        double.tap do |a|
+          expect(a).to receive(:import)
+        end
+      end
+    end
+
+    before do
+      expect(ImportMissing::Ships).to receive(:new) do
+        double.tap do |a|
+          expect(a).to receive(:import)
+        end
+      end
+    end
+
     specify { expect { subject.import }.not_to raise_error }
   end
 end
