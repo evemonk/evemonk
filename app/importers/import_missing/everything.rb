@@ -5,6 +5,7 @@ module ImportMissing
     def import
       Alliances.new.import
       Corporations.new.import
+      Ships.new.import
     end
   end
 end

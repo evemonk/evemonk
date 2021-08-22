@@ -26,6 +26,17 @@ describe ImportMissing::Everything do
       end
     end
 
+    before do
+      #
+      # ImportMissing::Ships.new.import
+      #
+      expect(ImportMissing::Ships).to receive(:new) do
+        double.tap do |a|
+          expect(a).to receive(:import)
+        end
+      end
+    end
+
     specify { expect { subject.import }.not_to raise_error }
   end
 end
