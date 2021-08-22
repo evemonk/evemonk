@@ -15,15 +15,15 @@ describe ImportMissing::Systems do
 
   # private methods
 
-  # describe "#ship_ids" do
-  #   let!(:eve_type) { create(:eve_type, type_id: 638) }
-  #
-  #   let!(:character_1) { create(:character, current_ship_type_id: nil) }
-  #
-  #   let!(:character_2) { create(:character, current_ship_type_id: 638) }
-  #
-  #   let!(:character_3) { create(:character, current_ship_type_id: 28_710) }
-  #
-  #   specify { expect(subject.send(:ship_ids)).to eq([28_710]) }
-  # end
+  describe "#system_ids" do
+    let!(:eve_system) { create(:eve_system, system_id: 30_003_498) }
+
+    let!(:character_1) { create(:character, current_solar_system_id: nil) }
+
+    let!(:character_2) { create(:character, current_solar_system_id: 30_003_498) }
+
+    let!(:character_3) { create(:character, current_solar_system_id: 30_003_499) }
+
+    specify { expect(subject.send(:system_ids)).to eq([30_003_499]) }
+  end
 end
