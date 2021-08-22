@@ -8,3 +8,59 @@
     </nav>
   </div>
 </div>
+
+<div id="accordion_faq" class="accordion">
+  <div class="card">
+    <div class="card-header" id="question_1">
+      <h2 class="mb-0">
+        <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#answer_1" aria-expanded="true" aria-controls="question_1">
+          1. Which scopes used by EveMonk app?
+        </button>
+      </h2>
+    </div>
+
+    <div id="answer_1" class="collapse show" aria-labelledby="question_1" data-parent="#accordion_faq">
+      <div class="card-body">
+        <p>Used scopes:</p>
+
+        <ul>
+          <li>publicData</li>
+          <li>esi-wallet.read_character_wallet.v1</li>
+          <li>esi-characters.read_loyalty.v1</li>
+          <li>esi-clones.read_implants.v1</li>
+          <li>esi-clones.read_clones.v1</li>
+          <li>esi-skills.read_skillqueue.v1</li>
+          <li>esi-skills.read_skills.v1</li>
+          <li>esi-assets.read_assets.v1</li>
+          <li>esi-location.read_location.v1</li>
+          <li>esi-location.read_online.v1</li>
+          <li>esi-location.read_ship_type.v1</li>
+          <li>esi-mail.read_mail.v1</li>
+          <li>esi-characters.read_standings.v1</li>
+          <li>esi-characters.read_blueprints.v1</li>
+          <li>esi-killmails.read_killmails.v1</li>
+          <li>esi-industry.read_character_jobs.v1</li>
+          <li>esi-markets.read_character_orders.v1</li>
+          <li>esi-corporations.read_corporation_membership.v1</li>
+          <li>esi-calendar.read_calendar_events.v1</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header" id="question_2">
+      <h2 class="mb-0">
+        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#answer_2" aria-expanded="false" aria-controls="question_2">
+          2. Where "publicData" scope is used?
+        </button>
+      </h2>
+    </div>
+
+    <div id="answer_2" class="collapse" aria-labelledby="question_2" data-parent="#accordion_faq">
+      <div class="card-body">
+        <p>This is default scope.</p>
+      </div>
+    </div>
+  </div>
+</div>
