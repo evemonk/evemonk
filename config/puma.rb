@@ -27,7 +27,7 @@ activate_control_app
 plugin :yabeda
 
 # Specifies the `pidfile` that Puma will use.
-pidfile ENV.fetch("PIDFILE", "tmp/pids/server.pid")
+# pidfile ENV.fetch("PIDFILE", "tmp/pids/server.pid")
 
 # Specifies the number of `workers` to boot in clustered mode.
 # Workers are forked web server processes. If using threads and workers together
