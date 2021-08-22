@@ -10,9 +10,9 @@ describe ImportMissingJob do
   describe "#perform" do
     before do
       #
-      # ImportMissing.new.import
+      # ImportMissing::Everything.new.import
       #
-      expect(ImportMissing).to receive(:new) do
+      expect(ImportMissing::Everything).to receive(:new) do
         double.tap do |a|
           expect(a).to receive(:import)
         end

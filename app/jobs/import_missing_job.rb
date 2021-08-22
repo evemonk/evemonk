@@ -4,6 +4,6 @@ class ImportMissingJob < ApplicationJob
   queue_as :default
 
   def perform
-    ImportMissing.new.import
+    ImportMissing::Everything.new.import
   end
 end
