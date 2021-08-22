@@ -4,6 +4,7 @@ module ImportMissing
   class Alliances
     def import
       Rails.logger.info "Import missing eve alliances"
+
       alliance_ids.each do |alliance_id|
         Eve::UpdateAllianceJob.perform_later(alliance_id)
       end

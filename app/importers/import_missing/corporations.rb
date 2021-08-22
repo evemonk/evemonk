@@ -4,6 +4,7 @@ module ImportMissing
   class Corporations
     def import
       Rails.logger.info "Import missing eve corporations"
+
       corporation_ids.each do |corporation_id|
         Eve::UpdateCorporationJob.perform_later(corporation_id)
       end
