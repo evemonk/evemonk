@@ -49,6 +49,13 @@ describe UpdateCharactersJob do
       expect(Eve::UpdateMarketPricesJob).to receive(:perform_later)
     end
 
+    before do
+      #
+      # ImportMissingJob.perform_later
+      #
+      expect(ImportMissingJob).to receive(:perform_later)
+    end
+
     specify { expect { subject.perform }.not_to raise_error }
   end
 end
