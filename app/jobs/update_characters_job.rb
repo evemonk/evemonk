@@ -9,5 +9,7 @@ class UpdateCharactersJob < ApplicationJob
     end
 
     Eve::UpdateMarketPricesJob.perform_later
+
+    ImportMissingJob.perform_later
   end
 end
