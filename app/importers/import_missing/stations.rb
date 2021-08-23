@@ -3,7 +3,7 @@
 module ImportMissing
   class Stations
     def import
-      Rails.logger.info "Import eve stations"
+      Rails.logger.info "Import missing eve stations"
 
       station_ids.each do |station_id|
         Eve::UpdateStationJob.perform_later(station_id)
