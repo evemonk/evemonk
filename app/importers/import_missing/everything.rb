@@ -6,6 +6,8 @@ module ImportMissing
       Alliances.new.import
       Corporations.new.import
       Ships.new.import
+      Stations.new.import
+      Systems.new.import
     end
   end
 end

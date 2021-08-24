@@ -37,6 +37,28 @@ describe ImportMissing::Everything do
       end
     end
 
+    before do
+      #
+      # ImportMissing::Stations.new.import
+      #
+      expect(ImportMissing::Stations).to receive(:new) do
+        double.tap do |a|
+          expect(a).to receive(:import)
+        end
+      end
+    end
+
+    before do
+      #
+      # ImportMissing::Systems.new.import
+      #
+      expect(ImportMissing::Systems).to receive(:new) do
+        double.tap do |a|
+          expect(a).to receive(:import)
+        end
+      end
+    end
+
     specify { expect { subject.import }.not_to raise_error }
   end
 end

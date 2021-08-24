@@ -3,7 +3,7 @@
 module ImportMissing
   class Systems
     def import
-      Rails.logger.info "Import eve systems"
+      Rails.logger.info "Import missing eve systems"
 
       system_ids.each do |system_id|
         Eve::UpdateSystemJob.perform_later(system_id)

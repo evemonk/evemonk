@@ -3,7 +3,7 @@
 module ImportMissing
   class Ships
     def import
-      Rails.logger.info "Import eve ships"
+      Rails.logger.info "Import missing eve ships"
 
       ship_ids.each do |type_id|
         Eve::UpdateTypeJob.perform_later(type_id)
