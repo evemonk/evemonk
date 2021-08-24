@@ -28,6 +28,8 @@ describe EveOnlineCallbackService do
 
     before { expect(subject).to receive(:update_character_info) }
 
+    before { expect(subject).to receive(:import_missing_data) }
+
     before { expect(subject).not_to receive(:import_corporation_members) }
 
     specify { expect { subject.save! }.not_to raise_error }
@@ -349,5 +351,20 @@ describe EveOnlineCallbackService do
     end
 
     specify { expect { subject.send(:import_corporation_members) }.not_to raise_error }
+  end
+
+  describe "#import_missing_data" do
+    before do
+      #
+      # ImportMissing::Everything.new.import
+      #
+      expect(ImportMissing::Everything).to receive(:new) do
+        double.tap do |a|
+          expect(a).to receive(:import)
+        end
+      end
+    end
+
+    specify { expect { subject.send(:import_missing_data) }.not_to raise_error }
   end
 end

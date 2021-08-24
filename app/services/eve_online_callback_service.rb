@@ -19,6 +19,8 @@ class EveOnlineCallbackService
 
     update_character_info
 
+    import_missing_data
+
     # import_corporation_members
   end
 
@@ -90,5 +92,9 @@ class EveOnlineCallbackService
 
   def import_corporation_members
     CorporationMembersJob.perform_later(character_id)
+  end
+
+  def import_missing_data
+    ImportMissing::Everything.new.import
   end
 end
