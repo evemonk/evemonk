@@ -57,6 +57,7 @@ gem "noticed"
 gem "responders"
 gem "rack-health"
 gem "fog-aws", require: false
+gem "aws-sdk-s3"
 gem "sitemap_generator"
 gem "typhoeus"
 gem "administrate"
