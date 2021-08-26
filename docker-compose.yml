@@ -39,6 +39,9 @@ services:
     container_name: "evemonk_minio"
     restart: "unless-stopped"
     command: "server /data --console-address :9001"
+    environment:
+      MINIO_ROOT_USER: "root"
+      MINIO_ROOT_PASSWORD: "password"
     volumes:
       - "minio_data:/data"
     ports:
