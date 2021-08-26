@@ -3,6 +3,7 @@ version: "3.8"
 volumes:
   postresql_data: {}
   redis_data: {}
+  minio_data: {}
 
 services:
   postgresql:
@@ -32,3 +33,14 @@ services:
     command: "memcached -m 64"
     ports:
       - "11211:11211"
+
+  minio:
+    image: "docker.io/minio/minio:latest"
+    container_name: "evemonk_minio"
+    restart: "unless-stopped"
+    command: "server /data --console-address :9001"
+    volumes:
+      - "minio_data:/data"
+    ports:
+      - "9000:9000"
+      - "9001:9001"
