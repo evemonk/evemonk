@@ -9,7 +9,7 @@ SitemapGenerator::Sitemap.adapter = SitemapGenerator::S3Adapter.new(
   aws_access_key_id: ENV["AWS_ACCESS_KEY_ID"],
   aws_secret_access_key: ENV["AWS_SECRET_ACCESS_KEY"],
   fog_provider: "AWS",
-  fog_directory: ENV["BUCKET"],
+  fog_directory: "#{ENV['BUCKET']}/sitemaps/",
   fog_region: ENV["MINIO_REGION_NAME"],
   fog_path_style: true,
   fog_storage_options: {
