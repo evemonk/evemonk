@@ -56,6 +56,7 @@ gem "noticed"
 # gem "rubycritic", require: false
 gem "responders"
 gem "rack-health"
+gem "fog-aws", require: false
 gem "sitemap_generator"
 gem "typhoeus"
 gem "administrate"
