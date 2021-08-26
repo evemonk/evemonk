@@ -42,6 +42,7 @@ services:
     environment:
       MINIO_ROOT_USER: "root"
       MINIO_ROOT_PASSWORD: "password"
+      MINIO_REGION_NAME: "london"
     volumes:
       - "minio_data:/data"
     ports:
