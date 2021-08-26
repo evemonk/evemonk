@@ -15,9 +15,9 @@ module Eve
     def import
       eve_character = Eve::Character.find_or_initialize_by(character_id: character_id)
 
-      # tempfile = Down.download(PORTRAIT_URL % character_id)
-      #
-      # eve_character.portrait.attach(io: tempfile, filename: "#{character_id}.jpg")
+      tempfile = Down.download(PORTRAIT_URL % character_id)
+
+      eve_character.portrait.attach(io: tempfile, filename: "#{character_id}.jpg")
 
       eve_character.save!
     end
