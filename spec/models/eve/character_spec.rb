@@ -27,6 +27,8 @@ describe Eve::Character do
 
   it { should have_many(:character_corporation_histories).with_primary_key("character_id").dependent(:destroy) }
 
+  it { should have_one_attached(:portrait) } # TODO: .with_service(:minio_public)
+
   it { should have_db_index(:name) }
 
   it { expect(described_class).to respond_to(:search_by_name) }
