@@ -60,7 +60,6 @@ gem "fog-aws", require: false
 gem "aws-sdk-s3"
 gem "down", require: false
 gem "sitemap_generator"
-gem "typhoeus" # TODO: check and remove
 gem "administrate"
 gem "sentry-ruby"
 gem "sentry-rails"
