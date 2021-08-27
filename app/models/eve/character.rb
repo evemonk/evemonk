@@ -37,7 +37,7 @@ module Eve
 
     pg_search_scope :search_by_name, against: :name
 
-    has_one_attached :portrait, service: :minio_public
+    has_one_attached :portrait
 
     def icon_tiny
       "#{imageproxy_url}https://images.evetech.net/characters/#{character_id}/portrait?size=32"
