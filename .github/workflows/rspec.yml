@@ -39,7 +39,7 @@ jobs:
         ports:
           - "9000:9000"
           - "9001:9001"
-        options: server /data
+        options: minio/minio server /data
 
     steps:
       - uses: actions/checkout@v2
