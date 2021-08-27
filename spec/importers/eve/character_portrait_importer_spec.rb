@@ -9,7 +9,7 @@ describe Eve::CharacterPortraitImporter do
 
   it { should be_a(Eve::BaseImporter) }
 
-  specify { expect(described_class::PORTRAIT_URL).to eq("https://images.evetech.net/characters/%s/portrait") }
+  specify { expect(described_class::CHARACTERS_PORTRAIT_URL).to eq("https://images.evetech.net/characters/%s/portrait") }
 
   describe "#import" do
     let(:character_id) { 1_337_512_245 }
