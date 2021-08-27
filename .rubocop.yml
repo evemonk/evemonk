@@ -122,3 +122,7 @@ Style/GuardClause:
 Naming/VariableNumber:
   Enabled: true
   EnforcedStyle: snake_case
+
+Style/StringLiteralsInInterpolation:
+  Enabled: true
+  EnforcedStyle: double_quotes
