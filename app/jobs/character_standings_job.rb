@@ -7,7 +7,6 @@ class CharacterStandingsJob < ApplicationJob
     EveOnline::Exceptions::ServiceUnavailable,
     EveOnline::Exceptions::BadGateway,
     EveOnline::Exceptions::InternalServerError,
-    OpenSSL::SSL::SSLError,
     Faraday::TimeoutError,
     Faraday::ConnectionFailed
 
