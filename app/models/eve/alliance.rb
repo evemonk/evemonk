@@ -43,6 +43,8 @@ module Eve
 
     pg_search_scope :search_by_name_and_ticker, against: [:name, :ticker]
 
+    has_one_attached :logo
+
     def reset_corporations_count
       update_columns(corporations_count: corporations.count)
     end
