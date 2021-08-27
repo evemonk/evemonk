@@ -8,7 +8,6 @@ module Eve
       EveOnline::Exceptions::ServiceUnavailable,
       EveOnline::Exceptions::BadGateway,
       EveOnline::Exceptions::InternalServerError,
-      OpenSSL::SSL::SSLError,
       Faraday::TimeoutError,
       Faraday::ConnectionFailed
 
