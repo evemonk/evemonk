@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "down"
+
 module Eve
   class AllianceLogoImporter < BaseImporter
     attr_reader :alliance_id
@@ -13,9 +15,9 @@ module Eve
     def import
       eve_alliance = Eve::Alliance.find_or_initialize_by(alliance_id: alliance_id)
 
-      tempfile = Down.download(CHARACTERS_PORTRAIT_URL % alliance_id)
+      tempfile = Down.download(ALLIANCES_LOGO_URL % alliance_id)
 
-      eve_alliance.logo.attach(io: tempfile, filename: "#{character_id}.png")
+      eve_alliance.logo.attach(io: tempfile, filename: "#{alliance_id}.png")
 
       eve_alliance.save!
     end
