@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "down"
-
 module Eve
   class CorporationLogoImporter < BaseImporter
     attr_reader :corporation_id

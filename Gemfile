@@ -58,7 +58,7 @@ gem "responders"
 gem "rack-health"
 gem "fog-aws", require: false
 gem "aws-sdk-s3"
-gem "down", require: false
+gem "down"
 gem "sitemap_generator"
 gem "administrate"
 gem "sentry-ruby"
