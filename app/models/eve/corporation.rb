@@ -53,6 +53,8 @@ module Eve
 
     pg_search_scope :search_by_name_and_ticker, against: [:name, :ticker]
 
+    has_one_attached :logo
+
     def eve_alliance_reset_corporations_count
       alliance&.reset_corporations_count
     end
