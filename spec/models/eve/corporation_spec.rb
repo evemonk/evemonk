@@ -33,6 +33,8 @@ describe Eve::Corporation do
 
   it { should have_many(:loyalty_store_offers).with_primary_key("corporation_id") }
 
+  it { should have_one_attached(:logo) }
+
   it { should have_db_index(:name) }
 
   describe ".npc" do

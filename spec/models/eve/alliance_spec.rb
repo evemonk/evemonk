@@ -33,6 +33,8 @@ describe Eve::Alliance do
 
   it { should callback(:reset_characters_count).after(:commit).on(:create) }
 
+  it { should have_one_attached(:logo) }
+
   it { should have_db_index(:name) }
 
   it { expect(described_class).to respond_to(:search_by_name_and_ticker) }

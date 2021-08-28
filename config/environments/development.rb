@@ -33,6 +33,9 @@ Rails.application.configure do
     config.cache_store = :null_store
   end
 
+  # Store uploaded files in S3 (Minio) (see config/storage.yml for options).
+  config.active_storage.service = :minio
+
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
 

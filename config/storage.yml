@@ -1,0 +1,13 @@
+test:
+  service: Disk
+  root: <%= Rails.root.join("tmp/storage") %>
+
+minio:
+  service: S3
+  access_key_id: <%= ENV["AWS_ACCESS_KEY_ID"] %>
+  secret_access_key: <%= ENV["AWS_SECRET_ACCESS_KEY"] %>
+  region: <%= ENV["MINIO_REGION_NAME"] %>
+  bucket: <%= ENV["BUCKET"] %>
+  endpoint: <%= ENV["MINIO_ENDPOINT"] %>
+  force_path_style: true
+  public: true

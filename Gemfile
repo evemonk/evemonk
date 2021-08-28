@@ -56,8 +56,10 @@ gem "noticed"
 # gem "rubycritic", require: false
 gem "responders"
 gem "rack-health"
+gem "fog-aws", require: false
+gem "aws-sdk-s3"
+gem "down", require: false
 gem "sitemap_generator"
-gem "typhoeus"
 gem "administrate"
 gem "sentry-ruby"
 gem "sentry-rails"
@@ -133,3 +135,6 @@ group :test do
 end
 
 gem "httplog"
+
+# TODO: Remove after zeitwerk 2.5.0 release
+gem "zeitwerk", "2.5.0.beta2"

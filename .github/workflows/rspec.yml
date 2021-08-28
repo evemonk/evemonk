@@ -14,6 +14,11 @@ env:
   POSTGRES_DB: "evemonk_test"
   PGHOST: "localhost"
   SECRET_KEY_BASE: "df85f70fa713b189c61deba6a51206472643e53894ae9a1dcd7c97ee15a9b79e962c9ada5b12e69ab360648f74b89d1b7d26dd310b485d48d4509a3445113813"
+  AWS_ACCESS_KEY_ID: "root"
+  AWS_SECRET_ACCESS_KEY: "password"
+  MINIO_REGION_NAME: "us-east-1"
+  MINIO_ENDPOINT: "http://localhost:9000"
+  BUCKET: "evemonk-test-bucket"
 
 jobs:
   rspec:
@@ -30,6 +35,16 @@ jobs:
           - "5432:5432"
         # needed because the postgres container does not provide a healthcheck
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+      minio:
+        image: "minio/minio"
+        env:
+          MINIO_ROOT_USER: "root"
+          MINIO_ROOT_PASSWORD: "password"
+          MINIO_REGION_NAME: "us-east-1"
+        ports:
+          - "9000:9000"
+          - "9001:9001"
+        options: minio/minio server /data
 
     steps:
       - uses: actions/checkout@v2
