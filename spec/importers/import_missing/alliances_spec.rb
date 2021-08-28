@@ -10,6 +10,8 @@ describe ImportMissing::Alliances do
 
     before { expect(Eve::UpdateAllianceJob).to receive(:perform_later).with(alliance_id) }
 
+    before { expect(Eve::UpdateAllianceLogoJob).to receive(:perform_later).with(alliance_id) }
+
     specify { expect { subject.import }.not_to raise_error }
   end
 

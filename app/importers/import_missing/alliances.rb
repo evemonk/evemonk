@@ -7,6 +7,8 @@ module ImportMissing
 
       alliance_ids.each do |alliance_id|
         Eve::UpdateAllianceJob.perform_later(alliance_id)
+
+        Eve::UpdateAllianceLogoJob.perform_later(alliance_id)
       end
     end
 

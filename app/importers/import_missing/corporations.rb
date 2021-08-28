@@ -7,6 +7,8 @@ module ImportMissing
 
       corporation_ids.each do |corporation_id|
         Eve::UpdateCorporationJob.perform_later(corporation_id)
+
+        Eve::UpdateCorporationLogoJob.perform_later(corporation_id)
       end
     end
 
