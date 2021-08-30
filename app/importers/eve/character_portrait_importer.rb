@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "down"
-
 module Eve
   class CharacterPortraitImporter < BaseImporter
     attr_reader :character_id

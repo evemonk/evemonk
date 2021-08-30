@@ -33,6 +33,9 @@ module ImportMissing
       Systems.new.import
 
       Stations.new.import
+
+      Rails.logger.info "Import eve dogma attributes"
+      Eve::UpdateDogmaAttributesJob.perform_later
     end
   end
 end

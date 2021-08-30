@@ -10,6 +10,8 @@ describe ImportMissing::Corporations do
 
     before { expect(Eve::UpdateCorporationJob).to receive(:perform_later).with(corporation_id) }
 
+    before { expect(Eve::UpdateCorporationLogoJob).to receive(:perform_later).with(corporation_id) }
+
     specify { expect { subject.import }.not_to raise_error }
   end
 

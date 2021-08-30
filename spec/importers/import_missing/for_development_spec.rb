@@ -58,6 +58,8 @@ describe ImportMissing::ForDevelopment do
       end
     end
 
+    before { expect(Eve::UpdateDogmaAttributesJob).to receive(:perform_later) }
+
     specify { expect { subject.import }.not_to raise_error }
   end
 end

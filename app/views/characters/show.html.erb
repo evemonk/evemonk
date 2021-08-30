@@ -126,6 +126,11 @@
             <%= @character.race.name %> / <%= @character.bloodline.name %> / <%= @character.ancestry.name %>
           </li>
         <% end %>
+        <% if @character.race && @character.bloodline && @character.ancestry.blank? %>
+          <li class="list-group-item text-break">
+            <%= @character.race.name %> / <%= @character.bloodline.name %>
+          </li>
+        <% end %>
         <% if @character.faction %>
           <li class="list-group-item text-break">
             Faction: <%= @character.faction.name %>

@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "down"
-
 module Eve
   class AllianceLogoImporter < BaseImporter
     attr_reader :alliance_id
