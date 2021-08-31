@@ -53,6 +53,30 @@
     :why:
     :versions: []
     :when: 2021-07-14 16:18:51.088143000 Z
+- - :permit
+  - CC-BY-4.0
+  - :who: "@biow0lf"
+    :why:
+    :versions: []
+    :when: 2021-07-14 16:18:51.088143000 Z
+- - :permit
+  - MIT, Apache License v2.0
+  - :who: "@biow0lf"
+    :why:
+    :versions: []
+    :when: 2021-07-14 16:18:51.088143000 Z
+- - :permit
+  - "(MIT AND Zlib)"
+  - :who: "@biow0lf"
+    :why:
+    :versions: []
+    :when: 2021-07-14 16:18:51.088143000 Z
+- - :permit
+  - BSD Zero Clause License
+  - :who: "@biow0lf"
+    :why:
+    :versions: []
+    :when: 2021-07-14 16:18:51.088143000 Z
 - - :ignore_group
   - development
   - :who: "@biow0lf"
@@ -65,3 +89,27 @@
     :why:
     :versions: []
     :when: 2021-08-23 22:39:22.237830000 Z
+- - :approve
+  - rack-health
+  - :who: "@biow0lf"
+    :why: MIT
+    :versions: []
+    :when: 2021-08-31 02:32:42.708375000 Z
+- - :approve
+  - scout_apm
+  - :who: "@biow0lf"
+    :why:
+    :versions: []
+    :when: 2021-08-31 02:32:50.882723000 Z
+- - :approve
+  - sidekiq
+  - :who: "@biow0lf"
+    :why:
+    :versions: []
+    :when: 2021-08-31 02:32:54.862050000 Z
+- - :approve
+  - fsevents
+  - :who: "@biow0lf"
+    :why: MIT
+    :versions: []
+    :when: 2021-08-31 02:32:54.862050000 Z
