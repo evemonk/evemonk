@@ -6,21 +6,27 @@ module Types
 
     field :id, ID,
       method: :faction_id,
+      description: "Faction ID",
       null: false
 
     field :corporation_id, Integer,
+      description: "Corporation ID",
       null: true
 
     field :corporation, Types::EveCorporationType,
+      description: "Corporation",
       null: true
 
     field :description, GraphQL::Types::JSON,
+      description: "Description",
       null: true
 
     field :is_unique, Boolean,
+      description: "Is Unique?",
       null: true
 
     field :name, GraphQL::Types::JSON,
+      description: "Name",
       null: true
 
     field :militia_corporation_id, Integer,
