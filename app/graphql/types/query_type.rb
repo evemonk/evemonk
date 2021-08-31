@@ -83,10 +83,16 @@ module Types
       argument :id, ID, description: "Eve Character ID", required: true
     end
 
-    field :constellations, Types::EveConstellationType.connection_type, null: true, description: "Eve Constellations"
+    field :constellations,
+      Types::EveConstellationType.connection_type,
+      description: "Eve Constellations",
+      null: true
 
-    field :constellation, Types::EveConstellationType, null: true, description: "Eve Constellation" do
-      argument :id, ID, required: true
+    field :constellation,
+      Types::EveConstellationType,
+      description: "Eve Constellation",
+      null: true do
+      argument :id, ID, description: "Eve Constellation ID", required: true
     end
 
     field :contracts, Types::EveContractType.connection_type, null: true, description: "Public Contracts"
