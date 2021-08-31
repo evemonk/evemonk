@@ -30,27 +30,35 @@ module Types
       null: true
 
     field :militia_corporation_id, Integer,
+      description: "Militia Corporation ID (Corporation ID)",
       null: true
 
     field :militia_corporation, Types::EveCorporationType,
+      description: "Militia Corporation (Corporation)",
       null: true
 
     field :size_factor, Float,
+      description: "Size factor",
       null: true
 
     field :solar_system_id, Integer,
+      description: "Solar System ID (System ID)",
       null: true
 
     field :solar_system, Types::EveSystemType,
+      description: "Solar System (System)",
       null: true
 
     field :station_count, Integer,
+      description: "Station count",
       null: true
 
     field :station_system_count, Integer,
+      description: "Station system count",
       null: true
 
     field :alliances, Types::EveAllianceType.connection_type,
+      description: "Alliances collection",
       null: true
 
     # field :standings
