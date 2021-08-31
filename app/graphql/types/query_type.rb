@@ -20,19 +20,31 @@ module Types
       Types::EveAllianceType,
       description: "Eve Alliance",
       null: true do
-      argument :id, ID, required: true, description: "Eve Alliance ID"
+      argument :id, ID, description: "Eve Alliance ID", required: true
     end
 
-    field :ancestries, Types::EveAncestryType.connection_type, null: true, description: "Eve Ancestries"
+    field :ancestries,
+      Types::EveAncestryType.connection_type,
+      description: "Eve Ancestries",
+      null: true
 
-    field :ancestry, Types::EveAncestryType, null: true, description: "Eve Ancestry" do
-      argument :id, ID, required: true
+    field :ancestry,
+      Types::EveAncestryType,
+      description: "Eve Ancestry",
+      null: true do
+      argument :id, ID, description: "Eve Ancestry ID", required: true
     end
 
-    field :bloodlines, Types::EveBloodlineType.connection_type, null: true, description: "Eve Bloodlines"
+    field :bloodlines,
+      Types::EveBloodlineType.connection_type,
+      description: "Eve Bloodlines",
+      null: true
 
-    field :bloodline, Types::EveBloodlineType, null: true, description: "Eve Bloodline" do
-      argument :id, ID, required: true
+    field :bloodline,
+        Types::EveBloodlineType,
+        description: "Eve Bloodline",
+        null: true do
+      argument :id, ID, description: "Eve Bloodline ID", required: true
     end
 
     field :blueprints, Types::EveBlueprintType.connection_type, null: true, description: "Eve Blueprints"
