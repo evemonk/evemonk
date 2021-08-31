@@ -101,19 +101,29 @@ module Types
       argument :id, ID, description: "Corporation ID", required: true
     end
 
-    field :factions, Types::EveFactionType.connection_type, null: true, description: "Factions"
+    field :factions, Types::EveFactionType.connection_type,
+      description: "Factions",
+      null: true
 
-    field :faction, Types::EveFactionType, null: true, description: "Faction" do
-      argument :id, ID, required: true
+    field :faction, Types::EveFactionType,
+      description: "Faction",
+      null: true do
+      argument :id, ID, description: "Faction ID", required: true
     end
 
-    field :graphics, Types::EveGraphicType.connection_type, null: true, description: "Graphics"
+    field :graphics, Types::EveGraphicType.connection_type,
+      description: "Graphics",
+      null: true
 
-    field :graphic, Types::EveGraphicType, null: true, description: "Graphic" do
-      argument :id, ID, required: true
+    field :graphic, Types::EveGraphicType,
+      description: "Graphic",
+      null: true do
+      argument :id, ID, description: "Graphic ID", required: true
     end
 
-    field :groups, Types::EveGroupType.connection_type, null: true, description: "Groups"
+    field :groups, Types::EveGroupType.connection_type,
+      description: "Groups",
+      null: true
 
     field :group, Types::EveGroupType, null: true, description: "Group" do
       argument :id, ID, required: true
