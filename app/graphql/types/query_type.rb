@@ -151,10 +151,14 @@ module Types
       argument :id, ID, description: "Market Group ID", required: true
     end
 
-    field :races, Types::EveRaceType.connection_type, null: true, description: "Races"
+    field :races, Types::EveRaceType.connection_type,
+      description: "Races",
+      null: true
 
-    field :race, Types::EveRaceType, null: true, description: "Race" do
-      argument :id, ID, required: true
+    field :race, Types::EveRaceType,
+      description: "Race",
+      null: true do
+      argument :id, ID, description: "Race ID", required: true
     end
 
     field :regions, Types::EveRegionType.connection_type, null: true, description: "Regions"
