@@ -4,7 +4,6 @@ require:
 
 AllCops:
   NewCops: enable
-  SuggestExtensions: false
   Exclude:
     - "bin/*"
     - "db/schema.rb"
