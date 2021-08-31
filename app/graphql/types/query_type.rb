@@ -11,85 +11,71 @@ module Types
     # Add root-level fields here.
     # They will be entry points for queries on your schema.
 
-    field :alliances,
-      Types::EveAllianceType.connection_type,
+    field :alliances, Types::EveAllianceType.connection_type,
       description: "Alliances",
       null: true
 
-    field :alliance,
-      Types::EveAllianceType,
+    field :alliance, Types::EveAllianceType,
       description: "Alliance",
       null: true do
       argument :id, ID, description: "Alliance ID", required: true
     end
 
-    field :ancestries,
-      Types::EveAncestryType.connection_type,
+    field :ancestries, Types::EveAncestryType.connection_type,
       description: "Ancestries",
       null: true
 
-    field :ancestry,
-      Types::EveAncestryType,
+    field :ancestry, Types::EveAncestryType,
       description: "Ancestry",
       null: true do
       argument :id, ID, description: "Ancestry ID", required: true
     end
 
-    field :bloodlines,
-      Types::EveBloodlineType.connection_type,
+    field :bloodlines, Types::EveBloodlineType.connection_type,
       description: "Bloodlines",
       null: true
 
-    field :bloodline,
-      Types::EveBloodlineType,
+    field :bloodline, Types::EveBloodlineType,
       description: "Bloodline",
       null: true do
       argument :id, ID, description: "Bloodline ID", required: true
     end
 
-    field :blueprints,
-      Types::EveBlueprintType.connection_type,
+    field :blueprints, Types::EveBlueprintType.connection_type,
       description: "Blueprints",
       null: true
 
-    field :blueprint,
-      Types::EveBlueprintType,
+    field :blueprint, Types::EveBlueprintType,
       description: "Blueprint",
       null: true do
       argument :id, ID, description: "Blueprint ID", required: true
     end
 
-    field :categories,
-      Types::EveCategoryType.connection_type,
+    field :categories, Types::EveCategoryType.connection_type,
       description: "Categories",
       null: true
 
-    field :category,
-      Types::EveCategoryType,
+    field :category, Types::EveCategoryType,
       description: "Category",
       null: true do
       argument :id, ID, description: "Category ID", required: true
     end
 
-    field :characters,
-      Types::EveCharacterType.connection_type,
+    field :characters, Types::EveCharacterType.connection_type,
       description: "Characters",
       null: true
 
-    field :character,
-      Types::EveCharacterType,
+    field :character, Types::EveCharacterType,
       description: "Character",
       null: true do
       argument :id, ID, description: "Character ID", required: true
     end
 
-    field :constellations,
-      Types::EveConstellationType.connection_type,
+    field :constellations, Types::EveConstellationType.connection_type,
       description: "Constellations",
       null: true
 
-    field :constellation,
-      Types::EveConstellationType,
+    field :constellation, Types::EveConstellationType,
       description: "Constellation",
       null: true do
       argument :id, ID, description: "Constellation ID", required: true
