@@ -125,20 +125,30 @@ module Types
       description: "Groups",
       null: true
 
-    field :group, Types::EveGroupType, null: true, description: "Group" do
-      argument :id, ID, required: true
+    field :group, Types::EveGroupType,
+      description: "Group",
+      null: true do
+      argument :id, ID, description: "Group ID", required: true
     end
 
-    field :icons, Types::EveIconType.connection_type, null: true, description: "Icons"
+    field :icons, Types::EveIconType.connection_type,
+      description: "Icons",
+      null: true
 
-    field :icon, Types::EveIconType, null: true, description: "Icon" do
-      argument :id, ID, required: true
+    field :icon, Types::EveIconType,
+      description: "Icon",
+      null: true do
+      argument :id, ID, description: "Icon ID", required: true
     end
 
-    field :market_groups, Types::EveMarketGroupType.connection_type, null: true, description: "Market Groups"
+    field :market_groups, Types::EveMarketGroupType.connection_type,
+      description: "Market Groups",
+      null: true
 
-    field :market_group, Types::EveMarketGroupType, null: true, description: "Market Group" do
-      argument :id, ID, required: true
+    field :market_group, Types::EveMarketGroupType,
+      description: "Market Group",
+      null: true do
+      argument :id, ID, description: "Market Group ID", required: true
     end
 
     field :races, Types::EveRaceType.connection_type, null: true, description: "Races"
