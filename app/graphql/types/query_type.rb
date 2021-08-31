@@ -59,10 +59,16 @@ module Types
       argument :id, ID, description: "Eve Blueprint ID", required: true
     end
 
-    field :categories, Types::EveCategoryType.connection_type, null: true, description: "Eve Categories"
+    field :categories,
+      Types::EveCategoryType.connection_type,
+      description: "Eve Categories",
+      null: true
 
-    field :category, Types::EveCategoryType, null: true, description: "Eve Category" do
-      argument :id, ID, required: true
+    field :category,
+      Types::EveCategoryType,
+      description: "Eve Category",
+      null: true do
+      argument :id, ID, description: "Eve Category ID", required: true
     end
 
     field :characters, Types::EveCharacterType.connection_type, null: true, description: "Eve Characters"
