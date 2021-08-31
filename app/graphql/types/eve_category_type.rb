@@ -6,15 +6,19 @@ module Types
 
     field :id, ID,
       method: :category_id,
+      description: "Category ID",
       null: false
 
     field :name, GraphQL::Types::JSON,
+      description: "Name",
       null: true
 
     field :published, Boolean,
+      description: "Published",
       null: true
 
     field :groups, Types::EveGroupType.connection_type,
+      description: "Groups collection",
       null: true
 
     def name
