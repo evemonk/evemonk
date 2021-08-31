@@ -2,10 +2,11 @@
 
 module Types
   module NodeType
-    description "Node"
+    # rubocop:disable GraphQL/ObjectDescription
 
     include Types::BaseInterface
     # Add the `id` field
     include GraphQL::Types::Relay::NodeBehaviors
+    # rubocop:enable GraphQL/ObjectDescription
   end
 end
