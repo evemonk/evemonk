@@ -2,6 +2,8 @@
 
 module Types
   class QueryType < Types::BaseObject
+    description "Query object"
+
     # Add `node(id: ID!) and `nodes(ids: [ID!]!)`
     include GraphQL::Types::Relay::HasNodeField
     include GraphQL::Types::Relay::HasNodesField
@@ -9,10 +11,16 @@ module Types
     # Add root-level fields here.
     # They will be entry points for queries on your schema.
 
-    field :alliances, Types::EveAllianceType.connection_type, null: true, description: "Eve Alliances"
+    field :alliances,
+      Types::EveAllianceType.connection_type,
+      description: "Eve Alliances",
+      null: true
 
-    field :alliance, Types::EveAllianceType, null: true, description: "Eve Alliance" do
-      argument :id, ID, required: true
+    field :alliance,
+      Types::EveAllianceType,
+      description: "Eve Alliance",
+      null: true do
+      argument :id, ID, required: true, description: "Eve Alliance ID"
     end
 
     field :ancestries, Types::EveAncestryType.connection_type, null: true, description: "Eve Ancestries"
