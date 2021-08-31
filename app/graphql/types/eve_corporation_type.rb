@@ -51,37 +51,48 @@ module Types
       null: true
 
     field :home_station_id, Integer,
+      description: "Home station ID (Station ID)",
       null: true
 
     field :home_station, Types::EveStationType,
+      description: "Home station (Station)",
       null: true
 
     field :member_count, Integer,
+      description: "Member count",
       null: true
 
     field :name, String,
+      description: "Eve Corporation name",
       null: true
 
     field :shares, GraphQL::Types::BigInt,
+      description: "Shares",
       null: true
 
     field :tax_rate, Float,
+      description: "Tax rate",
       null: true
 
     field :ticker, String,
+      description: "Ticker",
       null: true
 
     field :url, String,
       method: :corporation_url,
+      description: "Corporation URL",
       null: true
 
     field :war_eligible, Boolean,
+      description: "War eligible",
       null: true
 
     field :npc, Boolean,
+      description: "NPC",
       null: true
 
     field :characters, Types::EveCharacterType.connection_type,
+      description: "Characters collection",
       null: true
 
     # TODO: :corporation_alliance_histories
