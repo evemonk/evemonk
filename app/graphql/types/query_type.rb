@@ -41,16 +41,22 @@ module Types
       null: true
 
     field :bloodline,
-        Types::EveBloodlineType,
-        description: "Eve Bloodline",
-        null: true do
+      Types::EveBloodlineType,
+      description: "Eve Bloodline",
+      null: true do
       argument :id, ID, description: "Eve Bloodline ID", required: true
     end
 
-    field :blueprints, Types::EveBlueprintType.connection_type, null: true, description: "Eve Blueprints"
+    field :blueprints,
+      Types::EveBlueprintType.connection_type,
+      description: "Eve Blueprints",
+      null: true
 
-    field :blueprint, Types::EveBlueprintType, null: true, description: "Eve Blueprint" do
-      argument :id, ID, required: true
+    field :blueprint,
+      Types::EveBlueprintType,
+      description: "Eve Blueprint",
+      null: true do
+      argument :id, ID, description: "Eve Blueprint ID", required: true
     end
 
     field :categories, Types::EveCategoryType.connection_type, null: true, description: "Eve Categories"
