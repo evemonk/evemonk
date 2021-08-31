@@ -85,7 +85,7 @@ describe Types::EveGraphicType do
           "edges" => [
             {
               "node" => {
-                "id" => "123",
+                "id" => "123"
                 # "collisionFile" => "collision_file1",
                 # "graphicFile" => "graphic_file1",
                 # "iconFolder" => "icon_folder1",
@@ -98,7 +98,7 @@ describe Types::EveGraphicType do
             },
             {
               "node" => {
-                "id" => "321",
+                "id" => "321"
                 # "collisionFile" => "collision_file2",
                 # "graphicFile" => "graphic_file2",
                 # "iconFolder" => "icon_folder2",
@@ -166,7 +166,7 @@ describe Types::EveGraphicType do
     specify do
       expect(result).to eq("data" => {
         "graphic" => {
-          "id" => "123",
+          "id" => "123"
           # "collisionFile" => "collision_file1",
           # "graphicFile" => "graphic_file1",
           # "iconFolder" => "icon_folder1",
