@@ -14,50 +14,59 @@ module Types
       null: true
 
     field :ticker, String,
-      description: "Eve Alliance ticker",
+      description: "Ticker",
       null: true
 
     field :date_founded, GraphQL::Types::ISO8601DateTime,
+      description: "Date founded",
       null: true
 
     field :creator_corporation_id, Integer,
+      description: "Creator Corporation ID (Corporation ID)",
       null: true
 
     field :creator_corporation, Types::EveCorporationType,
+      description: "Creator Corporation (Corporation)",
       null: true
 
     field :creator_id, Integer,
+      description: "Creator ID (Character ID)",
       null: true
 
     field :creator, Types::EveCharacterType,
+      description: "Creator (Character)",
       null: true
 
     field :executor_corporation_id, Integer,
+      description: "Executor Corporation ID (Corporation ID)",
       null: true
 
     field :executor_corporation, Types::EveCorporationType,
+      description: "Executor Corporation (Corporation)",
       null: true
 
     field :faction_id, Integer,
+      description: "Faction ID",
       null: true
 
     field :faction, Types::EveFactionType,
+      description: "Faction",
       null: true
 
     field :corporations_count, Integer,
-      description: "Eve Alliance corporations count",
+      description: "Corporations count",
       null: true
 
     field :characters_count, Integer,
-      description: "Eve Alliance characters count",
+      description: "Characters count",
       null: true
 
     field :corporations, Types::EveCorporationType.connection_type,
-      description: "Eve Alliance corporations collection",
+      description: "Corporations collection",
       null: true
 
     field :characters, Types::EveCharacterType.connection_type,
-      description: "Eve Alliance characters collection",
+      description: "Characters collection",
       null: true
 
     # TODO: corporation_alliance_histories
