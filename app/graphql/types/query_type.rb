@@ -71,10 +71,16 @@ module Types
       argument :id, ID, description: "Eve Category ID", required: true
     end
 
-    field :characters, Types::EveCharacterType.connection_type, null: true, description: "Eve Characters"
+    field :characters,
+      Types::EveCharacterType.connection_type,
+      description: "Eve Characters",
+      null: true
 
-    field :character, Types::EveCharacterType, null: true, description: "Eve Character" do
-      argument :id, ID, required: true
+    field :character,
+      Types::EveCharacterType,
+      description: "Eve Character",
+      null: true do
+      argument :id, ID, description: "Eve Character ID", required: true
     end
 
     field :constellations, Types::EveConstellationType.connection_type, null: true, description: "Eve Constellations"
