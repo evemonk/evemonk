@@ -2,7 +2,7 @@
 
 module Types
   class EveCharacterType < Types::BaseObject
-    description "Eve Character object"
+    description "Character object"
 
     field :id, ID,
       method: :character_id,

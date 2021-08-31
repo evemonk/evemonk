@@ -13,86 +13,86 @@ module Types
 
     field :alliances,
       Types::EveAllianceType.connection_type,
-      description: "Eve Alliances",
+      description: "Alliances",
       null: true
 
     field :alliance,
       Types::EveAllianceType,
-      description: "Eve Alliance",
+      description: "Alliance",
       null: true do
-      argument :id, ID, description: "Eve Alliance ID", required: true
+      argument :id, ID, description: "Alliance ID", required: true
     end
 
     field :ancestries,
       Types::EveAncestryType.connection_type,
-      description: "Eve Ancestries",
+      description: "Ancestries",
       null: true
 
     field :ancestry,
       Types::EveAncestryType,
-      description: "Eve Ancestry",
+      description: "Ancestry",
       null: true do
-      argument :id, ID, description: "Eve Ancestry ID", required: true
+      argument :id, ID, description: "Ancestry ID", required: true
     end
 
     field :bloodlines,
       Types::EveBloodlineType.connection_type,
-      description: "Eve Bloodlines",
+      description: "Bloodlines",
       null: true
 
     field :bloodline,
       Types::EveBloodlineType,
-      description: "Eve Bloodline",
+      description: "Bloodline",
       null: true do
-      argument :id, ID, description: "Eve Bloodline ID", required: true
+      argument :id, ID, description: "Bloodline ID", required: true
     end
 
     field :blueprints,
       Types::EveBlueprintType.connection_type,
-      description: "Eve Blueprints",
+      description: "Blueprints",
       null: true
 
     field :blueprint,
       Types::EveBlueprintType,
-      description: "Eve Blueprint",
+      description: "Blueprint",
       null: true do
-      argument :id, ID, description: "Eve Blueprint ID", required: true
+      argument :id, ID, description: "Blueprint ID", required: true
     end
 
     field :categories,
       Types::EveCategoryType.connection_type,
-      description: "Eve Categories",
+      description: "Categories",
       null: true
 
     field :category,
       Types::EveCategoryType,
-      description: "Eve Category",
+      description: "Category",
       null: true do
-      argument :id, ID, description: "Eve Category ID", required: true
+      argument :id, ID, description: "Category ID", required: true
     end
 
     field :characters,
       Types::EveCharacterType.connection_type,
-      description: "Eve Characters",
+      description: "Characters",
       null: true
 
     field :character,
       Types::EveCharacterType,
-      description: "Eve Character",
+      description: "Character",
       null: true do
-      argument :id, ID, description: "Eve Character ID", required: true
+      argument :id, ID, description: "Character ID", required: true
     end
 
     field :constellations,
       Types::EveConstellationType.connection_type,
-      description: "Eve Constellations",
+      description: "Constellations",
       null: true
 
     field :constellation,
       Types::EveConstellationType,
-      description: "Eve Constellation",
+      description: "Constellation",
       null: true do
-      argument :id, ID, description: "Eve Constellation ID", required: true
+      argument :id, ID, description: "Constellation ID", required: true
     end
 
     field :contracts, Types::EveContractType.connection_type, null: true, description: "Public Contracts"

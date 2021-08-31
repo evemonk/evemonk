@@ -2,19 +2,19 @@
 
 module Types
   class EveCorporationType < Types::BaseObject
-    description "Eve Corporation object"
+    description "Corporation object"
 
     field :id, ID,
       method: :corporation_id,
-      description: "Eve Corporation ID",
+      description: "Corporation ID",
       null: false
 
     field :alliance_id, Integer,
-      description: "Eve Alliance ID",
+      description: "Alliance ID",
       null: true
 
     field :alliance, Types::EveAllianceType,
-      description: "Eve Alliance",
+      description: "Alliance",
       null: true
 
     field :ceo_id, Integer,
@@ -63,7 +63,7 @@ module Types
       null: true
 
     field :name, String,
-      description: "Eve Corporation name",
+      description: "Name",
       null: true
 
     field :shares, GraphQL::Types::BigInt,
@@ -80,7 +80,7 @@ module Types
 
     field :url, String,
       method: :corporation_url,
-      description: "Corporation URL",
+      description: "URL",
       null: true
 
     field :war_eligible, Boolean,

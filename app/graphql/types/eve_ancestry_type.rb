@@ -2,7 +2,7 @@
 
 module Types
   class EveAncestryType < Types::BaseObject
-    description "Eve Ancestry object"
+    description "Ancestry object"
 
     field :id, ID,
       method: :ancestry_id,

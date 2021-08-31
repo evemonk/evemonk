@@ -2,7 +2,7 @@
 
 module Types
   class EveRaceType < Types::BaseObject
-    description "Eve Race object"
+    description "Race object"
 
     field :id, ID,
       method: :race_id,

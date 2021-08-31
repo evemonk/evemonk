@@ -2,7 +2,7 @@
 
 module Types
   class EveRegionType < Types::BaseObject
-    description "Eve Region object"
+    description "Region object"
 
     field :id, ID,
       method: :region_id,

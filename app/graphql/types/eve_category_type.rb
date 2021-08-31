@@ -2,7 +2,7 @@
 
 module Types
   class EveCategoryType < Types::BaseObject
-    description "Eve Category object"
+    description "Category object"
 
     field :id, ID,
       method: :category_id,

@@ -2,7 +2,7 @@
 
 module Types
   class EveGroupType < Types::BaseObject
-    description "Eve Group object"
+    description "Group object"
 
     field :id, ID,
       method: :group_id,

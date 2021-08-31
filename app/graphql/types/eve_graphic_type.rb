@@ -2,7 +2,7 @@
 
 module Types
   class EveGraphicType < Types::BaseObject
-    description "Eve Graphic object"
+    description "Graphic object"
 
     field :id, ID,
       method: :graphic_id,

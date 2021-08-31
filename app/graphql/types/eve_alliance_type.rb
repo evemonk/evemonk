@@ -2,15 +2,15 @@
 
 module Types
   class EveAllianceType < Types::BaseObject
-    description "Eve Alliance object"
+    description "Alliance object"
 
     field :id, ID,
-      description: "Eve Alliance ID",
+      description: "Alliance ID",
       method: :alliance_id,
       null: false
 
     field :name, String,
-      description: "Eve Alliance name",
+      description: "Name",
       null: true
 
     field :ticker, String,

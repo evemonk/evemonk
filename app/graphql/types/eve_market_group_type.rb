@@ -2,7 +2,7 @@
 
 module Types
   class EveMarketGroupType < Types::BaseObject
-    description "Eve MarketGroup object"
+    description "MarketGroup object"
 
     field :id, ID,
       method: :market_group_id,

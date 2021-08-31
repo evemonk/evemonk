@@ -2,7 +2,7 @@
 
 module Types
   class EveContractType < Types::BaseObject
-    description "Eve Contract object"
+    description "Contract object"
 
     field :id, ID,
       method: :contract_id,

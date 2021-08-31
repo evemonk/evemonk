@@ -2,7 +2,7 @@
 
 module Types
   class EveFactionType < Types::BaseObject
-    description "Eve Faction object"
+    description "Faction object"
 
     field :id, ID,
       method: :faction_id,

@@ -2,10 +2,11 @@
 
 module Types
   class EveStationType < Types::BaseObject
-    description "Eve Station object"
+    description "Station object"
 
     field :id, ID,
       method: :station_id,
+      description: "Station ID",
       null: false
 
     # field :name, String, null: true

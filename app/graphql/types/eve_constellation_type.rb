@@ -2,7 +2,7 @@
 
 module Types
   class EveConstellationType < Types::BaseObject
-    description "Eve Constellation object"
+    description "Constellation object"
 
     field :id, ID,
       method: :constellation_id,

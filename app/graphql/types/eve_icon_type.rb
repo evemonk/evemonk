@@ -2,7 +2,7 @@
 
 module Types
   class EveIconType < Types::BaseObject
-    description "Eve Icon object"
+    description "Icon object"
 
     field :id, ID,
       method: :icon_id,
