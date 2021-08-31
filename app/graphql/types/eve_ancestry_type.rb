@@ -6,27 +6,35 @@ module Types
 
     field :id, ID,
       method: :ancestry_id,
+      description: "Ancestry ID",
       null: false
 
     field :name, GraphQL::Types::JSON,
+      description: "Name",
       null: true
 
     field :description, GraphQL::Types::JSON,
+      description: "Description",
       null: true
 
     field :bloodline_id, Integer,
+      description: "Bloodline ID",
       null: true
 
     field :bloodline, Types::EveBloodlineType,
+      description: "Bloodline",
       null: true
 
     field :icon_id, Integer,
+      description: "Icon ID",
       null: true
 
     field :icon, Types::EveIconType,
+      description: "Icon",
       null: true
 
     field :short_description, String,
+      description: "Short description",
       null: true
 
     def name
