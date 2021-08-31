@@ -81,13 +81,19 @@ module Types
       argument :id, ID, description: "Constellation ID", required: true
     end
 
-    field :contracts, Types::EveContractType.connection_type, null: true, description: "Public Contracts"
+    field :contracts, Types::EveContractType.connection_type,
+      description: "Public Contracts",
+      null: true
 
-    field :contract, Types::EveContractType, null: true, description: "Public Contract" do
-      argument :id, ID, required: true
+    field :contract, Types::EveContractType,
+      description: "Public Contract",
+      null: true do
+      argument :id, ID, description: "Contract ID", required: true
     end
 
-    field :corporations, Types::EveCorporationType.connection_type, null: true, description: "Eve Corporations"
+    field :corporations, Types::EveCorporationType.connection_type,
+      description: "Eve Corporations",
+      null: true
 
     field :corporation, Types::EveCorporationType, null: true, description: "Eve Corporation" do
       argument :id, ID, required: true
