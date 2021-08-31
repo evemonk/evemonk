@@ -6,37 +6,48 @@ module Types
 
     field :id, ID,
       method: :corporation_id,
+      description: "Eve Corporation ID",
       null: false
 
     field :alliance_id, Integer,
+      description: "Eve Alliance ID",
       null: true
 
     field :alliance, Types::EveAllianceType,
+      description: "Eve Alliance",
       null: true
 
     field :ceo_id, Integer,
+      description: "CEO ID (Character ID)",
       null: true
 
     field :ceo, Types::EveCharacterType,
+      description: "CEO (Character)",
       null: true
 
     field :creator_id, Integer,
+      description: "Creator ID (Character ID)",
       null: true
 
     field :creator, Types::EveCharacterType,
+      description: "Creator (Character)",
       null: true
 
     field :date_founded, GraphQL::Types::ISO8601DateTime,
+      description: "Date founded",
       null: true
 
     field :description, String,
       method: :sanitized_description,
+      description: "Description",
       null: true
 
     field :faction_id, Integer,
+      description: "Faction ID",
       null: true
 
     field :faction, Types::EveFactionType,
+      description: "Faction",
       null: true
 
     field :home_station_id, Integer,
