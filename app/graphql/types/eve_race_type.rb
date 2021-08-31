@@ -2,28 +2,35 @@
 
 module Types
   class EveRaceType < Types::BaseObject
-    description "Eve Race object"
+    description "Race object"
 
     field :id, ID,
       method: :race_id,
+      description: "Race ID",
       null: false
 
     field :name, GraphQL::Types::JSON,
+      description: "Name",
       null: true
 
     field :description, GraphQL::Types::JSON,
+      description: "Description",
       null: true
 
     field :faction_id, Integer,
+      description: "Faction ID",
       null: true
 
     field :faction, Types::EveFactionType,
+      description: "Faction",
       null: true
 
     field :bloodlines, Types::EveBloodlineType.connection_type,
+      description: "Bloodlines collection",
       null: true
 
     field :stations, Types::EveStationType.connection_type,
+      description: "Stations collection",
       null: true
 
     def name

@@ -2,10 +2,11 @@
 
 module Types
   class EveSystemType < Types::BaseObject
-    description "Eve System object"
+    description "System object"
 
     field :id, ID,
       method: :system_id,
+      description: "System ID",
       null: false
 
     # field :name, GraphQL::Types::JSON, null: true

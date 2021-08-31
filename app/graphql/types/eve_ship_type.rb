@@ -2,10 +2,11 @@
 
 module Types
   class EveShipType < Types::BaseObject
-    description "Eve Ship object"
+    description "Ship object"
 
     field :id, ID,
       method: :type_id,
+      description: "Ship ID",
       null: false
 
     # field :name, GraphQL::Types::JSON, null: true

@@ -4,7 +4,6 @@ require:
 
 AllCops:
   NewCops: enable
-  SuggestExtensions: false
   Exclude:
     - "bin/*"
     - "db/schema.rb"
@@ -27,7 +26,8 @@ Metrics/BlockLength:
   Enabled: false
 
 Style/WordArray:
-  Enabled: false
+  Enabled: true
+  EnforcedStyle: brackets
 
 Layout/SpaceInsideHashLiteralBraces:
   Enabled: false
@@ -45,7 +45,8 @@ Naming/FileName:
   Enabled: false
 
 Style/SymbolArray:
-  Enabled: false
+  Enabled: true
+  EnforcedStyle: brackets
 
 Metrics/MethodLength:
   Enabled: false
@@ -126,3 +127,21 @@ Naming/VariableNumber:
 Style/StringLiteralsInInterpolation:
   Enabled: true
   EnforcedStyle: double_quotes
+
+GraphQL/ExtractType:
+  Prefixes:
+    - is
+    - with
+    - avg
+    - min
+    - max
+    - sof
+    - executor
+    - creator
+    - ship
+    - home
+    - militia
+    - solar
+    - station
+    - parent
+    - market

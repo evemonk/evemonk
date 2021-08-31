@@ -2,6 +2,8 @@
 
 module Types
   class QueryType < Types::BaseObject
+    description "Query object"
+
     # Add `node(id: ID!) and `nodes(ids: [ID!]!)`
     include GraphQL::Types::Relay::HasNodeField
     include GraphQL::Types::Relay::HasNodesField
@@ -9,130 +11,214 @@ module Types
     # Add root-level fields here.
     # They will be entry points for queries on your schema.
 
-    field :alliances, Types::EveAllianceType.connection_type, null: true, description: "Eve Alliances"
+    field :alliances, Types::EveAllianceType.connection_type,
+      description: "Alliances",
+      null: true
 
-    field :alliance, Types::EveAllianceType, null: true, description: "Eve Alliance" do
-      argument :id, ID, required: true
+    field :alliance, Types::EveAllianceType,
+      description: "Alliance",
+      null: true do
+      argument :id, ID, description: "Alliance ID", required: true
     end
 
-    field :ancestries, Types::EveAncestryType.connection_type, null: true, description: "Eve Ancestries"
+    field :ancestries, Types::EveAncestryType.connection_type,
+      description: "Ancestries",
+      null: true
 
-    field :ancestry, Types::EveAncestryType, null: true, description: "Eve Ancestry" do
-      argument :id, ID, required: true
+    field :ancestry, Types::EveAncestryType,
+      description: "Ancestry",
+      null: true do
+      argument :id, ID, description: "Ancestry ID", required: true
     end
 
-    field :bloodlines, Types::EveBloodlineType.connection_type, null: true, description: "Eve Bloodlines"
+    field :bloodlines, Types::EveBloodlineType.connection_type,
+      description: "Bloodlines",
+      null: true
 
-    field :bloodline, Types::EveBloodlineType, null: true, description: "Eve Bloodline" do
-      argument :id, ID, required: true
+    field :bloodline, Types::EveBloodlineType,
+      description: "Bloodline",
+      null: true do
+      argument :id, ID, description: "Bloodline ID", required: true
     end
 
-    field :blueprints, Types::EveBlueprintType.connection_type, null: true, description: "Eve Blueprints"
+    field :blueprints, Types::EveBlueprintType.connection_type,
+      description: "Blueprints",
+      null: true
 
-    field :blueprint, Types::EveBlueprintType, null: true, description: "Eve Blueprint" do
-      argument :id, ID, required: true
+    field :blueprint, Types::EveBlueprintType,
+      description: "Blueprint",
+      null: true do
+      argument :id, ID, description: "Blueprint ID", required: true
     end
 
-    field :categories, Types::EveCategoryType.connection_type, null: true, description: "Eve Categories"
+    field :categories, Types::EveCategoryType.connection_type,
+      description: "Categories",
+      null: true
 
-    field :category, Types::EveCategoryType, null: true, description: "Eve Category" do
-      argument :id, ID, required: true
+    field :category, Types::EveCategoryType,
+      description: "Category",
+      null: true do
+      argument :id, ID, description: "Category ID", required: true
     end
 
-    field :characters, Types::EveCharacterType.connection_type, null: true, description: "Eve Characters"
+    field :characters, Types::EveCharacterType.connection_type,
+      description: "Characters",
+      null: true
 
-    field :character, Types::EveCharacterType, null: true, description: "Eve Character" do
-      argument :id, ID, required: true
+    field :character, Types::EveCharacterType,
+      description: "Character",
+      null: true do
+      argument :id, ID, description: "Character ID", required: true
     end
 
-    field :constellations, Types::EveConstellationType.connection_type, null: true, description: "Eve Constellations"
+    field :constellations, Types::EveConstellationType.connection_type,
+      description: "Constellations",
+      null: true
 
-    field :constellation, Types::EveConstellationType, null: true, description: "Eve Constellation" do
-      argument :id, ID, required: true
+    field :constellation, Types::EveConstellationType,
+      description: "Constellation",
+      null: true do
+      argument :id, ID, description: "Constellation ID", required: true
     end
 
-    field :contracts, Types::EveContractType.connection_type, null: true, description: "Public Contracts"
+    field :contracts, Types::EveContractType.connection_type,
+      description: "Public Contracts",
+      null: true
 
-    field :contract, Types::EveContractType, null: true, description: "Public Contract" do
-      argument :id, ID, required: true
+    field :contract, Types::EveContractType,
+      description: "Public Contract",
+      null: true do
+      argument :id, ID, description: "Contract ID", required: true
     end
 
-    field :corporations, Types::EveCorporationType.connection_type, null: true, description: "Eve Corporations"
+    field :corporations, Types::EveCorporationType.connection_type,
+      description: "Corporations",
+      null: true
 
-    field :corporation, Types::EveCorporationType, null: true, description: "Eve Corporation" do
-      argument :id, ID, required: true
+    field :corporation, Types::EveCorporationType,
+      description: "Corporation",
+      null: true do
+      argument :id, ID, description: "Corporation ID", required: true
     end
 
-    field :factions, Types::EveFactionType.connection_type, null: true, description: "Eve Factions"
+    field :factions, Types::EveFactionType.connection_type,
+      description: "Factions",
+      null: true
 
-    field :faction, Types::EveFactionType, null: true, description: "Eve Faction" do
-      argument :id, ID, required: true
+    field :faction, Types::EveFactionType,
+      description: "Faction",
+      null: true do
+      argument :id, ID, description: "Faction ID", required: true
     end
 
-    field :graphics, Types::EveGraphicType.connection_type, null: true, description: "Eve Graphics"
+    field :graphics, Types::EveGraphicType.connection_type,
+      description: "Graphics",
+      null: true
 
-    field :graphic, Types::EveGraphicType, null: true, description: "Eve Graphic" do
-      argument :id, ID, required: true
+    field :graphic, Types::EveGraphicType,
+      description: "Graphic",
+      null: true do
+      argument :id, ID, description: "Graphic ID", required: true
     end
 
-    field :groups, Types::EveGroupType.connection_type, null: true, description: "Eve Groups"
+    field :groups, Types::EveGroupType.connection_type,
+      description: "Groups",
+      null: true
 
-    field :group, Types::EveGroupType, null: true, description: "Eve Group" do
-      argument :id, ID, required: true
+    field :group, Types::EveGroupType,
+      description: "Group",
+      null: true do
+      argument :id, ID, description: "Group ID", required: true
     end
 
-    field :icons, Types::EveIconType.connection_type, null: true, description: "Eve Icons"
+    field :icons, Types::EveIconType.connection_type,
+      description: "Icons",
+      null: true
 
-    field :icon, Types::EveIconType, null: true, description: "Eve Icon" do
-      argument :id, ID, required: true
+    field :icon, Types::EveIconType,
+      description: "Icon",
+      null: true do
+      argument :id, ID, description: "Icon ID", required: true
     end
 
-    field :market_groups, Types::EveMarketGroupType.connection_type, null: true, description: "Eve Market Groups"
+    field :market_groups, Types::EveMarketGroupType.connection_type,
+      description: "Market Groups",
+      null: true
 
-    field :market_group, Types::EveMarketGroupType, null: true, description: "Eve Market Group" do
-      argument :id, ID, required: true
+    field :market_group, Types::EveMarketGroupType,
+      description: "Market Group",
+      null: true do
+      argument :id, ID, description: "Market Group ID", required: true
     end
 
-    field :races, Types::EveRaceType.connection_type, null: true, description: "Eve Races"
+    field :races, Types::EveRaceType.connection_type,
+      description: "Races",
+      null: true
 
-    field :race, Types::EveRaceType, null: true, description: "Eve Race" do
-      argument :id, ID, required: true
+    field :race, Types::EveRaceType,
+      description: "Race",
+      null: true do
+      argument :id, ID, description: "Race ID", required: true
     end
 
-    field :regions, Types::EveRegionType.connection_type, null: true, description: "Eve Regions"
+    field :regions, Types::EveRegionType.connection_type,
+      description: "Regions",
+      null: true
 
-    field :region, Types::EveRegionType, null: true, description: "Eve Region" do
-      argument :id, ID, required: true
+    field :region, Types::EveRegionType,
+      description: "Region",
+      null: true do
+      argument :id, ID, description: "Region ID", required: true
     end
 
-    field :ships, Types::EveShipType.connection_type, null: true, description: "Eve Ships"
+    field :ships, Types::EveShipType.connection_type,
+      description: "Ships",
+      null: true
 
-    field :ship, Types::EveShipType, null: true, description: "Eve Ship" do
-      argument :id, ID, required: true
+    field :ship, Types::EveShipType,
+      description: "Ship",
+      null: true do
+      argument :id, ID, description: "Ship ID", required: true
     end
 
-    field :stars, Types::EveStarType.connection_type, null: true, description: "Eve Stars"
+    field :stars, Types::EveStarType.connection_type,
+      description: "Stars",
+      null: true
 
-    field :star, Types::EveStarType, null: true, description: "Eve Star" do
-      argument :id, ID, required: true
+    field :star, Types::EveStarType,
+      description: "Star",
+      null: true do
+      argument :id, ID, description: "Star ID", required: true
     end
 
-    field :stations, Types::EveStationType.connection_type, null: true, description: "Eve Stations"
+    field :stations, Types::EveStationType.connection_type,
+      description: "Stations",
+      null: true
 
-    field :station, Types::EveStationType, null: true, description: "Eve Station" do
-      argument :id, ID, required: true
+    field :station, Types::EveStationType,
+      description: "Station",
+      null: true do
+      argument :id, ID, description: "Station ID", required: true
     end
 
-    field :systems, Types::EveSystemType.connection_type, null: true, description: "Eve Systems"
+    field :systems, Types::EveSystemType.connection_type,
+      description: "Systems",
+      null: true
 
-    field :system, Types::EveSystemType, null: true, description: "Eve System" do
-      argument :id, ID, required: true
+    field :system, Types::EveSystemType,
+      description: "System",
+      null: true do
+      argument :id, ID, description: "System ID", required: true
     end
 
-    field :types, Types::EveTypeType.connection_type, null: true, description: "Eve Types"
+    field :types, Types::EveTypeType.connection_type,
+      description: "Types",
+      null: true
 
-    field :type, Types::EveTypeType, null: true, description: "Eve Type" do
-      argument :id, ID, required: true
+    field :type, Types::EveTypeType,
+      description: "Type",
+      null: true do
+      argument :id, ID, description: "Type ID", required: true
     end
 
     def alliances

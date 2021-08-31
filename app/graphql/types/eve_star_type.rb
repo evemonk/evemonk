@@ -2,10 +2,11 @@
 
 module Types
   class EveStarType < Types::BaseObject
-    description "Eve Star object"
+    description "Star object"
 
     field :id, ID,
       method: :star_id,
+      description: "Star ID",
       null: false
 
     # field :name, String, null: true

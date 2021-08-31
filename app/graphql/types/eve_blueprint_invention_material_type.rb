@@ -2,6 +2,8 @@
 
 module Types
   class EveBlueprintInventionMaterialType < Types::BaseObject
+    description "Blueprint Invention Material object"
+
     # field :id, ID, null: false
     # field :blueprint_id, Integer, null: true
     # field :type_id, Integer, null: true

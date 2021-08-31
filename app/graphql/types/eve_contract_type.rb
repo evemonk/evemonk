@@ -2,10 +2,11 @@
 
 module Types
   class EveContractType < Types::BaseObject
-    description "Eve Contract object"
+    description "Contract object"
 
     field :id, ID,
       method: :contract_id,
+      description: "Contract ID",
       null: false
 
     # field :buyout, Float, null: true

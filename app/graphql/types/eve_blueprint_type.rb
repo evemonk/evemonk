@@ -2,10 +2,11 @@
 
 module Types
   class EveBlueprintType < Types::BaseObject
-    description "Eve Blueprint object"
+    description "Blueprint object"
 
     field :id, ID,
       method: :type_id,
+      description: "Blueprint ID",
       null: false
 
     # field :name, GraphQL::Types::JSON, null: true
