@@ -128,3 +128,21 @@ Naming/VariableNumber:
 Style/StringLiteralsInInterpolation:
   Enabled: true
   EnforcedStyle: double_quotes
+
+GraphQL/ExtractType:
+  Prefixes:
+    - is
+    - with
+    - avg
+    - min
+    - max
+    - sof
+    - executor
+    - creator
+    - ship
+    - home
+    - militia
+    - solar
+    - station
+    - parent
+    - market
