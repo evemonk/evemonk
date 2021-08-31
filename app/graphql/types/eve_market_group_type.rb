@@ -6,21 +6,27 @@ module Types
 
     field :id, ID,
       method: :market_group_id,
+      description: "MarketGroup ID",
       null: false
 
     field :name, GraphQL::Types::JSON,
+      description: "Name",
       null: true
 
     field :description, GraphQL::Types::JSON,
+      description: "Description",
       null: true
 
     field :parent_group_id, Integer,
+      description: "Parent Group ID (MarketGroup ID)",
       null: true
 
     field :parent_group, Types::EveMarketGroupType,
+      description: "Parent Group (MarketGroup)",
       null: true
 
     field :types, Types::EveTypeType.connection_type,
+      description: "Types collection",
       null: true
 
     def name

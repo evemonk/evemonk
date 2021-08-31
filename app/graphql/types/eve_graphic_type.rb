@@ -6,6 +6,7 @@ module Types
 
     field :id, ID,
       method: :graphic_id,
+      description: "Graphic ID",
       null: false
 
     field :collision_file, String,

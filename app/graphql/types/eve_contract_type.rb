@@ -6,6 +6,7 @@ module Types
 
     field :id, ID,
       method: :contract_id,
+      description: "Contract ID",
       null: false
 
     # field :buyout, Float, null: true
