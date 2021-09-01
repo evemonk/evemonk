@@ -56,7 +56,7 @@ All screenshots are real and made in Safari on latest macOS Catalina (10.15.3).
 - Redis 6.2.5
 - Minio (S3 compatible storage)
 - Node 14.17.6
-- NPM 6.14.14
+- NPM 6.14.15
 - Yarn 1.22.11
 - Bootstrap 4.6.0
 - Bootstrap Icons 1.5.0
