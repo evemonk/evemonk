@@ -137,4 +137,4 @@ end
 gem "httplog"
 
 # TODO: Remove after zeitwerk 2.5.0 release
-gem "zeitwerk", "2.5.0.beta2"
+gem "zeitwerk", "2.5.0.beta3"
