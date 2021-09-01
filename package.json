@@ -23,6 +23,6 @@
   "devDependencies": {
     "prettier": "^2.3.2",
     "webpack-bundle-analyzer": "^4.4.2",
-    "webpack-dev-server": "^3.11.2"
+    "webpack-dev-server": "^4.1.0"
   }
 }
