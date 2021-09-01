@@ -55,7 +55,7 @@ All screenshots are real and made in Safari on latest macOS Catalina (10.15.3).
 - PostgreSQL 13.4
 - Redis 6.2.5
 - Minio (S3 compatible storage)
-- Node 14.17.5
+- Node 14.17.6
 - NPM 6.14.14
 - Yarn 1.22.11
 - Bootstrap 4.6.0
