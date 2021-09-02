@@ -116,7 +116,7 @@ group :development, :test do
   gem "squasher", require: false
   gem "brakeman", require: false
   gem "fasterer", require: false
-  gem "license_finder", "6.14.1", require: false
+  gem "license_finder", require: false
   gem "anyway_config" # For isolator
   gem "isolator"
   gem "erb_lint", require: false
