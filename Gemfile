@@ -104,12 +104,35 @@ group :production do
 end
 
 group :development, :test do
+  gem "dotenv-rails"
+  gem "rspec-rails"
+  gem "factory_bot_rails"
+  gem "faker"
+  gem "sql_tracker"
+  gem "bundler-audit", require: false
+  gem "rubocop", require: false
+  gem "rubocop-graphql", require: false
+  gem "standard", require: false
+  gem "squasher", require: false
+  gem "brakeman", require: false
+  gem "fasterer", require: false
+  gem "license_finder", require: false
+  gem "anyway_config" # For isolator
+  gem "isolator"
+  gem "erb_lint", require: false
 end
 
 group :development do
   # Display speed badge on every html page with SQL times and flame graphs.
   # Note: Interferes with etag cache testing. Can be configured to work on production: https://github.com/MiniProfiler/rack-mini-profiler/blob/master/README.md
   # gem "rack-mini-profiler", "~> 2.0"
+  gem "consistency_fail", require: false
+  gem "active_record_doctor"
+  gem "cacheflow"
+  gem "gemdiff", require: false
+  gem "derailed_benchmarks"
+  gem "graphql-rails_logger"
+  gem "prosopite"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
