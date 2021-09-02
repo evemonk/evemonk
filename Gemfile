@@ -135,6 +135,25 @@ group :development do
   gem "prosopite"
 end
 
+group :test do
+  gem "codecov", require: false
+  gem "capybara", ">= 3.26"
+  gem "selenium-webdriver"
+  # Easy installation and use of web drivers to run system tests with browsers
+  gem "webdrivers"
+  gem "rails-controller-testing"
+  gem "shoulda-matchers"
+  gem "rspec-its"
+  gem "super_diff"
+  # gem "rspec-stubbed_env"
+  gem "shoulda-callback-matchers", git: "https://github.com/just806me/shoulda-callback-matchers.git",
+      branch: "master"
+  gem "simplecov"
+  gem "database_rewinder"
+  gem "webmock"
+  gem "vcr"
+end
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
