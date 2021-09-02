@@ -6,18 +6,13 @@ ruby File.read(".ruby-version")
 
 gem "rails", git: 'https://github.com/rails/rails.git', branch: 'main'
 
-# Use postgresql as the database for Active Record
 gem "pg", "~> 1.1"
-# Use Puma as the app server
 gem "puma", "~> 5.0"
-# Manage modern JavaScript using ESM without transpiling or bundling
 gem "importmap-rails", ">= 0.3.4"
-# Hotwire's SPA-like page accelerator. Read more: https://turbo.hotwired.dev
 gem "turbo-rails", ">= 0.7.4"
-# Hotwire's modest JavaScript framework for the HTML you already have. Read more: https://stimulus.hotwired.dev
 gem "stimulus-rails", ">= 0.3.9"
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem "jbuilder", "~> 2.7"
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
