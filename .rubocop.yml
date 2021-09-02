@@ -7,7 +7,6 @@ AllCops:
   Exclude:
     - "bin/*"
     - "db/schema.rb"
-    - "node_modules/**/*"
     - "vendor/**/*"
 
 Style/StringLiterals:
