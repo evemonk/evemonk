@@ -48,7 +48,7 @@ gem "ar_lazy_preload"
 gem "graphql"
 gem "graphiql-rails"
 gem "pg_search"
-gem "meta-tags"
+gem "meta-tags", git: "https://github.com/biow0lf/meta-tags.git", branch: "rails-7"
 gem "rails-pg-extras"
 gem "metricky"
 gem "dalli"
@@ -116,7 +116,7 @@ group :development, :test do
   gem "squasher", require: false
   gem "brakeman", require: false
   gem "fasterer", require: false
-  gem "license_finder", require: false
+  gem "license_finder", "6.14.1", require: false
   gem "anyway_config" # For isolator
   gem "isolator"
   gem "erb_lint", require: false
@@ -147,7 +147,7 @@ group :test do
   gem "super_diff"
   # gem "rspec-stubbed_env"
   gem "shoulda-callback-matchers", git: "https://github.com/just806me/shoulda-callback-matchers.git",
-      branch: "master"
+                                   branch: "master"
   gem "simplecov"
   gem "database_rewinder"
   gem "webmock"

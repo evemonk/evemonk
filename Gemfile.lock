@@ -1,4 +1,12 @@
 GIT
+  remote: https://github.com/biow0lf/meta-tags.git
+  revision: 7c76dac1a2eb61e64b1b5f312848ec2c8cc8908d
+  branch: rails-7
+  specs:
+    meta-tags (2.15.0)
+      actionpack (>= 3.2.0, < 7.1)
+
+GIT
   remote: https://github.com/bitzesty/devise_zxcvbn.git
   revision: 63c25fd6576c4009d5e758b91094c10b94829078
   branch: master
@@ -382,13 +390,13 @@ GEM
       rails
     launchy (2.5.0)
       addressable (~> 2.7)
-    license_finder (6.0.0)
+    license_finder (6.14.1)
       bundler
       rubyzip (>= 1, < 3)
-      thor
-      toml (= 0.2.0)
+      thor (~> 1.0.1)
+      tomlrb (>= 1.3, < 2.1)
       with_env (= 1.1.0)
-      xml-simple
+      xml-simple (~> 1.1.5)
     llhttp-ffi (0.3.1)
       ffi-compiler (~> 1.0)
       rake (~> 13.0)
@@ -405,8 +413,6 @@ GEM
       mini_mime (>= 0.1.1)
     marcel (1.0.1)
     memory_profiler (1.0.0)
-    meta-tags (2.2.0)
-      actionpack (>= 3.2.0)
     method_source (1.0.0)
     metricky (0.8.6)
       chartkick (> 3.0)
@@ -466,7 +472,6 @@ GEM
     parallel (1.20.1)
     parser (3.0.2.0)
       ast (~> 2.4.1)
-    parslet (1.8.2)
     patience_diff (1.2.0)
       optimist (~> 3.0)
     pg (1.2.3)
@@ -649,10 +654,9 @@ GEM
       patience_diff
     terminal-table (3.0.1)
       unicode-display_width (>= 1.1.1, < 3)
-    thor (1.1.0)
+    thor (1.0.1)
     tilt (2.0.10)
-    toml (0.2.0)
-      parslet (~> 1.8.0)
+    tomlrb (2.0.1)
     turbo-rails (0.7.10)
       rails (>= 6.0.0)
     tzinfo (2.0.4)
@@ -756,10 +760,10 @@ DEPENDENCIES
   jwt
   kaminari
   kaminari-i18n
-  license_finder
+  license_finder (= 6.14.1)
   local_time
   lograge
-  meta-tags
+  meta-tags!
   metricky
   mobility
   net-http-persistent
