@@ -38,7 +38,8 @@ gem "http_accept_language"
 gem "countries"
 gem "oj"
 gem "authy"
-gem "devise"
+# https://github.com/heartcombo/devise/pull/5357
+gem "devise", git: "https://github.com/ghiculescu/devise.git", branch: "patch-2"
 gem "devise-i18n"
 # Until next release. https://github.com/bitzesty/devise_zxcvbn/pull/40
 gem "devise_zxcvbn", git: "https://github.com/bitzesty/devise_zxcvbn.git", branch: "master"
