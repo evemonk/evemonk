@@ -12,12 +12,10 @@ gem "importmap-rails", ">= 0.3.4"
 gem "turbo-rails", ">= 0.7.4"
 gem "stimulus-rails", ">= 0.3.9"
 gem "jbuilder", "~> 2.7"
+gem "sassc-rails", "~> 2.1"
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
-
-# Use Sass to process CSS
-# gem "sassc-rails", "~> 2.1"
 
 # Use Tailwind CSS. See: https://github.com/rails/tailwindcss-rails
 # gem "tailwindcss-rails", "~> 0.4.3"

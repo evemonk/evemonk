@@ -802,6 +802,7 @@ DEPENDENCIES
   rubocop
   rubocop-graphql
   rufus-scheduler
+  sassc-rails (~> 2.1)
   selenium-webdriver
   sentry-rails
   sentry-ruby
