@@ -51,13 +51,10 @@ All screenshots are real and made in Safari on latest macOS Catalina (10.15.3).
 - Ruby 3.0.2
 - RubyGems 3.2.26
 - Bundler 2.2.26
-- Ruby on Rails 6.1.4.1
+- Ruby on Rails (main)
 - PostgreSQL 13.4
 - Redis 6.2.5
 - Minio (S3 compatible storage)
-- Node 14.17.6
-- NPM 6.14.15
-- Yarn 1.22.11
 - Bootstrap 4.6.0
 - Bootstrap Icons 1.5.0
 - Bootswatch Darkly 4.6.0
