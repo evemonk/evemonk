@@ -7,8 +7,6 @@ class User < ApplicationRecord
     :recoverable, :rememberable, :validatable, :confirmable, :trackable,
     :zxcvbnable
 
-  has_many :sessions, dependent: :destroy
-
   has_many :characters, dependent: :destroy
 
   enum locale: {auto_detect: 0,
