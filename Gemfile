@@ -30,6 +30,7 @@ gem "sassc-rails", "~> 2.1"
 gem "bootsnap", ">= 1.4.4", require: false
 
 gem "bootstrap", "4.6.0"
+gem "bootswatch", git: "https://github.com/thomaspark/bootswatch.git", branch: "v4.6.0"
 gem "good_migrations"
 gem "local_time"
 gem "rails-i18n", "~> 6.0.0"

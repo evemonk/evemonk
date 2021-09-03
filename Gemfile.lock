@@ -121,6 +121,13 @@ GIT
       responders
       warden (~> 1.2.3)
 
+GIT
+  remote: https://github.com/thomaspark/bootswatch.git
+  revision: 91712182e0ed651625f2b3d8a0075454f195d7ae
+  branch: v4.6.0
+  specs:
+    bootswatch (4.6.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -736,6 +743,7 @@ DEPENDENCIES
   aws-sdk-s3
   bootsnap (>= 1.4.4)
   bootstrap (= 4.6.0)
+  bootswatch!
   brakeman
   bundler-audit
   cacheflow
