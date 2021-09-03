@@ -16,18 +16,6 @@ GIT
       zxcvbn-js (~> 4.4.1)
 
 GIT
-  remote: https://github.com/ghiculescu/devise.git
-  revision: e37ea6a0143b9b8a3477b1ed397d8a22ad317a61
-  branch: patch-2
-  specs:
-    devise (4.7.3)
-      bcrypt (~> 3.0)
-      orm_adapter (~> 0.1)
-      railties (>= 4.1.0)
-      responders
-      warden (~> 1.2.3)
-
-GIT
   remote: https://github.com/just806me/shoulda-callback-matchers.git
   revision: b3a93d43490cdb3062a437e2edfbd50d25eda79a
   branch: master
@@ -37,7 +25,7 @@ GIT
 
 GIT
   remote: https://github.com/rails/rails.git
-  revision: 26ef62f229bf93fd9186bd7fe3f8a8c8eb2963f3
+  revision: a44fbb5dcacd3281116f7d9881a25e8f08f729a4
   branch: main
   specs:
     actioncable (7.0.0.alpha)
@@ -120,6 +108,18 @@ GIT
       method_source
       rake (>= 0.13)
       thor (~> 1.0)
+
+GIT
+  remote: https://github.com/strobilomyces/devise.git
+  revision: 755e84b7228f19be0e82bdc5486073715b2a32ed
+  branch: patch-1
+  specs:
+    devise (4.8.0)
+      bcrypt (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 4.1.0)
+      responders
+      warden (~> 1.2.3)
 
 GEM
   remote: https://rubygems.org/
@@ -229,8 +229,8 @@ GEM
     devise-authy (2.3.0)
       authy (~> 3.0)
       devise (>= 4.0.0)
-    devise-i18n (1.9.4)
-      devise (>= 4.7.1)
+    devise-i18n (1.10.0)
+      devise (>= 4.8.0)
     diff-lcs (1.4.4)
     docile (1.4.0)
     domain_name (0.5.20190701)
