@@ -29,6 +29,7 @@ gem "sassc-rails", "~> 2.1"
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", ">= 1.4.4", require: false
 
+gem "bootstrap", "4.6.0"
 gem "good_migrations"
 gem "local_time"
 gem "rails-i18n", "~> 6.0.0"

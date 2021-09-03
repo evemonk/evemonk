@@ -150,6 +150,8 @@ GEM
     attr_extras (6.2.4)
     authy (3.0.0)
       httpclient (>= 2.5.3.3)
+    autoprefixer-rails (10.3.3.0)
+      execjs (~> 2)
     awesome_print (1.9.2)
     aws-eventstream (1.2.0)
     aws-partitions (1.495.0)
@@ -179,6 +181,10 @@ GEM
       smart_properties
     bootsnap (1.8.1)
       msgpack (~> 1.0)
+    bootstrap (4.6.0)
+      autoprefixer-rails (>= 9.1.0)
+      popper_js (>= 1.14.3, < 2)
+      sassc-rails (>= 2.0.0)
     brakeman (5.1.1)
     builder (3.2.4)
     bundler-audit (0.9.0.1)
@@ -488,6 +494,7 @@ GEM
       activesupport (>= 5.2)
     pghero (2.8.1)
       activerecord (>= 5)
+    popper_js (1.16.0)
     prometheus-client (2.1.0)
     prosopite (1.0.1)
     pry (0.14.1)
@@ -728,6 +735,7 @@ DEPENDENCIES
   awesome_print
   aws-sdk-s3
   bootsnap (>= 1.4.4)
+  bootstrap (= 4.6.0)
   brakeman
   bundler-audit
   cacheflow
