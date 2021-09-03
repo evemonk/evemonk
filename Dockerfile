@@ -7,11 +7,6 @@ RUN set -eux; \
     apt-get update -y ; \
     apt-get dist-upgrade -y ; \
     apt-get install git make gcc g++ libpq-dev curl --no-install-recommends -y ; \
-    curl -sL https://deb.nodesource.com/setup_14.x | bash -; \
-    curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -; \
-    echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list ; \
-    apt-get update -y ; \
-    apt-get install nodejs yarn --no-install-recommends -y ; \
     apt-get autoremove -y ; \
     apt-get clean -y ; \
     rm -rf /var/lib/apt/lists/*
@@ -30,11 +25,11 @@ ENV RAILS_ENV production
 
 ENV RAILS_LOG_TO_STDOUT true
 
-ENV RUBYGEMS_VERSION 3.2.26
+ENV RUBYGEMS_VERSION 3.2.27
 
 RUN gem update --system "$RUBYGEMS_VERSION"
 
-ENV BUNDLER_VERSION 2.2.26
+ENV BUNDLER_VERSION 2.2.27
 
 # skipcq: DOK-DL3028
 RUN gem install bundler --version "$BUNDLER_VERSION" --force
@@ -73,11 +68,7 @@ RUN bundle exec bootsnap precompile --gemfile app/ lib/
 # The DATABASE_URL here isn't used. Precomiling assets doesn't use your
 # database, but Rails will fail to initialize if it isn't set.
 
-RUN set -eux; \
-    yarn install --frozen-lockfile ; \
-    yarn cache clean ; \
-    bundle exec rake SECRET_KEY_BASE=no DATABASE_URL="postgres://postgres@postgresql/evemonk_production?pool=1&encoding=unicode" assets:precompile ; \
-    rm -rf node_modules/
+RUN bundle exec rake SECRET_KEY_BASE=no DATABASE_URL="postgres://postgres@postgresql/evemonk_production?pool=1&encoding=unicode" assets:precompile
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
