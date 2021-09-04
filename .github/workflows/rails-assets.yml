@@ -18,13 +18,5 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
-      - name: Install Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: "14"
-      - name: Yarn install
-        run: yarn install --frozen-lockfile
-      - name: Yarn versions
-        run: yarn versions
       - name: rails assets:precompile
         run: bundle exec rails SECRET_KEY_BASE=no assets:precompile
