@@ -19,6 +19,8 @@ env:
   MINIO_REGION_NAME: "us-east-1"
   MINIO_ENDPOINT: "http://localhost:9000"
   BUCKET: "evemonk-test-bucket"
+  DEVISE_MAILER_SENDER: "robot@evemonk.com"
+  ACTION_MAILER_FROM: "EveMonk <robot@evemonk.com>"
 
 jobs:
   rspec:

@@ -8,6 +8,10 @@ on:
     branches:
       - main
 
+env:
+  DEVISE_MAILER_SENDER: "robot@evemonk.com"
+  ACTION_MAILER_FROM: "EveMonk <robot@evemonk.com>"
+
 jobs:
   precompile:
     runs-on: ubuntu-latest
