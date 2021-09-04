@@ -19,4 +19,4 @@ jobs:
       - name: shellcheck version
         run: shellcheck-stable/shellcheck --version
       - name: run shellcheck
-        run: shellcheck-stable/shellcheck bin/backend bin/sidekiq bin/cron bin/standardize
+        run: shellcheck-stable/shellcheck bin/backend bin/sidekiq-server bin/cron bin/standardize
