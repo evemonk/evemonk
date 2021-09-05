@@ -16,9 +16,11 @@ pin "@hotwired/stimulus-importmap-autoloader", to: "stimulus-importmap-autoloade
 pin_all_from "app/javascript/controllers", under: "controllers"
 
 pin "@github/hotkey", to: "https://ga.jspm.io/npm:@github/hotkey@1.4.4/dist/index.js"
+
 pin "bootstrap", to: "https://ga.jspm.io/npm:bootstrap@4.6.0/dist/js/bootstrap.js"
 pin "jquery", to: "https://ga.jspm.io/npm:jquery@3.6.0/dist/jquery.js"
 pin "popper.js", to: "https://ga.jspm.io/npm:popper.js@1.16.1/dist/umd/popper.js"
+
 pin "@sentry/browser", to: "https://ga.jspm.io/npm:@sentry/browser@6.12.0/esm/index.js"
 pin "@sentry/core", to: "https://ga.jspm.io/npm:@sentry/core@6.12.0/esm/index.js"
 pin "@sentry/hub", to: "https://ga.jspm.io/npm:@sentry/hub@6.12.0/esm/index.js"
