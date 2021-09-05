@@ -7,12 +7,15 @@ Sentry.init({
 });
 
 import "@hotwired/turbo-rails";
+import Rails from "@rails/ujs";
 import { install } from "@github/hotkey";
 import "jquery";
 import "popper.js";
 import "bootstrap";
 
 import "controllers";
+
+Rails.start();
 
 document.addEventListener("turbo:load", () => {
   // $('[data-toggle="tooltip"]').tooltip();
