@@ -222,13 +222,15 @@ module Types
     end
 
     def alliances
-      ::Eve::Alliance.preload_associations_lazily
-        .order(:alliance_id)
+      Goldiloader.enabled do
+        ::Eve::Alliance.order(:alliance_id)
+      end
     end
 
     def alliance(id:)
-      ::Eve::Alliance.preload_associations_lazily
-        .find_by(alliance_id: id)
+      Goldiloader.enabled do
+        ::Eve::Alliance.find_by(alliance_id: id)
+      end
     end
 
     def ancestries
