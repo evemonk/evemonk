@@ -234,43 +234,51 @@ module Types
     end
 
     def ancestries
-      ::Eve::Ancestry.preload_associations_lazily
-        .order(:ancestry_id)
+      Goldiloader.enabled do
+        ::Eve::Ancestry.order(:ancestry_id)
+      end
     end
 
     def ancestry(id:)
-      ::Eve::Ancestry.preload_associations_lazily
-        .find_by(ancestry_id: id)
+      Goldiloader.enabled do
+        ::Eve::Ancestry.find_by(ancestry_id: id)
+      end
     end
 
     def bloodlines
-      ::Eve::Bloodline.preload_associations_lazily
-        .order(:bloodline_id)
+      Goldiloader.enabled do
+        ::Eve::Bloodline.order(:bloodline_id)
+      end
     end
 
     def bloodline(id:)
-      ::Eve::Bloodline.preload_associations_lazily
-        .find_by(bloodline_id: id)
+      Goldiloader.enabled do
+        ::Eve::Bloodline.find_by(bloodline_id: id)
+      end
     end
 
     def blueprints
-      ::Eve::Blueprint.preload_associations_lazily
-        .order(:type_id)
+      Goldiloader.enabled do
+        ::Eve::Blueprint.order(:type_id)
+      end
     end
 
     def blueprint(id:)
-      ::Eve::Blueprint.preload_associations_lazily
-        .find_by(type_id: id)
+      Goldiloader.enabled do
+        ::Eve::Blueprint.find_by(type_id: id)
+      end
     end
 
     def categories
-      ::Eve::Category.preload_associations_lazily
-        .order(:category_id)
+      Goldiloader.enabled do
+        ::Eve::Category.order(:category_id)
+      end
     end
 
     def category(id:)
-      ::Eve::Category.preload_associations_lazily
-        .find_by(category_id: id)
+      Goldiloader.enabled do
+        ::Eve::Category.find_by(category_id: id)
+      end
     end
 
     def characters
