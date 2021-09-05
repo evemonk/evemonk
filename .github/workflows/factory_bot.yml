@@ -1,4 +1,4 @@
-name: RSpec
+name: Factory Bot
 
 on:
   push:
@@ -12,7 +12,7 @@ env:
   RAILS_ENV: "test"
 
 jobs:
-  rspec:
+  lint:
     runs-on: ubuntu-latest
 
     steps:
