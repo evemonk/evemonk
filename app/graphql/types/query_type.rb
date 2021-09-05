@@ -402,65 +402,77 @@ module Types
     end
 
     def regions
-      ::Eve::Region.preload_associations_lazily
-        .order(:region_id)
+      Goldiloader.enabled do
+        ::Eve::Region.order(:region_id)
+      end
     end
 
     def region(id:)
-      ::Eve::Region.preload_associations_lazily
-        .find_by(region_id: id)
+      Goldiloader.enabled do
+        ::Eve::Region.find_by(region_id: id)
+      end
     end
 
     def ships
       # TODO: load only ships!!!
-      ::Eve::Ship.preload_associations_lazily
-        .order(:type_id)
+      Goldiloader.enabled do
+        ::Eve::Ship.order(:type_id)
+      end
     end
 
     def ship(id:)
       # TODO: load only ships!!!
-      ::Eve::Ship.preload_associations_lazily
-        .find_by(type_id: id)
+      Goldiloader.enabled do
+        ::Eve::Ship.find_by(type_id: id)
+      end
     end
 
     def stars
-      ::Eve::Star.preload_associations_lazily
-        .order(:star_id)
+      Goldiloader.enabled do
+        ::Eve::Star.order(:star_id)
+      end
     end
 
     def star(id:)
-      ::Eve::Star.preload_associations_lazily
-        .find_by(star_id: id)
+      Goldiloader.enabled do
+        ::Eve::Star.find_by(star_id: id)
+      end
     end
 
     def stations
-      ::Eve::Station.preload_associations_lazily
-        .order(:station_id)
+      Goldiloader.enabled do
+        ::Eve::Station.order(:station_id)
+      end
     end
 
     def station(id:)
-      ::Eve::Station.preload_associations_lazily
-        .find_by(station_id: id)
+      Goldiloader.enabled do
+        ::Eve::Station.find_by(station_id: id)
+      end
     end
 
     def systems
-      ::Eve::System.preload_associations_lazily
-        .order(:system_id)
+      Goldiloader.enabled do
+        ::Eve::System.order(:system_id)
+      end
     end
 
     def system(id:)
-      ::Eve::System.preload_associations_lazily
-        .find_by(system_id: id)
+      Goldiloader.enabled do
+        ::Eve::System.find_by(system_id: id)
+      end
     end
 
     def types
-      ::Eve::Type.preload_associations_lazily
-        .order(:type_id)
+      Goldiloader.enabled do
+        ::Eve::Type.order(:type_id)
+      end
     end
 
     def type(id:)
-      ::Eve::Type.preload_associations_lazily
-        .find_by(type_id: id)
+      Goldiloader.enabled do
+        ::Eve::Type.find_by(type_id: id)
+      end
     end
   end
 end
