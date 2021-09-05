@@ -519,8 +519,6 @@ GEM
     raabro (1.4.0)
     racc (1.5.2)
     rack (2.2.3)
-    rack-cors (1.1.1)
-      rack (>= 2.0.0)
     rack-floc-off (0.0.2)
       rack
     rack-health (0.1.2)
@@ -807,7 +805,6 @@ DEPENDENCIES
   prosopite
   pry-rails
   puma (~> 5.0)
-  rack-cors
   rack-floc-off
   rack-health
   rack-timeout
