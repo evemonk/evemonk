@@ -7,11 +7,12 @@ Sentry.init({
 });
 
 import "@hotwired/turbo-rails"
-import "@hotwired/stimulus-importmap-autoloader"
 import { install } from "@github/hotkey"
 import "jquery"
 import "popper.js"
 import "bootstrap"
+
+import "controllers"
 
 document.addEventListener("turbo:load", () => {
   // $('[data-toggle="tooltip"]').tooltip();
