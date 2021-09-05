@@ -282,43 +282,51 @@ module Types
     end
 
     def characters
-      ::Eve::Character.preload_associations_lazily
-        .order(:character_id)
+      Goldiloader.enabled do
+        ::Eve::Character.order(:character_id)
+      end
     end
 
     def character(id:)
-      ::Eve::Character.preload_associations_lazily
-        .find_by(character_id: id)
+      Goldiloader.enabled do
+        ::Eve::Character.find_by(character_id: id)
+      end
     end
 
     def constellations
-      ::Eve::Constellation.preload_associations_lazily
-        .order(:constellation_id)
+      Goldiloader.enabled do
+        ::Eve::Constellation.order(:constellation_id)
+      end
     end
 
     def constellation(id:)
-      ::Eve::Constellation.preload_associations_lazily
-        .find_by(constellation_id: id)
+      Goldiloader.enabled do
+        ::Eve::Constellation.find_by(constellation_id: id)
+      end
     end
 
     def contracts
-      ::Eve::Contract.preload_associations_lazily
-        .order(:contract_id)
+      Goldiloader.enabled do
+        ::Eve::Contract.order(:contract_id)
+      end
     end
 
     def contract(id:)
-      ::Eve::Contract.preload_associations_lazily
-        .find_by(contract_id: id)
+      Goldiloader.enabled do
+        ::Eve::Contract.find_by(contract_id: id)
+      end
     end
 
     def corporations
-      ::Eve::Corporation.preload_associations_lazily
-        .order(:corporation_id)
+      Goldiloader.enabled do
+        ::Eve::Corporation.order(:corporation_id)
+      end
     end
 
     def corporation(id:)
-      ::Eve::Corporation.preload_associations_lazily
-        .find_by(corporation_id: id)
+      Goldiloader.enabled do
+        ::Eve::Corporation.find_by(corporation_id: id)
+      end
     end
 
     def factions
