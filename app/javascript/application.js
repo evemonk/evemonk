@@ -6,13 +6,13 @@ Sentry.init({
   dsn: "https://185a236f4b994411a9f33c3c714cb34e@sentry.io/1424888",
 });
 
-import "@hotwired/turbo-rails"
-import { install } from "@github/hotkey"
-import "jquery"
-import "popper.js"
-import "bootstrap"
+import "@hotwired/turbo-rails";
+import { install } from "@github/hotkey";
+import "jquery";
+import "popper.js";
+import "bootstrap";
 
-import "controllers"
+import "controllers";
 
 document.addEventListener("turbo:load", () => {
   // $('[data-toggle="tooltip"]').tooltip();
