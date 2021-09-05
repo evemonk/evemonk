@@ -151,8 +151,6 @@ GEM
       selectize-rails (~> 0.6)
     anyway_config (2.1.0)
       ruby-next-core (>= 0.11.0)
-    ar_lazy_preload (0.6.2)
-      rails (>= 5.0)
     ast (2.4.2)
     attr_extras (6.2.4)
     authy (3.0.0)
@@ -741,7 +739,6 @@ DEPENDENCIES
   active_record_doctor
   administrate
   anyway_config
-  ar_lazy_preload
   authy
   awesome_print
   aws-sdk-s3

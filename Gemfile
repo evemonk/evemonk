@@ -48,7 +48,6 @@ gem "devise-i18n"
 gem "devise_zxcvbn", git: "https://github.com/bitzesty/devise_zxcvbn.git", branch: "master"
 gem "devise-authy"
 gem "rack-floc-off"
-gem "ar_lazy_preload", require: false
 gem "graphql"
 gem "graphiql-rails"
 gem "pg_search"
