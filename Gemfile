@@ -15,22 +15,7 @@ gem "turbo-rails", ">= 0.7.4"
 gem "stimulus-rails", ">= 0.3.9"
 gem "jbuilder", "~> 2.7"
 gem "sassc-rails", "~> 2.1"
-
-# Use Redis adapter to run Action Cable in production
-# gem "redis", "~> 4.0"
-
-# Use Tailwind CSS. See: https://github.com/rails/tailwindcss-rails
-# gem "tailwindcss-rails", "~> 0.4.3"
-
-# Use Active Model has_secure_password
-# gem "bcrypt", "~> 3.1.7"
-
-# Use Active Storage variant
-# gem "image_processing", "~> 1.2"
-
-# Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", ">= 1.4.4", require: false
-
 gem "bootstrap", "4.6.0"
 gem "bootswatch", git: "https://github.com/thomaspark/bootswatch.git", branch: "v4.6.0"
 gem "good_migrations"
