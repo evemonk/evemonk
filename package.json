@@ -2,27 +2,11 @@
   "name": "evemonk",
   "private": true,
   "dependencies": {
-    "@github/hotkey": "^1.4.4",
-    "@hotwired/turbo": "^7.0.0-rc.3",
-    "@hotwired/turbo-rails": "^7.0.0-rc.3",
-    "@rails/actioncable": "^6.1.4",
-    "@rails/ujs": "^6.1.4",
-    "@rails/webpacker": "5.4.2",
-    "@sentry/browser": "^6.12.0",
-    "bootstrap": "^4.6.0",
     "bootstrap-icons": "^1.5.0",
-    "bootswatch": "^4.6.0",
-    "jquery": "^3.6.0",
-    "local-time": "^2.1.0",
-    "popper.js": "^1.16.1",
-    "stimulus": "^2.0.0",
-    "webpack": "^4.46.0",
-    "webpack-cli": "^3.3.12"
+    "local-time": "^2.1.0"
   },
-  "version": "0.1.0",
+  "version": "1.0.0",
   "devDependencies": {
-    "prettier": "^2.3.2",
-    "webpack-bundle-analyzer": "^4.4.2",
-    "webpack-dev-server": "^3.11.2"
+    "prettier": ">= 2.3.2"
   }
 }
