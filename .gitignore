@@ -36,3 +36,4 @@
 /static/*
 /sde.zip
 yarn.lock
+node_modules/**/*
