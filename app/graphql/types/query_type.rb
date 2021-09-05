@@ -330,63 +330,75 @@ module Types
     end
 
     def factions
-      ::Eve::Faction.preload_associations_lazily
-        .order(:faction_id)
+      Goldiloader.enabled do
+        ::Eve::Faction.order(:faction_id)
+      end
     end
 
     def faction(id:)
-      ::Eve::Faction.preload_associations_lazily
-        .find_by(faction_id: id)
+      Goldiloader.enabled do
+        ::Eve::Faction.find_by(faction_id: id)
+      end
     end
 
     def graphics
-      ::Eve::Graphic.preload_associations_lazily
-        .order(:graphic_id)
+      Goldiloader.enabled do
+        ::Eve::Graphic.order(:graphic_id)
+      end
     end
 
     def graphic(id:)
-      ::Eve::Graphic.preload_associations_lazily
-        .find_by(graphic_id: id)
+      Goldiloader.enabled do
+        ::Eve::Graphic.find_by(graphic_id: id)
+      end
     end
 
     def groups
-      ::Eve::Group.preload_associations_lazily
-        .order(:group_id)
+      Goldiloader.enabled do
+        ::Eve::Group.order(:group_id)
+      end
     end
 
     def group(id:)
-      ::Eve::Group.preload_associations_lazily
-        .find_by(group_id: id)
+      Goldiloader.enabled do
+        ::Eve::Group.find_by(group_id: id)
+      end
     end
 
     def icons
-      ::Eve::Icon.preload_associations_lazily
-        .order(:icon_id)
+      Goldiloader.enabled do
+        ::Eve::Icon.order(:icon_id)
+      end
     end
 
     def icon(id:)
-      ::Eve::Icon.preload_associations_lazily
-        .find_by(icon_id: id)
+      Goldiloader.enabled do
+        ::Eve::Icon.find_by(icon_id: id)
+      end
     end
 
     def market_groups
-      ::Eve::MarketGroup.preload_associations_lazily
-        .order(:market_group_id)
+      Goldiloader.enabled do
+        ::Eve::MarketGroup.order(:market_group_id)
+      end
     end
 
     def market_group(id:)
-      ::Eve::MarketGroup.preload_associations_lazily
-        .find_by(market_group_id: id)
+      Goldiloader.enabled do
+        ::Eve::MarketGroup.find_by(market_group_id: id)
+      end
     end
 
     def races
-      ::Eve::Race.preload_associations_lazily
-        .order(:race_id)
+      Goldiloader.enabled do
+        ::Eve::Race.order(:race_id)
+      end
     end
 
     def race(id:)
-      ::Eve::Race.preload_associations_lazily
-        .find_by(race_id: id)
+      Goldiloader.enabled do
+        ::Eve::Race.find_by(race_id: id)
+      end
     end
 
     def regions
