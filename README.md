@@ -42,18 +42,18 @@ All screenshots are real and made in Safari on latest macOS Catalina (10.15.3).
 
 ![My character blueprints page](screenshots/character_blueprints.png)
 
-## Environment
+## Stack
 
 - [rbenv](https://github.com/rbenv/rbenv)
 - [ruby-build](https://github.com/rbenv/ruby-build)
 - [asdf](https://github.com/asdf-vm/asdf)
 - [asdf-nodejs](https://github.com/asdf-vm/asdf-nodejs)
-- Ruby 3.0.2
-- RubyGems 3.2.27
-- Bundler 2.2.27
-- Ruby on Rails (main)
-- PostgreSQL 13.4
-- Redis 6.2.5
+- [Ruby](http://www.ruby-lang.org)
+- [Ruby on Rails](https://rubyonrails.org)
+- [Turbo](https://turbo.hotwired.dev)
+- [Stimulus](https://stimulus.hotwired.dev)
+- [PostgreSQL](https://www.postgresql.org)
+- [Redis](https://redis.io)
 - Minio (S3 compatible storage)
 - Bootstrap 4.6.0
 - Bootstrap Icons 1.5.0
