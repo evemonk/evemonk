@@ -24,9 +24,26 @@ GIT
       activesupport (>= 3)
 
 GIT
-  remote: https://github.com/rails/rails.git
-  revision: 4bbdad500cc6438141c668d5d8b8ad2534a46b5b
-  branch: main
+  remote: https://github.com/strobilomyces/devise.git
+  revision: 755e84b7228f19be0e82bdc5486073715b2a32ed
+  branch: patch-1
+  specs:
+    devise (4.8.0)
+      bcrypt (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 4.1.0)
+      responders
+      warden (~> 1.2.3)
+
+GIT
+  remote: https://github.com/thomaspark/bootswatch.git
+  revision: 91712182e0ed651625f2b3d8a0075454f195d7ae
+  branch: v4.6.0
+  specs:
+    bootswatch (4.6.0)
+
+GEM
+  remote: https://rubygems.org/
   specs:
     actioncable (7.0.0.alpha2)
       actionpack (= 7.0.0.alpha2)
@@ -66,6 +83,12 @@ GIT
       erubi (~> 1.4)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.1, >= 1.2.0)
+    active_attr (0.15.3)
+      actionpack (>= 3.0.2, < 7.0)
+      activemodel (>= 3.0.2, < 7.0)
+      activesupport (>= 3.0.2, < 7.0)
+    active_record_doctor (1.8.0)
+      activerecord (>= 4.2.0)
     activejob (7.0.0.alpha2)
       activesupport (= 7.0.0.alpha2)
       globalid (>= 0.3.6)
@@ -86,57 +109,6 @@ GIT
       i18n (>= 1.6, < 2)
       minitest (>= 5.1)
       tzinfo (~> 2.0)
-    rails (7.0.0.alpha2)
-      actioncable (= 7.0.0.alpha2)
-      actionmailbox (= 7.0.0.alpha2)
-      actionmailer (= 7.0.0.alpha2)
-      actionpack (= 7.0.0.alpha2)
-      actiontext (= 7.0.0.alpha2)
-      actionview (= 7.0.0.alpha2)
-      activejob (= 7.0.0.alpha2)
-      activemodel (= 7.0.0.alpha2)
-      activerecord (= 7.0.0.alpha2)
-      activestorage (= 7.0.0.alpha2)
-      activesupport (= 7.0.0.alpha2)
-      bundler (>= 1.15.0)
-      railties (= 7.0.0.alpha2)
-      sprockets-rails (>= 2.0.0)
-    railties (7.0.0.alpha2)
-      actionpack (= 7.0.0.alpha2)
-      activesupport (= 7.0.0.alpha2)
-      method_source
-      rake (>= 0.13)
-      thor (~> 1.0)
-      zeitwerk (~> 2.5.0.beta3)
-
-GIT
-  remote: https://github.com/strobilomyces/devise.git
-  revision: 755e84b7228f19be0e82bdc5486073715b2a32ed
-  branch: patch-1
-  specs:
-    devise (4.8.0)
-      bcrypt (~> 3.0)
-      orm_adapter (~> 0.1)
-      railties (>= 4.1.0)
-      responders
-      warden (~> 1.2.3)
-
-GIT
-  remote: https://github.com/thomaspark/bootswatch.git
-  revision: 91712182e0ed651625f2b3d8a0075454f195d7ae
-  branch: v4.6.0
-  specs:
-    bootswatch (4.6.0)
-
-GEM
-  remote: https://rubygems.org/
-  specs:
-    active_attr (0.15.3)
-      actionpack (>= 3.0.2, < 7.0)
-      activemodel (>= 3.0.2, < 7.0)
-      activesupport (>= 3.0.2, < 7.0)
-    active_record_doctor (1.8.0)
-      activerecord (>= 4.2.0)
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
     administrate (0.16.0)
@@ -524,6 +496,21 @@ GEM
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
     rack-timeout (0.6.0)
+    rails (7.0.0.alpha2)
+      actioncable (= 7.0.0.alpha2)
+      actionmailbox (= 7.0.0.alpha2)
+      actionmailer (= 7.0.0.alpha2)
+      actionpack (= 7.0.0.alpha2)
+      actiontext (= 7.0.0.alpha2)
+      actionview (= 7.0.0.alpha2)
+      activejob (= 7.0.0.alpha2)
+      activemodel (= 7.0.0.alpha2)
+      activerecord (= 7.0.0.alpha2)
+      activestorage (= 7.0.0.alpha2)
+      activesupport (= 7.0.0.alpha2)
+      bundler (>= 1.15.0)
+      railties (= 7.0.0.alpha2)
+      sprockets-rails (>= 2.0.0)
     rails-controller-testing (1.0.5)
       actionpack (>= 5.0.1.rc1)
       actionview (>= 5.0.1.rc1)
@@ -541,6 +528,13 @@ GEM
       ruby-pg-extras (= 2.0.0)
     rails-settings-cached (2.8.0)
       rails (>= 5.0.0)
+    railties (7.0.0.alpha2)
+      actionpack (= 7.0.0.alpha2)
+      activesupport (= 7.0.0.alpha2)
+      method_source
+      rake (>= 0.13)
+      thor (~> 1.0)
+      zeitwerk (~> 2.5.0.beta3)
     rainbow (3.0.0)
     rake (13.0.6)
     redis (4.4.0)
@@ -805,7 +799,7 @@ DEPENDENCIES
   rack-floc-off
   rack-health
   rack-timeout
-  rails!
+  rails (= 7.0.0.alpha2)
   rails-controller-testing
   rails-html-sanitizer
   rails-i18n (~> 6.0.0)
