@@ -348,7 +348,7 @@ GEM
     i18n (1.8.10)
       concurrent-ruby (~> 1.0)
     i18n_data (0.13.0)
-    importmap-rails (0.6.0)
+    importmap-rails (0.6.1)
       rails (>= 6.0.0)
     ipaddress (0.8.3)
     isolator (0.7.0)
