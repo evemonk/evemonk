@@ -68,7 +68,17 @@ RUN bundle exec bootsnap precompile --gemfile app/ lib/
 # The DATABASE_URL here isn't used. Precomiling assets doesn't use your
 # database, but Rails will fail to initialize if it isn't set.
 
-RUN bundle exec rake SECRET_KEY_BASE=no DATABASE_URL="postgres://postgres@postgresql/evemonk_production?pool=1&encoding=unicode" assets:precompile
+# The DEVISE_MAILER_SENDER here isn't used. Precomiling assets doesn't use your
+# secret key, but Rails will fail to initialize if it isn't set.
+
+# The DEVISE_PEPPER here isn't used. Precomiling assets doesn't use your
+# secret key, but Rails will fail to initialize if it isn't set.
+
+RUN bundle exec rake SECRET_KEY_BASE=no \
+    DEVISE_MAILER_SENDER=no \
+    DEVISE_PEPPER=no \
+    DATABASE_URL="postgres://postgres@postgresql/evemonk_production?pool=1&encoding=unicode" \
+    assets:precompile
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
