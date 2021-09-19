@@ -15,10 +15,7 @@ docker-build.sh
 docker-compose.yml
 docker-postgresql-restore-dump.sh
 .generators
-node_modules/*
 tmp/cache/*
-public/packs/*
-public/packs-test/*
 log/*
 coverage/*
 backup-*.sql.gz

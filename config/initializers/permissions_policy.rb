@@ -16,7 +16,6 @@ Rails.application.config.permissions_policy do |f|
   f.microphone :none
   f.midi :none
   f.payment :none
-  # f.payment :self, "https://secure.example.com"
   f.picture_in_picture :none
   f.speaker :none
   f.usb :none

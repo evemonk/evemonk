@@ -4,33 +4,40 @@ source "https://rubygems.org"
 
 ruby File.read(".ruby-version")
 
-gem "rails", "6.1.4.1"
+# skipcq: RB-A1006
+# skipcq: RB-A1001
+gem "rails", "7.0.0.alpha2"
+
 gem "pg", "~> 1.1"
-gem "puma", "~> 5.4"
-gem "sass-rails", ">= 6"
-gem "webpacker", "~> 5.4"
-gem "turbo-rails"
-gem "jbuilder", "~> 2.11"
+gem "puma", "~> 5.0"
+gem "importmap-rails", ">= 0.3.4"
+gem "turbo-rails", ">= 0.7.4"
+gem "stimulus-rails", ">= 0.3.9"
+gem "jbuilder", "~> 2.7"
+gem "sassc-rails", "~> 2.1"
 gem "bootsnap", ">= 1.4.4", require: false
+gem "bootstrap", "4.6.0"
+gem "bootswatch", git: "https://github.com/thomaspark/bootswatch.git", branch: "v4.6.0"
 gem "good_migrations"
 gem "local_time"
 gem "rails-i18n", "~> 6.0.0"
 gem "http_accept_language"
 gem "countries"
 gem "oj"
-gem "tzinfo-data"
 gem "authy"
-gem "devise"
+# https://github.com/heartcombo/devise/pull/5357
+# https://github.com/heartcombo/devise/pull/5397
+gem "devise", git: "https://github.com/strobilomyces/devise.git", branch: "patch-1"
 gem "devise-i18n"
 # Until next release. https://github.com/bitzesty/devise_zxcvbn/pull/40
 gem "devise_zxcvbn", git: "https://github.com/bitzesty/devise_zxcvbn.git", branch: "master"
 gem "devise-authy"
 gem "rack-floc-off"
-gem "ar_lazy_preload"
+gem "goldiloader"
 gem "graphql"
 gem "graphiql-rails"
 gem "pg_search"
-gem "meta-tags"
+gem "meta-tags", git: "https://github.com/biow0lf/meta-tags.git", branch: "rails-7"
 gem "rails-pg-extras"
 gem "metricky"
 gem "dalli"
@@ -40,7 +47,6 @@ gem "eve_online"
 gem "omniauth-eve_online-sso", "0.2.0"
 gem "omniauth-rails_csrf_protection"
 gem "jwt"
-gem "rack-cors", require: "rack/cors"
 gem "kaminari"
 gem "kaminari-i18n"
 gem "rails-html-sanitizer"
@@ -105,7 +111,9 @@ group :development, :test do
 end
 
 group :development do
-  gem "listen", "~> 3.7"
+  # Display speed badge on every html page with SQL times and flame graphs.
+  # Note: Interferes with etag cache testing. Can be configured to work on production: https://github.com/MiniProfiler/rack-mini-profiler/blob/master/README.md
+  # gem "rack-mini-profiler", "~> 2.0"
   gem "consistency_fail", require: false
   gem "active_record_doctor"
   gem "cacheflow"
@@ -134,7 +142,7 @@ group :test do
   gem "vcr"
 end
 
-gem "httplog"
+# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-# TODO: Remove after zeitwerk 2.5.0 release
-gem "zeitwerk", "2.5.0.beta3"
+gem "httplog"

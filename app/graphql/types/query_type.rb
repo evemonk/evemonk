@@ -222,215 +222,257 @@ module Types
     end
 
     def alliances
-      ::Eve::Alliance.preload_associations_lazily
-        .order(:alliance_id)
+      Goldiloader.enabled do
+        ::Eve::Alliance.order(:alliance_id)
+      end
     end
 
     def alliance(id:)
-      ::Eve::Alliance.preload_associations_lazily
-        .find_by(alliance_id: id)
+      Goldiloader.enabled do
+        ::Eve::Alliance.find_by(alliance_id: id)
+      end
     end
 
     def ancestries
-      ::Eve::Ancestry.preload_associations_lazily
-        .order(:ancestry_id)
+      Goldiloader.enabled do
+        ::Eve::Ancestry.order(:ancestry_id)
+      end
     end
 
     def ancestry(id:)
-      ::Eve::Ancestry.preload_associations_lazily
-        .find_by(ancestry_id: id)
+      Goldiloader.enabled do
+        ::Eve::Ancestry.find_by(ancestry_id: id)
+      end
     end
 
     def bloodlines
-      ::Eve::Bloodline.preload_associations_lazily
-        .order(:bloodline_id)
+      Goldiloader.enabled do
+        ::Eve::Bloodline.order(:bloodline_id)
+      end
     end
 
     def bloodline(id:)
-      ::Eve::Bloodline.preload_associations_lazily
-        .find_by(bloodline_id: id)
+      Goldiloader.enabled do
+        ::Eve::Bloodline.find_by(bloodline_id: id)
+      end
     end
 
     def blueprints
-      ::Eve::Blueprint.preload_associations_lazily
-        .order(:type_id)
+      Goldiloader.enabled do
+        ::Eve::Blueprint.order(:type_id)
+      end
     end
 
     def blueprint(id:)
-      ::Eve::Blueprint.preload_associations_lazily
-        .find_by(type_id: id)
+      Goldiloader.enabled do
+        ::Eve::Blueprint.find_by(type_id: id)
+      end
     end
 
     def categories
-      ::Eve::Category.preload_associations_lazily
-        .order(:category_id)
+      Goldiloader.enabled do
+        ::Eve::Category.order(:category_id)
+      end
     end
 
     def category(id:)
-      ::Eve::Category.preload_associations_lazily
-        .find_by(category_id: id)
+      Goldiloader.enabled do
+        ::Eve::Category.find_by(category_id: id)
+      end
     end
 
     def characters
-      ::Eve::Character.preload_associations_lazily
-        .order(:character_id)
+      Goldiloader.enabled do
+        ::Eve::Character.order(:character_id)
+      end
     end
 
     def character(id:)
-      ::Eve::Character.preload_associations_lazily
-        .find_by(character_id: id)
+      Goldiloader.enabled do
+        ::Eve::Character.find_by(character_id: id)
+      end
     end
 
     def constellations
-      ::Eve::Constellation.preload_associations_lazily
-        .order(:constellation_id)
+      Goldiloader.enabled do
+        ::Eve::Constellation.order(:constellation_id)
+      end
     end
 
     def constellation(id:)
-      ::Eve::Constellation.preload_associations_lazily
-        .find_by(constellation_id: id)
+      Goldiloader.enabled do
+        ::Eve::Constellation.find_by(constellation_id: id)
+      end
     end
 
     def contracts
-      ::Eve::Contract.preload_associations_lazily
-        .order(:contract_id)
+      Goldiloader.enabled do
+        ::Eve::Contract.order(:contract_id)
+      end
     end
 
     def contract(id:)
-      ::Eve::Contract.preload_associations_lazily
-        .find_by(contract_id: id)
+      Goldiloader.enabled do
+        ::Eve::Contract.find_by(contract_id: id)
+      end
     end
 
     def corporations
-      ::Eve::Corporation.preload_associations_lazily
-        .order(:corporation_id)
+      Goldiloader.enabled do
+        ::Eve::Corporation.order(:corporation_id)
+      end
     end
 
     def corporation(id:)
-      ::Eve::Corporation.preload_associations_lazily
-        .find_by(corporation_id: id)
+      Goldiloader.enabled do
+        ::Eve::Corporation.find_by(corporation_id: id)
+      end
     end
 
     def factions
-      ::Eve::Faction.preload_associations_lazily
-        .order(:faction_id)
+      Goldiloader.enabled do
+        ::Eve::Faction.order(:faction_id)
+      end
     end
 
     def faction(id:)
-      ::Eve::Faction.preload_associations_lazily
-        .find_by(faction_id: id)
+      Goldiloader.enabled do
+        ::Eve::Faction.find_by(faction_id: id)
+      end
     end
 
     def graphics
-      ::Eve::Graphic.preload_associations_lazily
-        .order(:graphic_id)
+      Goldiloader.enabled do
+        ::Eve::Graphic.order(:graphic_id)
+      end
     end
 
     def graphic(id:)
-      ::Eve::Graphic.preload_associations_lazily
-        .find_by(graphic_id: id)
+      Goldiloader.enabled do
+        ::Eve::Graphic.find_by(graphic_id: id)
+      end
     end
 
     def groups
-      ::Eve::Group.preload_associations_lazily
-        .order(:group_id)
+      Goldiloader.enabled do
+        ::Eve::Group.order(:group_id)
+      end
     end
 
     def group(id:)
-      ::Eve::Group.preload_associations_lazily
-        .find_by(group_id: id)
+      Goldiloader.enabled do
+        ::Eve::Group.find_by(group_id: id)
+      end
     end
 
     def icons
-      ::Eve::Icon.preload_associations_lazily
-        .order(:icon_id)
+      Goldiloader.enabled do
+        ::Eve::Icon.order(:icon_id)
+      end
     end
 
     def icon(id:)
-      ::Eve::Icon.preload_associations_lazily
-        .find_by(icon_id: id)
+      Goldiloader.enabled do
+        ::Eve::Icon.find_by(icon_id: id)
+      end
     end
 
     def market_groups
-      ::Eve::MarketGroup.preload_associations_lazily
-        .order(:market_group_id)
+      Goldiloader.enabled do
+        ::Eve::MarketGroup.order(:market_group_id)
+      end
     end
 
     def market_group(id:)
-      ::Eve::MarketGroup.preload_associations_lazily
-        .find_by(market_group_id: id)
+      Goldiloader.enabled do
+        ::Eve::MarketGroup.find_by(market_group_id: id)
+      end
     end
 
     def races
-      ::Eve::Race.preload_associations_lazily
-        .order(:race_id)
+      Goldiloader.enabled do
+        ::Eve::Race.order(:race_id)
+      end
     end
 
     def race(id:)
-      ::Eve::Race.preload_associations_lazily
-        .find_by(race_id: id)
+      Goldiloader.enabled do
+        ::Eve::Race.find_by(race_id: id)
+      end
     end
 
     def regions
-      ::Eve::Region.preload_associations_lazily
-        .order(:region_id)
+      Goldiloader.enabled do
+        ::Eve::Region.order(:region_id)
+      end
     end
 
     def region(id:)
-      ::Eve::Region.preload_associations_lazily
-        .find_by(region_id: id)
+      Goldiloader.enabled do
+        ::Eve::Region.find_by(region_id: id)
+      end
     end
 
     def ships
       # TODO: load only ships!!!
-      ::Eve::Ship.preload_associations_lazily
-        .order(:type_id)
+      Goldiloader.enabled do
+        ::Eve::Ship.order(:type_id)
+      end
     end
 
     def ship(id:)
       # TODO: load only ships!!!
-      ::Eve::Ship.preload_associations_lazily
-        .find_by(type_id: id)
+      Goldiloader.enabled do
+        ::Eve::Ship.find_by(type_id: id)
+      end
     end
 
     def stars
-      ::Eve::Star.preload_associations_lazily
-        .order(:star_id)
+      Goldiloader.enabled do
+        ::Eve::Star.order(:star_id)
+      end
     end
 
     def star(id:)
-      ::Eve::Star.preload_associations_lazily
-        .find_by(star_id: id)
+      Goldiloader.enabled do
+        ::Eve::Star.find_by(star_id: id)
+      end
     end
 
     def stations
-      ::Eve::Station.preload_associations_lazily
-        .order(:station_id)
+      Goldiloader.enabled do
+        ::Eve::Station.order(:station_id)
+      end
     end
 
     def station(id:)
-      ::Eve::Station.preload_associations_lazily
-        .find_by(station_id: id)
+      Goldiloader.enabled do
+        ::Eve::Station.find_by(station_id: id)
+      end
     end
 
     def systems
-      ::Eve::System.preload_associations_lazily
-        .order(:system_id)
+      Goldiloader.enabled do
+        ::Eve::System.order(:system_id)
+      end
     end
 
     def system(id:)
-      ::Eve::System.preload_associations_lazily
-        .find_by(system_id: id)
+      Goldiloader.enabled do
+        ::Eve::System.find_by(system_id: id)
+      end
     end
 
     def types
-      ::Eve::Type.preload_associations_lazily
-        .order(:type_id)
+      Goldiloader.enabled do
+        ::Eve::Type.order(:type_id)
+      end
     end
 
     def type(id:)
-      ::Eve::Type.preload_associations_lazily
-        .find_by(type_id: id)
+      Goldiloader.enabled do
+        ::Eve::Type.find_by(type_id: id)
+      end
     end
   end
 end

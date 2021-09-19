@@ -26,17 +26,17 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = '<%= SecureRandom.hex(64) %>'
+  # config.secret_key = "<%= SecureRandom.hex(64) %>"
 
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
-  # config.parent_controller = 'DeviseController'
+  # config.parent_controller = "DeviseController"
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = "robot@evemonk.com"
+  config.mailer_sender = ENV.fetch("DEVISE_MAILER_SENDER")
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
@@ -138,8 +138,8 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 12
 
   # Set up a pepper to generate the hashed password.
-  # config.pepper = '<%= SecureRandom.hex(64) %>'
-  config.pepper = ENV["DEVISE_PEPPER"]
+  # config.pepper = "<%= SecureRandom.hex(64) %>"
+  config.pepper = ENV.fetch("DEVISE_PEPPER")
 
   # Send a notification to the original email when the user's email is changed.
   # config.send_email_changed_notification = false
@@ -263,6 +263,7 @@ Devise.setup do |config|
   # "users/sessions/new". It's turned off by default because it's slower if you
   # are using only default views.
   # config.scoped_views = false
+  config.scoped_views = true
 
   # Configure the default scope given to Warden. By default it's the first
   # devise role declared in your routes (usually :user).

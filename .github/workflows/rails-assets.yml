@@ -8,6 +8,11 @@ on:
     branches:
       - main
 
+env:
+  DEVISE_MAILER_SENDER: "robot@evemonk.com"
+  ACTION_MAILER_FROM: "EveMonk <robot@evemonk.com>"
+  DEVISE_PEPPER: "e19db51a470b8259e79616ac00450ea1857d819aa860e2e7cff79b3c295d3993867a68c9524587d2b02b6f76efa8dea8aaf09884f186bfab89442eb2530ea829"
+
 jobs:
   precompile:
     runs-on: ubuntu-latest
@@ -18,13 +23,5 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
-      - name: Install Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: "14"
-      - name: Yarn install
-        run: yarn install --frozen-lockfile
-      - name: Yarn versions
-        run: yarn versions
       - name: rails assets:precompile
         run: bundle exec rails SECRET_KEY_BASE=no assets:precompile
