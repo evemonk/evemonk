@@ -4,8 +4,6 @@ source "https://rubygems.org"
 
 ruby File.read(".ruby-version")
 
-# skipcq: RB-A1006
-# skipcq: RB-A1001
 gem "rails", "7.0.0.alpha2"
 
 gem "pg", "~> 1.1"
