@@ -212,7 +212,7 @@ GEM
       rubocop
       smart_properties
     erubi (1.10.0)
-    et-orbi (1.2.4)
+    et-orbi (1.2.5)
       tzinfo
     eve_online (0.42.0)
       activesupport (>= 5.2.0)
@@ -273,7 +273,7 @@ GEM
       nokogiri (>= 1.5.11, < 2.0.0)
     formatador (0.3.0)
     foundation_emails (2.2.1.0)
-    fugit (1.5.1)
+    fugit (1.5.2)
       et-orbi (~> 1.1, >= 1.1.8)
       raabro (~> 1.4)
     gemdiff (4.0.0)
