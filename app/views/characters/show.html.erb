@@ -94,7 +94,7 @@
       <div class="float-right">
         <%= form_with(url: character_path(@character.character_id), method: :patch, class: "float-right") do %>
           <%= button_tag("Refresh", class: "btn btn-primary mb-2") do %>
-            <%= image_tag("bootstrap-icons/icons/arrow-repeat.svg") %>
+            <i class="bi bi-arrow-repeat"></i>
           <% end %>
         <% end %>
       </div>
@@ -196,6 +196,7 @@
                           loading: "lazy") %>
             <br>
             <%= @character.current_ship_name %>
+            <!-- Show Est. price plus show full price of current fitted ship -->
           </li>
         <% end %>
       </ul>
