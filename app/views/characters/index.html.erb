@@ -19,7 +19,7 @@
         <h4 class="float-left"><%= link_to(character.name, character_path(character.character_id)) %></h4>
         <%= form_with(url: character_path(character.character_id), method: :patch, class: "float-right") do %>
           <%= button_tag("Refresh", class: "btn btn-primary mb-2") do %>
-            <%= image_tag("bootstrap-icons/icons/arrow-repeat.svg") %>
+            <i class="bi bi-arrow-repeat"></i>
           <% end %>
         <% end %>
       </div>
@@ -54,8 +54,7 @@
           <li class="list-group-item text-break text-center">
             <%= form_with(url: character_path(character.character_id), model: character, method: :delete) do %>
               <%= button_tag("Refresh", class: "btn btn-danger") do %>
-                Remove character
-                <%= image_tag("bootstrap-icons/icons/exclamation-circle.svg") %>
+                Remove character <i class="bi bi-exclamation-circle"></i>
               <% end %>
             <% end %>
           </li>
