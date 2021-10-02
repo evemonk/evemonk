@@ -11,7 +11,7 @@ module Api
     def refresh
       return unless character.token_expired?
 
-      oauth_client_options = OmniAuth::Strategies::EveOnlineSso.default_options["client_options"]
+      oauth_client_options = OmniAuth::Strategies::EveOnlineSso.default_options["client_options"].deep_symbolize_keys
 
       oauth_client = OAuth2::Client.new(Setting.eve_online_sso_client_id,
         Setting.eve_online_sso_secret_key,
