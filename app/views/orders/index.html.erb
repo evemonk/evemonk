@@ -90,7 +90,7 @@
       <h4 class="float-left"><%= @character.name %></h4>
       <%= form_with(url: character_path(@character.character_id), method: :patch, class: "float-right") do %>
         <%= button_tag("Refresh", class: "btn btn-primary mb-2") do %>
-          <%= image_tag("bootstrap-icons/icons/arrow-repeat.svg") %>
+          <i class="bi bi-arrow-repeat"></i>
         <% end %>
       <% end %>
     </div>
