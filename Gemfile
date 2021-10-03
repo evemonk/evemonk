@@ -60,7 +60,6 @@ gem "noticed"
 # gem "rubycritic", require: false
 gem "responders"
 gem "rack-health"
-gem "fog-aws", require: false
 gem "aws-sdk-s3"
 gem "down"
 gem "sitemap_generator"
