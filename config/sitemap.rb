@@ -1,21 +1,16 @@
 # frozen_string_literal: true
 
-require "fog-aws"
+require "aws-sdk-s3"
 
 # Set the host name for URL creation
 SitemapGenerator::Sitemap.default_host = "https://evemonk.com"
 
-SitemapGenerator::Sitemap.adapter = SitemapGenerator::S3Adapter.new(
+SitemapGenerator::Sitemap.adapter = SitemapGenerator::AwsSdkAdapter.new(
+  ENV["BUCKET"],
   aws_access_key_id: ENV["AWS_ACCESS_KEY_ID"],
   aws_secret_access_key: ENV["AWS_SECRET_ACCESS_KEY"],
-  fog_provider: "AWS",
-  fog_directory: "#{ENV["BUCKET"]}/sitemaps/",
-  fog_region: ENV["MINIO_REGION_NAME"],
-  fog_path_style: true,
-  fog_storage_options: {
-    host: ENV["MINIO_HOSTNAME"],
-    endpoint: ENV["MINIO_ENDPOINT"]
-  }
+  aws_region: ENV["MINIO_REGION_NAME"],
+  aws_endpoint: ENV["MINIO_ENDPOINT"]
 )
 
 SitemapGenerator::Sitemap.create do
