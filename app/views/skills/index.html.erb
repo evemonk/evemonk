@@ -84,7 +84,7 @@
 <hr>
 
 <div class="row">
-  <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+  <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
     <div class="clearfix">
       <h4 class="float-left"><%= @character.name %></h4>
       <%= form_with(url: character_path(@character.character_id), method: :patch, class: "float-right") do %>
@@ -138,7 +138,7 @@
     </div>
   </div>
 
-  <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+  <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
     <h4 class="text-center text-break">Skills Tree</h4>
 
     <div class="accordion" id="skills_tree_accordion">
