@@ -16,17 +16,9 @@ GIT
       zxcvbn-js (~> 4.4.1)
 
 GIT
-  remote: https://github.com/just806me/shoulda-callback-matchers.git
-  revision: b3a93d43490cdb3062a437e2edfbd50d25eda79a
+  remote: https://github.com/heartcombo/devise.git
+  revision: bb879f715435d536195d6d7b927ec54975e44716
   branch: master
-  specs:
-    shoulda-callback-matchers (1.1.4)
-      activesupport (>= 3)
-
-GIT
-  remote: https://github.com/strobilomyces/devise.git
-  revision: 755e84b7228f19be0e82bdc5486073715b2a32ed
-  branch: patch-1
   specs:
     devise (4.8.0)
       bcrypt (~> 3.0)
@@ -34,6 +26,14 @@ GIT
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+
+GIT
+  remote: https://github.com/just806me/shoulda-callback-matchers.git
+  revision: b3a93d43490cdb3062a437e2edfbd50d25eda79a
+  branch: master
+  specs:
+    shoulda-callback-matchers (1.1.4)
+      activesupport (>= 3)
 
 GIT
   remote: https://github.com/thomaspark/bootswatch.git
