@@ -25,7 +25,7 @@ GIT
 
 GIT
   remote: https://github.com/strobilomyces/devise.git
-  revision: 755e84b7228f19be0e82bdc5486073715b2a32ed
+  revision: fa4852e754cacb5210144e1196705ef8797aaf20
   branch: patch-1
   specs:
     devise (4.8.0)
