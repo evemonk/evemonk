@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_26_221004) do
+ActiveRecord::Schema.define(version: 2021_10_18_120854) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -1034,18 +1034,6 @@ ActiveRecord::Schema.define(version: 2021_08_26_221004) do
     t.index ["database", "captured_at"], name: "index_pghero_space_stats_on_database_and_captured_at"
   end
 
-  create_table "sessions", id: :serial, force: :cascade do |t|
-    t.integer "user_id"
-    t.string "token"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "name"
-    t.string "device_token"
-    t.integer "device_type"
-    t.index ["token"], name: "index_sessions_on_token", unique: true
-    t.index ["user_id"], name: "index_sessions_on_user_id"
-  end
-
   create_table "settings", force: :cascade do |t|
     t.string "var", null: false
     t.text "value"
@@ -1174,7 +1162,6 @@ ActiveRecord::Schema.define(version: 2021_08_26_221004) do
   add_foreign_key "eve_required_items", "eve_loyalty_store_offers"
   add_foreign_key "industry_jobs", "characters"
   add_foreign_key "manufacturing_jobs", "characters"
-  add_foreign_key "sessions", "users"
   add_foreign_key "skillqueues", "characters"
   add_foreign_key "standings", "characters"
   add_foreign_key "wallet_journals", "characters"
