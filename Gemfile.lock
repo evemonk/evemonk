@@ -788,6 +788,7 @@ DEPENDENCIES
   rspec-rails
   rubocop
   rubocop-graphql
+  rubocop-performance
   rufus-scheduler
   sassc-rails (~> 2.1)
   selenium-webdriver
