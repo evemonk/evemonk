@@ -43,6 +43,8 @@ en:
     seconds:
       one: "%{count} second "
       other: "%{count} seconds "
+  breadcrumb:
+    home: "Home"
   welcome:
     index:
       alliances_html: "<u>A</u>lliances"
