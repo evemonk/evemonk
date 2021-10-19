@@ -48,30 +48,30 @@
 <!--            </li>-->
             <% if current_user %>
               <li class="nav-item">
-                <%= link_to("My characters", characters_path, class: "nav-link") %>
+                <%= link_to(t(".my_characters"), characters_path, class: "nav-link") %>
               </li>
               <li class="nav-item">
-                <%= link_to("Profile", profile_path, class: "nav-link") %>
+                <%= link_to(t(".profile"), profile_path, class: "nav-link") %>
               </li>
               <li class="nav-item">
-                <%= link_to("Sign Out", destroy_user_session_path, method: :delete, class: "nav-link") %>
+                <%= link_to(t(".sign_out"), destroy_user_session_path, method: :delete, class: "nav-link") %>
               </li>
             <% else %>
               <li class="nav-item">
-                <%= link_to("Sign In", new_user_session_path, class: "nav-link") %>
+                <%= link_to(t(".sign_in"), new_user_session_path, class: "nav-link") %>
               </li>
               <li class="nav-item">
-                <%= link_to("Sign Up", new_user_registration_path, class: "nav-link") %>
+                <%= link_to(t(".sign_up"), new_user_registration_path, class: "nav-link") %>
               </li>
             <% end %>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Universe</a>
+              <a class="nav-link dropdown-toggle" href="#" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= t(".universe") %></a>
               <div class="dropdown-menu" aria-labelledby="dropdown">
-                <%= link_to("Alliances", universe_alliances_path, class: "dropdown-item") %>
-                <%= link_to("Corporations", universe_corporations_path, class: "dropdown-item") %>
-                <%= link_to("Characters", universe_characters_path, class: "dropdown-item") %>
-                <%= link_to("Market Groups", nil, class: "dropdown-item") %>
-                <%= link_to("Inventory", nil, class: "dropdown-item") %>
+                <%= link_to(t(".alliances"), universe_alliances_path, class: "dropdown-item") %>
+                <%= link_to(t(".corporations"), universe_corporations_path, class: "dropdown-item") %>
+                <%= link_to(t(".characters"), universe_characters_path, class: "dropdown-item") %>
+                <%= link_to(t(".market_groups"), nil, class: "dropdown-item") %>
+                <%= link_to(t(".inventory"), nil, class: "dropdown-item") %>
               </div>
             </li>
           </ul>
@@ -110,14 +110,14 @@
       <div class="row">
         <div class="col-6 col-md-3">
           <ul class="list-unstyled mb-0">
-            <li><%= link_to("FAQ", faq_path) %></li>
-            <li><a href="#">Privacy policy</a></li>
+            <li><%= link_to(t(".faq"), faq_path) %></li>
+            <li><a href="#"><%= t(".privacy_policy") %></a></li>
           </ul>
         </div>
         <div class="col-6 col-md-3">
           <ul class="list-unstyled mb-0">
-            <li><a href="#">Terms of use</a></li>
-            <li><a href="#">About</a></li>
+            <li><a href="#"><%= t(".terms_of_use") %></a></li>
+            <li><a href="#"><%= t(".about") %></a></li>
           </ul>
         </div>
         <div class="col-6 col-md-3">

@@ -11,7 +11,7 @@ module Api
     def refresh
       return unless character.token_expired?
 
-      oauth_client_options = OmniAuth::Strategies::EveOnlineSso.default_options["client_options"].deep_symbolize_keys
+      oauth_client_options = OmniAuth::Strategies::EveOnlineSso.default_options["client_options"].to_hash.symbolize_keys
 
       oauth_client = OAuth2::Client.new(Setting.eve_online_sso_client_id,
         Setting.eve_online_sso_secret_key,
@@ -26,7 +26,7 @@ module Api
         token_expires_at: Time.zone.at(response.expires_at),
         token_expires: response.expires?)
     rescue OAuth2::Error => e
-      if e.code == "invalid_token"
+      if e.code == "invalid_grant"
         character.update!(esi_token_valid: false,
           esi_token_invalid_at: Time.zone.now,
           esi_last_error: e.description)

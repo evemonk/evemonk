@@ -40,7 +40,7 @@ gem "dalli"
 gem "foundation_emails"
 gem "rufus-scheduler"
 gem "eve_online"
-gem "omniauth-eve_online-sso", "0.2.0"
+gem "omniauth-eve_online-sso"
 gem "omniauth-rails_csrf_protection"
 gem "jwt"
 gem "kaminari"
@@ -94,6 +94,7 @@ group :development, :test do
   gem "sql_tracker"
   gem "bundler-audit", require: false
   gem "rubocop", require: false
+  gem "rubocop-performance", require: false
   gem "rubocop-graphql", require: false
   gem "standard", require: false
   gem "squasher", require: false

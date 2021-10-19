@@ -43,7 +43,26 @@ en:
     seconds:
       one: "%{count} second "
       other: "%{count} seconds "
+  breadcrumb:
+    home: "Home"
+  layouts:
+    application:
+      my_characters: "My characters"
+      profile: "Profile"
+      sign_out: "Sign Out"
+      sign_in: "Sign In"
+      sign_up: "Sign Up"
+      universe: "Universe"
+      alliances: "Alliances"
+      corporations: "Corporations"
+      characters: "Characters"
+      market_groups: "Market Groups"
+      inventory: "Inventory"
+      faq: "FAQ"
+      privacy_policy: "Privacy policy"
+      terms_of_use: "Terms of use"
+      about: "About"
   welcome:
     index:
-      alliances: "<u>A</u>lliances"
-      corporations: "<u>C</u>orporations"
+      alliances_html: "<u>A</u>lliances"
+      corporations_html: "<u>C</u>orporations"

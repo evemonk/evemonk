@@ -28,7 +28,6 @@ describe Api::RefreshCharacterAccessToken do
     let(:character) do
       create(:character,
         character_id: 1_337_512_245,
-        access_token: "expired-access-token123",
         refresh_token: "fresh-token-1232132132132131231312312312312312321321321321312312",
         token_expires_at: Time.zone.now)
     end
@@ -71,7 +70,7 @@ describe Api::RefreshCharacterAccessToken do
         #
         expect(character).to receive(:update!).with(esi_token_valid: false,
           esi_token_invalid_at: Time.zone.now,
-          esi_last_error: "The refresh token is expired.")
+          esi_last_error: "Invalid refresh token. Unable to migrate grant.")
       end
 
       before do
@@ -80,7 +79,7 @@ describe Api::RefreshCharacterAccessToken do
         #
         expect(Rails).to receive(:logger) do
           double.tap do |a|
-            expect(a).to receive(:info).with("OAuth2::Error: Character ID: 1337512245 / code: invalid_token / description: The refresh token is expired.")
+            expect(a).to receive(:info).with("OAuth2::Error: Character ID: 1337512245 / code: invalid_grant / description: Invalid refresh token. Unable to migrate grant.")
           end
         end
       end
