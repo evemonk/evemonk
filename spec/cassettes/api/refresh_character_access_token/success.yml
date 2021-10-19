@@ -1,0 +1,79 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://login.eveonline.com/v2/oauth/token
+    body:
+      encoding: UTF-8
+      string: client_id=eve-online-sso-client-id&client_secret=eve-online-sso-secret-key&grant_type=refresh_token&refresh_token=fresh-token-1232132132132131231312312312312312321321321321312312
+    headers:
+      User-Agent:
+      - Faraday v1.8.0
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 19 Oct 2021 19:55:23 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - no-store,no-cache
+      Pragma:
+      - no-cache
+      Vary:
+      - Accept-Encoding
+      Request-Context:
+      - appId=cid-v1:2ccf88f2-29b9-460a-bc15-7c0b79926f61
+      Set-Cookie:
+      - __cf_bm=16qmdqUlz80GxXoxgMlLNFOb_1jvt.kIv00.zLLYP9k-1634673323-0-Ae1RLmtPAgE4++w1eehXVwdcMYetgnooLxgu8ByD1Cr+UUIknA0ttV/+PK80efbBmTdr2lIhj01X5FCakuhosbE5CKPQdcbkIA1vTNf/eiXX;
+        path=/; expires=Tue, 19-Oct-21 20:25:23 GMT; domain=.eveonline.com; HttpOnly;
+        Secure; SameSite=None
+      - lang=en; expires=Wed, 19 Oct 2022 19:55:23 GMT; path=/; secure; samesite=lax;
+        httponly
+      Nel:
+      - '{"report_to":"default","max_age":31536000,"include_subdomains":true}'
+      Report-To:
+      - '{"group":"default","max_age":31536000,"endpoints":[{"url":"https://ccpgames.report-uri.com/a/t/g"}],"include_subdomains":true}'
+      Content-Security-Policy:
+      - 'default-src ''self''; base-uri ''self''; object-src ''self''; img-src ''self''
+        https: data: blob: filesystem:; font-src ''self'' web-cdn.eveonline.com fonts.gstatic.com
+        cdnjs.cloudflare.com; style-src ''self'' ''unsafe-inline'' web-cdn.eveonline.com
+        hello.myfonts.net cdnjs.cloudflare.com; script-src ''self'' ''nonce-sWPKy8ub1kynR8FrhEvj8A==''
+        connect.facebook.net az416426.vo.msecnd.net www.googletagmanager.com www.google-analytics.com
+        static.cloudflareinsights.com ''report-sample'' ''strict-dynamic'' ; connect-src
+        ''self'' dc.services.visualstudio.com www.facebook.com www.google-analytics.com
+        stats.g.doubleclick.net; frame-ancestors launcher.testeveonline.com launcher.eveonline.com;
+        frame-src connect.facebook.net www.facebook.com www.googletagmanager.com;
+        report-uri https://ccpgames.report-uri.com/r/t/csp/enforce'
+      X-Powered-By:
+      - ASP.NET
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Cf-Cache-Status:
+      - DYNAMIC
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 6a0c904d7c2d36d2-KBP
+      Alt-Svc:
+      - h3=":443"; ma=86400, h3-29=":443"; ma=86400, h3-28=":443"; ma=86400, h3-27=":443";
+        ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: '{"access_token":"abcdefg1232132131231231231231232132131231321231323123123112313132321312312312312312313","expires_in":1199,"token_type":"Bearer","refresh_token":"new-fresh-token-123213213213213123131231231231231232132132132131"}'
+  recorded_at: Tue, 19 Oct 2021 19:55:23 GMT
+recorded_with: VCR 6.0.0
