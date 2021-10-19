@@ -45,5 +45,5 @@ en:
       other: "%{count} seconds "
   welcome:
     index:
-      alliances: "<u>A</u>lliances"
-      corporations: "<u>C</u>orporations"
+      alliances_html: "<u>A</u>lliances"
+      corporations_html: "<u>C</u>orporations"
