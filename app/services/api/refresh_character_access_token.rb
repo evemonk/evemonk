@@ -26,11 +26,9 @@ module Api
         token_expires_at: Time.zone.at(response.expires_at),
         token_expires: response.expires?)
     rescue OAuth2::Error => e
-      if e.code == "invalid_grant"
-        character.update!(esi_token_valid: false,
-          esi_token_invalid_at: Time.zone.now,
-          esi_last_error: e.description)
-      end
+      character.update!(esi_token_valid: false,
+        esi_token_invalid_at: Time.zone.now,
+        esi_last_error: e.description)
 
       Rails.logger.info("OAuth2::Error: Character ID: #{character.character_id} / code: #{e.code} / description: #{e.description}")
 
