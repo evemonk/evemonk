@@ -587,7 +587,7 @@ GEM
     scout_apm (4.1.2)
       parser
     selectize-rails (0.12.6)
-    selenium-webdriver (4.0.1)
+    selenium-webdriver (4.0.2)
       childprocess (>= 0.5, < 5.0)
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2)
