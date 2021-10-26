@@ -35,7 +35,7 @@ describe Eve::Alliance do
 
   it { should have_one_attached(:logo) }
 
-  it { should have_db_index(:name) }
+  it { should have_db_index([:name, :ticker]) }
 
   it { expect(described_class).to respond_to(:search_by_name_and_ticker) }
 
