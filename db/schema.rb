@@ -10,11 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_18_120854) do
+ActiveRecord::Schema.define(version: 2021_10_26_151554) do
 
   # These are extensions that must be enabled in order to support this database
+  enable_extension "pg_trgm"
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
+  enable_extension "sslinfo"
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -278,7 +280,7 @@ ActiveRecord::Schema.define(version: 2021_10_18_120854) do
     t.index ["creator_id"], name: "index_eve_alliances_on_creator_id"
     t.index ["executor_corporation_id"], name: "index_eve_alliances_on_executor_corporation_id"
     t.index ["faction_id"], name: "index_eve_alliances_on_faction_id"
-    t.index ["name"], name: "index_eve_alliances_on_name"
+    t.index ["name", "ticker"], name: "index_eve_alliances_on_name_and_ticker", opclass: :gin_trgm_ops, using: :gin
   end
 
   create_table "eve_ancestries", force: :cascade do |t|
@@ -496,7 +498,7 @@ ActiveRecord::Schema.define(version: 2021_10_18_120854) do
     t.index ["character_id"], name: "index_eve_characters_on_character_id", unique: true
     t.index ["corporation_id"], name: "index_eve_characters_on_corporation_id"
     t.index ["faction_id"], name: "index_eve_characters_on_faction_id"
-    t.index ["name"], name: "index_eve_characters_on_name"
+    t.index ["name"], name: "index_eve_characters_on_name", opclass: :gin_trgm_ops, using: :gin
     t.index ["race_id"], name: "index_eve_characters_on_race_id"
   end
 
@@ -576,7 +578,7 @@ ActiveRecord::Schema.define(version: 2021_10_18_120854) do
     t.index ["faction_id"], name: "index_eve_corporations_on_faction_id"
     t.index ["home_station_id"], name: "index_eve_corporations_on_home_station_id"
     t.index ["member_count"], name: "index_eve_corporations_on_member_count"
-    t.index ["name"], name: "index_eve_corporations_on_name"
+    t.index ["name", "ticker"], name: "index_eve_corporations_on_name_and_ticker", opclass: :gin_trgm_ops, using: :gin
     t.index ["npc", "member_count"], name: "index_eve_corporations_on_npc_and_member_count"
   end
 

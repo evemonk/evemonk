@@ -35,7 +35,7 @@ describe Eve::Corporation do
 
   it { should have_one_attached(:logo) }
 
-  it { should have_db_index(:name) }
+  it { should have_db_index([:name, :ticker]) }
 
   describe ".npc" do
     let!(:eve_corporation_1) { create(:eve_corporation, npc: false) }
