@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_26_151300) do
+ActiveRecord::Schema.define(version: 2021_10_26_151554) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_trgm"
@@ -498,7 +498,7 @@ ActiveRecord::Schema.define(version: 2021_10_26_151300) do
     t.index ["character_id"], name: "index_eve_characters_on_character_id", unique: true
     t.index ["corporation_id"], name: "index_eve_characters_on_corporation_id"
     t.index ["faction_id"], name: "index_eve_characters_on_faction_id"
-    t.index ["name"], name: "index_eve_characters_on_name"
+    t.index ["name"], name: "index_eve_characters_on_name", opclass: :gin_trgm_ops, using: :gin
     t.index ["race_id"], name: "index_eve_characters_on_race_id"
   end
 
