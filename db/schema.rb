@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_26_150023) do
+ActiveRecord::Schema.define(version: 2021_10_26_151300) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_trgm"
@@ -578,7 +578,7 @@ ActiveRecord::Schema.define(version: 2021_10_26_150023) do
     t.index ["faction_id"], name: "index_eve_corporations_on_faction_id"
     t.index ["home_station_id"], name: "index_eve_corporations_on_home_station_id"
     t.index ["member_count"], name: "index_eve_corporations_on_member_count"
-    t.index ["name"], name: "index_eve_corporations_on_name"
+    t.index ["name", "ticker"], name: "index_eve_corporations_on_name_and_ticker", opclass: :gin_trgm_ops, using: :gin
     t.index ["npc", "member_count"], name: "index_eve_corporations_on_npc_and_member_count"
   end
 
