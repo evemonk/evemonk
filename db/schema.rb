@@ -10,9 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_26_124828) do
+ActiveRecord::Schema.define(version: 2021_10_26_150023) do
 
   # These are extensions that must be enabled in order to support this database
+  enable_extension "pg_trgm"
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
   enable_extension "sslinfo"
@@ -279,7 +280,7 @@ ActiveRecord::Schema.define(version: 2021_10_26_124828) do
     t.index ["creator_id"], name: "index_eve_alliances_on_creator_id"
     t.index ["executor_corporation_id"], name: "index_eve_alliances_on_executor_corporation_id"
     t.index ["faction_id"], name: "index_eve_alliances_on_faction_id"
-    t.index ["name"], name: "index_eve_alliances_on_name"
+    t.index ["name", "ticker"], name: "index_eve_alliances_on_name_and_ticker", opclass: :gin_trgm_ops, using: :gin
   end
 
   create_table "eve_ancestries", force: :cascade do |t|
