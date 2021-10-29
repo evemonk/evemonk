@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-# rubocop:disable GraphQL/ObjectDescription
 module Types
   module NodeType
     include Types::BaseInterface
