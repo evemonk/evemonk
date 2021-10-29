@@ -1,12 +1,4 @@
 GIT
-  remote: https://github.com/biow0lf/meta-tags.git
-  revision: 7c76dac1a2eb61e64b1b5f312848ec2c8cc8908d
-  branch: rails-7
-  specs:
-    meta-tags (2.15.0)
-      actionpack (>= 3.2.0, < 7.1)
-
-GIT
   remote: https://github.com/bitzesty/devise_zxcvbn.git
   revision: 63c25fd6576c4009d5e758b91094c10b94829078
   branch: master
@@ -34,6 +26,14 @@ GIT
   specs:
     shoulda-callback-matchers (1.1.4)
       activesupport (>= 3)
+
+GIT
+  remote: https://github.com/kpumuk/meta-tags.git
+  revision: 60ebf517f7ae5ea8765e0382290098cde2485b43
+  branch: main
+  specs:
+    meta-tags (2.16.0)
+      actionpack (>= 3.2.0, < 7.1)
 
 GIT
   remote: https://github.com/thomaspark/bootswatch.git
