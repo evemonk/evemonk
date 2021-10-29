@@ -9,6 +9,8 @@ module Eve
       @locale = locale
     end
 
+    # rubocop:disable Metrics/CyclomaticComplexity
+    # rubocop:disable Metrics/PerceivedComplexity
     def import
       import! do
         Mobility.with_locale(locale) do
