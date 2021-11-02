@@ -14,7 +14,7 @@ gem "stimulus-rails", ">= 0.3.9"
 gem "jbuilder", "~> 2.7"
 gem "sassc-rails", "~> 2.1"
 gem "bootsnap", ">= 1.4.4", require: false
-gem "bootstrap", "4.6.0"
+gem "bootstrap", "5.1.0"
 gem "bootswatch", git: "https://github.com/thomaspark/bootswatch.git", branch: "v4.6.1"
 gem "good_migrations"
 gem "local_time"
