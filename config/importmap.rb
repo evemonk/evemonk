@@ -17,7 +17,7 @@ pin "local-time", to: "https://ga.jspm.io/npm:local-time@2.1.0/app/assets/javasc
 
 pin "@github/hotkey", to: "https://ga.jspm.io/npm:@github/hotkey@1.6.0/dist/index.js"
 
-pin "bootstrap", to: "https://ga.jspm.io/npm:bootstrap@4.6.0/dist/js/bootstrap.js"
+pin "bootstrap", to: "https://ga.jspm.io/npm:bootstrap@4.6.1/dist/js/bootstrap.js"
 pin "jquery", to: "https://ga.jspm.io/npm:jquery@3.6.0/dist/jquery.js"
 pin "popper.js", to: "https://ga.jspm.io/npm:popper.js@1.16.1/dist/umd/popper.js"
 
