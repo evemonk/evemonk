@@ -158,7 +158,7 @@ GEM
       smart_properties
     bootsnap (1.9.1)
       msgpack (~> 1.0)
-    bootstrap (4.6.0)
+    bootstrap (4.6.1)
       autoprefixer-rails (>= 9.1.0)
       popper_js (>= 1.14.3, < 2)
       sassc-rails (>= 2.0.0)
@@ -709,7 +709,7 @@ DEPENDENCIES
   awesome_print
   aws-sdk-s3
   bootsnap (>= 1.4.4)
-  bootstrap (= 4.6.0)
+  bootstrap (= 4.6.1)
   bootswatch!
   brakeman
   bundler-audit
