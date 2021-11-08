@@ -138,7 +138,19 @@ Metrics/PerceivedComplexity:
 
 GraphQL/ObjectDescription:
   Exclude:
+    - "app/graphql/evemonk_schema.rb"
     - "app/graphql/types/node_type.rb"
+    - "app/graphql/mutations/base_mutation.rb"
+    - "app/graphql/types/base_argument.rb"
+    - "app/graphql/types/base_connection.rb"
+    - "app/graphql/types/base_edge.rb"
+    - "app/graphql/types/base_enum.rb"
+    - "app/graphql/types/base_field.rb"
+    - "app/graphql/types/base_input_object.rb"
+    - "app/graphql/types/base_interface.rb"
+    - "app/graphql/types/base_object.rb"
+    - "app/graphql/types/base_scalar.rb"
+    - "app/graphql/types/base_union.rb"
 
 GraphQL/ExtractType:
   Prefixes:
