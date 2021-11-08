@@ -6,8 +6,8 @@ Sentry.init({
   dsn: "https://185a236f4b994411a9f33c3c714cb34e@sentry.io/1424888",
 });
 
-import "controllers"
-import "@hotwired/turbo-rails"
+import "controllers";
+import "@hotwired/turbo-rails";
 
 import Rails from "@rails/ujs";
 import LocalTime from "local-time";
