@@ -9,8 +9,6 @@ module Eve
       @locale = locale
     end
 
-    # rubocop:disable Metrics/CyclomaticComplexity
-    # rubocop:disable Metrics/PerceivedComplexity
     def import
       import! do
         Mobility.with_locale(locale) do
@@ -56,8 +54,6 @@ module Eve
         end
       end
     end
-    # rubocop:enable Metrics/CyclomaticComplexity
-    # rubocop:enable Metrics/PerceivedComplexity
 
     def esi
       @esi ||= EveOnline::ESI::UniverseSystem.new(id: system_id, language: LanguageMapper::LANGUAGES[locale])
