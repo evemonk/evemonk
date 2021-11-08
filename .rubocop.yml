@@ -127,6 +127,19 @@ Style/StringLiteralsInInterpolation:
   Enabled: true
   EnforcedStyle: double_quotes
 
+Style/RescueStandardError:
+  Enabled: false
+
+Metrics/CyclomaticComplexity:
+  Enabled: false
+
+Metrics/PerceivedComplexity:
+  Enabled: false
+
+GraphQL/ObjectDescription:
+  Exclude:
+    - "app/graphql/types/node_type.rb"
+
 GraphQL/ExtractType:
   Prefixes:
     - is

@@ -79,8 +79,6 @@ class CharacterSkillsTree
     skills_types.select { |type| type.group_id == group_id }.sort_by(&:name_en)
   end
 
-  # rubocop:disable Metrics/CyclomaticComplexity
-  # rubocop:disable Metrics/PerceivedComplexity
   def training_rate_for_skill(skill_id)
     primary_dogma_attribute = dogma_attributes.find { |dogma_attribute| dogma_attribute.name == PRIMARY_ATTRIBUTE_NAME }
     primary_attribute_id = type_dogma_attributes.find { |tda| tda.type_id == skill_id && tda.attribute_id == primary_dogma_attribute.attribute_id }.value.to_i
@@ -97,8 +95,6 @@ class CharacterSkillsTree
 
     format("%0.2f", rate)
   end
-  # rubocop:enable Metrics/CyclomaticComplexity
-  # rubocop:enable Metrics/PerceivedComplexity
 
   private
 
