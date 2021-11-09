@@ -10,24 +10,32 @@ describe WelcomeController do
   describe "#index" do
     before do
       #
-      # Eve::Alliance.order(characters_count: :desc).limit(20)
+      # Eve::Alliance.order(characters_count: :desc).limit(20).load_async
       #
       expect(Eve::Alliance).to receive(:order).with(characters_count: :desc) do
         double.tap do |a|
-          expect(a).to receive(:limit).with(20)
+          expect(a).to receive(:limit).with(20) do
+            double.tap do |b|
+              expect(b).to receive(:load_async)
+            end
+          end
         end
       end
     end
 
     before do
       #
-      # Eve::Corporation.not_npc.order(member_count: :desc).limit(20)
+      # Eve::Corporation.not_npc.order(member_count: :desc).limit(20).load_async
       #
       expect(Eve::Corporation).to receive(:not_npc) do
         double.tap do |a|
           expect(a).to receive(:order).with(member_count: :desc) do
             double.tap do |b|
-              expect(b).to receive(:limit).with(20)
+              expect(b).to receive(:limit).with(20) do
+                double.tap do |c|
+                  expect(c).to receive(:load_async)
+                end
+              end
             end
           end
         end
