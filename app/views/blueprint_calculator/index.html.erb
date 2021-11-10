@@ -15,54 +15,97 @@
   <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4" id="blueprints">
     <h4 class="text-center text-break">Blueprint</h4>
 
-    <form>
-      <div class="form-group">
-        <input v-model="name"
-               class="form-control"
-               placeholder="Type blueprint name to find"
-               autofocus>
-      </div>
-    </form>
 
-    <div class="card" v-for="blueprint in blueprints" :key="blueprint.id">
-      <div class="row no-gutters">
-        <div class="col-2 text-center m-auto">
-          <img :src="blueprint.icon"
-               :alt="blueprint.name"
-               class="rounded border"
-               size="34x34"
-               loading="lazy">
-        </div>
-        <div class="col-10">
-          <div class="card-body">
-            <div class="card-text">
-              <a :href="`/blueprint_calculator/${blueprint.id}`">{{ blueprint.name }}</a>
+
+    <%#= form_with(url: blueprint_calculator_index_path(turbo_frame: "search_results"), method: :get, data: {"turbo-frame": "search_results"}) do |f| %>
+<!--      <div class="form-group">-->
+        <%#= f.search_field :query,
+                           id: "search_query",
+                           placeholder: "Type blueprint name to find",
+                           class: "form-control",
+                           autofocus: true,
+                           autocomplete: "off" %>
+<!--      </div>-->
+
+      <%#= button_tag "Search", name: nil, type: nil %>
+    <%# end %>
+
+<!--    <turbo-frame id="search_results"></turbo-frame>-->
+
+<!--    <form>-->
+<!--      <div class="form-group">-->
+<!--        <input v-model="name"-->
+<!--               class="form-control"-->
+<!--               placeholder="Type blueprint name to find"-->
+<!--               autofocus>-->
+<!--      </div>-->
+<!--    </form>-->
+
+    <%# if @blueprints.any? %>
+    <%# else %>
+    <%# end %>
+
+    <!--
+    <turbo-frame id="search_results">
+    <%# @blueprints.each do |blueprint| %>
+      <div class="card">
+        <div class="row no-gutters">
+          <div class="col-2 text-center m-auto">
+            <img src="<%#= blueprint.icon_tiny %>" alt="<%#= blueprint.name %>" class="rounded border" size="34x34" loading="lazy">
+          </div>
+          <div class="col-10">
+            <div class="card-body">
+              <div class="card-text">
+                <a href="/blueprint_calculator/<%#= blueprint.type_id %>"><%#= blueprint.name %></a>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    <%# end %>
+    </turbo-frame>
+    -->
+
+
+<!--    <div class="card" v-for="blueprint in blueprints" :key="blueprint.id">-->
+<!--      <div class="row no-gutters">-->
+<!--        <div class="col-2 text-center m-auto">-->
+<!--          <img :src="blueprint.icon"-->
+<!--               :alt="blueprint.name"-->
+<!--               class="rounded border"-->
+<!--               size="34x34"-->
+<!--               loading="lazy">-->
+<!--        </div>-->
+<!--        <div class="col-10">-->
+<!--          <div class="card-body">-->
+<!--            <div class="card-text">-->
+<!--              <a :href="`/blueprint_calculator/${blueprint.id}`">{{ blueprint.name }}</a>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
   </div>
 </div>
 
-<%= javascript_tag nonce: true do %>
-  var app = new Vue({
-    el: '#blueprints',
-    data: {
-      name: null,
-      blueprints: []
-    },
-    watch: {
-      name: function (value) {
-        this.search(value, this);
-      }
-    },
-    methods: {
-      search: debounce((search, vm) => {
-        fetch(`/api/eve/blueprints?q=${escape(search)}`).then(response => {
-          response.json().then(json => (vm.blueprints = json.blueprints));
-        });
-      }, 350)
-    }
-  });
-<% end %>
+<%#= javascript_tag nonce: true do %>
+<!--  // var app = new Vue({-->
+<!--  //   el: '#blueprints',-->
+<!--  //   data: {-->
+<!--  //     name: null,-->
+<!--  //     blueprints: []-->
+<!--  //   },-->
+<!--  //   watch: {-->
+<!--  //     name: function (value) {-->
+<!--  //       this.search(value, this);-->
+<!--  //     }-->
+<!--  //   },-->
+<!--  //   methods: {-->
+<!--  //     search: debounce((search, vm) => {-->
+<!--  //       fetch(`/api/eve/blueprints?q=${escape(search)}`).then(response => {-->
+<!--  //         response.json().then(json => (vm.blueprints = json.blueprints));-->
+<!--  //       });-->
+<!--  //     }, 350)-->
+<!--  //   }-->
+<!--  // });-->
+<%# end %>
