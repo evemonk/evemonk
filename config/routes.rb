@@ -80,7 +80,7 @@ Rails.application.routes.draw do
   # resources :blueprint_calculator, only: [:index, :show]
 
   namespace :blueprints do
-    resources :calculator, only: :index
+    resources :calculator, only: [:index, :show]
 
     resources :search, only: :create
   end
