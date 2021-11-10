@@ -10,14 +10,6 @@ module Blueprints
                     else
                       Eve::Blueprint.unscoped.search_by_name("blueprint").limit(10)
                     end
-
-      render turbo_stream: turbo_stream.replace(
-        "blueprints_results",
-        partial: "blueprints",
-        locals: {
-          blueprints: @blueprints
-        }
-      )
     end
   end
 end
