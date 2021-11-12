@@ -11,5 +11,9 @@ module Blueprints
                       Eve::Blueprint.published.limit(10)
                     end
     end
+
+    def show
+      @blueprint = Eve::Blueprint.published.find_by!(type_id: params[:id])
+    end
   end
 end
