@@ -447,7 +447,7 @@ GEM
     patience_diff (1.2.0)
       optimist (~> 3.0)
     pg (1.2.3)
-    pg_query (2.1.1)
+    pg_query (2.1.2)
       google-protobuf (>= 3.17.1)
     pg_search (2.3.5)
       activerecord (>= 5.2)
