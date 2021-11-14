@@ -11,7 +11,7 @@ gem "puma", "~> 5.5"
 gem "importmap-rails", ">= 0.3.4"
 gem "turbo-rails", ">= 0.7.4"
 gem "stimulus-rails", ">= 0.3.9"
-gem "jbuilder", "~> 2.7"
+gem "jbuilder", "~> 2.11"
 gem "sassc-rails", "~> 2.1"
 gem "bootsnap", ">= 1.4.4", require: false
 gem "bootstrap", "4.6.1"
