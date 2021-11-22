@@ -45,8 +45,6 @@ All screenshots are real and made in Safari on latest macOS Catalina (10.15.3).
 
 - [rbenv](https://github.com/rbenv/rbenv)
 - [ruby-build](https://github.com/rbenv/ruby-build)
-- [asdf](https://github.com/asdf-vm/asdf)
-- [asdf-nodejs](https://github.com/asdf-vm/asdf-nodejs)
 - [Ruby](http://www.ruby-lang.org)
 - [Ruby on Rails](https://rubyonrails.org)
 - [Turbo](https://turbo.hotwired.dev)
