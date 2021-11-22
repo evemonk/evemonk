@@ -2,7 +2,6 @@
 
 [![Known Vulnerabilities](https://snyk.io/test/github/evemonk/evemonk/badge.svg)](https://snyk.io/test/github/evemonk/evemonk)
 [![security](https://hakiri.io/github/evemonk/evemonk/main.svg)](https://hakiri.io/github/evemonk/evemonk/main)
-[![](https://images.microbadger.com/badges/image/biow0lf/evemonk.svg)](https://microbadger.com/images/biow0lf/evemonk)
 [![DeepSource](https://static.deepsource.io/deepsource-badge-light-mini.svg)](https://deepsource.io/gh/evemonk/evemonk/?ref=repository-badge)
 [![codecov](https://codecov.io/gh/evemonk/evemonk/branch/main/graph/badge.svg?token=IB5A4A7B3M)](https://codecov.io/gh/evemonk/evemonk)
 [![Ruby Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://github.com/testdouble/standard)
