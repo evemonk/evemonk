@@ -54,7 +54,7 @@ All screenshots are real and made in Safari on latest macOS Catalina (10.15.3).
 - Minio (S3 compatible storage)
 - Bootstrap 4.6.1
 - [Bootstrap Icons](https://icons.getbootstrap.com)
-- Bootswatch Darkly 4.6.0
+- Bootswatch Darkly 4.6.1
 
 ## Configure
 
