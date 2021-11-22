@@ -2,7 +2,6 @@
 
 [![Known Vulnerabilities](https://snyk.io/test/github/evemonk/evemonk/badge.svg)](https://snyk.io/test/github/evemonk/evemonk)
 [![security](https://hakiri.io/github/evemonk/evemonk/main.svg)](https://hakiri.io/github/evemonk/evemonk/main)
-[![](https://images.microbadger.com/badges/image/biow0lf/evemonk.svg)](https://microbadger.com/images/biow0lf/evemonk)
 [![DeepSource](https://static.deepsource.io/deepsource-badge-light-mini.svg)](https://deepsource.io/gh/evemonk/evemonk/?ref=repository-badge)
 [![codecov](https://codecov.io/gh/evemonk/evemonk/branch/main/graph/badge.svg?token=IB5A4A7B3M)](https://codecov.io/gh/evemonk/evemonk)
 [![Ruby Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://github.com/testdouble/standard)
@@ -46,8 +45,6 @@ All screenshots are real and made in Safari on latest macOS Catalina (10.15.3).
 
 - [rbenv](https://github.com/rbenv/rbenv)
 - [ruby-build](https://github.com/rbenv/ruby-build)
-- [asdf](https://github.com/asdf-vm/asdf)
-- [asdf-nodejs](https://github.com/asdf-vm/asdf-nodejs)
 - [Ruby](http://www.ruby-lang.org)
 - [Ruby on Rails](https://rubyonrails.org)
 - [Turbo](https://turbo.hotwired.dev)
@@ -55,9 +52,9 @@ All screenshots are real and made in Safari on latest macOS Catalina (10.15.3).
 - [PostgreSQL](https://www.postgresql.org)
 - [Redis](https://redis.io)
 - Minio (S3 compatible storage)
-- Bootstrap 4.6.0
+- Bootstrap 4.6.1
 - [Bootstrap Icons](https://icons.getbootstrap.com)
-- Bootswatch Darkly 4.6.0
+- Bootswatch Darkly 4.6.1
 
 ## Configure
 
