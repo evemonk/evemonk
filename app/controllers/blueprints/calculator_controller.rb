@@ -5,11 +5,7 @@ module Blueprints
     skip_before_action :authenticate_user!
 
     def index
-      @blueprints = if params[:q].present?
-                      Eve::Blueprint.published.search_by_name(params[:q]).limit(10)
-                    else
-                      Eve::Blueprint.published.limit(10)
-                    end
+      @blueprints = Eve::SearchBlueprintsQuery.new(params[:q]).query.limit(10)
     end
 
     def show

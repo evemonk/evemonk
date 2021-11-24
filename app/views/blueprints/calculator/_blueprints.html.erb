@@ -1,0 +1,18 @@
+<%= turbo_frame_tag "blueprints_results", target: "_top" do %>
+  <% blueprints.each do |blueprint| %>
+    <div class="card">
+      <div class="row no-gutters">
+        <div class="col-2 text-center m-auto">
+          <%= image_tag(blueprint.icon_tiny, alt: blueprint.name, class: "rounded border", size: "34x34", loading: "lazy") %>
+        </div>
+        <div class="col-10">
+          <div class="card-body">
+            <div class="card-text">
+              <%= link_to(blueprint.name, blueprints_calculator_path(blueprint.type_id)) %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% end %>

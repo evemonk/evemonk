@@ -15,20 +15,21 @@
   <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4" id="blueprints">
     <h4 class="text-center text-break">Blueprint</h4>
 
-    <%= form_with(url: blueprints_search_index_path) do |f| %>
+    <%= form_with(url: blueprints_calculator_index_path, method: :get) do |f| %>
       <div class="form-group">
         <%= f.search_field :q,
+                           value: params[:q],
                            placeholder: "Type blueprint name to find",
                            class: "form-control",
                            autofocus: true,
                            autocomplete: "off" %>
       </div>
 
-      <div class="form-group">
-        <%= button_tag "Search", name: nil, type: nil %>
+      <div class="form-group text-center">
+        <%= button_tag "Search", name: nil, type: nil, class: "btn btn-primary w-100" %>
       </div>
     <% end %>
 
-    <%= render "blueprints/search/blueprints", blueprints: @blueprints %>
+    <%= render "blueprints", blueprints: @blueprints %>
   </div>
 </div>
