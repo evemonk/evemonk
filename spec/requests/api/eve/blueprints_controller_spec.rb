@@ -24,7 +24,7 @@ describe Api::Eve::BlueprintsController do
         published: true,
         is_blueprint: true)
 
-      get "/api/eve/blueprints", params: { q: "drake" }
+      get "/api/eve/blueprints", params: {q: "drake"}
 
       expect(response).to have_http_status(:ok)
 
