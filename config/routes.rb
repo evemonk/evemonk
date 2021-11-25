@@ -77,7 +77,9 @@ Rails.application.routes.draw do
 
   resource :faq, only: :show
 
-  resources :blueprint_calculator, only: [:index, :show]
+  namespace :blueprints do
+    resources :calculator, only: [:index, :show]
+  end
 
   namespace :auth do
     namespace :eve_online_sso do
