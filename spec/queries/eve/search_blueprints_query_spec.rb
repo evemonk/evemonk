@@ -53,9 +53,9 @@ describe Eve::SearchBlueprintsQuery do
 
       let(:scope) { Eve::Blueprint }
 
-      subject { described_class.new(search, scope) }
-
       before { expect(scope).to receive(:none).and_call_original }
+
+      subject { described_class.new(search, scope) }
 
       specify { expect(subject.query).to eq([]) }
     end
