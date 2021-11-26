@@ -195,7 +195,6 @@ GEM
     crass (1.0.6)
     dalli (2.7.11)
     database_rewinder (0.9.6)
-    date (3.2.2)
     datetime_picker_rails (0.0.7)
       momentjs-rails (>= 2.8.1)
     dead_end (3.1.0)
@@ -722,7 +721,6 @@ DEPENDENCIES
   countries
   dalli
   database_rewinder
-  date (>= 3.2.1)
   derailed_benchmarks
   devise!
   devise-authy
