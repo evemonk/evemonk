@@ -292,7 +292,7 @@ GEM
       ffi (~> 1.0)
     globalid (1.0.0)
       activesupport (>= 5.0)
-    goldiloader (4.1.1)
+    goldiloader (4.1.2)
       activerecord (>= 5.2, < 7.1)
       activesupport (>= 5.2, < 7.1)
     good_migrations (0.2.0)
