@@ -91,8 +91,6 @@ Rails.application.routes.draw do
     namespace :eve do
       resources :types, only: [:index, :show]
 
-      resources :blueprints, only: :index
-
       resources :manufacturing_items, only: :index
     end
   end
