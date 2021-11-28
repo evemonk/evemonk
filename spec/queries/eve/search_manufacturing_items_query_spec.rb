@@ -13,7 +13,16 @@ describe Eve::SearchManufacturingItemsQuery do
     context "without search and scope" do
       let(:scope) { double }
 
-      before { expect(Eve::Type).to receive(:published_manufacturing_items).and_return(scope) }
+      before do
+        #
+        # Eve::Type.published.manufacturing_items
+        #
+        expect(Eve::Type).to receive(:published) do
+          double.tap do |a|
+            expect(a).to receive(:manufacturing_items).and_return(scope)
+          end
+        end
+      end
 
       subject { described_class.new }
 
@@ -51,11 +60,13 @@ describe Eve::SearchManufacturingItemsQuery do
     context "when search is not present" do
       let(:search) { "" }
 
-      let(:scope) { double }
+      let(:scope) { Eve::Type }
+
+      before { expect(scope).to receive(:none).and_call_original }
 
       subject { described_class.new(search, scope) }
 
-      specify { expect(subject.query).to eq(scope) }
+      specify { expect(subject.query).to eq([]) }
     end
   end
 end
