@@ -14,7 +14,7 @@
 
 <div class="row">
   <% @characters.each do |character| %>
-    <div id="character_<%= character.character_id %>" class="col-12 col-sm-12 col-md-8 col-lg-4 col-xl-4">
+    <div id="character_<%= character.character_id %>" class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
       <div class="clearfix">
         <h4 class="float-left"><%= link_to(character.name, character_path(character.character_id)) %></h4>
         <%= form_with(url: character_path(character.character_id), method: :patch, class: "float-right") do %>
@@ -68,7 +68,7 @@
     </div>
   <% end %>
 
-  <div class="col-12 col-sm-12 col-md-8 col-lg-4 col-xl-4 text-center m-auto">
+  <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 text-center m-auto">
     <%= form_tag("/auth/eve_online_sso", data: {turbo: false}) do |f| %>
       <%= button_tag do %>
         <% image_uri = "https://web.ccpgamescdn.com/eveonlineassets/developers/eve-sso-login-black-large.png" %>
