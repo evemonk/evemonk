@@ -53,14 +53,16 @@ module Eve
 
     scope :blueprints, -> { where(is_blueprint: true) }
 
-    scope :published_blueprints, -> { published.blueprints }
-
     scope :manufacturing_items, -> { where(is_manufacturing_item: true) }
 
-    scope :published_manufacturing_items, -> { published.manufacturing_items }
-
     pg_search_scope :search_by_name,
-      against: [:name_en, :name_de, :name_fr, :name_ja, :name_ru, :name_ko]
+      against: :name_en,
+      using: {
+        tsearch: {
+          prefix: true,
+          negation: true
+        }
+      }
 
     def implant_bonuses
       @implant_bonuses ||= ImplantBonuses.new(self).implant_bonuses
