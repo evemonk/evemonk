@@ -10,9 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_10_151002) do
+ActiveRecord::Schema.define(version: 2021_11_28_223939) do
 
   # These are extensions that must be enabled in order to support this database
+  enable_extension "pg_buffercache"
   enable_extension "pg_trgm"
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -930,7 +931,7 @@ ActiveRecord::Schema.define(version: 2021_11_10_151002) do
     t.index ["group_id"], name: "index_eve_types_on_group_id"
     t.index ["icon_id"], name: "index_eve_types_on_icon_id"
     t.index ["market_group_id"], name: "index_eve_types_on_market_group_id"
-    t.index ["name_en", "name_de", "name_fr", "name_ja", "name_ko", "name_ru"], name: "index_eve_types_on_names", opclass: :gin_trgm_ops, using: :gin
+    t.index ["name_en"], name: "index_eve_types_on_name_en", opclass: :gin_trgm_ops, using: :gin
     t.index ["type_id"], name: "index_eve_types_on_type_id", unique: true
   end
 

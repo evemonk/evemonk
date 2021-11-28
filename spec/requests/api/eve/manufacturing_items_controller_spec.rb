@@ -13,7 +13,7 @@ describe Api::Eve::ManufacturingItemsController do
         published: true,
         is_manufacturing_item: true)
 
-      get "/api/eve/manufacturing_items"
+      get "/api/eve/manufacturing_items", params: {q: "drake"}
 
       expect(response).to have_http_status(:ok)
 

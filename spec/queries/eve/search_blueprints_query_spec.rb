@@ -13,7 +13,16 @@ describe Eve::SearchBlueprintsQuery do
     context "without search and scope" do
       let(:scope) { double }
 
-      before { expect(Eve::Blueprint).to receive(:published).and_return(scope) }
+      before do
+        #
+        # Eve::Blueprint.published.blueprints
+        #
+        expect(Eve::Blueprint).to receive(:published) do
+          double.tap do |a|
+            expect(a).to receive(:blueprints).and_return(scope)
+          end
+        end
+      end
 
       subject { described_class.new }
 
