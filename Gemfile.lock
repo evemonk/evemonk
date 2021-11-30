@@ -193,7 +193,7 @@ GEM
     crack (0.4.5)
       rexml
     crass (1.0.6)
-    dalli (3.0.4)
+    dalli (3.0.5)
     database_rewinder (0.9.6)
     datetime_picker_rails (0.0.7)
       momentjs-rails (>= 2.8.1)
