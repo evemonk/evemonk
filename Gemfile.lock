@@ -671,7 +671,7 @@ GEM
       rexml
     xpath (3.2.0)
       nokogiri (~> 1.8)
-    yabeda (0.10.1)
+    yabeda (0.11.0)
       anyway_config (>= 1.0, < 3)
       concurrent-ruby
       dry-initializer
