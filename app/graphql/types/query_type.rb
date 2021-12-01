@@ -222,257 +222,173 @@ module Types
     end
 
     def alliances
-      Goldiloader.enabled do
-        ::Eve::Alliance.order(:alliance_id)
-      end
+      ::Eve::Alliance.order(:alliance_id)
     end
 
     def alliance(id:)
-      Goldiloader.enabled do
-        ::Eve::Alliance.find_by(alliance_id: id)
-      end
+      ::Eve::Alliance.find_by(alliance_id: id)
     end
 
     def ancestries
-      Goldiloader.enabled do
-        ::Eve::Ancestry.order(:ancestry_id)
-      end
+      ::Eve::Ancestry.order(:ancestry_id)
     end
 
     def ancestry(id:)
-      Goldiloader.enabled do
-        ::Eve::Ancestry.find_by(ancestry_id: id)
-      end
+      ::Eve::Ancestry.find_by(ancestry_id: id)
     end
 
     def bloodlines
-      Goldiloader.enabled do
-        ::Eve::Bloodline.order(:bloodline_id)
-      end
+      ::Eve::Bloodline.order(:bloodline_id)
     end
 
     def bloodline(id:)
-      Goldiloader.enabled do
-        ::Eve::Bloodline.find_by(bloodline_id: id)
-      end
+      ::Eve::Bloodline.find_by(bloodline_id: id)
     end
 
     def blueprints
-      Goldiloader.enabled do
-        ::Eve::Blueprint.order(:type_id)
-      end
+      ::Eve::Blueprint.order(:type_id)
     end
 
     def blueprint(id:)
-      Goldiloader.enabled do
-        ::Eve::Blueprint.find_by(type_id: id)
-      end
+      ::Eve::Blueprint.find_by(type_id: id)
     end
 
     def categories
-      Goldiloader.enabled do
-        ::Eve::Category.order(:category_id)
-      end
+      ::Eve::Category.order(:category_id)
     end
 
     def category(id:)
-      Goldiloader.enabled do
-        ::Eve::Category.find_by(category_id: id)
-      end
+      ::Eve::Category.find_by(category_id: id)
     end
 
     def characters
-      Goldiloader.enabled do
-        ::Eve::Character.order(:character_id)
-      end
+      ::Eve::Character.order(:character_id)
     end
 
     def character(id:)
-      Goldiloader.enabled do
-        ::Eve::Character.find_by(character_id: id)
-      end
+      ::Eve::Character.find_by(character_id: id)
     end
 
     def constellations
-      Goldiloader.enabled do
-        ::Eve::Constellation.order(:constellation_id)
-      end
+      ::Eve::Constellation.order(:constellation_id)
     end
 
     def constellation(id:)
-      Goldiloader.enabled do
-        ::Eve::Constellation.find_by(constellation_id: id)
-      end
+      ::Eve::Constellation.find_by(constellation_id: id)
     end
 
     def contracts
-      Goldiloader.enabled do
-        ::Eve::Contract.order(:contract_id)
-      end
+      ::Eve::Contract.order(:contract_id)
     end
 
     def contract(id:)
-      Goldiloader.enabled do
-        ::Eve::Contract.find_by(contract_id: id)
-      end
+      ::Eve::Contract.find_by(contract_id: id)
     end
 
     def corporations
-      Goldiloader.enabled do
-        ::Eve::Corporation.order(:corporation_id)
-      end
+      ::Eve::Corporation.order(:corporation_id)
     end
 
     def corporation(id:)
-      Goldiloader.enabled do
-        ::Eve::Corporation.find_by(corporation_id: id)
-      end
+      ::Eve::Corporation.find_by(corporation_id: id)
     end
 
     def factions
-      Goldiloader.enabled do
-        ::Eve::Faction.order(:faction_id)
-      end
+      ::Eve::Faction.order(:faction_id)
     end
 
     def faction(id:)
-      Goldiloader.enabled do
-        ::Eve::Faction.find_by(faction_id: id)
-      end
+      ::Eve::Faction.find_by(faction_id: id)
     end
 
     def graphics
-      Goldiloader.enabled do
-        ::Eve::Graphic.order(:graphic_id)
-      end
+      ::Eve::Graphic.order(:graphic_id)
     end
 
     def graphic(id:)
-      Goldiloader.enabled do
-        ::Eve::Graphic.find_by(graphic_id: id)
-      end
+      ::Eve::Graphic.find_by(graphic_id: id)
     end
 
     def groups
-      Goldiloader.enabled do
-        ::Eve::Group.order(:group_id)
-      end
+      ::Eve::Group.order(:group_id)
     end
 
     def group(id:)
-      Goldiloader.enabled do
-        ::Eve::Group.find_by(group_id: id)
-      end
+      ::Eve::Group.find_by(group_id: id)
     end
 
     def icons
-      Goldiloader.enabled do
-        ::Eve::Icon.order(:icon_id)
-      end
+      ::Eve::Icon.order(:icon_id)
     end
 
     def icon(id:)
-      Goldiloader.enabled do
-        ::Eve::Icon.find_by(icon_id: id)
-      end
+      ::Eve::Icon.find_by(icon_id: id)
     end
 
     def market_groups
-      Goldiloader.enabled do
-        ::Eve::MarketGroup.order(:market_group_id)
-      end
+      ::Eve::MarketGroup.order(:market_group_id)
     end
 
     def market_group(id:)
-      Goldiloader.enabled do
-        ::Eve::MarketGroup.find_by(market_group_id: id)
-      end
+      ::Eve::MarketGroup.find_by(market_group_id: id)
     end
 
     def races
-      Goldiloader.enabled do
-        ::Eve::Race.order(:race_id)
-      end
+      ::Eve::Race.order(:race_id)
     end
 
     def race(id:)
-      Goldiloader.enabled do
-        ::Eve::Race.find_by(race_id: id)
-      end
+      ::Eve::Race.find_by(race_id: id)
     end
 
     def regions
-      Goldiloader.enabled do
-        ::Eve::Region.order(:region_id)
-      end
+      ::Eve::Region.order(:region_id)
     end
 
     def region(id:)
-      Goldiloader.enabled do
-        ::Eve::Region.find_by(region_id: id)
-      end
+      ::Eve::Region.find_by(region_id: id)
     end
 
     def ships
       # TODO: load only ships!!!
-      Goldiloader.enabled do
-        ::Eve::Ship.order(:type_id)
-      end
+      ::Eve::Ship.order(:type_id)
     end
 
     def ship(id:)
       # TODO: load only ships!!!
-      Goldiloader.enabled do
-        ::Eve::Ship.find_by(type_id: id)
-      end
+      ::Eve::Ship.find_by(type_id: id)
     end
 
     def stars
-      Goldiloader.enabled do
-        ::Eve::Star.order(:star_id)
-      end
+      ::Eve::Star.order(:star_id)
     end
 
     def star(id:)
-      Goldiloader.enabled do
-        ::Eve::Star.find_by(star_id: id)
-      end
+      ::Eve::Star.find_by(star_id: id)
     end
 
     def stations
-      Goldiloader.enabled do
-        ::Eve::Station.order(:station_id)
-      end
+      ::Eve::Station.order(:station_id)
     end
 
     def station(id:)
-      Goldiloader.enabled do
-        ::Eve::Station.find_by(station_id: id)
-      end
+      ::Eve::Station.find_by(station_id: id)
     end
 
     def systems
-      Goldiloader.enabled do
-        ::Eve::System.order(:system_id)
-      end
+      ::Eve::System.order(:system_id)
     end
 
     def system(id:)
-      Goldiloader.enabled do
-        ::Eve::System.find_by(system_id: id)
-      end
+      ::Eve::System.find_by(system_id: id)
     end
 
     def types
-      Goldiloader.enabled do
-        ::Eve::Type.order(:type_id)
-      end
+      ::Eve::Type.order(:type_id)
     end
 
     def type(id:)
-      Goldiloader.enabled do
-        ::Eve::Type.find_by(type_id: id)
-      end
+      ::Eve::Type.find_by(type_id: id)
     end
   end
 end

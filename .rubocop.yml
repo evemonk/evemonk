@@ -130,6 +130,9 @@ Style/StringLiteralsInInterpolation:
 Style/RescueStandardError:
   Enabled: false
 
+Style/ExplicitBlockArgument:
+  Enabled: false
+
 Metrics/CyclomaticComplexity:
   Enabled: false
 

@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class GraphqlController < ApplicationController
+  around_action :wrap_with_goldiloader
+
   skip_before_action :authenticate_user!
 
   # If accessing from outside this domain, nullify the session
@@ -51,5 +53,11 @@ class GraphqlController < ApplicationController
     logger.error e.backtrace.join("\n")
 
     render json: {errors: [{message: e.message, backtrace: e.backtrace}], data: {}}, status: 500
+  end
+
+  def wrap_with_goldiloader
+    Goldiloader.enabled do
+      yield
+    end
   end
 end
