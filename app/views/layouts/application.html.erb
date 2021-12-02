@@ -15,7 +15,7 @@
 
     <% if Setting.use_google_search_console %>
       <!-- Google Search Console -->
-      <meta name="google-site-verification" content="<%= Setting.google_site_verification_token %>">
+      <%= tag.meta(name: "google-site-verification", content: Setting.google_site_verification_token) %>
     <% end %>
 
     <% if Setting.use_plausible_evemonk %>
