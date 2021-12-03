@@ -137,19 +137,9 @@ describe CharactersController do
         end
       end
 
-      context "when format js" do
-        before { patch :update, params: {id: "1", format: "js"} }
+      before { patch :update, params: {id: "1"} }
 
-        it { should respond_with(:ok) }
-
-        it { should render_template(:update) }
-      end
-
-      context "when format html" do
-        before { patch :update, params: {id: "1", format: "html"} }
-
-        it { should redirect_to(character_path(character.character_id)) }
-      end
+      it { should respond_with(:ok) }
     end
 
     context "when user not signed in" do
