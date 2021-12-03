@@ -2,28 +2,25 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <%= display_meta_tags site: "EveMonk: EVE Online management suite",
                           reverse: true %>
 
     <!-- Disable translation prompt -->
-    <meta name="google" content="notranslate">
+    <%= tag.meta(name: "google", content: "notranslate") %>
 
     <!-- Disable automatic detection and formatting of possible phone numbers -->
-    <meta name="format-detection" content="telephone=no">
+    <%= tag.meta(name: "format-detection", content: "telephone=no") %>
 
     <% if Setting.use_google_search_console %>
       <!-- Google Search Console -->
-      <meta name="google-site-verification" content="<%= Setting.google_site_verification_token %>">
+      <%= tag.meta(name: "google-site-verification", content: Setting.google_site_verification_token) %>
     <% end %>
 
     <% if Setting.use_plausible_evemonk %>
       <%= render "shared/plausible" %>
     <% end %>
-
-    <!-- Force IE 8/9/10 to use its latest rendering engine -->
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
 
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -31,6 +28,9 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
     <%= javascript_importmap_tags %>
+
+    <!-- Links to information about the author(s) of the document -->
+    <%= tag.link(rel: "author", href: "humans.txt") %>
   </head>
 
   <body>
