@@ -1,0 +1,57 @@
+<div id="<%= dom_id(character) %>" class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+  <div class="clearfix">
+    <h4 class="float-left"><%= link_to(character.name, character_path(character)) %></h4>
+
+    <%= button_tag(class: "btn btn-primary mb-2 float-right",
+                   data: {
+                     controller: "refresh",
+                     action: "click->refresh#update",
+                     "refresh-url-value": character_path(character),
+                     "refresh-id-value": character.character_id
+                   }) do %>
+      <i class="bi bi-arrow-repeat"></i>
+    <% end %>
+  </div>
+
+  <div class="card">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item text-center">
+        <%= image_tag(character.icon_medium,
+                      alt: character.name,
+                      class: "rounded border",
+                      size: "130x130",
+                      loading: "lazy") %>
+      </li>
+      <% if character.corporation %>
+        <li class="list-group-item text-break">
+          Corporation: <%= link_to(character.corporation.name,
+                                   universe_corporation_path(character.corporation.corporation_id)) %>
+        </li>
+      <% end %>
+      <% if character.alliance %>
+        <li class="list-group-item text-break">
+          Alliance: <%= link_to(character.alliance.name,
+                                universe_alliance_path(character.alliance.alliance_id)) %>
+        </li>
+      <% end %>
+      <li class="list-group-item text-break">
+        Security status: <%= character.rounded_security_status %>
+      </li>
+      <li class="list-group-item text-break">
+        Wallet: <%= character.wallet_formatted %> ISK
+      </li>
+      <li class="list-group-item text-break text-center">
+        <%= form_with(url: character_path(character), model: character, method: :delete) do %>
+          <%= button_tag(class: "btn btn-danger") do %>
+            Remove character <i class="bi bi-exclamation-circle"></i>
+          <% end %>
+        <% end %>
+      </li>
+    </ul>
+    <p class="card-text text-center">
+      <small class="text-muted">
+        Last updated: <%= local_time_ago(character.updated_at) %>
+      </small>
+    </p>
+  </div>
+</div>
