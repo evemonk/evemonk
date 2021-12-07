@@ -187,7 +187,7 @@ GEM
     concurrent-ruby (1.1.9)
     connection_pool (2.2.5)
     consistency_fail (0.3.7)
-    countries (4.1.0)
+    countries (4.1.1)
       i18n_data (~> 0.13.1)
       sixarm_ruby_unaccent (~> 1.1)
     crack (0.4.5)
