@@ -15,13 +15,14 @@ describe CharactersController do
 
       before { expect(subject).to receive(:current_user_locale) }
 
+      let(:collection) { double }
+
       before do
         #
         # subject.current_user
         #        .characters
         #        .includes(:alliance, :corporation)
-        #        .order(created_at: :asc)
-        #        .page(params[:page])
+        #        .order(created_at: :asc) # => collection
         #
         expect(subject).to receive(:current_user) do
           double.tap do |a|
@@ -29,11 +30,7 @@ describe CharactersController do
               double.tap do |b|
                 expect(b).to receive(:includes).with(:alliance, :corporation) do
                   double.tap do |c|
-                    expect(c).to receive(:order).with(created_at: :asc) do
-                      double.tap do |d|
-                        expect(d).to receive(:page).with("1")
-                      end
-                    end
+                    expect(c).to receive(:order).with(created_at: :asc).and_return(collection)
                   end
                 end
               end
@@ -42,7 +39,9 @@ describe CharactersController do
         end
       end
 
-      before { get :index, params: {page: "1"} }
+      before { expect(subject).to receive(:pagy).with(collection) }
+
+      before { get :index }
 
       it { should respond_with(:ok) }
 

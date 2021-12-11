@@ -2,10 +2,11 @@
 
 class CharactersController < ApplicationController
   def index
-    @characters = current_user.characters
+    collection = current_user.characters
       .includes(:alliance, :corporation)
       .order(created_at: :asc)
-      .page(params[:page])
+
+    @pagy, @characters = pagy(collection)
   end
 
   def show
