@@ -8,24 +8,23 @@ describe Universe::CorporationsController do
   it { should_not use_before_action(:authenticate_user!) }
 
   describe "#index" do
+    let(:collection) { double }
+
     before do
       #
       # Eve::SearchCorporationsQuery.new(params[:q])
-      #                             .query
-      #                             .page(params[:page])
+      #                             .query # => collection
       #
       expect(Eve::SearchCorporationsQuery).to receive(:new).with("corporation") do
         double.tap do |a|
-          expect(a).to receive(:query) do
-            double.tap do |b|
-              expect(b).to receive(:page).with("2")
-            end
-          end
+          expect(a).to receive(:query).and_return(collection)
         end
       end
     end
 
-    before { get :index, params: {q: "corporation", page: "2"} }
+    before { expect(subject).to receive(:pagy).with(collection) }
+
+    before { get :index, params: {q: "corporation"} }
 
     it { should respond_with(:ok) }
 

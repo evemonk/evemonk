@@ -5,10 +5,11 @@ module Universe
     skip_before_action :authenticate_user!
 
     def index
-      @corporations = Eve::SearchCorporationsQuery
+      collection = Eve::SearchCorporationsQuery
         .new(params[:q])
         .query
-        .page(params[:page])
+
+      @pagy, @corporations = pagy(collection)
     end
 
     def show
