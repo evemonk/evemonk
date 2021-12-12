@@ -3,7 +3,7 @@ import { patch } from "@rails/request.js";
 
 export default class extends Controller {
   static values = {
-    id: Number,
+    url: String,
   };
 
   connect() {
@@ -11,18 +11,18 @@ export default class extends Controller {
   }
 
   disconnect() {
-    console.log("disconnect");
+    console.log("disconnected");
   }
 
   async update() {
     console.log("update");
-    console.log(this.idValue);
+    console.log(this.urlValue);
 
-    const response = await patch(`/characters/${this.idValue}`);
+    const response = await patch(this.urlValue);
 
     if (response.ok) {
       console.log("OK");
-      document.getElementById("#alerts").append("hello");
+      // document.getElementById("#alerts").append("hello");
     } else {
       console.log("NOT OK");
     }
