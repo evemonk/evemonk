@@ -81,9 +81,8 @@
         <li class="list-group-item text-break">
           Security status: <%= @character.rounded_security_status %>
         </li>
-        <li class="list-group-item text-break">
-          Wallet: <%= @character.wallet_formatted %> ISK
-        </li>
+        <%= turbo_stream_from "character:wallet:#{@character.character_id}" %>
+        <%= render partial: "wallets/wallet", locals: { character: @character } %>
         <li class="list-group-item text-break">
           Born: <%= @character.birthday_formatted %>
         </li>

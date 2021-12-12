@@ -1,1 +1,13 @@
-Aloha
+<li class="list-group-item text-break" id="<%= dom_id(character, :wallet) %>">
+  <span class="float-left">Wallet: <%= character.wallet_formatted %> ISK</span>
+  <span class="float-right">
+    <%= button_tag(class: "btn btn-primary mb-2",
+                   data: {
+                     controller: "refresh",
+                     action: "click->refresh#update",
+                     "refresh-url-value": character_wallet_path(character)
+                   }) do %>
+      <i class="bi bi-arrow-repeat"></i>
+    <% end %>
+  </span>
+</li>
