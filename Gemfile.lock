@@ -394,7 +394,7 @@ GEM
       rails (> 5.1)
     mini_histogram (0.3.1)
     mini_mime (1.1.2)
-    minitest (5.14.4)
+    minitest (5.15.0)
     mobility (1.2.5)
       i18n (>= 0.6.10, < 2)
       request_store (~> 1.0)
