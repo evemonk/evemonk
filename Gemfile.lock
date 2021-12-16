@@ -619,7 +619,7 @@ GEM
     sitemap_generator (6.1.2)
       builder (~> 3.0)
     sixarm_ruby_unaccent (1.2.0)
-    smart_properties (1.16.3)
+    smart_properties (1.17.0)
     sniffer (0.4.0)
       active_attr (>= 0.10.2)
       anyway_config (>= 1.0)
