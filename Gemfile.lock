@@ -1,11 +1,11 @@
 GIT
   remote: https://github.com/bitzesty/devise_zxcvbn.git
-  revision: 63c25fd6576c4009d5e758b91094c10b94829078
+  revision: b0db8cf2d3f7b08c61529ec9a37736942d9be28d
   branch: master
   specs:
-    devise_zxcvbn (5.1.0)
+    devise_zxcvbn (6.0.0)
       devise
-      zxcvbn-js (~> 4.4.1)
+      zxcvbn (~> 0.1.7)
 
 GIT
   remote: https://github.com/just806me/shoulda-callback-matchers.git
@@ -690,8 +690,7 @@ GEM
       sidekiq
       yabeda (~> 0.6)
     zeitwerk (2.5.1)
-    zxcvbn-js (4.4.3)
-      execjs
+    zxcvbn (0.1.7)
 
 PLATFORMS
   x86_64-darwin-20
