@@ -331,7 +331,7 @@ GEM
       railties (>= 6.0.0)
     isolator (0.7.0)
       sniffer (>= 0.3.1)
-    jbuilder (2.11.3)
+    jbuilder (2.11.4)
       activesupport (>= 5.0.0)
     jmespath (1.4.0)
     jquery-rails (4.4.0)
