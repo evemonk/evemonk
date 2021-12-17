@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/bitzesty/devise_zxcvbn.git
-  revision: 63c25fd6576c4009d5e758b91094c10b94829078
+  revision: b02ebd44fb8278d6062cd71c611fdbbc5ccc1ab7
   branch: master
   specs:
     devise_zxcvbn (5.1.0)
