@@ -11,7 +11,7 @@ gem "puma", "~> 5.5"
 gem "importmap-rails", ">= 0.3.4"
 gem "turbo-rails", ">= 0.7.4"
 gem "stimulus-rails", ">= 0.3.9"
-gem "requestjs-rails", git: "https://github.com/rails/requestjs-rails.git", branch: "main"
+gem "requestjs-rails"
 gem "jbuilder", "~> 2.11"
 gem "sassc-rails", "~> 2.1"
 gem "bootsnap", ">= 1.4.4", require: false
