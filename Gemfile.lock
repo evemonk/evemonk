@@ -599,7 +599,7 @@ GEM
     server_timing (1.0.2)
       scout_apm
     sexp_processor (4.16.0)
-    shoulda-matchers (5.0.0)
+    shoulda-matchers (5.1.0)
       activesupport (>= 5.2.0)
     sidekiq (6.3.1)
       connection_pool (>= 2.2.2)
