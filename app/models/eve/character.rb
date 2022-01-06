@@ -75,5 +75,9 @@ module Eve
       key = character_id
       [key] if key
     end
+
+    def to_param
+      character_id&.to_s
+    end
   end
 end
