@@ -1,13 +1,13 @@
-<% set_meta_tags title: "Corporation &quot;#{ @corporation.name }&quot;",
-                 description: "Corporation &quot;#{ @corporation.name }&quot;",
+<% set_meta_tags title: "Corporation &quot;#{@corporation.name}&quot;",
+                 description: "Corporation &quot;#{@corporation.name}&quot;",
                  og: {
-                   title: "EVE Online Corporation &quot;#{ @corporation.name }&quot;",
+                   title: "EVE Online Corporation &quot;#{@corporation.name}&quot;",
                    url: universe_corporation_url(@corporation.corporation_id),
                    type: "website",
                    site_name: "EveMonk: EVE Online management suite",
                    locale: "en_US",
-                   description: "EVE Online Corporation &quot;#{ @corporation.name }&quot;",
-                   image: @corporation.icon_medium,
+                   description: "EVE Online Corporation &quot;#{@corporation.name}&quot;",
+                   image: @corporation.icon_medium
                  } %>
 
 <div class="row">
