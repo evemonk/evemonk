@@ -6,7 +6,7 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 RUN set -eux; \
     apt-get update -y ; \
     apt-get dist-upgrade -y ; \
-    apt-get install git make gcc g++ libpq-dev nodejs curl --no-install-recommends -y ; \
+    apt-get install git make gcc g++ libpq-dev curl --no-install-recommends -y ; \
     apt-get autoremove -y ; \
     apt-get clean -y ; \
     rm -rf /var/lib/apt/lists/*
@@ -90,8 +90,7 @@ FROM ruby:3.0.3-slim
 RUN set -eux; \
     apt-get update -y ; \
     apt-get dist-upgrade -y ; \
-    # nodejs for zxcvbn-js
-    apt-get install libpq5 libcurl4 nodejs wait-for-it libjemalloc2 shared-mime-info --no-install-recommends -y ; \
+    apt-get install libpq5 libcurl4 wait-for-it libjemalloc2 shared-mime-info --no-install-recommends -y ; \
     apt-get autoremove -y ; \
     apt-get clean -y ; \
     rm -rf /var/lib/apt/lists/*
