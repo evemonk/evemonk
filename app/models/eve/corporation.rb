@@ -91,5 +91,9 @@ module Eve
       key = corporation_id
       [key] if key
     end
+
+    def to_param
+      corporation_id&.to_s
+    end
   end
 end
