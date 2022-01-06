@@ -10,15 +10,9 @@ linters:
   Rubocop:
     enabled: true
     rubocop_config:
+      require: standard
+      inherit_gem:
+        standard: config/base.yml
+      inherit_from: .erb-lint_rubocop.yml
       AllCops:
         DisabledByDefault: true
-      Style/StringLiterals:
-        EnforcedStyle: double_quotes
-      Layout/SpaceInsideHashLiteralBraces:
-        Enabled: true
-        EnforcedStyle: no_space
-        EnforcedStyleForEmptyBraces: no_space
-      Layout/FirstArgumentIndentation:
-        Enabled: true
-        EnforcedStyle: consistent
-        IndentationWidth: ~
