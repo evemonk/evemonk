@@ -1,4 +1,4 @@
-name: bundle-audit
+name: Bundler Audit
 
 on:
   push:
@@ -16,4 +16,5 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - uses: andrewmcodes/bundler-audit-action@v0.1.0
+      - name: "Bundler Audit"
+        uses: andrewmcodes/bundler-audit-action@main

@@ -153,9 +153,6 @@ GEM
       sassc-rails (>= 2.0.0)
     brakeman (5.2.0)
     builder (3.2.4)
-    bundler-audit (0.9.0.1)
-      bundler (>= 1.2.0, < 3)
-      thor (~> 1.0)
     cacheflow (0.1.1)
       activesupport
     capybara (3.36.0)
@@ -696,6 +693,7 @@ GEM
 
 PLATFORMS
   x86_64-darwin-20
+  x86_64-darwin-21
   x86_64-linux
 
 DEPENDENCIES
@@ -709,7 +707,6 @@ DEPENDENCIES
   bootstrap (= 4.6.1)
   bootswatch!
   brakeman
-  bundler-audit
   cacheflow
   capybara (>= 3.26)
   codecov
