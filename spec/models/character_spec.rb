@@ -571,4 +571,18 @@ describe Character do
       specify { expect(subject.rounded_security_status).to eq(1.1) }
     end
   end
+
+  describe "#to_key" do
+    context "when character_id is present" do
+      subject { build(:character, character_id: 90_729_314) }
+
+      specify { expect(subject.to_key).to eq([90_729_314]) }
+    end
+
+    context "when character_id is not present" do
+      subject { build(:character, character_id: nil) }
+
+      specify { expect(subject.to_key).to eq(nil) }
+    end
+  end
 end
