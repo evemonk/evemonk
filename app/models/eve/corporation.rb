@@ -86,5 +86,10 @@ module Eve
     def sanitized_description
       Rails::Html::FullSanitizer.new.sanitize(description)
     end
+
+    def to_key
+      key = corporation_id
+      [key] if key
+    end
   end
 end
