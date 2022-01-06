@@ -242,4 +242,13 @@ class Character < ApplicationRecord
   def rounded_security_status
     security_status&.round(1)
   end
+
+  def to_key
+    key = character_id
+    [key] if key
+  end
+
+  def to_param
+    character_id&.to_s
+  end
 end
