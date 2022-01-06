@@ -1,13 +1,13 @@
-<% set_meta_tags title: "Character &quot;#{ @character.name }&quot;",
-                 description: "Character &quot;#{ @character.name }&quot;",
+<% set_meta_tags title: "Character &quot;#{@character.name}&quot;",
+                 description: "Character &quot;#{@character.name}&quot;",
                  og: {
-                   title: "EVE Online Character &quot;#{ @character.name }&quot;",
+                   title: "EVE Online Character &quot;#{@character.name}&quot;",
                    url: universe_character_url(@character.character_id),
                    type: "website",
                    site_name: "EveMonk: EVE Online management suite",
                    locale: "en_US",
-                   description: "EVE Online Character &quot;#{ @character.name }&quot;",
-                   image: @character.icon_medium,
+                   description: "EVE Online Character &quot;#{@character.name}&quot;",
+                   image: @character.icon_medium
                  } %>
 
 <div class="row">

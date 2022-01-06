@@ -19,15 +19,19 @@
         <select class="form-control" name="country_code">
           <% CountriesMapper.countries.each do |country| %>
             <option value="<%= country[:code] %>">
-              <%= "#{ country[:name] } (#{ country[:code] })" %>
+              <%= "#{country[:name]} (#{country[:code]})" %>
             </option>
           <% end %>
         </select>
       </div>
 
       <div class="form-group">
-        <%= text_field_tag :cellphone, "", autocomplete: :off, placeholder: t("devise.cellphone"),
-                           class: "form-control", inputmode: "numeric", pattern: "[0-9]*" %>
+        <%= text_field_tag :cellphone, "",
+                           autocomplete: :off,
+                           placeholder: t("devise.cellphone"),
+                           class: "form-control",
+                           inputmode: "numeric",
+                           pattern: "[0-9]*" %>
       </div>
 
       <div class="text-center">
