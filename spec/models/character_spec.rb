@@ -585,4 +585,18 @@ describe Character do
       specify { expect(subject.to_key).to eq(nil) }
     end
   end
+
+  describe "#to_param" do
+    context "when character_id is present" do
+      subject { build(:character, character_id: 90_729_314) }
+
+      specify { expect(subject.to_param).to eq("90729314") }
+    end
+
+    context "when character_id is not present" do
+      subject { build(:character, character_id: nil) }
+
+      specify { expect(subject.to_param).to eq(nil) }
+    end
+  end
 end
