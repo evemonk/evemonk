@@ -4,12 +4,20 @@
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><%= link_to("Home", root_path) %></li>
         <li class="breadcrumb-item"><%= link_to("My characters", characters_path) %></li>
-        <li class="breadcrumb-item"><%= link_to(@character.name, character_path(@character.character_id)) %></li>
+        <li class="breadcrumb-item"><%= link_to(@character.name, character_path(@character)) %></li>
         <li class="breadcrumb-item active" aria-current="page">Mail</li>
       </ol>
     </nav>
   </div>
 </div>
+
+<%= render partial: "characters/character_nav_bar",
+           locals: {
+             character: @character,
+             page: :mail
+           } %>
+
+<hr>
 
 <div class="row">
   <div class="col">
