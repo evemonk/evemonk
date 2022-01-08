@@ -4,7 +4,7 @@
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><%= link_to("Home", root_path) %></li>
         <li class="breadcrumb-item"><%= link_to("My characters", characters_path) %></li>
-        <li class="breadcrumb-item"><%= link_to(@character.name, character_path(@character.character_id)) %></li>
+        <li class="breadcrumb-item"><%= link_to(@character.name, character_path(@character)) %></li>
         <li class="breadcrumb-item active" aria-current="page">Manufacturing Jobs</li>
       </ol>
     </nav>
@@ -89,7 +89,7 @@
   <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
     <div class="clearfix">
       <h4 class="float-left"><%= @character.name %></h4>
-      <%= form_with(url: character_path(@character.character_id), method: :patch, class: "float-right") do %>
+      <%= form_with(url: character_path(@character), method: :patch, class: "float-right") do %>
         <%= button_tag(class: "btn btn-primary mb-2") do %>
           <i class="bi bi-arrow-repeat"></i>
         <% end %>
@@ -144,7 +144,7 @@
     <h4 class="text-center text-break">Manufacturing Jobs</h4>
 
     <%= link_to("Create new job",
-                new_character_manufacturing_job_path(@character.character_id),
+                new_character_manufacturing_job_path(@character),
                 class: "btn btn-primary btn-block") %>
   </div>
 </div>
