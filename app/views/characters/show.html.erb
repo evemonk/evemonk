@@ -93,7 +93,7 @@
       <h4 class="float-left"><%= @character.name %></h4>
       <div class="float-right">
         <%= form_with(url: character_path(@character.character_id), method: :patch, class: "float-right") do %>
-          <%= button_tag("Refresh", class: "btn btn-primary mb-2") do %>
+          <%= button_tag(class: "btn btn-primary mb-2") do %>
             <i class="bi bi-arrow-repeat"></i>
           <% end %>
         <% end %>
