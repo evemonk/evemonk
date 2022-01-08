@@ -132,7 +132,6 @@ Rails.application.routes.draw do
 
     resources :settings
 
-    # resources :sessions
     # resources :skillqueues
     # resources :character_skills
     # resources :character_mail_labels
