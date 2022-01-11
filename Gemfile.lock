@@ -150,8 +150,8 @@ GEM
       sassc-rails (>= 2.0.0)
     brakeman (5.2.0)
     builder (3.2.4)
-    cacheflow (0.1.1)
-      activesupport
+    cacheflow (0.2.0)
+      activesupport (>= 5.2)
     capybara (3.36.0)
       addressable
       matrix
