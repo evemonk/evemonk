@@ -416,7 +416,7 @@ GEM
       digest
       net-protocol
       timeout
-    newrelic_rpm (8.2.0)
+    newrelic_rpm (8.3.0)
     nio4r (2.5.8)
     nokogiri (1.13.0-x86_64-darwin)
       racc (~> 1.4)
