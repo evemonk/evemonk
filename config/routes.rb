@@ -58,6 +58,8 @@ Rails.application.routes.draw do
 
     resources :wallet_journals, only: :index
 
+    resource :wallet, only: :update
+
     resources :industry_jobs, only: :index
 
     resources :blueprints, only: [:index, :show]

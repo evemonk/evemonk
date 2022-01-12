@@ -3,6 +3,8 @@
 require "rails_helper"
 
 describe ApplicationController do
+  it { should be_a(Pagy::Backend) }
+
   it { should use_before_action(:authenticate_user!) }
 
   it { should use_before_action(:default_locale) }

@@ -2,10 +2,11 @@
 
 class CharactersController < ApplicationController
   def index
-    @characters = current_user.characters
+    collection = current_user.characters
       .includes(:alliance, :corporation)
       .order(created_at: :asc)
-      .page(params[:page])
+
+    @pagy, @characters = pagy(collection)
   end
 
   def show
@@ -19,10 +20,7 @@ class CharactersController < ApplicationController
 
     UpdateCharacterInfoService.new(@character.character_id).execute
 
-    respond_to do |format|
-      format.js
-      format.html { redirect_to character_path(@character.character_id) }
-    end
+    head :ok
   end
 
   def destroy

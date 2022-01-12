@@ -5,10 +5,11 @@ module Universe
     skip_before_action :authenticate_user!
 
     def index
-      @characters = Eve::SearchCharactersQuery
+      collection = Eve::SearchCharactersQuery
         .new(params[:q])
         .query
-        .page(params[:page])
+
+      @pagy, @characters = pagy(collection)
     end
 
     def show

@@ -13,60 +13,7 @@
 </div>
 
 <div class="row">
-  <% @characters.each do |character| %>
-    <div id="character_<%= character.character_id %>" class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
-      <div class="clearfix">
-        <h4 class="float-left"><%= link_to(character.name, character_path(character.character_id)) %></h4>
-        <%= form_with(url: character_path(character.character_id), method: :patch, class: "float-right") do %>
-          <%= button_tag(class: "btn btn-primary mb-2") do %>
-            <i class="bi bi-arrow-repeat"></i>
-          <% end %>
-        <% end %>
-      </div>
-
-      <div class="card">
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item text-center">
-            <%= image_tag(character.icon_medium,
-                          alt: character.name,
-                          class: "rounded border",
-                          size: "130x130",
-                          loading: "lazy") %>
-          </li>
-          <% if character.corporation %>
-            <li class="list-group-item text-break">
-              Corporation: <%= link_to(character.corporation.name,
-                                       universe_corporation_path(character.corporation.corporation_id)) %>
-            </li>
-          <% end %>
-          <% if character.alliance %>
-            <li class="list-group-item text-break">
-              Alliance: <%= link_to(character.alliance.name,
-                                    universe_alliance_path(character.alliance.alliance_id)) %>
-            </li>
-          <% end %>
-          <li class="list-group-item text-break">
-            Security status: <%= character.rounded_security_status %>
-          </li>
-          <li class="list-group-item text-break">
-            Wallet: <%= character.wallet_formatted %> ISK
-          </li>
-          <li class="list-group-item text-break text-center">
-            <%= form_with(url: character_path(character.character_id), model: character, method: :delete) do %>
-              <%= button_tag(class: "btn btn-danger") do %>
-                Remove character <i class="bi bi-exclamation-circle"></i>
-              <% end %>
-            <% end %>
-          </li>
-        </ul>
-        <p class="card-text text-center">
-          <small class="text-muted">
-            Last updated: <%= local_time_ago(character.updated_at) %>
-          </small>
-        </p>
-      </div>
-    </div>
-  <% end %>
+  <%= render @characters %>
 
   <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 text-center m-auto">
     <%= form_tag("/auth/eve_online_sso", data: {turbo: false}) do |f| %>
@@ -80,5 +27,5 @@
 
   <div class="w-100"></div>
 
-  <%= paginate @characters %>
+  <%== pagy_nav(@pagy) %>
 </div>
