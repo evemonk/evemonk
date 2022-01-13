@@ -582,7 +582,7 @@ GEM
     ruby_parser (3.18.1)
       sexp_processor (~> 4.16)
     rubyzip (2.3.2)
-    rufus-scheduler (3.8.0)
+    rufus-scheduler (3.8.1)
       fugit (~> 1.1, >= 1.1.6)
     sassc (2.4.0)
       ffi (~> 1.9)
