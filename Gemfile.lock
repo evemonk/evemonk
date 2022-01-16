@@ -665,7 +665,7 @@ GEM
     tilt (2.0.10)
     timeout (0.2.0)
     tomlrb (2.0.1)
-    turbo-rails (1.0.0)
+    turbo-rails (1.0.1)
       actionpack (>= 6.0.0)
       railties (>= 6.0.0)
     tzinfo (2.0.4)
