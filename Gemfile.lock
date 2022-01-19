@@ -218,7 +218,7 @@ GEM
       railties (>= 3.2)
     down (5.2.4)
       addressable (~> 2.8)
-    dry-initializer (3.1.0)
+    dry-initializer (3.1.1)
     easymon (1.4.2)
       redis
     erb_lint (0.1.1)
