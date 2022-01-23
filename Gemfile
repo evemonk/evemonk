@@ -6,7 +6,7 @@ ruby File.read(".ruby-version")
 
 gem "rails", "7.0.1"
 
-gem "pg", "~> 1.1"
+gem "pg", "~> 1.3"
 gem "puma", "~> 5.5"
 gem "importmap-rails", ">= 0.3.4"
 gem "turbo-rails", ">= 0.7.4"
