@@ -12,7 +12,7 @@ pin "@rails/ujs", to: "https://ga.jspm.io/npm:@rails/ujs@7.0.1/lib/assets/compil
 
 pin "local-time", to: "https://ga.jspm.io/npm:local-time@2.1.0/app/assets/javascripts/local-time.js"
 
-pin "@github/hotkey", to: "https://ga.jspm.io/npm:@github/hotkey@1.6.0/dist/index.js"
+pin "@github/hotkey", to: "https://ga.jspm.io/npm:@github/hotkey@2.0.0/dist/index.js"
 
 pin "bootstrap", to: "https://ga.jspm.io/npm:bootstrap@4.6.1/dist/js/bootstrap.js"
 pin "jquery", to: "https://ga.jspm.io/npm:jquery@3.6.0/dist/jquery.js"
