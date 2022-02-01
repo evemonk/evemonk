@@ -129,8 +129,9 @@ group :test do
   gem "rspec-its"
   gem "super_diff"
   # gem "rspec-stubbed_env"
-  gem "shoulda-callback-matchers", git: "https://github.com/just806me/shoulda-callback-matchers.git",
-                                   branch: "master"
+  gem "shoulda-callback-matchers",
+    git: "https://github.com/just806me/shoulda-callback-matchers.git",
+    branch: "master"
   gem "simplecov"
   gem "database_rewinder"
   gem "webmock"
