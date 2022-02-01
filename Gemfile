@@ -15,7 +15,9 @@ gem "jbuilder", "~> 2.11"
 gem "sassc-rails", "~> 2.1"
 gem "bootsnap", ">= 1.4.4", require: false
 gem "bootstrap", "4.6.1"
-gem "bootswatch", git: "https://github.com/thomaspark/bootswatch.git", branch: "v4.6.1"
+gem "bootswatch",
+  git: "https://github.com/thomaspark/bootswatch.git",
+  branch: "v4.6.1"
 gem "good_migrations"
 gem "local_time"
 gem "rails-i18n", "~> 7.0.1"
@@ -32,7 +34,9 @@ gem "goldiloader"
 gem "graphql"
 gem "graphiql-rails"
 gem "pg_search"
-gem "meta-tags", git: "https://github.com/kpumuk/meta-tags.git", branch: "main"
+gem "meta-tags",
+  git: "https://github.com/kpumuk/meta-tags.git",
+  branch: "main"
 gem "metricky"
 gem "dalli"
 gem "foundation_emails"
