@@ -8,7 +8,6 @@ Sentry.init({
 
 import "controllers";
 import "@hotwired/turbo-rails";
-import "@rails/request.js";
 
 import Rails from "@rails/ujs";
 import LocalTime from "local-time";
