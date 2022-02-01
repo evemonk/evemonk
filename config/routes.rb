@@ -89,8 +89,6 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: {format: "json"} do
     namespace :eve do
-      resources :types, only: [:index, :show]
-
       resources :manufacturing_items, only: :index
     end
   end
