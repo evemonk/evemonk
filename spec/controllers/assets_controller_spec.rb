@@ -22,7 +22,7 @@ describe AssetsController do
         # subject.current_user
         #        .characters
         #        .includes(:alliance, :corporation)
-        #        .find_by!(character_id: params[:character_id])
+        #        .find_by!(character_id: params[:character_id]) # => character
         #
         expect(subject).to receive(:current_user) do
           double.tap do |a|
