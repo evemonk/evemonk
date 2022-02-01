@@ -10,6 +10,8 @@ pin "@hotwired/turbo-rails", to: "turbo.js", preload: true
 
 pin "@rails/ujs", to: "https://ga.jspm.io/npm:@rails/ujs@7.0.1/lib/assets/compiled/rails-ujs.js"
 
+pin "@rails/request.js", to: "https://ga.jspm.io/npm:@rails/request.js@0.0.6/src/index.js"
+
 pin "local-time", to: "https://ga.jspm.io/npm:local-time@2.1.0/app/assets/javascripts/local-time.js"
 
 pin "@github/hotkey", to: "https://ga.jspm.io/npm:@github/hotkey@2.0.0/dist/index.js"
