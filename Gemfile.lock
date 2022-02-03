@@ -219,8 +219,6 @@ GEM
     down (5.2.4)
       addressable (~> 2.8)
     dry-initializer (3.1.1)
-    easymon (1.4.2)
-      redis
     erb_lint (0.1.1)
       activesupport
       better_html (~> 1.0.7)
@@ -746,7 +744,6 @@ DEPENDENCIES
   devise_zxcvbn
   dotenv-rails
   down
-  easymon
   erb_lint
   eve_online
   factory_bot_rails
