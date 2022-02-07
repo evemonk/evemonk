@@ -17,6 +17,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: run mdl
-        uses: actionshub/markdownlint@2.0.2
+        uses: actionshub/markdownlint@main
         with:
           filesToIgnoreRegex: "vendor/"
