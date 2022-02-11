@@ -107,6 +107,9 @@ COPY --from=builder /usr/local/bundle/ /usr/local/bundle/
 COPY --from=builder /usr/local/bin/ /usr/local/bin/
 COPY --from=builder --chown=app:app /app /app
 
+# install only production gems without development and test
+RUN bundle config set --global without development test
+
 ARG COMMIT=""
 
 ENV COMMIT_SHA=${COMMIT}
