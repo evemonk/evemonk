@@ -7,7 +7,7 @@ volumes:
 
 services:
   postgresql:
-    image: "docker.io/library/postgres:14.1"
+    image: "docker.io/library/postgres:14.2"
     container_name: "evemonk_postgresql"
     restart: "unless-stopped"
     volumes:
@@ -27,7 +27,7 @@ services:
       - "6379:6379"
 
   memcached:
-    image: "docker.io/library/memcached:1.6.13"
+    image: "docker.io/library/memcached:1.6.14"
     container_name: "evemonk_memcached"
     restart: "unless-stopped"
     command: "memcached -m 64"
