@@ -8,9 +8,7 @@ module Eve
 
     has_paper_trail
 
-    belongs_to :alliance,
-      primary_key: "alliance_id",
-      optional: true
+    belongs_to :alliance, optional: true
 
     belongs_to :ceo,
       primary_key: "character_id",
