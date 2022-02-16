@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_02_16_161403) do
+ActiveRecord::Schema[7.0].define(version: 2022_02_16_163023) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_buffercache"
   enable_extension "pg_trgm"
@@ -261,8 +261,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_02_16_161403) do
     t.index ["location_id"], name: "index_eve_agents_on_location_id"
   end
 
-  create_table "eve_alliances", id: false, force: :cascade do |t|
-    t.bigint "id"
+  create_table "eve_alliances", id: :bigint, default: nil, force: :cascade do |t|
     t.bigint "creator_corporation_id"
     t.bigint "creator_id"
     t.datetime "date_founded", precision: nil
