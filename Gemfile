@@ -69,7 +69,6 @@ gem "sentry-ruby"
 gem "sentry-rails"
 gem "sentry-sidekiq"
 gem "server_timing"
-gem "skylight"
 gem "awesome_print", require: "ap"
 gem "pry-rails"
 gem "lograge"
@@ -85,7 +84,8 @@ gem "yabeda-puma-plugin"
 # gem "oink"
 
 group :production do
-  gem "newrelic_rpm"
+  # gem "newrelic_rpm"
+  gem "skylight"
   gem "rack-timeout"
 end
 

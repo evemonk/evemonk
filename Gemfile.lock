@@ -418,7 +418,6 @@ GEM
       digest
       net-protocol
       timeout
-    newrelic_rpm (8.4.0)
     nio4r (2.5.8)
     nokogiri (1.13.1-x86_64-darwin)
       racc (~> 1.4)
@@ -773,7 +772,6 @@ DEPENDENCIES
   metricky
   mobility
   net-http-persistent
-  newrelic_rpm
   noticed
   oj
   omniauth-eve_online-sso
