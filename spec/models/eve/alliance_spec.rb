@@ -70,7 +70,7 @@ describe Eve::Alliance do
   describe "#icon_tiny" do
     subject do
       build(:eve_alliance,
-        alliance_id: 1_354_830_081)
+        id: 1_354_830_081)
     end
 
     context "when Setting.use_image_proxy is true" do
@@ -89,7 +89,7 @@ describe Eve::Alliance do
   describe "#icon_small" do
     subject do
       build(:eve_alliance,
-        alliance_id: 1_354_830_081)
+        id: 1_354_830_081)
     end
 
     context "when Setting.use_image_proxy is true" do
@@ -108,7 +108,7 @@ describe Eve::Alliance do
   describe "#icon_medium" do
     subject do
       build(:eve_alliance,
-        alliance_id: 1_354_830_081)
+        id: 1_354_830_081)
     end
 
     context "when Setting.use_image_proxy is true" do
@@ -127,7 +127,7 @@ describe Eve::Alliance do
   describe "#icon_large" do
     subject do
       build(:eve_alliance,
-        alliance_id: 1_354_830_081)
+        id: 1_354_830_081)
     end
 
     context "when Setting.use_image_proxy is true" do
@@ -146,7 +146,7 @@ describe Eve::Alliance do
   describe "#icon_huge" do
     subject do
       build(:eve_alliance,
-        alliance_id: 1_354_830_081)
+        id: 1_354_830_081)
     end
 
     context "when Setting.use_image_proxy is true" do
