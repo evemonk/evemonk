@@ -54,7 +54,7 @@ describe Types::EveAllianceType do
 
     let!(:eve_alliance_1) do
       create(:eve_alliance,
-        alliance_id: 123,
+        id: 123,
         name: "Alliance 1",
         ticker: "ALLIANCE1",
         date_founded: date_founded_1,
@@ -66,7 +66,7 @@ describe Types::EveAllianceType do
 
     let!(:eve_alliance_2) do
       create(:eve_alliance,
-        alliance_id: 321,
+        id: 321,
         name: "Alliance 2",
         ticker: "ALLIANCE2",
         date_founded: date_founded_2,
@@ -337,7 +337,7 @@ describe Types::EveAllianceType do
 
     let!(:eve_alliance) do
       create(:eve_alliance,
-        alliance_id: 123,
+        id: 123,
         name: "Alliance 1",
         ticker: "ALLIANCE1",
         date_founded: date_founded,
