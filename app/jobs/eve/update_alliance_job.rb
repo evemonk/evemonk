@@ -11,8 +11,8 @@ module Eve
       Faraday::TimeoutError,
       Faraday::ConnectionFailed
 
-    def perform(alliance_id)
-      Eve::AllianceImporter.new(alliance_id).import
+    def perform(id)
+      Eve::AllianceImporter.new(id).import
     end
   end
 end
