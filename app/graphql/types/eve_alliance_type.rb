@@ -6,7 +6,6 @@ module Types
 
     field :id, ID,
       description: "Alliance ID",
-      method: :alliance_id,
       null: false
 
     field :name, String,
