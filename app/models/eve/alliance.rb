@@ -85,9 +85,5 @@ module Eve
       key = alliance_id
       [key] if key
     end
-
-    def to_param
-      alliance_id&.to_s
-    end
   end
 end
