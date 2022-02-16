@@ -80,14 +80,5 @@ module Eve
     def formatted_characters_count
       number_with_delimiter(characters_count, delimiter: " ")
     end
-
-    def to_key
-      key = alliance_id
-      [key] if key
-    end
-
-    def to_param
-      alliance_id&.to_s
-    end
   end
 end
