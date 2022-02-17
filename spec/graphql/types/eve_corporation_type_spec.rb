@@ -14,12 +14,12 @@ describe Types::EveCorporationType do
 
     let!(:eve_alliance_1) do
       create(:eve_alliance,
-        alliance_id: 1_111)
+        id: 1_111)
     end
 
     let!(:eve_alliance_2) do
       create(:eve_alliance,
-        alliance_id: 1_222)
+        id: 1_222)
     end
 
     let!(:ceo_1) do
@@ -308,7 +308,7 @@ describe Types::EveCorporationType do
 
     let!(:eve_alliance) do
       create(:eve_alliance,
-        alliance_id: 1_111)
+        id: 1_111)
     end
 
     let!(:ceo) do
