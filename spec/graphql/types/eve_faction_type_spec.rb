@@ -36,13 +36,13 @@ describe Types::EveFactionType do
 
     let!(:eve_alliance_1) do
       create(:eve_alliance,
-        alliance_id: 12_345,
+        id: 12_345,
         faction: eve_faction_1)
     end
 
     let!(:eve_alliance_2) do
       create(:eve_alliance,
-        alliance_id: 67_890,
+        id: 67_890,
         faction: eve_faction_2)
     end
 
@@ -289,7 +289,7 @@ describe Types::EveFactionType do
 
     let!(:eve_alliance) do
       create(:eve_alliance,
-        alliance_id: 12_345,
+        id: 12_345,
         faction: eve_faction)
     end
 
