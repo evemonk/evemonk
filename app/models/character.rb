@@ -30,7 +30,6 @@ class Character < ApplicationRecord
 
   belongs_to :alliance,
     class_name: "Eve::Alliance",
-    primary_key: "alliance_id",
     optional: true
 
   belongs_to :corporation,
