@@ -6,6 +6,11 @@
 [![codecov](https://codecov.io/gh/evemonk/evemonk/branch/main/graph/badge.svg?token=IB5A4A7B3M)](https://codecov.io/gh/evemonk/evemonk)
 [![Ruby Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://github.com/testdouble/standard)
 
+[![View performance data on Skylight](https://badges.skylight.io/problem/Qt8ERwf9iXeY.svg)](https://oss.skylight.io/app/applications/Qt8ERwf9iXeY)
+[![View performance data on Skylight](https://badges.skylight.io/typical/Qt8ERwf9iXeY.svg)](https://oss.skylight.io/app/applications/Qt8ERwf9iXeY)
+[![View performance data on Skylight](https://badges.skylight.io/rpm/Qt8ERwf9iXeY.svg)](https://oss.skylight.io/app/applications/Qt8ERwf9iXeY)
+[![View performance data on Skylight](https://badges.skylight.io/status/Qt8ERwf9iXeY.svg)](https://oss.skylight.io/app/applications/Qt8ERwf9iXeY)
+
 EveMonk is helper software for EVE Online.
 
 Styled with Twitter Bootstrap. And Bootswatch Darkly theme.
