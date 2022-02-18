@@ -71,6 +71,7 @@ gem "sentry-sidekiq"
 gem "server_timing"
 gem "awesome_print", require: "ap"
 gem "pry-rails"
+gem "skylight"
 gem "lograge"
 gem "webrick"
 gem "yabeda-prometheus"
@@ -85,7 +86,6 @@ gem "yabeda-puma-plugin"
 
 group :production do
   # gem "newrelic_rpm"
-  gem "skylight"
   gem "rack-timeout"
 end
 
@@ -122,7 +122,6 @@ group :development do
 end
 
 group :test do
-  gem "codecov", require: false
   gem "capybara", ">= 3.26"
   gem "selenium-webdriver"
   # Easy installation and use of web drivers to run system tests with browsers
