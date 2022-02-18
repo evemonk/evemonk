@@ -71,6 +71,7 @@ gem "sentry-sidekiq"
 gem "server_timing"
 gem "awesome_print", require: "ap"
 gem "pry-rails"
+gem "skylight"
 gem "lograge"
 gem "webrick"
 gem "yabeda-prometheus"
@@ -85,7 +86,6 @@ gem "yabeda-puma-plugin"
 
 group :production do
   # gem "newrelic_rpm"
-  gem "skylight"
   gem "rack-timeout"
 end
 
