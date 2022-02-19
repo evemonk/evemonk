@@ -322,7 +322,7 @@ GEM
       concurrent-ruby (~> 1.0)
     i18n_data (0.15.0)
       simple_po_parser (~> 1.1)
-    importmap-rails (1.0.2)
+    importmap-rails (1.0.3)
       actionpack (>= 6.0.0)
       railties (>= 6.0.0)
     io-wait (0.2.1)
