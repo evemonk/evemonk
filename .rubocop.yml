@@ -172,3 +172,6 @@ GraphQL/ExtractType:
     - station
     - parent
     - market
+
+Style/HashSyntax:
+  Enabled: false
