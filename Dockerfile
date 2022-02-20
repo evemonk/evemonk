@@ -1,4 +1,4 @@
-FROM ruby:3.0.3-slim AS builder
+FROM ruby:3.1.1-slim AS builder
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
@@ -84,7 +84,7 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 RUN curl -sL https://sentry.io/get-cli/ | bash
 
-FROM ruby:3.0.3-slim
+FROM ruby:3.1.1-slim
 
 # skipcq: DOK-DL3008
 RUN set -eux; \

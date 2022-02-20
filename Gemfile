@@ -29,7 +29,6 @@ gem "devise"
 gem "devise-i18n"
 gem "devise_zxcvbn"
 gem "devise-authy"
-gem "rack-floc-off"
 gem "graphql"
 gem "graphiql-rails"
 gem "pg_search"
@@ -101,7 +100,7 @@ group :development, :test do
   gem "squasher", require: false
   gem "brakeman", require: false
   gem "fasterer", require: false
-  gem "license_finder", require: false
+  gem "license_finder", require: false, git: "https://github.com/pivotal/LicenseFinder.git", branch: "master"
   gem "anyway_config" # For isolator
   gem "isolator"
   gem "erb_lint", require: false
