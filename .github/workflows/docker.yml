@@ -6,9 +6,6 @@ on:
       - main
     tags:
       - "v*.*.*"
-  pull_request:
-    branches:
-      - main
   schedule:
     - cron: "0 21 * * 6"
 
@@ -38,7 +35,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           pull: true
-          push: false
+          push: true
           no-cache: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
