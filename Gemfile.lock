@@ -477,8 +477,6 @@ GEM
     raabro (1.4.0)
     racc (1.6.0)
     rack (2.2.3)
-    rack-floc-off (0.0.2)
-      rack
     rack-health (0.1.2)
       rack (>= 1.2.0)
     rack-protection (2.2.0)
@@ -777,7 +775,6 @@ DEPENDENCIES
   pry-rails
   puma (~> 5.6)
   pundit
-  rack-floc-off
   rack-health
   rack-timeout
   rails (= 7.0.2.2)
