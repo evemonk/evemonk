@@ -213,7 +213,7 @@ GEM
     devise-authy (2.3.0)
       authy (~> 3.0)
       devise (>= 4.0.0)
-    devise-i18n (1.10.1)
+    devise-i18n (1.10.2)
       devise (>= 4.8.0)
     devise_zxcvbn (6.0.0)
       devise
