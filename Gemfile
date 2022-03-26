@@ -20,7 +20,7 @@ gem "bootswatch",
   branch: "v4.6.1"
 gem "good_migrations"
 gem "local_time"
-gem "rails-i18n", "~> 7.0.2"
+gem "rails-i18n", "~> 7.0.3"
 gem "http_accept_language"
 gem "countries"
 gem "oj"
