@@ -239,7 +239,7 @@ GEM
       rubocop
       smart_properties
     erubi (1.10.0)
-    et-orbi (1.2.6)
+    et-orbi (1.2.7)
       tzinfo
     eve_online (0.42.0)
       activesupport (>= 5.2.0)
