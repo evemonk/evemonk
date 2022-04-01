@@ -60,7 +60,7 @@ jobs:
         with:
           bundler-cache: true
       - name: Setup setup-chromedriver
-        uses: nanasess/setup-chromedriver@v1.0.5
+        uses: nanasess/setup-chromedriver@v1.0.7
       - name: bootsnap precompile
         run: bundle exec bootsnap precompile --gemfile app/ lib/
       - name: rails zeitwerk:check
