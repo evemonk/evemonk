@@ -690,8 +690,8 @@ GEM
       anyway_config (>= 1.0, < 3)
       concurrent-ruby
       dry-initializer
-    yabeda-graphql (0.2.1)
-      graphql (~> 1.9)
+    yabeda-graphql (0.2.2)
+      graphql (>= 1.9, < 3)
       yabeda (~> 0.2)
     yabeda-prometheus (0.8.0)
       prometheus-client (>= 0.10, < 3.0)
