@@ -286,8 +286,8 @@ GEM
       ffi (>= 1.0.0)
       rake
     foundation_emails (2.2.1.0)
-    fugit (1.5.2)
-      et-orbi (~> 1.1, >= 1.1.8)
+    fugit (1.5.3)
+      et-orbi (~> 1, >= 1.2.7)
       raabro (~> 1.4)
     gemdiff (4.0.0)
       launchy (~> 2.4)
