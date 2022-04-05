@@ -100,7 +100,7 @@ group :development, :test do
   gem "squasher", require: false
   gem "brakeman", require: false
   gem "fasterer", require: false
-  gem "license_finder", require: false, git: "https://github.com/pivotal/LicenseFinder.git", branch: "master"
+  gem "license_finder", require: false
   gem "anyway_config" # For isolator
   gem "isolator"
   gem "erb_lint", require: false

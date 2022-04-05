@@ -15,19 +15,6 @@ GIT
       actionpack (>= 3.2.0, < 7.1)
 
 GIT
-  remote: https://github.com/pivotal/LicenseFinder.git
-  revision: bf8e01f43fa98fe1cf2108f1f70e5dd52b35118c
-  branch: master
-  specs:
-    license_finder (6.15.0)
-      bundler
-      rubyzip (>= 1, < 3)
-      thor (~> 1.0.1)
-      tomlrb (>= 1.3, < 2.1)
-      with_env (= 1.1.0)
-      xml-simple (~> 1.1.5)
-
-GIT
   remote: https://github.com/thomaspark/bootswatch.git
   revision: 8e6358e490c4caf9523b3cc5dd71167276dd77c8
   branch: v4.6.1
@@ -367,6 +354,13 @@ GEM
       rails
     launchy (2.5.0)
       addressable (~> 2.7)
+    license_finder (7.0.1)
+      bundler
+      rubyzip (>= 1, < 3)
+      thor (~> 1.2)
+      tomlrb (>= 1.3, < 2.1)
+      with_env (= 1.1.0)
+      xml-simple (~> 1.1.9)
     llhttp-ffi (0.4.0)
       ffi-compiler (~> 1.0)
       rake (~> 13.0)
@@ -653,7 +647,7 @@ GEM
       attr_extras (>= 6.2.4)
       diff-lcs
       patience_diff
-    thor (1.0.1)
+    thor (1.2.1)
     tilt (2.0.10)
     timeout (0.2.0)
     tomlrb (2.0.1)
@@ -760,7 +754,7 @@ DEPENDENCIES
   jwt
   kaminari
   kaminari-i18n
-  license_finder!
+  license_finder
   local_time
   lograge
   meta-tags!
