@@ -276,7 +276,7 @@ GEM
     fugit (1.5.3)
       et-orbi (~> 1, >= 1.2.7)
       raabro (~> 1.4)
-    gemdiff (4.0.0)
+    gemdiff (4.1.0)
       launchy (~> 2.4)
       octokit (~> 4.0)
       thor (~> 1.0)
