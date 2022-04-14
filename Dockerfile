@@ -1,4 +1,4 @@
-FROM ruby:3.1.1-slim AS builder
+FROM ruby:3.1.2-slim AS builder
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
@@ -25,11 +25,11 @@ ENV RAILS_ENV production
 
 ENV RAILS_LOG_TO_STDOUT true
 
-ENV RUBYGEMS_VERSION 3.3.10
+ENV RUBYGEMS_VERSION 3.3.11
 
 RUN gem update --system "$RUBYGEMS_VERSION"
 
-ENV BUNDLER_VERSION 2.3.10
+ENV BUNDLER_VERSION 2.3.11
 
 # skipcq: DOK-DL3028
 RUN gem install bundler --version "$BUNDLER_VERSION" --force
@@ -84,7 +84,7 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 RUN curl -sL https://sentry.io/get-cli/ | bash
 
-FROM ruby:3.1.1-slim
+FROM ruby:3.1.2-slim
 
 # skipcq: DOK-DL3008
 RUN set -eux; \
