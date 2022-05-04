@@ -113,7 +113,7 @@ GEM
     attr_extras (6.2.5)
     authy (3.0.0)
       httpclient (>= 2.5.3.3)
-    autoprefixer-rails (10.4.2.0)
+    autoprefixer-rails (10.4.7.0)
       execjs (~> 2)
     awesome_print (1.9.2)
     aws-eventstream (1.2.0)
