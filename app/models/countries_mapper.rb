@@ -7,7 +7,7 @@ class CountriesMapper
 
       ISO3166::Data.codes.each do |code|
         data << {
-          name: ISO3166::Country.new(code).name,
+          name: ISO3166::Country.new(code).iso_short_name,
           code: "+#{ISO3166::Country.new(code).country_code}"
         }
       end
