@@ -93,7 +93,7 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  config.cache_store = :mem_cache_store, ENV["MEMCACHED_URL"]
+  config.cache_store = :mem_cache_store, ENV.fetch("MEMCACHED_URL", nil)
 
   # Sidekiq
   config.active_job.queue_adapter = :sidekiq
@@ -101,10 +101,10 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
 
   config.action_mailer.smtp_settings = {
-    address: ENV["SMTP_SERVER"],
-    port: ENV["SMTP_PORT"],
-    user_name: ENV["SMTP_USER"],
-    password: ENV["SMTP_PASSWORD"],
+    address: ENV.fetch("SMTP_SERVER", nil),
+    port: ENV.fetch("SMTP_PORT", nil),
+    user_name: ENV.fetch("SMTP_USER", nil),
+    password: ENV.fetch("SMTP_PASSWORD", nil),
     authentication: "plain",
     enable_starttls: true,
     open_timeout: 120,
