@@ -5,6 +5,8 @@ if Rails.env.development?
 end
 
 Rails.application.routes.draw do
+  mount MaintenanceTasks::Engine, at: "/maintenance_tasks"
+
   mount GraphiQL::Rails::Engine, at: "/graphiql", graphql_path: "/graphql"
 
   post "/graphql", to: "graphql#execute"
