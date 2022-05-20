@@ -8,7 +8,8 @@ class UpdateCharactersJob < ApplicationJob
       UpdateCharacterInfoService.new(character_id).execute
     end
 
-    Eve::UpdateMarketPricesJob.perform_later
+    # TODO: broken?
+    # Eve::UpdateMarketPricesJob.perform_later
 
     ImportMissingJob.perform_later
   end
