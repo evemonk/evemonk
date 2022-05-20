@@ -42,12 +42,12 @@ describe UpdateCharactersJob do
       end
     end
 
-    before do
-      #
-      # Eve::UpdateMarketPricesJob.perform_later
-      #
-      expect(Eve::UpdateMarketPricesJob).to receive(:perform_later)
-    end
+    # before do
+    #   #
+    #   # Eve::UpdateMarketPricesJob.perform_later
+    #   #
+    #   expect(Eve::UpdateMarketPricesJob).to receive(:perform_later)
+    # end
 
     before do
       #
