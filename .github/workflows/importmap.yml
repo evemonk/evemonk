@@ -1,0 +1,27 @@
+name: importmap
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  schedule:
+    - cron: "0 21 * * 6"
+
+env:
+  SECRET_KEY_BASE: "df85f70fa713b189c61deba6a51206472643e53894ae9a1dcd7c97ee15a9b79e962c9ada5b12e69ab360648f74b89d1b7d26dd310b485d48d4509a3445113813"
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+      - name: run importmap audit
+        run: bin/importmap audit
