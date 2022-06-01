@@ -63,9 +63,6 @@ gem "aws-sdk-s3"
 gem "down"
 gem "sitemap_generator"
 gem "administrate"
-gem "sentry-ruby"
-gem "sentry-rails"
-gem "sentry-sidekiq"
 gem "server_timing"
 gem "awesome_print", require: "ap"
 gem "pry-rails"
@@ -83,7 +80,6 @@ gem "yabeda-puma-plugin"
 # gem "oink"
 
 group :production do
-  # gem "newrelic_rpm"
   gem "rack-timeout"
 end
 
