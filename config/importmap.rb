@@ -19,11 +19,3 @@ pin "@github/hotkey", to: "https://ga.jspm.io/npm:@github/hotkey@2.0.0/dist/inde
 pin "bootstrap", to: "https://ga.jspm.io/npm:bootstrap@4.6.1/dist/js/bootstrap.js"
 pin "jquery", to: "https://ga.jspm.io/npm:jquery@3.6.0/dist/jquery.js"
 pin "popper.js", to: "https://ga.jspm.io/npm:popper.js@1.16.1/dist/umd/popper.js"
-
-pin "@sentry/browser", to: "https://ga.jspm.io/npm:@sentry/browser@6.19.7/esm/index.js"
-pin "@sentry/core", to: "https://ga.jspm.io/npm:@sentry/core@6.19.7/esm/index.js"
-pin "@sentry/hub", to: "https://ga.jspm.io/npm:@sentry/hub@6.19.7/esm/index.js"
-pin "@sentry/minimal", to: "https://ga.jspm.io/npm:@sentry/minimal@6.19.7/esm/index.js"
-pin "@sentry/types", to: "https://ga.jspm.io/npm:@sentry/types@6.19.7/esm/index.js"
-pin "@sentry/utils", to: "https://ga.jspm.io/npm:@sentry/utils@6.19.7/esm/index.js"
-pin "tslib", to: "https://ga.jspm.io/npm:tslib@1.14.1/tslib.es6.js"

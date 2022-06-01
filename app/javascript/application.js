@@ -1,11 +1,5 @@
 // Configure your import map in config/importmap.rb. Read more: https://github.com/rails/importmap-rails
 
-import * as Sentry from "@sentry/browser";
-
-Sentry.init({
-  dsn: "https://185a236f4b994411a9f33c3c714cb34e@sentry.io/1424888",
-});
-
 import "controllers";
 import "@hotwired/turbo-rails";
 
