@@ -174,7 +174,7 @@ GEM
     database_rewinder (0.9.8)
     datetime_picker_rails (0.0.7)
       momentjs-rails (>= 2.8.1)
-    dead_end (3.1.2)
+    dead_end (4.0.0)
     derailed_benchmarks (2.1.1)
       benchmark-ips (~> 2)
       dead_end
