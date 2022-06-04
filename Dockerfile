@@ -82,8 +82,6 @@ RUN bundle exec rake SECRET_KEY_BASE=no \
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
-RUN curl -sL https://sentry.io/get-cli/ | bash
-
 FROM ruby:3.1.2-slim
 
 # skipcq: DOK-DL3008
