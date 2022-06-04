@@ -1,5 +1,6 @@
-# EveMonk back-end and web front-end
+# EveMonk is an EVE Online management suite
 
+[![RSpec](https://github.com/evemonk/evemonk/actions/workflows/rspec.yml/badge.svg)](https://github.com/evemonk/evemonk/actions/workflows/rspec.yml)
 [![DeepSource](https://static.deepsource.io/deepsource-badge-light-mini.svg)](https://deepsource.io/gh/evemonk/evemonk/?ref=repository-badge)
 [![codecov](https://codecov.io/gh/evemonk/evemonk/branch/main/graph/badge.svg?token=IB5A4A7B3M)](https://codecov.io/gh/evemonk/evemonk)
 [![Ruby Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://github.com/testdouble/standard)
@@ -9,7 +10,7 @@
 [![View performance data on Skylight](https://badges.skylight.io/rpm/Qt8ERwf9iXeY.svg)](https://oss.skylight.io/app/applications/Qt8ERwf9iXeY)
 [![View performance data on Skylight](https://badges.skylight.io/status/Qt8ERwf9iXeY.svg)](https://oss.skylight.io/app/applications/Qt8ERwf9iXeY)
 
-EveMonk is helper software for EVE Online.
+EveMonk is an EVE Online management suite
 
 Styled with Twitter Bootstrap. And Bootswatch Darkly theme.
 

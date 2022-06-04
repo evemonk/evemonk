@@ -25,11 +25,11 @@ ENV RAILS_ENV production
 
 ENV RAILS_LOG_TO_STDOUT true
 
-ENV RUBYGEMS_VERSION 3.3.14
+ENV RUBYGEMS_VERSION 3.3.15
 
 RUN gem update --system "$RUBYGEMS_VERSION"
 
-ENV BUNDLER_VERSION 2.3.14
+ENV BUNDLER_VERSION 2.3.15
 
 # skipcq: DOK-DL3028
 RUN gem install bundler --version "$BUNDLER_VERSION" --force
@@ -81,8 +81,6 @@ RUN bundle exec rake SECRET_KEY_BASE=no \
     assets:precompile
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
-
-RUN curl -sL https://sentry.io/get-cli/ | bash
 
 FROM ruby:3.1.2-slim
 
