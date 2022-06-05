@@ -24,7 +24,6 @@ env:
   DEVISE_MAILER_SENDER: "robot@evemonk.com"
   ACTION_MAILER_FROM: "EveMonk <robot@evemonk.com>"
   DEVISE_PEPPER: "e19db51a470b8259e79616ac00450ea1857d819aa860e2e7cff79b3c295d3993867a68c9524587d2b02b6f76efa8dea8aaf09884f186bfab89442eb2530ea829"
-  CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
   CI: "yes"
 
 jobs:
@@ -76,3 +75,7 @@ jobs:
           chromedriver --url-base=/wd/hub &
           sudo Xvfb -ac :99 -screen 0 1280x1024x24 > /dev/null 2>&1 & # optional
           bundle exec rspec --force-color --profile --format documentation
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v3
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
