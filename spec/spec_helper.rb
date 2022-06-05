@@ -2,7 +2,7 @@
 
 require "simplecov"
 
-if ENV.fetch("CI", nil) == "true"
+if ENV.fetch("CI") == "yes"
   require "simplecov-cobertura"
 
   SimpleCov.formatter = SimpleCov::Formatter::CoberturaFormatter
