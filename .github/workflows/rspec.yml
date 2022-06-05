@@ -58,6 +58,8 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
+      - name: Disable skylight dev warning
+        run: bundle exec skylight disable_dev_warning
       - name: Setup setup-chromedriver
         uses: nanasess/setup-chromedriver@v1.0.7
       - name: bootsnap precompile
@@ -79,4 +81,4 @@ jobs:
         uses: codecov/codecov-action@v3
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-          files: coverage/coverage.xml
+#          files: coverage/coverage.xml
