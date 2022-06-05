@@ -129,6 +129,7 @@ group :test do
     git: "https://github.com/just806me/shoulda-callback-matchers.git",
     branch: "master"
   gem "simplecov"
+  gem "simplecov-cobertura"
   gem "database_rewinder"
   gem "webmock"
   gem "vcr"
