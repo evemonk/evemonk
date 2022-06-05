@@ -25,5 +25,7 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
+      - name: Disable skylight dev warning
+        run: bundle exec skylight disable_dev_warning
       - name: rails assets:precompile
         run: bundle exec rails SECRET_KEY_BASE=no assets:precompile
