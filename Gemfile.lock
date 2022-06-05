@@ -193,7 +193,7 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
-    devise-authy (2.3.1)
+    devise-authy (2.3.0)
       authy (~> 3.0)
       devise (>= 4.0.0)
     devise-i18n (1.10.2)
