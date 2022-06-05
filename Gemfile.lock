@@ -107,7 +107,7 @@ GEM
       ruby-next-core (>= 0.14.0)
     ast (2.4.2)
     attr_extras (6.2.5)
-    authy (3.0.1)
+    authy (3.0.0)
       httpclient (>= 2.5.3.3)
     autoprefixer-rails (10.4.7.0)
       execjs (~> 2)
