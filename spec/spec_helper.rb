@@ -2,10 +2,10 @@
 
 require "simplecov"
 
-if ENV.fetch("CI", nil) == "true"
-  require "codecov"
+if ENV["CI"] == "yes"
+  require "simplecov-cobertura"
 
-  SimpleCov.formatter = SimpleCov::Formatter::Codecov
+  SimpleCov.formatter = SimpleCov::Formatter::CoberturaFormatter
 end
 
 SimpleCov.start "rails" do

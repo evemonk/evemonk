@@ -30,7 +30,7 @@ jobs:
 
     services:
       postgres:
-        image: "postgres:14.2"
+        image: "postgres:14.3"
         env:
           POSTGRES_HOST_AUTH_METHOD: "trust"
           POSTGRES_USER: "runner"
@@ -56,6 +56,8 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
+      - name: Disable skylight dev warning
+        run: bundle exec skylight disable_dev_warning
       - name: rails db:create
         run: bundle exec rails db:create
       - name: rails db:migrate
