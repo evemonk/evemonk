@@ -103,6 +103,10 @@ GEM
       momentjs-rails (~> 2.8)
       sassc-rails (~> 2.1)
       selectize-rails (~> 0.6)
+    airbrake (13.0.2)
+      airbrake-ruby (~> 6.0)
+    airbrake-ruby (6.1.0)
+      rbtree3 (~> 0.5)
     anyway_config (2.3.0)
       ruby-next-core (>= 0.14.0)
     ast (2.4.2)
@@ -516,6 +520,7 @@ GEM
       zeitwerk (~> 2.5)
     rainbow (3.1.1)
     rake (13.0.6)
+    rbtree3 (0.7.0)
     redis (4.6.0)
     regexp_parser (2.5.0)
     request_store (1.5.1)
@@ -706,6 +711,7 @@ PLATFORMS
 DEPENDENCIES
   active_record_doctor
   administrate
+  airbrake (~> 13.0)
   anyway_config
   authy
   awesome_print
