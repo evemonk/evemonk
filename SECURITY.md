@@ -1,12 +1,11 @@
-# Security Policy
+# EveMonk Security Policy
 
 ## Supported Versions
 
-Use this section to tell people about which versions of your project are
-currently being supported with security updates.
+We release patches for security vulnerabilities against the following versions of EveMonk:
 
 | Version | Supported          |
-| ------- | ------------------ |
+|---------|--------------------|
 | 0.7.x   | :white_check_mark: |
 
 ## Reporting a Vulnerability
