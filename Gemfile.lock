@@ -272,6 +272,7 @@ GEM
     ffi-compiler (1.0.1)
       ffi (>= 1.0.0)
       rake
+    flipper (0.25.0)
     foundation_emails (2.2.1.0)
     fugit (1.5.3)
       et-orbi (~> 1, >= 1.2.7)
@@ -739,6 +740,7 @@ DEPENDENCIES
   factory_bot_rails
   faker
   fasterer
+  flipper
   foundation_emails
   gemdiff
   good_migrations
