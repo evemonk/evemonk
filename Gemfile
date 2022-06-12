@@ -15,6 +15,7 @@ gem "jbuilder", "~> 2.11"
 gem "sassc-rails", "~> 2.1"
 gem "bootsnap", ">= 1.4.4", require: false
 gem "flipper"
+gem "flipper-active_record"
 gem "bootstrap", "4.6.1"
 gem "bootswatch",
   git: "https://github.com/thomaspark/bootswatch.git",

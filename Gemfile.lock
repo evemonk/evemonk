@@ -273,6 +273,9 @@ GEM
       ffi (>= 1.0.0)
       rake
     flipper (0.25.0)
+    flipper-active_record (0.25.0)
+      activerecord (>= 4.2, < 8)
+      flipper (~> 0.25.0)
     foundation_emails (2.2.1.0)
     fugit (1.5.3)
       et-orbi (~> 1, >= 1.2.7)
@@ -741,6 +744,7 @@ DEPENDENCIES
   faker
   fasterer
   flipper
+  flipper-active_record
   foundation_emails
   gemdiff
   good_migrations
