@@ -14,6 +14,9 @@ gem "stimulus-rails", ">= 0.3.9"
 gem "jbuilder", "~> 2.11"
 gem "sassc-rails", "~> 2.1"
 gem "bootsnap", ">= 1.4.4", require: false
+gem "flipper"
+gem "flipper-active_record"
+gem "flipper-ui"
 gem "bootstrap", "4.6.1"
 gem "bootswatch",
   git: "https://github.com/thomaspark/bootswatch.git",
@@ -52,6 +55,7 @@ gem "paper_trail"
 gem "rails-settings-cached"
 gem "net-http-persistent"
 gem "connection_pool"
+gem "redis-client"
 gem "sidekiq", require: false
 gem "pghero"
 gem "pg_query"

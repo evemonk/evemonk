@@ -18,7 +18,7 @@ services:
       - "5432:5432"
 
   redis:
-    image: "docker.io/library/redis:6.2.7"
+    image: "docker.io/library/redis:7.0.1"
     container_name: "evemonk_redis"
     restart: "unless-stopped"
     volumes:

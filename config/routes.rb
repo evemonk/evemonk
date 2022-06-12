@@ -19,6 +19,10 @@ Rails.application.routes.draw do
     end
   end
 
+  constraints CanAccessFlipperUI do
+    mount Flipper::UI.app(Flipper), at: "/flipper"
+  end
+
   namespace :universe do
     resources :alliances, only: [:index, :show] do
       resource :hovercard, only: :show, controller: "alliances/hovercards"

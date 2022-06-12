@@ -7,7 +7,9 @@ module Eve
     sidekiq_options retry: false
 
     def perform
-      Eve::ServerStatusImporter.new.import
+      if Flipper.enabled?(:eve_server_status)
+        Eve::ServerStatusImporter.new.import
+      end
     end
   end
 end

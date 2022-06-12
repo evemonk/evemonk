@@ -1,9 +1,9 @@
-# Security Policy
+# EveMonk Security Policy
 
 ## Supported Versions
 
-Use this section to tell people about which versions of your project are
-currently being supported with security updates.
+We release patches for security vulnerabilities against the following versions
+of EveMonk:
 
 | Version | Supported          |
 | ------- | ------------------ |
@@ -11,8 +11,7 @@ currently being supported with security updates.
 
 ## Reporting a Vulnerability
 
-Use this section to tell people how to report a vulnerability.
-
-Tell them where to go, how often they can expect to get an update on a
-reported vulnerability, what to expect if the vulnerability is accepted or
-declined, etc.
+Please report security vulnerabilities to igor.zubkov@gmail.com. You should
+receive a response within 72 hours. If the issue is confirmed, we will release
+a patch as soon as possible depending on complexity but historically within a
+few days.
