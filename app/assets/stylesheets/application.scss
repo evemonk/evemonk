@@ -1,3 +1,8 @@
 @import "darkly/variables";
 @import "bootstrap";
 @import "darkly/bootswatch";
+
+// For stimulus-password-visibility
+.hidden {
+  display: none;
+}
