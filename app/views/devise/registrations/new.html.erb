@@ -36,11 +36,11 @@
               <span data-password-visibility-target="icon" class="bi bi-eye-slash hidden"></span>
             </button>
           </div>
-
-          <% if @minimum_password_length %>
-            <small class="form-text text-muted"><%= @minimum_password_length %> characters minimum</small>
-          <% end %>
         </div>
+
+        <% if @minimum_password_length %>
+          <small class="form-text text-muted"><%= @minimum_password_length %> characters minimum</small>
+        <% end %>
       </div>
 
       <div class="form-group">
