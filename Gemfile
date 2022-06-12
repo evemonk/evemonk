@@ -54,6 +54,7 @@ gem "paper_trail"
 gem "rails-settings-cached"
 gem "net-http-persistent"
 gem "connection_pool"
+gem "redis-client"
 gem "sidekiq", require: false
 gem "pghero"
 gem "pg_query"

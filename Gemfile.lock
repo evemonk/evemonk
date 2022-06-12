@@ -526,6 +526,8 @@ GEM
     rake (13.0.6)
     rbtree3 (0.7.0)
     redis (4.6.0)
+    redis-client (0.5.1)
+      connection_pool
     regexp_parser (2.5.0)
     request_store (1.5.1)
       rack (>= 1.4)
@@ -786,6 +788,7 @@ DEPENDENCIES
   rails-html-sanitizer
   rails-i18n (~> 7.0.3)
   rails-settings-cached
+  redis-client
   responders
   rspec-its
   rspec-rails
