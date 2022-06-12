@@ -12,17 +12,29 @@ describe Eve::ServerStatusJob do
   end
 
   describe "#perform" do
-    before do
-      #
-      # Eve::ServerStatusImporter.new.import
-      #
-      expect(Eve::ServerStatusImporter).to receive(:new) do
-        double.tap do |a|
-          expect(a).to receive(:import)
+    context "when eve_server_status enabled" do
+      before { Flipper.enable(:eve_server_status) }
+
+      before do
+        #
+        # Eve::ServerStatusImporter.new.import
+        #
+        expect(Eve::ServerStatusImporter).to receive(:new) do
+          double.tap do |a|
+            expect(a).to receive(:import)
+          end
         end
       end
+
+      specify { expect { subject.perform }.not_to raise_error }
     end
 
-    specify { expect { subject.perform }.not_to raise_error }
+    context "when eve_server_status disabled" do
+      before { Flipper.disable(:eve_server_status) }
+
+      before { expect(Eve::ServerStatusImporter).not_to receive(:new) }
+
+      specify { expect { subject.perform }.not_to raise_error }
+    end
   end
 end
