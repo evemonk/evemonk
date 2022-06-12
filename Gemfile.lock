@@ -276,6 +276,12 @@ GEM
     flipper-active_record (0.25.0)
       activerecord (>= 4.2, < 8)
       flipper (~> 0.25.0)
+    flipper-ui (0.25.0)
+      erubi (>= 1.0.0, < 2.0.0)
+      flipper (~> 0.25.0)
+      rack (>= 1.4, < 3)
+      rack-protection (>= 1.5.3, <= 2.2.0)
+      sanitize (< 7)
     foundation_emails (2.2.1.0)
     fugit (1.5.3)
       et-orbi (~> 1, >= 1.2.7)
@@ -581,6 +587,9 @@ GEM
     rubyzip (2.3.2)
     rufus-scheduler (3.8.1)
       fugit (~> 1.1, >= 1.1.6)
+    sanitize (6.0.0)
+      crass (~> 1.0.2)
+      nokogiri (>= 1.12.0)
     sassc (2.4.0)
       ffi (~> 1.9)
     sassc-rails (2.1.2)
@@ -747,6 +756,7 @@ DEPENDENCIES
   fasterer
   flipper
   flipper-active_record
+  flipper-ui
   foundation_emails
   gemdiff
   good_migrations
