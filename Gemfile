@@ -12,7 +12,7 @@ gem "importmap-rails", ">= 0.3.4"
 gem "turbo-rails", ">= 0.7.4"
 gem "stimulus-rails", ">= 0.3.9"
 gem "jbuilder", "~> 2.11"
-gem "sassc-rails", "~> 2.1"
+gem "dartsass-rails"
 gem "bootsnap", ">= 1.4.4", require: false
 gem "flipper"
 gem "flipper-active_record"

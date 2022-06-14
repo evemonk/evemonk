@@ -175,6 +175,8 @@ GEM
       rexml
     crass (1.0.6)
     dalli (3.2.2)
+    dartsass-rails (0.3.0)
+      railties (>= 6.0.0)
     database_rewinder (0.9.8)
     datetime_picker_rails (0.0.7)
       momentjs-rails (>= 2.8.1)
@@ -741,6 +743,7 @@ DEPENDENCIES
   consistency_fail
   countries
   dalli
+  dartsass-rails
   database_rewinder
   derailed_benchmarks
   devise
@@ -806,7 +809,6 @@ DEPENDENCIES
   rubocop-graphql
   rubocop-performance
   rufus-scheduler
-  sassc-rails (~> 2.1)
   selenium-webdriver
   server_timing
   shoulda-callback-matchers!
