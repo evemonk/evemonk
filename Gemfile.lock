@@ -175,6 +175,8 @@ GEM
       rexml
     crass (1.0.6)
     dalli (3.2.2)
+    dartsass-rails (0.3.0)
+      railties (>= 6.0.0)
     database_rewinder (0.9.8)
     datetime_picker_rails (0.0.7)
       momentjs-rails (>= 2.8.1)
@@ -282,6 +284,7 @@ GEM
       rack (>= 1.4, < 3)
       rack-protection (>= 1.5.3, <= 2.2.0)
       sanitize (< 7)
+    foreman (0.87.2)
     foundation_emails (2.2.1.0)
     fugit (1.5.3)
       et-orbi (~> 1, >= 1.2.7)
@@ -741,6 +744,7 @@ DEPENDENCIES
   consistency_fail
   countries
   dalli
+  dartsass-rails
   database_rewinder
   derailed_benchmarks
   devise
@@ -757,6 +761,7 @@ DEPENDENCIES
   flipper
   flipper-active_record
   flipper-ui
+  foreman
   foundation_emails
   gemdiff
   good_migrations
@@ -806,7 +811,6 @@ DEPENDENCIES
   rubocop-graphql
   rubocop-performance
   rufus-scheduler
-  sassc-rails (~> 2.1)
   selenium-webdriver
   server_timing
   shoulda-callback-matchers!
@@ -837,4 +841,4 @@ RUBY VERSION
    ruby 3.1.2p20
 
 BUNDLED WITH
-   2.3.15
+   2.3.16
