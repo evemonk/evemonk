@@ -318,7 +318,7 @@ GEM
     heapy (0.2.0)
       thor
     html_tokenizer (0.0.7)
-    http (5.0.4)
+    http (5.1.0)
       addressable (~> 2.8)
       http-cookie (~> 1.0)
       http-form_data (~> 2.2)
