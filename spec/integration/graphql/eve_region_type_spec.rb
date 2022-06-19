@@ -64,7 +64,7 @@ describe Types::EveRegionType do
 
     let(:query) do
       %(
-        {
+        query getRegions {
           regions(first: 2) {
             edges {
               node {
@@ -271,7 +271,7 @@ describe Types::EveRegionType do
 
     let(:query) do
       %(
-        {
+        query getRegionByID {
           region(id: 123) {
             id
             name

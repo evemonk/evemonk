@@ -52,7 +52,7 @@ describe Types::EveConstellationType do
 
     let(:query) do
       %(
-        {
+        query getConstellations {
           constellations(first: 2) {
             edges {
               node {
@@ -202,7 +202,7 @@ describe Types::EveConstellationType do
 
     let(:query) do
       %(
-        {
+        query getConstellationByID {
           constellation(id: 123) {
             id
             name
