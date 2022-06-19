@@ -19,8 +19,8 @@ module Types
 
     field :icon, EveAllianceIconType,
       description: "Eve Alliance Icons",
-      null: true,
-      method: :itself
+      method: :itself,
+      null: true
 
     field :date_founded, GraphQL::Types::ISO8601DateTime,
       description: "Date founded",

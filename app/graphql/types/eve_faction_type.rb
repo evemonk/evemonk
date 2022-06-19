@@ -9,6 +9,16 @@ module Types
       description: "Faction ID",
       null: false
 
+    field :name, EveNameType,
+      description: "Name object",
+      method: :itself,
+      null: true
+
+    field :description, EveDescriptionType,
+      description: "Description object",
+      method: :itself,
+      null: true
+
     field :corporation_id, Integer,
       description: "Corporation ID",
       null: true
@@ -17,16 +27,8 @@ module Types
       description: "Corporation",
       null: true
 
-    field :description, GraphQL::Types::JSON,
-      description: "Description",
-      null: true
-
     field :is_unique, Boolean,
       description: "Is Unique?",
-      null: true
-
-    field :name, GraphQL::Types::JSON,
-      description: "Name",
       null: true
 
     field :militia_corporation_id, Integer,
@@ -62,27 +64,5 @@ module Types
       null: true
 
     # field :standings
-
-    def description
-      {
-        en: object.description_en,
-        de: object.description_de,
-        fr: object.description_fr,
-        ja: object.description_ja,
-        ru: object.description_ru,
-        ko: object.description_ko
-      }
-    end
-
-    def name
-      {
-        en: object.name_en,
-        de: object.name_de,
-        fr: object.name_fr,
-        ja: object.name_ja,
-        ru: object.name_ru,
-        ko: object.name_ko
-      }
-    end
   end
 end

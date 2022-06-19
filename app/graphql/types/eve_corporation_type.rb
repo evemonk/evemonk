@@ -9,6 +9,11 @@ module Types
       description: "Corporation ID",
       null: false
 
+    field :icon, EveCorporationIconType,
+      description: "Eve Corporation Icons",
+      method: :itself,
+      null: true
+
     field :alliance_id, Integer,
       description: "Alliance ID",
       null: true

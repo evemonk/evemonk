@@ -3,9 +3,9 @@
 require "rails_helper"
 
 describe Api::Eve::ManufacturingItemsController do
-  before { Setting.use_image_proxy = true }
-
   describe "#index" do
+    before { Setting.use_image_proxy = true }
+
     it "returns list of manufacturing items" do
       create(:eve_type,
         type_id: 24_698,

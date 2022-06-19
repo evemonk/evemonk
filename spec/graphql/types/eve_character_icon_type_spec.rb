@@ -2,5 +2,5 @@
 
 require "rails_helper"
 
-describe Types::EveCharacterType do
+describe Types::EveCharacterIconType do
 end

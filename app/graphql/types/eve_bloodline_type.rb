@@ -9,12 +9,14 @@ module Types
       description: "Bloodline ID",
       null: false
 
-    field :name, GraphQL::Types::JSON,
-      description: "Name",
+    field :name, EveNameType,
+      description: "Name object",
+      method: :itself,
       null: true
 
-    field :description, GraphQL::Types::JSON,
-      description: "Description",
+    field :description, EveDescriptionType,
+      description: "Description object",
+      method: :itself,
       null: true
 
     field :corporation_id, Integer,
@@ -64,27 +66,5 @@ module Types
     field :ancestries, Types::EveAncestryType.connection_type,
       description: "Ancestries collection",
       null: true
-
-    def name
-      {
-        en: object.name_en,
-        de: object.name_de,
-        fr: object.name_fr,
-        ja: object.name_ja,
-        ru: object.name_ru,
-        ko: object.name_ko
-      }
-    end
-
-    def description
-      {
-        en: object.description_en,
-        de: object.description_de,
-        fr: object.description_fr,
-        ja: object.description_ja,
-        ru: object.description_ru,
-        ko: object.description_ko
-      }
-    end
   end
 end
