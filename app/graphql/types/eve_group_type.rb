@@ -9,8 +9,9 @@ module Types
       description: "Group ID",
       null: false
 
-    field :name, GraphQL::Types::JSON,
-      description: "Name",
+    field :name, EveNameType,
+      description: "Name object",
+      method: :itself,
       null: true
 
     field :published, Boolean,
@@ -28,16 +29,5 @@ module Types
     field :types, Types::EveTypeType.connection_type,
       description: "Types collection",
       null: true
-
-    def name
-      {
-        en: object.name_en,
-        de: object.name_de,
-        fr: object.name_fr,
-        ja: object.name_ja,
-        ru: object.name_ru,
-        ko: object.name_ko
-      }
-    end
   end
 end
