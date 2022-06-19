@@ -103,7 +103,7 @@ describe "Get Alliances" do
 
   let(:query) do
     %(
-      {
+      query getAlliances {
         alliances(first: 2) {
           edges {
             node {
