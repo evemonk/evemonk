@@ -9,12 +9,14 @@ module Types
       description: "Region ID",
       null: false
 
-    field :name, GraphQL::Types::JSON,
-      description: "Name",
+    field :name, EveNameType,
+      description: "Name object",
+      method: :itself,
       null: true
 
-    field :description, GraphQL::Types::JSON,
-      description: "Description",
+    field :description, EveDescriptionType,
+      description: "Description object",
+      method: :itself,
       null: true
 
     field :constellations, Types::EveConstellationType.connection_type,
