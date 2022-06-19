@@ -110,6 +110,13 @@ describe "Get Alliances" do
               id
               name
               ticker
+              icon {
+                tiny
+                small
+                medium
+                large
+                huge
+              }
               dateFounded
               creatorCorporationId
               creatorCorporation {
@@ -182,6 +189,13 @@ describe "Get Alliances" do
               "id" => "123",
               "name" => "Alliance 1",
               "ticker" => "ALLIANCE1",
+              "icon" => {
+                "tiny" => "https://imageproxy.evemonk.com/https://images.evetech.net/alliances/123/logo?size=32",
+                "small" => "https://imageproxy.evemonk.com/https://images.evetech.net/alliances/123/logo?size=64",
+                "medium" => "https://imageproxy.evemonk.com/https://images.evetech.net/alliances/123/logo?size=128",
+                "large" => "https://imageproxy.evemonk.com/https://images.evetech.net/alliances/123/logo?size=256",
+                "huge" => "https://imageproxy.evemonk.com/https://images.evetech.net/alliances/123/logo?size=512"
+              },
               "dateFounded" => date_founded_1.iso8601,
               "creatorCorporationId" => 222,
               "creatorCorporation" => {
@@ -241,6 +255,13 @@ describe "Get Alliances" do
               "id" => "321",
               "name" => "Alliance 2",
               "ticker" => "ALLIANCE2",
+              "icon" => {
+                "tiny" => "https://imageproxy.evemonk.com/https://images.evetech.net/alliances/321/logo?size=32",
+                "small" => "https://imageproxy.evemonk.com/https://images.evetech.net/alliances/321/logo?size=64",
+                "medium" => "https://imageproxy.evemonk.com/https://images.evetech.net/alliances/321/logo?size=128",
+                "large" => "https://imageproxy.evemonk.com/https://images.evetech.net/alliances/321/logo?size=256",
+                "huge" => "https://imageproxy.evemonk.com/https://images.evetech.net/alliances/321/logo?size=512"
+              },
               "dateFounded" => date_founded_2.iso8601,
               "creatorCorporationId" => 333,
               "creatorCorporation" => {
