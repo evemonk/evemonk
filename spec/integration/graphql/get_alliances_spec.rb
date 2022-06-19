@@ -13,92 +13,92 @@ describe "Get Alliances" do
 
   let!(:creator_corporation_1) do
     create(:eve_corporation,
-           corporation_id: 222)
+      corporation_id: 222)
   end
 
   let!(:creator_corporation_2) do
     create(:eve_corporation,
-           corporation_id: 333)
+      corporation_id: 333)
   end
 
   let!(:executor_corporation_1) do
     create(:eve_corporation,
-           corporation_id: 444)
+      corporation_id: 444)
   end
 
   let!(:executor_corporation_2) do
     create(:eve_corporation,
-           corporation_id: 555)
+      corporation_id: 555)
   end
 
   let!(:creator_1) do
     create(:eve_character,
-           character_id: 4_444)
+      character_id: 4_444)
   end
 
   let!(:creator_2) do
     create(:eve_character,
-           character_id: 5_555)
+      character_id: 5_555)
   end
 
   let!(:eve_faction_1) do
     create(:eve_faction,
-           faction_id: 10_111)
+      faction_id: 10_111)
   end
 
   let!(:eve_faction_2) do
     create(:eve_faction,
-           faction_id: 10_222)
+      faction_id: 10_222)
   end
 
   let!(:eve_alliance_1) do
     create(:eve_alliance,
-           alliance_id: 123,
-           name: "Alliance 1",
-           ticker: "ALLIANCE1",
-           date_founded: date_founded_1,
-           creator_corporation: creator_corporation_1,
-           creator: creator_1,
-           executor_corporation: executor_corporation_1,
-           faction: eve_faction_1)
+      alliance_id: 123,
+      name: "Alliance 1",
+      ticker: "ALLIANCE1",
+      date_founded: date_founded_1,
+      creator_corporation: creator_corporation_1,
+      creator: creator_1,
+      executor_corporation: executor_corporation_1,
+      faction: eve_faction_1)
   end
 
   let!(:eve_alliance_2) do
     create(:eve_alliance,
-           alliance_id: 321,
-           name: "Alliance 2",
-           ticker: "ALLIANCE2",
-           date_founded: date_founded_2,
-           creator_corporation: creator_corporation_2,
-           creator: creator_2,
-           executor_corporation: executor_corporation_2,
-           faction: eve_faction_2)
+      alliance_id: 321,
+      name: "Alliance 2",
+      ticker: "ALLIANCE2",
+      date_founded: date_founded_2,
+      creator_corporation: creator_corporation_2,
+      creator: creator_2,
+      executor_corporation: executor_corporation_2,
+      faction: eve_faction_2)
   end
 
   let!(:eve_corporation_1) do
     create(:eve_corporation,
-           corporation_id: 100_111,
-           alliance: eve_alliance_1,
-           member_count: 1)
+      corporation_id: 100_111,
+      alliance: eve_alliance_1,
+      member_count: 1)
   end
 
   let!(:eve_corporation_2) do
     create(:eve_corporation,
-           corporation_id: 100_222,
-           alliance: eve_alliance_2,
-           member_count: 1)
+      corporation_id: 100_222,
+      alliance: eve_alliance_2,
+      member_count: 1)
   end
 
   let!(:eve_character_1) do
     create(:eve_character,
-           corporation: eve_corporation_1,
-           character_id: 111_111)
+      corporation: eve_corporation_1,
+      character_id: 111_111)
   end
 
   let!(:eve_character_2) do
     create(:eve_character,
-           corporation: eve_corporation_2,
-           character_id: 111_222)
+      corporation: eve_corporation_2,
+      character_id: 111_222)
   end
 
   let(:query) do
