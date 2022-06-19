@@ -40,7 +40,7 @@ describe "Get Race by ID" do
 
   let(:query) do
     %(
-      {
+      query getRaceByID {
         race(id: 4) {
           id
           name {

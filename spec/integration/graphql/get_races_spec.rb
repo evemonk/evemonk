@@ -75,7 +75,7 @@ describe "Get Races" do
 
   let(:query) do
     %(
-      {
+      query getRaces {
         races(first: 2) {
           edges {
             node {

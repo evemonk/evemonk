@@ -56,7 +56,7 @@ describe "Get Alliance by ID" do
 
   let(:query) do
     %(
-      {
+      query getAllianceByID {
         alliance(id: 123) {
           id
           name
