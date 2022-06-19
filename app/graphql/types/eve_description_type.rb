@@ -6,50 +6,32 @@ module Types
 
     field :en, String,
       description: "English",
+      method: :description_en,
       null: true
 
     field :de, String,
       description: "Deutsch",
+      method: :description_de,
       null: true
 
     field :fr, String,
       description: "French",
+      method: :description_fr,
       null: true
 
     field :ja, String,
       description: "Japanese",
+      method: :description_ja,
       null: true
 
     field :ru, String,
       description: "Russian",
+      method: :description_ru,
       null: true
 
     field :ko, String,
       description: "Korean",
+      method: :description_ko,
       null: true
-
-    def en
-      object.description_en
-    end
-
-    def de
-      object.description_de
-    end
-
-    def fr
-      object.description_fr
-    end
-
-    def ja
-      object.description_ja
-    end
-
-    def ru
-      object.description_ru
-    end
-
-    def ko
-      object.description_ko
-    end
   end
 end
