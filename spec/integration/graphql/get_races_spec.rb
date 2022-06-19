@@ -80,8 +80,22 @@ describe "Get Races" do
           edges {
             node {
               id
-              name
-              description
+              name {
+                en
+                de
+                fr
+                ja
+                ru
+                ko
+              }
+              description {
+                en
+                de
+                fr
+                ja
+                ru
+                ko
+              }
               factionId
               faction {
                 id
