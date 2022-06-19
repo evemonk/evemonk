@@ -115,6 +115,14 @@ describe Types::EveCharacterType do
             edges {
               node {
                 id
+                icon {
+                  tiny
+                  small
+                  medium
+                  large
+                  huge
+                  gigantic
+                }
                 allianceId
                 alliance {
                   id
@@ -309,6 +317,14 @@ describe Types::EveCharacterType do
         {
           character(id: 123) {
             id
+            icon {
+              tiny
+              small
+              medium
+              large
+              huge
+              gigantic
+            }
             allianceId
             alliance {
               id
