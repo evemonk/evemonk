@@ -29,5 +29,12 @@ module Types
     field :types, Types::EveTypeType.connection_type,
       description: "Types collection",
       null: true
+
+    def category
+      # dataloader.with(Sources::EveCategoryByCategoryId, ::Eve::Category).load(object.category_id)
+
+      dataloader.with(Sources::EveCategoryByCategoryId)
+        .load(object.category_id)
+    end
   end
 end
