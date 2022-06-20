@@ -56,7 +56,14 @@ describe "Get Constellations" do
           edges {
             node {
               id
-              name
+              name {
+                en
+                de
+                fr
+                ja
+                ru
+                ko
+              }
               regionId
               region {
                 id
