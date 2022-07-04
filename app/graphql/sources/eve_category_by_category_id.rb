@@ -1,4 +1,4 @@
-# frozen_string_literal: trues
+# frozen_string_literal: true
 
 class Sources::EveCategoryByCategoryId < GraphQL::Dataloader::Source
   # def initialize(model_class)
