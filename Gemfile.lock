@@ -1,4 +1,13 @@
 GIT
+  remote: https://github.com/evemonk/eve_online.git
+  revision: c6fe1e7746c9ae2a19da5a92e2946fcfdf19e426
+  branch: main
+  specs:
+    eve_online (0.43.0)
+      activesupport (>= 5.2.0)
+      faraday (>= 2.3.0)
+
+GIT
   remote: https://github.com/just806me/shoulda-callback-matchers.git
   revision: b3a93d43490cdb3062a437e2edfbd50d25eda79a
   branch: master
@@ -229,10 +238,6 @@ GEM
     erubi (1.10.0)
     et-orbi (1.2.7)
       tzinfo
-    eve_online (0.43.0)
-      activesupport (>= 5.2.0)
-      faraday
-      faraday_middleware
     execjs (2.8.1)
     factory_bot (6.2.1)
       activesupport (>= 5.0.0)
@@ -241,31 +246,10 @@ GEM
       railties (>= 5.0.0)
     faker (2.21.0)
       i18n (>= 1.8.11, < 2)
-    faraday (1.10.0)
-      faraday-em_http (~> 1.0)
-      faraday-em_synchrony (~> 1.0)
-      faraday-excon (~> 1.1)
-      faraday-httpclient (~> 1.0)
-      faraday-multipart (~> 1.0)
-      faraday-net_http (~> 1.0)
-      faraday-net_http_persistent (~> 1.0)
-      faraday-patron (~> 1.0)
-      faraday-rack (~> 1.0)
-      faraday-retry (~> 1.0)
+    faraday (2.3.0)
+      faraday-net_http (~> 2.0)
       ruby2_keywords (>= 0.0.4)
-    faraday-em_http (1.0.0)
-    faraday-em_synchrony (1.0.0)
-    faraday-excon (1.1.0)
-    faraday-httpclient (1.0.1)
-    faraday-multipart (1.0.4)
-      multipart-post (~> 2)
-    faraday-net_http (1.0.1)
-    faraday-net_http_persistent (1.2.0)
-    faraday-patron (1.0.0)
-    faraday-rack (1.0.0)
-    faraday-retry (1.0.3)
-    faraday_middleware (1.2.0)
-      faraday (~> 1.0)
+    faraday-net_http (2.0.3)
     fasterer (0.10.0)
       colorize (~> 0.7)
       ruby_parser (>= 3.19.1)
@@ -404,7 +388,6 @@ GEM
     msgpack (1.5.3)
     multi_json (1.15.0)
     multi_xml (0.6.0)
-    multipart-post (2.2.3)
     net-http-persistent (4.0.1)
       connection_pool (~> 2.2)
     net-imap (0.2.3)
@@ -750,7 +733,7 @@ DEPENDENCIES
   dotenv-rails
   down
   erb_lint
-  eve_online
+  eve_online!
   factory_bot_rails
   faker
   fasterer
