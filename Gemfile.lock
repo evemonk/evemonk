@@ -8,10 +8,10 @@ GIT
 
 GIT
   remote: https://github.com/kpumuk/meta-tags.git
-  revision: 7c402358689b786b070f3fec5ea366d065f5b5bf
+  revision: 85fdb388d88e92ea71d7c46e494d1820068b0f69
   branch: main
   specs:
-    meta-tags (2.16.0)
+    meta-tags (2.17.0)
       actionpack (>= 3.2.0, < 7.1)
 
 GIT
