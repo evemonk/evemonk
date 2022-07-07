@@ -400,6 +400,8 @@ GEM
       net-protocol
       timeout
     nio4r (2.5.8)
+    nokogiri (1.13.7-aarch64-linux)
+      racc (~> 1.4)
     nokogiri (1.13.7-arm64-darwin)
       racc (~> 1.4)
     nokogiri (1.13.7-x86_64-darwin)
@@ -698,6 +700,7 @@ GEM
     zxcvbn (0.1.7)
 
 PLATFORMS
+  aarch64-linux
   arm64-darwin-21
   x86_64-darwin-20
   x86_64-darwin-21
