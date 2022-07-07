@@ -98,6 +98,7 @@ group :development, :test do
   gem "rubocop", require: false
   gem "rubocop-performance", require: false
   gem "rubocop-graphql", require: false
+  gem "rubocop-rails", require: false
   gem "standard", require: false
   gem "squasher", require: false
   gem "brakeman", require: false
