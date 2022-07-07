@@ -35,9 +35,7 @@ gem "devise-authy"
 gem "graphql"
 gem "graphiql-rails"
 gem "pg_search"
-gem "meta-tags",
-  git: "https://github.com/kpumuk/meta-tags.git",
-  branch: "main"
+gem "meta-tags"
 gem "metricky"
 gem "dalli"
 gem "foundation_emails"

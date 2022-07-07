@@ -16,14 +16,6 @@ GIT
       activesupport (>= 3)
 
 GIT
-  remote: https://github.com/kpumuk/meta-tags.git
-  revision: 7c402358689b786b070f3fec5ea366d065f5b5bf
-  branch: main
-  specs:
-    meta-tags (2.16.0)
-      actionpack (>= 3.2.0, < 7.1)
-
-GIT
   remote: https://github.com/thomaspark/bootswatch.git
   revision: 8e6358e490c4caf9523b3cc5dd71167276dd77c8
   branch: v4.6.1
@@ -373,6 +365,8 @@ GEM
     marcel (1.0.2)
     matrix (0.4.2)
     memory_profiler (1.0.0)
+    meta-tags (2.16.0)
+      actionpack (>= 3.2.0, < 7.1)
     method_source (1.0.0)
     metricky (0.8.6)
       chartkick (> 3.0)
@@ -762,7 +756,7 @@ DEPENDENCIES
   license_finder
   local_time
   lograge
-  meta-tags!
+  meta-tags
   metricky
   mobility
   net-http-persistent
