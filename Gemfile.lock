@@ -585,16 +585,12 @@ GEM
     sawyer (0.9.2)
       addressable (>= 2.3.5)
       faraday (>= 0.17.3, < 3)
-    scout_apm (5.2.0)
-      parser
     selectize-rails (0.12.6)
     selenium-webdriver (4.3.0)
       childprocess (>= 0.5, < 5.0)
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
-    server_timing (1.0.2)
-      scout_apm
     sexp_processor (4.16.1)
     shoulda-matchers (5.1.0)
       activesupport (>= 5.2.0)
@@ -794,7 +790,6 @@ DEPENDENCIES
   rubocop-rails
   rufus-scheduler
   selenium-webdriver
-  server_timing
   shoulda-callback-matchers!
   shoulda-matchers
   sidekiq
