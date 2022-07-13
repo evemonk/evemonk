@@ -6,7 +6,7 @@ describe Api::RefreshCharacterAccessToken do
   context "when token fresh" do
     let(:character) do
       create(:character,
-        token_expires_at: Time.zone.now + 1.day)
+        token_expires_at: 1.day.from_now)
     end
 
     subject { described_class.new(character) }
