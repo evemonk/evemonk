@@ -1,6 +1,7 @@
 require:
   - rubocop-performance
   - rubocop-graphql
+#  - rubocop-rails
 
 AllCops:
   NewCops: enable
@@ -154,6 +155,7 @@ GraphQL/ObjectDescription:
     - "app/graphql/types/base_object.rb"
     - "app/graphql/types/base_scalar.rb"
     - "app/graphql/types/base_union.rb"
+    - "app/graphql/sources/eve_category_by_category_id.rb"
 
 GraphQL/ExtractType:
   Prefixes:
