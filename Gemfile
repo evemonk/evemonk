@@ -35,14 +35,15 @@ gem "devise-authy"
 gem "graphql"
 gem "graphiql-rails"
 gem "pg_search"
-gem "meta-tags",
-  git: "https://github.com/kpumuk/meta-tags.git",
-  branch: "main"
+gem "meta-tags"
 gem "metricky"
 gem "dalli"
 gem "foundation_emails"
 gem "rufus-scheduler"
-gem "eve_online"
+# gem "eve_online"
+gem "eve_online",
+  git: "https://github.com/evemonk/eve_online.git",
+  branch: "main"
 gem "omniauth-eve_online-sso"
 gem "omniauth-rails_csrf_protection"
 gem "jwt"
@@ -67,7 +68,6 @@ gem "aws-sdk-s3"
 gem "down"
 gem "sitemap_generator"
 gem "administrate"
-gem "server_timing"
 gem "awesome_print", require: "ap"
 gem "pry-rails"
 gem "skylight"
@@ -97,6 +97,7 @@ group :development, :test do
   gem "rubocop", require: false
   gem "rubocop-performance", require: false
   gem "rubocop-graphql", require: false
+  gem "rubocop-rails", require: false
   gem "standard", require: false
   gem "squasher", require: false
   gem "brakeman", require: false

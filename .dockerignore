@@ -11,6 +11,7 @@
 .rspec
 .rubocop.yml
 .standard.yml
+config/skylight.yml
 docker-build.sh
 docker-compose.yml
 docker-postgresql-restore-dump.sh

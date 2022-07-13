@@ -6,13 +6,13 @@ FactoryBot.define do
 
     declared { Time.zone.now }
 
-    finished { Time.zone.now + 3.day }
+    finished { Time.zone.now + 3.days }
 
     mutual { [true, false].sample }
 
     open_for_allies { [true, false].sample }
 
-    retracted { Time.zone.now + 2.day }
+    retracted { Time.zone.now + 2.days }
 
     started { Time.zone.now + 1.day }
   end
