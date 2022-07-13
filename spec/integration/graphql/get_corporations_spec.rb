@@ -9,7 +9,7 @@ describe "Get Corporations" do
 
   let(:date_founded_1) { Time.zone.now }
 
-  let(:date_founded_2) { Time.zone.now - 1.week }
+  let(:date_founded_2) { 1.week.ago }
 
   let!(:eve_alliance_1) do
     create(:eve_alliance,
