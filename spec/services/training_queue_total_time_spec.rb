@@ -25,14 +25,14 @@ describe TrainingQueueTotalTime do
         create(:skillqueue,
           character: character,
           start_date: Time.zone.now,
-          finish_date: Time.zone.now + 1.hour)
+          finish_date: 1.hour.from_now)
       end
 
       let!(:skillqueue_2) do
         create(:skillqueue,
           character: character,
-          start_date: Time.zone.now + 1.hour,
-          finish_date: Time.zone.now + 2.hours)
+          start_date: 1.hour.from_now,
+          finish_date: 2.hours.from_now)
       end
 
       subject { described_class.new(character.skillqueues) }
@@ -44,15 +44,15 @@ describe TrainingQueueTotalTime do
       let!(:skillqueue_1) do
         create(:skillqueue,
           character: character,
-          start_date: Time.zone.now - 2.hours,
-          finish_date: Time.zone.now + 1.hour)
+          start_date: 2.hours.ago,
+          finish_date: 1.hour.from_now)
       end
 
       let!(:skillqueue_2) do
         create(:skillqueue,
           character: character,
-          start_date: Time.zone.now + 1.hour,
-          finish_date: Time.zone.now + 2.hours)
+          start_date: 1.hour.from_now,
+          finish_date: 2.hours.from_now)
       end
 
       subject { described_class.new(character.skillqueues) }
