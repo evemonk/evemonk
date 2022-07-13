@@ -22,8 +22,6 @@ describe Skillqueue do
   describe "#time_left" do
     before { travel_to Time.zone.now }
 
-    after { travel_back }
-
     context "when start_date in past" do
       subject do
         build(:skillqueue,

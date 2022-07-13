@@ -5,8 +5,6 @@ require "rails_helper"
 describe "Get Corporations" do
   before { travel_to Time.zone.now }
 
-  after { travel_back }
-
   let(:date_founded_1) { Time.zone.now }
 
   let(:date_founded_2) { 1.week.ago }

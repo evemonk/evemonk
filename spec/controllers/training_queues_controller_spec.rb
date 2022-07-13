@@ -11,8 +11,6 @@ describe TrainingQueuesController do
     context "when user signed in" do
       before { travel_to Time.zone.now }
 
-      after { travel_back }
-
       let(:user) { create(:user) }
 
       before { sign_in(user) }

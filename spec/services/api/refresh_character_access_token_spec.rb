@@ -42,8 +42,6 @@ describe Api::RefreshCharacterAccessToken do
   context "when oauth2 error" do
     before { travel_to Time.zone.now }
 
-    after { travel_back }
-
     before { expect(Setting).to receive(:eve_online_sso_client_id).and_return("eve-online-sso-client-id") }
 
     before { expect(Setting).to receive(:eve_online_sso_secret_key).and_return("eve-online-sso-secret-key") }

@@ -5,8 +5,6 @@ require "rails_helper"
 describe "Get Corporation by ID" do
   before { travel_to Time.zone.now }
 
-  after { travel_back }
-
   let(:date_founded) { Time.zone.now }
 
   let!(:eve_alliance) do

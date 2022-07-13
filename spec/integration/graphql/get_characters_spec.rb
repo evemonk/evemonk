@@ -5,8 +5,6 @@ require "rails_helper"
 describe "Get Characters" do
   before { travel_to Time.zone.now }
 
-  after { travel_back }
-
   let!(:birthday_1) { Time.zone.now }
 
   let!(:birthday_2) { 1.week.ago }
