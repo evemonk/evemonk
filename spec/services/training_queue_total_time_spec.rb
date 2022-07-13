@@ -16,8 +16,6 @@ describe TrainingQueueTotalTime do
   describe "#total_time" do
     before { travel_to Time.zone.now }
 
-    after { travel_back }
-
     let!(:character) { create(:character) }
 
     context "when start_date in future" do
