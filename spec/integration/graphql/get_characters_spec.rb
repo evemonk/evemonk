@@ -9,7 +9,7 @@ describe "Get Characters" do
 
   let!(:birthday_1) { Time.zone.now }
 
-  let!(:birthday_2) { Time.zone.now - 1.week }
+  let!(:birthday_2) { 1.week.ago }
 
   let!(:eve_alliance_1) do
     create(:eve_alliance,
