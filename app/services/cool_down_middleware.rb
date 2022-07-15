@@ -26,8 +26,8 @@ class CoolDownMiddleware < Faraday::Middleware
   end
 
   def on_complete(env)
-    esi_error_limit_remain = env.response_headers["x-esi-error-limit-remain"]
-    esi_error_limit_reset = env.response_headers["x-esi-error-limit-reset"]
+    esi_error_limit_remain = env[:response_headers]["x-esi-error-limit-remain"]
+    esi_error_limit_reset = env[:response_headers]["x-esi-error-limit-reset"]
     redis = Redis.new
 
     if esi_error_limit_remain && esi_error_limit_reset
