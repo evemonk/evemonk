@@ -493,8 +493,6 @@ describe CharacterSkillsTree do
 
       before { travel_to Time.zone.now }
 
-      after { travel_back }
-
       before do
         #
         # character.skillqueues

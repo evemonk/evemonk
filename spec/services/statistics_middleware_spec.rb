@@ -11,7 +11,7 @@ describe StatisticsMiddleware do
 
       before do
         conn = Faraday.new { |f|
-          f.use StatisticsMiddleware, esi: esi
+          f.use StatisticsMiddleware
           f.adapter Faraday.default_adapter
         }
 

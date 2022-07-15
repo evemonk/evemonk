@@ -85,15 +85,13 @@ class CharacterBaseImporter
 
   def statistics_middleware
     {
-      class: StatisticsMiddleware,
-      esi: esi
+      class: StatisticsMiddleware
     }
   end
 
   def cool_down_middleware
     {
-      class: CoolDownMiddleware,
-      esi: esi
+      class: CoolDownMiddleware
     }
   end
 end

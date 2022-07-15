@@ -10,7 +10,7 @@ FactoryBot.define do
 
     refresh_token { Faker::Internet.device_token }
 
-    token_expires_at { Time.zone.now + 1.day }
+    token_expires_at { 1.day.from_now }
 
     token_expires { [true, false].sample }
 

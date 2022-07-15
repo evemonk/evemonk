@@ -4,7 +4,7 @@ FactoryBot.define do
   factory :skillqueue do
     character
 
-    finish_date { Time.zone.now + 1.hour }
+    finish_date { 1.hour.from_now }
 
     finished_level { [1, 2, 3, 4, 5].sample }
 

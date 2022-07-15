@@ -3,20 +3,63 @@
 require "rails_helper"
 
 describe CoolDownMiddleware do
-  describe "when request is 200" do
-    before { stub_request(:get, "https://esi.evetech.net/v2/status/").to_return(status: 200, body: {}.to_json) }
+  before { VCR.insert_cassette "services/cool_down_middleware" }
 
-    let(:esi) { EveOnline::ESI::ServerStatus.new }
+  after { VCR.eject_cassette }
 
-    let(:conn) do
-      conn = Faraday.new { |f|
-        f.use CoolDownMiddleware, esi: esi
-        f.adapter Faraday.default_adapter
-      }
+  let(:redis) { instance_double(Redis) }
 
-      conn.get("https://esi.evetech.net/v2/status/")
-    end
+  before do
+    #
+    # redis.set("esi_error_limit_remain",
+    #   esi_error_limit_remain.to_i,
+    #   ex: esi_error_limit_reset.to_i)
+    #
+    expect(redis).to receive(:set).with("esi_error_limit_remain", 100, ex: 19)
+  end
 
-    specify { expect(conn.status).to eq(200) }
+  before do
+    #
+    # redis.set("esi_error_limit_remain_till",
+    #   esi_error_limit_reset.to_i.seconds.from_now.iso8601,
+    #   ex: esi_error_limit_reset.to_i)
+    expect(redis).to receive(:set).with("esi_error_limit_remain_till", 19.seconds.from_now.iso8601, ex: 19)
+  end
+
+  let(:esi) { EveOnline::ESI::ServerStatus.new }
+
+  let(:conn) do
+    conn = Faraday.new { |f|
+      f.use CoolDownMiddleware
+      f.adapter Faraday.default_adapter
+    }
+
+    conn.get("https://esi.evetech.net/v2/status/")
+  end
+
+  context "when esi_error_limit_remain and esi_error_limit_remain_till are not set yet" do
+    before { expect(Redis).to receive(:new).and_return(redis).exactly(4).times }
+
+    before { expect(redis).to receive(:get).with("esi_error_limit_remain").and_return(nil) }
+
+    before { expect(redis).to receive(:get).with("esi_error_limit_remain_till").and_return(nil) }
+
+    before { expect(Kernel).not_to receive(:sleep) }
+
+    specify { expect { conn.status }.not_to raise_error }
+  end
+
+  context "when esi_error_limit_remain and esi_error_limit_remain_till are already set" do
+    before { travel_to Time.zone.now }
+
+    before { expect(Redis).to receive(:new).and_return(redis).exactly(4).times }
+
+    before { expect(redis).to receive(:get).with("esi_error_limit_remain").and_return("49") }
+
+    before { expect(redis).to receive(:get).with("esi_error_limit_remain_till").and_return(51.seconds.from_now.iso8601) }
+
+    before { expect(Kernel).to receive(:sleep).with(51) }
+
+    specify { expect { conn.status }.not_to raise_error }
   end
 end

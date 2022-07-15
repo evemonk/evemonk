@@ -111,24 +111,14 @@ describe Eve::BaseImporter do
   end
 
   describe "#statistics_middleware" do
-    let(:esi) { double }
-
-    before { expect(subject).to receive(:esi).and_return(esi) }
-
     specify do
-      expect(subject.send(:statistics_middleware)).to eq(class: StatisticsMiddleware,
-        esi: esi)
+      expect(subject.send(:statistics_middleware)).to eq(class: StatisticsMiddleware)
     end
   end
 
   describe "#cool_down_middleware" do
-    let(:esi) { double }
-
-    before { expect(subject).to receive(:esi).and_return(esi) }
-
     specify do
-      expect(subject.send(:cool_down_middleware)).to eq(class: CoolDownMiddleware,
-        esi: esi)
+      expect(subject.send(:cool_down_middleware)).to eq(class: CoolDownMiddleware)
     end
   end
 end

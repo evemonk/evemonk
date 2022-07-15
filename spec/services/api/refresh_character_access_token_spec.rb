@@ -6,7 +6,7 @@ describe Api::RefreshCharacterAccessToken do
   context "when token fresh" do
     let(:character) do
       create(:character,
-        token_expires_at: Time.zone.now + 1.day)
+        token_expires_at: 1.day.from_now)
     end
 
     subject { described_class.new(character) }
@@ -41,8 +41,6 @@ describe Api::RefreshCharacterAccessToken do
 
   context "when oauth2 error" do
     before { travel_to Time.zone.now }
-
-    after { travel_back }
 
     before { expect(Setting).to receive(:eve_online_sso_client_id).and_return("eve-online-sso-client-id") }
 

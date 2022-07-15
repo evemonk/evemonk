@@ -22,13 +22,11 @@ describe Skillqueue do
   describe "#time_left" do
     before { travel_to Time.zone.now }
 
-    after { travel_back }
-
     context "when start_date in past" do
       subject do
         build(:skillqueue,
-          start_date: Time.zone.now - 10.minutes,
-          finish_date: Time.zone.now + 10.minutes)
+          start_date: 10.minutes.ago,
+          finish_date: 10.minutes.from_now)
       end
 
       specify { expect(subject.time_left).to eq("10m") }
@@ -37,8 +35,8 @@ describe Skillqueue do
     context "when start_date in future" do
       subject do
         build(:skillqueue,
-          start_date: Time.zone.now + 10.minutes,
-          finish_date: Time.zone.now + 30.minutes)
+          start_date: 10.minutes.from_now,
+          finish_date: 30.minutes.from_now)
       end
 
       specify { expect(subject.time_left).to eq("20m") }

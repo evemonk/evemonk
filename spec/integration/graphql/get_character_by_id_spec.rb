@@ -5,8 +5,6 @@ require "rails_helper"
 describe "Get Character by ID" do
   before { travel_to Time.zone.now }
 
-  after { travel_back }
-
   let!(:birthday) { Time.zone.now }
 
   let!(:eve_alliance) do
