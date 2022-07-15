@@ -8,8 +8,9 @@ class CoolDownMiddleware < Faraday::Middleware
     if error_limit_remain
       remain = error_limit_remain.to_i
       if remain < 50
-        seconds = ActiveSupport::TimeZone["UTC"].parse(esi_error_limit_remain_till)
-        sleep(seconds)
+        seconds = ActiveSupport::TimeZone["UTC"].parse(esi_error_limit_remain_till) - Time.zone.now
+
+        Kernel.sleep(seconds.to_i)
       end
     end
   end
