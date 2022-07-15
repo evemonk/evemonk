@@ -1,21 +1,6 @@
 # frozen_string_literal: true
 
 class CoolDownMiddleware < Faraday::Middleware
-  # def initialize(app = nil, options = {})
-  #   super
-  #
-  #   # binding.pry
-  #
-  #   @esi = options.fetch(:esi)
-  #   # @logger = options.fetch(:logger)
-  #
-  #   # binding.pry
-  #
-  #   # @app = app
-  #   # @esi = options.fetch(:esi)
-  #   # @logger = options.fetch(:logger)
-  # end
-
   def on_request(_)
     error_limit_remain = redis.get("esi_error_limit_remain")
     esi_error_limit_remain_till = redis.get("esi_error_limit_remain_till")
@@ -45,16 +30,6 @@ class CoolDownMiddleware < Faraday::Middleware
   end
 
   def redis
-    redis = Redis.new
+    Redis.new
   end
-
-  # def call(request_env)
-  #   # do something with the request
-  #   # request_env[:request_headers].merge!(...)
-  #
-  #   @app.call(request_env).on_complete do |response_env|
-  #     # do something with the response
-  #     # response_env[:response_headers].merge!(...)
-  #   end
-  # end
 end
