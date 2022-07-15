@@ -85,15 +85,13 @@ class CharacterBaseImporter
 
   def statistics_middleware
     {
-      class: StatisticsMiddleware,
-      logger: Rails.logger
+      class: StatisticsMiddleware
     }
   end
 
   def cool_down_middleware
     {
-      class: CoolDownMiddleware,
-      logger: Rails.logger
+      class: CoolDownMiddleware
     }
   end
 end
