@@ -1,0 +1,63 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://esi.evetech.net/v2/status/
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.3.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 15 Jul 2022 22:34:41 GMT
+      Content-Type:
+      - application/json; charset=UTF-8
+      Content-Length:
+      - '80'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - Content-Type,Authorization,If-None-Match,X-User-Agent
+      Access-Control-Allow-Methods:
+      - GET,HEAD,OPTIONS
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - Content-Type,Warning,ETag,X-Pages,X-ESI-Error-Limit-Remain,X-ESI-Error-Limit-Reset
+      Access-Control-Max-Age:
+      - '600'
+      Allow:
+      - GET,HEAD,OPTIONS
+      Cache-Control:
+      - public
+      Etag:
+      - '"367258096b2d6bf151e016dc1456c8832ff623bd3b3cf3031e7c35be"'
+      Expires:
+      - Fri, 15 Jul 2022 22:35:08 GMT
+      Last-Modified:
+      - Fri, 15 Jul 2022 22:34:38 GMT
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Esi-Error-Limit-Remain:
+      - '100'
+      X-Esi-Error-Limit-Reset:
+      - '19'
+      X-Esi-Request-Id:
+      - d0b3039f-446d-47f0-9d67-60116afab15c
+    body:
+      encoding: UTF-8
+      string: '{"players":17453,"server_version":"2074754","start_time":"2022-07-15T11:01:35Z"}'
+  recorded_at: Fri, 15 Jul 2022 22:34:41 GMT
+recorded_with: VCR 6.1.0
