@@ -43,14 +43,14 @@ module Eve
     def statistics_middleware
       {
         class: StatisticsMiddleware,
-        esi: esi
+        logger: Rails.logger
       }
     end
 
     def cool_down_middleware
       {
         class: CoolDownMiddleware,
-        esi: esi
+        logger: Rails.logger
       }
     end
   end
