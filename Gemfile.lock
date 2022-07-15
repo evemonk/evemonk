@@ -309,7 +309,7 @@ GEM
       rainbow (>= 2.0.0)
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
-    importmap-rails (1.1.4)
+    importmap-rails (1.1.5)
       actionpack (>= 6.0.0)
       railties (>= 6.0.0)
     isolator (0.8.0)
