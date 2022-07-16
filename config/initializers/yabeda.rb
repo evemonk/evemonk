@@ -3,6 +3,7 @@
 Yabeda.configure do
   group :evemonk do
     counter :esi_requests_200_counter, comment: "Total number of ESI requests with status 200", tags: [:total]
+    counter :esi_requests_201_counter, comment: "Total number of ESI requests with status 201", tags: [:total]
     counter :esi_requests_204_counter, comment: "Total number of ESI requests with status 204", tags: [:total]
     counter :esi_requests_304_counter, comment: "Total number of ESI requests with status 304", tags: [:total]
     counter :esi_requests_400_counter, comment: "Total number of ESI requests with status 400", tags: [:total]
