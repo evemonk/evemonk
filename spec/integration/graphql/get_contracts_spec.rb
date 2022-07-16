@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe "get contracts" do
+describe "Get Contracts" do
   let!(:eve_contract_1) do
     create(:eve_contract,
       contract_id: 123)
