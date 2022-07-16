@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_12_125211) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_16_222903) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_buffercache"
   enable_extension "pg_trgm"
@@ -759,6 +759,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_12_125211) do
     t.text "description_ru"
     t.string "name_ko"
     t.text "description_ko"
+    t.string "name_zh"
+    t.string "name_es"
+    t.text "description_zh"
+    t.text "description_es"
     t.index ["race_id"], name: "index_eve_races_on_race_id", unique: true
   end
 
