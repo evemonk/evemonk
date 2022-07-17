@@ -2,8 +2,6 @@
 
 module Eve
   class Type < ApplicationRecord
-    self.primary_key = "type_id"
-
     include PgSearch::Model
     include ActionView::Helpers::NumberHelper
     include Imageable
@@ -118,15 +116,15 @@ module Eve
     private
 
     def type_icon_url(size)
-      imageable_url("types", type_id, "icon", size)
+      imageable_url("types", id, "icon", size)
     end
 
     def type_render_url(size)
-      imageable_url("types", type_id, "render", size)
+      imageable_url("types", id, "render", size)
     end
 
     def type_relic_url(size)
-      imageable_url("types", type_id, "relic", size)
+      imageable_url("types", id, "relic", size)
     end
   end
 end

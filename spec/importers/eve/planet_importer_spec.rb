@@ -18,7 +18,7 @@ describe Eve::PlanetImporter do
 
     let(:eve_planet) { instance_double(Eve::Planet) }
 
-    before { expect(Eve::Planet).to receive(:find_or_initialize_by).with(planet_id: planet_id).and_return(eve_planet) }
+    before { expect(Eve::Planet).to receive(:find_or_initialize_by).with(id: planet_id).and_return(eve_planet) }
 
     context "when etag cache miss" do
       context "when eve planet found" do

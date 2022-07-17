@@ -25,31 +25,31 @@ describe CharacterAttributes do
   let!(:character_implant_1) do
     create(:character_implant,
       character: character,
-      type_id: implant_1.type_id)
+      type_id: implant_1.id)
   end
 
   let!(:character_implant_2) do
     create(:character_implant,
       character: character,
-      type_id: implant_2.type_id)
+      type_id: implant_2.id)
   end
 
   let!(:character_implant_3) do
     create(:character_implant,
       character: character,
-      type_id: implant_3.type_id)
+      type_id: implant_3.id)
   end
 
   let!(:character_implant_4) do
     create(:character_implant,
       character: character,
-      type_id: implant_4.type_id)
+      type_id: implant_4.id)
   end
 
   let!(:character_implant_5) do
     create(:character_implant,
       character: character,
-      type_id: implant_5.type_id)
+      type_id: implant_5.id)
   end
 
   let!(:eve_dogma_attribute_1) do

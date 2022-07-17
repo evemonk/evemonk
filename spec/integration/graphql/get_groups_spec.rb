@@ -15,13 +15,13 @@ describe "Get Groups" do
 
   let!(:eve_type_1) do
     create(:eve_type,
-      type_id: 10_111,
+      id: 10_111,
       group: eve_group_1)
   end
 
   let!(:eve_type_2) do
     create(:eve_type,
-      type_id: 10_222,
+      id: 10_222,
       group: eve_group_2)
   end
 

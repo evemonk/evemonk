@@ -4,7 +4,7 @@ require "rails_helper"
 
 describe Eve::LocalCharactersImporter do
   describe "#import" do
-    let(:ids) { [2, 1] }
+    let(:ids) { [1, 2] }
 
     before do
       #

@@ -18,7 +18,7 @@ describe Eve::StarImporter do
 
     let(:eve_star) { instance_double(Eve::Star) }
 
-    before { expect(Eve::Star).to receive(:find_or_initialize_by).with(star_id: star_id).and_return(eve_star) }
+    before { expect(Eve::Star).to receive(:find_or_initialize_by).with(id: star_id).and_return(eve_star) }
 
     context "when eve star found" do
       let(:json) { double }

@@ -5,13 +5,13 @@ require "rails_helper"
 describe "Get Regions" do
   let!(:eve_constellation_1) do
     create(:eve_constellation,
-      constellation_id: 300,
+      id: 300,
       region: eve_region_1)
   end
 
   let!(:eve_constellation_2) do
     create(:eve_constellation,
-      constellation_id: 400,
+      id: 400,
       region: eve_region_2)
   end
 
@@ -29,7 +29,7 @@ describe "Get Regions" do
 
   let!(:eve_region_1) do
     create(:eve_region,
-      region_id: 123,
+      id: 123,
       name_en: "EN: name 1",
       name_de: "DE: name 1",
       name_fr: "FR: name 1",
@@ -46,7 +46,7 @@ describe "Get Regions" do
 
   let!(:eve_region_2) do
     create(:eve_region,
-      region_id: 321,
+      id: 321,
       name_en: "EN: name 2",
       name_de: "DE: name 2",
       name_fr: "FR: name 2",

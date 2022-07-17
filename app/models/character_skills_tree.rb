@@ -41,7 +41,7 @@ class CharacterSkillsTree
   end
 
   def levels_trained_in_group(group_id)
-    skill_ids = skills_types.select { |type| type.group_id == group_id }.map(&:type_id)
+    skill_ids = skills_types.select { |type| type.group_id == group_id }.map(&:id)
 
     character_skills.select { |character_skill| skill_ids.include?(character_skill.skill_id) }.sum(&:trained_skill_level)
   end
@@ -51,13 +51,13 @@ class CharacterSkillsTree
   end
 
   def levels_in_training_queue(group_id)
-    skill_ids = skills_types.select { |type| type.group_id == group_id }.map(&:type_id)
+    skill_ids = skills_types.select { |type| type.group_id == group_id }.map(&:id)
 
     character_skillqueues.count { |skillqueue| skill_ids.include?(skillqueue.skill_id) }
   end
 
   def current_skill_points_in_group(group_id)
-    skill_ids = skills_types.select { |type| type.group_id == group_id }.map(&:type_id)
+    skill_ids = skills_types.select { |type| type.group_id == group_id }.map(&:id)
 
     character_skills.select { |character_skill| skill_ids.include?(character_skill.skill_id) }.sum(&:skillpoints_in_skill)
   end

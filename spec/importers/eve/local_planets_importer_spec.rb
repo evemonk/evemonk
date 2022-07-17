@@ -8,9 +8,9 @@ describe Eve::LocalPlanetsImporter do
 
     before do
       #
-      # Eve::Planet.pluck(:planet_id) => [planet_id]
+      # Eve::Planet.pluck(:id) => [planet_id]
       #
-      expect(Eve::Planet).to receive(:pluck).with(:planet_id).and_return([planet_id])
+      expect(Eve::Planet).to receive(:pluck).with(:id).and_return([planet_id])
     end
 
     before { expect(Eve::UpdatePlanetJob).to receive(:perform_later).with(planet_id) }

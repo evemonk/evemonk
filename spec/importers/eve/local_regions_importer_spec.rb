@@ -8,9 +8,9 @@ describe Eve::LocalRegionsImporter do
 
     before do
       #
-      # Eve::Region.pluck(:region_id) => [region_id]
+      # Eve::Region.pluck(:id) # => [region_id]
       #
-      expect(Eve::Region).to receive(:pluck).with(:region_id).and_return([region_id])
+      expect(Eve::Region).to receive(:pluck).with(:id).and_return([region_id])
     end
 
     before { expect(Eve::UpdateRegionJob).to receive(:perform_later).with(region_id) }

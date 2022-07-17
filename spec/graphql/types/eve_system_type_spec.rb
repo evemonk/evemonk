@@ -6,12 +6,12 @@ describe Types::EveSystemType do
   describe "get systems" do
     let!(:eve_system_1) do
       create(:eve_system,
-        system_id: 123)
+        id: 123)
     end
 
     let!(:eve_system_2) do
       create(:eve_system,
-        system_id: 321)
+        id: 321)
     end
 
     let(:query) do
@@ -68,7 +68,7 @@ describe Types::EveSystemType do
   describe "get system by id" do
     let!(:eve_system) do
       create(:eve_system,
-        system_id: 123)
+        id: 123)
     end
 
     let(:query) do

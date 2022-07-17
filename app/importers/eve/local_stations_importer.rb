@@ -3,7 +3,7 @@
 module Eve
   class LocalStationsImporter
     def import
-      Eve::Station.pluck(:station_id).each do |station_id|
+      Eve::Station.pluck(:id).each do |station_id|
         Eve::UpdateStationJob.perform_later(station_id)
       end
     end

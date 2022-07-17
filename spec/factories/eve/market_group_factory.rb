@@ -14,8 +14,6 @@ FactoryBot.define do
 
     description_ko { Faker::Lorem.paragraph }
 
-    sequence(:market_group_id)
-
     name_en { Faker::Lorem.word }
 
     name_de { Faker::Lorem.word }

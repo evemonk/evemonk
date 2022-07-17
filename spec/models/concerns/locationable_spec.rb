@@ -29,7 +29,7 @@ describe Locationable do
     end
 
     context "when location is station" do
-      let!(:station) { create(:eve_station, station_id: 60_000_000) }
+      let!(:station) { create(:eve_station, id: 60_000_000) }
 
       subject { klass.new(location_id: 60_000_000) }
 
@@ -39,17 +39,17 @@ describe Locationable do
 
   describe "#location_formatted" do
     context "when location is eve station" do
-      let!(:eve_station) do
-        create(:eve_station,
-          station_id: 60_008_494,
-          system_id: 30_002_187,
-          name: "Amarr VIII (Oris) - Emperor Family Academy")
-      end
-
       let!(:eve_system) do
         create(:eve_system,
-          system_id: 30_002_187,
+          id: 30_002_187,
           security_status: 1.0)
+      end
+
+      let!(:eve_station) do
+        create(:eve_station,
+          id: 60_008_494,
+          system_id: 30_002_187,
+          name: "Amarr VIII (Oris) - Emperor Family Academy")
       end
 
       let!(:character_blueprint) do

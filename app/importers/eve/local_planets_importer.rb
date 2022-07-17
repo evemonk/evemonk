@@ -3,7 +3,7 @@
 module Eve
   class LocalPlanetsImporter
     def import
-      Eve::Planet.pluck(:planet_id).each do |planet_id|
+      Eve::Planet.pluck(:id).each do |planet_id|
         Eve::UpdatePlanetJob.perform_later(planet_id)
       end
     end

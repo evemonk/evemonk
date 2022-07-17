@@ -5,7 +5,7 @@ require "rails_helper"
 describe "Get Region by ID" do
   let!(:eve_constellation) do
     create(:eve_constellation,
-      constellation_id: 300,
+      id: 300,
       region: eve_region)
   end
 
@@ -17,7 +17,7 @@ describe "Get Region by ID" do
 
   let!(:eve_region) do
     create(:eve_region,
-      region_id: 123,
+      id: 123,
       name_en: "EN: name 1",
       name_de: "DE: name 1",
       name_fr: "FR: name 1",

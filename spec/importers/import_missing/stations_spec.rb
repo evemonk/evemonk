@@ -16,7 +16,7 @@ describe ImportMissing::Stations do
   # private methods
 
   describe "#station_ids" do
-    let!(:eve_station) { create(:eve_station, station_id: 60_008_674) }
+    let!(:eve_station) { create(:eve_station, id: 60_008_674) }
 
     let!(:character_1) { create(:character, current_station_id: nil) }
 

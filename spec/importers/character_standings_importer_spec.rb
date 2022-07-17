@@ -52,7 +52,7 @@ describe CharacterStandingsImporter do
 
       let(:standingable) { instance_double(Eve::Faction) }
 
-      before { expect(Eve::Faction).to receive(:find_by).with(faction_id: from_id).and_return(standingable) }
+      before { expect(Eve::Faction).to receive(:find_by).with(id: from_id).and_return(standingable) }
 
       before { expect(character_standing).to receive(:assign_attributes).with(standingable: standingable, standing: standing) }
 

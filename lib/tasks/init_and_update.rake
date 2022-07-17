@@ -95,6 +95,30 @@ namespace :evemonk do
     Rails.logger.info "Import new eve systems"
     Eve::UpdateSystemsJob.perform_later
 
+    # # Around 8k calls to esi
+    # Rails.logger.info "Update eve stars"
+    # Eve::LocalStarsJob.perform_later
+    #
+    # # Around 14k calls to esi
+    # Rails.logger.info "Update eve stargates"
+    # Eve::LocalStargatesJob.perform_later
+    #
+    # # Around 5k calls to esi
+    # Rails.logger.info "Update eve stations"
+    # Eve::LocalStationsJob.perform_later
+    #
+    # # Around 68k calls to esi
+    # Rails.logger.info "Update eve planets"
+    # Eve::LocalPlanetsJob.perform_later
+    #
+    # # Around 56k calls to esi
+    # Rails.logger.info "Update eve asteroid belts"
+    # Eve::LocalAsteroidBeltsJob.perform_later
+    #
+    # # Around 342k calls to esi
+    # Rails.logger.info "Update eve moons"
+    # Eve::LocalMoonsJob.perform_later
+
     # 1 call to esi
     Rails.logger.info "Import NPC Corporations"
     Eve::NpcCorporationsJob.perform_later

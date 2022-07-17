@@ -6,7 +6,7 @@ describe Types::EveIconType do
   describe "get icons" do
     let!(:eve_icon_1) do
       create(:eve_icon,
-        icon_id: 123,
+        id: 123,
         description: "Description 1",
         icon_file: "res:/ui/texture/icons/123.png",
         obsolete: nil)
@@ -14,7 +14,7 @@ describe Types::EveIconType do
 
     let!(:eve_icon_2) do
       create(:eve_icon,
-        icon_id: 321,
+        id: 321,
         description: "Description 2",
         icon_file: "res:/ui/texture/icons/321.png",
         obsolete: false)
@@ -83,7 +83,7 @@ describe Types::EveIconType do
   describe "get icon by id" do
     let!(:eve_icon) do
       create(:eve_icon,
-        icon_id: 123,
+        id: 123,
         description: "Description 1",
         icon_file: "res:/ui/texture/icons/123.png",
         obsolete: nil)

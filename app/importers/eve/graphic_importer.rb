@@ -10,7 +10,7 @@ module Eve
 
     def import
       import! do
-        eve_graphic = Eve::Graphic.find_or_initialize_by(graphic_id: graphic_id)
+        eve_graphic = Eve::Graphic.find_or_initialize_by(id: graphic_id)
 
         eve_graphic.update!(esi.as_json)
       rescue EveOnline::Exceptions::ResourceNotFound
@@ -21,7 +21,7 @@ module Eve
     end
 
     def esi
-      @esi ||= EveOnline::ESI::UniverseGraphic.new(id: graphic_id)
+      @esi ||= EveOnline::ESI::UniverseGraphic.new(graphic_id: graphic_id)
     end
   end
 end

@@ -53,11 +53,11 @@ describe Eve::Blueprint do
   # private methods
 
   describe "#type_bp_url" do
-    subject { Eve::Blueprint.new(attributes_for(:eve_type, type_id: 24_699, is_blueprint: true)) }
+    subject { Eve::Blueprint.new(attributes_for(:eve_type, id: 24_699, is_blueprint: true)) }
 
     before do
       #
-      # imageable_url("types", type_id, "bp", size)
+      # imageable_url("types", id, "bp", size)
       #
       expect(subject).to receive(:imageable_url).with("types", 24_699, "bp", 32)
     end

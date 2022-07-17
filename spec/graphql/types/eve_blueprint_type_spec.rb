@@ -6,13 +6,13 @@ describe Types::EveBlueprintType do
   describe "get blueprints" do
     let!(:eve_blueprint_1) do
       create(:eve_type,
-        type_id: 4_001,
+        id: 4_001,
         is_blueprint: true)
     end
 
     let!(:eve_blueprint_2) do
       create(:eve_type,
-        type_id: 5_001,
+        id: 5_001,
         is_blueprint: true)
     end
 
@@ -70,7 +70,7 @@ describe Types::EveBlueprintType do
   describe "get blueprint by id" do
     let!(:eve_blueprint) do
       create(:eve_type,
-        type_id: 4_002,
+        id: 4_002,
         is_blueprint: true)
     end
 

@@ -16,7 +16,7 @@ describe Eve::AsteroidBeltImporter do
 
     let(:eve_asteroid_belt) { instance_double(Eve::AsteroidBelt) }
 
-    before { expect(Eve::AsteroidBelt).to receive(:find_or_initialize_by).with(planet_id: planet_id, asteroid_belt_id: asteroid_belt_id).and_return(eve_asteroid_belt) }
+    before { expect(Eve::AsteroidBelt).to receive(:find_or_initialize_by).with(planet_id: planet_id, id: asteroid_belt_id).and_return(eve_asteroid_belt) }
 
     context "when eve asteroid belt found" do
       let(:json) { double }

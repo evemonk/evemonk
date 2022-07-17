@@ -10,7 +10,7 @@ module Eve
 
     def import
       import! do
-        eve_station = Eve::Station.find_or_initialize_by(station_id: station_id)
+        eve_station = Eve::Station.find_or_initialize_by(id: station_id)
 
         eve_station.update!(esi.as_json)
 
@@ -25,7 +25,7 @@ module Eve
     end
 
     def esi
-      @esi ||= EveOnline::ESI::UniverseStation.new(id: station_id)
+      @esi ||= EveOnline::ESI::UniverseStation.new(station_id: station_id)
     end
   end
 end

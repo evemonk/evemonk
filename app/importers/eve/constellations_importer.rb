@@ -17,7 +17,7 @@ module Eve
     private
 
     def import_new_constellations
-      eve_constellation_ids = Eve::Constellation.pluck(:constellation_id)
+      eve_constellation_ids = Eve::Constellation.pluck(:id)
 
       eve_constellation_ids_to_create = esi.constellation_ids - eve_constellation_ids
 
@@ -27,12 +27,12 @@ module Eve
     end
 
     def remove_old_constellations
-      eve_constellation_ids = Eve::Constellation.pluck(:constellation_id)
+      eve_constellation_ids = Eve::Constellation.pluck(:id)
 
       eve_constellation_ids_to_remove = eve_constellation_ids - esi.constellation_ids
 
       eve_constellation_ids_to_remove.each do |constellation_id|
-        eve_constellation = Eve::Constellation.find_or_initialize_by(constellation_id: constellation_id)
+        eve_constellation = Eve::Constellation.find_or_initialize_by(id: constellation_id)
 
         eve_constellation.destroy!
       end

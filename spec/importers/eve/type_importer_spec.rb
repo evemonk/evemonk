@@ -32,7 +32,7 @@ describe Eve::TypeImporter do
 
     let(:eve_type) { instance_double(Eve::Type) }
 
-    before { expect(Eve::Type).to receive(:find_or_initialize_by).with(type_id: type_id).and_return(eve_type) }
+    before { expect(Eve::Type).to receive(:find_or_initialize_by).with(id: type_id).and_return(eve_type) }
 
     context "when eve type found" do
       let(:json) { double }

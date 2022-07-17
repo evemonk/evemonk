@@ -10,7 +10,7 @@ module Eve
 
     def import
       import! do
-        eve_planet = Eve::Planet.find_or_initialize_by(planet_id: planet_id)
+        eve_planet = Eve::Planet.find_or_initialize_by(id: planet_id)
 
         eve_planet.update!(esi.as_json)
 
@@ -25,7 +25,7 @@ module Eve
     end
 
     def esi
-      @esi ||= EveOnline::ESI::UniversePlanet.new(id: planet_id)
+      @esi ||= EveOnline::ESI::UniversePlanet.new(planet_id: planet_id)
     end
   end
 end

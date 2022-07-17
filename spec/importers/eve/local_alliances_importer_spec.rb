@@ -8,7 +8,7 @@ describe Eve::LocalAlliancesImporter do
 
     before do
       #
-      # Eve::Alliance.ids => [id]
+      # Eve::Alliance.ids # => [id]
       #
       expect(Eve::Alliance).to receive(:ids).and_return([id])
     end

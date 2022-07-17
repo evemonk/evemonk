@@ -46,7 +46,7 @@ FactoryBot.define do
 
     radius { 1.5 }
 
-    sequence(:type_id) { |n| n + 10_000 }
+    # sequence(:type_id) { |n| n + 10_000 }
 
     volume { 1.5 }
 

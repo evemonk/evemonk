@@ -8,9 +8,9 @@ describe Eve::LocalGraphicsImporter do
 
     before do
       #
-      # Eve::Graphic.pluck(:graphic_id) => [graphic_id]
+      # Eve::Graphic.pluck(:id) => [graphic_id]
       #
-      expect(Eve::Graphic).to receive(:pluck).with(:graphic_id).and_return([graphic_id])
+      expect(Eve::Graphic).to receive(:pluck).with(:id).and_return([graphic_id])
     end
 
     before { expect(Eve::UpdateGraphicJob).to receive(:perform_later).with(graphic_id) }

@@ -10,7 +10,7 @@ module Eve
 
     def import
       import! do
-        eve_star = Eve::Star.find_or_initialize_by(star_id: star_id)
+        eve_star = Eve::Star.find_or_initialize_by(id: star_id)
 
         eve_star.update!(esi.as_json)
       rescue EveOnline::Exceptions::ResourceNotFound

@@ -8,9 +8,9 @@ describe Eve::LocalStarsImporter do
 
     before do
       #
-      # Eve::Star.pluck(:star_id) => [star_id]
+      # Eve::Star.pluck(:id) => [star_id]
       #
-      expect(Eve::Star).to receive(:pluck).with(:star_id).and_return([star_id])
+      expect(Eve::Star).to receive(:pluck).with(:id).and_return([star_id])
     end
 
     before { expect(Eve::UpdateStarJob).to receive(:perform_later).with(star_id) }

@@ -10,7 +10,7 @@ describe "Get Ancestry by ID" do
 
   let!(:eve_icon) do
     create(:eve_icon,
-      icon_id: 1_001)
+      id: 1_001)
   end
 
   let!(:eve_ancestry) do

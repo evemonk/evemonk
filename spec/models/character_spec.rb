@@ -430,32 +430,19 @@ describe Character do
     end
   end
 
-  describe "#to_key" do
-    context "when character_id is present" do
-      subject { build(:character, character_id: 90_729_314) }
+  # private methods
 
-      specify { expect(subject.to_key).to eq([90_729_314]) }
+  describe "#character_portrait_url" do
+    subject { build(:character, character_id: 90_729_314) }
+
+    before do
+      #
+      # imageable_url("characters", character_id, "portrait", size)
+      #
+      expect(subject).to receive(:imageable_url).with("characters", 90_729_314, "portrait", 1024)
     end
 
-    context "when character_id is not present" do
-      subject { build(:character, character_id: nil) }
-
-      specify { expect(subject.to_key).to eq(nil) }
-    end
-  end
-
-  describe "#to_param" do
-    context "when character_id is present" do
-      subject { build(:character, character_id: 90_729_314) }
-
-      specify { expect(subject.to_param).to eq("90729314") }
-    end
-
-    context "when character_id is not present" do
-      subject { build(:character, character_id: nil) }
-
-      specify { expect(subject.to_param).to eq(nil) }
-    end
+    specify { expect { subject.send(:character_portrait_url, 1024) }.not_to raise_error }
   end
 
   # private methods

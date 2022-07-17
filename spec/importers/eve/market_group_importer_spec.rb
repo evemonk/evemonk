@@ -32,7 +32,7 @@ describe Eve::MarketGroupImporter do
 
     let(:eve_market_group) { instance_double(Eve::MarketGroup) }
 
-    before { expect(Eve::MarketGroup).to receive(:find_or_initialize_by).with(market_group_id: market_group_id).and_return(eve_market_group) }
+    before { expect(Eve::MarketGroup).to receive(:find_or_initialize_by).with(id: market_group_id).and_return(eve_market_group) }
 
     context "when eve market group found" do
       let(:json) { double }

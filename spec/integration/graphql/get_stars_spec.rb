@@ -5,12 +5,12 @@ require "rails_helper"
 describe "Get Stars" do
   let!(:eve_star_1) do
     create(:eve_star,
-      star_id: 123)
+      id: 123)
   end
 
   let!(:eve_star_2) do
     create(:eve_star,
-      star_id: 321)
+      id: 321)
   end
 
   let(:query) do

@@ -2,8 +2,6 @@
 
 module Eve
   class Planet < ApplicationRecord
-    self.primary_key = "planet_id"
-
     has_paper_trail
 
     belongs_to :system, optional: true

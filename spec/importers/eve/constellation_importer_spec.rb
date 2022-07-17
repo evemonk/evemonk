@@ -32,7 +32,7 @@ describe Eve::ConstellationImporter do
 
     let(:eve_constellation) { instance_double(Eve::Constellation) }
 
-    before { expect(Eve::Constellation).to receive(:find_or_initialize_by).with(constellation_id: constellation_id).and_return(eve_constellation) }
+    before { expect(Eve::Constellation).to receive(:find_or_initialize_by).with(id: constellation_id).and_return(eve_constellation) }
 
     context "when eve constellation found" do
       let(:json) { double }

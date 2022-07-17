@@ -18,7 +18,7 @@ describe Eve::StationImporter do
 
     let(:eve_station) { instance_double(Eve::Station) }
 
-    before { expect(Eve::Station).to receive(:find_or_initialize_by).with(station_id: station_id).and_return(eve_station) }
+    before { expect(Eve::Station).to receive(:find_or_initialize_by).with(id: station_id).and_return(eve_station) }
 
     context "when eve station found" do
       let(:json) { double }

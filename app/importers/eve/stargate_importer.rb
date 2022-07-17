@@ -10,7 +10,7 @@ module Eve
 
     def import
       import! do
-        eve_stargate = Eve::Stargate.find_or_initialize_by(stargate_id: stargate_id)
+        eve_stargate = Eve::Stargate.find_or_initialize_by(id: stargate_id)
 
         eve_stargate.update!(esi.as_json)
 
@@ -25,7 +25,7 @@ module Eve
     end
 
     def esi
-      @esi ||= EveOnline::ESI::UniverseStargate.new(id: stargate_id)
+      @esi ||= EveOnline::ESI::UniverseStargate.new(stargate_id: stargate_id)
     end
   end
 end

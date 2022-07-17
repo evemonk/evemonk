@@ -98,7 +98,19 @@ Rails.application.routes.draw do
   resource :privacy_policy, only: :show
 
   namespace :blueprints do
-    resources :calculator, only: [:index, :show]
+    resources :search, only: [:index, :show]
+
+    resources :copying, only: :show
+
+    resources :material_efficiency, only: :show
+
+    resources :time_efficiency, only: :show
+
+    resources :inventions, only: :show
+
+    resources :manufacturing, only: :show
+
+    root to: "search#index"
   end
 
   namespace :auth do

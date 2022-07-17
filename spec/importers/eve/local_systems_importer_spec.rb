@@ -8,9 +8,9 @@ describe Eve::LocalSystemsImporter do
 
     before do
       #
-      # Eve::System.pluck(:system_id) => [system_id]
+      # Eve::System.pluck(:id) => [system_id]
       #
-      expect(Eve::System).to receive(:pluck).with(:system_id).and_return([system_id])
+      expect(Eve::System).to receive(:pluck).with(:id).and_return([system_id])
     end
 
     before { expect(Eve::UpdateSystemJob).to receive(:perform_later).with(system_id) }

@@ -4,16 +4,16 @@ require "rails_helper"
 
 describe Eve::LocalTypesImporter do
   describe "#import" do
-    let(:type_id) { double }
+    let(:id) { double }
 
     before do
       #
-      # Eve::Type.pluck(:type_id) => [type_id]
+      # Eve::Type.ids => [id]
       #
-      expect(Eve::Type).to receive(:pluck).with(:type_id).and_return([type_id])
+      expect(Eve::Type).to receive(:ids).and_return([id])
     end
 
-    before { expect(Eve::UpdateTypeJob).to receive(:perform_later).with(type_id) }
+    before { expect(Eve::UpdateTypeJob).to receive(:perform_later).with(id) }
 
     specify { expect { subject.import }.not_to raise_error }
   end

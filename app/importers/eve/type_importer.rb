@@ -12,7 +12,7 @@ module Eve
     def import
       import! do
         Mobility.with_locale(locale) do
-          eve_type = Eve::Type.find_or_initialize_by(type_id: type_id)
+          eve_type = Eve::Type.find_or_initialize_by(id: type_id)
 
           eve_type.update!(esi.as_json)
 
@@ -28,7 +28,7 @@ module Eve
     end
 
     def esi
-      @esi ||= EveOnline::ESI::UniverseType.new(id: type_id, language: LanguageMapper::LANGUAGES[locale])
+      @esi ||= EveOnline::ESI::UniverseType.new(type_id: type_id, language: LanguageMapper::LANGUAGES[locale])
     end
 
     private

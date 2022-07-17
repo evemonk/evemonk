@@ -3,7 +3,7 @@
 module Eve
   class LocalStarsImporter
     def import
-      Eve::Star.pluck(:star_id).each do |star_id|
+      Eve::Star.pluck(:id).each do |star_id|
         Eve::UpdateStarJob.perform_later(star_id)
       end
     end

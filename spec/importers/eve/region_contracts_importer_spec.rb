@@ -63,7 +63,7 @@ describe Eve::RegionContractsImporter do
     context "when @region not set" do
       let(:region) { instance_double(Eve::Region) }
 
-      before { expect(Eve::Region).to receive(:find_by!).with(region_id: region_id).and_return(region) }
+      before { expect(Eve::Region).to receive(:find).with(region_id).and_return(region) }
 
       specify { expect(subject.send(:region)).to eq(region) }
 

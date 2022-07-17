@@ -16,7 +16,7 @@ describe ImportMissing::Ships do
   # private methods
 
   describe "#ship_ids" do
-    let!(:eve_type) { create(:eve_type, type_id: 638) }
+    let!(:eve_type) { create(:eve_type, id: 638) }
 
     let!(:character_1) { create(:character, current_ship_type_id: nil) }
 

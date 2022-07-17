@@ -12,7 +12,7 @@ module Eve
     def import
       import! do
         Mobility.with_locale(locale) do
-          eve_region = Eve::Region.find_or_initialize_by(region_id: region_id)
+          eve_region = Eve::Region.find_or_initialize_by(id: region_id)
 
           eve_region.update!(esi.as_json)
         rescue EveOnline::Exceptions::ResourceNotFound
@@ -24,7 +24,7 @@ module Eve
     end
 
     def esi
-      @esi ||= EveOnline::ESI::UniverseRegion.new(id: region_id, language: LanguageMapper::LANGUAGES[locale])
+      @esi ||= EveOnline::ESI::UniverseRegion.new(region_id: region_id, language: LanguageMapper::LANGUAGES[locale])
     end
   end
 end

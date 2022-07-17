@@ -15,7 +15,7 @@ describe "Get Bloodline By ID" do
 
   let!(:eve_ship_type) do
     create(:eve_ship,
-      type_id: 1_001)
+      id: 1_001)
   end
 
   let!(:eve_ancestry) do

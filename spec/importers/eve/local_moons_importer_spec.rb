@@ -10,9 +10,9 @@ describe Eve::LocalMoonsImporter do
 
     before do
       #
-      # Eve::Moon.pluck(:planet_id, :moon_id) => [[planet_id, moon_id]]
+      # Eve::Moon.pluck(:planet_id, :id) => [[planet_id, moon_id]]
       #
-      expect(Eve::Moon).to receive(:pluck).with(:planet_id, :moon_id).and_return([[planet_id, moon_id]])
+      expect(Eve::Moon).to receive(:pluck).with(:planet_id, :id).and_return([[planet_id, moon_id]])
     end
 
     before { expect(Eve::UpdateMoonJob).to receive(:perform_later).with(planet_id, moon_id) }

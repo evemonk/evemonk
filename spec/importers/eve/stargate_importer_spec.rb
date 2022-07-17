@@ -18,7 +18,7 @@ describe Eve::StargateImporter do
 
     let(:eve_stargate) { instance_double(Eve::Stargate) }
 
-    before { expect(Eve::Stargate).to receive(:find_or_initialize_by).with(stargate_id: stargate_id).and_return(eve_stargate) }
+    before { expect(Eve::Stargate).to receive(:find_or_initialize_by).with(id: stargate_id).and_return(eve_stargate) }
 
     context "when eve stargate found" do
       let(:json) { double }

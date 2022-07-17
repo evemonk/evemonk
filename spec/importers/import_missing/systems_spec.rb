@@ -16,7 +16,7 @@ describe ImportMissing::Systems do
   # private methods
 
   describe "#system_ids" do
-    let!(:eve_system) { create(:eve_system, system_id: 30_003_498) }
+    let!(:eve_system) { create(:eve_system, id: 30_003_498) }
 
     let!(:character_1) { create(:character, current_solar_system_id: nil) }
 

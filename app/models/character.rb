@@ -45,7 +45,7 @@ class Character < ApplicationRecord
   has_many :character_skills, dependent: :destroy
 
   has_many :character_corporation_histories,
-    primary_key: "character_id",
+    primary_key: "character_id", # TODO: update?
     dependent: :destroy
 
   has_many :character_mail_labels, dependent: :destroy
@@ -205,15 +205,6 @@ class Character < ApplicationRecord
 
   def rounded_security_status
     security_status&.round(1)
-  end
-
-  def to_key
-    key = character_id
-    [key] if key
-  end
-
-  def to_param
-    character_id&.to_s
   end
 
   private

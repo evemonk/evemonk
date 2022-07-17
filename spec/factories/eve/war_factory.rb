@@ -2,8 +2,6 @@
 
 FactoryBot.define do
   factory :eve_war, class: "Eve::War" do
-    sequence(:war_id)
-
     declared { Time.zone.now }
 
     finished { 3.days.from_now }

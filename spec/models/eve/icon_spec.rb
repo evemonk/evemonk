@@ -5,8 +5,6 @@ require "rails_helper"
 describe Eve::Icon do
   it { should be_an(ApplicationRecord) }
 
-  it { expect(described_class.primary_key).to eq("icon_id") }
-
   it { expect(described_class.table_name).to eq("eve_icons") }
 
   it { should respond_to(:versions) }

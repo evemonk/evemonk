@@ -22,7 +22,7 @@ describe Eve::MoonImporter do
 
     let(:eve_moon) { instance_double(Eve::Moon) }
 
-    before { expect(Eve::Moon).to receive(:find_or_initialize_by).with(planet_id: planet_id, moon_id: moon_id).and_return(eve_moon) }
+    before { expect(Eve::Moon).to receive(:find_or_initialize_by).with(id: moon_id, planet_id: planet_id).and_return(eve_moon) }
 
     context "when eve moon found" do
       let(:json) { double }

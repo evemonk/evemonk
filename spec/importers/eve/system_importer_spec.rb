@@ -38,7 +38,7 @@ describe Eve::SystemImporter do
 
     let(:eve_system) { instance_double(Eve::System) }
 
-    before { expect(Eve::System).to receive(:find_or_initialize_by).with(system_id: system_id).and_return(eve_system) }
+    before { expect(Eve::System).to receive(:find_or_initialize_by).with(id: system_id).and_return(eve_system) }
 
     context "when eve system found" do
       let(:json) { double }
@@ -97,6 +97,45 @@ describe Eve::SystemImporter do
           double.tap do |a|
             expect(a).to receive(:destroy)
           end
+        end
+
+        before do
+          #
+          # eve_system.create_position!(esi.position.as_json)
+          #
+          expect(eve_system).to receive(:create_position!).with(position_json)
+        end
+
+        before { expect(Eve::Stargate).to receive(:find_or_create_by!).with({id: stargate_id}) }
+
+        before { expect(Eve::Station).to receive(:find_or_create_by!).with({id: station_id}) }
+
+        before { expect(Eve::Planet).to receive(:find_or_create_by!).with({id: planet_id}) }
+
+        before { expect(Eve::AsteroidBelt).to receive(:find_or_create_by!).with({id: asteroid_belt_id, planet_id: planet_id}) }
+
+        before { expect(Eve::Moon).to receive(:find_or_create_by!).with({id: moon_id, planet_id: planet_id}) }
+
+        before { expect(subject).to receive(:update_etag) }
+
+        context "when esi star_id present" do
+          let(:star_id) { double }
+
+          before { expect(subject).to receive(:esi).and_return(esi).exactly(8).times }
+
+          before { expect(Eve::Star).to receive(:find_or_create_by!).with({id: star_id}) }
+
+          specify { expect { subject.import }.not_to raise_error }
+        end
+
+        context "when esi star_id is not present" do
+          let(:star_id) { nil }
+
+          before { expect(subject).to receive(:esi).and_return(esi).exactly(7).times }
+
+          before { expect(Eve::Star).not_to receive(:find_or_create_by!) }
+
+          specify { expect { subject.import }.not_to raise_error }
         end
       end
 

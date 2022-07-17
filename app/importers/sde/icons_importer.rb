@@ -12,7 +12,7 @@ module Sde
       entries = YAML.safe_load(File.read(file))
 
       entries.each_pair do |key, hash|
-        icon = Eve::Icon.find_or_initialize_by(icon_id: key)
+        icon = Eve::Icon.find_or_initialize_by(id: key)
 
         icon.assign_attributes(description: hash["description"],
           icon_file: hash["iconFile"],

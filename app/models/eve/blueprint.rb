@@ -30,10 +30,32 @@ module Eve
       type_bp_url(64)
     end
 
+    # def inventions_available?
+    #   # ID 688 - yes
+    #   # ID 17637 - no
+    #   blueprint_invention_products.present?
+    # end
+    #
+    # def manufacturing_available?
+    #   blueprint_manufacturing_products.present?
+    # end
+    #
+    # def research_material_available?
+    #   research_material_time.present?
+    # end
+    #
+    # def research_time_available?
+    #   research_time_time.present?
+    # end
+    #
+    # def copying_available?
+    #   copying_time.present?
+    # end
+
     private
 
     def type_bp_url(size)
-      imageable_url("types", type_id, "bp", size)
+      imageable_url("types", id, "bp", size)
     end
   end
 end

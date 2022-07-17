@@ -12,7 +12,7 @@ module Sde
       entries = YAML.safe_load(File.read(file))
 
       entries.each_pair do |key, hash|
-        eve_blueprint = Eve::Blueprint.find_by!(type_id: key)
+        eve_blueprint = Eve::Blueprint.find(key)
 
         eve_blueprint.transaction do
           eve_blueprint.blueprint_manufacturing_materials.destroy_all
@@ -20,7 +20,7 @@ module Sde
           manufacturing_materials = hash.dig("activities", "manufacturing", "materials")
 
           manufacturing_materials&.each do |manufacturing_material|
-            Eve::BlueprintManufacturingMaterial.create!(blueprint_id: eve_blueprint.type_id,
+            Eve::BlueprintManufacturingMaterial.create!(blueprint: eve_blueprint,
               quantity: manufacturing_material["quantity"],
               type_id: manufacturing_material["typeID"])
           end

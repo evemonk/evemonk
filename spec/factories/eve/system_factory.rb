@@ -21,7 +21,5 @@ FactoryBot.define do
     security_status { 0.8583240509033203 }
 
     sequence(:star_id)
-
-    sequence(:system_id)
   end
 end

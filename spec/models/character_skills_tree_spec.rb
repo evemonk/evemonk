@@ -106,15 +106,15 @@ describe CharacterSkillsTree do
   end
 
   describe "#levels_trained_in_group" do
-    let(:skill_type_1) { instance_double(Eve::Type, type_id: 123, group_id: 1) }
+    let(:skill_type_1) { instance_double(Eve::Type, id: 123, group_id: 1) }
 
-    let(:skill_type_2) { instance_double(Eve::Type, type_id: 124, group_id: 1) }
+    let(:skill_type_2) { instance_double(Eve::Type, id: 124, group_id: 1) }
 
-    let(:skill_type_3) { instance_double(Eve::Type, type_id: 125, group_id: 2) }
+    let(:skill_type_3) { instance_double(Eve::Type, id: 125, group_id: 2) }
 
-    let(:skill_type_4) { instance_double(Eve::Type, type_id: 126, group_id: 2) }
+    let(:skill_type_4) { instance_double(Eve::Type, id: 126, group_id: 2) }
 
-    let(:skill_type_5) { instance_double(Eve::Type, type_id: 127, group_id: 2) }
+    let(:skill_type_5) { instance_double(Eve::Type, id: 127, group_id: 2) }
 
     let(:skills_types) { [skill_type_1, skill_type_2, skill_type_3, skill_type_4, skill_type_5] }
 
@@ -164,15 +164,15 @@ describe CharacterSkillsTree do
   end
 
   describe "#levels_in_training_queue" do
-    let(:skill_type_1) { instance_double(Eve::Type, type_id: 123, group_id: 1) }
+    let(:skill_type_1) { instance_double(Eve::Type, id: 123, group_id: 1) }
 
-    let(:skill_type_2) { instance_double(Eve::Type, type_id: 124, group_id: 1) }
+    let(:skill_type_2) { instance_double(Eve::Type, id: 124, group_id: 1) }
 
-    let(:skill_type_3) { instance_double(Eve::Type, type_id: 125, group_id: 2) }
+    let(:skill_type_3) { instance_double(Eve::Type, id: 125, group_id: 2) }
 
-    let(:skill_type_4) { instance_double(Eve::Type, type_id: 126, group_id: 2) }
+    let(:skill_type_4) { instance_double(Eve::Type, id: 126, group_id: 2) }
 
-    let(:skill_type_5) { instance_double(Eve::Type, type_id: 127, group_id: 2) }
+    let(:skill_type_5) { instance_double(Eve::Type, id: 127, group_id: 2) }
 
     let(:skills_types) { [skill_type_1, skill_type_2, skill_type_3, skill_type_4, skill_type_5] }
 
@@ -200,15 +200,15 @@ describe CharacterSkillsTree do
   end
 
   describe "#current_skill_points_in_group" do
-    let(:skill_type_1) { instance_double(Eve::Type, type_id: 123, group_id: 1) }
+    let(:skill_type_1) { instance_double(Eve::Type, id: 123, group_id: 1) }
 
-    let(:skill_type_2) { instance_double(Eve::Type, type_id: 124, group_id: 1) }
+    let(:skill_type_2) { instance_double(Eve::Type, id: 124, group_id: 1) }
 
-    let(:skill_type_3) { instance_double(Eve::Type, type_id: 125, group_id: 2) }
+    let(:skill_type_3) { instance_double(Eve::Type, id: 125, group_id: 2) }
 
-    let(:skill_type_4) { instance_double(Eve::Type, type_id: 126, group_id: 2) }
+    let(:skill_type_4) { instance_double(Eve::Type, id: 126, group_id: 2) }
 
-    let(:skill_type_5) { instance_double(Eve::Type, type_id: 127, group_id: 2) }
+    let(:skill_type_5) { instance_double(Eve::Type, id: 127, group_id: 2) }
 
     let(:skills_types) { [skill_type_1, skill_type_2, skill_type_3, skill_type_4, skill_type_5] }
 
