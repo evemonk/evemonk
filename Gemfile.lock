@@ -378,7 +378,7 @@ GEM
     mobility (1.2.9)
       i18n (>= 0.6.10, < 2)
       request_store (~> 1.0)
-    momentjs-rails (2.29.1.1)
+    momentjs-rails (2.29.4)
       railties (>= 3.1)
     msgpack (1.5.3)
     multi_xml (0.6.0)
