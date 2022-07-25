@@ -380,7 +380,7 @@ GEM
       request_store (~> 1.0)
     momentjs-rails (2.29.4)
       railties (>= 3.1)
-    msgpack (1.5.3)
+    msgpack (1.5.4)
     multi_xml (0.6.0)
     net-http-persistent (4.0.1)
       connection_pool (~> 2.2)
