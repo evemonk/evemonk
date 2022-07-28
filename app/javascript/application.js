@@ -3,18 +3,18 @@
 import "controllers";
 import "@hotwired/turbo-rails";
 
-import Rails from "@rails/ujs";
 import LocalTime from "local-time";
 import { install } from "@github/hotkey";
-import "jquery";
+import $ from "jquery";
 import "popper.js";
 import "bootstrap";
 
-Rails.start();
+window.$ = window.jQuery = $;
+
 LocalTime.start();
 
 document.addEventListener("turbo:load", () => {
-  // $('[data-toggle="tooltip"]').tooltip();
+  $('[data-toggle="tooltip"]').tooltip();
 
   // Install all the hotkeys on the page
   for (const el of document.querySelectorAll("[data-hotkey]")) {
