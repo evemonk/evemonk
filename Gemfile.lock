@@ -22,6 +22,16 @@ GIT
   specs:
     bootswatch (4.6.1)
 
+GIT
+  remote: https://github.com/twbs/bootstrap-rubygem.git
+  revision: 78e7e0fb35d9d8d9b36ac2d26a80688d939c6e15
+  branch: 4.6-stable
+  specs:
+    bootstrap (4.6.1)
+      autoprefixer-rails (>= 9.1.0)
+      popper_js (>= 1.14.3, < 2)
+      sassc-rails (>= 2.0.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -145,10 +155,6 @@ GEM
       smart_properties
     bootsnap (1.13.0)
       msgpack (~> 1.2)
-    bootstrap (4.6.1)
-      autoprefixer-rails (>= 9.1.0)
-      popper_js (>= 1.14.3, < 2)
-      sassc-rails (>= 2.0.0)
     brakeman (5.2.3)
     builder (3.2.4)
     cacheflow (0.2.1)
@@ -718,7 +724,7 @@ DEPENDENCIES
   awesome_print
   aws-sdk-s3
   bootsnap (>= 1.4.4)
-  bootstrap (= 4.6.1)
+  bootstrap!
   bootswatch!
   brakeman
   cacheflow
