@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/evemonk/eve_online.git
-  revision: cab57ee75a2c8e30a041ce579ffdc6cb41103df9
+  revision: 089a9b19151bbee40ea383105e4b6cb007f26659
   branch: main
   specs:
     eve_online (0.43.0)
@@ -17,10 +17,20 @@ GIT
 
 GIT
   remote: https://github.com/thomaspark/bootswatch.git
-  revision: 8e6358e490c4caf9523b3cc5dd71167276dd77c8
-  branch: v4.6.1
+  revision: 57980884525efb94836d88a5f59d5db9c5e8bbf0
+  branch: v4
   specs:
-    bootswatch (4.6.1)
+    bootswatch (4.6.2)
+
+GIT
+  remote: https://github.com/twbs/bootstrap-rubygem.git
+  revision: 78e7e0fb35d9d8d9b36ac2d26a80688d939c6e15
+  branch: 4.6-stable
+  specs:
+    bootstrap (4.6.1)
+      autoprefixer-rails (>= 9.1.0)
+      popper_js (>= 1.14.3, < 2)
+      sassc-rails (>= 2.0.0)
 
 GEM
   remote: https://rubygems.org/
@@ -145,10 +155,6 @@ GEM
       smart_properties
     bootsnap (1.13.0)
       msgpack (~> 1.2)
-    bootstrap (4.6.1)
-      autoprefixer-rails (>= 9.1.0)
-      popper_js (>= 1.14.3, < 2)
-      sassc-rails (>= 2.0.0)
     brakeman (5.2.3)
     builder (3.2.4)
     cacheflow (0.2.1)
@@ -718,7 +724,7 @@ DEPENDENCIES
   awesome_print
   aws-sdk-s3
   bootsnap (>= 1.4.4)
-  bootstrap (= 4.6.1)
+  bootstrap!
   bootswatch!
   brakeman
   cacheflow

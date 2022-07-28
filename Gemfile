@@ -17,10 +17,12 @@ gem "bootsnap", ">= 1.4.4", require: false
 gem "flipper"
 gem "flipper-active_record"
 gem "flipper-ui"
-gem "bootstrap", "4.6.1"
+gem "bootstrap",
+  git: "https://github.com/twbs/bootstrap-rubygem.git",
+  branch: "4.6-stable"
 gem "bootswatch",
   git: "https://github.com/thomaspark/bootswatch.git",
-  branch: "v4.6.1"
+  branch: "v4"
 gem "good_migrations"
 gem "local_time"
 gem "rails-i18n", "~> 7.0.5"
