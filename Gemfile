@@ -22,7 +22,7 @@ gem "bootstrap",
   branch: "4.6-stable"
 gem "bootswatch",
   git: "https://github.com/thomaspark/bootswatch.git",
-  branch: "v4.6.1"
+  branch: "v4"
 gem "good_migrations"
 gem "local_time"
 gem "rails-i18n", "~> 7.0.5"

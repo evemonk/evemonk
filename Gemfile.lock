@@ -17,10 +17,10 @@ GIT
 
 GIT
   remote: https://github.com/thomaspark/bootswatch.git
-  revision: 8e6358e490c4caf9523b3cc5dd71167276dd77c8
-  branch: v4.6.1
+  revision: 57980884525efb94836d88a5f59d5db9c5e8bbf0
+  branch: v4
   specs:
-    bootswatch (4.6.1)
+    bootswatch (4.6.2)
 
 GIT
   remote: https://github.com/twbs/bootstrap-rubygem.git
