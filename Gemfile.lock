@@ -143,7 +143,7 @@ GEM
       html_tokenizer (~> 0.0.6)
       parser (>= 2.4)
       smart_properties
-    bootsnap (1.12.0)
+    bootsnap (1.13.0)
       msgpack (~> 1.2)
     bootstrap (4.6.1)
       autoprefixer-rails (>= 9.1.0)
