@@ -187,7 +187,7 @@ GEM
     datetime_picker_rails (0.0.7)
       momentjs-rails (>= 2.8.1)
     dead_end (4.0.0)
-    derailed_benchmarks (2.1.1)
+    derailed_benchmarks (2.1.2)
       benchmark-ips (~> 2)
       dead_end
       get_process_mem (~> 0)
