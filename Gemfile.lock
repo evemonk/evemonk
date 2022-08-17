@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/evemonk/eve_online.git
-  revision: bb1b5876226ce2b5804f579210d9579de4e6adaf
+  revision: 629a8e556d1adbfafe8d03e4c93c25361884f45b
   branch: main
   specs:
     eve_online (0.43.0)
@@ -244,10 +244,10 @@ GEM
       railties (>= 5.0.0)
     faker (2.22.0)
       i18n (>= 1.8.11, < 2)
-    faraday (2.4.0)
-      faraday-net_http (~> 2.0)
+    faraday (2.5.2)
+      faraday-net_http (>= 2.0, < 3.1)
       ruby2_keywords (>= 0.0.4)
-    faraday-net_http (2.1.0)
+    faraday-net_http (3.0.0)
     fasterer (0.10.0)
       colorize (~> 0.7)
       ruby_parser (>= 3.19.1)
