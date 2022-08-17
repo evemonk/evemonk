@@ -14,10 +14,10 @@ scheduler.every "5m" do
   Pghero::CaptureQueryStatsJob.perform_later
 end
 
-scheduler.every "1h" do
-  Rails.logger.info "Update characters"
-  UpdateCharactersJob.perform_later
-end
+# scheduler.every "1h" do
+#   Rails.logger.info "Update characters"
+#   UpdateCharactersJob.perform_later
+# end
 
 scheduler.at "every day at 2 pm" do
   Rails.logger.info "Collection postgresql space stats"
