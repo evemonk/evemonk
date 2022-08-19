@@ -255,7 +255,7 @@ GEM
     ffi-compiler (1.0.1)
       ffi (>= 1.0.0)
       rake
-    flipper (0.25.0)
+    flipper (0.25.1)
     flipper-active_record (0.25.0)
       activerecord (>= 4.2, < 8)
       flipper (~> 0.25.0)
