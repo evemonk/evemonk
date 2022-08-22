@@ -511,7 +511,7 @@ GEM
     rash_alt (0.4.12)
       hashie (>= 3.4)
     rbtree3 (0.7.0)
-    redis (4.7.1)
+    redis (4.8.0)
     redis-client (0.7.1)
       connection_pool
     regexp_parser (2.5.0)
