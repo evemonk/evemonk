@@ -714,6 +714,7 @@ DEPENDENCIES
   authy
   awesome_print
   aws-sdk-s3
+  better_html
   bootsnap (>= 1.4.4)
   bootstrap!
   bootswatch!
@@ -820,4 +821,4 @@ RUBY VERSION
    ruby 3.1.2p20
 
 BUNDLED WITH
-   2.3.20
+   2.3.21
