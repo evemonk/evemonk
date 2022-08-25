@@ -56,9 +56,9 @@ All screenshots are real and made in Safari on latest macOS Catalina (10.15.3).
 - [PostgreSQL](https://www.postgresql.org)
 - [Redis](https://redis.io)
 - Minio (S3 compatible storage)
-- Bootstrap 4.6.1
+- Bootstrap 4.6.2
 - [Bootstrap Icons](https://icons.getbootstrap.com)
-- Bootswatch Darkly 4.6.1
+- Bootswatch Darkly 4.6.2
 
 ## Configure
 
