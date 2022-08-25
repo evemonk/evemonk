@@ -261,7 +261,7 @@ GEM
       sanitize (< 7)
     foreman (0.87.2)
     foundation_emails (2.2.1.0)
-    fugit (1.5.3)
+    fugit (1.6.0)
       et-orbi (~> 1, >= 1.2.7)
       raabro (~> 1.4)
     gemdiff (4.1.0)
