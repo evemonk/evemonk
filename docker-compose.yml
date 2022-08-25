@@ -27,7 +27,7 @@ services:
       - "6379:6379"
 
   memcached:
-    image: "docker.io/library/memcached:1.6.15"
+    image: "docker.io/library/memcached:1.6.16"
     container_name: "evemonk_memcached"
     restart: "unless-stopped"
     command: "memcached -m 64"
