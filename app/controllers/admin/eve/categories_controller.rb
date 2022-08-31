@@ -3,7 +3,6 @@
 module Admin
   module Eve
     class CategoriesController < Admin::ApplicationController
-      include DisableModifications
     end
   end
 end
