@@ -3,7 +3,6 @@
 module Admin
   module Eve
     class SystemsController < Admin::ApplicationController
-      include DisableModifications
     end
   end
 end
