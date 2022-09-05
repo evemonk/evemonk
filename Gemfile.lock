@@ -114,7 +114,7 @@ GEM
       selectize-rails (~> 0.6)
     airbrake (13.0.2)
       airbrake-ruby (~> 6.0)
-    airbrake-ruby (6.1.2)
+    airbrake-ruby (6.2.0)
       rbtree3 (~> 0.5)
     anyway_config (2.3.0)
       ruby-next-core (>= 0.14.0)
