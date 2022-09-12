@@ -539,7 +539,7 @@ GEM
       rspec-expectations (~> 3.11)
       rspec-mocks (~> 3.11)
       rspec-support (~> 3.11)
-    rspec-support (3.11.0)
+    rspec-support (3.11.1)
     rubocop (1.35.1)
       json (~> 2.3)
       parallel (~> 1.10)
