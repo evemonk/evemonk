@@ -510,7 +510,7 @@ GEM
     rake (13.0.6)
     rbtree3 (0.7.0)
     redis (4.8.0)
-    redis-client (0.8.0)
+    redis-client (0.8.1)
       connection_pool
     regexp_parser (2.5.0)
     request_store (1.5.1)
