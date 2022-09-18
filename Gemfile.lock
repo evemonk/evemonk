@@ -24,12 +24,12 @@ GIT
 
 GIT
   remote: https://github.com/twbs/bootstrap-rubygem.git
-  revision: 78e7e0fb35d9d8d9b36ac2d26a80688d939c6e15
+  revision: 13e4101c4a74038687a665437201fbe72d444948
   branch: 4.6-stable
   specs:
-    bootstrap (4.6.1)
+    bootstrap (4.6.2)
       autoprefixer-rails (>= 9.1.0)
-      popper_js (>= 1.14.3, < 2)
+      popper_js (>= 1.16.1, < 2)
       sassc-rails (>= 2.0.0)
 
 GEM
