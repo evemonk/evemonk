@@ -21,7 +21,7 @@ gem "flipper-ui"
 gem "bootstrap", "4.6.2"
 gem "bootswatch",
   git: "https://github.com/thomaspark/bootswatch.git",
-  tag: "v4.6.2"
+  tag: "v5.2.1"
 gem "good_migrations"
 gem "local_time"
 gem "rails-i18n", "~> 7.0.5"
