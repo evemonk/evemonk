@@ -9,6 +9,8 @@ if ENV["CI"] == "yes"
 end
 
 SimpleCov.start "rails" do
+  enable_coverage :branch
+
   add_group "Dashboards", "app/dashboards"
   add_group "GraphQL", "app/graphql"
   add_group "Importers", "app/importers"
