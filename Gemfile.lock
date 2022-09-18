@@ -22,16 +22,6 @@ GIT
   specs:
     bootswatch (4.6.2)
 
-GIT
-  remote: https://github.com/twbs/bootstrap-rubygem.git
-  revision: 13e4101c4a74038687a665437201fbe72d444948
-  branch: 4.6-stable
-  specs:
-    bootstrap (4.6.2)
-      autoprefixer-rails (>= 9.1.0)
-      popper_js (>= 1.16.1, < 2)
-      sassc-rails (>= 2.0.0)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -152,6 +142,10 @@ GEM
       smart_properties
     bootsnap (1.13.0)
       msgpack (~> 1.2)
+    bootstrap (4.6.2)
+      autoprefixer-rails (>= 9.1.0)
+      popper_js (>= 1.16.1, < 2)
+      sassc-rails (>= 2.0.0)
     brakeman (5.3.1)
     builder (3.2.4)
     cacheflow (0.3.0)
@@ -717,7 +711,7 @@ DEPENDENCIES
   aws-sdk-s3
   better_html
   bootsnap (>= 1.4.4)
-  bootstrap!
+  bootstrap (= 4.6.2)
   bootswatch!
   brakeman
   cacheflow
