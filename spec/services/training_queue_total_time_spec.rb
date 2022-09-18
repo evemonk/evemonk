@@ -14,7 +14,7 @@ describe TrainingQueueTotalTime do
   end
 
   describe "#total_time" do
-    before { travel_to Time.zone.now }
+    before { freeze_time }
 
     let!(:character) { create(:character) }
 
