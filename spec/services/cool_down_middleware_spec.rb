@@ -50,7 +50,7 @@ describe CoolDownMiddleware do
   end
 
   context "when esi_error_limit_remain and esi_error_limit_remain_till are already set" do
-    before { travel_to Time.zone.now }
+    before { freeze_time }
 
     before { expect(Redis).to receive(:new).and_return(redis).exactly(4).times }
 
