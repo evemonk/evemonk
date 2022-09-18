@@ -18,7 +18,7 @@ gem "better_html"
 gem "flipper"
 gem "flipper-active_record"
 gem "flipper-ui"
-gem "bootstrap", "4.6.2"
+gem "bootstrap", "5.2.1"
 gem "bootswatch",
   git: "https://github.com/thomaspark/bootswatch.git",
   tag: "v4.6.2"
