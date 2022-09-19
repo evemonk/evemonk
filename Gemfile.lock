@@ -646,7 +646,7 @@ GEM
     unf_ext (0.0.8.2)
     unicode-display_width (2.3.0)
     vcr (6.1.0)
-    version_gem (1.1.0)
+    version_gem (1.1.1)
     warden (1.2.9)
       rack (>= 2.0.9)
     webdrivers (5.1.0)
