@@ -13,7 +13,7 @@ module Eve
       name_ja: Field::String,
       name_ru: Field::String,
       name_ko: Field::String,
-      constellation: Field::BelongsTo.with_options(class_name: "Eve::Constellation"),
+      constellation: Field::BelongsTo,
       star_id: Field::Number, # TODO: add star dashboard
       security_class: Field::String,
       security_status: Field::Number,
