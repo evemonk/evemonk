@@ -7,13 +7,13 @@ module Eve
     ATTRIBUTE_TYPES = {
       id: Field::Number,
       corporation_id: Field::Number,
-      alliance: Field::BelongsTo.with_options(class_name: "Eve::Alliance"),
-      ceo: Field::BelongsTo.with_options(class_name: "Eve::Character"),
-      creator: Field::BelongsTo.with_options(class_name: "Eve::Character"),
+      alliance: Field::BelongsTo,
+      ceo: Field::BelongsTo,
+      creator: Field::BelongsTo,
       date_founded: Field::DateTime,
       description: Field::Text,
-      faction: Field::BelongsTo.with_options(class_name: "Eve::Faction"),
-      home_station_id: Field::Number, # TODO: home_station
+      faction: Field::BelongsTo,
+      home_station: Field::BelongsTo,
       member_count: Field::Number,
       name: Field::String,
       shares: Field::Number,
@@ -37,7 +37,7 @@ module Eve
       :date_founded,
       :description,
       :faction,
-      :home_station_id, # TODO: home_station
+      :home_station,
       :member_count,
       :name,
       :shares,
