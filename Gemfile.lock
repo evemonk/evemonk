@@ -102,7 +102,7 @@ GEM
       kaminari (>= 1.0)
       sassc-rails (~> 2.1)
       selectize-rails (~> 0.6)
-    airbrake (13.0.2)
+    airbrake (13.0.3)
       airbrake-ruby (~> 6.0)
     airbrake-ruby (6.2.0)
       rbtree3 (~> 0.5)
