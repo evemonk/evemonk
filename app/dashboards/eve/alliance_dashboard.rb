@@ -7,19 +7,19 @@ module Eve
     ATTRIBUTE_TYPES = {
       id: Field::Number,
       alliance_id: Field::Number,
-      creator_corporation: Field::BelongsTo.with_options(class_name: "Eve::Corporation"),
-      creator: Field::BelongsTo.with_options(class_name: "Eve::Character"),
+      creator_corporation: Field::BelongsTo,
+      creator: Field::BelongsTo,
       date_founded: Field::DateTime,
-      executor_corporation: Field::BelongsTo.with_options(class_name: "Eve::Corporation"),
-      faction: Field::BelongsTo.with_options(class_name: "Eve::Faction"),
+      executor_corporation: Field::BelongsTo,
+      faction: Field::BelongsTo,
       name: Field::String,
       ticker: Field::String,
       corporations_count: Field::Number,
       characters_count: Field::Number,
       created_at: Field::DateTime,
       updated_at: Field::DateTime,
-      corporations: Field::HasMany.with_options(class_name: "Eve::Corporation"),
-      characters: Field::HasMany.with_options(class_name: "Eve::Character")
+      corporations: Field::HasMany,
+      characters: Field::HasMany
       # TODO: add corporation_alliance_histories
     }.freeze
 

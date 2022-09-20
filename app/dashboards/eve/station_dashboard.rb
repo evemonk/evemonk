@@ -8,10 +8,10 @@ module Eve
       id: Field::Number,
       station_id: Field::Number,
       name: Field::String,
-      system: Field::BelongsTo.with_options(class_name: "Eve::System"),
+      system: Field::BelongsTo,
       type_id: Field::Number, # TODO: add type dashboard
       owner: Field::Number,
-      race: Field::BelongsTo.with_options(class_name: "Eve::Race"),
+      race: Field::BelongsTo,
       max_dockable_ship_volume: Field::Number,
       office_rental_cost: Field::Number,
       reprocessing_efficiency: Field::Number,

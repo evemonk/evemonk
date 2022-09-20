@@ -19,17 +19,17 @@ module Eve
       description_ja: Field::Text,
       description_ru: Field::Text,
       description_ko: Field::Text,
-      race: Field::BelongsTo.with_options(class_name: "Eve::Race"),
+      race: Field::BelongsTo,
       charisma: Field::Number,
       intelligence: Field::Number,
       memory: Field::Number,
       perception: Field::Number,
       willpower: Field::Number,
-      corporation: Field::BelongsTo.with_options(class_name: "Eve::Corporation"),
+      corporation: Field::BelongsTo,
       # ship_type: Field::BelongsTo.with_options(class_name: "Eve::Ship"),
       created_at: Field::DateTime,
       updated_at: Field::DateTime,
-      ancestries: Field::HasMany.with_options(class_name: "Eve::Ancestry")
+      ancestries: Field::HasMany
     }.freeze
 
     COLLECTION_ATTRIBUTES = [:id, :bloodline_id, :name_en].freeze

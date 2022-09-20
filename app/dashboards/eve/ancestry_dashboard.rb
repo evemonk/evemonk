@@ -7,7 +7,7 @@ module Eve
     ATTRIBUTE_TYPES = {
       id: Field::Number,
       ancestry_id: Field::Number,
-      bloodline: Field::BelongsTo.with_options(class_name: "Eve::Bloodline"),
+      bloodline: Field::BelongsTo,
       name_en: Field::String,
       name_de: Field::String,
       name_fr: Field::String,
