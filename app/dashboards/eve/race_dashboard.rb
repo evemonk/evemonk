@@ -19,9 +19,9 @@ module Eve
       description_ja: Field::Text,
       description_ru: Field::Text,
       description_ko: Field::Text,
-      faction: Field::BelongsTo.with_options(class_name: "Eve::Faction"),
-      bloodlines: Field::HasMany.with_options(class_name: "Eve::Bloodline"),
-      # stations: Field::HasMany.with_options(class_name: "Eve::Station"),
+      faction: Field::BelongsTo,
+      bloodlines: Field::HasMany,
+      stations: Field::HasMany,
       created_at: Field::DateTime,
       updated_at: Field::DateTime
     }.freeze
@@ -45,7 +45,7 @@ module Eve
       :description_ko,
       :faction,
       :bloodlines,
-      # :stations,
+      :stations,
       :created_at,
       :updated_at
     ].freeze
