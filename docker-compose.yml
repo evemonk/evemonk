@@ -18,7 +18,7 @@ services:
       - "5432:5432"
 
   redis:
-    image: "docker.io/library/redis:7.0.4"
+    image: "docker.io/library/redis:7.0.5"
     container_name: "evemonk_redis"
     restart: "unless-stopped"
     volumes:
@@ -27,7 +27,7 @@ services:
       - "6379:6379"
 
   memcached:
-    image: "docker.io/library/memcached:1.6.16"
+    image: "docker.io/library/memcached:1.6.17"
     container_name: "evemonk_memcached"
     restart: "unless-stopped"
     command: "memcached -m 64"
