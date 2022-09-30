@@ -54,8 +54,9 @@ scheduler.at "every day at 2 pm" do
   # Rails.logger.info "Import new eve characters"
   # Eve::UpdateCharactersJob.perform_later
 
-  Rails.logger.info "Update sitemap and ping google"
-  SitemapUpdaterJob.perform_later
+  # TODO: later
+  # Rails.logger.info "Update sitemap and ping google"
+  # SitemapUpdaterJob.perform_later
 end
 
 # scheduler.at "every monday at 2 pm" do
