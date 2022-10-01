@@ -99,27 +99,37 @@ Rails.application.routes.draw do
 
   namespace :admin do
     namespace :eve do
+      resources :agents, only: [:index, :show]
+
       resources :alliances, only: [:index, :show]
 
-      resources :corporations, only: [:index, :show]
+      resources :ancestries, only: [:index, :show]
 
-      resources :characters, only: [:index, :show]
-
-      resources :races, only: [:index, :show]
+      resources :asteroid_belts, only: [:index, :show]
 
       resources :bloodlines, only: [:index, :show]
 
-      resources :ancestries, only: [:index, :show]
+      resources :categories, only: [:index, :show]
+
+      resources :characters, only: [:index, :show]
+
+      resources :constellations, only: [:index, :show]
+
+      resources :corporations, only: [:index, :show]
 
       resources :factions, only: [:index, :show]
 
       resources :groups, only: [:index, :show]
 
+      resources :icons, only: [:index, :show]
+
       resources :market_groups, only: [:index, :show]
 
-      resources :categories, only: [:index, :show]
+      resources :races, only: [:index, :show]
 
-      resources :constellations, only: [:index, :show]
+      resources :regions, only: [:index, :show]
+
+      resources :stars, only: [:index, :show]
 
       resources :stations, only: [:index, :show]
 
