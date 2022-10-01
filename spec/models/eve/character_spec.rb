@@ -114,4 +114,19 @@ describe Eve::Character do
       specify { expect(subject.to_param).to eq(nil) }
     end
   end
+
+  # private methods
+
+  describe "#character_portrait_url" do
+    subject { build(:eve_character, character_id: 90_729_314) }
+
+    before do
+      #
+      # imageable_url("characters", character_id, "portrait", size)
+      #
+      expect(subject).to receive(:imageable_url).with("characters", 90_729_314, "portrait", 1024)
+    end
+
+    specify { expect { subject.send(:character_portrait_url, 1024) }.not_to raise_error }
+  end
 end
