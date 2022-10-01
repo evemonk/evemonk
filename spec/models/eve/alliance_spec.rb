@@ -9,7 +9,7 @@ describe Eve::Alliance do
 
   it { should be_a(ActionView::Helpers::NumberHelper) }
 
-  it { should be_a(ImageProxy) }
+  it { should be_a(Imageable) }
 
   it { should respond_to(:versions) }
 
