@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Eve
-  class Groups
-    CYBER_SCIENCE_ID = 748
+  class Categories
+    SKILLS_ID = 16
   end
 end

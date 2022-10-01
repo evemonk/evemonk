@@ -99,27 +99,37 @@ Rails.application.routes.draw do
 
   namespace :admin do
     namespace :eve do
+      resources :agents, only: [:index, :show]
+
       resources :alliances, only: [:index, :show]
 
-      resources :corporations, only: [:index, :show]
+      resources :ancestries, only: [:index, :show]
 
-      resources :characters, only: [:index, :show]
-
-      resources :races, only: [:index, :show]
+      resources :asteroid_belts, only: [:index, :show]
 
       resources :bloodlines, only: [:index, :show]
 
-      resources :ancestries, only: [:index, :show]
+      resources :categories, only: [:index, :show]
+
+      resources :characters, only: [:index, :show]
+
+      resources :constellations, only: [:index, :show]
+
+      resources :corporations, only: [:index, :show]
 
       resources :factions, only: [:index, :show]
 
       resources :groups, only: [:index, :show]
 
+      resources :icons, only: [:index, :show]
+
       resources :market_groups, only: [:index, :show]
 
-      resources :categories, only: [:index, :show]
+      resources :races, only: [:index, :show]
 
-      resources :constellations, only: [:index, :show]
+      resources :regions, only: [:index, :show]
+
+      resources :stars, only: [:index, :show]
 
       resources :stations, only: [:index, :show]
 
@@ -133,24 +143,6 @@ Rails.application.routes.draw do
     resources :characters, only: [:index, :show]
 
     resources :settings
-
-    # resources :skillqueues
-    # resources :character_skills
-    # resources :character_mail_labels
-    # resources :character_orders
-    # resources :character_corporation_histories
-    # resources :loyalty_points
-    # resources :etags
-    # resources :standings
-    # resources :industry_jobs
-    # resources :characters
-    # resources :wallet_transactions
-    # resources :wallet_journals
-    # resources :character_implants
-    # resources :character_assets
-    # resources :character_killmails
-    # resources :manufacturing_jobs
-    # resources :character_blueprints
 
     root to: "settings#index"
   end
