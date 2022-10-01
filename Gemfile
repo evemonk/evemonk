@@ -14,7 +14,6 @@ gem "stimulus-rails", ">= 0.3.9"
 gem "jbuilder", "~> 2.11"
 gem "dartsass-rails"
 gem "bootsnap", ">= 1.4.4", require: false
-gem "better_html"
 gem "flipper"
 gem "flipper-active_record"
 gem "flipper-ui"
@@ -105,6 +104,7 @@ group :development, :test do
   gem "license_finder", require: false
   gem "anyway_config" # For isolator
   gem "isolator"
+  gem "better_html", require: false
   gem "erb_lint", require: false
 end
 
