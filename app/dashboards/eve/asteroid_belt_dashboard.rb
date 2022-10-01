@@ -17,7 +17,6 @@ module Eve
 
     COLLECTION_ATTRIBUTES = [:id, :asteroid_belt_id, :name].freeze
 
-
     SHOW_PAGE_ATTRIBUTES = [
       :id,
       :asteroid_belt_id,
