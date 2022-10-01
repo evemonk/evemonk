@@ -4,7 +4,7 @@ module Eve
   class Corporation < ApplicationRecord
     include PgSearch::Model
     include ActionView::Helpers::NumberHelper
-    include ImageProxy
+    include Imageable
 
     has_paper_trail
 
@@ -64,19 +64,19 @@ module Eve
     end
 
     def icon_tiny
-      "#{imageproxy_url}https://images.evetech.net/corporations/#{corporation_id}/logo?size=32"
+      corporation_logo_url(32)
     end
 
     def icon_small
-      "#{imageproxy_url}https://images.evetech.net/corporations/#{corporation_id}/logo?size=64"
+      corporation_logo_url(64)
     end
 
     def icon_medium
-      "#{imageproxy_url}https://images.evetech.net/corporations/#{corporation_id}/logo?size=128"
+      corporation_logo_url(128)
     end
 
     def icon_large
-      "#{imageproxy_url}https://images.evetech.net/corporations/#{corporation_id}/logo?size=256"
+      corporation_logo_url(256)
     end
 
     def formatted_member_count
@@ -94,6 +94,12 @@ module Eve
 
     def to_param
       corporation_id&.to_s
+    end
+
+    private
+
+    def corporation_logo_url(size)
+      imageable_url("corporations", corporation_id, "logo", size)
     end
   end
 end
