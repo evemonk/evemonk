@@ -14,7 +14,6 @@ gem "stimulus-rails", ">= 0.3.9"
 gem "jbuilder", "~> 2.11"
 gem "dartsass-rails"
 gem "bootsnap", ">= 1.4.4", require: false
-gem "better_html"
 gem "flipper"
 gem "flipper-active_record"
 gem "flipper-ui"
@@ -105,13 +104,11 @@ group :development, :test do
   gem "license_finder", require: false
   gem "anyway_config" # For isolator
   gem "isolator"
+  gem "better_html", require: false
   gem "erb_lint", require: false
 end
 
 group :development do
-  # Display speed badge on every html page with SQL times and flame graphs.
-  # Note: Interferes with etag cache testing. Can be configured to work on production: https://github.com/MiniProfiler/rack-mini-profiler/blob/master/README.md
-  # gem "rack-mini-profiler", "~> 2.0"
   gem "foreman", require: false
   gem "consistency_fail", require: false
   gem "active_record_doctor"
