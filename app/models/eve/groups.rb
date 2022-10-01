@@ -2,6 +2,6 @@
 
 module Eve
   class Groups
-    CYBER_SCIENCE = 748
+    CYBER_SCIENCE_ID = 748
   end
 end
