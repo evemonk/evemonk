@@ -4,7 +4,7 @@ module Eve
   class Alliance < ApplicationRecord
     include PgSearch::Model
     include ActionView::Helpers::NumberHelper
-    include ImageProxy
+    include Imageable
 
     has_paper_trail
 
@@ -54,23 +54,23 @@ module Eve
     end
 
     def icon_tiny
-      "#{imageproxy_url}https://images.evetech.net/alliances/#{alliance_id}/logo?size=32"
+      alliance_logo_url(32)
     end
 
     def icon_small
-      "#{imageproxy_url}https://images.evetech.net/alliances/#{alliance_id}/logo?size=64"
+      alliance_logo_url(64)
     end
 
     def icon_medium
-      "#{imageproxy_url}https://images.evetech.net/alliances/#{alliance_id}/logo?size=128"
+      alliance_logo_url(128)
     end
 
     def icon_large
-      "#{imageproxy_url}https://images.evetech.net/alliances/#{alliance_id}/logo?size=256"
+      alliance_logo_url(256)
     end
 
     def icon_huge
-      "#{imageproxy_url}https://images.evetech.net/alliances/#{alliance_id}/logo?size=512"
+      alliance_logo_url(512)
     end
 
     def formatted_corporations_count
@@ -88,6 +88,12 @@ module Eve
 
     def to_param
       alliance_id&.to_s
+    end
+
+    private
+
+    def alliance_logo_url(size)
+      imageable_url("alliances", alliance_id, "logo", size)
     end
   end
 end
