@@ -109,9 +109,6 @@ group :development, :test do
 end
 
 group :development do
-  # Display speed badge on every html page with SQL times and flame graphs.
-  # Note: Interferes with etag cache testing. Can be configured to work on production: https://github.com/MiniProfiler/rack-mini-profiler/blob/master/README.md
-  # gem "rack-mini-profiler", "~> 2.0"
   gem "foreman", require: false
   gem "consistency_fail", require: false
   gem "active_record_doctor"
