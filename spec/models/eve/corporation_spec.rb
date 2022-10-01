@@ -9,7 +9,7 @@ describe Eve::Corporation do
 
   it { should be_an(ActionView::Helpers::NumberHelper) }
 
-  it { should be_an(ImageProxy) }
+  it { should be_an(Imageable) }
 
   it { should respond_to(:versions) }
 
@@ -108,79 +108,27 @@ describe Eve::Corporation do
   end
 
   describe "#icon_tiny" do
-    subject do
-      build(:eve_corporation,
-        corporation_id: 1_344_654_522)
-    end
+    before { expect(subject).to receive(:corporation_logo_url).with(32) }
 
-    context "when Setting.use_image_proxy is true" do
-      before { Setting.use_image_proxy = true }
-
-      specify { expect(subject.icon_tiny).to eq("https://imageproxy.evemonk.com/https://images.evetech.net/corporations/1344654522/logo?size=32") }
-    end
-
-    context "when Setting.use_image_proxy is false" do
-      before { Setting.use_image_proxy = false }
-
-      specify { expect(subject.icon_tiny).to eq("https://images.evetech.net/corporations/1344654522/logo?size=32") }
-    end
+    specify { expect { subject.icon_tiny }.not_to raise_error }
   end
 
   describe "#icon_small" do
-    subject do
-      build(:eve_corporation,
-        corporation_id: 1_344_654_522)
-    end
+    before { expect(subject).to receive(:corporation_logo_url).with(64) }
 
-    context "when Setting.use_image_proxy is true" do
-      before { Setting.use_image_proxy = true }
-
-      specify { expect(subject.icon_small).to eq("https://imageproxy.evemonk.com/https://images.evetech.net/corporations/1344654522/logo?size=64") }
-    end
-
-    context "when Setting.use_image_proxy is false" do
-      before { Setting.use_image_proxy = false }
-
-      specify { expect(subject.icon_small).to eq("https://images.evetech.net/corporations/1344654522/logo?size=64") }
-    end
+    specify { expect { subject.icon_small }.not_to raise_error }
   end
 
   describe "#icon_medium" do
-    subject do
-      build(:eve_corporation,
-        corporation_id: 1_344_654_522)
-    end
+    before { expect(subject).to receive(:corporation_logo_url).with(128) }
 
-    context "when Setting.use_image_proxy is true" do
-      before { Setting.use_image_proxy = true }
-
-      specify { expect(subject.icon_medium).to eq("https://imageproxy.evemonk.com/https://images.evetech.net/corporations/1344654522/logo?size=128") }
-    end
-
-    context "when Setting.use_image_proxy is false" do
-      before { Setting.use_image_proxy = false }
-
-      specify { expect(subject.icon_medium).to eq("https://images.evetech.net/corporations/1344654522/logo?size=128") }
-    end
+    specify { expect { subject.icon_medium }.not_to raise_error }
   end
 
   describe "#icon_large" do
-    subject do
-      build(:eve_corporation,
-        corporation_id: 1_344_654_522)
-    end
+    before { expect(subject).to receive(:corporation_logo_url).with(256) }
 
-    context "when Setting.use_image_proxy is true" do
-      before { Setting.use_image_proxy = true }
-
-      specify { expect(subject.icon_large).to eq("https://imageproxy.evemonk.com/https://images.evetech.net/corporations/1344654522/logo?size=256") }
-    end
-
-    context "when Setting.use_image_proxy is false" do
-      before { Setting.use_image_proxy = false }
-
-      specify { expect(subject.icon_large).to eq("https://images.evetech.net/corporations/1344654522/logo?size=256") }
-    end
+    specify { expect { subject.icon_large }.not_to raise_error }
   end
 
   describe "#formatted_member_count" do
@@ -238,5 +186,20 @@ describe Eve::Corporation do
 
       specify { expect(subject.to_param).to eq(nil) }
     end
+  end
+
+  # private methods
+
+  describe "#alliance_logo_url" do
+    subject { build(:eve_corporation, corporation_id: 1_344_654_522) }
+
+    before do
+      #
+      # imageable_url("corporations", corporation_id, "logo", size)
+      #
+      expect(subject).to receive(:imageable_url).with("corporations", 1_344_654_522, "logo", 256)
+    end
+
+    specify { expect { subject.send(:corporation_logo_url, 256) }.not_to raise_error }
   end
 end
