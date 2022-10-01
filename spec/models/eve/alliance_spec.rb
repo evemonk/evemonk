@@ -164,4 +164,19 @@ describe Eve::Alliance do
       specify { expect(subject.to_param).to eq(nil) }
     end
   end
+
+  # private methods
+
+  describe "#alliance_logo_url" do
+    subject { build(:eve_alliance, alliance_id: 1_354_830_081) }
+
+    before do
+      #
+      # imageable_url("alliances", alliance_id, "logo", size)
+      #
+      expect(subject).to receive(:imageable_url).with("alliances", 1_354_830_081, "logo", 512)
+    end
+
+    specify { expect { subject.send(:alliance_logo_url, 512) }.not_to raise_error }
+  end
 end
