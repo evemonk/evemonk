@@ -5,7 +5,7 @@ require "rails_helper"
 describe Eve::Faction do
   it { should be_an(ApplicationRecord) }
 
-  it { should be_a(ImageProxy) }
+  it { should be_a(Imageable) }
 
   it { should respond_to(:versions) }
 
@@ -26,59 +26,35 @@ describe Eve::Faction do
   it { should have_many(:standings) }
 
   describe "#icon_tiny" do
-    subject do
-      build(:eve_faction,
-        faction_id: 500_001)
-    end
+    before { expect(subject).to receive(:corporations_logo_url).with(32) }
 
-    context "when Setting.use_image_proxy is true" do
-      before { Setting.use_image_proxy = true }
-
-      specify { expect(subject.icon_tiny).to eq("https://imageproxy.evemonk.com/https://images.evetech.net/corporations/500001/logo?size=32") }
-    end
-
-    context "when Setting.use_image_proxy is false" do
-      before { Setting.use_image_proxy = false }
-
-      specify { expect(subject.icon_tiny).to eq("https://images.evetech.net/corporations/500001/logo?size=32") }
-    end
+    specify { expect { subject.icon_tiny }.not_to raise_error }
   end
 
   describe "#icon_small" do
-    subject do
-      build(:eve_faction,
-        faction_id: 500_001)
-    end
+    before { expect(subject).to receive(:corporations_logo_url).with(64) }
 
-    context "when Setting.use_image_proxy is true" do
-      before { Setting.use_image_proxy = true }
-
-      specify { expect(subject.icon_small).to eq("https://imageproxy.evemonk.com/https://images.evetech.net/corporations/500001/logo?size=64") }
-    end
-
-    context "when Setting.use_image_proxy is false" do
-      before { Setting.use_image_proxy = false }
-
-      specify { expect(subject.icon_small).to eq("https://images.evetech.net/corporations/500001/logo?size=64") }
-    end
+    specify { expect { subject.icon_small }.not_to raise_error }
   end
 
   describe "#icon_medium" do
-    subject do
-      build(:eve_faction,
-        faction_id: 500_001)
+    before { expect(subject).to receive(:corporations_logo_url).with(128) }
+
+    specify { expect { subject.icon_medium }.not_to raise_error }
+  end
+
+  # private methods
+
+  describe "#corporations_logo_url" do
+    subject { build(:eve_faction, faction_id: 500_001) }
+
+    before do
+      #
+      # imageable_url("corporations", faction_id, "logo", size)
+      #
+      expect(subject).to receive(:imageable_url).with("corporations", 500_001, "logo", 128)
     end
 
-    context "when Setting.use_image_proxy is true" do
-      before { Setting.use_image_proxy = true }
-
-      specify { expect(subject.icon_medium).to eq("https://imageproxy.evemonk.com/https://images.evetech.net/corporations/500001/logo?size=128") }
-    end
-
-    context "when Setting.use_image_proxy is false" do
-      before { Setting.use_image_proxy = false }
-
-      specify { expect(subject.icon_medium).to eq("https://images.evetech.net/corporations/500001/logo?size=128") }
-    end
+    specify { expect { subject.send(:corporations_logo_url, 128) }.not_to raise_error }
   end
 end

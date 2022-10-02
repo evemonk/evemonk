@@ -4,7 +4,7 @@ module Eve
   class Type < ApplicationRecord
     include PgSearch::Model
     include ActionView::Helpers::NumberHelper
-    include ImageProxy
+    include Imageable
 
     extend Mobility
 
@@ -83,39 +83,39 @@ module Eve
     end
 
     def icon_tiny
-      "#{imageproxy_url}https://images.evetech.net/types/#{type_id}/icon?size=32"
+      type_icon_url(32)
     end
 
     def icon_small
-      "#{imageproxy_url}https://images.evetech.net/types/#{type_id}/icon?size=64"
+      type_icon_url(64)
     end
 
     def render_tiny
-      "#{imageproxy_url}https://images.evetech.net/types/#{type_id}/render?size=32"
+      type_render_url(32)
     end
 
     def render_small
-      "#{imageproxy_url}https://images.evetech.net/types/#{type_id}/render?size=64"
+      type_render_url(64)
     end
 
     def render_medium
-      "#{imageproxy_url}https://images.evetech.net/types/#{type_id}/render?size=128"
+      type_render_url(128)
     end
 
     def render_large
-      "#{imageproxy_url}https://images.evetech.net/types/#{type_id}/render?size=256"
+      type_render_url(256)
     end
 
     def render_huge
-      "#{imageproxy_url}https://images.evetech.net/types/#{type_id}/render?size=512"
+      type_render_url(512)
     end
 
     def relic_tiny
-      "#{imageproxy_url}https://images.evetech.net/types/#{type_id}/relic?size=32"
+      type_relic_url(32)
     end
 
     def relic_small
-      "#{imageproxy_url}https://images.evetech.net/types/#{type_id}/relic?size=64"
+      type_relic_url(64)
     end
 
     def average_price_formatted
@@ -126,5 +126,19 @@ module Eve
     #   # simple_format(SafeEveSanitizer.new.sanitize(description))
     #   SafeEveSanitizer.new.sanitize(description)
     # end
+
+    private
+
+    def type_icon_url(size)
+      imageable_url("types", type_id, "icon", size)
+    end
+
+    def type_render_url(size)
+      imageable_url("types", type_id, "render", size)
+    end
+
+    def type_relic_url(size)
+      imageable_url("types", type_id, "relic", size)
+    end
   end
 end
