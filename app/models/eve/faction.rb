@@ -2,7 +2,7 @@
 
 module Eve
   class Faction < ApplicationRecord
-    include ImageProxy
+    include Imageable
     extend Mobility
 
     has_paper_trail
@@ -30,15 +30,21 @@ module Eve
     has_many :standings, as: :standingable
 
     def icon_tiny
-      "#{imageproxy_url}https://images.evetech.net/corporations/#{faction_id}/logo?size=32"
+      corporations_logo_url(32)
     end
 
     def icon_small
-      "#{imageproxy_url}https://images.evetech.net/corporations/#{faction_id}/logo?size=64"
+      corporations_logo_url(64)
     end
 
     def icon_medium
-      "#{imageproxy_url}https://images.evetech.net/corporations/#{faction_id}/logo?size=128"
+      corporations_logo_url(128)
+    end
+
+    private
+
+    def corporations_logo_url(size)
+      imageable_url("corporations", faction_id, "logo", size)
     end
   end
 end
