@@ -9,7 +9,7 @@ describe Eve::Type do
 
   it { should be_an(ActionView::Helpers::NumberHelper) }
 
-  it { should be_a(ImageProxy) }
+  it { should be_a(Imageable) }
 
   specify { expect(described_class::PRIMARY_ATTRIBUTE_NAME).to eq("primaryAttribute") }
 
@@ -144,174 +144,57 @@ describe Eve::Type do
   end
 
   describe "#icon_tiny" do
-    subject do
-      build(:eve_type,
-        type_id: 23_773)
-    end
+    before { expect(subject).to receive(:type_icon_url).with(32) }
 
-    context "when Setting.use_image_proxy is true" do
-      before { Setting.use_image_proxy = true }
-
-      specify { expect(subject.icon_tiny).to eq("https://imageproxy.evemonk.com/https://images.evetech.net/types/23773/icon?size=32") }
-    end
-
-    context "when Setting.use_image_proxy is false" do
-      before { Setting.use_image_proxy = false }
-
-      specify { expect(subject.icon_tiny).to eq("https://images.evetech.net/types/23773/icon?size=32") }
-    end
+    specify { expect { subject.icon_tiny }.not_to raise_error }
   end
 
   describe "#icon_small" do
-    subject do
-      build(:eve_type,
-        type_id: 23_773)
-    end
+    before { expect(subject).to receive(:type_icon_url).with(64) }
 
-    context "when Setting.use_image_proxy is true" do
-      before { Setting.use_image_proxy = true }
-
-      specify { expect(subject.icon_small).to eq("https://imageproxy.evemonk.com/https://images.evetech.net/types/23773/icon?size=64") }
-    end
-
-    context "when Setting.use_image_proxy is false" do
-      before { Setting.use_image_proxy = false }
-
-      specify { expect(subject.icon_small).to eq("https://images.evetech.net/types/23773/icon?size=64") }
-    end
+    specify { expect { subject.icon_small }.not_to raise_error }
   end
 
   describe "#render_tiny" do
-    subject do
-      build(:eve_type,
-        type_id: 23_773)
-    end
+    before { expect(subject).to receive(:type_render_url).with(32) }
 
-    context "when Setting.use_image_proxy is true" do
-      before { Setting.use_image_proxy = true }
-
-      specify { expect(subject.render_tiny).to eq("https://imageproxy.evemonk.com/https://images.evetech.net/types/23773/render?size=32") }
-    end
-
-    context "when Setting.use_image_proxy is false" do
-      before { Setting.use_image_proxy = false }
-
-      specify { expect(subject.render_tiny).to eq("https://images.evetech.net/types/23773/render?size=32") }
-    end
+    specify { expect { subject.render_tiny }.not_to raise_error }
   end
 
   describe "#render_small" do
-    subject do
-      build(:eve_type,
-        type_id: 23_773)
-    end
+    before { expect(subject).to receive(:type_render_url).with(64) }
 
-    context "when Setting.use_image_proxy is true" do
-      before { Setting.use_image_proxy = true }
-
-      specify { expect(subject.render_small).to eq("https://imageproxy.evemonk.com/https://images.evetech.net/types/23773/render?size=64") }
-    end
-
-    context "when Setting.use_image_proxy is false" do
-      before { Setting.use_image_proxy = false }
-
-      specify { expect(subject.render_small).to eq("https://images.evetech.net/types/23773/render?size=64") }
-    end
+    specify { expect { subject.render_small }.not_to raise_error }
   end
 
   describe "#render_medium" do
-    subject do
-      build(:eve_type,
-        type_id: 23_773)
-    end
+    before { expect(subject).to receive(:type_render_url).with(128) }
 
-    context "when Setting.use_image_proxy is true" do
-      before { Setting.use_image_proxy = true }
-
-      specify { expect(subject.render_medium).to eq("https://imageproxy.evemonk.com/https://images.evetech.net/types/23773/render?size=128") }
-    end
-
-    context "when Setting.use_image_proxy is false" do
-      before { Setting.use_image_proxy = false }
-
-      specify { expect(subject.render_medium).to eq("https://images.evetech.net/types/23773/render?size=128") }
-    end
+    specify { expect { subject.render_medium }.not_to raise_error }
   end
 
   describe "#render_large" do
-    subject do
-      build(:eve_type,
-        type_id: 23_773)
-    end
+    before { expect(subject).to receive(:type_render_url).with(256) }
 
-    context "when Setting.use_image_proxy is true" do
-      before { Setting.use_image_proxy = true }
-
-      specify { expect(subject.render_large).to eq("https://imageproxy.evemonk.com/https://images.evetech.net/types/23773/render?size=256") }
-    end
-
-    context "when Setting.use_image_proxy is false" do
-      before { Setting.use_image_proxy = false }
-
-      specify { expect(subject.render_large).to eq("https://images.evetech.net/types/23773/render?size=256") }
-    end
+    specify { expect { subject.render_large }.not_to raise_error }
   end
 
   describe "#render_huge" do
-    subject do
-      build(:eve_type,
-        type_id: 23_773)
-    end
+    before { expect(subject).to receive(:type_render_url).with(512) }
 
-    context "when Setting.use_image_proxy is true" do
-      before { Setting.use_image_proxy = true }
-
-      specify { expect(subject.render_huge).to eq("https://imageproxy.evemonk.com/https://images.evetech.net/types/23773/render?size=512") }
-    end
-
-    context "when Setting.use_image_proxy is false" do
-      before { Setting.use_image_proxy = false }
-
-      specify { expect(subject.render_huge).to eq("https://images.evetech.net/types/23773/render?size=512") }
-    end
+    specify { expect { subject.render_huge }.not_to raise_error }
   end
 
   describe "#relic_tiny" do
-    subject do
-      build(:eve_type,
-        type_id: 23_773)
-    end
+    before { expect(subject).to receive(:type_relic_url).with(32) }
 
-    context "when Setting.use_image_proxy is true" do
-      before { Setting.use_image_proxy = true }
-
-      specify { expect(subject.relic_tiny).to eq("https://imageproxy.evemonk.com/https://images.evetech.net/types/23773/relic?size=32") }
-    end
-
-    context "when Setting.use_image_proxy is false" do
-      before { Setting.use_image_proxy = false }
-
-      specify { expect(subject.relic_tiny).to eq("https://images.evetech.net/types/23773/relic?size=32") }
-    end
+    specify { expect { subject.relic_tiny }.not_to raise_error }
   end
 
   describe "#relic_small" do
-    subject do
-      build(:eve_type,
-        type_id: 23_773)
-    end
+    before { expect(subject).to receive(:type_relic_url).with(64) }
 
-    context "when Setting.use_image_proxy is true" do
-      before { Setting.use_image_proxy = true }
-
-      specify { expect(subject.relic_small).to eq("https://imageproxy.evemonk.com/https://images.evetech.net/types/23773/relic?size=64") }
-    end
-
-    context "when Setting.use_image_proxy is false" do
-      before { Setting.use_image_proxy = false }
-
-      specify { expect(subject.relic_small).to eq("https://images.evetech.net/types/23773/relic?size=64") }
-    end
+    specify { expect { subject.relic_small }.not_to raise_error }
   end
 
   describe "#average_price_formatted" do
@@ -332,5 +215,46 @@ describe Eve::Type do
 
       specify { expect(subject.average_price_formatted).to eq("9 061 680") }
     end
+  end
+
+  # private methods
+
+  describe "#type_icon_url" do
+    subject { build(:eve_type, type_id: 23_773) }
+
+    before do
+      #
+      # imageable_url("types", type_id, "icon", size)
+      #
+      expect(subject).to receive(:imageable_url).with("types", 23_773, "icon", 32)
+    end
+
+    specify { expect { subject.send(:type_icon_url, 32) }.not_to raise_error }
+  end
+
+  describe "#type_render_url" do
+    subject { build(:eve_type, type_id: 23_773) }
+
+    before do
+      #
+      # imageable_url("types", type_id, "render", size)
+      #
+      expect(subject).to receive(:imageable_url).with("types", 23_773, "render", 64)
+    end
+
+    specify { expect { subject.send(:type_render_url, 64) }.not_to raise_error }
+  end
+
+  describe "#type_relic_url" do
+    subject { build(:eve_type, type_id: 23_773) }
+
+    before do
+      #
+      # imageable_url("types", type_id, "portrait", size)
+      #
+      expect(subject).to receive(:imageable_url).with("types", 23_773, "relic", 32)
+    end
+
+    specify { expect { subject.send(:type_relic_url, 32) }.not_to raise_error }
   end
 end
