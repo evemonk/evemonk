@@ -7,5 +7,5 @@ describe Eve::Unit do
 
   it { should respond_to(:versions) }
 
-  it { should have_many(:dogma_attributes).with_primary_key("unit_id") }
+  it { should have_many(:dogma_attributes) }
 end
