@@ -12,7 +12,7 @@ module Sde
       entries = YAML.safe_load(File.read(file))
 
       entries.each do |hash|
-        unit = Eve::Unit.find_or_initialize_by(unit_id: hash["unitID"])
+        unit = Eve::Unit.find_or_initialize_by(id: hash["unitID"])
 
         unit.assign_attributes(unit_name: hash["unitName"],
           description: hash["description"],

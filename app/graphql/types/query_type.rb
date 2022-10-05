@@ -221,6 +221,16 @@ module Types
       argument :id, ID, description: "Type ID", required: true
     end
 
+    field :units, Types::EveUnitType.connection_type,
+      description: "Units",
+      null: true
+
+    field :unit, Types::EveUnitType,
+      description: "Unit",
+      null: true do
+      argument :id, ID, description: "Unit ID", required: true
+    end
+
     def alliances
       ::Eve::Alliance.order(:alliance_id)
     end
@@ -389,6 +399,14 @@ module Types
 
     def type(id:)
       ::Eve::Type.find_by(type_id: id)
+    end
+
+    def units
+      ::Eve::Unit.order(:id)
+    end
+
+    def unit(id:)
+      ::Eve::Unit.find_by(id: id)
     end
   end
 end

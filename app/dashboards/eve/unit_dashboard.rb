@@ -6,7 +6,6 @@ module Eve
   class UnitDashboard < Administrate::BaseDashboard
     ATTRIBUTE_TYPES = {
       id: Field::Number,
-      unit_id: Field::Number,
       description: Field::Text,
       unit_name: Field::String,
       display_name: Field::String,
@@ -16,11 +15,10 @@ module Eve
       # dogma_attributes: Field::HasMany
     }.freeze
 
-    COLLECTION_ATTRIBUTES = [:id, :unit_id, :unit_name].freeze
+    COLLECTION_ATTRIBUTES = [:id, :unit_name].freeze
 
     SHOW_PAGE_ATTRIBUTES = [
       :id,
-      :unit_id,
       :description,
       :unit_name,
       :display_name,
