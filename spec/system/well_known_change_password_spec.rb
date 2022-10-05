@@ -6,7 +6,7 @@ describe "/.well-known/change-password" do
   it "when user successfully redirected to change password form" do
     create(:user, email: "me@example.com", password: "eidii7EeooVe8ahk")
 
-    visit "/users/sign_in"
+    visit new_user_session_path
 
     fill_in "Email address", with: "me@example.com"
     fill_in "Password", with: "eidii7EeooVe8ahk"
