@@ -3,10 +3,6 @@
 require "rails_helper"
 
 describe CharacterSkillsLevels do
-  it { expect(described_class::SCIENCE_SKILL_ID).to eq(3402) }
-
-  it { expect(described_class::ADVANCED_INDUSTRY_SKILL_ID).to eq(3388) }
-
   let!(:character) { create(:character) }
 
   subject { described_class.new(character) }
@@ -19,7 +15,7 @@ describe CharacterSkillsLevels do
     let!(:character_skill) do
       create(:character_skill,
         character: character,
-        skill_id: described_class::SCIENCE_SKILL_ID)
+        skill_id: Eve::Skills::SCIENCE_ID)
     end
 
     specify { expect(subject.science_skill).to eq(character_skill) }
@@ -34,7 +30,7 @@ describe CharacterSkillsLevels do
       let!(:character_skill) do
         create(:character_skill,
           character: character,
-          skill_id: described_class::SCIENCE_SKILL_ID,
+          skill_id: Eve::Skills::SCIENCE_ID,
           active_skill_level: 5)
       end
 
@@ -46,7 +42,7 @@ describe CharacterSkillsLevels do
     let!(:character_skill) do
       create(:character_skill,
         character: character,
-        skill_id: described_class::ADVANCED_INDUSTRY_SKILL_ID)
+        skill_id: Eve::Skills::ADVANCED_INDUSTRY_ID)
     end
 
     specify { expect(subject.advanced_industry_skill).to eq(character_skill) }
@@ -61,7 +57,7 @@ describe CharacterSkillsLevels do
       let!(:character_skill) do
         create(:character_skill,
           character: character,
-          skill_id: described_class::ADVANCED_INDUSTRY_SKILL_ID,
+          skill_id: Eve::Skills::ADVANCED_INDUSTRY_ID,
           active_skill_level: 5)
       end
 
