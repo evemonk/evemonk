@@ -9,7 +9,7 @@ describe TrainingQueuesController do
 
   describe "#index" do
     context "when user signed in" do
-      before { travel_to Time.zone.now }
+      before { freeze_time }
 
       let(:user) { create(:user) }
 
@@ -45,7 +45,7 @@ describe TrainingQueuesController do
         # character.skillqueues
         #          .includes(:skill)
         #          .order(:queue_position)
-        #          .where("skillqueues.finish_date > ?", Time.zone.now)
+        #          .where("skillqueues.finish_date >= :now", now: Time.zone.now)
         #
         expect(character).to receive(:skillqueues) do
           double.tap do |a|
@@ -53,7 +53,7 @@ describe TrainingQueuesController do
               double.tap do |b|
                 expect(b).to receive(:order).with(:queue_position) do
                   double.tap do |c|
-                    expect(c).to receive(:where).with("skillqueues.finish_date > ?", Time.zone.now)
+                    expect(c).to receive(:where).with("skillqueues.finish_date >= :now", now: Time.zone.now)
                   end
                 end
               end
