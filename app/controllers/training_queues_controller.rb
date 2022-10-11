@@ -9,6 +9,6 @@ class TrainingQueuesController < ApplicationController
     @skillqueues = @character.skillqueues
       .includes(:skill)
       .order(:queue_position)
-      .where("skillqueues.finish_date > ?", Time.zone.now)
+      .where("skillqueues.finish_date >= :now", now: Time.zone.now)
   end
 end

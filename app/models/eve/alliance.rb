@@ -46,11 +46,11 @@ module Eve
     has_one_attached :logo
 
     def reset_corporations_count
-      update_columns(corporations_count: corporations.count)
+      update!(corporations_count: corporations.count)
     end
 
     def reset_characters_count
-      update_columns(characters_count: corporations.sum(:member_count))
+      update!(characters_count: corporations.sum(:member_count))
     end
 
     def icon_tiny
