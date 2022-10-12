@@ -166,8 +166,6 @@ GEM
     concurrent-ruby (1.1.10)
     connection_pool (2.3.0)
     consistency_fail (0.3.7)
-    countries (5.1.2)
-      sixarm_ruby_unaccent (~> 1.1)
     crack (0.4.5)
       rexml
     crass (1.0.6)
@@ -595,7 +593,6 @@ GEM
     simplecov_json_formatter (0.1.4)
     sitemap_generator (6.3.0)
       builder (~> 3.0)
-    sixarm_ruby_unaccent (1.2.0)
     skylight (5.3.3)
       activesupport (>= 5.2.0)
     smart_properties (1.17.0)
@@ -710,7 +707,6 @@ DEPENDENCIES
   capybara (>= 3.26)
   connection_pool
   consistency_fail
-  countries
   dalli
   dartsass-rails
   database_rewinder
