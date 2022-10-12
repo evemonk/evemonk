@@ -7,7 +7,7 @@ describe CharacterBlueprint do
 
   it { should be_a(Locationable) }
 
-  it { should be_a(ImageProxy) }
+  it { should be_a(Imageable) }
 
   it { expect(described_class::RELIC_CATEGORY_ID).to eq(34) }
 
@@ -177,179 +177,160 @@ describe CharacterBlueprint do
 
   describe "#icon_tiny" do
     context "when relic" do
-      subject do
-        build(:character_blueprint,
-          type_id: 804)
-      end
-
       before { expect(subject).to receive(:relic?).and_return(true) }
 
-      context "when Setting.use_image_proxy is true" do
-        before { Setting.use_image_proxy = true }
+      before { expect(subject).to receive(:types_relic_url).with(32) }
 
-        specify { expect(subject.icon_tiny).to eq("https://imageproxy.evemonk.com/https://images.evetech.net/types/804/relic?size=32") }
-      end
-
-      context "when Setting.use_image_proxy is false" do
-        before { Setting.use_image_proxy = false }
-
-        specify { expect(subject.icon_tiny).to eq("https://images.evetech.net/types/804/relic?size=32") }
-      end
+      specify { expect { subject.icon_tiny }.not_to raise_error }
     end
 
     context "when stacked" do
-      subject do
-        build(:character_blueprint,
-          quantity: 10,
-          type_id: 804)
-      end
-
       before { expect(subject).to receive(:relic?).and_return(false) }
 
-      context "when Setting.use_image_proxy is true" do
-        before { Setting.use_image_proxy = true }
+      before { expect(subject).to receive(:stacked?).and_return(true) }
 
-        specify { expect(subject.icon_tiny).to eq("https://imageproxy.evemonk.com/https://images.evetech.net/types/804/bp?size=32") }
-      end
+      before { expect(subject).to receive(:types_bp_url).with(32) }
 
-      context "when Setting.use_image_proxy is false" do
-        before { Setting.use_image_proxy = false }
-
-        specify { expect(subject.icon_tiny).to eq("https://images.evetech.net/types/804/bp?size=32") }
-      end
+      specify { expect { subject.icon_tiny }.not_to raise_error }
     end
 
     context "when blueprint is original" do
-      subject do
-        build(:character_blueprint,
-          quantity: -1,
-          type_id: 804)
-      end
-
       before { expect(subject).to receive(:relic?).and_return(false) }
 
-      context "when Setting.use_image_proxy is true" do
-        before { Setting.use_image_proxy = true }
+      before { expect(subject).to receive(:stacked?).and_return(false) }
 
-        specify { expect(subject.icon_tiny).to eq("https://imageproxy.evemonk.com/https://images.evetech.net/types/804/bp?size=32") }
-      end
+      before { expect(subject).to receive(:bpo?).and_return(true) }
 
-      context "when Setting.use_image_proxy is false" do
-        before { Setting.use_image_proxy = false }
+      before { expect(subject).to receive(:types_bp_url).with(32) }
 
-        specify { expect(subject.icon_tiny).to eq("https://images.evetech.net/types/804/bp?size=32") }
-      end
+      specify { expect { subject.icon_tiny }.not_to raise_error }
     end
 
     context "when blueprint is copy" do
-      subject do
-        build(:character_blueprint,
-          quantity: -2,
-          type_id: 804)
-      end
-
       before { expect(subject).to receive(:relic?).and_return(false) }
 
-      context "when Setting.use_image_proxy is true" do
-        before { Setting.use_image_proxy = true }
+      before { expect(subject).to receive(:stacked?).and_return(false) }
 
-        specify { expect(subject.icon_tiny).to eq("https://imageproxy.evemonk.com/https://images.evetech.net/types/804/bpc?size=32") }
-      end
+      before { expect(subject).to receive(:bpo?).and_return(false) }
 
-      context "when Setting.use_image_proxy is false" do
-        before { Setting.use_image_proxy = false }
+      before { expect(subject).to receive(:bpc?).and_return(true) }
 
-        specify { expect(subject.icon_tiny).to eq("https://images.evetech.net/types/804/bpc?size=32") }
-      end
+      before { expect(subject).to receive(:types_bpc_url).with(32) }
+
+      specify { expect { subject.icon_tiny }.not_to raise_error }
+    end
+
+    context "when unknown state" do
+      before { expect(subject).to receive(:relic?).and_return(false) }
+
+      before { expect(subject).to receive(:stacked?).and_return(false) }
+
+      before { expect(subject).to receive(:bpo?).and_return(false) }
+
+      before { expect(subject).to receive(:bpc?).and_return(false) }
+
+      specify { expect(subject.icon_tiny).to eq(nil) }
     end
   end
 
   describe "#icon_small" do
     context "when relic" do
-      subject do
-        build(:character_blueprint,
-          type_id: 804)
-      end
-
       before { expect(subject).to receive(:relic?).and_return(true) }
 
-      context "when Setting.use_image_proxy is true" do
-        before { Setting.use_image_proxy = true }
+      before { expect(subject).to receive(:types_relic_url).with(64) }
 
-        specify { expect(subject.icon_small).to eq("https://imageproxy.evemonk.com/https://images.evetech.net/types/804/relic?size=64") }
-      end
-
-      context "when Setting.use_image_proxy is false" do
-        before { Setting.use_image_proxy = false }
-
-        specify { expect(subject.icon_small).to eq("https://images.evetech.net/types/804/relic?size=64") }
-      end
+      specify { expect { subject.icon_small }.not_to raise_error }
     end
 
     context "when stacked" do
-      subject do
-        build(:character_blueprint,
-          quantity: 10,
-          type_id: 804)
-      end
-
       before { expect(subject).to receive(:relic?).and_return(false) }
 
-      context "when Setting.use_image_proxy is true" do
-        before { Setting.use_image_proxy = true }
+      before { expect(subject).to receive(:stacked?).and_return(true) }
 
-        specify { expect(subject.icon_small).to eq("https://imageproxy.evemonk.com/https://images.evetech.net/types/804/bp?size=64") }
-      end
+      before { expect(subject).to receive(:types_bp_url).with(64) }
 
-      context "when Setting.use_image_proxy is false" do
-        before { Setting.use_image_proxy = false }
-
-        specify { expect(subject.icon_small).to eq("https://images.evetech.net/types/804/bp?size=64") }
-      end
+      specify { expect { subject.icon_small }.not_to raise_error }
     end
 
     context "when blueprint is original" do
-      subject do
-        build(:character_blueprint,
-          quantity: -1,
-          type_id: 804)
-      end
-
       before { expect(subject).to receive(:relic?).and_return(false) }
 
-      context "when Setting.use_image_proxy is true" do
-        before { Setting.use_image_proxy = true }
+      before { expect(subject).to receive(:stacked?).and_return(false) }
 
-        specify { expect(subject.icon_small).to eq("https://imageproxy.evemonk.com/https://images.evetech.net/types/804/bp?size=64") }
-      end
+      before { expect(subject).to receive(:bpo?).and_return(true) }
 
-      context "when Setting.use_image_proxy is false" do
-        before { Setting.use_image_proxy = false }
+      before { expect(subject).to receive(:types_bp_url).with(64) }
 
-        specify { expect(subject.icon_small).to eq("https://images.evetech.net/types/804/bp?size=64") }
-      end
+      specify { expect { subject.icon_small }.not_to raise_error }
     end
 
     context "when blueprint is copy" do
-      subject do
-        build(:character_blueprint,
-          quantity: -2,
-          type_id: 804)
-      end
-
       before { expect(subject).to receive(:relic?).and_return(false) }
 
-      context "when Setting.use_image_proxy is true" do
-        before { Setting.use_image_proxy = true }
+      before { expect(subject).to receive(:stacked?).and_return(false) }
 
-        specify { expect(subject.icon_small).to eq("https://imageproxy.evemonk.com/https://images.evetech.net/types/804/bpc?size=64") }
-      end
+      before { expect(subject).to receive(:bpo?).and_return(false) }
 
-      context "when Setting.use_image_proxy is false" do
-        before { Setting.use_image_proxy = false }
+      before { expect(subject).to receive(:bpc?).and_return(true) }
 
-        specify { expect(subject.icon_small).to eq("https://images.evetech.net/types/804/bpc?size=64") }
-      end
+      before { expect(subject).to receive(:types_bpc_url).with(64) }
+
+      specify { expect { subject.icon_small }.not_to raise_error }
     end
+
+    context "when unknown state" do
+      before { expect(subject).to receive(:relic?).and_return(false) }
+
+      before { expect(subject).to receive(:stacked?).and_return(false) }
+
+      before { expect(subject).to receive(:bpo?).and_return(false) }
+
+      before { expect(subject).to receive(:bpc?).and_return(false) }
+
+      before { expect(subject).not_to receive(:types_bpc_url) }
+
+      specify { expect(subject.icon_small).to eq(nil) }
+    end
+  end
+
+  # private methods
+
+  describe "#types_relic_url" do
+    subject { build(:character_blueprint, type_id: 804) }
+
+    before do
+      #
+      # imageable_url("types", type_id, "relic", size)
+      #
+      expect(subject).to receive(:imageable_url).with("types", 804, "relic", 64)
+    end
+
+    specify { expect { subject.send(:types_relic_url, 64) }.not_to raise_error }
+  end
+
+  describe "#types_bp_url" do
+    subject { build(:character_blueprint, type_id: 804) }
+
+    before do
+      #
+      # imageable_url("types", type_id, "bp", size)
+      #
+      expect(subject).to receive(:imageable_url).with("types", 804, "bp", 64)
+    end
+
+    specify { expect { subject.send(:types_bp_url, 64) }.not_to raise_error }
+  end
+
+  describe "#types_bpc_url" do
+    subject { build(:character_blueprint, type_id: 804) }
+
+    before do
+      #
+      # imageable_url("types", type_id, "bpc", size)
+      #
+      expect(subject).to receive(:imageable_url).with("types", 804, "bpc", 64)
+    end
+
+    specify { expect { subject.send(:types_bpc_url, 64) }.not_to raise_error }
   end
 end
