@@ -35,11 +35,17 @@ module Eve
     # end
 
     def icon_tiny
-      "#{imageproxy_url}https://images.evetech.net/types/#{type_id}/bp?size=32"
+      type_bp_url(32)
     end
 
     def icon_small
-      "#{imageproxy_url}https://images.evetech.net/types/#{type_id}/bp?size=64"
+      type_bp_url(64)
+    end
+
+    private
+
+    def type_bp_url(size)
+      imageable_url("types", type_id, "bp", size)
     end
   end
 end
