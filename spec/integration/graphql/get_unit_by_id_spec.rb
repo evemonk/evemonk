@@ -13,15 +13,15 @@ describe "Get Unit by ID" do
 
   let(:query) do
     %(
-       query getUnitByID {
-         unit(id: 1) {
-           id
-           description
-           unitName
-           displayName
-         }
-       }
-     )
+      query getUnitByID {
+        unit(id: 1) {
+          id
+          description
+          unitName
+          displayName
+        }
+      }
+    )
   end
 
   let(:result) { EvemonkSchema.execute(query).as_json }
