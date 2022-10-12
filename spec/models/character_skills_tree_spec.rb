@@ -3,8 +3,6 @@
 require "rails_helper"
 
 describe CharacterSkillsTree do
-  it { expect(described_class::SKILLS_CATEGORY_ID).to eq(16) }
-
   it { expect(described_class::PRIMARY_ATTRIBUTE_NAME).to eq("primaryAttribute") }
 
   it { expect(described_class::SECONDARY_ATTRIBUTE_NAME).to eq("secondaryAttribute") }
@@ -358,11 +356,11 @@ describe CharacterSkillsTree do
       before do
         #
         # Eve::Category.published
-        #              .find_by!(category_id: SKILLS_CATEGORY_ID) # => skill_category
+        #              .find_by!(category_id: Eve::Categories::SKILLS_ID) # => skill_category
         #
         expect(Eve::Category).to receive(:published) do
           double.tap do |a|
-            expect(a).to receive(:find_by!).with(category_id: described_class::SKILLS_CATEGORY_ID)
+            expect(a).to receive(:find_by!).with(category_id: Eve::Categories::SKILLS_ID)
               .and_return(skill_category)
           end
         end
@@ -491,7 +489,7 @@ describe CharacterSkillsTree do
     context "when @character_skillqueues is not set" do
       let(:character_skillqueues) { double }
 
-      before { travel_to Time.zone.now }
+      before { freeze_time }
 
       before do
         #

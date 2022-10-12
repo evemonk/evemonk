@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class CharacterSkillsTree
-  SKILLS_CATEGORY_ID = 16
   PRIMARY_ATTRIBUTE_NAME = "primaryAttribute"
   SECONDARY_ATTRIBUTE_NAME = "secondaryAttribute"
 
@@ -99,7 +98,7 @@ class CharacterSkillsTree
   private
 
   def skill_category
-    @skill_category ||= Eve::Category.published.find_by!(category_id: SKILLS_CATEGORY_ID)
+    @skill_category ||= Eve::Category.published.find_by!(category_id: Eve::Categories::SKILLS_ID)
   end
 
   def skills_types

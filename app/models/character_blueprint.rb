@@ -2,8 +2,9 @@
 
 class CharacterBlueprint < ApplicationRecord
   include Locationable
-  include ImageProxy
+  include Imageable
 
+  # TODO: move out this constant
   RELIC_CATEGORY_ID = 34
 
   belongs_to :character
@@ -54,25 +55,39 @@ class CharacterBlueprint < ApplicationRecord
 
   def icon_tiny
     if relic?
-      "#{imageproxy_url}https://images.evetech.net/types/#{type_id}/relic?size=32"
+      types_relic_url(32)
     elsif stacked? || bpo?
-      "#{imageproxy_url}https://images.evetech.net/types/#{type_id}/bp?size=32"
+      types_bp_url(32)
     elsif bpc?
-      "#{imageproxy_url}https://images.evetech.net/types/#{type_id}/bpc?size=32"
+      types_bpc_url(32)
     end
   end
 
   def icon_small
     if relic?
-      "#{imageproxy_url}https://images.evetech.net/types/#{type_id}/relic?size=64"
+      types_relic_url(64)
     elsif stacked? || bpo?
-      "#{imageproxy_url}https://images.evetech.net/types/#{type_id}/bp?size=64"
+      types_bp_url(64)
     elsif bpc?
-      "#{imageproxy_url}https://images.evetech.net/types/#{type_id}/bpc?size=64"
+      types_bpc_url(64)
     end
   end
 
   # def character_copying_time_formatted
   #   HumanTime.new(CharacterManufacturingCopyTime.new(@character, @blueprint.blueprint.copying_time).manufacturing_copy_time.round).long_formatted
   # end
+
+  private
+
+  def types_relic_url(size)
+    imageable_url("types", type_id, "relic", size)
+  end
+
+  def types_bp_url(size)
+    imageable_url("types", type_id, "bp", size)
+  end
+
+  def types_bpc_url(size)
+    imageable_url("types", type_id, "bpc", size)
+  end
 end
