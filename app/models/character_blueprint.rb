@@ -4,6 +4,7 @@ class CharacterBlueprint < ApplicationRecord
   include Locationable
   include Imageable
 
+  # TODO: move out this constant
   RELIC_CATEGORY_ID = 34
 
   belongs_to :character
