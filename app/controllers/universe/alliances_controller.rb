@@ -14,7 +14,7 @@ module Universe
     def show
       @alliance = ::Eve::Alliance
         .includes(:faction, :creator_corporation, :creator, :executor_corporation)
-        .find_by!(alliance_id: params[:id])
+        .find(params[:id])
 
       @corporations = ::Eve::Corporation
         .where(alliance: @alliance)
