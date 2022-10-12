@@ -21,26 +21,26 @@ describe "Get Units" do
 
   let(:query) do
     %(
-       query getUnits {
-         units(first: 2) {
-           edges {
-             node {
-               id
-               description
-               unitName
-               displayName
-             }
-             cursor
-           }
-           pageInfo {
-             endCursor
-             hasNextPage
-             hasPreviousPage
-             startCursor
-           }
-         }
-       }
-     )
+      query getUnits {
+        units(first: 2) {
+          edges {
+            node {
+              id
+              description
+              unitName
+              displayName
+            }
+            cursor
+          }
+          pageInfo {
+            endCursor
+            hasNextPage
+            hasPreviousPage
+            startCursor
+          }
+        }
+      }
+    )
   end
 
   let(:result) { EvemonkSchema.execute(query).as_json }
