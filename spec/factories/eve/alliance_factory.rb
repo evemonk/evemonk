@@ -2,8 +2,6 @@
 
 FactoryBot.define do
   factory :eve_alliance, class: "Eve::Alliance" do
-    sequence(:alliance_id)
-
     sequence(:creator_corporation_id)
 
     sequence(:creator_id)
