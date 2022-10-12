@@ -13,8 +13,7 @@ describe User do
       :validatable,
       :confirmable,
       :trackable,
-      :zxcvbnable,
-      :authy_authenticatable])
+      :zxcvbnable])
   }
 
   it { should have_many(:characters).dependent(:destroy) }
