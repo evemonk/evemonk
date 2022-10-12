@@ -39,44 +39,29 @@ describe Eve::Blueprint do
   end
 
   describe "#icon_tiny" do
-    subject do
-      Eve::Blueprint.new(attributes_for(:eve_type,
-        type_id: 24_699,
-        copying_time: 240,
-        is_blueprint: true))
-    end
+    before { expect(subject).to receive(:type_bp_url).with(32) }
 
-    context "when Setting.use_image_proxy is true" do
-      before { Setting.use_image_proxy = true }
-
-      specify { expect(subject.icon_tiny).to eq("https://imageproxy.evemonk.com/https://images.evetech.net/types/24699/bp?size=32") }
-    end
-
-    context "when Setting.use_image_proxy is false" do
-      before { Setting.use_image_proxy = false }
-
-      specify { expect(subject.icon_tiny).to eq("https://images.evetech.net/types/24699/bp?size=32") }
-    end
+    specify { expect { subject.icon_tiny }.not_to raise_error }
   end
 
   describe "#icon_small" do
-    subject do
-      Eve::Blueprint.new(attributes_for(:eve_type,
-        type_id: 24_699,
-        copying_time: 240,
-        is_blueprint: true))
+    before { expect(subject).to receive(:type_bp_url).with(64) }
+
+    specify { expect { subject.icon_small }.not_to raise_error }
+  end
+
+  # private methods
+
+  describe "#type_bp_url" do
+    subject { Eve::Blueprint.new(attributes_for(:eve_type, type_id: 24_699, is_blueprint: true)) }
+
+    before do
+      #
+      # imageable_url("types", type_id, "bp", size)
+      #
+      expect(subject).to receive(:imageable_url).with("types", 24_699, "bp", 32)
     end
 
-    context "when Setting.use_image_proxy is true" do
-      before { Setting.use_image_proxy = true }
-
-      specify { expect(subject.icon_small).to eq("https://imageproxy.evemonk.com/https://images.evetech.net/types/24699/bp?size=64") }
-    end
-
-    context "when Setting.use_image_proxy is false" do
-      before { Setting.use_image_proxy = false }
-
-      specify { expect(subject.icon_small).to eq("https://images.evetech.net/types/24699/bp?size=64") }
-    end
+    specify { expect { subject.send(:type_bp_url, 32) }.not_to raise_error }
   end
 end
