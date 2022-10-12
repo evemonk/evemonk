@@ -18,7 +18,7 @@ describe ImportMissing::Alliances do
   # private methods
 
   describe "#alliance_ids" do
-    let!(:eve_alliance) { create(:eve_alliance, alliance_id: 1_354_830_081) }
+    let!(:eve_alliance) { create(:eve_alliance, id: 1_354_830_081) }
 
     let!(:character_1) { create(:character, alliance_id: nil) }
 
