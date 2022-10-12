@@ -110,8 +110,6 @@ GEM
       ruby-next-core (>= 0.14.0)
     ast (2.4.2)
     attr_extras (6.2.5)
-    authy (3.0.1)
-      httpclient (>= 2.5.3.3)
     autoprefixer-rails (10.4.7.0)
       execjs (~> 2)
     awesome_print (1.9.2)
@@ -290,7 +288,6 @@ GEM
       domain_name (~> 0.5)
     http-form_data (2.3.0)
     http_accept_language (2.1.1)
-    httpclient (2.8.3)
     httplog (1.6.0)
       rack (>= 2.0)
       rainbow (>= 2.0.0)
@@ -692,7 +689,6 @@ DEPENDENCIES
   administrate
   airbrake (~> 13.0)
   anyway_config
-  authy
   awesome_print
   aws-sdk-s3
   better_html
