@@ -28,10 +28,7 @@ class Character < ApplicationRecord
     primary_key: "ancestry_id",
     optional: true
 
-  belongs_to :alliance,
-    class_name: "Eve::Alliance",
-    primary_key: "alliance_id",
-    optional: true
+  belongs_to :alliance, class_name: "Eve::Alliance", optional: true
 
   belongs_to :corporation,
     class_name: "Eve::Corporation",

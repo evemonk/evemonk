@@ -19,7 +19,7 @@ describe Character do
 
   it { should belong_to(:ancestry).class_name("Eve::Ancestry").with_primary_key("ancestry_id").optional(true) }
 
-  it { should belong_to(:alliance).class_name("Eve::Alliance").with_primary_key("alliance_id").optional(true) }
+  it { should belong_to(:alliance).class_name("Eve::Alliance").optional(true) }
 
   it { should belong_to(:corporation).class_name("Eve::Corporation").with_primary_key("corporation_id").optional(true) }
 
