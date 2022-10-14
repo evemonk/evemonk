@@ -3,16 +3,16 @@
 require "rails_helper"
 
 describe Eve::AllianceLogoImporter do
-  let(:alliance_id) { double }
+  let(:id) { double }
 
-  subject { described_class.new(alliance_id) }
+  subject { described_class.new(id) }
 
   it { should be_a(Eve::BaseImporter) }
 
   specify { expect(described_class::ALLIANCES_LOGO_URL).to eq("https://images.evetech.net/alliances/%s/logo") }
 
   describe "#import" do
-    let(:alliance_id) { 434_243_723 }
+    let(:id) { 434_243_723 }
 
     let(:logo) { instance_double(ActiveStorage::Attached::One) }
 
@@ -20,7 +20,7 @@ describe Eve::AllianceLogoImporter do
 
     before do
       expect(Eve::Alliance).to receive(:find_or_initialize_by)
-        .with(alliance_id: alliance_id)
+        .with(id: id)
         .and_return(eve_alliance)
     end
 
