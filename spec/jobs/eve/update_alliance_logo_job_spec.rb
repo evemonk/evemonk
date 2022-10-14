@@ -11,6 +11,8 @@ describe Eve::UpdateAllianceLogoJob do
     let(:id) { double }
 
     context "when eve_update_alliance_logo_job enabled" do
+      before { Flipper.enable(:eve_update_alliance_logo_job) }
+
       before do
         #
         # Eve::AllianceLogoImporter.new(id).import
