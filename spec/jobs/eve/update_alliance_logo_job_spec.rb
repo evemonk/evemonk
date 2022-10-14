@@ -8,19 +8,19 @@ describe Eve::UpdateAllianceLogoJob do
   it { expect(described_class.queue_name).to eq("default") }
 
   describe "#perform" do
-    let(:alliance_id) { double }
+    let(:id) { double }
 
     before do
       #
-      # Eve::AllianceLogoImporter.new(alliance_id).import
+      # Eve::AllianceLogoImporter.new(id).import
       #
-      expect(Eve::AllianceLogoImporter).to receive(:new).with(alliance_id) do
+      expect(Eve::AllianceLogoImporter).to receive(:new).with(id) do
         double.tap do |a|
           expect(a).to receive(:import)
         end
       end
     end
 
-    specify { expect { subject.perform(alliance_id) }.not_to raise_error }
+    specify { expect { subject.perform(id) }.not_to raise_error }
   end
 end

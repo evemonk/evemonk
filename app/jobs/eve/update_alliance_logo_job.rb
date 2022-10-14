@@ -7,8 +7,8 @@ module Eve
     retry_on Down::TimeoutError,
       Down::ConnectionError
 
-    def perform(alliance_id)
-      Eve::AllianceLogoImporter.new(alliance_id).import
+    def perform(id)
+      Eve::AllianceLogoImporter.new(id).import
     end
   end
 end
