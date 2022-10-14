@@ -20,7 +20,7 @@ describe "Get Faction by ID" do
 
   let!(:eve_alliance) do
     create(:eve_alliance,
-      alliance_id: 12_345,
+      id: 12_345,
       faction: eve_faction)
   end
 
