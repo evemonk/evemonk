@@ -49,7 +49,7 @@
         <% if @character.alliance %>
           <li class="list-group-item text-break">
             Alliance: <%= link_to(@character.alliance.name,
-                                  universe_alliance_path(@character.alliance.alliance_id)) %>
+                                  universe_alliance_path(@character.alliance)) %>
           </li>
         <% end %>
         <% if @character.race && @character.bloodline && @character.ancestry %>

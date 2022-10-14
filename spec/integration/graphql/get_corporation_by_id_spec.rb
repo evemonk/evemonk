@@ -3,13 +3,13 @@
 require "rails_helper"
 
 describe "Get Corporation by ID" do
-  before { travel_to Time.zone.now }
+  before { freeze_time }
 
   let(:date_founded) { Time.zone.now }
 
   let!(:eve_alliance) do
     create(:eve_alliance,
-      alliance_id: 1_111)
+      id: 1_111)
   end
 
   let!(:ceo) do

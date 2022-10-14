@@ -3,7 +3,7 @@
 require "rails_helper"
 
 describe "Get Alliances" do
-  before { travel_to Time.zone.now }
+  before { freeze_time }
 
   let(:date_founded_1) { Time.zone.now }
 
@@ -51,7 +51,7 @@ describe "Get Alliances" do
 
   let!(:eve_alliance_1) do
     create(:eve_alliance,
-      alliance_id: 123,
+      id: 123,
       name: "Alliance 1",
       ticker: "ALLIANCE1",
       date_founded: date_founded_1,
@@ -63,7 +63,7 @@ describe "Get Alliances" do
 
   let!(:eve_alliance_2) do
     create(:eve_alliance,
-      alliance_id: 321,
+      id: 321,
       name: "Alliance 2",
       ticker: "ALLIANCE2",
       date_founded: date_founded_2,

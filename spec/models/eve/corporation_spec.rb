@@ -15,7 +15,7 @@ describe Eve::Corporation do
 
   it { expect(described_class.table_name).to eq("eve_corporations") }
 
-  it { should belong_to(:alliance).with_primary_key("alliance_id").optional(true) }
+  it { should belong_to(:alliance).optional(true) }
 
   it { should belong_to(:ceo).with_primary_key("character_id").class_name("Eve::Character").optional(true) }
 

@@ -23,7 +23,7 @@ describe Eve::Alliance do
 
   it { should belong_to(:faction).with_primary_key("faction_id").optional(true) }
 
-  it { should have_many(:corporations).with_primary_key("alliance_id") }
+  it { should have_many(:corporations) }
 
   it { should have_many(:characters).through(:corporations) }
 
@@ -137,42 +137,14 @@ describe Eve::Alliance do
     end
   end
 
-  describe "#to_key" do
-    context "when alliance_id is present" do
-      subject { build(:eve_alliance, alliance_id: 1_354_830_081) }
-
-      specify { expect(subject.to_key).to eq([1_354_830_081]) }
-    end
-
-    context "when alliance_id is not present" do
-      subject { build(:eve_alliance, alliance_id: nil) }
-
-      specify { expect(subject.to_key).to eq(nil) }
-    end
-  end
-
-  describe "#to_param" do
-    context "when alliance_id is present" do
-      subject { build(:eve_alliance, alliance_id: 1_354_830_081) }
-
-      specify { expect(subject.to_param).to eq("1354830081") }
-    end
-
-    context "when alliance_id is not present" do
-      subject { build(:eve_alliance, alliance_id: nil) }
-
-      specify { expect(subject.to_param).to eq(nil) }
-    end
-  end
-
   # private methods
 
   describe "#alliance_logo_url" do
-    subject { build(:eve_alliance, alliance_id: 1_354_830_081) }
+    subject { build(:eve_alliance, id: 1_354_830_081) }
 
     before do
       #
-      # imageable_url("alliances", alliance_id, "logo", size)
+      # imageable_url("alliances", id, "logo", size)
       #
       expect(subject).to receive(:imageable_url).with("alliances", 1_354_830_081, "logo", 512)
     end

@@ -28,8 +28,7 @@ module Eve
       primary_key: "faction_id",
       optional: true
 
-    has_many :corporations,
-      primary_key: "alliance_id"
+    has_many :corporations
 
     has_many :characters,
       through: :corporations
@@ -81,19 +80,10 @@ module Eve
       number_with_delimiter(characters_count, delimiter: " ")
     end
 
-    def to_key
-      key = alliance_id
-      [key] if key
-    end
-
-    def to_param
-      alliance_id&.to_s
-    end
-
     private
 
     def alliance_logo_url(size)
-      imageable_url("alliances", alliance_id, "logo", size)
+      imageable_url("alliances", id, "logo", size)
     end
   end
 end

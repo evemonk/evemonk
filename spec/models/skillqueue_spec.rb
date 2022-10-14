@@ -20,7 +20,7 @@ describe Skillqueue do
   end
 
   describe "#time_left" do
-    before { travel_to Time.zone.now }
+    before { freeze_time }
 
     context "when start_date in past" do
       subject do

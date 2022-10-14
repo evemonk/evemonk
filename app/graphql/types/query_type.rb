@@ -232,11 +232,11 @@ module Types
     end
 
     def alliances
-      ::Eve::Alliance.order(:alliance_id)
+      ::Eve::Alliance.order(:id)
     end
 
     def alliance(id:)
-      ::Eve::Alliance.find_by(alliance_id: id)
+      ::Eve::Alliance.find_by(id: id)
     end
 
     def ancestries

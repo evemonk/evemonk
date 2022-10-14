@@ -6,7 +6,6 @@ module Eve
   class AllianceDashboard < Administrate::BaseDashboard
     ATTRIBUTE_TYPES = {
       id: Field::Number,
-      alliance_id: Field::Number,
       creator_corporation: Field::BelongsTo,
       creator: Field::BelongsTo,
       date_founded: Field::DateTime,
@@ -23,11 +22,10 @@ module Eve
       # TODO: add corporation_alliance_histories
     }.freeze
 
-    COLLECTION_ATTRIBUTES = [:alliance_id, :name].freeze
+    COLLECTION_ATTRIBUTES = [:id, :name].freeze
 
     SHOW_PAGE_ATTRIBUTES = [
       :id,
-      :alliance_id,
       :creator_corporation,
       :creator,
       :date_founded,

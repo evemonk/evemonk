@@ -38,7 +38,7 @@
         <% if @corporation.alliance %>
           <li class="list-group-item text-break">
             Alliance: <%= link_to(@corporation.alliance.name,
-                                  universe_alliance_path(@corporation.alliance.alliance_id)) %>
+                                  universe_alliance_path(@corporation.alliance)) %>
             (<%= @corporation.alliance.ticker %>)
           </li>
         <% end %>

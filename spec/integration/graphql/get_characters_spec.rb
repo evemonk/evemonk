@@ -3,7 +3,7 @@
 require "rails_helper"
 
 describe "Get Characters" do
-  before { travel_to Time.zone.now }
+  before { freeze_time }
 
   let!(:birthday_1) { Time.zone.now }
 
@@ -11,12 +11,12 @@ describe "Get Characters" do
 
   let!(:eve_alliance_1) do
     create(:eve_alliance,
-      alliance_id: 1_111)
+      id: 1_111)
   end
 
   let!(:eve_alliance_2) do
     create(:eve_alliance,
-      alliance_id: 1_222)
+      id: 1_222)
   end
 
   let!(:eve_corporation_1) do
