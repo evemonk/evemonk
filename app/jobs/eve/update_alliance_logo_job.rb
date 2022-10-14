@@ -8,7 +8,9 @@ module Eve
       Down::ConnectionError
 
     def perform(id)
-      Eve::AllianceLogoImporter.new(id).import
+      if Flipper.enabled?(:eve_update_alliance_logo_job)
+        Eve::AllianceLogoImporter.new(id).import
+      end
     end
   end
 end
