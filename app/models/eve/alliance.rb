@@ -28,8 +28,7 @@ module Eve
       primary_key: "faction_id",
       optional: true
 
-    has_many :corporations,
-      primary_key: "alliance_id"
+    has_many :corporations
 
     has_many :characters,
       through: :corporations

@@ -23,7 +23,7 @@ describe Eve::Alliance do
 
   it { should belong_to(:faction).with_primary_key("faction_id").optional(true) }
 
-  it { should have_many(:corporations).with_primary_key("alliance_id") }
+  it { should have_many(:corporations) }
 
   it { should have_many(:characters).through(:corporations) }
 
