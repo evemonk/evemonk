@@ -10,17 +10,29 @@ describe Eve::UpdateAllianceJob do
   describe "#perform" do
     let(:id) { double }
 
-    before do
-      #
-      # Eve::AllianceImporter.new(id).import
-      #
-      expect(Eve::AllianceImporter).to receive(:new).with(id) do
-        double.tap do |a|
-          expect(a).to receive(:import)
+    context "when eve_update_alliance_job enabled" do
+      before { Flipper.enable(:eve_update_alliance_job) }
+
+      before do
+        #
+        # Eve::AllianceImporter.new(id).import
+        #
+        expect(Eve::AllianceImporter).to receive(:new).with(id) do
+          double.tap do |a|
+            expect(a).to receive(:import)
+          end
         end
       end
+
+      specify { expect { subject.perform(id) }.not_to raise_error }
     end
 
-    specify { expect { subject.perform(id) }.not_to raise_error }
+    context "when eve_update_alliance_job disabled" do
+      before { Flipper.disable(:eve_update_alliance_job) }
+
+      before { expect(Eve::AllianceImporter).not_to receive(:new) }
+
+      specify { expect { subject.perform(id) }.not_to raise_error }
+    end
   end
 end
