@@ -7,3 +7,7 @@ Enable/disable eve update alliance job calls.
 ## `:eve_update_alliance_logo_job`
 
 Enable/disable eve update alliance logo job calls.
+
+## `:eve_server_status_job`
+
+Enable/disable eve server status job calls.
