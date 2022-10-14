@@ -83,7 +83,7 @@ module Eve
     private
 
     def alliance_logo_url(size)
-      imageable_url("alliances", alliance_id, "logo", size)
+      imageable_url("alliances", id, "logo", size)
     end
   end
 end

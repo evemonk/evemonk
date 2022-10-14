@@ -140,11 +140,11 @@ describe Eve::Alliance do
   # private methods
 
   describe "#alliance_logo_url" do
-    subject { build(:eve_alliance, alliance_id: 1_354_830_081) }
+    subject { build(:eve_alliance, id: 1_354_830_081) }
 
     before do
       #
-      # imageable_url("alliances", alliance_id, "logo", size)
+      # imageable_url("alliances", id, "logo", size)
       #
       expect(subject).to receive(:imageable_url).with("alliances", 1_354_830_081, "logo", 512)
     end
