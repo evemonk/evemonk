@@ -7,8 +7,10 @@ module Eve
     retry_on Down::TimeoutError,
       Down::ConnectionError
 
-    def perform(alliance_id)
-      Eve::AllianceLogoImporter.new(alliance_id).import
+    def perform(id)
+      if Flipper.enabled?(:eve_update_alliance_logo_job)
+        Eve::AllianceLogoImporter.new(id).import
+      end
     end
   end
 end
