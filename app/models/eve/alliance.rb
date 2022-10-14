@@ -80,15 +80,6 @@ module Eve
       number_with_delimiter(characters_count, delimiter: " ")
     end
 
-    def to_key
-      key = alliance_id
-      [key] if key
-    end
-
-    def to_param
-      alliance_id&.to_s
-    end
-
     private
 
     def alliance_logo_url(size)

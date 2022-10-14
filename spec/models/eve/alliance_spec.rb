@@ -137,34 +137,6 @@ describe Eve::Alliance do
     end
   end
 
-  describe "#to_key" do
-    context "when alliance_id is present" do
-      subject { build(:eve_alliance, alliance_id: 1_354_830_081) }
-
-      specify { expect(subject.to_key).to eq([1_354_830_081]) }
-    end
-
-    context "when alliance_id is not present" do
-      subject { build(:eve_alliance, alliance_id: nil) }
-
-      specify { expect(subject.to_key).to eq(nil) }
-    end
-  end
-
-  describe "#to_param" do
-    context "when alliance_id is present" do
-      subject { build(:eve_alliance, alliance_id: 1_354_830_081) }
-
-      specify { expect(subject.to_param).to eq("1354830081") }
-    end
-
-    context "when alliance_id is not present" do
-      subject { build(:eve_alliance, alliance_id: nil) }
-
-      specify { expect(subject.to_param).to eq(nil) }
-    end
-  end
-
   # private methods
 
   describe "#alliance_logo_url" do
