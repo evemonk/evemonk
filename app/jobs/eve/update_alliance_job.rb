@@ -11,8 +11,10 @@ module Eve
       Faraday::TimeoutError,
       Faraday::ConnectionFailed
 
-    def perform(alliance_id)
-      Eve::AllianceImporter.new(alliance_id).import
+    def perform(id)
+      if Flipper.enabled?(:eve_update_alliance_job)
+        Eve::AllianceImporter.new(id).import
+      end
     end
   end
 end

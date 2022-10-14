@@ -7,4 +7,11 @@ namespace :migrate do
       unit.update!(id: unit.unit_id)
     end
   end
+
+  desc "Migrate Eve::Alliance#alliance_id to #id"
+  task alliances: :environment do
+    Eve::Alliance.find_each do |alliance|
+      alliance.update!(id: alliance.alliance_id)
+    end
+  end
 end

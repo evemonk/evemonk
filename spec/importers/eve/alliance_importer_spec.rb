@@ -3,9 +3,9 @@
 require "rails_helper"
 
 describe Eve::AllianceImporter do
-  let(:alliance_id) { double }
+  let(:id) { double }
 
-  subject { described_class.new(alliance_id) }
+  subject { described_class.new(id) }
 
   it { should be_a(Eve::BaseImporter) }
 
@@ -16,7 +16,7 @@ describe Eve::AllianceImporter do
 
     let(:eve_alliance) { instance_double(Eve::Alliance) }
 
-    before { expect(Eve::Alliance).to receive(:find_or_initialize_by).with(alliance_id: alliance_id).and_return(eve_alliance) }
+    before { expect(Eve::Alliance).to receive(:find_or_initialize_by).with(id: id).and_return(eve_alliance) }
 
     context "when etag cache hit" do
       let(:esi) { instance_double(EveOnline::ESI::Alliance, not_modified?: true) }
@@ -50,11 +50,11 @@ describe Eve::AllianceImporter do
 
         before do
           #
-          # Rails.logger.info("EveOnline::Exceptions::ResourceNotFound: Eve Alliance ID #{alliance_id}")
+          # Rails.logger.info("EveOnline::Exceptions::ResourceNotFound: Eve Alliance ID #{id}")
 
           expect(Rails).to receive(:logger) do
             double.tap do |a|
-              expect(a).to receive(:info).with("EveOnline::Exceptions::ResourceNotFound: Eve Alliance ID #{alliance_id}")
+              expect(a).to receive(:info).with("EveOnline::Exceptions::ResourceNotFound: Eve Alliance ID #{id}")
             end
           end
         end
@@ -80,7 +80,7 @@ describe Eve::AllianceImporter do
     context "when @esi not set" do
       let(:esi) { instance_double(EveOnline::ESI::Alliance) }
 
-      before { expect(EveOnline::ESI::Alliance).to receive(:new).with(alliance_id: alliance_id).and_return(esi) }
+      before { expect(EveOnline::ESI::Alliance).to receive(:new).with(alliance_id: id).and_return(esi) }
 
       specify { expect(subject.esi).to eq(esi) }
 
