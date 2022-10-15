@@ -12,7 +12,9 @@ module Eve
       Faraday::ConnectionFailed
 
     def perform
-      Eve::AlliancesImporter.new.import
+      if Flipper.enabled?(:eve_update_alliances_job)
+        Eve::AlliancesImporter.new.import
+      end
     end
   end
 end
