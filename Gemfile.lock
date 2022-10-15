@@ -784,7 +784,7 @@ DEPENDENCIES
   skylight
   sql_tracker
   squasher
-  standard
+  standard (= 1.16.1)
   stimulus-rails (>= 0.3.9)
   super_diff
   turbo-rails (>= 0.7.4)
