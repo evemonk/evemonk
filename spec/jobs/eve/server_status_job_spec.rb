@@ -12,8 +12,8 @@ describe Eve::ServerStatusJob do
   end
 
   describe "#perform" do
-    context "when eve_server_status enabled" do
-      before { Flipper.enable(:eve_server_status) }
+    context "when eve_server_status_job enabled" do
+      before { Flipper.enable(:eve_server_status_job) }
 
       before do
         #
@@ -29,8 +29,8 @@ describe Eve::ServerStatusJob do
       specify { expect { subject.perform }.not_to raise_error }
     end
 
-    context "when eve_server_status disabled" do
-      before { Flipper.disable(:eve_server_status) }
+    context "when eve_server_status_job disabled" do
+      before { Flipper.disable(:eve_server_status_job) }
 
       before { expect(Eve::ServerStatusImporter).not_to receive(:new) }
 
