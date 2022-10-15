@@ -21,7 +21,7 @@ module Eve
     private
 
     def import_new_alliances
-      eve_alliance_ids = Eve::Alliance.pluck(:alliance_id)
+      eve_alliance_ids = Eve::Alliance.ids
 
       eve_alliance_ids_to_create = esi.alliance_ids - eve_alliance_ids
 
@@ -31,12 +31,12 @@ module Eve
     end
 
     def remove_old_alliances
-      eve_alliance_ids = Eve::Alliance.pluck(:alliance_id)
+      eve_alliance_ids = Eve::Alliance.ids
 
       alliance_ids_to_remove = eve_alliance_ids - esi.alliance_ids
 
-      alliance_ids_to_remove.each do |alliance_id|
-        eve_alliance = Eve::Alliance.find_or_initialize_by(alliance_id: alliance_id)
+      alliance_ids_to_remove.each do |id|
+        eve_alliance = Eve::Alliance.find_or_initialize_by(id: id)
 
         eve_alliance.corporations.each do |corporation|
           Eve::UpdateCorporationJob.perform_later(corporation.corporation_id)
