@@ -58,7 +58,7 @@ describe Eve::AlliancesImporter do
   describe "#import_new_alliances" do
     let(:eve_alliance_ids) { double }
 
-    before { expect(Eve::Alliance).to receive(:pluck).with(:alliance_id).and_return(eve_alliance_ids) }
+    before { expect(Eve::Alliance).to receive(:ids).and_return(eve_alliance_ids) }
 
     let(:alliance_ids) { double }
 
@@ -94,7 +94,7 @@ describe Eve::AlliancesImporter do
 
     let(:eve_alliance_ids) { double }
 
-    before { expect(Eve::Alliance).to receive(:pluck).with(:alliance_id).and_return(eve_alliance_ids) }
+    before { expect(Eve::Alliance).to receive(:ids).and_return(eve_alliance_ids) }
 
     let(:alliance_id_to_remove) { double }
 
@@ -110,7 +110,7 @@ describe Eve::AlliancesImporter do
 
     let(:eve_alliance) { instance_double(Eve::Alliance, corporations: corporations) }
 
-    before { expect(Eve::Alliance).to receive(:find_or_initialize_by).with(alliance_id: alliance_id_to_remove).and_return(eve_alliance) }
+    before { expect(Eve::Alliance).to receive(:find_or_initialize_by).with(id: alliance_id_to_remove).and_return(eve_alliance) }
 
     before { expect(Eve::UpdateCorporationJob).to receive(:perform_later).with(corporation_id) }
 
