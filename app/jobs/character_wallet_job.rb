@@ -13,6 +13,8 @@ class CharacterWalletJob < ApplicationJob
   discard_on CharacterInvalidToken
 
   def perform(character_id)
-    CharacterWalletImporter.new(character_id).import
+    if Flipper.enabled?(:character_wallet_job)
+      CharacterWalletImporter.new(character_id).import
+    end
   end
 end

@@ -5,7 +5,9 @@ module Eve
     queue_as :default
 
     def perform
-      Eve::LocalAlliancesImporter.new.import
+      if Flipper.enabled?(:eve_local_alliances_job)
+        Eve::LocalAlliancesImporter.new.import
+      end
     end
   end
 end
