@@ -6,7 +6,6 @@ module Eve
   class CorporationDashboard < Administrate::BaseDashboard
     ATTRIBUTE_TYPES = {
       id: Field::Number,
-      corporation_id: Field::Number,
       alliance: Field::BelongsTo,
       ceo: Field::BelongsTo,
       creator: Field::BelongsTo,
@@ -26,11 +25,10 @@ module Eve
       updated_at: Field::DateTime
     }.freeze
 
-    COLLECTION_ATTRIBUTES = [:id, :corporation_id, :name].freeze
+    COLLECTION_ATTRIBUTES = [:id, :name].freeze
 
     SHOW_PAGE_ATTRIBUTES = [
       :id,
-      :corporation_id,
       :alliance,
       :ceo,
       :creator,
