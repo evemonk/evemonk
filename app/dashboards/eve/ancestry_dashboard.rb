@@ -6,7 +6,6 @@ module Eve
   class AncestryDashboard < Administrate::BaseDashboard
     ATTRIBUTE_TYPES = {
       id: Field::Number,
-      ancestry_id: Field::Number,
       bloodline: Field::BelongsTo,
       name_en: Field::String,
       name_de: Field::String,
@@ -26,11 +25,10 @@ module Eve
       updated_at: Field::DateTime
     }.freeze
 
-    COLLECTION_ATTRIBUTES = [:id, :ancestry_id, :name_en].freeze
+    COLLECTION_ATTRIBUTES = [:id, :name_en].freeze
 
     SHOW_PAGE_ATTRIBUTES = [
       :id,
-      :ancestry_id,
       :bloodline,
       :name_en,
       :name_de,
