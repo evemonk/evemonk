@@ -6,7 +6,6 @@ module Eve
   class SystemDashboard < Administrate::BaseDashboard
     ATTRIBUTE_TYPES = {
       id: Field::Number,
-      system_id: Field::Number,
       name_en: Field::String,
       name_de: Field::String,
       name_fr: Field::String,
@@ -27,11 +26,10 @@ module Eve
       # position: Field::HasOne
     }.freeze
 
-    COLLECTION_ATTRIBUTES = [:id, :system_id, :name_en].freeze
+    COLLECTION_ATTRIBUTES = [:id, :name_en].freeze
 
     SHOW_PAGE_ATTRIBUTES = [
       :id,
-      :system_id,
       :name_en,
       :name_de,
       :name_fr,
