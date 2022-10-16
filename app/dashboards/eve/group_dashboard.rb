@@ -6,7 +6,6 @@ module Eve
   class GroupDashboard < Administrate::BaseDashboard
     ATTRIBUTE_TYPES = {
       id: Field::Number,
-      group_id: Field::Number,
       category_id: Field::Number, # TODO: add later
       bloodline: Field::BelongsTo.with_options(class_name: "Eve::Bloodline"),
       name_en: Field::String,
@@ -20,11 +19,10 @@ module Eve
       updated_at: Field::DateTime
     }.freeze
 
-    COLLECTION_ATTRIBUTES = [:id, :group_id, :name_en].freeze
+    COLLECTION_ATTRIBUTES = [:id, :name_en].freeze
 
     SHOW_PAGE_ATTRIBUTES = [
       :id,
-      :group_id,
       # :category,
       :name_en,
       :name_de,
