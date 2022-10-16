@@ -6,7 +6,6 @@ module Eve
   class AgentDashboard < Administrate::BaseDashboard
     ATTRIBUTE_TYPES = {
       id: Field::Number,
-      agent_id: Field::Number,
       agent_type_id: Field::Number,
       corporation: Field::BelongsTo.with_options,
       division_id: Field::Number,
@@ -19,11 +18,10 @@ module Eve
       updated_at: Field::DateTime
     }.freeze
 
-    COLLECTION_ATTRIBUTES = [:agent_id, :name].freeze
+    COLLECTION_ATTRIBUTES = [:id, :name].freeze
 
     SHOW_PAGE_ATTRIBUTES = [
       :id,
-      :agent_id,
       :agent_type_id,
       :corporation,
       :division_id,
