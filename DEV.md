@@ -15,3 +15,23 @@ Enable/disable eve server status job calls.
 ## `:eve_update_alliances_job`
 
 Enable/disable eve update alliances job calls.
+
+## `:eve_local_alliances_job`
+
+Enable/disable eve update local alliances job calls.
+
+## `:update_characters_Job`
+
+Enable/disable update characters job calls.
+
+## `:import_missing_job`
+
+Enable/disable import missing job calls.
+
+## `:character_job`
+
+Enable/disable character info job calls.
+
+## `:character_wallet_job`
+
+Enable/disable character wallet job calls.
