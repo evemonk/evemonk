@@ -6,7 +6,6 @@ module Eve
   class AsteroidBeltDashboard < Administrate::BaseDashboard
     ATTRIBUTE_TYPES = {
       id: Field::Number,
-      asteroid_belt_id: Field::Number,
       name: Field::String,
       system: Field::BelongsTo,
       planet: Field::BelongsTo,
@@ -15,11 +14,10 @@ module Eve
       updated_at: Field::DateTime
     }.freeze
 
-    COLLECTION_ATTRIBUTES = [:id, :asteroid_belt_id, :name].freeze
+    COLLECTION_ATTRIBUTES = [:id, :name].freeze
 
     SHOW_PAGE_ATTRIBUTES = [
       :id,
-      :asteroid_belt_id,
       :name,
       :system,
       :planet,

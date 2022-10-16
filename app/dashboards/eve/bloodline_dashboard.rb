@@ -6,7 +6,6 @@ module Eve
   class BloodlineDashboard < Administrate::BaseDashboard
     ATTRIBUTE_TYPES = {
       id: Field::Number,
-      bloodline_id: Field::Number,
       name_en: Field::String,
       name_de: Field::String,
       name_fr: Field::String,
@@ -26,17 +25,16 @@ module Eve
       perception: Field::Number,
       willpower: Field::Number,
       corporation: Field::BelongsTo,
-      # ship_type: Field::BelongsTo.with_options(class_name: "Eve::Ship"),
+      # ship_type: Field::BelongsTo.with_options(class_name: "Eve::Ship"), TODO
       created_at: Field::DateTime,
       updated_at: Field::DateTime,
       ancestries: Field::HasMany
     }.freeze
 
-    COLLECTION_ATTRIBUTES = [:id, :bloodline_id, :name_en].freeze
+    COLLECTION_ATTRIBUTES = [:id, :name_en].freeze
 
     SHOW_PAGE_ATTRIBUTES = [
       :id,
-      :bloodline_id,
       :name_en,
       :name_de,
       :name_fr,

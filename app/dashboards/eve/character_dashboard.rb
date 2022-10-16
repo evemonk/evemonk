@@ -6,7 +6,6 @@ module Eve
   class CharacterDashboard < Administrate::BaseDashboard
     ATTRIBUTE_TYPES = {
       id: Field::Number,
-      character_id: Field::Number,
       alliance: Field::BelongsTo,
       ancestry: Field::BelongsTo,
       birthday: Field::DateTime,
@@ -23,11 +22,10 @@ module Eve
       updated_at: Field::DateTime
     }.freeze
 
-    COLLECTION_ATTRIBUTES = [:id, :character_id, :name].freeze
+    COLLECTION_ATTRIBUTES = [:id, :name].freeze
 
     SHOW_PAGE_ATTRIBUTES = [
       :id,
-      :character_id,
       :alliance,
       :ancestry,
       :birthday,

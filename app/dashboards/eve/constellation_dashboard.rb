@@ -6,7 +6,6 @@ module Eve
   class ConstellationDashboard < Administrate::BaseDashboard
     ATTRIBUTE_TYPES = {
       id: Field::Number,
-      constellation_id: Field::Number,
       name_en: Field::String,
       name_de: Field::String,
       name_fr: Field::String,
@@ -18,11 +17,10 @@ module Eve
       updated_at: Field::DateTime
     }.freeze
 
-    COLLECTION_ATTRIBUTES = [:id, :constellation_id, :name].freeze
+    COLLECTION_ATTRIBUTES = [:id, :name_en].freeze
 
     SHOW_PAGE_ATTRIBUTES = [
       :id,
-      :constellation_id,
       :name_en,
       :name_de,
       :name_fr,

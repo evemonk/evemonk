@@ -6,7 +6,6 @@ module Eve
   class FactionDashboard < Administrate::BaseDashboard
     ATTRIBUTE_TYPES = {
       id: Field::Number,
-      faction_id: Field::Number,
       corporation: Field::BelongsTo.with_options(class_name: "Eve::Corporation"),
       description_en: Field::Text,
       description_de: Field::Text,
@@ -30,11 +29,10 @@ module Eve
       updated_at: Field::DateTime
     }.freeze
 
-    COLLECTION_ATTRIBUTES = [:id, :faction_id, :name_en].freeze
+    COLLECTION_ATTRIBUTES = [:id, :name_en].freeze
 
     SHOW_PAGE_ATTRIBUTES = [
       :id,
-      :faction_id,
       :corporation,
       :description_en,
       :description_de,
