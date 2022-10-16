@@ -20,7 +20,7 @@ Enable/disable eve update alliances job calls.
 
 Enable/disable eve update local alliances job calls.
 
-## `:update_characters_Job`
+## `:update_characters_job`
 
 Enable/disable update characters job calls.
 
