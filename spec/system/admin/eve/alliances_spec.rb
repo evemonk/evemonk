@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe "Admin Agents features" do
+describe "Admin Alliances features" do
   describe "#index" do
     context "when user is logged in" do
       context "when user is admin" do
@@ -11,11 +11,11 @@ describe "Admin Agents features" do
 
           sign_in user
 
-          create(:eve_agent)
+          create(:eve_alliance)
 
-          visit admin_eve_agents_path
+          visit admin_eve_alliances_path
 
-          assert current_path == admin_eve_agents_path
+          assert current_path == admin_eve_alliances_path
         end
       end
 
@@ -25,9 +25,9 @@ describe "Admin Agents features" do
 
           sign_in user
 
-          create(:eve_agent)
+          create(:eve_alliance)
 
-          visit admin_eve_agents_path
+          visit admin_eve_alliances_path
 
           assert current_path == root_path
         end
@@ -36,9 +36,9 @@ describe "Admin Agents features" do
 
     context "when user is not logged in" do
       it "should render page" do
-        create(:eve_agent)
+        create(:eve_alliance)
 
-        visit admin_eve_agents_path
+        visit admin_eve_alliances_path
 
         assert current_path == new_user_session_path
       end
@@ -53,11 +53,11 @@ describe "Admin Agents features" do
 
           sign_in user
 
-          eve_agent = create(:eve_agent, id: 1)
+          eve_alliance = create(:eve_alliance, id: 1)
 
-          visit admin_eve_agent_path(eve_agent)
+          visit admin_eve_alliance_path(eve_alliance)
 
-          assert current_path == admin_eve_agent_path(eve_agent)
+          assert current_path == admin_eve_alliance_path(eve_alliance)
         end
       end
 
@@ -67,9 +67,9 @@ describe "Admin Agents features" do
 
           sign_in user
 
-          eve_agent = create(:eve_agent, id: 1)
+          eve_alliance = create(:eve_alliance, id: 1)
 
-          visit admin_eve_agent_path(eve_agent)
+          visit admin_eve_alliance_path(eve_alliance)
 
           assert current_path == root_path
         end
@@ -78,9 +78,9 @@ describe "Admin Agents features" do
 
     context "when user is not logged in" do
       it "should render page" do
-        eve_agent = create(:eve_agent, id: 1)
+        eve_alliance = create(:eve_alliance, id: 1)
 
-        visit admin_eve_agent_path(eve_agent)
+        visit admin_eve_alliance_path(eve_alliance)
 
         assert current_path == new_user_session_path
       end
