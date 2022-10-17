@@ -6,7 +6,6 @@ module Eve
   class StationDashboard < Administrate::BaseDashboard
     ATTRIBUTE_TYPES = {
       id: Field::Number,
-      station_id: Field::Number,
       name: Field::String,
       system: Field::BelongsTo,
       type_id: Field::Number, # TODO: add type dashboard
@@ -23,11 +22,10 @@ module Eve
       # position: Field::HasOne
     }.freeze
 
-    COLLECTION_ATTRIBUTES = [:id, :station_id, :name].freeze
+    COLLECTION_ATTRIBUTES = [:id, :name].freeze
 
     SHOW_PAGE_ATTRIBUTES = [
       :id,
-      :station_id,
       :name,
       :system,
       :type_id,

@@ -6,7 +6,6 @@ module Eve
   class RegionDashboard < Administrate::BaseDashboard
     ATTRIBUTE_TYPES = {
       id: Field::Number,
-      region_id: Field::Number,
       name_en: Field::String,
       name_de: Field::String,
       name_fr: Field::String,
@@ -24,11 +23,10 @@ module Eve
       # constellations
     }.freeze
 
-    COLLECTION_ATTRIBUTES = [:id, :region_id, :name_en].freeze
+    COLLECTION_ATTRIBUTES = [:id, :name_en].freeze
 
     SHOW_PAGE_ATTRIBUTES = [
       :id,
-      :region_id,
       :name_en,
       :name_de,
       :name_fr,

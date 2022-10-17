@@ -6,7 +6,6 @@ module Eve
   class RaceDashboard < Administrate::BaseDashboard
     ATTRIBUTE_TYPES = {
       id: Field::Number,
-      race_id: Field::Number,
       name_en: Field::String,
       name_de: Field::String,
       name_fr: Field::String,
@@ -26,11 +25,10 @@ module Eve
       updated_at: Field::DateTime
     }.freeze
 
-    COLLECTION_ATTRIBUTES = [:id, :race_id, :name_en, :bloodlines].freeze
+    COLLECTION_ATTRIBUTES = [:id, :name_en, :bloodlines].freeze
 
     SHOW_PAGE_ATTRIBUTES = [
       :id,
-      :race_id,
       :name_en,
       :name_de,
       :name_fr,

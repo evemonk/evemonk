@@ -6,7 +6,6 @@ module Eve
   class StarDashboard < Administrate::BaseDashboard
     ATTRIBUTE_TYPES = {
       id: Field::Number,
-      star_id: Field::Number,
       age: Field::Number,
       luminosity: Field::Number,
       name: Field::String,
@@ -19,11 +18,10 @@ module Eve
       updated_at: Field::DateTime
     }.freeze
 
-    COLLECTION_ATTRIBUTES = [:id, :star_id, :name].freeze
+    COLLECTION_ATTRIBUTES = [:id, :name].freeze
 
     SHOW_PAGE_ATTRIBUTES = [
       :id,
-      :star_id,
       :age,
       :luminosity,
       :name,
