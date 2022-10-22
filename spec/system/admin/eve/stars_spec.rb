@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe "Admin::Eve::Agent's features" do
+describe "Admin::Eve::Star's features" do
   describe "#index" do
     context "when user is logged in" do
       context "when user is admin" do
@@ -11,11 +11,11 @@ describe "Admin::Eve::Agent's features" do
 
           sign_in user
 
-          create(:eve_agent)
+          create(:eve_star)
 
-          visit admin_eve_agents_path
+          visit admin_eve_stars_path
 
-          assert current_path == admin_eve_agents_path
+          assert current_path == admin_eve_stars_path
         end
       end
 
@@ -25,9 +25,9 @@ describe "Admin::Eve::Agent's features" do
 
           sign_in user
 
-          create(:eve_agent)
+          create(:eve_star)
 
-          visit admin_eve_agents_path
+          visit admin_eve_stars_path
 
           assert current_path == root_path
         end
@@ -36,9 +36,9 @@ describe "Admin::Eve::Agent's features" do
 
     context "when user is not logged in" do
       it "should render page" do
-        create(:eve_agent)
+        create(:eve_star)
 
-        visit admin_eve_agents_path
+        visit admin_eve_stars_path
 
         assert current_path == new_user_session_path
       end
@@ -53,11 +53,11 @@ describe "Admin::Eve::Agent's features" do
 
           sign_in user
 
-          eve_agent = create(:eve_agent, id: 1)
+          eve_star = create(:eve_star, id: 1)
 
-          visit admin_eve_agent_path(eve_agent)
+          visit admin_eve_star_path(eve_star)
 
-          assert current_path == admin_eve_agent_path(eve_agent)
+          assert current_path == admin_eve_star_path(eve_star)
         end
       end
 
@@ -67,9 +67,9 @@ describe "Admin::Eve::Agent's features" do
 
           sign_in user
 
-          eve_agent = create(:eve_agent, id: 1)
+          eve_star = create(:eve_star, id: 1)
 
-          visit admin_eve_agent_path(eve_agent)
+          visit admin_eve_star_path(eve_star)
 
           assert current_path == root_path
         end
@@ -78,9 +78,9 @@ describe "Admin::Eve::Agent's features" do
 
     context "when user is not logged in" do
       it "should render page" do
-        eve_agent = create(:eve_agent, id: 1)
+        eve_star = create(:eve_star, id: 1)
 
-        visit admin_eve_agent_path(eve_agent)
+        visit admin_eve_star_path(eve_star)
 
         assert current_path == new_user_session_path
       end

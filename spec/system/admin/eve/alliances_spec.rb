@@ -2,12 +2,12 @@
 
 require "rails_helper"
 
-describe "Admin Alliances features" do
+describe "Admin::Eve::Alliance's features" do
   describe "#index" do
     context "when user is logged in" do
       context "when user is admin" do
         it "should render page" do
-          user = create(:user, admin: true)
+          user = create(:user, locale: :english, admin: true)
 
           sign_in user
 
@@ -21,7 +21,7 @@ describe "Admin Alliances features" do
 
       context "when user is not admin" do
         it "should render page" do
-          user = create(:user, admin: false)
+          user = create(:user, locale: :english, admin: false)
 
           sign_in user
 
@@ -49,7 +49,7 @@ describe "Admin Alliances features" do
     context "when user is logged in" do
       context "when user is admin" do
         it "should render page" do
-          user = create(:user, admin: true)
+          user = create(:user, locale: :english, admin: true)
 
           sign_in user
 
@@ -63,7 +63,7 @@ describe "Admin Alliances features" do
 
       context "when user is not admin" do
         it "should render page" do
-          user = create(:user, admin: false)
+          user = create(:user, locale: :english, admin: false)
 
           sign_in user
 
