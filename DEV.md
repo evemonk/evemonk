@@ -35,3 +35,7 @@ Enable/disable character info job calls.
 ## `:character_wallet_job`
 
 Enable/disable character wallet job calls.
+
+## `:character_standings_job`
+
+Enable/disable character standings job calls.

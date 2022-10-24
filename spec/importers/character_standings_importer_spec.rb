@@ -80,7 +80,7 @@ describe CharacterStandingsImporter do
 
       let(:standingable) { instance_double(Eve::Agent) }
 
-      before { expect(Eve::Agent).to receive(:find_by).with(agent_id: from_id).and_return(standingable) }
+      before { expect(Eve::Agent).to receive(:find_by).with(id: from_id).and_return(standingable) }
 
       before { expect(character_standing).to receive(:assign_attributes).with(standingable: standingable, standing: standing) }
 

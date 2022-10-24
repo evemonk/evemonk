@@ -12,7 +12,7 @@ describe Sde::AgentNamesImporter do
   end
 
   describe "#import" do
-    let!(:eve_agent) { create(:eve_agent, agent_id: 3_008_416, name: nil) }
+    let!(:eve_agent) { create(:eve_agent, id: 3_008_416, name: nil) }
 
     let(:content) { double }
 

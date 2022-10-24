@@ -10,17 +10,29 @@ describe CharacterStandingsJob do
   describe "#perform" do
     let(:character_id) { double }
 
-    before do
-      #
-      # CharacterStandingsImporter.new(character_id).import
-      #
-      expect(CharacterStandingsImporter).to receive(:new).with(character_id) do
-        double.tap do |a|
-          expect(a).to receive(:import)
+    context "when character_standings_job enabled" do
+      before { Flipper.enable(:character_standings_job) }
+
+      before do
+        #
+        # CharacterStandingsImporter.new(character_id).import
+        #
+        expect(CharacterStandingsImporter).to receive(:new).with(character_id) do
+          double.tap do |a|
+            expect(a).to receive(:import)
+          end
         end
       end
+
+      specify { expect { subject.perform(character_id) }.not_to raise_error }
     end
 
-    specify { expect { subject.perform(character_id) }.not_to raise_error }
+    context "when character_standings_job disabled" do
+      before { Flipper.disable(:character_job) }
+
+      before { expect(CharacterStandingsImporter).not_to receive(:new) }
+
+      specify { expect { subject.perform(character_id) }.not_to raise_error }
+    end
   end
 end

@@ -2,8 +2,6 @@
 
 FactoryBot.define do
   factory :eve_agent, class: "Eve::Agent" do
-    sequence(:agent_id)
-
     sequence(:agent_type_id)
 
     sequence(:corporation_id)
