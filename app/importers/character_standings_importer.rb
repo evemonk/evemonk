@@ -12,7 +12,7 @@ class CharacterStandingsImporter < CharacterBaseImporter
       when "npc_corp"
         standingable = Eve::Corporation.find_by(corporation_id: standing.from_id)
       when "agent"
-        standingable = Eve::Agent.find_by(agent_id: standing.from_id)
+        standingable = Eve::Agent.find_by(id: standing.from_id)
       else
         raise "Unknown standing from type"
       end
