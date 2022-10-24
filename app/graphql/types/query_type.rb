@@ -11,6 +11,16 @@ module Types
     # Add root-level fields here.
     # They will be entry points for queries on your schema.
 
+    field :agents, Types::EveAgentType.connection_type,
+      description: "Agents",
+      null: true
+
+    field :agent, Types::EveAgentType,
+      description: "Agent",
+      null: true do
+      argument :id, ID, description: "Agent ID", required: true
+    end
+
     field :alliances, Types::EveAllianceType.connection_type,
       description: "Alliances",
       null: true
@@ -229,6 +239,14 @@ module Types
       description: "Unit",
       null: true do
       argument :id, ID, description: "Unit ID", required: true
+    end
+
+    def agents
+      ::Eve::Agent.order(:id)
+    end
+
+    def agent(id:)
+      ::Eve::Agent.find_by(id: id)
     end
 
     def alliances
