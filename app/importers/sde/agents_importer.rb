@@ -13,7 +13,7 @@ module Sde
       entries = YAML.safe_load(File.read(file))
 
       entries.each_pair do |key, hash|
-        eve_agent = Eve::Agent.find_or_initialize_by(agent_id: key)
+        eve_agent = Eve::Agent.find_or_initialize_by(id: key)
 
         eve_agent.assign_attributes(agent_type_id: hash["agentTypeID"],
           corporation_id: hash["corporationID"],
