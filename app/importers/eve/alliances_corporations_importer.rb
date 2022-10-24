@@ -3,8 +3,8 @@
 module Eve
   class AlliancesCorporationsImporter
     def import
-      Eve::Alliance.pluck(:alliance_id).each do |alliance_id|
-        Eve::UpdateAllianceCorporationsJob.perform_later(alliance_id)
+      Eve::Alliance.ids.each do |id|
+        Eve::UpdateAllianceCorporationsJob.perform_later(id)
       end
     end
   end
