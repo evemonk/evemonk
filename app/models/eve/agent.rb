@@ -15,7 +15,10 @@ module Eve
 
     # belongs_to :division_id
 
-    has_many :standings, as: :standingable
+    # TODO: standing are private. Don't expose via API
+    # has_many :standings, as: :standingable
+
+    # TODO: location -> API
 
     def icon_tiny
       character_portrait_url(32)
@@ -44,7 +47,7 @@ module Eve
     private
 
     def character_portrait_url(size)
-      imageable_url("characters", agent_id, "portrait", size)
+      imageable_url("characters", id, "portrait", size)
     end
   end
 end
