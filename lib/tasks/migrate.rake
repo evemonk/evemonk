@@ -14,4 +14,11 @@ namespace :migrate do
       alliance.update!(id: alliance.alliance_id)
     end
   end
+
+  desc "Migrate Eve::Agent#agent_id to #id"
+  task agents: :environment do
+    Eve::Agent.find_each do |agent|
+      agent.update!(id: agent.agent_id)
+    end
+  end
 end
