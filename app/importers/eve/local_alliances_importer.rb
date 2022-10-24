@@ -3,8 +3,8 @@
 module Eve
   class LocalAlliancesImporter
     def import
-      Eve::Alliance.pluck(:alliance_id).each do |alliance_id|
-        Eve::UpdateAllianceJob.perform_later(alliance_id)
+      Eve::Alliance.ids.each do |id|
+        Eve::UpdateAllianceJob.perform_later(id)
       end
     end
   end

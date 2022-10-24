@@ -4,16 +4,16 @@ require "rails_helper"
 
 describe Eve::LocalAlliancesImporter do
   describe "#import" do
-    let(:alliance_id) { double }
+    let(:id) { double }
 
     before do
       #
-      # Eve::Alliance.pluck(:alliance_id) => [alliance_id]
+      # Eve::Alliance.ids => [id]
       #
-      expect(Eve::Alliance).to receive(:pluck).with(:alliance_id).and_return([alliance_id])
+      expect(Eve::Alliance).to receive(:ids).and_return([id])
     end
 
-    before { expect(Eve::UpdateAllianceJob).to receive(:perform_later).with(alliance_id) }
+    before { expect(Eve::UpdateAllianceJob).to receive(:perform_later).with(id) }
 
     specify { expect { subject.import }.not_to raise_error }
   end
