@@ -39,3 +39,7 @@ Enable/disable character wallet job calls.
 ## `:character_standings_job`
 
 Enable/disable character standings job calls.
+
+## `:eve_update_alliance_corporations_job`
+
+Enable/disable eve alliance corporations job calls.
