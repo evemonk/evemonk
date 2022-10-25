@@ -34,4 +34,12 @@ describe Admin::ApplicationController do
       specify { expect { subject.send(:admin?) }.not_to raise_error }
     end
   end
+
+  describe "#default_sorting_attribute" do
+    specify { expect(subject.send(:default_sorting_attribute)).to eq(:id) }
+  end
+
+  describe "#default_sorting_direction" do
+    specify { expect(subject.send(:default_sorting_direction)).to eq(:asc) }
+  end
 end
