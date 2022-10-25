@@ -5,7 +5,9 @@ module Eve
     queue_as :default
 
     def perform
-      Eve::AlliancesCorporationsImporter.new.import
+      if Flipper.enabled?(:eve_update_alliances_corporations_job)
+        Eve::AlliancesCorporationsImporter.new.import
+      end
     end
   end
 end

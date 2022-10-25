@@ -24,6 +24,8 @@ Enable/disable eve update local alliances job calls.
 
 Enable/disable update characters job calls.
 
+Disabled for now.
+
 ## `:import_missing_job`
 
 Enable/disable import missing job calls.
@@ -39,3 +41,15 @@ Enable/disable character wallet job calls.
 ## `:character_standings_job`
 
 Enable/disable character standings job calls.
+
+## `:character_assets_job`
+
+Enable/disable character assets job calls.
+
+## `:eve_update_alliance_corporations_job`
+
+Enable/disable eve alliance corporations job calls.
+
+## `:eve_update_alliances_corporations_job`
+
+Enable/disable eve alliances corporations job calls.

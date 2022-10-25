@@ -11,8 +11,8 @@ module Eve
       Faraday::TimeoutError,
       Faraday::ConnectionFailed
 
-    def perform(region_id, page = 1)
-      Eve::RegionContractsImporter.new(region_id, page).import
+    def perform(id, page = 1)
+      Eve::RegionContractsImporter.new(id, page).import
     end
   end
 end

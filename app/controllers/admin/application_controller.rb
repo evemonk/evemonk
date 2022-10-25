@@ -11,5 +11,13 @@ module Admin
     def admin?
       redirect_to root_url unless current_user.admin?
     end
+
+    def default_sorting_attribute
+      :id
+    end
+
+    def default_sorting_direction
+      :asc
+    end
   end
 end

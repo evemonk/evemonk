@@ -8,21 +8,33 @@ describe CharacterAssetsJob do
   it { expect(described_class.queue_name).to eq("important") }
 
   describe "#perform" do
-    let(:character_id) { double }
+    let(:id) { double }
 
     let(:page) { double }
 
-    before do
-      #
-      # CharacterAssetsImporter.new(character_id, page).import
-      #
-      expect(CharacterAssetsImporter).to receive(:new).with(character_id, page) do
-        double.tap do |a|
-          expect(a).to receive(:import)
+    context "when character_assets_job enabled" do
+      before { Flipper.enable(:character_assets_job) }
+
+      before do
+        #
+        # CharacterAssetsImporter.new(id, page).import
+        #
+        expect(CharacterAssetsImporter).to receive(:new).with(id, page) do
+          double.tap do |a|
+            expect(a).to receive(:import)
+          end
         end
       end
+
+      specify { expect { subject.perform(id, page) }.not_to raise_error }
     end
 
-    specify { expect { subject.perform(character_id, page) }.not_to raise_error }
+    context "when character_assets_job disabled" do
+      before { Flipper.disable(:character_assets_job) }
+
+      before { expect(CharacterAssetsImporter).not_to receive(:new) }
+
+      specify { expect { subject.perform(id, page) }.not_to raise_error }
+    end
   end
 end
