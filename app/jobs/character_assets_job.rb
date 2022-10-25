@@ -12,7 +12,9 @@ class CharacterAssetsJob < ApplicationJob
 
   discard_on CharacterInvalidToken
 
-  def perform(character_id, page = 1)
-    CharacterAssetsImporter.new(character_id, page).import
+  def perform(id, page = 1)
+    if Flipper.enabled?(:character_assets_job)
+      CharacterAssetsImporter.new(id, page).import
+    end
   end
 end
