@@ -43,3 +43,7 @@ Enable/disable character standings job calls.
 ## `:eve_update_alliance_corporations_job`
 
 Enable/disable eve alliance corporations job calls.
+
+## `:eve_update_alliances_corporations_job`
+
+Enable/disable eve alliances corporations job calls.
