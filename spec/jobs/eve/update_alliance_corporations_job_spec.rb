@@ -11,7 +11,7 @@ describe Eve::UpdateAllianceCorporationsJob do
     let(:id) { double }
 
     context "when eve_update_alliance_corporations_job enabled" do
-      before { Flipper.enable(:character_job) }
+      before { Flipper.enable(:eve_update_alliance_corporations_job) }
 
       before do
         #
