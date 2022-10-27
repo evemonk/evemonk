@@ -87,7 +87,7 @@ end
 
 group :development, :test do
   gem "dotenv-rails"
-  gem "rspec-rails"
+  gem "rspec-rails", ">= 6.0.1"
   gem "factory_bot_rails"
   gem "faker"
   gem "sql_tracker"
