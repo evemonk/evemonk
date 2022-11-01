@@ -614,7 +614,7 @@ GEM
     standard (1.16.1)
       rubocop (= 1.35.1)
       rubocop-performance (= 1.14.3)
-    stimulus-rails (1.1.0)
+    stimulus-rails (1.1.1)
       railties (>= 6.0.0)
     super_diff (0.9.0)
       attr_extras (>= 6.2.4)
