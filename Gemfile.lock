@@ -434,7 +434,7 @@ GEM
       activerecord (>= 6)
     popper_js (1.16.1)
     prometheus-client (2.1.0)
-    prosopite (1.2.1)
+    prosopite (1.2.2)
     pry (0.14.1)
       coderay (~> 1.1)
       method_source (~> 1.0)
