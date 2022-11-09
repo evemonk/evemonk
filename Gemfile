@@ -23,7 +23,7 @@ gem "bootswatch",
   tag: "v4.6.2"
 gem "good_migrations"
 gem "local_time"
-gem "rails-i18n", "~> 7.0.5"
+gem "rails-i18n", "~> 7.0.6"
 gem "http_accept_language"
 gem "devise"
 gem "devise-i18n"
