@@ -612,7 +612,7 @@ GEM
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
     sql_tracker (1.3.2)
-    squasher (0.6.2)
+    squasher (0.7.0)
     standard (1.18.0)
       rubocop (= 1.39.0)
       rubocop-performance (= 1.15.0)
