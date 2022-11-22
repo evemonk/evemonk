@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_16_225059) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_05_163505) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_buffercache"
   enable_extension "pg_trgm"
@@ -243,7 +243,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_16_225059) do
   end
 
   create_table "eve_agents", force: :cascade do |t|
-    t.bigint "agent_id"
     t.bigint "agent_type_id"
     t.bigint "corporation_id"
     t.bigint "division_id"
@@ -254,7 +253,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_16_225059) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
-    t.index ["agent_id"], name: "index_eve_agents_on_agent_id", unique: true
     t.index ["agent_type_id"], name: "index_eve_agents_on_agent_type_id"
     t.index ["corporation_id"], name: "index_eve_agents_on_corporation_id"
     t.index ["division_id"], name: "index_eve_agents_on_division_id"
@@ -262,7 +260,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_16_225059) do
   end
 
   create_table "eve_alliances", force: :cascade do |t|
-    t.bigint "alliance_id"
     t.bigint "creator_corporation_id"
     t.bigint "creator_id"
     t.datetime "date_founded", precision: nil
@@ -274,7 +271,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_16_225059) do
     t.datetime "updated_at", precision: nil, null: false
     t.integer "corporations_count", default: 0
     t.bigint "characters_count", default: 0
-    t.index ["alliance_id"], name: "index_eve_alliances_on_alliance_id", unique: true
     t.index ["characters_count"], name: "index_eve_alliances_on_characters_count"
     t.index ["creator_corporation_id"], name: "index_eve_alliances_on_creator_corporation_id"
     t.index ["creator_id"], name: "index_eve_alliances_on_creator_id"
@@ -938,6 +934,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_16_225059) do
     t.bigint "invention_time"
     t.boolean "is_blueprint"
     t.boolean "is_manufacturing_item"
+    t.string "name_zh"
+    t.string "name_es"
+    t.text "description_zh"
+    t.text "description_es"
     t.index ["graphic_id"], name: "index_eve_types_on_graphic_id"
     t.index ["group_id"], name: "index_eve_types_on_group_id"
     t.index ["icon_id"], name: "index_eve_types_on_icon_id"
@@ -947,13 +947,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_16_225059) do
   end
 
   create_table "eve_units", force: :cascade do |t|
-    t.bigint "unit_id"
     t.text "description"
     t.string "unit_name"
     t.string "display_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["unit_id"], name: "index_eve_units_on_unit_id", unique: true
   end
 
   create_table "eve_wars", force: :cascade do |t|

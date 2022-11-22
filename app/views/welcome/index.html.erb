@@ -23,34 +23,34 @@
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
     <h4 class="text-center">
-      <%= link_to(t(".alliances_html"), universe_alliances_path, "data-hotkey": "a") %>
+      <%= link_to(t(".alliances_html"), universe_alliances_path, class: "text-decoration-none", "data-hotkey": "a") %>
     </h4>
 
-    <table class="table table-striped table-bordered">
+    <table class="table table-dark table-striped table-bordered">
       <thead>
         <tr>
           <th colspan="2" class="text-center">Name</th>
-          <th class="text-right">Corps</th>
-          <th class="text-right">Members</th>
+          <th class="text-end">Corps</th>
+          <th class="text-end">Members</th>
         </tr>
       </thead>
       <tbody>
         <% @alliances.each do |alliance| %>
           <tr>
-            <td class="text-center align-middle border-right-0 m-0 p-2">
+            <td class="text-center align-middle border-end-0 m-0 p-2">
               <%= image_tag(alliance.icon_tiny,
                             alt: alliance.name,
                             class: "rounded border",
                             size: "34x34",
                             loading: "lazy") %>
             </td>
-            <td class="text-break align-middle border-left-0">
+            <td class="text-break align-middle border-start-0">
               <%= link_to(alliance.name, universe_alliance_path(alliance)) %>
             </td>
-            <td class="text-right align-middle">
+            <td class="text-end align-middle">
               <%= alliance.formatted_corporations_count %>
             </td>
-            <td class="text-right align-middle">
+            <td class="text-end align-middle">
               <%= alliance.formatted_characters_count %>
             </td>
           </tr>
@@ -61,30 +61,30 @@
 
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
     <h4 class="text-center">
-      <%= link_to(t(".corporations_html"), universe_corporations_path, "data-hotkey": "c") %>
+      <%= link_to(t(".corporations_html"), universe_corporations_path, class: "text-decoration-none", "data-hotkey": "c") %>
     </h4>
 
-    <table class="table table-striped table-bordered">
+    <table class="table table-dark table-striped table-bordered">
       <thead>
         <tr>
           <th colspan="2" class="text-center">Name</th>
-          <th class="text-right">Members</th>
+          <th class="text-end">Members</th>
         </tr>
       </thead>
       <tbody>
         <% @corporations.each do |corporation| %>
           <tr>
-            <td class="text-center align-middle border-right-0 m-0 p-2">
+            <td class="text-center align-middle border-end-0 m-0 p-2">
               <%= image_tag(corporation.icon_tiny,
                             alt: corporation.name,
                             class: "rounded border",
                             size: "34x34",
                             loading: "lazy") %>
             </td>
-            <td class="text-break align-middle border-left-0">
+            <td class="text-break align-middle border-start-0">
               <%= link_to(corporation.name, universe_corporation_path(corporation.corporation_id)) %>
             </td>
-            <td class="text-right align-middle">
+            <td class="text-end align-middle">
               <%= corporation.formatted_member_count %>
             </td>
           </tr>

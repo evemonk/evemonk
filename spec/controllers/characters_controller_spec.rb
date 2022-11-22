@@ -137,8 +137,8 @@ describe CharactersController do
         end
       end
 
-      context "when format js" do
-        before { patch :update, params: {id: "1", format: "js"} }
+      context "when format turbo stream" do
+        before { patch :update, params: {id: "1", format: "turbo_stream"} }
 
         it { should respond_with(:ok) }
 
@@ -187,11 +187,23 @@ describe CharactersController do
 
       before { expect(character).to receive(:destroy!) }
 
-      before { delete :destroy, params: {id: "1", format: "js"} }
+      context "when format turbo stream" do
+        before { delete :destroy, params: {id: "1", format: "turbo_stream"} }
 
-      it { should respond_with(:ok) }
+        it { should respond_with(:ok) }
 
-      it { should render_template(:destroy) }
+        it { should render_template(:destroy) }
+      end
+
+      context "when format html" do
+        before { delete :destroy, params: {id: "1", format: "html"} }
+
+        it { should respond_with(:see_other) }
+
+        it { should redirect_to(characters_path) }
+
+        it { should set_flash[:notice].to("Character was successfully removed.") }
+      end
     end
 
     context "when user not signed in" do

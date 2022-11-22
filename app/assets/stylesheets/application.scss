@@ -6,3 +6,24 @@
 .hidden {
   display: none;
 }
+
+// "Disable with" rails feature:
+// https://gorails.com/episodes/turbo-data-confirm-method-and-disable
+// https://github.com/hotwired/turbo/pull/386
+button {
+  .show-when-enabled {
+    display: initial;
+  }
+  .show-when-disabled {
+    display: none;
+  }
+
+  &[disabled] {
+    .show-when-enabled {
+      display: none;
+    }
+    .show-when-disabled {
+      display: initial;
+    }
+  }
+}

@@ -37,44 +37,59 @@ SitemapGenerator::Sitemap.create do
   #     add article_path(article), :lastmod => article.updated_at
   #   end
 
-  add "/"
-  # add "/sign_in"
-  # add "/sign_up"
-  # add "/forgot_password"
+  add graphiql_rails_path
 
-  add "/universe/alliances"
+  add faq_path
+
+  add new_user_session_path
+  add new_user_registration_path
+  add new_user_password_path
+  add new_user_confirmation_path
+
+  add universe_alliances_path
 
   pages = Eve::Alliance.page(1).total_pages
 
   (1..pages).each do |page|
-    add "/universe/alliances?page=#{page}"
+    add universe_alliances_path(path: page)
   end
 
-  Eve::Alliance.pluck(:alliance_id).each do |alliance_id|
-    add "/universe/alliances/#{alliance_id}"
+  Eve::Alliance.find_each do |alliance|
+    add universe_alliance_path(alliance)
   end
 
-  add "/universe/corporations"
+  add universe_corporations_path
 
   pages = Eve::Corporation.page(1).total_pages
 
   (1..pages).each do |page|
-    add "/universe/corporations?page=#{page}"
+    add universe_corporations_path(path: page)
   end
 
-  Eve::Corporation.pluck(:corporation_id).each do |corporation_id|
-    add "/universe/corporations/#{corporation_id}"
+  Eve::Corporation.find_each do |corporation|
+    add universe_corporation_path(corporation)
   end
 
-  add "universe/characters"
+  add universe_characters_path
 
   pages = Eve::Character.page(1).total_pages
 
   (1..pages).each do |page|
-    add "/universe/characters?page=#{page}"
+    add universe_characters_path(path: page)
   end
 
-  Eve::Character.pluck(:character_id).each do |character_id|
-    add "/universe/characters/#{character_id}"
+  Eve::Character.find_each do |character|
+    add universe_character_path(character)
   end
+
+  #               universe_categories GET    /universe/categories(.:format)                                                                    universe/categories#index
+  #                 universe_category GET    /universe/categories/:id(.:format)                                                                universe/categories#show
+  #                    universe_group GET    /universe/groups/:id(.:format)                                                                    universe/groups#show
+  #            universe_market_groups GET    /universe/market_groups(.:format)                                                                 universe/market_groups#index
+  #             universe_market_group GET    /universe/market_groups/:id(.:format)                                                             universe/market_groups#show
+  #                     universe_type GET    /universe/types/:id(.:format)                                                                     universe/types#show
+  #             universe_search_index GET    /universe/search(.:format)                                                                        universe/search#index
+  #       blueprints_calculator_index GET    /blueprints/calculator(.:format)                                                                  blueprints/calculator#index
+  #             blueprints_calculator GET    /blueprints/calculator/:id(.:format)                                                              blueprints/calculator#show
+  #       api_eve_manufacturing_items GET    /api/eve/manufacturing_items(.:format)                                                            api/eve/manufacturing_items#index {:format=>"json"}
 end

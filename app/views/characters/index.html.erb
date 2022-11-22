@@ -14,10 +14,11 @@
 
 <div class="row">
   <% @characters.each do |character| %>
+    <%# TODO: replace manual id generation with dom_id() helper %>
     <div id="character_<%= character.character_id %>" class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
       <div class="clearfix">
-        <h4 class="float-left"><%= link_to(character.name, character_path(character.character_id)) %></h4>
-        <%= form_with(url: character_path(character.character_id), method: :patch, class: "float-right") do %>
+        <h4 class="float-start"><%= link_to(character.name, character_path(character.character_id)) %></h4>
+        <%= form_with(url: character_path(character.character_id), method: :patch, class: "float-end") do %>
           <%= button_tag(class: "btn btn-primary mb-2") do %>
             <i class="bi bi-arrow-repeat"></i>
           <% end %>
@@ -52,10 +53,16 @@
             Wallet: <%= character.wallet_formatted %> ISK
           </li>
           <li class="list-group-item text-break text-center">
-            <%= form_with(url: character_path(character.character_id), model: character, method: :delete) do %>
-              <%= button_tag(class: "btn btn-danger") do %>
-                Remove character <i class="bi bi-exclamation-circle"></i>
-              <% end %>
+            <%= button_to(character_path(character.character_id),
+                          class: "btn btn-danger",
+                          method: :delete,
+                          form: {
+                            data: {
+                              turbo_confirm: "Are you sure?"
+                            }
+                          }) do %>
+              <span class="show-when-enabled"><%= t(".remove_character_html") %></span>
+              <span class="show-when-disabled"><%= t(".removing_character_html") %></span>
             <% end %>
           </li>
         </ul>

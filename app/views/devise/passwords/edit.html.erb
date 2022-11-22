@@ -15,21 +15,47 @@
       <%= render "devise/shared/error_messages", resource: resource %>
       <%= f.hidden_field :reset_password_token %>
 
-      <div class="form-group">
-        <%= f.label :password, "New password" %>
-        <%= f.password_field :password, class: "form-control", placeholder: "Password", autofocus: true, required: true, autocomplete: "new-password" %>
+      <div class="mb-3">
+        <%= f.label :password, t(".new_password"), class: "form-label" %>
+
+        <div class="input-group" data-controller="password-visibility">
+          <%= f.password_field :password,
+                               data: {"password-visibility-target": "input"},
+                               class: "form-control",
+                               placeholder: "Password",
+                               autofocus: true,
+                               required: true,
+                               autocomplete: "new-password" %>
+          <button type="button" data-action="password-visibility#toggle" class="input-group-text">
+            <span data-password-visibility-target="icon" class="bi bi-eye"></span>
+            <span data-password-visibility-target="icon" class="bi bi-eye-slash hidden"></span>
+          </button>
+        </div>
+
         <% if @minimum_password_length %>
-          <small class="form-text text-muted"><%= @minimum_password_length %> characters minimum</small>
+          <div class="form-text"><%= t("devise.shared.minimum_password_length", count: @minimum_password_length) %></div>
         <% end %>
       </div>
 
-      <div class="form-group">
-        <%= f.label :password_confirmation, "Confirm new password" %>
-        <%= f.password_field :password_confirmation, class: "form-control", placeholder: "Password confirmation", required: true, autocomplete: "new-password" %>
+      <div class="mb-4">
+        <%= f.label :password_confirmation, t(".confirm_new_password"), class: "form-label" %>
+
+        <div class="input-group" data-controller="password-visibility">
+          <%= f.password_field :password_confirmation,
+                               data: {"password-visibility-target": "input"},
+                               class: "form-control",
+                               placeholder: "Password confirmation",
+                               required: true,
+                               autocomplete: "new-password" %>
+          <button type="button" data-action="password-visibility#toggle" class="input-group-text">
+            <span data-password-visibility-target="icon" class="bi bi-eye"></span>
+            <span data-password-visibility-target="icon" class="bi bi-eye-slash hidden"></span>
+          </button>
+        </div>
       </div>
 
-      <div class="text-center">
-        <%= f.submit "Change my password", class: "btn btn-primary" %>
+      <div class="mb-4 text-center">
+        <%= f.submit t(".change_my_password"), class: "btn btn-primary" %>
       </div>
     <% end %>
   </div>
