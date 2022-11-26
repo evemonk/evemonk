@@ -17,7 +17,7 @@ gem "bootsnap", ">= 1.4.4", require: false
 gem "flipper"
 gem "flipper-active_record"
 gem "flipper-ui"
-gem "bootstrap", "4.6.2"
+gem "bootstrap", "5.2.3"
 gem "bootswatch",
   git: "https://github.com/thomaspark/bootswatch.git",
   tag: "v4.6.2"
