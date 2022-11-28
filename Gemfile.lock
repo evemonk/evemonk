@@ -330,7 +330,7 @@ GEM
       rails
     launchy (2.5.0)
       addressable (~> 2.7)
-    license_finder (7.0.1)
+    license_finder (7.1.0)
       bundler
       rubyzip (>= 1, < 3)
       thor (~> 1.2)
