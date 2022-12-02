@@ -78,7 +78,7 @@
     <h4 class="text-center">Agents</h4>
 
     <% @character.agents_standings.each_with_index do |standing, index| %>
-      <div class="card <%= index % 2 == 0 ? "bg-dark" : "bg-transparent" %> rounded-0 border-secondary <%= index == 0 ? "" : "border-top-0" %>">
+      <div class="card <%= (index % 2 == 0) ? "bg-dark" : "bg-transparent" %> rounded-0 border-secondary <%= (index == 0) ? "" : "border-top-0" %>">
         <div class="row no-gutters">
           <div class="col-2 text-center m-auto">
             <% if standing.standingable %>
