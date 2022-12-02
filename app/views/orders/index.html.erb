@@ -91,7 +91,7 @@
     <div class="tab-content" id="orders-content">
       <div class="tab-pane fade show active" id="sell" role="tabpanel" aria-labelledby="sell-orders-tab">
         <% @sell_orders.each_with_index do |sell_order, index| %>
-          <div class="card <%= index % 2 == 0 ? "bg-dark" : "bg-transparent" %> rounded-0 border-secondary <%= index == 0 ? "" : "border-top-0" %>">
+          <div class="card <%= (index % 2 == 0) ? "bg-dark" : "bg-transparent" %> rounded-0 border-secondary <%= (index == 0) ? "" : "border-top-0" %>">
             <div class="row no-gutters">
               <div class="col-2 text-center m-auto">
                 <% if sell_order.type.present? %>
