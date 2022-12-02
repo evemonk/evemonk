@@ -81,6 +81,12 @@ Rails.application.routes.draw do
 
   resource :faq, only: :show
 
+  resource :about, only: :show
+
+  resource :terms_of_service, only: :show
+
+  resource :privacy_policy, only: :show
+
   namespace :blueprints do
     resources :calculator, only: [:index, :show]
   end
