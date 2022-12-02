@@ -20,15 +20,6 @@
         <li class="list-group-item text-break">
           <%= link_to("Change email and password", edit_user_registration_path) %>
         </li>
-        <% if current_user.authy_enabled %>
-          <li class="list-group-item text-break">
-            <%= link_to("Disable 2FA via Authy", user_disable_authy_path, method: :post) %>
-          </li>
-        <% else %>
-          <li class="list-group-item text-break">
-            <%= link_to("Enable 2FA via Authy", user_enable_authy_path) %>
-          </li>
-        <% end %>
         <li class="list-group-item text-break">
           <%= link_to("Remove my profile with all data", edit_user_registration_path) %>
         </li>

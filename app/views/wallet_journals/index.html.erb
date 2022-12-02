@@ -78,7 +78,7 @@
     <h4 class="text-center">Wallet Journals</h4>
 
     <% @wallet_journals.each_with_index do |wallet_journal, index| %>
-      <div class="card <%= index % 2 == 0 ? "bg-dark" : "bg-transparent" %> rounded-0 border-secondary <%= index == 0 ? "" : "border-top-0" %>">
+      <div class="card <%= (index % 2 == 0) ? "bg-dark" : "bg-transparent" %> rounded-0 border-secondary <%= (index == 0) ? "" : "border-top-0" %>">
         <div class="row no-gutters">
           <div class="col-6">
             <span class="text-primary"><%= wallet_journal.description %></span>
