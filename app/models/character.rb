@@ -2,7 +2,7 @@
 
 class Character < ApplicationRecord
   include ActionView::Helpers::NumberHelper
-  include ImageProxy
+  include Imageable
 
   has_paper_trail
 
@@ -174,27 +174,27 @@ class Character < ApplicationRecord
   # end
 
   def icon_tiny
-    "#{imageproxy_url}https://images.evetech.net/characters/#{character_id}/portrait?size=32"
+    character_portrait_url(32)
   end
 
   def icon_small
-    "#{imageproxy_url}https://images.evetech.net/characters/#{character_id}/portrait?size=64"
+    character_portrait_url(64)
   end
 
   def icon_medium
-    "#{imageproxy_url}https://images.evetech.net/characters/#{character_id}/portrait?size=128"
+    character_portrait_url(128)
   end
 
   def icon_large
-    "#{imageproxy_url}https://images.evetech.net/characters/#{character_id}/portrait?size=256"
+    character_portrait_url(256)
   end
 
   def icon_huge
-    "#{imageproxy_url}https://images.evetech.net/characters/#{character_id}/portrait?size=512"
+    character_portrait_url(512)
   end
 
   def icon_gigantic
-    "#{imageproxy_url}https://images.evetech.net/characters/#{character_id}/portrait?size=1024"
+    character_portrait_url(1024)
   end
 
   def wallet_formatted
@@ -247,5 +247,11 @@ class Character < ApplicationRecord
 
   def to_param
     character_id&.to_s
+  end
+
+  private
+
+  def character_portrait_url(size)
+    imageable_url("characters", character_id, "portrait", size)
   end
 end
