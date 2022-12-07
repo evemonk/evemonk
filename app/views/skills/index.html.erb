@@ -77,6 +77,79 @@
   <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
     <h4 class="text-center text-break">Skills Tree</h4>
 
+    <div class="accordion" id="skills_tree_accordion_new">
+      <!--
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="heading_1">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_1" aria-expanded="false" aria-controls="collapse_1">
+            Accordion 1
+          </button>
+        </h2>
+
+        <div id="collapse_1" class="accordion-collapse collapse" aria-labelledby="heading_1">
+          <div class="accordion-body">
+            <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+          </div>
+        </div>
+      </div>
+      -->
+
+      <!--
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="heading_2">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_2" aria-expanded="false" aria-controls="collapse_2">
+            Accordion 2
+          </button>
+        </h2>
+
+        <div id="collapse_2" class="accordion-collapse collapse" aria-labelledby="heading_2">
+          <div class="accordion-body">
+            <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+          </div>
+        </div>
+      </div>
+      -->
+
+      <% @character_skills_tree.skills_groups.each do |group| %>
+        <div class="accordion-item bg-secondary">
+          <h2 class="accordion-header bg-dark" id="heading_<%= group.id %>">
+            <button class="accordion-button btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_<%= group.id %>" aria-expanded="true" aria-controls="collapse_<%= group.id %>">
+              <%= group.name %> (<%= @character_skills_tree.skills_count_in_group(group.group_id) %>)
+            </button>
+          </h2>
+
+          <div id="collapse_<%= group.id %>" class="accordion-collapse collapse show" aria-labelledby="heading_<%= group.id %>">
+            <div class="accordion-body">
+              <div class="row">
+                <div class="col-12">
+                  Levels trained: <%= @character_skills_tree.levels_trained_in_group(group.group_id) %> / <%= @character_skills_tree.total_levels_in_group(group.group_id) %>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-12">
+                  Levels in training queue: <%= @character_skills_tree.levels_in_training_queue(group.group_id) %>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-12">
+                  Skill points: <%= number_with_delimiter(@character_skills_tree.current_skill_points_in_group(group.group_id), delimiter: " ") %> / <%= number_with_delimiter(@character_skills_tree.total_skill_points_in_group(group.group_id), delimiter: " ") %>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-12">
+                  Certificates claimed: <%= @character_skills_tree.certificates_claimed_in_group(group.group_id) %> / <%= @character_skills_tree.total_certificates_in_group(group.group_id) %>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
     <div class="accordion" id="skills_tree_accordion">
       <% @character_skills_tree.skills_groups.each do |group| %>
         <div class="card">
