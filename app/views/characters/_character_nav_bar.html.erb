@@ -36,15 +36,6 @@
       <%= link_to("Loyalty points", character_loyalty_points_path(character), class: "nav-link") %>
     <% end %>
   </li>
-  <% if Setting.enabled_skillqueue %>
-    <li class="nav-item">
-      <% if page == :skill_queue %>
-        <%= link_to("Skill queue", character_skillqueues_path(character), class: "nav-link active") %>
-      <% else %>
-        <%= link_to("Skill queue", character_skillqueues_path(character), class: "nav-link") %>
-      <% end %>
-    </li>
-  <% end %>
   <li class="nav-item">
     <% if page == :skills %>
       <%= link_to("Skills", character_skills_path(character), class: "nav-link active") %>
