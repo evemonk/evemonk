@@ -20,7 +20,7 @@ class CharactersController < ApplicationController
     UpdateCharacterInfoService.new(@character.character_id).execute
 
     respond_to do |format|
-      format.js
+      format.turbo_stream
       format.html { redirect_to character_path(@character.character_id) }
     end
   end
@@ -29,5 +29,10 @@ class CharactersController < ApplicationController
     @character = current_user.characters.find_by!(character_id: params[:id])
 
     @character.destroy!
+
+    respond_to do |format|
+      format.turbo_stream
+      format.html { redirect_to characters_path, status: :see_other, notice: "Character was successfully removed." }
+    end
   end
 end

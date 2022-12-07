@@ -8,12 +8,12 @@ describe "Sign in features" do
 
     visit "/"
 
-    click_link "Sign In"
+    click_link "Log in"
 
     fill_in "user[email]", with: "me@example.com"
     fill_in "user[password]", with: "eidii7EeooVe8ahk"
 
-    click_button "Sign in"
+    click_button "Log in"
 
     expect(page).to have_content("Signed in successfully.")
 
@@ -25,12 +25,12 @@ describe "Sign in features" do
 
     visit "/"
 
-    click_link "Sign In"
+    click_link "Log in"
 
     fill_in "user[email]", with: "ME@EXAMPLE.COM"
     fill_in "user[password]", with: "eidii7EeooVe8ahk"
 
-    click_button "Sign in"
+    click_button "Log in"
 
     expect(page).to have_content("Signed in successfully.")
 
@@ -40,12 +40,12 @@ describe "Sign in features" do
   it "when user with given email not found" do
     visit "/"
 
-    click_link "Sign In"
+    click_link "Log in"
 
     fill_in "user[email]", with: "me@example.com"
     fill_in "user[password]", with: "eidii7EeooVe8ahk"
 
-    click_button "Sign in"
+    click_button "Log in"
 
     expect(page).to have_content("Invalid Email or password.")
 
@@ -57,12 +57,12 @@ describe "Sign in features" do
 
     visit "/"
 
-    click_link "Sign In"
+    click_link "Log in"
 
     fill_in "user[email]", with: "me@example.com"
     fill_in "user[password]", with: "wrong-password"
 
-    click_button "Sign in"
+    click_button "Log in"
 
     expect(page).to have_content("Invalid Email or password.")
 

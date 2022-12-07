@@ -1,8 +1,8 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
 
     <%= display_meta_tags site: "EveMonk: EVE Online management suite",
                           reverse: true %>
@@ -35,111 +35,100 @@
 
   <body>
     <div class="container">
-      <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-        <%= link_to("EveMonk", root_url, class: "navbar-brand") %>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+      <nav class="navbar navbar-expand-md bg-dark navbar-dark rounded" aria-label="EveMonk navbar">
+        <div class="container-fluid">
+          <%= link_to("EveMonk", root_url, class: "navbar-brand") %>
 
-        <div class="collapse navbar-collapse" id="navbar">
-          <ul class="navbar-nav mr-auto">
-<!--            <li class="nav-item active">-->
-<!--              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>-->
-<!--            </li>-->
-            <% if current_user %>
-              <li class="nav-item">
-                <%= link_to(t(".my_characters"), characters_path, class: "nav-link") %>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbar">
+            <ul class="navbar-nav me-auto">
+<!--              <li class="nav-item">-->
+<!--                <a class="nav-link active" aria-current="page" href="#">Home</a>-->
+<!--              </li>-->
+
+              <% if current_user %>
+                <li class="nav-item">
+                  <%= link_to(t(".my_characters"), characters_path, class: "nav-link") %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to(t(".profile"), profile_path, class: "nav-link") %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to(t(".sign_out"), destroy_user_session_path, data: {turbo_method: :delete}, class: "nav-link") %>
+                </li>
+              <% else %>
+                <li class="nav-item">
+                  <%= link_to(t(".sign_in"), new_user_session_path, class: "nav-link") %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to(t(".sign_up"), new_user_registration_path, class: "nav-link") %>
+                </li>
+              <% end %>
+
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false"><%= t(".universe") %></a>
+                <ul class="dropdown-menu">
+                  <%= link_to(t(".alliances"), universe_alliances_path, class: "dropdown-item") %>
+                  <%= link_to(t(".corporations"), universe_corporations_path, class: "dropdown-item") %>
+                  <%= link_to(t(".characters"), universe_characters_path, class: "dropdown-item") %>
+                  <%= link_to(t(".market_groups"), nil, class: "dropdown-item") %>
+                  <%= link_to(t(".inventory"), nil, class: "dropdown-item") %>
+                </ul>
               </li>
-              <li class="nav-item">
-                <%= link_to(t(".profile"), profile_path, class: "nav-link") %>
-              </li>
-              <li class="nav-item">
-                <%= link_to(t(".sign_out"), destroy_user_session_path, data: {turbo_method: :delete}, class: "nav-link") %>
-              </li>
-            <% else %>
-              <li class="nav-item">
-                <%= link_to(t(".sign_in"), new_user_session_path, class: "nav-link") %>
-              </li>
-              <li class="nav-item">
-                <%= link_to(t(".sign_up"), new_user_registration_path, class: "nav-link") %>
-              </li>
-            <% end %>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= t(".universe") %></a>
-              <div class="dropdown-menu" aria-labelledby="dropdown">
-                <%= link_to(t(".alliances"), universe_alliances_path, class: "dropdown-item") %>
-                <%= link_to(t(".corporations"), universe_corporations_path, class: "dropdown-item") %>
-                <%= link_to(t(".characters"), universe_characters_path, class: "dropdown-item") %>
-                <%= link_to(t(".market_groups"), nil, class: "dropdown-item") %>
-                <%= link_to(t(".inventory"), nil, class: "dropdown-item") %>
-              </div>
-            </li>
-          </ul>
-<!--          <form class="form-inline">-->
-<!--            <input class="form-control" type="text" placeholder="Search">-->
-<!--          </form>-->
+            </ul>
+            <form role="search">
+              <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+            </form>
+          </div>
         </div>
       </nav>
 
       <div id="alerts" data-turbo-cache="false">
-        <% if flash[:notice] %>
-          <div class="alert alert-success alert-dismissible fade show" role="alert">
-            <%= flash[:notice] %>
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-        <% end %>
-
-        <% if flash[:alert] %>
-          <div class="alert alert-danger alert-dismissible fade show" role="alert">
-            <%= flash[:alert] %>
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-        <% end %>
+        <%= render "shared/alerts" %>
       </div>
 
       <%= yield %>
 
       <div class="w-100"></div>
 
-      <hr>
+      <hr class="text-dark">
 
       <div class="row">
         <div class="col-6 col-md-3">
           <ul class="list-unstyled mb-0">
             <li><%= link_to(t(".faq"), faq_path) %></li>
-            <li><a href="#"><%= t(".privacy_policy") %></a></li>
+            <li><%= link_to(t(".privacy_policy"), privacy_policy_path) %></li>
           </ul>
         </div>
         <div class="col-6 col-md-3">
           <ul class="list-unstyled mb-0">
-            <li><a href="#"><%= t(".terms_of_use") %></a></li>
-            <li><a href="#"><%= t(".about") %></a></li>
+            <li><%= link_to(t(".terms_of_use"), terms_of_service_path) %></li>
+            <li><%= link_to(t(".about"), about_path) %></li>
           </ul>
         </div>
         <div class="col-6 col-md-3">
           <ul class="list-unstyled mb-0">
             <li><%= link_to("GraphQL", graphiql_rails_path, target: "_blank") %></li>
-            <li><%= link_to("Blog", "https://blog.evemonk.com", target: "_blank") %></li>
+            <li><%= link_to("Blog", blog_url, target: "_blank", rel: "noopener noreferrer") %></li>
           </ul>
         </div>
         <div class="col-6 col-md-3">
           <ul class="list-unstyled mb-0">
-            <li><%= link_to("GitHub", "https://github.com/evemonk/evemonk", target: "_blank") %></li>
-            <li><%= link_to("SDE Archive", "https://sde.evemonk.com/", target: "_blank") %></li>
+            <li><%= link_to("GitHub", github_evemonk_evemonk_url, target: "_blank", rel: "noopener noreferrer") %></li>
+            <li><%= link_to("SDE Archive", sde_archive_url, target: "_blank", rel: "noopener noreferrer") %></li>
           </ul>
         </div>
       </div>
 
       <div class="w-100"></div>
 
-      <hr>
+      <hr class="text-dark">
 
       <div class="row text-center">
-        <div class="col">
+        <div class="col text-muted">
           &copy; 2016 &mdash; 2022 <strong>EveMonk</strong>
         </div>
       </div>

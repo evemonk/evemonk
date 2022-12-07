@@ -153,5 +153,17 @@ Rails.application.routes.draw do
     root to: "settings#index"
   end
 
+  direct :blog do
+    "https://blog.evemonk.com"
+  end
+
+  direct :github_evemonk_evemonk do
+    "https://github.com/evemonk/evemonk"
+  end
+
+  direct :sde_archive do
+    "https://sde.evemonk.com/"
+  end
+
   root to: "welcome#index"
 end

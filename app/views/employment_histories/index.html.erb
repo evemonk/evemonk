@@ -17,13 +17,13 @@
              page: :employment_history
            } %>
 
-<hr>
+<hr class="text-dark">
 
 <div class="row">
   <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
     <div class="clearfix">
-      <h4 class="float-left"><%= @character.name %></h4>
-      <%= form_with(url: character_path(@character), method: :patch, class: "float-right") do %>
+      <h4 class="float-start"><%= @character.name %></h4>
+      <%= form_with(url: character_path(@character), method: :patch, class: "float-end") do %>
         <%= button_tag(class: "btn btn-primary mb-2") do %>
           <i class="bi bi-arrow-repeat"></i>
         <% end %>
@@ -77,11 +77,11 @@
   <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
     <h4 class="text-center">Employment History (<%= @character_corporation_histories.size %>)</h4>
 
-    <table class="table table-striped table-bordered">
+    <table class="table table-dark table-striped table-bordered">
       <thead>
         <tr>
           <th colspan="2" class="text-center">Corporation</th>
-          <th class="text-right">Joined at</th>
+          <th class="text-end">Joined at</th>
         </tr>
       </thead>
 
@@ -90,24 +90,24 @@
           <%# In some cases we don't have corporation yet in db %>
           <% if record.corporation %>
             <tr>
-              <td class="align-middle text-center border-right-0 m-0 p-2">
+              <td class="align-middle text-center border-end-0 m-0 p-2">
                 <%= image_tag(record.corporation.icon_tiny,
                               alt: record.corporation.name,
                               class: "rounded border",
                               size: "34x34",
                               loading: "lazy") %>
               </td>
-              <td class="align-middle text-break border-left-0">
+              <td class="align-middle text-break border-start-0">
                 <%= link_to(record.corporation.name, universe_corporation_path(record.corporation.corporation_id)) %>
               </td>
-              <td class="align-middle text-right">
+              <td class="align-middle text-end">
                 <%= time_ago_in_words(record.start_date) %>
               </td>
             </tr>
           <% else %>
             <tr>
               <td colspan="2">&nbsp;</td>
-              <td class="text-right"><%= time_ago_in_words(record.start_date) %></td>
+              <td class="text-end"><%= time_ago_in_words(record.start_date) %></td>
             </tr>
           <% end %>
         <% end %>

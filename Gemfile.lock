@@ -17,10 +17,10 @@ GIT
 
 GIT
   remote: https://github.com/thomaspark/bootswatch.git
-  revision: 57980884525efb94836d88a5f59d5db9c5e8bbf0
-  tag: v4.6.2
+  revision: 2d8973af69993f4f9b3e150bc8d0fb7e98025f78
+  tag: v5.2.2
   specs:
-    bootswatch (4.6.2)
+    bootswatch (5.2.2)
 
 GEM
   remote: https://rubygems.org/
@@ -140,9 +140,9 @@ GEM
       smart_properties
     bootsnap (1.15.0)
       msgpack (~> 1.2)
-    bootstrap (4.6.2)
+    bootstrap (5.2.3)
       autoprefixer-rails (>= 9.1.0)
-      popper_js (>= 1.16.1, < 2)
+      popper_js (>= 2.11.6, < 3)
       sassc-rails (>= 2.0.0)
     brakeman (5.4.0)
     builder (3.2.4)
@@ -436,7 +436,7 @@ GEM
       activesupport (>= 5.2)
     pghero (3.0.1)
       activerecord (>= 6)
-    popper_js (1.16.1)
+    popper_js (2.11.6)
     prometheus-client (2.1.0)
     prosopite (1.2.2)
     pry (0.14.1)
@@ -705,7 +705,7 @@ DEPENDENCIES
   aws-sdk-s3
   better_html
   bootsnap (>= 1.4.4)
-  bootstrap (= 4.6.2)
+  bootstrap (= 5.2.3)
   bootswatch!
   brakeman
   cacheflow

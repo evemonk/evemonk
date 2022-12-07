@@ -14,13 +14,13 @@
     <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: {method: :post}, data: {turbo: "false"}) do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
 
-      <div class="form-group">
-        <%= f.label :email, "Email address" %>
+      <div class="mb-3">
+        <%= f.label :email, "Email address", class: "form-label" %>
         <%= f.email_field :email, class: "form-control", placeholder: "Email address", required: true, autofocus: true, autocomplete: "email" %>
       </div>
 
       <div class="text-center">
-        <%= f.submit "Send me reset password instructions", class: "btn btn-primary" %>
+        <%= f.submit t(".send_me_reset_password_instructions"), class: "btn btn-primary" %>
       </div>
     <% end %>
   </div>

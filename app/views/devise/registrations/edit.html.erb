@@ -14,16 +14,16 @@
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {method: :put}, data: {turbo: "false"}) do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
 
-      <div class="form-group">
-        <%= f.label :email, "Email address" %>
+      <div class="mb-3">
+        <%= f.label :email, "Email address", class: "form-label" %>
         <%= f.email_field :email, class: "form-control", placeholder: "Email address", autofocus: true, autocomplete: "email" %>
         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-          <small class="form-text text-muted">Currently waiting confirmation for: <%= resource.unconfirmed_email %></small>
+          <div><%= t(".currently_waiting_confirmation_for_email", email: resource.unconfirmed_email) %></div>
         <% end %>
       </div>
 
-      <div class="form-group">
-        <%= f.label :password, "Password (leave blank if you don't want to change it)" %>
+      <div class="mb-3">
+        <%= f.label :password, "Password (leave blank if you don't want to change it)", class: "form-label" %>
 
         <div class="input-group" data-controller="password-visibility">
           <%= f.password_field :password,
@@ -31,12 +31,10 @@
                                class: "form-control",
                                placeholder: "Password",
                                autocomplete: "new-password" %>
-          <div class="input-group-append">
-            <button type="button" data-action="password-visibility#toggle" class="input-group-text">
-              <span data-password-visibility-target="icon" class="bi bi-eye"></span>
-              <span data-password-visibility-target="icon" class="bi bi-eye-slash hidden"></span>
-            </button>
-          </div>
+          <button type="button" data-action="password-visibility#toggle" class="input-group-text">
+            <span data-password-visibility-target="icon" class="bi bi-eye"></span>
+            <span data-password-visibility-target="icon" class="bi bi-eye-slash hidden"></span>
+          </button>
         </div>
 
         <% if @minimum_password_length %>
@@ -44,8 +42,8 @@
         <% end %>
       </div>
 
-      <div class="form-group">
-        <%= f.label :password_confirmation, "Password confirmation" %>
+      <div class="mb-3">
+        <%= f.label :password_confirmation, "Password confirmation", class: "form-label" %>
 
         <div class="input-group" data-controller="password-visibility">
           <%= f.password_field :password_confirmation,
@@ -53,18 +51,15 @@
                                class: "form-control",
                                placeholder: "Password confirmation",
                                autocomplete: "new-password" %>
-
-          <div class="input-group-append">
-            <button type="button" data-action="password-visibility#toggle" class="input-group-text">
-              <span data-password-visibility-target="icon" class="bi bi-eye"></span>
-              <span data-password-visibility-target="icon" class="bi bi-eye-slash hidden"></span>
-            </button>
-          </div>
+          <button type="button" data-action="password-visibility#toggle" class="input-group-text">
+            <span data-password-visibility-target="icon" class="bi bi-eye"></span>
+            <span data-password-visibility-target="icon" class="bi bi-eye-slash hidden"></span>
+          </button>
         </div>
       </div>
 
-      <div class="form-group">
-        <%= f.label :current_password, "Current password (we need your current password to confirm your changes)" %>
+      <div class="mb-3">
+        <%= f.label :current_password, "Current password", class: "form-label" %>
 
         <div class="input-group" data-controller="password-visibility">
           <%= f.password_field :current_password,
@@ -72,18 +67,17 @@
                                class: "form-control",
                                placeholder: "Current password",
                                autocomplete: "current-password" %>
-
-          <div class="input-group-append">
-            <button type="button" data-action="password-visibility#toggle" class="input-group-text">
-              <span data-password-visibility-target="icon" class="bi bi-eye"></span>
-              <span data-password-visibility-target="icon" class="bi bi-eye-slash hidden"></span>
-            </button>
-          </div>
+          <button type="button" data-action="password-visibility#toggle" class="input-group-text">
+            <span data-password-visibility-target="icon" class="bi bi-eye"></span>
+            <span data-password-visibility-target="icon" class="bi bi-eye-slash hidden"></span>
+          </button>
         </div>
+
+        <div class="form-text"><%= t(".we_need_your_current_password_to_confirm_your_changes") %></div>
       </div>
 
       <div class="text-center">
-        <%= f.submit "Update", class: "btn btn-primary" %>
+        <%= f.submit t(".update"), class: "btn btn-primary" %>
       </div>
     <% end %>
   </div>
@@ -91,6 +85,6 @@
   <div class="col-12 col-sm-12 col-md-8 col-lg-4 col-xl-4">
     <h3>Cancel my account</h3>
 
-    <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: {confirm: "Are you sure?"}, method: :delete, class: "btn btn-danger" %></p>
+    <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), form: {data: {turbo_confirm: "Are you sure?"}}, method: :delete, class: "btn btn-danger" %></p>
   </div>
 </div>
