@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_05_163505) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_07_135947) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_buffercache"
   enable_extension "pg_trgm"
@@ -664,6 +664,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_05_163505) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name_ko"
+    t.index ["category_id"], name: "index_eve_groups_on_category_id"
     t.index ["group_id"], name: "index_eve_groups_on_group_id", unique: true
   end
 
