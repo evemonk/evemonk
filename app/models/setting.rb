@@ -17,9 +17,6 @@ class Setting < RailsSettings::Base
 
   field :enabled_assets, type: :boolean, default: false
 
-  # TODO: remove dead code
-  field :enabled_skillqueue, type: :boolean, default: false
-
   field :enabled_mails, type: :boolean, default: false
 
   field :enabled_neural_map_available, type: :boolean, default: false
