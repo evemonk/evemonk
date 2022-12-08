@@ -30,11 +30,6 @@
   <li class="nav-item">
     <%= link_to("Loyalty points", character_loyalty_points_path(@character.character_id), class: "nav-link") %>
   </li>
-  <% if Setting.enabled_skillqueue %>
-    <li class="nav-item">
-      <%= link_to("Skill queue", character_skillqueues_path(@character.character_id), class: "nav-link") %>
-    </li>
-  <% end %>
   <li class="nav-item">
     <%= link_to("Skills", character_skills_path(@character.character_id), class: "nav-link") %>
   </li>
