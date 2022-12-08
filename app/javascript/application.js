@@ -4,7 +4,7 @@ import "controllers";
 import "@hotwired/turbo-rails";
 
 import LocalTime from "local-time";
-import { install } from "@github/hotkey";
+import { install, uninstall } from "@github/hotkey";
 import "@popperjs/core";
 import "bootstrap";
 
@@ -16,5 +16,12 @@ document.addEventListener("turbo:load", () => {
   // Install all the hotkeys on the page
   for (const el of document.querySelectorAll("[data-hotkey]")) {
     install(el);
+  }
+});
+
+document.addEventListener("turbo:before-render", () => {
+  // Uninstall all the hotkeys on the page
+  for (const el of document.querySelectorAll("[data-hotkey]")) {
+    uninstall(el);
   }
 });
