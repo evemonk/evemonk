@@ -14,10 +14,6 @@ module Universe
     def show
       @corporation = ::Eve::Corporation
         .find_by!(corporation_id: params[:id])
-
-      @characters = ::Eve::Character
-        .where(corporation: @corporation)
-        .order(:name)
     end
   end
 end

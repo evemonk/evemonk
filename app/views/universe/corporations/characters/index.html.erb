@@ -1,0 +1,27 @@
+<%= turbo_frame_tag "universe:corporation:#{@corporation.id}:characters" do %>
+  <h4 class="text-center">Members (<%= @characters.size %>)</h4>
+
+  <table class="table table-dark table-striped table-bordered">
+    <thead>
+      <tr>
+        <th colspan="2" class="text-center">Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @characters.each do |character| %>
+        <tr>
+          <td class="align-middle text-center border-end-0 m-0 p-2">
+            <%= image_tag(character.icon_tiny,
+                          alt: character.name,
+                          class: "rounded border",
+                          size: "34x34",
+                          loading: "lazy") %>
+          </td>
+          <td class="align-middle text-break border-start-0">
+            <%= link_to(character.name, universe_character_path(character.character_id)) %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
