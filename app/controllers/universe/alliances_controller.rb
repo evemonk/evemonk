@@ -15,11 +15,6 @@ module Universe
       @alliance = ::Eve::Alliance
         .includes(:faction, :creator_corporation, :creator, :executor_corporation)
         .find(params[:id])
-
-      @corporations = ::Eve::Corporation
-        .where(alliance: @alliance)
-        .order(:name)
-        .includes(:faction)
     end
   end
 end
