@@ -1,0 +1,31 @@
+<%= turbo_frame_tag "universe:alliance:#{@alliance.id}:corporations" do %>
+  <h4 class="text-center">Corporations (<%= @corporations.size %>)</h4>
+
+  <table class="table table-dark table-striped table-bordered">
+    <thead>
+      <tr>
+        <th colspan="2" class="text-center">Name</th>
+        <th class="text-end">Members</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @corporations.each do |corporation| %>
+        <tr>
+          <td class="align-middle text-center border-end-0 m-0 p-2">
+            <%= image_tag(corporation.icon_tiny,
+                          alt: corporation.name,
+                          class: "rounded border",
+                          size: "34x34",
+                          loading: "lazy") %>
+          </td>
+          <td class="align-middle text-break border-start-0">
+            <%= link_to(corporation.name, universe_corporation_path(corporation.corporation_id)) %>
+          </td>
+          <td class="align-middle text-end">
+            <%= corporation.formatted_member_count %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>

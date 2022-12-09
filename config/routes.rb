@@ -25,7 +25,7 @@ Rails.application.routes.draw do
 
   namespace :universe do
     resources :alliances, only: [:index, :show] do
-      resource :hovercard, only: :show, controller: "alliances/hovercards"
+      resources :corporations, only: :index, controller: "alliances/corporations"
     end
 
     resources :corporations, only: [:index, :show]

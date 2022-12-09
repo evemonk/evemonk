@@ -33,8 +33,6 @@ describe Universe::AlliancesController do
   end
 
   describe "#show" do
-    let(:eve_alliance) { instance_double(Eve::Alliance) }
-
     before do
       #
       # Eve::Alliance.includes(:faction, :creator_corporation, :creator, :executor_corporation)
@@ -42,24 +40,7 @@ describe Universe::AlliancesController do
       #
       expect(Eve::Alliance).to receive(:includes).with(:faction, :creator_corporation, :creator, :executor_corporation) do
         double.tap do |a|
-          expect(a).to receive(:find).with("1354830081").and_return(eve_alliance)
-        end
-      end
-    end
-
-    before do
-      #
-      # Eve::Corporation.where(alliance: @alliance)
-      #                 .order(:name)
-      #                 .includes(:faction)
-      #
-      expect(Eve::Corporation).to receive(:where).with(alliance: eve_alliance) do
-        double.tap do |a|
-          expect(a).to receive(:order).with(:name) do
-            double.tap do |b|
-              expect(b).to receive(:includes).with(:faction)
-            end
-          end
+          expect(a).to receive(:find).with("1354830081")
         end
       end
     end
