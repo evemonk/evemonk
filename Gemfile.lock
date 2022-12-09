@@ -170,6 +170,7 @@ GEM
     dartsass-rails (0.4.0)
       railties (>= 6.0.0)
     database_rewinder (0.9.8)
+    date (3.3.1)
     dead_end (4.0.0)
     derailed_benchmarks (2.1.2)
       benchmark-ips (~> 2)
@@ -372,7 +373,8 @@ GEM
     multi_xml (0.6.0)
     net-http-persistent (4.0.1)
       connection_pool (~> 2.2)
-    net-imap (0.3.1)
+    net-imap (0.3.2)
+      date
       net-protocol
     net-pop (0.1.2)
       net-protocol
