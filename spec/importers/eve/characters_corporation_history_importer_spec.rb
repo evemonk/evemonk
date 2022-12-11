@@ -4,11 +4,13 @@ require "rails_helper"
 
 describe Eve::CharactersCorporationHistoryImporter do
   describe "#import" do
-    let(:character_ids) { [1] }
+    let(:character_ids) { [2, 1] }
 
-    before { expect(Eve::Character).to receive(:pluck).with(:character_id).and_return(character_ids) }
+    before { expect(Eve::Character).to receive(:ids).and_return(character_ids) }
 
     before { expect(Eve::UpdateCharacterCorporationHistoryJob).to receive(:perform_later).with(1) }
+
+    before { expect(Eve::UpdateCharacterCorporationHistoryJob).to receive(:perform_later).with(2) }
 
     specify { expect { subject.import }.not_to raise_error }
   end

@@ -3,9 +3,9 @@
 require "rails_helper"
 
 describe Eve::CharacterCorporationHistoryImporter do
-  let(:character_id) { double }
+  let(:id) { double }
 
-  subject { described_class.new(character_id) }
+  subject { described_class.new(id) }
 
   it { should be_a(Eve::BaseImporter) }
 
@@ -42,7 +42,7 @@ describe Eve::CharacterCorporationHistoryImporter do
 
         let(:eve_character) { instance_double(Eve::Character) }
 
-        before { expect(Eve::Character).to receive(:find_by!).with(character_id: character_id).and_return(eve_character) }
+        before { expect(Eve::Character).to receive(:find).with(id).and_return(eve_character) }
 
         let(:character_corporation_history) { instance_double(Eve::CharacterCorporationHistory) }
 
@@ -74,15 +74,15 @@ describe Eve::CharacterCorporationHistoryImporter do
 
         before { expect(subject).to receive(:esi).and_return(esi) }
 
-        before { expect(Eve::Character).to receive(:find_by!).with(character_id: character_id).and_raise(ActiveRecord::RecordNotFound) }
+        before { expect(Eve::Character).to receive(:find).with(id).and_raise(ActiveRecord::RecordNotFound) }
 
         before do
           #
-          # Rails.logger.info("Character with ID #{character_id} not found")
+          # Rails.logger.info("Character with ID #{id} not found")
           #
           expect(Rails).to receive(:logger) do
             double.tap do |a|
-              expect(a).to receive(:info).with("Character with ID #{character_id} not found")
+              expect(a).to receive(:info).with("Character with ID #{id} not found")
             end
           end
         end
@@ -104,7 +104,7 @@ describe Eve::CharacterCorporationHistoryImporter do
     context "when @esi not set" do
       let(:esi) { instance_double(EveOnline::ESI::CharacterCorporationHistory) }
 
-      before { expect(EveOnline::ESI::CharacterCorporationHistory).to receive(:new).with(character_id: character_id).and_return(esi) }
+      before { expect(EveOnline::ESI::CharacterCorporationHistory).to receive(:new).with(character_id: id).and_return(esi) }
 
       specify { expect { subject.esi }.not_to raise_error }
 

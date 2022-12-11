@@ -73,7 +73,7 @@ describe "Get Characters" do
 
   let!(:eve_character_1) do
     create(:eve_character,
-      character_id: 123,
+      id: 123,
       ancestry: eve_ancestry_1,
       birthday: birthday_1,
       bloodline: eve_bloodline_1,
@@ -90,7 +90,7 @@ describe "Get Characters" do
 
   let!(:eve_character_2) do
     create(:eve_character,
-      character_id: 321,
+      id: 321,
       ancestry: eve_ancestry_2,
       birthday: birthday_2,
       bloodline: eve_bloodline_2,

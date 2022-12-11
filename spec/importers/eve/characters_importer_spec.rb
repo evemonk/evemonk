@@ -12,7 +12,7 @@ describe Eve::CharactersImporter do
 
     let(:corporation_creator_ids) { [1, 4] }
 
-    before { expect(Eve::Character).to receive(:pluck).with(:character_id).and_return(character_ids) }
+    before { expect(Eve::Character).to receive(:ids).and_return(character_ids) }
 
     before { expect(Eve::Alliance).to receive(:pluck).with(:creator_id).and_return(alliance_creator_ids) }
 

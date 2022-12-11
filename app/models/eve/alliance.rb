@@ -15,7 +15,6 @@ module Eve
 
     belongs_to :creator,
       class_name: "Eve::Character",
-      primary_key: "character_id",
       optional: true
 
     belongs_to :executor_corporation,

@@ -33,28 +33,28 @@ describe Universe::CharactersController do
   end
 
   describe "#show" do
-    let!(:eve_character) { create(:eve_character, character_id: 91_752_503) }
+    let!(:eve_character) { create(:eve_character, id: 91_752_503) }
 
     before do
       #
       # Eve::Character
       #   .includes(:alliance, :corporation)
-      #   .find_by!(character_id: params[:id]) # => eve_character
+      #   .find(params[:id]) # => eve_character
       #
       expect(Eve::Character).to receive(:includes).with(:alliance, :corporation) do
         double.tap do |a|
-          expect(a).to receive(:find_by!).with(character_id: "91752503").and_return(eve_character)
+          expect(a).to receive(:find).with("91752503").and_return(eve_character)
         end
       end
     end
 
     before do
       #
-      # Eve::CharacterCorporationHistory.where(character_id: @character.character_id)
+      # Eve::CharacterCorporationHistory.where(character: @character)
       #                                 .includes(:corporation)
       #                                 .order(start_date: :desc)
       #
-      expect(Eve::CharacterCorporationHistory).to receive(:where).with(character_id: eve_character.character_id) do
+      expect(Eve::CharacterCorporationHistory).to receive(:where).with(character: eve_character) do
         double.tap do |a|
           expect(a).to receive(:includes).with(:corporation) do
             double.tap do |b|

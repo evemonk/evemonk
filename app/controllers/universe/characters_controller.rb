@@ -14,9 +14,9 @@ module Universe
     def show
       @character = ::Eve::Character
         .includes(:alliance, :corporation)
-        .find_by!(character_id: params[:id])
+        .find(params[:id])
 
-      @character_corporation_histories = Eve::CharacterCorporationHistory.where(character_id: @character.character_id)
+      @character_corporation_histories = Eve::CharacterCorporationHistory.where(character: @character)
         .includes(:corporation)
         .order(start_date: :desc)
     end

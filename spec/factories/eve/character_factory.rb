@@ -2,8 +2,6 @@
 
 FactoryBot.define do
   factory :eve_character, class: "Eve::Character" do
-    sequence(:character_id)
-
     sequence(:alliance_id)
 
     sequence(:ancestry_id)

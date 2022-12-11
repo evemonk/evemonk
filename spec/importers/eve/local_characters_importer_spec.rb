@@ -4,16 +4,18 @@ require "rails_helper"
 
 describe Eve::LocalCharactersImporter do
   describe "#import" do
-    let(:character_id) { double }
+    let(:ids) { [2, 1] }
 
     before do
       #
-      # Eve::Character.pluck(:character_id) => [character_id]
+      # Eve::Character.ids # => [ids]
       #
-      expect(Eve::Character).to receive(:pluck).with(:character_id).and_return([character_id])
+      expect(Eve::Character).to receive(:ids).and_return(ids)
     end
 
-    before { expect(Eve::UpdateCharacterJob).to receive(:perform_later).with(character_id) }
+    before { expect(Eve::UpdateCharacterJob).to receive(:perform_later).with(1) }
+
+    before { expect(Eve::UpdateCharacterJob).to receive(:perform_later).with(2) }
 
     specify { expect { subject.import }.not_to raise_error }
   end

@@ -14,12 +14,12 @@ describe "Get Corporation by ID" do
 
   let!(:ceo) do
     create(:eve_character,
-      character_id: 10_111)
+      id: 10_111)
   end
 
   let!(:creator) do
     create(:eve_character,
-      character_id: 10_555)
+      id: 10_555)
   end
 
   let!(:eve_faction) do
@@ -53,7 +53,7 @@ describe "Get Corporation by ID" do
 
   let!(:eve_character) do
     create(:eve_character,
-      character_id: 12_998,
+      id: 12_998,
       corporation: eve_corporation)
   end
 
