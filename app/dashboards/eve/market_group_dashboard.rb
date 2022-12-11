@@ -6,7 +6,7 @@ module Eve
   class MarketGroupDashboard < Administrate::BaseDashboard
     ATTRIBUTE_TYPES = {
       id: Field::Number,
-      parent_group_id: Field::Number,
+      parent_group_id: Field::Number, # TODO: add
       name_en: Field::String,
       name_de: Field::String,
       name_fr: Field::String,
