@@ -290,11 +290,11 @@ module Types
     end
 
     def characters
-      ::Eve::Character.order(:character_id)
+      ::Eve::Character.order(:id)
     end
 
     def character(id:)
-      ::Eve::Character.find_by(character_id: id)
+      ::Eve::Character.find_by(id: id)
     end
 
     def constellations

@@ -481,7 +481,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_07_135947) do
   end
 
   create_table "eve_characters", force: :cascade do |t|
-    t.bigint "character_id"
     t.bigint "alliance_id"
     t.bigint "ancestry_id"
     t.datetime "birthday", precision: nil
@@ -499,7 +498,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_07_135947) do
     t.index ["alliance_id"], name: "index_eve_characters_on_alliance_id"
     t.index ["ancestry_id"], name: "index_eve_characters_on_ancestry_id"
     t.index ["bloodline_id"], name: "index_eve_characters_on_bloodline_id"
-    t.index ["character_id"], name: "index_eve_characters_on_character_id", unique: true
     t.index ["corporation_id"], name: "index_eve_characters_on_corporation_id"
     t.index ["faction_id"], name: "index_eve_characters_on_faction_id"
     t.index ["name"], name: "index_eve_characters_on_name", opclass: :gin_trgm_ops, using: :gin

@@ -4,9 +4,7 @@ module Eve
   class CharacterCorporationHistory < ApplicationRecord
     # TODO: has_paper_trail
 
-    belongs_to :character,
-      class_name: "Eve::Character",
-      primary_key: "character_id"
+    belongs_to :character
 
     belongs_to :corporation,
       class_name: "Eve::Corporation",

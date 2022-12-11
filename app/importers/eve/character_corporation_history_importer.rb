@@ -2,17 +2,17 @@
 
 module Eve
   class CharacterCorporationHistoryImporter < BaseImporter
-    attr_reader :character_id
+    attr_reader :id
 
-    def initialize(character_id)
-      @character_id = character_id
+    def initialize(id)
+      @id = id
     end
 
     def import
       import! do
         return if esi.not_modified?
 
-        eve_character = Eve::Character.find_by!(character_id: character_id)
+        eve_character = Eve::Character.find(id)
 
         esi.entries.each do |entry|
           history = eve_character.character_corporation_histories
@@ -23,12 +23,12 @@ module Eve
 
         update_etag
       rescue ActiveRecord::RecordNotFound
-        Rails.logger.info("Character with ID #{character_id} not found")
+        Rails.logger.info("Character with ID #{id} not found")
       end
     end
 
     def esi
-      @esi ||= EveOnline::ESI::CharacterCorporationHistory.new(character_id: character_id)
+      @esi ||= EveOnline::ESI::CharacterCorporationHistory.new(character_id: id)
     end
   end
 end

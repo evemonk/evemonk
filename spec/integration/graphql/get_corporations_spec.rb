@@ -21,22 +21,22 @@ describe "Get Corporations" do
 
   let!(:ceo_1) do
     create(:eve_character,
-      character_id: 10_111)
+      id: 10_111)
   end
 
   let!(:ceo_2) do
     create(:eve_character,
-      character_id: 10_222)
+      id: 10_222)
   end
 
   let!(:creator_1) do
     create(:eve_character,
-      character_id: 10_555)
+      id: 10_555)
   end
 
   let!(:creator_2) do
     create(:eve_character,
-      character_id: 10_666)
+      id: 10_666)
   end
 
   let!(:eve_faction_1) do
@@ -99,13 +99,13 @@ describe "Get Corporations" do
 
   let!(:eve_character_1) do
     create(:eve_character,
-      character_id: 12_998,
+      id: 12_998,
       corporation: eve_corporation_1)
   end
 
   let!(:eve_character_2) do
     create(:eve_character,
-      character_id: 12_999,
+      id: 12_999,
       corporation: eve_corporation_2)
   end
 

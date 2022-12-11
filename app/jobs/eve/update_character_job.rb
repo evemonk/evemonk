@@ -11,8 +11,8 @@ module Eve
       Faraday::TimeoutError,
       Faraday::ConnectionFailed
 
-    def perform(character_id)
-      Eve::CharacterImporter.new(character_id).import
+    def perform(id)
+      Eve::CharacterImporter.new(id).import
     end
   end
 end

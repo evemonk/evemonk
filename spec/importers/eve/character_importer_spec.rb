@@ -3,9 +3,9 @@
 require "rails_helper"
 
 describe Eve::CharacterImporter do
-  let(:character_id) { double }
+  let(:id) { double }
 
-  subject { described_class.new(character_id) }
+  subject { described_class.new(id) }
 
   it { should be_a(Eve::BaseImporter) }
 
@@ -16,7 +16,7 @@ describe Eve::CharacterImporter do
 
     let(:eve_character) { instance_double(Eve::Character) }
 
-    before { expect(Eve::Character).to receive(:find_or_initialize_by).with(character_id: character_id).and_return(eve_character) }
+    before { expect(Eve::Character).to receive(:find_or_initialize_by).with(id: id).and_return(eve_character) }
 
     context "when etag cache hit" do
       let(:esi) { instance_double(EveOnline::ESI::Character, not_modified?: true) }
@@ -50,11 +50,11 @@ describe Eve::CharacterImporter do
 
         before do
           #
-          # Rails.logger.info("EveOnline::Exceptions::ResourceNotFound: Eve Character ID #{character_id}")
-
+          # Rails.logger.info("EveOnline::Exceptions::ResourceNotFound: Eve Character ID #{id}")
+          #
           expect(Rails).to receive(:logger) do
             double.tap do |a|
-              expect(a).to receive(:info).with("EveOnline::Exceptions::ResourceNotFound: Eve Character ID #{character_id}")
+              expect(a).to receive(:info).with("EveOnline::Exceptions::ResourceNotFound: Eve Character ID #{id}")
             end
           end
         end
@@ -80,7 +80,7 @@ describe Eve::CharacterImporter do
     context "when @esi not set" do
       let(:esi) { instance_double(EveOnline::ESI::Character) }
 
-      before { expect(EveOnline::ESI::Character).to receive(:new).with(character_id: character_id).and_return(esi) }
+      before { expect(EveOnline::ESI::Character).to receive(:new).with(character_id: id).and_return(esi) }
 
       specify { expect { subject.esi }.to change { subject.instance_variable_get(:@esi) }.from(nil).to(esi) }
     end

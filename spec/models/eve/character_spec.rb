@@ -25,7 +25,7 @@ describe Eve::Character do
 
   it { should belong_to(:race).with_primary_key("race_id").optional(true) }
 
-  it { should have_many(:character_corporation_histories).with_primary_key("character_id").dependent(:destroy) }
+  it { should have_many(:character_corporation_histories).dependent(:destroy) }
 
   it { should have_one_attached(:portrait) }
 
@@ -87,42 +87,14 @@ describe Eve::Character do
     specify { expect(subject.rounded_security_status).to eq(1.1) }
   end
 
-  describe "#to_key" do
-    context "when character_id is present" do
-      subject { build(:eve_character, character_id: 90_729_314) }
-
-      specify { expect(subject.to_key).to eq([90_729_314]) }
-    end
-
-    context "when character_id is not present" do
-      subject { build(:eve_character, character_id: nil) }
-
-      specify { expect(subject.to_key).to eq(nil) }
-    end
-  end
-
-  describe "#to_param" do
-    context "when character_id is present" do
-      subject { build(:eve_character, character_id: 90_729_314) }
-
-      specify { expect(subject.to_param).to eq("90729314") }
-    end
-
-    context "when character_id is not present" do
-      subject { build(:eve_character, character_id: nil) }
-
-      specify { expect(subject.to_param).to eq(nil) }
-    end
-  end
-
   # private methods
 
   describe "#character_portrait_url" do
-    subject { build(:eve_character, character_id: 90_729_314) }
+    subject { build(:eve_character, id: 90_729_314) }
 
     before do
       #
-      # imageable_url("characters", character_id, "portrait", size)
+      # imageable_url("characters", id, "portrait", size)
       #
       expect(subject).to receive(:imageable_url).with("characters", 90_729_314, "portrait", 1024)
     end

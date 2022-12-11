@@ -47,7 +47,7 @@
         <% if @corporation.ceo %>
           <li class="list-group-item text-break">
             CEO: <%= link_to(@corporation.ceo.name,
-                             universe_character_path(@corporation.ceo.character_id)) %>
+                             universe_character_path(@corporation.ceo)) %>
           </li>
         <% end %>
       </ul>

@@ -49,7 +49,7 @@
 <!--        </li>-->
         <% if @alliance.creator %>
           <li class="list-group-item text-break">
-            Creator: <%= link_to(@alliance.creator.name, universe_character_path(@alliance.creator.character_id)) %>
+            Creator: <%= link_to(@alliance.creator.name, universe_character_path(@alliance.creator)) %>
           </li>
         <% end %>
         <% if @alliance.executor_corporation %>
@@ -70,7 +70,9 @@
   </div>
 
   <div class="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8">
-    <%= turbo_frame_tag "universe:alliance:#{@alliance.id}:corporations", src: universe_alliance_corporations_path(@alliance), target: "_top" do %>
+    <%= turbo_frame_tag "universe:alliance:#{@alliance.id}:corporations",
+                        src: universe_alliance_corporations_path(@alliance),
+                        target: "_top" do %>
       <h4 class="text-center">Loading...</h4>
     <% end %>
   </div>

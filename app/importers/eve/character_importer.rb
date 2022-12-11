@@ -2,15 +2,15 @@
 
 module Eve
   class CharacterImporter < BaseImporter
-    attr_reader :character_id
+    attr_reader :id
 
-    def initialize(character_id)
-      @character_id = character_id
+    def initialize(id)
+      @id = id
     end
 
     def import
       import! do
-        eve_character = Eve::Character.find_or_initialize_by(character_id: character_id)
+        eve_character = Eve::Character.find_or_initialize_by(id: id)
 
         return if esi.not_modified?
 
@@ -18,7 +18,7 @@ module Eve
 
         update_etag
       rescue EveOnline::Exceptions::ResourceNotFound
-        Rails.logger.info("EveOnline::Exceptions::ResourceNotFound: Eve Character ID #{character_id}")
+        Rails.logger.info("EveOnline::Exceptions::ResourceNotFound: Eve Character ID #{id}")
 
         etag.destroy!
 
@@ -27,7 +27,7 @@ module Eve
     end
 
     def esi
-      @esi ||= EveOnline::ESI::Character.new(character_id: character_id)
+      @esi ||= EveOnline::ESI::Character.new(character_id: id)
     end
   end
 end

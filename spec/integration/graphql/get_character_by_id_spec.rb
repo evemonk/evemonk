@@ -40,7 +40,7 @@ describe "Get Character by ID" do
 
   let!(:eve_character) do
     create(:eve_character,
-      character_id: 123,
+      id: 123,
       ancestry: eve_ancestry,
       birthday: birthday,
       bloodline: eve_bloodline,

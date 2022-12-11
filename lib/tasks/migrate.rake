@@ -21,4 +21,11 @@ namespace :migrate do
       agent.update!(id: agent.agent_id)
     end
   end
+
+  desc "Migrate Eve::Character#character_id to #id"
+  task characters: :environment do
+    Eve::Character.find_each do |character|
+      character.update!(id: character.character_id)
+    end
+  end
 end

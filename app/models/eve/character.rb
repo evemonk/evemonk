@@ -29,9 +29,7 @@ module Eve
       primary_key: "race_id",
       optional: true
 
-    has_many :character_corporation_histories,
-      primary_key: "character_id",
-      dependent: :destroy
+    has_many :character_corporation_histories, dependent: :destroy
 
     pg_search_scope :search_by_name, against: :name
 
@@ -69,19 +67,10 @@ module Eve
       security_status&.round(1)
     end
 
-    def to_key
-      key = character_id
-      [key] if key
-    end
-
-    def to_param
-      character_id&.to_s
-    end
-
     private
 
     def character_portrait_url(size)
-      imageable_url("characters", character_id, "portrait", size)
+      imageable_url("characters", id, "portrait", size)
     end
   end
 end

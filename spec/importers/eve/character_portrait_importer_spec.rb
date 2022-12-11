@@ -3,16 +3,16 @@
 require "rails_helper"
 
 describe Eve::CharacterPortraitImporter do
-  let(:character_id) { double }
+  let(:id) { double }
 
-  subject { described_class.new(character_id) }
+  subject { described_class.new(id) }
 
   it { should be_a(Eve::BaseImporter) }
 
-  specify { expect(described_class::CHARACTERS_PORTRAIT_URL).to eq("https://images.evetech.net/characters/%s/portrait") }
+  specify { expect(described_class::CHARACTERS_PORTRAIT_URL).to eq("https://images.evetech.net/characters/%<id>s/portrait") }
 
   describe "#import" do
-    let(:character_id) { 1_337_512_245 }
+    let(:id) { 1_337_512_245 }
 
     let(:portrait) { instance_double(ActiveStorage::Attached::One) }
 
@@ -20,7 +20,7 @@ describe Eve::CharacterPortraitImporter do
 
     before do
       expect(Eve::Character).to receive(:find_or_initialize_by)
-        .with(character_id: character_id)
+        .with(id: id)
         .and_return(eve_character)
     end
 

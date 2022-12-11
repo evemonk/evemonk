@@ -5,7 +5,6 @@ module Types
     description "Character object"
 
     field :id, ID,
-      method: :character_id,
       description: "Character ID",
       null: false
 
