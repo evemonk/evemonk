@@ -1,4 +1,4 @@
-version: "3.8"
+version: "3.9"
 
 volumes:
   postresql_data: {}
@@ -18,7 +18,7 @@ services:
       - "5432:5432"
 
   redis:
-    image: "docker.io/library/redis:7.0.5"
+    image: "docker.io/library/redis:7.0.6"
     container_name: "evemonk_redis"
     restart: "unless-stopped"
     volumes:
