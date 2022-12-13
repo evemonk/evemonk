@@ -53,7 +53,9 @@ describe "Admin::Eve::Corporation's features" do
 
           sign_in user
 
-          eve_corporation = create(:eve_corporation, id: 1)
+          # eve_corporation = create(:eve_corporation, id: 1)
+          # TODO: cleanup later
+          eve_corporation = create(:eve_corporation, id: 4, corporation_id: 4)
 
           visit admin_eve_corporation_path(eve_corporation)
 
