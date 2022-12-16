@@ -32,8 +32,12 @@
                                placeholder: "Password",
                                autocomplete: "new-password" %>
           <button type="button" data-action="password-visibility#toggle" class="input-group-text">
-            <span data-password-visibility-target="icon" class="bi bi-eye"></span>
-            <span data-password-visibility-target="icon" class="bi bi-eye-slash hidden"></span>
+            <span data-password-visibility-target="icon">
+              <%= inline_svg_tag "icons/eye.svg" %>
+            </span>
+            <span data-password-visibility-target="icon" class="hidden">
+              <%= inline_svg_tag "icons/eye-slash.svg" %>
+            </span>
           </button>
         </div>
 
@@ -52,8 +56,12 @@
                                placeholder: "Password confirmation",
                                autocomplete: "new-password" %>
           <button type="button" data-action="password-visibility#toggle" class="input-group-text">
-            <span data-password-visibility-target="icon" class="bi bi-eye"></span>
-            <span data-password-visibility-target="icon" class="bi bi-eye-slash hidden"></span>
+            <span data-password-visibility-target="icon">
+              <%= inline_svg_tag "icons/eye.svg" %>
+            </span>
+            <span data-password-visibility-target="icon" class="hidden">
+              <%= inline_svg_tag "icons/eye-slash.svg" %>
+            </span>
           </button>
         </div>
       </div>
@@ -68,8 +76,12 @@
                                placeholder: "Current password",
                                autocomplete: "current-password" %>
           <button type="button" data-action="password-visibility#toggle" class="input-group-text">
-            <span data-password-visibility-target="icon" class="bi bi-eye"></span>
-            <span data-password-visibility-target="icon" class="bi bi-eye-slash hidden"></span>
+            <span data-password-visibility-target="icon">
+              <%= inline_svg_tag "icons/eye.svg" %>
+            </span>
+            <span data-password-visibility-target="icon" class="hidden">
+              <%= inline_svg_tag "icons/eye-slash.svg" %>
+            </span>
           </button>
         </div>
 
