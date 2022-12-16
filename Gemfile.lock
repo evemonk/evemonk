@@ -437,6 +437,10 @@ GEM
       activerecord (>= 6)
     phlex (1.0.0)
       zeitwerk (~> 2.6)
+    phlex-rails (0.4.2)
+      phlex (>= 1, < 2)
+      rails (>= 6.1, < 8)
+      zeitwerk (~> 2)
     popper_js (2.11.6)
     prometheus-client (2.1.0)
     prosopite (1.2.2)
@@ -762,7 +766,7 @@ DEPENDENCIES
   pg_query
   pg_search
   pghero
-  phlex
+  phlex-rails
   prosopite
   pry-rails
   puma (~> 6.0)
