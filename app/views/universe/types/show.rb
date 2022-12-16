@@ -13,6 +13,8 @@ module Views
         def template
           render Views::Shared::Breadcrumb.new do
             render Views::Shared::BreadcrumbItem.new(title: "Home", to: root_path)
+            # render Views::Shared::BreadcrumbItem.new(title: "Types", to: universe_types_path)
+            render Views::Shared::BreadcrumbItemActive.new(text: @type.name)
           end
         end
       end
