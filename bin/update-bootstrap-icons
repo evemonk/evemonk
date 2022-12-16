@@ -8,11 +8,12 @@ if [ -z "$VERSION" ]; then
   exit 1
 fi
 
-mkdir -p app/views/shared/icons
+mkdir -p app/assets/images/icons
 
-curl -s "https://raw.githubusercontent.com/twbs/icons/$VERSION/icons/arrow-repeat.svg" > app/views/shared/icons/arrow-repeat.svg
-curl -s "https://raw.githubusercontent.com/twbs/icons/$VERSION/icons/eye.svg" > app/views/shared/icons/eye.svg
-curl -s "https://raw.githubusercontent.com/twbs/icons/$VERSION/icons/eye-slash.svg" > app/views/shared/icons/eye-slash.svg
-curl -s "https://raw.githubusercontent.com/twbs/icons/$VERSION/icons/square.svg" > app/views/shared/icons/square.svg
-curl -s "https://raw.githubusercontent.com/twbs/icons/$VERSION/icons/square-fill.svg" > app/views/shared/icons/square-fill.svg
-curl -s "https://raw.githubusercontent.com/twbs/icons/$VERSION/icons/square-half.svg" > app/views/shared/icons/square-half.svg
+curl -s "https://raw.githubusercontent.com/twbs/icons/$VERSION/icons/arrow-repeat.svg" > app/assets/images/icons/arrow-repeat.svg
+curl -s "https://raw.githubusercontent.com/twbs/icons/$VERSION/icons/eye.svg" > app/assets/images/icons/eye.svg
+curl -s "https://raw.githubusercontent.com/twbs/icons/$VERSION/icons/eye-slash.svg" > app/assets/images/icons/eye-slash.svg
+
+curl -s "https://raw.githubusercontent.com/twbs/icons/$VERSION/icons/square.svg" > app/assets/images/icons/square.svg
+curl -s "https://raw.githubusercontent.com/twbs/icons/$VERSION/icons/square-fill.svg" > app/assets/images/icons/square-fill.svg
+curl -s "https://raw.githubusercontent.com/twbs/icons/$VERSION/icons/square-half.svg" > app/assets/images/icons/square-half.svg
