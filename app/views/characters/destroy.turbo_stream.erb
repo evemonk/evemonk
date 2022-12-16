@@ -1,2 +1,3 @@
 <%#= TODO: use dom_id() helper for: turbo_stream.remove @character %>
 <%= turbo_stream.remove "character_#{@character.character_id}" %>
+<%= turbo_stream.prepend "alerts", partial: "shared/alerts" %>
