@@ -39,5 +39,8 @@ module Evemonk
 
     # Compiles the ERB template with the frozen_string_literal true magic comment
     config.action_view.frozen_string_literal = true
+
+    # phlex and phlex-rails
+    config.autoload_paths << "#{root}/app"
   end
 end
