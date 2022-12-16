@@ -25,7 +25,7 @@
       <div class="float-end">
         <%= form_with(url: character_path(@character.character_id), method: :patch, class: "float-end") do %>
           <%= button_tag(class: "btn btn-primary mb-2") do %>
-            <i class="bi bi-arrow-repeat"></i>
+            <%= inline_svg_tag "icons/arrow-repeat.svg" %>
           <% end %>
         <% end %>
       </div>
