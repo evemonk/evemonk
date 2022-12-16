@@ -193,6 +193,8 @@ describe CharactersController do
         it { should respond_with(:ok) }
 
         it { should render_template(:destroy) }
+
+        it { should set_flash.now[:notice].to("Character was successfully removed.") }
       end
 
       context "when format html" do

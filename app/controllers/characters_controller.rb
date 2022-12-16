@@ -31,7 +31,7 @@ class CharactersController < ApplicationController
     @character.destroy!
 
     respond_to do |format|
-      format.turbo_stream
+      format.turbo_stream { flash.now[:notice] = "Character was successfully removed." }
       format.html { redirect_to characters_path, status: :see_other, notice: "Character was successfully removed." }
     end
   end

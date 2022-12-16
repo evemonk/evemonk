@@ -33,7 +33,7 @@
     <div class="card">
       <ul class="list-group list-group-flush">
         <li class="list-group-item text-center">
-          <%= image_tag(@character.icon_medium,
+          <%= image_tag(@character.icon_large,
                         alt: @character.name,
                         class: "rounded border",
                         size: "130x130",
@@ -91,7 +91,7 @@
           <% if record.corporation %>
             <tr>
               <td class="align-middle text-center border-end-0 m-0 p-2">
-                <%= image_tag(record.corporation.icon_tiny,
+                <%= image_tag(record.corporation.icon_small,
                               alt: record.corporation.name,
                               class: "rounded border",
                               size: "34x34",
