@@ -62,10 +62,10 @@
                             }
                           }) do %>
               <span class="show-when-enabled">
-                <%= t(".remove_character_html") %>
+                <%= inline_svg_tag "icons/trash.svg" %> <%= t(".remove_character") %>
               </span>
               <span class="show-when-disabled">
-                <%= t(".removing_character_html") %>
+                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> <%= t(".removing_character") %>
               </span>
             <% end %>
           </li>
