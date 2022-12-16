@@ -6,10 +6,14 @@ module Universe
 
     def show
       @type = Eve::Type
-        .includes(:group,
-          type_dogma_attributes: :dogma_attribute,
-          market_group: {parent_group: {parent_group: :parent_group}})
+        .includes(group: :category)
         .find_by!(type_id: params[:id])
+
+      # @type = Eve::Type
+      #   .includes(:group,
+      #     type_dogma_attributes: :dogma_attribute,
+      #     market_group: {parent_group: {parent_group: :parent_group}})
+      #   .find_by!(type_id: params[:id])
     end
   end
 end
