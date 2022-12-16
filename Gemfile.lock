@@ -435,6 +435,8 @@ GEM
       activesupport (>= 5.2)
     pghero (3.0.1)
       activerecord (>= 6)
+    phlex (1.0.0)
+      zeitwerk (~> 2.6)
     popper_js (2.11.6)
     prometheus-client (2.1.0)
     prosopite (1.2.2)
@@ -691,6 +693,7 @@ GEM
 PLATFORMS
   aarch64-linux
   arm64-darwin-21
+  arm64-darwin-22
   x86_64-darwin-20
   x86_64-darwin-21
   x86_64-linux
@@ -759,6 +762,7 @@ DEPENDENCIES
   pg_query
   pg_search
   pghero
+  phlex
   prosopite
   pry-rails
   puma (~> 6.0)
