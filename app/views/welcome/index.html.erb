@@ -41,7 +41,7 @@
         <% @alliances.each do |alliance| %>
           <tr>
             <td class="text-center align-middle border-end-0 m-0 p-2">
-              <%= image_tag(alliance.icon_tiny,
+              <%= image_tag(alliance.icon_small,
                             alt: alliance.name,
                             class: "rounded border",
                             size: "34x34",
@@ -81,7 +81,7 @@
         <% @corporations.each do |corporation| %>
           <tr>
             <td class="text-center align-middle border-end-0 m-0 p-2">
-              <%= image_tag(corporation.icon_tiny,
+              <%= image_tag(corporation.icon_small,
                             alt: corporation.name,
                             class: "rounded border",
                             size: "34x34",
