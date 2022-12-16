@@ -8,6 +8,11 @@
   display: none;
 }
 
+// Fixing align on bootstrap icons
+.vertical-align-125 {
+  vertical-align: -0.125em;
+}
+
 // "Disable with" rails feature:
 // https://gorails.com/episodes/turbo-data-confirm-method-and-disable
 // https://github.com/hotwired/turbo/pull/386

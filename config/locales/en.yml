@@ -68,5 +68,5 @@ en:
       corporations_html: "<u>C</u>orporations"
   characters:
     index:
-      remove_character_html: "<i class='bi bi-trash'></i> Remove character"
-      removing_character_html: "<span class='spinner-border spinner-border-sm' role='status' aria-hidden='true'></span> Removing..."
+      remove_character: "Remove character"
+      removing_character: "Removing..."

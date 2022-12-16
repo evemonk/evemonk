@@ -2,42 +2,19 @@
   <div class="col">
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
-        <li class="breadcrumb-item"><%= link_to("Home", root_path) %></li>
-        <li class="breadcrumb-item"><%= link_to("Types", universe_types_path) %></li>
+        <li class="breadcrumb-item">Inventory Groups</li>
+        <li class="breadcrumb-item"><%= @type.group.category.name %></li>
+        <li class="breadcrumb-item"><%= @type.group.name %></li>
         <li class="breadcrumb-item active" aria-current="page"><%= @type.name %></li>
       </ol>
     </nav>
   </div>
 </div>
 
-<div class="row">
-  <div class="col">
-    <nav aria-label="breadcrumb">
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item">Market Groups</li>
-        <li class="breadcrumb-item"><%= @type.market_group&.parent_group&.parent_group&.parent_group&.name %></li>
-        <li class="breadcrumb-item"><%= @type.market_group&.parent_group&.parent_group&.name %></li>
-        <li class="breadcrumb-item"><%= @type.market_group&.parent_group&.name %></li>
-        <li class="breadcrumb-item"><%= @type.market_group&.name %></li>
-      </ol>
-    </nav>
-  </div>
-</div>
+<hr class="text-dark">
 
 <div class="row">
-  <div class="col">
-    <nav aria-label="breadcrumb">
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item">Inventory Groups</li>
-        <li class="breadcrumb-item"><%= @type.group&.category&.name %></li>
-        <li class="breadcrumb-item"><%= @type.group&.name %></li>
-      </ol>
-    </nav>
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+  <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
     <h4 class="text-center text-break"><%= @type.name %></h4>
 
     <div class="card">
@@ -46,18 +23,41 @@
           <%= image_tag(@type.icon_small,
                         alt: @type.name,
                         class: "rounded border",
-                        size: "66x66",
+                        size: "130x130",
                         loading: "lazy") %>
-
         </li>
         <li class="list-group-item text-break">
-          <p><%= @type.description %></p>
+          <p><%= simple_format(@type.description) %></p>
         </li>
       </ul>
     </div>
   </div>
-</div>
 
-<div>
-  <%#= @type.inspect %>
+  <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+    <h4 class="text-center text-break">Market</h4>
+  </div>
+
+  <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+    <h4 class="text-center text-break">Basic</h4>
+  </div>
+
+  <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+    <h4 class="text-center text-break">Variations</h4>
+  </div>
+
+  <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+    <h4 class="text-center text-break">Cargo</h4>
+  </div>
+
+  <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+    <h4 class="text-center text-break">Required skills</h4>
+  </div>
+
+  <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+    <h4 class="text-center text-break">Booster</h4>
+  </div>
+
+  <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+    <h4 class="text-center text-break">Other</h4>
+  </div>
 </div>
