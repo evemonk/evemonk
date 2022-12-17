@@ -69,7 +69,14 @@
         <% next if tda.value == 0.0 || ["requiredSkill1Level", "requiredSkill1"].include?(tda.dogma_attribute.name) || tda.dogma_attribute.display_name.blank? %>
 
         <tr>
-          <td></td>
+          <td>
+            <%= image_tag(tda&.dogma_attribute&.icon&.icon_url,
+                          alt: tda&.dogma_attribute&.icon&.description,
+                          class: "rounded border",
+                          size: "34x34",
+                          loading: "lazy") %>
+
+          </td>
           <td>
             <% if tda.dogma_attribute.display_name.present? %>
               <%= tda.dogma_attribute.display_name %>
