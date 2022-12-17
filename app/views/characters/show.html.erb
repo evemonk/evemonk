@@ -379,7 +379,7 @@
           <div class="col-10">
             <div class="card-body">
               <div class="card-text">
-                <%= link_to(implant.name, universe_type_path(implant.type_id)) %>
+                <%= link_to(implant.name, universe_implants_and_booster_path(implant.type_id)) %>
               </div>
               <% implant.implant_bonuses.each do |bonus| %>
                 <div class="card-text text-muted">

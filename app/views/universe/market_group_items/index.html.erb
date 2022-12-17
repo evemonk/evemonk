@@ -4,9 +4,6 @@
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><%= link_to("Home", root_path) %></li>
         <li class="breadcrumb-item"><%= link_to("Market Groups", universe_market_groups_path) %></li>
-        <% if @market_group.parent_group&.parent_group&.parent_group&.present? %>
-          <li class="breadcrumb-item"><%= link_to(@market_group.parent_group.parent_group.parent_group.name, universe_market_group_path(@market_group.parent_group.parent_group.parent_group.market_group_id)) %></li>
-        <% end %>
         <% if @market_group.parent_group&.parent_group&.present? %>
           <li class="breadcrumb-item"><%= link_to(@market_group.parent_group.parent_group.name, universe_market_group_path(@market_group.parent_group.parent_group.market_group_id)) %></li>
         <% end %>
@@ -20,29 +17,24 @@
 </div>
 
 <div class="row">
-  <% @market_groups.each do |market_group| %>
+  <% @types.each do |type| %>
     <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
       <div class="card mb-3">
         <div class="row g-0">
           <div class="col-md-4 text-center m-auto">
-            <% if market_group.icon&.icon_url&.present? %>
-              <%= image_tag(market_group.icon.icon_url,
-                            alt: market_group.name,
-                            class: "rounded border",
-                            size: "66x66",
-                            loading: "lazy") %>
-            <% end %>
+            <%= image_tag(type.icon_small,
+                          alt: type.name,
+                          class: "rounded border",
+                          size: "66x66",
+                          loading: "lazy") %>
           </div>
           <div class="col-md-8">
             <div class="card-body">
               <h5 class="card-title">
-                <% if market_group.has_types %>
-                  <%= link_to(market_group.name, universe_market_group_items_path(market_group.market_group_id)) %>
-                <% else %>
-                  <%= link_to(market_group.name, universe_market_group_path(market_group.market_group_id)) %>
-                <% end %>
+                <%#= link_to(type.name, universe_market_group_items_path(market_group.market_group_id)) %>
+                <%= type.name %>
               </h5>
-              <p class="card-text"><%= market_group.description %></p>
+              <p class="card-text"><%= simple_format(type.description) %></p>
             </div>
           </div>
         </div>

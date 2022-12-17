@@ -6,12 +6,17 @@ import "@hotwired/turbo-rails";
 import LocalTime from "local-time";
 import { install, uninstall } from "@github/hotkey";
 import "@popperjs/core";
-import "bootstrap";
+import * as bootstrap from "bootstrap";
 
 LocalTime.start();
 
 document.addEventListener("turbo:load", () => {
-  // $('[data-toggle="tooltip"]').tooltip();
+  const tooltipTriggerList = document.querySelectorAll(
+    '[data-bs-toggle="tooltip"]'
+  );
+  const tooltipList = [...tooltipTriggerList].map(
+    (tooltipTriggerEl) => new bootstrap.Tooltip(tooltipTriggerEl)
+  );
 
   // Install all the hotkeys on the page
   for (const el of document.querySelectorAll("[data-hotkey]")) {
