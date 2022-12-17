@@ -47,12 +47,97 @@
     </div>
   </div>
 
+<!--  <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">-->
+<!--    <h4 class="text-center text-break">Market</h4>-->
+<!--  </div>-->
+
   <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
-    <h4 class="text-center text-break">Market</h4>
+    <h4 class="text-center text-break">Attributes</h4>
+
+<!--    Tech Level-->
+<!--    Volume-->
+<!--    Mass-->
+<!--    Radius-->
+
+    <table class="table table-dark table-striped table-bordered">
+      <tr>
+        <td>icon</td>
+        <td>display name</td>
+        <td>value in unit</td>
+      </tr>
+      <% @type.type_dogma_attributes.each do |tda| %>
+        <% next if tda.value == 0.0 || ["requiredSkill1Level", "requiredSkill1"].include?(tda.dogma_attribute.name) || tda.dogma_attribute.display_name.blank? %>
+
+        <tr>
+          <td></td>
+          <td>
+            <% if tda.dogma_attribute.display_name.present? %>
+              <%= tda.dogma_attribute.display_name %>
+            <% else %>
+              <%= tda.dogma_attribute.name %>
+            <% end %>
+          </td>
+          <td>
+            <%= tda.value.to_i %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+
   </div>
 
   <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
-    <h4 class="text-center text-break">Basic</h4>
+    <h4 class="text-center text-break">Attributes</h4>
+
+    <%# Eve::Type.find_by!(type_id: 9956).type_dogma_attributes.map {|tda| tda.dogma_attribute.name } %>
+
+    <table class="table table-dark table-striped table-bordered">
+      <tr>
+        <td>
+          <%= @type.type_dogma_attributes.find { |tda| tda.dogma_attribute.name == "techLevel" }.dogma_attribute.display_name %>
+        </td>
+        <td>
+          <%= @type.type_dogma_attributes.find { |tda| tda.dogma_attribute.name == "techLevel" }.value.to_i %>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <%= @type.type_dogma_attributes.find { |tda| tda.dogma_attribute.name == "volume" }.dogma_attribute.display_name %>
+        </td>
+        <td>
+          <%= @type.type_dogma_attributes.find { |tda| tda.dogma_attribute.name == "volume" }.value %>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <%= @type.type_dogma_attributes.find { |tda| tda.dogma_attribute.name == "mass" }.dogma_attribute.display_name %>
+        </td>
+        <td>
+          <%= @type.type_dogma_attributes.find { |tda| tda.dogma_attribute.name == "mass" }.value %>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <%= @type.type_dogma_attributes.find { |tda| tda.dogma_attribute.name == "radius" }.dogma_attribute.name.capitalize %>
+        </td>
+        <td>
+          <%= @type.type_dogma_attributes.find { |tda| tda.dogma_attribute.name == "radius" }.value %>
+        </td>
+      </tr>
+
+    </table>
+
+    <% @type.type_dogma_attributes.find { |tda| tda.dogma_attribute.name == "techLevel" } %>
+
+<!--    techLevel-->
+<!--    volume-->
+<!--    mass-->
+<!--    radius-->
+
+    <!--    Base Price-->
   </div>
 
   <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
@@ -69,9 +154,85 @@
 
   <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
     <h4 class="text-center text-break">Booster</h4>
+
+    <table class="table table-dark table-striped table-bordered">
+      <tr>
+        <td>
+          <%= @type.type_dogma_attributes.find { |tda| tda.dogma_attribute.name == "perceptionBonus" }.dogma_attribute.display_name %>
+        </td>
+        <td>
+          <%= @type.type_dogma_attributes.find { |tda| tda.dogma_attribute.name == "perceptionBonus" }.value.to_i %>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <%= @type.type_dogma_attributes.find { |tda| tda.dogma_attribute.name == "memoryBonus" }.dogma_attribute.display_name %>
+        </td>
+        <td>
+          <%= @type.type_dogma_attributes.find { |tda| tda.dogma_attribute.name == "memoryBonus" }.value.to_i %>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <%= @type.type_dogma_attributes.find { |tda| tda.dogma_attribute.name == "willpowerBonus" }.dogma_attribute.display_name %>
+        </td>
+        <td>
+          <%= @type.type_dogma_attributes.find { |tda| tda.dogma_attribute.name == "willpowerBonus" }.value.to_i %>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <%= @type.type_dogma_attributes.find { |tda| tda.dogma_attribute.name == "intelligenceBonus" }.dogma_attribute.display_name %>
+        </td>
+        <td>
+          <%= @type.type_dogma_attributes.find { |tda| tda.dogma_attribute.name == "intelligenceBonus" }.value.to_i %>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <%= @type.type_dogma_attributes.find { |tda| tda.dogma_attribute.name == "charismaBonus" }.dogma_attribute.display_name %>
+        </td>
+        <td>
+          <%= @type.type_dogma_attributes.find { |tda| tda.dogma_attribute.name == "charismaBonus" }.value.to_i %>
+        </td>
+      </tr>
+    </table>
   </div>
 
   <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
     <h4 class="text-center text-break">Other</h4>
+
+    <table class="table table-dark table-striped table-bordered">
+      <tr>
+        <td>
+          <%= @type.type_dogma_attributes.find { |tda| tda.dogma_attribute.name == "implantness" }.dogma_attribute.display_name %>
+        </td>
+        <td>
+          <%= @type.type_dogma_attributes.find { |tda| tda.dogma_attribute.name == "implantness" }.value.to_i %>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <%= @type.type_dogma_attributes.find { |tda| tda.dogma_attribute.name == "capacity" }.dogma_attribute.display_name %>
+        </td>
+        <td>
+          <%= @type.type_dogma_attributes.find { |tda| tda.dogma_attribute.name == "capacity" }.value %>
+        </td>
+      </tr>
+    </table>
   </div>
+
+  <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+    <%= @type.type_dogma_attributes.inspect %>
+  </div>
+
+  <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+    <%= @type.dogma_attributes.inspect %>
+  </div>
+
 </div>
