@@ -108,7 +108,7 @@ describe CharactersController do
 
       before { expect(subject).to receive(:current_user_locale) }
 
-      let(:character) { build(:character, character_id: 1) }
+      let(:character) { build(:character, character_id: 1, name: "Green Black") }
 
       before do
         #
@@ -143,6 +143,8 @@ describe CharactersController do
         it { should respond_with(:ok) }
 
         it { should render_template(:update) }
+
+        it { should set_flash.now[:notice].to("Character &laquo;#{character.name}&raquo; scheduled to update. Check it later.") }
       end
 
       context "when format html" do

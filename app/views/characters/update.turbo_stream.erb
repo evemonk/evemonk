@@ -1,6 +1,1 @@
-<%= turbo_stream.append "alerts" do %>
-  <div class="alert alert-success alert-dismissible fade show" role="alert">
-    Character &laquo;<%= @character.name %>&raquo; scheduled to update. Check it later.
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-  </div>
-<% end %>
+<%= turbo_stream.prepend "alerts", partial: "shared/alerts" %>

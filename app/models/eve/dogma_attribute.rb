@@ -2,15 +2,14 @@
 
 module Eve
   class DogmaAttribute < ApplicationRecord
-    belongs_to :unit,
-      primary_key: "unit_id",
-      optional: true
+    belongs_to :unit, optional: true
 
     # has_many :eve_type_dogma_attributes, :class_name => 'Eve::TypeDogmaAttribute'
 
-    scope :published, -> { where(published: true) }
+    belongs_to :icon,
+      primary_key: "icon_id",
+      optional: true
 
-    # def icon_url
-    # end
+    scope :published, -> { where(published: true) }
   end
 end

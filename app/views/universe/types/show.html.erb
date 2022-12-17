@@ -2,7 +2,6 @@
   <div class="col">
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
-        <li class="breadcrumb-item">Market Groups</li>
         <li class="breadcrumb-item"><%= @type.market_group&.parent_group&.parent_group&.parent_group&.name %></li>
         <li class="breadcrumb-item"><%= @type.market_group&.parent_group&.parent_group&.name %></li>
         <li class="breadcrumb-item"><%= @type.market_group&.parent_group&.name %></li>
@@ -47,31 +46,54 @@
     </div>
   </div>
 
-  <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
-    <h4 class="text-center text-break">Market</h4>
-  </div>
+<!--  <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">-->
+<!--    <h4 class="text-center text-break">Market</h4>-->
+<!--  </div>-->
 
   <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
-    <h4 class="text-center text-break">Basic</h4>
+    <h4 class="text-center text-break">Attributes</h4>
+
+<!--    Tech Level-->
+<!--    Volume-->
+<!--    Mass-->
+<!--    Radius-->
+
+    <table class="table table-dark table-striped table-bordered">
+      <% @type.type_dogma_attributes.each do |tda| %>
+        <% next if tda.value == 0.0 || ["requiredSkill1Level", "requiredSkill1"].include?(tda.dogma_attribute.name) || tda.dogma_attribute.display_name.blank? %>
+
+        <tr>
+          <td class="align-middle text-center border-end-0 m-0 p-2">
+            <%= image_tag(tda.dogma_attribute&.icon&.icon_url,
+                          alt: tda.dogma_attribute&.icon&.description,
+                          class: "rounded border",
+                          size: "34x34",
+                          loading: "lazy") %>
+
+          </td>
+          <td class="align-middle text-break border-start-0">
+            <%= tda.dogma_attribute.display_name %>
+          </td>
+          <td class="align-middle text-end">
+            <%= tda.value_with_unit %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+
   </div>
 
-  <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
-    <h4 class="text-center text-break">Variations</h4>
-  </div>
+<!--  <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">-->
+<!--    <h4 class="text-center text-break">Attributes</h4>-->
 
-  <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
-    <h4 class="text-center text-break">Cargo</h4>
-  </div>
+<!--    Base Price-->
+<!--  </div>-->
 
-  <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
-    <h4 class="text-center text-break">Required skills</h4>
-  </div>
+<!--  <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">-->
+<!--    <h4 class="text-center text-break">Variations</h4>-->
+<!--  </div>-->
 
-  <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
-    <h4 class="text-center text-break">Booster</h4>
-  </div>
-
-  <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
-    <h4 class="text-center text-break">Other</h4>
-  </div>
+<!--  <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">-->
+<!--    <h4 class="text-center text-break">Required skills</h4>-->
+<!--  </div>-->
 </div>

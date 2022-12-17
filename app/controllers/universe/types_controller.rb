@@ -5,14 +5,9 @@ module Universe
     skip_before_action :authenticate_user!
 
     def show
-      # TODO: update later
-      # @type = Eve::Type
-      #   .includes(group: :category)
-      #   .find_by!(type_id: params[:id])
-
       @type = Eve::Type
-        .includes(:group,
-          type_dogma_attributes: :dogma_attribute,
+        .includes(group: :category,
+          type_dogma_attributes: {dogma_attribute: [:unit, :icon]},
           market_group: {parent_group: {parent_group: :parent_group}})
         .find_by!(type_id: params[:id])
     end
