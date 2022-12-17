@@ -20,7 +20,7 @@ class CharactersController < ApplicationController
     UpdateCharacterInfoService.new(@character.character_id).execute
 
     respond_to do |format|
-      format.turbo_stream
+      format.turbo_stream { flash.now[:notice] = "Character &laquo;#{@character.name}&raquo; scheduled to update. Check it later." }
       format.html { redirect_to character_path(@character.character_id) }
     end
   end
