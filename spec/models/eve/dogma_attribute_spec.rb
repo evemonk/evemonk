@@ -5,7 +5,7 @@ require "rails_helper"
 describe Eve::DogmaAttribute do
   it { should be_an(ApplicationRecord) }
 
-  it { should belong_to(:unit).with_primary_key("unit_id").optional(true) }
+  it { should belong_to(:unit).optional(true) }
 
   describe ".published" do
     let!(:eve_dogma_attribute_1) { create(:eve_dogma_attribute, published: false) }
