@@ -60,18 +60,13 @@
 <!--    Radius-->
 
     <table class="table table-dark table-striped table-bordered">
-      <tr>
-        <td>icon</td>
-        <td>display name</td>
-        <td>value in unit</td>
-      </tr>
       <% @type.type_dogma_attributes.each do |tda| %>
         <% next if tda.value == 0.0 || ["requiredSkill1Level", "requiredSkill1"].include?(tda.dogma_attribute.name) || tda.dogma_attribute.display_name.blank? %>
 
         <tr>
           <td>
-            <%= image_tag(tda&.dogma_attribute&.icon&.icon_url,
-                          alt: tda&.dogma_attribute&.icon&.description,
+            <%= image_tag(tda.dogma_attribute&.icon&.icon_url,
+                          alt: tda.dogma_attribute&.icon&.description,
                           class: "rounded border",
                           size: "34x34",
                           loading: "lazy") %>
