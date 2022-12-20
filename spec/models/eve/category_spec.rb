@@ -15,6 +15,8 @@ describe Eve::Category do
 
   it { should have_many(:groups).with_primary_key("category_id") }
 
+  it { should have_many(:types).through(:groups) }
+
   describe ".published" do
     let!(:eve_category_1) { create(:eve_category, published: false) }
 

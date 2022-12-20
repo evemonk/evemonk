@@ -10,6 +10,8 @@ module Eve
 
     has_many :groups, primary_key: "category_id"
 
+    has_many :types, through: :groups
+
     scope :published, -> { where(published: true) }
   end
 end
