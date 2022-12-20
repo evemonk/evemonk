@@ -2,6 +2,8 @@
 
 module Eve
   class TypeDogmaAttribute < ApplicationRecord
+    include ActionView::Helpers::NumberHelper
+
     has_paper_trail
 
     belongs_to :type,
@@ -15,6 +17,8 @@ module Eve
       optional: true
 
     def value_with_unit
+      return value.to_i if dogma_attribute.unit.blank?
+
       case dogma_attribute.unit.unit_name
       when "attributePoints"
         "#{value.to_i} points"
@@ -24,6 +28,12 @@ module Eve
         "Level #{value.to_i}"
       when "Volume"
         "#{value.to_i} &#13221;".html_safe
+      when "Hitpoints"
+        "#{number_with_delimiter(value.to_i, delimiter: " ")} HP"
+      when "Mass"
+        "#{number_with_delimiter(value.to_i, delimiter: " ")} kg"
+      when "Percentage"
+        "#{value.to_i} %"
       else
         "#{value.to_i} #{dogma_attribute.unit.unit_name}"
       end
