@@ -29,5 +29,9 @@ FactoryBot.define do
     name_ko { Faker::Lorem.word }
 
     sequence(:parent_group_id)
+
+    sequence(:icon_id)
+
+    has_types { [true, false].sample }
   end
 end
