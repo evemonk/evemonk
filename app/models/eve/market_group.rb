@@ -14,8 +14,19 @@ module Eve
       foreign_key: "parent_group_id",
       optional: true
 
+    belongs_to :icon,
+      primary_key: "icon_id",
+      optional: true
+
     has_many :types,
       primary_key: "market_group_id",
       foreign_key: "market_group_id"
+
+    has_many :subgroups,
+      class_name: "Eve::MarketGroup",
+      primary_key: "market_group_id",
+      foreign_key: "parent_group_id"
+
+    scope :main_groups, -> { where(parent_group_id: nil) }
   end
 end
