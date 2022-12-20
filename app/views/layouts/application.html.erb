@@ -28,6 +28,8 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
 
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons&display=block" rel="stylesheet">
+
     <!-- Links to information about the author(s) of the document -->
     <%= tag.link(rel: "author", href: "humans.txt") %>
   </head>
@@ -132,5 +134,7 @@
         </div>
       </div>
     </div>
+
+    <ninja-keys class="dark" data-controller="commands"></ninja-keys>
   </body>
 </html>
