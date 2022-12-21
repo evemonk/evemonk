@@ -39,7 +39,7 @@ describe Sde::MarketGroupsImporter do
 
     before do
       expect(market_group).to receive(:assign_attributes).with(has_types: has_types,
-                                                               icon_id: icon_id)
+        icon_id: icon_id)
     end
 
     before { expect(market_group).to receive(:save!) }

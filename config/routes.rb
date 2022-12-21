@@ -125,11 +125,15 @@ Rails.application.routes.draw do
 
       resources :factions, only: [:index, :show]
 
+      resources :graphics, only: [:index, :show]
+
       resources :groups, only: [:index, :show]
 
       resources :icons, only: [:index, :show]
 
       resources :market_groups, only: [:index, :show]
+
+      resources :moons, only: [:index, :show]
 
       resources :races, only: [:index, :show]
 
