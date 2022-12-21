@@ -6,7 +6,7 @@ module Eve
   class MarketGroupDashboard < Administrate::BaseDashboard
     ATTRIBUTE_TYPES = {
       id: Field::Number,
-      parent_group_id: Field::Number, # TODO: add
+      parent_group: Field::BelongsTo,
       name_en: Field::String,
       name_de: Field::String,
       name_fr: Field::String,
@@ -19,6 +19,10 @@ module Eve
       description_ja: Field::Text,
       description_ru: Field::Text,
       description_ko: Field::Text,
+      has_types: Field::Boolean,
+      subgroups: Field::HasMany,
+      icon: Field::BelongsTo,
+      types: Field::HasMany,
       created_at: Field::DateTime,
       updated_at: Field::DateTime
     }.freeze
@@ -27,7 +31,7 @@ module Eve
 
     SHOW_PAGE_ATTRIBUTES = [
       :id,
-      :parent_group_id,
+      :parent_group,
       :name_en,
       :name_de,
       :name_fr,
@@ -40,6 +44,10 @@ module Eve
       :description_ja,
       :description_ru,
       :description_ko,
+      :has_types,
+      :subgroups,
+      :icon,
+      :types,
       :created_at,
       :updated_at
     ].freeze
