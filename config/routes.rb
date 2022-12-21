@@ -149,6 +149,8 @@ Rails.application.routes.draw do
 
       resources :systems, only: [:index, :show]
 
+      resources :types, only: [:index, :show]
+
       resources :units, only: [:index, :show]
     end
 
