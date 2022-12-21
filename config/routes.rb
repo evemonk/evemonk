@@ -135,15 +135,21 @@ Rails.application.routes.draw do
 
       resources :moons, only: [:index, :show]
 
+      resources :planets, only: [:index, :show]
+
       resources :races, only: [:index, :show]
 
       resources :regions, only: [:index, :show]
 
       resources :stars, only: [:index, :show]
 
+      resources :stargates, only: [:index, :show]
+
       resources :stations, only: [:index, :show]
 
       resources :systems, only: [:index, :show]
+
+      resources :types, only: [:index, :show]
 
       resources :units, only: [:index, :show]
     end
