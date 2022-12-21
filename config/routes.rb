@@ -133,6 +133,8 @@ Rails.application.routes.draw do
 
       resources :market_groups, only: [:index, :show]
 
+      resources :moons, only: [:index, :show]
+
       resources :races, only: [:index, :show]
 
       resources :regions, only: [:index, :show]
