@@ -143,6 +143,8 @@ Rails.application.routes.draw do
 
       resources :stars, only: [:index, :show]
 
+      resources :stargates, only: [:index, :show]
+
       resources :stations, only: [:index, :show]
 
       resources :systems, only: [:index, :show]
