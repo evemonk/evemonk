@@ -447,7 +447,7 @@ GEM
     pundit (2.3.0)
       activesupport (>= 3.0.0)
     raabro (1.4.0)
-    racc (1.6.1)
+    racc (1.6.2)
     rack (2.2.4)
     rack-health (0.1.2)
       rack (>= 1.2.0)
