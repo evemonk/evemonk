@@ -10,8 +10,7 @@ end
 
 SimpleCov.start "rails" do
   enable_coverage :branch
-  # TODO: enable after simple_cov gem and ruby 3.2 update
-  # enable_coverage_for_eval
+  enable_coverage_for_eval
 
   add_group "Dashboards", "app/dashboards"
   add_group "GraphQL", "app/graphql"
