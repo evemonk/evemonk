@@ -6,7 +6,7 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 RUN set -eux; \
     apt-get update -y ; \
     apt-get dist-upgrade -y ; \
-    apt-get install git make gcc g++ libpq-dev curl nodejs --no-install-recommends -y ; \
+    apt-get install git patch xz-utils gcc make g++ libpq-dev curl nodejs --no-install-recommends -y ; \
     apt-get autoremove -y ; \
     apt-get clean -y ; \
     rm -rf /var/lib/apt/lists/*
