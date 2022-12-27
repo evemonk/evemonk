@@ -271,7 +271,8 @@ describe EveOnlineCallbackService do
       #                             esi_last_error: nil)
       #
       expect(character).to receive(:assign_attributes)
-        .with(name: name,
+        .with({
+          name: name,
           access_token: access_token,
           refresh_token: refresh_token,
           token_expires_at: token_expires_at,
@@ -281,7 +282,8 @@ describe EveOnlineCallbackService do
           character_id: character_id,
           esi_token_valid: true,
           esi_token_invalid_at: nil,
-          esi_last_error: nil)
+          esi_last_error: nil
+        })
     end
 
     specify { expect { subject.send(:assign_character_attributes) }.not_to raise_error }
@@ -301,11 +303,11 @@ describe EveOnlineCallbackService do
       # Character.where(character_id: character_id)
       #          .where.not(character_owner_hash: character_owner_hash)
       #          .destroy_all
-      expect(Character).to receive(:where).with(character_id: character_id) do
+      expect(Character).to receive(:where).with({character_id: character_id}) do
         double.tap do |a|
           expect(a).to receive(:where) do
             double.tap do |b|
-              expect(b).to receive(:not).with(character_owner_hash: character_owner_hash) do
+              expect(b).to receive(:not).with({character_owner_hash: character_owner_hash}) do
                 double.tap do |c|
                   expect(c).to receive(:destroy_all)
                 end
