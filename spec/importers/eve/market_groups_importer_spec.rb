@@ -68,7 +68,7 @@ describe Eve::MarketGroupsImporter do
     context "when eve market group not imported" do
       before do
         expect(Eve::MarketGroup).to receive(:exists?)
-          .with(market_group_id: market_group_id)
+          .with({market_group_id: market_group_id})
           .and_return(false)
       end
 
@@ -83,7 +83,7 @@ describe Eve::MarketGroupsImporter do
     context "when eve market group already imported" do
       before do
         expect(Eve::MarketGroup).to receive(:exists?)
-          .with(market_group_id: market_group_id)
+          .with({market_group_id: market_group_id})
           .and_return(true)
       end
 
@@ -117,7 +117,7 @@ describe Eve::MarketGroupsImporter do
 
     let(:eve_market_group) { instance_double(Eve::MarketGroup) }
 
-    before { expect(Eve::MarketGroup).to receive(:find_or_initialize_by).with(market_group_id: eve_market_group_id_to_remove).and_return(eve_market_group) }
+    before { expect(Eve::MarketGroup).to receive(:find_or_initialize_by).with({market_group_id: eve_market_group_id_to_remove}).and_return(eve_market_group) }
 
     before { expect(eve_market_group).to receive(:destroy!) }
 
