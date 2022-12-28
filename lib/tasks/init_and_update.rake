@@ -32,6 +32,9 @@ namespace :evemonk do
 
       Rails.logger.info "Import certificates from SDE"
       Sde::CertificatesJob.perform_later("static/sde/fsd/certificates.yaml")
+
+      Rails.logger.info "Import missing Market Groups info from SDE"
+      Sde::MarketGroupsImporter.new("static/sde/fsd/marketGroups.yaml").import
     end
   end
 
@@ -143,6 +146,8 @@ namespace :evemonk do
     # Around 4k calls to esi
     Rails.logger.info "Update eve graphics"
     Eve::LocalGraphicsJob.perform_later
+
+    # TODO: dogma attributes broken???
 
     # 1 + new dogma attribute calls to esi
     Rails.logger.info "Import new eve dogma attributes"
