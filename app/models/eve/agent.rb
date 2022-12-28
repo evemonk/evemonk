@@ -7,9 +7,7 @@ module Eve
 
     has_paper_trail
 
-    belongs_to :corporation,
-      primary_key: "corporation_id",
-      optional: true
+    belongs_to :corporation, optional: true
 
     # belongs_to :agent_type_id
 

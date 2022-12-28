@@ -13,7 +13,7 @@ describe Eve::Agent do
 
   it { should respond_to(:versions) }
 
-  it { should belong_to(:corporation).with_primary_key("corporation_id").optional(true) }
+  it { should belong_to(:corporation).optional(true) }
 
   # TODO: later
   # it { should have_many(:standings) }
