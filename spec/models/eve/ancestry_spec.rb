@@ -13,7 +13,7 @@ describe Eve::Ancestry do
 
   it { expect(described_class.table_name).to eq("eve_ancestries") }
 
-  it { should belong_to(:bloodline).with_primary_key("bloodline_id").optional(true) }
+  it { should belong_to(:bloodline).optional(true) }
 
   it { should belong_to(:icon).with_primary_key("icon_id").optional(true) }
 end
