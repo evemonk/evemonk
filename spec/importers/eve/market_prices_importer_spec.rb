@@ -75,7 +75,7 @@ describe Eve::MarketPricesImporter do
 
     before do
       expect(Eve::Type).to receive(:find_or_initialize_by)
-        .with(type_id: type_id).and_return(eve_type)
+        .with({type_id: type_id}).and_return(eve_type)
     end
 
     before { expect(eve_type).to receive(:update!).with(json) }
