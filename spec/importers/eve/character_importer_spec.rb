@@ -16,7 +16,7 @@ describe Eve::CharacterImporter do
 
     let(:eve_character) { instance_double(Eve::Character) }
 
-    before { expect(Eve::Character).to receive(:find_or_initialize_by).with(id: id).and_return(eve_character) }
+    before { expect(Eve::Character).to receive(:find_or_initialize_by).with({id: id}).and_return(eve_character) }
 
     context "when etag cache hit" do
       let(:esi) { instance_double(EveOnline::ESI::Character, not_modified?: true) }
@@ -80,7 +80,7 @@ describe Eve::CharacterImporter do
     context "when @esi not set" do
       let(:esi) { instance_double(EveOnline::ESI::Character) }
 
-      before { expect(EveOnline::ESI::Character).to receive(:new).with(character_id: id).and_return(esi) }
+      before { expect(EveOnline::ESI::Character).to receive(:new).with({character_id: id}).and_return(esi) }
 
       specify { expect { subject.esi }.to change { subject.instance_variable_get(:@esi) }.from(nil).to(esi) }
     end
