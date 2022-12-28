@@ -34,7 +34,7 @@ describe Eve::CategoryImporter do
 
     let(:eve_category) { instance_double(Eve::Category) }
 
-    before { expect(Eve::Category).to receive(:find_or_initialize_by).with(category_id: category_id).and_return(eve_category) }
+    before { expect(Eve::Category).to receive(:find_or_initialize_by).with({category_id: category_id}).and_return(eve_category) }
 
     context "when etag cache hit" do
       let(:esi) { instance_double(EveOnline::ESI::UniverseCategory, not_modified?: true) }
@@ -98,7 +98,7 @@ describe Eve::CategoryImporter do
     context "when @esi not set" do
       let(:esi) { instance_double(EveOnline::ESI::UniverseCategory) }
 
-      before { expect(EveOnline::ESI::UniverseCategory).to receive(:new).with(id: category_id, language: "en-us").and_return(esi) }
+      before { expect(EveOnline::ESI::UniverseCategory).to receive(:new).with({id: category_id, language: "en-us"}).and_return(esi) }
 
       specify { expect(subject.esi).to eq(esi) }
 
