@@ -24,11 +24,9 @@ module Eve
 
     has_many :corporations
 
-    has_many :characters,
-      through: :corporations
+    has_many :characters, through: :corporations
 
-    has_many :corporation_alliance_histories,
-      primary_key: "alliance_id"
+    has_many :corporation_alliance_histories
 
     after_create_commit :reset_corporations_count
 
