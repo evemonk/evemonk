@@ -34,7 +34,7 @@ describe Eve::ConstellationImporter do
 
     let(:eve_constellation) { instance_double(Eve::Constellation) }
 
-    before { expect(Eve::Constellation).to receive(:find_or_initialize_by).with(constellation_id: constellation_id).and_return(eve_constellation) }
+    before { expect(Eve::Constellation).to receive(:find_or_initialize_by).with({constellation_id: constellation_id}).and_return(eve_constellation) }
 
     context "when etag cache hit" do
       let(:esi) { instance_double(EveOnline::ESI::UniverseConstellation, not_modified?: true) }
@@ -125,7 +125,7 @@ describe Eve::ConstellationImporter do
     context "when @esi not set" do
       let(:esi) { instance_double(EveOnline::ESI::UniverseConstellation) }
 
-      before { expect(EveOnline::ESI::UniverseConstellation).to receive(:new).with(id: constellation_id, language: "en-us").and_return(esi) }
+      before { expect(EveOnline::ESI::UniverseConstellation).to receive(:new).with({id: constellation_id, language: "en-us"}).and_return(esi) }
 
       specify { expect(subject.esi).to eq(esi) }
 
