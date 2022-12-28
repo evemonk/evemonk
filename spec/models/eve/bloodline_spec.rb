@@ -21,5 +21,5 @@ describe Eve::Bloodline do
 
   it { should belong_to(:ship_type).class_name("Eve::Ship").with_foreign_key("ship_type_id").with_primary_key("type_id").optional(true) }
 
-  it { should have_many(:ancestries).with_primary_key("bloodline_id") }
+  it { should have_many(:ancestries) }
 end
