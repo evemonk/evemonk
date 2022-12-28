@@ -24,7 +24,7 @@ describe Eve::MoonImporter do
 
     let(:eve_moon) { instance_double(Eve::Moon) }
 
-    before { expect(Eve::Moon).to receive(:find_or_initialize_by).with(planet_id: planet_id, moon_id: moon_id).and_return(eve_moon) }
+    before { expect(Eve::Moon).to receive(:find_or_initialize_by).with({planet_id: planet_id, moon_id: moon_id}).and_return(eve_moon) }
 
     context "when etag cache hit" do
       let(:esi) { instance_double(EveOnline::ESI::UniverseMoon, not_modified?: true) }
@@ -118,7 +118,7 @@ describe Eve::MoonImporter do
     context "when @esi not set" do
       let(:esi) { instance_double(EveOnline::ESI::UniverseMoon) }
 
-      before { expect(EveOnline::ESI::UniverseMoon).to receive(:new).with(id: moon_id).and_return(esi) }
+      before { expect(EveOnline::ESI::UniverseMoon).to receive(:new).with({id: moon_id}).and_return(esi) }
 
       specify { expect(subject.esi).to eq(esi) }
 
