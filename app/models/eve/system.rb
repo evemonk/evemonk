@@ -18,20 +18,15 @@ module Eve
       primary_key: "star_id",
       optional: true
 
-    has_many :stargates,
-      primary_key: "system_id"
+    has_many :stargates
 
-    has_many :planets,
-      primary_key: "system_id"
+    has_many :planets
 
-    has_many :moons,
-      primary_key: "system_id"
+    has_many :moons
 
-    has_many :stations,
-      primary_key: "system_id"
+    has_many :stations
 
-    has_many :asteroid_belts,
-      primary_key: "system_id"
+    has_many :asteroid_belts
 
     has_one :position,
       as: :positionable,

@@ -19,15 +19,15 @@ describe Eve::System do
 
   it { should belong_to(:star).with_primary_key("star_id").optional(true) }
 
-  it { should have_many(:stargates).with_primary_key("system_id") }
+  it { should have_many(:stargates) }
 
-  it { should have_many(:planets).with_primary_key("system_id") }
+  it { should have_many(:planets) }
 
-  it { should have_many(:moons).with_primary_key("system_id") }
+  it { should have_many(:moons) }
 
-  it { should have_many(:stations).with_primary_key("system_id") }
+  it { should have_many(:stations) }
 
-  it { should have_many(:asteroid_belts).with_primary_key("system_id") }
+  it { should have_many(:asteroid_belts) }
 
   it { should have_one(:position).dependent(:destroy) }
 
