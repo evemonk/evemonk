@@ -17,7 +17,7 @@ describe Eve::Faction do
 
   it { expect(described_class.table_name).to eq("eve_factions") }
 
-  it { should belong_to(:corporation).with_primary_key("corporation_id").optional(true) }
+  it { should belong_to(:corporation).optional(true) }
 
   it { should belong_to(:militia_corporation).class_name("Eve::Corporation").with_primary_key("corporation_id").with_foreign_key("militia_corporation_id").optional(true) }
 
