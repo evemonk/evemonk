@@ -61,10 +61,11 @@ describe Sde::CharacterAttributesImporter do
 
     let(:eve_character_attribute) { instance_double(Eve::CharacterAttribute) }
 
-    before { expect(Eve::CharacterAttribute).to receive(:find_or_initialize_by).with(attribute_id: key).and_return(eve_character_attribute) }
+    before { expect(Eve::CharacterAttribute).to receive(:find_or_initialize_by).with({attribute_id: key}).and_return(eve_character_attribute) }
 
     before do
-      expect(eve_character_attribute).to receive(:assign_attributes).with(name_en: name_en,
+      expect(eve_character_attribute).to receive(:assign_attributes).with({
+        name_en: name_en,
         name_de: name_de,
         name_fr: name_fr,
         name_ja: name_ja,
@@ -73,7 +74,8 @@ describe Sde::CharacterAttributesImporter do
         description: description,
         icon_id: icon_id,
         notes: notes,
-        short_description: short_description)
+        short_description: short_description
+      })
     end
 
     before { expect(eve_character_attribute).to receive(:save!) }
