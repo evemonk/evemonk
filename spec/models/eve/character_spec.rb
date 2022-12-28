@@ -17,9 +17,9 @@ describe Eve::Character do
 
   it { should belong_to(:ancestry).with_primary_key("ancestry_id").optional(true) }
 
-  it { should belong_to(:bloodline).with_primary_key("bloodline_id").optional(true) }
+  it { should belong_to(:bloodline).optional(true) }
 
-  it { should belong_to(:corporation).with_primary_key("corporation_id").optional(true) }
+  it { should belong_to(:corporation).optional(true) }
 
   it { should belong_to(:faction).with_primary_key("faction_id").optional(true) }
 

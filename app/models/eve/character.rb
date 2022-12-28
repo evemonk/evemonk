@@ -15,13 +15,9 @@ module Eve
       primary_key: "ancestry_id",
       optional: true
 
-    belongs_to :bloodline,
-      primary_key: "bloodline_id",
-      optional: true
+    belongs_to :bloodline, optional: true
 
-    belongs_to :corporation,
-      primary_key: "corporation_id",
-      optional: true
+    belongs_to :corporation, optional: true
 
     belongs_to :faction,
       primary_key: "faction_id",
