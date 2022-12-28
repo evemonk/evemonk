@@ -34,7 +34,7 @@ namespace :evemonk do
       Sde::CertificatesJob.perform_later("static/sde/fsd/certificates.yaml")
 
       Rails.logger.info "Import missing Market Groups info from SDE"
-      Sde::MarketGroupsImporter.new("static/sde/fsd/marketGroups.yaml").import
+      Sde::MarketGroupsJob.perform_later("static/sde/fsd/marketGroups.yaml")
     end
   end
 
