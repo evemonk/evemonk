@@ -236,7 +236,7 @@ describe CharacterBaseImporter do
         #
         # Etag.find_or_initialize_by(url: esi.url, character: character) # => etag
         #
-        expect(Etag).to receive(:find_or_initialize_by).with(url: url, character: character)
+        expect(Etag).to receive(:find_or_initialize_by).with({url: url, character: character})
           .and_return(etag)
       end
 
@@ -321,7 +321,7 @@ describe CharacterBaseImporter do
 
     before { expect(subject).to receive(:etag).and_return(etag) }
 
-    before { expect(etag).to receive(:update!).with(etag: etag, body: response) }
+    before { expect(etag).to receive(:update!).with({etag: etag, body: response}) }
 
     specify { expect { subject.send(:update_etag) }.not_to raise_error }
   end
