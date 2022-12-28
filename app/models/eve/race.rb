@@ -2,6 +2,8 @@
 
 module Eve
   class Race < ApplicationRecord
+    self.primary_key = "race_id"
+
     extend Mobility
 
     has_paper_trail
@@ -12,10 +14,8 @@ module Eve
       primary_key: "faction_id",
       optional: true
 
-    has_many :bloodlines,
-      primary_key: "race_id"
+    has_many :bloodlines
 
-    has_many :stations,
-      primary_key: "race_id"
+    has_many :stations
   end
 end
