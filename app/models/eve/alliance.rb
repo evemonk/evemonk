@@ -18,7 +18,6 @@ module Eve
 
     belongs_to :executor_corporation,
       class_name: "Eve::Corporation",
-      foreign_key: "executor_corporation_id",
       optional: true
 
     belongs_to :faction,

@@ -19,7 +19,7 @@ describe Eve::Alliance do
 
   it { should belong_to(:creator).class_name("Eve::Character").optional(true) }
 
-  it { should belong_to(:executor_corporation).class_name("Eve::Corporation").with_foreign_key("executor_corporation_id").optional(true) }
+  it { should belong_to(:executor_corporation).class_name("Eve::Corporation").optional(true) }
 
   it { should belong_to(:faction).with_primary_key("faction_id").optional(true) }
 
