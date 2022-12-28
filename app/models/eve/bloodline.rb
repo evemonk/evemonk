@@ -12,9 +12,7 @@ module Eve
 
     belongs_to :corporation, optional: true
 
-    belongs_to :race,
-      primary_key: "race_id",
-      optional: true
+    belongs_to :race, optional: true
 
     belongs_to :ship_type,
       class_name: "Eve::Ship",
