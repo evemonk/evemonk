@@ -16,7 +16,7 @@ describe Eve::CorporationImporter do
 
     let(:eve_corporation) { instance_double(Eve::Corporation) }
 
-    before { expect(Eve::Corporation).to receive(:find_or_initialize_by).with(corporation_id: corporation_id).and_return(eve_corporation) }
+    before { expect(Eve::Corporation).to receive(:find_or_initialize_by).with({corporation_id: corporation_id}).and_return(eve_corporation) }
 
     context "when etag cache hit" do
       let(:esi) { instance_double(EveOnline::ESI::Corporation, not_modified?: true) }
@@ -80,7 +80,7 @@ describe Eve::CorporationImporter do
     context "when @esi not set" do
       let(:esi) { instance_double(EveOnline::ESI::Corporation) }
 
-      before { expect(EveOnline::ESI::Corporation).to receive(:new).with(corporation_id: corporation_id).and_return(esi) }
+      before { expect(EveOnline::ESI::Corporation).to receive(:new).with({corporation_id: corporation_id}).and_return(esi) }
 
       specify { expect(subject.esi).to eq(esi) }
 
