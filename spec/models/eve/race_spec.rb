@@ -15,7 +15,7 @@ describe Eve::Race do
 
   it { expect(described_class.table_name).to eq("eve_races") }
 
-  it { should belong_to(:faction).with_primary_key("faction_id").optional(true) }
+  it { should belong_to(:faction).optional(true) }
 
   it { should have_many(:bloodlines) }
 

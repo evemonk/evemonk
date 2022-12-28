@@ -10,9 +10,7 @@ module Eve
 
     translates :name, :description
 
-    belongs_to :faction,
-      primary_key: "faction_id",
-      optional: true
+    belongs_to :faction, optional: true
 
     has_many :bloodlines
 
