@@ -26,7 +26,7 @@ describe Sde::BlueprintsManufacturingSkillsImporter do
 
     let(:eve_blueprint) { instance_double(Eve::Blueprint, type_id: type_id) }
 
-    before { expect(Eve::Blueprint).to receive(:find_by!).with(type_id: key).and_return(eve_blueprint) }
+    before { expect(Eve::Blueprint).to receive(:find_by!).with({type_id: key}).and_return(eve_blueprint) }
 
     before { expect(eve_blueprint).to receive(:transaction).and_yield }
 
@@ -67,9 +67,11 @@ describe Sde::BlueprintsManufacturingSkillsImporter do
         #                                          level: manufacturing_skill["level"],
         #                                          type_id: manufacturing_skill["typeID"])
         #
-        expect(Eve::BlueprintManufacturingSkill).to receive(:create!).with(blueprint_id: type_id,
+        expect(Eve::BlueprintManufacturingSkill).to receive(:create!).with({
+          blueprint_id: type_id,
           level: level,
-          type_id: type_id)
+          type_id: type_id
+        })
       end
 
       specify { expect { subject.import }.not_to raise_error }
