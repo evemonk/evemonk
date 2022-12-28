@@ -2,6 +2,8 @@
 
 module Eve
   class Faction < ApplicationRecord
+    self.primary_key = "faction_id"
+
     include Imageable
     extend Mobility
 
@@ -25,7 +27,7 @@ module Eve
       foreign_key: "solar_system_id",
       optional: true
 
-    has_many :alliances, primary_key: "faction_id"
+    has_many :alliances
 
     has_many :standings, as: :standingable
 

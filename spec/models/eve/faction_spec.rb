@@ -5,6 +5,8 @@ require "rails_helper"
 describe Eve::Faction do
   it { should be_an(ApplicationRecord) }
 
+  it { expect(described_class.primary_key).to eq("faction_id") }
+
   it { should be_a(Imageable) }
 
   it { should respond_to(:versions) }
@@ -21,7 +23,7 @@ describe Eve::Faction do
 
   it { should belong_to(:solar_system).class_name("Eve::System").with_primary_key("system_id").with_foreign_key("solar_system_id").optional(true) }
 
-  it { should have_many(:alliances).with_primary_key("faction_id") }
+  it { should have_many(:alliances) }
 
   it { should have_many(:standings) }
 
