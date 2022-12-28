@@ -10,7 +10,6 @@ module Eve
 
     belongs_to :creator_corporation,
       class_name: "Eve::Corporation",
-      primary_key: "corporation_id",
       optional: true
 
     belongs_to :creator,
@@ -19,7 +18,6 @@ module Eve
 
     belongs_to :executor_corporation,
       class_name: "Eve::Corporation",
-      primary_key: "corporation_id",
       foreign_key: "executor_corporation_id",
       optional: true
 
