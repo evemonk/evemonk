@@ -81,15 +81,6 @@ module Eve
       Rails::Html::FullSanitizer.new.sanitize(description)
     end
 
-    def to_key
-      key = corporation_id
-      [key] if key
-    end
-
-    def to_param
-      corporation_id&.to_s
-    end
-
     private
 
     def corporation_logo_url(size)

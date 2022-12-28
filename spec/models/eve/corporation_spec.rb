@@ -162,34 +162,6 @@ describe Eve::Corporation do
     specify { expect(subject.sanitized_description).to eq("Test") }
   end
 
-  describe "#to_key" do
-    context "when corporation_id is present" do
-      subject { build(:eve_corporation, corporation_id: 1_344_654_522) }
-
-      specify { expect(subject.to_key).to eq([1_344_654_522]) }
-    end
-
-    context "when corporation_id is not present" do
-      subject { build(:eve_corporation, corporation_id: nil) }
-
-      specify { expect(subject.to_key).to eq(nil) }
-    end
-  end
-
-  describe "#to_param" do
-    context "when corporation_id is present" do
-      subject { build(:eve_corporation, corporation_id: 1_344_654_522) }
-
-      specify { expect(subject.to_param).to eq("1344654522") }
-    end
-
-    context "when corporation_id is not present" do
-      subject { build(:eve_corporation, corporation_id: nil) }
-
-      specify { expect(subject.to_param).to eq(nil) }
-    end
-  end
-
   # private methods
 
   describe "#alliance_logo_url" do
