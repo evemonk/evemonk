@@ -23,9 +23,7 @@ module Eve
       primary_key: "faction_id",
       optional: true
 
-    belongs_to :race,
-      primary_key: "race_id",
-      optional: true
+    belongs_to :race, optional: true
 
     has_many :character_corporation_histories, dependent: :destroy
 

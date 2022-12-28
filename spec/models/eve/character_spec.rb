@@ -23,7 +23,7 @@ describe Eve::Character do
 
   it { should belong_to(:faction).with_primary_key("faction_id").optional(true) }
 
-  it { should belong_to(:race).with_primary_key("race_id").optional(true) }
+  it { should belong_to(:race).optional(true) }
 
   it { should have_many(:character_corporation_histories).dependent(:destroy) }
 
