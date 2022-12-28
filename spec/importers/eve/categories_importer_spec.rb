@@ -103,7 +103,7 @@ describe Eve::CategoriesImporter do
 
     let(:eve_category) { instance_double(Eve::Category) }
 
-    before { expect(Eve::Category).to receive(:find_or_initialize_by).with(category_id: local_category_id).and_return(eve_category) }
+    before { expect(Eve::Category).to receive(:find_or_initialize_by).with({category_id: local_category_id}).and_return(eve_category) }
 
     before { expect(eve_category).to receive(:destroy!) }
 
