@@ -104,7 +104,7 @@ describe Eve::DogmaAttributesImporter do
 
     let(:dogma_attribute) { instance_double(Eve::DogmaAttribute, attribute_id: attribute_id) }
 
-    before { expect(Eve::DogmaAttribute).to receive(:find_or_initialize_by).with(attribute_id: eve_dogma_attribute_id_to_remove).and_return(dogma_attribute) }
+    before { expect(Eve::DogmaAttribute).to receive(:find_or_initialize_by).with({attribute_id: eve_dogma_attribute_id_to_remove}).and_return(dogma_attribute) }
 
     before { expect(dogma_attribute).to receive(:destroy!) }
 
