@@ -35,9 +35,11 @@ describe CharacterShipImporter do
       #                   current_ship_name: esi.ship_name,
       #                   current_ship_type_id: esi.ship_type_id)
       #
-      expect(character).to receive(:update!).with(current_ship_item_id: ship_item_id,
+      expect(character).to receive(:update!).with({
+        current_ship_item_id: ship_item_id,
         current_ship_name: ship_name,
-        current_ship_type_id: ship_type_id)
+        current_ship_type_id: ship_type_id
+      })
     end
 
     specify { expect { subject.import! }.not_to raise_error }
@@ -59,7 +61,7 @@ describe CharacterShipImporter do
 
       before { expect(subject).to receive(:character).and_return(character) }
 
-      before { expect(EveOnline::ESI::CharacterShip).to receive(:new).with(character_id: character_id).and_return(esi) }
+      before { expect(EveOnline::ESI::CharacterShip).to receive(:new).with({character_id: character_id}).and_return(esi) }
 
       specify { expect { subject.esi }.to change { subject.instance_variable_get(:@esi) }.from(nil).to(esi) }
     end
