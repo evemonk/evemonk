@@ -2,6 +2,8 @@
 
 module Eve
   class Corporation < ApplicationRecord
+    self.primary_key = "corporation_id"
+
     include PgSearch::Model
     include ActionView::Helpers::NumberHelper
     include Imageable
@@ -77,15 +79,6 @@ module Eve
 
     def sanitized_description
       Rails::Html::FullSanitizer.new.sanitize(description)
-    end
-
-    def to_key
-      key = corporation_id
-      [key] if key
-    end
-
-    def to_param
-      corporation_id&.to_s
     end
 
     private

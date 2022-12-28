@@ -10,7 +10,6 @@ module Eve
 
     belongs_to :creator_corporation,
       class_name: "Eve::Corporation",
-      primary_key: "corporation_id",
       optional: true
 
     belongs_to :creator,
@@ -19,21 +18,15 @@ module Eve
 
     belongs_to :executor_corporation,
       class_name: "Eve::Corporation",
-      primary_key: "corporation_id",
-      foreign_key: "executor_corporation_id",
       optional: true
 
-    belongs_to :faction,
-      primary_key: "faction_id",
-      optional: true
+    belongs_to :faction, optional: true
 
     has_many :corporations
 
-    has_many :characters,
-      through: :corporations
+    has_many :characters, through: :corporations
 
-    has_many :corporation_alliance_histories,
-      primary_key: "alliance_id"
+    has_many :corporation_alliance_histories
 
     after_create_commit :reset_corporations_count
 

@@ -5,6 +5,8 @@ require "rails_helper"
 describe Eve::Corporation do
   it { should be_an(ApplicationRecord) }
 
+  it { expect(described_class.primary_key).to eq("corporation_id") }
+
   it { should be_a(PgSearch::Model) }
 
   it { should be_an(ActionView::Helpers::NumberHelper) }
@@ -158,34 +160,6 @@ describe Eve::Corporation do
     end
 
     specify { expect(subject.sanitized_description).to eq("Test") }
-  end
-
-  describe "#to_key" do
-    context "when corporation_id is present" do
-      subject { build(:eve_corporation, corporation_id: 1_344_654_522) }
-
-      specify { expect(subject.to_key).to eq([1_344_654_522]) }
-    end
-
-    context "when corporation_id is not present" do
-      subject { build(:eve_corporation, corporation_id: nil) }
-
-      specify { expect(subject.to_key).to eq(nil) }
-    end
-  end
-
-  describe "#to_param" do
-    context "when corporation_id is present" do
-      subject { build(:eve_corporation, corporation_id: 1_344_654_522) }
-
-      specify { expect(subject.to_param).to eq("1344654522") }
-    end
-
-    context "when corporation_id is not present" do
-      subject { build(:eve_corporation, corporation_id: nil) }
-
-      specify { expect(subject.to_param).to eq(nil) }
-    end
   end
 
   # private methods

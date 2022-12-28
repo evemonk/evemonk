@@ -9,25 +9,21 @@ module Eve
 
     belongs_to :alliance, optional: true
 
+    # TODO: remove this
+    # https://github.com/esi/esi-issues/blob/master/changelog.md#2021-10-21
     belongs_to :ancestry,
       primary_key: "ancestry_id",
       optional: true
 
-    belongs_to :bloodline,
-      primary_key: "bloodline_id",
-      optional: true
+    belongs_to :bloodline, optional: true
 
-    belongs_to :corporation,
-      primary_key: "corporation_id",
-      optional: true
+    belongs_to :corporation, optional: true
 
     belongs_to :faction,
       primary_key: "faction_id",
       optional: true
 
-    belongs_to :race,
-      primary_key: "race_id",
-      optional: true
+    belongs_to :race, optional: true
 
     has_many :character_corporation_histories, dependent: :destroy
 
