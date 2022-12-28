@@ -21,7 +21,7 @@ describe Eve::Alliance do
 
   it { should belong_to(:executor_corporation).class_name("Eve::Corporation").optional(true) }
 
-  it { should belong_to(:faction).with_primary_key("faction_id").optional(true) }
+  it { should belong_to(:faction).optional(true) }
 
   it { should have_many(:corporations) }
 

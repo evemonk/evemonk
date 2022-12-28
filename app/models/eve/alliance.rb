@@ -20,9 +20,7 @@ module Eve
       class_name: "Eve::Corporation",
       optional: true
 
-    belongs_to :faction,
-      primary_key: "faction_id",
-      optional: true
+    belongs_to :faction, optional: true
 
     has_many :corporations
 
