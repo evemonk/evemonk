@@ -45,7 +45,7 @@ describe Eve::BloodlinesImporter do
 
       let(:eve_bloodline) { instance_double(Eve::Bloodline) }
 
-      before { expect(Eve::Bloodline).to receive(:find_or_initialize_by).with(bloodline_id: bloodline_id).and_return(eve_bloodline) }
+      before { expect(Eve::Bloodline).to receive(:find_or_initialize_by).with({bloodline_id: bloodline_id}).and_return(eve_bloodline) }
 
       before { expect(eve_bloodline).to receive(:update!).with(json) }
 
@@ -67,7 +67,7 @@ describe Eve::BloodlinesImporter do
     context "when @esi not set" do
       let(:esi) { instance_double(EveOnline::ESI::UniverseBloodlines) }
 
-      before { expect(EveOnline::ESI::UniverseBloodlines).to receive(:new).with(language: "en-us").and_return(esi) }
+      before { expect(EveOnline::ESI::UniverseBloodlines).to receive(:new).with({language: "en-us"}).and_return(esi) }
 
       specify { expect(subject.esi).to eq(esi) }
 

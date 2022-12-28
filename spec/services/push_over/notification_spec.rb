@@ -83,8 +83,10 @@ describe PushOver::Notification do
       #
       # Faraday.new(url: API_URL, headers: {"Content-Type": "application/json"})
       #
-      expect(Faraday).to receive(:new).with(url: described_class::API_URL,
-        headers: {"Content-Type": "application/json"})
+      expect(Faraday).to receive(:new).with({
+        url: described_class::API_URL,
+        headers: {"Content-Type": "application/json"}
+      })
     end
 
     specify { expect { subject.send(:connection) }.not_to raise_error }

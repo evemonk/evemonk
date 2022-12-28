@@ -34,7 +34,7 @@ describe Eve::MarketGroupImporter do
 
     let(:eve_market_group) { instance_double(Eve::MarketGroup) }
 
-    before { expect(Eve::MarketGroup).to receive(:find_or_initialize_by).with(market_group_id: market_group_id).and_return(eve_market_group) }
+    before { expect(Eve::MarketGroup).to receive(:find_or_initialize_by).with({market_group_id: market_group_id}).and_return(eve_market_group) }
 
     context "when etag cache hit" do
       let(:esi) { instance_double(EveOnline::ESI::MarketGroup, not_modified?: true) }
@@ -98,7 +98,7 @@ describe Eve::MarketGroupImporter do
     context "when @esi not set" do
       let(:esi) { instance_double(EveOnline::ESI::MarketGroup) }
 
-      before { expect(EveOnline::ESI::MarketGroup).to receive(:new).with(id: market_group_id, language: "en-us").and_return(esi) }
+      before { expect(EveOnline::ESI::MarketGroup).to receive(:new).with({id: market_group_id, language: "en-us"}).and_return(esi) }
 
       specify { expect(subject.esi).to eq(esi) }
 

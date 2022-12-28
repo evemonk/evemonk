@@ -47,7 +47,7 @@ describe Eve::BaseImporter do
         #
         # Eve::Etag.find_or_initialize_by(url: esi.url) # => etag
         #
-        expect(Eve::Etag).to receive(:find_or_initialize_by).with(url: url).and_return(etag)
+        expect(Eve::Etag).to receive(:find_or_initialize_by).with({url: url}).and_return(etag)
       end
 
       specify { expect(subject.etag).to eq(etag) }
@@ -105,7 +105,7 @@ describe Eve::BaseImporter do
 
     before { expect(subject).to receive(:etag).and_return(etag) }
 
-    before { expect(etag).to receive(:update!).with(etag: etag, body: response) }
+    before { expect(etag).to receive(:update!).with({etag: etag, body: response}) }
 
     specify { expect { subject.send(:update_etag) }.not_to raise_error }
   end

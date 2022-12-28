@@ -35,9 +35,11 @@ describe CharacterLocationImporter do
       #                   current_station_id: esi.station_id,
       #                   current_structure_id: esi.structure_id)
       #
-      expect(character).to receive(:update!).with(current_solar_system_id: solar_system_id,
+      expect(character).to receive(:update!).with({
+        current_solar_system_id: solar_system_id,
         current_station_id: station_id,
-        current_structure_id: structure_id)
+        current_structure_id: structure_id
+      })
     end
 
     specify { expect { subject.import! }.not_to raise_error }
@@ -59,7 +61,7 @@ describe CharacterLocationImporter do
 
       before { expect(subject).to receive(:character).and_return(character) }
 
-      before { expect(EveOnline::ESI::CharacterLocation).to receive(:new).with(character_id: character_id).and_return(esi) }
+      before { expect(EveOnline::ESI::CharacterLocation).to receive(:new).with({character_id: character_id}).and_return(esi) }
 
       specify { expect { subject.esi }.to change { subject.instance_variable_get(:@esi) }.from(nil).to(esi) }
     end

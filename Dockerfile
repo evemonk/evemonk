@@ -1,4 +1,4 @@
-FROM ruby:3.1.3-slim AS builder
+FROM ruby:3.2.0-slim AS builder
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
@@ -6,7 +6,7 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 RUN set -eux; \
     apt-get update -y ; \
     apt-get dist-upgrade -y ; \
-    apt-get install git make gcc g++ libpq-dev curl nodejs --no-install-recommends -y ; \
+    apt-get install git patch xz-utils gcc make g++ libpq-dev curl nodejs --no-install-recommends -y ; \
     apt-get autoremove -y ; \
     apt-get clean -y ; \
     rm -rf /var/lib/apt/lists/*
@@ -82,7 +82,7 @@ RUN bundle exec rake SECRET_KEY_BASE=no \
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
-FROM ruby:3.1.3-slim
+FROM ruby:3.2.0-slim
 
 # skipcq: DOK-DL3008
 RUN set -eux; \

@@ -65,9 +65,11 @@ describe Api::RefreshCharacterAccessToken do
       #                   esi_token_invalid_at: Time.zone.now,
       #                   esi_last_error: e.description)
       #
-      expect(character).to receive(:update!).with(esi_token_valid: false,
+      expect(character).to receive(:update!).with({
+        esi_token_valid: false,
         esi_token_invalid_at: Time.zone.now,
-        esi_last_error: "Invalid refresh token. Unable to migrate grant.")
+        esi_last_error: "Invalid refresh token. Unable to migrate grant."
+      })
     end
 
     before do

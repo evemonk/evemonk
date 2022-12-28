@@ -31,7 +31,7 @@ describe Sde::AgentNamesImporter do
 
     before { expect(Eve::Agent).to receive(:find_each).and_yield(eve_agent) }
 
-    before { expect(eve_agent).to receive(:update!).with(name: "Antaken Kamola") }
+    before { expect(eve_agent).to receive(:update!).with({name: "Antaken Kamola"}) }
 
     specify { expect { subject.import }.not_to raise_error }
   end

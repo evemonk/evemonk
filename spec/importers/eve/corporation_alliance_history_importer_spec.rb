@@ -42,7 +42,7 @@ describe Eve::CorporationAllianceHistoryImporter do
 
         let(:eve_corporation) { instance_double(Eve::Corporation) }
 
-        before { expect(Eve::Corporation).to receive(:find_by!).with(corporation_id: corporation_id).and_return(eve_corporation) }
+        before { expect(Eve::Corporation).to receive(:find_by!).with({corporation_id: corporation_id}).and_return(eve_corporation) }
 
         let(:corporation_alliance_history) { instance_double(Eve::CorporationAllianceHistory) }
 
@@ -53,7 +53,7 @@ describe Eve::CorporationAllianceHistoryImporter do
           #
           expect(eve_corporation).to receive(:corporation_alliance_histories) do
             double.tap do |a|
-              expect(a).to receive(:find_or_initialize_by).with(record_id: record_id)
+              expect(a).to receive(:find_or_initialize_by).with({record_id: record_id})
                 .and_return(corporation_alliance_history)
             end
           end
@@ -74,7 +74,7 @@ describe Eve::CorporationAllianceHistoryImporter do
 
         before { expect(subject).to receive(:esi).and_return(esi) }
 
-        before { expect(Eve::Corporation).to receive(:find_by!).with(corporation_id: corporation_id).and_raise(ActiveRecord::RecordNotFound) }
+        before { expect(Eve::Corporation).to receive(:find_by!).with({corporation_id: corporation_id}).and_raise(ActiveRecord::RecordNotFound) }
 
         before do
           #
@@ -104,7 +104,7 @@ describe Eve::CorporationAllianceHistoryImporter do
     context "when @esi not set" do
       let(:esi) { instance_double(EveOnline::ESI::CorporationAllianceHistory) }
 
-      before { expect(EveOnline::ESI::CorporationAllianceHistory).to receive(:new).with(corporation_id: corporation_id).and_return(esi) }
+      before { expect(EveOnline::ESI::CorporationAllianceHistory).to receive(:new).with({corporation_id: corporation_id}).and_return(esi) }
 
       specify { expect(subject.esi).to eq(esi) }
 

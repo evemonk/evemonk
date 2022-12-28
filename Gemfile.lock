@@ -263,8 +263,6 @@ GEM
       activerecord (>= 3.1)
       railties (>= 3.1)
     google-protobuf (3.21.12)
-    google-protobuf (3.21.12-x86_64-darwin)
-    google-protobuf (3.21.12-x86_64-linux)
     graphiql-rails (1.8.0)
       railties
       sprockets-rails
@@ -363,6 +361,7 @@ GEM
       rails (> 5.1)
     mini_histogram (0.3.1)
     mini_mime (1.1.2)
+    mini_portile2 (2.8.1)
     minitest (5.16.3)
     mobility (1.2.9)
       i18n (>= 0.6.10, < 2)
@@ -381,13 +380,8 @@ GEM
     net-smtp (0.3.3)
       net-protocol
     nio4r (2.5.8)
-    nokogiri (1.13.10-aarch64-linux)
-      racc (~> 1.4)
-    nokogiri (1.13.10-arm64-darwin)
-      racc (~> 1.4)
-    nokogiri (1.13.10-x86_64-darwin)
-      racc (~> 1.4)
-    nokogiri (1.13.10-x86_64-linux)
+    nokogiri (1.13.10)
+      mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
     noticed (1.6.0)
       http (>= 4.0.0)
@@ -688,10 +682,9 @@ GEM
 
 PLATFORMS
   aarch64-linux
-  arm64-darwin-21
+  arm64-darwin
   arm64-darwin-22
-  x86_64-darwin-20
-  x86_64-darwin-21
+  x86_64-darwin
   x86_64-linux
 
 DEPENDENCIES
@@ -805,7 +798,7 @@ DEPENDENCIES
   yabeda-sidekiq
 
 RUBY VERSION
-   ruby 3.1.3p185
+   ruby 3.2.0p0
 
 BUNDLED WITH
    2.4.1

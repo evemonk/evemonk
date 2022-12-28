@@ -67,7 +67,7 @@ describe CharacterIndustryJobsImporter do
 
       before { expect(subject).to receive(:character).and_return(character) }
 
-      before { expect(EveOnline::ESI::CharacterIndustryJobs).to receive(:new).with(character_id: character_id, include_completed: true).and_return(esi) }
+      before { expect(EveOnline::ESI::CharacterIndustryJobs).to receive(:new).with({character_id: character_id, include_completed: true}).and_return(esi) }
 
       specify { expect { subject.esi }.to change { subject.instance_variable_get(:@esi) }.from(nil).to(esi) }
     end

@@ -45,7 +45,7 @@ describe Eve::AncestriesImporter do
 
       let(:eve_ancestry) { instance_double(Eve::Ancestry) }
 
-      before { expect(Eve::Ancestry).to receive(:find_or_initialize_by).with(ancestry_id: ancestry_id).and_return(eve_ancestry) }
+      before { expect(Eve::Ancestry).to receive(:find_or_initialize_by).with({ancestry_id: ancestry_id}).and_return(eve_ancestry) }
 
       before { expect(eve_ancestry).to receive(:update!).with(json) }
 
@@ -67,7 +67,7 @@ describe Eve::AncestriesImporter do
     context "when @esi not set" do
       let(:esi) { instance_double(EveOnline::ESI::UniverseAncestries) }
 
-      before { expect(EveOnline::ESI::UniverseAncestries).to receive(:new).with(language: "en-us").and_return(esi) }
+      before { expect(EveOnline::ESI::UniverseAncestries).to receive(:new).with({language: "en-us"}).and_return(esi) }
 
       specify { expect(subject.esi).to eq(esi) }
 

@@ -38,7 +38,7 @@ describe Universe::CorporationsController do
       # Eve::Corporation
       #   .find_by!(corporation_id: params[:id])
       #
-      expect(Eve::Corporation).to receive(:find_by!).with(corporation_id: "1000001")
+      expect(Eve::Corporation).to receive(:find_by!).with({corporation_id: "1000001"})
     end
 
     before { get :show, params: {id: "1000001"} }

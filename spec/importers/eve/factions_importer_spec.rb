@@ -45,7 +45,7 @@ describe Eve::FactionsImporter do
 
       let(:eve_faction) { instance_double(Eve::Faction) }
 
-      before { expect(Eve::Faction).to receive(:find_or_initialize_by).with(faction_id: faction_id).and_return(eve_faction) }
+      before { expect(Eve::Faction).to receive(:find_or_initialize_by).with({faction_id: faction_id}).and_return(eve_faction) }
 
       before { expect(eve_faction).to receive(:update!).with(json) }
 
@@ -67,7 +67,7 @@ describe Eve::FactionsImporter do
     context "when @esi not set" do
       let(:esi) { instance_double(EveOnline::ESI::UniverseFactions) }
 
-      before { expect(EveOnline::ESI::UniverseFactions).to receive(:new).with(language: "en-us").and_return(esi) }
+      before { expect(EveOnline::ESI::UniverseFactions).to receive(:new).with({language: "en-us"}).and_return(esi) }
 
       specify { expect(subject.esi).to eq(esi) }
 

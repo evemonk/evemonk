@@ -16,7 +16,7 @@ describe Eve::GraphicImporter do
 
     let(:eve_graphic) { instance_double(Eve::Graphic) }
 
-    before { expect(Eve::Graphic).to receive(:find_or_initialize_by).with(graphic_id: graphic_id).and_return(eve_graphic) }
+    before { expect(Eve::Graphic).to receive(:find_or_initialize_by).with({graphic_id: graphic_id}).and_return(eve_graphic) }
 
     context "when etag cache hit" do
       let(:esi) { instance_double(EveOnline::ESI::UniverseGraphic, not_modified?: true) }
@@ -80,7 +80,7 @@ describe Eve::GraphicImporter do
     context "when @esi not set" do
       let(:esi) { instance_double(EveOnline::ESI::UniverseGraphic) }
 
-      before { expect(EveOnline::ESI::UniverseGraphic).to receive(:new).with(id: graphic_id).and_return(esi) }
+      before { expect(EveOnline::ESI::UniverseGraphic).to receive(:new).with({id: graphic_id}).and_return(esi) }
 
       specify { expect(subject.esi).to eq(esi) }
 

@@ -29,7 +29,7 @@ describe Universe::Alliances::CorporationsController do
       # Eve::Corporation.where(alliance: @alliance)
       #                 .order(:name)
       #
-      expect(Eve::Corporation).to receive(:where).with(alliance: eve_alliance) do
+      expect(Eve::Corporation).to receive(:where).with({alliance: eve_alliance}) do
         double.tap do |a|
           expect(a).to receive(:order).with(:name)
         end

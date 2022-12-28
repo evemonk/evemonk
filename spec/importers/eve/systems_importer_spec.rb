@@ -102,7 +102,7 @@ describe Eve::SystemsImporter do
 
     let(:eve_system) { instance_double(Eve::System) }
 
-    before { expect(Eve::System).to receive(:find_or_initialize_by).with(system_id: eve_system_id_to_remove).and_return(eve_system) }
+    before { expect(Eve::System).to receive(:find_or_initialize_by).with({system_id: eve_system_id_to_remove}).and_return(eve_system) }
 
     before { expect(eve_system).to receive(:destroy!) }
 

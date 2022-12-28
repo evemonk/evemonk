@@ -32,9 +32,9 @@ describe Sde::BasePricesImporter do
 
     let(:eve_type) { instance_double(Eve::Type) }
 
-    before { expect(Eve::Type).to receive(:find_or_initialize_by).with(type_id: key).and_return(eve_type) }
+    before { expect(Eve::Type).to receive(:find_or_initialize_by).with({type_id: key}).and_return(eve_type) }
 
-    before { expect(eve_type).to receive(:assign_attributes).with(base_price: base_price) }
+    before { expect(eve_type).to receive(:assign_attributes).with({base_price: base_price}) }
 
     before { expect(eve_type).to receive(:save!) }
 

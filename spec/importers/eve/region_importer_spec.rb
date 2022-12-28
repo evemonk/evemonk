@@ -34,7 +34,7 @@ describe Eve::RegionImporter do
 
     let(:eve_region) { instance_double(Eve::Region) }
 
-    before { expect(Eve::Region).to receive(:find_or_initialize_by).with(region_id: region_id).and_return(eve_region) }
+    before { expect(Eve::Region).to receive(:find_or_initialize_by).with({region_id: region_id}).and_return(eve_region) }
 
     context "when etag cache hit" do
       let(:esi) { instance_double(EveOnline::ESI::UniverseRegion, not_modified?: true) }
@@ -98,7 +98,7 @@ describe Eve::RegionImporter do
     context "when @esi not set" do
       let(:esi) { instance_double(EveOnline::ESI::UniverseRegion) }
 
-      before { expect(EveOnline::ESI::UniverseRegion).to receive(:new).with(id: region_id, language: "en-us").and_return(esi) }
+      before { expect(EveOnline::ESI::UniverseRegion).to receive(:new).with({id: region_id, language: "en-us"}).and_return(esi) }
 
       specify { expect(subject.esi).to eq(esi) }
 
