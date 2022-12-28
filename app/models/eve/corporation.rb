@@ -2,6 +2,8 @@
 
 module Eve
   class Corporation < ApplicationRecord
+    self.primary_key = "corporation_id"
+
     include PgSearch::Model
     include ActionView::Helpers::NumberHelper
     include Imageable
