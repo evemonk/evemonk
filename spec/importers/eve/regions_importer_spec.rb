@@ -102,7 +102,7 @@ describe Eve::RegionsImporter do
 
     let(:eve_region) { instance_double(Eve::Region) }
 
-    before { expect(Eve::Region).to receive(:find_or_initialize_by).with(region_id: eve_region_id_to_remove).and_return(eve_region) }
+    before { expect(Eve::Region).to receive(:find_or_initialize_by).with({region_id: eve_region_id_to_remove}).and_return(eve_region) }
 
     before { expect(eve_region).to receive(:destroy!) }
 
