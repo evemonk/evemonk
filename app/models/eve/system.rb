@@ -14,15 +14,15 @@ module Eve
 
     belongs_to :star, optional: true
 
-    has_many :stargates
+    has_many :stargates # rubocop:disable Rails/HasManyOrHasOneDependent
 
-    has_many :planets
+    has_many :planets # rubocop:disable Rails/HasManyOrHasOneDependent
 
-    has_many :moons
+    has_many :moons # rubocop:disable Rails/HasManyOrHasOneDependent
 
-    has_many :stations
+    has_many :stations # rubocop:disable Rails/HasManyOrHasOneDependent
 
-    has_many :asteroid_belts
+    has_many :asteroid_belts # rubocop:disable Rails/HasManyOrHasOneDependent
 
     has_one :position,
       as: :positionable,
