@@ -22,8 +22,7 @@ module Eve
 
     has_many :characters
 
-    has_many :corporation_alliance_histories,
-      primary_key: "corporation_id"
+    has_many :corporation_alliance_histories
 
     has_many :standings, as: :standingable
 
