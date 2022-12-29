@@ -5,6 +5,8 @@ require "rails_helper"
 describe Eve::System do
   it { should be_an(ApplicationRecord) }
 
+  it { expect(described_class.primary_key).to eq("system_id") }
+
   it { should respond_to(:versions) }
 
   it { expect(described_class).to respond_to(:translates) }
@@ -13,19 +15,19 @@ describe Eve::System do
 
   it { expect(described_class.table_name).to eq("eve_systems") }
 
-  it { should belong_to(:constellation).with_primary_key("constellation_id").optional(true) }
+  it { should belong_to(:constellation).optional(true) }
 
-  it { should belong_to(:star).with_primary_key("star_id").optional(true) }
+  it { should belong_to(:star).optional(true) }
 
-  it { should have_many(:stargates).with_primary_key("system_id") }
+  it { should have_many(:stargates) }
 
-  it { should have_many(:planets).with_primary_key("system_id") }
+  it { should have_many(:planets) }
 
-  it { should have_many(:moons).with_primary_key("system_id") }
+  it { should have_many(:moons) }
 
-  it { should have_many(:stations).with_primary_key("system_id") }
+  it { should have_many(:stations) }
 
-  it { should have_many(:asteroid_belts).with_primary_key("system_id") }
+  it { should have_many(:asteroid_belts) }
 
   it { should have_one(:position).dependent(:destroy) }
 

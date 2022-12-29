@@ -2,18 +2,17 @@
 
 module Eve
   class Constellation < ApplicationRecord
+    self.primary_key = "constellation_id"
+
     extend Mobility
 
     has_paper_trail
 
     translates :name
 
-    belongs_to :region,
-      primary_key: "region_id",
-      optional: true
+    belongs_to :region, optional: true
 
-    has_many :systems,
-      primary_key: "constellation_id"
+    has_many :systems
 
     has_one :position,
       as: :positionable,

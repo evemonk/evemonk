@@ -2,19 +2,17 @@
 
 module Eve
   class Station < ApplicationRecord
+    self.primary_key = "station_id"
+
     has_paper_trail
 
-    belongs_to :race,
-      primary_key: "race_id",
-      optional: true
+    belongs_to :race, optional: true
 
     belongs_to :type,
       primary_key: "type_id",
       optional: true
 
-    belongs_to :system,
-      primary_key: "system_id",
-      optional: true
+    belongs_to :system, optional: true
 
     has_one :position,
       as: :positionable,
