@@ -12,7 +12,7 @@ module Eve
 
     belongs_to :region, optional: true
 
-    has_many :systems
+    has_many :systems # rubocop:disable Rails/HasManyOrHasOneDependent
 
     has_one :position,
       as: :positionable,

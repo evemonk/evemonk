@@ -98,21 +98,21 @@ class Character < ApplicationRecord
 
   has_many :notifications, as: :recipient, dependent: :destroy
 
-  has_many :factions_standings, -> {
+  has_many :factions_standings, -> { # rubocop:disable Rails/HasManyOrHasOneDependent
     joins("LEFT JOIN eve_factions ON standings.standingable_id = eve_factions.id")
       .where(standingable_type: "Eve::Faction")
       .order("eve_factions.name_en": :asc)
       .includes(:standingable)
   }, class_name: "Standing"
 
-  has_many :corporations_standings, -> {
+  has_many :corporations_standings, -> { # rubocop:disable Rails/HasManyOrHasOneDependent
     joins("LEFT JOIN eve_corporations ON standings.standingable_id = eve_corporations.id")
       .where(standingable_type: "Eve::Corporation")
       .order("eve_corporations.name": :asc)
       .includes(:standingable)
   }, class_name: "Standing"
 
-  has_many :agents_standings, -> {
+  has_many :agents_standings, -> { # rubocop:disable Rails/HasManyOrHasOneDependent
     joins("LEFT JOIN eve_agents ON standings.standingable_id = eve_agents.id")
       .where(standingable_type: "Eve::Agent")
       .order("eve_agents.name": :asc)

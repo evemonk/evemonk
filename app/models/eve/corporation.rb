@@ -20,13 +20,15 @@ module Eve
 
     belongs_to :home_station, class_name: "Eve::Station", optional: true
 
-    has_many :characters
+    has_many :agents # rubocop:disable Rails/HasManyOrHasOneDependent
 
-    has_many :corporation_alliance_histories
+    has_many :characters # rubocop:disable Rails/HasManyOrHasOneDependent
 
-    has_many :standings, as: :standingable
+    has_many :corporation_alliance_histories # rubocop:disable Rails/HasManyOrHasOneDependent
 
-    has_many :loyalty_store_offers,
+    has_many :standings, as: :standingable # rubocop:disable Rails/HasManyOrHasOneDependent
+
+    has_many :loyalty_store_offers, # rubocop:disable Rails/HasManyOrHasOneDependent
       primary_key: "corporation_id"
 
     scope :npc, -> { where(npc: true) }

@@ -22,11 +22,11 @@ module Eve
 
     belongs_to :faction, optional: true
 
-    has_many :corporations
+    has_many :corporations # rubocop:disable Rails/HasManyOrHasOneDependent
 
     has_many :characters, through: :corporations
 
-    has_many :corporation_alliance_histories
+    has_many :corporation_alliance_histories # rubocop:disable Rails/HasManyOrHasOneDependent
 
     after_create_commit :reset_corporations_count
 

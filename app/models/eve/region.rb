@@ -10,8 +10,8 @@ module Eve
 
     translates :name, :description
 
-    has_many :constellations
+    has_many :constellations # rubocop:disable Rails/HasManyOrHasOneDependent
 
-    has_many :contracts
+    has_many :contracts # rubocop:disable Rails/HasManyOrHasOneDependent
   end
 end

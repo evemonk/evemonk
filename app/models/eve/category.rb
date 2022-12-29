@@ -8,7 +8,7 @@ module Eve
 
     translates :name
 
-    has_many :groups, primary_key: "category_id"
+    has_many :groups, primary_key: "category_id" # rubocop:disable Rails/HasManyOrHasOneDependent
 
     has_many :types, through: :groups
 
