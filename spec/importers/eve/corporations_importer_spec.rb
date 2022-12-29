@@ -21,11 +21,12 @@ describe Eve::CorporationsImporter do
 
     before do
       #
-      # Eve::Character.pluck(:corporation_id).uniq # => corporation_ids_1
+      # Eve::Character.distinct.pluck(:corporation_id) # => corporation_ids_1
       #
-      expect(Eve::Character).to receive(:pluck).with(:corporation_id) do
+      expect(Eve::Character).to receive(:distinct) do
         double.tap do |a|
-          expect(a).to receive(:uniq).and_return(corporation_ids_1)
+          expect(a).to receive(:pluck).with(:corporation_id)
+            .and_return(corporation_ids_1)
         end
       end
     end
@@ -36,11 +37,12 @@ describe Eve::CorporationsImporter do
 
     before do
       #
-      # Eve::CharacterCorporationHistory.pluck(:corporation_id).uniq # => corporation_ids_2
+      # Eve::CharacterCorporationHistory.distinct.pluck(:corporation_id) # => corporation_ids_2
       #
-      expect(Eve::CharacterCorporationHistory).to receive(:pluck).with(:corporation_id) do
+      expect(Eve::CharacterCorporationHistory).to receive(:distinct) do
         double.tap do |a|
-          expect(a).to receive(:uniq).and_return(corporation_ids_2)
+          expect(a).to receive(:pluck).with(:corporation_id)
+            .and_return(corporation_ids_2)
         end
       end
     end

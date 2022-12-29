@@ -5,9 +5,9 @@ module Eve
     def import
       imported_corporation_ids = Eve::Corporation.pluck(:corporation_id)
 
-      corporation_ids_1 = Eve::Character.pluck(:corporation_id).uniq
+      corporation_ids_1 = Eve::Character.distinct.pluck(:corporation_id)
 
-      corporation_ids_2 = Eve::CharacterCorporationHistory.pluck(:corporation_id).uniq
+      corporation_ids_2 = Eve::CharacterCorporationHistory.distinct.pluck(:corporation_id)
 
       corporation_ids_3 = Eve::Bloodline.pluck(:corporation_id).uniq
 
