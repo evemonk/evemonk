@@ -9,7 +9,7 @@ module Eve
 
       corporation_ids_2 = Eve::CharacterCorporationHistory.distinct.pluck(:corporation_id)
 
-      corporation_ids_3 = Eve::Bloodline.pluck(:corporation_id).uniq
+      corporation_ids_3 = Eve::Bloodline.distinct.pluck(:corporation_id)
 
       # WTF: CCP, how is creator_corporation with id 0?
       # https://esi.evetech.net/latest/alliances/1966049571/?datasource=tranquility

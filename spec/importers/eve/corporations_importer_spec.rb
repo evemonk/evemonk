@@ -53,11 +53,12 @@ describe Eve::CorporationsImporter do
 
     before do
       #
-      # Eve::Bloodline.pluck(:corporation_id).uniq # => corporation_ids_3
+      # Eve::Bloodline.distinct.pluck(:corporation_id) # => corporation_ids_3
       #
-      expect(Eve::Bloodline).to receive(:pluck).with(:corporation_id) do
+      expect(Eve::Bloodline).to receive(:distinct) do
         double.tap do |a|
-          expect(a).to receive(:uniq).and_return(corporation_ids_3)
+          expect(a).to receive(:pluck).with(:corporation_id)
+            .and_return(corporation_ids_3)
         end
       end
     end
