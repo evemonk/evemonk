@@ -12,8 +12,6 @@ module Eve
 
     belongs_to :bloodline, optional: true
 
-    belongs_to :icon,
-      primary_key: "icon_id",
-      optional: true
+    belongs_to :icon, optional: true
   end
 end
