@@ -10,9 +10,7 @@ module Eve
 
     translates :name
 
-    belongs_to :region,
-      primary_key: "region_id",
-      optional: true
+    belongs_to :region, optional: true
 
     has_many :systems
 

@@ -15,7 +15,7 @@ describe Eve::Constellation do
 
   it { expect(described_class.table_name).to eq("eve_constellations") }
 
-  it { should belong_to(:region).with_primary_key("region_id").optional(true) }
+  it { should belong_to(:region).optional(true) }
 
   it { should have_many(:systems) }
 
