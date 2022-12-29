@@ -23,6 +23,8 @@ class Character < ApplicationRecord
     primary_key: "faction_id",
     optional: true
 
+  # TODO: remove this
+  # https://github.com/esi/esi-issues/blob/master/changelog.md#2021-10-21
   belongs_to :ancestry,
     class_name: "Eve::Ancestry",
     primary_key: "ancestry_id",
