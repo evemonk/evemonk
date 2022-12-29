@@ -5,7 +5,6 @@ module Types
     description "Ancestry object"
 
     field :id, ID,
-      method: :ancestry_id,
       description: "Ancestry ID",
       null: false
 
