@@ -6,8 +6,6 @@ module Eve
 
     belongs_to :character
 
-    belongs_to :corporation,
-      class_name: "Eve::Corporation",
-      optional: true
+    belongs_to :corporation, optional: true
   end
 end
