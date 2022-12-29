@@ -12,8 +12,8 @@ module Eve
 
     belongs_to :faction, optional: true
 
-    has_many :bloodlines
+    has_many :bloodlines # rubocop:disable Rails/HasManyOrHasOneDependent
 
-    has_many :stations
+    has_many :stations # rubocop:disable Rails/HasManyOrHasOneDependent
   end
 end

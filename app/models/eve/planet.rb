@@ -12,10 +12,10 @@ module Eve
       primary_key: "type_id",
       optional: true
 
-    has_many :moons,
+    has_many :moons, # rubocop:disable Rails/HasManyOrHasOneDependent
       primary_key: "planet_id"
 
-    has_many :asteroid_belts,
+    has_many :asteroid_belts, # rubocop:disable Rails/HasManyOrHasOneDependent
       primary_key: "planet_id"
 
     has_one :position,

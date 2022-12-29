@@ -25,9 +25,9 @@ module Eve
       foreign_key: "solar_system_id",
       optional: true
 
-    has_many :alliances
+    has_many :alliances # rubocop:disable Rails/HasManyOrHasOneDependent
 
-    has_many :standings, as: :standingable
+    has_many :standings, as: :standingable # rubocop:disable Rails/HasManyOrHasOneDependent
 
     def icon_tiny
       corporations_logo_url(32)
