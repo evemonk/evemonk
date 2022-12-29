@@ -16,7 +16,7 @@ module Eve
       corporation_ids_4 = Eve::Alliance.where.not(creator_corporation_id: 0)
         .pluck(:creator_corporation_id).uniq
 
-      corporation_ids_5 = Eve::Alliance.pluck(:executor_corporation_id).uniq
+      corporation_ids_5 = Eve::Alliance.distinct.pluck(:executor_corporation_id)
 
       corporation_ids_6 = Eve::CorporationAllianceHistory.pluck(:corporation_id).uniq
 

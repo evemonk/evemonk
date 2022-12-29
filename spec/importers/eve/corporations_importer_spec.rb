@@ -93,11 +93,12 @@ describe Eve::CorporationsImporter do
 
     before do
       #
-      # Eve::Alliance.pluck(:executor_corporation_id).uniq # => corporation_ids_5
+      # Eve::Alliance.distinct.pluck(:executor_corporation_id) # => corporation_ids_5
       #
-      expect(Eve::Alliance).to receive(:pluck).with(:executor_corporation_id) do
+      expect(Eve::Alliance).to receive(:distinct) do
         double.tap do |a|
-          expect(a).to receive(:uniq).and_return(corporation_ids_5)
+          expect(a).to receive(:pluck).with(:executor_corporation_id)
+            .and_return(corporation_ids_5)
         end
       end
     end
