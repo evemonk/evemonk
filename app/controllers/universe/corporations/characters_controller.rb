@@ -6,8 +6,7 @@ module Universe
       skip_before_action :authenticate_user!
 
       def index
-        @corporation = ::Eve::Corporation
-          .find_by!(corporation_id: params[:corporation_id])
+        @corporation = ::Eve::Corporation.find(params[:corporation_id])
 
         @characters = ::Eve::Character
           .where(corporation: @corporation)
