@@ -1,0 +1,24 @@
+name: Active Record Doctor
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  schedule:
+    - cron: "0 21 * * 6"
+
+jobs:
+  active_record_doctor:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+      - name: Active Record Doctor
+        run: bundle exec rake active_record_doctor
