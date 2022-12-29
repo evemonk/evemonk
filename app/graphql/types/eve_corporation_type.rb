@@ -5,7 +5,6 @@ module Types
     description "Corporation object"
 
     field :id, ID,
-      method: :corporation_id,
       description: "Corporation ID",
       null: false
 
