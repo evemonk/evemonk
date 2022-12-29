@@ -5,7 +5,6 @@ module Types
     description "Station object"
 
     field :id, ID,
-      method: :station_id,
       description: "Station ID",
       null: false
 

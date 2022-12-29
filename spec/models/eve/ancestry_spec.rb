@@ -5,6 +5,8 @@ require "rails_helper"
 describe Eve::Ancestry do
   it { should be_an(ApplicationRecord) }
 
+  it { expect(described_class.primary_key).to eq("ancestry_id") }
+
   it { should respond_to(:versions) }
 
   it { expect(described_class).to respond_to(:translates) }
@@ -15,5 +17,5 @@ describe Eve::Ancestry do
 
   it { should belong_to(:bloodline).optional(true) }
 
-  it { should belong_to(:icon).with_primary_key("icon_id").optional(true) }
+  it { should belong_to(:icon).optional(true) }
 end

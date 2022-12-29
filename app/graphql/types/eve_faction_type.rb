@@ -5,7 +5,6 @@ module Types
     description "Faction object"
 
     field :id, ID,
-      method: :faction_id,
       description: "Faction ID",
       null: false
 

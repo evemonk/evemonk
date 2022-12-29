@@ -5,7 +5,6 @@ module Types
     description "Icon object"
 
     field :id, ID,
-      method: :icon_id,
       description: "Icon ID",
       null: false
 

@@ -5,7 +5,6 @@ module Types
     description "Bloodline object"
 
     field :id, ID,
-      method: :bloodline_id,
       description: "Bloodline ID",
       null: false
 

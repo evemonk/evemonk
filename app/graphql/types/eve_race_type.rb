@@ -5,7 +5,6 @@ module Types
     description "Race object"
 
     field :id, ID,
-      method: :race_id,
       description: "Race ID",
       null: false
 

@@ -5,7 +5,6 @@ module Types
     description "Star object"
 
     field :id, ID,
-      method: :star_id,
       description: "Star ID",
       null: false
 

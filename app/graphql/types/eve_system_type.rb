@@ -5,7 +5,6 @@ module Types
     description "System object"
 
     field :id, ID,
-      method: :system_id,
       description: "System ID",
       null: false
 

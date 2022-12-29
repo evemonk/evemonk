@@ -2,6 +2,8 @@
 
 module Eve
   class Icon < ApplicationRecord
+    self.primary_key = "icon_id"
+
     has_paper_trail
 
     def icon_url
