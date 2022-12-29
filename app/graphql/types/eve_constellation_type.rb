@@ -5,7 +5,6 @@ module Types
     description "Constellation object"
 
     field :id, ID,
-      method: :constellation_id,
       description: "Constellation ID",
       null: false
 
