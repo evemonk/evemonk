@@ -16,9 +16,7 @@ module Eve
 
     belongs_to :creator, class_name: "Eve::Character", optional: true
 
-    belongs_to :faction,
-      primary_key: "faction_id",
-      optional: true
+    belongs_to :faction, optional: true
 
     belongs_to :home_station,
       class_name: "Eve::Station",

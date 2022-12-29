@@ -23,7 +23,7 @@ describe Eve::Corporation do
 
   it { should belong_to(:creator).class_name("Eve::Character").optional(true) }
 
-  it { should belong_to(:faction).with_primary_key("faction_id").optional(true) }
+  it { should belong_to(:faction).optional(true) }
 
   it { should belong_to(:home_station).class_name("Eve::Station").with_primary_key("station_id").with_foreign_key("home_station_id").optional(true) }
 
