@@ -26,7 +26,7 @@ module Eve
       corporation_ids_8 = Eve::Faction.where.not(militia_corporation_id: nil)
         .pluck(:militia_corporation_id).uniq
 
-      corporation_ids_9 = ::Character.pluck(:corporation_id).uniq
+      corporation_ids_9 = ::Character.distinct.pluck(:corporation_id)
 
       new_corporation_ids = (corporation_ids_1 + corporation_ids_2 +
         corporation_ids_3 + corporation_ids_4 + corporation_ids_5 +

@@ -171,11 +171,12 @@ describe Eve::CorporationsImporter do
 
     before do
       #
-      # Character.pluck(:corporation_id).uniq # => corporation_ids_9
+      # Character.distinct.pluck(:corporation_id) # => corporation_ids_9
       #
-      expect(Character).to receive(:pluck).with(:corporation_id) do
+      expect(Character).to receive(:distinct) do
         double.tap do |a|
-          expect(a).to receive(:uniq).and_return(corporation_ids_9)
+          expect(a).to receive(:pluck).with(:corporation_id)
+            .and_return(corporation_ids_9)
         end
       end
     end
