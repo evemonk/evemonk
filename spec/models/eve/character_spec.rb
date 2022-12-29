@@ -15,13 +15,13 @@ describe Eve::Character do
 
   it { should belong_to(:alliance).optional(true) }
 
-  it { should belong_to(:ancestry).with_primary_key("ancestry_id").optional(true) }
+  it { should belong_to(:ancestry).optional(true) }
 
   it { should belong_to(:bloodline).optional(true) }
 
   it { should belong_to(:corporation).optional(true) }
 
-  it { should belong_to(:faction).with_primary_key("faction_id").optional(true) }
+  it { should belong_to(:faction).optional(true) }
 
   it { should belong_to(:race).optional(true) }
 

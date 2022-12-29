@@ -8,10 +8,7 @@ module Eve
 
     translates :name
 
-    belongs_to :icon,
-      class_name: "Eve::Icon",
-      primary_key: "icon_id",
-      optional: true
+    belongs_to :icon, optional: true
 
     def sanitized_description
       Rails::Html::FullSanitizer.new.sanitize(description)

@@ -5,6 +5,8 @@ require "rails_helper"
 describe Eve::Group do
   it { should be_an(ApplicationRecord) }
 
+  it { expect(described_class.primary_key).to eq("group_id") }
+
   it { should respond_to(:versions) }
 
   it { expect(described_class).to respond_to(:translates) }

@@ -5,7 +5,6 @@ module Types
     description "Category object"
 
     field :id, ID,
-      method: :category_id,
       description: "Category ID",
       null: false
 

@@ -2,6 +2,8 @@
 
 module Eve
   class Group < ApplicationRecord
+    self.primary_key = "group_id"
+
     extend Mobility
 
     has_paper_trail

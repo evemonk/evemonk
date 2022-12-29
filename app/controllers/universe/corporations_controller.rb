@@ -12,8 +12,7 @@ module Universe
     end
 
     def show
-      @corporation = ::Eve::Corporation
-        .find_by!(corporation_id: params[:id])
+      @corporation = ::Eve::Corporation.find(params[:id])
     end
   end
 end

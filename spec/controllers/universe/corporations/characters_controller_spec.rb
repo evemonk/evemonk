@@ -12,10 +12,9 @@ describe Universe::Corporations::CharactersController do
 
     before do
       #
-      # Eve::Corporation
-      #   .find_by!(corporation_id: params[:corporation_id])
+      # Eve::Corporation.find(params[:corporation_id]) # => eve_corporation
       #
-      expect(Eve::Corporation).to receive(:find_by!).with({corporation_id: "1000001"}).and_return(eve_corporation)
+      expect(Eve::Corporation).to receive(:find).with("1000001").and_return(eve_corporation)
     end
 
     before do
