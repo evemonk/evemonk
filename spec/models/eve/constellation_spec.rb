@@ -5,6 +5,8 @@ require "rails_helper"
 describe Eve::Constellation do
   it { should be_an(ApplicationRecord) }
 
+  it { expect(described_class.primary_key).to eq("constellation_id") }
+
   it { should respond_to(:versions) }
 
   it { expect(described_class).to respond_to(:translates) }
@@ -15,7 +17,7 @@ describe Eve::Constellation do
 
   it { should belong_to(:region).with_primary_key("region_id").optional(true) }
 
-  it { should have_many(:systems).with_primary_key("constellation_id") }
+  it { should have_many(:systems) }
 
   it { should have_one(:position).dependent(:destroy) }
 end
