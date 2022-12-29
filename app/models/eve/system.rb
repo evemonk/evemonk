@@ -10,9 +10,7 @@ module Eve
 
     translates :name
 
-    belongs_to :constellation,
-      primary_key: "constellation_id",
-      optional: true
+    belongs_to :constellation, optional: true
 
     belongs_to :star, optional: true
 

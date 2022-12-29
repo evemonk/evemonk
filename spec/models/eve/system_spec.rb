@@ -15,7 +15,7 @@ describe Eve::System do
 
   it { expect(described_class.table_name).to eq("eve_systems") }
 
-  it { should belong_to(:constellation).with_primary_key("constellation_id").optional(true) }
+  it { should belong_to(:constellation).optional(true) }
 
   it { should belong_to(:star).optional(true) }
 
