@@ -13,7 +13,7 @@ describe Eve::CharacterAttribute do
 
   it { expect(described_class.table_name).to eq("eve_character_attributes") }
 
-  it { should belong_to(:icon).class_name("Eve::Icon").with_primary_key("icon_id").optional(true) }
+  it { should belong_to(:icon).optional(true) }
 
   describe "#sanitized_description" do
     subject do
