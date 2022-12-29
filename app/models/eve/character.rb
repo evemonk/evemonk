@@ -11,17 +11,13 @@ module Eve
 
     # TODO: remove this
     # https://github.com/esi/esi-issues/blob/master/changelog.md#2021-10-21
-    belongs_to :ancestry,
-      primary_key: "ancestry_id",
-      optional: true
+    belongs_to :ancestry, optional: true
 
     belongs_to :bloodline, optional: true
 
     belongs_to :corporation, optional: true
 
-    belongs_to :faction,
-      primary_key: "faction_id",
-      optional: true
+    belongs_to :faction, optional: true
 
     belongs_to :race, optional: true
 
