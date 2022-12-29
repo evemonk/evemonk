@@ -14,9 +14,7 @@ module Eve
       primary_key: "constellation_id",
       optional: true
 
-    belongs_to :star,
-      primary_key: "star_id",
-      optional: true
+    belongs_to :star, optional: true
 
     has_many :stargates
 

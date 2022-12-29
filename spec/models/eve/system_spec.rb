@@ -17,7 +17,7 @@ describe Eve::System do
 
   it { should belong_to(:constellation).with_primary_key("constellation_id").optional(true) }
 
-  it { should belong_to(:star).with_primary_key("star_id").optional(true) }
+  it { should belong_to(:star).optional(true) }
 
   it { should have_many(:stargates) }
 
