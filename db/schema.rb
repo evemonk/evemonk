@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_17_213629) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_29_213736) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_buffercache"
   enable_extension "pg_trgm"
@@ -1100,7 +1100,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_17_213629) do
     t.index ["from_id"], name: "index_standings_on_from_id"
   end
 
-  create_table "users", id: :serial, force: :cascade do |t|
+  create_table "users", force: :cascade do |t|
     t.string "email"
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
