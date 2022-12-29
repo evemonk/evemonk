@@ -5,6 +5,8 @@ require "rails_helper"
 describe Eve::Category do
   it { should be_an(ApplicationRecord) }
 
+  it { expect(described_class.primary_key).to eq("category_id") }
+
   it { should respond_to(:versions) }
 
   it { expect(described_class).to respond_to(:translates) }
@@ -13,7 +15,7 @@ describe Eve::Category do
 
   it { expect(described_class.table_name).to eq("eve_categories") }
 
-  it { should have_many(:groups).with_primary_key("category_id") }
+  it { should have_many(:groups) }
 
   it { should have_many(:types).through(:groups) }
 
