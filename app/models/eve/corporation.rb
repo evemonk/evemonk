@@ -24,8 +24,7 @@ module Eve
       foreign_key: "home_station_id",
       optional: true
 
-    has_many :characters,
-      primary_key: "corporation_id"
+    has_many :characters
 
     has_many :corporation_alliance_histories,
       primary_key: "corporation_id"
