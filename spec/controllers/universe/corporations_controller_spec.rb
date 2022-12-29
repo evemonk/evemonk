@@ -35,10 +35,9 @@ describe Universe::CorporationsController do
   describe "#show" do
     before do
       #
-      # Eve::Corporation
-      #   .find_by!(corporation_id: params[:id])
+      # Eve::Corporation.find(params[:id])
       #
-      expect(Eve::Corporation).to receive(:find_by!).with({corporation_id: "1000001"})
+      expect(Eve::Corporation).to receive(:find).with("1000001")
     end
 
     before { get :show, params: {id: "1000001"} }
