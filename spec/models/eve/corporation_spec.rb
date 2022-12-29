@@ -27,6 +27,8 @@ describe Eve::Corporation do
 
   it { should belong_to(:home_station).class_name("Eve::Station").optional(true) }
 
+  it { should have_many(:agents) }
+
   it { should have_many(:characters) }
 
   it { should have_many(:corporation_alliance_histories) }

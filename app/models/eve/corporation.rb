@@ -20,6 +20,8 @@ module Eve
 
     belongs_to :home_station, class_name: "Eve::Station", optional: true
 
+    has_many :agents # rubocop:disable Rails/HasManyOrHasOneDependent
+
     has_many :characters # rubocop:disable Rails/HasManyOrHasOneDependent
 
     has_many :corporation_alliance_histories # rubocop:disable Rails/HasManyOrHasOneDependent
