@@ -27,8 +27,6 @@ module Eve
       foreign_key: "type_id",
       optional: true
 
-    has_one :position,
-      as: :positionable,
-      dependent: :destroy
+    has_one :position, as: :positionable, dependent: :destroy
   end
 end
