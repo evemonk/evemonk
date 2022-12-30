@@ -13,7 +13,7 @@ describe Eve::Stargate do
 
   it { should belong_to(:destination_stargate).class_name("Eve::Stargate").with_primary_key("stargate_id").with_foreign_key("destination_stargate_id").optional(true) }
 
-  it { should belong_to(:destination_system).class_name("Eve::System").with_primary_key("system_id").with_foreign_key("destination_system_id").optional(true) }
+  it { should belong_to(:destination_system).class_name("Eve::System").optional(true) }
 
   it { should belong_to(:type).optional(true) }
 
