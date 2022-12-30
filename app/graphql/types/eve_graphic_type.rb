@@ -5,7 +5,6 @@ module Types
     description "Graphic object"
 
     field :id, ID,
-      method: :graphic_id,
       description: "Graphic ID",
       null: false
 
