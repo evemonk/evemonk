@@ -2,6 +2,8 @@
 
 module Eve
   class Type < ApplicationRecord
+    self.primary_key = "type_id"
+
     include PgSearch::Model
     include ActionView::Helpers::NumberHelper
     include Imageable
@@ -19,25 +21,18 @@ module Eve
       primary_key: "graphic_id",
       optional: true
 
-    belongs_to :group,
-      primary_key: "group_id",
-      optional: true
+    belongs_to :group, optional: true
 
-    belongs_to :icon,
-      primary_key: "icon_id",
-      optional: true
+    belongs_to :icon, optional: true
 
-    belongs_to :market_group,
-      primary_key: "market_group_id",
-      optional: true
+    belongs_to :market_group, optional: true
 
     has_many :type_dogma_attributes,
       primary_key: "type_id",
       foreign_key: "type_id",
       dependent: :destroy
 
-    has_many :dogma_attributes,
-      through: :type_dogma_attributes
+    has_many :dogma_attributes, through: :type_dogma_attributes
 
     # TODO: import
     has_many :type_dogma_effects,

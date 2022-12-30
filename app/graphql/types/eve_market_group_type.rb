@@ -5,7 +5,6 @@ module Types
     description "MarketGroup object"
 
     field :id, ID,
-      method: :market_group_id,
       description: "MarketGroup ID",
       null: false
 

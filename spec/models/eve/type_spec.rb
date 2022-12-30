@@ -5,6 +5,8 @@ require "rails_helper"
 describe Eve::Type do
   it { should be_an(ApplicationRecord) }
 
+  it { expect(described_class.primary_key).to eq("type_id") }
+
   it { should be_a(PgSearch::Model) }
 
   it { should be_an(ActionView::Helpers::NumberHelper) }
@@ -25,11 +27,11 @@ describe Eve::Type do
 
   it { should belong_to(:graphic).with_primary_key("graphic_id").optional(true) }
 
-  it { should belong_to(:group).with_primary_key("group_id").optional(true) }
+  it { should belong_to(:group).optional(true) }
 
-  it { should belong_to(:icon).with_primary_key("icon_id").optional(true) }
+  it { should belong_to(:icon).optional(true) }
 
-  it { should belong_to(:market_group).with_primary_key("market_group_id").optional(true) }
+  it { should belong_to(:market_group).optional(true) }
 
   it { should have_many(:type_dogma_attributes).with_primary_key("type_id").with_foreign_key("type_id").dependent(:destroy) }
 

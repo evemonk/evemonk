@@ -28,9 +28,9 @@ module Eve
 
     has_many :standings, as: :standingable # rubocop:disable Rails/HasManyOrHasOneDependent
 
-    has_many :loyalty_store_offers, # rubocop:disable Rails/HasManyOrHasOneDependent
-      primary_key: "corporation_id"
+    has_many :loyalty_store_offers # rubocop:disable Rails/HasManyOrHasOneDependent
 
+    # TODO: import loyalty store offer for all npc corporations
     scope :npc, -> { where(npc: true) }
 
     scope :not_npc, -> { where(npc: false) }

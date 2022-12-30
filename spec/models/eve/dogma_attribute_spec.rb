@@ -7,7 +7,7 @@ describe Eve::DogmaAttribute do
 
   it { should belong_to(:unit).optional(true) }
 
-  it { should belong_to(:icon).with_primary_key("icon_id").optional(true) }
+  it { should belong_to(:icon).optional(true) }
 
   describe ".published" do
     let!(:eve_dogma_attribute_1) { create(:eve_dogma_attribute, published: false) }

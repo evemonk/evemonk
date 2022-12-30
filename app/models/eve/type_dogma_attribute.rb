@@ -27,7 +27,7 @@ module Eve
       when "Level"
         "Level #{value.to_i}"
       when "Volume"
-        "#{value.to_i} &#13221;".html_safe
+        "#{value.to_i} &#13221;".html_safe # rubocop:disable Rails/OutputSafety
       when "Hitpoints"
         "#{number_with_delimiter(value.to_i, delimiter: " ")} HP"
       when "Mass"
