@@ -10,15 +10,9 @@ module Eve
 
     translates :name, :description
 
-    belongs_to :parent_group,
-      class_name: "Eve::MarketGroup",
-      primary_key: "market_group_id",
-      foreign_key: "parent_group_id",
-      optional: true
+    belongs_to :parent_group, class_name: "Eve::MarketGroup", optional: true
 
-    belongs_to :icon,
-      primary_key: "icon_id",
-      optional: true
+    belongs_to :icon, optional: true
 
     has_many :types # rubocop:disable Rails/HasManyOrHasOneDependent
 
