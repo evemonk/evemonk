@@ -30,6 +30,7 @@ module Eve
 
     has_many :loyalty_store_offers # rubocop:disable Rails/HasManyOrHasOneDependent
 
+    # TODO: import loyalty store offer for all npc corporations
     scope :npc, -> { where(npc: true) }
 
     scope :not_npc, -> { where(npc: false) }
