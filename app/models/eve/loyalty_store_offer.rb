@@ -2,13 +2,9 @@
 
 module Eve
   class LoyaltyStoreOffer < ApplicationRecord
-    belongs_to :corporation,
-      primary_key: "corporation_id",
-      optional: true
+    belongs_to :corporation, optional: true
 
-    belongs_to :type,
-      primary_key: "type_id",
-      optional: true
+    belongs_to :type, optional: true
 
     has_many :required_items,
       foreign_key: "eve_loyalty_store_offer_id",
