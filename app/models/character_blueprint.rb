@@ -11,6 +11,7 @@ class CharacterBlueprint < ApplicationRecord
 
   belongs_to :blueprint,
     class_name: "Eve::Blueprint",
+    # TODO: rename character_blueprints.type_id field to blueprint_id?
     foreign_key: "type_id",
     optional: true
 
