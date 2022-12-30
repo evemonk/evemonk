@@ -20,6 +20,8 @@ class CharactersController < ApplicationController
     UpdateCharacterInfoService.new(@character.character_id).execute
 
     respond_to do |format|
+      # t('product_price', price: @product.price)
+      # product_price: "$%{price}"
       format.turbo_stream { flash.now[:notice] = "Character &laquo;#{@character.name}&raquo; scheduled to update. Check it later." }
       format.html { redirect_to character_path(@character.character_id) }
     end
@@ -31,8 +33,8 @@ class CharactersController < ApplicationController
     @character.destroy!
 
     respond_to do |format|
-      format.turbo_stream { flash.now[:notice] = "Character was successfully removed." }
-      format.html { redirect_to characters_path, status: :see_other, notice: "Character was successfully removed." }
+      format.turbo_stream { flash.now[:notice] = t(".successful") }
+      format.html { redirect_to characters_path, status: :see_other, notice: t(".successful") }
     end
   end
 end

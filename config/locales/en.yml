@@ -70,3 +70,5 @@ en:
     index:
       remove_character: "Remove character"
       removing_character: "Removing..."
+    destroy:
+      successful: "Character was successfully removed."
