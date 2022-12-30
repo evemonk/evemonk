@@ -9,7 +9,7 @@ describe Eve::Stargate do
 
   it { expect(described_class.table_name).to eq("eve_stargates") }
 
-  it { should belong_to(:system).with_primary_key("system_id").optional(true) }
+  it { should belong_to(:system).optional(true) }
 
   it { should belong_to(:destination_stargate).class_name("Eve::Stargate").with_primary_key("stargate_id").with_foreign_key("destination_stargate_id").optional(true) }
 

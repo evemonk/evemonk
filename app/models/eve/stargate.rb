@@ -4,9 +4,7 @@ module Eve
   class Stargate < ApplicationRecord
     has_paper_trail
 
-    belongs_to :system,
-      primary_key: "system_id",
-      optional: true
+    belongs_to :system, optional: true
 
     belongs_to :destination_stargate,
       class_name: "Eve::Stargate",
