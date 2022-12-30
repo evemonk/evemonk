@@ -70,7 +70,7 @@ en:
         bad_gateway: "Bad Gateway (502). Please, try again later."
         timeout: "Timeout Error. Please, try again later."
         show:
-          successful_html: "Character &laquo;%{name}&raquo; successful added."
+          successful: "Character &laquo;%{name}&raquo; successful added."
   welcome:
     index:
       alliances_html: "<u>A</u>lliances"
@@ -80,6 +80,6 @@ en:
       remove_character: "Remove character"
       removing_character: "Removing..."
     update:
-      successful_html: "Character &laquo;%{name}&raquo; scheduled to update. Check it later."
+      successful: "Character &laquo;%{name}&raquo; scheduled to update. Check it later."
     destroy:
       successful: "Character was successfully removed."

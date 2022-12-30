@@ -16,7 +16,7 @@ module Auth
 
         service.save!
 
-        redirect_to characters_path, notice: t(".successful_html", name: service.name)
+        redirect_to characters_path, notice: t(".successful", name: service.name)
       end
 
       private

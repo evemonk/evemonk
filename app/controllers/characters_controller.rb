@@ -20,7 +20,7 @@ class CharactersController < ApplicationController
     UpdateCharacterInfoService.new(@character.character_id).execute
 
     respond_to do |format|
-      format.turbo_stream { flash.now[:notice] = t(".successful_html", name: @character.name) }
+      format.turbo_stream { flash.now[:notice] = t(".successful", name: @character.name) }
       format.html { redirect_to character_path(@character.character_id) }
     end
   end
