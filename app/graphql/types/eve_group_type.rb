@@ -5,7 +5,6 @@ module Types
     description "Group object"
 
     field :id, ID,
-      method: :group_id,
       description: "Group ID",
       null: false
 
