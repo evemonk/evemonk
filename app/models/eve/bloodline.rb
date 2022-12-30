@@ -14,11 +14,7 @@ module Eve
 
     belongs_to :race, optional: true
 
-    belongs_to :ship_type,
-      class_name: "Eve::Ship",
-      foreign_key: "ship_type_id",
-      primary_key: "type_id",
-      optional: true
+    belongs_to :ship_type, class_name: "Eve::Ship", optional: true
 
     has_many :ancestries # rubocop:disable Rails/HasManyOrHasOneDependent
   end
