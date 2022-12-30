@@ -31,7 +31,7 @@ describe Eve::Type do
 
   it { should belong_to(:icon).optional(true) }
 
-  it { should belong_to(:market_group).with_primary_key("market_group_id").optional(true) }
+  it { should belong_to(:market_group).optional(true) }
 
   it { should have_many(:type_dogma_attributes).with_primary_key("type_id").with_foreign_key("type_id").dependent(:destroy) }
 
