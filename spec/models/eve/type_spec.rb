@@ -25,7 +25,7 @@ describe Eve::Type do
 
   it { expect(described_class.table_name).to eq("eve_types") }
 
-  it { should belong_to(:graphic).with_primary_key("graphic_id").optional(true) }
+  it { should belong_to(:graphic).optional(true) }
 
   it { should belong_to(:group).optional(true) }
 
