@@ -14,9 +14,7 @@ module Eve
 
     has_many :types # rubocop:disable Rails/HasManyOrHasOneDependent
 
-    has_many :certificates, # rubocop:disable Rails/HasManyOrHasOneDependent
-      primary_key: "group_id",
-      foreign_key: "group_id"
+    has_many :certificates # rubocop:disable Rails/HasManyOrHasOneDependent
 
     scope :published, -> { where(published: true) }
   end
