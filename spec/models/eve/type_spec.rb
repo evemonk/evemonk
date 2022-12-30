@@ -27,7 +27,7 @@ describe Eve::Type do
 
   it { should belong_to(:graphic).with_primary_key("graphic_id").optional(true) }
 
-  it { should belong_to(:group).with_primary_key("group_id").optional(true) }
+  it { should belong_to(:group).optional(true) }
 
   it { should belong_to(:icon).with_primary_key("icon_id").optional(true) }
 

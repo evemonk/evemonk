@@ -21,9 +21,7 @@ module Eve
       primary_key: "graphic_id",
       optional: true
 
-    belongs_to :group,
-      primary_key: "group_id",
-      optional: true
+    belongs_to :group, optional: true
 
     belongs_to :icon,
       primary_key: "icon_id",
