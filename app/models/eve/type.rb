@@ -23,9 +23,7 @@ module Eve
 
     belongs_to :group, optional: true
 
-    belongs_to :icon,
-      primary_key: "icon_id",
-      optional: true
+    belongs_to :icon, optional: true
 
     belongs_to :market_group,
       primary_key: "market_group_id",

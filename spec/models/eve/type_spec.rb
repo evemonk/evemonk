@@ -29,7 +29,7 @@ describe Eve::Type do
 
   it { should belong_to(:group).optional(true) }
 
-  it { should belong_to(:icon).with_primary_key("icon_id").optional(true) }
+  it { should belong_to(:icon).optional(true) }
 
   it { should belong_to(:market_group).with_primary_key("market_group_id").optional(true) }
 
