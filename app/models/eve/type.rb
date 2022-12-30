@@ -2,6 +2,8 @@
 
 module Eve
   class Type < ApplicationRecord
+    self.primary_key = "type_id"
+
     include PgSearch::Model
     include ActionView::Helpers::NumberHelper
     include Imageable
@@ -36,8 +38,7 @@ module Eve
       foreign_key: "type_id",
       dependent: :destroy
 
-    has_many :dogma_attributes,
-      through: :type_dogma_attributes
+    has_many :dogma_attributes, through: :type_dogma_attributes
 
     # TODO: import
     has_many :type_dogma_effects,
