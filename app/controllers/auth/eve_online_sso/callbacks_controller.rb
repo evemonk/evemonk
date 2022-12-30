@@ -16,8 +16,7 @@ module Auth
 
         service.save!
 
-        # TODO: add notice: "Successful added Character"
-        redirect_to characters_path
+        redirect_to characters_path, notice: t(".successful_html", name: service.name)
       end
 
       private

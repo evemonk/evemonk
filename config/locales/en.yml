@@ -69,6 +69,8 @@ en:
         internal_server_error: "Internal Server Error (500). Please, try again later."
         bad_gateway: "Bad Gateway (502). Please, try again later."
         timeout: "Timeout Error. Please, try again later."
+        show:
+          successful_html: "Character &laquo;%{name}&raquo; successful added."
   welcome:
     index:
       alliances_html: "<u>A</u>lliances"

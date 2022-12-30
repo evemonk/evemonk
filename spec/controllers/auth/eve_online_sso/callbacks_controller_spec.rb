@@ -20,7 +20,7 @@ describe Auth::EveOnlineSso::CallbacksController do
 
     before { expect(subject).to receive(:current_user).and_return(user).exactly(4).times }
 
-    let(:service) { instance_double(EveOnlineCallbackService) }
+    let(:service) { instance_double(EveOnlineCallbackService, name: "Green Black") }
 
     before do
       #
@@ -37,6 +37,8 @@ describe Auth::EveOnlineSso::CallbacksController do
       it { should respond_with(:found) }
 
       it { should redirect_to("/characters") }
+
+      it { should set_flash[:notice].to("Character &laquo;Green Black&raquo; successful added.") }
     end
 
     context "when service unavailable" do
