@@ -70,5 +70,7 @@ en:
     index:
       remove_character: "Remove character"
       removing_character: "Removing..."
+    update:
+      successful_html: "Character &laquo;%{name}&raquo; scheduled to update. Check it later."
     destroy:
       successful: "Character was successfully removed."

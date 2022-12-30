@@ -20,9 +20,7 @@ class CharactersController < ApplicationController
     UpdateCharacterInfoService.new(@character.character_id).execute
 
     respond_to do |format|
-      # t('product_price', price: @product.price)
-      # product_price: "$%{price}"
-      format.turbo_stream { flash.now[:notice] = "Character &laquo;#{@character.name}&raquo; scheduled to update. Check it later." }
+      format.turbo_stream { flash.now[:notice] = t(".successful_html", name: @character.name) }
       format.html { redirect_to character_path(@character.character_id) }
     end
   end
