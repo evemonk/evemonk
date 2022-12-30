@@ -19,7 +19,7 @@ describe Eve::MarketGroup do
 
   it { should belong_to(:icon).with_primary_key("icon_id").optional(true) }
 
-  it { should have_many(:types).with_primary_key("market_group_id").with_foreign_key("market_group_id") }
+  it { should have_many(:types) }
 
   it { should have_many(:subgroups).class_name("Eve::MarketGroup").with_primary_key("market_group_id").with_foreign_key("parent_group_id") }
 

@@ -20,9 +20,7 @@ module Eve
       primary_key: "icon_id",
       optional: true
 
-    has_many :types, # rubocop:disable Rails/HasManyOrHasOneDependent
-      primary_key: "market_group_id",
-      foreign_key: "market_group_id"
+    has_many :types # rubocop:disable Rails/HasManyOrHasOneDependent
 
     has_many :subgroups, # rubocop:disable Rails/HasManyOrHasOneDependent
       class_name: "Eve::MarketGroup",
