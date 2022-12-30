@@ -24,11 +24,7 @@ class Character < ApplicationRecord
 
   belongs_to :current_ship_type, class_name: "Eve::Ship", optional: true
 
-  belongs_to :current_solar_system,
-    class_name: "Eve::System",
-    primary_key: "system_id",
-    foreign_key: "current_solar_system_id",
-    optional: true
+  belongs_to :current_solar_system, class_name: "Eve::System", optional: true
 
   belongs_to :current_station,
     class_name: "Eve::Station",

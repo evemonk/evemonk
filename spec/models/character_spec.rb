@@ -25,7 +25,7 @@ describe Character do
 
   it { should belong_to(:current_ship_type).class_name("Eve::Ship").optional(true) }
 
-  it { should belong_to(:current_solar_system).class_name("Eve::System").with_primary_key("system_id").with_foreign_key("current_solar_system_id").optional(true) }
+  it { should belong_to(:current_solar_system).class_name("Eve::System").optional(true) }
 
   it { should belong_to(:current_station).class_name("Eve::Station").with_primary_key("station_id").with_foreign_key("current_station_id").optional(true) }
 
