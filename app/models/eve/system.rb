@@ -24,9 +24,7 @@ module Eve
 
     has_many :asteroid_belts # rubocop:disable Rails/HasManyOrHasOneDependent
 
-    has_one :position,
-      as: :positionable,
-      dependent: :destroy
+    has_one :position, as: :positionable, dependent: :destroy
 
     def rounded_security_status
       security_status.round(1)
