@@ -16,25 +16,26 @@ module Auth
 
         service.save!
 
+        # TODO: add notice: "Successful added Character"
         redirect_to characters_path
       end
 
       private
 
       def handle_service_unavailable
-        render inline: "Service Unavailable (503). Please, try again later."
+        redirect_to characters_path, alert: "Service Unavailable (503). Please, try again later."
       end
 
       def handle_internal_server_error
-        render inline: "Internal Server Error (500). Please, try again later."
+        redirect_to characters_path, alert: "Internal Server Error (500). Please, try again later."
       end
 
       def handle_bad_gateway
-        render inline: "Bad Gateway (502). Please, try again later."
+        redirect_to characters_path, alert: "Bad Gateway (502). Please, try again later."
       end
 
       def handle_timeout
-        render inline: "Timeout Error. Please, try again later."
+        redirect_to characters_path, alert: "Timeout Error. Please, try again later."
       end
     end
   end

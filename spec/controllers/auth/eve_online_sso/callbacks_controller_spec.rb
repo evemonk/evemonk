@@ -29,38 +29,70 @@ describe Auth::EveOnlineSso::CallbacksController do
       expect(EveOnlineCallbackService).to receive(:new).with(any_args).and_return(service) # TODO: replace `any_args` with real data
     end
 
-    before { expect(service).to receive(:save!) }
+    # before { expect(service).to receive(:save!) }
 
-    before { get :show }
+    # before { get :show }
+    #
+    # it { should respond_with(:found) }
+    #
+    # it { should redirect_to("/characters") }
 
-    it { should respond_with(:found) }
+    context "when successful" do
+      before { expect(service).to receive(:save!) }
 
-    it { should redirect_to("/characters") }
-  end
+      before { get :show }
 
-  # private methods
+      it { should respond_with(:found) }
 
-  describe "#handle_service_unavailable" do
-    before { expect(subject).to receive(:render).with({inline: "Service Unavailable (503). Please, try again later."}) }
+      it { should redirect_to("/characters") }
+    end
 
-    specify { expect { subject.send(:handle_service_unavailable) }.not_to raise_error }
-  end
+    context "when service unavailable" do
+      before { expect(service).to receive(:save!).and_raise(EveOnline::Exceptions::ServiceUnavailable) }
 
-  describe "#handle_internal_server_error" do
-    before { expect(subject).to receive(:render).with({inline: "Internal Server Error (500). Please, try again later."}) }
+      before { get :show }
 
-    specify { expect { subject.send(:handle_internal_server_error) }.not_to raise_error }
-  end
+      it { should respond_with(:found) }
 
-  describe "#handle_bad_gateway" do
-    before { expect(subject).to receive(:render).with({inline: "Bad Gateway (502). Please, try again later."}) }
+      it { should redirect_to("/characters") }
 
-    specify { expect { subject.send(:handle_bad_gateway) }.not_to raise_error }
-  end
+      it { should set_flash[:alert].to("Service Unavailable (503). Please, try again later.") }
+    end
 
-  describe "#handle_timeout" do
-    before { expect(subject).to receive(:render).with({inline: "Timeout Error. Please, try again later."}) }
+    context "when service unavailable" do
+      before { expect(service).to receive(:save!).and_raise(EveOnline::Exceptions::InternalServerError) }
 
-    specify { expect { subject.send(:handle_timeout) }.not_to raise_error }
+      before { get :show }
+
+      it { should respond_with(:found) }
+
+      it { should redirect_to("/characters") }
+
+      it { should set_flash[:alert].to("Internal Server Error (500). Please, try again later.") }
+    end
+
+    context "when bad gateway" do
+      before { expect(service).to receive(:save!).and_raise(EveOnline::Exceptions::BadGateway) }
+
+      before { get :show }
+
+      it { should respond_with(:found) }
+
+      it { should redirect_to("/characters") }
+
+      it { should set_flash[:alert].to("Bad Gateway (502). Please, try again later.") }
+    end
+
+    context "when timeout" do
+      before { expect(service).to receive(:save!).and_raise(EveOnline::Exceptions::Timeout) }
+
+      before { get :show }
+
+      it { should respond_with(:found) }
+
+      it { should redirect_to("/characters") }
+
+      it { should set_flash[:alert].to("Timeout Error. Please, try again later.") }
+    end
   end
 end
