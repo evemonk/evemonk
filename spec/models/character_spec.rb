@@ -27,7 +27,7 @@ describe Character do
 
   it { should belong_to(:current_solar_system).class_name("Eve::System").optional(true) }
 
-  it { should belong_to(:current_station).class_name("Eve::Station").with_primary_key("station_id").with_foreign_key("current_station_id").optional(true) }
+  it { should belong_to(:current_station).class_name("Eve::Station").optional(true) }
 
   it { should have_many(:character_scopes).dependent(:destroy) }
 

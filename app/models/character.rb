@@ -26,11 +26,7 @@ class Character < ApplicationRecord
 
   belongs_to :current_solar_system, class_name: "Eve::System", optional: true
 
-  belongs_to :current_station,
-    class_name: "Eve::Station",
-    primary_key: "station_id",
-    foreign_key: "current_station_id",
-    optional: true
+  belongs_to :current_station, class_name: "Eve::Station", optional: true
 
   # belongs_to :current_structure,
   #  class_name: "Eve::Structure",
