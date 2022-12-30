@@ -21,7 +21,7 @@ describe Eve::MarketGroup do
 
   it { should have_many(:types) }
 
-  it { should have_many(:subgroups).class_name("Eve::MarketGroup").with_primary_key("market_group_id").with_foreign_key("parent_group_id") }
+  it { should have_many(:subgroups).class_name("Eve::MarketGroup").with_foreign_key("parent_group_id") }
 
   describe ".main_groups" do
     let!(:eve_market_group_1) { create(:eve_market_group, parent_group_id: nil) }
