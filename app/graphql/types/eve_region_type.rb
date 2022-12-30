@@ -5,7 +5,6 @@ module Types
     description "Region object"
 
     field :id, ID,
-      method: :region_id,
       description: "Region ID",
       null: false
 
