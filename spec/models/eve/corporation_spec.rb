@@ -35,7 +35,7 @@ describe Eve::Corporation do
 
   it { should have_many(:standings) }
 
-  it { should have_many(:loyalty_store_offers).with_primary_key("corporation_id") }
+  it { should have_many(:loyalty_store_offers) }
 
   it { should have_one_attached(:logo) }
 
