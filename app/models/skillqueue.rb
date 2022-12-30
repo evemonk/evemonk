@@ -5,11 +5,7 @@ class Skillqueue < ApplicationRecord
 
   belongs_to :character
 
-  belongs_to :skill,
-    class_name: "Eve::Type",
-    primary_key: "type_id",
-    foreign_key: "skill_id",
-    optional: true
+  belongs_to :skill, class_name: "Eve::Type", optional: true
 
   def finished_level_formatted
     LEVELS.fetch(finished_level)

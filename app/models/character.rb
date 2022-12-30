@@ -10,47 +10,23 @@ class Character < ApplicationRecord
 
   belongs_to :race, class_name: "Eve::Race", optional: true
 
-  belongs_to :bloodline,
-    class_name: "Eve::Bloodline",
-    primary_key: "bloodline_id",
-    optional: true
+  belongs_to :bloodline, class_name: "Eve::Bloodline", optional: true
 
-  belongs_to :faction,
-    class_name: "Eve::Faction",
-    primary_key: "faction_id",
-    optional: true
+  belongs_to :faction, class_name: "Eve::Faction", optional: true
 
   # TODO: remove this
   # https://github.com/esi/esi-issues/blob/master/changelog.md#2021-10-21
-  belongs_to :ancestry,
-    class_name: "Eve::Ancestry",
-    primary_key: "ancestry_id",
-    optional: true
+  belongs_to :ancestry, class_name: "Eve::Ancestry", optional: true
 
   belongs_to :alliance, class_name: "Eve::Alliance", optional: true
 
-  belongs_to :corporation,
-    class_name: "Eve::Corporation",
-    primary_key: "corporation_id",
-    optional: true
+  belongs_to :corporation, class_name: "Eve::Corporation", optional: true
 
-  belongs_to :current_ship_type,
-    class_name: "Eve::Ship",
-    primary_key: "type_id",
-    foreign_key: "current_ship_type_id",
-    optional: true
+  belongs_to :current_ship_type, class_name: "Eve::Ship", optional: true
 
-  belongs_to :current_solar_system,
-    class_name: "Eve::System",
-    primary_key: "system_id",
-    foreign_key: "current_solar_system_id",
-    optional: true
+  belongs_to :current_solar_system, class_name: "Eve::System", optional: true
 
-  belongs_to :current_station,
-    class_name: "Eve::Station",
-    primary_key: "station_id",
-    foreign_key: "current_station_id",
-    optional: true
+  belongs_to :current_station, class_name: "Eve::Station", optional: true
 
   # belongs_to :current_structure,
   #  class_name: "Eve::Structure",

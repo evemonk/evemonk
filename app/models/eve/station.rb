@@ -8,15 +8,11 @@ module Eve
 
     belongs_to :race, optional: true
 
-    belongs_to :type,
-      primary_key: "type_id",
-      optional: true
+    belongs_to :type, optional: true
 
     belongs_to :system, optional: true
 
-    has_one :position,
-      as: :positionable,
-      dependent: :destroy
+    has_one :position, as: :positionable, dependent: :destroy
 
     # TODO: add this later
     # t.bigint :owner

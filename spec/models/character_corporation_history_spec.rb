@@ -7,5 +7,5 @@ describe CharacterCorporationHistory do
 
   it { should belong_to(:character).with_primary_key("character_id") }
 
-  it { should belong_to(:corporation).class_name("Eve::Corporation").with_primary_key("corporation_id").optional(true) }
+  it { should belong_to(:corporation).class_name("Eve::Corporation").optional(true) }
 end

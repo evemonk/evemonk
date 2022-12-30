@@ -13,7 +13,7 @@ describe Eve::Station do
 
   it { should belong_to(:race).optional(true) }
 
-  it { should belong_to(:type).with_primary_key("type_id").optional(true) }
+  it { should belong_to(:type).optional(true) }
 
   it { should belong_to(:system).optional(true) }
 

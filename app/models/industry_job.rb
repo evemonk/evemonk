@@ -3,17 +3,9 @@
 class IndustryJob < ApplicationRecord
   belongs_to :character
 
-  belongs_to :product_type,
-    class_name: "Eve::Type",
-    primary_key: "type_id",
-    foreign_key: "product_type_id",
-    optional: true
+  belongs_to :product_type, class_name: "Eve::Type", optional: true
 
-  belongs_to :blueprint_type,
-    class_name: "Eve::Type",
-    primary_key: "type_id",
-    foreign_key: "blueprint_type_id",
-    optional: true
+  belongs_to :blueprint_type, class_name: "Eve::Type", optional: true
 end
 
 # create_table "industry_jobs", force: :cascade do |t|

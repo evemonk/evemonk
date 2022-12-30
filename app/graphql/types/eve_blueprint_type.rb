@@ -5,7 +5,6 @@ module Types
     description "Blueprint object"
 
     field :id, ID,
-      method: :type_id,
       description: "Blueprint ID",
       null: false
 

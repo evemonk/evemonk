@@ -17,9 +17,7 @@ module Eve
 
     translates :name, :description
 
-    belongs_to :graphic,
-      primary_key: "graphic_id",
-      optional: true
+    belongs_to :graphic, optional: true
 
     belongs_to :group, optional: true
 
