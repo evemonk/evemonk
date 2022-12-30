@@ -11,7 +11,7 @@ describe Skillqueue do
 
   it { should belong_to(:character) }
 
-  it { should belong_to(:skill).class_name("Eve::Type").with_primary_key("type_id").with_foreign_key("skill_id").optional(true) }
+  it { should belong_to(:skill).class_name("Eve::Type").optional(true) }
 
   describe "#finished_level_formatted" do
     subject { build(:skillqueue, finished_level: 1) }
