@@ -5,7 +5,6 @@ module Types
     description "Type object"
 
     field :id, ID,
-      method: :type_id,
       description: "Type ID",
       null: false
 
