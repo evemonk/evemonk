@@ -15,9 +15,7 @@ module Eve
       foreign_key: "category_id",
       optional: true
 
-    has_many :types, # rubocop:disable Rails/HasManyOrHasOneDependent
-      primary_key: "group_id",
-      foreign_key: "group_id"
+    has_many :types # rubocop:disable Rails/HasManyOrHasOneDependent
 
     has_many :certificates, # rubocop:disable Rails/HasManyOrHasOneDependent
       primary_key: "group_id",
