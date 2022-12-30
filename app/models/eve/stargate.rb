@@ -2,15 +2,13 @@
 
 module Eve
   class Stargate < ApplicationRecord
+    self.primary_key = "stargate_id"
+
     has_paper_trail
 
     belongs_to :system, optional: true
 
-    belongs_to :destination_stargate,
-      class_name: "Eve::Stargate",
-      primary_key: "stargate_id",
-      foreign_key: "destination_stargate_id",
-      optional: true
+    belongs_to :destination_stargate, class_name: "Eve::Stargate", optional: true
 
     belongs_to :destination_system, class_name: "Eve::System", optional: true
 
