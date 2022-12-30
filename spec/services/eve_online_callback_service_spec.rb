@@ -35,6 +35,21 @@ describe EveOnlineCallbackService do
     specify { expect { subject.save! }.not_to raise_error }
   end
 
+  describe "#name" do
+    before do
+      #
+      # request.env.dig("omniauth.auth", "info", "name")
+      #
+      expect(request).to receive(:env) do
+        double.tap do |a|
+          expect(a).to receive(:dig).with("omniauth.auth", "info", "name")
+        end
+      end
+    end
+
+    specify { expect { subject.name }.not_to raise_error }
+  end
+
   # private methods
 
   describe "#character_id" do
@@ -50,21 +65,6 @@ describe EveOnlineCallbackService do
     end
 
     specify { expect { subject.send(:character_id) }.not_to raise_error }
-  end
-
-  describe "#name" do
-    before do
-      #
-      # request.env.dig("omniauth.auth", "info", "name")
-      #
-      expect(request).to receive(:env) do
-        double.tap do |a|
-          expect(a).to receive(:dig).with("omniauth.auth", "info", "name")
-        end
-      end
-    end
-
-    specify { expect { subject.send(:name) }.not_to raise_error }
   end
 
   describe "#access_token" do

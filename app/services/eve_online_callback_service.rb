@@ -24,14 +24,14 @@ class EveOnlineCallbackService
     # import_corporation_members
   end
 
+  def name
+    request.env.dig("omniauth.auth", "info", "name")
+  end
+
   private
 
   def character_id
     request.env.dig("omniauth.auth", "info", "character_id")
-  end
-
-  def name
-    request.env.dig("omniauth.auth", "info", "name")
   end
 
   def access_token

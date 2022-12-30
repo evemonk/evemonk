@@ -5,7 +5,6 @@ module Types
     description "Ship object"
 
     field :id, ID,
-      method: :type_id,
       description: "Ship ID",
       null: false
 
