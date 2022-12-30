@@ -29,14 +29,6 @@ describe Auth::EveOnlineSso::CallbacksController do
       expect(EveOnlineCallbackService).to receive(:new).with(any_args).and_return(service) # TODO: replace `any_args` with real data
     end
 
-    # before { expect(service).to receive(:save!) }
-
-    # before { get :show }
-    #
-    # it { should respond_with(:found) }
-    #
-    # it { should redirect_to("/characters") }
-
     context "when successful" do
       before { expect(service).to receive(:save!) }
 
