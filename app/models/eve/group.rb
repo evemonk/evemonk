@@ -10,10 +10,7 @@ module Eve
 
     translates :name
 
-    belongs_to :category,
-      primary_key: "category_id",
-      foreign_key: "category_id",
-      optional: true
+    belongs_to :category, optional: true
 
     has_many :types # rubocop:disable Rails/HasManyOrHasOneDependent
 
