@@ -23,19 +23,19 @@ module Auth
       private
 
       def handle_service_unavailable
-        redirect_to characters_path, alert: "Service Unavailable (503). Please, try again later."
+        redirect_to characters_path, alert: t(".service_unavailable")
       end
 
       def handle_internal_server_error
-        redirect_to characters_path, alert: "Internal Server Error (500). Please, try again later."
+        redirect_to characters_path, alert: t(".internal_server_error")
       end
 
       def handle_bad_gateway
-        redirect_to characters_path, alert: "Bad Gateway (502). Please, try again later."
+        redirect_to characters_path, alert: t(".bad_gateway")
       end
 
       def handle_timeout
-        redirect_to characters_path, alert: "Timeout Error. Please, try again later."
+        redirect_to characters_path, alert: t(".timeout")
       end
     end
   end

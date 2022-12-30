@@ -62,6 +62,13 @@ en:
       privacy_policy: "Privacy policy"
       terms_of_use: "Terms of use"
       about: "About"
+  auth:
+    eve_online_sso:
+      callbacks:
+        service_unavailable: "Service Unavailable (503). Please, try again later."
+        internal_server_error: "Internal Server Error (500). Please, try again later."
+        bad_gateway: "Bad Gateway (502). Please, try again later."
+        timeout: "Timeout Error. Please, try again later."
   welcome:
     index:
       alliances_html: "<u>A</u>lliances"
