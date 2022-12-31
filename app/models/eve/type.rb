@@ -26,7 +26,6 @@ module Eve
     belongs_to :market_group, optional: true
 
     has_many :type_dogma_attributes,
-      primary_key: "type_id",
       foreign_key: "type_id",
       dependent: :destroy
 

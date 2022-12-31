@@ -33,7 +33,7 @@ describe Eve::Type do
 
   it { should belong_to(:market_group).optional(true) }
 
-  it { should have_many(:type_dogma_attributes).with_primary_key("type_id").with_foreign_key("type_id").dependent(:destroy) }
+  it { should have_many(:type_dogma_attributes).with_foreign_key("type_id").dependent(:destroy) }
 
   it { should have_many(:dogma_attributes).through(:type_dogma_attributes) }
 
