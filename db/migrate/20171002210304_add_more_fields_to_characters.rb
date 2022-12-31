@@ -2,14 +2,16 @@
 
 class AddMoreFieldsToCharacters < ActiveRecord::Migration[5.1]
   def change
-    add_column :characters, :corporation_id, :integer
-    add_column :characters, :birthday, :datetime
-    add_column :characters, :gender, :string
-    add_column :characters, :race_id, :integer
-    add_column :characters, :bloodline_id, :integer
-    add_column :characters, :description, :text
-    add_column :characters, :alliance_id, :integer
-    add_column :characters, :ancestry_id, :integer
-    add_column :characters, :security_status, :decimal, precision: 18, scale: 16
+    change_table :characters, bulk: true do |t|
+      t.integer :corporation_id
+      t.datetime :birthday
+      t.string :gender
+      t.integer :race_id
+      t.integer :bloodline_id
+      t.text :description
+      t.integer :alliance_id
+      t.integer :ancestry_id
+      t.decimal :security_status, precision: 18, scale: 16
+    end
   end
 end
