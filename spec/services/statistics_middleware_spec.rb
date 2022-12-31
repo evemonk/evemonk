@@ -3,7 +3,7 @@
 require "rails_helper"
 
 describe StatisticsMiddleware do
-  [200, 201, 204, 304, 400, 401, 403, 404, 420, 500, 503, 504].each do |status|
+  [200, 201, 204, 304, 400, 401, 403, 404, 420, 500, 502, 503, 504].each do |status|
     describe "when request is #{status}" do
       before { stub_request(:get, "https://esi.evetech.net/v2/status/").to_return(status: status, body: {}.to_json) }
 

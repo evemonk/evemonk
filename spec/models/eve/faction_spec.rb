@@ -19,9 +19,9 @@ describe Eve::Faction do
 
   it { should belong_to(:corporation).optional(true) }
 
-  it { should belong_to(:militia_corporation).class_name("Eve::Corporation").with_primary_key("corporation_id").with_foreign_key("militia_corporation_id").optional(true) }
+  it { should belong_to(:militia_corporation).class_name("Eve::Corporation").optional(true) }
 
-  it { should belong_to(:solar_system).class_name("Eve::System").with_primary_key("system_id").with_foreign_key("solar_system_id").optional(true) }
+  it { should belong_to(:solar_system).class_name("Eve::System").optional(true) }
 
   it { should have_many(:alliances) }
 

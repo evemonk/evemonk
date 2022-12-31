@@ -15,15 +15,9 @@ module Eve
 
     belongs_to :militia_corporation,
       class_name: "Eve::Corporation",
-      primary_key: "corporation_id",
-      foreign_key: "militia_corporation_id",
       optional: true
 
-    belongs_to :solar_system,
-      class_name: "Eve::System",
-      primary_key: "system_id",
-      foreign_key: "solar_system_id",
-      optional: true
+    belongs_to :solar_system, class_name: "Eve::System", optional: true
 
     has_many :alliances # rubocop:disable Rails/HasManyOrHasOneDependent
 

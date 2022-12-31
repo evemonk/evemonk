@@ -30,6 +30,9 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
+  welcome_mailer:
+    email:
+      subject: "Welcome to evemonk.com"
   human_time:
     days:
       one: "%{count} day "

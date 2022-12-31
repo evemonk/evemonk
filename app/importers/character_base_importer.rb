@@ -70,7 +70,7 @@ class CharacterBaseImporter
   end
 
   def configure_esi_token
-    return unless esi.scope.present?
+    return if esi.scope.blank?
 
     esi.token = character.access_token
   end

@@ -2,29 +2,17 @@
 
 module Eve
   class Blueprint < Type
-    has_many :blueprint_invention_materials,
-      primary_key: "type_id",
-      dependent: :destroy
+    has_many :blueprint_invention_materials, dependent: :destroy
 
-    has_many :blueprint_invention_products,
-      primary_key: "type_id",
-      dependent: :destroy
+    has_many :blueprint_invention_products, dependent: :destroy
 
-    has_many :blueprint_invention_skills,
-      primary_key: "type_id",
-      dependent: :destroy
+    has_many :blueprint_invention_skills, dependent: :destroy
 
-    has_many :blueprint_manufacturing_materials,
-      primary_key: "type_id",
-      dependent: :destroy
+    has_many :blueprint_manufacturing_materials, dependent: :destroy
 
-    has_many :blueprint_manufacturing_products,
-      primary_key: "type_id",
-      dependent: :destroy
+    has_many :blueprint_manufacturing_products, dependent: :destroy
 
-    has_many :blueprint_manufacturing_skills,
-      primary_key: "type_id",
-      dependent: :destroy
+    has_many :blueprint_manufacturing_skills, dependent: :destroy
 
     def copying_time_formatted
       HumanTime.new(copying_time).long_formatted
