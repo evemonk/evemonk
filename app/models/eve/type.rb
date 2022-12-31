@@ -30,14 +30,10 @@ module Eve
     has_many :dogma_attributes, through: :type_dogma_attributes
 
     # TODO: import
-    has_many :type_dogma_effects,
-      primary_key: "type_id",
-      foreign_key: "type_id",
-      dependent: :destroy
+    has_many :type_dogma_effects, dependent: :destroy
 
     # TODO: import
-    # has_many :dogma_effects,
-    #   through: :type_dogma_effects
+    # has_many :dogma_effects, through: :type_dogma_effects
 
     scope :published, -> { where(published: true) }
 

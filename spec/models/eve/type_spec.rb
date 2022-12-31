@@ -37,7 +37,7 @@ describe Eve::Type do
 
   it { should have_many(:dogma_attributes).through(:type_dogma_attributes) }
 
-  it { should have_many(:type_dogma_effects).with_primary_key("type_id").with_foreign_key("type_id").dependent(:destroy) }
+  it { should have_many(:type_dogma_effects).dependent(:destroy) }
 
   # it { should have_many(:dogma_effects).through(:type_dogma_effects) }
 
