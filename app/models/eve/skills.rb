@@ -7,11 +7,11 @@ module Eve
 
     class << self
       def science
-        Eve::Type.published.find_by!(type_id: SCIENCE_ID)
+        Eve::Type.published.find(SCIENCE_ID)
       end
 
       def advanced_industry
-        Eve::Type.published.find_by!(type_id: ADVANCED_INDUSTRY_ID)
+        Eve::Type.published.find(ADVANCED_INDUSTRY_ID)
       end
     end
   end
