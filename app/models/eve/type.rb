@@ -35,6 +35,8 @@ module Eve
     # TODO: import
     # has_many :dogma_effects, through: :type_dogma_effects
 
+    has_many :stargates
+
     scope :published, -> { where(published: true) }
 
     scope :blueprints, -> { where(is_blueprint: true) }
