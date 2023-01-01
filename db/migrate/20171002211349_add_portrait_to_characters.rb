@@ -2,9 +2,11 @@
 
 class AddPortraitToCharacters < ActiveRecord::Migration[5.1]
   def change
-    add_column :characters, :portrait_small, :string
-    add_column :characters, :portrait_medium, :string
-    add_column :characters, :portrait_large, :string
-    add_column :characters, :portrait_huge, :string
+    change_table :characters, bulk: true do |t|
+      t.string :portrait_small
+      t.string :portrait_medium
+      t.string :portrait_large
+      t.string :portrait_huge
+    end
   end
 end
