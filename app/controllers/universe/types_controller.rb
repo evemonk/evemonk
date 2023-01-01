@@ -9,7 +9,7 @@ module Universe
         .includes(group: :category,
           type_dogma_attributes: {dogma_attribute: [:unit, :icon]},
           market_group: {parent_group: {parent_group: :parent_group}})
-        .find_by!(type_id: params[:id])
+        .find(params[:id])
     end
   end
 end
