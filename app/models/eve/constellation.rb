@@ -14,8 +14,6 @@ module Eve
 
     has_many :systems # rubocop:disable Rails/HasManyOrHasOneDependent
 
-    has_one :position,
-      as: :positionable,
-      dependent: :destroy
+    has_one :position, as: :positionable, dependent: :destroy
   end
 end
