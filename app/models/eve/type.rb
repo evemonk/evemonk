@@ -35,7 +35,7 @@ module Eve
     # TODO: import
     # has_many :dogma_effects, through: :type_dogma_effects
 
-    has_many :stargates
+    has_many :stargates # rubocop:disable Rails/HasManyOrHasOneDependent
 
     scope :published, -> { where(published: true) }
 
