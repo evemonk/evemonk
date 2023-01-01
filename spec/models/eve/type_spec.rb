@@ -41,6 +41,8 @@ describe Eve::Type do
 
   # it { should have_many(:dogma_effects).through(:type_dogma_effects) }
 
+  it { should have_many(:stargates) }
+
   describe ".published" do
     let!(:eve_type_1) { create(:eve_type, published: false) }
 

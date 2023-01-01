@@ -2,8 +2,8 @@
 
 module Eve
   class BlueprintInventionMaterial < ApplicationRecord
-    belongs_to :blueprint,
-      class_name: "Eve::Blueprint",
-      primary_key: "type_id"
+    belongs_to :blueprint
+
+    belongs_to :type, optional: true
   end
 end

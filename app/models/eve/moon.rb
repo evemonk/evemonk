@@ -2,18 +2,14 @@
 
 module Eve
   class Moon < ApplicationRecord
+    self.primary_key = "moon_id"
+
     has_paper_trail
 
-    belongs_to :system,
-      primary_key: "system_id",
-      optional: true
+    belongs_to :system, optional: true
 
-    belongs_to :planet,
-      primary_key: "planet_id",
-      optional: true
+    belongs_to :planet, optional: true
 
-    has_one :position,
-      as: :positionable,
-      dependent: :destroy
+    has_one :position, as: :positionable, dependent: :destroy
   end
 end
