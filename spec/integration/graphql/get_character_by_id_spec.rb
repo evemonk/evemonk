@@ -18,11 +18,6 @@ describe "Get Character by ID" do
       alliance: eve_alliance)
   end
 
-  let!(:eve_ancestry) do
-    create(:eve_ancestry,
-      ancestry_id: 128)
-  end
-
   let!(:eve_bloodline) do
     create(:eve_bloodline,
       bloodline_id: 512)
@@ -41,7 +36,6 @@ describe "Get Character by ID" do
   let!(:eve_character) do
     create(:eve_character,
       id: 123,
-      ancestry: eve_ancestry,
       birthday: birthday,
       bloodline: eve_bloodline,
       alliance: eve_alliance,
@@ -70,10 +64,6 @@ describe "Get Character by ID" do
           }
           allianceId
           alliance {
-            id
-          }
-          ancestryId
-          ancestry {
             id
           }
           birthday
@@ -120,10 +110,6 @@ describe "Get Character by ID" do
         "allianceId" => 1_111,
         "alliance" => {
           "id" => "1111"
-        },
-        "ancestryId" => 128,
-        "ancestry" => {
-          "id" => "128"
         },
         "birthday" => birthday.iso8601,
         "bloodlineId" => 512,
