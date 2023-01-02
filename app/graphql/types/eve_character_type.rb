@@ -21,14 +21,6 @@ module Types
       description: "Alliance",
       null: true
 
-    field :ancestry_id, Integer,
-      description: "Ancestry ID",
-      null: true
-
-    field :ancestry, Types::EveAncestryType,
-      description: "Ancestry",
-      null: true
-
     field :birthday, GraphQL::Types::ISO8601DateTime,
       description: "Birthday",
       null: true
