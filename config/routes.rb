@@ -36,10 +36,15 @@ Rails.application.routes.draw do
 
     resources :categories, only: [:index, :show]
 
+    resources :implants_and_boosters, only: [:index, :show]
+
     resources :groups, only: :show
 
-    resources :market_groups, only: [:index, :show]
+    resources :market_groups, only: [:index, :show] do
+      resources :items, only: :index, controller: "market_group_items"
+    end
 
+    # TODO: deprecated
     resources :types, only: :show
 
     resources :search, only: :index

@@ -1,0 +1,42 @@
+<div class="row">
+  <div class="col">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><%= link_to("Home", root_path) %></li>
+        <li class="breadcrumb-item active" aria-current="page">Market Groups</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+<div class="row">
+  <% @market_groups.each do |market_group| %>
+    <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+      <div class="card mb-3">
+        <div class="row g-0">
+          <div class="col-md-4 text-center m-auto">
+            <% if market_group.icon&.icon_url&.present? %>
+              <%= image_tag(market_group.icon.icon_url,
+                            alt: market_group.name,
+                            class: "rounded border",
+                            size: "66x66",
+                            loading: "lazy") %>
+            <% end %>
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">
+                <% if market_group.has_types %>
+                  <%= link_to(market_group.name, universe_market_group_items_path(market_group.market_group_id)) %>
+                <% else %>
+                  <%= link_to(market_group.name, universe_market_group_path(market_group.market_group_id)) %>
+                <% end %>
+              </h5>
+              <p class="card-text"><%= market_group.description %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
