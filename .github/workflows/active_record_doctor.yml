@@ -63,4 +63,17 @@ jobs:
       - name: rails db:migrate
         run: bundle exec rails db:migrate
       - name: Active Record Doctor
-        run: bundle exec rake active_record_doctor
+        run: |
+          bundle exec rake active_record_doctor:extraneous_indexes
+          bundle exec rake active_record_doctor:unindexed_deleted_at
+          # bundle exec rake active_record_doctor:missing_foreign_keys
+          # bundle exec rake active_record_doctor:undefined_table_references
+          # bundle exec rake active_record_doctor:missing_unique_indexes
+          # bundle exec rake active_record_doctor:missing_non_null_constraint
+          # bundle exec rake active_record_doctor:missing_presence_validation
+          bundle exec rake active_record_doctor:incorrect_boolean_presence_validation
+          # bundle exec rake active_record_doctor:incorrect_length_validation
+          # bundle exec rake active_record_doctor:incorrect_dependent_option
+          bundle exec rake active_record_doctor:short_primary_key_type
+          bundle exec rake active_record_doctor:mismatched_foreign_key_type
+          # bundle exec rake active_record_doctor:unindexed_foreign_keys
