@@ -2,6 +2,8 @@
 
 module Eve
   class AsteroidBelt < ApplicationRecord
+    self.primary_key = "asteroid_belt_id"
+
     has_paper_trail
 
     belongs_to :system, optional: true
