@@ -31,16 +31,6 @@ describe "Get Characters" do
       alliance: eve_alliance_2)
   end
 
-  let!(:eve_ancestry_1) do
-    create(:eve_ancestry,
-      ancestry_id: 128)
-  end
-
-  let!(:eve_ancestry_2) do
-    create(:eve_ancestry,
-      ancestry_id: 256)
-  end
-
   let!(:eve_bloodline_1) do
     create(:eve_bloodline,
       bloodline_id: 512)
@@ -74,7 +64,6 @@ describe "Get Characters" do
   let!(:eve_character_1) do
     create(:eve_character,
       id: 123,
-      ancestry: eve_ancestry_1,
       birthday: birthday_1,
       bloodline: eve_bloodline_1,
       alliance: eve_alliance_1,
@@ -91,7 +80,6 @@ describe "Get Characters" do
   let!(:eve_character_2) do
     create(:eve_character,
       id: 321,
-      ancestry: eve_ancestry_2,
       birthday: birthday_2,
       bloodline: eve_bloodline_2,
       alliance: eve_alliance_2,
@@ -122,10 +110,6 @@ describe "Get Characters" do
               }
               allianceId
               alliance {
-                id
-              }
-              ancestryId
-              ancestry {
                 id
               }
               birthday
@@ -185,10 +169,6 @@ describe "Get Characters" do
               "alliance" => {
                 "id" => "1111"
               },
-              "ancestryId" => 128,
-              "ancestry" => {
-                "id" => "128"
-              },
               "birthday" => birthday_1.iso8601,
               "bloodlineId" => 512,
               "bloodline" => {
@@ -228,10 +208,6 @@ describe "Get Characters" do
               "allianceId" => 1_222,
               "alliance" => {
                 "id" => "1222"
-              },
-              "ancestryId" => 256,
-              "ancestry" => {
-                "id" => "256"
               },
               "birthday" => birthday_2.iso8601,
               "bloodlineId" => 1_024,

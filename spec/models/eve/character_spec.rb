@@ -15,8 +15,6 @@ describe Eve::Character do
 
   it { should belong_to(:alliance).optional(true) }
 
-  it { should belong_to(:ancestry).optional(true) }
-
   it { should belong_to(:bloodline).optional(true) }
 
   it { should belong_to(:corporation).optional(true) }

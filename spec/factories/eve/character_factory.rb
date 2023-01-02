@@ -4,8 +4,6 @@ FactoryBot.define do
   factory :eve_character, class: "Eve::Character" do
     sequence(:alliance_id)
 
-    sequence(:ancestry_id)
-
     birthday { Time.zone.now }
 
     sequence(:bloodline_id)

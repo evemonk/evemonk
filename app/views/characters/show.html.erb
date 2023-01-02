@@ -52,12 +52,7 @@
                                   universe_alliance_path(@character.alliance)) %>
           </li>
         <% end %>
-        <% if @character.race && @character.bloodline && @character.ancestry %>
-          <li class="list-group-item text-break">
-            <%= @character.race.name %> / <%= @character.bloodline.name %> / <%= @character.ancestry.name %>
-          </li>
-        <% end %>
-        <% if @character.race && @character.bloodline && @character.ancestry.blank? %>
+        <% if @character.race && @character.bloodline %>
           <li class="list-group-item text-break">
             <%= @character.race.name %> / <%= @character.bloodline.name %>
           </li>

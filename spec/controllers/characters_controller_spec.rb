@@ -68,14 +68,14 @@ describe CharactersController do
         #
         # subject.current_user
         #        .characters
-        #        .includes(:race, :bloodline, :ancestry, :faction, :alliance, :corporation, :current_ship_type)
+        #        .includes(:race, :bloodline, :faction, :alliance, :corporation, :current_ship_type)
         #        .find_by!(character_id: params[:id])
         #
         expect(subject).to receive(:current_user) do
           double.tap do |a|
             expect(a).to receive(:characters) do
               double.tap do |b|
-                expect(b).to receive(:includes).with(:race, :bloodline, :ancestry, :faction, :alliance, :corporation, :current_ship_type) do
+                expect(b).to receive(:includes).with(:race, :bloodline, :faction, :alliance, :corporation, :current_ship_type) do
                   double.tap do |c|
                     expect(c).to receive(:find_by!).with(character_id: "1")
                   end
