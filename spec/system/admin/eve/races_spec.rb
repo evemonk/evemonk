@@ -53,7 +53,7 @@ describe "Admin::Eve::Race's features" do
 
           sign_in user
 
-          eve_race = create(:eve_race, id: 1)
+          eve_race = create(:eve_race)
 
           visit admin_eve_race_path(eve_race)
 
@@ -67,7 +67,7 @@ describe "Admin::Eve::Race's features" do
 
           sign_in user
 
-          eve_race = create(:eve_race, id: 1)
+          eve_race = create(:eve_race)
 
           visit admin_eve_race_path(eve_race)
 
@@ -78,7 +78,7 @@ describe "Admin::Eve::Race's features" do
 
     context "when user is not logged in" do
       it "should render page" do
-        eve_race = create(:eve_race, id: 1)
+        eve_race = create(:eve_race)
 
         visit admin_eve_race_path(eve_race)
 

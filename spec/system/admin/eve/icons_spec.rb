@@ -53,7 +53,7 @@ describe "Admin::Eve::Icon's features" do
 
           sign_in user
 
-          eve_icon = create(:eve_icon, id: 1)
+          eve_icon = create(:eve_icon)
 
           visit admin_eve_icon_path(eve_icon)
 
@@ -67,7 +67,7 @@ describe "Admin::Eve::Icon's features" do
 
           sign_in user
 
-          eve_icon = create(:eve_icon, id: 1)
+          eve_icon = create(:eve_icon)
 
           visit admin_eve_icon_path(eve_icon)
 
@@ -78,7 +78,7 @@ describe "Admin::Eve::Icon's features" do
 
     context "when user is not logged in" do
       it "should render page" do
-        eve_icon = create(:eve_icon, id: 1)
+        eve_icon = create(:eve_icon)
 
         visit admin_eve_icon_path(eve_icon)
 

@@ -53,7 +53,7 @@ describe "Admin::Eve::Group's features" do
 
           sign_in user
 
-          eve_group = create(:eve_group, id: 1)
+          eve_group = create(:eve_group)
 
           visit admin_eve_group_path(eve_group)
 
@@ -67,7 +67,7 @@ describe "Admin::Eve::Group's features" do
 
           sign_in user
 
-          eve_group = create(:eve_group, id: 1)
+          eve_group = create(:eve_group)
 
           visit admin_eve_group_path(eve_group)
 
@@ -78,7 +78,7 @@ describe "Admin::Eve::Group's features" do
 
     context "when user is not logged in" do
       it "should render page" do
-        eve_group = create(:eve_group, id: 1)
+        eve_group = create(:eve_group)
 
         visit admin_eve_group_path(eve_group)
 

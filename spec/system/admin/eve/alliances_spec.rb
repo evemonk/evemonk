@@ -53,7 +53,7 @@ describe "Admin::Eve::Alliance's features" do
 
           sign_in user
 
-          eve_alliance = create(:eve_alliance, id: 1)
+          eve_alliance = create(:eve_alliance)
 
           visit admin_eve_alliance_path(eve_alliance)
 
@@ -67,7 +67,7 @@ describe "Admin::Eve::Alliance's features" do
 
           sign_in user
 
-          eve_alliance = create(:eve_alliance, id: 1)
+          eve_alliance = create(:eve_alliance)
 
           visit admin_eve_alliance_path(eve_alliance)
 
@@ -78,7 +78,7 @@ describe "Admin::Eve::Alliance's features" do
 
     context "when user is not logged in" do
       it "should render page" do
-        eve_alliance = create(:eve_alliance, id: 1)
+        eve_alliance = create(:eve_alliance)
 
         visit admin_eve_alliance_path(eve_alliance)
 

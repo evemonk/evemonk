@@ -53,7 +53,7 @@ describe "Admin::Eve::Bloodline's features" do
 
           sign_in user
 
-          eve_bloodline = create(:eve_bloodline, id: 1)
+          eve_bloodline = create(:eve_bloodline)
 
           visit admin_eve_bloodline_path(eve_bloodline)
 
@@ -67,7 +67,7 @@ describe "Admin::Eve::Bloodline's features" do
 
           sign_in user
 
-          eve_bloodline = create(:eve_bloodline, id: 1)
+          eve_bloodline = create(:eve_bloodline)
 
           visit admin_eve_bloodline_path(eve_bloodline)
 
@@ -78,7 +78,7 @@ describe "Admin::Eve::Bloodline's features" do
 
     context "when user is not logged in" do
       it "should render page" do
-        eve_bloodline = create(:eve_bloodline, id: 1)
+        eve_bloodline = create(:eve_bloodline)
 
         visit admin_eve_bloodline_path(eve_bloodline)
 

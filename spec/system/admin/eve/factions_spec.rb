@@ -53,7 +53,7 @@ describe "Admin::Eve::Faction's features" do
 
           sign_in user
 
-          eve_faction = create(:eve_faction, id: 1)
+          eve_faction = create(:eve_faction)
 
           visit admin_eve_faction_path(eve_faction)
 
@@ -67,7 +67,7 @@ describe "Admin::Eve::Faction's features" do
 
           sign_in user
 
-          eve_faction = create(:eve_faction, id: 1)
+          eve_faction = create(:eve_faction)
 
           visit admin_eve_faction_path(eve_faction)
 
@@ -78,7 +78,7 @@ describe "Admin::Eve::Faction's features" do
 
     context "when user is not logged in" do
       it "should render page" do
-        eve_faction = create(:eve_faction, id: 1)
+        eve_faction = create(:eve_faction)
 
         visit admin_eve_faction_path(eve_faction)
 

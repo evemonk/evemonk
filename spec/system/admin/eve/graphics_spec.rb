@@ -53,7 +53,7 @@ describe "Admin::Eve::Graphic's features" do
 
           sign_in user
 
-          eve_graphic = create(:eve_graphic, id: 1)
+          eve_graphic = create(:eve_graphic)
 
           visit admin_eve_graphic_path(eve_graphic)
 
@@ -67,7 +67,7 @@ describe "Admin::Eve::Graphic's features" do
 
           sign_in user
 
-          eve_graphic = create(:eve_graphic, id: 1)
+          eve_graphic = create(:eve_graphic)
 
           visit admin_eve_graphic_path(eve_graphic)
 
@@ -78,7 +78,7 @@ describe "Admin::Eve::Graphic's features" do
 
     context "when user is not logged in" do
       it "should render page" do
-        eve_graphic = create(:eve_graphic, id: 1)
+        eve_graphic = create(:eve_graphic)
 
         visit admin_eve_graphic_path(eve_graphic)
 

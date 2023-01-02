@@ -53,7 +53,7 @@ describe "Admin::Eve::AsteroidBelt's features" do
 
           sign_in user
 
-          eve_asteroid_belt = create(:eve_asteroid_belt, id: 1)
+          eve_asteroid_belt = create(:eve_asteroid_belt)
 
           visit admin_eve_asteroid_belt_path(eve_asteroid_belt)
 
@@ -67,7 +67,7 @@ describe "Admin::Eve::AsteroidBelt's features" do
 
           sign_in user
 
-          eve_asteroid_belt = create(:eve_asteroid_belt, id: 1)
+          eve_asteroid_belt = create(:eve_asteroid_belt)
 
           visit admin_eve_asteroid_belt_path(eve_asteroid_belt)
 
@@ -78,7 +78,7 @@ describe "Admin::Eve::AsteroidBelt's features" do
 
     context "when user is not logged in" do
       it "should render page" do
-        eve_asteroid_belt = create(:eve_asteroid_belt, id: 1)
+        eve_asteroid_belt = create(:eve_asteroid_belt)
 
         visit admin_eve_asteroid_belt_path(eve_asteroid_belt)
 

@@ -53,7 +53,7 @@ describe "Admin::Eve::System's features" do
 
           sign_in user
 
-          eve_system = create(:eve_system, id: 1)
+          eve_system = create(:eve_system)
 
           visit admin_eve_system_path(eve_system)
 
@@ -67,7 +67,7 @@ describe "Admin::Eve::System's features" do
 
           sign_in user
 
-          eve_system = create(:eve_system, id: 1)
+          eve_system = create(:eve_system)
 
           visit admin_eve_system_path(eve_system)
 
@@ -78,7 +78,7 @@ describe "Admin::Eve::System's features" do
 
     context "when user is not logged in" do
       it "should render page" do
-        eve_system = create(:eve_system, id: 1)
+        eve_system = create(:eve_system)
 
         visit admin_eve_system_path(eve_system)
 
