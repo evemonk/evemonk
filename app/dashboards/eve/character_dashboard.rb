@@ -7,7 +7,6 @@ module Eve
     ATTRIBUTE_TYPES = {
       id: Field::Number,
       alliance: Field::BelongsTo,
-      ancestry: Field::BelongsTo,
       birthday: Field::DateTime,
       bloodline: Field::BelongsTo,
       corporation: Field::BelongsTo,
@@ -27,7 +26,6 @@ module Eve
     SHOW_PAGE_ATTRIBUTES = [
       :id,
       :alliance,
-      :ancestry,
       :birthday,
       :bloodline,
       :corporation,
