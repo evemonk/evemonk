@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_29_213736) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_02_170251) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_buffercache"
   enable_extension "pg_trgm"
@@ -196,7 +196,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_29_213736) do
     t.bigint "corporation_id"
     t.bigint "race_id"
     t.bigint "bloodline_id"
-    t.bigint "ancestry_id"
     t.bigint "faction_id"
     t.text "scopes"
     t.string "character_owner_hash"
@@ -217,7 +216,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_29_213736) do
     t.text "esi_last_error"
     t.boolean "online"
     t.index ["alliance_id"], name: "index_characters_on_alliance_id"
-    t.index ["ancestry_id"], name: "index_characters_on_ancestry_id"
     t.index ["bloodline_id"], name: "index_characters_on_bloodline_id"
     t.index ["character_id"], name: "index_characters_on_character_id", unique: true
     t.index ["character_owner_hash"], name: "index_characters_on_character_owner_hash", unique: true
@@ -482,7 +480,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_29_213736) do
 
   create_table "eve_characters", force: :cascade do |t|
     t.bigint "alliance_id"
-    t.bigint "ancestry_id"
     t.datetime "birthday", precision: nil
     t.bigint "bloodline_id"
     t.bigint "corporation_id"
@@ -496,7 +493,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_29_213736) do
     t.datetime "updated_at", precision: nil, null: false
     t.string "title"
     t.index ["alliance_id"], name: "index_eve_characters_on_alliance_id"
-    t.index ["ancestry_id"], name: "index_eve_characters_on_ancestry_id"
     t.index ["bloodline_id"], name: "index_eve_characters_on_bloodline_id"
     t.index ["corporation_id"], name: "index_eve_characters_on_corporation_id"
     t.index ["faction_id"], name: "index_eve_characters_on_faction_id"
