@@ -53,7 +53,7 @@ describe "Admin::Eve::Station's features" do
 
           sign_in user
 
-          eve_station = create(:eve_station, id: 1)
+          eve_station = create(:eve_station)
 
           visit admin_eve_station_path(eve_station)
 
@@ -67,7 +67,7 @@ describe "Admin::Eve::Station's features" do
 
           sign_in user
 
-          eve_station = create(:eve_station, id: 1)
+          eve_station = create(:eve_station)
 
           visit admin_eve_station_path(eve_station)
 
@@ -78,7 +78,7 @@ describe "Admin::Eve::Station's features" do
 
     context "when user is not logged in" do
       it "should render page" do
-        eve_station = create(:eve_station, id: 1)
+        eve_station = create(:eve_station)
 
         visit admin_eve_station_path(eve_station)
 

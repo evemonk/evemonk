@@ -53,7 +53,7 @@ describe "Admin::Eve::Region's features" do
 
           sign_in user
 
-          eve_region = create(:eve_region, id: 1)
+          eve_region = create(:eve_region)
 
           visit admin_eve_region_path(eve_region)
 
@@ -67,7 +67,7 @@ describe "Admin::Eve::Region's features" do
 
           sign_in user
 
-          eve_region = create(:eve_region, id: 1)
+          eve_region = create(:eve_region)
 
           visit admin_eve_region_path(eve_region)
 
@@ -78,7 +78,7 @@ describe "Admin::Eve::Region's features" do
 
     context "when user is not logged in" do
       it "should render page" do
-        eve_region = create(:eve_region, id: 1)
+        eve_region = create(:eve_region)
 
         visit admin_eve_region_path(eve_region)
 

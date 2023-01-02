@@ -53,7 +53,7 @@ describe "Admin::Eve::Category's features" do
 
           sign_in user
 
-          eve_category = create(:eve_category, id: 1)
+          eve_category = create(:eve_category)
 
           visit admin_eve_category_path(eve_category)
 
@@ -67,7 +67,7 @@ describe "Admin::Eve::Category's features" do
 
           sign_in user
 
-          eve_category = create(:eve_category, id: 1)
+          eve_category = create(:eve_category)
 
           visit admin_eve_category_path(eve_category)
 
@@ -78,7 +78,7 @@ describe "Admin::Eve::Category's features" do
 
     context "when user is not logged in" do
       it "should render page" do
-        eve_category = create(:eve_category, id: 1)
+        eve_category = create(:eve_category)
 
         visit admin_eve_category_path(eve_category)
 

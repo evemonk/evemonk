@@ -53,7 +53,7 @@ describe "Admin::Eve::Constellation's features" do
 
           sign_in user
 
-          eve_constellation = create(:eve_constellation, id: 1)
+          eve_constellation = create(:eve_constellation)
 
           visit admin_eve_constellation_path(eve_constellation)
 
@@ -67,7 +67,7 @@ describe "Admin::Eve::Constellation's features" do
 
           sign_in user
 
-          eve_constellation = create(:eve_constellation, id: 1)
+          eve_constellation = create(:eve_constellation)
 
           visit admin_eve_constellation_path(eve_constellation)
 
@@ -78,7 +78,7 @@ describe "Admin::Eve::Constellation's features" do
 
     context "when user is not logged in" do
       it "should render page" do
-        eve_constellation = create(:eve_constellation, id: 1)
+        eve_constellation = create(:eve_constellation)
 
         visit admin_eve_constellation_path(eve_constellation)
 

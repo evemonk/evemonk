@@ -53,7 +53,7 @@ describe "Admin::Eve::Moon's features" do
 
           sign_in user
 
-          eve_moon = create(:eve_moon, id: 1)
+          eve_moon = create(:eve_moon)
 
           visit admin_eve_moon_path(eve_moon)
 
@@ -67,7 +67,7 @@ describe "Admin::Eve::Moon's features" do
 
           sign_in user
 
-          eve_moon = create(:eve_moon, id: 1)
+          eve_moon = create(:eve_moon)
 
           visit admin_eve_moon_path(eve_moon)
 
@@ -78,7 +78,7 @@ describe "Admin::Eve::Moon's features" do
 
     context "when user is not logged in" do
       it "should render page" do
-        eve_moon = create(:eve_moon, id: 1)
+        eve_moon = create(:eve_moon)
 
         visit admin_eve_moon_path(eve_moon)
 

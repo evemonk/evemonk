@@ -53,7 +53,7 @@ describe "Admin::Eve::Planet's features" do
 
           sign_in user
 
-          eve_planet = create(:eve_planet, id: 1)
+          eve_planet = create(:eve_planet)
 
           visit admin_eve_planet_path(eve_planet)
 
@@ -67,7 +67,7 @@ describe "Admin::Eve::Planet's features" do
 
           sign_in user
 
-          eve_planet = create(:eve_planet, id: 1)
+          eve_planet = create(:eve_planet)
 
           visit admin_eve_planet_path(eve_planet)
 
@@ -78,7 +78,7 @@ describe "Admin::Eve::Planet's features" do
 
     context "when user is not logged in" do
       it "should render page" do
-        eve_planet = create(:eve_planet, id: 1)
+        eve_planet = create(:eve_planet)
 
         visit admin_eve_planet_path(eve_planet)
 

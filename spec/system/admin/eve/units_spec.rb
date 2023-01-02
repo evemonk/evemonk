@@ -53,7 +53,7 @@ describe "Admin::Eve::Unit's features" do
 
           sign_in user
 
-          eve_unit = create(:eve_unit, id: 1)
+          eve_unit = create(:eve_unit)
 
           visit admin_eve_unit_path(eve_unit)
 
@@ -67,7 +67,7 @@ describe "Admin::Eve::Unit's features" do
 
           sign_in user
 
-          eve_unit = create(:eve_unit, id: 1)
+          eve_unit = create(:eve_unit)
 
           visit admin_eve_unit_path(eve_unit)
 
@@ -78,7 +78,7 @@ describe "Admin::Eve::Unit's features" do
 
     context "when user is not logged in" do
       it "should render page" do
-        eve_unit = create(:eve_unit, id: 1)
+        eve_unit = create(:eve_unit)
 
         visit admin_eve_unit_path(eve_unit)
 

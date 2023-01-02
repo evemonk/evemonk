@@ -53,7 +53,7 @@ describe "Admin::Eve::Character's features" do
 
           sign_in user
 
-          eve_character = create(:eve_character, id: 1)
+          eve_character = create(:eve_character)
 
           visit admin_eve_character_path(eve_character)
 
@@ -67,7 +67,7 @@ describe "Admin::Eve::Character's features" do
 
           sign_in user
 
-          eve_character = create(:eve_character, id: 1)
+          eve_character = create(:eve_character)
 
           visit admin_eve_character_path(eve_character)
 
@@ -78,7 +78,7 @@ describe "Admin::Eve::Character's features" do
 
     context "when user is not logged in" do
       it "should render page" do
-        eve_character = create(:eve_character, id: 1)
+        eve_character = create(:eve_character)
 
         visit admin_eve_character_path(eve_character)
 

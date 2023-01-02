@@ -53,7 +53,7 @@ describe "Admin::Eve::Stargate's features" do
 
           sign_in user
 
-          eve_stargate = create(:eve_stargate, id: 1)
+          eve_stargate = create(:eve_stargate)
 
           visit admin_eve_stargate_path(eve_stargate)
 
@@ -67,7 +67,7 @@ describe "Admin::Eve::Stargate's features" do
 
           sign_in user
 
-          eve_stargate = create(:eve_stargate, id: 1)
+          eve_stargate = create(:eve_stargate)
 
           visit admin_eve_stargate_path(eve_stargate)
 
@@ -78,7 +78,7 @@ describe "Admin::Eve::Stargate's features" do
 
     context "when user is not logged in" do
       it "should render page" do
-        eve_stargate = create(:eve_stargate, id: 1)
+        eve_stargate = create(:eve_stargate)
 
         visit admin_eve_stargate_path(eve_stargate)
 

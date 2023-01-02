@@ -53,7 +53,7 @@ describe "Admin::Eve::Ancestry's features" do
 
           sign_in user
 
-          eve_ancestry = create(:eve_ancestry, id: 1)
+          eve_ancestry = create(:eve_ancestry)
 
           visit admin_eve_ancestry_path(eve_ancestry)
 
@@ -67,7 +67,7 @@ describe "Admin::Eve::Ancestry's features" do
 
           sign_in user
 
-          eve_ancestry = create(:eve_ancestry, id: 1)
+          eve_ancestry = create(:eve_ancestry)
 
           visit admin_eve_ancestry_path(eve_ancestry)
 
@@ -78,7 +78,7 @@ describe "Admin::Eve::Ancestry's features" do
 
     context "when user is not logged in" do
       it "should render page" do
-        eve_ancestry = create(:eve_ancestry, id: 1)
+        eve_ancestry = create(:eve_ancestry)
 
         visit admin_eve_ancestry_path(eve_ancestry)
 

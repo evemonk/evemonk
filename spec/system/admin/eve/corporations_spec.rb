@@ -53,9 +53,7 @@ describe "Admin::Eve::Corporation's features" do
 
           sign_in user
 
-          # eve_corporation = create(:eve_corporation, id: 1)
-          # TODO: cleanup later
-          eve_corporation = create(:eve_corporation, id: 4, corporation_id: 4)
+          eve_corporation = create(:eve_corporation)
 
           visit admin_eve_corporation_path(eve_corporation)
 
@@ -69,7 +67,7 @@ describe "Admin::Eve::Corporation's features" do
 
           sign_in user
 
-          eve_corporation = create(:eve_corporation, id: 1)
+          eve_corporation = create(:eve_corporation)
 
           visit admin_eve_corporation_path(eve_corporation)
 
@@ -80,7 +78,7 @@ describe "Admin::Eve::Corporation's features" do
 
     context "when user is not logged in" do
       it "should render page" do
-        eve_corporation = create(:eve_corporation, id: 1)
+        eve_corporation = create(:eve_corporation)
 
         visit admin_eve_corporation_path(eve_corporation)
 

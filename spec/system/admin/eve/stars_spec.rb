@@ -53,7 +53,7 @@ describe "Admin::Eve::Star's features" do
 
           sign_in user
 
-          eve_star = create(:eve_star, id: 1)
+          eve_star = create(:eve_star)
 
           visit admin_eve_star_path(eve_star)
 
@@ -67,7 +67,7 @@ describe "Admin::Eve::Star's features" do
 
           sign_in user
 
-          eve_star = create(:eve_star, id: 1)
+          eve_star = create(:eve_star)
 
           visit admin_eve_star_path(eve_star)
 
@@ -78,7 +78,7 @@ describe "Admin::Eve::Star's features" do
 
     context "when user is not logged in" do
       it "should render page" do
-        eve_star = create(:eve_star, id: 1)
+        eve_star = create(:eve_star)
 
         visit admin_eve_star_path(eve_star)
 
