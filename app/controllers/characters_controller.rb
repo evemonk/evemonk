@@ -10,7 +10,7 @@ class CharactersController < ApplicationController
 
   def show
     @character = current_user.characters
-      .includes(:race, :bloodline, :ancestry, :faction, :alliance, :corporation, :current_ship_type)
+      .includes(:race, :bloodline, :faction, :alliance, :corporation, :current_ship_type)
       .find_by!(character_id: params[:id])
   end
 
