@@ -17,8 +17,6 @@ describe Character do
 
   it { should belong_to(:faction).class_name("Eve::Faction").optional(true) }
 
-  it { should belong_to(:ancestry).class_name("Eve::Ancestry").optional(true) }
-
   it { should belong_to(:alliance).class_name("Eve::Alliance").optional(true) }
 
   it { should belong_to(:corporation).class_name("Eve::Corporation").optional(true) }

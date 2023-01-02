@@ -14,10 +14,6 @@ class Character < ApplicationRecord
 
   belongs_to :faction, class_name: "Eve::Faction", optional: true
 
-  # TODO: remove this
-  # https://github.com/esi/esi-issues/blob/master/changelog.md#2021-10-21
-  belongs_to :ancestry, class_name: "Eve::Ancestry", optional: true
-
   belongs_to :alliance, class_name: "Eve::Alliance", optional: true
 
   belongs_to :corporation, class_name: "Eve::Corporation", optional: true
