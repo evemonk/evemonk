@@ -52,8 +52,6 @@ FactoryBot.define do
 
     sequence(:bloodline_id)
 
-    sequence(:ancestry_id)
-
     sequence(:faction_id)
 
     # t.text "scopes"
