@@ -56,7 +56,6 @@ describe "Get Certificates" do
     )
   end
 
-
   let(:result) { EvemonkSchema.execute(query).as_json }
 
   specify do
