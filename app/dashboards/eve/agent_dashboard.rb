@@ -6,14 +6,15 @@ module Eve
   class AgentDashboard < Administrate::BaseDashboard
     ATTRIBUTE_TYPES = {
       id: Field::Number,
+      name: Field::String,
       agent_type_id: Field::Number,
-      corporation: Field::BelongsTo.with_options,
+      corporation: Field::BelongsTo,
       division_id: Field::Number,
       is_locator: Field::Boolean,
       level: Field::Number,
+      # TODO: location
       location_id: Field::Number,
       quality: Field::Number,
-      name: Field::String,
       created_at: Field::DateTime,
       updated_at: Field::DateTime
     }.freeze
@@ -22,14 +23,15 @@ module Eve
 
     SHOW_PAGE_ATTRIBUTES = [
       :id,
+      :name,
       :agent_type_id,
       :corporation,
       :division_id,
       :is_locator,
       :level,
+      # :location,
       :location_id,
       :quality,
-      :name,
       :created_at,
       :updated_at
     ].freeze

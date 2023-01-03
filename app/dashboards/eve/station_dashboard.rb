@@ -8,7 +8,7 @@ module Eve
       id: Field::Number,
       name: Field::String,
       system: Field::BelongsTo,
-      type_id: Field::Number, # TODO: add type dashboard
+      type: Field::BelongsTo,
       owner: Field::Number,
       race: Field::BelongsTo,
       max_dockable_ship_volume: Field::Number,
@@ -28,7 +28,7 @@ module Eve
       :id,
       :name,
       :system,
-      :type_id,
+      :type,
       :owner,
       :race,
       :max_dockable_ship_volume,

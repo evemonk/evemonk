@@ -25,6 +25,10 @@ module Types
       description: "Agent Corporation",
       null: true
 
+    field :level, Integer,
+      description: "Level",
+      null: true
+
     # TODO: location -> Eve::Station
 
     # t.bigint "agent_type_id"

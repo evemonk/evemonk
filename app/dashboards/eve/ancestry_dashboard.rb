@@ -19,7 +19,7 @@ module Eve
       description_ja: Field::Text,
       description_ru: Field::Text,
       description_ko: Field::Text,
-      icon_id: Field::Number, # TODO: add later
+      icon: Field::BelongsTo,
       short_description: Field::Text,
       created_at: Field::DateTime,
       updated_at: Field::DateTime
@@ -42,7 +42,7 @@ module Eve
       :description_ja,
       :description_ru,
       :description_ko,
-      :icon_id,
+      :icon,
       :short_description,
       :created_at,
       :updated_at

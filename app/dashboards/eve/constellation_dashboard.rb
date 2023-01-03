@@ -12,7 +12,7 @@ module Eve
       name_ja: Field::String,
       name_ru: Field::String,
       name_ko: Field::String,
-      region: Field::BelongsTo.with_options(class_name: "Eve::Region"),
+      region: Field::BelongsTo,
       created_at: Field::DateTime,
       updated_at: Field::DateTime
     }.freeze
