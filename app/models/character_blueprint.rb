@@ -27,7 +27,7 @@ class CharacterBlueprint < ApplicationRecord
   end
 
   def relic?
-    blueprint&.group&.category_id == Eve::Categories::ANCIENT_RELICS
+    blueprint&.group&.category_id == Eve::Categories::ANCIENT_RELICS_ID
   end
 
   def material_efficiency_formatted

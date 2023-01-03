@@ -60,7 +60,7 @@ describe CharacterBlueprint do
       let!(:eve_group) do
         create(:eve_group,
           group_id: 111,
-          category_id: Eve::Categories::ANCIENT_RELICS)
+          category_id: Eve::Categories::ANCIENT_RELICS_ID)
       end
 
       let!(:eve_type) do
