@@ -12,7 +12,8 @@ describe "Get Agent by ID" do
     create(:eve_agent,
       id: 123,
       name: "Agent 1",
-      corporation_id: 222)
+      corporation_id: 222,
+      level: 5)
   end
 
   let(:query) do
@@ -33,6 +34,7 @@ describe "Get Agent by ID" do
           corporation {
             id
           }
+          level
         }
       }
     )
@@ -56,7 +58,8 @@ describe "Get Agent by ID" do
         "corporationId" => 222,
         "corporation" => {
           "id" => "222"
-        }
+        },
+        "level" => 5
       }
     })
   end

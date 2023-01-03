@@ -12,14 +12,16 @@ describe "Get Agents" do
     create(:eve_agent,
       id: 123,
       name: "Agent 1",
-      corporation_id: nil)
+      corporation_id: nil,
+      level: 1)
   end
 
   let!(:eve_agent_2) do
     create(:eve_agent,
       id: 321,
       name: "Agent 2",
-      corporation_id: 222)
+      corporation_id: 222,
+      level: 5)
   end
 
   let(:query) do
@@ -42,6 +44,7 @@ describe "Get Agents" do
               corporation {
                 id
               }
+              level
             }
             cursor
           }
@@ -75,7 +78,8 @@ describe "Get Agents" do
                 "gigantic" => "https://imageproxy.evemonk.com/https://images.evetech.net/characters/123/portrait?size=1024"
               },
               "corporationId" => nil,
-              "corporation" => nil
+              "corporation" => nil,
+              "level" => 1
             },
             "cursor" => "MQ"
           },
@@ -94,7 +98,8 @@ describe "Get Agents" do
               "corporationId" => 222,
               "corporation" => {
                 "id" => "222"
-              }
+              },
+              "level" => 5
             },
             "cursor" => "Mg"
           }
