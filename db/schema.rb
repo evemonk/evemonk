@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_02_170251) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_03_181712) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_buffercache"
   enable_extension "pg_trgm"
@@ -421,7 +421,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_02_170251) do
     t.index ["category_id"], name: "index_eve_categories_on_category_id", unique: true
   end
 
-  create_table "eve_certificate_recommended_types", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+  create_table "eve_certificate_recommended_types", force: :cascade do |t|
     t.bigint "certificate_id"
     t.bigint "type_id"
     t.datetime "created_at", null: false
@@ -429,9 +429,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_02_170251) do
     t.index ["certificate_id"], name: "index_eve_certificate_recommended_types_on_certificate_id"
   end
 
-  create_table "eve_certificate_skills", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+  create_table "eve_certificate_skills", force: :cascade do |t|
     t.bigint "certificate_id"
-    t.bigint "skill_id"
+    t.bigint "type_id"
     t.integer "level"
     t.integer "skill_level"
     t.datetime "created_at", null: false
@@ -440,13 +440,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_02_170251) do
   end
 
   create_table "eve_certificates", force: :cascade do |t|
-    t.bigint "certificate_id"
     t.text "description"
     t.bigint "group_id"
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["certificate_id"], name: "index_eve_certificates_on_certificate_id", unique: true
   end
 
   create_table "eve_character_attributes", force: :cascade do |t|

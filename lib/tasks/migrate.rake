@@ -28,4 +28,11 @@ namespace :migrate do
       character.update!(id: character.character_id)
     end
   end
+
+  desc "Migrate Eve::Certificate's"
+  task certificates: :environment do
+    Eve::CertificateRecommendedType.destroy_all
+    Eve::CertificateSkill.destroy_all
+    Eve::Certificate.destroy_all
+  end
 end

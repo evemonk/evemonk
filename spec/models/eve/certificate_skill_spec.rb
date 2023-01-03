@@ -9,5 +9,5 @@ describe Eve::CertificateSkill do
 
   it { should belong_to(:certificate) }
 
-  it { should belong_to(:type).with_foreign_key("skill_id").with_primary_key("type_id").optional(true) }
+  it { should belong_to(:type).optional(true) }
 end

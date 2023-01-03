@@ -18,7 +18,7 @@ module Sde
       entries = YAML.safe_load(File.read(file))
 
       entries.each_pair do |key, hash|
-        eve_certificate = Eve::Certificate.find_or_initialize_by(certificate_id: key)
+        eve_certificate = Eve::Certificate.find_or_initialize_by(id: key)
 
         eve_certificate.assign_attributes(description: hash["description"],
           group_id: hash["groupID"],
@@ -32,9 +32,9 @@ module Sde
 
         eve_certificate.certificate_skills.destroy_all
 
-        hash["skillTypes"]&.each_pair do |skill_id, skill_hash|
+        hash["skillTypes"]&.each_pair do |type_id, skill_hash|
           skill_hash.each do |level, value|
-            eve_certificate.certificate_skills.build(skill_id: skill_id,
+            eve_certificate.certificate_skills.build(type_id: type_id,
               level: LEVELS.fetch(level),
               skill_level: value)
           end

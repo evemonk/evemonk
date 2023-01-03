@@ -4,9 +4,6 @@ module Eve
   class CertificateSkill < ApplicationRecord
     belongs_to :certificate
 
-    belongs_to :type,
-      foreign_key: "skill_id",
-      primary_key: "type_id",
-      optional: true
+    belongs_to :type, optional: true
   end
 end

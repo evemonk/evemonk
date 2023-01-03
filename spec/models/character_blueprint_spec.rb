@@ -9,8 +9,6 @@ describe CharacterBlueprint do
 
   it { should be_a(Imageable) }
 
-  it { expect(described_class::RELIC_CATEGORY_ID).to eq(34) }
-
   it { should belong_to(:character) }
 
   it { should belong_to(:blueprint).class_name("Eve::Blueprint").with_foreign_key("type_id").optional(true) }
@@ -62,7 +60,7 @@ describe CharacterBlueprint do
       let!(:eve_group) do
         create(:eve_group,
           group_id: 111,
-          category_id: described_class::RELIC_CATEGORY_ID)
+          category_id: Eve::Categories::ANCIENT_RELICS_ID)
       end
 
       let!(:eve_type) do
