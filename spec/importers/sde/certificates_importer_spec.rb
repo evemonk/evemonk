@@ -105,13 +105,13 @@ describe Sde::CertificatesImporter do
 
     before do
       #
-      # eve_certificate.certificate_skills.build(skill_id: skill_id,
+      # eve_certificate.certificate_skills.build(type_id: type_id,
       #                                          level: LEVELS.fetch(key),
       #                                          skill_level: value)
       #
       expect(eve_certificate).to receive(:certificate_skills) do
         double.tap do |a|
-          expect(a).to receive(:build).with(skill_id: skill_id,
+          expect(a).to receive(:build).with(type_id: type_id,
             level: described_class::LEVELS.fetch(level),
             skill_level: skill_level)
         end
