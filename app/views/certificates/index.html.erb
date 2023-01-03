@@ -103,26 +103,26 @@
                 <div class="row">
                   <div class="col-12">
                     <!-- start another accordion -->
-                    <div class="accordion" id="certificate_accordion_<%= certificate.certificate_id %>">
+                    <div class="accordion" id="certificate_accordion_<%= certificate.id %>">
                       <div class="card">
-                        <div class="card-header" id="heading_certificate_<%= certificate.certificate_id %>">
+                        <div class="card-header" id="heading_certificate_<%= certificate.id %>">
                           <h2 class="mb-0">
                             <button class="btn btn-link btn-dark collapsed"
                                     type="button"
                                     data-bs-toggle="collapse"
-                                    data-bs-target="#certificate_collapse_<%= certificate.certificate_id %>"
+                                    data-bs-target="#certificate_collapse_<%= certificate.id %>"
                                     aria-expanded="true"
-                                    aria-controls="certificate_collapse_<%= certificate.certificate_id %>">
+                                    aria-controls="certificate_collapse_<%= certificate.id %>">
                               <!-- TODO: add icon -->
-                              <%= certificate.name %><!-- <%#= @character_certificates_tree.certificate_level(certificate.certificate_id) %>-->
+                              <%= certificate.name %><!-- <%#= @character_certificates_tree.certificate_level(certificate.id) %>-->
                             </button>
                           </h2>
                         </div>
 
-                        <div id="certificate_collapse_<%= certificate.certificate_id %>"
+                        <div id="certificate_collapse_<%= certificate.id %>"
                              class="collapse"
-                             aria-labelledby="heading_certificate_<%= certificate.certificate_id %>"
-                             data-parent="#certificate_accordion_<%= certificate.certificate_id %>">
+                             aria-labelledby="heading_certificate_<%= certificate.id %>"
+                             data-parent="#certificate_accordion_<%= certificate.id %>">
 <!--                          Hello-->
                           TODO: later...
                         </div>
