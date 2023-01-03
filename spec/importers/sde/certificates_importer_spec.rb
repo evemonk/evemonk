@@ -34,7 +34,7 @@ describe Sde::CertificatesImporter do
 
     let(:name) { double }
 
-    let(:skill_id) { 123 }
+    let(:type_id) { 123 }
 
     let(:level) { "advanced" }
 
@@ -47,7 +47,7 @@ describe Sde::CertificatesImporter do
         "name" => name,
         "recommendedFor" => [123_456],
         "skillTypes" => {
-          skill_id => {
+          type_id => {
             level => skill_level
           }
         }
