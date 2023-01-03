@@ -4,7 +4,7 @@ FactoryBot.define do
   factory :eve_certificate_skill, class: "Eve::CertificateSkill" do
     certificate factory: :eve_certificate
 
-    sequence(:skill_id)
+    sequence(:type_id)
 
     level { (1..5).to_a.sample }
 
