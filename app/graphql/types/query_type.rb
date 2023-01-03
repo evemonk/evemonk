@@ -71,6 +71,16 @@ module Types
       argument :id, ID, description: "Category ID", required: true
     end
 
+    field :certificates, Types::EveCertificateType.connection_type,
+      description: "Certificates",
+      null: true
+
+    field :certificate, Types::EveCertificateType,
+      description: "Certificate",
+      null: true do
+      argument :id, ID, description: "Certificate ID", required: true
+    end
+
     field :characters, Types::EveCharacterType.connection_type,
       description: "Characters",
       null: true
@@ -287,6 +297,14 @@ module Types
 
     def category(id:)
       ::Eve::Category.find_by(category_id: id)
+    end
+
+    def certificates
+      ::Eve::Certificate.order(:id)
+    end
+
+    def certificate(id:)
+      ::Eve::Certificate.find_by(id: id)
     end
 
     def characters
