@@ -6,7 +6,7 @@ module Eve
   class FactionDashboard < Administrate::BaseDashboard
     ATTRIBUTE_TYPES = {
       id: Field::Number,
-      corporation: Field::BelongsTo.with_options(class_name: "Eve::Corporation"),
+      corporation: Field::BelongsTo,
       description_en: Field::Text,
       description_de: Field::Text,
       description_fr: Field::Text,
