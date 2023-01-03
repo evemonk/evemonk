@@ -4,9 +4,6 @@ class CharacterBlueprint < ApplicationRecord
   include Locationable
   include Imageable
 
-  # TODO: move out this constant
-  RELIC_CATEGORY_ID = 34
-
   belongs_to :character
 
   belongs_to :blueprint,
@@ -30,7 +27,7 @@ class CharacterBlueprint < ApplicationRecord
   end
 
   def relic?
-    blueprint&.group&.category_id == RELIC_CATEGORY_ID
+    blueprint&.group&.category_id == Eve::Categories::ANCIENT_RELICS
   end
 
   def material_efficiency_formatted
