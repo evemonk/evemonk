@@ -8,11 +8,13 @@ describe Sde::CertificatesImporter do
   subject { described_class.new(file) }
 
   specify do
-    expect(described_class::LEVELS).to eq("basic" => 1,
+    expect(described_class::LEVELS).to eq(
+      "basic" => 1,
       "standard" => 2,
       "improved" => 3,
       "advanced" => 4,
-      "elite" => 5)
+      "elite" => 5
+    )
   end
 
   describe "#initialize" do
@@ -58,7 +60,15 @@ describe Sde::CertificatesImporter do
 
     let(:eve_certificate) { instance_double(Eve::Certificate) }
 
-    before { expect(Eve::Certificate).to receive(:find_or_initialize_by).with({certificate_id: key}).and_return(eve_certificate) }
+    before { expect(Eve::Certificate).to receive(:find_or_initialize_by).with({id: key}).and_return(eve_certificate) }
+
+    before do
+      expect(eve_certificate).to receive(:assign_attributes).with({
+        description: description,
+        group_id: group_id,
+        name: name
+      })
+    end
 
     before do
       #
@@ -80,14 +90,6 @@ describe Sde::CertificatesImporter do
           expect(a).to receive(:build).with(type_id: 123_456)
         end
       end
-    end
-
-    before do
-      expect(eve_certificate).to receive(:assign_attributes).with({
-        description: description,
-        group_id: group_id,
-        name: name
-      })
     end
 
     before do
