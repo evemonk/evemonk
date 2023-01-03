@@ -6,8 +6,7 @@ module Eve
   class GroupDashboard < Administrate::BaseDashboard
     ATTRIBUTE_TYPES = {
       id: Field::Number,
-      category_id: Field::Number, # TODO: add later
-      bloodline: Field::BelongsTo.with_options(class_name: "Eve::Bloodline"),
+      category: Field::BelongsTo,
       name_en: Field::String,
       name_de: Field::String,
       name_fr: Field::String,
@@ -23,7 +22,7 @@ module Eve
 
     SHOW_PAGE_ATTRIBUTES = [
       :id,
-      # :category,
+      :category,
       :name_en,
       :name_de,
       :name_fr,

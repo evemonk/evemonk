@@ -13,7 +13,7 @@ module Eve
       name_ru: Field::String,
       name_ko: Field::String,
       constellation: Field::BelongsTo,
-      star_id: Field::Number, # TODO: add star dashboard
+      star: Field::BelongsTo,
       security_class: Field::String,
       security_status: Field::Number,
       created_at: Field::DateTime,
@@ -37,7 +37,7 @@ module Eve
       :name_ru,
       :name_ko,
       :constellation,
-      :star_id,
+      :star,
       :security_class,
       :security_status,
       :created_at,

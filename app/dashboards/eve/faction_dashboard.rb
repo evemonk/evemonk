@@ -20,9 +20,9 @@ module Eve
       name_ru: Field::String,
       name_ko: Field::String,
       is_unique: Field::Boolean,
-      militia_corporation_id: Field::Number, # TODO: militia_corporation
+      militia_corporation: Field::BelongsTo,
       size_factor: Field::Number,
-      solar_system_id: Field::Number, # TODO: solar_system
+      solar_system: Field::BelongsTo,
       station_count: Field::Number,
       station_system_count: Field::Number,
       created_at: Field::DateTime,
@@ -47,9 +47,9 @@ module Eve
       :name_ru,
       :name_ko,
       :is_unique,
-      :militia_corporation_id, # TODO: militia_corporation
+      :militia_corporation,
       :size_factor,
-      :solar_system_id, # TODO: solar_system
+      :solar_system,
       :station_count,
       :station_system_count,
       :created_at,
