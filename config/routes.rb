@@ -117,6 +117,8 @@ Rails.application.routes.draw do
 
       resources :categories, only: [:index, :show]
 
+      resources :certificates, only: [:index, :show]
+
       resources :characters, only: [:index, :show]
 
       resources :constellations, only: [:index, :show]
