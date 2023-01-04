@@ -109,7 +109,6 @@ end
 
 group :development do
   gem "foreman", require: false
-  gem "consistency_fail", require: false
   gem "active_record_doctor"
   gem "cacheflow"
   gem "gemdiff", require: false

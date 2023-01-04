@@ -162,7 +162,6 @@ GEM
     colorize (0.8.1)
     concurrent-ruby (1.1.10)
     connection_pool (2.3.0)
-    consistency_fail (0.3.7)
     crack (0.4.5)
       rexml
     crass (1.0.6)
@@ -702,7 +701,6 @@ DEPENDENCIES
   cacheflow
   capybara (>= 3.26)
   connection_pool
-  consistency_fail
   dalli
   dartsass-rails
   database_rewinder
