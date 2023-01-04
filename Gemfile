@@ -142,3 +142,6 @@ end
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "httplog"
+
+# lock until next working version: https://github.com/mikel/mail/issues/1541
+gem "mail", "2.7.1"
