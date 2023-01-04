@@ -2,7 +2,7 @@
   <div class="clearfix">
     <h4 class="float-start"><%= character.name %></h4>
     <div class="float-end">
-      <%= form_with(url: character_path(character.character_id), method: :patch, class: "float-end") do %>
+      <%= form_with(url: character_path(character), method: :patch, class: "float-end") do %>
         <%= button_tag(class: "btn btn-primary mb-2") do %>
           <%= inline_svg_tag "icons/arrow-repeat.svg" %>
         <% end %>
@@ -31,19 +31,23 @@
                                 universe_alliance_path(character.alliance)) %>
         </li>
       <% end %>
-      <% if character.race && character.bloodline %>
-        <li class="list-group-item text-break">
-          <%= character.race.name %> / <%= character.bloodline.name %>
-        </li>
+      <% if full %>
+        <% if character.race && character.bloodline %>
+          <li class="list-group-item text-break">
+            <%= character.race.name %> / <%= character.bloodline.name %>
+          </li>
+        <% end %>
       <% end %>
       <% if character.faction %>
         <li class="list-group-item text-break">
           Faction: <%= character.faction.name %>
         </li>
       <% end %>
-      <li class="list-group-item">
-        Gender: <%= character.gender %>
-      </li>
+      <% if full %>
+        <li class="list-group-item">
+          Gender: <%= character.gender %>
+        </li>
+      <% end %>
       <li class="list-group-item text-break">
         Total SP: <%= character.full_sp_formatted %>
       </li>
@@ -58,9 +62,11 @@
       <li class="list-group-item text-break">
         Wallet: <%= character.wallet_formatted %> ISK
       </li>
-      <li class="list-group-item text-break">
-        Born: <%= character.birthday_formatted %>
-      </li>
+      <% if full %>
+        <li class="list-group-item text-break">
+          Born: <%= character.birthday_formatted %>
+        </li>
+      <% end %>
     </ul>
     <p class="card-text text-center">
       <small class="text-muted">

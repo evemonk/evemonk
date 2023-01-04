@@ -19,7 +19,11 @@
 <hr class="text-dark">
 
 <div class="row">
-  <%= render "character_card_info", character: @character, full: true %>
+  <%= render partial: "characters/character_card_info",
+             locals: {
+               character: @character,
+               full: true
+             } %>
 
   <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
     <h4 class="text-center text-break">Current location &amp; ship</h4>
