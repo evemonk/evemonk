@@ -1,0 +1,77 @@
+<div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+  <div class="clearfix">
+    <h4 class="float-start"><%= character.name %></h4>
+    <div class="float-end">
+      <%= form_with(url: character_path(character), method: :patch, class: "float-end") do %>
+        <%= button_tag(class: "btn btn-primary mb-2") do %>
+          <%= inline_svg_tag "icons/arrow-repeat.svg" %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="card">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item text-center">
+        <%= image_tag(character.icon_large,
+                      alt: character.name,
+                      class: "rounded border",
+                      size: "130x130",
+                      loading: "lazy") %>
+      </li>
+      <% if character.corporation %>
+        <li class="list-group-item text-break">
+          Corporation: <%= link_to(character.corporation.name,
+                                   universe_corporation_path(character.corporation)) %>
+        </li>
+      <% end %>
+      <% if character.alliance %>
+        <li class="list-group-item text-break">
+          Alliance: <%= link_to(character.alliance.name,
+                                universe_alliance_path(character.alliance)) %>
+        </li>
+      <% end %>
+      <% if full %>
+        <% if character.race && character.bloodline %>
+          <li class="list-group-item text-break">
+            <%= character.race.name %> / <%= character.bloodline.name %>
+          </li>
+        <% end %>
+      <% end %>
+      <% if character.faction %>
+        <li class="list-group-item text-break">
+          Faction: <%= character.faction.name %>
+        </li>
+      <% end %>
+      <% if full %>
+        <li class="list-group-item">
+          Gender: <%= character.gender %>
+        </li>
+      <% end %>
+      <li class="list-group-item text-break">
+        Total SP: <%= character.full_sp_formatted %>
+      </li>
+      <% if character.unallocated_sp && character.unallocated_sp > 0 %>
+        <li class="list-group-item text-break">
+          Unallocated SP: <%= character.unallocated_sp_formatted %>
+        </li>
+      <% end %>
+      <li class="list-group-item text-break">
+        Security status: <%= character.rounded_security_status %>
+      </li>
+      <li class="list-group-item text-break">
+        Wallet: <%= character.wallet_formatted %> ISK
+      </li>
+      <% if full %>
+        <li class="list-group-item text-break">
+          Born: <%= character.birthday_formatted %>
+        </li>
+      <% end %>
+    </ul>
+    <p class="card-text text-center">
+      <small class="text-muted">
+        Last updated: <%= local_time_ago(character.updated_at) %>
+      </small>
+    </p>
+  </div>
+</div>
