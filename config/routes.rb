@@ -74,6 +74,8 @@ Rails.application.routes.draw do
 
     resources :blueprints, only: [:index, :show]
 
+    resources :blueprints_lists, only: :index
+
     # resources :manufacturing_jobs, only: [:index, :new, :create, :update, :show]
 
     resources :orders, only: :index
