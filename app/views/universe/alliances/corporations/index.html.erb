@@ -19,7 +19,7 @@
                           loading: "lazy") %>
           </td>
           <td class="align-middle text-break border-start-0">
-            <%= link_to(corporation.name, universe_corporation_path(corporation.corporation_id)) %>
+            <%= link_to(corporation.name, universe_corporation_path(corporation)) %>
           </td>
           <td class="align-middle text-end">
             <%= corporation.formatted_member_count %>
