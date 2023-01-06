@@ -8,12 +8,14 @@ class User < ApplicationRecord
 
   has_many :characters, dependent: :destroy
 
-  enum locale: {auto_detect: 0,
-                english: 1,
-                german: 2,
-                french: 3,
-                japanese: 4,
-                russian: 5,
-                # chinese: 6,
-                korean: 7}
+  enum locale: {
+    auto_detect: 0,
+    english: 1,
+    german: 2,
+    french: 3,
+    japanese: 4,
+    russian: 5,
+    # chinese: 6,
+    korean: 7
+  }
 end
