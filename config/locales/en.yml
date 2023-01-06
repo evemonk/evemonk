@@ -74,10 +74,6 @@ en:
         timeout: "Timeout Error. Please, try again later."
         show:
           successful: "Character &laquo;%{name}&raquo; successful added."
-  welcome:
-    index:
-      alliances_html: "<u>A</u>lliances"
-      corporations_html: "<u>C</u>orporations"
   alliances:
     top:
       index:
