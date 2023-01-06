@@ -7,5 +7,7 @@ class BlueprintsListsController < ApplicationController
 
     @character_blueprints = @character.character_blueprints
       .includes(blueprint: :group)
+
+    render layout: false
   end
 end
