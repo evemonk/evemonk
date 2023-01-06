@@ -295,33 +295,9 @@
 
     <br>
 
-    <% @character.implants.each_with_index do |implant, index| %>
-      <div class="card <%= (index % 2 == 0) ? "bg-dark" : "bg-transparent" %> rounded-0 border-secondary <%= (index == 0) ? "" : "border-top-0" %>">
-        <div class="row g-0">
-          <div class="col-2 text-center m-auto">
-            <%= image_tag(implant.icon_small,
-                          alt: implant.name,
-                          class: "rounded border",
-                          size: "34x34",
-                          loading: "lazy") %>
-          </div>
-          <div class="col-10">
-            <div class="card-body">
-              <div class="card-text">
-                <%= link_to(implant.name, universe_type_path(implant.type_id)) %>
-              </div>
-              <% implant.implant_bonuses.each do |bonus| %>
-                <div class="card-text text-muted">
-                  <%= bonus[:name] %> +<%= bonus[:value].to_i %>
-                </div>
-                <div class="card-text text-muted">
-                  Est. <%= implant.average_price_formatted %> ISK
-                </div>
-              <% end %>
-            </div>
-          </div>
-        </div>
-      </div>
-    <% end %>
+    <%= render partial: "implants",
+               locals: {
+                 character: @character
+               } %>
   </div>
 </div>
