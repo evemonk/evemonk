@@ -5,9 +5,6 @@ class BlueprintsController < ApplicationController
     @character = current_user.characters
       .includes(:alliance, :corporation)
       .find_by!(character_id: params[:character_id])
-
-    @character_blueprints = @character.character_blueprints
-      .includes(blueprint: :group)
   end
 
   def show
