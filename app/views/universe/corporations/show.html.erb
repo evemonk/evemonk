@@ -2,7 +2,7 @@
                  description: "Corporation &quot;#{@corporation.name}&quot;",
                  og: {
                    title: "EVE Online Corporation &quot;#{@corporation.name}&quot;",
-                   url: universe_corporation_url(@corporation.corporation_id),
+                   url: universe_corporation_url(@corporation),
                    type: "website",
                    site_name: "EveMonk: EVE Online management suite",
                    locale: "en_US",
@@ -61,7 +61,7 @@
 
   <div class="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8">
     <%= turbo_frame_tag "universe:corporation:#{@corporation.id}:characters",
-                        src: universe_corporation_characters_path(@corporation.corporation_id),
+                        src: universe_corporation_characters_path(@corporation),
                         target: "_top" do %>
       <h4 class="text-center">Loading...</h4>
     <% end %>

@@ -4,132 +4,28 @@
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><%= link_to("Home", root_path) %></li>
         <li class="breadcrumb-item"><%= link_to("My characters", characters_path) %></li>
-        <li class="breadcrumb-item"><%= link_to(@character.name, character_path(@character.character_id)) %></li>
-        <li class="breadcrumb-item"><%= link_to("Blueprints", character_blueprints_path(@character.character_id)) %></li>
+        <li class="breadcrumb-item"><%= link_to(@character.name, character_path(@character)) %></li>
+        <li class="breadcrumb-item"><%= link_to("Blueprints", character_blueprints_path(@character)) %></li>
         <li class="breadcrumb-item active" aria-current="page"><%= @blueprint.blueprint.name %></li>
       </ol>
     </nav>
   </div>
 </div>
 
-<ul class="nav nav-pills">
-  <li class="nav-item">
-    <%= link_to("Sheet", character_path(@character.character_id), class: "nav-link") %>
-  </li>
-  <li class="nav-item">
-    <%= link_to("Employment History", character_employment_histories_path(@character.character_id), class: "nav-link") %>
-  </li>
-  <li class="nav-item">
-    <%= link_to("Agents", character_agents_path(@character.character_id), class: "nav-link") %>
-  </li>
-  <% if Setting.enabled_assets %>
-    <li class="nav-item">
-      <%= link_to("Assets", character_assets_path(@character.character_id), class: "nav-link") %>
-    </li>
-  <% end %>
-  <li class="nav-item">
-    <%= link_to("Loyalty points", character_loyalty_points_path(@character.character_id), class: "nav-link") %>
-  </li>
-  <li class="nav-item">
-    <%= link_to("Skills", character_skills_path(@character.character_id), class: "nav-link") %>
-  </li>
-  <% if Setting.enabled_mails %>
-    <li class="nav-item">
-      <%= link_to("Mail", character_mails_path(@character.character_id), class: "nav-link") %>
-    </li>
-  <% end %>
-  <% if Setting.enabled_standings %>
-    <li class="nav-item">
-      <%= link_to("Standings", character_standings_path(@character.character_id), class: "nav-link") %>
-    </li>
-  <% end %>
-  <% if Setting.enabled_wallet_journal %>
-    <li class="nav-item">
-      <%= link_to("Wallet journal", character_wallet_journals_path(@character.character_id), class: "nav-link") %>
-    </li>
-  <% end %>
-  <% if Setting.enabled_wallet_transactions %>
-    <li class="nav-item">
-      <%= link_to("Wallet transactions", nil, class: "nav-link") %>
-    </li>
-  <% end %>
-  <% if Setting.enabled_industry_jobs %>
-    <li class="nav-item">
-      <%= link_to("Industry Jobs", character_industry_jobs_path(@character.character_id), class: "nav-link") %>
-    </li>
-  <% end %>
-  <li class="nav-item">
-    <%= link_to("Blueprints", character_blueprints_path(@character.character_id), class: "nav-link") %>
-  </li>
-  <% if Setting.enabled_character_orders %>
-    <li class="nav-item">
-      <%= link_to("Orders", character_orders_path(@character.character_id), class: "nav-link") %>
-    </li>
-  <% end %>
-  <li class="nav-item">
-    <%= link_to("Training Queue", character_training_queues_path(@character.character_id), class: "nav-link") %>
-  </li>
-  <li class="nav-item">
-    <%= link_to("Certificates", character_certificates_path(@character.character_id), class: "nav-link") %>
-  </li>
-</ul>
+<%= render partial: "characters/character_nav_bar",
+           locals: {
+             character: @character,
+             page: :blueprints
+           } %>
 
-<hr>
+<hr class="text-dark">
 
 <div class="row">
-  <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
-    <div class="clearfix">
-      <h4 class="float-left"><%= @character.name %></h4>
-      <%= form_with(url: character_path(@character.character_id), method: :patch, class: "float-right") do %>
-        <%= button_tag(class: "btn btn-primary mb-2") do %>
-          <%= inline_svg_tag "icons/arrow-repeat.svg" %>
-        <% end %>
-      <% end %>
-    </div>
-
-    <div class="card">
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item text-center">
-          <%= image_tag(@character.icon_medium,
-                        alt: @character.name,
-                        class: "rounded border",
-                        size: "130x130",
-                        loading: "lazy") %>
-        </li>
-        <% if @character.corporation %>
-          <li class="list-group-item text-break">
-            Corporation: <%= link_to(@character.corporation.name,
-                                     universe_corporation_path(@character.corporation.corporation_id)) %>
-          </li>
-        <% end %>
-        <% if @character.alliance %>
-          <li class="list-group-item text-break">
-            Alliance: <%= link_to(@character.alliance.name,
-                                  universe_alliance_path(@character.alliance)) %>
-          </li>
-        <% end %>
-        <li class="list-group-item text-break">
-          Total SP: <%= @character.full_sp_formatted %>
-        </li>
-        <% if @character.unallocated_sp && @character.unallocated_sp > 0 %>
-          <li class="list-group-item text-break">
-            Unallocated SP: <%= @character.unallocated_sp_formatted %>
-          </li>
-        <% end %>
-        <li class="list-group-item text-break">
-          Security status: <%= @character.rounded_security_status %>
-        </li>
-        <li class="list-group-item text-break">
-          Wallet: <%= @character.wallet_formatted %> ISK
-        </li>
-      </ul>
-      <p class="card-text text-center">
-        <small class="text-muted">
-          Last updated: <%= local_time_ago(@character.updated_at) %>
-        </small>
-      </p>
-    </div>
-  </div>
+  <%= render partial: "characters/character_card_info",
+             locals: {
+               character: @character,
+               full: false
+             } %>
 
   <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
     <h4 class="text-center text-break">Blueprints (<%= @character_blueprints.size %>)</h4>
@@ -278,7 +174,7 @@
           <li>
             Time per run:
             <span class="btn-link" data-toggle="tooltip" data-placement="top" data-html="true" title="<%= render "tooltip_for_copying_time" %>">
-              <%= HumanTime.new(CharacterManufacturingCopyTime.new(@character, @blueprint.blueprint.copying_time).manufacturing_copy_time.round).long_formatted %>
+              <%#= HumanTime.new(CharacterManufacturingCopyTime.new(@character, @blueprint.blueprint.copying_time).manufacturing_copy_time.round).long_formatted %>
               (<%= @blueprint.blueprint.copying_time_formatted %>)
             </span>
           </li>

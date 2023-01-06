@@ -20,7 +20,6 @@ class BlueprintsController < ApplicationController
 
     @blueprint = @character.character_blueprints
       .includes(:blueprint)
-      .where(item_id: params[:id])
-      .first
+      .find_by!(item_id: params[:id])
   end
 end
