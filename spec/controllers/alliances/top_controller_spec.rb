@@ -23,6 +23,8 @@ describe Alliances::TopController do
 
     it { should respond_with(:ok) }
 
+    it { should_not render_with_layout }
+
     it { should render_template(:index) }
   end
 end
