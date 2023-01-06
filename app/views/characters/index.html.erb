@@ -37,7 +37,7 @@
           <% if character.corporation %>
             <li class="list-group-item text-break">
               Corporation: <%= link_to(character.corporation.name,
-                                       universe_corporation_path(character.corporation.corporation_id)) %>
+                                       universe_corporation_path(character.corporation)) %>
             </li>
           <% end %>
           <% if character.alliance %>
