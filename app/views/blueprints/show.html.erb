@@ -4,75 +4,19 @@
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><%= link_to("Home", root_path) %></li>
         <li class="breadcrumb-item"><%= link_to("My characters", characters_path) %></li>
-        <li class="breadcrumb-item"><%= link_to(@character.name, character_path(@character.character_id)) %></li>
-        <li class="breadcrumb-item"><%= link_to("Blueprints", character_blueprints_path(@character.character_id)) %></li>
+        <li class="breadcrumb-item"><%= link_to(@character.name, character_path(@character)) %></li>
+        <li class="breadcrumb-item"><%= link_to("Blueprints", character_blueprints_path(@character)) %></li>
         <li class="breadcrumb-item active" aria-current="page"><%= @blueprint.blueprint.name %></li>
       </ol>
     </nav>
   </div>
 </div>
 
-<ul class="nav nav-pills">
-  <li class="nav-item">
-    <%= link_to("Sheet", character_path(@character.character_id), class: "nav-link") %>
-  </li>
-  <li class="nav-item">
-    <%= link_to("Employment History", character_employment_histories_path(@character.character_id), class: "nav-link") %>
-  </li>
-  <li class="nav-item">
-    <%= link_to("Agents", character_agents_path(@character.character_id), class: "nav-link") %>
-  </li>
-  <% if Setting.enabled_assets %>
-    <li class="nav-item">
-      <%= link_to("Assets", character_assets_path(@character.character_id), class: "nav-link") %>
-    </li>
-  <% end %>
-  <li class="nav-item">
-    <%= link_to("Loyalty points", character_loyalty_points_path(@character.character_id), class: "nav-link") %>
-  </li>
-  <li class="nav-item">
-    <%= link_to("Skills", character_skills_path(@character.character_id), class: "nav-link") %>
-  </li>
-  <% if Setting.enabled_mails %>
-    <li class="nav-item">
-      <%= link_to("Mail", character_mails_path(@character.character_id), class: "nav-link") %>
-    </li>
-  <% end %>
-  <% if Setting.enabled_standings %>
-    <li class="nav-item">
-      <%= link_to("Standings", character_standings_path(@character.character_id), class: "nav-link") %>
-    </li>
-  <% end %>
-  <% if Setting.enabled_wallet_journal %>
-    <li class="nav-item">
-      <%= link_to("Wallet journal", character_wallet_journals_path(@character.character_id), class: "nav-link") %>
-    </li>
-  <% end %>
-  <% if Setting.enabled_wallet_transactions %>
-    <li class="nav-item">
-      <%= link_to("Wallet transactions", nil, class: "nav-link") %>
-    </li>
-  <% end %>
-  <% if Setting.enabled_industry_jobs %>
-    <li class="nav-item">
-      <%= link_to("Industry Jobs", character_industry_jobs_path(@character.character_id), class: "nav-link") %>
-    </li>
-  <% end %>
-  <li class="nav-item">
-    <%= link_to("Blueprints", character_blueprints_path(@character.character_id), class: "nav-link") %>
-  </li>
-  <% if Setting.enabled_character_orders %>
-    <li class="nav-item">
-      <%= link_to("Orders", character_orders_path(@character.character_id), class: "nav-link") %>
-    </li>
-  <% end %>
-  <li class="nav-item">
-    <%= link_to("Training Queue", character_training_queues_path(@character.character_id), class: "nav-link") %>
-  </li>
-  <li class="nav-item">
-    <%= link_to("Certificates", character_certificates_path(@character.character_id), class: "nav-link") %>
-  </li>
-</ul>
+<%= render partial: "characters/character_nav_bar",
+           locals: {
+             character: @character,
+             page: :blueprints
+           } %>
 
 <hr>
 
@@ -278,7 +222,7 @@
           <li>
             Time per run:
             <span class="btn-link" data-toggle="tooltip" data-placement="top" data-html="true" title="<%= render "tooltip_for_copying_time" %>">
-              <%= HumanTime.new(CharacterManufacturingCopyTime.new(@character, @blueprint.blueprint.copying_time).manufacturing_copy_time.round).long_formatted %>
+              <%#= HumanTime.new(CharacterManufacturingCopyTime.new(@character, @blueprint.blueprint.copying_time).manufacturing_copy_time.round).long_formatted %>
               (<%= @blueprint.blueprint.copying_time_formatted %>)
             </span>
           </li>
