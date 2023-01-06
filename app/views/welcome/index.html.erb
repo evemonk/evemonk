@@ -24,6 +24,13 @@
     <%= turbo_frame_tag "alliances:top",
                         src: alliances_top_index_path,
                         target: "_top" do %>
+      <h4 class="text-center">
+        <%= link_to(t(".alliances_html"),
+                    universe_alliances_path,
+                    class: "text-decoration-none",
+                    "data-hotkey": "a") %>
+      </h4>
+
       <h4 class="text-center">Loading...</h4>
     <% end %>
   </div>
@@ -32,6 +39,13 @@
     <%= turbo_frame_tag "corporations:top",
                         src: corporations_top_index_path,
                         target: "_top" do %>
+      <h4 class="text-center">
+        <%= link_to(t(".corporations_html"),
+                    universe_corporations_path,
+                    class: "text-decoration-none",
+                    "data-hotkey": "c") %>
+      </h4>
+
       <h4 class="text-center">Loading...</h4>
     <% end %>
   </div>
