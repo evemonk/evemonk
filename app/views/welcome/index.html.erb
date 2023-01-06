@@ -6,8 +6,7 @@
                    type: "website",
                    site_name: "EveMonk: EVE Online management suite",
                    locale: "en_US",
-                   description: "Largest alliances and corporations in EVE Online",
-                   image: @alliances.first&.icon_medium
+                   description: "Largest alliances and corporations in EVE Online"
                  } %>
 
 <div class="row">
@@ -30,39 +29,10 @@
   </div>
 
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
-    <h4 class="text-center">
-      <%= link_to(t(".corporations_html"),
-                  universe_corporations_path,
-                  class: "text-decoration-none",
-                  "data-hotkey": "c") %>
-    </h4>
-
-    <table class="table table-dark table-striped table-bordered">
-      <thead>
-        <tr>
-          <th colspan="2" class="text-center">Name</th>
-          <th class="text-end">Members</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @corporations.each do |corporation| %>
-          <tr>
-            <td class="text-center align-middle border-end-0 m-0 p-2">
-              <%= image_tag(corporation.icon_small,
-                            alt: corporation.name,
-                            class: "rounded border",
-                            size: "34x34",
-                            loading: "lazy") %>
-            </td>
-            <td class="text-break align-middle border-start-0">
-              <%= link_to(corporation.name, universe_corporation_path(corporation.corporation_id)) %>
-            </td>
-            <td class="text-end align-middle">
-              <%= corporation.formatted_member_count %>
-            </td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+    <%= turbo_frame_tag "corporations:top",
+                        src: corporations_top_index_path,
+                        target: "_top" do %>
+      <h4 class="text-center">Loading...</h4>
+    <% end %>
   </div>
 </div>
