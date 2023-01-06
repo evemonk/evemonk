@@ -54,7 +54,7 @@
         <% end %>
         <% if @alliance.executor_corporation %>
           <li class="list-group-item text-break">
-            Executor: <%= link_to(@alliance.executor_corporation.name, universe_corporation_path(@alliance.executor_corporation.corporation_id)) %>
+            Executor: <%= link_to(@alliance.executor_corporation.name, universe_corporation_path(@alliance.executor_corporation)) %>
           </li>
         <% end %>
         <li class="list-group-item">
