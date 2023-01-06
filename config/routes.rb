@@ -45,6 +45,14 @@ Rails.application.routes.draw do
     resources :search, only: :index
   end
 
+  namespace :alliances do
+    resources :top, only: :index
+  end
+
+  namespace :corporations do
+    resources :top, only: :index
+  end
+
   resources :characters, only: [:index, :show, :update, :destroy] do
     resources :assets, only: :index
 
