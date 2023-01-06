@@ -78,6 +78,10 @@ en:
     index:
       alliances_html: "<u>A</u>lliances"
       corporations_html: "<u>C</u>orporations"
+  alliances:
+    top:
+      index:
+        alliances_html: "<u>A</u>lliances"
   characters:
     index:
       remove_character: "Remove character"
