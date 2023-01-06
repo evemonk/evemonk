@@ -1,0 +1,43 @@
+<%= turbo_frame_tag dom_id(@character, :blueprints) do %>
+  <h4 class="text-center text-break">Blueprints (<%= @character_blueprints.size %>)</h4>
+
+  <% @character_blueprints.each_with_index do |character_blueprint, index| %>
+    <div class="card <%= (index % 2 == 0) ? "bg-dark" : "bg-transparent" %> rounded-0 border-secondary <%= (index == 0) ? "" : "border-top-0" %>">
+      <div class="row g-0">
+        <div class="col-2 text-center m-auto">
+          <% if character_blueprint.blueprint.present? %>
+            <%= image_tag(character_blueprint.icon_small,
+                          alt: character_blueprint.blueprint.name,
+                          class: "rounded border",
+                          size: "34x34",
+                          loading: "lazy") %>
+          <% end %>
+        </div>
+        <div class="col-10">
+          <div class="card-body p-2">
+            <div class="card-text">
+              <%= link_to(character_blueprint.blueprint.name,
+                          character_blueprint_path(@character, character_blueprint.item_id)) %>
+            </div>
+            <% if character_blueprint.location.present? %>
+              <div class="card-text text-muted">
+                <%= character_blueprint.location_formatted %>
+              </div>
+            <% end %>
+            <div class="card-text text-muted">
+              <% if character_blueprint.bpo? %>
+                BPO | Runs: infinity |
+                ME: <%= character_blueprint.material_efficiency_formatted %> | TE: <%= character_blueprint.time_efficiency_formatted %>
+              <% elsif character_blueprint.bpc? %>
+                BPC | Runs: <%= character_blueprint.runs %> |
+                ME: <%= character_blueprint.material_efficiency_formatted %> | TE: <%= character_blueprint.time_efficiency_formatted %>
+              <% else %>
+                Qty: <%= character_blueprint.quantity %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% end %>
