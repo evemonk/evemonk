@@ -118,18 +118,13 @@ describe BlueprintsController do
         #
         # character.character_blueprints
         #          .includes(:blueprint)
-        #          .where(item_id: params[:id])
-        #          .first
+        #          .find_by!(item_id: params[:id])
         #
         expect(character).to receive(:character_blueprints) do
           double.tap do |a|
             expect(a).to receive(:includes).with(:blueprint) do
               double.tap do |b|
-                expect(b).to receive(:where).with(item_id: "2") do
-                  double.tap do |c|
-                    expect(c).to receive(:first)
-                  end
-                end
+                expect(b).to receive(:find_by!).with(item_id: "2")
               end
             end
           end
