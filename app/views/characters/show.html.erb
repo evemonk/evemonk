@@ -45,7 +45,7 @@
         <% if @character.current_ship_type %>
           <li class="list-group-item text-center">
             Ship: <%= link_to(@character.current_ship_type.name,
-                              universe_type_path(@character.current_ship_type.type_id)) %>
+                              universe_type_path(@character.current_ship_type)) %>
           </li>
 
           <li class="list-group-item text-center">
