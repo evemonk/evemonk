@@ -44,7 +44,7 @@
         <% if @character.corporation %>
           <li class="list-group-item text-break">
             Corporation: <%= link_to(@character.corporation.name,
-                                     universe_corporation_path(@character.corporation.corporation_id)) %>
+                                     universe_corporation_path(@character.corporation)) %>
           </li>
         <% end %>
       </ul>
@@ -79,7 +79,7 @@
                               loading: "lazy") %>
               </td>
               <td class="align-middle text-break border-start-0">
-                <%= link_to(record.corporation.name, universe_corporation_path(record.corporation.corporation_id)) %>
+                <%= link_to(record.corporation.name, universe_corporation_path(record.corporation)) %>
               </td>
               <td class="align-middle text-end">
                 <%= time_ago_in_words(record.start_date) %>
