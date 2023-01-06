@@ -29,6 +29,7 @@ namespace :migrate do
     end
   end
 
+  # TODO: remove this later
   desc "Migrate Eve::Certificate's"
   task certificates: :environment do
     Eve::CertificateRecommendedType.destroy_all
