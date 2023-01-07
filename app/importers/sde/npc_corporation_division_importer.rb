@@ -12,7 +12,7 @@ module Sde
       entries = YAML.safe_load(File.read(file))
 
       entries.each_pair do |key, hash|
-        division = Eve::NpcCorporationDivision.find_or_initialize_by(id: key)
+        division = Eve::Division.find_or_initialize_by(id: key)
 
         division.assign_attributes(
           description: hash["description"],
