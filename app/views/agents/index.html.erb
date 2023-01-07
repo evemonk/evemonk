@@ -46,7 +46,14 @@
           <div class="col-8">
             <div class="card-body">
               <div class="card-text">
-                <%= standing.standingable&.name %>
+                <div class="row">
+                  <div class="col-12">
+                    <%= standing.standingable&.name %>
+                  </div>
+                  <div class="col-12 text-muted">
+                    <%= standing.standingable&.division&.name %>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
