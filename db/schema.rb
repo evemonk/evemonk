@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_06_135237) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_07_024800) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_buffercache"
   enable_extension "pg_trgm"
@@ -576,6 +576,34 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_06_135237) do
     t.index ["member_count"], name: "index_eve_corporations_on_member_count"
     t.index ["name", "ticker"], name: "index_eve_corporations_on_name_and_ticker", opclass: :gin_trgm_ops, using: :gin
     t.index ["npc", "member_count"], name: "index_eve_corporations_on_npc_and_member_count"
+  end
+
+  create_table "eve_divisions", force: :cascade do |t|
+    t.text "description"
+    t.text "description_full_en"
+    t.text "description_full_de"
+    t.text "description_full_fr"
+    t.text "description_full_ja"
+    t.text "description_full_ko"
+    t.text "description_full_ru"
+    t.text "description_full_zh"
+    t.string "internal_name"
+    t.string "leader_type_name_en"
+    t.string "leader_type_name_de"
+    t.string "leader_type_name_fr"
+    t.string "leader_type_name_ja"
+    t.string "leader_type_name_ko"
+    t.string "leader_type_name_ru"
+    t.string "leader_type_name_zh"
+    t.string "name_en"
+    t.string "name_de"
+    t.string "name_fr"
+    t.string "name_ja"
+    t.string "name_ko"
+    t.string "name_ru"
+    t.string "name_zh"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "eve_dogma_attributes", force: :cascade do |t|
