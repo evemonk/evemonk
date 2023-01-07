@@ -35,6 +35,9 @@ namespace :evemonk do
 
       Rails.logger.info "Import missing Market Groups info from SDE"
       Sde::MarketGroupsJob.perform_later("static/sde/fsd/marketGroups.yaml")
+
+      Rails.logger.info "Import NPC Corporation Divisions from SDE"
+      Sde::NpcCorporationDivisionJob.perform_later("static/sde/fsd/npcCorporationDivisions.yaml")
     end
   end
 
