@@ -6,6 +6,6 @@ module Eve
 
     translates :name, :description_full, :leader_type_name
 
-    has_many :agents
+    has_many :agents # rubocop:disable Rails/HasManyOrHasOneDependent
   end
 end
