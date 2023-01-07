@@ -11,7 +11,7 @@ module Eve
 
     # belongs_to :agent_type_id
 
-    belongs_to :division, class_name: "Eve::NpcCorporationDivision", optional: true
+    belongs_to :division
 
     # TODO: standing are private. Don't expose via API
     # has_many :standings, as: :standingable

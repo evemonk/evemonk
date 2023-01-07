@@ -6,6 +6,6 @@ module Eve
 
     translates :name, :description_full, :leader_type_name
 
-    has_many :agents, foreign_key: "division_id"
+    has_many :agents
   end
 end

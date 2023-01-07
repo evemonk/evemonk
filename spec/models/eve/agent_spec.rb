@@ -15,7 +15,7 @@ describe Eve::Agent do
 
   it { should belong_to(:corporation).optional(true) }
 
-  it { should belong_to(:division).class_name("Eve::NpcCorporationDivision").optional(true) }
+  it { should belong_to(:division) }
 
   # TODO: later
   # it { should have_many(:standings) }
