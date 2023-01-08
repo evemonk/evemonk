@@ -3,6 +3,8 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception, prepend: true
 
+  around_action :n_plus_one_detection
+
   before_action :authenticate_user!
 
   before_action :default_locale
@@ -27,5 +29,15 @@ class ApplicationController < ActionController::Base
     else
       UserLocale.new(current_user.locale).to_locale
     end
+  end
+
+  def n_plus_one_detection
+    return if Rails.env.production?
+
+    Prosopite.scan
+
+    yield
+  ensure
+    Prosopite.finish
   end
 end
