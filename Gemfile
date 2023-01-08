@@ -105,6 +105,7 @@ group :development, :test do
   gem "isolator"
   gem "better_html", require: false
   gem "erb_lint", require: false
+  gem "prosopite"
 end
 
 group :development do
@@ -114,7 +115,6 @@ group :development do
   gem "gemdiff", require: false
   gem "derailed_benchmarks"
   gem "graphql-rails_logger"
-  gem "prosopite"
 end
 
 group :test do
