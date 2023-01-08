@@ -72,24 +72,24 @@ class Character < ApplicationRecord
 
   has_many :factions_standings, -> { # rubocop:disable Rails/HasManyOrHasOneDependent
     joins("LEFT JOIN eve_factions ON standings.standingable_id = eve_factions.id")
-      .where(standingable_type: "Eve::Faction")
+      .where(standingable_type: Eve::Faction.name)
       .order("eve_factions.name_en": :asc)
       .includes(:standingable)
-  }, class_name: "Standing"
+  }, class_name: "Standing", inverse_of: :character
 
   has_many :corporations_standings, -> { # rubocop:disable Rails/HasManyOrHasOneDependent
     joins("LEFT JOIN eve_corporations ON standings.standingable_id = eve_corporations.id")
-      .where(standingable_type: "Eve::Corporation")
+      .where(standingable_type: Eve::Corporation.name)
       .order("eve_corporations.name": :asc)
       .includes(:standingable)
-  }, class_name: "Standing"
+  }, class_name: "Standing", inverse_of: :character
 
   has_many :agents_standings, -> { # rubocop:disable Rails/HasManyOrHasOneDependent
     joins("LEFT JOIN eve_agents ON standings.standingable_id = eve_agents.id")
-      .where(standingable_type: "Eve::Agent")
+      .where(standingable_type: Eve::Agent.name)
       .order("eve_agents.name": :asc)
       .includes(:standingable)
-  }, class_name: "Standing"
+  }, class_name: "Standing", inverse_of: :character
 
   scope :with_valid_tokens, -> { where(esi_token_valid: true) }
 
