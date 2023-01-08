@@ -18,14 +18,14 @@ describe AgentsController do
       before do
         #
         # subject.current_user.characters
-        #        .includes(:alliance, :corporation, :agents_standings)
+        #        .includes(:alliance, :corporation, agents_standings: {standingable: :division})
         #        .find_by!(character_id: params[:character_id])
         #
         expect(subject).to receive(:current_user) do
           double.tap do |a|
             expect(a).to receive(:characters) do
               double.tap do |b|
-                expect(b).to receive(:includes).with(:alliance, :corporation, :agents_standings) do
+                expect(b).to receive(:includes).with(:alliance, :corporation, agents_standings: {standingable: :division}) do
                   double.tap do |c|
                     expect(c).to receive(:find_by!).with(character_id: "1")
                   end

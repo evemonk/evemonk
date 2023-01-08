@@ -29,29 +29,34 @@
   <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
     <h4 class="text-center">Agents (<%= @character.agents_standings.size %>)</h4>
 
+    <form>
+      <select class="form-select" aria-label="Default select example">
+        <option selected>Open this select menu</option>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+      </select>
+    </form>
+
     <% @character.agents_standings.each_with_index do |standing, index| %>
       <div class="card <%= (index % 2 == 0) ? "bg-dark" : "bg-transparent" %> rounded-0 border-secondary <%= (index == 0) ? "" : "border-top-0" %>">
         <div class="row g-0">
           <div class="col-2 text-center m-auto">
-            <% if standing.standingable %>
-              <%= image_tag(standing.standingable&.icon_small,
-                            alt: standing.standingable&.name,
-                            class: "rounded border",
-                            size: "34x34",
-                            loading: "lazy") %>
-            <% else %>
-              &nbsp;
-            <% end %>
+            <%= image_tag(standing.standingable.icon_small,
+                          alt: standing.standingable.name,
+                          class: "rounded border",
+                          size: "34x34",
+                          loading: "lazy") %>
           </div>
           <div class="col-8">
             <div class="card-body">
               <div class="card-text">
                 <div class="row">
                   <div class="col-12">
-                    <%= standing.standingable&.name %> <span class="text-muted">(Level <%= standing&.standingable&.level %>)</span>
+                    <%= standing.standingable.name %> <span class="text-muted">(Level <%= standing.standingable.level %>)</span>
                   </div>
                   <div class="col-12 text-muted">
-                    <%= standing.standingable&.division&.name %>
+                    <%= standing.standingable.division&.name %>
                   </div>
                 </div>
               </div>

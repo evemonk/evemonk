@@ -17,8 +17,7 @@ describe Eve::Agent do
 
   it { should belong_to(:division).optional(true) }
 
-  # TODO: later
-  # it { should have_many(:standings) }
+  it { should have_many(:standings) }
 
   describe "#icon_tiny" do
     before { expect(subject).to receive(:character_portrait_url).with(32) }
