@@ -14,7 +14,7 @@ module Eve
     belongs_to :division, optional: true
 
     # Standing are private. Don't expose them via API.
-    has_many :standings, as: :standingable
+    has_many :standings, as: :standingable # rubocop:disable Rails/HasManyOrHasOneDependent
 
     # TODO: location -> API
 
