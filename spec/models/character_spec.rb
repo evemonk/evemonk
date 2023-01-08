@@ -65,6 +65,12 @@ describe Character do
 
   it { should have_many(:notifications).dependent(:destroy) }
 
+  it { should have_many(:factions_standings).class_name("Standing").inverse_of(:character) }
+
+  it { should have_many(:corporations_standings).class_name("Standing").inverse_of(:character) }
+
+  it { should have_many(:agents_standings).class_name("Standing").inverse_of(:character) }
+
   describe "#factions_standings" do
     let!(:character) { create(:character) }
 
