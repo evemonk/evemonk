@@ -7,6 +7,7 @@ class BlueprintsListsController < ApplicationController
 
     @character_blueprints = @character.character_blueprints
       .includes(blueprint: :group)
+      .order("eve_types.name_en": :asc)
 
     render layout: false
   end
