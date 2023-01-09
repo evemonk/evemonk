@@ -3,7 +3,7 @@
 module Eve
   class Blueprints
     class << self
-      def filters
+      def filter
         [
           {name: "All", id: 0},
           {name: "BPO", id: 1},

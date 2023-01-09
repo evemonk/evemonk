@@ -1,6 +1,10 @@
 <%= turbo_frame_tag dom_id(@character, :blueprints) do %>
   <h4 class="text-center text-break">Blueprints (<%= @character_blueprints.size %>)</h4>
 
+  <%= form_with(url: character_blueprints_lists_path(@character), method: :get) do |f| %>
+    <%= f.select :filter, Eve::Blueprints.filter %>
+  <% end %>
+
   <% @character_blueprints.each_with_index do |character_blueprint, index| %>
     <div class="card <%= (index % 2 == 0) ? "bg-dark" : "bg-transparent" %> rounded-0 border-secondary <%= (index == 0) ? "" : "border-top-0" %>">
       <div class="row g-0">
