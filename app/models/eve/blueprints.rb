@@ -10,7 +10,7 @@ module Eve
           {name: "BPC", id: 2},
           {name: "Ancient Relics", id: 3},
           {name: "Stacked", id: 4}
-        ].map { |a| a.values }
+        ].map(&:values)
       end
     end
   end
