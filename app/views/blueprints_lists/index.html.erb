@@ -2,7 +2,7 @@
   <h4 class="text-center text-break">Blueprints (<%= @character_blueprints.size %>)</h4>
 
   <%= form_with(url: character_blueprints_lists_path(@character), method: :get) do |f| %>
-    <%= f.select :filter, Eve::Blueprints.filter %>
+    <%= f.select(:filter, Eve::Blueprints.filter, {selected: 1}, {class: "form-select",  "aria-label": "Blueprints filter"}) %>
   <% end %>
 
   <% @character_blueprints.each_with_index do |character_blueprint, index| %>
