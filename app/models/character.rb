@@ -93,14 +93,27 @@ class Character < ApplicationRecord
 
   scope :with_valid_tokens, -> { where(esi_token_valid: true) }
 
-  delegate :perception_without_bonuses, :perception_bonus,
-    :memory_without_bonuses, :memory_bonus,
-    :willpower_without_bonuses, :willpower_bonus,
-    :intelligence_without_bonuses, :intelligence_bonus,
-    :charisma_without_bonuses, :charisma_bonus, to: :character_attributes
+  delegate :perception_without_bonuses, to: :character_attributes
 
-  delegate :science_skill, :science_level, :advanced_industry_skill,
-    :advanced_industry_level, to: :character_skills_levels
+  delegate :perception_bonus, to: :character_attributes
+
+  delegate :memory_without_bonuses, to: :character_attributes
+
+  delegate :memory_bonus, to: :character_attributes
+
+  delegate :willpower_without_bonuses, to: :character_attributes
+
+  delegate :willpower_bonus, to: :character_attributes
+
+  delegate :intelligence_without_bonuses, to: :character_attributes
+
+  delegate :intelligence_bonus, to: :character_attributes
+
+  delegate :charisma_without_bonuses, to: :character_attributes
+
+  delegate :charisma_bonus, to: :character_attributes
+
+  delegate :science_skill, :science_level, :advanced_industry_skill, :advanced_industry_level, to: :character_skills_levels
 
   def perception_attribute
     @perception_attribute ||= Eve::CharacterAttribute.find_by(name_en: "Perception")
