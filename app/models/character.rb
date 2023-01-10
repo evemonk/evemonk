@@ -113,7 +113,13 @@ class Character < ApplicationRecord
 
   delegate :charisma_bonus, to: :character_attributes
 
-  delegate :science_skill, :science_level, :advanced_industry_skill, :advanced_industry_level, to: :character_skills_levels
+  delegate :science_skill, to: :character_skills_levels
+
+  delegate :science_level, to: :character_skills_levels
+
+  delegate :advanced_industry_skill, to: :character_skills_levels
+
+  delegate :advanced_industry_level, to: :character_skills_levels
 
   def perception_attribute
     @perception_attribute ||= Eve::CharacterAttribute.find_by(name_en: "Perception")
