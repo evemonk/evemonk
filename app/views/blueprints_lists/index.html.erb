@@ -13,6 +13,10 @@
   <% end %>
 
   <% @character_blueprints.each_with_index do |character_blueprint, index| %>
-    <%= render partial: "character_blueprint", locals: { character_blueprint: character_blueprint, index: index } %>
+    <%= render partial: "character_blueprint",
+               locals: {
+                 character_blueprint: character_blueprint,
+                 index: index
+               } %>
   <% end %>
 <% end %>
