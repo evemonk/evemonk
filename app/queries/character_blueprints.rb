@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
 class CharacterBlueprints
-  attr_reader :character, :params
+  attr_reader :character, :filter
 
-  def initialize(character, params)
+  def initialize(character, filter)
     @character = character
-    @params = params
+    @filter = filter
   end
 
   def query
@@ -15,10 +15,10 @@ class CharacterBlueprints
       .joins(blueprint: :group)
       .order("eve_types.name_en": :asc)
 
-    return @character_blueprints if params[:filter].blank?
+    return @character_blueprints if filter.blank?
 
     @character_blueprints =
-      case params[:filter]
+      case filter
       when "0" # All
         @character_blueprints
       when "1" # BPO
