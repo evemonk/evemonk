@@ -7,7 +7,7 @@
                   controller: "form-submit",
                   turbo_frame: dom_id(@character, :blueprints)
                 }) do |f| %>
-    <%= f.select(:filter, @form.select_data, { selected: @form.selected },
+    <%= f.select(:filter, @form.select_data, {selected: @form.selected},
                  {
                    class: "form-select",
                    "aria-label": "Blueprints filter",
