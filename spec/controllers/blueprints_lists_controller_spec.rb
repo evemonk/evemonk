@@ -37,22 +37,40 @@ describe BlueprintsListsController do
 
       before do
         #
-        # character.character_blueprints
-        #          .includes(blueprint: :group)
-        #          .order("eve_types.name_en": :asc)
+        # CharacterBlueprintsFilterForm.new(params[:filter])
         #
-        expect(character).to receive(:character_blueprints) do
+        expect(CharacterBlueprintsFilterForm).to receive(:new).with("3")
+      end
+
+      before do
+        #
+        # CharacterBlueprints.new(@character, params).query
+        #
+        expect(CharacterBlueprints).to receive(:new).with(character, "3") do
           double.tap do |a|
-            expect(a).to receive(:includes).with(blueprint: :group) do
-              double.tap do |b|
-                expect(b).to receive(:order).with("eve_types.name_en": :asc)
-              end
-            end
+            expect(a).to receive(:query)
           end
         end
       end
 
-      before { get :index, params: {character_id: "1"} }
+      # before do
+      #   #
+      #   # character.character_blueprints
+      #   #          .includes(blueprint: :group)
+      #   #          .order("eve_types.name_en": :asc)
+      #   #
+      #   expect(character).to receive(:character_blueprints) do
+      #     double.tap do |a|
+      #       expect(a).to receive(:includes).with(blueprint: :group) do
+      #         double.tap do |b|
+      #           expect(b).to receive(:order).with("eve_types.name_en": :asc)
+      #         end
+      #       end
+      #     end
+      #   end
+      # end
+
+      before { get :index, params: {character_id: "1", filter: "3"} }
 
       it { should respond_with(:ok) }
 

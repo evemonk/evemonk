@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class CharacterStandingsFilterForm
+class CharacterBlueprintsFilterForm
   include ActiveModel::Model
 
   attr_accessor :filter
