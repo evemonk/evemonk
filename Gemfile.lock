@@ -744,7 +744,6 @@ DEPENDENCIES
   license_finder
   local_time
   lograge
-  mail (= 2.8.0.1)
   meta-tags
   metricky
   mobility
@@ -807,4 +806,4 @@ RUBY VERSION
    ruby 3.2.0p0
 
 BUNDLED WITH
-   2.4.2
+   2.4.3
