@@ -1,7 +1,12 @@
 <%= turbo_frame_tag dom_id(@character, :blueprints) do %>
   <h4 class="text-center text-break">Blueprints (<%= @character_blueprints.size %>)</h4>
 
-  <%= form_with(url: character_blueprints_lists_path(@character), method: :get, data: { controller: "form-submit" }) do |f| %>
+  <%= form_with(url: character_blueprints_lists_path(@character),
+                method: :get,
+                data: {
+                  controller: "form-submit",
+                  turbo_frame: dom_id(@character, :blueprints)
+                }) do |f| %>
     <%= f.select(:filter, @form.select_data, { selected: @form.selected },
                  {
                    class: "form-select",
