@@ -744,7 +744,6 @@ DEPENDENCIES
   license_finder
   local_time
   lograge
-  mail (= 2.8.0.1)
   meta-tags
   metricky
   mobility
