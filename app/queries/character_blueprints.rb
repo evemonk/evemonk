@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class CharacterBlueprints
-  attr_reader :character, :params, :character_blueprints
+  attr_reader :character, :params
 
   def initialize(character, params)
     @character = character
