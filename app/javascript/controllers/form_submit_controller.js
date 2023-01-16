@@ -6,6 +6,9 @@ import { Controller } from "@hotwired/stimulus";
  * Example:
  *
  *   <form data-controller="form-submit">
+ *     <select data-action="form-submit#submit_form" name="filter" id="filter">
+ *       <option value="0">All</option>
+ *     </select>
  *   </form>
  */
 export default class extends Controller {
