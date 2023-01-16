@@ -12,17 +12,20 @@ class Standing < ApplicationRecord
   belongs_to :faction, -> { where(standings: { standingable_type: Eve::Faction.name }) },
     foreign_key: "standingable_id",
     class_name: "Eve::Faction",
-    inverse_of: :standings
+    inverse_of: :standings,
+    optional: true
 
   belongs_to :corporation, -> { where(standings: { standingable_type: Eve::Corporation.name }) },
     foreign_key: "standingable_id",
     class_name: "Eve::Corporation",
-    inverse_of: :standings
+    inverse_of: :standings,
+    optional: true
 
   belongs_to :agent, -> { where(standings: { standingable_type: Eve::Agent.name }) },
     foreign_key: "standingable_id",
     class_name: "Eve::Agent",
-    inverse_of: :standings
+    inverse_of: :standings,
+    optional: true
 
   scope :factions, -> do
     where(standings: { standingable_type: Eve::Faction.name })
