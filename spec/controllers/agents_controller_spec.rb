@@ -41,14 +41,14 @@ describe AgentsController do
 
       before do
         #
-        # CharacterAgentDivisionsFilterForm.new(params[:filter])
+        # CharacterAgentDivisionsFilterForm.new(params[:division_id])
         #
         expect(CharacterAgentDivisionsFilterForm).to receive(:new).with("24")
       end
 
       before do
         #
-        # CharacterAgents.new(@character, params[:filter]).query
+        # CharacterAgents.new(@character, params[:division_id]).query
         #
         expect(CharacterAgents).to receive(:new).with(character, "24") do
           double.tap do |a|
@@ -57,7 +57,7 @@ describe AgentsController do
         end
       end
 
-      before { get :index, params: {character_id: "1", filter: "24"} }
+      before { get :index, params: {character_id: "1", division_id: "24"} }
 
       it { should respond_with(:ok) }
 

@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
 class CharacterAgents
-  attr_reader :character, :filter
+  attr_reader :character, :division_id
 
-  def initialize(character, filter)
+  def initialize(character, division_id)
     @character = character
-    @filter = filter
+    @division_id = division_id
   end
 
   def query
@@ -13,14 +13,14 @@ class CharacterAgents
 
     @character_agents = character.standings.agents.includes(agent: :division)
 
-    return @character_agents if filter.blank?
+    return @character_agents if division_id.blank?
 
     @character_agents =
-      case filter
+      case division_id
       when "-1" # All divisions
         @character_agents
       else
-        @character_agents.where(eve_agents: { division_id: filter })
+        @character_agents.where(eve_agents: { division_id: division_id })
       end
   end
 end
