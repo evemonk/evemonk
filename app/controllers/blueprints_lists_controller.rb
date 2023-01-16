@@ -5,8 +5,9 @@ class BlueprintsListsController < ApplicationController
     @character = current_user.characters
       .find_by!(character_id: params[:character_id])
 
-    @character_blueprints = @character.character_blueprints
-      .includes(blueprint: :group)
+    @form = CharacterBlueprintsFilterForm.new(params[:filter])
+
+    @character_blueprints = CharacterBlueprints.new(@character, params[:filter]).query
 
     render layout: false
   end

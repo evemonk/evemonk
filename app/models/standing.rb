@@ -10,23 +10,23 @@ class Standing < ApplicationRecord
     optional: true
 
   # TODO: later
-  # scope :factions_standings, -> do
+  # scope :factions, -> do
   #   joins("LEFT JOIN eve_factions ON standings.standingable_id = eve_factions.id")
-  #     .where(standingable_type: "Eve::Faction")
+  #     .where(standingable_type: Eve::Faction.name)
   #     .order("eve_factions.name_en": :asc)
   #     .includes(:standingable)
   # end
   #
-  # scope :corporations_standings, -> do
+  # scope :corporations, -> do
   #   joins("LEFT JOIN eve_corporations ON standings.standingable_id = eve_corporations.id")
-  #     .where(standingable_type: "Eve::Corporation")
+  #     .where(standingable_type: Eve::Corporation.name)
   #     .order("eve_corporations.name": :asc)
   #     .includes(:standingable)
   # end
   #
-  # scope :agents_standings, -> do
+  # scope :agents, -> do
   #   joins("LEFT JOIN eve_agents ON standings.standingable_id = eve_agents.id")
-  #     .where(standingable_type: "Eve::Agent")
+  #     .where(standingable_type: Eve::Agent.name)
   #     .order("eve_agents.name": :asc)
   #     .includes(:standingable)
   # end

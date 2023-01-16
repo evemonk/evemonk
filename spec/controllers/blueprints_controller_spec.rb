@@ -84,21 +84,6 @@ describe BlueprintsController do
         end
       end
 
-      let(:character_blueprint) { instance_double(CharacterBlueprint) }
-
-      before do
-        #
-        # character.character_blueprints
-        #          .includes(:blueprint) # => character_blueprint
-        #
-        expect(character).to receive(:character_blueprints) do
-          double.tap do |a|
-            expect(a).to receive(:includes).with(:blueprint)
-              .and_return(character_blueprint)
-          end
-        end
-      end
-
       before do
         #
         # character.character_blueprints

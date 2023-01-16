@@ -12,9 +12,6 @@ class BlueprintsController < ApplicationController
       .includes(:alliance, :corporation)
       .find_by!(character_id: params[:character_id])
 
-    @character_blueprints = @character.character_blueprints
-      .includes(:blueprint)
-
     @blueprint = @character.character_blueprints
       .includes(:blueprint)
       .find_by!(item_id: params[:id])

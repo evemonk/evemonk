@@ -74,17 +74,17 @@ describe Character do
   describe "#factions_standings" do
     let!(:character) { create(:character) }
 
-    let!(:faction) { create(:eve_faction) }
+    let!(:eve_faction) { create(:eve_faction) }
 
-    let!(:corporation) { create(:eve_corporation) }
+    let!(:eve_corporation) { create(:eve_corporation) }
 
-    let!(:agent) { create(:eve_agent) }
+    let!(:eve_agent) { create(:eve_agent) }
 
-    let!(:faction_standing) { create(:standing, character: character, standingable: faction) }
+    let!(:faction_standing) { create(:standing, character: character, standingable: eve_faction) }
 
-    let!(:corporation_standing) { create(:standing, character: character, standingable: corporation) }
+    let!(:corporation_standing) { create(:standing, character: character, standingable: eve_corporation) }
 
-    let!(:agent_standing) { create(:standing, character: character, standingable: agent) }
+    let!(:agent_standing) { create(:standing, character: character, standingable: eve_agent) }
 
     specify { expect(character.factions_standings.count).to eq(1) }
 
@@ -94,17 +94,17 @@ describe Character do
   describe "#corporations_standings" do
     let!(:character) { create(:character) }
 
-    let!(:faction) { create(:eve_faction) }
+    let!(:eve_faction) { create(:eve_faction) }
 
-    let!(:corporation) { create(:eve_corporation) }
+    let!(:eve_corporation) { create(:eve_corporation) }
 
-    let!(:agent) { create(:eve_agent) }
+    let!(:eve_agent) { create(:eve_agent) }
 
-    let!(:faction_standing) { create(:standing, character: character, standingable: faction) }
+    let!(:faction_standing) { create(:standing, character: character, standingable: eve_faction) }
 
-    let!(:corporation_standing) { create(:standing, character: character, standingable: corporation) }
+    let!(:corporation_standing) { create(:standing, character: character, standingable: eve_corporation) }
 
-    let!(:agent_standing) { create(:standing, character: character, standingable: agent) }
+    let!(:agent_standing) { create(:standing, character: character, standingable: eve_agent) }
 
     specify { expect(character.corporations_standings.count).to eq(1) }
 
@@ -114,17 +114,17 @@ describe Character do
   describe "#agents_standings" do
     let!(:character) { create(:character) }
 
-    let!(:faction) { create(:eve_faction) }
+    let!(:eve_faction) { create(:eve_faction) }
 
-    let!(:corporation) { create(:eve_corporation) }
+    let!(:eve_corporation) { create(:eve_corporation) }
 
-    let!(:agent) { create(:eve_agent) }
+    let!(:eve_agent) { create(:eve_agent) }
 
-    let!(:faction_standing) { create(:standing, character: character, standingable: faction) }
+    let!(:faction_standing) { create(:standing, character: character, standingable: eve_faction) }
 
-    let!(:corporation_standing) { create(:standing, character: character, standingable: corporation) }
+    let!(:corporation_standing) { create(:standing, character: character, standingable: eve_corporation) }
 
-    let!(:agent_standing) { create(:standing, character: character, standingable: agent) }
+    let!(:agent_standing) { create(:standing, character: character, standingable: eve_agent) }
 
     specify { expect(character.agents_standings.count).to eq(1) }
 
