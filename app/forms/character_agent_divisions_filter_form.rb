@@ -23,7 +23,7 @@ class CharacterAgentDivisionsFilterForm
     divisions = [{name: "Division: All", id: -1}]
 
     Eve::Division.find_each do |division|
-      divisions.append({ name: "Division: #{division.name}", id: division.id })
+      divisions.append({name: "Division: #{division.name}", id: division.id})
     end
 
     divisions
