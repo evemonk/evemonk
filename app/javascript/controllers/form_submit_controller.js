@@ -1,7 +1,12 @@
 import { Controller } from "@hotwired/stimulus";
 
 /**
- * TODO: write
+ * This is Stimulus controller to submit form in Turbo-compatible way.
+ *
+ * Example:
+ *
+ *   <form data-controller="form-submit">
+ *   </form>
  */
 export default class extends Controller {
   /**
