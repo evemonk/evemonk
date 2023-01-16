@@ -5,5 +5,7 @@ class AgentsController < ApplicationController
     @character = current_user.characters
       .includes(:alliance, :corporation, agents_standings: {standingable: :division})
       .find_by!(character_id: params[:character_id])
+
+    @form = CharacterAgentDivisionsFilterForm.new(params[:filter])
   end
 end
