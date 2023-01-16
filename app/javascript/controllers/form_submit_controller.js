@@ -1,5 +1,8 @@
 import { Controller } from "@hotwired/stimulus";
 
+/**
+ * TODO: write
+ */
 export default class extends Controller {
   /**
    * Submit form with form.requestSubmit(). So, Turbo can intercept.
