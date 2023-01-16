@@ -28,7 +28,7 @@
 
   <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
     <%= turbo_frame_tag dom_id(@character, :agents) do %>
-      <h4 class="text-center">Agents (<%= @character.agents_standings.size %>)</h4>
+      <h4 class="text-center">Agents (<%= @character_agents.size %>)</h4>
 
       <%= form_with(url: character_agents_path(@character),
                     method: :get,
@@ -46,7 +46,7 @@
                      }) %>
       <% end %>
 
-      <% @character.agents_standings.each_with_index do |standing, index| %>
+      <% @character_agents.each_with_index do |standing, index| %>
         <div class="card <%= (index % 2 == 0) ? "bg-dark" : "bg-transparent" %> rounded-0 border-secondary <%= (index == 0) ? "" : "border-top-0" %>">
           <div class="row g-0">
             <div class="col-2 text-center m-auto">
