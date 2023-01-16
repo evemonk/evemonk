@@ -23,17 +23,17 @@ class Standing < ApplicationRecord
 
   scope :factions, -> do
     where(standings: { standingable_type: Eve::Faction.name })
-      .order("eve_factions.name_en": :asc)
+      .order("eve_factions.name_en ASC")
   end
 
   scope :corporations, -> do
     where(standings: { standingable_type: Eve::Corporation.name })
-      .order("eve_corporations.name": :asc)
+      .order("eve_corporations.name ASC")
   end
 
   scope :agents, -> do
     where(standings: { standingable_type: Eve::Agent.name })
-      .order("eve_agents.name": :asc)
+      .order("eve_agents.name ASC")
   end
 
   def rounded_standing
