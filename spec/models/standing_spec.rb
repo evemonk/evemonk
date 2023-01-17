@@ -38,11 +38,20 @@ describe Standing do
       .optional(true)
   end
 
-  # scope :factions, -> do
-  #   where(standings: { standingable_type: Eve::Faction.name })
-  #     .order("eve_factions.name_en ASC")
-  # end
-  #
+  describe ".factions" do
+    let!(:eve_faction_1) { create(:eve_faction, name_en: "B") }
+
+    let!(:eve_faction_2) { create(:eve_faction, name_en: "A") }
+
+    let!(:character) { create(:character) }
+
+    let!(:standing_1) { create(:standing, :for_faction, character: character, standingable: eve_faction_1) }
+
+    let!(:standing_2) { create(:standing, :for_faction, character: character, standingable: eve_faction_2) }
+
+    specify { expect(described_class.factions.includes(:faction)).to eq([standing_2, standing_1]) }
+  end
+
   # scope :corporations, -> do
   #   where(standings: { standingable_type: Eve::Corporation.name })
   #     .order("eve_corporations.name ASC")
@@ -53,21 +62,6 @@ describe Standing do
   #     .order("eve_agents.name ASC")
   # end
 
-  # TODO: later
-  # describe ".factions" do
-  #   let!(:eve_faction_1) { create(:eve_faction, name_en: "A") }
-  #
-  #   let!(:eve_faction_2) { create(:eve_faction, name_en: "B") }
-  #
-  #   let!(:character) { create(:character) }
-  #
-  #   let!(:standing_1) { create(:standing, :for_faction, character: character, standingable: eve_faction_1) }
-  #
-  #   let!(:standing_2) { create(:standing, :for_faction, character: character, standingable: eve_faction_2) }
-  #
-  #   specify { expect(described_class.factions).to eq([standing_1, standing_2]) }
-  # end
-  #
   # describe ".corporations" do
   #   let!(:eve_corporation_1) { create(:eve_corporation, name: "A") }
   #
