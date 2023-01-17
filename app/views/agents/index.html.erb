@@ -34,7 +34,8 @@
                     method: :get,
                     data: {
                       controller: "form-submit",
-                      turbo_frame: dom_id(@character, :agents)
+                      turbo_frame: dom_id(@character, :agents),
+                      turbo_action: "advance"
                     }) do |f| %>
         <%= f.select(:division_id, @form.select_data, {selected: @form.selected},
                      {
