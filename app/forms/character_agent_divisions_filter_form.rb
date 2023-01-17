@@ -3,10 +3,10 @@
 class CharacterAgentDivisionsFilterForm
   include ActiveModel::Model
 
-  attr_accessor :filter
+  attr_accessor :division_id
 
-  def initialize(filter)
-    @filter = filter
+  def initialize(division_id)
+    @division_id = division_id
   end
 
   def select_data
@@ -14,7 +14,7 @@ class CharacterAgentDivisionsFilterForm
   end
 
   def selected
-    filter
+    division_id
   end
 
   private

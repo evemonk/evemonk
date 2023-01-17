@@ -13,14 +13,8 @@ class CharacterAgents
 
     @character_agents = character.standings.agents.includes(agent: :division)
 
-    return @character_agents if division_id.blank?
+    return @character_agents if division_id.blank? || division_id == "-1"
 
-    @character_agents =
-      case division_id
-      when "-1" # All divisions
-        @character_agents
-      else
-        @character_agents.where(eve_agents: { division_id: division_id })
-      end
+    @character_agents = @character_agents.where(eve_agents: { division_id: division_id })
   end
 end
