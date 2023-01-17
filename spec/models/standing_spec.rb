@@ -11,6 +11,48 @@ describe Standing do
 
   it { should belong_to(:standingable).optional(true) }
 
+  it do
+    should belong_to(:faction)
+      .conditions(standings: { standingable_type: Eve::Faction.name })
+      .with_foreign_key("standingable_id")
+      .class_name("Eve::Faction")
+      .inverse_of(:standings)
+      .optional(true)
+  end
+
+  it do
+    should belong_to(:corporation)
+      .conditions(standings: { standingable_type: Eve::Corporation.name })
+      .with_foreign_key("standingable_id")
+      .class_name("Eve::Corporation")
+      .inverse_of(:standings)
+      .optional(true)
+  end
+
+  it do
+    should belong_to(:agent)
+      .conditions(standings: { standingable_type: Eve::Agent.name })
+      .with_foreign_key("standingable_id")
+      .class_name("Eve::Agent")
+      .inverse_of(:standings)
+      .optional(true)
+  end
+
+  # scope :factions, -> do
+  #   where(standings: { standingable_type: Eve::Faction.name })
+  #     .order("eve_factions.name_en ASC")
+  # end
+  #
+  # scope :corporations, -> do
+  #   where(standings: { standingable_type: Eve::Corporation.name })
+  #     .order("eve_corporations.name ASC")
+  # end
+  #
+  # scope :agents, -> do
+  #   where(standings: { standingable_type: Eve::Agent.name })
+  #     .order("eve_agents.name ASC")
+  # end
+
   # TODO: later
   # describe ".factions" do
   #   let!(:eve_faction_1) { create(:eve_faction, name_en: "A") }
