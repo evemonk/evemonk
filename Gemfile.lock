@@ -106,7 +106,7 @@ GEM
       airbrake-ruby (~> 6.0)
     airbrake-ruby (6.2.0)
       rbtree3 (~> 0.5)
-    anyway_config (2.3.0)
+    anyway_config (2.3.1)
       ruby-next-core (>= 0.14.0)
     ast (2.4.2)
     attr_extras (7.0.0)
