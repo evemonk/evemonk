@@ -29,8 +29,6 @@ class CharacterBlueprints
         @character_blueprints.where(eve_types: {eve_groups: {category_id: Eve::Categories::ANCIENT_RELICS_ID}})
       when "4" # Stacked
         @character_blueprints.where(quantity: [0..])
-      else
-        @character_blueprints
       end
   end
 end
