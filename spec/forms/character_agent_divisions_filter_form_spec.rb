@@ -29,4 +29,17 @@ describe CharacterAgentDivisionsFilterForm do
   describe "#selected" do
     specify { expect(subject.selected).to eq(division_id) }
   end
+
+  describe "#raw_values" do
+    let!(:eve_division) { create(:eve_division, name: "Security") }
+
+    specify do
+      expect(subject.send(:raw_values)).to eq(
+        [
+          {name: "Division: All", id: -1},
+          {name: "Division: Security", id: eve_division.id}
+        ]
+      )
+    end
+  end
 end
