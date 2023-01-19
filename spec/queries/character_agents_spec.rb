@@ -27,9 +27,9 @@ describe CharacterAgents do
     context "when division_id is blank or -1" do
       let!(:character) { create(:character) }
 
-      let!(:eve_agent_1) { create(:eve_agent) }
+      let!(:eve_agent_1) { create(:eve_agent, name: "ABC") }
 
-      let!(:eve_agent_2) { create(:eve_agent) }
+      let!(:eve_agent_2) { create(:eve_agent, name: "DEF") }
 
       let!(:standing_1) { create(:standing, :for_agent, character: character, standingable: eve_agent_1) }
 
@@ -38,13 +38,13 @@ describe CharacterAgents do
       context "when blank" do
         let(:division_id) { "" }
 
-        specify { expect(subject.query.order(:id)).to eq([standing_1, standing_2]) }
+        specify { expect(subject.query).to eq([standing_1, standing_2]) }
       end
 
       context "when -1" do
         let(:division_id) { "-1" }
 
-        specify { expect(subject.query.order(:id)).to eq([standing_1, standing_2]) }
+        specify { expect(subject.query).to eq([standing_1, standing_2]) }
       end
     end
   end
