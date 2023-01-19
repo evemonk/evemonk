@@ -75,62 +75,62 @@
                 <ul>
                   <%= link_to(t(".alliances"), universe_alliances_path) %>
                   <%= link_to(t(".corporations"), universe_corporations_path) %>
-                  <%= link_to(t(".characters"), universe_characters_path, class: "dropdown-item") %>
-                  <%= link_to(t(".market_groups"), nil, class: "dropdown-item") %>
-                  <%= link_to(t(".inventory"), nil, class: "dropdown-item") %>
+                  <%= link_to(t(".characters"), universe_characters_path) %>
+                  <%= link_to(t(".market_groups"), nil) %>
+                  <%= link_to(t(".inventory"), nil) %>
                 </ul>
               </li>
             </ul>
             <form role="search">
-              <input class="form-control" type="search" placeholder="Search" aria-label="Search" autocomplete="off">
+              <input type="search" placeholder="Search" aria-label="Search" autocomplete="off">
             </form>
           </div>
         </div>
       </nav>
 
       <div id="alerts" data-turbo-cache="false">
-        <%= render "shared/alerts" %>
+        <%#= TODO: render "shared/alerts" %>
       </div>
 
       <%= yield %>
 
-      <div class="w-100"></div>
+      <div></div>
 
-      <hr class="text-dark">
+      <hr>
 
-      <div class="row">
-        <div class="col-6 col-md-3">
-          <ul class="list-unstyled mb-0">
+      <div>
+        <div>
+          <ul>
             <li><%= link_to(t(".faq"), faq_path) %></li>
             <li><%= link_to(t(".privacy_policy"), privacy_policy_path) %></li>
           </ul>
         </div>
-        <div class="col-6 col-md-3">
-          <ul class="list-unstyled mb-0">
+        <div>
+          <ul>
             <li><%= link_to(t(".terms_of_use"), terms_of_service_path) %></li>
             <li><%= link_to(t(".about"), about_path) %></li>
           </ul>
         </div>
-        <div class="col-6 col-md-3">
-          <ul class="list-unstyled mb-0">
+        <div>
+          <ul>
             <li><%= link_to("GraphQL", graphiql_rails_path, target: "_blank") %></li>
             <li><%= link_to("Blog", blog_url, target: "_blank", rel: "noopener noreferrer") %></li>
           </ul>
         </div>
-        <div class="col-6 col-md-3">
-          <ul class="list-unstyled mb-0">
+        <div>
+          <ul>
             <li><%= link_to("GitHub", github_evemonk_evemonk_url, target: "_blank", rel: "noopener noreferrer") %></li>
             <li><%= link_to("SDE Archive", sde_archive_url, target: "_blank", rel: "noopener noreferrer") %></li>
           </ul>
         </div>
       </div>
 
-      <div class="w-100"></div>
+      <div></div>
 
-      <hr class="text-dark">
+      <hr>
 
-      <div class="row text-center">
-        <div class="col text-muted">
+      <div>
+        <div>
           &copy; 2016 &mdash; 2023 <strong>EveMonk</strong>
         </div>
       </div>

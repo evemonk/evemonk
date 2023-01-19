@@ -12,15 +12,15 @@
 <div>
   <div>
 
-    <div class="card">
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item text-break">
+    <div>
+      <ul>
+        <li>
           Characters count: <%= current_user.characters.count %>
         </li>
-        <li class="list-group-item text-break">
+        <li>
           <%= link_to("Change email and password", edit_user_registration_path) %>
         </li>
-        <li class="list-group-item text-break">
+        <li>
           <%= link_to("Remove my profile with all data", edit_user_registration_path) %>
         </li>
       </ul>
