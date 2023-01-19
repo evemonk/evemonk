@@ -47,5 +47,43 @@ describe CharacterAgents do
         specify { expect(subject.query).to eq([standing_1, standing_2]) }
       end
     end
+
+    context "when division_id is present" do
+      let!(:character) { create(:character) }
+
+      let!(:eve_division_1) { create(:eve_division) }
+
+      let!(:eve_division_2) { create(:eve_division) }
+
+      let!(:eve_agent_1) do
+        create(:eve_agent,
+          name: "ABC",
+          division: eve_division_1)
+      end
+
+      let!(:eve_agent_2) do
+        create(:eve_agent,
+          name: "DEF",
+          division: eve_division_2)
+      end
+
+      let!(:standing_1) do
+        create(:standing,
+          :for_agent,
+          character: character,
+          standingable: eve_agent_1)
+      end
+
+      let!(:standing_2) do
+        create(:standing,
+          :for_agent,
+          character: character,
+          standingable: eve_agent_2)
+      end
+
+      let(:division_id) { eve_division_1.id }
+
+      specify { expect(subject.query).to eq([standing_1]) }
+    end
   end
 end
