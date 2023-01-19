@@ -9,36 +9,36 @@ class Standing < ApplicationRecord
     polymorphic: true,
     optional: true
 
-  belongs_to :faction, -> { where(standings: { standingable_type: Eve::Faction.name }) },
+  belongs_to :faction, -> { where(standings: {standingable_type: Eve::Faction.name}) },
     foreign_key: "standingable_id",
     class_name: "Eve::Faction",
     inverse_of: :standings,
     optional: true
 
-  belongs_to :corporation, -> { where(standings: { standingable_type: Eve::Corporation.name }) },
+  belongs_to :corporation, -> { where(standings: {standingable_type: Eve::Corporation.name}) },
     foreign_key: "standingable_id",
     class_name: "Eve::Corporation",
     inverse_of: :standings,
     optional: true
 
-  belongs_to :agent, -> { where(standings: { standingable_type: Eve::Agent.name }) },
+  belongs_to :agent, -> { where(standings: {standingable_type: Eve::Agent.name}) },
     foreign_key: "standingable_id",
     class_name: "Eve::Agent",
     inverse_of: :standings,
     optional: true
 
   scope :factions, -> do
-    where(standings: { standingable_type: Eve::Faction.name })
+    where(standings: {standingable_type: Eve::Faction.name})
       .order("eve_factions.name_en ASC")
   end
 
   scope :corporations, -> do
-    where(standings: { standingable_type: Eve::Corporation.name })
+    where(standings: {standingable_type: Eve::Corporation.name})
       .order("eve_corporations.name ASC")
   end
 
   scope :agents, -> do
-    where(standings: { standingable_type: Eve::Agent.name })
+    where(standings: {standingable_type: Eve::Agent.name})
       .order("eve_agents.name ASC")
   end
 
