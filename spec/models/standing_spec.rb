@@ -13,7 +13,7 @@ describe Standing do
 
   it do
     should belong_to(:faction)
-      .conditions(standings: { standingable_type: Eve::Faction.name })
+      .conditions(standings: {standingable_type: Eve::Faction.name})
       .with_foreign_key("standingable_id")
       .class_name("Eve::Faction")
       .inverse_of(:standings)
@@ -22,7 +22,7 @@ describe Standing do
 
   it do
     should belong_to(:corporation)
-      .conditions(standings: { standingable_type: Eve::Corporation.name })
+      .conditions(standings: {standingable_type: Eve::Corporation.name})
       .with_foreign_key("standingable_id")
       .class_name("Eve::Corporation")
       .inverse_of(:standings)
@@ -31,7 +31,7 @@ describe Standing do
 
   it do
     should belong_to(:agent)
-      .conditions(standings: { standingable_type: Eve::Agent.name })
+      .conditions(standings: {standingable_type: Eve::Agent.name})
       .with_foreign_key("standingable_id")
       .class_name("Eve::Agent")
       .inverse_of(:standings)
