@@ -15,6 +15,6 @@ class CharacterAgents
 
     return @character_agents if division_id.blank? || division_id == "-1"
 
-    @character_agents = @character_agents.where(eve_agents: { division_id: division_id })
+    @character_agents = @character_agents.where(eve_agents: {division_id: division_id})
   end
 end
