@@ -14,4 +14,38 @@ describe CharacterAgents do
 
     its(:division_id) { should eq(division_id) }
   end
+
+  describe "#query" do
+    context "when @character_agents is already set" do
+      let(:character_agents) { double }
+
+      before { subject.instance_variable_set(:@character_agents, character_agents) }
+
+      specify { expect(subject.query).to eq(character_agents) }
+    end
+
+    context "when division_id is blank or -1" do
+      let!(:character) { create(:character) }
+
+      let!(:eve_agent_1) { create(:eve_agent) }
+
+      let!(:eve_agent_2) { create(:eve_agent) }
+
+      let!(:standing_1) { create(:standing, :for_agent, character: character, standingable: eve_agent_1) }
+
+      let!(:standing_2) { create(:standing, :for_agent, character: character, standingable: eve_agent_2) }
+
+      context "when blank" do
+        let(:division_id) { "" }
+
+        specify { expect(subject.query.order(:id)).to eq([standing_1, standing_2]) }
+      end
+
+      context "when -1" do
+        let(:division_id) { "-1" }
+
+        specify { expect(subject.query.order(:id)).to eq([standing_1, standing_2]) }
+      end
+    end
+  end
 end
