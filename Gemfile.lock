@@ -684,7 +684,7 @@ GEM
       sidekiq
       yabeda (~> 0.6)
     zeitwerk (2.6.6)
-    zxcvbn (0.1.7)
+    zxcvbn (0.1.8)
 
 PLATFORMS
   aarch64-linux
