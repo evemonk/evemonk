@@ -1,0 +1,137 @@
+<!doctype html>
+<html class="h-full bg-gray-100">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
+
+    <%= display_meta_tags site: "EveMonk: EVE Online management suite",
+                          reverse: true %>
+
+    <!-- Disable translation prompt -->
+    <%= tag.meta(name: "google", content: "notranslate") %>
+
+    <!-- Disable automatic detection and formatting of possible phone numbers -->
+    <%= tag.meta(name: "format-detection", content: "telephone=no") %>
+
+    <% if Setting.use_google_search_console %>
+      <!-- Google Search Console -->
+      <%= tag.meta(name: "google-site-verification", content: Setting.google_site_verification_token) %>
+    <% end %>
+
+    <% if Setting.use_plausible_evemonk %>
+      <%= render "shared/plausible" %>
+    <% end %>
+
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= action_cable_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+    <%#= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons&display=block" rel="stylesheet">
+
+    <!-- Links to information about the author(s) of the document -->
+    <%= tag.link(rel: "author", href: "humans.txt") %>
+  </head>
+
+  <body class="bg-neutral-800 h-full">
+    <div class="container">
+      <nav aria-label="EveMonk navbar">
+        <div>
+          <%= link_to("EveMonk", root_url, class: "navbar-brand") %>
+
+          <button type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span></span>
+          </button>
+
+          <div id="navbar">
+            <ul>
+              <% if current_user %>
+                <li>
+                  <%= link_to(t(".my_characters"), characters_path) %>
+                </li>
+                <li>
+                  <%= link_to(t(".profile"), profile_path) %>
+                </li>
+                <li>
+                  <%= link_to(t(".sign_out"), destroy_user_session_path, data: {turbo_method: :delete}) %>
+                </li>
+              <% else %>
+                <li>
+                  <%= link_to(t(".sign_in"), new_user_session_path) %>
+                </li>
+                <li>
+                  <%= link_to(t(".sign_up"), new_user_registration_path) %>
+                </li>
+              <% end %>
+
+              <li>
+                <a href="#" data-bs-toggle="dropdown" aria-expanded="false"><%= t(".universe") %></a>
+                <ul>
+                  <%= link_to(t(".alliances"), universe_alliances_path) %>
+                  <%= link_to(t(".corporations"), universe_corporations_path) %>
+                  <%= link_to(t(".characters"), universe_characters_path) %>
+                  <%= link_to(t(".market_groups"), nil) %>
+                  <%= link_to(t(".inventory"), nil) %>
+                </ul>
+              </li>
+            </ul>
+            <form role="search">
+              <input type="search" placeholder="Search" aria-label="Search" autocomplete="off">
+            </form>
+          </div>
+        </div>
+      </nav>
+
+      <div id="alerts" data-turbo-cache="false">
+        <%#= TODO: render "shared/alerts" %>
+      </div>
+
+      <%= yield %>
+
+      <div></div>
+
+      <hr>
+
+      <div>
+        <div>
+          <ul>
+            <li><%= link_to(t(".faq"), faq_path) %></li>
+            <li><%= link_to(t(".privacy_policy"), privacy_policy_path) %></li>
+          </ul>
+        </div>
+        <div>
+          <ul>
+            <li><%= link_to(t(".terms_of_use"), terms_of_service_path) %></li>
+            <li><%= link_to(t(".about"), about_path) %></li>
+          </ul>
+        </div>
+        <div>
+          <ul>
+            <li><%= link_to("GraphQL", graphiql_rails_path, target: "_blank") %></li>
+            <li><%= link_to("Blog", blog_url, target: "_blank", rel: "noopener noreferrer") %></li>
+          </ul>
+        </div>
+        <div>
+          <ul>
+            <li><%= link_to("GitHub", github_evemonk_evemonk_url, target: "_blank", rel: "noopener noreferrer") %></li>
+            <li><%= link_to("SDE Archive", sde_archive_url, target: "_blank", rel: "noopener noreferrer") %></li>
+          </ul>
+        </div>
+      </div>
+
+      <div></div>
+
+      <hr>
+
+      <div>
+        <div>
+          &copy; 2016 &mdash; 2023 <strong>EveMonk</strong>
+        </div>
+      </div>
+    </div>
+
+    <ninja-keys class="dark" data-controller="commands"></ninja-keys>
+  </body>
+</html>

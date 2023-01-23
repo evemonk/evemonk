@@ -623,6 +623,8 @@ GEM
       attr_extras (>= 6.2.4)
       diff-lcs
       patience_diff
+    tailwindcss-rails (2.0.21-arm64-darwin)
+      railties (>= 6.0.0)
     thor (1.2.1)
     tilt (2.0.11)
     timeout (0.3.1)
@@ -790,6 +792,7 @@ DEPENDENCIES
   standard (= 1.22.1)
   stimulus-rails (>= 0.3.9)
   super_diff
+  tailwindcss-rails
   turbo-rails (>= 0.7.4)
   tzinfo-data
   vcr
