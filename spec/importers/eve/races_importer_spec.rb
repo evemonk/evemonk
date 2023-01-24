@@ -45,7 +45,7 @@ describe Eve::RacesImporter do
 
       let(:eve_race) { instance_double(Eve::Race) }
 
-      before { expect(Eve::Race).to receive(:find_or_initialize_by).with({race_id: race_id}).and_return(eve_race) }
+      before { expect(Eve::Race).to receive(:find_or_initialize_by).with(race_id: race_id).and_return(eve_race) }
 
       before { expect(eve_race).to receive(:update!).with(json) }
 
@@ -67,7 +67,7 @@ describe Eve::RacesImporter do
     context "when @esi not set" do
       let(:esi) { instance_double(EveOnline::ESI::UniverseRaces) }
 
-      before { expect(EveOnline::ESI::UniverseRaces).to receive(:new).with({language: "en-us"}).and_return(esi) }
+      before { expect(EveOnline::ESI::UniverseRaces).to receive(:new).with(language: "en-us").and_return(esi) }
 
       specify { expect(subject.esi).to eq(esi) }
 
