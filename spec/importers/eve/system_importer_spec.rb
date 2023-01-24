@@ -40,7 +40,7 @@ describe Eve::SystemImporter do
 
     let(:eve_system) { instance_double(Eve::System) }
 
-    before { expect(Eve::System).to receive(:find_or_initialize_by).with({system_id: system_id}).and_return(eve_system) }
+    before { expect(Eve::System).to receive(:find_or_initialize_by).with(system_id: system_id).and_return(eve_system) }
 
     context "when etag cache hit" do
       let(:esi) { instance_double(EveOnline::ESI::UniverseSystem, not_modified?: true) }
@@ -191,7 +191,7 @@ describe Eve::SystemImporter do
     context "when @esi not set" do
       let(:esi) { instance_double(EveOnline::ESI::UniverseSystem) }
 
-      before { expect(EveOnline::ESI::UniverseSystem).to receive(:new).with({id: system_id, language: "en-us"}).and_return(esi) }
+      before { expect(EveOnline::ESI::UniverseSystem).to receive(:new).with(id: system_id, language: "en-us").and_return(esi) }
 
       specify { expect(subject.esi).to eq(esi) }
 
