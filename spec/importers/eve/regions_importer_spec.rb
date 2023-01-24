@@ -8,29 +8,11 @@ describe Eve::RegionsImporter do
   describe "#import" do
     before { expect(subject).to receive(:configure_middlewares) }
 
-    before { expect(subject).to receive(:configure_etag) }
+    before { expect(subject).to receive(:import_new_regions) }
 
-    context "when etag cache hit" do
-      let(:esi) { instance_double(EveOnline::ESI::UniverseRegions, not_modified?: true) }
+    before { expect(subject).to receive(:remove_old_regions) }
 
-      before { expect(EveOnline::ESI::UniverseRegions).to receive(:new).and_return(esi) }
-
-      specify { expect { subject.import }.not_to raise_error }
-    end
-
-    context "when etag cache miss" do
-      let(:esi) { instance_double(EveOnline::ESI::UniverseRegions, not_modified?: false) }
-
-      before { expect(EveOnline::ESI::UniverseRegions).to receive(:new).and_return(esi) }
-
-      before { expect(subject).to receive(:import_new_regions) }
-
-      before { expect(subject).to receive(:remove_old_regions) }
-
-      before { expect(subject).to receive(:update_etag) }
-
-      specify { expect { subject.import }.not_to raise_error }
-    end
+    specify { expect { subject.import }.not_to raise_error }
   end
 
   describe "#esi" do
