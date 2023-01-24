@@ -4,13 +4,9 @@ module Eve
   class AlliancesImporter < BaseImporter
     def import
       import! do
-        return if esi.not_modified?
-
         remove_old_alliances
 
         import_new_alliances
-
-        update_etag
       end
     end
 
