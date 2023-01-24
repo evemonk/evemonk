@@ -30,7 +30,7 @@ describe EmploymentHistoriesController do
               double.tap do |b|
                 expect(b).to receive(:includes).with(:alliance, :corporation) do
                   double.tap do |c|
-                    expect(c).to receive(:find_by!).with({character_id: "123"}).and_return(character)
+                    expect(c).to receive(:find_by!).with(character_id: "123").and_return(character)
                   end
                 end
               end
@@ -45,7 +45,7 @@ describe EmploymentHistoriesController do
         #                            .includes(:corporation)
         #                            .order(start_date: :desc)
         #
-        expect(CharacterCorporationHistory).to receive(:where).with({character_id: character.character_id}) do
+        expect(CharacterCorporationHistory).to receive(:where).with(character_id: character.character_id) do
           double.tap do |a|
             expect(a).to receive(:includes).with(:corporation) do
               double.tap do |b|
