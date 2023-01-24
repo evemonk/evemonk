@@ -34,7 +34,7 @@ describe Eve::TypeImporter do
 
     let(:eve_type) { instance_double(Eve::Type) }
 
-    before { expect(Eve::Type).to receive(:find_or_initialize_by).with({type_id: type_id}).and_return(eve_type) }
+    before { expect(Eve::Type).to receive(:find_or_initialize_by).with(type_id: type_id).and_return(eve_type) }
 
     context "when etag cache hit" do
       let(:esi) { instance_double(EveOnline::ESI::UniverseType, not_modified?: true) }
@@ -102,7 +102,7 @@ describe Eve::TypeImporter do
     context "when @esi not set" do
       let(:esi) { instance_double(EveOnline::ESI::UniverseType) }
 
-      before { expect(EveOnline::ESI::UniverseType).to receive(:new).with({id: type_id, language: "en-us"}).and_return(esi) }
+      before { expect(EveOnline::ESI::UniverseType).to receive(:new).with(id: type_id, language: "en-us").and_return(esi) }
 
       specify { expect(subject.esi).to eq(esi) }
 
