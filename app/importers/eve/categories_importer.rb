@@ -4,13 +4,9 @@ module Eve
   class CategoriesImporter < BaseImporter
     def import
       import! do
-        return if esi.not_modified?
-
         import_new_categories
 
         remove_old_categories
-
-        update_etag
       end
     end
 
