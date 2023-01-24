@@ -28,10 +28,6 @@ module Eve
       esi.add_middleware(cool_down_middleware)
     end
 
-    def configure_etag
-      esi.etag = etag.etag
-    end
-
     def update_etag
       etag.update!(etag: esi.etag, body: esi.response)
     end
