@@ -11,15 +11,11 @@ module Eve
 
     def import
       import! do
-        return if esi.not_modified?
-
         remove_all_region_contracts
 
         import_new_contracts
 
         import_other_pages
-
-        update_etag
       end
     end
 
