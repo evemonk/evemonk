@@ -6,31 +6,17 @@ describe Eve::ServerStatusImporter do
   it { should be_a(Eve::BaseImporter) }
 
   describe "#import" do
+    let(:json) { double }
+
+    let(:esi) { instance_double(EveOnline::ESI::ServerStatus, as_json: json) }
+
     before { expect(subject).to receive(:configure_middlewares) }
 
-    before { expect(subject).to receive(:configure_etag) }
+    before { expect(EveOnline::ESI::ServerStatus).to receive(:new).and_return(esi) }
 
-    context "when etag cache hit" do
-      let(:esi) { instance_double(EveOnline::ESI::ServerStatus, not_modified?: true) }
+    before { expect(Eve::ServerStatus).to receive(:create!).with(json) }
 
-      before { expect(EveOnline::ESI::ServerStatus).to receive(:new).and_return(esi) }
-
-      specify { expect { subject.import }.not_to raise_error }
-    end
-
-    context "when etag cache miss" do
-      let(:json) { double }
-
-      let(:esi) { instance_double(EveOnline::ESI::ServerStatus, not_modified?: false, as_json: json) }
-
-      before { expect(EveOnline::ESI::ServerStatus).to receive(:new).and_return(esi) }
-
-      before { expect(Eve::ServerStatus).to receive(:create!).with(json) }
-
-      before { expect(subject).to receive(:update_etag) }
-
-      specify { expect { subject.import }.not_to raise_error }
-    end
+    specify { expect { subject.import }.not_to raise_error }
   end
 
   describe "#esi" do
