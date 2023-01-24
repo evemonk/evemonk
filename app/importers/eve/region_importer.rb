@@ -14,15 +14,9 @@ module Eve
         Mobility.with_locale(locale) do
           eve_region = Eve::Region.find_or_initialize_by(region_id: region_id)
 
-          return if esi.not_modified?
-
           eve_region.update!(esi.as_json)
-
-          update_etag
         rescue EveOnline::Exceptions::ResourceNotFound
           Rails.logger.info("EveOnline::Exceptions::ResourceNotFound: Eve Region ID #{region_id}")
-
-          etag.destroy!
 
           eve_region.destroy!
         end
