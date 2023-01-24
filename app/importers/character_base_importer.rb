@@ -71,10 +71,6 @@ class CharacterBaseImporter
     esi.token = character.access_token
   end
 
-  def configure_etag
-    esi.etag = etag.etag
-  end
-
   def update_etag
     etag.update!(etag: esi.etag, body: esi.response)
   end

@@ -258,20 +258,6 @@ describe CharacterBaseImporter do
     end
   end
 
-  describe "#configure_etag" do
-    let(:esi) { double }
-
-    before { expect(subject).to receive(:esi).and_return(esi) }
-
-    let(:etag) { instance_double(Etag, etag: "abc123") }
-
-    before { expect(subject).to receive(:etag).and_return(etag) }
-
-    before { expect(esi).to receive(:etag=).with("abc123") }
-
-    specify { expect { subject.send(:configure_etag) }.not_to raise_error }
-  end
-
   describe "#update_etag" do
     let(:etag) { double }
 
