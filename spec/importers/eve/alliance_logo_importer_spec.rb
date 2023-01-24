@@ -20,7 +20,7 @@ describe Eve::AllianceLogoImporter do
 
     before do
       expect(Eve::Alliance).to receive(:find_or_initialize_by)
-        .with({id: id})
+        .with(id: id)
         .and_return(eve_alliance)
     end
 
@@ -34,7 +34,7 @@ describe Eve::AllianceLogoImporter do
 
     before do
       expect(logo).to receive(:attach)
-        .with({io: tempfile, filename: "434243723.png"})
+        .with(io: tempfile, filename: "434243723.png")
     end
 
     before { expect(eve_alliance).to receive(:save!) }
