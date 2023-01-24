@@ -29,8 +29,6 @@ describe Character do
 
   it { should have_many(:character_scopes).dependent(:destroy) }
 
-  it { should have_many(:etags).dependent(:destroy) }
-
   it { should have_many(:loyalty_points).dependent(:destroy) }
 
   it { should have_many(:character_assets).dependent(:destroy) }
