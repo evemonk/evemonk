@@ -108,7 +108,7 @@ describe Eve::AllianceCorporationsImporter do
     context "when @esi not set" do
       let(:esi) { instance_double(EveOnline::ESI::AllianceCorporations) }
 
-      before { expect(EveOnline::ESI::AllianceCorporations).to receive(:new).with({alliance_id: id}).and_return(esi) }
+      before { expect(EveOnline::ESI::AllianceCorporations).to receive(:new).with(alliance_id: id).and_return(esi) }
 
       specify { expect(subject.esi).to eq(esi) }
 
