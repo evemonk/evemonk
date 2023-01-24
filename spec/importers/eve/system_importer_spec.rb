@@ -36,146 +36,125 @@ describe Eve::SystemImporter do
   describe "#import" do
     before { expect(subject).to receive(:configure_middlewares) }
 
-    before { expect(subject).to receive(:configure_etag) }
-
     let(:eve_system) { instance_double(Eve::System) }
 
     before { expect(Eve::System).to receive(:find_or_initialize_by).with(system_id: system_id).and_return(eve_system) }
 
-    context "when etag cache hit" do
-      let(:esi) { instance_double(EveOnline::ESI::UniverseSystem, not_modified?: true) }
+    context "when eve system found" do
+      let(:json) { double }
 
-      before { expect(subject).to receive(:esi).and_return(esi) }
+      let(:position_json) { double }
 
-      specify { expect { subject.import }.not_to raise_error }
-    end
+      let(:position) do
+        instance_double(EveOnline::ESI::Models::Position,
+          as_json: position_json)
+      end
 
-    context "when etag cache miss" do
-      context "when eve system found" do
-        let(:json) { double }
+      let(:stargate_id) { double }
 
-        let(:position_json) { double }
+      let(:stargate_ids) { [stargate_id] }
 
-        let(:position) do
-          instance_double(EveOnline::ESI::Models::Position,
-            as_json: position_json)
-        end
+      let(:station_id) { double }
 
-        let(:stargate_id) { double }
+      let(:station_ids) { [station_id] }
 
-        let(:stargate_ids) { [stargate_id] }
+      let(:planet_id) { double }
 
-        let(:station_id) { double }
+      let(:asteroid_belt_id) { double }
 
-        let(:station_ids) { [station_id] }
+      let(:asteroid_belt_ids) { [asteroid_belt_id] }
 
-        let(:planet_id) { double }
+      let(:moon_id) { double }
 
-        let(:asteroid_belt_id) { double }
+      let(:moon_ids) { [moon_id] }
 
-        let(:asteroid_belt_ids) { [asteroid_belt_id] }
+      let(:planet) do
+        instance_double(EveOnline::ESI::Models::PlanetShort,
+          planet_id: planet_id,
+          asteroid_belt_ids: asteroid_belt_ids,
+          moon_ids: moon_ids)
+      end
 
-        let(:moon_id) { double }
+      let(:planets) { [planet] }
 
-        let(:moon_ids) { [moon_id] }
+      let(:esi) do
+        instance_double(EveOnline::ESI::UniverseSystem,
+          position: position,
+          star_id: star_id,
+          stargate_ids: stargate_ids,
+          station_ids: station_ids,
+          planets: planets,
+          as_json: json)
+      end
 
-        let(:planet) do
-          instance_double(EveOnline::ESI::Models::PlanetShort,
-            planet_id: planet_id,
-            asteroid_belt_ids: asteroid_belt_ids,
-            moon_ids: moon_ids)
-        end
+      before { expect(eve_system).to receive(:update!).with(json) }
 
-        let(:planets) { [planet] }
-
-        let(:esi) do
-          instance_double(EveOnline::ESI::UniverseSystem,
-            not_modified?: false,
-            position: position,
-            star_id: star_id,
-            stargate_ids: stargate_ids,
-            station_ids: station_ids,
-            planets: planets,
-            as_json: json)
-        end
-
-        before { expect(eve_system).to receive(:update!).with(json) }
-
-        before do
-          #
-          # eve_system.position&.destroy
-          #
-          expect(eve_system).to receive(:position) do
-            double.tap do |a|
-              expect(a).to receive(:destroy)
-            end
+      before do
+        #
+        # eve_system.position&.destroy
+        #
+        expect(eve_system).to receive(:position) do
+          double.tap do |a|
+            expect(a).to receive(:destroy)
           end
-        end
-
-        before do
-          #
-          # eve_system.create_position!(esi.position.as_json)
-          #
-          expect(eve_system).to receive(:create_position!).with(position_json)
-        end
-
-        before { expect(Eve::UpdateStargateJob).to receive(:perform_later).with(stargate_id) }
-
-        before { expect(Eve::UpdateStationJob).to receive(:perform_later).with(station_id) }
-
-        before { expect(Eve::UpdatePlanetJob).to receive(:perform_later).with(planet_id) }
-
-        before { expect(Eve::UpdateAsteroidBeltJob).to receive(:perform_later).with(planet_id, asteroid_belt_id) }
-
-        before { expect(Eve::UpdateMoonJob).to receive(:perform_later).with(planet_id, moon_id) }
-
-        before { expect(subject).to receive(:update_etag) }
-
-        context "when esi star_id present" do
-          let(:star_id) { double }
-
-          before { expect(subject).to receive(:esi).and_return(esi).exactly(8).times }
-
-          before { expect(Eve::UpdateStarJob).to receive(:perform_later).with(star_id) }
-
-          specify { expect { subject.import }.not_to raise_error }
-        end
-
-        context "when esi star_id is not present" do
-          let(:star_id) { nil }
-
-          before { expect(subject).to receive(:esi).and_return(esi).exactly(7).times }
-
-          before { expect(Eve::UpdateStarJob).not_to receive(:perform_later) }
-
-          specify { expect { subject.import }.not_to raise_error }
         end
       end
 
-      context "when eve system not found" do
-        before { expect(subject).to receive(:esi).and_raise(EveOnline::Exceptions::ResourceNotFound) }
+      before do
+        #
+        # eve_system.create_position!(esi.position.as_json)
+        #
+        expect(eve_system).to receive(:create_position!).with(position_json)
+      end
 
-        let(:eve_etag) { instance_double(Eve::Etag) }
+      before { expect(Eve::UpdateStargateJob).to receive(:perform_later).with(stargate_id) }
 
-        before { expect(subject).to receive(:etag).and_return(eve_etag) }
+      before { expect(Eve::UpdateStationJob).to receive(:perform_later).with(station_id) }
 
-        before do
-          #
-          # Rails.logger.info("EveOnline::Exceptions::ResourceNotFound: Eve System ID #{system_id}")
+      before { expect(Eve::UpdatePlanetJob).to receive(:perform_later).with(planet_id) }
 
-          expect(Rails).to receive(:logger) do
-            double.tap do |a|
-              expect(a).to receive(:info).with("EveOnline::Exceptions::ResourceNotFound: Eve System ID #{system_id}")
-            end
-          end
-        end
+      before { expect(Eve::UpdateAsteroidBeltJob).to receive(:perform_later).with(planet_id, asteroid_belt_id) }
 
-        before { expect(eve_etag).to receive(:destroy!) }
+      before { expect(Eve::UpdateMoonJob).to receive(:perform_later).with(planet_id, moon_id) }
 
-        before { expect(eve_system).to receive(:destroy!) }
+      context "when esi star_id present" do
+        let(:star_id) { double }
+
+        before { expect(subject).to receive(:esi).and_return(esi).exactly(7).times }
+
+        before { expect(Eve::UpdateStarJob).to receive(:perform_later).with(star_id) }
 
         specify { expect { subject.import }.not_to raise_error }
       end
+
+      context "when esi star_id is not present" do
+        let(:star_id) { nil }
+
+        before { expect(subject).to receive(:esi).and_return(esi).exactly(6).times }
+
+        before { expect(Eve::UpdateStarJob).not_to receive(:perform_later) }
+
+        specify { expect { subject.import }.not_to raise_error }
+      end
+    end
+
+    context "when eve system not found" do
+      before { expect(subject).to receive(:esi).and_raise(EveOnline::Exceptions::ResourceNotFound) }
+
+      before do
+        #
+        # Rails.logger.info("EveOnline::Exceptions::ResourceNotFound: Eve System ID #{system_id}")
+
+        expect(Rails).to receive(:logger) do
+          double.tap do |a|
+            expect(a).to receive(:info).with("EveOnline::Exceptions::ResourceNotFound: Eve System ID #{system_id}")
+          end
+        end
+      end
+
+      before { expect(eve_system).to receive(:destroy!) }
+
+      specify { expect { subject.import }.not_to raise_error }
     end
   end
 

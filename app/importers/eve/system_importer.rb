@@ -14,8 +14,6 @@ module Eve
         Mobility.with_locale(locale) do
           eve_system = Eve::System.find_or_initialize_by(system_id: system_id)
 
-          return if esi.not_modified?
-
           eve_system.update!(esi.as_json)
 
           eve_system.position&.destroy
@@ -43,12 +41,8 @@ module Eve
               Eve::UpdateMoonJob.perform_later(planet.planet_id, moon_id)
             end
           end
-
-          update_etag
         rescue EveOnline::Exceptions::ResourceNotFound
           Rails.logger.info("EveOnline::Exceptions::ResourceNotFound: Eve System ID #{system_id}")
-
-          etag.destroy!
 
           eve_system.destroy!
         end
