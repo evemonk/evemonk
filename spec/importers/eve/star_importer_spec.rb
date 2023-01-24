@@ -16,59 +16,39 @@ describe Eve::StarImporter do
   describe "#import" do
     before { expect(subject).to receive(:configure_middlewares) }
 
-    before { expect(subject).to receive(:configure_etag) }
-
     let(:eve_star) { instance_double(Eve::Star) }
 
     before { expect(Eve::Star).to receive(:find_or_initialize_by).with(star_id: star_id).and_return(eve_star) }
 
-    context "when etag cache hit" do
-      let(:esi) { instance_double(EveOnline::ESI::UniverseStar, not_modified?: true) }
+    context "when eve star found" do
+      let(:json) { double }
+
+      let(:esi) { instance_double(EveOnline::ESI::UniverseStar, as_json: json) }
 
       before { expect(subject).to receive(:esi).and_return(esi) }
+
+      before { expect(eve_star).to receive(:update!).with(json) }
 
       specify { expect { subject.import }.not_to raise_error }
     end
 
-    context "when etag cache miss" do
-      context "when eve star found" do
-        let(:json) { double }
+    context "when eve star not found" do
+      before { expect(subject).to receive(:esi).and_raise(EveOnline::Exceptions::ResourceNotFound) }
 
-        let(:esi) { instance_double(EveOnline::ESI::UniverseStar, not_modified?: false, as_json: json) }
+      before do
+        #
+        # Rails.logger.info("EveOnline::Exceptions::ResourceNotFound: Eve Star ID #{star_id}")
 
-        before { expect(subject).to receive(:esi).and_return(esi).twice }
-
-        before { expect(eve_star).to receive(:update!).with(json) }
-
-        before { expect(subject).to receive(:update_etag) }
-
-        specify { expect { subject.import }.not_to raise_error }
-      end
-
-      context "when eve star not found" do
-        before { expect(subject).to receive(:esi).and_raise(EveOnline::Exceptions::ResourceNotFound) }
-
-        let(:eve_etag) { instance_double(Eve::Etag) }
-
-        before { expect(subject).to receive(:etag).and_return(eve_etag) }
-
-        before do
-          #
-          # Rails.logger.info("EveOnline::Exceptions::ResourceNotFound: Eve Star ID #{star_id}")
-
-          expect(Rails).to receive(:logger) do
-            double.tap do |a|
-              expect(a).to receive(:info).with("EveOnline::Exceptions::ResourceNotFound: Eve Star ID #{star_id}")
-            end
+        expect(Rails).to receive(:logger) do
+          double.tap do |a|
+            expect(a).to receive(:info).with("EveOnline::Exceptions::ResourceNotFound: Eve Star ID #{star_id}")
           end
         end
-
-        before { expect(eve_etag).to receive(:destroy!) }
-
-        before { expect(eve_star).to receive(:destroy!) }
-
-        specify { expect { subject.import }.not_to raise_error }
       end
+
+      before { expect(eve_star).to receive(:destroy!) }
+
+      specify { expect { subject.import }.not_to raise_error }
     end
   end
 
