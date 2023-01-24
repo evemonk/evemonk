@@ -110,7 +110,7 @@ describe Eve::AlliancesImporter do
 
     let(:eve_alliance) { instance_double(Eve::Alliance, corporations: corporations) }
 
-    before { expect(Eve::Alliance).to receive(:find_or_initialize_by).with({id: alliance_id_to_remove}).and_return(eve_alliance) }
+    before { expect(Eve::Alliance).to receive(:find_or_initialize_by).with(id: alliance_id_to_remove).and_return(eve_alliance) }
 
     before { expect(Eve::UpdateCorporationJob).to receive(:perform_later).with(corporation_id) }
 
