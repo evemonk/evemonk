@@ -5,8 +5,6 @@ module Eve
     def import!
       configure_middlewares
 
-      configure_etag
-
       ActiveRecord::Base.transaction do
         yield if block_given?
       end
