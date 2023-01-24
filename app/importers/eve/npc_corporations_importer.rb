@@ -4,11 +4,7 @@ module Eve
   class NpcCorporationsImporter < BaseImporter
     def import
       import! do
-        return if esi.not_modified?
-
         update_npc_corporation_list
-
-        update_etag
       end
     end
 
