@@ -14,19 +14,13 @@ module Eve
         Mobility.with_locale(locale) do
           eve_type = Eve::Type.find_or_initialize_by(type_id: type_id)
 
-          return if esi.not_modified?
-
           eve_type.update!(esi.as_json)
 
           import_type_dogma_attributes(eve_type)
 
           import_type_dogma_effects(eve_type)
-
-          update_etag
         rescue EveOnline::Exceptions::ResourceNotFound
           Rails.logger.info("EveOnline::Exceptions::ResourceNotFound: Eve Type ID #{type_id}")
-
-          etag.destroy!
 
           eve_type.destroy!
         end
