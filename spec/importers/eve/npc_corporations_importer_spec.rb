@@ -64,9 +64,9 @@ describe Eve::NpcCorporationsImporter do
 
     let(:corporation) { instance_double(Eve::Corporation) }
 
-    before { expect(Eve::Corporation).to receive(:find_or_initialize_by).with({corporation_id: corporation_npc_id}).and_return(corporation) }
+    before { expect(Eve::Corporation).to receive(:find_or_initialize_by).with(corporation_id: corporation_npc_id).and_return(corporation) }
 
-    before { expect(corporation).to receive(:assign_attributes).with({npc: true}) }
+    before { expect(corporation).to receive(:assign_attributes).with(npc: true) }
 
     before { expect(corporation).to receive(:save!) }
 
