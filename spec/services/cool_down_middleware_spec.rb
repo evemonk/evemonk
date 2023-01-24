@@ -15,7 +15,7 @@ describe CoolDownMiddleware do
     #   esi_error_limit_remain.to_i,
     #   ex: esi_error_limit_reset.to_i)
     #
-    expect(redis).to receive(:set).with("esi_error_limit_remain", 100, {ex: 19})
+    expect(redis).to receive(:set).with("esi_error_limit_remain", 100, ex: 19)
   end
 
   before do
@@ -23,7 +23,7 @@ describe CoolDownMiddleware do
     # redis.set("esi_error_limit_remain_till",
     #   esi_error_limit_reset.to_i.seconds.from_now.iso8601,
     #   ex: esi_error_limit_reset.to_i)
-    expect(redis).to receive(:set).with("esi_error_limit_remain_till", 19.seconds.from_now.iso8601, {ex: 19})
+    expect(redis).to receive(:set).with("esi_error_limit_remain_till", 19.seconds.from_now.iso8601, ex: 19)
   end
 
   let(:esi) { EveOnline::ESI::ServerStatus.new }
