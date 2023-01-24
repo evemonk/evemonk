@@ -10,8 +10,6 @@ module Eve
 
     def import
       import! do
-        return if esi.not_modified?
-
         Mobility.with_locale(locale) do
           esi.races.each do |race|
             eve_race = Eve::Race.find_or_initialize_by(race_id: race.race_id)
@@ -19,8 +17,6 @@ module Eve
             eve_race.update!(race.as_json)
           end
         end
-
-        update_etag
       end
     end
 

@@ -22,37 +22,23 @@ describe Eve::RacesImporter do
   describe "#import" do
     before { expect(subject).to receive(:configure_middlewares) }
 
-    before { expect(subject).to receive(:configure_etag) }
+    let(:race_id) { double }
 
-    context "when etag cache hit" do
-      let(:esi) { instance_double(EveOnline::ESI::UniverseRaces, not_modified?: true) }
+    let(:json) { double }
 
-      before { expect(subject).to receive(:esi).and_return(esi) }
+    let(:race) { instance_double(EveOnline::ESI::Models::Race, race_id: race_id, as_json: json) }
 
-      specify { expect { subject.import }.not_to raise_error }
-    end
+    let(:esi) { instance_double(EveOnline::ESI::UniverseRaces, races: [race]) }
 
-    context "when etag cache miss" do
-      let(:race_id) { double }
+    before { expect(subject).to receive(:esi).and_return(esi) }
 
-      let(:json) { double }
+    let(:eve_race) { instance_double(Eve::Race) }
 
-      let(:race) { instance_double(EveOnline::ESI::Models::Race, race_id: race_id, as_json: json) }
+    before { expect(Eve::Race).to receive(:find_or_initialize_by).with(race_id: race_id).and_return(eve_race) }
 
-      let(:esi) { instance_double(EveOnline::ESI::UniverseRaces, not_modified?: false, races: [race]) }
+    before { expect(eve_race).to receive(:update!).with(json) }
 
-      before { expect(subject).to receive(:esi).and_return(esi).twice }
-
-      let(:eve_race) { instance_double(Eve::Race) }
-
-      before { expect(Eve::Race).to receive(:find_or_initialize_by).with(race_id: race_id).and_return(eve_race) }
-
-      before { expect(eve_race).to receive(:update!).with(json) }
-
-      before { expect(subject).to receive(:update_etag) }
-
-      specify { expect { subject.import }.not_to raise_error }
-    end
+    specify { expect { subject.import }.not_to raise_error }
   end
 
   describe "#esi" do
