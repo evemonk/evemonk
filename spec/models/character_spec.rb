@@ -115,7 +115,7 @@ describe Character do
         #
         # Eve::CharacterAttribute.find_by(name_en: "Perception") # => eve_character_attribute
         #
-        expect(Eve::CharacterAttribute).to receive(:find_by).with({name_en: "Perception"}).and_return(eve_character_attribute)
+        expect(Eve::CharacterAttribute).to receive(:find_by).with(name_en: "Perception").and_return(eve_character_attribute)
       end
 
       specify { expect(subject.perception_attribute).to eq(eve_character_attribute) }
@@ -142,7 +142,7 @@ describe Character do
         #
         # Eve::CharacterAttribute.find_by(name_en: "Memory") # => eve_character_attribute
         #
-        expect(Eve::CharacterAttribute).to receive(:find_by).with({name_en: "Memory"}).and_return(eve_character_attribute)
+        expect(Eve::CharacterAttribute).to receive(:find_by).with(name_en: "Memory").and_return(eve_character_attribute)
       end
 
       specify { expect(subject.memory_attribute).to eq(eve_character_attribute) }
@@ -169,7 +169,7 @@ describe Character do
         #
         # Eve::CharacterAttribute.find_by(name_en: "Willpower") # => eve_character_attribute
         #
-        expect(Eve::CharacterAttribute).to receive(:find_by).with({name_en: "Willpower"}).and_return(eve_character_attribute)
+        expect(Eve::CharacterAttribute).to receive(:find_by).with(name_en: "Willpower").and_return(eve_character_attribute)
       end
 
       specify { expect(subject.willpower_attribute).to eq(eve_character_attribute) }
@@ -196,7 +196,7 @@ describe Character do
         #
         # Eve::CharacterAttribute.find_by(name_en: "Intelligence") # => eve_character_attribute
         #
-        expect(Eve::CharacterAttribute).to receive(:find_by).with({name_en: "Intelligence"}).and_return(eve_character_attribute)
+        expect(Eve::CharacterAttribute).to receive(:find_by).with(name_en: "Intelligence").and_return(eve_character_attribute)
       end
 
       specify { expect(subject.intelligence_attribute).to eq(eve_character_attribute) }
@@ -223,7 +223,7 @@ describe Character do
         #
         # Eve::CharacterAttribute.find_by(name_en: "Charisma") # => eve_character_attribute
         #
-        expect(Eve::CharacterAttribute).to receive(:find_by).with({name_en: "Charisma"}).and_return(eve_character_attribute)
+        expect(Eve::CharacterAttribute).to receive(:find_by).with(name_en: "Charisma").and_return(eve_character_attribute)
       end
 
       specify { expect(subject.charisma_attribute).to eq(eve_character_attribute) }
