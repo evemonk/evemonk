@@ -20,10 +20,6 @@ module Eve
       raise NotImplementedError
     end
 
-    def etag
-      @etag ||= Eve::Etag.find_or_initialize_by(url: esi.url)
-    end
-
     private
 
     def configure_middlewares

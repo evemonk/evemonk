@@ -25,37 +25,6 @@ describe Eve::BaseImporter do
     specify { expect { subject.import }.to raise_error(NotImplementedError) }
   end
 
-  describe "#etag" do
-    context "when @etag is set" do
-      let(:etag) { instance_double(Eve::Etag) }
-
-      before { subject.instance_variable_set(:@etag, etag) }
-
-      specify { expect(subject.etag).to eq(etag) }
-    end
-
-    context "when @etag not set" do
-      let(:url) { double }
-
-      let(:esi) { double(url: url) }
-
-      before { expect(subject).to receive(:esi).and_return(esi) }
-
-      let(:etag) { instance_double(Eve::Etag) }
-
-      before do
-        #
-        # Eve::Etag.find_or_initialize_by(url: esi.url) # => etag
-        #
-        expect(Eve::Etag).to receive(:find_or_initialize_by).with({url: url}).and_return(etag)
-      end
-
-      specify { expect(subject.etag).to eq(etag) }
-
-      specify { expect { subject.etag }.to change { subject.instance_variable_get(:@etag) }.from(nil).to(etag) }
-    end
-  end
-
   # private methods
 
   describe "#configure_middlewares" do
