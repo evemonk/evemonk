@@ -26,10 +26,6 @@ module Eve
       esi.add_middleware(cool_down_middleware)
     end
 
-    def update_etag
-      etag.update!(etag: esi.etag, body: esi.response)
-    end
-
     def statistics_middleware
       {
         class: StatisticsMiddleware
