@@ -71,10 +71,6 @@ class CharacterBaseImporter
     esi.token = character.access_token
   end
 
-  def update_etag
-    etag.update!(etag: esi.etag, body: esi.response)
-  end
-
   def statistics_middleware
     {
       class: StatisticsMiddleware

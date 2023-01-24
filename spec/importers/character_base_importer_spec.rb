@@ -258,24 +258,6 @@ describe CharacterBaseImporter do
     end
   end
 
-  describe "#update_etag" do
-    let(:etag) { double }
-
-    let(:response) { double }
-
-    let(:esi) { double(etag: etag, response: response) }
-
-    before { expect(subject).to receive(:esi).and_return(esi).twice }
-
-    let(:etag) { instance_double(Etag) }
-
-    before { expect(subject).to receive(:etag).and_return(etag) }
-
-    before { expect(etag).to receive(:update!).with({etag: etag, body: response}) }
-
-    specify { expect { subject.send(:update_etag) }.not_to raise_error }
-  end
-
   describe "#statistics_middleware" do
     specify do
       expect(subject.send(:statistics_middleware)).to eq(class: StatisticsMiddleware)
