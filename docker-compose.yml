@@ -3,6 +3,7 @@ version: "3.9"
 volumes:
   postresql_data: {}
   redis_data: {}
+  redis_cache_data: {}
   minio_data: {}
 
 services:
@@ -25,6 +26,15 @@ services:
       - "redis_data:/data"
     ports:
       - "6379:6379"
+
+  redis_cache:
+    image: "docker.io/library/redis:7.0.5"
+    container_name: "evemonk_redis_cache"
+    restart: "unless-stopped"
+    volumes:
+      - "redis_cache_data:/data"
+    ports:
+      - "6380:6379"
 
   memcached:
     image: "docker.io/library/memcached:1.6.18"
