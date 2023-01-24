@@ -59,7 +59,7 @@ describe Eve::RegionContractsImporter do
     context "when @esi not set" do
       let(:esi) { instance_double(EveOnline::ESI::PublicContracts) }
 
-      before { expect(EveOnline::ESI::PublicContracts).to receive(:new).with({region_id: region_id, page: page}).and_return(esi) }
+      before { expect(EveOnline::ESI::PublicContracts).to receive(:new).with(region_id: region_id, page: page).and_return(esi) }
 
       specify { expect(subject.esi).to eq(esi) }
 
@@ -81,7 +81,7 @@ describe Eve::RegionContractsImporter do
     context "when @region not set" do
       let(:region) { instance_double(Eve::Region) }
 
-      before { expect(Eve::Region).to receive(:find_by!).with({region_id: region_id}).and_return(region) }
+      before { expect(Eve::Region).to receive(:find_by!).with(region_id: region_id).and_return(region) }
 
       specify { expect(subject.send(:region)).to eq(region) }
 
