@@ -22,16 +22,6 @@ describe Eve::AncestriesImporter do
   describe "#import" do
     before { expect(subject).to receive(:configure_middlewares) }
 
-    before { expect(subject).to receive(:configure_etag) }
-
-    context "when etag cache hit" do
-      let(:esi) { instance_double(EveOnline::ESI::UniverseAncestries, not_modified?: true) }
-
-      before { expect(subject).to receive(:esi).and_return(esi) }
-
-      specify { expect { subject.import }.not_to raise_error }
-    end
-
     context "when etag cache miss" do
       let(:ancestry_id) { double }
 
@@ -39,17 +29,15 @@ describe Eve::AncestriesImporter do
 
       let(:ancestry) { instance_double(EveOnline::ESI::Models::Ancestry, ancestry_id: ancestry_id, as_json: json) }
 
-      let(:esi) { instance_double(EveOnline::ESI::UniverseAncestries, not_modified?: false, ancestries: [ancestry]) }
+      let(:esi) { instance_double(EveOnline::ESI::UniverseAncestries, ancestries: [ancestry]) }
 
-      before { expect(subject).to receive(:esi).and_return(esi).twice }
+      before { expect(subject).to receive(:esi).and_return(esi) }
 
       let(:eve_ancestry) { instance_double(Eve::Ancestry) }
 
       before { expect(Eve::Ancestry).to receive(:find_or_initialize_by).with(ancestry_id: ancestry_id).and_return(eve_ancestry) }
 
       before { expect(eve_ancestry).to receive(:update!).with(json) }
-
-      before { expect(subject).to receive(:update_etag) }
 
       specify { expect { subject.import }.not_to raise_error }
     end
