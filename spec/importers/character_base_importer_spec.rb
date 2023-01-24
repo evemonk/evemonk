@@ -27,34 +27,12 @@ describe CharacterBaseImporter do
 
       before { expect(subject).to receive(:configure_esi_token) }
 
-      before { expect(subject).to receive(:configure_etag) }
+      before { expect(subject).to receive(:import!) }
 
-      context "when etag cache miss" do
-        let(:esi) { double(not_modified?: false) }
-
-        before { expect(subject).to receive(:esi).and_return(esi) }
-
-        before { expect(subject).to receive(:import!) }
-
-        before { expect(subject).to receive(:update_etag) }
-
-        specify { expect { subject.import }.not_to raise_error }
-      end
-
-      context "when etag cache hit" do
-        let(:esi) { double(not_modified?: true) }
-
-        before { expect(subject).to receive(:esi).and_return(esi) }
-
-        specify { expect { subject.import }.not_to raise_error }
-      end
+      specify { expect { subject.import }.not_to raise_error }
     end
 
     context "when EveOnline::Exceptions::ResourceNotFound" do
-      let(:esi) { double(not_modified?: false) }
-
-      before { expect(subject).to receive(:esi).and_return(esi) }
-
       before { expect(subject).to receive(:character_scope_present?).and_return(true) }
 
       before { expect(subject).to receive(:refresh_character_access_token) }
@@ -62,8 +40,6 @@ describe CharacterBaseImporter do
       before { expect(subject).to receive(:configure_middlewares) }
 
       before { expect(subject).to receive(:configure_esi_token) }
-
-      before { expect(subject).to receive(:configure_etag) }
 
       before { expect(subject).to receive(:import!).and_raise(EveOnline::Exceptions::ResourceNotFound) }
 
@@ -82,10 +58,6 @@ describe CharacterBaseImporter do
     end
 
     context "when ActiveRecord::RecordNotFound" do
-      let(:esi) { double(not_modified?: false) }
-
-      before { expect(subject).to receive(:esi).and_return(esi) }
-
       before { expect(subject).to receive(:character_scope_present?).and_return(true) }
 
       before { expect(subject).to receive(:refresh_character_access_token) }
@@ -93,8 +65,6 @@ describe CharacterBaseImporter do
       before { expect(subject).to receive(:configure_middlewares) }
 
       before { expect(subject).to receive(:configure_esi_token) }
-
-      before { expect(subject).to receive(:configure_etag) }
 
       before { expect(subject).to receive(:import!).and_raise(ActiveRecord::RecordNotFound) }
 

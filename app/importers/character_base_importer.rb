@@ -16,14 +16,8 @@ class CharacterBaseImporter
 
     configure_esi_token
 
-    configure_etag
-
-    return if esi.not_modified?
-
     ActiveRecord::Base.transaction do
       import!
-
-      update_etag
     end
   rescue EveOnline::Exceptions::ResourceNotFound
     Rails.logger.info("WARNING: ESI response with 404 (NOT FOUND) for Character with ID #{character_id}")
