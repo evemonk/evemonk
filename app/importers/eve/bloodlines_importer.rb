@@ -10,8 +10,6 @@ module Eve
 
     def import
       import! do
-        return if esi.not_modified?
-
         Mobility.with_locale(locale) do
           esi.bloodlines.each do |bloodline|
             eve_bloodline = Eve::Bloodline.find_or_initialize_by(bloodline_id: bloodline.bloodline_id)
@@ -19,8 +17,6 @@ module Eve
             eve_bloodline.update!(bloodline.as_json)
           end
         end
-
-        update_etag
       end
     end
 

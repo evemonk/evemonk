@@ -22,37 +22,23 @@ describe Eve::BloodlinesImporter do
   describe "#import" do
     before { expect(subject).to receive(:configure_middlewares) }
 
-    before { expect(subject).to receive(:configure_etag) }
+    let(:bloodline_id) { double }
 
-    context "when etag cache hit" do
-      let(:esi) { instance_double(EveOnline::ESI::UniverseBloodlines, not_modified?: true) }
+    let(:json) { double }
 
-      before { expect(subject).to receive(:esi).and_return(esi) }
+    let(:bloodline) { instance_double(EveOnline::ESI::Models::Bloodline, bloodline_id: bloodline_id, as_json: json) }
 
-      specify { expect { subject.import }.not_to raise_error }
-    end
+    let(:esi) { instance_double(EveOnline::ESI::UniverseBloodlines, bloodlines: [bloodline]) }
 
-    context "when etag cache miss" do
-      let(:bloodline_id) { double }
+    before { expect(subject).to receive(:esi).and_return(esi) }
 
-      let(:json) { double }
+    let(:eve_bloodline) { instance_double(Eve::Bloodline) }
 
-      let(:bloodline) { instance_double(EveOnline::ESI::Models::Bloodline, bloodline_id: bloodline_id, as_json: json) }
+    before { expect(Eve::Bloodline).to receive(:find_or_initialize_by).with(bloodline_id: bloodline_id).and_return(eve_bloodline) }
 
-      let(:esi) { instance_double(EveOnline::ESI::UniverseBloodlines, not_modified?: false, bloodlines: [bloodline]) }
+    before { expect(eve_bloodline).to receive(:update!).with(json) }
 
-      before { expect(subject).to receive(:esi).and_return(esi).twice }
-
-      let(:eve_bloodline) { instance_double(Eve::Bloodline) }
-
-      before { expect(Eve::Bloodline).to receive(:find_or_initialize_by).with(bloodline_id: bloodline_id).and_return(eve_bloodline) }
-
-      before { expect(eve_bloodline).to receive(:update!).with(json) }
-
-      before { expect(subject).to receive(:update_etag) }
-
-      specify { expect { subject.import }.not_to raise_error }
-    end
+    specify { expect { subject.import }.not_to raise_error }
   end
 
   describe "#esi" do
