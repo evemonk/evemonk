@@ -18,81 +18,41 @@ describe Eve::AllianceCorporationsImporter do
   describe "#import" do
     before { expect(subject).to receive(:configure_middlewares) }
 
-    before { expect(subject).to receive(:configure_etag) }
+    context "when eve alliance found" do
+      before { expect(subject).to receive(:import_new_corporations) }
 
-    context "when etag cache hit" do
-      let(:esi) { instance_double(EveOnline::ESI::AllianceCorporations, not_modified?: true) }
-
-      before { expect(subject).to receive(:esi).and_return(esi) }
+      before { expect(subject).to receive(:remove_old_corporations) }
 
       specify { expect { subject.import }.not_to raise_error }
     end
 
-    context "when etag cache miss" do
-      context "when eve alliance found" do
-        let(:esi) { instance_double(EveOnline::ESI::AllianceCorporations, not_modified?: false) }
+    context "when ActiveRecord::RecordNotFound" do
+      before { expect(subject).to receive(:import_new_corporations).and_raise(ActiveRecord::RecordNotFound) }
 
-        before { expect(subject).to receive(:esi).and_return(esi) }
-
-        before { expect(subject).to receive(:import_new_corporations) }
-
-        before { expect(subject).to receive(:remove_old_corporations) }
-
-        before { expect(subject).to receive(:update_etag) }
-
-        specify { expect { subject.import }.not_to raise_error }
-      end
-
-      context "when ActiveRecord::RecordNotFound" do
-        let(:esi) do
-          instance_double(EveOnline::ESI::AllianceCorporations,
-            not_modified?: false,
-            corporation_ids: [])
-        end
-
-        before { expect(subject).to receive(:esi).and_return(esi) }
-
-        before { expect(subject).to receive(:import_new_corporations).and_raise(ActiveRecord::RecordNotFound) }
-
-        before do
-          #
-          # Rails.logger.info("Alliance with ID #{id} not found")
-          #
-          expect(Rails).to receive(:logger) do
-            double.tap do |a|
-              expect(a).to receive(:info).with("Alliance with ID #{id} not found")
-            end
+      before do
+        #
+        # Rails.logger.info("Alliance with ID #{id} not found")
+        #
+        expect(Rails).to receive(:logger) do
+          double.tap do |a|
+            expect(a).to receive(:info).with("Alliance with ID #{id} not found")
           end
         end
-
-        specify { expect { subject.import }.not_to raise_error }
       end
 
-      context "when eve alliance not found" do
-        let(:esi) do
-          instance_double(EveOnline::ESI::AllianceCorporations,
-            not_modified?: false,
-            corporation_ids: [])
-        end
+      specify { expect { subject.import }.not_to raise_error }
+    end
 
-        before { expect(subject).to receive(:esi).and_return(esi) }
+    context "when eve alliance not found" do
+      let(:eve_alliance) { instance_double(Eve::Alliance) }
 
-        let(:eve_alliance) { instance_double(Eve::Alliance) }
+      before { expect(subject).to receive(:eve_alliance).and_return(eve_alliance) }
 
-        before { expect(subject).to receive(:eve_alliance).and_return(eve_alliance) }
+      before { expect(subject).to receive(:import_new_corporations).and_raise(EveOnline::Exceptions::ResourceNotFound) }
 
-        let(:eve_etag) { instance_double(Eve::Etag) }
+      before { expect(eve_alliance).to receive(:destroy!) }
 
-        before { expect(subject).to receive(:etag).and_return(eve_etag) }
-
-        before { expect(subject).to receive(:import_new_corporations).and_raise(EveOnline::Exceptions::ResourceNotFound) }
-
-        before { expect(eve_etag).to receive(:destroy!) }
-
-        before { expect(eve_alliance).to receive(:destroy!) }
-
-        specify { expect { subject.import }.not_to raise_error }
-      end
+      specify { expect { subject.import }.not_to raise_error }
     end
   end
 
