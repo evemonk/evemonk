@@ -57,10 +57,6 @@ class CharacterBaseImporter
     end
   end
 
-  def etag
-    @etag ||= Etag.find_or_initialize_by(url: esi.url, character: character)
-  end
-
   private
 
   def configure_middlewares
