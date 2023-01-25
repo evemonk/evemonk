@@ -53,7 +53,7 @@ describe Eve::CharacterCorporationHistoryImporter do
           #
           expect(eve_character).to receive(:character_corporation_histories) do
             double.tap do |a|
-              expect(a).to receive(:find_or_initialize_by).with({record_id: record_id})
+              expect(a).to receive(:find_or_initialize_by).with(record_id: record_id)
                 .and_return(character_corporation_history)
             end
           end
@@ -104,7 +104,7 @@ describe Eve::CharacterCorporationHistoryImporter do
     context "when @esi not set" do
       let(:esi) { instance_double(EveOnline::ESI::CharacterCorporationHistory) }
 
-      before { expect(EveOnline::ESI::CharacterCorporationHistory).to receive(:new).with({character_id: id}).and_return(esi) }
+      before { expect(EveOnline::ESI::CharacterCorporationHistory).to receive(:new).with(character_id: id).and_return(esi) }
 
       specify { expect { subject.esi }.not_to raise_error }
 
