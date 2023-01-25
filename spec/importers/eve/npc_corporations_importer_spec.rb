@@ -8,27 +8,9 @@ describe Eve::NpcCorporationsImporter do
   describe "#import" do
     before { expect(subject).to receive(:configure_middlewares) }
 
-    before { expect(subject).to receive(:configure_etag) }
+    before { expect(subject).to receive(:update_npc_corporation_list) }
 
-    context "when etag cache hit" do
-      let(:esi) { instance_double(EveOnline::ESI::CorporationNPC, not_modified?: true) }
-
-      before { expect(subject).to receive(:esi).and_return(esi) }
-
-      specify { expect { subject.import }.not_to raise_error }
-    end
-
-    context "when etag cache miss" do
-      let(:esi) { instance_double(EveOnline::ESI::CorporationNPC, not_modified?: false) }
-
-      before { expect(subject).to receive(:esi).and_return(esi) }
-
-      before { expect(subject).to receive(:update_npc_corporation_list) }
-
-      before { expect(subject).to receive(:update_etag) }
-
-      specify { expect { subject.import }.not_to raise_error }
-    end
+    specify { expect { subject.import }.not_to raise_error }
   end
 
   describe "#esi" do
@@ -64,9 +46,9 @@ describe Eve::NpcCorporationsImporter do
 
     let(:corporation) { instance_double(Eve::Corporation) }
 
-    before { expect(Eve::Corporation).to receive(:find_or_initialize_by).with({corporation_id: corporation_npc_id}).and_return(corporation) }
+    before { expect(Eve::Corporation).to receive(:find_or_initialize_by).with(corporation_id: corporation_npc_id).and_return(corporation) }
 
-    before { expect(corporation).to receive(:assign_attributes).with({npc: true}) }
+    before { expect(corporation).to receive(:assign_attributes).with(npc: true) }
 
     before { expect(corporation).to receive(:save!) }
 

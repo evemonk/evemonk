@@ -8,27 +8,9 @@ describe Eve::MarketPricesImporter do
   describe "#import" do
     before { expect(subject).to receive(:configure_middlewares) }
 
-    before { expect(subject).to receive(:configure_etag) }
+    before { expect(subject).to receive(:update_market_prices) }
 
-    context "when etag cache hit" do
-      let(:esi) { instance_double(EveOnline::ESI::MarketPrices, not_modified?: true) }
-
-      before { expect(subject).to receive(:esi).and_return(esi) }
-
-      specify { expect { subject.import }.not_to raise_error }
-    end
-
-    context "when etag cache miss" do
-      let(:esi) { instance_double(EveOnline::ESI::MarketPrices, not_modified?: false) }
-
-      before { expect(subject).to receive(:esi).and_return(esi) }
-
-      before { expect(subject).to receive(:update_market_prices) }
-
-      before { expect(subject).to receive(:update_etag) }
-
-      specify { expect { subject.import }.not_to raise_error }
-    end
+    specify { expect { subject.import }.not_to raise_error }
   end
 
   describe "#esi" do
@@ -75,7 +57,7 @@ describe Eve::MarketPricesImporter do
 
     before do
       expect(Eve::Type).to receive(:find_or_initialize_by)
-        .with({type_id: type_id}).and_return(eve_type)
+        .with(type_id: type_id).and_return(eve_type)
     end
 
     before { expect(eve_type).to receive(:update!).with(json) }

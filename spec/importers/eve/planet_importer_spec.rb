@@ -16,19 +16,9 @@ describe Eve::PlanetImporter do
   describe "#import" do
     before { expect(subject).to receive(:configure_middlewares) }
 
-    before { expect(subject).to receive(:configure_etag) }
-
     let(:eve_planet) { instance_double(Eve::Planet) }
 
-    before { expect(Eve::Planet).to receive(:find_or_initialize_by).with({planet_id: planet_id}).and_return(eve_planet) }
-
-    context "when etag cache hit" do
-      let(:esi) { instance_double(EveOnline::ESI::UniversePlanet, not_modified?: true) }
-
-      before { expect(subject).to receive(:esi).and_return(esi) }
-
-      specify { expect { subject.import }.not_to raise_error }
-    end
+    before { expect(Eve::Planet).to receive(:find_or_initialize_by).with(planet_id: planet_id).and_return(eve_planet) }
 
     context "when etag cache miss" do
       context "when eve planet found" do
@@ -43,12 +33,11 @@ describe Eve::PlanetImporter do
 
         let(:esi) do
           instance_double(EveOnline::ESI::UniversePlanet,
-            not_modified?: false,
             as_json: json,
             position: position)
         end
 
-        before { expect(subject).to receive(:esi).and_return(esi).exactly(3).times }
+        before { expect(subject).to receive(:esi).and_return(esi).twice }
 
         before { expect(eve_planet).to receive(:update!).with(json) }
 
@@ -70,17 +59,11 @@ describe Eve::PlanetImporter do
           expect(eve_planet).to receive(:create_position!).with(position_json)
         end
 
-        before { expect(subject).to receive(:update_etag) }
-
         specify { expect { subject.import }.not_to raise_error }
       end
 
       context "when eve planet not found" do
         before { expect(subject).to receive(:esi).and_raise(EveOnline::Exceptions::ResourceNotFound) }
-
-        let(:eve_etag) { instance_double(Eve::Etag) }
-
-        before { expect(subject).to receive(:etag).and_return(eve_etag) }
 
         before do
           #
@@ -92,8 +75,6 @@ describe Eve::PlanetImporter do
             end
           end
         end
-
-        before { expect(eve_etag).to receive(:destroy!) }
 
         before { expect(eve_planet).to receive(:destroy!) }
 
@@ -114,7 +95,7 @@ describe Eve::PlanetImporter do
     context "when @esi not set" do
       let(:esi) { instance_double(EveOnline::ESI::UniversePlanet) }
 
-      before { expect(EveOnline::ESI::UniversePlanet).to receive(:new).with({id: planet_id}).and_return(esi) }
+      before { expect(EveOnline::ESI::UniversePlanet).to receive(:new).with(id: planet_id).and_return(esi) }
 
       specify { expect(subject.esi).to eq(esi) }
 

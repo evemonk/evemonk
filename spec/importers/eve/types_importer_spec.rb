@@ -24,29 +24,11 @@ describe Eve::TypesImporter do
   describe "#import" do
     before { expect(subject).to receive(:configure_middlewares) }
 
-    before { expect(subject).to receive(:configure_etag) }
+    before { expect(subject).to receive(:import_types) }
 
-    context "when etag cache hit" do
-      let(:esi) { instance_double(EveOnline::ESI::UniverseTypes, not_modified?: true) }
+    before { expect(subject).to receive(:import_other_pages) }
 
-      before { expect(EveOnline::ESI::UniverseTypes).to receive(:new).with({page: page}).and_return(esi) }
-
-      specify { expect { subject.import }.not_to raise_error }
-    end
-
-    context "when etag cache miss" do
-      let(:esi) { instance_double(EveOnline::ESI::UniverseTypes, not_modified?: false) }
-
-      before { expect(EveOnline::ESI::UniverseTypes).to receive(:new).with({page: page}).and_return(esi) }
-
-      before { expect(subject).to receive(:import_types) }
-
-      before { expect(subject).to receive(:import_other_pages) }
-
-      before { expect(subject).to receive(:update_etag) }
-
-      specify { expect { subject.import }.not_to raise_error }
-    end
+    specify { expect { subject.import }.not_to raise_error }
   end
 
   describe "#esi" do
@@ -61,7 +43,7 @@ describe Eve::TypesImporter do
     context "when @esi not set" do
       let(:esi) { instance_double(EveOnline::ESI::UniverseTypes) }
 
-      before { expect(EveOnline::ESI::UniverseTypes).to receive(:new).with({page: page}).and_return(esi) }
+      before { expect(EveOnline::ESI::UniverseTypes).to receive(:new).with(page: page).and_return(esi) }
 
       specify { expect(subject.esi).to eq(esi) }
 
@@ -81,7 +63,7 @@ describe Eve::TypesImporter do
     before { expect(subject).to receive(:esi).and_return(esi) }
 
     context "when eve type not imported" do
-      before { expect(Eve::Type).to receive(:exists?).with({type_id: universe_type_id}).and_return(false) }
+      before { expect(Eve::Type).to receive(:exists?).with(type_id: universe_type_id).and_return(false) }
 
       before { expect(Eve::UpdateTypeJob).to receive(:perform_later).with(universe_type_id) }
 
@@ -89,7 +71,7 @@ describe Eve::TypesImporter do
     end
 
     context "when eve type is imported" do
-      before { expect(Eve::Type).to receive(:exists?).with({type_id: universe_type_id}).and_return(true) }
+      before { expect(Eve::Type).to receive(:exists?).with(type_id: universe_type_id).and_return(true) }
 
       before { expect(Eve::UpdateTypeJob).not_to receive(:perform_later) }
 

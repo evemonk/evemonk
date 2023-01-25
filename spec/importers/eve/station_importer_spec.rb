@@ -16,89 +16,68 @@ describe Eve::StationImporter do
   describe "#import" do
     before { expect(subject).to receive(:configure_middlewares) }
 
-    before { expect(subject).to receive(:configure_etag) }
-
     let(:eve_station) { instance_double(Eve::Station) }
 
-    before { expect(Eve::Station).to receive(:find_or_initialize_by).with({station_id: station_id}).and_return(eve_station) }
+    before { expect(Eve::Station).to receive(:find_or_initialize_by).with(station_id: station_id).and_return(eve_station) }
 
-    context "when etag cache hit" do
-      let(:esi) { instance_double(EveOnline::ESI::UniverseStation, not_modified?: true) }
+    context "when eve station found" do
+      let(:json) { double }
 
-      before { expect(subject).to receive(:esi).and_return(esi) }
+      let(:position_json) { double }
+
+      let(:position) do
+        instance_double(EveOnline::ESI::Models::Position,
+          as_json: position_json)
+      end
+
+      let(:esi) do
+        instance_double(EveOnline::ESI::UniverseStation,
+          as_json: json,
+          position: position)
+      end
+
+      before { expect(subject).to receive(:esi).and_return(esi).twice }
+
+      before { expect(eve_station).to receive(:update!).with(json) }
+
+      before do
+        #
+        # eve_station.position&.destroy
+        #
+        expect(eve_station).to receive(:position) do
+          double.tap do |a|
+            expect(a).to receive(:destroy)
+          end
+        end
+      end
+
+      before do
+        #
+        # eve_station.create_position!(esi.position.as_json)
+        #
+        expect(eve_station).to receive(:create_position!).with(position_json)
+      end
 
       specify { expect { subject.import }.not_to raise_error }
     end
 
-    context "when etag cache miss" do
-      context "when eve station found" do
-        let(:json) { double }
+    context "when eve station not found" do
+      before { expect(subject).to receive(:esi).and_raise(EveOnline::Exceptions::ResourceNotFound) }
 
-        let(:position_json) { double }
+      before do
+        #
+        # Rails.logger.info("EveOnline::Exceptions::ResourceNotFound: Eve Station ID #{station_id}")
 
-        let(:position) do
-          instance_double(EveOnline::ESI::Models::Position,
-            as_json: position_json)
-        end
-
-        let(:esi) do
-          instance_double(EveOnline::ESI::UniverseStation,
-            not_modified?: false,
-            as_json: json,
-            position: position)
-        end
-
-        before { expect(subject).to receive(:esi).and_return(esi).exactly(3).times }
-
-        before { expect(eve_station).to receive(:update!).with(json) }
-
-        before do
-          #
-          # eve_station.position&.destroy
-          #
-          expect(eve_station).to receive(:position) do
-            double.tap do |a|
-              expect(a).to receive(:destroy)
-            end
+        expect(Rails).to receive(:logger) do
+          double.tap do |a|
+            expect(a).to receive(:info).with("EveOnline::Exceptions::ResourceNotFound: Eve Station ID #{station_id}")
           end
         end
-
-        before do
-          #
-          # eve_station.create_position!(esi.position.as_json)
-          #
-          expect(eve_station).to receive(:create_position!).with(position_json)
-        end
-
-        before { expect(subject).to receive(:update_etag) }
-
-        specify { expect { subject.import }.not_to raise_error }
       end
 
-      context "when eve station not found" do
-        before { expect(subject).to receive(:esi).and_raise(EveOnline::Exceptions::ResourceNotFound) }
+      before { expect(eve_station).to receive(:destroy!) }
 
-        let(:eve_etag) { instance_double(Eve::Etag) }
-
-        before { expect(subject).to receive(:etag).and_return(eve_etag) }
-
-        before do
-          #
-          # Rails.logger.info("EveOnline::Exceptions::ResourceNotFound: Eve Station ID #{station_id}")
-
-          expect(Rails).to receive(:logger) do
-            double.tap do |a|
-              expect(a).to receive(:info).with("EveOnline::Exceptions::ResourceNotFound: Eve Station ID #{station_id}")
-            end
-          end
-        end
-
-        before { expect(eve_etag).to receive(:destroy!) }
-
-        before { expect(eve_station).to receive(:destroy!) }
-
-        specify { expect { subject.import }.not_to raise_error }
-      end
+      specify { expect { subject.import }.not_to raise_error }
     end
   end
 
@@ -114,7 +93,7 @@ describe Eve::StationImporter do
     context "when @esi not set" do
       let(:esi) { instance_double(EveOnline::ESI::UniverseStation) }
 
-      before { expect(EveOnline::ESI::UniverseStation).to receive(:new).with({id: station_id}).and_return(esi) }
+      before { expect(EveOnline::ESI::UniverseStation).to receive(:new).with(id: station_id).and_return(esi) }
 
       specify { expect(subject.esi).to eq(esi) }
 

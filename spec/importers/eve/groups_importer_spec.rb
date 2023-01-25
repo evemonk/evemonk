@@ -24,29 +24,11 @@ describe Eve::GroupsImporter do
   describe "#import" do
     before { expect(subject).to receive(:configure_middlewares) }
 
-    before { expect(subject).to receive(:configure_etag) }
+    before { expect(subject).to receive(:import_groups) }
 
-    context "when etag cache hit" do
-      let(:esi) { instance_double(EveOnline::ESI::UniverseGroups, not_modified?: true) }
+    before { expect(subject).to receive(:import_other_pages) }
 
-      before { expect(EveOnline::ESI::UniverseGroups).to receive(:new).with({page: page}).and_return(esi) }
-
-      specify { expect { subject.import }.not_to raise_error }
-    end
-
-    context "when etag cache miss" do
-      let(:esi) { instance_double(EveOnline::ESI::UniverseGroups, not_modified?: false) }
-
-      before { expect(EveOnline::ESI::UniverseGroups).to receive(:new).with({page: page}).and_return(esi) }
-
-      before { expect(subject).to receive(:import_groups) }
-
-      before { expect(subject).to receive(:import_other_pages) }
-
-      before { expect(subject).to receive(:update_etag) }
-
-      specify { expect { subject.import }.not_to raise_error }
-    end
+    specify { expect { subject.import }.not_to raise_error }
   end
 
   describe "#esi" do
@@ -61,7 +43,7 @@ describe Eve::GroupsImporter do
     context "when @esi not set" do
       let(:esi) { instance_double(EveOnline::ESI::UniverseGroups) }
 
-      before { expect(EveOnline::ESI::UniverseGroups).to receive(:new).with({page: page}).and_return(esi) }
+      before { expect(EveOnline::ESI::UniverseGroups).to receive(:new).with(page: page).and_return(esi) }
 
       specify { expect(subject.esi).to eq(esi) }
 
@@ -81,7 +63,7 @@ describe Eve::GroupsImporter do
     before { expect(subject).to receive(:esi).and_return(esi) }
 
     context "when eve group not imported" do
-      before { expect(Eve::Group).to receive(:exists?).with({group_id: group_id}).and_return(false) }
+      before { expect(Eve::Group).to receive(:exists?).with(group_id: group_id).and_return(false) }
 
       before { expect(Eve::UpdateGroupJob).to receive(:perform_later).with(group_id) }
 
@@ -89,7 +71,7 @@ describe Eve::GroupsImporter do
     end
 
     context "when eve group is imported" do
-      before { expect(Eve::Group).to receive(:exists?).with({group_id: group_id}).and_return(true) }
+      before { expect(Eve::Group).to receive(:exists?).with(group_id: group_id).and_return(true) }
 
       before { expect(Eve::UpdateGroupJob).not_to receive(:perform_later) }
 

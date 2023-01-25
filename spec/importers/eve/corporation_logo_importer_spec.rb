@@ -20,7 +20,7 @@ describe Eve::CorporationLogoImporter do
 
     before do
       expect(Eve::Corporation).to receive(:find_or_initialize_by)
-        .with({corporation_id: corporation_id})
+        .with(corporation_id: corporation_id)
         .and_return(eve_corporation)
     end
 
@@ -34,7 +34,7 @@ describe Eve::CorporationLogoImporter do
 
     before do
       expect(logo).to receive(:attach)
-        .with({io: tempfile, filename: "109299958.png"})
+        .with(io: tempfile, filename: "109299958.png")
     end
 
     before { expect(eve_corporation).to receive(:save!) }

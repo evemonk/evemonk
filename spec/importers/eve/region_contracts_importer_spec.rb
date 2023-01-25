@@ -20,31 +20,13 @@ describe Eve::RegionContractsImporter do
   describe "#import" do
     before { expect(subject).to receive(:configure_middlewares) }
 
-    before { expect(subject).to receive(:configure_etag) }
+    before { expect(subject).to receive(:remove_all_region_contracts) }
 
-    context "when etag cache hit" do
-      let(:esi) { instance_double(EveOnline::ESI::PublicContracts, not_modified?: true) }
+    before { expect(subject).to receive(:import_new_contracts) }
 
-      before { expect(subject).to receive(:esi).and_return(esi) }
+    before { expect(subject).to receive(:import_other_pages) }
 
-      specify { expect { subject.import }.not_to raise_error }
-    end
-
-    context "when etag cache miss" do
-      let(:esi) { instance_double(EveOnline::ESI::PublicContracts, not_modified?: false) }
-
-      before { expect(subject).to receive(:esi).and_return(esi) }
-
-      before { expect(subject).to receive(:remove_all_region_contracts) }
-
-      before { expect(subject).to receive(:import_new_contracts) }
-
-      before { expect(subject).to receive(:import_other_pages) }
-
-      before { expect(subject).to receive(:update_etag) }
-
-      specify { expect { subject.import }.not_to raise_error }
-    end
+    specify { expect { subject.import }.not_to raise_error }
   end
 
   describe "#esi" do
@@ -59,7 +41,7 @@ describe Eve::RegionContractsImporter do
     context "when @esi not set" do
       let(:esi) { instance_double(EveOnline::ESI::PublicContracts) }
 
-      before { expect(EveOnline::ESI::PublicContracts).to receive(:new).with({region_id: region_id, page: page}).and_return(esi) }
+      before { expect(EveOnline::ESI::PublicContracts).to receive(:new).with(region_id: region_id, page: page).and_return(esi) }
 
       specify { expect(subject.esi).to eq(esi) }
 
@@ -81,7 +63,7 @@ describe Eve::RegionContractsImporter do
     context "when @region not set" do
       let(:region) { instance_double(Eve::Region) }
 
-      before { expect(Eve::Region).to receive(:find_by!).with({region_id: region_id}).and_return(region) }
+      before { expect(Eve::Region).to receive(:find_by!).with(region_id: region_id).and_return(region) }
 
       specify { expect(subject.send(:region)).to eq(region) }
 

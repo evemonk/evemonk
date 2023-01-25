@@ -30,59 +30,39 @@ describe Eve::MarketGroupImporter do
   describe "#import" do
     before { expect(subject).to receive(:configure_middlewares) }
 
-    before { expect(subject).to receive(:configure_etag) }
-
     let(:eve_market_group) { instance_double(Eve::MarketGroup) }
 
-    before { expect(Eve::MarketGroup).to receive(:find_or_initialize_by).with({market_group_id: market_group_id}).and_return(eve_market_group) }
+    before { expect(Eve::MarketGroup).to receive(:find_or_initialize_by).with(market_group_id: market_group_id).and_return(eve_market_group) }
 
-    context "when etag cache hit" do
-      let(:esi) { instance_double(EveOnline::ESI::MarketGroup, not_modified?: true) }
+    context "when eve market group found" do
+      let(:json) { double }
+
+      let(:esi) { instance_double(EveOnline::ESI::MarketGroup, as_json: json) }
 
       before { expect(subject).to receive(:esi).and_return(esi) }
+
+      before { expect(eve_market_group).to receive(:update!).with(json) }
 
       specify { expect { subject.import }.not_to raise_error }
     end
 
-    context "when etag cache miss" do
-      context "when eve market group found" do
-        let(:json) { double }
+    context "when eve market group not found" do
+      before { expect(subject).to receive(:esi).and_raise(EveOnline::Exceptions::ResourceNotFound) }
 
-        let(:esi) { instance_double(EveOnline::ESI::MarketGroup, not_modified?: false, as_json: json) }
-
-        before { expect(subject).to receive(:esi).and_return(esi).twice }
-
-        before { expect(eve_market_group).to receive(:update!).with(json) }
-
-        before { expect(subject).to receive(:update_etag) }
-
-        specify { expect { subject.import }.not_to raise_error }
-      end
-
-      context "when eve market group not found" do
-        before { expect(subject).to receive(:esi).and_raise(EveOnline::Exceptions::ResourceNotFound) }
-
-        let(:eve_etag) { instance_double(Eve::Etag) }
-
-        before { expect(subject).to receive(:etag).and_return(eve_etag) }
-
-        before do
-          #
-          # Rails.logger.info("EveOnline::Exceptions::ResourceNotFound: Eve MarketGroup ID #{market_group_id}")
-          #
-          expect(Rails).to receive(:logger) do
-            double.tap do |a|
-              expect(a).to receive(:info).with("EveOnline::Exceptions::ResourceNotFound: Eve MarketGroup ID #{market_group_id}")
-            end
+      before do
+        #
+        # Rails.logger.info("EveOnline::Exceptions::ResourceNotFound: Eve MarketGroup ID #{market_group_id}")
+        #
+        expect(Rails).to receive(:logger) do
+          double.tap do |a|
+            expect(a).to receive(:info).with("EveOnline::Exceptions::ResourceNotFound: Eve MarketGroup ID #{market_group_id}")
           end
         end
-
-        before { expect(eve_etag).to receive(:destroy!) }
-
-        before { expect(eve_market_group).to receive(:destroy!) }
-
-        specify { expect { subject.import }.not_to raise_error }
       end
+
+      before { expect(eve_market_group).to receive(:destroy!) }
+
+      specify { expect { subject.import }.not_to raise_error }
     end
   end
 
@@ -98,7 +78,7 @@ describe Eve::MarketGroupImporter do
     context "when @esi not set" do
       let(:esi) { instance_double(EveOnline::ESI::MarketGroup) }
 
-      before { expect(EveOnline::ESI::MarketGroup).to receive(:new).with({id: market_group_id, language: "en-us"}).and_return(esi) }
+      before { expect(EveOnline::ESI::MarketGroup).to receive(:new).with(id: market_group_id, language: "en-us").and_return(esi) }
 
       specify { expect(subject.esi).to eq(esi) }
 

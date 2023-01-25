@@ -10,8 +10,6 @@ module Eve
 
     def import
       import! do
-        return if esi.not_modified?
-
         eve_character = Eve::Character.find(id)
 
         esi.entries.each do |entry|
@@ -20,8 +18,6 @@ module Eve
 
           history.update!(entry.as_json)
         end
-
-        update_etag
       rescue ActiveRecord::RecordNotFound
         Rails.logger.info("Character with ID #{id} not found")
       end

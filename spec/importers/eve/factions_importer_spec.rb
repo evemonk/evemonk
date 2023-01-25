@@ -22,37 +22,23 @@ describe Eve::FactionsImporter do
   describe "#import" do
     before { expect(subject).to receive(:configure_middlewares) }
 
-    before { expect(subject).to receive(:configure_etag) }
+    let(:faction_id) { double }
 
-    context "when etag cache hit" do
-      let(:esi) { instance_double(EveOnline::ESI::UniverseFactions, not_modified?: true) }
+    let(:json) { double }
 
-      before { expect(subject).to receive(:esi).and_return(esi) }
+    let(:faction) { instance_double(EveOnline::ESI::Models::Faction, faction_id: faction_id, as_json: json) }
 
-      specify { expect { subject.import }.not_to raise_error }
-    end
+    let(:esi) { instance_double(EveOnline::ESI::UniverseFactions, factions: [faction]) }
 
-    context "when etag cache miss" do
-      let(:faction_id) { double }
+    before { expect(subject).to receive(:esi).and_return(esi) }
 
-      let(:json) { double }
+    let(:eve_faction) { instance_double(Eve::Faction) }
 
-      let(:faction) { instance_double(EveOnline::ESI::Models::Faction, faction_id: faction_id, as_json: json) }
+    before { expect(Eve::Faction).to receive(:find_or_initialize_by).with(faction_id: faction_id).and_return(eve_faction) }
 
-      let(:esi) { instance_double(EveOnline::ESI::UniverseFactions, not_modified?: false, factions: [faction]) }
+    before { expect(eve_faction).to receive(:update!).with(json) }
 
-      before { expect(subject).to receive(:esi).and_return(esi).twice }
-
-      let(:eve_faction) { instance_double(Eve::Faction) }
-
-      before { expect(Eve::Faction).to receive(:find_or_initialize_by).with({faction_id: faction_id}).and_return(eve_faction) }
-
-      before { expect(eve_faction).to receive(:update!).with(json) }
-
-      before { expect(subject).to receive(:update_etag) }
-
-      specify { expect { subject.import }.not_to raise_error }
-    end
+    specify { expect { subject.import }.not_to raise_error }
   end
 
   describe "#esi" do
@@ -67,7 +53,7 @@ describe Eve::FactionsImporter do
     context "when @esi not set" do
       let(:esi) { instance_double(EveOnline::ESI::UniverseFactions) }
 
-      before { expect(EveOnline::ESI::UniverseFactions).to receive(:new).with({language: "en-us"}).and_return(esi) }
+      before { expect(EveOnline::ESI::UniverseFactions).to receive(:new).with(language: "en-us").and_return(esi) }
 
       specify { expect(subject.esi).to eq(esi) }
 

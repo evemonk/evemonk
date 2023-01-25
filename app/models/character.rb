@@ -32,8 +32,6 @@ class Character < ApplicationRecord
 
   has_many :character_scopes, dependent: :destroy
 
-  has_many :etags, dependent: :destroy
-
   has_many :loyalty_points, dependent: :destroy
 
   has_many :character_assets, dependent: :destroy

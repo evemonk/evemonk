@@ -580,7 +580,7 @@ describe CharacterSkillsTree do
         #
         # Eve::TypeDogmaAttribute.where(attribute_id: dogma_attributes.map(&:attribute_id).sort.uniq).to_a
         #
-        expect(Eve::TypeDogmaAttribute).to receive(:where).with({attribute_id: [123, 321]}) do
+        expect(Eve::TypeDogmaAttribute).to receive(:where).with(attribute_id: [123, 321]) do
           double.tap do |a|
             expect(a).to receive(:to_a).and_return(type_dogma_attributes)
           end

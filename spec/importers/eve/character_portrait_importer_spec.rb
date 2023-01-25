@@ -20,7 +20,7 @@ describe Eve::CharacterPortraitImporter do
 
     before do
       expect(Eve::Character).to receive(:find_or_initialize_by)
-        .with({id: id})
+        .with(id: id)
         .and_return(eve_character)
     end
 
@@ -34,7 +34,7 @@ describe Eve::CharacterPortraitImporter do
 
     before do
       expect(portrait).to receive(:attach)
-        .with({io: tempfile, filename: "1337512245.jpg"})
+        .with(io: tempfile, filename: "1337512245.jpg")
     end
 
     before { expect(eve_character).to receive(:save!) }

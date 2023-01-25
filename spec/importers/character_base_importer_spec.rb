@@ -27,34 +27,12 @@ describe CharacterBaseImporter do
 
       before { expect(subject).to receive(:configure_esi_token) }
 
-      before { expect(subject).to receive(:configure_etag) }
+      before { expect(subject).to receive(:import!) }
 
-      context "when etag cache miss" do
-        let(:esi) { double(not_modified?: false) }
-
-        before { expect(subject).to receive(:esi).and_return(esi) }
-
-        before { expect(subject).to receive(:import!) }
-
-        before { expect(subject).to receive(:update_etag) }
-
-        specify { expect { subject.import }.not_to raise_error }
-      end
-
-      context "when etag cache hit" do
-        let(:esi) { double(not_modified?: true) }
-
-        before { expect(subject).to receive(:esi).and_return(esi) }
-
-        specify { expect { subject.import }.not_to raise_error }
-      end
+      specify { expect { subject.import }.not_to raise_error }
     end
 
     context "when EveOnline::Exceptions::ResourceNotFound" do
-      let(:esi) { double(not_modified?: false) }
-
-      before { expect(subject).to receive(:esi).and_return(esi) }
-
       before { expect(subject).to receive(:character_scope_present?).and_return(true) }
 
       before { expect(subject).to receive(:refresh_character_access_token) }
@@ -62,8 +40,6 @@ describe CharacterBaseImporter do
       before { expect(subject).to receive(:configure_middlewares) }
 
       before { expect(subject).to receive(:configure_esi_token) }
-
-      before { expect(subject).to receive(:configure_etag) }
 
       before { expect(subject).to receive(:import!).and_raise(EveOnline::Exceptions::ResourceNotFound) }
 
@@ -82,10 +58,6 @@ describe CharacterBaseImporter do
     end
 
     context "when ActiveRecord::RecordNotFound" do
-      let(:esi) { double(not_modified?: false) }
-
-      before { expect(subject).to receive(:esi).and_return(esi) }
-
       before { expect(subject).to receive(:character_scope_present?).and_return(true) }
 
       before { expect(subject).to receive(:refresh_character_access_token) }
@@ -93,8 +65,6 @@ describe CharacterBaseImporter do
       before { expect(subject).to receive(:configure_middlewares) }
 
       before { expect(subject).to receive(:configure_esi_token) }
-
-      before { expect(subject).to receive(:configure_etag) }
 
       before { expect(subject).to receive(:import!).and_raise(ActiveRecord::RecordNotFound) }
 
@@ -210,42 +180,6 @@ describe CharacterBaseImporter do
     end
   end
 
-  describe "#etag" do
-    context "when @etag is set" do
-      let(:etag) { instance_double(Etag) }
-
-      before { subject.instance_variable_set(:@etag, etag) }
-
-      specify { expect(subject.etag).to eq(etag) }
-    end
-
-    context "when @etag not set" do
-      let(:url) { double }
-
-      let(:esi) { double(url: url) }
-
-      before { expect(subject).to receive(:esi).and_return(esi) }
-
-      let(:character) { instance_double(Character) }
-
-      before { expect(subject).to receive(:character).and_return(character) }
-
-      let(:etag) { instance_double(Etag) }
-
-      before do
-        #
-        # Etag.find_or_initialize_by(url: esi.url, character: character) # => etag
-        #
-        expect(Etag).to receive(:find_or_initialize_by).with({url: url, character: character})
-          .and_return(etag)
-      end
-
-      specify { expect(subject.etag).to eq(etag) }
-
-      specify { expect { subject.etag }.to change { subject.instance_variable_get(:@etag) }.from(nil).to(etag) }
-    end
-  end
-
   # private methods
 
   describe "#configure_middlewares" do
@@ -292,38 +226,6 @@ describe CharacterBaseImporter do
 
       specify { expect { subject.send(:configure_esi_token) }.not_to raise_error }
     end
-  end
-
-  describe "#configure_etag" do
-    let(:esi) { double }
-
-    before { expect(subject).to receive(:esi).and_return(esi) }
-
-    let(:etag) { instance_double(Etag, etag: "abc123") }
-
-    before { expect(subject).to receive(:etag).and_return(etag) }
-
-    before { expect(esi).to receive(:etag=).with("abc123") }
-
-    specify { expect { subject.send(:configure_etag) }.not_to raise_error }
-  end
-
-  describe "#update_etag" do
-    let(:etag) { double }
-
-    let(:response) { double }
-
-    let(:esi) { double(etag: etag, response: response) }
-
-    before { expect(subject).to receive(:esi).and_return(esi).twice }
-
-    let(:etag) { instance_double(Etag) }
-
-    before { expect(subject).to receive(:etag).and_return(etag) }
-
-    before { expect(etag).to receive(:update!).with({etag: etag, body: response}) }
-
-    specify { expect { subject.send(:update_etag) }.not_to raise_error }
   end
 
   describe "#statistics_middleware" do

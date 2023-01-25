@@ -8,29 +8,11 @@ describe Eve::CategoriesImporter do
   describe "#import" do
     before { expect(subject).to receive(:configure_middlewares) }
 
-    before { expect(subject).to receive(:configure_etag) }
+    before { expect(subject).to receive(:import_new_categories) }
 
-    context "when etag cache hit" do
-      let(:esi) { instance_double(EveOnline::ESI::UniverseCategories, not_modified?: true) }
+    before { expect(subject).to receive(:remove_old_categories) }
 
-      before { expect(EveOnline::ESI::UniverseCategories).to receive(:new).and_return(esi) }
-
-      specify { expect { subject.import }.not_to raise_error }
-    end
-
-    context "when etag cache miss" do
-      let(:esi) { instance_double(EveOnline::ESI::UniverseCategories, not_modified?: false) }
-
-      before { expect(EveOnline::ESI::UniverseCategories).to receive(:new).and_return(esi) }
-
-      before { expect(subject).to receive(:import_new_categories) }
-
-      before { expect(subject).to receive(:remove_old_categories) }
-
-      before { expect(subject).to receive(:update_etag) }
-
-      specify { expect { subject.import }.not_to raise_error }
-    end
+    specify { expect { subject.import }.not_to raise_error }
   end
 
   describe "#esi" do
@@ -103,7 +85,7 @@ describe Eve::CategoriesImporter do
 
     let(:eve_category) { instance_double(Eve::Category) }
 
-    before { expect(Eve::Category).to receive(:find_or_initialize_by).with({category_id: local_category_id}).and_return(eve_category) }
+    before { expect(Eve::Category).to receive(:find_or_initialize_by).with(category_id: local_category_id).and_return(eve_category) }
 
     before { expect(eve_category).to receive(:destroy!) }
 

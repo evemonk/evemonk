@@ -8,29 +8,11 @@ describe Eve::MarketGroupsImporter do
   describe "#import" do
     before { expect(subject).to receive(:configure_middlewares) }
 
-    before { expect(subject).to receive(:configure_etag) }
+    before { expect(subject).to receive(:import_new_market_groups) }
 
-    context "when etag cache hit" do
-      let(:esi) { instance_double(EveOnline::ESI::MarketGroups, not_modified?: true) }
+    before { expect(subject).to receive(:remove_old_market_groups) }
 
-      before { expect(EveOnline::ESI::MarketGroups).to receive(:new).and_return(esi) }
-
-      specify { expect { subject.import }.not_to raise_error }
-    end
-
-    context "when etag cache miss" do
-      let(:esi) { instance_double(EveOnline::ESI::MarketGroups, not_modified?: false) }
-
-      before { expect(EveOnline::ESI::MarketGroups).to receive(:new).and_return(esi) }
-
-      before { expect(subject).to receive(:import_new_market_groups) }
-
-      before { expect(subject).to receive(:remove_old_market_groups) }
-
-      before { expect(subject).to receive(:update_etag) }
-
-      specify { expect { subject.import }.not_to raise_error }
-    end
+    specify { expect { subject.import }.not_to raise_error }
   end
 
   describe "#esi" do
@@ -68,7 +50,7 @@ describe Eve::MarketGroupsImporter do
     context "when eve market group not imported" do
       before do
         expect(Eve::MarketGroup).to receive(:exists?)
-          .with({market_group_id: market_group_id})
+          .with(market_group_id: market_group_id)
           .and_return(false)
       end
 
@@ -83,7 +65,7 @@ describe Eve::MarketGroupsImporter do
     context "when eve market group already imported" do
       before do
         expect(Eve::MarketGroup).to receive(:exists?)
-          .with({market_group_id: market_group_id})
+          .with(market_group_id: market_group_id)
           .and_return(true)
       end
 
@@ -117,7 +99,7 @@ describe Eve::MarketGroupsImporter do
 
     let(:eve_market_group) { instance_double(Eve::MarketGroup) }
 
-    before { expect(Eve::MarketGroup).to receive(:find_or_initialize_by).with({market_group_id: eve_market_group_id_to_remove}).and_return(eve_market_group) }
+    before { expect(Eve::MarketGroup).to receive(:find_or_initialize_by).with(market_group_id: eve_market_group_id_to_remove).and_return(eve_market_group) }
 
     before { expect(eve_market_group).to receive(:destroy!) }
 

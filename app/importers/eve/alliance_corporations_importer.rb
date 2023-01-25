@@ -10,18 +10,12 @@ module Eve
 
     def import
       import! do
-        return if esi.not_modified?
-
         import_new_corporations
 
         remove_old_corporations
-
-        update_etag
       rescue ActiveRecord::RecordNotFound
         Rails.logger.info("Alliance with ID #{id} not found")
       rescue EveOnline::Exceptions::ResourceNotFound
-        etag.destroy!
-
         eve_alliance.destroy!
       end
     end

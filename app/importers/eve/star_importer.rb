@@ -12,15 +12,9 @@ module Eve
       import! do
         eve_star = Eve::Star.find_or_initialize_by(star_id: star_id)
 
-        return if esi.not_modified?
-
         eve_star.update!(esi.as_json)
-
-        update_etag
       rescue EveOnline::Exceptions::ResourceNotFound
         Rails.logger.info("EveOnline::Exceptions::ResourceNotFound: Eve Star ID #{star_id}")
-
-        etag.destroy!
 
         eve_star.destroy!
       end

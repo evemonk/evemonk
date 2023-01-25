@@ -8,29 +8,11 @@ describe Eve::ConstellationsImporter do
   describe "#import" do
     before { expect(subject).to receive(:configure_middlewares) }
 
-    before { expect(subject).to receive(:configure_etag) }
+    before { expect(subject).to receive(:import_new_constellations) }
 
-    context "when etag cache hit" do
-      let(:esi) { instance_double(EveOnline::ESI::UniverseConstellations, not_modified?: true) }
+    before { expect(subject).to receive(:remove_old_constellations) }
 
-      before { expect(EveOnline::ESI::UniverseConstellations).to receive(:new).and_return(esi) }
-
-      specify { expect { subject.import }.not_to raise_error }
-    end
-
-    context "when etag cache miss" do
-      let(:esi) { instance_double(EveOnline::ESI::UniverseConstellations, not_modified?: false) }
-
-      before { expect(EveOnline::ESI::UniverseConstellations).to receive(:new).and_return(esi) }
-
-      before { expect(subject).to receive(:import_new_constellations) }
-
-      before { expect(subject).to receive(:remove_old_constellations) }
-
-      before { expect(subject).to receive(:update_etag) }
-
-      specify { expect { subject.import }.not_to raise_error }
-    end
+    specify { expect { subject.import }.not_to raise_error }
   end
 
   describe "#esi" do
@@ -102,7 +84,7 @@ describe Eve::ConstellationsImporter do
 
     let(:eve_constellation) { instance_double(Eve::Constellation) }
 
-    before { expect(Eve::Constellation).to receive(:find_or_initialize_by).with({constellation_id: eve_constellation_id_to_remove}).and_return(eve_constellation) }
+    before { expect(Eve::Constellation).to receive(:find_or_initialize_by).with(constellation_id: eve_constellation_id_to_remove).and_return(eve_constellation) }
 
     before { expect(eve_constellation).to receive(:destroy!) }
 

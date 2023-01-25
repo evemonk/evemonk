@@ -12,19 +12,13 @@ module Eve
       import! do
         eve_planet = Eve::Planet.find_or_initialize_by(planet_id: planet_id)
 
-        return if esi.not_modified?
-
         eve_planet.update!(esi.as_json)
 
         eve_planet.position&.destroy
 
         eve_planet.create_position!(esi.position.as_json)
-
-        update_etag
       rescue EveOnline::Exceptions::ResourceNotFound
         Rails.logger.info("EveOnline::Exceptions::ResourceNotFound: Eve Planet ID #{planet_id}")
-
-        etag.destroy!
 
         eve_planet.destroy!
       end

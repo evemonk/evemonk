@@ -35,13 +35,11 @@ describe Sde::MarketGroupsImporter do
 
     let(:market_group) { instance_double(Eve::MarketGroup) }
 
-    before { expect(Eve::MarketGroup).to receive(:find_or_initialize_by).with({market_group_id: key}).and_return(market_group) }
+    before { expect(Eve::MarketGroup).to receive(:find_or_initialize_by).with(market_group_id: key).and_return(market_group) }
 
     before do
-      expect(market_group).to receive(:assign_attributes).with({
-        has_types: has_types,
-        icon_id: icon_id
-      })
+      expect(market_group).to receive(:assign_attributes).with(has_types: has_types,
+        icon_id: icon_id)
     end
 
     before { expect(market_group).to receive(:save!) }

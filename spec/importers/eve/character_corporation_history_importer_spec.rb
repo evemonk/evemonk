@@ -12,16 +12,6 @@ describe Eve::CharacterCorporationHistoryImporter do
   describe "#import" do
     before { expect(subject).to receive(:configure_middlewares) }
 
-    before { expect(subject).to receive(:configure_etag) }
-
-    context "when etag cache hit" do
-      let(:esi) { instance_double(EveOnline::ESI::CharacterCorporationHistory, not_modified?: true) }
-
-      before { expect(subject).to receive(:esi).and_return(esi) }
-
-      specify { expect { subject.import }.not_to raise_error }
-    end
-
     context "when etag cache miss" do
       context "when eve character found" do
         let(:record_id) { double }
@@ -34,11 +24,10 @@ describe Eve::CharacterCorporationHistoryImporter do
 
         let(:esi) do
           instance_double(EveOnline::ESI::CharacterCorporationHistory,
-            not_modified?: false,
             entries: entries)
         end
 
-        before { expect(subject).to receive(:esi).and_return(esi).twice }
+        before { expect(subject).to receive(:esi).and_return(esi) }
 
         let(:eve_character) { instance_double(Eve::Character) }
 
@@ -53,7 +42,7 @@ describe Eve::CharacterCorporationHistoryImporter do
           #
           expect(eve_character).to receive(:character_corporation_histories) do
             double.tap do |a|
-              expect(a).to receive(:find_or_initialize_by).with({record_id: record_id})
+              expect(a).to receive(:find_or_initialize_by).with(record_id: record_id)
                 .and_return(character_corporation_history)
             end
           end
@@ -61,19 +50,10 @@ describe Eve::CharacterCorporationHistoryImporter do
 
         before { expect(character_corporation_history).to receive(:update!).with(json) }
 
-        before { expect(subject).to receive(:update_etag) }
-
         specify { expect { subject.import }.not_to raise_error }
       end
 
       context "when eve character not found (ActiveRecord::RecordNotFound)" do
-        let(:esi) do
-          instance_double(EveOnline::ESI::CharacterCorporationHistory,
-            not_modified?: false)
-        end
-
-        before { expect(subject).to receive(:esi).and_return(esi) }
-
         before { expect(Eve::Character).to receive(:find).with(id).and_raise(ActiveRecord::RecordNotFound) }
 
         before do
@@ -104,7 +84,7 @@ describe Eve::CharacterCorporationHistoryImporter do
     context "when @esi not set" do
       let(:esi) { instance_double(EveOnline::ESI::CharacterCorporationHistory) }
 
-      before { expect(EveOnline::ESI::CharacterCorporationHistory).to receive(:new).with({character_id: id}).and_return(esi) }
+      before { expect(EveOnline::ESI::CharacterCorporationHistory).to receive(:new).with(character_id: id).and_return(esi) }
 
       specify { expect { subject.esi }.not_to raise_error }
 

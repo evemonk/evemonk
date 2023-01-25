@@ -10,8 +10,6 @@ module Eve
 
     def import
       import! do
-        return if esi.not_modified?
-
         eve_corporation = Eve::Corporation.find_by!(corporation_id: corporation_id)
 
         esi.entries.each do |entry|
@@ -20,8 +18,6 @@ module Eve
 
           history.update!(entry.as_json)
         end
-
-        update_etag
       rescue ActiveRecord::RecordNotFound
         Rails.logger.info("Corporation with ID #{corporation_id} not found")
       end

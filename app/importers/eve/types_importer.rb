@@ -10,13 +10,9 @@ module Eve
 
     def import
       import! do
-        return if esi.not_modified?
-
         import_types
 
         import_other_pages
-
-        update_etag
       end
     end
 

@@ -14,15 +14,9 @@ module Eve
         Mobility.with_locale(locale) do
           eve_market_group = Eve::MarketGroup.find_or_initialize_by(market_group_id: market_group_id)
 
-          return if esi.not_modified?
-
           eve_market_group.update!(esi.as_json)
-
-          update_etag
         rescue EveOnline::Exceptions::ResourceNotFound
           Rails.logger.info("EveOnline::Exceptions::ResourceNotFound: Eve MarketGroup ID #{market_group_id}")
-
-          etag.destroy!
 
           eve_market_group.destroy!
         end
