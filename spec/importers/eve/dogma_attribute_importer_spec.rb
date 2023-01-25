@@ -20,7 +20,7 @@ describe Eve::DogmaAttributeImporter do
 
     let(:eve_dogma_attribute) { instance_double(Eve::DogmaAttribute) }
 
-    before { expect(Eve::DogmaAttribute).to receive(:find_or_initialize_by).with({attribute_id: attribute_id}).and_return(eve_dogma_attribute) }
+    before { expect(Eve::DogmaAttribute).to receive(:find_or_initialize_by).with(attribute_id: attribute_id).and_return(eve_dogma_attribute) }
 
     context "when etag cache hit" do
       let(:esi) { instance_double(EveOnline::ESI::DogmaAttribute, not_modified?: true) }
@@ -84,7 +84,7 @@ describe Eve::DogmaAttributeImporter do
     context "when @esi not set" do
       let(:esi) { instance_double(EveOnline::ESI::DogmaAttribute) }
 
-      before { expect(EveOnline::ESI::DogmaAttribute).to receive(:new).with({id: attribute_id}).and_return(esi) }
+      before { expect(EveOnline::ESI::DogmaAttribute).to receive(:new).with(id: attribute_id).and_return(esi) }
 
       specify { expect(subject.esi).to eq(esi) }
 
