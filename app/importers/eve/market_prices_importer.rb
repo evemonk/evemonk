@@ -4,11 +4,7 @@ module Eve
   class MarketPricesImporter < BaseImporter
     def import
       import! do
-        return if esi.not_modified?
-
         update_market_prices
-
-        update_etag
       end
     end
 
