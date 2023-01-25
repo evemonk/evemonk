@@ -24,29 +24,11 @@ describe Eve::GroupsImporter do
   describe "#import" do
     before { expect(subject).to receive(:configure_middlewares) }
 
-    before { expect(subject).to receive(:configure_etag) }
+    before { expect(subject).to receive(:import_groups) }
 
-    context "when etag cache hit" do
-      let(:esi) { instance_double(EveOnline::ESI::UniverseGroups, not_modified?: true) }
+    before { expect(subject).to receive(:import_other_pages) }
 
-      before { expect(EveOnline::ESI::UniverseGroups).to receive(:new).with(page: page).and_return(esi) }
-
-      specify { expect { subject.import }.not_to raise_error }
-    end
-
-    context "when etag cache miss" do
-      let(:esi) { instance_double(EveOnline::ESI::UniverseGroups, not_modified?: false) }
-
-      before { expect(EveOnline::ESI::UniverseGroups).to receive(:new).with(page: page).and_return(esi) }
-
-      before { expect(subject).to receive(:import_groups) }
-
-      before { expect(subject).to receive(:import_other_pages) }
-
-      before { expect(subject).to receive(:update_etag) }
-
-      specify { expect { subject.import }.not_to raise_error }
-    end
+    specify { expect { subject.import }.not_to raise_error }
   end
 
   describe "#esi" do
