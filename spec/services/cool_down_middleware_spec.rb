@@ -37,7 +37,7 @@ describe CoolDownMiddleware do
     conn.get("https://esi.evetech.net/v2/status/")
   end
 
-  context "when esi_error_limit_remain and esi_error_limit_remain_till are not set yet" do
+  context "when esi_error_limit_remain and esi_error_limit_remain_till are not set" do
     before { expect(Redis).to receive(:new).and_return(redis).exactly(4).times }
 
     before { expect(redis).to receive(:get).with("esi_error_limit_remain").and_return(nil) }
@@ -49,17 +49,31 @@ describe CoolDownMiddleware do
     specify { expect { conn.status }.not_to raise_error }
   end
 
-  context "when esi_error_limit_remain and esi_error_limit_remain_till are already set" do
-    before { freeze_time }
+  context "when esi_error_limit_remain and esi_error_limit_remain_till are set" do
+    context "when esi_error_limit_remain less than 50" do
+      before { freeze_time }
 
-    before { expect(Redis).to receive(:new).and_return(redis).exactly(4).times }
+      before { expect(Redis).to receive(:new).and_return(redis).exactly(4).times }
 
-    before { expect(redis).to receive(:get).with("esi_error_limit_remain").and_return("49") }
+      before { expect(redis).to receive(:get).with("esi_error_limit_remain").and_return("49") }
 
-    before { expect(redis).to receive(:get).with("esi_error_limit_remain_till").and_return(51.seconds.from_now.iso8601) }
+      before { expect(redis).to receive(:get).with("esi_error_limit_remain_till").and_return(51.seconds.from_now.iso8601) }
 
-    before { expect(Kernel).to receive(:sleep).with(51) }
+      before { expect(Kernel).to receive(:sleep).with(51) }
 
-    specify { expect { conn.status }.not_to raise_error }
+      specify { expect { conn.status }.not_to raise_error }
+    end
+
+    context "when esi_error_limit_remain more than 50" do
+      before { expect(Redis).to receive(:new).and_return(redis).exactly(4).times }
+
+      before { expect(redis).to receive(:get).with("esi_error_limit_remain").and_return("60") }
+
+      before { expect(redis).to receive(:get).with("esi_error_limit_remain_till").and_return(40.seconds.from_now.iso8601) }
+
+      before { expect(Kernel).not_to receive(:sleep) }
+
+      specify { expect { conn.status }.not_to raise_error }
+    end
   end
 end

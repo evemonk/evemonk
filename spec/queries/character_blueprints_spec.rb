@@ -93,7 +93,7 @@ describe CharacterBlueprints do
       let!(:character_blueprint_3) { create(:character_blueprint, character: character, blueprint: eve_blueprint_3, quantity: 2) }
 
       context "when All" do
-        let(:filter) { nil }
+        let(:filter) { "0" }
 
         specify { expect(subject.query).to eq([character_blueprint_2, character_blueprint_1, character_blueprint_3]) }
       end
@@ -120,6 +120,12 @@ describe CharacterBlueprints do
         let(:filter) { "4" }
 
         specify { expect(subject.query).to eq([character_blueprint_3]) }
+      end
+
+      context "when filter is unknown" do
+        let(:filter) { "100" }
+
+        specify { expect(subject.query).to eq([character_blueprint_2, character_blueprint_1, character_blueprint_3]) }
       end
     end
   end
