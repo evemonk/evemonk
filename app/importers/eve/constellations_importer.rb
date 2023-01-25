@@ -4,13 +4,9 @@ module Eve
   class ConstellationsImporter < BaseImporter
     def import
       import! do
-        return if esi.not_modified?
-
         import_new_constellations
 
         remove_old_constellations
-
-        update_etag
       end
     end
 
