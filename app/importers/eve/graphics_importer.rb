@@ -4,13 +4,9 @@ module Eve
   class GraphicsImporter < BaseImporter
     def import
       import! do
-        return if esi.not_modified?
-
         import_new_graphics
 
         remove_old_graphics
-
-        update_etag
       end
     end
 
