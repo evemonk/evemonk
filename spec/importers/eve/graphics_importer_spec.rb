@@ -66,7 +66,7 @@ describe Eve::GraphicsImporter do
     before { expect(subject).to receive(:esi).and_return(esi) }
 
     context "when eve graphic not imported" do
-      before { expect(Eve::Graphic).to receive(:exists?).with({graphic_id: graphic_id}).and_return(false) }
+      before { expect(Eve::Graphic).to receive(:exists?).with(graphic_id: graphic_id).and_return(false) }
 
       before { expect(Eve::UpdateGraphicJob).to receive(:perform_later).with(graphic_id) }
 
@@ -74,7 +74,7 @@ describe Eve::GraphicsImporter do
     end
 
     context "when eve graphic already imported" do
-      before { expect(Eve::Graphic).to receive(:exists?).with({graphic_id: graphic_id}).and_return(true) }
+      before { expect(Eve::Graphic).to receive(:exists?).with(graphic_id: graphic_id).and_return(true) }
 
       before { expect(Eve::UpdateGraphicJob).not_to receive(:perform_later) }
 
@@ -106,7 +106,7 @@ describe Eve::GraphicsImporter do
 
     let(:eve_graphic) { instance_double(Eve::Graphic) }
 
-    before { expect(Eve::Graphic).to receive(:find_or_initialize_by).with({graphic_id: graphic_id_to_remove}).and_return(eve_graphic) }
+    before { expect(Eve::Graphic).to receive(:find_or_initialize_by).with(graphic_id: graphic_id_to_remove).and_return(eve_graphic) }
 
     before { expect(eve_graphic).to receive(:destroy!) }
 
