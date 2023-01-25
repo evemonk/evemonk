@@ -121,6 +121,12 @@ describe CharacterBlueprints do
 
         specify { expect(subject.query).to eq([character_blueprint_3]) }
       end
+
+      context "when filter is unknown" do
+        let(:filter) { "100" }
+
+        specify { expect(subject.query).to eq([character_blueprint_2, character_blueprint_1, character_blueprint_3]) }
+      end
     end
   end
 end
