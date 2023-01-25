@@ -102,7 +102,7 @@ describe Eve::ConstellationsImporter do
 
     let(:eve_constellation) { instance_double(Eve::Constellation) }
 
-    before { expect(Eve::Constellation).to receive(:find_or_initialize_by).with({constellation_id: eve_constellation_id_to_remove}).and_return(eve_constellation) }
+    before { expect(Eve::Constellation).to receive(:find_or_initialize_by).with(constellation_id: eve_constellation_id_to_remove).and_return(eve_constellation) }
 
     before { expect(eve_constellation).to receive(:destroy!) }
 
