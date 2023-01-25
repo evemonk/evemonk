@@ -44,7 +44,7 @@ describe Eve::CorporationLoyaltyStoreImporter do
 
         before do
           expect(Eve::Corporation).to receive(:find_by!)
-            .with({corporation_id: corporation_id})
+            .with(corporation_id: corporation_id)
             .and_return(eve_corporation)
         end
 
@@ -85,7 +85,7 @@ describe Eve::CorporationLoyaltyStoreImporter do
 
         before do
           expect(Eve::Corporation).to receive(:find_by!)
-            .with({corporation_id: corporation_id})
+            .with(corporation_id: corporation_id)
             .and_raise(ActiveRecord::RecordNotFound)
         end
 
@@ -117,7 +117,7 @@ describe Eve::CorporationLoyaltyStoreImporter do
     context "when @esi not set" do
       let(:esi) { instance_double(EveOnline::ESI::CorporationLoyaltyStoreOffers) }
 
-      before { expect(EveOnline::ESI::CorporationLoyaltyStoreOffers).to receive(:new).with({corporation_id: corporation_id}).and_return(esi) }
+      before { expect(EveOnline::ESI::CorporationLoyaltyStoreOffers).to receive(:new).with(corporation_id: corporation_id).and_return(esi) }
 
       specify { expect(subject.esi).to eq(esi) }
 
