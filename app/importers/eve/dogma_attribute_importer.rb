@@ -12,15 +12,9 @@ module Eve
       import! do
         eve_dogma_attribute = Eve::DogmaAttribute.find_or_initialize_by(attribute_id: attribute_id)
 
-        return if esi.not_modified?
-
         eve_dogma_attribute.update!(esi.as_json)
-
-        update_etag
       rescue EveOnline::Exceptions::ResourceNotFound
         Rails.logger.info("EveOnline::Exceptions::ResourceNotFound: Eve DogmaAttribute ID #{attribute_id}")
-
-        etag.destroy!
 
         eve_dogma_attribute.destroy!
       end
