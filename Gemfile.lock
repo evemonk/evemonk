@@ -138,7 +138,7 @@ GEM
       erubi (~> 1.4)
       parser (>= 2.4)
       smart_properties
-    bootsnap (1.15.0)
+    bootsnap (1.16.0)
       msgpack (~> 1.2)
     bootstrap (5.2.3)
       autoprefixer-rails (>= 9.1.0)
