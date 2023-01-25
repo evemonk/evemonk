@@ -18,7 +18,7 @@ describe Eve::AsteroidBeltImporter do
 
     let(:eve_asteroid_belt) { instance_double(Eve::AsteroidBelt) }
 
-    before { expect(Eve::AsteroidBelt).to receive(:find_or_initialize_by).with({planet_id: planet_id, asteroid_belt_id: asteroid_belt_id}).and_return(eve_asteroid_belt) }
+    before { expect(Eve::AsteroidBelt).to receive(:find_or_initialize_by).with(planet_id: planet_id, asteroid_belt_id: asteroid_belt_id).and_return(eve_asteroid_belt) }
 
     context "when etag cache hit" do
       let(:esi) { instance_double(EveOnline::ESI::UniverseAsteroidBelt, not_modified?: true) }
@@ -112,7 +112,7 @@ describe Eve::AsteroidBeltImporter do
     context "when @esi not set" do
       let(:esi) { instance_double(EveOnline::ESI::UniverseAsteroidBelt) }
 
-      before { expect(EveOnline::ESI::UniverseAsteroidBelt).to receive(:new).with({id: asteroid_belt_id}).and_return(esi) }
+      before { expect(EveOnline::ESI::UniverseAsteroidBelt).to receive(:new).with(id: asteroid_belt_id).and_return(esi) }
 
       specify { expect(subject.esi).to eq(esi) }
 
