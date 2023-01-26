@@ -59,20 +59,18 @@ describe Sde::BlueprintsImporter do
 
     let(:eve_type) { instance_double(Eve::Type) }
 
-    before { expect(Eve::Type).to receive(:find_or_initialize_by).with({type_id: key}).and_return(eve_type) }
+    before { expect(Eve::Type).to receive(:find_or_initialize_by).with(type_id: key).and_return(eve_type) }
 
     before { expect(eve_type).to receive(:transaction).and_yield }
 
     before do
-      expect(eve_type).to receive(:assign_attributes).with({
-        copying_time: copying_time,
+      expect(eve_type).to receive(:assign_attributes).with(copying_time: copying_time,
         manufacturing_time: manufacturing_time,
         research_material_time: research_material_time,
         research_time_time: research_time_time,
         invention_time: invention_time,
         max_production_limit: max_production_limit,
-        is_blueprint: true
-      })
+        is_blueprint: true)
     end
 
     before { expect(eve_type).to receive(:save!) }

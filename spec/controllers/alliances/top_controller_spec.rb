@@ -12,7 +12,7 @@ describe Alliances::TopController do
       #
       # Eve::Alliance.order(characters_count: :desc).limit(20)
       #
-      expect(Eve::Alliance).to receive(:order).with({characters_count: :desc}) do
+      expect(Eve::Alliance).to receive(:order).with(characters_count: :desc) do
         double.tap do |a|
           expect(a).to receive(:limit).with(20)
         end
