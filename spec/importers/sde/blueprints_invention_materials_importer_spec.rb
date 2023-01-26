@@ -26,7 +26,7 @@ describe Sde::BlueprintsInventionMaterialsImporter do
 
     let(:eve_blueprint) { instance_double(Eve::Blueprint, type_id: type_id) }
 
-    before { expect(Eve::Blueprint).to receive(:find_by!).with({type_id: key}).and_return(eve_blueprint) }
+    before { expect(Eve::Blueprint).to receive(:find_by!).with(type_id: key).and_return(eve_blueprint) }
 
     before { expect(eve_blueprint).to receive(:transaction).and_yield }
 
@@ -67,11 +67,9 @@ describe Sde::BlueprintsInventionMaterialsImporter do
         #                                         quantity: invention_material["quantity"],
         #                                         type_id: invention_material["typeID"])
         #
-        expect(Eve::BlueprintInventionMaterial).to receive(:create!).with({
-          blueprint_id: type_id,
+        expect(Eve::BlueprintInventionMaterial).to receive(:create!).with(blueprint_id: type_id,
           quantity: quantity,
-          type_id: type_id
-        })
+          type_id: type_id)
       end
 
       specify { expect { subject.import }.not_to raise_error }
