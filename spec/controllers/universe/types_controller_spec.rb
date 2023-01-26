@@ -15,11 +15,9 @@ describe Universe::TypesController do
       #                    market_group: { parent_group: { parent_group: :parent_group }})
       #          .find(params[:id])
       #
-      expect(Eve::Type).to receive(:includes).with({
-        group: :category,
+      expect(Eve::Type).to receive(:includes).with(group: :category,
         type_dogma_attributes: {dogma_attribute: [:unit, :icon]},
-        market_group: {parent_group: {parent_group: :parent_group}}
-      }) do
+        market_group: {parent_group: {parent_group: :parent_group}}) do
         double.tap do |a|
           expect(a).to receive(:find).with("9899")
         end
