@@ -14,7 +14,7 @@ describe Corporations::TopController do
       #
       expect(Eve::Corporation).to receive(:not_npc) do
         double.tap do |a|
-          expect(a).to receive(:order).with({member_count: :desc}) do
+          expect(a).to receive(:order).with(member_count: :desc) do
             double.tap do |b|
               expect(b).to receive(:limit).with(20)
             end
