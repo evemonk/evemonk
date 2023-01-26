@@ -52,9 +52,9 @@ describe CharacterStandingsImporter do
 
       let(:standingable) { instance_double(Eve::Faction) }
 
-      before { expect(Eve::Faction).to receive(:find_by).with({faction_id: from_id}).and_return(standingable) }
+      before { expect(Eve::Faction).to receive(:find_by).with(faction_id: from_id).and_return(standingable) }
 
-      before { expect(character_standing).to receive(:assign_attributes).with({standingable: standingable, standing: standing}) }
+      before { expect(character_standing).to receive(:assign_attributes).with(standingable: standingable, standing: standing) }
 
       before { expect(character_standing).to receive(:save!) }
 
@@ -66,9 +66,9 @@ describe CharacterStandingsImporter do
 
       let(:standingable) { instance_double(Eve::Corporation) }
 
-      before { expect(Eve::Corporation).to receive(:find_by).with({corporation_id: from_id}).and_return(standingable) }
+      before { expect(Eve::Corporation).to receive(:find_by).with(corporation_id: from_id).and_return(standingable) }
 
-      before { expect(character_standing).to receive(:assign_attributes).with({standingable: standingable, standing: standing}) }
+      before { expect(character_standing).to receive(:assign_attributes).with(standingable: standingable, standing: standing) }
 
       before { expect(character_standing).to receive(:save!) }
 
@@ -80,9 +80,9 @@ describe CharacterStandingsImporter do
 
       let(:standingable) { instance_double(Eve::Agent) }
 
-      before { expect(Eve::Agent).to receive(:find_by).with({id: from_id}).and_return(standingable) }
+      before { expect(Eve::Agent).to receive(:find_by).with(id: from_id).and_return(standingable) }
 
-      before { expect(character_standing).to receive(:assign_attributes).with({standingable: standingable, standing: standing}) }
+      before { expect(character_standing).to receive(:assign_attributes).with(standingable: standingable, standing: standing) }
 
       before { expect(character_standing).to receive(:save!) }
 
@@ -112,7 +112,7 @@ describe CharacterStandingsImporter do
 
       before { expect(subject).to receive(:character).and_return(character) }
 
-      before { expect(EveOnline::ESI::CharacterStandings).to receive(:new).with({character_id: character_id}).and_return(esi) }
+      before { expect(EveOnline::ESI::CharacterStandings).to receive(:new).with(character_id: character_id).and_return(esi) }
 
       specify { expect { subject.esi }.to change { subject.instance_variable_get(:@esi) }.from(nil).to(esi) }
     end
