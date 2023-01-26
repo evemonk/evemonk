@@ -54,7 +54,7 @@ describe Universe::CharactersController do
       #                                 .includes(:corporation)
       #                                 .order(start_date: :desc)
       #
-      expect(Eve::CharacterCorporationHistory).to receive(:where).with({character: eve_character}) do
+      expect(Eve::CharacterCorporationHistory).to receive(:where).with(character: eve_character) do
         double.tap do |a|
           expect(a).to receive(:includes).with(:corporation) do
             double.tap do |b|
