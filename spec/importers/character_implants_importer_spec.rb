@@ -64,7 +64,7 @@ describe CharacterImplantsImporter do
 
       before { expect(subject).to receive(:character).and_return(character) }
 
-      before { expect(EveOnline::ESI::CharacterImplants).to receive(:new).with({character_id: character_id}).and_return(esi) }
+      before { expect(EveOnline::ESI::CharacterImplants).to receive(:new).with(character_id: character_id).and_return(esi) }
 
       specify { expect { subject.esi }.to change { subject.instance_variable_get(:@esi) }.from(nil).to(esi) }
     end
