@@ -39,7 +39,7 @@ describe Universe::MarketGroupsController do
       #
       # Eve::MarketGroup.find_by!(market_group_id: params[:id]) # => eve_market_group
       #
-      expect(Eve::MarketGroup).to receive(:find_by!).with({market_group_id: "1"})
+      expect(Eve::MarketGroup).to receive(:find_by!).with(market_group_id: "1")
         .and_return(eve_market_group)
     end
 
