@@ -50,18 +50,16 @@ describe Sde::AgentsImporter do
 
     let(:eve_agent) { instance_double(Eve::Agent) }
 
-    before { expect(Eve::Agent).to receive(:find_or_initialize_by).with({id: key}).and_return(eve_agent) }
+    before { expect(Eve::Agent).to receive(:find_or_initialize_by).with(id: key).and_return(eve_agent) }
 
     before do
-      expect(eve_agent).to receive(:assign_attributes).with({
-        agent_type_id: agent_type_id,
+      expect(eve_agent).to receive(:assign_attributes).with(agent_type_id: agent_type_id,
         corporation_id: corporation_id,
         division_id: division_id,
         is_locator: is_locator,
         level: level,
         location_id: location_id,
-        quality: quality
-      })
+        quality: quality)
     end
 
     before { expect(eve_agent).to receive(:save!) }
