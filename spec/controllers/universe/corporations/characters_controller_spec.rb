@@ -23,7 +23,7 @@ describe Universe::Corporations::CharactersController do
       #   .where(corporation: @corporation)
       #   .order(:name)
       #
-      expect(Eve::Character).to receive(:where).with({corporation: eve_corporation}) do
+      expect(Eve::Character).to receive(:where).with(corporation: eve_corporation) do
         double.tap do |a|
           expect(a).to receive(:order).with(:name)
         end
