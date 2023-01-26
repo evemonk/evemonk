@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_07_024800) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_26_155034) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_buffercache"
   enable_extension "pg_trgm"
@@ -228,16 +228,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_07_024800) do
     t.index ["faction_id"], name: "index_characters_on_faction_id"
     t.index ["race_id"], name: "index_characters_on_race_id"
     t.index ["user_id"], name: "index_characters_on_user_id"
-  end
-
-  create_table "etags", force: :cascade do |t|
-    t.text "url", null: false
-    t.text "etag", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.json "body"
-    t.bigint "character_id"
-    t.index ["url"], name: "index_etags_on_url"
   end
 
   create_table "eve_agents", force: :cascade do |t|
@@ -1210,7 +1200,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_07_024800) do
   add_foreign_key "character_scopes", "characters"
   add_foreign_key "character_skills", "characters"
   add_foreign_key "characters", "users"
-  add_foreign_key "etags", "characters"
   add_foreign_key "eve_required_items", "eve_loyalty_store_offers"
   add_foreign_key "industry_jobs", "characters"
   add_foreign_key "manufacturing_jobs", "characters"
