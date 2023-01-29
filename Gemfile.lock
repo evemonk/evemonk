@@ -226,6 +226,8 @@ GEM
     faraday (2.7.4)
       faraday-net_http (>= 2.0, < 3.1)
       ruby2_keywords (>= 0.0.4)
+    faraday-http-cache (2.4.1)
+      faraday (>= 0.8)
     faraday-net_http (3.0.2)
     fasterer (0.10.0)
       colorize (~> 0.7)
@@ -721,6 +723,7 @@ DEPENDENCIES
   eve_online!
   factory_bot_rails
   faker
+  faraday-http-cache
   fasterer
   flipper
   flipper-active_record
