@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_26_155034) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_29_112338) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_buffercache"
   enable_extension "pg_trgm"
@@ -611,15 +611,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_26_155034) do
     t.datetime "updated_at", null: false
     t.index ["attribute_id"], name: "index_eve_dogma_attributes_on_attribute_id", unique: true
     t.index ["name"], name: "index_eve_dogma_attributes_on_name"
-  end
-
-  create_table "eve_etags", force: :cascade do |t|
-    t.text "url", null: false
-    t.text "etag", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.json "body"
-    t.index ["url"], name: "index_eve_etags_on_url", unique: true
   end
 
   create_table "eve_factions", force: :cascade do |t|
