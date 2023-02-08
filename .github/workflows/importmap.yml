@@ -1,4 +1,4 @@
-name: importmap
+name: Importmap
 
 on:
   push:
@@ -23,5 +23,4 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
-      - name: run importmap audit
-        run: bin/importmap audit
+      - run: bin/importmap audit
