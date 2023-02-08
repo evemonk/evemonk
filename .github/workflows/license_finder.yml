@@ -1,4 +1,4 @@
-name: license_finder
+name: License finder
 
 on:
   push:
@@ -20,5 +20,4 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
-      - name: run license_finder
-        run: bundle exec license_finder
+      - run: bin/license_finder

@@ -37,6 +37,7 @@
 /sde.zip
 /config/skylight.yml
 yarn.lock
+erd.pdf
 node_modules/**/*
 
 /app/assets/builds/*

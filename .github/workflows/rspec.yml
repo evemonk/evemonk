@@ -58,25 +58,23 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
+      - name: Setup Graphviz
+        uses: ts-graphviz/setup-graphviz@v1
       - name: Disable skylight dev warning
         run: bundle exec skylight disable_dev_warning
       - name: Setup setup-chromedriver
         uses: nanasess/setup-chromedriver@v1.1.0
-      - name: bootsnap precompile
-        run: bundle exec bootsnap precompile --gemfile app/ lib/
-      - name: rails zeitwerk:check
-        run: bundle exec rails zeitwerk:check
-      - name: rails db:create
-        run: bundle exec rails db:create
-      - name: rails db:migrate
-        run: bundle exec rails db:migrate
+      - run: bundle exec bootsnap precompile --gemfile app/ lib/
+      - run: bin/rails zeitwerk:check
+      - run: bin/rails db:create
+      - run: bin/rails db:migrate
       - name: Run tests
         run: |
           chromedriver --version
           export DISPLAY=:99
           chromedriver --url-base=/wd/hub &
           sudo Xvfb -ac :99 -screen 0 1280x1024x24 > /dev/null 2>&1 & # optional
-          bundle exec rspec --force-color --profile --format documentation
+          bin/rspec --force-color --profile --format documentation
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v3
         with:

@@ -1,4 +1,4 @@
-name: hadolint
+name: Hadolint
 
 on:
   push:

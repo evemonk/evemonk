@@ -42,13 +42,8 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
-      - name: bootsnap precompile
-        run: bundle exec bootsnap precompile --gemfile app/ lib/
-      - name: rails zeitwerk:check
-        run: bundle exec rails zeitwerk:check
-      - name: rails db:create
-        run: bundle exec rails db:create
-      - name: rails db:migrate
-        run: bundle exec rails db:migrate
-      - name: Factory bot
-        run: bundle exec rails factory_bot:lint
+      - run: bundle exec bootsnap precompile --gemfile app/ lib/
+      - run: bin/rails zeitwerk:check
+      - run: bin/rails db:create
+      - run: bin/rails db:migrate
+      - run: bin/rails factory_bot:lint

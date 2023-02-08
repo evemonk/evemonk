@@ -1,4 +1,4 @@
-name: standardrb
+name: ERB Lint
 
 on:
   push:
@@ -11,7 +11,7 @@ on:
     - cron: "0 21 * * 6"
 
 jobs:
-  standardrb:
+  erb_lint:
     runs-on: ubuntu-latest
 
     steps:
@@ -20,5 +20,4 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
-      - name: run standardrb
-        run: bundle exec standardrb
+      - run: bin/erblint --lint-all

@@ -1,4 +1,4 @@
-name: erblint
+name: Standard
 
 on:
   push:
@@ -11,7 +11,7 @@ on:
     - cron: "0 21 * * 6"
 
 jobs:
-  erblint:
+  standard:
     runs-on: ubuntu-latest
 
     steps:
@@ -20,5 +20,4 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
-      - name: run erblint
-        run: bundle exec erblint --lint-all
+      - run: bin/standardrb --format github
