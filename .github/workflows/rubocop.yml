@@ -1,4 +1,4 @@
-name: rubocop
+name: Rubocop
 
 on:
   push:
@@ -20,5 +20,4 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
-      - name: run rubocop
-        run: bundle exec rubocop --parallel
+      - run: bin/rubocop --parallel --format github
