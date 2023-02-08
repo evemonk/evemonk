@@ -20,5 +20,4 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
-      - name: Brakeman
-        run: bundle exec brakeman --format github --quiet --run-all-checks
+      - run: bin/brakeman --format github --quiet --run-all-checks
