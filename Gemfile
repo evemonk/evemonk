@@ -116,6 +116,7 @@ group :development do
   gem "gemdiff", require: false
   gem "derailed_benchmarks"
   gem "graphql-rails_logger"
+  gem "rails-erd"
 end
 
 group :test do
