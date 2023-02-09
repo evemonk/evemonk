@@ -30,4 +30,4 @@ pin "lit-element/lit-element.js", to: "https://ga.jspm.io/npm:lit-element@3.2.2/
 pin "lit-html", to: "https://ga.jspm.io/npm:lit-html@2.6.1/lit-html.js"
 pin "lit-html/directives/", to: "https://ga.jspm.io/npm:lit-html@2.6.1/directives/"
 pin "lit/", to: "https://ga.jspm.io/npm:lit@2.2.6/"
-pin "tslib", to: "https://ga.jspm.io/npm:tslib@2.4.1/tslib.es6.js"
+pin "tslib", to: "https://ga.jspm.io/npm:tslib@2.5.0/tslib.es6.js"
