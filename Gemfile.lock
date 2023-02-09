@@ -109,7 +109,7 @@ GEM
     anyway_config (2.3.1)
       ruby-next-core (>= 0.14.0)
     ast (2.4.2)
-    attr_extras (7.0.0)
+    attr_extras (7.1.0)
     autoprefixer-rails (10.4.7.0)
       execjs (~> 2)
     awesome_print (1.9.2)
