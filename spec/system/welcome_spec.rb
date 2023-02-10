@@ -22,5 +22,9 @@ describe "Welcome page feature" do
     corporation_ids.each { |corporation_id| create(:eve_corporation, corporation_id: corporation_id, npc: false) }
 
     visit root_path
+
+    find("#alliances")
+
+    find("#corporations")
   end
 end
