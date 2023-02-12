@@ -1,4 +1,4 @@
-name: MDL
+name: "Markdown Lint"
 
 on:
   push:
@@ -16,6 +16,4 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      - uses: actionshub/markdownlint@v3.0.2
-        with:
-          filesToIgnoreRegex: "vendor/"
+      - uses: bewuethr/mdl-action@v1.1.1
