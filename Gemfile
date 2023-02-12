@@ -73,6 +73,7 @@ gem "skylight"
 gem "lograge"
 gem "webrick"
 gem "airbrake", "~> 13.0"
+gem "prosopite"
 gem "yabeda-prometheus"
 gem "yabeda-rails"
 gem "yabeda-graphql"
@@ -106,7 +107,6 @@ group :development, :test do
   gem "isolator"
   gem "better_html", require: false
   gem "erb_lint", require: false
-  gem "prosopite"
 end
 
 group :development do
