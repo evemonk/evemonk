@@ -64,4 +64,10 @@ Rails.application.configure do
 
   # devise
   config.action_mailer.default_url_options = {host: "localhost", port: 3000}
+
+  # prosopite
+  config.after_initialize do
+    Prosopite.rails_logger = true
+    # Prosopite.raise = true
+  end
 end
