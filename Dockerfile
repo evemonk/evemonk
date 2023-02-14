@@ -88,7 +88,7 @@ FROM ruby:3.2.1-slim
 RUN set -eux; \
     apt-get update -y ; \
     apt-get dist-upgrade -y ; \
-    apt-get install libpq5 libcurl4 wait-for-it libjemalloc2 shared-mime-info nodejs --no-install-recommends -y ; \
+    apt-get install libpq5 libcurl4 libjemalloc2 shared-mime-info nodejs --no-install-recommends -y ; \
     apt-get autoremove -y ; \
     apt-get clean -y ; \
     rm -rf /var/lib/apt/lists/*
