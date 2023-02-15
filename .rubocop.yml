@@ -177,3 +177,7 @@ GraphQL/ExtractType:
 
 Style/HashSyntax:
   Enabled: false
+
+# Disabled as in standard
+Lint/EmptyFile:
+  Enabled: false
