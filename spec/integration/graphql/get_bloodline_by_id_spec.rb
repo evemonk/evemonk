@@ -20,13 +20,13 @@ describe "Get Bloodline By ID" do
 
   let!(:eve_ancestry) do
     create(:eve_ancestry,
-      ancestry_id: 10_001,
+      id: 10_001,
       bloodline: eve_bloodline)
   end
 
   let!(:eve_bloodline) do
     create(:eve_bloodline,
-      bloodline_id: 123,
+      id: 123,
       name_en: "EN: name 1",
       name_de: "DE: name 1",
       name_fr: "FR: name 1",

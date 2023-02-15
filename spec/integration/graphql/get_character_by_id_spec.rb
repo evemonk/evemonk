@@ -20,7 +20,7 @@ describe "Get Character by ID" do
 
   let!(:eve_bloodline) do
     create(:eve_bloodline,
-      bloodline_id: 512)
+      id: 512)
   end
 
   let!(:eve_faction) do

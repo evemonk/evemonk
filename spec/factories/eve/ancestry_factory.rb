@@ -2,8 +2,6 @@
 
 FactoryBot.define do
   factory :eve_ancestry, class: "Eve::Ancestry" do
-    sequence(:ancestry_id)
-
     name_en { Faker::Lorem.word }
 
     name_de { Faker::Lorem.word }

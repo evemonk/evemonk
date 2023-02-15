@@ -5,7 +5,7 @@ require "rails_helper"
 describe "Get Ancestry by ID" do
   let!(:eve_bloodline) do
     create(:eve_bloodline,
-      bloodline_id: 10)
+      id: 10)
   end
 
   let!(:eve_icon) do
@@ -15,7 +15,7 @@ describe "Get Ancestry by ID" do
 
   let!(:eve_ancestry) do
     create(:eve_ancestry,
-      ancestry_id: 123,
+      id: 123,
       name_en: "EN: name 1",
       name_de: "DE: name 1",
       name_fr: "FR: name 1",

@@ -33,12 +33,12 @@ describe "Get Characters" do
 
   let!(:eve_bloodline_1) do
     create(:eve_bloodline,
-      bloodline_id: 512)
+      id: 512)
   end
 
   let!(:eve_bloodline_2) do
     create(:eve_bloodline,
-      bloodline_id: 1_024)
+      id: 1_024)
   end
 
   let!(:eve_faction_1) do

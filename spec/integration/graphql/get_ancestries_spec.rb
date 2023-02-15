@@ -5,12 +5,12 @@ require "rails_helper"
 describe "Get Ancestries" do
   let!(:eve_bloodline_1) do
     create(:eve_bloodline,
-      bloodline_id: 10)
+      id: 10)
   end
 
   let!(:eve_bloodline_2) do
     create(:eve_bloodline,
-      bloodline_id: 20)
+      id: 20)
   end
 
   let!(:eve_icon_1) do
@@ -25,7 +25,7 @@ describe "Get Ancestries" do
 
   let!(:eve_ancestry_1) do
     create(:eve_ancestry,
-      ancestry_id: 123,
+      id: 123,
       name_en: "EN: name 1",
       name_de: "DE: name 1",
       name_fr: "FR: name 1",
@@ -45,7 +45,7 @@ describe "Get Ancestries" do
 
   let!(:eve_ancestry_2) do
     create(:eve_ancestry,
-      ancestry_id: 321,
+      id: 321,
       name_en: "EN: name 2",
       name_de: "DE: name 2",
       name_fr: "FR: name 2",

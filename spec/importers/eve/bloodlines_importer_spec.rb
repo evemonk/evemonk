@@ -34,9 +34,13 @@ describe Eve::BloodlinesImporter do
 
     let(:eve_bloodline) { instance_double(Eve::Bloodline) }
 
-    before { expect(Eve::Bloodline).to receive(:find_or_initialize_by).with(bloodline_id: bloodline_id).and_return(eve_bloodline) }
+    before { expect(Eve::Bloodline).to receive(:find_or_initialize_by).with(id: bloodline_id).and_return(eve_bloodline) }
 
-    before { expect(eve_bloodline).to receive(:update!).with(json) }
+    let(:transformed_json) { double }
+
+    before { expect(json).to receive(:transform_keys).with(bloodline_id: :id).and_return(transformed_json) }
+
+    before { expect(eve_bloodline).to receive(:update!).with(transformed_json) }
 
     specify { expect { subject.import }.not_to raise_error }
   end

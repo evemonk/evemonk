@@ -12,9 +12,9 @@ module Eve
       import! do
         Mobility.with_locale(locale) do
           esi.bloodlines.each do |bloodline|
-            eve_bloodline = Eve::Bloodline.find_or_initialize_by(bloodline_id: bloodline.bloodline_id)
+            eve_bloodline = Eve::Bloodline.find_or_initialize_by(id: bloodline.bloodline_id)
 
-            eve_bloodline.update!(bloodline.as_json)
+            eve_bloodline.update!(bloodline.as_json.transform_keys(bloodline_id: :id))
           end
         end
       end

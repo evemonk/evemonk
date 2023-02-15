@@ -268,19 +268,19 @@ module Types
     end
 
     def ancestries
-      ::Eve::Ancestry.order(:ancestry_id)
+      ::Eve::Ancestry.order(:id)
     end
 
     def ancestry(id:)
-      ::Eve::Ancestry.find_by(ancestry_id: id)
+      ::Eve::Ancestry.find_by(id: id)
     end
 
     def bloodlines
-      ::Eve::Bloodline.order(:bloodline_id)
+      ::Eve::Bloodline.order(:id)
     end
 
     def bloodline(id:)
-      ::Eve::Bloodline.find_by(bloodline_id: id)
+      ::Eve::Bloodline.find_by(id: id)
     end
 
     def blueprints

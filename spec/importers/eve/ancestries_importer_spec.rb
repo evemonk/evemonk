@@ -22,25 +22,27 @@ describe Eve::AncestriesImporter do
   describe "#import" do
     before { expect(subject).to receive(:configure_middlewares) }
 
-    context "when etag cache miss" do
-      let(:ancestry_id) { double }
+    let(:ancestry_id) { double }
 
-      let(:json) { double }
+    let(:json) { double }
 
-      let(:ancestry) { instance_double(EveOnline::ESI::Models::Ancestry, ancestry_id: ancestry_id, as_json: json) }
+    let(:ancestry) { instance_double(EveOnline::ESI::Models::Ancestry, ancestry_id: ancestry_id, as_json: json) }
 
-      let(:esi) { instance_double(EveOnline::ESI::UniverseAncestries, ancestries: [ancestry]) }
+    let(:esi) { instance_double(EveOnline::ESI::UniverseAncestries, ancestries: [ancestry]) }
 
-      before { expect(subject).to receive(:esi).and_return(esi) }
+    before { expect(subject).to receive(:esi).and_return(esi) }
 
-      let(:eve_ancestry) { instance_double(Eve::Ancestry) }
+    let(:eve_ancestry) { instance_double(Eve::Ancestry) }
 
-      before { expect(Eve::Ancestry).to receive(:find_or_initialize_by).with(ancestry_id: ancestry_id).and_return(eve_ancestry) }
+    before { expect(Eve::Ancestry).to receive(:find_or_initialize_by).with(id: ancestry_id).and_return(eve_ancestry) }
 
-      before { expect(eve_ancestry).to receive(:update!).with(json) }
+    let(:transformed_json) { double }
 
-      specify { expect { subject.import }.not_to raise_error }
-    end
+    before { expect(json).to receive(:transform_keys).with(ancestry_id: :id).and_return(transformed_json) }
+
+    before { expect(eve_ancestry).to receive(:update!).with(transformed_json) }
+
+    specify { expect { subject.import }.not_to raise_error }
   end
 
   describe "#esi" do
