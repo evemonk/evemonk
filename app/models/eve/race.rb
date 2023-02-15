@@ -2,8 +2,6 @@
 
 module Eve
   class Race < ApplicationRecord
-    self.primary_key = "race_id"
-
     extend Mobility
 
     has_paper_trail
