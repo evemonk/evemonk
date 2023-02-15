@@ -16,7 +16,7 @@ module Eve
 
     def update_npc_corporation_list
       esi.corporation_npc_ids.each do |corporation_npc_id|
-        corporation = Eve::Corporation.find_or_initialize_by(corporation_id: corporation_npc_id)
+        corporation = Eve::Corporation.find_or_initialize_by(id: corporation_npc_id)
 
         corporation.assign_attributes(npc: true)
 
