@@ -3,7 +3,7 @@
 module Eve
   class CorporationsImporter
     def import
-      imported_corporation_ids = Eve::Corporation.pluck(:corporation_id)
+      imported_corporation_ids = Eve::Corporation.ids
 
       corporation_ids_1 = Eve::Character.distinct.pluck(:corporation_id)
 

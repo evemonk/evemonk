@@ -10,9 +10,9 @@ describe Eve::CorporationsImporter do
 
     before do
       #
-      # Eve::Corporation.pluck(:corporation_id) # => imported_corporation_ids
+      # Eve::Corporation.ids # => imported_corporation_ids
       #
-      expect(Eve::Corporation).to receive(:pluck).with(:corporation_id).and_return(imported_corporation_ids)
+      expect(Eve::Corporation).to receive(:ids).and_return(imported_corporation_ids)
     end
 
     let(:corporation_id_1) { double }
