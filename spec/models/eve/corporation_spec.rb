@@ -165,11 +165,11 @@ describe Eve::Corporation do
   # private methods
 
   describe "#alliance_logo_url" do
-    subject { build(:eve_corporation, corporation_id: 1_344_654_522) }
+    subject { build(:eve_corporation, id: 1_344_654_522) }
 
     before do
       #
-      # imageable_url("corporations", corporation_id, "logo", size)
+      # imageable_url("corporations", id, "logo", size)
       #
       expect(subject).to receive(:imageable_url).with("corporations", 1_344_654_522, "logo", 256)
     end

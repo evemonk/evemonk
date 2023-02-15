@@ -76,7 +76,7 @@ module Eve
     private
 
     def corporation_logo_url(size)
-      imageable_url("corporations", corporation_id, "logo", size)
+      imageable_url("corporations", id, "logo", size)
     end
   end
 end
