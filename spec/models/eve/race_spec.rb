@@ -5,8 +5,6 @@ require "rails_helper"
 describe Eve::Race do
   it { should be_an(ApplicationRecord) }
 
-  it { expect(described_class.primary_key).to eq("race_id") }
-
   it { should respond_to(:versions) }
 
   it { expect(described_class).to respond_to(:translates) }

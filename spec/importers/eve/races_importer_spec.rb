@@ -34,9 +34,13 @@ describe Eve::RacesImporter do
 
     let(:eve_race) { instance_double(Eve::Race) }
 
-    before { expect(Eve::Race).to receive(:find_or_initialize_by).with(race_id: race_id).and_return(eve_race) }
+    before { expect(Eve::Race).to receive(:find_or_initialize_by).with(id: race_id).and_return(eve_race) }
 
-    before { expect(eve_race).to receive(:update!).with(json) }
+    let(:transformed_json) { double }
+
+    before { expect(json).to receive(:transform_keys).with(race_id: :id).and_return(transformed_json) }
+
+    before { expect(eve_race).to receive(:update!).with(transformed_json) }
 
     specify { expect { subject.import }.not_to raise_error }
   end

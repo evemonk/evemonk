@@ -380,11 +380,11 @@ module Types
     end
 
     def races
-      ::Eve::Race.order(:race_id)
+      ::Eve::Race.order(:id)
     end
 
     def race(id:)
-      ::Eve::Race.find_by(race_id: id)
+      ::Eve::Race.find_by(id: id)
     end
 
     def regions

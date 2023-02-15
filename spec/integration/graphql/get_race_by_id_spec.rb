@@ -22,7 +22,7 @@ describe "Get Race by ID" do
 
   let!(:eve_race) do
     create(:eve_race,
-      race_id: 4,
+      id: 4,
       name_en: "EN: name 1",
       name_de: "DE: name 1",
       name_fr: "FR: name 1",

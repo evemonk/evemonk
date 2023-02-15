@@ -754,7 +754,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_29_112338) do
     t.bigint "faction_id"
     t.text "description_en"
     t.string "name_en"
-    t.bigint "race_id"
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
     t.string "name_de"
@@ -771,7 +770,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_29_112338) do
     t.string "name_es"
     t.text "description_zh"
     t.text "description_es"
-    t.index ["race_id"], name: "index_eve_races_on_race_id", unique: true
   end
 
   create_table "eve_regions", force: :cascade do |t|
