@@ -2,8 +2,6 @@
 
 module Eve
   class Bloodline < ApplicationRecord
-    self.primary_key = "bloodline_id"
-
     extend Mobility
 
     has_paper_trail

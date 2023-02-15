@@ -5,8 +5,6 @@ require "rails_helper"
 describe Eve::Bloodline do
   it { should be_an(ApplicationRecord) }
 
-  it { expect(described_class.primary_key).to eq("bloodline_id") }
-
   it { should respond_to(:versions) }
 
   it { expect(described_class).to respond_to(:translates) }
