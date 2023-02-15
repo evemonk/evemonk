@@ -15,13 +15,13 @@ describe "Get Races" do
 
   let!(:eve_bloodline_1) do
     create(:eve_bloodline,
-      bloodline_id: 10,
+      id: 10,
       race: eve_race_1)
   end
 
   let!(:eve_bloodline_2) do
     create(:eve_bloodline,
-      bloodline_id: 20,
+      id: 20,
       race: eve_race_2)
   end
 
