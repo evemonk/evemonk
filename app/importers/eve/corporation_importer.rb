@@ -10,7 +10,7 @@ module Eve
 
     def import
       import! do
-        eve_corporation = Eve::Corporation.find_or_initialize_by(corporation_id: corporation_id)
+        eve_corporation = Eve::Corporation.find_or_initialize_by(id: corporation_id)
 
         eve_corporation.update!(esi.as_json)
       rescue EveOnline::Exceptions::ResourceNotFound
