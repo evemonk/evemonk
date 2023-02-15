@@ -30,7 +30,7 @@ describe "Get Character by ID" do
 
   let!(:eve_race) do
     create(:eve_race,
-      race_id: 5_000)
+      id: 5_000)
   end
 
   let!(:eve_character) do

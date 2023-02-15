@@ -39,7 +39,7 @@ describe "Get Races" do
 
   let!(:eve_race_1) do
     create(:eve_race,
-      race_id: 4,
+      id: 4,
       name_en: "EN: name 1",
       name_de: "DE: name 1",
       name_fr: "FR: name 1",
@@ -57,7 +57,7 @@ describe "Get Races" do
 
   let!(:eve_race_2) do
     create(:eve_race,
-      race_id: 8,
+      id: 8,
       name_en: "EN: name 2",
       name_de: "DE: name 2",
       name_fr: "FR: name 2",

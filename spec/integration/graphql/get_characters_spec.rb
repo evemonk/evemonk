@@ -53,12 +53,12 @@ describe "Get Characters" do
 
   let!(:eve_race_1) do
     create(:eve_race,
-      race_id: 5_000)
+      id: 5_000)
   end
 
   let!(:eve_race_2) do
     create(:eve_race,
-      race_id: 6_000)
+      id: 6_000)
   end
 
   let!(:eve_character_1) do

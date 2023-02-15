@@ -15,12 +15,12 @@ describe "Get Bloodlines" do
 
   let!(:eve_race_1) do
     create(:eve_race,
-      race_id: 4)
+      id: 4)
   end
 
   let!(:eve_race_2) do
     create(:eve_race,
-      race_id: 8)
+      id: 8)
   end
 
   let!(:eve_ship_type_1) do
