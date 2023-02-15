@@ -75,14 +75,14 @@ describe "Get Alliances" do
 
   let!(:eve_corporation_1) do
     create(:eve_corporation,
-      corporation_id: 100_111,
+      id: 100_111,
       alliance: eve_alliance_1,
       member_count: 1)
   end
 
   let!(:eve_corporation_2) do
     create(:eve_corporation,
-      corporation_id: 100_222,
+      id: 100_222,
       alliance: eve_alliance_2,
       member_count: 1)
   end
