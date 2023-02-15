@@ -12,9 +12,9 @@ module Eve
       import! do
         Mobility.with_locale(locale) do
           esi.races.each do |race|
-            eve_race = Eve::Race.find_or_initialize_by(race_id: race.race_id)
+            eve_race = Eve::Race.find_or_initialize_by(id: race.race_id)
 
-            eve_race.update!(race.as_json)
+            eve_race.update!(race.as_json.transform_keys(race_id: :id))
           end
         end
       end
