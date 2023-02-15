@@ -86,13 +86,22 @@ describe Eve::AlliancesImporter do
 
     let(:corporation_id) { double }
 
-    let(:corporation) { instance_double(Eve::Corporation, corporation_id: corporation_id) }
+    let(:ids) { [corporation_id] }
 
-    let(:corporations) { [corporation] }
-
-    let(:eve_alliance) { instance_double(Eve::Alliance, corporations: corporations) }
+    let(:eve_alliance) { instance_double(Eve::Alliance) }
 
     before { expect(Eve::Alliance).to receive(:find_or_initialize_by).with(id: alliance_id_to_remove).and_return(eve_alliance) }
+
+    before do
+      #
+      # eve_alliance.corporations.ids # => ids
+      #
+      expect(eve_alliance).to receive(:corporations) do
+        double.tap do |a|
+          expect(a).to receive(:ids).and_return(ids)
+        end
+      end
+    end
 
     before { expect(Eve::UpdateCorporationJob).to receive(:perform_later).with(corporation_id) }
 
