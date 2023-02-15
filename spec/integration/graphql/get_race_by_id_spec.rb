@@ -10,7 +10,7 @@ describe "Get Race by ID" do
 
   let!(:eve_bloodline) do
     create(:eve_bloodline,
-      bloodline_id: 10,
+      id: 10,
       race: eve_race)
   end
 
