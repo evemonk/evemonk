@@ -2,8 +2,6 @@
 
 FactoryBot.define do
   factory :eve_bloodline, class: "Eve::Bloodline" do
-    sequence(:bloodline_id)
-
     name_en { Faker::Lorem.word }
 
     name_de { Faker::Lorem.word }
