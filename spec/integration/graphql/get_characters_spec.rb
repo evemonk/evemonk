@@ -21,13 +21,13 @@ describe "Get Characters" do
 
   let!(:eve_corporation_1) do
     create(:eve_corporation,
-      corporation_id: 1_333,
+      id: 1_333,
       alliance: eve_alliance_1)
   end
 
   let!(:eve_corporation_2) do
     create(:eve_corporation,
-      corporation_id: 1_444,
+      id: 1_444,
       alliance: eve_alliance_2)
   end
 

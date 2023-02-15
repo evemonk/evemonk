@@ -5,7 +5,7 @@ require "rails_helper"
 describe "Get Agents" do
   let!(:eve_corporation) do
     create(:eve_corporation,
-      corporation_id: 222)
+      id: 222)
   end
 
   let!(:eve_agent_1) do
@@ -20,7 +20,7 @@ describe "Get Agents" do
     create(:eve_agent,
       id: 321,
       name: "Agent 2",
-      corporation_id: 222,
+      corporation: eve_corporation,
       level: 5)
   end
 

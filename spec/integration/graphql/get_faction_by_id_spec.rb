@@ -5,12 +5,12 @@ require "rails_helper"
 describe "Get Faction by ID" do
   let!(:eve_corporation) do
     create(:eve_corporation,
-      corporation_id: 1_111)
+      id: 1_111)
   end
 
   let!(:eve_militia_corporation) do
     create(:eve_corporation,
-      corporation_id: 2_111)
+      id: 2_111)
   end
 
   let!(:eve_system) do

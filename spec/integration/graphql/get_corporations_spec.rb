@@ -61,7 +61,7 @@ describe "Get Corporations" do
 
   let!(:eve_corporation_1) do
     create(:eve_corporation,
-      corporation_id: 123,
+      id: 123,
       alliance: eve_alliance_1,
       ceo: ceo_1,
       creator: creator_1,
@@ -80,7 +80,7 @@ describe "Get Corporations" do
 
   let!(:eve_corporation_2) do
     create(:eve_corporation,
-      corporation_id: 321,
+      id: 321,
       alliance: eve_alliance_2,
       ceo: ceo_2,
       creator: creator_2,

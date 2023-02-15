@@ -5,7 +5,7 @@ require "rails_helper"
 describe "Get Bloodline By ID" do
   let!(:eve_corporation) do
     create(:eve_corporation,
-      corporation_id: 500)
+      id: 500)
   end
 
   let!(:eve_race) do
