@@ -35,19 +35,19 @@ describe "Get Bloodlines" do
 
   let!(:eve_ancestry_1) do
     create(:eve_ancestry,
-      ancestry_id: 10_001,
+      id: 10_001,
       bloodline: eve_bloodline_1)
   end
 
   let!(:eve_ancestry_2) do
     create(:eve_ancestry,
-      ancestry_id: 10_002,
+      id: 10_002,
       bloodline: eve_bloodline_2)
   end
 
   let!(:eve_bloodline_1) do
     create(:eve_bloodline,
-      bloodline_id: 123,
+      id: 123,
       name_en: "EN: name 1",
       name_de: "DE: name 1",
       name_fr: "FR: name 1",
@@ -72,7 +72,7 @@ describe "Get Bloodlines" do
 
   let!(:eve_bloodline_2) do
     create(:eve_bloodline,
-      bloodline_id: 321,
+      id: 321,
       name_en: "EN: name 2",
       name_de: "DE: name 2",
       name_fr: "FR: name 2",

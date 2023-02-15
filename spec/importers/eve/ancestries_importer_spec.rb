@@ -38,7 +38,7 @@ describe Eve::AncestriesImporter do
 
     let(:transformed_json) { double }
 
-    before { expect(json).to receive(:transform_keys).with(race_id: :id).and_return(transformed_json) }
+    before { expect(json).to receive(:transform_keys).with(ancestry_id: :id).and_return(transformed_json) }
 
     before { expect(eve_ancestry).to receive(:update!).with(transformed_json) }
 
