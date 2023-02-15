@@ -4,16 +4,16 @@ require "rails_helper"
 
 describe Eve::LocalCorporationsImporter do
   describe "#import" do
-    let(:corporation_id) { double }
+    let(:id) { double }
 
     before do
       #
-      # Eve::Corporation.pluck(:corporation_id) # => [corporation_id]
+      # Eve::Corporation.ids # => [id]
       #
-      expect(Eve::Corporation).to receive(:pluck).with(:corporation_id).and_return([corporation_id])
+      expect(Eve::Corporation).to receive(:ids).and_return([id])
     end
 
-    before { expect(Eve::UpdateCorporationJob).to receive(:perform_later).with(corporation_id) }
+    before { expect(Eve::UpdateCorporationJob).to receive(:perform_later).with(id) }
 
     specify { expect { subject.import }.not_to raise_error }
   end
