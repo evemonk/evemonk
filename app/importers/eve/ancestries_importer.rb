@@ -12,9 +12,9 @@ module Eve
       import! do
         Mobility.with_locale(locale) do
           esi.ancestries.each do |ancestry|
-            eve_ancestry = Eve::Ancestry.find_or_initialize_by(ancestry_id: ancestry.ancestry_id)
+            eve_ancestry = Eve::Ancestry.find_or_initialize_by(id: ancestry.ancestry_id)
 
-            eve_ancestry.update!(ancestry.as_json)
+            eve_ancestry.update!(ancestry.as_json.transform_keys(ancestry_id: :id))
           end
         end
       end

@@ -34,9 +34,13 @@ describe Eve::AncestriesImporter do
 
     let(:eve_ancestry) { instance_double(Eve::Ancestry) }
 
-    before { expect(Eve::Ancestry).to receive(:find_or_initialize_by).with(ancestry_id: ancestry_id).and_return(eve_ancestry) }
+    before { expect(Eve::Ancestry).to receive(:find_or_initialize_by).with(id: ancestry_id).and_return(eve_ancestry) }
 
-    before { expect(eve_ancestry).to receive(:update!).with(json) }
+    let(:transformed_json) { double }
+
+    before { expect(json).to receive(:transform_keys).with(race_id: :id).and_return(transformed_json) }
+
+    before { expect(eve_ancestry).to receive(:update!).with(transformed_json) }
 
     specify { expect { subject.import }.not_to raise_error }
   end
