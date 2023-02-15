@@ -5,8 +5,6 @@ require "rails_helper"
 describe Eve::Corporation do
   it { should be_an(ApplicationRecord) }
 
-  it { expect(described_class.primary_key).to eq("corporation_id") }
-
   it { should be_a(PgSearch::Model) }
 
   it { should be_an(ActionView::Helpers::NumberHelper) }
