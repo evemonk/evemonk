@@ -103,12 +103,11 @@ describe Eve::AllianceCorporationsImporter do
 
     before do
       #
-      # eve_alliance.corporations.pluck(:corporation_id)
+      # eve_alliance.corporations.ids # => local_corporation_ids
       #
       expect(eve_alliance).to receive(:corporations) do
         double.tap do |a|
-          expect(a).to receive(:pluck).with(:corporation_id)
-            .and_return(local_corporation_ids)
+          expect(a).to receive(:ids).and_return(local_corporation_ids)
         end
       end
     end
@@ -148,13 +147,11 @@ describe Eve::AllianceCorporationsImporter do
 
     before do
       #
-      # eve_alliance.corporations.pluck(:corporation_id)
+      # eve_alliance.corporations.ids # => local_corporation_ids
       #
       expect(eve_alliance).to receive(:corporations) do
         double.tap do |a|
-          expect(a).to receive(:pluck)
-            .with(:corporation_id)
-            .and_return(local_corporation_ids)
+          expect(a).to receive(:ids).and_return(local_corporation_ids)
         end
       end
     end
