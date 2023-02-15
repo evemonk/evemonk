@@ -268,11 +268,11 @@ module Types
     end
 
     def ancestries
-      ::Eve::Ancestry.order(:ancestry_id)
+      ::Eve::Ancestry.order(:id)
     end
 
     def ancestry(id:)
-      ::Eve::Ancestry.find_by(ancestry_id: id)
+      ::Eve::Ancestry.find_by(id: id)
     end
 
     def bloodlines
