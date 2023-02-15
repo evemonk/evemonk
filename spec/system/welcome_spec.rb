@@ -19,7 +19,7 @@ describe "Welcome page feature" do
       98_124_121, 98_324_027, 98_637_669, 917_701_062, 98_195_963, 98_261_065,
       98_595_110, 98_631_060, 1_018_389_948, 98_558_506]
 
-    corporation_ids.each { |corporation_id| create(:eve_corporation, corporation_id: corporation_id, npc: false) }
+    corporation_ids.each { |corporation_id| create(:eve_corporation, id: corporation_id, npc: false) }
 
     visit root_path
 
