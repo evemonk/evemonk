@@ -32,7 +32,7 @@ describe Eve::GroupImporter do
 
     let(:eve_group) { instance_double(Eve::Group) }
 
-    before { expect(Eve::Group).to receive(:find_or_initialize_by).with(group_id: group_id).and_return(eve_group) }
+    before { expect(Eve::Group).to receive(:find_or_initialize_by).with(id: group_id).and_return(eve_group) }
 
     context "when eve group found" do
       let(:json) { double }

@@ -12,7 +12,7 @@ module Eve
     def import
       import! do
         Mobility.with_locale(locale) do
-          eve_group = Eve::Group.find_or_initialize_by(group_id: group_id)
+          eve_group = Eve::Group.find_or_initialize_by(id: group_id)
 
           eve_group.update!(esi.as_json)
         rescue EveOnline::Exceptions::ResourceNotFound
