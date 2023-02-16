@@ -292,11 +292,11 @@ module Types
     end
 
     def categories
-      ::Eve::Category.order(:category_id)
+      ::Eve::Category.order(:id)
     end
 
     def category(id:)
-      ::Eve::Category.find_by(category_id: id)
+      ::Eve::Category.find_by(id: id)
     end
 
     def certificates
