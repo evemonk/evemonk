@@ -3,8 +3,8 @@
 module Eve
   class LocalCategoriesImporter
     def import
-      Eve::Category.pluck(:category_id).each do |category_id|
-        Eve::UpdateCategoryJob.perform_later(category_id)
+      Eve::Category.ids.each do |id|
+        Eve::UpdateCategoryJob.perform_later(id)
       end
     end
   end
