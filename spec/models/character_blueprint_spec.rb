@@ -59,7 +59,7 @@ describe CharacterBlueprint do
     context "when relic" do
       let!(:eve_group) do
         create(:eve_group,
-          group_id: 111,
+          id: 111,
           category_id: Eve::Categories::ANCIENT_RELICS_ID)
       end
 
@@ -83,7 +83,7 @@ describe CharacterBlueprint do
     context "when not relic" do
       let!(:eve_group) do
         create(:eve_group,
-          group_id: 222,
+          id: 222,
           category_id: 999)
       end
 
