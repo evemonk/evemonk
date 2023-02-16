@@ -24,7 +24,7 @@ module Eve
 
     def import_groups
       esi.group_ids.each do |group_id|
-        unless Eve::Group.exists?(group_id: group_id)
+        unless Eve::Group.exists?(id: group_id)
           Eve::UpdateGroupJob.perform_later(group_id)
         end
       end

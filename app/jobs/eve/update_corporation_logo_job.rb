@@ -7,8 +7,8 @@ module Eve
     retry_on Down::TimeoutError,
       Down::ConnectionError
 
-    def perform(corporation_id)
-      Eve::CorporationLogoImporter.new(corporation_id).import
+    def perform(id)
+      Eve::CorporationLogoImporter.new(id).import
     end
   end
 end

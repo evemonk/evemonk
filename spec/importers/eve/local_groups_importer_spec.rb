@@ -4,16 +4,16 @@ require "rails_helper"
 
 describe Eve::LocalGroupsImporter do
   describe "#import" do
-    let(:group_id) { double }
+    let(:id) { double }
 
     before do
       #
-      # Eve::Group.pluck(:group_id) => [group_id]
+      # Eve::Group.ids # => [id]
       #
-      expect(Eve::Group).to receive(:pluck).with(:group_id).and_return([group_id])
+      expect(Eve::Group).to receive(:ids).and_return([id])
     end
 
-    before { expect(Eve::UpdateGroupJob).to receive(:perform_later).with(group_id) }
+    before { expect(Eve::UpdateGroupJob).to receive(:perform_later).with(id) }
 
     specify { expect { subject.import }.not_to raise_error }
   end

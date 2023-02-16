@@ -5,13 +5,13 @@ require "rails_helper"
 describe "Get Category by ID" do
   let!(:eve_group) do
     create(:eve_group,
-      group_id: 1_111,
+      id: 1_111,
       category: eve_category)
   end
 
   let!(:eve_category) do
     create(:eve_category,
-      category_id: 123,
+      id: 123,
       name_en: "EN: name 1",
       name_de: "DE: name 1",
       name_fr: "FR: name 1",

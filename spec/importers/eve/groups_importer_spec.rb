@@ -63,7 +63,7 @@ describe Eve::GroupsImporter do
     before { expect(subject).to receive(:esi).and_return(esi) }
 
     context "when eve group not imported" do
-      before { expect(Eve::Group).to receive(:exists?).with(group_id: group_id).and_return(false) }
+      before { expect(Eve::Group).to receive(:exists?).with(id: group_id).and_return(false) }
 
       before { expect(Eve::UpdateGroupJob).to receive(:perform_later).with(group_id) }
 
@@ -71,7 +71,7 @@ describe Eve::GroupsImporter do
     end
 
     context "when eve group is imported" do
-      before { expect(Eve::Group).to receive(:exists?).with(group_id: group_id).and_return(true) }
+      before { expect(Eve::Group).to receive(:exists?).with(id: group_id).and_return(true) }
 
       before { expect(Eve::UpdateGroupJob).not_to receive(:perform_later) }
 

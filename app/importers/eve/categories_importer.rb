@@ -17,7 +17,7 @@ module Eve
     private
 
     def import_new_categories
-      eve_category_ids = Eve::Category.pluck(:category_id)
+      eve_category_ids = Eve::Category.ids
 
       categories_ids_to_create = esi.category_ids - eve_category_ids
 
@@ -27,12 +27,12 @@ module Eve
     end
 
     def remove_old_categories
-      eve_categories_ids = Eve::Category.pluck(:category_id)
+      eve_categories_ids = Eve::Category.ids
 
       categories_ids_to_remove = eve_categories_ids - esi.category_ids
 
       categories_ids_to_remove.each do |category_id|
-        eve_category = Eve::Category.find_or_initialize_by(category_id: category_id)
+        eve_category = Eve::Category.find_or_initialize_by(id: category_id)
 
         eve_category.destroy!
       end

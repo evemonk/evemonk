@@ -5,19 +5,19 @@ require "rails_helper"
 describe "Get Categories" do
   let!(:eve_group_1) do
     create(:eve_group,
-      group_id: 1_111,
+      id: 1_111,
       category: eve_category_1)
   end
 
   let!(:eve_group_2) do
     create(:eve_group,
-      group_id: 1_222,
+      id: 1_222,
       category: eve_category_2)
   end
 
   let!(:eve_category_1) do
     create(:eve_category,
-      category_id: 123,
+      id: 123,
       name_en: "EN: name 1",
       name_de: "DE: name 1",
       name_fr: "FR: name 1",
@@ -29,7 +29,7 @@ describe "Get Categories" do
 
   let!(:eve_category_2) do
     create(:eve_category,
-      category_id: 321,
+      id: 321,
       name_en: "EN: name 2",
       name_de: "DE: name 2",
       name_fr: "FR: name 2",

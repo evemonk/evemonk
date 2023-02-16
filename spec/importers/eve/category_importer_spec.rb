@@ -32,7 +32,7 @@ describe Eve::CategoryImporter do
 
     let(:eve_category) { instance_double(Eve::Category) }
 
-    before { expect(Eve::Category).to receive(:find_or_initialize_by).with(category_id: category_id).and_return(eve_category) }
+    before { expect(Eve::Category).to receive(:find_or_initialize_by).with(id: category_id).and_return(eve_category) }
 
     context "when eve category found" do
       let(:json) { double }

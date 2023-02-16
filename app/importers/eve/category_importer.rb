@@ -12,7 +12,7 @@ module Eve
     def import
       import! do
         Mobility.with_locale(locale) do
-          eve_category = Eve::Category.find_or_initialize_by(category_id: category_id)
+          eve_category = Eve::Category.find_or_initialize_by(id: category_id)
 
           eve_category.update!(esi.as_json)
         rescue EveOnline::Exceptions::ResourceNotFound
