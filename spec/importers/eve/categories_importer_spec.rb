@@ -52,10 +52,9 @@ describe Eve::CategoriesImporter do
 
     before do
       #
-      # Eve::Category.pluck(:category_id) # => local_categories_ids
+      # Eve::Category.ids # => local_categories_ids
       #
-      expect(Eve::Category).to receive(:pluck).with(:category_id)
-        .and_return(local_categories_ids)
+      expect(Eve::Category).to receive(:ids).and_return(local_categories_ids)
     end
 
     before do
@@ -81,11 +80,11 @@ describe Eve::CategoriesImporter do
 
     let(:local_categories_ids) { [local_category_id] }
 
-    before { expect(Eve::Category).to receive(:pluck).with(:category_id).and_return(local_categories_ids) }
+    before { expect(Eve::Category).to receive(:ids).and_return(local_categories_ids) }
 
     let(:eve_category) { instance_double(Eve::Category) }
 
-    before { expect(Eve::Category).to receive(:find_or_initialize_by).with(category_id: local_category_id).and_return(eve_category) }
+    before { expect(Eve::Category).to receive(:find_or_initialize_by).with(id: local_category_id).and_return(eve_category) }
 
     before { expect(eve_category).to receive(:destroy!) }
 
