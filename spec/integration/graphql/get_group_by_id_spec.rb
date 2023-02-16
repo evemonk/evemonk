@@ -16,7 +16,7 @@ describe "Get Group by ID" do
 
   let!(:eve_group) do
     create(:eve_group,
-      group_id: 123,
+      id: 123,
       name_en: "EN: name 1",
       name_de: "DE: name 1",
       name_fr: "FR: name 1",

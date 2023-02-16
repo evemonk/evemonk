@@ -5,12 +5,12 @@ require "rails_helper"
 describe "Get Certificates" do
   let!(:eve_group_1) do
     create(:eve_group,
-      group_id: 255)
+      id: 255)
   end
 
   let!(:eve_group_2) do
     create(:eve_group,
-      group_id: 1217)
+      id: 1217)
   end
 
   let!(:eve_certificate_1) do
