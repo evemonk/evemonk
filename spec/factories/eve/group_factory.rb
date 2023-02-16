@@ -4,8 +4,6 @@ FactoryBot.define do
   factory :eve_group, class: "Eve::Group" do
     sequence(:category_id)
 
-    sequence(:group_id)
-
     name_en { Faker::Lorem.word }
 
     name_de { Faker::Lorem.word }
