@@ -2,8 +2,6 @@
 
 module Eve
   class Category < ApplicationRecord
-    self.primary_key = "category_id"
-
     extend Mobility
 
     has_paper_trail
