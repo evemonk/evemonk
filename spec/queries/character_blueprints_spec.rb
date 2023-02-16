@@ -58,7 +58,7 @@ describe CharacterBlueprints do
 
       let!(:eve_group_2) { create(:eve_group, category: eve_category_2) }
 
-      let!(:eve_category_3) { create(:eve_category, category_id: Eve::Categories::ANCIENT_RELICS_ID) }
+      let!(:eve_category_3) { create(:eve_category, id: Eve::Categories::ANCIENT_RELICS_ID) }
 
       let!(:eve_group_3) { create(:eve_group, category: eve_category_3) }
 
