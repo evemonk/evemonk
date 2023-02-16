@@ -164,7 +164,7 @@ describe Eve::Corporation do
 
   # private methods
 
-  describe "#alliance_logo_url" do
+  describe "#corporation_logo_url" do
     subject { build(:eve_corporation, id: 1_344_654_522) }
 
     before do
