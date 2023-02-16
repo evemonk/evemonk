@@ -356,11 +356,11 @@ module Types
     end
 
     def groups
-      ::Eve::Group.order(:group_id)
+      ::Eve::Group.order(:id)
     end
 
     def group(id:)
-      ::Eve::Group.find_by(group_id: id)
+      ::Eve::Group.find_by(id: id)
     end
 
     def icons
