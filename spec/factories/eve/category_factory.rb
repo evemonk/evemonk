@@ -2,8 +2,6 @@
 
 FactoryBot.define do
   factory :eve_category, class: "Eve::Category" do
-    sequence(:category_id)
-
     name_en { Faker::Lorem.word }
 
     name_de { Faker::Lorem.word }
