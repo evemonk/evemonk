@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-Rails.logger.info "Migrate Eve::Race#race_id to #id"
+Rails.logger.info "Migrate Eve::Corporation#corporation_id to #id"
 
 ActiveRecord::Base.transaction do
   start = 2_100_000_000
