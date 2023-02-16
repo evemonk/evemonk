@@ -3,8 +3,8 @@
 module Eve
   class LocalCorporationsImporter
     def import
-      Eve::Corporation.pluck(:corporation_id).each do |corporation_id|
-        Eve::UpdateCorporationJob.perform_later(corporation_id)
+      Eve::Corporation.ids.each do |id|
+        Eve::UpdateCorporationJob.perform_later(id)
       end
     end
   end

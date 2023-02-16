@@ -5,12 +5,12 @@ require "rails_helper"
 describe "Get Bloodlines" do
   let!(:eve_corporation_1) do
     create(:eve_corporation,
-      corporation_id: 500)
+      id: 500)
   end
 
   let!(:eve_corporation_2) do
     create(:eve_corporation,
-      corporation_id: 600)
+      id: 600)
   end
 
   let!(:eve_race_1) do

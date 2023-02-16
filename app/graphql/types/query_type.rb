@@ -332,11 +332,11 @@ module Types
     end
 
     def corporations
-      ::Eve::Corporation.order(:corporation_id)
+      ::Eve::Corporation.order(:id)
     end
 
     def corporation(id:)
-      ::Eve::Corporation.find_by(corporation_id: id)
+      ::Eve::Corporation.find_by(id: id)
     end
 
     def factions

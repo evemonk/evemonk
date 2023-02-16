@@ -10,7 +10,7 @@ class CharacterStandingsImporter < CharacterBaseImporter
       when "faction"
         standingable = Eve::Faction.find_by(faction_id: standing.from_id)
       when "npc_corp"
-        standingable = Eve::Corporation.find_by(corporation_id: standing.from_id)
+        standingable = Eve::Corporation.find_by(id: standing.from_id)
       when "agent"
         standingable = Eve::Agent.find_by(id: standing.from_id)
       else

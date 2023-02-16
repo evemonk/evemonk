@@ -34,7 +34,7 @@ describe "Get Corporation by ID" do
 
   let!(:eve_corporation) do
     create(:eve_corporation,
-      corporation_id: 123,
+      id: 123,
       alliance: eve_alliance,
       ceo: ceo,
       creator: creator,

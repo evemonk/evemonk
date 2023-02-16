@@ -10,7 +10,7 @@ module Eve
 
     def import
       import! do
-        eve_corporation = Eve::Corporation.find_by!(corporation_id: corporation_id)
+        eve_corporation = Eve::Corporation.find(corporation_id)
 
         esi.entries.each do |entry|
           history = eve_corporation.corporation_alliance_histories

@@ -9,12 +9,12 @@ describe "Get Alliance by ID" do
 
   let!(:creator_corporation) do
     create(:eve_corporation,
-      corporation_id: 222)
+      id: 222)
   end
 
   let!(:executor_corporation) do
     create(:eve_corporation,
-      corporation_id: 444)
+      id: 444)
   end
 
   let!(:creator) do
@@ -41,7 +41,7 @@ describe "Get Alliance by ID" do
 
   let!(:eve_corporation) do
     create(:eve_corporation,
-      corporation_id: 100_111,
+      id: 100_111,
       alliance: eve_alliance,
       member_count: 1)
   end

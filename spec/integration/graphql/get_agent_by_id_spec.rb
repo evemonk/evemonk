@@ -5,14 +5,14 @@ require "rails_helper"
 describe "Get Agent by ID" do
   let!(:eve_corporation) do
     create(:eve_corporation,
-      corporation_id: 222)
+      id: 222)
   end
 
   let!(:eve_agent) do
     create(:eve_agent,
       id: 123,
       name: "Agent 1",
-      corporation_id: 222,
+      corporation: eve_corporation,
       level: 5)
   end
 

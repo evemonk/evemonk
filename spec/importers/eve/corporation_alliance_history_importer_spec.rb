@@ -30,7 +30,7 @@ describe Eve::CorporationAllianceHistoryImporter do
 
       let(:eve_corporation) { instance_double(Eve::Corporation) }
 
-      before { expect(Eve::Corporation).to receive(:find_by!).with(corporation_id: corporation_id).and_return(eve_corporation) }
+      before { expect(Eve::Corporation).to receive(:find).with(corporation_id).and_return(eve_corporation) }
 
       let(:corporation_alliance_history) { instance_double(Eve::CorporationAllianceHistory) }
 
@@ -53,7 +53,7 @@ describe Eve::CorporationAllianceHistoryImporter do
     end
 
     context "when eve corporation not found (ActiveRecord::RecordNotFound)" do
-      before { expect(Eve::Corporation).to receive(:find_by!).with(corporation_id: corporation_id).and_raise(ActiveRecord::RecordNotFound) }
+      before { expect(Eve::Corporation).to receive(:find).with(corporation_id).and_raise(ActiveRecord::RecordNotFound) }
 
       before do
         #

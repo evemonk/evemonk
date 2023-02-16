@@ -14,7 +14,7 @@ describe "Get Character by ID" do
 
   let!(:eve_corporation) do
     create(:eve_corporation,
-      corporation_id: 1_333,
+      id: 1_333,
       alliance: eve_alliance)
   end
 

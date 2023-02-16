@@ -11,22 +11,22 @@ describe "Get Alliances" do
 
   let!(:creator_corporation_1) do
     create(:eve_corporation,
-      corporation_id: 222)
+      id: 222)
   end
 
   let!(:creator_corporation_2) do
     create(:eve_corporation,
-      corporation_id: 333)
+      id: 333)
   end
 
   let!(:executor_corporation_1) do
     create(:eve_corporation,
-      corporation_id: 444)
+      id: 444)
   end
 
   let!(:executor_corporation_2) do
     create(:eve_corporation,
-      corporation_id: 555)
+      id: 555)
   end
 
   let!(:creator_1) do
@@ -75,14 +75,14 @@ describe "Get Alliances" do
 
   let!(:eve_corporation_1) do
     create(:eve_corporation,
-      corporation_id: 100_111,
+      id: 100_111,
       alliance: eve_alliance_1,
       member_count: 1)
   end
 
   let!(:eve_corporation_2) do
     create(:eve_corporation,
-      corporation_id: 100_222,
+      id: 100_222,
       alliance: eve_alliance_2,
       member_count: 1)
   end

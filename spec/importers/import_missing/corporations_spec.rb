@@ -18,7 +18,7 @@ describe ImportMissing::Corporations do
   # private methods
 
   describe "#corporation_ids" do
-    let!(:eve_corporation) { create(:eve_corporation, corporation_id: 98_388_312) }
+    let!(:eve_corporation) { create(:eve_corporation, id: 98_388_312) }
 
     let!(:character_1) { create(:character, corporation_id: nil) }
 

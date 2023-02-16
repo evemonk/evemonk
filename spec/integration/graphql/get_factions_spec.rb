@@ -5,22 +5,22 @@ require "rails_helper"
 describe "Get Factions" do
   let!(:eve_corporation_1) do
     create(:eve_corporation,
-      corporation_id: 1_111)
+      id: 1_111)
   end
 
   let!(:eve_corporation_2) do
     create(:eve_corporation,
-      corporation_id: 1_222)
+      id: 1_222)
   end
 
   let!(:eve_militia_corporation_1) do
     create(:eve_corporation,
-      corporation_id: 2_111)
+      id: 2_111)
   end
 
   let!(:eve_militia_corporation_2) do
     create(:eve_corporation,
-      corporation_id: 2_222)
+      id: 2_222)
   end
 
   let!(:eve_system_1) do

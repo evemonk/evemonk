@@ -2,8 +2,6 @@
 
 FactoryBot.define do
   factory :eve_corporation, class: "Eve::Corporation" do
-    sequence(:corporation_id)
-
     name { Faker::Lorem.word }
 
     ticker { name.upcase }
