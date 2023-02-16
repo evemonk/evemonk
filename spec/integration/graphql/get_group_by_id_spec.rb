@@ -5,7 +5,7 @@ require "rails_helper"
 describe "Get Group by ID" do
   let!(:eve_category) do
     create(:eve_category,
-      category_id: 1_111)
+      id: 1_111)
   end
 
   let!(:eve_type) do
