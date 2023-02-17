@@ -33,7 +33,7 @@ class CharacterSkillsTree
   end
 
   def skills_groups
-    @skills_groups ||= Eve::Group.published.where(category_id: skill_category.category_id).order(:name_en).to_a
+    @skills_groups ||= Eve::Group.published.where(category_id: skill_category.id).order(:name_en).to_a
   end
 
   def skills_count_in_group(group_id)
@@ -98,11 +98,11 @@ class CharacterSkillsTree
   private
 
   def skill_category
-    @skill_category ||= Eve::Category.published.find_by!(category_id: Eve::Categories::SKILLS_ID)
+    @skill_category ||= Eve::Category.published.find(Eve::Categories::SKILLS_ID)
   end
 
   def skills_types
-    @skills_types ||= Eve::Type.published.where(group_id: skills_groups.map(&:group_id).sort.uniq).to_a
+    @skills_types ||= Eve::Type.published.where(group_id: skills_groups.map(&:id).sort.uniq).to_a
   end
 
   def certificates
