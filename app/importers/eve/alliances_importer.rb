@@ -34,8 +34,8 @@ module Eve
       alliance_ids_to_remove.each do |id|
         eve_alliance = Eve::Alliance.find_or_initialize_by(id: id)
 
-        eve_alliance.corporations.ids.each do |id|
-          Eve::UpdateCorporationJob.perform_later(id)
+        eve_alliance.corporations.ids.each do |corporation_id|
+          Eve::UpdateCorporationJob.perform_later(corporation_id)
         end
 
         eve_alliance.destroy!
