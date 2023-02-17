@@ -49,7 +49,7 @@ describe CharacterSkillsTree do
     context "when @skills_groups is not set" do
       let(:category_id) { double }
 
-      let(:skill_category) { instance_double(Eve::Category, category_id: category_id) }
+      let(:skill_category) { instance_double(Eve::Category, id: category_id) }
 
       let(:skills_groups) { double }
 
@@ -58,7 +58,7 @@ describe CharacterSkillsTree do
       before do
         #
         # Eve::Group.published
-        #           .where(category_id: skill_category.category_id)
+        #           .where(category_id: skill_category.id)
         #           .order(:name_en)
         #           .to_a # => skills_groups
         #
@@ -356,11 +356,11 @@ describe CharacterSkillsTree do
       before do
         #
         # Eve::Category.published
-        #              .find_by!(category_id: Eve::Categories::SKILLS_ID) # => skill_category
+        #              .find(Eve::Categories::SKILLS_ID) # => skill_category
         #
         expect(Eve::Category).to receive(:published) do
           double.tap do |a|
-            expect(a).to receive(:find_by!).with(category_id: Eve::Categories::SKILLS_ID)
+            expect(a).to receive(:find).with(Eve::Categories::SKILLS_ID)
               .and_return(skill_category)
           end
         end
@@ -384,13 +384,13 @@ describe CharacterSkillsTree do
     context "when @skills_types is not set" do
       let(:skills_types) { double }
 
-      let(:group_1) { instance_double(Eve::Group, group_id: 123) }
+      let(:group_1) { instance_double(Eve::Group, id: 123) }
 
-      let(:group_2) { instance_double(Eve::Group, group_id: 123) }
+      let(:group_2) { instance_double(Eve::Group, id: 123) }
 
-      let(:group_3) { instance_double(Eve::Group, group_id: 124) }
+      let(:group_3) { instance_double(Eve::Group, id: 124) }
 
-      let(:group_4) { instance_double(Eve::Group, group_id: 125) }
+      let(:group_4) { instance_double(Eve::Group, id: 125) }
 
       let(:skills_groups) { [group_1, group_2, group_3, group_4] }
 
@@ -399,7 +399,7 @@ describe CharacterSkillsTree do
       before do
         #
         # Eve::Type.published
-        #          .where(group_id: skills_groups.map(&:group_id).sort.uniq)
+        #          .where(group_id: skills_groups.map(&:id).sort.uniq)
         #          .to_a # => skills_types
         #
         expect(Eve::Type).to receive(:published) do
