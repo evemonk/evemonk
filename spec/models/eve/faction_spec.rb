@@ -46,11 +46,11 @@ describe Eve::Faction do
   # private methods
 
   describe "#corporations_logo_url" do
-    subject { build(:eve_faction, faction_id: 500_001) }
+    subject { build(:eve_faction, id: 500_001) }
 
     before do
       #
-      # imageable_url("corporations", faction_id, "logo", size)
+      # imageable_url("corporations", id, "logo", size)
       #
       expect(subject).to receive(:imageable_url).with("corporations", 500_001, "logo", 128)
     end
