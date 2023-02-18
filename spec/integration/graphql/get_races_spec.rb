@@ -5,12 +5,12 @@ require "rails_helper"
 describe "Get Races" do
   let!(:eve_faction_1) do
     create(:eve_faction,
-      faction_id: 1_000_111)
+      id: 1_000_111)
   end
 
   let!(:eve_faction_2) do
     create(:eve_faction,
-      faction_id: 1_000_222)
+      id: 1_000_222)
   end
 
   let!(:eve_bloodline_1) do
