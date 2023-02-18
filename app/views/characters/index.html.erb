@@ -12,7 +12,7 @@
   </div>
 </div>
 
-<div class="row">
+<div id="characters" class="row">
   <% @characters.each do |character| %>
     <%# TODO: replace manual id generation with dom_id() helper %>
     <div id="character_<%= character.character_id %>" class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">

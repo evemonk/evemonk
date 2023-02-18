@@ -15,12 +15,13 @@ describe "Sign out features" do
 
     click_button "Log in"
 
+    find("#characters")
+
     expect(current_path).to eq("/characters")
 
     click_link "Sign Out"
 
-    # TODO: replace sleep
-    sleep(1)
+    find("#alliances")
 
     expect(current_path).to eq(root_path)
   end
