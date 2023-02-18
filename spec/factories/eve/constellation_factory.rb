@@ -2,8 +2,6 @@
 
 FactoryBot.define do
   factory :eve_constellation, class: "Eve::Constellation" do
-    sequence(:constellation_id)
-
     name_en { Faker::Lorem.word }
 
     name_de { Faker::Lorem.word }

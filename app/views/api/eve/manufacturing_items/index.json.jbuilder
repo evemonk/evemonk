@@ -5,7 +5,7 @@ json.total_pages @items.total_pages
 json.current_page @items.current_page
 json.items do
   json.array! @items do |item|
-    json.id item.type_id
+    json.id item.id
     json.name item.name
     json.icon item.icon_tiny
   end

@@ -29,7 +29,7 @@ describe "Get Corporation by ID" do
 
   let!(:eve_station) do
     create(:eve_station,
-      station_id: 12_123_123)
+      id: 12_123_123)
   end
 
   let!(:eve_corporation) do

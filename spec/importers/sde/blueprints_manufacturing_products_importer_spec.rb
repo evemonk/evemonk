@@ -24,9 +24,9 @@ describe Sde::BlueprintsManufacturingProductsImporter do
 
     before { expect(YAML).to receive(:safe_load).with(content).and_return(entries) }
 
-    let(:eve_blueprint) { instance_double(Eve::Blueprint, type_id: type_id) }
+    let(:eve_blueprint) { instance_double(Eve::Blueprint) }
 
-    before { expect(Eve::Blueprint).to receive(:find_by!).with(type_id: key).and_return(eve_blueprint) }
+    before { expect(Eve::Blueprint).to receive(:find).with(key).and_return(eve_blueprint) }
 
     before { expect(eve_blueprint).to receive(:transaction).and_yield }
 
@@ -63,18 +63,18 @@ describe Sde::BlueprintsManufacturingProductsImporter do
 
       before do
         #
-        # Eve::BlueprintManufacturingProduct.create!(blueprint_id: eve_blueprint.type_id,
+        # Eve::BlueprintManufacturingProduct.create!(blueprint: eve_blueprint,
         #                                            quantity: manufacturing_product["quantity"],
         #                                            type_id: manufacturing_product["typeID"])
         #
-        expect(Eve::BlueprintManufacturingProduct).to receive(:create!).with(blueprint_id: type_id,
+        expect(Eve::BlueprintManufacturingProduct).to receive(:create!).with(blueprint: eve_blueprint,
           quantity: quantity,
           type_id: type_id)
       end
 
       let(:eve_type) { instance_double(Eve::Type) }
 
-      before { expect(Eve::Type).to receive(:find_or_initialize_by).with(type_id: type_id).and_return(eve_type) }
+      before { expect(Eve::Type).to receive(:find_or_initialize_by).with(id: type_id).and_return(eve_type) }
 
       before { expect(eve_type).to receive(:update!).with(is_manufacturing_item: true) }
 

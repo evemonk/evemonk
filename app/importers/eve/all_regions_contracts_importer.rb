@@ -3,15 +3,15 @@
 module Eve
   class AllRegionsContractsImporter
     def import
-      region_ids.each do |region_id|
-        Eve::RegionContractsJob.perform_later(region_id)
+      region_ids.each do |id|
+        Eve::RegionContractsJob.perform_later(id)
       end
     end
 
     private
 
     def region_ids
-      @region_ids ||= Eve::Region.pluck(:region_id).sort.uniq
+      @region_ids ||= Eve::Region.ids
     end
   end
 end

@@ -25,12 +25,12 @@ describe "Get Factions" do
 
   let!(:eve_system_1) do
     create(:eve_system,
-      system_id: 10_111)
+      id: 10_111)
   end
 
   let!(:eve_system_2) do
     create(:eve_system,
-      system_id: 10_222)
+      id: 10_222)
   end
 
   let!(:eve_alliance_1) do

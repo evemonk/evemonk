@@ -51,12 +51,12 @@ describe "Get Corporations" do
 
   let!(:eve_station_1) do
     create(:eve_station,
-      station_id: 12_123_123)
+      id: 12_123_123)
   end
 
   let!(:eve_station_2) do
     create(:eve_station,
-      station_id: 12_321_321)
+      id: 12_321_321)
   end
 
   let!(:eve_corporation_1) do

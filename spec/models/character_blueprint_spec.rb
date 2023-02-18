@@ -65,7 +65,7 @@ describe CharacterBlueprint do
 
       let!(:eve_type) do
         create(:eve_type,
-          type_id: 123,
+          id: 123,
           group_id: 111,
           is_blueprint: true)
       end
@@ -89,7 +89,7 @@ describe CharacterBlueprint do
 
       let!(:eve_type) do
         create(:eve_type,
-          type_id: 234,
+          id: 234,
           group_id: 222,
           is_blueprint: true)
       end

@@ -2,8 +2,6 @@
 
 module Eve
   class Constellation < ApplicationRecord
-    self.primary_key = "constellation_id"
-
     extend Mobility
 
     has_paper_trail

@@ -12,7 +12,7 @@ module Sde
       entries = YAML.safe_load(File.read(file))
 
       entries.each_pair do |key, hash|
-        eve_type = Eve::Type.find_or_initialize_by(type_id: key)
+        eve_type = Eve::Type.find_or_initialize_by(id: key)
 
         eve_type.assign_attributes(base_price: hash["basePrice"])
 

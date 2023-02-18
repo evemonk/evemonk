@@ -25,12 +25,12 @@ describe "Get Bloodlines" do
 
   let!(:eve_ship_type_1) do
     create(:eve_ship,
-      type_id: 1_001)
+      id: 1_001)
   end
 
   let!(:eve_ship_type_2) do
     create(:eve_ship,
-      type_id: 1_002)
+      id: 1_002)
   end
 
   let!(:eve_ancestry_1) do

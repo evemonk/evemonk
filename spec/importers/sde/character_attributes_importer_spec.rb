@@ -61,7 +61,7 @@ describe Sde::CharacterAttributesImporter do
 
     let(:eve_character_attribute) { instance_double(Eve::CharacterAttribute) }
 
-    before { expect(Eve::CharacterAttribute).to receive(:find_or_initialize_by).with(attribute_id: key).and_return(eve_character_attribute) }
+    before { expect(Eve::CharacterAttribute).to receive(:find_or_initialize_by).with(id: key).and_return(eve_character_attribute) }
 
     before do
       expect(eve_character_attribute).to receive(:assign_attributes).with(name_en: name_en,

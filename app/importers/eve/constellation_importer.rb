@@ -12,7 +12,7 @@ module Eve
     def import
       import! do
         Mobility.with_locale(locale) do
-          eve_constellation = Eve::Constellation.find_or_initialize_by(constellation_id: constellation_id)
+          eve_constellation = Eve::Constellation.find_or_initialize_by(id: constellation_id)
 
           eve_constellation.update!(esi.as_json)
 
@@ -28,7 +28,7 @@ module Eve
     end
 
     def esi
-      @esi ||= EveOnline::ESI::UniverseConstellation.new(id: constellation_id, language: LanguageMapper::LANGUAGES[locale])
+      @esi ||= EveOnline::ESI::UniverseConstellation.new(constellation_id: constellation_id, language: LanguageMapper::LANGUAGES[locale])
     end
   end
 end

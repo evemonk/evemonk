@@ -6,12 +6,12 @@ describe Types::EveRegionType do
   describe "get types" do
     let!(:eve_type_1) do
       create(:eve_type,
-        type_id: 400)
+        id: 400)
     end
 
     let!(:eve_type_2) do
       create(:eve_type,
-        type_id: 500)
+        id: 500)
     end
 
     let(:query) do
@@ -68,7 +68,7 @@ describe Types::EveRegionType do
   describe "get type by id" do
     let!(:eve_type) do
       create(:eve_type,
-        type_id: 400)
+        id: 400)
     end
 
     let(:query) do

@@ -5,18 +5,18 @@ require "rails_helper"
 describe "Get Constellation by ID" do
   let!(:eve_region) do
     create(:eve_region,
-      region_id: 400)
+      id: 400)
   end
 
   let!(:eve_system) do
     create(:eve_system,
-      system_id: 600,
+      id: 600,
       constellation: eve_constellation)
   end
 
   let!(:eve_constellation) do
     create(:eve_constellation,
-      constellation_id: 123,
+      id: 123,
       name_en: "EN: name 1",
       name_de: "DE: name 1",
       name_fr: "FR: name 1",

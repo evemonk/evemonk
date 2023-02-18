@@ -40,7 +40,7 @@ describe Eve::RegionsImporter do
   describe "#import_new_regions" do
     let(:eve_region_ids) { double }
 
-    before { expect(Eve::Region).to receive(:pluck).with(:region_id).and_return(eve_region_ids) }
+    before { expect(Eve::Region).to receive(:pluck).with(:id).and_return(eve_region_ids) }
 
     let(:universe_region_ids) { double }
 
@@ -65,7 +65,7 @@ describe Eve::RegionsImporter do
   describe "#remove_old_regions" do
     let(:eve_region_ids) { double }
 
-    before { expect(Eve::Region).to receive(:pluck).with(:region_id).and_return(eve_region_ids) }
+    before { expect(Eve::Region).to receive(:pluck).with(:id).and_return(eve_region_ids) }
 
     let(:universe_region_ids) { double }
 
@@ -84,7 +84,7 @@ describe Eve::RegionsImporter do
 
     let(:eve_region) { instance_double(Eve::Region) }
 
-    before { expect(Eve::Region).to receive(:find_or_initialize_by).with(region_id: eve_region_id_to_remove).and_return(eve_region) }
+    before { expect(Eve::Region).to receive(:find_or_initialize_by).with(id: eve_region_id_to_remove).and_return(eve_region) }
 
     before { expect(eve_region).to receive(:destroy!) }
 

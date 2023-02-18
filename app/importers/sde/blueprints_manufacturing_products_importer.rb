@@ -12,7 +12,7 @@ module Sde
       entries = YAML.safe_load(File.read(file))
 
       entries.each_pair do |key, hash|
-        eve_blueprint = Eve::Blueprint.find_by!(type_id: key)
+        eve_blueprint = Eve::Blueprint.find(key)
 
         eve_blueprint.transaction do
           eve_blueprint.blueprint_manufacturing_products.destroy_all
@@ -22,12 +22,13 @@ module Sde
           manufacturing_products&.each do |manufacturing_product|
             type_id = manufacturing_product["typeID"]
 
-            Eve::BlueprintManufacturingProduct.create!(blueprint_id: eve_blueprint.type_id,
+            Eve::BlueprintManufacturingProduct.create!(blueprint: eve_blueprint,
               quantity: manufacturing_product["quantity"],
               type_id: type_id)
 
-            eve_type = Eve::Type.find_or_initialize_by(type_id: type_id)
+            eve_type = Eve::Type.find_or_initialize_by(id: type_id)
 
+            # TODO: what to do with case when this manufacturing item go away?
             eve_type.update!(is_manufacturing_item: true)
           end
 

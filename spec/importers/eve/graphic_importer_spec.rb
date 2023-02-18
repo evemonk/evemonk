@@ -14,7 +14,7 @@ describe Eve::GraphicImporter do
 
     let(:eve_graphic) { instance_double(Eve::Graphic) }
 
-    before { expect(Eve::Graphic).to receive(:find_or_initialize_by).with(graphic_id: graphic_id).and_return(eve_graphic) }
+    before { expect(Eve::Graphic).to receive(:find_or_initialize_by).with(id: graphic_id).and_return(eve_graphic) }
 
     context "when eve graphic found" do
       let(:json) { double }

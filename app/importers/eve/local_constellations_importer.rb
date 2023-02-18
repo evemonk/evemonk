@@ -3,7 +3,7 @@
 module Eve
   class LocalConstellationsImporter
     def import
-      Eve::Constellation.pluck(:constellation_id).each do |constellation_id|
+      Eve::Constellation.pluck(:id).each do |constellation_id|
         Eve::UpdateConstellationJob.perform_later(constellation_id)
       end
     end

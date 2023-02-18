@@ -1,0 +1,77 @@
+<%= turbo_frame_tag "blueprints_results", target: "_top" do %>
+  <% blueprints.each do |blueprint| %>
+    <div class="card">
+      <div class="row no-gutters">
+        <div class="col-2 text-center m-auto">
+          <%= image_tag(blueprint.icon_tiny, alt: blueprint.name, class: "rounded border", size: "34x34", loading: "lazy") %>
+        </div>
+
+        <div class="col-10">
+          <div class="row">
+            <div class="card-body">
+              <div class="card-text text-center">
+                <%= blueprint.name %>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-12 m-auto text-center">
+              <div class="btn-group" role="group" aria-label="Activities">
+                <% if blueprint.copying_available? %>
+                  <%= link_to(blueprints_copying_path(blueprint.type_id),
+                              class: "btn btn-primary btn-sm",
+                              title: "Copying",
+                              data: {
+                                toggle: "tooltip",
+                                placement: "top"
+                              }) do %>
+                    <img src="https://static.evemonk.com/Invasion_1.0/Icons/UI/Industry/copying.png" size="26x26" alt="copying">
+                  <% end %>
+                <% end %>
+                <%= link_to(blueprints_material_efficiency_path(blueprint.type_id),
+                            class: "btn btn-primary btn-sm",
+                            title: "Material Efficiency Research",
+                            data: {
+                              toggle: "tooltip",
+                              placement: "top"
+                            }) do %>
+                  <img src="https://static.evemonk.com/Invasion_1.0/Icons/UI/Industry/iconME.png" size="26x26" alt="material efficiency research">
+                <% end %>
+                <%= link_to(blueprints_time_efficiency_path(blueprint.type_id),
+                            class: "btn btn-primary btn-sm",
+                            title: "Time Efficiency Research",
+                            data: {
+                              toggle: "tooltip",
+                              placement: "top"
+                            }) do %>
+                  <img src="https://static.evemonk.com/Invasion_1.0/Icons/UI/Industry/iconTE.png" size="26x26" alt="time efficiency research">
+                <% end %>
+                <% if blueprint.inventions_available? %>
+                  <%= link_to(blueprints_invention_path(blueprint.type_id),
+                              class: "btn btn-primary btn-sm",
+                              title: "Invention",
+                              data: {
+                                toggle: "tooltip",
+                                placement: "top"
+                              }) do %>
+                    <img src="https://static.evemonk.com/Invasion_1.0/Icons/UI/Industry/invention.png" size="26x26" alt="invention">
+                  <% end %>
+                <% end %>
+                <%= link_to(blueprints_manufacturing_path(blueprint.type_id),
+                            class: "btn btn-primary btn-sm",
+                            title: "Manufacturing",
+                            data: {
+                              toggle: "tooltip",
+                              placement: "top"
+                            }) do %>
+                  <img src="https://static.evemonk.com/Invasion_1.0/Icons/UI/Industry/manufacturing.png" size="26x26" alt="manufacturing">
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% end %>

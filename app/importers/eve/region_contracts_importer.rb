@@ -26,7 +26,7 @@ module Eve
     private
 
     def region
-      @region ||= Eve::Region.find_by!(region_id: region_id)
+      @region ||= Eve::Region.find(region_id)
     end
 
     def remove_all_region_contracts

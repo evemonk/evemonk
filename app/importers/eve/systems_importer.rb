@@ -17,7 +17,7 @@ module Eve
     private
 
     def import_new_systems
-      eve_system_ids = Eve::System.pluck(:system_id)
+      eve_system_ids = Eve::System.pluck(:id)
 
       eve_system_ids_to_create = esi.universe_system_ids - eve_system_ids
 
@@ -27,12 +27,12 @@ module Eve
     end
 
     def remove_old_systems
-      eve_system_ids = Eve::System.pluck(:system_id)
+      eve_system_ids = Eve::System.pluck(:id)
 
       eve_system_ids_to_remove = eve_system_ids - esi.universe_system_ids
 
       eve_system_ids_to_remove.each do |system_id|
-        eve_system = Eve::System.find_or_initialize_by(system_id: system_id)
+        eve_system = Eve::System.find_or_initialize_by(id: system_id)
 
         eve_system.destroy!
       end

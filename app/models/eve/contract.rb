@@ -2,9 +2,7 @@
 
 module Eve
   class Contract < ApplicationRecord
-    belongs_to :region,
-      primary_key: "region_id",
-      optional: true
+    belongs_to :region, optional: true
 
     belongs_to :issuer,
       class_name: "Eve::Character",

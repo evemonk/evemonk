@@ -8,9 +8,9 @@ describe Eve::LocalMarketGroupsImporter do
 
     before do
       #
-      # Eve::MarketGroup.pluck(:market_group_id) => [market_group_id]
+      # Eve::MarketGroup.pluck(:id) => [market_group_id]
       #
-      expect(Eve::MarketGroup).to receive(:pluck).with(:market_group_id).and_return([market_group_id])
+      expect(Eve::MarketGroup).to receive(:pluck).with(:id).and_return([market_group_id])
     end
 
     before { expect(Eve::UpdateMarketGroupJob).to receive(:perform_later).with(market_group_id) }

@@ -1,0 +1,11 @@
+<div class="row">
+  <div class="col">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><%= link_to("Home", root_path) %></li>
+        <li class="breadcrumb-item"><%= link_to("Blueprints", blueprints_search_index_path) %></li>
+        <li class="breadcrumb-item active" aria-current="page"><%= @blueprint.name %></li>
+      </ol>
+    </nav>
+  </div>
+</div>

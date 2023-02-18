@@ -1,0 +1,136 @@
+<div class="row">
+  <div class="col">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><%= link_to("Home", root_path) %></li>
+        <li class="breadcrumb-item"><%= link_to("Blueprints", blueprints_search_index_path) %></li>
+        <li class="breadcrumb-item active" aria-current="page">Copying &quot;<%= @blueprint.name %>&quot;</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+<hr>
+
+<div class="row">
+  <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+    <%= render partial: "blueprints/shared/nav_bar" %>
+  </div>
+
+  <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4" id="form">
+    <%= form_with(url: blueprints_search_index_path,
+                  method: :get,
+                  data: {
+                    controller: "copying-calculator human-time",
+                    action: "copying-calculator:time->human-time#refresh",
+                    time: @blueprint.copying_time
+                  }) do |f| %>
+      <%= f.hidden_field :seconds,
+                         value: @blueprint.copying_time,
+                         data: {
+                           copying_calculator_target: "seconds"
+                         } %>
+
+      <%= f.hidden_field :science_copy_speed_bonus_per_level,
+                         value: @science_copy_speed_bonus_per_level,
+                         data: {
+                           copying_calculator_target: "scienceCopySpeedBonusPerLevel"
+                         } %>
+
+      <%= f.hidden_field :advanced_industry_skill_industry_job_time_bonus_per_level,
+                         value: @advanced_industry_skill_industry_job_time_bonus_per_level,
+                         data: {
+                           copying_calculator_target: "advancedIndustrySkillIndustryJobTimeBonusPerLevel"
+                         } %>
+
+      <h4>
+        Time: <span data-human-time-target="time"></span>
+      </h4>
+
+      <h4>Fee: </h4>
+
+      <div class="card">
+        <div class="row no-gutters">
+          <div class="col-2 text-center m-auto">
+            <%= image_tag(@blueprint.icon_tiny, alt: @blueprint.name, class: "rounded border", size: "34x34", loading: "lazy") %>
+          </div>
+
+          <div class="col-10">
+            <div class="row">
+              <div class="card-body">
+                <div class="card-text text-center">
+                  <%= @blueprint.name %>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="runs">Jobs runs</label>
+        <input type="number"
+               class="form-control"
+               id="runs"
+               value="1"
+               autocomplete="off"
+               data-copying-calculator-target="runs"
+               data-action="input->copying-calculator#updateTime">
+      </div>
+
+      <div class="form-group">
+        <label for="runs_per_copy">Runs per copy</label>
+        <input type="number"
+               class="form-control"
+               id="runs_per_copy"
+               value="1"
+               autocomplete="off"
+               max="<%= @blueprint.max_production_limit %>"
+               data-copying-calculator-target="runsPerCopy"
+               data-action="input->copying-calculator#updateTime">
+      </div>
+
+      <div class="form-group">
+        <label for="science">
+          <%= @science.name %>: <span data-copying-calculator-target="scienceOutput">0</span>
+        </label>
+        <input type="range"
+               class="form-control-range"
+               id="science"
+               min="0"
+               max="5"
+               value="0"
+               autocomplete="off"
+               data-copying-calculator-target="science"
+               data-action="input->copying-calculator#updateTime">
+      </div>
+
+      <div class="form-group">
+        <label for="advanced_industry">
+          <%= @advanced_industry.name %>: <span data-copying-calculator-target="advancedIndustryOutput">0</span>
+        </label>
+        <input type="range"
+               class="form-control-range"
+               id="advanced_industry"
+               min="0"
+               max="5"
+               value="0"
+               autocomplete="off"
+               data-copying-calculator-target="advancedIndustry"
+               data-action="input->copying-calculator#updateTime">
+      </div>
+
+      <div class="form-group">
+        <label for="implant">Copy Implant</label>
+
+        <select id="implant" class="form-control">
+          <option></option>
+          <% @implants.each do |implant| %>
+            <option><%= implant.name %></option>
+          <% end %>
+        </select>
+      </div>
+    <% end %>
+  </div>
+</div>

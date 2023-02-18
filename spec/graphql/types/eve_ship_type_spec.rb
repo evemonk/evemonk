@@ -6,12 +6,12 @@ describe Types::EveShipType do
   describe "get ships" do
     let!(:eve_ship_1) do
       create(:eve_type,
-        type_id: 123)
+        id: 123)
     end
 
     let!(:eve_ship_2) do
       create(:eve_type,
-        type_id: 321)
+        id: 321)
     end
 
     let(:query) do
@@ -68,7 +68,7 @@ describe Types::EveShipType do
   describe "get ship by id" do
     let!(:eve_ship) do
       create(:eve_type,
-        type_id: 123)
+        id: 123)
     end
 
     let(:query) do

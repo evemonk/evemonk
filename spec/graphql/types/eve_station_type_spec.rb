@@ -6,12 +6,12 @@ describe Types::EveStationType do
   describe "get stations" do
     let!(:eve_station_1) do
       create(:eve_station,
-        station_id: 123)
+        id: 123)
     end
 
     let!(:eve_station_2) do
       create(:eve_station,
-        station_id: 321)
+        id: 321)
     end
 
     let(:query) do
@@ -68,7 +68,7 @@ describe Types::EveStationType do
   describe "get station by id" do
     let!(:eve_station) do
       create(:eve_station,
-        station_id: 123)
+        id: 123)
     end
 
     let(:query) do

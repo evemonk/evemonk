@@ -2,8 +2,6 @@
 
 module Eve
   class Star < ApplicationRecord
-    self.primary_key = "star_id"
-
     has_paper_trail
 
     belongs_to :solar_system, class_name: "Eve::System", optional: true

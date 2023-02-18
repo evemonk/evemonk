@@ -8,7 +8,7 @@ describe Api::Eve::ManufacturingItemsController do
 
     it "returns list of manufacturing items" do
       create(:eve_type,
-        type_id: 24_698,
+        id: 24_698,
         name: "Drake",
         published: true,
         is_manufacturing_item: true)

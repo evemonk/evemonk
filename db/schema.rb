@@ -268,7 +268,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_29_112338) do
   end
 
   create_table "eve_ancestries", force: :cascade do |t|
-    t.bigint "ancestry_id"
     t.bigint "bloodline_id"
     t.text "description_en"
     t.integer "icon_id"
@@ -290,23 +289,19 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_29_112338) do
     t.string "name_es"
     t.text "description_zh"
     t.text "description_es"
-    t.index ["ancestry_id"], name: "index_eve_ancestries_on_ancestry_id", unique: true
   end
 
   create_table "eve_asteroid_belts", force: :cascade do |t|
-    t.bigint "asteroid_belt_id"
     t.string "name"
     t.bigint "system_id"
     t.bigint "planet_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["asteroid_belt_id"], name: "index_eve_asteroid_belts_on_asteroid_belt_id", unique: true
     t.index ["planet_id"], name: "index_eve_asteroid_belts_on_planet_id"
     t.index ["system_id"], name: "index_eve_asteroid_belts_on_system_id"
   end
 
   create_table "eve_bloodlines", force: :cascade do |t|
-    t.bigint "bloodline_id"
     t.integer "charisma"
     t.bigint "corporation_id"
     t.text "description_en"
@@ -333,7 +328,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_29_112338) do
     t.string "name_es"
     t.text "description_zh"
     t.text "description_es"
-    t.index ["bloodline_id"], name: "index_eve_bloodlines_on_bloodline_id", unique: true
   end
 
   create_table "eve_blueprint_invention_materials", force: :cascade do |t|
@@ -398,7 +392,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_29_112338) do
   end
 
   create_table "eve_categories", force: :cascade do |t|
-    t.bigint "category_id"
     t.string "name_en"
     t.string "name_de"
     t.string "name_fr"
@@ -408,7 +401,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_29_112338) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name_ko"
-    t.index ["category_id"], name: "index_eve_categories_on_category_id", unique: true
   end
 
   create_table "eve_certificate_recommended_types", force: :cascade do |t|
@@ -438,7 +430,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_29_112338) do
   end
 
   create_table "eve_character_attributes", force: :cascade do |t|
-    t.integer "attribute_id"
     t.string "name_en"
     t.text "description"
     t.integer "icon_id"
@@ -489,7 +480,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_29_112338) do
   end
 
   create_table "eve_constellations", force: :cascade do |t|
-    t.bigint "constellation_id"
     t.string "name_en"
     t.string "name_de"
     t.string "name_fr"
@@ -499,7 +489,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_29_112338) do
     t.bigint "region_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["constellation_id"], name: "index_eve_constellations_on_constellation_id", unique: true
     t.index ["region_id"], name: "index_eve_constellations_on_region_id"
   end
 
@@ -539,7 +528,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_29_112338) do
   end
 
   create_table "eve_corporations", force: :cascade do |t|
-    t.bigint "corporation_id"
     t.bigint "alliance_id"
     t.bigint "ceo_id"
     t.bigint "creator_id"
@@ -559,7 +547,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_29_112338) do
     t.boolean "npc", default: false
     t.index ["alliance_id"], name: "index_eve_corporations_on_alliance_id"
     t.index ["ceo_id"], name: "index_eve_corporations_on_ceo_id"
-    t.index ["corporation_id"], name: "index_eve_corporations_on_corporation_id", unique: true
     t.index ["creator_id"], name: "index_eve_corporations_on_creator_id"
     t.index ["faction_id"], name: "index_eve_corporations_on_faction_id"
     t.index ["home_station_id"], name: "index_eve_corporations_on_home_station_id"
@@ -614,7 +601,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_29_112338) do
   end
 
   create_table "eve_factions", force: :cascade do |t|
-    t.bigint "faction_id"
     t.bigint "corporation_id"
     t.text "description_en"
     t.boolean "is_unique"
@@ -636,13 +622,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_29_112338) do
     t.text "description_ru"
     t.string "name_ko"
     t.text "description_ko"
-    t.index ["faction_id"], name: "index_eve_factions_on_faction_id", unique: true
   end
 
   create_table "eve_graphics", force: :cascade do |t|
     t.string "collision_file"
     t.string "graphic_file"
-    t.bigint "graphic_id"
     t.string "icon_folder"
     t.string "sof_dna"
     t.string "sof_fation_name"
@@ -650,12 +634,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_29_112338) do
     t.string "sof_race_name"
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
-    t.index ["graphic_id"], name: "index_eve_graphics_on_graphic_id", unique: true
   end
 
   create_table "eve_groups", force: :cascade do |t|
     t.bigint "category_id"
-    t.bigint "group_id"
     t.string "name_en"
     t.string "name_de"
     t.string "name_fr"
@@ -666,17 +648,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_29_112338) do
     t.datetime "updated_at", null: false
     t.string "name_ko"
     t.index ["category_id"], name: "index_eve_groups_on_category_id"
-    t.index ["group_id"], name: "index_eve_groups_on_group_id", unique: true
   end
 
   create_table "eve_icons", force: :cascade do |t|
-    t.integer "icon_id"
     t.text "description"
     t.string "icon_file"
     t.boolean "obsolete"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["icon_id"], name: "index_eve_icons_on_icon_id", unique: true
   end
 
   create_table "eve_loyalty_store_offers", force: :cascade do |t|
@@ -699,7 +678,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_29_112338) do
     t.text "description_ja"
     t.text "description_ru"
     t.text "description_ko"
-    t.bigint "market_group_id"
     t.string "name_en"
     t.string "name_de"
     t.string "name_fr"
@@ -711,30 +689,25 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_29_112338) do
     t.datetime "updated_at", null: false
     t.bigint "icon_id"
     t.boolean "has_types"
-    t.index ["market_group_id"], name: "index_eve_market_groups_on_market_group_id", unique: true
     t.index ["parent_group_id"], name: "index_eve_market_groups_on_parent_group_id"
   end
 
   create_table "eve_moons", force: :cascade do |t|
-    t.bigint "moon_id"
     t.string "name"
     t.bigint "system_id"
     t.bigint "planet_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["moon_id"], name: "index_eve_moons_on_moon_id", unique: true
     t.index ["planet_id"], name: "index_eve_moons_on_planet_id"
     t.index ["system_id"], name: "index_eve_moons_on_system_id"
   end
 
   create_table "eve_planets", force: :cascade do |t|
     t.string "name"
-    t.bigint "planet_id"
     t.bigint "system_id"
     t.bigint "type_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["planet_id"], name: "index_eve_planets_on_planet_id", unique: true
     t.index ["system_id"], name: "index_eve_planets_on_system_id"
     t.index ["type_id"], name: "index_eve_planets_on_type_id"
   end
@@ -773,7 +746,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_29_112338) do
   end
 
   create_table "eve_regions", force: :cascade do |t|
-    t.bigint "region_id"
     t.string "name_en"
     t.string "name_de"
     t.string "name_fr"
@@ -788,7 +760,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_29_112338) do
     t.text "description_ko"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["region_id"], name: "index_eve_regions_on_region_id", unique: true
   end
 
   create_table "eve_required_items", force: :cascade do |t|
@@ -811,7 +782,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_29_112338) do
 
   create_table "eve_stargates", force: :cascade do |t|
     t.string "name"
-    t.bigint "stargate_id"
     t.bigint "system_id"
     t.bigint "type_id"
     t.datetime "created_at", precision: nil, null: false
@@ -820,7 +790,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_29_112338) do
     t.bigint "destination_system_id"
     t.index ["destination_stargate_id"], name: "index_eve_stargates_on_destination_stargate_id"
     t.index ["destination_system_id"], name: "index_eve_stargates_on_destination_system_id"
-    t.index ["stargate_id"], name: "index_eve_stargates_on_stargate_id", unique: true
     t.index ["system_id"], name: "index_eve_stargates_on_system_id"
   end
 
@@ -835,8 +804,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_29_112338) do
     t.bigint "type_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "star_id"
-    t.index ["star_id"], name: "index_eve_stars_on_star_id", unique: true
     t.index ["type_id"], name: "index_eve_stars_on_type_id"
   end
 
@@ -849,13 +816,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_29_112338) do
     t.float "reprocessing_efficiency"
     t.float "reprocessing_stations_take"
     t.string "services", array: true
-    t.bigint "station_id"
     t.bigint "system_id"
     t.bigint "type_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["race_id"], name: "index_eve_stations_on_race_id"
-    t.index ["station_id"], name: "index_eve_stations_on_station_id", unique: true
     t.index ["system_id"], name: "index_eve_stations_on_system_id"
     t.index ["type_id"], name: "index_eve_stations_on_type_id"
   end
@@ -866,7 +831,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_29_112338) do
     t.string "security_class"
     t.float "security_status"
     t.bigint "star_id"
-    t.bigint "system_id"
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
     t.string "name_de"
@@ -876,7 +840,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_29_112338) do
     t.string "name_ko"
     t.index ["constellation_id"], name: "index_eve_systems_on_constellation_id"
     t.index ["star_id"], name: "index_eve_systems_on_star_id"
-    t.index ["system_id"], name: "index_eve_systems_on_system_id", unique: true
   end
 
   create_table "eve_type_dogma_attributes", force: :cascade do |t|
@@ -911,7 +874,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_29_112338) do
     t.integer "portion_size"
     t.boolean "published"
     t.float "radius"
-    t.bigint "type_id"
     t.float "volume"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -945,7 +907,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_29_112338) do
     t.index ["icon_id"], name: "index_eve_types_on_icon_id"
     t.index ["market_group_id"], name: "index_eve_types_on_market_group_id"
     t.index ["name_en"], name: "index_eve_types_on_name_en", opclass: :gin_trgm_ops, using: :gin
-    t.index ["type_id"], name: "index_eve_types_on_type_id", unique: true
   end
 
   create_table "eve_units", force: :cascade do |t|
@@ -957,7 +918,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_29_112338) do
   end
 
   create_table "eve_wars", force: :cascade do |t|
-    t.bigint "war_id"
     t.datetime "declared", precision: nil
     t.datetime "finished", precision: nil
     t.boolean "mutual"
@@ -966,7 +926,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_29_112338) do
     t.datetime "started", precision: nil
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["war_id"], name: "index_eve_wars_on_war_id", unique: true
   end
 
   create_table "flipper_features", force: :cascade do |t|
@@ -1124,6 +1083,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_29_112338) do
     t.boolean "authy_enabled", default: false
     t.integer "locale", default: 0
     t.boolean "admin", default: false
+    t.string "otp_secret"
+    t.integer "consumed_timestep"
+    t.boolean "otp_required_for_login"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

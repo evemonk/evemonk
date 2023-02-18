@@ -17,7 +17,7 @@ module Eve
     private
 
     def import_new_regions
-      eve_region_ids = Eve::Region.pluck(:region_id)
+      eve_region_ids = Eve::Region.pluck(:id)
 
       eve_region_ids_to_create = esi.universe_region_ids - eve_region_ids
 
@@ -27,12 +27,12 @@ module Eve
     end
 
     def remove_old_regions
-      eve_region_ids = Eve::Region.pluck(:region_id)
+      eve_region_ids = Eve::Region.pluck(:id)
 
       eve_region_ids_to_remove = eve_region_ids - esi.universe_region_ids
 
       eve_region_ids_to_remove.each do |region_id|
-        eve_region = Eve::Region.find_or_initialize_by(region_id: region_id)
+        eve_region = Eve::Region.find_or_initialize_by(id: region_id)
 
         eve_region.destroy!
       end

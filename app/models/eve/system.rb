@@ -2,8 +2,6 @@
 
 module Eve
   class System < ApplicationRecord
-    self.primary_key = "system_id"
-
     extend Mobility
 
     has_paper_trail

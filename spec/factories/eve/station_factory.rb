@@ -18,8 +18,6 @@ FactoryBot.define do
 
     services { "MyString" }
 
-    sequence(:station_id)
-
     sequence(:system_id)
 
     sequence(:type_id)

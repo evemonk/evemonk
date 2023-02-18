@@ -2,8 +2,6 @@
 
 module Eve
   class MarketGroup < ApplicationRecord
-    self.primary_key = "market_group_id"
-
     extend Mobility
 
     has_paper_trail

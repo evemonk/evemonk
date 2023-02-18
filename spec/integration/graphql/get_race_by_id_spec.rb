@@ -16,7 +16,7 @@ describe "Get Race by ID" do
 
   let!(:eve_station) do
     create(:eve_station,
-      station_id: 100,
+      id: 100,
       race: eve_race)
   end
 

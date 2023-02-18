@@ -5,7 +5,7 @@ require "rails_helper"
 describe "Get Star by ID" do
   let!(:eve_star) do
     create(:eve_star,
-      star_id: 123)
+      id: 123)
   end
 
   let(:query) do

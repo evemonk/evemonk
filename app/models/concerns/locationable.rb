@@ -9,7 +9,7 @@ module Locationable
 
     case location_id
     when 60_000_000..64_000_000
-      @location = Eve::Station.find_by(station_id: location_id)
+      @location = Eve::Station.find_by(id: location_id)
     end
   end
 

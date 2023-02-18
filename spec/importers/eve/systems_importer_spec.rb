@@ -40,7 +40,7 @@ describe Eve::SystemsImporter do
   describe "#import_new_systems" do
     let(:eve_systems_ids) { double }
 
-    before { expect(Eve::System).to receive(:pluck).with(:system_id).and_return(eve_systems_ids) }
+    before { expect(Eve::System).to receive(:pluck).with(:id).and_return(eve_systems_ids) }
 
     let(:universe_system_ids) { double }
 
@@ -65,7 +65,7 @@ describe Eve::SystemsImporter do
   describe "#remove_old_systems" do
     let(:eve_systems_ids) { double }
 
-    before { expect(Eve::System).to receive(:pluck).with(:system_id).and_return(eve_systems_ids) }
+    before { expect(Eve::System).to receive(:pluck).with(:id).and_return(eve_systems_ids) }
 
     let(:universe_system_ids) { double }
 

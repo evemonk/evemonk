@@ -48,8 +48,8 @@ describe "Get Alliance by ID" do
 
   let!(:eve_character) do
     create(:eve_character,
-      corporation: eve_corporation,
-      id: 111_111)
+      id: 111_111,
+      corporation: eve_corporation)
   end
 
   let(:query) do

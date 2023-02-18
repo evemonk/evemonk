@@ -5,8 +5,6 @@ require "rails_helper"
 describe Eve::Moon do
   it { should be_an(ApplicationRecord) }
 
-  it { expect(described_class.primary_key).to eq("moon_id") }
-
   it { should respond_to(:versions) }
 
   it { should belong_to(:system).optional(true) }

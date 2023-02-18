@@ -15,12 +15,12 @@ describe "Get Ancestries" do
 
   let!(:eve_icon_1) do
     create(:eve_icon,
-      icon_id: 1_001)
+      id: 1_001)
   end
 
   let!(:eve_icon_2) do
     create(:eve_icon,
-      icon_id: 1_002)
+      id: 1_002)
   end
 
   let!(:eve_ancestry_1) do

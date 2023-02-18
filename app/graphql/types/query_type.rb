@@ -284,11 +284,11 @@ module Types
     end
 
     def blueprints
-      ::Eve::Blueprint.order(:type_id)
+      ::Eve::Blueprint.order(:id)
     end
 
     def blueprint(id:)
-      ::Eve::Blueprint.find_by(type_id: id)
+      ::Eve::Blueprint.find_by(id: id)
     end
 
     def categories
@@ -316,11 +316,11 @@ module Types
     end
 
     def constellations
-      ::Eve::Constellation.order(:constellation_id)
+      ::Eve::Constellation.order(:id)
     end
 
     def constellation(id:)
-      ::Eve::Constellation.find_by(constellation_id: id)
+      ::Eve::Constellation.find_by(id: id)
     end
 
     def contracts
@@ -348,11 +348,11 @@ module Types
     end
 
     def graphics
-      ::Eve::Graphic.order(:graphic_id)
+      ::Eve::Graphic.order(:id)
     end
 
     def graphic(id:)
-      ::Eve::Graphic.find_by(graphic_id: id)
+      ::Eve::Graphic.find_by(id: id)
     end
 
     def groups
@@ -364,19 +364,19 @@ module Types
     end
 
     def icons
-      ::Eve::Icon.order(:icon_id)
+      ::Eve::Icon.order(:id)
     end
 
     def icon(id:)
-      ::Eve::Icon.find_by(icon_id: id)
+      ::Eve::Icon.find_by(id: id)
     end
 
     def market_groups
-      ::Eve::MarketGroup.order(:market_group_id)
+      ::Eve::MarketGroup.order(:id)
     end
 
     def market_group(id:)
-      ::Eve::MarketGroup.find_by(market_group_id: id)
+      ::Eve::MarketGroup.find_by(id: id)
     end
 
     def races
@@ -388,53 +388,53 @@ module Types
     end
 
     def regions
-      ::Eve::Region.order(:region_id)
+      ::Eve::Region.order(:id)
     end
 
     def region(id:)
-      ::Eve::Region.find_by(region_id: id)
+      ::Eve::Region.find_by(id: id)
     end
 
     def ships
       # TODO: load only ships!!!
-      ::Eve::Ship.order(:type_id)
+      ::Eve::Ship.order(:id)
     end
 
     def ship(id:)
       # TODO: load only ships!!!
-      ::Eve::Ship.find_by(type_id: id)
+      ::Eve::Ship.find_by(id: id)
     end
 
     def stars
-      ::Eve::Star.order(:star_id)
+      ::Eve::Star.order(:id)
     end
 
     def star(id:)
-      ::Eve::Star.find_by(star_id: id)
+      ::Eve::Star.find_by(id: id)
     end
 
     def stations
-      ::Eve::Station.order(:station_id)
+      ::Eve::Station.order(:id)
     end
 
     def station(id:)
-      ::Eve::Station.find_by(station_id: id)
+      ::Eve::Station.find_by(id: id)
     end
 
     def systems
-      ::Eve::System.order(:system_id)
+      ::Eve::System.order(:id)
     end
 
     def system(id:)
-      ::Eve::System.find_by(system_id: id)
+      ::Eve::System.find_by(id: id)
     end
 
     def types
-      ::Eve::Type.order(:type_id)
+      ::Eve::Type.order(:id)
     end
 
     def type(id:)
-      ::Eve::Type.find_by(type_id: id)
+      ::Eve::Type.find_by(id: id)
     end
 
     def units

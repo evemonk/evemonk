@@ -16,7 +16,7 @@ module Eve
 
     def update_market_prices
       esi.market_prices.each do |market_price|
-        eve_type = Eve::Type.find_or_initialize_by(type_id: market_price.type_id)
+        eve_type = Eve::Type.find_or_initialize_by(id: market_price.id)
 
         eve_type.update!(market_price.as_json)
       end

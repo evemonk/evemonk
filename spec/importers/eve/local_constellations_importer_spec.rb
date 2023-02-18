@@ -8,9 +8,9 @@ describe Eve::LocalConstellationsImporter do
 
     before do
       #
-      # Eve::Constellation.pluck(:constellation_id) => [constellation_id]
+      # Eve::Constellation.pluck(:id) => [constellation_id]
       #
-      expect(Eve::Constellation).to receive(:pluck).with(:constellation_id).and_return([constellation_id])
+      expect(Eve::Constellation).to receive(:pluck).with(:id).and_return([constellation_id])
     end
 
     before { expect(Eve::UpdateConstellationJob).to receive(:perform_later).with(constellation_id) }

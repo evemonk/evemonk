@@ -27,13 +27,13 @@ describe "Get Races" do
 
   let!(:eve_station_1) do
     create(:eve_station,
-      station_id: 100,
+      id: 100,
       race: eve_race_1)
   end
 
   let!(:eve_station_2) do
     create(:eve_station,
-      station_id: 200,
+      id: 200,
       race: eve_race_2)
   end
 

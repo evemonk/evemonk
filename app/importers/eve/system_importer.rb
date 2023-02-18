@@ -12,7 +12,7 @@ module Eve
     def import
       import! do
         Mobility.with_locale(locale) do
-          eve_system = Eve::System.find_or_initialize_by(system_id: system_id)
+          eve_system = Eve::System.find_or_initialize_by(id: system_id)
 
           eve_system.update!(esi.as_json)
 
@@ -20,25 +20,26 @@ module Eve
 
           eve_system.create_position!(esi.position.as_json)
 
-          Eve::UpdateStarJob.perform_later(esi.star_id) if esi.star_id.present?
+          Eve::Star.find_or_create_by!(id: esi.star_id) if esi.star_id.present?
 
           esi.stargate_ids.each do |stargate_id|
-            Eve::UpdateStargateJob.perform_later(stargate_id)
+            Eve::Stargate.find_or_create_by!(id: stargate_id)
           end
 
           esi.station_ids.each do |station_id|
-            Eve::UpdateStationJob.perform_later(station_id)
+            Eve::Station.find_or_create_by!(id: station_id)
           end
 
           esi.planets.each do |planet|
-            Eve::UpdatePlanetJob.perform_later(planet.planet_id)
+            Eve::Planet.find_or_create_by!(id: planet.planet_id)
 
             planet.asteroid_belt_ids.each do |asteroid_belt_id|
-              Eve::UpdateAsteroidBeltJob.perform_later(planet.planet_id, asteroid_belt_id)
+              Eve::AsteroidBelt.find_or_create_by!(id: asteroid_belt_id,
+                planet_id: planet.planet_id)
             end
 
             planet.moon_ids.each do |moon_id|
-              Eve::UpdateMoonJob.perform_later(planet.planet_id, moon_id)
+              Eve::Moon.find_or_create_by!(id: moon_id, planet_id: planet.planet_id)
             end
           end
         rescue EveOnline::Exceptions::ResourceNotFound
@@ -50,7 +51,7 @@ module Eve
     end
 
     def esi
-      @esi ||= EveOnline::ESI::UniverseSystem.new(id: system_id, language: LanguageMapper::LANGUAGES[locale])
+      @esi ||= EveOnline::ESI::UniverseSystem.new(system_id: system_id, language: LanguageMapper::LANGUAGES[locale])
     end
   end
 end

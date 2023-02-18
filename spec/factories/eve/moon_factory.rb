@@ -2,8 +2,6 @@
 
 FactoryBot.define do
   factory :eve_moon, class: "Eve::Moon" do
-    sequence(:moon_id)
-
     name { Faker::Lorem.word }
 
     sequence(:system_id)

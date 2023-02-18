@@ -24,9 +24,9 @@ describe Sde::BlueprintsInventionSkillsImporter do
 
     before { expect(YAML).to receive(:safe_load).with(content).and_return(entries) }
 
-    let(:eve_blueprint) { instance_double(Eve::Blueprint, type_id: type_id) }
+    let(:eve_blueprint) { instance_double(Eve::Blueprint) }
 
-    before { expect(Eve::Blueprint).to receive(:find_by!).with(type_id: key).and_return(eve_blueprint) }
+    before { expect(Eve::Blueprint).to receive(:find).with(key).and_return(eve_blueprint) }
 
     before { expect(eve_blueprint).to receive(:transaction).and_yield }
 
@@ -63,11 +63,11 @@ describe Sde::BlueprintsInventionSkillsImporter do
 
       before do
         #
-        # Eve::BlueprintInventionSkill.create!(blueprint_id: eve_blueprint.type_id,
+        # Eve::BlueprintInventionSkill.create!(blueprint: eve_blueprint,
         #                                      level: invention_skill["level"],
         #                                      type_id: invention_skill["typeID"])
         #
-        expect(Eve::BlueprintInventionSkill).to receive(:create!).with(blueprint_id: type_id,
+        expect(Eve::BlueprintInventionSkill).to receive(:create!).with(blueprint: eve_blueprint,
           level: level,
           type_id: type_id)
       end

@@ -89,14 +89,14 @@ describe "Get Alliances" do
 
   let!(:eve_character_1) do
     create(:eve_character,
-      corporation: eve_corporation_1,
-      id: 111_111)
+      id: 111_111,
+      corporation: eve_corporation_1)
   end
 
   let!(:eve_character_2) do
     create(:eve_character,
-      corporation: eve_corporation_2,
-      id: 111_222)
+      id: 111_222,
+      corporation: eve_corporation_2)
   end
 
   let(:query) do

@@ -15,7 +15,7 @@ describe "Get Faction by ID" do
 
   let!(:eve_system) do
     create(:eve_system,
-      system_id: 10_111)
+      id: 10_111)
   end
 
   let!(:eve_alliance) do

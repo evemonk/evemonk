@@ -5,8 +5,6 @@ require "rails_helper"
 describe Eve::Type do
   it { should be_an(ApplicationRecord) }
 
-  it { expect(described_class.primary_key).to eq("type_id") }
-
   it { should be_a(PgSearch::Model) }
 
   it { should be_an(ActionView::Helpers::NumberHelper) }
@@ -109,7 +107,7 @@ describe Eve::Type do
     end
 
     context "when @primary_attribute is not set" do
-      let!(:eve_type) { create(:eve_type, type_id: 33_078) }
+      let!(:eve_type) { create(:eve_type, id: 33_078) }
 
       let!(:eve_dogma_attribute) { create(:eve_dogma_attribute, attribute_id: 180, name: described_class::PRIMARY_ATTRIBUTE_NAME) }
 
@@ -133,7 +131,7 @@ describe Eve::Type do
     end
 
     context "when @secondary_attribute is not set" do
-      let!(:eve_type) { create(:eve_type, type_id: 33_078) }
+      let!(:eve_type) { create(:eve_type, id: 33_078) }
 
       let!(:eve_dogma_attribute) { create(:eve_dogma_attribute, attribute_id: 180, name: described_class::SECONDARY_ATTRIBUTE_NAME) }
 
@@ -224,11 +222,11 @@ describe Eve::Type do
   # private methods
 
   describe "#type_icon_url" do
-    subject { build(:eve_type, type_id: 23_773) }
+    subject { build(:eve_type, id: 23_773) }
 
     before do
       #
-      # imageable_url("types", type_id, "icon", size)
+      # imageable_url("types", id, "icon", size)
       #
       expect(subject).to receive(:imageable_url).with("types", 23_773, "icon", 32)
     end
@@ -237,11 +235,11 @@ describe Eve::Type do
   end
 
   describe "#type_render_url" do
-    subject { build(:eve_type, type_id: 23_773) }
+    subject { build(:eve_type, id: 23_773) }
 
     before do
       #
-      # imageable_url("types", type_id, "render", size)
+      # imageable_url("types", id, "render", size)
       #
       expect(subject).to receive(:imageable_url).with("types", 23_773, "render", 64)
     end
@@ -250,11 +248,11 @@ describe Eve::Type do
   end
 
   describe "#type_relic_url" do
-    subject { build(:eve_type, type_id: 23_773) }
+    subject { build(:eve_type, id: 23_773) }
 
     before do
       #
-      # imageable_url("types", type_id, "portrait", size)
+      # imageable_url("types", id, "portrait", size)
       #
       expect(subject).to receive(:imageable_url).with("types", 23_773, "relic", 32)
     end

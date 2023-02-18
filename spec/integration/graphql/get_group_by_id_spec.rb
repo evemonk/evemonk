@@ -10,7 +10,7 @@ describe "Get Group by ID" do
 
   let!(:eve_type) do
     create(:eve_type,
-      type_id: 10_111,
+      id: 10_111,
       group: eve_group)
   end
 

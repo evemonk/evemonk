@@ -12,7 +12,7 @@ module Eve
     def import
       import! do
         eve_asteroid_belt = Eve::AsteroidBelt.find_or_initialize_by(planet_id: planet_id,
-          asteroid_belt_id: asteroid_belt_id)
+          id: asteroid_belt_id)
 
         eve_asteroid_belt.update!(esi.as_json)
 

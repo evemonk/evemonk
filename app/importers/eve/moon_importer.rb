@@ -11,7 +11,7 @@ module Eve
 
     def import
       import! do
-        eve_moon = Eve::Moon.find_or_initialize_by(planet_id: planet_id, moon_id: moon_id)
+        eve_moon = Eve::Moon.find_or_initialize_by(id: moon_id, planet_id: planet_id)
 
         eve_moon.update!(esi.as_json)
 
@@ -26,7 +26,7 @@ module Eve
     end
 
     def esi
-      @esi ||= EveOnline::ESI::UniverseMoon.new(id: moon_id)
+      @esi ||= EveOnline::ESI::UniverseMoon.new(moon_id: moon_id)
     end
   end
 end

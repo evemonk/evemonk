@@ -3,7 +3,7 @@
 module Eve
   class LocalMarketGroupsImporter
     def import
-      Eve::MarketGroup.pluck(:market_group_id).each do |market_group_id|
+      Eve::MarketGroup.pluck(:id).each do |market_group_id|
         Eve::UpdateMarketGroupJob.perform_later(market_group_id)
       end
     end

@@ -5,19 +5,19 @@ require "rails_helper"
 describe "Get Market Groups" do
   let!(:eve_type_1) do
     create(:eve_type,
-      type_id: 400,
+      id: 400,
       market_group: eve_market_group_1)
   end
 
   let!(:eve_type_2) do
     create(:eve_type,
-      type_id: 500,
+      id: 500,
       market_group: eve_market_group_2)
   end
 
   let!(:eve_market_group_1) do
     create(:eve_market_group,
-      market_group_id: 123,
+      id: 123,
       name_en: "EN: name 1",
       name_de: "DE: name 1",
       name_fr: "FR: name 1",
@@ -35,7 +35,7 @@ describe "Get Market Groups" do
 
   let!(:eve_market_group_2) do
     create(:eve_market_group,
-      market_group_id: 321,
+      id: 321,
       name_en: "EN: name 2",
       name_de: "DE: name 2",
       name_fr: "FR: name 2",

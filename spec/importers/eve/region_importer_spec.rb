@@ -32,7 +32,7 @@ describe Eve::RegionImporter do
 
     let(:eve_region) { instance_double(Eve::Region) }
 
-    before { expect(Eve::Region).to receive(:find_or_initialize_by).with(region_id: region_id).and_return(eve_region) }
+    before { expect(Eve::Region).to receive(:find_or_initialize_by).with(id: region_id).and_return(eve_region) }
 
     context "when eve region found" do
       let(:json) { double }

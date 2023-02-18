@@ -46,8 +46,6 @@ FactoryBot.define do
 
     radius { 1.5 }
 
-    sequence(:type_id)
-
     volume { 1.5 }
 
     is_blueprint { [false, true].sample }
