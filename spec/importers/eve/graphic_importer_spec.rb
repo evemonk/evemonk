@@ -23,7 +23,11 @@ describe Eve::GraphicImporter do
 
       before { expect(subject).to receive(:esi).and_return(esi) }
 
-      before { expect(eve_graphic).to receive(:update!).with(json) }
+      let(:transformed_json) { double }
+
+      before { expect(json).to receive(:transform_keys).with(graphic_id: :id).and_return(transformed_json) }
+
+      before { expect(eve_graphic).to receive(:update!).with(transformed_json) }
 
       specify { expect { subject.import }.not_to raise_error }
     end
