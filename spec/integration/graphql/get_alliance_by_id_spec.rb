@@ -24,7 +24,7 @@ describe "Get Alliance by ID" do
 
   let!(:eve_faction) do
     create(:eve_faction,
-      faction_id: 10_111)
+      id: 10_111)
   end
 
   let!(:eve_alliance) do

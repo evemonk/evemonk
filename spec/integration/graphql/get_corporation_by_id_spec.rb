@@ -24,7 +24,7 @@ describe "Get Corporation by ID" do
 
   let!(:eve_faction) do
     create(:eve_faction,
-      faction_id: 1_000_111)
+      id: 1_000_111)
   end
 
   let!(:eve_station) do

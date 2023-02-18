@@ -43,12 +43,12 @@ describe "Get Characters" do
 
   let!(:eve_faction_1) do
     create(:eve_faction,
-      faction_id: 2_048)
+      id: 2_048)
   end
 
   let!(:eve_faction_2) do
     create(:eve_faction,
-      faction_id: 4_096)
+      id: 4_096)
   end
 
   let!(:eve_race_1) do
