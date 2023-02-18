@@ -124,7 +124,7 @@ describe Types::EveGraphicType do
   describe "get graphic by id" do
     let!(:eve_graphic) do
       create(:eve_graphic,
-        graphic_id: 123,
+        id: 123,
         collision_file: "collision_file1",
         graphic_file: "graphic_file1",
         icon_folder: "icon_folder1",

@@ -83,7 +83,7 @@ describe Types::EveIconType do
   describe "get icon by id" do
     let!(:eve_icon) do
       create(:eve_icon,
-        icon_id: 123,
+        id: 123,
         description: "Description 1",
         icon_file: "res:/ui/texture/icons/123.png",
         obsolete: nil)
