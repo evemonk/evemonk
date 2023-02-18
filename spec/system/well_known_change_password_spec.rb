@@ -10,9 +10,14 @@ describe "/.well-known/change-password" do
 
     fill_in "Email address", with: "me@example.com"
     fill_in "Password", with: "eidii7EeooVe8ahk"
+
     click_button "Log in"
 
+    find("#characters")
+
     visit "/.well-known/change-password"
+
+    find("#edit_user")
 
     expect(current_path).to eq("/users/edit")
 
