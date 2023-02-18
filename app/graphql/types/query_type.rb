@@ -340,11 +340,11 @@ module Types
     end
 
     def factions
-      ::Eve::Faction.order(:faction_id)
+      ::Eve::Faction.order(:id)
     end
 
     def faction(id:)
-      ::Eve::Faction.find_by(faction_id: id)
+      ::Eve::Faction.find_by(id: id)
     end
 
     def graphics
