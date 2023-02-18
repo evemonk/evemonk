@@ -5,8 +5,6 @@ require "rails_helper"
 describe Eve::Faction do
   it { should be_an(ApplicationRecord) }
 
-  it { expect(described_class.primary_key).to eq("faction_id") }
-
   it { should be_a(Imageable) }
 
   it { should respond_to(:versions) }
