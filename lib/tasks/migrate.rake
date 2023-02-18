@@ -80,13 +80,6 @@ namespace :migrate do
     end
   end
 
-  desc "Migrate Eve::Faction#faction to #id"
-  task factions: :environment do
-    Eve::Faction.find_each do |faction|
-      faction.update!(id: faction.faction_id)
-    end
-  end
-
   desc "Migrate Eve::Moon#moon_id to #id"
   task moons: :environment do
     Eve::Moon.find_each do |moon|
