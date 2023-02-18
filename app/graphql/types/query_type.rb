@@ -348,11 +348,11 @@ module Types
     end
 
     def graphics
-      ::Eve::Graphic.order(:graphic_id)
+      ::Eve::Graphic.order(:id)
     end
 
     def graphic(id:)
-      ::Eve::Graphic.find_by(graphic_id: id)
+      ::Eve::Graphic.find_by(id: id)
     end
 
     def groups
@@ -364,11 +364,11 @@ module Types
     end
 
     def icons
-      ::Eve::Icon.order(:icon_id)
+      ::Eve::Icon.order(:id)
     end
 
     def icon(id:)
-      ::Eve::Icon.find_by(icon_id: id)
+      ::Eve::Icon.find_by(id: id)
     end
 
     def market_groups
