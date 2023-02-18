@@ -2,8 +2,6 @@
 
 module Eve
   class Faction < ApplicationRecord
-    self.primary_key = "faction_id"
-
     include Imageable
     extend Mobility
 

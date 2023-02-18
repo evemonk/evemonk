@@ -41,12 +41,12 @@ describe "Get Alliances" do
 
   let!(:eve_faction_1) do
     create(:eve_faction,
-      faction_id: 10_111)
+      id: 10_111)
   end
 
   let!(:eve_faction_2) do
     create(:eve_faction,
-      faction_id: 10_222)
+      id: 10_222)
   end
 
   let!(:eve_alliance_1) do

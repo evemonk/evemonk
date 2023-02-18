@@ -26,7 +26,7 @@ describe "Get Faction by ID" do
 
   let!(:eve_faction) do
     create(:eve_faction,
-      faction_id: 123,
+      id: 123,
       name_en: "EN: name 1",
       name_de: "DE: name 1",
       name_fr: "FR: name 1",

@@ -34,9 +34,13 @@ describe Eve::FactionsImporter do
 
     let(:eve_faction) { instance_double(Eve::Faction) }
 
-    before { expect(Eve::Faction).to receive(:find_or_initialize_by).with(faction_id: faction_id).and_return(eve_faction) }
+    before { expect(Eve::Faction).to receive(:find_or_initialize_by).with(id: faction_id).and_return(eve_faction) }
 
-    before { expect(eve_faction).to receive(:update!).with(json) }
+    let(:transformed_json) { double }
+
+    before { expect(json).to receive(:transform_keys).with(faction_id: :id).and_return(transformed_json) }
+
+    before { expect(eve_faction).to receive(:update!).with(transformed_json) }
 
     specify { expect { subject.import }.not_to raise_error }
   end

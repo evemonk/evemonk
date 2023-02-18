@@ -5,7 +5,7 @@ require "rails_helper"
 describe "Get Race by ID" do
   let!(:eve_faction) do
     create(:eve_faction,
-      faction_id: 1_000_111)
+      id: 1_000_111)
   end
 
   let!(:eve_bloodline) do

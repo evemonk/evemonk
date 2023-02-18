@@ -25,7 +25,7 @@ describe "Get Character by ID" do
 
   let!(:eve_faction) do
     create(:eve_faction,
-      faction_id: 2_048)
+      id: 2_048)
   end
 
   let!(:eve_race) do
