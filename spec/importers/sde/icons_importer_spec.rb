@@ -38,7 +38,7 @@ describe Sde::IconsImporter do
 
     let(:eve_icon) { instance_double(Eve::Icon) }
 
-    before { expect(Eve::Icon).to receive(:find_or_initialize_by).with(icon_id: key).and_return(eve_icon) }
+    before { expect(Eve::Icon).to receive(:find_or_initialize_by).with(id: key).and_return(eve_icon) }
 
     before do
       expect(eve_icon).to receive(:assign_attributes).with(description: description,
