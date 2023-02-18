@@ -6,7 +6,7 @@ describe Types::EveGraphicType do
   describe "get graphics" do
     let!(:eve_graphic_1) do
       create(:eve_graphic,
-        graphic_id: 123,
+        id: 123,
         collision_file: "collision_file1",
         graphic_file: "graphic_file1",
         icon_folder: "icon_folder1",
@@ -18,7 +18,7 @@ describe Types::EveGraphicType do
 
     let!(:eve_graphic_2) do
       create(:eve_graphic,
-        graphic_id: 321,
+        id: 321,
         collision_file: "collision_file2",
         graphic_file: "graphic_file2",
         icon_folder: "icon_folder2",
