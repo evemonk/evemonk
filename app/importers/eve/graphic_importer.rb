@@ -10,9 +10,9 @@ module Eve
 
     def import
       import! do
-        eve_graphic = Eve::Graphic.find_or_initialize_by(graphic_id: graphic_id)
+        eve_graphic = Eve::Graphic.find_or_initialize_by(id: graphic_id)
 
-        eve_graphic.update!(esi.as_json)
+        eve_graphic.update!(esi.as_json.transform_keys(graphic_id: :id))
       rescue EveOnline::Exceptions::ResourceNotFound
         Rails.logger.info("EveOnline::Exceptions::ResourceNotFound: Eve Graphic ID #{graphic_id}")
 
