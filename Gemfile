@@ -56,7 +56,7 @@ gem "net-http-persistent"
 gem "connection_pool"
 gem "redis"
 gem "redis-client"
-gem "sidekiq", require: false
+gem "sidekiq"
 gem "pghero"
 gem "pg_query"
 gem "noticed"
