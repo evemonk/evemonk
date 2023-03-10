@@ -4,8 +4,6 @@
 
 require_relative "config/environment"
 
-use Rack::Health
-
 # Export metrics for prometheus
 use Yabeda::Prometheus::Exporter
 
