@@ -455,8 +455,6 @@ GEM
     raabro (1.4.0)
     racc (1.6.2)
     rack (2.2.6.3)
-    rack-health (0.1.2)
-      rack (>= 1.2.0)
     rack-protection (3.0.5)
       rack
     rack-test (2.0.2)
@@ -774,7 +772,6 @@ DEPENDENCIES
   pry-rails
   puma (~> 6.1)
   pundit
-  rack-health
   rack-timeout
   rails (= 7.0.4.2)
   rails-controller-testing
