@@ -23,9 +23,6 @@ port ENV.fetch("PORT", 3000)
 #
 environment ENV.fetch("RAILS_ENV", "development")
 
-activate_control_app
-plugin :yabeda
-
 # Specifies the `pidfile` that Puma will use.
 # pidfile ENV.fetch("PIDFILE", "tmp/pids/server.pid")
 

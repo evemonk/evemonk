@@ -7,8 +7,6 @@ class EvemonkSchema < GraphQL::Schema
   # For batch-loading (see https://graphql-ruby.org/dataloader/overview.html)
   use GraphQL::Dataloader
 
-  use Yabeda::GraphQL
-
   default_max_page_size 50
 
   # GraphQL-Ruby calls this when something goes wrong while running a query:
