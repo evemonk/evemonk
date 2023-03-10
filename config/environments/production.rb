@@ -95,9 +95,6 @@ Rails.application.configure do
 
   config.cache_store = :mem_cache_store, ENV.fetch("MEMCACHED_URL", nil)
 
-  # Sidekiq
-  config.active_job.queue_adapter = :sidekiq
-
   config.action_mailer.delivery_method = :smtp
 
   config.action_mailer.smtp_settings = {

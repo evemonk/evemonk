@@ -39,5 +39,8 @@ module Evemonk
 
     # Compiles the ERB template with the frozen_string_literal true magic comment
     config.action_view.frozen_string_literal = true
+
+    # Sidekiq
+    config.active_job.queue_adapter = :sidekiq
   end
 end
