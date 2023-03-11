@@ -17,7 +17,7 @@ describe Api::Eve::ManufacturingItemsController do
 
       expect(response).to have_http_status(:ok)
 
-      expect(JSON.parse(response.body)).to eq("total_count" => 1,
+      expect(response.parsed_body).to eq("total_count" => 1,
         "total_pages" => 1,
         "current_page" => 1,
         "items" => [{
