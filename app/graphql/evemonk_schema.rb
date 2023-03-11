@@ -25,6 +25,9 @@ class EvemonkSchema < GraphQL::Schema
     raise(GraphQL::RequiredImplementationMissingError)
   end
 
+  # Stop validating when it encounters this many errors:
+  validate_max_errors(100)
+
   # Relay-style Object Identification:
 
   # Return a string UUID for `object`
