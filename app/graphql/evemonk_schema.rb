@@ -9,6 +9,10 @@ class EvemonkSchema < GraphQL::Schema
 
   default_max_page_size 50
 
+  max_complexity 200
+
+  max_depth 20
+
   # GraphQL-Ruby calls this when something goes wrong while running a query:
   # def self.type_error(_err, _context)
   #   # if err.is_a?(GraphQL::InvalidNullError)
