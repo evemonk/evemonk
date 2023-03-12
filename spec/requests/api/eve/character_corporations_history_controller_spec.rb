@@ -39,7 +39,7 @@ describe "Api::Eve::CharacterCorporationsHistoryController" do
 
       expect(response).to have_http_status(:ok)
 
-      expect(JSON.parse(response.body)).to eq("current_page" => 1,
+      expect(response.parsed_body).to eq("current_page" => 1,
         "total_count" => 1,
         "total_pages" => 1,
         "history" => [{
