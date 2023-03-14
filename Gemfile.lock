@@ -230,7 +230,7 @@ GEM
     faraday-http-cache (2.4.1)
       faraday (>= 0.8)
     faraday-net_http (3.0.2)
-    fasterer (0.10.0)
+    fasterer (0.10.1)
       colorize (~> 0.7)
       ruby_parser (>= 3.19.1)
     ffi (1.15.5)
