@@ -1,4 +1,18 @@
 GIT
+  remote: https://github.com/biow0lf/administrate.git
+  revision: e2d07ee7d74f63c1c32c9872df568670d038de3c
+  branch: dartsass
+  specs:
+    administrate (0.18.0)
+      actionpack (>= 5.0)
+      actionview (>= 5.0)
+      activerecord (>= 5.0)
+      dartsass-sprockets
+      jquery-rails (>= 4.0)
+      kaminari (>= 1.0)
+      selectize-rails (~> 0.6)
+
+GIT
   remote: https://github.com/evemonk/eve_online.git
   revision: e150c687f56ef5ce8cb99c7c06a7a60ec7ad4592
   branch: main
@@ -94,14 +108,6 @@ GEM
       tzinfo (~> 2.0)
     addressable (2.8.1)
       public_suffix (>= 2.0.2, < 6.0)
-    administrate (0.18.0)
-      actionpack (>= 5.0)
-      actionview (>= 5.0)
-      activerecord (>= 5.0)
-      jquery-rails (>= 4.0)
-      kaminari (>= 1.0)
-      sassc-rails (~> 2.1)
-      selectize-rails (~> 0.6)
     airbrake (13.0.3)
       airbrake-ruby (~> 6.0)
     airbrake-ruby (6.2.0)
@@ -169,6 +175,14 @@ GEM
     dalli (3.2.4)
     dartsass-rails (0.4.1)
       railties (>= 6.0.0)
+    dartsass-ruby (3.0.1)
+      sass-embedded (~> 1.54)
+    dartsass-sprockets (3.0.0)
+      dartsass-ruby (~> 3.0)
+      railties (>= 4.0.0)
+      sprockets (> 3.0)
+      sprockets-rails
+      tilt
     database_rewinder (0.9.8)
     date (3.3.3)
     dead_end (4.0.0)
@@ -570,6 +584,14 @@ GEM
     sanitize (6.0.1)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
+    sass-embedded (1.59.3-aarch64-linux-gnu)
+      google-protobuf (~> 3.21)
+    sass-embedded (1.59.3-arm64-darwin)
+      google-protobuf (~> 3.21)
+    sass-embedded (1.59.3-x86_64-darwin)
+      google-protobuf (~> 3.21)
+    sass-embedded (1.59.3-x86_64-linux-gnu)
+      google-protobuf (~> 3.21)
     sassc (2.4.0)
       ffi (~> 1.9)
     sassc-rails (2.1.2)
@@ -681,7 +703,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_record_doctor
-  administrate
+  administrate!
   airbrake (~> 13.0)
   anyway_config
   awesome_print

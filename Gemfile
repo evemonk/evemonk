@@ -65,7 +65,9 @@ gem "responders"
 gem "aws-sdk-s3"
 gem "down"
 gem "sitemap_generator"
-gem "administrate"
+gem "administrate",
+  git: "https://github.com/biow0lf/administrate.git",
+  branch: "dartsass"
 gem "awesome_print", require: "ap"
 gem "pry-rails"
 gem "skylight"
