@@ -268,7 +268,7 @@ GEM
     google-protobuf (3.22.2-arm64-darwin)
     google-protobuf (3.22.2-x86_64-darwin)
     google-protobuf (3.22.2-x86_64-linux)
-    graphiql-rails (1.8.0)
+    graphiql-rails (1.9.0)
       railties
       sprockets-rails
     graphql (2.0.19)
