@@ -13,6 +13,16 @@ GIT
       selectize-rails (~> 0.6)
 
 GIT
+  remote: https://github.com/biow0lf/bootstrap-rubygem.git
+  revision: e732c609ac96b39a157dedffee9e0c86a9c68de8
+  branch: dartsass
+  specs:
+    bootstrap (5.2.3)
+      autoprefixer-rails (>= 9.1.0)
+      dartsass-sprockets
+      popper_js (>= 2.11.6, < 3)
+
+GIT
   remote: https://github.com/evemonk/eve_online.git
   revision: e150c687f56ef5ce8cb99c7c06a7a60ec7ad4592
   branch: main
@@ -146,10 +156,6 @@ GEM
       smart_properties
     bootsnap (1.16.0)
       msgpack (~> 1.2)
-    bootstrap (5.2.3)
-      autoprefixer-rails (>= 9.1.0)
-      popper_js (>= 2.11.6, < 3)
-      sassc-rails (>= 2.0.0)
     brakeman (5.4.1)
     builder (3.2.4)
     cacheflow (0.3.1)
@@ -592,14 +598,6 @@ GEM
       google-protobuf (~> 3.21)
     sass-embedded (1.59.3-x86_64-linux-gnu)
       google-protobuf (~> 3.21)
-    sassc (2.4.0)
-      ffi (~> 1.9)
-    sassc-rails (2.1.2)
-      railties (>= 4.0.0)
-      sassc (>= 2.0)
-      sprockets (> 3.0)
-      sprockets-rails
-      tilt
     sawyer (0.9.2)
       addressable (>= 2.3.5)
       faraday (>= 0.17.3, < 3)
@@ -710,7 +708,7 @@ DEPENDENCIES
   aws-sdk-s3
   better_html
   bootsnap (>= 1.4.4)
-  bootstrap (= 5.2.3)
+  bootstrap!
   bootswatch!
   brakeman
   cacheflow
