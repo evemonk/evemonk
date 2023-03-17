@@ -166,7 +166,6 @@ GEM
     crack (0.4.5)
       rexml
     crass (1.0.6)
-    dalli (3.2.4)
     dartsass-rails (0.4.1)
       railties (>= 6.0.0)
     database_rewinder (0.9.8)
@@ -694,7 +693,6 @@ DEPENDENCIES
   cacheflow
   capybara (>= 3.26)
   connection_pool
-  dalli
   dartsass-rails
   database_rewinder
   derailed_benchmarks
