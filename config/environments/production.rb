@@ -93,8 +93,6 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  # config.cache_store = :mem_cache_store, ENV.fetch("MEMCACHED_URL", nil)
-
   config.action_mailer.delivery_method = :smtp
 
   config.action_mailer.smtp_settings = {
@@ -102,8 +100,9 @@ Rails.application.configure do
     port: ENV.fetch("SMTP_PORT", nil),
     user_name: ENV.fetch("SMTP_USER", nil),
     password: ENV.fetch("SMTP_PASSWORD", nil),
-    authentication: "plain",
-    enable_starttls: true,
+    authentication: :plain,
+    ssl: true,
+    tls: true,
     open_timeout: 120,
     read_timeout: 120
   }
