@@ -23,6 +23,7 @@ module Types
 
     field :alliances, Types::EveAllianceType.connection_type,
       description: "Alliances",
+      resolver: Resolvers::Alliances,
       null: true
 
     field :alliance, Types::EveAllianceType,
@@ -257,10 +258,6 @@ module Types
 
     def agent(id:)
       ::Eve::Agent.find_by(id: id)
-    end
-
-    def alliances
-      ::Eve::Alliance.order(:id)
     end
 
     def alliance(id:)
