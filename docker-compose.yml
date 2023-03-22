@@ -36,14 +36,6 @@ services:
     ports:
       - "6380:6379"
 
-  memcached:
-    image: "docker.io/library/memcached:1.6.18"
-    container_name: "evemonk_memcached"
-    restart: "unless-stopped"
-    command: "memcached -m 64"
-    ports:
-      - "11211:11211"
-
   minio:
     image: "docker.io/minio/minio:latest"
     container_name: "evemonk_minio"
