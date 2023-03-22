@@ -6,8 +6,6 @@ module Eve
 
     extend Mobility
 
-    has_paper_trail
-
     translates :name, :description
 
     has_many :constellations # rubocop:disable Rails/HasManyOrHasOneDependent

@@ -4,8 +4,6 @@ module Eve
   class TypeDogmaAttribute < ApplicationRecord
     include ActionView::Helpers::NumberHelper
 
-    has_paper_trail
-
     belongs_to :type, optional: true
 
     belongs_to :dogma_attribute,

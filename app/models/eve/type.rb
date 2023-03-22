@@ -13,8 +13,6 @@ module Eve
     PRIMARY_ATTRIBUTE_NAME = "primaryAttribute"
     SECONDARY_ATTRIBUTE_NAME = "secondaryAttribute"
 
-    has_paper_trail
-
     translates :name, :description
 
     belongs_to :graphic, optional: true
