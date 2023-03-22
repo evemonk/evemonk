@@ -7,8 +7,6 @@ describe Eve::AsteroidBelt do
 
   it { expect(described_class.primary_key).to eq("asteroid_belt_id") }
 
-  it { should respond_to(:versions) }
-
   it { should belong_to(:system).optional(true) }
 
   it { should belong_to(:planet).optional(true) }

@@ -2,8 +2,6 @@
 
 module Eve
   class Certificate < ApplicationRecord
-    has_paper_trail
-
     belongs_to :group, optional: true
 
     has_many :certificate_recommended_types, dependent: :destroy

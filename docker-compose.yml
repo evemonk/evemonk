@@ -1,25 +1,25 @@
 version: "3.9"
 
 volumes:
-  postresql_data: {}
+  postgresql_data: {}
   redis_data: {}
   redis_cache_data: {}
   minio_data: {}
 
 services:
   postgresql:
-    image: "docker.io/library/postgres:14.6"
+    image: "docker.io/library/postgres:15.2"
     container_name: "evemonk_postgresql"
     restart: "unless-stopped"
     volumes:
-      - "postresql_data:/var/lib/postgresql/data"
+      - "postgresql_data:/var/lib/postgresql/data"
     environment:
       POSTGRES_HOST_AUTH_METHOD: "trust"
     ports:
       - "5432:5432"
 
   redis:
-    image: "docker.io/library/redis:7.0.8"
+    image: "docker.io/library/redis:7.0.10"
     container_name: "evemonk_redis"
     restart: "unless-stopped"
     volumes:
@@ -28,21 +28,13 @@ services:
       - "6379:6379"
 
   redis_cache:
-    image: "docker.io/library/redis:7.0.8"
+    image: "docker.io/library/redis:7.0.10"
     container_name: "evemonk_redis_cache"
     restart: "unless-stopped"
     volumes:
       - "redis_cache_data:/data"
     ports:
       - "6380:6379"
-
-  memcached:
-    image: "docker.io/library/memcached:1.6.18"
-    container_name: "evemonk_memcached"
-    restart: "unless-stopped"
-    command: "memcached -m 64"
-    ports:
-      - "11211:11211"
 
   minio:
     image: "docker.io/minio/minio:latest"

@@ -4,8 +4,6 @@ module Eve
   class CharacterAttribute < ApplicationRecord
     extend Mobility
 
-    has_paper_trail
-
     translates :name
 
     belongs_to :icon, optional: true

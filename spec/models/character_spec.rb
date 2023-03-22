@@ -7,8 +7,6 @@ describe Character do
 
   it { should be_a(Imageable) }
 
-  it { should respond_to(:versions) }
-
   it { should belong_to(:user) }
 
   it { should belong_to(:race).class_name("Eve::Race").optional(true) }

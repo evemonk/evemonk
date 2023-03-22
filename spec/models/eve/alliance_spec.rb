@@ -11,8 +11,6 @@ describe Eve::Alliance do
 
   it { should be_a(Imageable) }
 
-  it { should respond_to(:versions) }
-
   it { expect(described_class.table_name).to eq("eve_alliances") }
 
   it { should belong_to(:creator_corporation).class_name("Eve::Corporation").optional(true) }

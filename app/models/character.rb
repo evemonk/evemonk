@@ -4,8 +4,6 @@ class Character < ApplicationRecord
   include ActionView::Helpers::NumberHelper
   include Imageable
 
-  has_paper_trail
-
   belongs_to :user
 
   belongs_to :race, class_name: "Eve::Race", optional: true

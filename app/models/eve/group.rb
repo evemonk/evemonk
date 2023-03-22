@@ -4,8 +4,6 @@ module Eve
   class Group < ApplicationRecord
     extend Mobility
 
-    has_paper_trail
-
     translates :name
 
     belongs_to :category, optional: true

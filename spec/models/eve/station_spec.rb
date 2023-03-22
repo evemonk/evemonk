@@ -7,8 +7,6 @@ describe Eve::Station do
 
   it { expect(described_class.primary_key).to eq("station_id") }
 
-  it { should respond_to(:versions) }
-
   it { expect(described_class.table_name).to eq("eve_stations") }
 
   it { should belong_to(:race).optional(true) }

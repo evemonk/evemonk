@@ -7,8 +7,6 @@ describe Eve::Icon do
 
   it { expect(described_class.table_name).to eq("eve_icons") }
 
-  it { should respond_to(:versions) }
-
   describe "#icon_url" do
     context "when icon_file start with res:/ui/texture/icons/" do
       subject { build(:eve_icon, icon_file: "res:/ui/texture/icons/1.png") }

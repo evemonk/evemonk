@@ -7,8 +7,6 @@ describe Eve::Star do
 
   it { expect(described_class.primary_key).to eq("star_id") }
 
-  it { should respond_to(:versions) }
-
   it { expect(described_class.table_name).to eq("eve_stars") }
 
   it { should belong_to(:solar_system).class_name("Eve::System").optional(true) }

@@ -6,8 +6,6 @@ module Eve
 
     extend Mobility
 
-    has_paper_trail
-
     translates :name, :description
 
     belongs_to :parent_group, class_name: "Eve::MarketGroup", optional: true

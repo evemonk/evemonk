@@ -4,8 +4,6 @@ module Eve
   class Station < ApplicationRecord
     self.primary_key = "station_id"
 
-    has_paper_trail
-
     belongs_to :race, optional: true
 
     belongs_to :type, optional: true
