@@ -7,8 +7,6 @@ describe Eve::Faction do
 
   it { should be_a(Imageable) }
 
-  it { should respond_to(:versions) }
-
   it { expect(described_class).to respond_to(:translates) }
 
   it { expect(described_class.mobility_attributes).to eq(["name", "description"]) }

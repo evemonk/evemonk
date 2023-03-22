@@ -7,8 +7,6 @@ describe Eve::Planet do
 
   it { expect(described_class.primary_key).to eq("planet_id") }
 
-  it { should respond_to(:versions) }
-
   it { expect(described_class.table_name).to eq("eve_planets") }
 
   it { should belong_to(:system).optional(true) }
