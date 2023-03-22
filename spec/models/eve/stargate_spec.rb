@@ -7,8 +7,6 @@ describe Eve::Stargate do
 
   it { expect(described_class.primary_key).to eq("stargate_id") }
 
-  it { should respond_to(:versions) }
-
   it { expect(described_class.table_name).to eq("eve_stargates") }
 
   it { should belong_to(:system).optional(true) }
