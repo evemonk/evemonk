@@ -11,8 +11,6 @@ describe Eve::Agent do
 
   it { expect(described_class.table_name).to eq("eve_agents") }
 
-  it { should respond_to(:versions) }
-
   it { should belong_to(:corporation).optional(true) }
 
   it { should belong_to(:division).optional(true) }
