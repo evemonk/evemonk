@@ -422,9 +422,6 @@ GEM
       omniauth (~> 2.0)
     optimist (3.0.1)
     orm_adapter (0.5.0)
-    paper_trail (12.3.0)
-      activerecord (>= 5.2)
-      request_store (~> 1.1)
     parallel (1.22.1)
     parser (3.2.1.1)
       ast (~> 2.4.1)
@@ -738,7 +735,6 @@ DEPENDENCIES
   noticed
   omniauth-eve_online-sso
   omniauth-rails_csrf_protection
-  paper_trail
   pg (~> 1.4)
   pg_query
   pg_search
