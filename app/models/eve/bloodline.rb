@@ -4,8 +4,6 @@ module Eve
   class Bloodline < ApplicationRecord
     extend Mobility
 
-    has_paper_trail
-
     translates :name, :description
 
     belongs_to :corporation, optional: true

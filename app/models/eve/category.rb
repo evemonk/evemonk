@@ -4,8 +4,6 @@ module Eve
   class Category < ApplicationRecord
     extend Mobility
 
-    has_paper_trail
-
     translates :name
 
     has_many :groups # rubocop:disable Rails/HasManyOrHasOneDependent

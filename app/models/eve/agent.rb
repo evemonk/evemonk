@@ -5,8 +5,6 @@ module Eve
     include Locationable
     include Imageable
 
-    has_paper_trail
-
     belongs_to :corporation, optional: true
 
     # belongs_to :agent_type_id

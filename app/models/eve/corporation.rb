@@ -6,8 +6,6 @@ module Eve
     include ActionView::Helpers::NumberHelper
     include Imageable
 
-    has_paper_trail
-
     belongs_to :alliance, optional: true
 
     belongs_to :ceo, class_name: "Eve::Character", optional: true
