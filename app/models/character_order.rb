@@ -3,8 +3,6 @@
 class CharacterOrder < ApplicationRecord
   include Locationable
 
-  has_paper_trail
-
   belongs_to :character
 
   belongs_to :type, class_name: "Eve::Type", optional: true
