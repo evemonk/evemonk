@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_29_112338) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_22_120536) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_buffercache"
   enable_extension "pg_trgm"
@@ -268,7 +268,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_29_112338) do
   end
 
   create_table "eve_ancestries", force: :cascade do |t|
-    t.bigint "ancestry_id"
     t.bigint "bloodline_id"
     t.text "description_en"
     t.integer "icon_id"
@@ -290,7 +289,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_29_112338) do
     t.string "name_es"
     t.text "description_zh"
     t.text "description_es"
-    t.index ["ancestry_id"], name: "index_eve_ancestries_on_ancestry_id", unique: true
   end
 
   create_table "eve_asteroid_belts", force: :cascade do |t|
@@ -306,7 +304,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_29_112338) do
   end
 
   create_table "eve_bloodlines", force: :cascade do |t|
-    t.bigint "bloodline_id"
     t.integer "charisma"
     t.bigint "corporation_id"
     t.text "description_en"
@@ -333,7 +330,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_29_112338) do
     t.string "name_es"
     t.text "description_zh"
     t.text "description_es"
-    t.index ["bloodline_id"], name: "index_eve_bloodlines_on_bloodline_id", unique: true
   end
 
   create_table "eve_blueprint_invention_materials", force: :cascade do |t|
@@ -398,7 +394,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_29_112338) do
   end
 
   create_table "eve_categories", force: :cascade do |t|
-    t.bigint "category_id"
     t.string "name_en"
     t.string "name_de"
     t.string "name_fr"
@@ -408,7 +403,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_29_112338) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name_ko"
-    t.index ["category_id"], name: "index_eve_categories_on_category_id", unique: true
   end
 
   create_table "eve_certificate_recommended_types", force: :cascade do |t|
@@ -539,7 +533,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_29_112338) do
   end
 
   create_table "eve_corporations", force: :cascade do |t|
-    t.bigint "corporation_id"
     t.bigint "alliance_id"
     t.bigint "ceo_id"
     t.bigint "creator_id"
@@ -559,7 +552,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_29_112338) do
     t.boolean "npc", default: false
     t.index ["alliance_id"], name: "index_eve_corporations_on_alliance_id"
     t.index ["ceo_id"], name: "index_eve_corporations_on_ceo_id"
-    t.index ["corporation_id"], name: "index_eve_corporations_on_corporation_id", unique: true
     t.index ["creator_id"], name: "index_eve_corporations_on_creator_id"
     t.index ["faction_id"], name: "index_eve_corporations_on_faction_id"
     t.index ["home_station_id"], name: "index_eve_corporations_on_home_station_id"
@@ -614,7 +606,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_29_112338) do
   end
 
   create_table "eve_factions", force: :cascade do |t|
-    t.bigint "faction_id"
     t.bigint "corporation_id"
     t.text "description_en"
     t.boolean "is_unique"
@@ -636,7 +627,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_29_112338) do
     t.text "description_ru"
     t.string "name_ko"
     t.text "description_ko"
-    t.index ["faction_id"], name: "index_eve_factions_on_faction_id", unique: true
   end
 
   create_table "eve_graphics", force: :cascade do |t|
@@ -655,7 +645,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_29_112338) do
 
   create_table "eve_groups", force: :cascade do |t|
     t.bigint "category_id"
-    t.bigint "group_id"
     t.string "name_en"
     t.string "name_de"
     t.string "name_fr"
@@ -666,7 +655,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_29_112338) do
     t.datetime "updated_at", null: false
     t.string "name_ko"
     t.index ["category_id"], name: "index_eve_groups_on_category_id"
-    t.index ["group_id"], name: "index_eve_groups_on_group_id", unique: true
   end
 
   create_table "eve_icons", force: :cascade do |t|
@@ -1127,17 +1115,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_29_112338) do
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-  end
-
-  create_table "versions", force: :cascade do |t|
-    t.string "item_type", null: false
-    t.bigint "item_id", null: false
-    t.string "event", null: false
-    t.string "whodunnit"
-    t.text "object"
-    t.datetime "created_at", precision: nil
-    t.text "object_changes"
-    t.index ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id"
   end
 
   create_table "wallet_journals", force: :cascade do |t|
