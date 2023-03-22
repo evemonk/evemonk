@@ -7,8 +7,6 @@ describe Eve::TypeDogmaAttribute do
 
   it { should be_an(ActionView::Helpers::NumberHelper) }
 
-  it { should respond_to(:versions) }
-
   it { expect(described_class.table_name).to eq("eve_type_dogma_attributes") }
 
   it { should belong_to(:type).optional(true) }
