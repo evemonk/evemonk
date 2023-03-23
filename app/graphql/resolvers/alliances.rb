@@ -4,8 +4,12 @@ module Resolvers
   class Alliances < Base
     description "Alliances resolver"
 
-    def resolve
-      ::Eve::Alliance.order(:id)
+    argument :order_by, Types::AlliancesOrderEnum,
+      description: "Order Alliances by",
+      required: false
+
+    def resolve(order_by: nil)
+      Eve::AlliancesQuery.new(Eve::Alliance.all, order_by).query
     end
   end
 end
