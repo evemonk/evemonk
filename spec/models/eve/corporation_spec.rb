@@ -57,55 +57,55 @@ describe Eve::Corporation do
     specify { expect(described_class.not_npc).to eq([eve_corporation_1]) }
   end
 
-  it { should callback(:eve_alliance_reset_corporations_count).after(:commit).on([:create, :update, :destroy]) }
-
-  it { should callback(:eve_alliance_reset_characters_count).after(:commit).on([:create, :update, :destroy]) }
+  # it { should callback(:eve_alliance_reset_corporations_count).after(:commit).on([:create, :update, :destroy]) }
+  #
+  # it { should callback(:eve_alliance_reset_characters_count).after(:commit).on([:create, :update, :destroy]) }
 
   it { expect(described_class).to respond_to(:search_by_name_and_ticker) }
 
-  describe "#eve_alliance_reset_corporations_count" do
-    context "when alliance exists" do
-      let!(:eve_alliance) { create(:eve_alliance) }
+  # describe "#eve_alliance_reset_corporations_count" do
+  #   context "when alliance exists" do
+  #     let!(:eve_alliance) { create(:eve_alliance) }
+  #
+  #     let!(:eve_corporation) { create(:eve_corporation, alliance: eve_alliance) }
+  #
+  #     subject { eve_corporation }
+  #
+  #     before { expect(eve_alliance).to receive(:reset_corporations_count) }
+  #
+  #     specify { expect { subject.eve_alliance_reset_corporations_count }.not_to raise_error }
+  #   end
+  #
+  #   context "when alliance not exists" do
+  #     let!(:eve_corporation) { create(:eve_corporation) }
+  #
+  #     subject { eve_corporation }
+  #
+  #     specify { expect { subject.eve_alliance_reset_corporations_count }.not_to raise_error }
+  #   end
+  # end
 
-      let!(:eve_corporation) { create(:eve_corporation, alliance: eve_alliance) }
-
-      subject { eve_corporation }
-
-      before { expect(eve_alliance).to receive(:reset_corporations_count) }
-
-      specify { expect { subject.eve_alliance_reset_corporations_count }.not_to raise_error }
-    end
-
-    context "when alliance not exists" do
-      let!(:eve_corporation) { create(:eve_corporation) }
-
-      subject { eve_corporation }
-
-      specify { expect { subject.eve_alliance_reset_corporations_count }.not_to raise_error }
-    end
-  end
-
-  describe "#eve_alliance_reset_characters_count" do
-    context "when alliance exists" do
-      let!(:eve_alliance) { create(:eve_alliance) }
-
-      let!(:eve_corporation) { create(:eve_corporation, alliance: eve_alliance) }
-
-      subject { eve_corporation }
-
-      before { expect(eve_alliance).to receive(:reset_characters_count) }
-
-      specify { expect { subject.eve_alliance_reset_characters_count }.not_to raise_error }
-    end
-
-    context "when alliance not exists" do
-      let!(:eve_corporation) { create(:eve_corporation) }
-
-      subject { eve_corporation }
-
-      specify { expect { subject.eve_alliance_reset_characters_count }.not_to raise_error }
-    end
-  end
+  # describe "#eve_alliance_reset_characters_count" do
+  #   context "when alliance exists" do
+  #     let!(:eve_alliance) { create(:eve_alliance) }
+  #
+  #     let!(:eve_corporation) { create(:eve_corporation, alliance: eve_alliance) }
+  #
+  #     subject { eve_corporation }
+  #
+  #     before { expect(eve_alliance).to receive(:reset_characters_count) }
+  #
+  #     specify { expect { subject.eve_alliance_reset_characters_count }.not_to raise_error }
+  #   end
+  #
+  #   context "when alliance not exists" do
+  #     let!(:eve_corporation) { create(:eve_corporation) }
+  #
+  #     subject { eve_corporation }
+  #
+  #     specify { expect { subject.eve_alliance_reset_characters_count }.not_to raise_error }
+  #   end
+  # end
 
   describe "#icon_tiny" do
     before { expect(subject).to receive(:corporation_logo_url).with(32) }

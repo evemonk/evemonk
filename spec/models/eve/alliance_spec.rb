@@ -27,9 +27,9 @@ describe Eve::Alliance do
 
   it { should have_many(:corporation_alliance_histories) }
 
-  it { should callback(:reset_corporations_count).after(:commit).on(:create) }
-
-  it { should callback(:reset_characters_count).after(:commit).on(:create) }
+  # it { should callback(:reset_corporations_count).after(:commit).on(:create) }
+  #
+  # it { should callback(:reset_characters_count).after(:commit).on(:create) }
 
   it { should have_one_attached(:logo) }
 
@@ -37,33 +37,33 @@ describe Eve::Alliance do
 
   it { expect(described_class).to respond_to(:search_by_name_and_ticker) }
 
-  describe "#reset_corporations_count" do
-    let!(:eve_alliance) { create(:eve_alliance) }
+  # describe "#reset_corporations_count" do
+  #   let!(:eve_alliance) { create(:eve_alliance) }
+  #
+  #   let!(:eve_corporation_1) { create(:eve_corporation, alliance: eve_alliance) }
+  #
+  #   let!(:eve_corporation_2) { create(:eve_corporation, alliance: eve_alliance) }
+  #
+  #   subject { eve_alliance }
+  #
+  #   before { subject.update!(corporations_count: 0) }
+  #
+  #   specify { expect { subject.reset_corporations_count }.to change { subject.corporations_count }.from(0).to(2) }
+  # end
 
-    let!(:eve_corporation_1) { create(:eve_corporation, alliance: eve_alliance) }
-
-    let!(:eve_corporation_2) { create(:eve_corporation, alliance: eve_alliance) }
-
-    subject { eve_alliance }
-
-    before { subject.update!(corporations_count: 0) }
-
-    specify { expect { subject.reset_corporations_count }.to change { subject.corporations_count }.from(0).to(2) }
-  end
-
-  describe "#reset_characters_count" do
-    let!(:eve_alliance) { create(:eve_alliance) }
-
-    let!(:eve_corporation_1) { create(:eve_corporation, alliance: eve_alliance, member_count: 123) }
-
-    let!(:eve_corporation_2) { create(:eve_corporation, alliance: eve_alliance, member_count: 123) }
-
-    subject { eve_alliance }
-
-    before { subject.update!(characters_count: 0) }
-
-    specify { expect { subject.reset_characters_count }.to change { subject.characters_count }.from(0).to(246) }
-  end
+  # describe "#reset_characters_count" do
+  #   let!(:eve_alliance) { create(:eve_alliance) }
+  #
+  #   let!(:eve_corporation_1) { create(:eve_corporation, alliance: eve_alliance, member_count: 123) }
+  #
+  #   let!(:eve_corporation_2) { create(:eve_corporation, alliance: eve_alliance, member_count: 123) }
+  #
+  #   subject { eve_alliance }
+  #
+  #   before { subject.update!(characters_count: 0) }
+  #
+  #   specify { expect { subject.reset_characters_count }.to change { subject.characters_count }.from(0).to(246) }
+  # end
 
   describe "#icon_tiny" do
     before { expect(subject).to receive(:alliance_logo_url).with(32) }

@@ -26,21 +26,21 @@ module Eve
 
     has_many :corporation_alliance_histories # rubocop:disable Rails/HasManyOrHasOneDependent
 
-    after_create_commit :reset_corporations_count
-
-    after_create_commit :reset_characters_count
+    # after_create_commit :reset_corporations_count
+    #
+    # after_create_commit :reset_characters_count
 
     pg_search_scope :search_by_name_and_ticker, against: [:name, :ticker]
 
     has_one_attached :logo
 
-    def reset_corporations_count
-      update!(corporations_count: corporations.count)
-    end
-
-    def reset_characters_count
-      update!(characters_count: corporations.sum(:member_count))
-    end
+    # def reset_corporations_count
+    #   update!(corporations_count: corporations.count)
+    # end
+    #
+    # def reset_characters_count
+    #   update!(characters_count: corporations.sum(:member_count))
+    # end
 
     def icon_tiny
       alliance_logo_url(32)

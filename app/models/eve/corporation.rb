@@ -31,21 +31,21 @@ module Eve
 
     scope :not_npc, -> { where(npc: false) }
 
-    after_commit :eve_alliance_reset_corporations_count, on: [:create, :update, :destroy]
-
-    after_commit :eve_alliance_reset_characters_count, on: [:create, :update, :destroy]
+    # after_commit :eve_alliance_reset_corporations_count, on: [:create, :update, :destroy]
+    #
+    # after_commit :eve_alliance_reset_characters_count, on: [:create, :update, :destroy]
 
     pg_search_scope :search_by_name_and_ticker, against: [:name, :ticker]
 
     has_one_attached :logo
 
-    def eve_alliance_reset_corporations_count
-      alliance&.reset_corporations_count
-    end
-
-    def eve_alliance_reset_characters_count
-      alliance&.reset_characters_count
-    end
+    # def eve_alliance_reset_corporations_count
+    #   alliance&.reset_corporations_count
+    # end
+    #
+    # def eve_alliance_reset_characters_count
+    #   alliance&.reset_characters_count
+    # end
 
     def icon_tiny
       corporation_logo_url(32)
