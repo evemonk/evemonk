@@ -99,6 +99,14 @@ describe "Get Alliances" do
       id: 111_222)
   end
 
+  before { eve_alliance_1.reset_corporations_count }
+
+  before { eve_alliance_1.reset_characters_count }
+
+  before { eve_alliance_2.reset_corporations_count }
+
+  before { eve_alliance_2.reset_characters_count }
+
   let(:query) do
     %(
       query getAlliances {

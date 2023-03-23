@@ -16,7 +16,7 @@ describe Eve::AllianceImporter do
 
     before { expect(Eve::Alliance).to receive(:find_or_initialize_by).with(id: id).and_return(eve_alliance) }
 
-    context "when eve alliance found" do
+    context "when eve alliance resource found" do
       let(:json) { double }
 
       let(:esi) { instance_double(EveOnline::ESI::Alliance, as_json: json) }
@@ -25,10 +25,14 @@ describe Eve::AllianceImporter do
 
       before { expect(eve_alliance).to receive(:update!).with(json) }
 
+      before { expect(eve_alliance).to receive(:reset_corporations_count) }
+
+      before { expect(eve_alliance).to receive(:reset_characters_count) }
+
       specify { expect { subject.import }.not_to raise_error }
     end
 
-    context "when eve alliance found" do
+    context "when eve alliance resource not found" do
       before { expect(subject).to receive(:esi).and_raise(EveOnline::Exceptions::ResourceNotFound) }
 
       before do

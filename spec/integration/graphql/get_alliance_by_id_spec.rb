@@ -52,6 +52,10 @@ describe "Get Alliance by ID" do
       id: 111_111)
   end
 
+  before { eve_alliance.reset_corporations_count }
+
+  before { eve_alliance.reset_characters_count }
+
   let(:query) do
     %(
       query getAllianceByID {

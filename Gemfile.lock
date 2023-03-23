@@ -8,14 +8,6 @@ GIT
       faraday (>= 2.3.0)
 
 GIT
-  remote: https://github.com/just806me/shoulda-callback-matchers.git
-  revision: b3a93d43490cdb3062a437e2edfbd50d25eda79a
-  branch: master
-  specs:
-    shoulda-callback-matchers (1.1.4)
-      activesupport (>= 3)
-
-GIT
   remote: https://github.com/thomaspark/bootswatch.git
   revision: 886fc4f76dea089ccb08e8459611751ff8227add
   tag: v5.2.3
@@ -545,6 +537,8 @@ GEM
       unicode-display_width (>= 2.4.0, < 3.0)
     rubocop-ast (1.27.0)
       parser (>= 3.2.1.0)
+    rubocop-capybara (2.17.0)
+      rubocop (~> 1.41)
     rubocop-graphql (1.0.1)
       rubocop (>= 0.87, < 2)
     rubocop-performance (1.16.0)
@@ -757,12 +751,12 @@ DEPENDENCIES
   rspec-its
   rspec-rails (>= 6.0.1)
   rubocop
+  rubocop-capybara
   rubocop-graphql
   rubocop-performance
   rubocop-rails
   rufus-scheduler
   selenium-webdriver
-  shoulda-callback-matchers!
   shoulda-matchers
   sidekiq
   simplecov

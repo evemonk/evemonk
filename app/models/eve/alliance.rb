@@ -26,10 +26,6 @@ module Eve
 
     has_many :corporation_alliance_histories # rubocop:disable Rails/HasManyOrHasOneDependent
 
-    after_create_commit :reset_corporations_count
-
-    after_create_commit :reset_characters_count
-
     pg_search_scope :search_by_name_and_ticker, against: [:name, :ticker]
 
     has_one_attached :logo

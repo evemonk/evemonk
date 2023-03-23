@@ -27,10 +27,6 @@ describe Eve::Alliance do
 
   it { should have_many(:corporation_alliance_histories) }
 
-  it { should callback(:reset_corporations_count).after(:commit).on(:create) }
-
-  it { should callback(:reset_characters_count).after(:commit).on(:create) }
-
   it { should have_one_attached(:logo) }
 
   it { should have_db_index([:name, :ticker]) }
