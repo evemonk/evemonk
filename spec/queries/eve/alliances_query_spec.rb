@@ -35,6 +35,33 @@ describe Eve::AlliancesQuery do
 
   describe "#query" do
     context "when order_by is present" do
+      context "when order_by is CORPORATIONS_COUNT_DESC" do
+        let!(:eve_alliance_1) { create(:eve_alliance, id: 1, corporations_count: 100) }
+
+        let!(:eve_alliance_2) { create(:eve_alliance, id: 2, corporations_count: 200) }
+
+        let(:order_by) { "CORPORATIONS_COUNT_DESC" }
+
+        subject { described_class.new(order_by) }
+
+        specify { expect(subject.query).to eq([eve_alliance_2, eve_alliance_1]) }
+      end
+
+      context "when order_by is CORPORATIONS_COUNT_ASC" do
+        let!(:eve_alliance_1) { create(:eve_alliance, id: 1, corporations_count: 100) }
+
+        let!(:eve_alliance_2) { create(:eve_alliance, id: 2, corporations_count: 200) }
+
+        let(:order_by) { "CORPORATIONS_COUNT_ASC" }
+
+        subject { described_class.new(order_by) }
+
+        specify { expect(subject.query).to eq([eve_alliance_1, eve_alliance_2]) }
+      end
+
+      # value "CHARACTERS_COUNT_DESC", "Order by characters_count desc"
+      # value "CHARACTERS_COUNT_ASC", "Order by characters_count asc"
+
       context "when order_by is NONE" do
         let!(:eve_alliance_1) { create(:eve_alliance, id: 1) }
 
