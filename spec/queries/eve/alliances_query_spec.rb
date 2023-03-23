@@ -83,9 +83,6 @@ describe Eve::AlliancesQuery do
         specify { expect(subject.query).to eq([eve_alliance_1, eve_alliance_2]) }
       end
 
-      # value "CHARACTERS_COUNT_DESC", "Order by characters_count desc"
-      # value "CHARACTERS_COUNT_ASC", "Order by characters_count asc"
-
       context "when order_by is NONE" do
         let!(:eve_alliance_1) { create(:eve_alliance, id: 1) }
 
