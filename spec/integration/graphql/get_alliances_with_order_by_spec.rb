@@ -3,13 +3,13 @@
 require "rails_helper"
 
 describe "Get Alliances with orderBy" do
-  let!(:eve_alliance_1) { create(:eve_alliance, id: 1, characters_count: 0, corporations_count: 100) }
+  let!(:eve_alliance_1) { create(:eve_alliance, id: 1, characters_count: 100, corporations_count: 1_000) }
 
-  let!(:eve_alliance_2) { create(:eve_alliance, id: 2, characters_count: 0, corporations_count: 200) }
+  let!(:eve_alliance_2) { create(:eve_alliance, id: 2, characters_count: 200, corporations_count: 2_000) }
 
-  let!(:eve_alliance_3) { create(:eve_alliance, id: 3, characters_count: 300, corporations_count: 0) }
+  let!(:eve_alliance_3) { create(:eve_alliance, id: 3, characters_count: 300, corporations_count: 3_000) }
 
-  let!(:eve_alliance_4) { create(:eve_alliance, id: 4, characters_count: 400, corporations_count: 0) }
+  let!(:eve_alliance_4) { create(:eve_alliance, id: 4, characters_count: 400, corporations_count: 4_000) }
 
   let(:query) do
     %(
@@ -55,28 +55,28 @@ describe "Get Alliances with orderBy" do
             {
               "node" => {
                 "id" => "1",
-                "corporationsCount" => 100,
-                "charactersCount" => 0
+                "corporationsCount" => 1000,
+                "charactersCount" => 100
               }
             },
             {
               "node" => {
                 "id" => "2",
-                "corporationsCount" => 200,
-                "charactersCount" => 0
+                "corporationsCount" => 2000,
+                "charactersCount" => 200
               }
             },
             {
               "node" => {
                 "id" => "3",
-                "corporationsCount" => 0,
+                "corporationsCount" => 3000,
                 "charactersCount" => 300
               }
             },
             {
               "node" => {
                 "id" => "4",
-                "corporationsCount" => 0,
+                "corporationsCount" => 4000,
                 "charactersCount" => 400
               }
             }
