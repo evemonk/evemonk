@@ -36,7 +36,9 @@ describe "Get Alliance by ID" do
       creator_corporation: creator_corporation,
       creator: creator,
       executor_corporation: executor_corporation,
-      faction: eve_faction)
+      faction: eve_faction,
+      corporations_count: 1,
+      characters_count: 1)
   end
 
   let!(:eve_corporation) do
