@@ -2,6 +2,7 @@ require:
   - rubocop-performance
   - rubocop-graphql
   - rubocop-rails
+  - rubocop-capybara
 
 AllCops:
   NewCops: enable
