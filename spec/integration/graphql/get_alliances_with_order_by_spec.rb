@@ -31,18 +31,166 @@ describe "Get Alliances with orderBy" do
 
   context "when orderBy is CORPORATIONS_COUNT_DESC" do
     let(:order_by) { "CORPORATIONS_COUNT_DESC" }
+
+    specify do
+      expect(result).to eq("data" => {
+        "alliances" => {
+          "edges" => [
+            {
+              "node" => {
+                "id" => "4",
+                "corporationsCount" => 4000,
+                "charactersCount" => 400
+              }
+            },
+            {
+              "node" => {
+                "id" => "3",
+                "corporationsCount" => 3000,
+                "charactersCount" => 300
+              }
+            },
+            {
+              "node" => {
+                "id" => "2",
+                "corporationsCount" => 2000,
+                "charactersCount" => 200
+              }
+            },
+            {
+              "node" => {
+                "id" => "1",
+                "corporationsCount" => 1000,
+                "charactersCount" => 100
+              }
+            }
+          ]
+        }
+      })
+    end
   end
 
   context "when orderBy is CORPORATIONS_COUNT_ASC" do
     let(:order_by) { "CORPORATIONS_COUNT_ASC" }
+
+    specify do
+      expect(result).to eq("data" => {
+        "alliances" => {
+          "edges" => [
+            {
+              "node" => {
+                "id" => "1",
+                "corporationsCount" => 1000,
+                "charactersCount" => 100
+              }
+            },
+            {
+              "node" => {
+                "id" => "2",
+                "corporationsCount" => 2000,
+                "charactersCount" => 200
+              }
+            },
+            {
+              "node" => {
+                "id" => "3",
+                "corporationsCount" => 3000,
+                "charactersCount" => 300
+              }
+            },
+            {
+              "node" => {
+                "id" => "4",
+                "corporationsCount" => 4000,
+                "charactersCount" => 400
+              }
+            }
+          ]
+        }
+      })
+    end
   end
 
   context "when orderBy is CHARACTERS_COUNT_DESC" do
     let(:order_by) { "CHARACTERS_COUNT_DESC" }
+
+    specify do
+      expect(result).to eq("data" => {
+        "alliances" => {
+          "edges" => [
+            {
+              "node" => {
+                "id" => "4",
+                "corporationsCount" => 4000,
+                "charactersCount" => 400
+              }
+            },
+            {
+              "node" => {
+                "id" => "3",
+                "corporationsCount" => 3000,
+                "charactersCount" => 300
+              }
+            },
+            {
+              "node" => {
+                "id" => "2",
+                "corporationsCount" => 2000,
+                "charactersCount" => 200
+              }
+            },
+            {
+              "node" => {
+                "id" => "1",
+                "corporationsCount" => 1000,
+                "charactersCount" => 100
+              }
+            }
+          ]
+        }
+      })
+    end
   end
 
   context "when orderBy is CHARACTERS_COUNT_ASC" do
     let(:order_by) { "CHARACTERS_COUNT_ASC" }
+
+    specify do
+      expect(result).to eq("data" => {
+        "alliances" => {
+          "edges" => [
+            {
+              "node" => {
+                "id" => "1",
+                "corporationsCount" => 1000,
+                "charactersCount" => 100
+              }
+            },
+            {
+              "node" => {
+                "id" => "2",
+                "corporationsCount" => 2000,
+                "charactersCount" => 200
+              }
+            },
+            {
+              "node" => {
+                "id" => "3",
+                "corporationsCount" => 3000,
+                "charactersCount" => 300
+              }
+            },
+            {
+              "node" => {
+                "id" => "4",
+                "corporationsCount" => 4000,
+                "charactersCount" => 400
+              }
+            }
+          ]
+        }
+      })
+    end
   end
 
   context "when orderBy is NONE" do
