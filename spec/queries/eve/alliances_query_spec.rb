@@ -32,4 +32,32 @@ describe Eve::AlliancesQuery do
       its(:scope) { should eq(scope) }
     end
   end
+
+  describe "#query" do
+    context "when order_by is present" do
+      context "when order_by is NONE" do
+        let!(:eve_alliance_1) { create(:eve_alliance, id: 1) }
+
+        let!(:eve_alliance_2) { create(:eve_alliance, id: 2) }
+
+        let(:order_by) { "NONE" }
+
+        subject { described_class.new(order_by) }
+
+        specify { expect(subject.query).to eq([eve_alliance_1, eve_alliance_2]) }
+      end
+    end
+
+    context "when order_by is not present" do
+      let!(:eve_alliance_1) { create(:eve_alliance, id: 1) }
+
+      let!(:eve_alliance_2) { create(:eve_alliance, id: 2) }
+
+      let(:order_by) { nil }
+
+      subject { described_class.new(order_by) }
+
+      specify { expect(subject.query).to eq([eve_alliance_1, eve_alliance_2]) }
+    end
+  end
 end
