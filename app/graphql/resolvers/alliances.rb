@@ -9,7 +9,7 @@ module Resolvers
       required: false
 
     def resolve(order_by: nil)
-      Eve::AlliancesQuery.new(Eve::Alliance.all, order_by).query
+      Eve::AlliancesQuery.new(order_by).query
     end
   end
 end

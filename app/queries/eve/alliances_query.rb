@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
 module Eve
-  class AlliancesQuery
-    attr_reader :scope, :order_by
+  class AlliancesQuery < BaseQuery
+    attr_reader :order_by, :scope
 
-    def initialize(scope, order_by)
-      @scope = scope
+    def initialize(order_by = nil, scope = Eve::Alliance.all)
       @order_by = order_by
+      @scope = scope
     end
 
     def query
