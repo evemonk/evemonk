@@ -36,9 +36,7 @@ describe "Get Alliance by ID" do
       creator_corporation: creator_corporation,
       creator: creator,
       executor_corporation: executor_corporation,
-      faction: eve_faction,
-      corporations_count: 1,
-      characters_count: 1)
+      faction: eve_faction)
   end
 
   let!(:eve_corporation) do
@@ -53,6 +51,10 @@ describe "Get Alliance by ID" do
       corporation: eve_corporation,
       id: 111_111)
   end
+
+  before { eve_alliance.reset_corporations_count }
+
+  before { eve_alliance.reset_characters_count }
 
   let(:query) do
     %(

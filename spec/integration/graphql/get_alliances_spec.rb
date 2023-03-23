@@ -58,9 +58,7 @@ describe "Get Alliances" do
       creator_corporation: creator_corporation_1,
       creator: creator_1,
       executor_corporation: executor_corporation_1,
-      faction: eve_faction_1,
-      corporations_count: 1,
-      characters_count: 1)
+      faction: eve_faction_1)
   end
 
   let!(:eve_alliance_2) do
@@ -72,9 +70,7 @@ describe "Get Alliances" do
       creator_corporation: creator_corporation_2,
       creator: creator_2,
       executor_corporation: executor_corporation_2,
-      faction: eve_faction_2,
-      corporations_count: 1,
-      characters_count: 1)
+      faction: eve_faction_2)
   end
 
   let!(:eve_corporation_1) do
@@ -102,6 +98,14 @@ describe "Get Alliances" do
       corporation: eve_corporation_2,
       id: 111_222)
   end
+
+  before { eve_alliance_1.reset_corporations_count }
+
+  before { eve_alliance_1.reset_characters_count }
+
+  before { eve_alliance_2.reset_corporations_count }
+
+  before { eve_alliance_2.reset_characters_count }
 
   let(:query) do
     %(
