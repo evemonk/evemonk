@@ -19,7 +19,7 @@ describe "/.well-known/change-password" do
 
     find("#edit_user")
 
-    expect(current_path).to eq("/users/edit")
+    expect(page).to have_current_path("/users/edit")
 
     expect(page).to have_content("Change email and password")
 

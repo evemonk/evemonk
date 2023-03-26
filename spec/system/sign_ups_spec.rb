@@ -29,7 +29,7 @@ describe "Sign up features" do
 
     expect(page).to have_content(I18n.t("devise.sessions.signed_in"))
 
-    expect(current_path).to eq("/characters")
+    expect(page).to have_current_path("/characters")
 
     expect(User.count).to eq(1)
   end
