@@ -23,8 +23,8 @@ describe "Welcome page feature" do
 
     visit root_path
 
-    find("#alliances")
+    find_by_id("alliances")
 
-    find("#corporations")
+    find_by_id("corporations")
   end
 end

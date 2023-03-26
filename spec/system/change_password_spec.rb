@@ -30,7 +30,7 @@ xdescribe "Change password features" do
     fill_in "old_password", with: "eidii7EeooVe8ahk"
     fill_in "password", with: "7bYu9qK1"
     fill_in "password_confirmation", with: "7bYu9qK1"
-    find("#change_password_button").click # TODO: change to 'click'
+    find_by_id("change_password_button").click # TODO: change to 'click'
 
     expect(page).to have_content("Password was successful changed!")
 

@@ -15,13 +15,13 @@ describe "Sign out features" do
 
     click_button "Log in"
 
-    find("#characters")
+    find_by_id("characters")
 
     expect(page).to have_current_path("/characters")
 
     click_link "Sign Out"
 
-    find("#alliances")
+    find_by_id("alliances")
 
     expect(page).to have_current_path(root_path)
   end
