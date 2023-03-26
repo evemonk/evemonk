@@ -17,7 +17,7 @@ describe "Sign in features" do
 
     expect(page).to have_content("Signed in successfully.")
 
-    expect(current_path).to eq("/characters")
+    expect(page).to have_current_path("/characters")
   end
 
   it "when user successfully sign in with upper cased email" do
@@ -34,7 +34,7 @@ describe "Sign in features" do
 
     expect(page).to have_content("Signed in successfully.")
 
-    expect(current_path).to eq("/characters")
+    expect(page).to have_current_path("/characters")
   end
 
   it "when user with given email not found" do
@@ -49,7 +49,7 @@ describe "Sign in features" do
 
     expect(page).to have_content("Invalid Email or password.")
 
-    expect(current_path).to eq("/users/sign_in")
+    expect(page).to have_current_path("/users/sign_in")
   end
 
   it "when password wrong" do
@@ -66,6 +66,6 @@ describe "Sign in features" do
 
     expect(page).to have_content("Invalid Email or password.")
 
-    expect(current_path).to eq("/users/sign_in")
+    expect(page).to have_current_path("/users/sign_in")
   end
 end

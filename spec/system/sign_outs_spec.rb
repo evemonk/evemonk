@@ -17,12 +17,12 @@ describe "Sign out features" do
 
     find("#characters")
 
-    expect(current_path).to eq("/characters")
+    expect(page).to have_current_path("/characters")
 
     click_link "Sign Out"
 
     find("#alliances")
 
-    expect(current_path).to eq(root_path)
+    expect(page).to have_current_path(root_path)
   end
 end
