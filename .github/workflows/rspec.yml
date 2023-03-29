@@ -63,7 +63,7 @@ jobs:
       - name: Disable skylight dev warning
         run: bundle exec skylight disable_dev_warning
       - name: Setup setup-chromedriver
-        uses: nanasess/setup-chromedriver@v1.1.0
+        uses: nanasess/setup-chromedriver@v2.0.0
       - run: bundle exec bootsnap precompile --gemfile app/ lib/
       - run: bin/rails zeitwerk:check
       - run: bin/rails db:create
