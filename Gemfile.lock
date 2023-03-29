@@ -735,7 +735,7 @@ DEPENDENCIES
   pghero
   prosopite
   pry-rails
-  puma (~> 6.2)
+  puma
   pundit
   rack-cors
   rack-timeout
