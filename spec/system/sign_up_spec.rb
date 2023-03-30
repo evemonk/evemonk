@@ -4,13 +4,15 @@ require "rails_helper"
 
 describe "Sign up features" do
   it "when user successfully sign up" do
-    visit "/"
+    visit root_path
 
     click_link "Sign Up"
 
-    fill_in "user[email]", with: "me@example.com"
-    fill_in "user[password]", with: "eidii7EeooVe8ahk"
-    fill_in "user[password_confirmation]", with: "eidii7EeooVe8ahk"
+    fill_in "Email address", with: "me@example.com"
+
+    fill_in "Password", with: "eidii7EeooVe8ahk"
+
+    fill_in "Password confirmation", with: "eidii7EeooVe8ahk"
 
     click_button "Sign up"
 
@@ -18,20 +20,21 @@ describe "Sign up features" do
 
     User.find_by(email: "me@example.com").confirm
 
-    visit "/"
+    visit root_path
 
     click_link "Log in"
 
-    fill_in "user[email]", with: "me@example.com"
-    fill_in "user[password]", with: "eidii7EeooVe8ahk"
+    fill_in "Email address", with: "me@example.com"
+
+    click_button "Next"
+
+    fill_in "Password", with: "eidii7EeooVe8ahk"
 
     click_button "Log in"
 
     expect(page).to have_content(I18n.t("devise.sessions.signed_in"))
 
-    expect(page).to have_current_path("/characters")
-
-    expect(User.count).to eq(1)
+    expect(page).to have_current_path(characters_path)
   end
 
   # it "when email is already taken" do

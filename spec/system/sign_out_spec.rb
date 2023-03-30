@@ -10,18 +10,23 @@ describe "Sign out features" do
 
     click_link "Log in"
 
-    fill_in "user[email]", with: "me@example.com"
-    fill_in "user[password]", with: "eidii7EeooVe8ahk"
+    fill_in "Email address", with: "me@example.com"
+
+    click_button "Next"
+
+    fill_in "Password", with: "eidii7EeooVe8ahk"
 
     click_button "Log in"
 
     find_by_id("characters")
 
-    expect(page).to have_current_path("/characters")
+    expect(page).to have_content("Signed in successfully.")
+
+    expect(page).to have_current_path(characters_path)
 
     click_link "Sign Out"
 
-    find_by_id("alliances")
+    expect(page).to have_content("Signed out successfully.")
 
     expect(page).to have_current_path(root_path)
   end
