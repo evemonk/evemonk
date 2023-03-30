@@ -366,7 +366,7 @@ GEM
       request_store (~> 1.0)
     msgpack (1.7.0)
     multi_xml (0.6.0)
-    net-http-persistent (4.0.1)
+    net-http-persistent (4.0.2)
       connection_pool (~> 2.2)
     net-imap (0.3.4)
       date
