@@ -13,11 +13,11 @@ describe "/.well-known/change-password" do
 
     click_button "Log in"
 
-    find("#characters")
+    find_by_id("characters")
 
     visit "/.well-known/change-password"
 
-    find("#edit_user")
+    find_by_id("edit_user")
 
     expect(page).to have_current_path("/users/edit")
 
