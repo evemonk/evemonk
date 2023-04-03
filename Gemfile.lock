@@ -140,7 +140,7 @@ GEM
     builder (3.2.4)
     cacheflow (0.3.1)
       activesupport (>= 6)
-    capybara (3.38.0)
+    capybara (3.39.0)
       addressable
       matrix
       mini_mime (>= 0.1.3)
