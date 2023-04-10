@@ -1,4 +1,4 @@
-ruby_version: 3.2.0
+ruby_version: 3.2
 parallel: true
 
 ignore:
