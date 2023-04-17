@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# e.g. "v1.10.3"
+# e.g. "v1.10.4"
 VERSION=$1
 
 if [ -z "$VERSION" ]; then
