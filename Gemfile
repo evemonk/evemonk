@@ -91,7 +91,7 @@ group :development, :test do
   gem "rubocop-graphql", require: false
   gem "rubocop-rails", require: false
   gem "rubocop-capybara", require: false
-  gem "standard", "1.27.0", require: false
+  gem "standard", "1.28.0", require: false
   gem "squasher", require: false
   gem "brakeman", require: false
   gem "fasterer", require: false
