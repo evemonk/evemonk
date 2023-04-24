@@ -737,7 +737,7 @@ DEPENDENCIES
   noticed
   omniauth-eve_online-sso
   omniauth-rails_csrf_protection
-  pg (~> 1.5)
+  pg
   pg_query
   pg_search
   pghero
