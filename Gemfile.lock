@@ -183,6 +183,11 @@ GEM
       warden (~> 1.2.3)
     devise-i18n (1.11.0)
       devise (>= 4.9.0)
+    devise-two-factor (5.0.0)
+      activesupport (~> 7.0)
+      devise (~> 4.0)
+      railties (~> 7.0)
+      rotp (~> 6.0)
     devise_zxcvbn (6.0.0)
       devise
       zxcvbn (~> 0.1.7)
@@ -505,6 +510,7 @@ GEM
       actionpack (>= 5.2)
       railties (>= 5.2)
     rexml (3.2.5)
+    rotp (6.2.2)
     rouge (3.30.0)
     rspec-core (3.12.2)
       rspec-support (~> 3.12.0)
@@ -703,6 +709,7 @@ DEPENDENCIES
   derailed_benchmarks
   devise
   devise-i18n
+  devise-two-factor (>= 5.0.0)
   devise_zxcvbn
   dotenv-rails
   down
