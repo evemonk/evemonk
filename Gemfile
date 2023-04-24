@@ -14,6 +14,7 @@ gem "stimulus-rails", ">= 0.3.9"
 gem "jbuilder", "~> 2.11"
 gem "dartsass-rails"
 gem "bootsnap", ">= 1.4.4", require: false
+gem "view_component"
 gem "flipper"
 gem "flipper-active_record"
 gem "flipper-ui"

@@ -649,6 +649,10 @@ GEM
     unicode-display_width (2.4.2)
     vcr (6.1.0)
     version_gem (1.1.2)
+    view_component (3.0.0)
+      activesupport (>= 5.2.0, < 8.0)
+      concurrent-ruby (~> 1.0)
+      method_source (~> 1.0)
     warden (1.2.9)
       rack (>= 2.0.9)
     webdrivers (5.2.0)
@@ -779,6 +783,7 @@ DEPENDENCIES
   turbo-rails (>= 0.7.4)
   tzinfo-data
   vcr
+  view_component
   webdrivers
   webmock
   webrick
