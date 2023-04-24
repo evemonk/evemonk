@@ -420,7 +420,7 @@ GEM
       ast (~> 2.4.1)
     patience_diff (1.2.0)
       optimist (~> 3.0)
-    pg (1.4.6)
+    pg (1.5.0)
     pg_query (4.2.0)
       google-protobuf (>= 3.19.2)
     pg_search (2.3.6)
@@ -737,7 +737,7 @@ DEPENDENCIES
   noticed
   omniauth-eve_online-sso
   omniauth-rails_csrf_protection
-  pg (~> 1.4)
+  pg (~> 1.5)
   pg_query
   pg_search
   pghero
