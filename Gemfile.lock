@@ -151,6 +151,7 @@ GEM
       xpath (~> 3.2)
     chartkick (5.0.1)
     choice (0.2.0)
+    chunky_png (1.4.0)
     coderay (1.1.3)
     colorize (0.8.1)
     concurrent-ruby (1.2.2)
@@ -158,6 +159,8 @@ GEM
     crack (0.4.5)
       rexml
     crass (1.0.6)
+    css_parser (1.14.0)
+      addressable
     dartsass-rails (0.4.1)
       railties (>= 6.0.0)
     database_rewinder (0.9.8)
@@ -183,6 +186,11 @@ GEM
       warden (~> 1.2.3)
     devise-i18n (1.11.0)
       devise (>= 4.9.0)
+    devise-two-factor (5.0.0)
+      activesupport (~> 7.0)
+      devise (~> 4.0)
+      railties (~> 7.0)
+      rotp (~> 6.0)
     devise_zxcvbn (6.0.0)
       devise
       zxcvbn (~> 0.1.7)
@@ -274,6 +282,8 @@ GEM
     hashie (5.0.0)
     heapy (0.2.0)
       thor
+    htmlbeautifier (1.4.2)
+    htmlentities (4.3.4)
     http (5.1.1)
       addressable (~> 2.8)
       http-cookie (~> 1.0)
@@ -344,6 +354,17 @@ GEM
     loofah (2.20.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
+    lookbook (2.0.0.rc.2)
+      activemodel
+      css_parser
+      htmlbeautifier (~> 1.3)
+      htmlentities (~> 4.3.4)
+      railties (>= 5.0)
+      redcarpet (~> 3.5)
+      rouge (>= 3.26, < 5.0)
+      view_component (>= 2.0)
+      yard (~> 0.9.25)
+      zeitwerk (~> 2.5)
     mail (2.8.1)
       mini_mime (>= 0.1.1)
       net-imap
@@ -494,6 +515,7 @@ GEM
     rainbow (3.1.1)
     rake (13.0.6)
     rbtree3 (0.7.1)
+    redcarpet (3.6.0)
     redis (5.0.6)
       redis-client (>= 0.9.0)
     redis-client (0.14.1)
@@ -505,7 +527,12 @@ GEM
       actionpack (>= 5.2)
       railties (>= 5.2)
     rexml (3.2.5)
+    rotp (6.2.2)
     rouge (3.30.0)
+    rqrcode (2.1.2)
+      chunky_png (~> 1.0)
+      rqrcode_core (~> 1.0)
+    rqrcode_core (1.2.0)
     rspec-core (3.12.2)
       rspec-support (~> 3.12.0)
     rspec-expectations (3.12.3)
@@ -649,6 +676,10 @@ GEM
     unicode-display_width (2.4.2)
     vcr (6.1.0)
     version_gem (1.1.2)
+    view_component (3.0.0)
+      activesupport (>= 5.2.0, < 8.0)
+      concurrent-ruby (~> 1.0)
+      method_source (~> 1.0)
     warden (1.2.9)
       rack (>= 2.0.9)
     webdrivers (5.2.0)
@@ -669,6 +700,7 @@ GEM
       rexml
     xpath (3.2.0)
       nokogiri (~> 1.8)
+    yard (0.9.34)
     zeitwerk (2.6.7)
     zxcvbn (0.1.9)
 
@@ -699,6 +731,7 @@ DEPENDENCIES
   derailed_benchmarks
   devise
   devise-i18n
+  devise-two-factor (>= 5.0.0)
   devise_zxcvbn
   dotenv-rails
   down
@@ -730,6 +763,7 @@ DEPENDENCIES
   license_finder
   local_time
   lograge
+  lookbook (= 2.0.0.rc.2)
   meta-tags
   metricky
   mobility
@@ -756,6 +790,7 @@ DEPENDENCIES
   redis
   redis-client
   responders
+  rqrcode
   rspec-its
   rspec-rails (>= 6.0.1)
   rubocop
@@ -779,6 +814,7 @@ DEPENDENCIES
   turbo-rails (>= 0.7.4)
   tzinfo-data
   vcr
+  view_component
   webdrivers
   webmock
   webrick

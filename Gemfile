@@ -14,6 +14,7 @@ gem "stimulus-rails", ">= 0.3.9"
 gem "jbuilder", "~> 2.11"
 gem "dartsass-rails"
 gem "bootsnap", ">= 1.4.4", require: false
+gem "view_component"
 gem "flipper"
 gem "flipper-active_record"
 gem "flipper-ui"
@@ -27,8 +28,10 @@ gem "local_time"
 gem "rails-i18n", "~> 7.0.6"
 gem "http_accept_language"
 gem "devise"
+gem "devise-two-factor", ">= 5.0.0"
 gem "devise-i18n"
 gem "devise_zxcvbn"
+gem "rqrcode"
 gem "graphql"
 gem "graphiql-rails"
 gem "rack-cors"
@@ -81,6 +84,7 @@ group :production do
 end
 
 group :development, :test do
+  gem "lookbook", "2.0.0.rc.2"
   gem "dotenv-rails"
   gem "rspec-rails", ">= 6.0.1"
   gem "factory_bot_rails"
