@@ -416,7 +416,7 @@ GEM
     optimist (3.0.1)
     orm_adapter (0.5.0)
     parallel (1.23.0)
-    parser (3.2.2.0)
+    parser (3.2.2.1)
       ast (~> 2.4.1)
     patience_diff (1.2.0)
       optimist (~> 3.0)
