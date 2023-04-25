@@ -1,0 +1,40 @@
+<div class="w-100"></div>
+
+<hr class="text-dark">
+
+<div class="row">
+  <div class="col-6 col-md-3">
+    <ul class="list-unstyled mb-0">
+      <li><%= link_to(t(".faq"), faq_path) %></li>
+      <li><%= link_to(t(".privacy_policy"), privacy_policy_path) %></li>
+    </ul>
+  </div>
+  <div class="col-6 col-md-3">
+    <ul class="list-unstyled mb-0">
+      <li><%= link_to(t(".terms_of_use"), terms_of_service_path) %></li>
+      <li><%= link_to(t(".about"), about_path) %></li>
+    </ul>
+  </div>
+  <div class="col-6 col-md-3">
+    <ul class="list-unstyled mb-0">
+      <li><%= link_to("GraphQL", graphiql_rails_path, target: "_blank") %></li>
+      <li><%= link_to("Blog", blog_url, target: "_blank", rel: "noopener noreferrer") %></li>
+    </ul>
+  </div>
+  <div class="col-6 col-md-3">
+    <ul class="list-unstyled mb-0">
+      <li><%= link_to("GitHub", github_evemonk_evemonk_url, target: "_blank", rel: "noopener noreferrer") %></li>
+      <li><%= link_to("SDE Archive", sde_archive_url, target: "_blank", rel: "noopener noreferrer") %></li>
+    </ul>
+  </div>
+</div>
+
+<div class="w-100"></div>
+
+<hr class="text-dark">
+
+<div class="row text-center">
+  <div class="col text-muted">
+    &copy; 2016 &mdash; 2023 <strong>EveMonk</strong>
+  </div>
+</div>

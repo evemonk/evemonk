@@ -5,6 +5,10 @@ if Rails.env.development?
 end
 
 Rails.application.routes.draw do
+  if !Rails.env.production?
+    mount Lookbook::Engine, at: "/lookbook"
+  end
+
   mount GraphiQL::Rails::Engine, at: "/graphiql", graphql_path: "/graphql"
 
   post "/graphql", to: "graphql#execute"
