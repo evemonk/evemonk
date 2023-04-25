@@ -79,5 +79,5 @@ Rails.application.configure do
   end
 
   # lookbook
-  config.lookbook.preview_paths << "#{Rails.root}/spec/components/previews"
+  config.lookbook.preview_paths << Rails.root.join("spec/components/previews")
 end
