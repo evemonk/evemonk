@@ -32,26 +32,26 @@
     <div class="accordion" id="certificates_tree_accordion">
       <% @character_certificates_tree.groups.each do |group| %>
         <div class="card">
-          <div class="card-header" id="heading_group_<%= group.group_id %>">
+          <div class="card-header" id="heading_group_<%= group.id %>">
             <h2 class="mb-0">
               <button class="btn btn-link collapsed"
                       type="button"
                       data-bs-toggle="collapse"
-                      data-bs-target="#collapse_<%= group.group_id %>"
+                      data-bs-target="#collapse_<%= group.id %>"
                       aria-expanded="true"
-                      aria-controls="collapse_<%= group.group_id %>">
+                      aria-controls="collapse_<%= group.id %>">
                 <!-- TODO: add icon -->
                 <%= group.name %>
               </button>
             </h2>
           </div>
 
-          <div id="collapse_<%= group.group_id %>"
+          <div id="collapse_<%= group.id %>"
                class="collapse"
-               aria-labelledby="heading_group_<%= group.group_id %>"
+               aria-labelledby="heading_group_<%= group.id %>"
                data-parent="#certificates_tree_accordion">
             <div class="card-body m-0 p-0">
-              <% @character_certificates_tree.certificates_in_group(group.group_id).each do |certificate| %>
+              <% @character_certificates_tree.certificates_in_group(group.id).each do |certificate| %>
                 <div class="row">
                   <div class="col-12">
                     <!-- start another accordion -->
