@@ -39,7 +39,7 @@
                     data-bs-target="#collapse_<%= group.id %>"
                     aria-expanded="false"
                     aria-controls="collapse_<%= group.id %>">
-              <%= group.name %> (<%= @character_skills_tree.skills_count_in_group(group.group_id) %>)
+              <%= group.name %> (<%= @character_skills_tree.skills_count_in_group(group.id) %>)
             </button>
           </h2>
 
@@ -47,25 +47,25 @@
             <div class="accordion-body">
               <div class="row">
                 <div class="col-12">
-                  Levels trained: <%= @character_skills_tree.levels_trained_in_group(group.group_id) %> / <%= @character_skills_tree.total_levels_in_group(group.group_id) %>
+                  Levels trained: <%= @character_skills_tree.levels_trained_in_group(group.id) %> / <%= @character_skills_tree.total_levels_in_group(group.id) %>
                 </div>
               </div>
 
               <div class="row">
                 <div class="col-12">
-                  Levels in training queue: <%= @character_skills_tree.levels_in_training_queue(group.group_id) %>
+                  Levels in training queue: <%= @character_skills_tree.levels_in_training_queue(group.id) %>
                 </div>
               </div>
 
               <div class="row">
                 <div class="col-12">
-                  Skill points: <%= number_with_delimiter(@character_skills_tree.current_skill_points_in_group(group.group_id), delimiter: " ") %> / <%= number_with_delimiter(@character_skills_tree.total_skill_points_in_group(group.group_id), delimiter: " ") %>
+                  Skill points: <%= number_with_delimiter(@character_skills_tree.current_skill_points_in_group(group.id), delimiter: " ") %> / <%= number_with_delimiter(@character_skills_tree.total_skill_points_in_group(group.id), delimiter: " ") %>
                 </div>
               </div>
 
               <div class="row">
                 <div class="col-12">
-                  Certificates claimed: <%= @character_skills_tree.certificates_claimed_in_group(group.group_id) %> / <%= @character_skills_tree.total_certificates_in_group(group.group_id) %>
+                  Certificates claimed: <%= @character_skills_tree.certificates_claimed_in_group(group.id) %> / <%= @character_skills_tree.total_certificates_in_group(group.id) %>
                 </div>
               </div>
 
@@ -78,43 +78,43 @@
     <div class="accordion" id="skills_tree_accordion">
       <% @character_skills_tree.skills_groups.each do |group| %>
         <div class="card">
-          <div class="card-header" id="heading_group_<%= group.group_id %>">
+          <div class="card-header" id="heading_group_<%= group.id %>">
             <h2 class="mb-0">
               <button class="btn btn-link collapsed"
                       type="button"
                       data-bs-toggle="collapse"
-                      data-bs-target="#collapse_<%= group.group_id %>"
+                      data-bs-target="#collapse_<%= group.id %>"
                       aria-expanded="true"
-                      aria-controls="collapse_<%= group.group_id %>">
+                      aria-controls="collapse_<%= group.id %>">
                 <!-- TODO: add icon -->
-                <%= group.name %> (<%= @character_skills_tree.skills_count_in_group(group.group_id) %>)
+                <%= group.name %> (<%= @character_skills_tree.skills_count_in_group(group.id) %>)
               </button>
             </h2>
           </div>
 
-          <div id="collapse_<%= group.group_id %>"
+          <div id="collapse_<%= group.id %>"
                class="collapse"
-               aria-labelledby="heading_group_<%= group.group_id %>"
+               aria-labelledby="heading_group_<%= group.id %>"
                data-parent="#skills_tree_accordion">
             <div class="card-body">
               <div class="row">
                 <div class="col-12">
-                  Levels trained: <%= @character_skills_tree.levels_trained_in_group(group.group_id) %> / <%= @character_skills_tree.total_levels_in_group(group.group_id) %>
+                  Levels trained: <%= @character_skills_tree.levels_trained_in_group(group.id) %> / <%= @character_skills_tree.total_levels_in_group(group.id) %>
                 </div>
               </div>
               <div class="row">
                 <div class="col-12">
-                  Levels in training queue: <%= @character_skills_tree.levels_in_training_queue(group.group_id) %>
+                  Levels in training queue: <%= @character_skills_tree.levels_in_training_queue(group.id) %>
                 </div>
               </div>
               <div class="row">
                 <div class="col-12">
-                  Skill points: <%= number_with_delimiter(@character_skills_tree.current_skill_points_in_group(group.group_id), delimiter: " ") %> / <%= number_with_delimiter(@character_skills_tree.total_skill_points_in_group(group.group_id), delimiter: " ") %>
+                  Skill points: <%= number_with_delimiter(@character_skills_tree.current_skill_points_in_group(group.id), delimiter: " ") %> / <%= number_with_delimiter(@character_skills_tree.total_skill_points_in_group(group.id), delimiter: " ") %>
                 </div>
               </div>
               <div class="row">
                 <div class="col-12">
-                  Certificates claimed: <%= @character_skills_tree.certificates_claimed_in_group(group.group_id) %> / <%= @character_skills_tree.total_certificates_in_group(group.group_id) %>
+                  Certificates claimed: <%= @character_skills_tree.certificates_claimed_in_group(group.id) %> / <%= @character_skills_tree.total_certificates_in_group(group.id) %>
                 </div>
               </div>
 <!--              <div class="row">-->
@@ -128,7 +128,7 @@
 
               <hr>
 
-              <% @character_skills_tree.skills_in_group(group.group_id).each do |skill| %>
+              <% @character_skills_tree.skills_in_group(group.id).each do |skill| %>
                 <div class="row">
                   <div class="col-12">
                     <%= link_to(skill.name, universe_type_path(skill.type_id)) %><br>
