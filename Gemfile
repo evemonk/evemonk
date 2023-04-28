@@ -84,7 +84,7 @@ group :production do
 end
 
 group :development, :test do
-  gem "lookbook", "2.0.0.rc.3"
+  gem "lookbook", "2.0.0"
   gem "dotenv-rails"
   gem "rspec-rails", ">= 6.0.1"
   gem "factory_bot_rails"
