@@ -442,7 +442,7 @@ GEM
       ast (~> 2.4.1)
     patience_diff (1.2.0)
       optimist (~> 3.0)
-    pg (1.5.2)
+    pg (1.5.3)
     pg_query (4.2.0)
       google-protobuf (>= 3.19.2)
     pg_search (2.3.6)
