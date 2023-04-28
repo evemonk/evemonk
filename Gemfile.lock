@@ -764,7 +764,7 @@ DEPENDENCIES
   license_finder
   local_time
   lograge
-  lookbook (= 2.0.0)
+  lookbook
   meta-tags
   metricky
   mobility
