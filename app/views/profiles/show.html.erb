@@ -18,6 +18,9 @@
           Characters count: <%= current_user.characters.count %>
         </li>
         <li class="list-group-item text-break">
+          <%= link_to("Two Factor Authentication", two_factor_path) %>
+        </li>
+        <li class="list-group-item text-break">
           <%= link_to("Change email and password", edit_user_registration_path) %>
         </li>
         <li class="list-group-item text-break">

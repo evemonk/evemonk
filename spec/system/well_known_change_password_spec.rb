@@ -9,6 +9,9 @@ describe "/.well-known/change-password" do
     visit new_user_session_path
 
     fill_in "Email address", with: "me@example.com"
+
+    click_button "Next"
+
     fill_in "Password", with: "eidii7EeooVe8ahk"
 
     click_button "Log in"

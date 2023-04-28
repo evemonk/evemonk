@@ -13,7 +13,17 @@ Rails.application.routes.draw do
 
   post "/graphql", to: "graphql#execute"
 
-  devise_for :users
+  devise_for :users, controllers: {
+    sessions: "users/sessions"
+  }
+
+  resource :two_factor, only: [:show, :create, :destroy]
+
+  devise_scope :user do
+    scope :users, as: :users do
+      post "pre_otp", to: "users/sessions#pre_otp"
+    end
+  end
 
   get ".well-known/change-password", to: "well_known#change_password"
 

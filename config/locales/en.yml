@@ -90,3 +90,9 @@ en:
       successful: "Character &laquo;%{name}&raquo; scheduled to update. Check it later."
     destroy:
       successful: "Character was successfully removed."
+  devise:
+    sessions:
+      new:
+        next: "Next"
+      form:
+        sign_in: "Log in"

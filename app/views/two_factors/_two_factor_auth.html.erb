@@ -1,0 +1,23 @@
+<% if current_user.otp_required_for_login? %>
+  <div>
+    <%= link_to "Disable", two_factor_path, data: {turbo_method: :delete}, class: "btn btn-danger", id: "disable-two-factor-auth" %>
+  </div>
+
+  <div>
+    <% if @codes %>
+      <ul>
+        <% @codes.each do |code| %>
+          <li><%= code %></li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
+
+  <div style="border: 3px solid white; background-color: white;">
+    <%= current_user.otp_qr_code.html_safe %>
+  </div>
+<% else %>
+  <div>
+    <%= link_to "Enable", two_factor_path, data: {turbo_method: :post}, class: "btn btn-primary", id: "enable-two-factor-auth" %>
+  </div>
+<% end %>
