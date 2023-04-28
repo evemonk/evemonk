@@ -23,7 +23,7 @@ class CharacterCertificatesTree
   end
 
   def groups
-    @groups ||= Eve::Group.published.where(group_id: group_ids).order(:name_en).to_a
+    @groups ||= Eve::Group.published.where(id: group_ids).order(:name_en).to_a
   end
 
   def certificates_in_group(group_id)

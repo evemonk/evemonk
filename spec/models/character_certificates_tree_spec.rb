@@ -38,13 +38,13 @@ describe CharacterCertificatesTree do
       before do
         #
         # Eve::Group.published
-        #           .where(group_id: group_ids)
+        #           .where(id: group_ids)
         #           .order(:name_en)
         #           .to_a # => groups
         #
         expect(Eve::Group).to receive(:published) do
           double.tap do |a|
-            expect(a).to receive(:where).with(group_id: group_ids) do
+            expect(a).to receive(:where).with(id: group_ids) do
               double.tap do |b|
                 expect(b).to receive(:order).with(:name_en) do
                   double.tap do |c|
