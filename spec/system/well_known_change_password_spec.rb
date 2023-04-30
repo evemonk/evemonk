@@ -3,6 +3,8 @@
 require "rails_helper"
 
 describe "/.well-known/change-password" do
+  before { driven_by(:selenium_chrome_headless) }
+
   it "when user successfully redirected to change password form" do
     create(:user, email: "me@example.com", password: "eidii7EeooVe8ahk", locale: "english")
 

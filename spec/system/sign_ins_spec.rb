@@ -3,6 +3,8 @@
 require "rails_helper"
 
 describe "Sign in features" do
+  before { driven_by(:selenium_chrome_headless) }
+
   it "when user successfully sign in" do
     create(:user, email: "me@example.com", password: "eidii7EeooVe8ahk", locale: "english")
 
