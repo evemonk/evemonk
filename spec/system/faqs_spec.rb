@@ -3,6 +3,8 @@
 require "rails_helper"
 
 describe "FAQ features" do
+  before { driven_by(:selenium_chrome_headless) }
+
   describe "should render page" do
     it "when user not logged in" do
       visit faq_path

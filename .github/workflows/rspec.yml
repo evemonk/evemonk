@@ -62,19 +62,12 @@ jobs:
         uses: ts-graphviz/setup-graphviz@v1
       - name: Disable skylight dev warning
         run: bundle exec skylight disable_dev_warning
-      - name: Setup setup-chromedriver
-        uses: nanasess/setup-chromedriver@v2.0.0
       - run: bundle exec bootsnap precompile --gemfile app/ lib/
       - run: bin/rails zeitwerk:check
       - run: bin/rails db:create
       - run: bin/rails db:migrate
       - name: Run tests
-        run: |
-          chromedriver --version
-          export DISPLAY=:99
-          chromedriver --url-base=/wd/hub &
-          sudo Xvfb -ac :99 -screen 0 1280x1024x24 > /dev/null 2>&1 & # optional
-          bin/rspec --force-color --profile --format documentation
+        run: bin/rspec --force-color --profile --format documentation
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v3
         with:
