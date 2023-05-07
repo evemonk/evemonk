@@ -86,15 +86,19 @@
           </div>
         </div>
       </nav>
+    </div>
 
+    <div class="container">
       <div id="alerts" data-turbo-temporary>
         <%= render "shared/alerts" %>
       </div>
-
-      <%= yield %>
-
-      <%= render(FooterComponent.new) %>
     </div>
+
+    <div class="container">
+      <%= yield %>
+    </div>
+
+    <%= render(FooterComponent.new) %>
 
     <ninja-keys class="dark" data-controller="commands"></ninja-keys>
   </body>

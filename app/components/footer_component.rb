@@ -1,4 +1,4 @@
 # frozen_string_literal: true
 
-class FooterComponent < ViewComponent::Base
+class FooterComponent < ApplicationComponent
 end
