@@ -73,10 +73,6 @@ en:
   welcome:
     index:
       corporations_html: "<u>C</u>orporations"
-  alliances:
-    top:
-      index:
-        alliances_html: "<u>A</u>lliances"
   corporations:
     top:
       index:

@@ -2,11 +2,11 @@
 
 class TopAlliancesComponentPreview < Lookbook::Preview
   def loading
-    render(TopAlliancesComponent.new(alliances: nil))
+    render TopAlliancesComponent.new(alliances: nil)
   end
 
   def loaded
-    render(TopAlliancesComponent.new(
+    render TopAlliancesComponent.new(
       alliances: FactoryBot.build_list(
         :eve_alliance,
         20,
@@ -15,6 +15,6 @@ class TopAlliancesComponentPreview < Lookbook::Preview
         corporations_count: 12_345,
         characters_count: 12_345
       )
-    ))
+    )
   end
 end
