@@ -74,6 +74,7 @@ gem "skylight"
 gem "lograge"
 gem "webrick"
 gem "airbrake", "~> 13.0"
+gem "rails_performance"
 gem "prosopite"
 # gem "console_creep"
 
