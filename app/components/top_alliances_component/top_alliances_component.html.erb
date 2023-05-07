@@ -1,20 +1,20 @@
 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
   <% if @alliances.blank? %>
-    <%= tag.turbo_frame_tag "alliances:top",
-                            src: alliances_top_index_path,
-                            loading: :lazy,
-                            target: "_top" do %>
-        <h4 class="text-center">
+    <%= turbo_frame_tag "alliances:top",
+                        src: alliances_top_index_path,
+                        loading: :lazy,
+                        target: "_top" do %>
+      <h4 class="text-center">
         <%= link_to(t(".alliances_html"),
                     universe_alliances_path,
                     class: "text-decoration-none",
                     "data-hotkey": "a") %>
-        </h4>
+      </h4>
 
-        <h4 class="text-center">Loading...</h4>
+      <h4 class="text-center">Loading...</h4>
     <% end %>
   <% else %>
-    <%= tag.turbo_frame_tag "alliances:top" do %>
+    <%= turbo_frame_tag "alliances:top" do %>
       <h4 class="text-center">
         <%= link_to(t(".alliances_html"),
                     universe_alliances_path,
