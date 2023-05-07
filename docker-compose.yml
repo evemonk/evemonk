@@ -4,6 +4,7 @@ volumes:
   postgresql_data: {}
   redis_data: {}
   redis_cache_data: {}
+  redis_performance_data: {}
   minio_data: {}
 
 services:
@@ -35,6 +36,15 @@ services:
       - "redis_cache_data:/data"
     ports:
       - "6380:6379"
+
+  redis_performance:
+    image: "docker.io/library/redis:7.0.11"
+    container_name: "evemonk_redis_performance"
+    restart: "unless-stopped"
+    volumes:
+      - "redis_performance_data:/data"
+    ports:
+      - "6381:6379"
 
   minio:
     image: "docker.io/minio/minio:latest"
