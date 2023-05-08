@@ -68,4 +68,7 @@ Rails.application.configure do
     Prosopite.rails_logger = true
     # Prosopite.raise = true
   end
+
+  # view components preview for zeitwerk loader
+  config.eager_load_paths << Rails.root.join("spec/components/previews")
 end
