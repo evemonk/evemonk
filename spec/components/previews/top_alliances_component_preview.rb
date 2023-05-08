@@ -2,7 +2,7 @@
 
 class TopAlliancesComponentPreview < Lookbook::Preview
   def loading
-    render TopAlliancesComponent.new(alliances: nil)
+    render TopAlliancesComponent.new
   end
 
   def loaded
