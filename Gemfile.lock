@@ -500,7 +500,7 @@ GEM
       ruby-graphviz (~> 1.2)
     rails-html-sanitizer (1.5.0)
       loofah (~> 2.19, >= 2.19.1)
-    rails-i18n (7.0.6)
+    rails-i18n (7.0.7)
       i18n (>= 0.7, < 2)
       railties (>= 6.0.0, < 8)
     rails-settings-cached (2.8.3)
@@ -786,7 +786,7 @@ DEPENDENCIES
   rails-controller-testing
   rails-erd
   rails-html-sanitizer
-  rails-i18n (~> 7.0.6)
+  rails-i18n (~> 7.0.7)
   rails-settings-cached
   redis
   redis-client
