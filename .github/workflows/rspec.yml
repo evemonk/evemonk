@@ -62,7 +62,7 @@ jobs:
         uses: ts-graphviz/setup-graphviz@v1
       - name: Disable skylight dev warning
         run: bundle exec skylight disable_dev_warning
-      - run: bundle exec bootsnap precompile --gemfile app/ lib/
+      - run: bundle exec bootsnap precompile --gemfile app/ lib/ config/
       - run: bin/rails zeitwerk:check
       - run: bin/rails db:create
       - run: bin/rails db:migrate
