@@ -663,7 +663,7 @@ GEM
       diff-lcs
       patience_diff
     thor (1.2.2)
-    tilt (2.1.0)
+    tilt (2.2.0)
     timeout (0.3.2)
     tomlrb (2.0.3)
     turbo-rails (1.4.0)
