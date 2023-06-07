@@ -24,6 +24,7 @@ gem "bootswatch",
   git: "https://github.com/thomaspark/bootswatch.git",
   tag: "v5.2.3"
 gem "good_migrations"
+gem "data_migrate"
 gem "local_time"
 gem "rails-i18n", "~> 7.0.7"
 gem "http_accept_language"
@@ -47,6 +48,7 @@ gem "eve_online",
 gem "omniauth-eve_online-sso"
 gem "omniauth-rails_csrf_protection"
 gem "jwt"
+gem "ancestry"
 gem "faraday-http-cache"
 gem "kaminari"
 gem "kaminari-i18n"
