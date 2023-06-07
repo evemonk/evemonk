@@ -165,6 +165,9 @@ GEM
       addressable
     dartsass-rails (0.4.1)
       railties (>= 6.0.0)
+    data_migrate (10.0.0)
+      activerecord (>= 6.0)
+      railties (>= 6.0)
     database_rewinder (0.9.8)
     date (3.3.3)
     dead_end (4.0.0)
@@ -732,6 +735,7 @@ DEPENDENCIES
   capybara (>= 3.26)
   connection_pool
   dartsass-rails
+  data_migrate
   database_rewinder
   derailed_benchmarks
   devise
