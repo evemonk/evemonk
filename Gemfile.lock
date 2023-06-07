@@ -98,6 +98,8 @@ GEM
       airbrake-ruby (~> 6.0)
     airbrake-ruby (6.2.1)
       rbtree3 (~> 0.6)
+    ancestry (4.3.3)
+      activerecord (>= 5.2.6)
     anyway_config (2.4.1)
       ruby-next-core (>= 0.14.0)
     ast (2.4.2)
@@ -717,6 +719,7 @@ DEPENDENCIES
   active_record_doctor
   administrate
   airbrake (~> 13.0)
+  ancestry
   anyway_config
   awesome_print
   aws-sdk-s3

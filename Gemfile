@@ -47,6 +47,7 @@ gem "eve_online",
 gem "omniauth-eve_online-sso"
 gem "omniauth-rails_csrf_protection"
 gem "jwt"
+gem "ancestry"
 gem "faraday-http-cache"
 gem "kaminari"
 gem "kaminari-i18n"
