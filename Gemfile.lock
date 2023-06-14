@@ -165,7 +165,7 @@ GEM
       addressable
     dartsass-rails (0.4.1)
       railties (>= 6.0.0)
-    data_migrate (10.0.0)
+    data_migrate (10.0.1)
       activerecord (>= 6.0)
       railties (>= 6.0)
     database_rewinder (0.9.8)
