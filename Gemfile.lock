@@ -1,9 +1,9 @@
 GIT
   remote: https://github.com/evemonk/eve_online.git
-  revision: 32324ef86ee1282be2607626b7f1799f97a0bf9f
+  revision: e01f8f6e9b416b279ba9104437afaf021a078902
   branch: main
   specs:
-    eve_online (0.43.0)
+    eve_online (0.44.0)
       activesupport (>= 6.1.0)
       faraday (>= 2.3.0)
 
