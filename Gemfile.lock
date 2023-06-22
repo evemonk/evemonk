@@ -166,7 +166,7 @@ GEM
     dartsass-rails (0.5.0)
       railties (>= 6.0.0)
       sass-embedded (~> 1.63)
-    data_migrate (10.0.2)
+    data_migrate (10.0.3.rc)
       activerecord (>= 6.0)
       railties (>= 6.0)
     database_rewinder (0.9.8)
@@ -745,7 +745,7 @@ DEPENDENCIES
   capybara (>= 3.26)
   connection_pool
   dartsass-rails
-  data_migrate
+  data_migrate (= 10.0.3.rc)
   database_rewinder
   derailed_benchmarks
   devise
