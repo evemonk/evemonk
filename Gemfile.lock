@@ -1,13 +1,4 @@
 GIT
-  remote: https://github.com/evemonk/eve_online.git
-  revision: e01f8f6e9b416b279ba9104437afaf021a078902
-  branch: main
-  specs:
-    eve_online (0.44.0)
-      activesupport (>= 6.1.0)
-      faraday (>= 2.3.0)
-
-GIT
   remote: https://github.com/thomaspark/bootswatch.git
   revision: 886fc4f76dea089ccb08e8459611751ff8227add
   tag: v5.2.3
@@ -221,6 +212,9 @@ GEM
     erubi (1.12.0)
     et-orbi (1.2.7)
       tzinfo
+    eve_online (0.44.0)
+      activesupport (>= 6.1.0)
+      faraday (>= 2.3.0)
     execjs (2.8.1)
     factory_bot (6.2.1)
       activesupport (>= 5.0.0)
@@ -755,7 +749,7 @@ DEPENDENCIES
   dotenv-rails
   down
   erb_lint
-  eve_online!
+  eve_online
   factory_bot_rails
   faker
   faraday-http-cache

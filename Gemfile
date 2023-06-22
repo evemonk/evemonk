@@ -42,9 +42,7 @@ gem "metricky"
 gem "foundation_emails"
 gem "rufus-scheduler"
 # gem "eve_online"
-gem "eve_online",
-  git: "https://github.com/evemonk/eve_online.git",
-  branch: "main"
+gem "eve_online"
 gem "omniauth-eve_online-sso"
 gem "omniauth-rails_csrf_protection"
 gem "jwt"
