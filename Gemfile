@@ -24,7 +24,7 @@ gem "bootswatch",
   git: "https://github.com/thomaspark/bootswatch.git",
   tag: "v5.2.3"
 gem "good_migrations"
-gem "data_migrate"
+gem "data_migrate", "10.0.3.rc"
 gem "local_time"
 gem "rails-i18n", "~> 7.0.7"
 gem "http_accept_language"
@@ -41,10 +41,7 @@ gem "meta-tags"
 gem "metricky"
 gem "foundation_emails"
 gem "rufus-scheduler"
-# gem "eve_online"
-gem "eve_online",
-  git: "https://github.com/evemonk/eve_online.git",
-  branch: "main"
+gem "eve_online"
 gem "omniauth-eve_online-sso"
 gem "omniauth-rails_csrf_protection"
 gem "jwt"

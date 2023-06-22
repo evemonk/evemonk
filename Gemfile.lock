@@ -1,13 +1,4 @@
 GIT
-  remote: https://github.com/evemonk/eve_online.git
-  revision: e01f8f6e9b416b279ba9104437afaf021a078902
-  branch: main
-  specs:
-    eve_online (0.44.0)
-      activesupport (>= 6.1.0)
-      faraday (>= 2.3.0)
-
-GIT
   remote: https://github.com/thomaspark/bootswatch.git
   revision: 886fc4f76dea089ccb08e8459611751ff8227add
   tag: v5.2.3
@@ -166,7 +157,7 @@ GEM
     dartsass-rails (0.5.0)
       railties (>= 6.0.0)
       sass-embedded (~> 1.63)
-    data_migrate (10.0.2)
+    data_migrate (10.0.3.rc)
       activerecord (>= 6.0)
       railties (>= 6.0)
     database_rewinder (0.9.8)
@@ -221,6 +212,9 @@ GEM
     erubi (1.12.0)
     et-orbi (1.2.7)
       tzinfo
+    eve_online (0.44.0)
+      activesupport (>= 6.1.0)
+      faraday (>= 2.3.0)
     execjs (2.8.1)
     factory_bot (6.2.1)
       activesupport (>= 5.0.0)
@@ -745,7 +739,7 @@ DEPENDENCIES
   capybara (>= 3.26)
   connection_pool
   dartsass-rails
-  data_migrate
+  data_migrate (= 10.0.3.rc)
   database_rewinder
   derailed_benchmarks
   devise
@@ -755,7 +749,7 @@ DEPENDENCIES
   dotenv-rails
   down
   erb_lint
-  eve_online!
+  eve_online
   factory_bot_rails
   faker
   faraday-http-cache
@@ -842,4 +836,4 @@ RUBY VERSION
    ruby 3.2.2p53
 
 BUNDLED WITH
-   2.4.13
+   2.4.14
