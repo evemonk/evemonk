@@ -74,6 +74,7 @@ gem "lograge"
 gem "webrick"
 gem "airbrake", "~> 13.0"
 gem "prosopite"
+gem "sshkit", require: false
 gem "uri", ">= 0.12.2"
 # gem "console_creep"
 

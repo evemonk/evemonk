@@ -66,8 +66,7 @@ jobs:
       - run: bin/rails zeitwerk:check
       - run: bin/rails db:create
       - run: bin/rails db:migrate
-      - name: Run tests
-        run: bin/rspec --force-color --profile --format documentation
+      - run: bin/rspec --force-color --profile --format documentation
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v3
         with:
