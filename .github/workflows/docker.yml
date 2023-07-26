@@ -52,7 +52,7 @@ jobs:
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: "docker.io/biow0lf/evemonk:latest"
+          image-ref: "docker.io/biow0lf/evemonk:main"
           format: "table"
           exit-code: "1"
           ignore-unfixed: true
