@@ -49,6 +49,9 @@ jobs:
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
 
+      - name: "Ignore CVE-2017-10784 for webrick"
+        run: echo "CVE-2017-10784" > .trivyignore
+
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@master
         with:
