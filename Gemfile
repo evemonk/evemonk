@@ -22,7 +22,7 @@ gem "inline_svg"
 gem "bootstrap", "5.2.3"
 gem "bootswatch",
   git: "https://github.com/thomaspark/bootswatch.git",
-  tag: "v5.2.3"
+  tag: "v5.3.1"
 gem "good_migrations"
 gem "data_migrate", "10.0.3.rc"
 gem "local_time"
