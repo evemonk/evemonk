@@ -91,7 +91,7 @@ GEM
       rbtree3 (~> 0.6)
     ancestry (4.3.3)
       activerecord (>= 5.2.6)
-    anyway_config (2.5.0)
+    anyway_config (2.5.1)
       ruby-next-core (>= 0.14.0)
     ast (2.4.2)
     attr_extras (7.1.0)
