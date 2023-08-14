@@ -19,7 +19,7 @@ gem "flipper"
 gem "flipper-active_record"
 gem "flipper-ui"
 gem "inline_svg"
-gem "bootstrap", "5.2.3"
+gem "bootstrap", "5.3.1"
 gem "bootswatch",
   git: "https://github.com/thomaspark/bootswatch.git",
   tag: "v5.2.3"
