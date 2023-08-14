@@ -263,6 +263,7 @@ GEM
     good_migrations (0.2.1)
       activerecord (>= 3.1)
       railties (>= 3.1)
+    google-protobuf (3.24.0)
     google-protobuf (3.24.0-aarch64-linux)
     google-protobuf (3.24.0-arm64-darwin)
     google-protobuf (3.24.0-x86_64-darwin)
@@ -385,6 +386,7 @@ GEM
       rails (> 5.1)
     mini_histogram (0.3.1)
     mini_mime (1.1.5)
+    mini_portile2 (2.8.4)
     minitest (5.19.0)
     mobility (1.2.9)
       i18n (>= 0.6.10, < 2)
@@ -406,6 +408,9 @@ GEM
       net-protocol
     net-ssh (7.2.0)
     nio4r (2.5.9)
+    nokogiri (1.15.4)
+      mini_portile2 (~> 2.8.2)
+      racc (~> 1.4)
     nokogiri (1.15.4-aarch64-linux)
       racc (~> 1.4)
     nokogiri (1.15.4-arm64-darwin)
@@ -599,6 +604,9 @@ GEM
     sanitize (6.0.2)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
+    sass-embedded (1.64.2)
+      google-protobuf (~> 3.23)
+      rake (>= 13.0.0)
     sass-embedded (1.64.2-aarch64-linux-gnu)
       google-protobuf (~> 3.23)
     sass-embedded (1.64.2-arm64-darwin)
@@ -725,7 +733,7 @@ GEM
 PLATFORMS
   aarch64-linux
   arm64-darwin
-  arm64-darwin-22
+  ruby
   x86_64-darwin
   x86_64-linux
 
