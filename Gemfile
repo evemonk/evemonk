@@ -26,7 +26,7 @@ gem "bootswatch",
 gem "good_migrations"
 gem "data_migrate", "10.0.3.rc"
 gem "local_time"
-gem "rails-i18n", "~> 7.0.7"
+gem "rails-i18n", "~> 7.0.8"
 gem "http_accept_language"
 gem "devise"
 gem "devise-two-factor", ">= 5.0.0"
