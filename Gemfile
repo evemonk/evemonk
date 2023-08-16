@@ -102,8 +102,6 @@ group :development, :test do
   gem "brakeman", require: false
   gem "fasterer", require: false
   gem "license_finder", require: false
-  gem "anyway_config" # For isolator
-  gem "isolator"
   gem "better_html", require: false
   gem "erb_lint", require: false
 end
