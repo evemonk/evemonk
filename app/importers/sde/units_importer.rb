@@ -9,7 +9,7 @@ module Sde
     end
 
     def import
-      entries = YAML.safe_load(File.read(file))
+      entries = YAML.safe_load_file(file)
 
       entries.each do |hash|
         unit = Eve::Unit.find_or_initialize_by(id: hash["unitID"])

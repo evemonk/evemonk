@@ -9,7 +9,7 @@ module Sde
     end
 
     def import
-      entries = YAML.safe_load(File.read(file))
+      entries = YAML.safe_load_file(file)
 
       Eve::Agent.find_each do |eve_agent|
         entry = entries.find { |hash| hash["itemID"] == eve_agent.id }
