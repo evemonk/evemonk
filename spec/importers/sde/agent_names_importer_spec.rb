@@ -14,10 +14,6 @@ describe Sde::AgentNamesImporter do
   describe "#import" do
     let!(:eve_agent) { create(:eve_agent, id: 3_008_416, name: nil) }
 
-    let(:content) { double }
-
-    before { expect(File).to receive(:read).with(file).and_return(content) }
-
     let(:entry) do
       {
         "itemID" => 3_008_416,
@@ -27,7 +23,7 @@ describe Sde::AgentNamesImporter do
 
     let(:entries) { [entry] }
 
-    before { expect(YAML).to receive(:safe_load).with(content).and_return(entries) }
+    before { expect(YAML).to receive(:safe_load_file).with(file).and_return(entries) }
 
     before { expect(Eve::Agent).to receive(:find_each).and_yield(eve_agent) }
 
