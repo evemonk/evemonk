@@ -8,7 +8,7 @@ volumes:
 
 services:
   postgresql:
-    image: "docker.io/library/postgres:15.2"
+    image: "docker.io/library/postgres:15.4"
     container_name: "evemonk_postgresql"
     restart: "unless-stopped"
     volumes:
