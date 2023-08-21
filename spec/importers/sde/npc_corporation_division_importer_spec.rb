@@ -12,10 +12,6 @@ describe Sde::NpcCorporationDivisionImporter do
   end
 
   describe "#import" do
-    let(:content) { double }
-
-    before { expect(File).to receive(:read).with(file).and_return(content) }
-
     let(:key) { double }
 
     let(:description) { double }
@@ -100,7 +96,7 @@ describe Sde::NpcCorporationDivisionImporter do
 
     let(:entries) { {key => entry} }
 
-    before { expect(YAML).to receive(:safe_load).with(content).and_return(entries) }
+    before { expect(YAML).to receive(:safe_load_file).with(file).and_return(entries) }
 
     let(:eve_division) { instance_double(Eve::Division) }
 
