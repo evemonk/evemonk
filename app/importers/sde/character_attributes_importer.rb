@@ -9,7 +9,7 @@ module Sde
     end
 
     def import
-      entries = YAML.safe_load(File.read(file))
+      entries = YAML.safe_load_file(file)
 
       entries.each_pair do |key, hash|
         attribute = Eve::CharacterAttribute.find_or_initialize_by(attribute_id: key)

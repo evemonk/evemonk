@@ -12,17 +12,13 @@ describe Sde::BlueprintsInventionProductsImporter do
   end
 
   describe "#import" do
-    let(:content) { double }
-
-    before { expect(File).to receive(:read).with(file).and_return(content) }
-
     let(:key) { double }
 
     let(:type_id) { double }
 
     let(:entries) { {key => entry} }
 
-    before { expect(YAML).to receive(:safe_load).with(content).and_return(entries) }
+    before { expect(YAML).to receive(:safe_load_file).with(file).and_return(entries) }
 
     let(:eve_blueprint) { instance_double(Eve::Blueprint, type_id: type_id) }
 

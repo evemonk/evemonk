@@ -15,7 +15,7 @@ module Sde
     end
 
     def import
-      entries = YAML.safe_load(File.read(file))
+      entries = YAML.safe_load_file(file)
 
       entries.each_pair do |key, hash|
         eve_certificate = Eve::Certificate.find_or_initialize_by(id: key)

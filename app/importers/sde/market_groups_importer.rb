@@ -9,7 +9,7 @@ module Sde
     end
 
     def import
-      entries = YAML.safe_load(File.read(file))
+      entries = YAML.safe_load_file(file)
 
       entries.each_pair do |key, hash|
         market_group = Eve::MarketGroup.find_or_initialize_by(market_group_id: key)
