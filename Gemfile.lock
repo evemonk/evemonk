@@ -667,10 +667,10 @@ GEM
     sshkit (1.21.5)
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
-    standard (1.31.0)
+    standard (1.31.1)
       language_server-protocol (~> 3.17.0.2)
       lint_roller (~> 1.0)
-      rubocop (~> 1.56.0)
+      rubocop (~> 1.56.2)
       standard-custom (~> 1.0.0)
       standard-performance (~> 1.2)
     standard-custom (1.0.2)
@@ -832,7 +832,7 @@ DEPENDENCIES
   sql_tracker
   squasher
   sshkit
-  standard (= 1.31.0)
+  standard (= 1.31.1)
   stimulus-rails (>= 0.3.9)
   super_diff
   turbo-rails (>= 0.7.4)
