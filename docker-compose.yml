@@ -19,7 +19,7 @@ services:
       - "5432:5432"
 
   redis:
-    image: "docker.io/library/redis:7.0.12"
+    image: "docker.io/library/redis:7.2.1"
     container_name: "evemonk_redis"
     restart: "unless-stopped"
     volumes:
@@ -28,7 +28,7 @@ services:
       - "6379:6379"
 
   redis_cache:
-    image: "docker.io/library/redis:7.0.12"
+    image: "docker.io/library/redis:7.2.1"
     container_name: "evemonk_redis_cache"
     restart: "unless-stopped"
     volumes:
