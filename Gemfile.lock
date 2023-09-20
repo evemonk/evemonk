@@ -273,7 +273,7 @@ GEM
       railties
       sprockets-rails
     graphql (2.1.0)
-    graphql-c_parser (1.0.6)
+    graphql-c_parser (1.0.7)
       graphql
     graphql-rails_logger (1.2.4)
       actionpack (> 5.0)
