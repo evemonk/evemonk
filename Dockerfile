@@ -25,14 +25,10 @@ ENV RAILS_ENV production
 
 ENV RAILS_LOG_TO_STDOUT true
 
-ENV RUBYGEMS_VERSION 3.4.19
-
-RUN gem update --system "$RUBYGEMS_VERSION"
-
-ENV BUNDLER_VERSION 2.4.19
+RUN gem update --system "3.4.20"
 
 # skipcq: DOK-DL3028
-RUN gem install bundler --version "$BUNDLER_VERSION" --force
+RUN gem install bundler --version "2.4.20" --force
 
 RUN gem --version
 
