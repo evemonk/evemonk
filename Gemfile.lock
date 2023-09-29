@@ -582,6 +582,8 @@ GEM
       parser (>= 3.2.1.0)
     rubocop-capybara (2.19.0)
       rubocop (~> 1.41)
+    rubocop-disable_syntax (0.1.0)
+      rubocop (>= 1.50)
     rubocop-graphql (1.4.0)
       rubocop (>= 0.90, < 2)
     rubocop-performance (1.19.1)
@@ -819,6 +821,7 @@ DEPENDENCIES
   rspec-rails (>= 6.0.1)
   rubocop
   rubocop-capybara
+  rubocop-disable_syntax
   rubocop-graphql
   rubocop-performance
   rubocop-rails
