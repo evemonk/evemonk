@@ -103,6 +103,7 @@ Rails.application.routes.draw do
 
   namespace :blueprints do
     resources :calculator, only: [:index, :show]
+    resources :search, only: :index
   end
 
   namespace :auth do

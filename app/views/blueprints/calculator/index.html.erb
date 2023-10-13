@@ -15,21 +15,35 @@
   <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4" id="blueprints">
     <h4 class="text-center text-break">Blueprint</h4>
 
-    <%= form_with(url: blueprints_calculator_index_path, method: :get) do |f| %>
+    <div data-controller="autocomplete"
+         data-autocomplete-url-value="<%= blueprints_search_index_path %>"
+         role="combobox">
       <div class="form-group">
-        <%= f.search_field :q,
+        <input type="text"
+               placeholder="Type blueprint name to find e.g. drake"
+               data-autocomplete-target="input"
+               class="form-control"
+               autocomplete="off">
+        <input type="hidden" name="blueprint_id" data-autocomplete-target="hidden">
+      </div>
+      <ul class="list-group" data-autocomplete-target="results"></ul>
+    </div>
+
+    <%#= form_with(url: blueprints_calculator_index_path, method: :get) do |f| %>
+<!--      <div class="form-group">-->
+        <%#= f.search_field :q,
                            value: params[:q],
                            placeholder: "Type blueprint name to find e.g. drake",
                            class: "form-control",
                            autofocus: true,
                            autocomplete: "off" %>
-      </div>
+<!--      </div>-->
 
-      <div class="form-group text-center">
-        <%= button_tag "Search", name: nil, type: nil, class: "btn btn-primary w-100" %>
-      </div>
-    <% end %>
+<!--      <div class="form-group text-center">-->
+        <%#= button_tag "Search", name: nil, type: nil, class: "btn btn-primary w-100" %>
+<!--      </div>-->
+    <%# end %>
 
-    <%= render "blueprints", blueprints: @blueprints %>
+    <%#= render "blueprints", blueprints: @blueprints %>
   </div>
 </div>
