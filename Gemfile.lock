@@ -348,7 +348,7 @@ GEM
       ffi-compiler (~> 1.0)
       rake (~> 13.0)
     local_time (2.1.0)
-    lograge (0.13.0)
+    lograge (0.14.0)
       actionpack (>= 4)
       activesupport (>= 4)
       railties (>= 4)
