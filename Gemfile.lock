@@ -529,8 +529,8 @@ GEM
     rake (13.0.6)
     rbtree3 (0.7.1)
     redcarpet (3.6.0)
-    redis (5.0.7)
-      redis-client (>= 0.9.0)
+    redis (5.0.8)
+      redis-client (>= 0.17.0)
     redis-client (0.17.1)
       connection_pool
     regexp_parser (2.8.2)
