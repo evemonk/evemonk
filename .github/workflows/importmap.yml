@@ -13,14 +13,22 @@ on:
 env:
   SECRET_KEY_BASE: "df85f70fa713b189c61deba6a51206472643e53894ae9a1dcd7c97ee15a9b79e962c9ada5b12e69ab360648f74b89d1b7d26dd310b485d48d4509a3445113813"
 
+permissions:
+  contents: read
+
 jobs:
   audit:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Harden Runner
+        uses: step-security/harden-runner@1b05615854632b887b69ae1be8cbefe72d3ae423 # v2.6.0
+        with:
+          egress-policy: audit
+
+      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
       - name: Set up Ruby
-        uses: ruby/setup-ruby@v1
+        uses: ruby/setup-ruby@036ef458ddccddb148a2b9fb67e95a22fdbf728b # v1.160.0
         with:
           bundler-cache: true
       - run: bin/importmap audit
