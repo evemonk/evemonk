@@ -115,6 +115,7 @@ group :development do
   gem "derailed_benchmarks"
   gem "graphql-rails_logger"
   gem "rails-erd"
+  gem "bundler-audit", require: false
 end
 
 group :test do
