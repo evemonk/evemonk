@@ -21,5 +21,9 @@ jobs:
           egress-policy: audit
 
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
-      - name: "Bundler Audit"
-        uses: andrewmcodes/bundler-audit-action@5c17e4a45085e934e7002bb57e4cd56ff2cc9996 # main
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@8575951200e472d5f2d95c625da0c7bec8217c42 # v1.161.0
+        with:
+          bundler-cache: true
+      - run: bin/bundle-audit update
+      - run: bin/bundle-audit
