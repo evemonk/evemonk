@@ -235,7 +235,7 @@ GEM
     ffi-compiler (1.0.1)
       ffi (>= 1.0.0)
       rake
-    flipper (1.1.1)
+    flipper (1.1.2)
       concurrent-ruby (< 2)
     flipper-active_record (1.1.1)
       activerecord (>= 4.2, < 8)
