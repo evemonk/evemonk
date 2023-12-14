@@ -460,7 +460,7 @@ GEM
     pghero (3.4.0)
       activerecord (>= 6)
     popper_js (2.11.8)
-    prosopite (1.4.1)
+    prosopite (1.4.2)
     pry (0.14.2)
       coderay (~> 1.1)
       method_source (~> 1.0)
