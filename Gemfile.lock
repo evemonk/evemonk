@@ -280,7 +280,7 @@ GEM
       rouge (~> 3.0)
     groupdate (6.4.0)
       activesupport (>= 6.1)
-    hashdiff (1.0.1)
+    hashdiff (1.1.0)
     hashie (5.0.0)
     heapy (0.2.0)
       thor
