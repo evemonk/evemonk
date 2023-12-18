@@ -57,7 +57,7 @@ jobs:
         with:
           bundler-cache: true
       - name: Setup Graphviz
-        uses: ts-graphviz/setup-graphviz@v1
+        uses: ts-graphviz/setup-graphviz@c001ccfb5aff62e28bda6a6c39b59a7e061be5b9 # v1.2.0
       - name: Disable skylight dev warning
         run: bundle exec skylight disable_dev_warning
       - run: bin/rails db:create
