@@ -1,4 +1,4 @@
-FROM ruby:3.2.2-slim AS builder
+FROM ruby:3.2.2-slim@sha256:14eba677236d3360f2b66595c7fa0f2440ed6e33c519befe4d11c1242a8815a8 AS builder
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
@@ -81,7 +81,7 @@ RUN bundle exec rake SECRET_KEY_BASE=no \
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
-FROM ruby:3.2.2-slim
+FROM ruby:3.2.2-slim@sha256:14eba677236d3360f2b66595c7fa0f2440ed6e33c519befe4d11c1242a8815a8
 
 # skipcq: DOK-DL3008
 RUN set -eux; \

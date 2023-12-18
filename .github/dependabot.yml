@@ -23,3 +23,8 @@ updates:
       interval: "daily"
     assignees:
       - "biow0lf"
+
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: daily
