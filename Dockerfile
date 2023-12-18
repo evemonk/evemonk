@@ -58,6 +58,9 @@ COPY . .
 
 RUN bundle exec bootsnap precompile --gemfile app/ lib/ config/
 
+# Workaround for nokogiri and trivy
+RUN rm -f /usr/local/bundle/ruby/3.2.0/gems/nokogiri-1.15.5-x86_64-linux/dependencies.yml
+
 # The SECRET_KEY_BASE here isn't used. Precomiling assets doesn't use your
 # secret key, but Rails will fail to initialize if it isn't set.
 
