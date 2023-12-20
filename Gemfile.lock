@@ -652,6 +652,8 @@ GEM
     snaky_hash (2.0.1)
       hashie
       version_gem (~> 1.1, >= 1.1.1)
+    solid_queue (0.1.1)
+      rails (>= 7.0.3.1)
     sprockets (4.2.1)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -824,6 +826,7 @@ DEPENDENCIES
   simplecov-cobertura
   sitemap_generator
   skylight
+  solid_queue
   sql_tracker
   squasher
   sshkit
