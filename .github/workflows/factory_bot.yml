@@ -10,6 +10,9 @@ on:
   schedule:
     - cron: "0 21 * * 6"
 
+permissions:
+  contents: read
+
 env:
   RAILS_ENV: "test"
   POSTGRES_HOST_AUTH_METHOD: "trust"
@@ -19,9 +22,6 @@ env:
   SECRET_KEY_BASE: "df85f70fa713b189c61deba6a51206472643e53894ae9a1dcd7c97ee15a9b79e962c9ada5b12e69ab360648f74b89d1b7d26dd310b485d48d4509a3445113813"
   DEVISE_MAILER_SENDER: "robot@evemonk.com"
   DEVISE_PEPPER: "e19db51a470b8259e79616ac00450ea1857d819aa860e2e7cff79b3c295d3993867a68c9524587d2b02b6f76efa8dea8aaf09884f186bfab89442eb2530ea829"
-
-permissions:
-  contents: read
 
 jobs:
   lint:

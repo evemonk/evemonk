@@ -10,6 +10,9 @@ on:
   schedule:
     - cron: "0 21 * * 6"
 
+permissions:
+  contents: read
+
 jobs:
   hadolint:
     runs-on: ubuntu-latest
