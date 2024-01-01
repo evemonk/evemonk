@@ -17,6 +17,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@eb238b55efaa70779f274895e782ed17c84f2895 # v2.6.1
+        with:
+          egress-policy: audit
+
       - name: Docker meta
         id: meta
         uses: docker/metadata-action@9dc751fe249ad99385a2583ee0d084c400eee04e # v5.4.0
