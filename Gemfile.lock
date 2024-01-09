@@ -162,7 +162,7 @@ GEM
     data_migrate (10.0.3.rc)
       activerecord (>= 6.0)
       railties (>= 6.0)
-    database_rewinder (0.9.9)
+    database_rewinder (1.0.0)
     date (3.3.4)
     dead_end (4.0.0)
     derailed_benchmarks (2.1.2)
