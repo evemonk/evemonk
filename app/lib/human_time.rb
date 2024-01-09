@@ -49,18 +49,18 @@ class HumanTime
     @days = @seconds / SECONDS_IN_DAY
 
     if @days.positive?
-      @seconds = @seconds % SECONDS_IN_DAY
+      @seconds %= SECONDS_IN_DAY
     end
 
     @hours = @seconds / SECONDS_IN_HOUR
 
     if @hours.positive?
-      @seconds = @seconds % SECONDS_IN_HOUR
+      @seconds %= SECONDS_IN_HOUR
     end
 
     @minutes = @seconds / SECONDS_IN_MINUTE
 
-    @seconds = @seconds % SECONDS_IN_MINUTE if @minutes.positive?
+    @seconds %= SECONDS_IN_MINUTE if @minutes.positive?
 
     @parsed = true
   end
