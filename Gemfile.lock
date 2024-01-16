@@ -225,7 +225,7 @@ GEM
       i18n (>= 1.8.11, < 2)
     faraday (2.9.0)
       faraday-net_http (>= 2.0, < 3.2)
-    faraday-http-cache (2.5.0)
+    faraday-http-cache (2.5.1)
       faraday (>= 0.8)
     faraday-net_http (3.1.0)
       net-http
