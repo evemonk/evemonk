@@ -639,7 +639,7 @@ GEM
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
     sexp_processor (4.17.1)
-    shoulda-matchers (6.0.0)
+    shoulda-matchers (6.1.0)
       activesupport (>= 5.2.0)
     sidekiq (7.2.1)
       concurrent-ruby (< 2)
