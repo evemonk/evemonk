@@ -12,7 +12,7 @@ pin "@rails/request.js", to: "https://ga.jspm.io/npm:@rails/request.js@0.0.9/src
 
 pin "local-time", to: "https://ga.jspm.io/npm:local-time@3.0.2/app/assets/javascripts/local-time.es2017-esm.js"
 
-pin "@github/hotkey", to: "https://ga.jspm.io/npm:@github/hotkey@2.0.1/dist/index.js"
+pin "@github/hotkey", to: "https://ga.jspm.io/npm:@github/hotkey@3.1.0/dist/index.js"
 
 pin "@popperjs/core", to: "https://ga.jspm.io/npm:@popperjs/core@2.11.8/lib/index.js"
 pin "bootstrap", to: "https://ga.jspm.io/npm:bootstrap@5.2.3/dist/js/bootstrap.esm.js"
