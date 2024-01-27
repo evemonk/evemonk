@@ -58,7 +58,7 @@ jobs:
         run: echo ${{ steps.docker_build.outputs.digest }}
 
       - name: Run Trivy vulnerability scanner
-        uses: aquasecurity/trivy-action@91713af97dc80187565512baba96e4364e983601 # master
+        uses: aquasecurity/trivy-action@91713af97dc80187565512baba96e4364e983601 # 0.16.0
         with:
           image-ref: "docker.io/biow0lf/evemonk:main"
           format: "table"
