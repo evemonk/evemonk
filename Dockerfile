@@ -1,4 +1,4 @@
-FROM ruby:3.2.2-slim@sha256:75f884a28c1337d744a42b006d864d3ba161c6b1980d2414910e660d2034b14e AS builder
+FROM ruby:3.2.3-slim@sha256:97fccffe954d1e0c7fa6634020379417d67435a7f9a7c10b6ef3f49e498307e6 AS builder
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
@@ -25,10 +25,10 @@ ENV RAILS_ENV production
 
 ENV RAILS_LOG_TO_STDOUT true
 
-RUN gem update --system "3.5.4"
+RUN gem update --system "3.5.5"
 
 # skipcq: DOK-DL3028
-RUN gem install bundler --version "2.5.4" --force
+RUN gem install bundler --version "2.5.5" --force
 
 RUN gem --version
 
@@ -82,7 +82,7 @@ RUN bundle exec rake SECRET_KEY_BASE=no \
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
-FROM ruby:3.2.2-slim@sha256:75f884a28c1337d744a42b006d864d3ba161c6b1980d2414910e660d2034b14e
+FROM ruby:3.2.3-slim@sha256:97fccffe954d1e0c7fa6634020379417d67435a7f9a7c10b6ef3f49e498307e6
 
 # skipcq: DOK-DL3008
 RUN set -eux; \
