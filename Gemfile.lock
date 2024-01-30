@@ -270,8 +270,7 @@ GEM
     graphiql-rails (1.8.0)
       railties
       sprockets-rails
-    graphql (2.2.6)
-      racc (~> 1.4)
+    graphql (2.2.7)
     graphql-c_parser (1.0.7)
       graphql
     graphql-rails_logger (1.2.4)
