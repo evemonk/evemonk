@@ -59,8 +59,6 @@ describe Character do
 
   it { should have_many(:manufacturing_jobs).dependent(:destroy) }
 
-  it { should have_many(:notifications).dependent(:destroy) }
-
   describe ".with_valid_tokens" do
     let!(:character_1) { create(:character, esi_token_valid: true) }
 

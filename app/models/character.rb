@@ -64,8 +64,6 @@ class Character < ApplicationRecord
 
   has_many :manufacturing_jobs, dependent: :destroy
 
-  has_many :notifications, as: :recipient, dependent: :destroy
-
   scope :with_valid_tokens, -> { where(esi_token_valid: true) }
 
   delegate :perception_without_bonuses, :perception_bonus,
