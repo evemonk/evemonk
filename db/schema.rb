@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_22_120536) do
+ActiveRecord::Schema[7.0].define(version: 2024_02_05_015410) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_buffercache"
   enable_extension "pg_trgm"
@@ -699,6 +699,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_22_120536) do
     t.datetime "updated_at", null: false
     t.bigint "icon_id"
     t.boolean "has_types"
+    t.string "ancestry"
+    t.index ["ancestry"], name: "index_eve_market_groups_on_ancestry"
     t.index ["market_group_id"], name: "index_eve_market_groups_on_market_group_id", unique: true
     t.index ["parent_group_id"], name: "index_eve_market_groups_on_parent_group_id"
   end
@@ -967,7 +969,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_22_120536) do
   create_table "flipper_gates", force: :cascade do |t|
     t.string "feature_key", null: false
     t.string "key", null: false
-    t.string "value"
+    t.text "value"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["feature_key", "key", "value"], name: "index_flipper_gates_on_feature_key_and_key_and_value", unique: true
@@ -1021,16 +1023,28 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_22_120536) do
     t.index ["character_id"], name: "index_manufacturing_jobs_on_character_id"
   end
 
-  create_table "notifications", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.string "recipient_type", null: false
-    t.bigint "recipient_id", null: false
-    t.string "type", null: false
+  create_table "noticed_events", force: :cascade do |t|
+    t.string "type"
+    t.string "record_type"
+    t.bigint "record_id"
     t.jsonb "params"
-    t.datetime "read_at", precision: nil
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["read_at"], name: "index_notifications_on_read_at"
-    t.index ["recipient_type", "recipient_id"], name: "index_notifications_on_recipient"
+    t.integer "notifications_count"
+    t.index ["record_type", "record_id"], name: "index_noticed_events_on_record"
+  end
+
+  create_table "noticed_notifications", force: :cascade do |t|
+    t.string "type"
+    t.bigint "event_id", null: false
+    t.string "recipient_type", null: false
+    t.bigint "recipient_id", null: false
+    t.datetime "read_at", precision: nil
+    t.datetime "seen_at", precision: nil
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_noticed_notifications_on_event_id"
+    t.index ["recipient_type", "recipient_id"], name: "index_noticed_notifications_on_recipient"
   end
 
   create_table "pghero_query_stats", force: :cascade do |t|
