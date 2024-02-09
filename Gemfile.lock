@@ -85,10 +85,6 @@ GEM
       kaminari (~> 1.2.2)
       sassc-rails (~> 2.1)
       selectize-rails (~> 0.6)
-    airbrake (13.0.4)
-      airbrake-ruby (~> 6.0)
-    airbrake-ruby (6.2.2)
-      rbtree3 (~> 0.6)
     ancestry (4.3.3)
       activerecord (>= 5.2.6)
     ast (2.4.2)
@@ -501,7 +497,6 @@ GEM
       zeitwerk (~> 2.5)
     rainbow (3.1.1)
     rake (13.1.0)
-    rbtree3 (0.7.1)
     redcarpet (3.6.0)
     redis (5.1.0)
       redis-client (>= 0.17.0)
@@ -711,7 +706,6 @@ PLATFORMS
 DEPENDENCIES
   active_record_doctor
   administrate
-  airbrake (~> 13.0)
   ancestry
   aws-sdk-s3
   better_html
