@@ -761,9 +761,9 @@ DEPENDENCIES
   graphql-rails_logger
   http_accept_language
   httplog
-  importmap-rails (>= 0.3.4)
+  importmap-rails
   inline_svg
-  jbuilder (~> 2.11)
+  jbuilder
   jwt
   kaminari
   kaminari-i18n
@@ -817,9 +817,9 @@ DEPENDENCIES
   squasher
   sshkit
   standard (= 1.33.0)
-  stimulus-rails (>= 0.3.9)
+  stimulus-rails
   super_diff
-  turbo-rails (>= 0.7.4)
+  turbo-rails
   tzinfo-data
   uri (>= 0.12.2)
   vcr
