@@ -245,7 +245,6 @@ GEM
       rack-protection (>= 1.5.3, <= 4.0.0)
       sanitize (< 7)
     foreman (0.87.2)
-    foundation_emails (2.2.1.0)
     fugit (1.9.0)
       et-orbi (~> 1, >= 1.2.7)
       raabro (~> 1.4)
@@ -746,7 +745,6 @@ DEPENDENCIES
   flipper-active_record
   flipper-ui
   foreman
-  foundation_emails
   gemdiff
   good_migrations
   graphiql-rails
