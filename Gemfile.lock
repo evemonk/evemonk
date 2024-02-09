@@ -267,8 +267,6 @@ GEM
       railties
       sprockets-rails
     graphql (2.2.8)
-    graphql-c_parser (1.0.7)
-      graphql
     graphql-rails_logger (1.2.4)
       actionpack (> 5.0)
       activesupport (> 5.0)
@@ -760,7 +758,6 @@ DEPENDENCIES
   good_migrations
   graphiql-rails
   graphql
-  graphql-c_parser
   graphql-rails_logger
   http_accept_language
   httplog
