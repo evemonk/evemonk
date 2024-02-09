@@ -20,7 +20,6 @@ Style/DisableSyntax:
     - endless_methods
     - numbered_parameters
     - shorthand_hash_syntax
-    - and_or_not
     - percent_literals
 
 Style/StringLiterals:
