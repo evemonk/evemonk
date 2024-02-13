@@ -25,6 +25,8 @@ Rails.application.routes.draw do
 
   constraints CanAccessFlipperUI do
     mount Flipper::UI.app(Flipper), at: "/flipper"
+
+    mount SolidErrors::Engine, at: "/solid_errors"
   end
 
   namespace :universe do
