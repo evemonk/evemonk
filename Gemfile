@@ -15,6 +15,7 @@ gem "jbuilder"
 gem "dartsass-rails"
 gem "bootsnap", ">= 1.4.4", require: false
 gem "view_component"
+gem "solid_errors"
 gem "flipper"
 gem "flipper-active_record"
 gem "flipper-ui"
