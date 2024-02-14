@@ -23,7 +23,7 @@ Rails.application.routes.draw do
     end
   end
 
-  constraints CanAccessFlipperUI do
+  authenticate :user, ->(user) { user.admin? } do
     mount Flipper::UI.app(Flipper), at: "/flipper"
 
     mount SolidErrors::Engine, at: "/solid_errors"
