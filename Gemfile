@@ -2,18 +2,21 @@
 
 source "https://rubygems.org"
 
-ruby File.read(".ruby-version")
+ruby file: ".ruby-version"
 
 gem "rails", "7.1.3.2"
 
+gem "sprockets-rails"
 gem "pg"
 gem "puma"
 gem "importmap-rails"
 gem "turbo-rails"
 gem "stimulus-rails"
 gem "jbuilder"
+gem "tzinfo-data", platforms: [:windows, :jruby]
+gem "bootsnap", require: false
+
 gem "dartsass-rails"
-gem "bootsnap", ">= 1.4.4", require: false
 gem "view_component"
 gem "solid_errors"
 gem "flipper"
@@ -68,13 +71,9 @@ gem "administrate"
 gem "pry-rails"
 gem "skylight"
 gem "lograge"
-gem "webrick"
 gem "prosopite"
 gem "sshkit", require: false
 gem "uri", ">= 0.12.2"
-# gem "console_creep"
-
-# gem "oink"
 
 group :production do
   gem "rack-timeout"
@@ -126,8 +125,5 @@ group :test do
   gem "webmock"
   gem "vcr"
 end
-
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "httplog"
