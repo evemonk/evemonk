@@ -11,7 +11,9 @@ end
 SimpleCov.start "rails" do
   enable_coverage :branch
   primary_coverage :branch
-  enable_coverage_for_eval
+  # TODO: enable this later, after simplecov fix:
+  # https://github.com/simplecov-ruby/simplecov/issues/1057
+  # enable_coverage_for_eval
 
   add_group "Dashboards", "app/dashboards"
   add_group "GraphQL", "app/graphql"
