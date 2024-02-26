@@ -776,7 +776,7 @@ DEPENDENCIES
   foreman
   gemdiff
   good_migrations
-  graphiql-rails (= 1.8.0)
+  graphiql-rails
   graphql
   graphql-rails_logger
   http_accept_language
