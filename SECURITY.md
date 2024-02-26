@@ -6,7 +6,7 @@ We release patches for security vulnerabilities against the following versions
 of EveMonk:
 
 | Version | Supported          |
-|---------| ------------------ |
+| ------- | ------------------ |
 | main    | :white_check_mark: |
 
 ## Reporting a Vulnerability
