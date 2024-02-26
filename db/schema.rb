@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_02_05_015410) do
+ActiveRecord::Schema[7.1].define(version: 2024_02_13_160612) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_buffercache"
   enable_extension "pg_trgm"
@@ -1090,6 +1090,27 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_05_015410) do
     t.index ["character_id"], name: "index_skillqueues_on_character_id"
   end
 
+  create_table "solid_errors", force: :cascade do |t|
+    t.string "exception_class", limit: 200, null: false
+    t.string "message", null: false
+    t.string "severity", limit: 25, null: false
+    t.string "source"
+    t.datetime "resolved_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["exception_class", "message", "severity", "source"], name: "solid_error_uniqueness_index", unique: true
+    t.index ["resolved_at"], name: "index_solid_errors_on_resolved_at"
+  end
+
+  create_table "solid_errors_occurrences", force: :cascade do |t|
+    t.bigint "error_id", null: false
+    t.text "backtrace"
+    t.json "context"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["error_id"], name: "index_solid_errors_occurrences_on_error_id"
+  end
+
   create_table "standings", force: :cascade do |t|
     t.bigint "character_id"
     t.bigint "from_id"
@@ -1184,6 +1205,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_05_015410) do
   add_foreign_key "industry_jobs", "characters"
   add_foreign_key "manufacturing_jobs", "characters"
   add_foreign_key "skillqueues", "characters"
+  add_foreign_key "solid_errors_occurrences", "solid_errors", column: "error_id"
   add_foreign_key "standings", "characters"
   add_foreign_key "wallet_journals", "characters"
   add_foreign_key "wallet_transactions", "characters"

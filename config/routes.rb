@@ -1,11 +1,15 @@
 # frozen_string_literal: true
 
-if Rails.env.development?
+if Rails.env.local?
   require "sidekiq/web"
 end
 
 Rails.application.routes.draw do
-  if !Rails.env.production?
+  # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
+  # Can be used by load balancers and uptime monitors to verify that the app is live.
+  get "up" => "rails/health#show", :as => :rails_health_check
+
+  if Rails.env.local?
     mount Lookbook::Engine, at: "/lookbook"
   end
 
@@ -17,7 +21,7 @@ Rails.application.routes.draw do
 
   get ".well-known/change-password", to: "well_known#change_password"
 
-  if Rails.env.development?
+  if Rails.env.local?
     namespace :backoffice do
       mount Sidekiq::Web, at: "sidekiq"
     end
