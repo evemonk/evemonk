@@ -23,5 +23,5 @@ describe FooterComponent, type: :component do
 
   specify { expect(page).to have_link("SDE Archive", href: "https://sde.evemonk.com/", target: "_blank") }
 
-  specify { expect(page).to have_text("© 2016 — 2023 EveMonk") }
+  specify { expect(page).to have_text("© 2016 — 2024 EveMonk") }
 end
