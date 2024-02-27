@@ -139,7 +139,7 @@ GEM
     bundler-audit (0.9.1)
       bundler (>= 1.2.0, < 3)
       thor (~> 1.0)
-    cacheflow (0.3.2)
+    cacheflow (0.3.3)
       activesupport (>= 6)
     capybara (3.40.0)
       addressable
