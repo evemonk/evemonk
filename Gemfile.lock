@@ -366,7 +366,7 @@ GEM
       net-imap
       net-pop
       net-smtp
-    marcel (1.0.3)
+    marcel (1.0.4)
     matrix (0.4.2)
     memory_profiler (1.0.1)
     meta-tags (2.20.0)
