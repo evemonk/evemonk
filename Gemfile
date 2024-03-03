@@ -15,8 +15,8 @@ gem "stimulus-rails"
 gem "jbuilder"
 gem "tzinfo-data", platforms: [:windows, :jruby]
 gem "bootsnap", require: false
-
 gem "solid_queue"
+
 gem "dartsass-rails"
 gem "view_component"
 gem "solid_errors"
@@ -29,7 +29,6 @@ gem "bootswatch",
   git: "https://github.com/thomaspark/bootswatch.git",
   tag: "v5.2.3"
 gem "good_migrations"
-gem "data_migrate", "10.0.3.rc"
 gem "local_time"
 gem "rails-i18n", "~> 7.0.9"
 gem "http_accept_language"
