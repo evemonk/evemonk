@@ -647,11 +647,6 @@ GEM
     sexp_processor (4.17.1)
     shoulda-matchers (6.2.0)
       activesupport (>= 5.2.0)
-    sidekiq (7.2.2)
-      concurrent-ruby (< 2)
-      connection_pool (>= 2.3.0)
-      rack (>= 2.2.4)
-      redis-client (>= 0.19.0)
     simplecov (0.22.0)
       docile (~> 1.1)
       simplecov-html (~> 0.11)
@@ -830,7 +825,6 @@ DEPENDENCIES
   rails-i18n (~> 7.0.9)
   rails-settings-cached
   redis
-  redis-client
   responders
   rqrcode
   rspec-its
@@ -844,7 +838,6 @@ DEPENDENCIES
   rufus-scheduler
   selenium-webdriver
   shoulda-matchers
-  sidekiq
   simplecov
   simplecov-cobertura
   sitemap_generator
