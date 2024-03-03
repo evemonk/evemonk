@@ -16,6 +16,7 @@ gem "jbuilder"
 gem "tzinfo-data", platforms: [:windows, :jruby]
 gem "bootsnap", require: false
 
+gem "solid_queue"
 gem "dartsass-rails"
 gem "view_component"
 gem "solid_errors"

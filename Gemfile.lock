@@ -676,6 +676,8 @@ GEM
       activerecord (~> 7.0)
       activesupport (~> 7.0)
       railties (~> 7.0)
+    solid_queue (0.2.1)
+      rails (~> 7.1)
     sprockets (4.2.1)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -848,6 +850,7 @@ DEPENDENCIES
   sitemap_generator
   skylight
   solid_errors
+  solid_queue
   sprockets-rails
   sql_tracker
   squasher
