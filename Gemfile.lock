@@ -668,7 +668,7 @@ GEM
       activerecord (~> 7.0)
       activesupport (~> 7.0)
       railties (~> 7.0)
-    solid_queue (0.2.1)
+    solid_queue (0.2.2)
       rails (~> 7.1)
     sprockets (4.2.1)
       concurrent-ruby (~> 1.0)
