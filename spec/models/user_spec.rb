@@ -24,7 +24,6 @@ describe User do
       german: 2,
       french: 3,
       japanese: 4,
-      russian: 5,
       korean: 7)
   }
 end
