@@ -21,6 +21,8 @@ Rails.application.routes.draw do
     mount Flipper::UI.app(Flipper), at: "/flipper"
 
     mount SolidErrors::Engine, at: "/solid_errors"
+
+    mount MissionControl::Jobs::Engine, at: "/jobs"
   end
 
   namespace :universe do
