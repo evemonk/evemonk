@@ -378,6 +378,11 @@ GEM
     mini_mime (1.1.5)
     mini_portile2 (2.8.5)
     minitest (5.22.3)
+    mission_control-jobs (0.1.1)
+      importmap-rails
+      rails (~> 7.1)
+      stimulus-rails
+      turbo-rails
     mobility (1.2.9)
       i18n (>= 0.6.10, < 2)
       request_store (~> 1.0)
@@ -792,6 +797,7 @@ DEPENDENCIES
   lograge
   lookbook
   meta-tags
+  mission_control-jobs
   mobility
   net-http-persistent
   noticed
