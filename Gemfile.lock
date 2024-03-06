@@ -661,6 +661,10 @@ GEM
     snaky_hash (2.0.1)
       hashie
       version_gem (~> 1.1, >= 1.1.1)
+    solid_cache (0.5.3)
+      activejob (>= 7)
+      activerecord (>= 7)
+      railties (>= 7)
     solid_errors (0.4.2)
       actionmailer (~> 7.0)
       actionpack (~> 7.0)
@@ -838,6 +842,7 @@ DEPENDENCIES
   simplecov-cobertura
   sitemap_generator
   skylight
+  solid_cache
   solid_errors
   solid_queue
   sprockets-rails
