@@ -273,7 +273,7 @@ GEM
     graphiql-rails (1.8.0)
       railties
       sprockets-rails
-    graphql (2.2.11)
+    graphql (2.2.12)
       base64
     graphql-rails_logger (1.2.4)
       actionpack (> 5.0)
