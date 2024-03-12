@@ -19,6 +19,7 @@ gem "solid_cache"
 gem "solid_queue"
 gem "mission_control-jobs"
 
+gem "config"
 gem "noticed"
 gem "dartsass-rails"
 gem "view_component"
