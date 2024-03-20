@@ -278,7 +278,7 @@ GEM
       rack-protection (>= 1.5.3, <= 4.0.0)
       sanitize (< 7)
     foreman (0.88.1)
-    fugit (1.10.1)
+    fugit (1.9.0)
       et-orbi (~> 1, >= 1.2.7)
       raabro (~> 1.4)
     gemdiff (5.0.0)
@@ -680,8 +680,12 @@ GEM
       activerecord (~> 7.0)
       activesupport (~> 7.0)
       railties (~> 7.0)
-    solid_queue (0.2.2)
-      rails (~> 7.1)
+    solid_queue (0.3.0)
+      activejob (>= 7.1)
+      activerecord (>= 7.1)
+      concurrent-ruby (~> 1.2.2)
+      fugit (~> 1.9.0)
+      railties (>= 7.1)
     sprockets (4.2.1)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -854,7 +858,7 @@ DEPENDENCIES
   skylight
   solid_cache
   solid_errors
-  solid_queue
+  solid_queue (= 0.3.0)
   sprockets-rails
   sql_tracker
   squasher
