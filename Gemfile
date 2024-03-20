@@ -16,7 +16,7 @@ gem "jbuilder"
 gem "tzinfo-data", platforms: [:windows, :jruby]
 gem "bootsnap", require: false
 gem "solid_cache"
-gem "solid_queue", "0.3.0"
+gem "solid_queue"
 gem "mission_control-jobs"
 
 gem "config"

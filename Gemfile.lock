@@ -855,7 +855,7 @@ DEPENDENCIES
   skylight
   solid_cache
   solid_errors
-  solid_queue (= 0.3.0)
+  solid_queue
   sprockets-rails
   sql_tracker
   squasher
