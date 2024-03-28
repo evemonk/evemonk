@@ -275,9 +275,8 @@ GEM
       rake (>= 13)
     google-protobuf (4.26.1-x86_64-linux)
       rake (>= 13)
-    graphiql-rails (1.8.0)
+    graphiql-rails (1.10.0)
       railties
-      sprockets-rails
     graphql (2.3.0)
       base64
     graphql-rails_logger (1.2.4)
