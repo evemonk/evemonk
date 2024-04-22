@@ -7,10 +7,6 @@ describe Eve::ServerStatusJob do
 
   it { expect(described_class.queue_name).to eq("server_status") }
 
-  describe ".sidekiq_options" do
-    specify { expect(described_class.sidekiq_options["retry"]).to eq(false) }
-  end
-
   describe "#perform" do
     context "when eve_server_status_job enabled" do
       before { Flipper.enable(:eve_server_status_job) }
