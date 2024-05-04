@@ -2,5 +2,5 @@
 
 require "rails_helper"
 
-describe Resolvers::Base do
+describe Resolvers::BaseResolver do
 end
