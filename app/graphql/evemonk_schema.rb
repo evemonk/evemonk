@@ -29,6 +29,9 @@ class EvemonkSchema < GraphQL::Schema
     raise(GraphQL::RequiredImplementationMissingError)
   end
 
+  # Limit the size of incoming queries:
+  max_query_string_tokens(5000)
+
   # Stop validating when it encounters this many errors:
   validate_max_errors(100)
 
