@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Resolvers
-  class Alliances < Base
+  class Alliances < BaseResolver
     description "Alliances resolver"
 
     argument :order_by, Types::AlliancesOrderEnum,
