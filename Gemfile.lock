@@ -324,7 +324,7 @@ GEM
     httplog (1.6.3)
       rack (>= 2.0)
       rainbow (>= 2.0.0)
-    i18n (1.14.4)
+    i18n (1.14.5)
       concurrent-ruby (~> 1.0)
     importmap-rails (2.0.1)
       actionpack (>= 6.0.0)
