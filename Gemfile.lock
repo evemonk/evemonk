@@ -157,10 +157,9 @@ GEM
     bigdecimal (3.1.8)
     bootsnap (1.18.3)
       msgpack (~> 1.2)
-    bootstrap (5.2.3)
+    bootstrap (5.3.3)
       autoprefixer-rails (>= 9.1.0)
-      popper_js (>= 2.11.6, < 3)
-      sassc-rails (>= 2.0.0)
+      popper_js (>= 2.11.8, < 3)
     brakeman (6.1.2)
       racc
     builder (3.2.4)
@@ -764,7 +763,7 @@ DEPENDENCIES
   aws-sdk-s3
   better_html
   bootsnap
-  bootstrap (= 5.2.3)
+  bootstrap (= 5.3.3)
   bootswatch!
   brakeman
   bundler-audit
