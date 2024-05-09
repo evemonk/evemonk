@@ -367,7 +367,7 @@ GEM
     language_server-protocol (3.17.0.3)
     launchy (2.5.2)
       addressable (~> 2.8)
-    license_finder (7.2.0)
+    license_finder (7.2.1)
       bundler
       csv (~> 3.2)
       rubyzip (>= 1, < 3)
