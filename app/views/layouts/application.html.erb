@@ -18,8 +18,8 @@
       <%= tag.meta(name: "google-site-verification", content: Setting.google_site_verification_token) %>
     <% end %>
 
-    <% if Setting.use_plausible_evemonk %>
-      <%= render "shared/plausible" %>
+    <% if Setting.use_fathom_evemonk %>
+      <%= render "shared/fathom" %>
     <% end %>
 
     <%= csrf_meta_tags %>
