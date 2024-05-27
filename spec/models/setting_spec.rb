@@ -37,8 +37,8 @@ describe Setting do
     specify { expect(described_class.google_site_verification_token).to eq(nil) }
   end
 
-  describe ".use_plausible_evemonk" do
-    specify { expect(described_class.use_plausible_evemonk).to eq(false) }
+  describe ".use_fathom_evemonk" do
+    specify { expect(described_class.use_fathom_evemonk).to eq(false) }
   end
 
   describe ".enabled_assets" do
