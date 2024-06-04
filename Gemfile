@@ -4,7 +4,7 @@ source "https://rubygems.org"
 
 ruby file: ".ruby-version"
 
-gem "rails", git: "https://github.com/rails/rails.git", branch: "7-1-stable"
+gem "rails", "7.1.3.4"
 
 gem "sprockets-rails"
 gem "pg"
