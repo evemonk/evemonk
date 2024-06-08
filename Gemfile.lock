@@ -603,7 +603,7 @@ GEM
       rubocop (~> 1.41)
     rubocop-disable_syntax (0.1.1)
       rubocop (>= 1.50)
-    rubocop-factory_bot (2.25.1)
+    rubocop-factory_bot (2.26.0)
       rubocop (~> 1.41)
     rubocop-graphql (1.5.2)
       rubocop (>= 0.90, < 2)
