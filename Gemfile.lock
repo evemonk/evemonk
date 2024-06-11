@@ -558,7 +558,7 @@ GEM
     responders (3.1.1)
       actionpack (>= 5.2)
       railties (>= 5.2)
-    rexml (3.2.9)
+    rexml (3.3.0)
       strscan
     rotp (6.3.0)
     rouge (3.30.0)
