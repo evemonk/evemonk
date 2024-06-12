@@ -95,7 +95,7 @@ group :development, :test do
   gem "rubocop-rspec", require: false
   gem "rubocop-rspec_rails", require: false
   gem "rubocop-factory_bot", require: false
-  gem "standard", "1.36.0", require: false
+  gem "standard", "1.37.0", require: false
   gem "squasher", require: false
   gem "brakeman", require: false
   gem "fasterer", require: false
