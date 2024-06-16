@@ -25,10 +25,10 @@ ENV RAILS_ENV production
 
 ENV RAILS_LOG_TO_STDOUT true
 
-RUN gem update --system "3.5.11"
+RUN gem update --system "3.5.13"
 
 # skipcq: DOK-DL3028
-RUN gem install bundler --version "2.5.11" --force
+RUN gem install bundler --version "2.5.13" --force
 
 RUN gem --version
 
@@ -56,11 +56,7 @@ RUN find /usr/local/bundle/gems/ -name "*.o" -delete
 
 COPY . .
 
-RUN bundle exec bootsnap precompile --gemfile app/ lib/ config/
-
-# Workaround for nokogiri and trivy
-RUN rm -f /usr/local/bundle/ruby/3.3.0/gems/nokogiri-1.16.2-x86_64-linux/dependencies.yml
-RUN rm -f /usr/local/bundle/gems/nokogiri-1.16.2-x86_64-linux/dependencies.yml
+RUN bundle exec bootsnap precompile --gemfile
 
 # The SECRET_KEY_BASE here isn't used. Precomiling assets doesn't use your
 # secret key, but Rails will fail to initialize if it isn't set.
