@@ -56,7 +56,7 @@ RUN find /usr/local/bundle/gems/ -name "*.o" -delete
 
 COPY . .
 
-RUN bundle exec bootsnap precompile --gemfile app/ lib/ config/
+RUN bundle exec bootsnap precompile --gemfile
 
 # Workaround for nokogiri and trivy
 RUN rm -f /usr/local/bundle/ruby/3.3.0/gems/nokogiri-1.16.2-x86_64-linux/dependencies.yml
