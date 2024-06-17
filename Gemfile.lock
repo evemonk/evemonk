@@ -385,7 +385,7 @@ GEM
       net-smtp
     marcel (1.0.4)
     matrix (0.4.2)
-    memory_profiler (1.0.1)
+    memory_profiler (1.0.2)
     meta-tags (2.21.0)
       actionpack (>= 6.0.0, < 7.2)
     method_source (1.1.0)
