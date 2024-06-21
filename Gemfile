@@ -18,7 +18,6 @@ gem "bootsnap", require: false
 
 gem "dartsass-rails"
 gem "view_component"
-gem "solid_errors"
 gem "flipper"
 gem "flipper-active_record"
 gem "flipper-ui"
