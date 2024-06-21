@@ -36,7 +36,6 @@
 /static/*
 /sde.zip
 /config/skylight.yml
-yarn.lock
 node_modules/**/*
 
 /app/assets/builds/*
