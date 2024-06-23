@@ -164,9 +164,6 @@ GEM
     dartsass-rails (0.5.0)
       railties (>= 6.0.0)
       sass-embedded (~> 1.63)
-    data_migrate (10.0.3.rc)
-      activerecord (>= 6.0)
-      railties (>= 6.0)
     database_rewinder (1.0.1)
     date (3.3.4)
     dead_end (4.0.0)
@@ -784,7 +781,6 @@ DEPENDENCIES
   capybara (>= 3.26)
   connection_pool
   dartsass-rails
-  data_migrate (= 10.0.3.rc)
   database_rewinder
   derailed_benchmarks
   devise
@@ -926,7 +922,6 @@ CHECKSUMS
   css_parser (1.17.1) sha256=eb730f2d26591a843e52bd3d0efd76abdfeec8bad728e0b2ac821fc10bb018e6
   csv (3.3.0) sha256=0bbd1defdc31134abefed027a639b3723c2753862150f4c3ee61cab71b20d67d
   dartsass-rails (0.5.0) sha256=a2532abee689ffacba453408346438233e1347c2da684a9ce601421f0c033098
-  data_migrate (10.0.3.rc) sha256=9dfefa37c070cf73b17050d7baf9441641e5f7a73c0a3abdc98adab5c97841ac
   database_rewinder (1.0.1) sha256=7a17c3f8e92938846831af2ee496aed7cca593c81b0fbc2a8d77d8028fd0c28d
   date (3.3.4) sha256=971f2cb66b945bcbea4ddd9c7908c9400b31a71bc316833cb42fa584b59d3291
   dead_end (4.0.0) sha256=695c8438993bb4c5415b1618a1b6e0afcae849ef2812fb8cb3846723904307eb

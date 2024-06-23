@@ -28,7 +28,6 @@ gem "bootswatch",
   git: "https://github.com/thomaspark/bootswatch.git",
   tag: "v5.2.3"
 gem "good_migrations"
-gem "data_migrate", "10.0.3.rc"
 gem "local_time"
 gem "rails-i18n", "~> 7.0.9"
 gem "http_accept_language"
