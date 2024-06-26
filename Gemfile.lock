@@ -268,19 +268,19 @@ GEM
     good_migrations (0.2.1)
       activerecord (>= 3.1)
       railties (>= 3.1)
-    google-protobuf (4.27.1)
+    google-protobuf (4.27.2)
       bigdecimal
       rake (>= 13)
-    google-protobuf (4.27.1-aarch64-linux)
+    google-protobuf (4.27.2-aarch64-linux)
       bigdecimal
       rake (>= 13)
-    google-protobuf (4.27.1-arm64-darwin)
+    google-protobuf (4.27.2-arm64-darwin)
       bigdecimal
       rake (>= 13)
-    google-protobuf (4.27.1-x86_64-darwin)
+    google-protobuf (4.27.2-x86_64-darwin)
       bigdecimal
       rake (>= 13)
-    google-protobuf (4.27.1-x86_64-linux)
+    google-protobuf (4.27.2-x86_64-linux)
       bigdecimal
       rake (>= 13)
     graphiql-rails (1.8.0)
@@ -963,11 +963,11 @@ CHECKSUMS
   get_process_mem (0.2.7) sha256=4afd3c3641dd6a817c09806c7d6d509d8a9984512ac38dea8b917426bbf77eba
   globalid (1.2.1) sha256=70bf76711871f843dbba72beb8613229a49429d1866828476f9c9d6ccc327ce9
   good_migrations (0.2.1) sha256=d38784f10516b337203125b0a3b8c658ae8f862cbec3ba6a774c679ed57f1c01
-  google-protobuf (4.27.1) sha256=a988ba32cbb4a85c2340e4840dd3e88874225b54f23f7432dedea6ae25695578
-  google-protobuf (4.27.1-aarch64-linux) sha256=44b499a33a45943813e9e8f8de58b26a68a72ce1c244e9b9029c8b4878373f6a
-  google-protobuf (4.27.1-arm64-darwin) sha256=cf4dc1cfc8b5c170a834f259a011c070f45e8250406a22a81f9bb709b8dc0c0d
-  google-protobuf (4.27.1-x86_64-darwin) sha256=efe981cffd811b3b815db7f20fae5e926acb9b3b7624f8dce4be753f0ceeb6ec
-  google-protobuf (4.27.1-x86_64-linux) sha256=9df0c88277f5d142b99c079d9a03ecd0b9c4261d6844bc0b66006d128ce30b57
+  google-protobuf (4.27.2) sha256=9f69eb20acde6e3cf3cd197c09f38911cd7eed5fdf1bf4d4bce4c55e9dc9966f
+  google-protobuf (4.27.2-aarch64-linux) sha256=7c9d9ef84e50941ed63515c51233069f70a3f07c8c7e6ef2acd0c4443cb62d5b
+  google-protobuf (4.27.2-arm64-darwin) sha256=36cbd6620ef822f8a93870cc837212b302cbbdd7c900f8fa6701c735b7ff7f97
+  google-protobuf (4.27.2-x86_64-darwin) sha256=689f921050489d3cc2537c48bee98047414ad099bb980538562955a3bc9fdced
+  google-protobuf (4.27.2-x86_64-linux) sha256=126183186de79f709a0792f31eddf1fcebbfb5ded29538d184ece8fae73148c2
   graphiql-rails (1.8.0) sha256=02e2c5098be2c6c29219a0e9b2910a2cd3c494301587a3199a7c4484d8038ed1
   graphql (2.3.5) sha256=9c367835f86541660d24c3d81632267ecee553d304577aaee070f8ac05860af1
   graphql-rails_logger (1.2.4) sha256=cc0a348d5a1b7d020cd19225a9811356bb092845ab999bd9dfe813af53451780
