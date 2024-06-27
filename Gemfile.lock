@@ -428,7 +428,7 @@ GEM
       racc (~> 1.4)
     nokogiri (1.16.6-x86_64-linux)
       racc (~> 1.4)
-    noticed (2.3.3)
+    noticed (2.4.0)
       rails (>= 6.1.0)
     oauth2 (2.0.9)
       faraday (>= 0.17.3, < 3.0)
@@ -1031,7 +1031,7 @@ CHECKSUMS
   nokogiri (1.16.6-arm64-darwin) sha256=43e8a783697c65413408a4923b5c2ed6bea6632cfdab4da220446b601733fa4b
   nokogiri (1.16.6-x86_64-darwin) sha256=92fa413d866baf9b609f17558ecfbcf950d5373213babcf4ce11d7eaed4b21cf
   nokogiri (1.16.6-x86_64-linux) sha256=769bd2c14ad76dd5a7e14c867741cf2e3b8c25626a34f40aee7b0b998b8de820
-  noticed (2.3.3) sha256=9d845bb8061289fa89f854f31cc7e99fb921ba084f65578bdce839d0992adf8c
+  noticed (2.4.0) sha256=2a9fcfcc7e31cdad7a76ebc1edd36b440e6f8067a894dcdc821146c1567dac78
   oauth2 (2.0.9) sha256=b21f9defcf52dc1610e0dfab4c868342173dcd707fd15c777d9f4f04e153f7fb
   octokit (8.1.0) sha256=82229ce9b54e910e27ae75ff21e54bc97072913b5af06750999966e6817af8cd
   omniauth (2.1.2) sha256=def03277298b8f8a5d3ff16cdb2eb5edb9bffed60ee7dda24cc0c89b3ae6a0ce
