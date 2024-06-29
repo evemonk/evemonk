@@ -37,4 +37,5 @@ jobs:
           bundler-cache: true
       - name: Disable skylight dev warning
         run: bundle exec skylight disable_dev_warning
+      - run: cp -f config/evemonk.example.yml config/evemonk.yml
       - run: bin/rails SECRET_KEY_BASE=no assets:precompile

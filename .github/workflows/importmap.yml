@@ -33,4 +33,5 @@ jobs:
           rubygems: latest
           bundler: latest
           bundler-cache: true
+      - run: cp -f config/evemonk.example.yml config/evemonk.yml
       - run: bin/importmap audit
