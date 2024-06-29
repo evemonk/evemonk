@@ -1,0 +1,22 @@
+# copy to config/evemonk.yml and configure
+
+test:
+  eve_online_sso:
+    client_id: ""
+    secret_key: ""
+  slack:
+    updates_webhook_channel_url: ""
+
+development:
+  eve_online_sso:
+    client_id: ""
+    secret_key: ""
+  slack:
+    updates_webhook_channel_url: ""
+
+production:
+  eve_online_sso:
+    client_id: ""
+    secret_key: ""
+  slack:
+    updates_webhook_channel_url: ""

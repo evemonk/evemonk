@@ -22,6 +22,8 @@ Bundler.require(*Rails.groups)
 
 module Evemonk
   class Application < Rails::Application
+    config.evemonk = config_for(:evemonk)
+
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.1
 

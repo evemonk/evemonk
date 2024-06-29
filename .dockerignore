@@ -13,6 +13,7 @@
 .rubocop.yml
 .standard.yml
 config/skylight.yml
+config/evemonk.yml
 docker-build.sh
 docker-compose.yml
 docker-postgresql-restore-dump.sh

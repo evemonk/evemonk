@@ -14,7 +14,7 @@ class User < ApplicationRecord
     german: 2,
     french: 3,
     japanese: 4,
-    russian: 5,
+    # russian: 5,
     # chinese: 6,
     korean: 7
   }
