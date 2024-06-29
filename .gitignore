@@ -36,6 +36,7 @@
 /static/*
 /sde.zip
 /config/skylight.yml
+/config/evemonk.yml
 node_modules/**/*
 
 /app/assets/builds/*

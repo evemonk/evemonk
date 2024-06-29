@@ -1,0 +1,16 @@
+# copy to config/evemonk.yml and configure
+
+test:
+  eve_online_sso:
+    client_id: ""
+    secret_key: ""
+
+development:
+  eve_online_sso:
+    client_id: ""
+    secret_key: ""
+
+production:
+  eve_online_sso:
+    client_id: ""
+    secret_key: ""
