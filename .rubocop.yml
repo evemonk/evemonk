@@ -18,7 +18,6 @@ AllCops:
 
 Style/DisableSyntax:
   DisableSyntax:
-    - unless
     - ternary
     - endless_methods
     - numbered_parameters
