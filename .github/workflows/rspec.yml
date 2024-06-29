@@ -70,6 +70,7 @@ jobs:
           bundler-cache: true
       - name: Disable skylight dev warning
         run: bundle exec skylight disable_dev_warning
+      - run: cp -f config/evemonk.example.yml config/evemonk.yml
       - run: bundle exec bootsnap precompile --gemfile
       - run: bin/rails zeitwerk:check
       - run: bin/rails db:create
