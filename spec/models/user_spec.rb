@@ -19,12 +19,13 @@ describe User do
   it { should have_many(:characters).dependent(:destroy) }
 
   it {
-    should define_enum_for(:locale).with_values(auto_detect: 0,
+    should define_enum_for(:locale).with_values(
+      auto_detect: 0,
       english: 1,
       german: 2,
       french: 3,
       japanese: 4,
-      russian: 5,
-      korean: 7)
+      korean: 7
+    )
   }
 end
