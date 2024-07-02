@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe "Get Faction by ID" do
+RSpec.describe "Get Faction by ID" do
   let!(:eve_corporation) do
     create(:eve_corporation,
       id: 1_111)

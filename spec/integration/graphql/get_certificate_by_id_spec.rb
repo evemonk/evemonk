@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe "Get Certificates by ID" do
+RSpec.describe "Get Certificates by ID" do
   let!(:eve_group) do
     create(:eve_group,
       id: 255)

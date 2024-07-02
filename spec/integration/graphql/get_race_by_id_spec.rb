@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe "Get Race by ID" do
+RSpec.describe "Get Race by ID" do
   let!(:eve_faction) do
     create(:eve_faction,
       id: 1_000_111)

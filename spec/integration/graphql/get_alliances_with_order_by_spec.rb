@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe "Get Alliances with orderBy" do
+RSpec.describe "Get Alliances with orderBy" do
   let!(:eve_alliance_1) { create(:eve_alliance, id: 1, characters_count: 100, corporations_count: 1_000) }
 
   let!(:eve_alliance_2) { create(:eve_alliance, id: 2, characters_count: 200, corporations_count: 2_000) }

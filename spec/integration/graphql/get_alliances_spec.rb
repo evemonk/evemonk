@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe "Get Alliances" do
+RSpec.describe "Get Alliances" do
   before { freeze_time }
 
   let(:date_founded_1) { Time.zone.now }

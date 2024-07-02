@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe "Get Groups" do
+RSpec.describe "Get Groups" do
   let!(:eve_category_1) do
     create(:eve_category,
       id: 1_111)

@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe "Get Constellations" do
+RSpec.describe "Get Constellations" do
   let!(:eve_region_1) do
     create(:eve_region,
       region_id: 400)

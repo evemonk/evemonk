@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe "Get Contract by ID" do
+RSpec.describe "Get Contract by ID" do
   let!(:eve_contract) do
     create(:eve_contract,
       contract_id: 123)

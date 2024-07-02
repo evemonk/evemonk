@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe "Get Market Groups" do
+RSpec.describe "Get Market Groups" do
   let!(:eve_type_1) do
     create(:eve_type,
       type_id: 400,

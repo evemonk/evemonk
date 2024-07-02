@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe "Get Character by ID" do
+RSpec.describe "Get Character by ID" do
   before { freeze_time }
 
   let!(:birthday) { Time.zone.now }

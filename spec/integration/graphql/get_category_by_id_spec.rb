@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe "Get Category by ID" do
+RSpec.describe "Get Category by ID" do
   let!(:eve_group) do
     create(:eve_group,
       id: 1_111,
