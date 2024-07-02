@@ -2,6 +2,6 @@
 
 require "rails_helper"
 
-describe Admin::Eve::CertificatesController do
+RSpec.describe Admin::Eve::CertificatesController do
   it { should be_an(Admin::ApplicationController) }
 end
