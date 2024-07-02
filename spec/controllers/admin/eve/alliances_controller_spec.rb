@@ -2,6 +2,6 @@
 
 require "rails_helper"
 
-describe Admin::Eve::AlliancesController do
+RSpec.describe Admin::Eve::AlliancesController do
   it { should be_an(Admin::ApplicationController) }
 end

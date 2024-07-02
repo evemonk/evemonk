@@ -2,6 +2,6 @@
 
 require "rails_helper"
 
-describe Admin::Eve::CharactersController do
+RSpec.describe Admin::Eve::CharactersController do
   it { should be_an(Admin::ApplicationController) }
 end

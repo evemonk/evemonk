@@ -2,5 +2,5 @@
 
 require "rails_helper"
 
-describe ApplicationCable::Channel do
+RSpec.describe ApplicationCable::Channel do
 end
