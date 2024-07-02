@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Eve::ConstellationDashboard do
+RSpec.describe Eve::ConstellationDashboard do
   it { should be_an(Administrate::BaseDashboard) }
 
   describe "#display_resource" do

@@ -2,6 +2,6 @@
 
 require "rails_helper"
 
-describe SettingDashboard do
+RSpec.describe SettingDashboard do
   it { should be_an(Administrate::BaseDashboard) }
 end

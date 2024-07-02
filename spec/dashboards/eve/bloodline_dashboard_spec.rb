@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Eve::BloodlineDashboard do
+RSpec.describe Eve::BloodlineDashboard do
   it { should be_an(Administrate::BaseDashboard) }
 
   describe "#display_resource" do

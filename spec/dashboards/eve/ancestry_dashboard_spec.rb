@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Eve::AncestryDashboard do
+RSpec.describe Eve::AncestryDashboard do
   it { should be_an(Administrate::BaseDashboard) }
 
   describe "#display_resource" do

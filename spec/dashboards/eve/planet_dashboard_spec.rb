@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Eve::PlanetDashboard do
+RSpec.describe Eve::PlanetDashboard do
   it { should be_an(Administrate::BaseDashboard) }
 
   describe "#display_resource" do

@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Eve::StargateDashboard do
+RSpec.describe Eve::StargateDashboard do
   it { should be_an(Administrate::BaseDashboard) }
 
   describe "#display_resource" do

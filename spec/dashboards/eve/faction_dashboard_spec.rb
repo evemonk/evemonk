@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Eve::FactionDashboard do
+RSpec.describe Eve::FactionDashboard do
   it { should be_an(Administrate::BaseDashboard) }
 
   describe "#display_resource" do

@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Eve::MoonDashboard do
+RSpec.describe Eve::MoonDashboard do
   it { should be_an(Administrate::BaseDashboard) }
 
   describe "#display_resource" do
