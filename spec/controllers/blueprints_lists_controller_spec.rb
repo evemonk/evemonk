@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe BlueprintsListsController do
+RSpec.describe BlueprintsListsController do
   it { should be_an(ApplicationController) }
 
   it { should use_before_action(:authenticate_user!) }

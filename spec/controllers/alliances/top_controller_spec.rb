@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Alliances::TopController do
+RSpec.describe Alliances::TopController do
   it { should be_an(ApplicationController) }
 
   it { should_not use_before_action(:authenticate_user!) }

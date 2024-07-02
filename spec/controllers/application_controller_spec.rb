@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe ApplicationController do
+RSpec.describe ApplicationController do
   it { should use_before_action(:authenticate_user!) }
 
   it { should use_before_action(:default_locale) }

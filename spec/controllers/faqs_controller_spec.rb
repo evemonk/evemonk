@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe FaqsController do
+RSpec.describe FaqsController do
   it { should be_an(ApplicationController) }
 
   it { should_not use_before_action(:authenticate_user!) }

@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe WelcomeController do
+RSpec.describe WelcomeController do
   it { should be_an(ApplicationController) }
 
   it { should_not use_before_action(:authenticate_user!) }

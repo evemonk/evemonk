@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe CharactersController do
+RSpec.describe CharactersController do
   it { should be_an(ApplicationController) }
 
   it { should use_before_action(:authenticate_user!) }

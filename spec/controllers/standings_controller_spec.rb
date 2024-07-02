@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe StandingsController do
+RSpec.describe StandingsController do
   it { should be_an(ApplicationController) }
 
   it { should use_before_action(:authenticate_user!) }

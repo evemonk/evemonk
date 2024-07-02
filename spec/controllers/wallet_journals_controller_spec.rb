@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe WalletJournalsController do
+RSpec.describe WalletJournalsController do
   it { should be_an(ApplicationController) }
 
   it { should use_before_action(:authenticate_user!) }
