@@ -42,9 +42,11 @@ RSpec.describe Admin::Eve::AgentsController do
       it "should render page" do
         create(:eve_agent)
 
-        visit admin_eve_agents_path
+        get admin_eve_agents_path
 
-        assert current_path == new_user_session_path
+        expect(response).to redirect_to(new_user_session_path)
+
+        expect(response).to have_http_status(:found)
       end
     end
   end
@@ -59,9 +61,11 @@ RSpec.describe Admin::Eve::AgentsController do
 
           eve_agent = create(:eve_agent)
 
-          visit admin_eve_agent_path(eve_agent)
+          get admin_eve_agent_path(eve_agent)
 
-          assert current_path == admin_eve_agent_path(eve_agent)
+          expect(response).to render_template(:show)
+
+          expect(response).to have_http_status(:ok)
         end
       end
 
@@ -73,9 +77,11 @@ RSpec.describe Admin::Eve::AgentsController do
 
           eve_agent = create(:eve_agent)
 
-          visit admin_eve_agent_path(eve_agent)
+          get admin_eve_agent_path(eve_agent)
 
-          assert current_path == root_path
+          expect(response).to redirect_to(root_path)
+
+          expect(response).to have_http_status(:found)
         end
       end
     end
@@ -84,9 +90,11 @@ RSpec.describe Admin::Eve::AgentsController do
       it "should render page" do
         eve_agent = create(:eve_agent)
 
-        visit admin_eve_agent_path(eve_agent)
+        get admin_eve_agent_path(eve_agent)
 
-        assert current_path == new_user_session_path
+        expect(response).to redirect_to(new_user_session_path)
+
+        expect(response).to have_http_status(:found)
       end
     end
   end
