@@ -2,6 +2,6 @@
 
 require "rails_helper"
 
-describe Admin::Eve::StargatesController do
+RSpec.describe Admin::Eve::StargatesController do
   it { should be_an(Admin::ApplicationController) }
 end

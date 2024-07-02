@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Admin::ApplicationController do
+RSpec.describe Admin::ApplicationController do
   it { should be_an(Administrate::ApplicationController) }
 
   it { should use_before_action(:authenticate_user!) }
