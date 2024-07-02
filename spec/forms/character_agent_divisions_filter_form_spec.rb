@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe CharacterAgentDivisionsFilterForm do
+RSpec.describe CharacterAgentDivisionsFilterForm do
   it { should be_an(ActiveModel::Model) }
 
   let(:division_id) { double }
