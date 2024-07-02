@@ -2,6 +2,6 @@
 
 require "rails_helper"
 
-describe Admin::Eve::AsteroidBeltsController do
+RSpec.describe Admin::Eve::AsteroidBeltsController do
   it { should be_an(Admin::ApplicationController) }
 end

@@ -2,9 +2,7 @@
 
 require "rails_helper"
 
-describe "Admin::Eve::Agent's features" do
-  before { driven_by(:selenium_chrome_headless) }
-
+RSpec.describe Admin::Eve::AgentsController do
   describe "#index" do
     context "when user is logged in" do
       context "when user is admin" do
@@ -15,9 +13,11 @@ describe "Admin::Eve::Agent's features" do
 
           create(:eve_agent)
 
-          visit admin_eve_agents_path
+          get admin_eve_agents_path
 
-          assert current_path == admin_eve_agents_path
+          expect(response).to render_template(:index)
+
+          expect(response).to have_http_status(:ok)
         end
       end
 
@@ -29,9 +29,11 @@ describe "Admin::Eve::Agent's features" do
 
           create(:eve_agent)
 
-          visit admin_eve_agents_path
+          get admin_eve_agents_path
 
-          assert current_path == root_path
+          expect(response).to redirect_to(root_path)
+
+          expect(response).to have_http_status(:found)
         end
       end
     end
@@ -40,9 +42,11 @@ describe "Admin::Eve::Agent's features" do
       it "should render page" do
         create(:eve_agent)
 
-        visit admin_eve_agents_path
+        get admin_eve_agents_path
 
-        assert current_path == new_user_session_path
+        expect(response).to redirect_to(new_user_session_path)
+
+        expect(response).to have_http_status(:found)
       end
     end
   end
@@ -57,9 +61,11 @@ describe "Admin::Eve::Agent's features" do
 
           eve_agent = create(:eve_agent)
 
-          visit admin_eve_agent_path(eve_agent)
+          get admin_eve_agent_path(eve_agent)
 
-          assert current_path == admin_eve_agent_path(eve_agent)
+          expect(response).to render_template(:show)
+
+          expect(response).to have_http_status(:ok)
         end
       end
 
@@ -71,9 +77,11 @@ describe "Admin::Eve::Agent's features" do
 
           eve_agent = create(:eve_agent)
 
-          visit admin_eve_agent_path(eve_agent)
+          get admin_eve_agent_path(eve_agent)
 
-          assert current_path == root_path
+          expect(response).to redirect_to(root_path)
+
+          expect(response).to have_http_status(:found)
         end
       end
     end
@@ -82,9 +90,11 @@ describe "Admin::Eve::Agent's features" do
       it "should render page" do
         eve_agent = create(:eve_agent)
 
-        visit admin_eve_agent_path(eve_agent)
+        get admin_eve_agent_path(eve_agent)
 
-        assert current_path == new_user_session_path
+        expect(response).to redirect_to(new_user_session_path)
+
+        expect(response).to have_http_status(:found)
       end
     end
   end

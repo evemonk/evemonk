@@ -2,6 +2,6 @@
 
 require "rails_helper"
 
-describe Admin::Eve::BloodlinesController do
+RSpec.describe Admin::Eve::BloodlinesController do
   it { should be_an(Admin::ApplicationController) }
 end

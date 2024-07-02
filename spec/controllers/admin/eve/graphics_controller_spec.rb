@@ -2,6 +2,6 @@
 
 require "rails_helper"
 
-describe Admin::Eve::GraphicsController do
+RSpec.describe Admin::Eve::GraphicsController do
   it { should be_an(Admin::ApplicationController) }
 end

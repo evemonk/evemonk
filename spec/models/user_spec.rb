@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe User do
+RSpec.describe User do
   it { should be_an(ApplicationRecord) }
 
   it {
