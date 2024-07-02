@@ -2,5 +2,5 @@
 
 require "rails_helper"
 
-describe Types::EveAllianceType do
+RSpec.describe Types::EveAllianceType do
 end

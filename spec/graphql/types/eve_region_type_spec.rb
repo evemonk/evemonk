@@ -2,5 +2,5 @@
 
 require "rails_helper"
 
-describe Types::EveRegionType do
+RSpec.describe Types::EveRegionType do
 end

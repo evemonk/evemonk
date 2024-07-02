@@ -2,5 +2,5 @@
 
 require "rails_helper"
 
-describe Types::BaseInterface do
+RSpec.describe Types::BaseInterface do
 end

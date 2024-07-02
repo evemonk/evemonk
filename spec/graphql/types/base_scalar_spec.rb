@@ -2,5 +2,5 @@
 
 require "rails_helper"
 
-describe Types::BaseScalar do
+RSpec.describe Types::BaseScalar do
 end

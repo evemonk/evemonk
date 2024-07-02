@@ -2,5 +2,5 @@
 
 require "rails_helper"
 
-describe Types::BaseConnection do
+RSpec.describe Types::BaseConnection do
 end

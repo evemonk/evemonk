@@ -2,5 +2,5 @@
 
 require "rails_helper"
 
-describe Types::EveContractType do
+RSpec.describe Types::EveContractType do
 end

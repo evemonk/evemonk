@@ -2,5 +2,5 @@
 
 require "rails_helper"
 
-describe Types::NodeType do
+RSpec.describe Types::NodeType do
 end

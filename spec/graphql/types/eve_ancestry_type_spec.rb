@@ -2,5 +2,5 @@
 
 require "rails_helper"
 
-describe Types::EveAncestryType do
+RSpec.describe Types::EveAncestryType do
 end

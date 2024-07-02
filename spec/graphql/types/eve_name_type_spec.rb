@@ -2,5 +2,5 @@
 
 require "rails_helper"
 
-describe Types::EveNameType do
+RSpec.describe Types::EveNameType do
 end

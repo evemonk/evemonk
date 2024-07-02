@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe EvemonkSchema do
+RSpec.describe EvemonkSchema do
   it { expect(described_class.default_max_page_size).to eq(50) }
 
   describe ".resolve_type" do

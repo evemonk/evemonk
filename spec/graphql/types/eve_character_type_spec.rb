@@ -2,5 +2,5 @@
 
 require "rails_helper"
 
-describe Types::EveCharacterType do
+RSpec.describe Types::EveCharacterType do
 end

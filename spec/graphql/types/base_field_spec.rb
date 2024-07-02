@@ -2,5 +2,5 @@
 
 require "rails_helper"
 
-describe Types::BaseField do
+RSpec.describe Types::BaseField do
 end

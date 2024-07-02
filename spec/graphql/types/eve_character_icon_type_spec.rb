@@ -2,5 +2,5 @@
 
 require "rails_helper"
 
-describe Types::EveCharacterIconType do
+RSpec.describe Types::EveCharacterIconType do
 end

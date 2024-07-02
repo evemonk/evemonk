@@ -2,5 +2,5 @@
 
 require "rails_helper"
 
-describe Types::EveFactionType do
+RSpec.describe Types::EveFactionType do
 end

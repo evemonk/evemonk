@@ -2,5 +2,5 @@
 
 require "rails_helper"
 
-describe Types::BaseEnum do
+RSpec.describe Types::BaseEnum do
 end

@@ -2,5 +2,5 @@
 
 require "rails_helper"
 
-describe Types::EveUnitType do
+RSpec.describe Types::EveUnitType do
 end

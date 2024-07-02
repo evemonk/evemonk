@@ -2,5 +2,5 @@
 
 require "rails_helper"
 
-describe Types::BaseArgument do
+RSpec.describe Types::BaseArgument do
 end

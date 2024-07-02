@@ -2,5 +2,5 @@
 
 require "rails_helper"
 
-describe Types::EveRaceType do
+RSpec.describe Types::EveRaceType do
 end

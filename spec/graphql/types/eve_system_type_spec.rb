@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Types::EveSystemType do
+RSpec.describe Types::EveSystemType do
   describe "get systems" do
     let!(:eve_system_1) do
       create(:eve_system,

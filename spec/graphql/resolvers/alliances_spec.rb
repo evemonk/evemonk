@@ -2,5 +2,5 @@
 
 require "rails_helper"
 
-describe Resolvers::Alliances do
+RSpec.describe Resolvers::Alliances do
 end
