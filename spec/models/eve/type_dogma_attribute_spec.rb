@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Eve::TypeDogmaAttribute do
+RSpec.describe Eve::TypeDogmaAttribute do
   it { should be_an(ApplicationRecord) }
 
   it { should be_an(ActionView::Helpers::NumberHelper) }

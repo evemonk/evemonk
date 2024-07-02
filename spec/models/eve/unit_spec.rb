@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Eve::Unit do
+RSpec.describe Eve::Unit do
   it { should be_an(ApplicationRecord) }
 
   it { should have_many(:dogma_attributes) }

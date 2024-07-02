@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Eve::LoyaltyStoreOffer do
+RSpec.describe Eve::LoyaltyStoreOffer do
   it { should be_an(ApplicationRecord) }
 
   it { expect(described_class.table_name).to eq("eve_loyalty_store_offers") }

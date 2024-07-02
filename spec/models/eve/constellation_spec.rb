@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Eve::Constellation do
+RSpec.describe Eve::Constellation do
   it { should be_an(ApplicationRecord) }
 
   it { expect(described_class.primary_key).to eq("constellation_id") }

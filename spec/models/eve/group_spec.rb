@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Eve::Group do
+RSpec.describe Eve::Group do
   it { should be_an(ApplicationRecord) }
 
   it { expect(described_class).to respond_to(:translates) }

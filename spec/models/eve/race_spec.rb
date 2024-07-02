@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Eve::Race do
+RSpec.describe Eve::Race do
   it { should be_an(ApplicationRecord) }
 
   it { expect(described_class).to respond_to(:translates) }

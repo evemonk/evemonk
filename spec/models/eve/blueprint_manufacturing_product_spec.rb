@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Eve::BlueprintManufacturingProduct do
+RSpec.describe Eve::BlueprintManufacturingProduct do
   it { should be_an(ApplicationRecord) }
 
   it { should belong_to(:blueprint) }

@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Eve::System do
+RSpec.describe Eve::System do
   it { should be_an(ApplicationRecord) }
 
   it { expect(described_class.primary_key).to eq("system_id") }

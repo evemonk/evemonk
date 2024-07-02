@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Eve::Alliance do
+RSpec.describe Eve::Alliance do
   it { should be_an(ApplicationRecord) }
 
   it { should be_a(PgSearch::Model) }
