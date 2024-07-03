@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe CharacterAgents do
+RSpec.describe CharacterAgents do
   let(:character) { double }
 
   let(:division_id) { double }

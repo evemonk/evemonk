@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Eve::SearchAlliancesQuery do
+RSpec.describe Eve::SearchAlliancesQuery do
   let(:search) { double }
 
   subject { described_class.new(search) }

@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe CharacterAttributes do
+RSpec.describe CharacterAttributes do
   let!(:implant_1) { create(:eve_type, published: true) }
 
   let!(:implant_2) { create(:eve_type, published: true) }

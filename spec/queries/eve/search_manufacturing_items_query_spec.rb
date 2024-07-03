@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Eve::SearchManufacturingItemsQuery do
+RSpec.describe Eve::SearchManufacturingItemsQuery do
   let(:search) { double }
 
   subject { described_class.new(search) }
