@@ -613,7 +613,7 @@ GEM
       rack (>= 1.1)
       rubocop (>= 1.33.0, < 2.0)
       rubocop-ast (>= 1.31.1, < 2.0)
-    rubocop-rspec (3.0.1)
+    rubocop-rspec (3.0.2)
       rubocop (~> 1.61)
     rubocop-rspec_rails (2.30.0)
       rubocop (~> 1.61)
@@ -1101,7 +1101,7 @@ CHECKSUMS
   rubocop-graphql (1.5.2) sha256=9e5fb5909607d0d68bb6e924d8f916476c9706e81d8676c53960c7c5f3eadb85
   rubocop-performance (1.21.1) sha256=5cf20002a544275ad6aa99abca4b945d2a2ed71be925c38fe83700360ed8734e
   rubocop-rails (2.25.1) sha256=4988933ee02fdb213d22d0f61dc57d6c582317b43867d5106ea1c7a628aae6a5
-  rubocop-rspec (3.0.1) sha256=555bec56eb9a3e2a66ade6c74c48ed05251afafae9c6509fe96d31cddb3fe9e0
+  rubocop-rspec (3.0.2) sha256=95fb61205015b16e2a5416a5b00c035cb725a22a12462cfbd4cab920930d2d8f
   rubocop-rspec_rails (2.30.0) sha256=888112e83f9d7ef7ad2397e9d69a0b9614a4bae24f072c399804a180f80c4c46
   ruby-progressbar (1.13.0) sha256=80fc9c47a9b640d6834e0dc7b3c94c9df37f08cb072b7761e4a71e22cff29b33
   ruby-statistics (3.0.2) sha256=fb53e7a9f9681dac144c02539d3535fb2e8fae626f78b907219b0586ff53ec20
