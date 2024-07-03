@@ -619,7 +619,7 @@ GEM
       rubocop (~> 1.61)
       rubocop-rspec (~> 3, >= 3.0.1)
     ruby-progressbar (1.13.0)
-    ruby-statistics (3.0.2)
+    ruby-statistics (4.0.0)
     ruby_parser (3.21.0)
       racc (~> 1.5)
       sexp_processor (~> 4.16)
@@ -1104,7 +1104,7 @@ CHECKSUMS
   rubocop-rspec (3.0.2) sha256=95fb61205015b16e2a5416a5b00c035cb725a22a12462cfbd4cab920930d2d8f
   rubocop-rspec_rails (2.30.0) sha256=888112e83f9d7ef7ad2397e9d69a0b9614a4bae24f072c399804a180f80c4c46
   ruby-progressbar (1.13.0) sha256=80fc9c47a9b640d6834e0dc7b3c94c9df37f08cb072b7761e4a71e22cff29b33
-  ruby-statistics (3.0.2) sha256=fb53e7a9f9681dac144c02539d3535fb2e8fae626f78b907219b0586ff53ec20
+  ruby-statistics (4.0.0) sha256=8612fa64c63a70e5e711ffd5e537f9235e41b998bca4580a66501c046565fbae
   ruby_parser (3.21.0) sha256=3842893d2f4602dcd93c0a79d77f9ce8e1ce197d41ac533d8e25c684f8f1c56b
   rubyzip (2.3.2) sha256=3f57e3935dc2255c414484fbf8d673b4909d8a6a57007ed754dde39342d2373f
   rufus-scheduler (3.9.1) sha256=5fca077ca039a0025fa77fcc7484fa64e47a112124babc75d4c072ad05439992
