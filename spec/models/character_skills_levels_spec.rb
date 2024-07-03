@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe CharacterSkillsLevels do
+RSpec.describe CharacterSkillsLevels do
   let!(:character) { create(:character) }
 
   subject { described_class.new(character) }

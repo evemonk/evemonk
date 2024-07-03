@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe CharacterMailLabel do
+RSpec.describe CharacterMailLabel do
   it { should be_an(ApplicationRecord) }
 
   it { should belong_to(:character) }

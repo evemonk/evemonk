@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe WalletJournal do
+RSpec.describe WalletJournal do
   it { should be_an(ApplicationRecord) }
 
   it { should belong_to(:character) }

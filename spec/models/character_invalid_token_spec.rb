@@ -2,6 +2,6 @@
 
 require "spec_helper"
 
-describe CharacterInvalidToken do
+RSpec.describe CharacterInvalidToken do
   specify { expect(subject).to be_a(RuntimeError) }
 end

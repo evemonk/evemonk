@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Setting do
+RSpec.describe Setting do
   it { should be_a(RailsSettings::Base) }
 
   describe ".eve_online_sso_client_id" do

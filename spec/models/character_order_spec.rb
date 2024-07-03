@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe CharacterOrder do
+RSpec.describe CharacterOrder do
   it { should be_an(ApplicationRecord) }
 
   it { should be_a(Locationable) }
