@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe UpdateCharacterInfoService do
+RSpec.describe UpdateCharacterInfoService do
   describe "#execute" do
     let(:character_id) { double }
 

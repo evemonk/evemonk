@@ -2,5 +2,5 @@
 
 require "rails_helper"
 
-describe CharacterManufacturingCopyTime do
+RSpec.describe CharacterManufacturingCopyTime do
 end

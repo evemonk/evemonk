@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe EveOnlineCallbackService do
+RSpec.describe EveOnlineCallbackService do
   let(:user) { instance_double(User) }
 
   let(:request) { double }

@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Api::RefreshCharacterAccessToken do
+RSpec.describe Api::RefreshCharacterAccessToken do
   context "when token fresh" do
     let(:character) do
       create(:character,

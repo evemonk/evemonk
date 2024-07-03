@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe PushOver::Notification do
+RSpec.describe PushOver::Notification do
   specify { expect(described_class::API_URL).to eq("https://api.pushover.net") }
 
   specify { expect(described_class::PATH).to eq("/1/messages.json") }

@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe CoolDownMiddleware do
+RSpec.describe CoolDownMiddleware do
   before { VCR.insert_cassette "services/cool_down_middleware" }
 
   after { VCR.eject_cassette }
