@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe AboutsController do
+RSpec.describe AboutsController do
   describe "routing" do
     it "should route GET /about to abouts#show" do
       expect(get: "/about").to route_to(

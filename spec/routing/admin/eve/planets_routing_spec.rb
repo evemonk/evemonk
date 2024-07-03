@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Admin::Eve::PlanetsController do
+RSpec.describe Admin::Eve::PlanetsController do
   describe "routing" do
     it "should route GET /admin/eve/planets to admin/eve/planets#index" do
       expect(get: "/admin/eve/planets").to route_to(

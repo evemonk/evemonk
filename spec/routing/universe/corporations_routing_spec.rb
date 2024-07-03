@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Universe::CorporationsController do
+RSpec.describe Universe::CorporationsController do
   describe "routing" do
     it "should route GET /universe/corporations to universe/corporations#index" do
       expect(get: "/universe/corporations").to route_to(

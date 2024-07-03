@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Api::Eve::ManufacturingItemsController do
+RSpec.describe Api::Eve::ManufacturingItemsController do
   describe "routing" do
     it "should route GET /api/eve/manufacturing_items to api/eve/manufacturing_items#index" do
       expect(get: "/api/eve/manufacturing_items").to route_to(

@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Auth::EveOnlineSso::CallbacksController do
+RSpec.describe Auth::EveOnlineSso::CallbacksController do
   describe "routing" do
     it "should route GET /auth/eve_online_sso/callback to auth/eve_online_sso/callbacks#show" do
       expect(get: "/auth/eve_online_sso/callback").to route_to(

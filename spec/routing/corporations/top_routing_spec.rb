@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Corporations::TopController do
+RSpec.describe Corporations::TopController do
   describe "routing" do
     it "should route GET /corporations/top to corporations/top#index" do
       expect(get: "/corporations/top").to route_to(

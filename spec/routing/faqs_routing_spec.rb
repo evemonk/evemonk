@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe FaqsController do
+RSpec.describe FaqsController do
   describe "routing" do
     it "should route GET /faq to faqs#show" do
       expect(get: "/faq").to route_to(

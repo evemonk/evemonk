@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe SettingsController do
+RSpec.describe SettingsController do
   describe "routing" do
     it "should route GET /characters/:character_id/settings to settings#index" do
       expect(get: "/characters/90729314/settings").to route_to(

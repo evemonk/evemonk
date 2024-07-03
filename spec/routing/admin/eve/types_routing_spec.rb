@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Admin::Eve::TypesController do
+RSpec.describe Admin::Eve::TypesController do
   describe "routing" do
     it "should route GET /admin/eve/types to admin/eve/types#index" do
       expect(get: "/admin/eve/types").to route_to(

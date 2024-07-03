@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe SkillsController do
+RSpec.describe SkillsController do
   describe "routing" do
     it "should route GET /characters/:character_id/skills to skills#index" do
       expect(get: "/characters/90729314/skills").to route_to(

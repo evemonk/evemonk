@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Admin::Eve::BloodlinesController do
+RSpec.describe Admin::Eve::BloodlinesController do
   describe "routing" do
     it "should route GET /admin/eve/bloodlines to admin/eve/bloodlines#index" do
       expect(get: "/admin/eve/bloodlines").to route_to(

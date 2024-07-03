@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe PrivacyPoliciesController do
+RSpec.describe PrivacyPoliciesController do
   describe "routing" do
     it "should route GET /privacy_policy to privacy_policies#show" do
       expect(get: "/privacy_policy").to route_to(

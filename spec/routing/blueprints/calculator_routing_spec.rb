@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Blueprints::CalculatorController do
+RSpec.describe Blueprints::CalculatorController do
   describe "routing" do
     it "should route GET /blueprints/calculator to blueprints/calculator#index" do
       expect(get: "/blueprints/calculator").to route_to(

@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe ProfilesController do
+RSpec.describe ProfilesController do
   describe "routing" do
     it "should route GET /profile to profiles#show" do
       expect(get: "/profile").to route_to(

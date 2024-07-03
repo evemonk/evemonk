@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Admin::Eve::IconsController do
+RSpec.describe Admin::Eve::IconsController do
   describe "routing" do
     it "should route GET /admin/eve/icons to admin/eve/icons#index" do
       expect(get: "/admin/eve/icons").to route_to(

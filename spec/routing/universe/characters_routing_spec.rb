@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Universe::CharactersController do
+RSpec.describe Universe::CharactersController do
   describe "routing" do
     it "should route GET /universe/characters to universe/characters#index" do
       expect(get: "/universe/characters").to route_to(

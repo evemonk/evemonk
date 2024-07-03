@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Admin::Eve::RegionsController do
+RSpec.describe Admin::Eve::RegionsController do
   describe "routing" do
     it "should route GET /admin/eve/regions to admin/eve/regions#index" do
       expect(get: "/admin/eve/regions").to route_to(

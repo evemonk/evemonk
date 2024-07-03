@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Admin::Eve::GraphicsController do
+RSpec.describe Admin::Eve::GraphicsController do
   describe "routing" do
     it "should route GET /admin/eve/graphics to admin/eve/graphics#index" do
       expect(get: "/admin/eve/graphics").to route_to(

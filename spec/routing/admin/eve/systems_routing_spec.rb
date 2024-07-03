@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Admin::Eve::SystemsController do
+RSpec.describe Admin::Eve::SystemsController do
   describe "routing" do
     it "should route GET /admin/eve/systems to admin/eve/systems#index" do
       expect(get: "/admin/eve/systems").to route_to(

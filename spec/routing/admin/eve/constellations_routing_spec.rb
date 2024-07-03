@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Admin::Eve::ConstellationsController do
+RSpec.describe Admin::Eve::ConstellationsController do
   describe "routing" do
     it "should route GET /admin/eve/constellations to admin/eve/constellations#index" do
       expect(get: "/admin/eve/constellations").to route_to(

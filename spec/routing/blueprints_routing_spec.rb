@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe BlueprintsController do
+RSpec.describe BlueprintsController do
   describe "routing" do
     it "should route GET /characters/:character_id/blueprints to blueprints#index" do
       expect(get: "/characters/90729314/blueprints").to route_to(

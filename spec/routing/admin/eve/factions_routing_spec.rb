@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Admin::Eve::FactionsController do
+RSpec.describe Admin::Eve::FactionsController do
   describe "routing" do
     it "should route GET /admin/eve/factions to admin/eve/factions#index" do
       expect(get: "/admin/eve/factions").to route_to(
