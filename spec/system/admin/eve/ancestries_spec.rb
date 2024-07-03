@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe "Admin::Eve::Ancestry's features" do
+RSpec.describe "Admin::Eve::Ancestry's features" do
   before { driven_by(:selenium_chrome_headless) }
 
   describe "#index" do

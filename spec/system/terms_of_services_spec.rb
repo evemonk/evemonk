@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe "Terms of service feature" do
+RSpec.describe "Terms of service feature" do
   before { driven_by(:selenium_chrome_headless) }
 
   describe "should render page" do

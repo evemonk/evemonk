@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe "Privacy policy feature" do
+RSpec.describe "Privacy policy feature" do
   before { driven_by(:selenium_chrome_headless) }
 
   describe "should render page" do
