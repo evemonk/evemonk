@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe ImportMissing::Corporations do
+RSpec.describe ImportMissing::Corporations do
   describe "#import" do
     let(:corporation_id) { double }
 

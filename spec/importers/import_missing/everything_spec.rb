@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe ImportMissing::Everything do
+RSpec.describe ImportMissing::Everything do
   describe "#import" do
     before do
       #

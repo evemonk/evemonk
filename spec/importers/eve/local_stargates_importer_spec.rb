@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Eve::LocalStargatesImporter do
+RSpec.describe Eve::LocalStargatesImporter do
   describe "#import" do
     let(:stargate_id) { double }
 

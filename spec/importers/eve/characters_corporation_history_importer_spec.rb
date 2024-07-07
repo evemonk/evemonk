@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Eve::CharactersCorporationHistoryImporter do
+RSpec.describe Eve::CharactersCorporationHistoryImporter do
   describe "#import" do
     let(:character_ids) { [2, 1] }
 

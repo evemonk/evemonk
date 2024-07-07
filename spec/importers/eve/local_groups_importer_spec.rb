@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Eve::LocalGroupsImporter do
+RSpec.describe Eve::LocalGroupsImporter do
   describe "#import" do
     let(:id) { double }
 

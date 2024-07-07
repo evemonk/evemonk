@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Eve::LocalPlanetsImporter do
+RSpec.describe Eve::LocalPlanetsImporter do
   describe "#import" do
     let(:planet_id) { double }
 

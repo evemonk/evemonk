@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Eve::RacesImporter do
+RSpec.describe Eve::RacesImporter do
   it { should be_a(Eve::BaseImporter) }
 
   describe "#initialize" do

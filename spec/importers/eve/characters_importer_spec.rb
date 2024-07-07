@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Eve::CharactersImporter do
+RSpec.describe Eve::CharactersImporter do
   describe "#import" do
     let(:character_ids) { [1] }
 

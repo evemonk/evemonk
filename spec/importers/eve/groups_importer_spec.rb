@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Eve::GroupsImporter do
+RSpec.describe Eve::GroupsImporter do
   it { should be_a(Eve::BaseImporter) }
 
   let(:page) { double }

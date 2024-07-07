@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Eve::LocalStarsImporter do
+RSpec.describe Eve::LocalStarsImporter do
   describe "#import" do
     let(:star_id) { double }
 

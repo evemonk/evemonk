@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Eve::AlliancesImporter do
+RSpec.describe Eve::AlliancesImporter do
   it { should be_a(Eve::BaseImporter) }
 
   describe "#import" do

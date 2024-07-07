@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe ImportMissing::Systems do
+RSpec.describe ImportMissing::Systems do
   describe "#import" do
     let(:system_id) { double }
 

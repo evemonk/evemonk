@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Eve::StargateImporter do
+RSpec.describe Eve::StargateImporter do
   let(:stargate_id) { double }
 
   subject { described_class.new(stargate_id) }

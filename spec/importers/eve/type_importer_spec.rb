@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Eve::TypeImporter do
+RSpec.describe Eve::TypeImporter do
   let(:type_id) { double }
 
   subject { described_class.new(type_id) }

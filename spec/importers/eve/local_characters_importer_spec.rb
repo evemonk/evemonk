@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Eve::LocalCharactersImporter do
+RSpec.describe Eve::LocalCharactersImporter do
   describe "#import" do
     let(:ids) { [2, 1] }
 

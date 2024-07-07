@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Eve::GraphicImporter do
+RSpec.describe Eve::GraphicImporter do
   let(:graphic_id) { double }
 
   subject { described_class.new(graphic_id) }

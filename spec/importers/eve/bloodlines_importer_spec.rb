@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Eve::BloodlinesImporter do
+RSpec.describe Eve::BloodlinesImporter do
   it { should be_a(Eve::BaseImporter) }
 
   describe "#initialize" do

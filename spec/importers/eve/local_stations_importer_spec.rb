@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Eve::LocalStationsImporter do
+RSpec.describe Eve::LocalStationsImporter do
   describe "#import" do
     let(:station_id) { double }
 

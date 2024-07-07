@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Eve::CorporationLoyaltyStoreImporter do
+RSpec.describe Eve::CorporationLoyaltyStoreImporter do
   let(:corporation_id) { double }
 
   subject { described_class.new(corporation_id) }

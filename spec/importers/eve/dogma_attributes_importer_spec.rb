@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Eve::DogmaAttributesImporter do
+RSpec.describe Eve::DogmaAttributesImporter do
   it { should be_a(Eve::BaseImporter) }
 
   describe "#import" do

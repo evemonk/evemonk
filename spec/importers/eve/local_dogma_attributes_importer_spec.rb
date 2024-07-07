@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Eve::LocalDogmaAttributesImporter do
+RSpec.describe Eve::LocalDogmaAttributesImporter do
   describe "#import" do
     let(:attribute_id) { double }
 

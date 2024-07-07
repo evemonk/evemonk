@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Eve::MoonImporter do
+RSpec.describe Eve::MoonImporter do
   let(:planet_id) { double }
 
   let(:moon_id) { double }

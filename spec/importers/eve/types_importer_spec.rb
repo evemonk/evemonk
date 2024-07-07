@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Eve::TypesImporter do
+RSpec.describe Eve::TypesImporter do
   let(:page) { double }
 
   subject { described_class.new(page) }

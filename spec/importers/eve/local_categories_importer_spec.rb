@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Eve::LocalCategoriesImporter do
+RSpec.describe Eve::LocalCategoriesImporter do
   describe "#import" do
     let(:id) { double }
 

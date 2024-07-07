@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Eve::LocalConstellationsImporter do
+RSpec.describe Eve::LocalConstellationsImporter do
   describe "#import" do
     let(:constellation_id) { double }
 

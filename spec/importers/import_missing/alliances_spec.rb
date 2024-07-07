@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe ImportMissing::Alliances do
+RSpec.describe ImportMissing::Alliances do
   describe "#import" do
     let(:alliance_id) { double }
 

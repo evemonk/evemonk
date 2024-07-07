@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Eve::LocalSystemsImporter do
+RSpec.describe Eve::LocalSystemsImporter do
   describe "#import" do
     let(:system_id) { double }
 

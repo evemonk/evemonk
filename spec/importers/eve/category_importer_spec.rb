@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Eve::CategoryImporter do
+RSpec.describe Eve::CategoryImporter do
   let(:category_id) { double }
 
   subject { described_class.new(category_id) }

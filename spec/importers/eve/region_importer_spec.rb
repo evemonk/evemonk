@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Eve::RegionImporter do
+RSpec.describe Eve::RegionImporter do
   let(:region_id) { double }
 
   subject { described_class.new(region_id) }

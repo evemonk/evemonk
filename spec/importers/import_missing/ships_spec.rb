@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe ImportMissing::Ships do
+RSpec.describe ImportMissing::Ships do
   describe "#import" do
     let(:ship_id) { double }
 

@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Eve::AncestriesImporter do
+RSpec.describe Eve::AncestriesImporter do
   it { should be_a(Eve::BaseImporter) }
 
   describe "#initialize" do

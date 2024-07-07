@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Eve::LocalAsteroidBeltsImporter do
+RSpec.describe Eve::LocalAsteroidBeltsImporter do
   describe "#import" do
     let(:planet_id) { double }
 

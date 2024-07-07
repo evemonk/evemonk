@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Eve::AlliancesCorporationsImporter do
+RSpec.describe Eve::AlliancesCorporationsImporter do
   describe "#import" do
     let(:id) { double }
 

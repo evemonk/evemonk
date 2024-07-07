@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Eve::MarketGroupImporter do
+RSpec.describe Eve::MarketGroupImporter do
   let(:market_group_id) { double }
 
   subject { described_class.new(market_group_id) }

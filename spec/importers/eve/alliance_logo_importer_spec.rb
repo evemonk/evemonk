@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Eve::AllianceLogoImporter do
+RSpec.describe Eve::AllianceLogoImporter do
   let(:id) { double }
 
   subject { described_class.new(id) }

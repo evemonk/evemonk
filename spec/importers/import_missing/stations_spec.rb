@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe ImportMissing::Stations do
+RSpec.describe ImportMissing::Stations do
   describe "#import" do
     let(:station_id) { double }
 

@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Eve::LocalMarketGroupsImporter do
+RSpec.describe Eve::LocalMarketGroupsImporter do
   describe "#import" do
     let(:market_group_id) { double }
 
