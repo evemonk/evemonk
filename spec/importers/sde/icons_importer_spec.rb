@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Sde::IconsImporter do
+RSpec.describe Sde::IconsImporter do
   let(:file) { double }
 
   subject { described_class.new(file) }

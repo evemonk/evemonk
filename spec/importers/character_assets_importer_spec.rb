@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe CharacterAssetsImporter do
+RSpec.describe CharacterAssetsImporter do
   let(:character_id) { double }
 
   let(:page) { double }

@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe CharacterWalletImporter do
+RSpec.describe CharacterWalletImporter do
   let(:character_id) { double }
 
   subject { described_class.new(character_id) }

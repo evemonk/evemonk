@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe CharacterLoyaltyPointsImporter do
+RSpec.describe CharacterLoyaltyPointsImporter do
   let(:character_id) { double }
 
   subject { described_class.new(character_id) }

@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe CharacterMailLabelsImporter do
+RSpec.describe CharacterMailLabelsImporter do
   let(:character_id) { double }
 
   subject { described_class.new(character_id) }

@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe CharacterWalletJournalImporter do
+RSpec.describe CharacterWalletJournalImporter do
   let(:character_id) { double }
 
   let(:page) { double }

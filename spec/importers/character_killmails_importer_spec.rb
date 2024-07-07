@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe CharacterKillmailsImporter do
+RSpec.describe CharacterKillmailsImporter do
   let(:character_id) { double }
 
   let(:page) { double }
