@@ -108,7 +108,6 @@ group :development do
   gem "active_record_doctor"
   gem "cacheflow"
   gem "gemdiff", require: false
-  gem "derailed_benchmarks"
   gem "graphql-rails_logger"
   gem "bundler-audit", require: false
 end
