@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Eve::UpdateCategoryJob do
+RSpec.describe Eve::UpdateCategoryJob do
   it { should be_an(ApplicationJob) }
 
   it { expect(described_class.queue_name).to eq("default") }

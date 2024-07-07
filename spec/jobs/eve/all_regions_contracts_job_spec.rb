@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Eve::AllRegionsContractsJob do
+RSpec.describe Eve::AllRegionsContractsJob do
   it { should be_an(ApplicationJob) }
 
   it { expect(described_class.queue_name).to eq("default") }

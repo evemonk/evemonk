@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Eve::LocalGraphicsJob do
+RSpec.describe Eve::LocalGraphicsJob do
   it { should be_an(ApplicationJob) }
 
   it { expect(described_class.queue_name).to eq("default") }

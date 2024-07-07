@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Eve::UpdateAsteroidBeltJob do
+RSpec.describe Eve::UpdateAsteroidBeltJob do
   it { should be_an(ApplicationJob) }
 
   it { expect(described_class.queue_name).to eq("default") }
