@@ -2,5 +2,5 @@
 
 require "rails_helper"
 
-describe Types::EveBloodlineType do
+RSpec.describe Types::EveBloodlineType do
 end

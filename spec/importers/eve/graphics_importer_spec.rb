@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Eve::GraphicsImporter do
+RSpec.describe Eve::GraphicsImporter do
   it { should be_a(Eve::BaseImporter) }
 
   describe "#import" do

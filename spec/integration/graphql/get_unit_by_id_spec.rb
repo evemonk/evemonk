@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe "Get Unit by ID" do
+RSpec.describe "Get Unit by ID" do
   let!(:eve_unit) do
     create(:eve_unit,
       id: 1,

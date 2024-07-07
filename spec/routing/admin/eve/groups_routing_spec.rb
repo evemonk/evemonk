@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Admin::Eve::GroupsController do
+RSpec.describe Admin::Eve::GroupsController do
   describe "routing" do
     it "should route GET /admin/eve/groups to admin/eve/groups#index" do
       expect(get: "/admin/eve/groups").to route_to(

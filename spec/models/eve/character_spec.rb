@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Eve::Character do
+RSpec.describe Eve::Character do
   it { should be_an(ApplicationRecord) }
 
   it { should be_a(PgSearch::Model) }

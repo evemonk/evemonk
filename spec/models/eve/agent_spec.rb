@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Eve::Agent do
+RSpec.describe Eve::Agent do
   it { should be_an(ApplicationRecord) }
 
   it { should be_a(Locationable) }

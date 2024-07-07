@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe CharacterBlueprints do
+RSpec.describe CharacterBlueprints do
   let(:character) { double }
 
   let(:filter) { double }

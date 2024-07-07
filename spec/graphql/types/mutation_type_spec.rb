@@ -2,5 +2,5 @@
 
 require "rails_helper"
 
-describe Types::MutationType do
+RSpec.describe Types::MutationType do
 end

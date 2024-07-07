@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Eve::CertificateSkill do
+RSpec.describe Eve::CertificateSkill do
   it { should be_an(ApplicationRecord) }
 
   it { expect(described_class.table_name).to eq("eve_certificate_skills") }

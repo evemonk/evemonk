@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe "/.well-known/change-password" do
+RSpec.describe "/.well-known/change-password" do
   before { driven_by(:selenium_chrome_headless) }
 
   it "when user successfully redirected to change password form" do

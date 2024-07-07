@@ -2,5 +2,5 @@
 
 require "rails_helper"
 
-describe Types::BaseInputObject do
+RSpec.describe Types::BaseInputObject do
 end

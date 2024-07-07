@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Eve::GroupImporter do
+RSpec.describe Eve::GroupImporter do
   let(:group_id) { double }
 
   subject { described_class.new(group_id) }

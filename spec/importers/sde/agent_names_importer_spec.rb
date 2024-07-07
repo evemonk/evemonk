@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Sde::AgentNamesImporter do
+RSpec.describe Sde::AgentNamesImporter do
   let(:file) { double }
 
   subject { described_class.new(file) }

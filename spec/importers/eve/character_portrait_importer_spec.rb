@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Eve::CharacterPortraitImporter do
+RSpec.describe Eve::CharacterPortraitImporter do
   let(:id) { double }
 
   subject { described_class.new(id) }

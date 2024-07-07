@@ -2,5 +2,5 @@
 
 require "rails_helper"
 
-describe Types::EveMarketGroupType do
+RSpec.describe Types::EveMarketGroupType do
 end

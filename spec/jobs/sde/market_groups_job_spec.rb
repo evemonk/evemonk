@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Sde::MarketGroupsJob do
+RSpec.describe Sde::MarketGroupsJob do
   it { should be_an(ApplicationJob) }
 
   it { expect(described_class.queue_name).to eq("default") }

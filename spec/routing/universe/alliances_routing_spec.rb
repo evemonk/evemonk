@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Universe::AlliancesController do
+RSpec.describe Universe::AlliancesController do
   describe "routing" do
     it "should route GET /universe/alliances to universe/alliances#index" do
       expect(get: "/universe/alliances").to route_to(

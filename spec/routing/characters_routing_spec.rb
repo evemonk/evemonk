@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe CharactersController do
+RSpec.describe CharactersController do
   describe "routing" do
     it "should route GET /characters to characters#index" do
       expect(get: "/characters").to route_to(

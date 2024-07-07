@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Eve::ConstellationImporter do
+RSpec.describe Eve::ConstellationImporter do
   let(:constellation_id) { double }
 
   subject { described_class.new(constellation_id) }

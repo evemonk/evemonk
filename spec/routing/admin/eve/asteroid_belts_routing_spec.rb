@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Admin::Eve::AsteroidBeltsController do
+RSpec.describe Admin::Eve::AsteroidBeltsController do
   describe "routing" do
     it "should route GET /admin/eve/asteroid_belts to admin/eve/asteroid_belts#index" do
       expect(get: "/admin/eve/asteroid_belts").to route_to(

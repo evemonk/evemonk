@@ -2,5 +2,5 @@
 
 require "rails_helper"
 
-describe Types::EveGroupType do
+RSpec.describe Types::EveGroupType do
 end

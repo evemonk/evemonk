@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Eve::StarImporter do
+RSpec.describe Eve::StarImporter do
   let(:star_id) { double }
 
   subject { described_class.new(star_id) }

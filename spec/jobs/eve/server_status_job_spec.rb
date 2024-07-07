@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Eve::ServerStatusJob do
+RSpec.describe Eve::ServerStatusJob do
   it { should be_an(ApplicationJob) }
 
   it { expect(described_class.queue_name).to eq("server_status") }

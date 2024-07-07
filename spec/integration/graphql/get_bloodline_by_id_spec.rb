@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe "Get Bloodline By ID" do
+RSpec.describe "Get Bloodline By ID" do
   let!(:eve_corporation) do
     create(:eve_corporation,
       id: 500)

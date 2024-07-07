@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Types::EveStationType do
+RSpec.describe Types::EveStationType do
   describe "get stations" do
     let!(:eve_station_1) do
       create(:eve_station,

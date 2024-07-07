@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe TermsOfServicesController do
+RSpec.describe TermsOfServicesController do
   describe "routing" do
     it "should route GET /terms_of_service to terms_of_services#show" do
       expect(get: "/terms_of_service").to route_to(

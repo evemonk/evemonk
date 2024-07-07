@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe UserLocale do
+RSpec.describe UserLocale do
   let(:language) { double }
 
   subject { described_class.new(language) }

@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Admin::Eve::MarketGroupsController do
+RSpec.describe Admin::Eve::MarketGroupsController do
   describe "routing" do
     it "should route GET /admin/eve/market_groups to admin/eve/market_groups#index" do
       expect(get: "/admin/eve/market_groups").to route_to(

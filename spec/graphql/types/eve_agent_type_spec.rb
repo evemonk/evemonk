@@ -2,5 +2,5 @@
 
 require "rails_helper"
 
-describe Types::EveAgentType do
+RSpec.describe Types::EveAgentType do
 end

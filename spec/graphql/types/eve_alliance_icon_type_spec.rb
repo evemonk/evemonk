@@ -2,5 +2,5 @@
 
 require "rails_helper"
 
-describe Types::EveAllianceIconType do
+RSpec.describe Types::EveAllianceIconType do
 end

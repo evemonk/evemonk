@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Imageable do
+RSpec.describe Imageable do
   let(:klass) { Class.new }
 
   before do

@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Eve::SystemImporter do
+RSpec.describe Eve::SystemImporter do
   let(:system_id) { double }
 
   subject { described_class.new(system_id) }

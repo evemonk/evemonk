@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Eve::ServerStatusImporter do
+RSpec.describe Eve::ServerStatusImporter do
   it { should be_a(Eve::BaseImporter) }
 
   describe "#import" do

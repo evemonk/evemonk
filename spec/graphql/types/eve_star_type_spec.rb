@@ -2,5 +2,5 @@
 
 require "rails_helper"
 
-describe Types::EveStarType do
+RSpec.describe Types::EveStarType do
 end

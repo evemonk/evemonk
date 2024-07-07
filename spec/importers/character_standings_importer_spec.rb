@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe CharacterStandingsImporter do
+RSpec.describe CharacterStandingsImporter do
   let(:character_id) { double }
 
   subject { described_class.new(character_id) }

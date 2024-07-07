@@ -2,5 +2,5 @@
 
 require "rails_helper"
 
-describe Types::BaseUnion do
+RSpec.describe Types::BaseUnion do
 end

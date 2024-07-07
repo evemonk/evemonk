@@ -2,5 +2,5 @@
 
 require "rails_helper"
 
-describe Mutations::BaseMutation do
+RSpec.describe Mutations::BaseMutation do
 end

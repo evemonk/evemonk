@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Api::BaseController do
+RSpec.describe Api::BaseController do
   it { should be_a(ActionController::Base) }
 
   it { should use_before_action(:verify_requested_format!) }

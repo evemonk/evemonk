@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Api::Eve::ManufacturingItemsController do
+RSpec.describe Api::Eve::ManufacturingItemsController do
   it { should be_a(Api::BaseController) }
 
   describe "#index" do

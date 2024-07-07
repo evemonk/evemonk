@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Eve::MarketGroupsImporter do
+RSpec.describe Eve::MarketGroupsImporter do
   it { should be_a(Eve::BaseImporter) }
 
   describe "#import" do

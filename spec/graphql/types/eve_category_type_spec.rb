@@ -2,5 +2,5 @@
 
 require "rails_helper"
 
-describe Types::EveCategoryType do
+RSpec.describe Types::EveCategoryType do
 end

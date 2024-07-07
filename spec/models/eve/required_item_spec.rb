@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Eve::RequiredItem do
+RSpec.describe Eve::RequiredItem do
   it { should be_an(ApplicationRecord) }
 
   it { expect(described_class.table_name).to eq("eve_required_items") }

@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Universe::CategoriesController do
+RSpec.describe Universe::CategoriesController do
   describe "routing" do
     it "should route GET /universe/categories to universe/categories#index" do
       expect(get: "/universe/categories").to route_to(

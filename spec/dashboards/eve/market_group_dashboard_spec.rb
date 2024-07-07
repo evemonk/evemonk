@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Eve::MarketGroupDashboard do
+RSpec.describe Eve::MarketGroupDashboard do
   it { should be_an(Administrate::BaseDashboard) }
 
   describe "#display_resource" do

@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Eve::LocalGraphicsImporter do
+RSpec.describe Eve::LocalGraphicsImporter do
   describe "#import" do
     let(:id) { double }
 

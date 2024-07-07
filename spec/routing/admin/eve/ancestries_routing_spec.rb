@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Admin::Eve::AncestriesController do
+RSpec.describe Admin::Eve::AncestriesController do
   describe "routing" do
     it "should route GET /admin/eve/ancestries to admin/eve/ancestries#index" do
       expect(get: "/admin/eve/ancestries").to route_to(

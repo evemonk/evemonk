@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe "Get Agents" do
+RSpec.describe "Get Agents" do
   let!(:eve_corporation) do
     create(:eve_corporation,
       id: 222)

@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Eve::IconDashboard do
+RSpec.describe Eve::IconDashboard do
   it { should be_an(Administrate::BaseDashboard) }
 
   describe "#display_resource" do

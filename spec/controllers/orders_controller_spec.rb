@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe OrdersController do
+RSpec.describe OrdersController do
   it { should be_an(ApplicationController) }
 
   it { should use_before_action(:authenticate_user!) }

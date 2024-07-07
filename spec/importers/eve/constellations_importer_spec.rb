@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Eve::ConstellationsImporter do
+RSpec.describe Eve::ConstellationsImporter do
   it { should be_a(Eve::BaseImporter) }
 
   describe "#import" do

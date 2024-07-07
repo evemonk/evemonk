@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Sitemap::Updater do
+RSpec.describe Sitemap::Updater do
   describe "#update" do
     before { expect(SitemapGenerator::Interpreter).to receive(:run).with(verbose: false) }
 

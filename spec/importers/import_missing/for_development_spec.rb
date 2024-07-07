@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe ImportMissing::ForDevelopment do
+RSpec.describe ImportMissing::ForDevelopment do
   describe "#import" do
     before { expect(Eve::UpdateRacesJob).to receive(:perform_later) }
 

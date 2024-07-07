@@ -2,5 +2,5 @@
 
 require "rails_helper"
 
-describe Types::AlliancesOrderEnum do
+RSpec.describe Types::AlliancesOrderEnum do
 end

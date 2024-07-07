@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Character do
+RSpec.describe Character do
   it { should be_an(ApplicationRecord) }
 
   it { should be_a(Imageable) }

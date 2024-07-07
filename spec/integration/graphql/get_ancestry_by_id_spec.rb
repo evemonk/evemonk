@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe "Get Ancestry by ID" do
+RSpec.describe "Get Ancestry by ID" do
   let!(:eve_bloodline) do
     create(:eve_bloodline,
       id: 10)

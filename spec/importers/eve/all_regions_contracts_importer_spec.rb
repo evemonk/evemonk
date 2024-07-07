@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Eve::AllRegionsContractsImporter do
+RSpec.describe Eve::AllRegionsContractsImporter do
   describe "#import" do
     let(:region_id) { double }
 

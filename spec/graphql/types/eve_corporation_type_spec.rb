@@ -2,5 +2,5 @@
 
 require "rails_helper"
 
-describe Types::EveCorporationType do
+RSpec.describe Types::EveCorporationType do
 end

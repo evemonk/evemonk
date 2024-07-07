@@ -2,5 +2,5 @@
 
 require "rails_helper"
 
-describe Types::EveConstellationType do
+RSpec.describe Types::EveConstellationType do
 end

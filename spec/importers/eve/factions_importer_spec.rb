@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Eve::FactionsImporter do
+RSpec.describe Eve::FactionsImporter do
   it { should be_a(Eve::BaseImporter) }
 
   describe "#initialize" do

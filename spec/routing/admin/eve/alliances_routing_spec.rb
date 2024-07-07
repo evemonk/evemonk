@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Admin::Eve::AlliancesController do
+RSpec.describe Admin::Eve::AlliancesController do
   describe "routing" do
     it "should route GET /admin/eve/alliances to admin/eve/alliances#index" do
       expect(get: "/admin/eve/alliances").to route_to(

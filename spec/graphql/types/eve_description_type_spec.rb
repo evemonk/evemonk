@@ -2,5 +2,5 @@
 
 require "rails_helper"
 
-describe Types::EveDescriptionType do
+RSpec.describe Types::EveDescriptionType do
 end

@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Eve::Position do
+RSpec.describe Eve::Position do
   it { should be_an(ApplicationRecord) }
 
   it { should belong_to(:positionable) }

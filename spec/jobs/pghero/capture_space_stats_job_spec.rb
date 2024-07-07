@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Pghero::CaptureSpaceStatsJob do
+RSpec.describe Pghero::CaptureSpaceStatsJob do
   it { should be_an(ApplicationJob) }
 
   it { expect(described_class.queue_name).to eq("pghero") }

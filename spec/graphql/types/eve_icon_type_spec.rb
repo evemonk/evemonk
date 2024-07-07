@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Types::EveIconType do
+RSpec.describe Types::EveIconType do
   describe "get icons" do
     let!(:eve_icon_1) do
       create(:eve_icon,

@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe "FAQ features" do
+RSpec.describe "FAQ features" do
   before { driven_by(:selenium_chrome_headless) }
 
   describe "should render page" do

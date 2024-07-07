@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe TrainingQueueTotalTime do
+RSpec.describe TrainingQueueTotalTime do
   describe "#initialize" do
     let(:skillqueues) { double }
 

@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Eve::RegionsImporter do
+RSpec.describe Eve::RegionsImporter do
   it { should be_a(Eve::BaseImporter) }
 
   describe "#import" do

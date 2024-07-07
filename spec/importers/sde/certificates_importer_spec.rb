@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Sde::CertificatesImporter do
+RSpec.describe Sde::CertificatesImporter do
   let(:file) { double }
 
   subject { described_class.new(file) }

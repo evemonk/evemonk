@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Sde::CharacterAttributesImporter do
+RSpec.describe Sde::CharacterAttributesImporter do
   let(:file) { double }
 
   subject { described_class.new(file) }

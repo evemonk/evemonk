@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Types::EveShipType do
+RSpec.describe Types::EveShipType do
   describe "get ships" do
     let!(:eve_ship_1) do
       create(:eve_type,

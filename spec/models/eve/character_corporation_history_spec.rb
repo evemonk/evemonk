@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Eve::CharacterCorporationHistory do
+RSpec.describe Eve::CharacterCorporationHistory do
   it { should be_an(ApplicationRecord) }
 
   it { expect(described_class.table_name).to eq("eve_character_corporation_histories") }

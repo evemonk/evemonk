@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe "Get Group by ID" do
+RSpec.describe "Get Group by ID" do
   let!(:eve_category) do
     create(:eve_category,
       id: 1_111)

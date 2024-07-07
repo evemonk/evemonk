@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe CharacterLoyaltyPointsJob do
+RSpec.describe CharacterLoyaltyPointsJob do
   it { should be_an(ApplicationJob) }
 
   it { expect(described_class.queue_name).to eq("important") }

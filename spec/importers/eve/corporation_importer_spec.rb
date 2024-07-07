@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Eve::CorporationImporter do
+RSpec.describe Eve::CorporationImporter do
   let(:corporation_id) { double }
 
   subject { described_class.new(corporation_id) }

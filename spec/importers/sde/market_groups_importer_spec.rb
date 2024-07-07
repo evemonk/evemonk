@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Sde::MarketGroupsImporter do
+RSpec.describe Sde::MarketGroupsImporter do
   let(:file) { double }
 
   subject { described_class.new(file) }

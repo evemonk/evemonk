@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe "Api::Eve::ServerStatusLastsController" do
+RSpec.describe "Api::Eve::ServerStatusLastsController" do
   xdescribe "#show" do
     it "returns last eve server status" do
       create(:eve_server_status,

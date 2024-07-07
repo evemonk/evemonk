@@ -2,5 +2,5 @@
 
 require "rails_helper"
 
-describe Types::BaseEdge do
+RSpec.describe Types::BaseEdge do
 end

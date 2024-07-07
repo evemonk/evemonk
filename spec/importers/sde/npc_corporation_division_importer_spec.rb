@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Sde::NpcCorporationDivisionImporter do
+RSpec.describe Sde::NpcCorporationDivisionImporter do
   let(:file) { double }
 
   subject { described_class.new(file) }

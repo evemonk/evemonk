@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe "Get Characters" do
+RSpec.describe "Get Characters" do
   before { freeze_time }
 
   let!(:birthday_1) { Time.zone.now }

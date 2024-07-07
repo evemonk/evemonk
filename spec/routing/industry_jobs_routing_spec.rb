@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe IndustryJobsController do
+RSpec.describe IndustryJobsController do
   describe "routing" do
     it "should route GET /characters/:character_id/industry_jobs to industry_jobs#index" do
       expect(get: "/characters/90729314/industry_jobs").to route_to(

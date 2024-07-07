@@ -2,6 +2,6 @@
 
 require "rails_helper"
 
-describe Admin::Eve::MoonsController do
+RSpec.describe Admin::Eve::MoonsController do
   it { should be_an(Admin::ApplicationController) }
 end

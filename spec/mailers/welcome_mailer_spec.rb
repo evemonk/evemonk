@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe WelcomeMailer do
+RSpec.describe WelcomeMailer do
   describe "#email" do
     let(:user) do
       create(:user,

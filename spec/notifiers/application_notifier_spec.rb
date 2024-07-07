@@ -2,6 +2,6 @@
 
 require "rails_helper"
 
-describe ApplicationNotifier do
+RSpec.describe ApplicationNotifier do
   it { should be_a(Noticed::Event) }
 end

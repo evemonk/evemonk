@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Sde::BlueprintsImporter do
+RSpec.describe Sde::BlueprintsImporter do
   let(:file) { double }
 
   subject { described_class.new(file) }

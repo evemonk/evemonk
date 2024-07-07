@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Eve::BaseImporter do
+RSpec.describe Eve::BaseImporter do
   describe "#import!" do
     before { expect(subject).to receive(:configure_middlewares) }
 

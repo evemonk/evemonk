@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Admin::Eve::CategoriesController do
+RSpec.describe Admin::Eve::CategoriesController do
   describe "routing" do
     it "should route GET /admin/eve/categories to admin/eve/categories#index" do
       expect(get: "/admin/eve/categories").to route_to(

@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe "Get Factions" do
+RSpec.describe "Get Factions" do
   let!(:eve_corporation_1) do
     create(:eve_corporation,
       id: 1_111)

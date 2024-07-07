@@ -2,5 +2,5 @@
 
 require "rails_helper"
 
-describe Types::QueryType do
+RSpec.describe Types::QueryType do
 end

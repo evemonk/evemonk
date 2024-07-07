@@ -56,6 +56,8 @@ RUN find /usr/local/bundle/gems/ -name "*.o" -delete
 
 COPY . .
 
+RUN touch /app/config/evemonk.yml
+
 RUN bundle exec bootsnap precompile --gemfile
 
 # The SECRET_KEY_BASE here isn't used. Precomiling assets doesn't use your

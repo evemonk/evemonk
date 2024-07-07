@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe BaseQuery do
+RSpec.describe BaseQuery do
   describe "#scope" do
     specify { expect { subject.scope }.to raise_error(NotImplementedError) }
   end

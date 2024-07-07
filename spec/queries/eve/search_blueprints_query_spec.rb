@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Eve::SearchBlueprintsQuery do
+RSpec.describe Eve::SearchBlueprintsQuery do
   let(:search) { double }
 
   subject { described_class.new(search) }

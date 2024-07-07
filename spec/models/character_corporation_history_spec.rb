@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe CharacterCorporationHistory do
+RSpec.describe CharacterCorporationHistory do
   it { should be_an(ApplicationRecord) }
 
   it { should belong_to(:character).with_primary_key("character_id") }

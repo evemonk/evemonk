@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Universe::CorporationsController do
+RSpec.describe Universe::CorporationsController do
   it { should be_a(ApplicationController) }
 
   it { should_not use_before_action(:authenticate_user!) }

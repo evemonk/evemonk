@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Eve::PlanetImporter do
+RSpec.describe Eve::PlanetImporter do
   let(:planet_id) { double }
 
   subject { described_class.new(planet_id) }

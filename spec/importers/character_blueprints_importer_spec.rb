@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe CharacterBlueprintsImporter do
+RSpec.describe CharacterBlueprintsImporter do
   let(:character_id) { double }
 
   let(:page) { double }

@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe "Get Corporations" do
+RSpec.describe "Get Corporations" do
   before { freeze_time }
 
   let(:date_founded_1) { Time.zone.now }

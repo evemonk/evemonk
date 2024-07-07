@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Eve::UpdateConstellationJob do
+RSpec.describe Eve::UpdateConstellationJob do
   it { should be_an(ApplicationJob) }
 
   it { expect(described_class.queue_name).to eq("default") }

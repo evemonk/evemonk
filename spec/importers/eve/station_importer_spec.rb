@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Eve::StationImporter do
+RSpec.describe Eve::StationImporter do
   let(:station_id) { double }
 
   subject { described_class.new(station_id) }

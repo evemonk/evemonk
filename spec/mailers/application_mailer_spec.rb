@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe ApplicationMailer do
+RSpec.describe ApplicationMailer do
   before { ENV["ACTION_MAILER_FROM"] = "EveMonk <robot@evemonk.com>" }
 
   after { ENV.delete("ACTION_MAILER_FROM") }

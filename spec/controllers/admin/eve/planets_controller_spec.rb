@@ -2,6 +2,6 @@
 
 require "rails_helper"
 
-describe Admin::Eve::PlanetsController do
+RSpec.describe Admin::Eve::PlanetsController do
   it { should be_an(Admin::ApplicationController) }
 end

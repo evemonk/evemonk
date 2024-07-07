@@ -2,5 +2,5 @@
 
 require "rails_helper"
 
-describe Types::EveBlueprintInventionMaterialType do
+RSpec.describe Types::EveBlueprintInventionMaterialType do
 end

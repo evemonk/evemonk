@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Eve::NpcCorporationsImporter do
+RSpec.describe Eve::NpcCorporationsImporter do
   it { should be_a(Eve::BaseImporter) }
 
   describe "#import" do

@@ -2,5 +2,5 @@
 
 require "rails_helper"
 
-describe Types::BaseObject do
+RSpec.describe Types::BaseObject do
 end

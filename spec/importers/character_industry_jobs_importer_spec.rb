@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe CharacterIndustryJobsImporter do
+RSpec.describe CharacterIndustryJobsImporter do
   let(:character_id) { double }
 
   subject { described_class.new(character_id) }

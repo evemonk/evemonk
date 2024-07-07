@@ -2,6 +2,6 @@
 
 require "rails_helper"
 
-describe Eve::GraphicDashboard do
+RSpec.describe Eve::GraphicDashboard do
   it { should be_an(Administrate::BaseDashboard) }
 end

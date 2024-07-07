@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe CharacterBlueprintsFilterForm do
+RSpec.describe CharacterBlueprintsFilterForm do
   it { should be_an(ActiveModel::Model) }
 
   let(:filter) { double }

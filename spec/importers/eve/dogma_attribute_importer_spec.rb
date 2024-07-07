@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Eve::DogmaAttributeImporter do
+RSpec.describe Eve::DogmaAttributeImporter do
   let(:attribute_id) { double }
 
   subject { described_class.new(attribute_id) }

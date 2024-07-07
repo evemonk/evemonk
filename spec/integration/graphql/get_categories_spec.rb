@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe "Get Categories" do
+RSpec.describe "Get Categories" do
   let!(:eve_group_1) do
     create(:eve_group,
       id: 1_111,

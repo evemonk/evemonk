@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe CharacterWalletJournalJob do
+RSpec.describe CharacterWalletJournalJob do
   it { should be_an(ApplicationJob) }
 
   it { expect(described_class.queue_name).to eq("important") }

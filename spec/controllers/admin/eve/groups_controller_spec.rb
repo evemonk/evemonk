@@ -2,6 +2,6 @@
 
 require "rails_helper"
 
-describe Admin::Eve::GroupsController do
+RSpec.describe Admin::Eve::GroupsController do
   it { should be_an(Admin::ApplicationController) }
 end

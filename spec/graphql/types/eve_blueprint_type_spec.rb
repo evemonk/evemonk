@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Types::EveBlueprintType do
+RSpec.describe Types::EveBlueprintType do
   describe "get blueprints" do
     let!(:eve_blueprint_1) do
       create(:eve_type,

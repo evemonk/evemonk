@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Admin::Eve::MoonsController do
+RSpec.describe Admin::Eve::MoonsController do
   describe "routing" do
     it "should route GET /admin/eve/moons to admin/eve/moons#index" do
       expect(get: "/admin/eve/moons").to route_to(

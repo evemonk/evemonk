@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe "Api::Eve::CharacterCorporationsHistoryController" do
+RSpec.describe "Api::Eve::CharacterCorporationsHistoryController" do
   before { Setting.use_image_proxy = true }
 
   xdescribe "#index" do

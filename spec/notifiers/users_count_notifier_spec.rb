@@ -2,6 +2,6 @@
 
 require "rails_helper"
 
-describe UsersCountNotifier do
+RSpec.describe UsersCountNotifier do
   it { should be_an(ApplicationNotifier) }
 end

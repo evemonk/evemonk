@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe "Welcome page feature" do
+RSpec.describe "Welcome page feature" do
   before { driven_by(:selenium_chrome_headless) }
 
   it "should render page with alliances and corporations" do

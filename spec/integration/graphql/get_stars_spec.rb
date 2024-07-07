@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe "Get Stars" do
+RSpec.describe "Get Stars" do
   let!(:eve_star_1) do
     create(:eve_star,
       star_id: 123)

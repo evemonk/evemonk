@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Types::EveGraphicType do
+RSpec.describe Types::EveGraphicType do
   describe "get graphics" do
     let!(:eve_graphic_1) do
       create(:eve_graphic,

@@ -2,5 +2,5 @@
 
 require "rails_helper"
 
-describe Types::EveCertificateType do
+RSpec.describe Types::EveCertificateType do
 end

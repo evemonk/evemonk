@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Eve::LocalTypesImporter do
+RSpec.describe Eve::LocalTypesImporter do
   describe "#import" do
     let(:type_id) { double }
 

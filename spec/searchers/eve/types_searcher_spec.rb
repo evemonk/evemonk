@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Eve::TypesSearcher do
+RSpec.describe Eve::TypesSearcher do
   # describe "#initialize" do
   #   context "with parameters" do
   #     let(:query) { double }

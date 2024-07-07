@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Sde::UnitsImporter do
+RSpec.describe Sde::UnitsImporter do
   let(:file) { double }
 
   subject { described_class.new(file) }

@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe IndustryJob do
+RSpec.describe IndustryJob do
   it { should be_an(ApplicationRecord) }
 
   it { should belong_to(:character) }
