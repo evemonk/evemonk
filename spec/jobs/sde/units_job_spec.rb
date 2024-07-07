@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Sde::UnitsJob do
+RSpec.describe Sde::UnitsJob do
   it { should be_an(ApplicationJob) }
 
   it { expect(described_class.queue_name).to eq("default") }

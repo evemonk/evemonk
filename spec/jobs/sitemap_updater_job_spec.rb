@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe SitemapUpdaterJob do
+RSpec.describe SitemapUpdaterJob do
   it { should be_an(ApplicationJob) }
 
   it { expect(described_class.queue_name).to eq("default") }

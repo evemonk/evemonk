@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe CharacterImplantsJob do
+RSpec.describe CharacterImplantsJob do
   it { should be_an(ApplicationJob) }
 
   it { expect(described_class.queue_name).to eq("important") }

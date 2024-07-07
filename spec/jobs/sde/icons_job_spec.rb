@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Sde::IconsJob do
+RSpec.describe Sde::IconsJob do
   it { should be_an(ApplicationJob) }
 
   it { expect(described_class.queue_name).to eq("default") }

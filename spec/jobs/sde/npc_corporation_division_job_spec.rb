@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-describe Sde::NpcCorporationDivisionJob do
+RSpec.describe Sde::NpcCorporationDivisionJob do
   it { should be_an(ApplicationJob) }
 
   it { expect(described_class.queue_name).to eq("default") }
