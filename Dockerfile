@@ -21,9 +21,9 @@ COPY Gemfile Gemfile
 
 COPY Gemfile.lock Gemfile.lock
 
-ENV RAILS_ENV production
+ENV RAILS_ENV=production
 
-ENV RAILS_LOG_TO_STDOUT true
+ENV RAILS_LOG_TO_STDOUT=true
 
 RUN gem update --system "3.5.14"
 
@@ -110,17 +110,17 @@ ARG COMMIT=""
 
 ENV COMMIT_SHA=${COMMIT}
 
-ENV RAILS_ENV production
+ENV RAILS_ENV=production
 
-ENV RAILS_LOG_TO_STDOUT true
+ENV RAILS_LOG_TO_STDOUT=true
 
-ENV RAILS_SERVE_STATIC_FILES true
+ENV RAILS_SERVE_STATIC_FILES=true
 
-ENV BOOTSNAP_LOG true
+ENV BOOTSNAP_LOG=true
 
-ENV BOOTSNAP_READONLY true
+ENV BOOTSNAP_READONLY=true
 
-ENV RUBY_YJIT_ENABLE 1
+ENV RUBY_YJIT_ENABLE=1
 
 ENV LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libjemalloc.so.2
 
