@@ -58,8 +58,6 @@ COPY . .
 
 RUN touch /app/config/evemonk.yml
 
-RUN bundle exec bootsnap precompile --gemfile
-
 # The SECRET_KEY_BASE here isn't used. Precomiling assets doesn't use your
 # secret key, but Rails will fail to initialize if it isn't set.
 
@@ -105,6 +103,8 @@ COPY --from=builder --chown=app:app /app /app
 
 # install only production gems without development and test
 RUN bundle config set --global without development test
+
+RUN bundle exec bootsnap precompile --gemfile
 
 ARG COMMIT=""
 
