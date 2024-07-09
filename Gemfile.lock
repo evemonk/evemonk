@@ -638,7 +638,7 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
-    sexp_processor (4.17.1)
+    sexp_processor (4.17.2)
     shoulda-matchers (6.2.0)
       activesupport (>= 5.2.0)
     sidekiq (7.3.0)
@@ -1096,7 +1096,7 @@ CHECKSUMS
   sawyer (0.9.2) sha256=fa3a72d62a4525517b18857ddb78926aab3424de0129be6772a8e2ba240e7aca
   selectize-rails (0.12.6) sha256=425b0b48de8ad02992de0190e37f4b12a84f4252af8a41429c847a3cd6b9bfa9
   selenium-webdriver (4.22.0) sha256=644370abcdcf1f14b2581c125d39014a1933b20e355c74b0dc5d0ca877a45d66
-  sexp_processor (4.17.1) sha256=91110946720307f30bf1d549e90d9a529fef40d1fc471c069c8cca7667015da0
+  sexp_processor (4.17.2) sha256=0dfdd3d90aed28360cb3032ac8905bca66d8c5f5cab01e94762206eca24e75be
   shoulda-matchers (6.2.0) sha256=a702c059c5f3bbda2295827231a28654e33063d7c4d409662980ec630207d8dd
   sidekiq (7.3.0) sha256=2a6653754dfc6e2217bcf94bf6ef03c50fef9d39ac34801acbbbf477a6a40934
   simplecov (0.22.0) sha256=fe2622c7834ff23b98066bb0a854284b2729a569ac659f82621fc22ef36213a5
