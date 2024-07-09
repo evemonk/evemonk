@@ -17,6 +17,7 @@ gem "tzinfo-data", platforms: [:windows, :jruby]
 gem "bootsnap", require: false
 
 gem "solid_cache"
+gem "thruster"
 gem "dartsass-rails"
 gem "view_component"
 gem "flipper"

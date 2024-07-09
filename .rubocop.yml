@@ -200,3 +200,6 @@ Lint/EmptyFile:
 # Disabled as in standard
 Style/NegatedIf:
   Enabled: false
+
+RSpec/EmptyExampleGroup:
+  Enabled: false
