@@ -56,7 +56,7 @@ RUN find /usr/local/bundle/gems/ -name "*.o" -delete
 
 COPY . .
 
-RUN touch /app/config/evemonk.yml
+RUN cp -f /app/config/evemonk.example.yml /app/config/evemonk.yml
 
 # The SECRET_KEY_BASE here isn't used. Precomiling assets doesn't use your
 # secret key, but Rails will fail to initialize if it isn't set.
