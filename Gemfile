@@ -1,130 +1,47 @@
-# frozen_string_literal: true
-
 source "https://rubygems.org"
 
-ruby file: ".ruby-version"
-
-gem "rails", "7.1.3.4"
-
-gem "sprockets-rails"
-gem "pg"
-gem "puma"
+# Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
+gem "rails", "~> 7.2.0.beta3"
+# The modern asset pipeline for Rails [https://github.com/rails/propshaft]
+gem "propshaft"
+# Use postgresql as the database for Active Record
+gem "pg", "~> 1.1"
+# Use the Puma web server [https://github.com/puma/puma]
+gem "puma", ">= 5.0"
+# Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
 gem "importmap-rails"
+# Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
 gem "turbo-rails"
+# Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
 gem "stimulus-rails"
-gem "jbuilder"
-gem "tzinfo-data", platforms: [:windows, :jruby]
+# Use Redis adapter to run Action Cable in production
+gem "redis", ">= 4.0.1"
+
+# Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
+# gem "kredis"
+
+# Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
+# gem "bcrypt", "~> 3.1.7"
+
+# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+gem "tzinfo-data", platforms: %i[ windows jruby ]
+
+# Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 
-gem "solid_cache"
-gem "thruster"
-gem "dartsass-rails"
-gem "view_component"
-gem "flipper"
-gem "flipper-active_record"
-gem "flipper-ui"
-gem "inline_svg"
-gem "bootstrap", "5.2.3"
-gem "bootswatch",
-  git: "https://github.com/thomaspark/bootswatch.git",
-  tag: "v5.2.3"
-gem "good_migrations"
-gem "local_time"
-gem "rails-i18n", "~> 7.0.9"
-gem "http_accept_language"
-gem "devise"
-gem "devise-two-factor", ">= 5.0.0"
-gem "devise-i18n"
-gem "devise_zxcvbn"
-gem "rqrcode"
-gem "graphql"
-gem "graphiql-rails"
-gem "rack-cors"
-gem "pg_search"
-gem "meta-tags"
-gem "rufus-scheduler"
-gem "eve_online"
-gem "omniauth-eve_online-sso"
-gem "omniauth-rails_csrf_protection"
-gem "jwt"
-gem "ancestry"
-gem "faraday-http-cache"
-gem "kaminari"
-gem "kaminari-i18n"
-gem "rails-html-sanitizer"
-gem "mobility"
-gem "pundit"
-gem "rails-settings-cached"
-gem "net-http-persistent"
-gem "connection_pool"
-gem "redis"
-gem "redis-client"
-gem "sidekiq"
-gem "pghero"
-gem "pg_query"
-gem "noticed"
-gem "responders"
-gem "aws-sdk-s3"
-gem "down"
-gem "sitemap_generator"
-gem "administrate"
-gem "pry-rails"
-gem "skylight"
-gem "lograge"
-gem "prosopite"
-gem "sshkit", require: false
-gem "uri", ">= 0.12.2"
-
-group :production do
-  gem "rack-timeout"
-end
+# Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
+# gem "image_processing", "~> 1.2"
 
 group :development, :test do
-  gem "lookbook"
-  gem "dotenv-rails"
-  gem "rspec-rails", ">= 6.0.1"
-  gem "factory_bot_rails"
-  gem "faker"
-  gem "sql_tracker"
-  gem "rubocop", require: false
-  gem "rubocop-disable_syntax", require: false
-  gem "rubocop-performance", require: false
-  gem "rubocop-graphql", require: false
-  gem "rubocop-rails", require: false
-  gem "rubocop-capybara", require: false
-  gem "rubocop-rspec", require: false
-  gem "rubocop-rspec_rails", require: false
-  gem "rubocop-factory_bot", require: false
-  gem "standard", "1.39.2", require: false
-  gem "squasher", require: false
+  # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
+  gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
+
+  # Static analysis for security vulnerabilities [https://brakemanscanner.org/]
   gem "brakeman", require: false
-  gem "fasterer", require: false
-  gem "license_finder", require: false
-  gem "better_html", require: false
-  gem "erb_lint", require: false
 end
 
 group :development do
-  gem "foreman", require: false
-  gem "active_record_doctor"
-  gem "cacheflow"
-  gem "gemdiff", require: false
-  gem "graphql-rails_logger"
-  gem "bundler-audit", require: false
+  # Use console on exceptions pages [https://github.com/rails/web-console]
+  gem "web-console"
 end
 
-group :test do
-  gem "capybara", ">= 3.26"
-  gem "selenium-webdriver"
-  gem "rails-controller-testing"
-  gem "shoulda-matchers"
-  gem "rspec-its"
-  gem "super_diff"
-  gem "simplecov"
-  gem "simplecov-cobertura", require: false
-  gem "database_rewinder"
-  gem "webmock"
-  gem "vcr"
-end
-
-gem "httplog"
