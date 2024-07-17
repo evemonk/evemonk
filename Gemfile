@@ -64,4 +64,10 @@ group :development, :test do
 end
 
 group :development do
+  # gem "foreman", require: false
+  # gem "active_record_doctor"
+  # gem "cacheflow"
+  # gem "gemdiff", require: false
+  # gem "graphql-rails_logger"
+  gem "bundler-audit", require: false
 end
