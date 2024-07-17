@@ -3,23 +3,23 @@
 require "rails_helper"
 
 RSpec.describe Eve::Blueprint do
-  it { should be_a(Eve::Type) }
+  it { is_expected.to be_a(Eve::Type) }
 
-  it { should have_many(:blueprint_invention_materials).dependent(:destroy) }
+  it { is_expected.to have_many(:blueprint_invention_materials).dependent(:destroy) }
 
-  it { should have_many(:blueprint_invention_products).dependent(:destroy) }
+  it { is_expected.to have_many(:blueprint_invention_products).dependent(:destroy) }
 
-  it { should have_many(:blueprint_invention_skills).dependent(:destroy) }
+  it { is_expected.to have_many(:blueprint_invention_skills).dependent(:destroy) }
 
-  it { should have_many(:blueprint_manufacturing_materials).dependent(:destroy) }
+  it { is_expected.to have_many(:blueprint_manufacturing_materials).dependent(:destroy) }
 
-  it { should have_many(:blueprint_manufacturing_products).dependent(:destroy) }
+  it { is_expected.to have_many(:blueprint_manufacturing_products).dependent(:destroy) }
 
-  it { should have_many(:blueprint_manufacturing_skills).dependent(:destroy) }
+  it { is_expected.to have_many(:blueprint_manufacturing_skills).dependent(:destroy) }
 
   describe "#copying_time_formatted" do
     subject do
-      Eve::Blueprint.new(attributes_for(:eve_type,
+      described_class.new(attributes_for(:eve_type,
         copying_time: 240,
         is_blueprint: true))
     end
@@ -53,7 +53,7 @@ RSpec.describe Eve::Blueprint do
   # private methods
 
   describe "#type_bp_url" do
-    subject { Eve::Blueprint.new(attributes_for(:eve_type, type_id: 24_699, is_blueprint: true)) }
+    subject { described_class.new(attributes_for(:eve_type, type_id: 24_699, is_blueprint: true)) }
 
     before do
       #

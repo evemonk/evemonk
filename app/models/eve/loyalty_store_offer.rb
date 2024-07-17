@@ -6,6 +6,7 @@ module Eve
 
     belongs_to :type, optional: true
 
+    # TODO: finish migration
     has_many :required_items,
       foreign_key: "eve_loyalty_store_offer_id",
       dependent: :destroy

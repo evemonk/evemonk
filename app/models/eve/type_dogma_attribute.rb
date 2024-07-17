@@ -6,6 +6,7 @@ module Eve
 
     belongs_to :type, optional: true
 
+    # TODO: finish migration
     belongs_to :dogma_attribute,
       primary_key: "attribute_id",
       foreign_key: "attribute_id",

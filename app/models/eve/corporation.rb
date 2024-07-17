@@ -31,12 +31,14 @@ module Eve
 
     scope :not_npc, -> { where(npc: false) }
 
+    # TODO: fix this
     # after_commit :eve_alliance_reset_corporations_count, on: [:create, :update, :destroy]
     #
     # after_commit :eve_alliance_reset_characters_count, on: [:create, :update, :destroy]
 
     pg_search_scope :search_by_name_and_ticker, against: [:name, :ticker]
 
+    # TODO: finish migration
     has_one_attached :logo
 
     # def eve_alliance_reset_corporations_count
@@ -70,6 +72,11 @@ module Eve
     def sanitized_description
       Rails::Html::FullSanitizer.new.sanitize(description)
     end
+
+    # # TODO: check why?
+    # def to_partial_path
+    #   "corporation"
+    # end
 
     private
 

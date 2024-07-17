@@ -10,17 +10,29 @@ RSpec.describe Eve::UpdateCorporationJob do
   describe "#perform" do
     let(:id) { double }
 
-    before do
-      #
-      # Eve::CorporationImporter.new(id).import
-      #
-      expect(Eve::CorporationImporter).to receive(:new).with(id) do
-        double.tap do |a|
-          expect(a).to receive(:import)
+    context "when jobs eve update_corporation is enabled" do
+      before { Rails.application.config.evemonk[:jobs][:eve][:update_corporation] = true }
+
+      before do
+        #
+        # Eve::CorporationImporter.new(id).import
+        #
+        expect(Eve::CorporationImporter).to receive(:new).with(id) do
+          double.tap do |a|
+            expect(a).to receive(:import)
+          end
         end
       end
+
+      specify { expect { subject.perform(id) }.not_to raise_error }
     end
 
-    specify { expect { subject.perform(id) }.not_to raise_error }
+    context "when jobs eve update_corporation is disabled" do
+      before { Rails.application.config.evemonk[:jobs][:eve][:update_corporation] = false }
+
+      before { expect(Eve::CorporationImporter).not_to receive(:new) }
+
+      specify { expect { subject.perform(id) }.not_to raise_error }
+    end
   end
 end

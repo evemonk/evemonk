@@ -3,11 +3,11 @@
 require "rails_helper"
 
 RSpec.describe Eve::CertificateSkill do
-  it { should be_an(ApplicationRecord) }
+  it { is_expected.to be_an(ApplicationRecord) }
 
   it { expect(described_class.table_name).to eq("eve_certificate_skills") }
 
-  it { should belong_to(:certificate) }
+  it { is_expected.to belong_to(:certificate) }
 
-  it { should belong_to(:type).optional(true) }
+  it { is_expected.to belong_to(:type).optional }
 end

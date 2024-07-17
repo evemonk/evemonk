@@ -16,7 +16,6 @@ RSpec.describe "Get Category by ID" do
       name_de: "DE: name 1",
       name_fr: "FR: name 1",
       name_ja: "JA: name 1",
-      name_ru: "RU: name 1",
       name_ko: "KO: name 1",
       published: true)
   end
@@ -31,7 +30,6 @@ RSpec.describe "Get Category by ID" do
             de
             fr
             ja
-            ru
             ko
           }
           published
@@ -65,7 +63,6 @@ RSpec.describe "Get Category by ID" do
           "de" => "DE: name 1",
           "fr" => "FR: name 1",
           "ja" => "JA: name 1",
-          "ru" => "RU: name 1",
           "ko" => "KO: name 1"
         },
         "published" => true,

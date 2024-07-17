@@ -4,6 +4,15 @@ test:
   eve_online_sso:
     client_id: ""
     secret_key: ""
+  use_image_proxy: false
+  image_proxy_url: "https://imageproxy.evemonk.com/"
+  use_google_search_console: false
+  use_fathom_evemonk: false
+  jobs:
+    character: true
+    eve:
+      update_alliance: true
+      update_corporation: true
   slack:
     updates_webhook_channel_url: ""
 
@@ -11,6 +20,15 @@ development:
   eve_online_sso:
     client_id: ""
     secret_key: ""
+  use_image_proxy: true
+  image_proxy_url: "https://imageproxy.evemonk.com/"
+  use_google_search_console: false
+  use_fathom_evemonk: false
+  jobs:
+    character: true
+    eve:
+      update_alliance: true
+      update_corporation: true
   slack:
     updates_webhook_channel_url: ""
 
@@ -18,5 +36,15 @@ production:
   eve_online_sso:
     client_id: ""
     secret_key: ""
+  use_image_proxy: true
+  image_proxy_url: "https://imageproxy.evemonk.com/"
+  use_google_search_console: true
+  google_site_verification_token: ""
+  use_fathom_evemonk: true
+  jobs:
+    character: true
+    eve:
+      update_alliance: true
+      update_corporation: true
   slack:
     updates_webhook_channel_url: ""

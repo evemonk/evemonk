@@ -3,7 +3,7 @@
 require "rails_helper"
 
 RSpec.describe Eve::Race do
-  it { should be_an(ApplicationRecord) }
+  it { is_expected.to be_an(ApplicationRecord) }
 
   it { expect(described_class).to respond_to(:translates) }
 
@@ -11,9 +11,9 @@ RSpec.describe Eve::Race do
 
   it { expect(described_class.table_name).to eq("eve_races") }
 
-  it { should belong_to(:faction).optional(true) }
+  it { is_expected.to belong_to(:faction).optional }
 
-  it { should have_many(:bloodlines) }
+  it { is_expected.to have_many(:bloodlines) }
 
-  it { should have_many(:stations) }
+  it { is_expected.to have_many(:stations) }
 end

@@ -203,3 +203,15 @@ Style/NegatedIf:
 
 RSpec/EmptyExampleGroup:
   Enabled: false
+
+RSpec/NamedSubject:
+  Enabled: false
+
+RSpec/HookArgument:
+  Enabled: true
+  Exclude:
+    - "spec/support/database_rewinder.rb"
+    - "spec/support/prosopite.rb"
+
+RSpec/StubbedMock:
+  Enabled: false

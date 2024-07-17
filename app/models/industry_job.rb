@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# TODO: finish
 class IndustryJob < ApplicationRecord
   belongs_to :character
 

@@ -3,7 +3,7 @@
 require "rails_helper"
 
 RSpec.describe Eve::System do
-  it { should be_an(ApplicationRecord) }
+  it { is_expected.to be_an(ApplicationRecord) }
 
   it { expect(described_class.primary_key).to eq("system_id") }
 
@@ -13,21 +13,21 @@ RSpec.describe Eve::System do
 
   it { expect(described_class.table_name).to eq("eve_systems") }
 
-  it { should belong_to(:constellation).optional(true) }
+  it { is_expected.to belong_to(:constellation).optional }
 
-  it { should belong_to(:star).optional(true) }
+  it { is_expected.to belong_to(:star).optional }
 
-  it { should have_many(:stargates) }
+  it { is_expected.to have_many(:stargates) }
 
-  it { should have_many(:planets) }
+  it { is_expected.to have_many(:planets) }
 
-  it { should have_many(:moons) }
+  it { is_expected.to have_many(:moons) }
 
-  it { should have_many(:stations) }
+  it { is_expected.to have_many(:stations) }
 
-  it { should have_many(:asteroid_belts) }
+  it { is_expected.to have_many(:asteroid_belts) }
 
-  it { should have_one(:position).dependent(:destroy) }
+  it { is_expected.to have_one(:position).dependent(:destroy) }
 
   describe "#rounded_security_status" do
     context "when security status is 0.14" do

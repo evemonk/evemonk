@@ -100,12 +100,12 @@ RSpec.describe "Get Character by ID" do
       "character" => {
         "id" => "123",
         "icon" => {
-          "tiny" => "https://imageproxy.evemonk.com/https://images.evetech.net/characters/123/portrait?size=32",
-          "small" => "https://imageproxy.evemonk.com/https://images.evetech.net/characters/123/portrait?size=64",
-          "medium" => "https://imageproxy.evemonk.com/https://images.evetech.net/characters/123/portrait?size=128",
-          "large" => "https://imageproxy.evemonk.com/https://images.evetech.net/characters/123/portrait?size=256",
-          "huge" => "https://imageproxy.evemonk.com/https://images.evetech.net/characters/123/portrait?size=512",
-          "gigantic" => "https://imageproxy.evemonk.com/https://images.evetech.net/characters/123/portrait?size=1024"
+          "tiny" => "https://images.evetech.net/characters/123/portrait?size=32",
+          "small" => "https://images.evetech.net/characters/123/portrait?size=64",
+          "medium" => "https://images.evetech.net/characters/123/portrait?size=128",
+          "large" => "https://images.evetech.net/characters/123/portrait?size=256",
+          "huge" => "https://images.evetech.net/characters/123/portrait?size=512",
+          "gigantic" => "https://images.evetech.net/characters/123/portrait?size=1024"
         },
         "allianceId" => 1_111,
         "alliance" => {

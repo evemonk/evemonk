@@ -3,33 +3,33 @@
 require "rails_helper"
 
 RSpec.describe Eve::Alliance do
-  it { should be_an(ApplicationRecord) }
+  it { is_expected.to be_an(ApplicationRecord) }
 
-  it { should be_a(PgSearch::Model) }
+  it { is_expected.to be_a(PgSearch::Model) }
 
-  it { should be_a(ActionView::Helpers::NumberHelper) }
+  it { is_expected.to be_a(ActionView::Helpers::NumberHelper) }
 
-  it { should be_a(Imageable) }
+  it { is_expected.to be_a(Imageable) }
 
   it { expect(described_class.table_name).to eq("eve_alliances") }
 
-  it { should belong_to(:creator_corporation).class_name("Eve::Corporation").optional(true) }
+  it { is_expected.to belong_to(:creator_corporation).class_name("Eve::Corporation").optional }
 
-  it { should belong_to(:creator).class_name("Eve::Character").optional(true) }
+  it { is_expected.to belong_to(:creator).class_name("Eve::Character").optional }
 
-  it { should belong_to(:executor_corporation).class_name("Eve::Corporation").optional(true) }
+  it { is_expected.to belong_to(:executor_corporation).class_name("Eve::Corporation").optional }
 
-  it { should belong_to(:faction).optional(true) }
+  it { is_expected.to belong_to(:faction).optional }
 
-  it { should have_many(:corporations) }
+  it { is_expected.to have_many(:corporations) }
 
-  it { should have_many(:characters).through(:corporations) }
+  it { is_expected.to have_many(:characters).through(:corporations) }
 
-  it { should have_many(:corporation_alliance_histories) }
+  it { is_expected.to have_many(:corporation_alliance_histories) }
 
-  it { should have_one_attached(:logo) }
+  it { is_expected.to have_one_attached(:logo) }
 
-  it { should have_db_index([:name, :ticker]) }
+  it { is_expected.to have_db_index([:name, :ticker]) }
 
   it { expect(described_class).to respond_to(:search_by_name_and_ticker) }
 

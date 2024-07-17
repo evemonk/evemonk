@@ -190,10 +190,10 @@ RSpec.describe "Get Corporations" do
             "node" => {
               "id" => "123",
               "icon" => {
-                "tiny" => "https://imageproxy.evemonk.com/https://images.evetech.net/corporations/123/logo?size=32",
-                "small" => "https://imageproxy.evemonk.com/https://images.evetech.net/corporations/123/logo?size=64",
-                "medium" => "https://imageproxy.evemonk.com/https://images.evetech.net/corporations/123/logo?size=128",
-                "large" => "https://imageproxy.evemonk.com/https://images.evetech.net/corporations/123/logo?size=256"
+                "tiny" => "https://images.evetech.net/corporations/123/logo?size=32",
+                "small" => "https://images.evetech.net/corporations/123/logo?size=64",
+                "medium" => "https://images.evetech.net/corporations/123/logo?size=128",
+                "large" => "https://images.evetech.net/corporations/123/logo?size=256"
               },
               "allianceId" => 1_111,
               "alliance" => {
@@ -248,10 +248,10 @@ RSpec.describe "Get Corporations" do
             "node" => {
               "id" => "321",
               "icon" => {
-                "tiny" => "https://imageproxy.evemonk.com/https://images.evetech.net/corporations/321/logo?size=32",
-                "small" => "https://imageproxy.evemonk.com/https://images.evetech.net/corporations/321/logo?size=64",
-                "medium" => "https://imageproxy.evemonk.com/https://images.evetech.net/corporations/321/logo?size=128",
-                "large" => "https://imageproxy.evemonk.com/https://images.evetech.net/corporations/321/logo?size=256"
+                "tiny" => "https://images.evetech.net/corporations/321/logo?size=32",
+                "small" => "https://images.evetech.net/corporations/321/logo?size=64",
+                "medium" => "https://images.evetech.net/corporations/321/logo?size=128",
+                "large" => "https://images.evetech.net/corporations/321/logo?size=256"
               },
               "allianceId" => 1_222,
               "alliance" => {

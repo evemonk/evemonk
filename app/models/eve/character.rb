@@ -19,6 +19,7 @@ module Eve
 
     pg_search_scope :search_by_name, against: :name
 
+    # TODO: finish migration
     has_one_attached :portrait
 
     def icon_tiny

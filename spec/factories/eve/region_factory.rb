@@ -12,8 +12,6 @@ FactoryBot.define do
 
     name_ja { Faker::Lorem.word }
 
-    name_ru { Faker::Lorem.word }
-
     name_ko { Faker::Lorem.word }
 
     description_en { Faker::Lorem.paragraph }
@@ -23,8 +21,6 @@ FactoryBot.define do
     description_fr { Faker::Lorem.paragraph }
 
     description_ja { Faker::Lorem.paragraph }
-
-    description_ru { Faker::Lorem.paragraph }
 
     description_ko { Faker::Lorem.paragraph }
   end

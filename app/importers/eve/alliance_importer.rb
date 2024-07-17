@@ -14,8 +14,10 @@ module Eve
 
         eve_alliance.update!(esi.as_json)
 
+        # TODO: fix
         eve_alliance.reset_corporations_count
 
+        # TODO: fix
         eve_alliance.reset_characters_count
       rescue EveOnline::Exceptions::ResourceNotFound
         Rails.logger.info("EveOnline::Exceptions::ResourceNotFound: Eve Alliance ID #{id}")

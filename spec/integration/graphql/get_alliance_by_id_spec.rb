@@ -131,11 +131,11 @@ RSpec.describe "Get Alliance by ID" do
         "name" => "Alliance 1",
         "ticker" => "ALLIANCE1",
         "icon" => {
-          "tiny" => "https://imageproxy.evemonk.com/https://images.evetech.net/alliances/123/logo?size=32",
-          "small" => "https://imageproxy.evemonk.com/https://images.evetech.net/alliances/123/logo?size=64",
-          "medium" => "https://imageproxy.evemonk.com/https://images.evetech.net/alliances/123/logo?size=128",
-          "large" => "https://imageproxy.evemonk.com/https://images.evetech.net/alliances/123/logo?size=256",
-          "huge" => "https://imageproxy.evemonk.com/https://images.evetech.net/alliances/123/logo?size=512"
+          "tiny" => "https://images.evetech.net/alliances/123/logo?size=32",
+          "small" => "https://images.evetech.net/alliances/123/logo?size=64",
+          "medium" => "https://images.evetech.net/alliances/123/logo?size=128",
+          "large" => "https://images.evetech.net/alliances/123/logo?size=256",
+          "huge" => "https://images.evetech.net/alliances/123/logo?size=512"
         },
         "dateFounded" => date_founded.iso8601,
         "creatorCorporationId" => 222,

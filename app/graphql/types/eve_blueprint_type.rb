@@ -41,7 +41,6 @@ module Types
     #     de: object.name_de,
     #     fr: object.name_fr,
     #     ja: object.name_ja,
-    #     ru: object.name_ru,
     #     ko: object.name_ko
     #   }
     # end
@@ -52,7 +51,6 @@ module Types
     #     de: object.description_de,
     #     fr: object.description_fr,
     #     ja: object.description_ja,
-    #     ru: object.description_ru,
     #     ko: object.description_ko
     #   }
     # end

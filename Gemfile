@@ -4,74 +4,54 @@ source "https://rubygems.org"
 
 ruby file: ".ruby-version"
 
-gem "rails", "7.1.3.4"
-
-gem "sprockets-rails"
+gem "rails", "7.2.1"
+gem "propshaft"
 gem "pg"
 gem "puma"
 gem "importmap-rails"
 gem "turbo-rails"
 gem "stimulus-rails"
-gem "jbuilder"
+
+# Use Redis adapter to run Action Cable in production
+gem "redis", ">= 4.0.1"
+
+# Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
+# gem "kredis"
+
+# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: [:windows, :jruby]
+
+# Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 
-gem "solid_cache"
+# Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
+# gem "image_processing", "~> 1.2"
+
 gem "thruster"
-gem "dartsass-rails"
+gem "solid_cache"
+gem "solid_queue"
+gem "mobility"
+gem "pghero"
+gem "mission_control-jobs"
 gem "view_component"
-gem "flipper"
-gem "flipper-active_record"
-gem "flipper-ui"
-gem "inline_svg"
-gem "bootstrap", "5.2.3"
-gem "bootswatch",
-  git: "https://github.com/thomaspark/bootswatch.git",
-  tag: "v5.2.3"
-gem "good_migrations"
-gem "local_time"
-gem "rails-i18n", "~> 7.0.9"
-gem "http_accept_language"
+gem "pry-rails"
 gem "devise"
-gem "devise-two-factor", ">= 5.0.0"
+# gem "devise-two-factor", ">= 5.0.0"
 gem "devise-i18n"
 gem "devise_zxcvbn"
-gem "rqrcode"
 gem "graphql"
 gem "graphiql-rails"
-gem "rack-cors"
-gem "pg_search"
-gem "meta-tags"
-gem "rufus-scheduler"
-gem "eve_online"
-gem "omniauth-eve_online-sso"
-gem "omniauth-rails_csrf_protection"
-gem "jwt"
-gem "ancestry"
-gem "faraday-http-cache"
-gem "kaminari"
-gem "kaminari-i18n"
-gem "rails-html-sanitizer"
-gem "mobility"
-gem "pundit"
-gem "rails-settings-cached"
-gem "net-http-persistent"
-gem "connection_pool"
-gem "redis"
-gem "redis-client"
-gem "sidekiq"
-gem "pghero"
-gem "pg_query"
-gem "noticed"
-gem "responders"
-gem "aws-sdk-s3"
-gem "down"
-gem "sitemap_generator"
-gem "administrate"
-gem "pry-rails"
-gem "skylight"
-gem "lograge"
 gem "prosopite"
+gem "pg_search"
+gem "rails-html-sanitizer"
+gem "pg_query"
+gem "meta-tags"
+gem "inline_svg"
+gem "faraday"
+gem "eve_online"
+gem "kaminari"
+gem "local_time"
+
 gem "sshkit", require: false
 gem "uri", ">= 0.12.2"
 
@@ -80,12 +60,13 @@ group :production do
 end
 
 group :development, :test do
+  gem "brakeman", require: false
   gem "lookbook"
   gem "dotenv-rails"
   gem "rspec-rails", ">= 6.0.1"
   gem "factory_bot_rails"
   gem "faker"
-  gem "sql_tracker"
+  # gem "sql_tracker"
   gem "rubocop", require: false
   gem "rubocop-disable_syntax", require: false
   gem "rubocop-performance", require: false
@@ -95,20 +76,19 @@ group :development, :test do
   gem "rubocop-rspec", require: false
   gem "rubocop-rspec_rails", require: false
   gem "rubocop-factory_bot", require: false
-  gem "standard", "1.39.2", require: false
-  gem "squasher", require: false
-  gem "brakeman", require: false
+  gem "standard", "1.40.0", require: false
+  # gem "squasher", require: false
   gem "fasterer", require: false
   gem "license_finder", require: false
-  gem "better_html", require: false
-  gem "erb_lint", require: false
+  # gem "better_html", require: false
+  # gem "erb_lint", require: false
 end
 
 group :development do
   gem "foreman", require: false
-  gem "active_record_doctor"
-  gem "cacheflow"
-  gem "gemdiff", require: false
+  # gem "active_record_doctor"
+  # gem "cacheflow"
+  # gem "gemdiff", require: false
   gem "graphql-rails_logger"
   gem "bundler-audit", require: false
 end
@@ -120,8 +100,8 @@ group :test do
   gem "shoulda-matchers"
   gem "rspec-its"
   gem "super_diff"
-  gem "simplecov"
-  gem "simplecov-cobertura", require: false
+  # gem "simplecov"
+  # gem "simplecov-cobertura", require: false
   gem "database_rewinder"
   gem "webmock"
   gem "vcr"

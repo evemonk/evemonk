@@ -12,7 +12,9 @@ module Eve
       Faraday::ConnectionFailed
 
     def perform(corporation_id)
-      Eve::CorporationImporter.new(corporation_id).import
+      if Rails.application.config.evemonk[:jobs][:eve][:update_corporation]
+        Eve::CorporationImporter.new(corporation_id).import
+      end
     end
   end
 end

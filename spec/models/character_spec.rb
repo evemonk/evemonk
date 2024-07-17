@@ -3,61 +3,61 @@
 require "rails_helper"
 
 RSpec.describe Character do
-  it { should be_an(ApplicationRecord) }
+  it { is_expected.to be_an(ApplicationRecord) }
 
-  it { should be_a(Imageable) }
+  it { is_expected.to be_a(Imageable) }
 
-  it { should belong_to(:user) }
+  it { is_expected.to belong_to(:user) }
 
-  it { should belong_to(:race).class_name("Eve::Race").optional(true) }
+  it { is_expected.to belong_to(:race).class_name("Eve::Race").optional }
 
-  it { should belong_to(:bloodline).class_name("Eve::Bloodline").optional(true) }
+  it { is_expected.to belong_to(:bloodline).class_name("Eve::Bloodline").optional }
 
-  it { should belong_to(:faction).class_name("Eve::Faction").optional(true) }
+  it { is_expected.to belong_to(:faction).class_name("Eve::Faction").optional }
 
-  it { should belong_to(:alliance).class_name("Eve::Alliance").optional(true) }
+  it { is_expected.to belong_to(:alliance).class_name("Eve::Alliance").optional }
 
-  it { should belong_to(:corporation).class_name("Eve::Corporation").optional(true) }
+  it { is_expected.to belong_to(:corporation).class_name("Eve::Corporation").optional }
 
-  it { should belong_to(:current_ship_type).class_name("Eve::Ship").optional(true) }
+  it { is_expected.to belong_to(:current_ship_type).class_name("Eve::Ship").optional }
 
-  it { should belong_to(:current_solar_system).class_name("Eve::System").optional(true) }
+  it { is_expected.to belong_to(:current_solar_system).class_name("Eve::System").optional }
 
-  it { should belong_to(:current_station).class_name("Eve::Station").optional(true) }
+  it { is_expected.to belong_to(:current_station).class_name("Eve::Station").optional }
 
-  it { should have_many(:character_scopes).dependent(:destroy) }
+  it { is_expected.to have_many(:character_scopes).dependent(:destroy) }
 
-  it { should have_many(:loyalty_points).dependent(:destroy) }
+  it { is_expected.to have_many(:loyalty_points).dependent(:destroy) }
 
-  it { should have_many(:character_assets).dependent(:destroy) }
+  it { is_expected.to have_many(:character_assets).dependent(:destroy) }
 
-  it { should have_many(:character_implants).dependent(:destroy) }
+  it { is_expected.to have_many(:character_implants).dependent(:destroy) }
 
-  it { should have_many(:implants).through(:character_implants) }
+  it { is_expected.to have_many(:implants).through(:character_implants) }
 
-  it { should have_many(:skillqueues).dependent(:destroy) }
+  it { is_expected.to have_many(:skillqueues).dependent(:destroy) }
 
-  it { should have_many(:character_skills).dependent(:destroy) }
+  it { is_expected.to have_many(:character_skills).dependent(:destroy) }
 
-  it { should have_many(:character_corporation_histories).with_primary_key("character_id").dependent(:destroy) }
+  it { is_expected.to have_many(:character_corporation_histories).with_primary_key("character_id").dependent(:destroy) }
 
-  it { should have_many(:character_mail_labels).dependent(:destroy) }
+  it { is_expected.to have_many(:character_mail_labels).dependent(:destroy) }
 
-  it { should have_many(:standings).dependent(:destroy) }
+  it { is_expected.to have_many(:standings).dependent(:destroy) }
 
-  it { should have_many(:character_killmails).dependent(:destroy) }
+  it { is_expected.to have_many(:character_killmails).dependent(:destroy) }
 
-  it { should have_many(:wallet_journals).dependent(:destroy) }
+  it { is_expected.to have_many(:wallet_journals).dependent(:destroy) }
 
-  it { should have_many(:wallet_transactions).dependent(:destroy) }
+  it { is_expected.to have_many(:wallet_transactions).dependent(:destroy) }
 
-  it { should have_many(:character_blueprints).dependent(:destroy) }
+  it { is_expected.to have_many(:character_blueprints).dependent(:destroy) }
 
-  it { should have_many(:industry_jobs).dependent(:destroy) }
+  it { is_expected.to have_many(:industry_jobs).dependent(:destroy) }
 
-  it { should have_many(:character_orders).dependent(:destroy) }
+  it { is_expected.to have_many(:character_orders).dependent(:destroy) }
 
-  it { should have_many(:manufacturing_jobs).dependent(:destroy) }
+  it { is_expected.to have_many(:manufacturing_jobs).dependent(:destroy) }
 
   describe ".with_valid_tokens" do
     let!(:character_1) { create(:character, esi_token_valid: true) }
@@ -67,33 +67,33 @@ RSpec.describe Character do
     specify { expect(described_class.with_valid_tokens).to eq([character_1]) }
   end
 
-  it { should delegate_method(:perception_without_bonuses).to(:character_attributes) }
+  it { is_expected.to delegate_method(:perception_without_bonuses).to(:character_attributes) }
 
-  it { should delegate_method(:perception_bonus).to(:character_attributes) }
+  it { is_expected.to delegate_method(:perception_bonus).to(:character_attributes) }
 
-  it { should delegate_method(:memory_without_bonuses).to(:character_attributes) }
+  it { is_expected.to delegate_method(:memory_without_bonuses).to(:character_attributes) }
 
-  it { should delegate_method(:memory_bonus).to(:character_attributes) }
+  it { is_expected.to delegate_method(:memory_bonus).to(:character_attributes) }
 
-  it { should delegate_method(:willpower_without_bonuses).to(:character_attributes) }
+  it { is_expected.to delegate_method(:willpower_without_bonuses).to(:character_attributes) }
 
-  it { should delegate_method(:willpower_bonus).to(:character_attributes) }
+  it { is_expected.to delegate_method(:willpower_bonus).to(:character_attributes) }
 
-  it { should delegate_method(:intelligence_without_bonuses).to(:character_attributes) }
+  it { is_expected.to delegate_method(:intelligence_without_bonuses).to(:character_attributes) }
 
-  it { should delegate_method(:intelligence_bonus).to(:character_attributes) }
+  it { is_expected.to delegate_method(:intelligence_bonus).to(:character_attributes) }
 
-  it { should delegate_method(:charisma_without_bonuses).to(:character_attributes) }
+  it { is_expected.to delegate_method(:charisma_without_bonuses).to(:character_attributes) }
 
-  it { should delegate_method(:charisma_bonus).to(:character_attributes) }
+  it { is_expected.to delegate_method(:charisma_bonus).to(:character_attributes) }
 
-  it { should delegate_method(:science_skill).to(:character_skills_levels) }
+  it { is_expected.to delegate_method(:science_skill).to(:character_skills_levels) }
 
-  it { should delegate_method(:science_level).to(:character_skills_levels) }
+  it { is_expected.to delegate_method(:science_level).to(:character_skills_levels) }
 
-  it { should delegate_method(:advanced_industry_skill).to(:character_skills_levels) }
+  it { is_expected.to delegate_method(:advanced_industry_skill).to(:character_skills_levels) }
 
-  it { should delegate_method(:advanced_industry_level).to(:character_skills_levels) }
+  it { is_expected.to delegate_method(:advanced_industry_level).to(:character_skills_levels) }
 
   describe "#perception_attribute" do
     context "when @perception_attribute is set" do

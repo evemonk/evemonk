@@ -10,8 +10,8 @@ require "active_record/railtie"
 require "active_storage/engine"
 require "action_controller/railtie"
 require "action_mailer/railtie"
-# require "action_mailbox/engine"
-# require "action_text/engine"
+require "action_mailbox/engine"
+require "action_text/engine"
 require "action_view/railtie"
 require "action_cable/engine"
 # require "rails/test_unit/railtie"
@@ -22,10 +22,19 @@ Bundler.require(*Rails.groups)
 
 module Evemonk
   class Application < Rails::Application
+    config.active_record.query_log_tags_enabled = true
+    config.active_record.query_log_tags = [
+      # Rails query log tags:
+      :application, :controller, :action, :job,
+      # GraphQL-Ruby query log tags:
+      current_graphql_operation: -> { GraphQL::Current.operation_name },
+      current_graphql_field: -> { GraphQL::Current.field&.path },
+      current_dataloader_source: -> { GraphQL::Current.dataloader_source_class },
+    ]
     config.evemonk = config_for(:evemonk)
 
     # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 7.1
+    config.load_defaults 7.2
 
     # Please, add to the `ignore` list any other `lib` subdirectories that do
     # not contain `.rb` files, or that should not be reloaded or eager loaded.
@@ -45,8 +54,5 @@ module Evemonk
 
     # Compiles the ERB template with the frozen_string_literal true magic comment
     config.action_view.frozen_string_literal = true
-
-    # sidekiq
-    config.active_job.queue_adapter = :sidekiq
   end
 end

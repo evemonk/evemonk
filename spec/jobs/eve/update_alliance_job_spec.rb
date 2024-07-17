@@ -10,8 +10,8 @@ RSpec.describe Eve::UpdateAllianceJob do
   describe "#perform" do
     let(:id) { double }
 
-    context "when eve_update_alliance_job enabled" do
-      before { Flipper.enable(:eve_update_alliance_job) }
+    context "when jobs eve update_alliance is enabled" do
+      before { Rails.application.config.evemonk[:jobs][:eve][:update_alliance] = true }
 
       before do
         #
@@ -27,8 +27,8 @@ RSpec.describe Eve::UpdateAllianceJob do
       specify { expect { subject.perform(id) }.not_to raise_error }
     end
 
-    context "when eve_update_alliance_job disabled" do
-      before { Flipper.disable(:eve_update_alliance_job) }
+    context "when jobs eve update_alliance is disabled" do
+      before { Rails.application.config.evemonk[:jobs][:eve][:update_alliance] = false }
 
       before { expect(Eve::AllianceImporter).not_to receive(:new) }
 

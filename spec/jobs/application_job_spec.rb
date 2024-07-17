@@ -3,5 +3,5 @@
 require "rails_helper"
 
 RSpec.describe ApplicationJob do
-  it { should be_an(ActiveJob::Base) }
+  it { is_expected.to be_an(ActiveJob::Base) }
 end

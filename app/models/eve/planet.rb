@@ -2,6 +2,7 @@
 
 module Eve
   class Planet < ApplicationRecord
+    # TODO: finish migration
     self.primary_key = "planet_id"
 
     belongs_to :system, optional: true

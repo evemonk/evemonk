@@ -1,0 +1,18 @@
+<tr>
+  <td class="align-middle text-center border-end-0 m-0 p-2">
+    <%= image_tag(alliance.icon_small,
+                  alt: alliance.name,
+                  class: "rounded border",
+                  size: "34x34",
+                  loading: "lazy") %>
+  </td>
+  <td class="align-middle text-break border-start-0">
+    <%= link_to(alliance.name, universe_alliance_path(alliance)) %>
+  </td>
+  <td class="align-middle text-end">
+    <%= alliance.formatted_corporations_count %>
+  </td>
+  <td class="align-middle text-end">
+    <%= alliance.formatted_characters_count %>
+  </td>
+</tr>

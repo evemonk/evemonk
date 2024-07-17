@@ -3,29 +3,29 @@
 require "rails_helper"
 
 RSpec.describe Eve::Character do
-  it { should be_an(ApplicationRecord) }
+  it { is_expected.to be_an(ApplicationRecord) }
 
-  it { should be_a(PgSearch::Model) }
+  it { is_expected.to be_a(PgSearch::Model) }
 
-  it { should be_a(Imageable) }
+  it { is_expected.to be_a(Imageable) }
 
   it { expect(described_class.table_name).to eq("eve_characters") }
 
-  it { should belong_to(:alliance).optional(true) }
+  it { is_expected.to belong_to(:alliance).optional }
 
-  it { should belong_to(:bloodline).optional(true) }
+  it { is_expected.to belong_to(:bloodline).optional }
 
-  it { should belong_to(:corporation).optional(true) }
+  it { is_expected.to belong_to(:corporation).optional }
 
-  it { should belong_to(:faction).optional(true) }
+  it { is_expected.to belong_to(:faction).optional }
 
-  it { should belong_to(:race).optional(true) }
+  it { is_expected.to belong_to(:race).optional }
 
-  it { should have_many(:character_corporation_histories).dependent(:destroy) }
+  it { is_expected.to have_many(:character_corporation_histories).dependent(:destroy) }
 
-  it { should have_one_attached(:portrait) }
+  it { is_expected.to have_one_attached(:portrait) }
 
-  it { should have_db_index(:name) }
+  it { is_expected.to have_db_index(:name) }
 
   it { expect(described_class).to respond_to(:search_by_name) }
 

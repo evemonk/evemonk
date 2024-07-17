@@ -15,23 +15,7 @@
     </thead>
 
     <tbody>
-      <% @corporations.each do |corporation| %>
-        <tr>
-          <td class="text-center align-middle border-end-0 m-0 p-2">
-            <%= image_tag(corporation.icon_small,
-                          alt: corporation.name,
-                          class: "rounded border",
-                          size: "34x34",
-                          loading: "lazy") %>
-          </td>
-          <td class="text-break align-middle border-start-0">
-            <%= link_to(corporation.name, universe_corporation_path(corporation)) %>
-          </td>
-          <td class="text-end align-middle">
-            <%= corporation.formatted_member_count %>
-          </td>
-        </tr>
-      <% end %>
+      <%= render partial: "corporation", collection: @corporations %>
     </tbody>
   </table>
 <% end %>
