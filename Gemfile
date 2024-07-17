@@ -32,6 +32,7 @@ gem "bootsnap", require: false
 
 gem "thruster"
 gem "solid_cache"
+gem "solid_queue"
 gem "mobility"
 
 group :production do
