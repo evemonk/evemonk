@@ -2,7 +2,8 @@
 
 set -eux
 
-bundle exec standardrb --fix
+bin/standardrb --fix
+bin/rubocop --autocorrect-all
 yarn prettier --write "*.{yml,yaml,js,md}" \
                       "app/**/*.{js,css,scss}" \
                       ".github/*.{yml,yaml}" \
