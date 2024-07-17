@@ -87,6 +87,10 @@ GEM
     csv (3.3.0)
     date (3.3.4)
     diff-lcs (1.5.1)
+    dotenv (3.1.2)
+    dotenv-rails (3.1.2)
+      dotenv (= 3.1.2)
+      railties (>= 6.1)
     drb (2.2.1)
     erubi (1.13.0)
     et-orbi (1.2.11)
@@ -359,6 +363,7 @@ DEPENDENCIES
   bootsnap
   brakeman
   bundler-audit
+  dotenv-rails
   factory_bot_rails
   faker
   fasterer
@@ -415,6 +420,8 @@ CHECKSUMS
   csv (3.3.0) sha256=0bbd1defdc31134abefed027a639b3723c2753862150f4c3ee61cab71b20d67d
   date (3.3.4) sha256=971f2cb66b945bcbea4ddd9c7908c9400b31a71bc316833cb42fa584b59d3291
   diff-lcs (1.5.1) sha256=273223dfb40685548436d32b4733aa67351769c7dea621da7d9dd4813e63ddfe
+  dotenv (3.1.2) sha256=08036c2aa1246590034a83df2adc85b72cb4944692c49da24d8e911f97924478
+  dotenv-rails (3.1.2) sha256=66d2ad1a5aca1de742dd8ec2ceed2148675c73617a3b8d7703ef86ed47ca5d6a
   drb (2.2.1) sha256=e9d472bf785f558b96b25358bae115646da0dbfd45107ad858b0bc0d935cb340
   erubi (1.13.0) sha256=fca61b47daefd865d0fb50d168634f27ad40181867445badf6427c459c33cd62
   et-orbi (1.2.11) sha256=d26e868cc21db88280a9ec1a50aa3da5d267eb9b2037ba7b831d6c2731f5df64
