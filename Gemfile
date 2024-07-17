@@ -32,6 +32,7 @@ gem "bootsnap", require: false
 
 gem "thruster"
 gem "solid_cache"
+gem "mobility"
 
 group :production do
   gem "rack-timeout"
