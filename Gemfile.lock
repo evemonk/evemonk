@@ -191,6 +191,11 @@ GEM
       railties (>= 6.0.0)
     stringio (3.1.1)
     thor (1.3.1)
+    thruster (0.1.7)
+    thruster (0.1.7-aarch64-linux)
+    thruster (0.1.7-arm64-darwin)
+    thruster (0.1.7-x86_64-darwin)
+    thruster (0.1.7-x86_64-linux)
     timeout (0.4.1)
     turbo-rails (2.0.5)
       actionpack (>= 6.0.0)
@@ -223,6 +228,7 @@ DEPENDENCIES
   rails (= 7.2.0.beta3)
   redis (>= 4.0.1)
   stimulus-rails
+  thruster
   turbo-rails
   tzinfo-data
 
@@ -293,6 +299,11 @@ CHECKSUMS
   stimulus-rails (1.3.3) sha256=4d1f9ab1d64e605f4c9cdd4cc530a9538b510606d32d02249d106256845c562c
   stringio (3.1.1) sha256=53456e14175c594e0e8eb2206a1be33f3974d4fe21c131e628908b05c8c2ae1e
   thor (1.3.1) sha256=fa7e3471d4f6a27138e3d9c9b0d4daac9c3d7383927667ae83e9ab42ae7401ef
+  thruster (0.1.7) sha256=b7cdb0cbb38602affd22a0bc06f49ee376dd1beaf0c9f4c961ccf9596774f1d7
+  thruster (0.1.7-aarch64-linux) sha256=36b6c43f84fdaedcf1a6ec50d9ffa86f3a9daf07a47642c943101060138c5b9c
+  thruster (0.1.7-arm64-darwin) sha256=85e30fc4a9c4bc110be60bcf7359aa8d0fc4c01318b15336d785711b8db2b1f4
+  thruster (0.1.7-x86_64-darwin) sha256=2369c5a46c73677ab4985a9ecc6d3b6840dd7443d3c85accfc4e88151648c8e1
+  thruster (0.1.7-x86_64-linux) sha256=097b796e81cb143e715c81fd2e2618eccacfa98fa8732852021a92d8e3eb9f67
   timeout (0.4.1) sha256=6f1f4edd4bca28cffa59501733a94215407c6960bd2107331f0280d4abdebb9a
   turbo-rails (2.0.5) sha256=cef775349c24734e52937997c2c4582a95966b3f81a173a9bcf037074a766229
   tzinfo (2.0.6) sha256=8daf828cc77bcf7d63b0e3bdb6caa47e2272dcfaf4fbfe46f8c3a9df087a829b
