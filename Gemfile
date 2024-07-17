@@ -34,6 +34,7 @@ gem "thruster"
 gem "solid_cache"
 gem "solid_queue"
 gem "mobility"
+gem "pghero"
 
 group :production do
   gem "rack-timeout"
