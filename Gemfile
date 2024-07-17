@@ -45,7 +45,7 @@ group :development, :test do
   # gem "dotenv-rails"
   gem "rspec-rails", ">= 6.0.1"
   gem "factory_bot_rails"
-  # gem "faker"
+  gem "faker"
   # gem "sql_tracker"
   # gem "rubocop", require: false
   # gem "rubocop-disable_syntax", require: false
