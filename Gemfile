@@ -31,6 +31,7 @@ gem "bootsnap", require: false
 # gem "image_processing", "~> 1.2"
 
 gem "thruster"
+gem "solid_cache"
 
 group :production do
   gem "rack-timeout"
