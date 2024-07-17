@@ -33,6 +33,7 @@ gem "bootsnap", require: false
 gem "thruster"
 
 group :production do
+  gem "rack-timeout"
 end
 
 group :development, :test do
