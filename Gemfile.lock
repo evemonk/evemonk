@@ -72,7 +72,6 @@ GEM
       tzinfo (~> 2.0, >= 2.0.5)
     base64 (0.2.0)
     bigdecimal (3.1.8)
-    bindex (0.8.1)
     bootsnap (1.18.3)
       msgpack (~> 1.2)
     brakeman (6.1.2)
@@ -82,9 +81,6 @@ GEM
     connection_pool (2.4.1)
     crass (1.0.6)
     date (3.3.4)
-    debug (1.9.2)
-      irb (~> 1.10)
-      reline (>= 0.3.8)
     drb (2.2.1)
     erubi (1.13.0)
     globalid (1.2.1)
@@ -203,11 +199,6 @@ GEM
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     useragent (0.16.10)
-    web-console (4.2.1)
-      actionview (>= 6.0.0)
-      activemodel (>= 6.0.0)
-      bindex (>= 0.4.0)
-      railties (>= 6.0.0)
     webrick (1.8.1)
     websocket-driver (0.7.6)
       websocket-extensions (>= 0.1.0)
@@ -225,17 +216,15 @@ PLATFORMS
 DEPENDENCIES
   bootsnap
   brakeman
-  debug
   importmap-rails
-  pg (~> 1.1)
+  pg
   propshaft
   puma (>= 5.0)
-  rails (~> 7.2.0.beta3)
+  rails (= 7.2.0.beta3)
   redis (>= 4.0.1)
   stimulus-rails
   turbo-rails
   tzinfo-data
-  web-console
 
 RUBY VERSION
    ruby 3.3.4p94
