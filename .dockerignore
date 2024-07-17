@@ -59,7 +59,6 @@
 /config/evemonk.yml
 /docker-build.sh
 /docker-compose.yml
-/docker-postgresql-restore-dump.sh
 /.generators
 /coverage
 /backup-*.sql.gz
