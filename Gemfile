@@ -43,6 +43,24 @@ group :development, :test do
   # gem "lookbook"
   # gem "dotenv-rails"
   gem "rspec-rails", ">= 6.0.1"
+  # gem "factory_bot_rails"
+  # gem "faker"
+  # gem "sql_tracker"
+  # gem "rubocop", require: false
+  # gem "rubocop-disable_syntax", require: false
+  # gem "rubocop-performance", require: false
+  # gem "rubocop-graphql", require: false
+  # gem "rubocop-rails", require: false
+  # gem "rubocop-capybara", require: false
+  # gem "rubocop-rspec", require: false
+  # gem "rubocop-rspec_rails", require: false
+  # gem "rubocop-factory_bot", require: false
+  # gem "standard", "1.39.2", require: false
+  # gem "squasher", require: false
+  gem "fasterer", require: false
+  gem "license_finder", require: false
+  # gem "better_html", require: false
+  # gem "erb_lint", require: false
 end
 
 group :development do
