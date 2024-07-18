@@ -38,6 +38,9 @@ gem "pghero"
 gem "mission_control-jobs"
 gem "view_component"
 
+gem "sshkit", require: false
+gem "uri", ">= 0.12.2"
+
 group :production do
   gem "rack-timeout"
 end
