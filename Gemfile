@@ -37,6 +37,7 @@ gem "mobility"
 gem "pghero"
 gem "mission_control-jobs"
 gem "view_component"
+gem "pry-rails"
 
 gem "sshkit", require: false
 gem "uri", ">= 0.12.2"
