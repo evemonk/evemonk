@@ -36,6 +36,7 @@ gem "solid_queue"
 gem "mobility"
 gem "pghero"
 gem "mission_control-jobs"
+gem "view_component"
 
 group :production do
   gem "rack-timeout"
