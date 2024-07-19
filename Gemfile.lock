@@ -632,7 +632,7 @@ GEM
       addressable (>= 2.3.5)
       faraday (>= 0.17.3, < 3)
     selectize-rails (0.12.6)
-    selenium-webdriver (4.22.0)
+    selenium-webdriver (4.23.0)
       base64 (~> 0.2)
       logger (~> 1.4)
       rexml (~> 3.2, >= 3.2.5)
@@ -1095,7 +1095,7 @@ CHECKSUMS
   sassc-rails (2.1.2) sha256=5f4fdf3881fc9bdc8e856ffbd9850d70a2878866feae8114aa45996179952db5
   sawyer (0.9.2) sha256=fa3a72d62a4525517b18857ddb78926aab3424de0129be6772a8e2ba240e7aca
   selectize-rails (0.12.6) sha256=425b0b48de8ad02992de0190e37f4b12a84f4252af8a41429c847a3cd6b9bfa9
-  selenium-webdriver (4.22.0) sha256=644370abcdcf1f14b2581c125d39014a1933b20e355c74b0dc5d0ca877a45d66
+  selenium-webdriver (4.23.0) sha256=490aeddee879cfea58a4db6628338d60a905bc56cd5e1a60dfbaa9090a19b801
   sexp_processor (4.17.2) sha256=0dfdd3d90aed28360cb3032ac8905bca66d8c5f5cab01e94762206eca24e75be
   shoulda-matchers (6.2.0) sha256=a702c059c5f3bbda2295827231a28654e33063d7c4d409662980ec630207d8dd
   sidekiq (7.3.0) sha256=2a6653754dfc6e2217bcf94bf6ef03c50fef9d39ac34801acbbbf477a6a40934
