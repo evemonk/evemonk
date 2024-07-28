@@ -377,6 +377,8 @@ GEM
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
     sexp_processor (4.17.2)
+    shoulda-matchers (6.2.0)
+      activesupport (>= 5.2.0)
     solid_cache (0.6.0)
       activejob (>= 7)
       activerecord (>= 7)
@@ -500,6 +502,7 @@ DEPENDENCIES
   rubocop-rspec
   rubocop-rspec_rails
   selenium-webdriver
+  shoulda-matchers
   solid_cache
   solid_queue
   sshkit
@@ -651,6 +654,7 @@ CHECKSUMS
   rubyzip (2.3.2) sha256=3f57e3935dc2255c414484fbf8d673b4909d8a6a57007ed754dde39342d2373f
   selenium-webdriver (4.23.0) sha256=490aeddee879cfea58a4db6628338d60a905bc56cd5e1a60dfbaa9090a19b801
   sexp_processor (4.17.2) sha256=0dfdd3d90aed28360cb3032ac8905bca66d8c5f5cab01e94762206eca24e75be
+  shoulda-matchers (6.2.0) sha256=a702c059c5f3bbda2295827231a28654e33063d7c4d409662980ec630207d8dd
   solid_cache (0.6.0) sha256=b2ce77376c89040b27e6c01bedca95da4dc347f62de5787f3668e39e03616a49
   solid_queue (0.3.3) sha256=1e1e861dd8d089d81c0976c9c1942708260bf3ace6930fd61704f3e6b0285ade
   sprockets (4.2.1) sha256=951b13dd2f2fcae840a7184722689a803e0ff9d2702d902bd844b196da773f97
