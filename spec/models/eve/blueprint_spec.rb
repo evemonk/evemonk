@@ -19,7 +19,7 @@ RSpec.describe Eve::Blueprint do
 
   describe "#copying_time_formatted" do
     subject do
-      Eve::Blueprint.new(attributes_for(:eve_type,
+      described_class.new(attributes_for(:eve_type,
         copying_time: 240,
         is_blueprint: true))
     end
@@ -53,7 +53,7 @@ RSpec.describe Eve::Blueprint do
   # private methods
 
   describe "#type_bp_url" do
-    subject { Eve::Blueprint.new(attributes_for(:eve_type, type_id: 24_699, is_blueprint: true)) }
+    subject { described_class.new(attributes_for(:eve_type, type_id: 24_699, is_blueprint: true)) }
 
     before do
       #
