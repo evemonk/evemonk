@@ -35,11 +35,12 @@ gem "pghero"
 gem "mission_control-jobs"
 gem "view_component"
 gem "pry-rails"
-
 gem "devise"
 # gem "devise-two-factor", ">= 5.0.0"
 gem "devise-i18n"
 # gem "devise_zxcvbn"
+gem "graphql"
+gem "graphiql-rails"
 
 gem "sshkit", require: false
 gem "uri", ">= 0.12.2"
