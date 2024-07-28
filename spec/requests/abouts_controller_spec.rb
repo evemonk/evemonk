@@ -6,7 +6,7 @@ RSpec.describe AboutsController do
   it { should be_an(ApplicationController) }
 
   describe "#show" do
-    before { get about_url }
+    before { get about_path }
 
     context "when user not logged in" do
       it "is expected to render template show with status ok" do
