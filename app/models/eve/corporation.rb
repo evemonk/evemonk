@@ -73,6 +73,11 @@ module Eve
       Rails::Html::FullSanitizer.new.sanitize(description)
     end
 
+    # # TODO: check why?
+    # def to_partial_path
+    #   "corporation"
+    # end
+
     private
 
     def corporation_logo_url(size)
