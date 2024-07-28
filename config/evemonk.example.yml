@@ -11,7 +11,7 @@ development:
   eve_online_sso:
     client_id: ""
     secret_key: ""
-  use_image_proxy: "true"
+  use_image_proxy: true
   image_proxy_url: "https://imageproxy.evemonk.com/"
   slack:
     updates_webhook_channel_url: ""
@@ -20,7 +20,7 @@ production:
   eve_online_sso:
     client_id: ""
     secret_key: ""
-  use_image_proxy: "true"
+  use_image_proxy: true
   image_proxy_url: "https://imageproxy.evemonk.com/"
   slack:
     updates_webhook_channel_url: ""
