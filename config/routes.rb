@@ -19,7 +19,7 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  get ".well-known/change-password", to: "well_known#change_password"
+  get ".well-known/change-password", to: "well_known#change_password", as: "well_known_change_password"
 
   # authenticate :user, ->(user) { user.admin? } do
   #   mount Flipper::UI.app(Flipper), at: "/flipper"
