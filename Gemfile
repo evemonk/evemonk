@@ -46,6 +46,7 @@ gem "pg_search"
 gem "rails-html-sanitizer"
 gem "pg_query"
 gem "meta-tags"
+gem "inline_svg"
 
 gem "sshkit", require: false
 gem "uri", ">= 0.12.2"
