@@ -10,9 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_07_17_192116) do
+ActiveRecord::Schema[7.2].define(version: 2024_07_28_134224) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_buffercache"
+  enable_extension "pg_stat_statements"
   enable_extension "pg_trgm"
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -278,11 +279,9 @@ ActiveRecord::Schema[7.2].define(version: 2024_07_17_192116) do
     t.string "name_de"
     t.string "name_fr"
     t.string "name_ja"
-    t.string "name_ru"
     t.text "description_de"
     t.text "description_fr"
     t.text "description_ja"
-    t.text "description_ru"
     t.string "name_ko"
     t.text "description_ko"
     t.string "name_zh"
@@ -319,11 +318,9 @@ ActiveRecord::Schema[7.2].define(version: 2024_07_17_192116) do
     t.string "name_de"
     t.string "name_fr"
     t.string "name_ja"
-    t.string "name_ru"
     t.text "description_de"
     t.text "description_fr"
     t.text "description_ja"
-    t.text "description_ru"
     t.string "name_ko"
     t.text "description_ko"
     t.string "name_zh"
@@ -398,7 +395,6 @@ ActiveRecord::Schema[7.2].define(version: 2024_07_17_192116) do
     t.string "name_de"
     t.string "name_fr"
     t.string "name_ja"
-    t.string "name_ru"
     t.boolean "published"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -443,7 +439,6 @@ ActiveRecord::Schema[7.2].define(version: 2024_07_17_192116) do
     t.string "name_de"
     t.string "name_fr"
     t.string "name_ja"
-    t.string "name_ru"
     t.string "name_ko"
   end
 
@@ -488,7 +483,6 @@ ActiveRecord::Schema[7.2].define(version: 2024_07_17_192116) do
     t.string "name_de"
     t.string "name_fr"
     t.string "name_ja"
-    t.string "name_ru"
     t.string "name_ko"
     t.bigint "region_id"
     t.datetime "created_at", null: false
@@ -567,7 +561,6 @@ ActiveRecord::Schema[7.2].define(version: 2024_07_17_192116) do
     t.text "description_full_fr"
     t.text "description_full_ja"
     t.text "description_full_ko"
-    t.text "description_full_ru"
     t.text "description_full_zh"
     t.string "internal_name"
     t.string "leader_type_name_en"
@@ -575,14 +568,12 @@ ActiveRecord::Schema[7.2].define(version: 2024_07_17_192116) do
     t.string "leader_type_name_fr"
     t.string "leader_type_name_ja"
     t.string "leader_type_name_ko"
-    t.string "leader_type_name_ru"
     t.string "leader_type_name_zh"
     t.string "name_en"
     t.string "name_de"
     t.string "name_fr"
     t.string "name_ja"
     t.string "name_ko"
-    t.string "name_ru"
     t.string "name_zh"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -620,11 +611,9 @@ ActiveRecord::Schema[7.2].define(version: 2024_07_17_192116) do
     t.string "name_de"
     t.string "name_fr"
     t.string "name_ja"
-    t.string "name_ru"
     t.text "description_de"
     t.text "description_fr"
     t.text "description_ja"
-    t.text "description_ru"
     t.string "name_ko"
     t.text "description_ko"
   end
@@ -649,7 +638,6 @@ ActiveRecord::Schema[7.2].define(version: 2024_07_17_192116) do
     t.string "name_de"
     t.string "name_fr"
     t.string "name_ja"
-    t.string "name_ru"
     t.boolean "published"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -685,14 +673,12 @@ ActiveRecord::Schema[7.2].define(version: 2024_07_17_192116) do
     t.text "description_de"
     t.text "description_fr"
     t.text "description_ja"
-    t.text "description_ru"
     t.text "description_ko"
     t.bigint "market_group_id"
     t.string "name_en"
     t.string "name_de"
     t.string "name_fr"
     t.string "name_ja"
-    t.string "name_ru"
     t.string "name_ko"
     t.bigint "parent_group_id"
     t.datetime "created_at", null: false
@@ -749,11 +735,9 @@ ActiveRecord::Schema[7.2].define(version: 2024_07_17_192116) do
     t.string "name_de"
     t.string "name_fr"
     t.string "name_ja"
-    t.string "name_ru"
     t.text "description_de"
     t.text "description_fr"
     t.text "description_ja"
-    t.text "description_ru"
     t.string "name_ko"
     t.text "description_ko"
     t.string "name_zh"
@@ -768,13 +752,11 @@ ActiveRecord::Schema[7.2].define(version: 2024_07_17_192116) do
     t.string "name_de"
     t.string "name_fr"
     t.string "name_ja"
-    t.string "name_ru"
     t.string "name_ko"
     t.text "description_en"
     t.text "description_de"
     t.text "description_fr"
     t.text "description_ja"
-    t.text "description_ru"
     t.text "description_ko"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -862,7 +844,6 @@ ActiveRecord::Schema[7.2].define(version: 2024_07_17_192116) do
     t.string "name_de"
     t.string "name_fr"
     t.string "name_ja"
-    t.string "name_ru"
     t.string "name_ko"
     t.index ["constellation_id"], name: "index_eve_systems_on_constellation_id"
     t.index ["star_id"], name: "index_eve_systems_on_star_id"
@@ -908,12 +889,10 @@ ActiveRecord::Schema[7.2].define(version: 2024_07_17_192116) do
     t.text "description_de"
     t.text "description_fr"
     t.text "description_ja"
-    t.text "description_ru"
     t.text "description_ko"
     t.string "name_de"
     t.string "name_fr"
     t.string "name_ja"
-    t.string "name_ru"
     t.string "name_ko"
     t.float "base_price"
     t.float "adjusted_price"
