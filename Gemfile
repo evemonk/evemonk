@@ -43,6 +43,7 @@ gem "graphql"
 gem "graphiql-rails"
 gem "prosopite"
 gem "pg_search"
+gem "rails-html-sanitizer"
 
 gem "sshkit", require: false
 gem "uri", ">= 0.12.2"

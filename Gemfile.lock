@@ -505,6 +505,7 @@ DEPENDENCIES
   rack-timeout
   rails (= 7.2.0.beta3)
   rails-controller-testing
+  rails-html-sanitizer
   redis (>= 4.0.1)
   rspec-its
   rspec-rails (>= 6.0.1)
