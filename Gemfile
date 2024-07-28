@@ -84,7 +84,7 @@ group :development do
 end
 
 group :test do
-  # gem "capybara", ">= 3.26"
+  gem "capybara", ">= 3.26"
   # gem "selenium-webdriver"
   # gem "rails-controller-testing"
   # gem "shoulda-matchers"
