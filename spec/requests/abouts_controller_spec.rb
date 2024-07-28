@@ -8,8 +8,12 @@ RSpec.describe AboutsController do
   describe "#show" do
     before { get about_url }
 
-    it { expect(response).to render_template(:show) }
+    it "is expected to render template show with status ok" do
+      expect(response).to render_template(:show)
 
-    it { expect(response).to have_http_status(:ok) }
+      expect(response).to have_http_status(:ok)
+
+      expect(response.body).to include("About EveMonk")
+    end
   end
 end
