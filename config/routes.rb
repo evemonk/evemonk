@@ -25,6 +25,10 @@ Rails.application.routes.draw do
   #   mount Flipper::UI.app(Flipper), at: "/flipper"
   # end
 
+  authenticate :user, ->(user) { user.admin? } do
+    mount MissionControl::Jobs::Engine, at: "/jobs"
+  end
+
   namespace :universe do
     resources :alliances, only: [:index, :show] do
       resources :corporations, only: :index, controller: "alliances/corporations"
