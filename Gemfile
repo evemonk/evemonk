@@ -38,7 +38,7 @@ gem "pry-rails"
 
 gem "devise"
 # gem "devise-two-factor", ">= 5.0.0"
-# gem "devise-i18n"
+gem "devise-i18n"
 # gem "devise_zxcvbn"
 
 gem "sshkit", require: false
