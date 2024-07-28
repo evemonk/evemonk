@@ -2,6 +2,7 @@
 
 module Eve
   class System < ApplicationRecord
+    # TODO: finish migration
     self.primary_key = "system_id"
 
     extend Mobility

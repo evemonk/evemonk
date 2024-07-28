@@ -2,6 +2,7 @@
 
 module Eve
   class MarketGroup < ApplicationRecord
+    # TODO: finish migration
     self.primary_key = "market_group_id"
 
     extend Mobility
@@ -14,6 +15,7 @@ module Eve
 
     has_many :types # rubocop:disable Rails/HasManyOrHasOneDependent
 
+    # TODO: finish migration
     has_many :subgroups, # rubocop:disable Rails/HasManyOrHasOneDependent
       class_name: "Eve::MarketGroup",
       foreign_key: "parent_group_id"

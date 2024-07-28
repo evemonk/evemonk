@@ -30,10 +30,12 @@ module Eve
 
     has_one_attached :logo
 
+    # TODO: fix this method
     def reset_corporations_count
       update!(corporations_count: corporations.count)
     end
 
+    # TODO: fix this method
     def reset_characters_count
       update!(characters_count: corporations.sum(:member_count))
     end

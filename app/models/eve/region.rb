@@ -2,6 +2,7 @@
 
 module Eve
   class Region < ApplicationRecord
+    # TODO: finish migration
     self.primary_key = "region_id"
 
     extend Mobility

@@ -2,6 +2,7 @@
 
 module Eve
   class Type < ApplicationRecord
+    # TODO: finish migration
     self.primary_key = "type_id"
 
     include PgSearch::Model

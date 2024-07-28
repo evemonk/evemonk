@@ -2,6 +2,7 @@
 
 module Eve
   class Stargate < ApplicationRecord
+    # TODO: finish migration
     self.primary_key = "stargate_id"
 
     belongs_to :system, optional: true
