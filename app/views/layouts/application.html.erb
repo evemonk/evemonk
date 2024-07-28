@@ -13,18 +13,27 @@
     <!-- Disable automatic detection and formatting of possible phone numbers -->
     <%= tag.meta(name: "format-detection", content: "telephone=no") %>
 
-    <% if Setting.use_google_search_console %>
+    <% if Rails.application.config.evemonk.use_google_search_console %>
       <!-- Google Search Console -->
-      <%= tag.meta(name: "google-site-verification", content: Setting.google_site_verification_token) %>
+      <%= tag.meta(name: "google-site-verification", content: Rails.application.config.evemonk.google_site_verification_token) %>
     <% end %>
 
-    <% if Setting.use_fathom_evemonk %>
+    <% if Rails.application.config.evemonk.use_fathom_evemonk %>
       <%= render "shared/fathom" %>
     <% end %>
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
 
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= action_cable_meta_tag %>
+
+    <%= yield :head %>
+
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" href="/icon.png" type="image/png">
+    <link rel="icon" href="/icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/icon.png">
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
 
@@ -46,9 +55,9 @@
 
           <div class="collapse navbar-collapse" id="navbar">
             <ul class="navbar-nav me-auto">
-<!--              <li class="nav-item">-->
-<!--                <a class="nav-link active" aria-current="page" href="#">Home</a>-->
-<!--              </li>-->
+              <!--              <li class="nav-item">-->
+              <!--                <a class="nav-link active" aria-current="page" href="#">Home</a>-->
+              <!--              </li>-->
 
               <% if current_user %>
                 <li class="nav-item">
