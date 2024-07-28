@@ -94,7 +94,7 @@ group :test do
   # gem "super_diff"
   # gem "simplecov"
   # gem "simplecov-cobertura", require: false
-  # gem "database_rewinder"
+  gem "database_rewinder"
   # gem "webmock"
   # gem "vcr"
 end
