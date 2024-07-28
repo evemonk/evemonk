@@ -17,7 +17,7 @@ Rails.application.routes.draw do
 
   post "/graphql", to: "graphql#execute"
 
-  # devise_for :users
+  devise_for :users
 
   get ".well-known/change-password", to: "well_known#change_password"
 
