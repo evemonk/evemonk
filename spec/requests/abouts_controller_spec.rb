@@ -5,13 +5,11 @@ require "rails_helper"
 RSpec.describe AboutsController do
   it { should be_an(ApplicationController) }
 
-  it { should_not use_before_action(:authenticate_user!) }
-
   describe "#show" do
-    before { get :show }
+    before { get about_url }
 
-    it { should respond_with(:ok) }
+    it { expect(response).to render_template(:show) }
 
-    it { should render_template(:show) }
+    it { expect(response).to have_http_status(:ok) }
   end
 end
