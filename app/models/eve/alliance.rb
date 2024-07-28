@@ -68,6 +68,11 @@ module Eve
       number_with_delimiter(characters_count, delimiter: " ")
     end
 
+    # # TODO: check why?
+    # def to_partial_path
+    #   "alliance"
+    # end
+
     private
 
     def alliance_logo_url(size)
