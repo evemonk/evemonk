@@ -13,9 +13,9 @@ Rails.application.routes.draw do
     mount Lookbook::Engine, at: "/lookbook"
   end
 
-  # mount GraphiQL::Rails::Engine, at: "/graphiql", graphql_path: "/graphql"
+  mount GraphiQL::Rails::Engine, at: "/graphiql", graphql_path: "/graphql"
 
-  # post "/graphql", to: "graphql#execute"
+  post "/graphql", to: "graphql#execute"
 
   # devise_for :users
 
