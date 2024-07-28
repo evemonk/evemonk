@@ -276,6 +276,10 @@ GEM
       activesupport (= 7.2.0.beta3)
       bundler (>= 1.15.0)
       railties (= 7.2.0.beta3)
+    rails-controller-testing (1.0.5)
+      actionpack (>= 5.0.1.rc1)
+      actionview (>= 5.0.1.rc1)
+      activesupport (>= 5.0.1.rc1)
     rails-dom-testing (2.2.0)
       activesupport (>= 5.0.0)
       minitest
@@ -489,6 +493,7 @@ DEPENDENCIES
   puma (>= 5.0)
   rack-timeout
   rails (= 7.2.0.beta3)
+  rails-controller-testing
   redis (>= 4.0.1)
   rspec-its
   rspec-rails (>= 6.0.1)
@@ -618,6 +623,7 @@ CHECKSUMS
   rack-timeout (0.7.0) sha256=757337e9793cca999bb73a61fe2a7d4280aa9eefbaf787ce3b98d860749c87d9
   rackup (2.1.0) sha256=6ecb884a581990332e45ee17bdfdc14ccbee46c2f710ae1566019907869a6c4d
   rails (7.2.0.beta3) sha256=876b375abb44f467115aee97ab06456a00eff3921dd6ea965f201c0688851e65
+  rails-controller-testing (1.0.5) sha256=741448db59366073e86fc965ba403f881c636b79a2c39a48d0486f2607182e94
   rails-dom-testing (2.2.0) sha256=e515712e48df1f687a1d7c380fd7b07b8558faa26464474da64183a7426fa93b
   rails-html-sanitizer (1.6.0) sha256=86e9f19d2e6748890dcc2633c8945ca45baa08a1df9d8c215ce17b3b0afaa4de
   railties (7.2.0.beta3) sha256=0b4846970b732262718b024b4ecb77074d964a64391bab0465e4461f0cd6ae03
