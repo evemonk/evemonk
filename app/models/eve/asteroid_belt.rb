@@ -2,6 +2,7 @@
 
 module Eve
   class AsteroidBelt < ApplicationRecord
+    # TODO: finish migration
     self.primary_key = "asteroid_belt_id"
 
     belongs_to :system, optional: true

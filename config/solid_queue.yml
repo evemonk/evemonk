@@ -1,0 +1,9 @@
+production:
+  workers:
+    - queues: "*"
+      threads: 3
+
+development:
+  workers:
+    - queues: "*"
+      threads: 3

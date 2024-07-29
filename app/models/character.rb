@@ -185,11 +185,13 @@ class Character < ApplicationRecord
     security_status&.round(1)
   end
 
+  # @deprecated
   def to_key
     key = character_id
     [key] if key
   end
 
+  # @deprecated
   def to_param
     character_id&.to_s
   end

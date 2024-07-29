@@ -1,27 +1,67 @@
-.git/*
-.github/*
-.idea/*
-.deepsource.toml
-.env
-.envrc
-.env.example
-.env_docker
-.erb-lint.yml
-.fasterer.yml
-.hadolint.yml
-.rspec
-.rubocop.yml
-.standard.yml
-config/skylight.yml
-config/evemonk.yml
-docker-build.sh
-docker-compose.yml
-docker-postgresql-restore-dump.sh
-.generators
-tmp/cache/*
-log/*
-coverage/*
-backup-*.sql.gz
-screenshots/*
-static/*
-sde.zip
+# See https://docs.docker.com/engine/reference/builder/#dockerignore-file for more about ignoring files.
+
+# Ignore git directory.
+/.git/
+/.gitignore
+
+# Ignore bundler config.
+/.bundle
+
+# Ignore all environment files (except templates).
+/.env*
+!/.env*.erb
+
+# Ignore all logfiles and tempfiles.
+/log/*
+/tmp/*
+!/log/.keep
+!/tmp/.keep
+
+# Ignore pidfiles, but keep the directory.
+/tmp/pids/*
+!/tmp/pids/.keep
+
+# Ignore storage (uploaded files in development and any SQLite databases).
+/storage/*
+!/storage/.keep
+/tmp/storage/*
+!/tmp/storage/.keep
+
+# Ignore assets.
+/node_modules/
+/app/assets/builds/*
+!/app/assets/builds/.keep
+/public/assets
+
+# Ignore CI service files.
+/.github
+
+# Ignore development files
+/.devcontainer
+
+# Ignore Docker-related files
+/.dockerignore
+/Dockerfile*
+
+/.gitattributes
+/.idea
+/.deepsource.toml
+/.env.example
+/.erb-lint.yml
+/.erb-lint_rubocop.yml
+/.fasterer.yml
+/.hadolint.yml
+/.rspec
+/spec
+/.rubocop.yml
+/.standard.yml
+/config/skylight.yml
+/config/evemonk.yml
+/docker-build.sh
+/docker-compose.yml
+/.generators
+/coverage
+/backup-*.sql.gz
+/screenshots/*
+/static
+/sde.zip

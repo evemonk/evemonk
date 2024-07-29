@@ -2,6 +2,7 @@
 
 module Eve
   class Station < ApplicationRecord
+    # TODO: finish migration
     self.primary_key = "station_id"
 
     belongs_to :race, optional: true

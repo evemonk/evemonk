@@ -203,3 +203,6 @@ Style/NegatedIf:
 
 RSpec/EmptyExampleGroup:
   Enabled: false
+
+RSpec/NamedSubject:
+  Enabled: false

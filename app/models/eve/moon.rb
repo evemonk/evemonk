@@ -2,6 +2,7 @@
 
 module Eve
   class Moon < ApplicationRecord
+    # TODO: finish migration
     self.primary_key = "moon_id"
 
     belongs_to :system, optional: true

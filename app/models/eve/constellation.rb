@@ -2,6 +2,7 @@
 
 module Eve
   class Constellation < ApplicationRecord
+    # TODO: finish migration
     self.primary_key = "constellation_id"
 
     extend Mobility

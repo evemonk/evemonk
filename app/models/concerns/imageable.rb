@@ -4,7 +4,7 @@ module Imageable
   include ActiveSupport::Concern
 
   def imageproxy_url
-    Setting.image_proxy_url if Setting.use_image_proxy
+    Rails.application.config.evemonk.image_proxy_url if Rails.application.config.evemonk.use_image_proxy
   end
 
   # https://github.com/esi/esi-docs/blob/master/docs/image_server.md
