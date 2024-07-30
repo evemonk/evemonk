@@ -21,7 +21,7 @@ RSpec.describe Api::RefreshCharacterAccessToken do
 
     after { VCR.eject_cassette }
 
-    before { Rails.application.config.evemonk.eve_online_sso = { client_id: "eve-online-sso-client-id", secret_key: "eve-online-sso-secret-key" } }
+    before { Rails.application.config.evemonk.eve_online_sso = {client_id: "eve-online-sso-client-id", secret_key: "eve-online-sso-secret-key"} }
 
     before { Rails.application.config.evemonk.eve_online_sso = {} }
 
@@ -42,7 +42,7 @@ RSpec.describe Api::RefreshCharacterAccessToken do
   context "when oauth2 error" do
     before { freeze_time }
 
-    before { Rails.application.config.evemonk.eve_online_sso = { client_id: "eve-online-sso-client-id", secret_key: "eve-online-sso-secret-key" } }
+    before { Rails.application.config.evemonk.eve_online_sso = {client_id: "eve-online-sso-client-id", secret_key: "eve-online-sso-secret-key"} }
 
     before { Rails.application.config.evemonk.eve_online_sso = {} }
 
