@@ -2,8 +2,7 @@
 
 ## Supported Versions
 
-We release patches for security vulnerabilities against the following versions
-of EveMonk:
+We release patches for security vulnerabilities against the following versions:
 
 | Version | Supported          |
 | ------- | ------------------ |
