@@ -5,22 +5,6 @@ require "rails_helper"
 RSpec.describe Setting do
   it { should be_a(RailsSettings::Base) }
 
-  describe ".eve_online_sso_client_id" do
-    let(:eve_online_sso_client_id) { double }
-
-    before { expect(ENV).to receive(:fetch).with("EVE_ONLINE_SSO_CLIENT_ID", nil).and_return(eve_online_sso_client_id) }
-
-    specify { expect(described_class.eve_online_sso_client_id).to eq(eve_online_sso_client_id) }
-  end
-
-  describe ".eve_online_sso_secret_key" do
-    let(:eve_online_sso_secret_key) { double }
-
-    before { expect(ENV).to receive(:fetch).with("EVE_ONLINE_SSO_SECRET_KEY", nil).and_return(eve_online_sso_secret_key) }
-
-    specify { expect(described_class.eve_online_sso_secret_key).to eq(eve_online_sso_secret_key) }
-  end
-
   describe ".use_image_proxy" do
     specify { expect(described_class.use_image_proxy).to eq(true) }
   end
