@@ -160,7 +160,7 @@ GEM
     css_parser (1.17.1)
       addressable
     csv (3.3.0)
-    dartsass-rails (0.5.0)
+    dartsass-rails (0.5.1)
       railties (>= 6.0.0)
       sass-embedded (~> 1.63)
     database_rewinder (1.0.1)
@@ -906,7 +906,7 @@ CHECKSUMS
   crass (1.0.6) sha256=dc516022a56e7b3b156099abc81b6d2b08ea1ed12676ac7a5657617f012bd45d
   css_parser (1.17.1) sha256=eb730f2d26591a843e52bd3d0efd76abdfeec8bad728e0b2ac821fc10bb018e6
   csv (3.3.0) sha256=0bbd1defdc31134abefed027a639b3723c2753862150f4c3ee61cab71b20d67d
-  dartsass-rails (0.5.0) sha256=a2532abee689ffacba453408346438233e1347c2da684a9ce601421f0c033098
+  dartsass-rails (0.5.1) sha256=f19510fb1b29c76c1739a06954d615f1d20ad653b6fc668dd7c68542bb303a1a
   database_rewinder (1.0.1) sha256=7a17c3f8e92938846831af2ee496aed7cca593c81b0fbc2a8d77d8028fd0c28d
   date (3.3.4) sha256=971f2cb66b945bcbea4ddd9c7908c9400b31a71bc316833cb42fa584b59d3291
   devise (4.9.4) sha256=920042fe5e704c548aa4eb65ebdd65980b83ffae67feb32c697206bfd975a7f8
