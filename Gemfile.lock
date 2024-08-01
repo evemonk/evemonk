@@ -211,7 +211,7 @@ GEM
       railties (>= 5.0.0)
     faker (3.4.2)
       i18n (>= 1.8.11, < 2)
-    faraday (2.10.0)
+    faraday (2.10.1)
       faraday-net_http (>= 2.0, < 3.2)
       logger
     faraday-http-cache (2.5.1)
@@ -927,7 +927,7 @@ CHECKSUMS
   factory_bot (6.4.6) sha256=1a9486ce98d318d740d8f5804b885a8265a28f326ecf2bcd4ce9fb27a71a6e04
   factory_bot_rails (6.4.3) sha256=ea73ceac1c0ff3dc11fff390bf2ea8a2604066525ed8ecd3b3bc2c267226dcc8
   faker (3.4.2) sha256=516b5a342020e6286b061084d7a60c848c024e9c91f7db6f94bf5bab45ef40f6
-  faraday (2.10.0) sha256=1a3e6c02acc511fc334d799521f1013e449bde38aa2dceb3af71e8030519bda9
+  faraday (2.10.1) sha256=6bc9fba3f6191684449d94215195b2c43e2a07bd40b321d245881450923d9a80
   faraday-http-cache (2.5.1) sha256=cbfc129a85e1ad8580130189832cf59e7e117d94fe277547d61fc531f7689483
   faraday-net_http (3.1.1) sha256=da93f0f426f4de2c09af0a9a95887726da7889b76eca2a2aff0ce5e66e768938
   faraday-retry (2.2.1) sha256=4146fed14549c0580bf14591fca419a40717de0dd24f267a8ec2d9a728677608
