@@ -190,12 +190,12 @@ GEM
     down (5.4.2)
       addressable (~> 2.8)
     drb (2.2.1)
-    erb_lint (0.5.0)
+    erb_lint (0.6.0)
       activesupport
       better_html (>= 2.0.1)
       parser (>= 2.7.1.4)
       rainbow
-      rubocop
+      rubocop (>= 1)
       smart_properties
     erubi (1.13.0)
     et-orbi (1.2.11)
@@ -919,7 +919,7 @@ CHECKSUMS
   dotenv-rails (3.1.2) sha256=66d2ad1a5aca1de742dd8ec2ceed2148675c73617a3b8d7703ef86ed47ca5d6a
   down (5.4.2) sha256=516e5e01e7a96214a7e2cd155aac6f700593038ae6c857c0f4a05413b1c58acf
   drb (2.2.1) sha256=e9d472bf785f558b96b25358bae115646da0dbfd45107ad858b0bc0d935cb340
-  erb_lint (0.5.0) sha256=acd44f2c05a84c8b5dcec6b2201fd67894bbc1bcea741fd68c1094065abc99c0
+  erb_lint (0.6.0) sha256=32368f77792ee921ab20260837396ff6caa60a7a34f7e61187d274bc744555cd
   erubi (1.13.0) sha256=fca61b47daefd865d0fb50d168634f27ad40181867445badf6427c459c33cd62
   et-orbi (1.2.11) sha256=d26e868cc21db88280a9ec1a50aa3da5d267eb9b2037ba7b831d6c2731f5df64
   eve_online (0.44.0) sha256=797f8533f2bc079c0ca43c131e6ec686efb29cd2ed6227caef4708f39bb0123d
