@@ -584,7 +584,7 @@ GEM
       rubocop (>= 1.50)
     rubocop-factory_bot (2.26.1)
       rubocop (~> 1.61)
-    rubocop-graphql (1.5.3)
+    rubocop-graphql (1.5.4)
       rubocop (>= 1.50, < 2)
     rubocop-performance (1.21.1)
       rubocop (>= 1.48.1, < 2.0)
@@ -1076,7 +1076,7 @@ CHECKSUMS
   rubocop-capybara (2.21.0) sha256=5d264efdd8b6c7081a3d4889decf1451a1cfaaec204d81534e236bc825b280ab
   rubocop-disable_syntax (0.1.1) sha256=fba0b24edbd3de049ccaac8473c18fed308b5bd991e389a3368965f6cb88edbb
   rubocop-factory_bot (2.26.1) sha256=8de13cd4edcee5ca800f255188167ecef8dbfc3d1fae9f15734e9d2e755392aa
-  rubocop-graphql (1.5.3) sha256=0c5f06e5286c620802fa02f0667a8754fc96a1c6d85c0880a890f4206cfbc438
+  rubocop-graphql (1.5.4) sha256=2d888d40b08577daf1e74ca4623be1e3058c1a93543d5a7220818f561a254192
   rubocop-performance (1.21.1) sha256=5cf20002a544275ad6aa99abca4b945d2a2ed71be925c38fe83700360ed8734e
   rubocop-rails (2.25.1) sha256=4988933ee02fdb213d22d0f61dc57d6c582317b43867d5106ea1c7a628aae6a5
   rubocop-rspec (3.0.3) sha256=ee90e0efb9a6725ab4147d89bf4761c8548b4d04069da95aca4696cd57f02511
