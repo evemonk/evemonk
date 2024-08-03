@@ -278,7 +278,7 @@ GEM
       activesupport (> 5.0)
       railties (> 5.0)
       rouge (~> 3.0)
-    hashdiff (1.1.0)
+    hashdiff (1.1.1)
     hashie (5.0.0)
     htmlbeautifier (1.4.3)
     htmlentities (4.3.4)
@@ -953,7 +953,7 @@ CHECKSUMS
   graphiql-rails (1.8.0) sha256=02e2c5098be2c6c29219a0e9b2910a2cd3c494301587a3199a7c4484d8038ed1
   graphql (2.3.10) sha256=e3fecc7425cda6045433e2a3ef9ddb5fdcb99a5345af8fc935191141311f2ab5
   graphql-rails_logger (1.2.4) sha256=cc0a348d5a1b7d020cd19225a9811356bb092845ab999bd9dfe813af53451780
-  hashdiff (1.1.0) sha256=b5465f0e7375f1ee883f53a766ece4dbc764b7674a7c5ffd76e79b2f5f6fc9c9
+  hashdiff (1.1.1) sha256=c7966316726e0ceefe9f5c6aef107ebc3ccfef8b6db55fe3934f046b2cf0936a
   hashie (5.0.0) sha256=9d6c4e51f2a36d4616cbc8a322d619a162d8f42815a792596039fc95595603da
   htmlbeautifier (1.4.3) sha256=b43d08f7e2aa6ae1b5a6f0607b4ed8954c8d4a8e85fd2336f975dda1e4db385b
   htmlentities (4.3.4) sha256=125a73c6c9f2d1b62100b7c3c401e3624441b663762afa7fe428476435a673da
