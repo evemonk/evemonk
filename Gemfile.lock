@@ -158,7 +158,7 @@ GEM
     graphiql-rails (1.8.0)
       railties
       sprockets-rails
-    graphql (2.3.10)
+    graphql (2.3.11)
       base64
     htmlbeautifier (1.4.3)
     htmlentities (4.3.4)
@@ -612,7 +612,7 @@ CHECKSUMS
   google-protobuf (4.27.3-x86_64-darwin) sha256=7cc0d6dd0be7c4901fd4198580a83ae0745be6ab3f80607a8bc9429b95926cc0
   google-protobuf (4.27.3-x86_64-linux) sha256=f0cae9f6bffbc9e4b415586401afbbe3355ba832a1adcb3152c41060c12006f7
   graphiql-rails (1.8.0) sha256=02e2c5098be2c6c29219a0e9b2910a2cd3c494301587a3199a7c4484d8038ed1
-  graphql (2.3.10) sha256=e3fecc7425cda6045433e2a3ef9ddb5fdcb99a5345af8fc935191141311f2ab5
+  graphql (2.3.11) sha256=37eb6dabce222d9fd6570e3064d69fda1803c31a75ca2d4db95f4e21b1b32290
   htmlbeautifier (1.4.3) sha256=b43d08f7e2aa6ae1b5a6f0607b4ed8954c8d4a8e85fd2336f975dda1e4db385b
   htmlentities (4.3.4) sha256=125a73c6c9f2d1b62100b7c3c401e3624441b663762afa7fe428476435a673da
   i18n (1.14.5) sha256=26dcbc05e364b57e27ab430148b3377bc413987d34cc042336271d8f42e9d1b9
