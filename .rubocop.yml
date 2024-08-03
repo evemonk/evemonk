@@ -206,3 +206,9 @@ RSpec/EmptyExampleGroup:
 
 RSpec/NamedSubject:
   Enabled: false
+
+RSpec/HookArgument:
+  Enabled: false
+  Exclude:
+    - "spec/support/database_rewinder.rb"
+    - "spec/support/prosopite.rb"
