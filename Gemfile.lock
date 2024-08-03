@@ -122,6 +122,9 @@ GEM
     erubi (1.13.0)
     et-orbi (1.2.11)
       tzinfo
+    eve_online (0.44.0)
+      activesupport (>= 6.1.0)
+      faraday (>= 2.3.0)
     factory_bot (6.4.6)
       activesupport (>= 5.0.0)
     factory_bot_rails (6.4.3)
@@ -129,6 +132,11 @@ GEM
       railties (>= 5.0.0)
     faker (3.4.2)
       i18n (>= 1.8.11, < 2)
+    faraday (2.10.1)
+      faraday-net_http (>= 2.0, < 3.2)
+      logger
+    faraday-net_http (3.1.1)
+      net-http
     fasterer (0.11.0)
       ruby_parser (>= 3.19.1)
     foreman (0.88.1)
@@ -224,6 +232,8 @@ GEM
       i18n (>= 0.6.10, < 2)
       request_store (~> 1.0)
     msgpack (1.7.2)
+    net-http (0.4.1)
+      uri
     net-imap (0.4.14)
       date
       net-protocol
@@ -509,6 +519,7 @@ DEPENDENCIES
   devise-i18n
   devise_zxcvbn
   dotenv-rails
+  eve_online
   factory_bot_rails
   faker
   fasterer
@@ -598,9 +609,12 @@ CHECKSUMS
   drb (2.2.1) sha256=e9d472bf785f558b96b25358bae115646da0dbfd45107ad858b0bc0d935cb340
   erubi (1.13.0) sha256=fca61b47daefd865d0fb50d168634f27ad40181867445badf6427c459c33cd62
   et-orbi (1.2.11) sha256=d26e868cc21db88280a9ec1a50aa3da5d267eb9b2037ba7b831d6c2731f5df64
+  eve_online (0.44.0) sha256=797f8533f2bc079c0ca43c131e6ec686efb29cd2ed6227caef4708f39bb0123d
   factory_bot (6.4.6) sha256=1a9486ce98d318d740d8f5804b885a8265a28f326ecf2bcd4ce9fb27a71a6e04
   factory_bot_rails (6.4.3) sha256=ea73ceac1c0ff3dc11fff390bf2ea8a2604066525ed8ecd3b3bc2c267226dcc8
   faker (3.4.2) sha256=516b5a342020e6286b061084d7a60c848c024e9c91f7db6f94bf5bab45ef40f6
+  faraday (2.10.1) sha256=6bc9fba3f6191684449d94215195b2c43e2a07bd40b321d245881450923d9a80
+  faraday-net_http (3.1.1) sha256=da93f0f426f4de2c09af0a9a95887726da7889b76eca2a2aff0ce5e66e768938
   fasterer (0.11.0) sha256=9c38b77583584f3339a729eb077fd8f2856a317abe747528f6563d7c23e9dda8
   foreman (0.88.1) sha256=59c022125b6a328a2ce63da8d70b731f5dd13519e8d9a4184c696538088ea00a
   fugit (1.11.0) sha256=addc9cd3031611921d1dbac094de3a645bc8858828639fd035c9cedd3b460bb9
@@ -638,6 +652,7 @@ CHECKSUMS
   mission_control-jobs (0.2.1) sha256=5b03af8dad578835f9d44a02fb61b55c7e9a1f071db857845acfa2ae68464d73
   mobility (1.2.9) sha256=e0b88f1e0654e2d02e82d89140ed9d1882f3346bdf2ec1ddd707aef8a442bf4c
   msgpack (1.7.2) sha256=59ab62fd8a4d0dfbde45009f87eb6f158ab2628a7c48886b0256f175166baaa8
+  net-http (0.4.1) sha256=a96efc5ea18bcb9715e24dda4159d10f67ff0345c8a980d04630028055b2c282
   net-imap (0.4.14) sha256=a2184b3f09a4f7ca27998d113fd6df8cd0dd56b91e5bf0d6387b8350bb438065
   net-pop (0.1.2) sha256=848b4e982013c15b2f0382792268763b748cce91c9e91e36b0f27ed26420dff3
   net-protocol (0.2.2) sha256=aa73e0cba6a125369de9837b8d8ef82a61849360eba0521900e2c3713aa162a8

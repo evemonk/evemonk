@@ -47,6 +47,7 @@ gem "rails-html-sanitizer"
 gem "pg_query"
 gem "meta-tags"
 gem "inline_svg"
+gem "eve_online"
 
 gem "sshkit", require: false
 gem "uri", ">= 0.12.2"
