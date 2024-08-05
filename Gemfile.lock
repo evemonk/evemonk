@@ -227,6 +227,7 @@ GEM
     ffi (1.17.0-arm64-darwin)
     ffi (1.17.0-x86_64-darwin)
     ffi (1.17.0-x86_64-linux-gnu)
+    fiber-storage (0.1.2)
     flipper (1.3.0)
       concurrent-ruby (< 2)
     flipper-active_record (1.3.0)
@@ -271,8 +272,9 @@ GEM
     graphiql-rails (1.8.0)
       railties
       sprockets-rails
-    graphql (2.3.11)
+    graphql (2.3.12)
       base64
+      fiber-storage
     graphql-rails_logger (1.2.4)
       actionpack (> 5.0)
       activesupport (> 5.0)
@@ -937,6 +939,7 @@ CHECKSUMS
   ffi (1.17.0-arm64-darwin) sha256=609c874e76614542c6d485b0576e42a7a38ffcdf086612f9a300c4ec3fcd0d12
   ffi (1.17.0-x86_64-darwin) sha256=fdcd48c69db3303ef95aec5c64d6275fcf9878a02c0bec0afddc506ceca0f56b
   ffi (1.17.0-x86_64-linux-gnu) sha256=1015e59d5919dd6bbcb0704325b0bd639be664a79b1e2189943ceb18faa34198
+  fiber-storage (0.1.2) sha256=02f72742fd3e5818165b5455b57f5b536cf68908233531cdc6ee894be2c9ae2c
   flipper (1.3.0) sha256=9c3bfa5f23776e8576d17eeea74ee7215a1c08f9b0ac143914cc4ddf6904728b
   flipper-active_record (1.3.0) sha256=9951c9416103d7770de6c15eb12c411a4225ed720606dd09b7a003d54aa4547f
   flipper-ui (1.3.0) sha256=faeb41cfc553fb2e1ab37e8b079425c83b4fffa8b661ed23fc11aa1eab0b18ce
@@ -951,7 +954,7 @@ CHECKSUMS
   google-protobuf (4.27.3-x86_64-darwin) sha256=7cc0d6dd0be7c4901fd4198580a83ae0745be6ab3f80607a8bc9429b95926cc0
   google-protobuf (4.27.3-x86_64-linux) sha256=f0cae9f6bffbc9e4b415586401afbbe3355ba832a1adcb3152c41060c12006f7
   graphiql-rails (1.8.0) sha256=02e2c5098be2c6c29219a0e9b2910a2cd3c494301587a3199a7c4484d8038ed1
-  graphql (2.3.11) sha256=37eb6dabce222d9fd6570e3064d69fda1803c31a75ca2d4db95f4e21b1b32290
+  graphql (2.3.12) sha256=ead479b911be92bbc142b052d1488a31d170a9a73fa7bf6269c9666c1c3e5072
   graphql-rails_logger (1.2.4) sha256=cc0a348d5a1b7d020cd19225a9811356bb092845ab999bd9dfe813af53451780
   hashdiff (1.1.1) sha256=c7966316726e0ceefe9f5c6aef107ebc3ccfef8b6db55fe3934f046b2cf0936a
   hashie (5.0.0) sha256=9d6c4e51f2a36d4616cbc8a322d619a162d8f42815a792596039fc95595603da
