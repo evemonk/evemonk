@@ -227,7 +227,7 @@ GEM
     ffi (1.17.0-arm64-darwin)
     ffi (1.17.0-x86_64-darwin)
     ffi (1.17.0-x86_64-linux-gnu)
-    fiber-storage (0.1.2)
+    fiber-storage (1.0.0)
     flipper (1.3.0)
       concurrent-ruby (< 2)
     flipper-active_record (1.3.0)
@@ -939,7 +939,7 @@ CHECKSUMS
   ffi (1.17.0-arm64-darwin) sha256=609c874e76614542c6d485b0576e42a7a38ffcdf086612f9a300c4ec3fcd0d12
   ffi (1.17.0-x86_64-darwin) sha256=fdcd48c69db3303ef95aec5c64d6275fcf9878a02c0bec0afddc506ceca0f56b
   ffi (1.17.0-x86_64-linux-gnu) sha256=1015e59d5919dd6bbcb0704325b0bd639be664a79b1e2189943ceb18faa34198
-  fiber-storage (0.1.2) sha256=02f72742fd3e5818165b5455b57f5b536cf68908233531cdc6ee894be2c9ae2c
+  fiber-storage (1.0.0) sha256=b80a323f1e0b95e79b11c1d4df7f654dbe517c11a344c90f2a43dec67ba5ab7f
   flipper (1.3.0) sha256=9c3bfa5f23776e8576d17eeea74ee7215a1c08f9b0ac143914cc4ddf6904728b
   flipper-active_record (1.3.0) sha256=9951c9416103d7770de6c15eb12c411a4225ed720606dd09b7a003d54aa4547f
   flipper-ui (1.3.0) sha256=faeb41cfc553fb2e1ab37e8b079425c83b4fffa8b661ed23fc11aa1eab0b18ce
