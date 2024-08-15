@@ -608,7 +608,7 @@ GEM
     rubyzip (2.3.2)
     rufus-scheduler (3.9.1)
       fugit (~> 1.1, >= 1.1.6)
-    sanitize (6.1.2)
+    sanitize (6.1.3)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
     sass-embedded (1.77.8)
@@ -1088,7 +1088,7 @@ CHECKSUMS
   ruby_parser (3.21.1) sha256=9d931abe5aec287d65280f811d3cf672564956ef1bd49f528ca48479984d6fec
   rubyzip (2.3.2) sha256=3f57e3935dc2255c414484fbf8d673b4909d8a6a57007ed754dde39342d2373f
   rufus-scheduler (3.9.1) sha256=5fca077ca039a0025fa77fcc7484fa64e47a112124babc75d4c072ad05439992
-  sanitize (6.1.2) sha256=178b4be92c8505cfea8d7273417513b931dfee53c87155cf3af3a0db780e32b1
+  sanitize (6.1.3) sha256=a42ce5f933d82765a8243599d5ab2e8867237e76cf5a699caaddfe60bb944152
   sass-embedded (1.77.8) sha256=62cf92adf8d8a983a0281b3ffc06ee318e217aa54787cb39c1c127b1b2c52619
   sass-embedded (1.77.8-aarch64-linux-gnu) sha256=c40aaf9bf49e4851f5d7be2d3009df5b81e668fe8ed8a728599ee10be969d61c
   sass-embedded (1.77.8-arm64-darwin) sha256=67078593eb72d43ecd4c05d1e207a37147c817caeb69dc829b369c222be90715
