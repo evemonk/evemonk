@@ -720,7 +720,7 @@ GEM
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     unicode-display_width (2.5.0)
-    uri (0.13.0)
+    uri (0.13.1)
     vcr (6.3.1)
       base64
     version_gem (1.1.4)
@@ -1136,7 +1136,7 @@ CHECKSUMS
   turbo-rails (2.0.6) sha256=e5fd7b2fd11d24f202c5d33597d291767491b9938563d4edbd4a174166eba35b
   tzinfo (2.0.6) sha256=8daf828cc77bcf7d63b0e3bdb6caa47e2272dcfaf4fbfe46f8c3a9df087a829b
   unicode-display_width (2.5.0) sha256=7e7681dcade1add70cb9fda20dd77f300b8587c81ebbd165d14fd93144ff0ab4
-  uri (0.13.0) sha256=26553c2a9399762e1e8bebd4444b4361c4b21298cf1c864b22eeabc9c4998f24
+  uri (0.13.1) sha256=df2d8b13e3e8c8a43432637e2ace4f9de7b42674361b4dd26302b40f7d7fcd1e
   vcr (6.3.1) sha256=37b56e157e720446a3f4d2d39919cabef8cb7b6c45936acffd2ef8229fec03ed
   version_gem (1.1.4) sha256=c69752c6d6a9446ad21a030661a988ba10ba05c1ad249532332ecc7efa534621
   view_component (3.13.0) sha256=316e6479f51387160e7eb372d33cbb97d586ac2ed9d9fe80495cec48b346187b
