@@ -3,7 +3,7 @@
 require "rails_helper"
 
 RSpec.describe FooterComponent, type: :component do
-  it { should be_an(ApplicationComponent) }
+  it { is_expected.to be_an(ApplicationComponent) }
 
   before { render_inline(subject) }
 

@@ -3,5 +3,5 @@
 require "rails_helper"
 
 RSpec.describe ApplicationComponent, type: :component do
-  it { should be_a(ViewComponent::Base) }
+  it { is_expected.to be_a(ViewComponent::Base) }
 end
