@@ -52,13 +52,11 @@ RSpec.describe "Get Bloodlines" do
       name_de: "DE: name 1",
       name_fr: "FR: name 1",
       name_ja: "JA: name 1",
-      name_ru: "RU: name 1",
       name_ko: "KO: name 1",
       description_en: "EN: description 1",
       description_de: "DE: description 1",
       description_fr: "FR: description 1",
       description_ja: "JA: description 1",
-      description_ru: "RU: description 1",
       description_ko: "KO: description 1",
       corporation: eve_corporation_1,
       race: eve_race_1,
@@ -77,13 +75,11 @@ RSpec.describe "Get Bloodlines" do
       name_de: "DE: name 2",
       name_fr: "FR: name 2",
       name_ja: "JA: name 2",
-      name_ru: "RU: name 2",
       name_ko: "KO: name 2",
       description_en: "EN: description 2",
       description_de: "DE: description 2",
       description_fr: "FR: description 2",
       description_ja: "JA: description 2",
-      description_ru: "RU: description 2",
       description_ko: "KO: description 2",
       corporation: eve_corporation_2,
       race: eve_race_2,
@@ -107,7 +103,6 @@ RSpec.describe "Get Bloodlines" do
                 de
                 fr
                 ja
-                ru
                 ko
               }
               description {
@@ -115,7 +110,6 @@ RSpec.describe "Get Bloodlines" do
                 de
                 fr
                 ja
-                ru
                 ko
               }
               corporationId
@@ -177,7 +171,6 @@ RSpec.describe "Get Bloodlines" do
                 "de" => "DE: name 1",
                 "fr" => "FR: name 1",
                 "ja" => "JA: name 1",
-                "ru" => "RU: name 1",
                 "ko" => "KO: name 1"
               },
               "description" => {
@@ -185,7 +178,6 @@ RSpec.describe "Get Bloodlines" do
                 "de" => "DE: description 1",
                 "fr" => "FR: description 1",
                 "ja" => "JA: description 1",
-                "ru" => "RU: description 1",
                 "ko" => "KO: description 1"
               },
               "corporationId" => 500,
@@ -232,7 +224,6 @@ RSpec.describe "Get Bloodlines" do
                 "de" => "DE: name 2",
                 "fr" => "FR: name 2",
                 "ja" => "JA: name 2",
-                "ru" => "RU: name 2",
                 "ko" => "KO: name 2"
               },
               "description" => {
@@ -240,7 +231,6 @@ RSpec.describe "Get Bloodlines" do
                 "de" => "DE: description 2",
                 "fr" => "FR: description 2",
                 "ja" => "JA: description 2",
-                "ru" => "RU: description 2",
                 "ko" => "KO: description 2"
               },
               "corporationId" => 600,
