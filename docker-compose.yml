@@ -9,18 +9,19 @@ services:
     container_name: "evemonk_postgresql"
     restart: "unless-stopped"
     volumes:
-      - "postgresql_data:/var/lib/postgresql/data"
+      - "postgresql_data:/var/lib/postgresql/data:rw"
+      - "./docker/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d:ro"
     environment:
       POSTGRES_HOST_AUTH_METHOD: "trust"
     ports:
       - "5432:5432"
 
   redis:
-    image: "docker.io/library/redis:7.2.4"
+    image: "docker.io/valkey/valkey:7.2.5"
     container_name: "evemonk_redis"
     restart: "unless-stopped"
     volumes:
-      - "redis_data:/data"
+      - "redis_data:/data:rw"
     ports:
       - "6379:6379"
 
