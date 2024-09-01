@@ -32,7 +32,6 @@ RSpec.describe "Get Constellations" do
       name_de: "DE: name 1",
       name_fr: "FR: name 1",
       name_ja: "JA: name 1",
-      name_ru: "RU: name 1",
       name_ko: "KO: name 1",
       region: eve_region_1)
   end
@@ -44,7 +43,6 @@ RSpec.describe "Get Constellations" do
       name_de: "DE: name 2",
       name_fr: "FR: name 2",
       name_ja: "JA: name 2",
-      name_ru: "RU: name 2",
       name_ko: "KO: name 2",
       region: eve_region_2)
   end
@@ -61,7 +59,6 @@ RSpec.describe "Get Constellations" do
                 de
                 fr
                 ja
-                ru
                 ko
               }
               regionId
@@ -110,7 +107,6 @@ RSpec.describe "Get Constellations" do
                 "de" => "DE: name 1",
                 "fr" => "FR: name 1",
                 "ja" => "JA: name 1",
-                "ru" => "RU: name 1",
                 "ko" => "KO: name 1"
               },
               "regionId" => 400,
@@ -144,7 +140,6 @@ RSpec.describe "Get Constellations" do
                 "de" => "DE: name 2",
                 "fr" => "FR: name 2",
                 "ja" => "JA: name 2",
-                "ru" => "RU: name 2",
                 "ko" => "KO: name 2"
               },
               "regionId" => 500,
