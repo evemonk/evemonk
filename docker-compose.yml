@@ -35,7 +35,7 @@ services:
       MINIO_ROOT_PASSWORD: "password"
       MINIO_REGION_NAME: "us-east-1"
     volumes:
-      - "minio_data:/data"
+      - "minio_data:/data:rw"
     ports:
       - "9000:9000"
       - "9001:9001"
