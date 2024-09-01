@@ -24,11 +24,6 @@ module Types
       method: :name_ja,
       null: true
 
-    field :ru, String,
-      description: "Russian",
-      method: :name_ru,
-      null: true
-
     field :ko, String,
       description: "Korean",
       method: :name_ko,
