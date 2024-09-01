@@ -12,8 +12,6 @@ FactoryBot.define do
 
     name_ja { Faker::Lorem.word }
 
-    name_ru { Faker::Lorem.word }
-
     name_ko { Faker::Lorem.word }
 
     published { [true, false].sample }

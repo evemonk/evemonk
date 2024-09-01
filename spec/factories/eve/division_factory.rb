@@ -14,8 +14,6 @@ FactoryBot.define do
 
     description_full_ko { Faker::Lorem.paragraph }
 
-    description_full_ru { Faker::Lorem.paragraph }
-
     description_full_zh { Faker::Lorem.paragraph }
 
     internal_name { Faker::Lorem.word }
@@ -30,8 +28,6 @@ FactoryBot.define do
 
     leader_type_name_ko { Faker::Lorem.word }
 
-    leader_type_name_ru { Faker::Lorem.word }
-
     leader_type_name_zh { Faker::Lorem.word }
 
     name_en { Faker::Lorem.word }
@@ -43,8 +39,6 @@ FactoryBot.define do
     name_ja { Faker::Lorem.word }
 
     name_ko { Faker::Lorem.word }
-
-    name_ru { Faker::Lorem.word }
 
     name_zh { Faker::Lorem.word }
   end
