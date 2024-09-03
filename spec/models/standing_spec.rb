@@ -3,37 +3,37 @@
 require "rails_helper"
 
 RSpec.describe Standing do
-  it { should be_an(ApplicationRecord) }
+  it { is_expected.to be_an(ApplicationRecord) }
 
-  it { should belong_to(:character) }
+  it { is_expected.to belong_to(:character) }
 
-  it { should belong_to(:standingable).optional(true) }
+  it { is_expected.to belong_to(:standingable).optional }
 
   it do
-    should belong_to(:faction)
+    is_expected.to belong_to(:faction)
       .conditions(standings: {standingable_type: Eve::Faction.name})
       .with_foreign_key("standingable_id")
       .class_name("Eve::Faction")
       .inverse_of(:standings)
-      .optional(true)
+      .optional
   end
 
   it do
-    should belong_to(:corporation)
+    is_expected.to belong_to(:corporation)
       .conditions(standings: {standingable_type: Eve::Corporation.name})
       .with_foreign_key("standingable_id")
       .class_name("Eve::Corporation")
       .inverse_of(:standings)
-      .optional(true)
+      .optional
   end
 
   it do
-    should belong_to(:agent)
+    is_expected.to belong_to(:agent)
       .conditions(standings: {standingable_type: Eve::Agent.name})
       .with_foreign_key("standingable_id")
       .class_name("Eve::Agent")
       .inverse_of(:standings)
-      .optional(true)
+      .optional
   end
 
   describe ".factions" do
