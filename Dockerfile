@@ -1,4 +1,4 @@
-FROM registry.docker.com/library/ruby:3.3.4-slim@sha256:0f5c785e2189ab9ffda522b20c0380dbc51d9991361f9e0bfbcf46bb68d32b29 AS builder
+FROM registry.docker.com/library/ruby:3.3.5-slim@sha256:80cef14bd340ac31a3bedc450593c7f3ec2bde10f70538f8591616fe0ba40bfd AS builder
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
@@ -78,7 +78,7 @@ RUN bundle exec rake SECRET_KEY_BASE=no \
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
-FROM registry.docker.com/library/ruby:3.3.4-slim@sha256:0f5c785e2189ab9ffda522b20c0380dbc51d9991361f9e0bfbcf46bb68d32b29
+FROM registry.docker.com/library/ruby:3.3.5-slim@sha256:80cef14bd340ac31a3bedc450593c7f3ec2bde10f70538f8591616fe0ba40bfd
 
 # skipcq: DOK-DL3008
 RUN set -eux; \
