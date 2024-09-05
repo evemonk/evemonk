@@ -642,7 +642,7 @@ GEM
     sexp_processor (4.17.2)
     shoulda-matchers (6.4.0)
       activesupport (>= 5.2.0)
-    sidekiq (7.3.1)
+    sidekiq (7.3.2)
       concurrent-ruby (< 2)
       connection_pool (>= 2.3.0)
       logger
@@ -1100,7 +1100,7 @@ CHECKSUMS
   selenium-webdriver (4.24.0) sha256=00c878b8a9125a51a585e7ad8fdc9c2ef188b3f346e335c92005d9e0ccc53926
   sexp_processor (4.17.2) sha256=0dfdd3d90aed28360cb3032ac8905bca66d8c5f5cab01e94762206eca24e75be
   shoulda-matchers (6.4.0) sha256=9055bb7f4bb342125fb860809798855c630e05ef5e75837b3168b8e6ee1608b0
-  sidekiq (7.3.1) sha256=19521a6e51421533ab5c10252391e94311a86d3fde30867ebb0e1194db26e9fd
+  sidekiq (7.3.2) sha256=70c48ad218b57b67ac5743549636dac09c5edfd9dfb004a316f36d9f3d2d5f88
   simplecov (0.22.0) sha256=fe2622c7834ff23b98066bb0a854284b2729a569ac659f82621fc22ef36213a5
   simplecov-cobertura (2.1.0) sha256=2c6532e34df2e38a379d72cef9a05c3b16c64ce90566beebc6887801c4ad3f02
   simplecov-html (0.12.3) sha256=4b1aad33259ffba8b29c6876c12db70e5750cb9df829486e4c6e5da4fa0aa07b
