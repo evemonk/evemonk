@@ -204,7 +204,7 @@ GEM
       activesupport (>= 6.1.0)
       faraday (>= 2.3.0)
     execjs (2.9.1)
-    factory_bot (6.4.6)
+    factory_bot (6.5.0)
       activesupport (>= 5.0.0)
     factory_bot_rails (6.4.3)
       factory_bot (~> 6.4)
@@ -925,7 +925,7 @@ CHECKSUMS
   et-orbi (1.2.11) sha256=d26e868cc21db88280a9ec1a50aa3da5d267eb9b2037ba7b831d6c2731f5df64
   eve_online (0.44.0) sha256=797f8533f2bc079c0ca43c131e6ec686efb29cd2ed6227caef4708f39bb0123d
   execjs (2.9.1) sha256=e8fd066f6df60c8e8fbebc32c6fb356b5212c77374e8416a9019ca4bb154dcfb
-  factory_bot (6.4.6) sha256=1a9486ce98d318d740d8f5804b885a8265a28f326ecf2bcd4ce9fb27a71a6e04
+  factory_bot (6.5.0) sha256=6374b3a3593b8077ee9856d553d2e84d75b47b912cc24eafea4062f9363d2261
   factory_bot_rails (6.4.3) sha256=ea73ceac1c0ff3dc11fff390bf2ea8a2604066525ed8ecd3b3bc2c267226dcc8
   faker (3.4.2) sha256=516b5a342020e6286b061084d7a60c848c024e9c91f7db6f94bf5bab45ef40f6
   faraday (2.11.0) sha256=e6ead2c9aa1304107d3bb342e9f930cf7e649a71e3ec1e782c3256672f19ed02
