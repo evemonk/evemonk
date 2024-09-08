@@ -656,7 +656,7 @@ GEM
     simplecov-cobertura (2.1.0)
       rexml
       simplecov (~> 0.19)
-    simplecov-html (0.12.3)
+    simplecov-html (0.13.0)
     simplecov_json_formatter (0.1.4)
     sitemap_generator (6.3.0)
       builder (~> 3.0)
@@ -1106,7 +1106,7 @@ CHECKSUMS
   sidekiq (7.3.2) sha256=70c48ad218b57b67ac5743549636dac09c5edfd9dfb004a316f36d9f3d2d5f88
   simplecov (0.22.0) sha256=fe2622c7834ff23b98066bb0a854284b2729a569ac659f82621fc22ef36213a5
   simplecov-cobertura (2.1.0) sha256=2c6532e34df2e38a379d72cef9a05c3b16c64ce90566beebc6887801c4ad3f02
-  simplecov-html (0.12.3) sha256=4b1aad33259ffba8b29c6876c12db70e5750cb9df829486e4c6e5da4fa0aa07b
+  simplecov-html (0.13.0) sha256=0edddd5bc8a99361047b78a1bf1cd3e1d1809a0b821b7d5df248d9e95f0237f9
   simplecov_json_formatter (0.1.4) sha256=529418fbe8de1713ac2b2d612aa3daa56d316975d307244399fa4838c601b428
   sitemap_generator (6.3.0) sha256=1d803cbf03c44736bea05b9e3363d3523fec4e24f3abedad294d9c57cab994f3
   skylight (6.0.4) sha256=201d9e33da76b95134110785308c141c0d32d591cafd7ad8383f883c3bbdbd0c
