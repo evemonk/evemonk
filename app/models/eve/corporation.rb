@@ -39,6 +39,8 @@ module Eve
 
     has_one_attached :logo
 
+    paginates_per 10
+
     # def eve_alliance_reset_corporations_count
     #   alliance&.reset_corporations_count
     # end
