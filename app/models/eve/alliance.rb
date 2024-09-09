@@ -30,6 +30,10 @@ module Eve
 
     has_one_attached :logo
 
+    def to_combobox_display
+      name
+    end
+
     def reset_corporations_count
       update!(corporations_count: corporations.count)
     end
