@@ -30,6 +30,8 @@ module Eve
 
     has_one_attached :logo
 
+    paginates_per 10
+
     def to_combobox_display
       name
     end

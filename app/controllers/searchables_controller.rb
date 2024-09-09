@@ -9,11 +9,10 @@ class SearchablesController < ApplicationController
     @alliances = Eve::SearchAlliancesQuery
       .new(params[:q])
       .query
-      .page(1)
-      # .page(params[:page])
+      .page(params[:page])
   end
 
-  private
+  # private
 
   # def set_page
   #   set_page_and_extract_portion_from Eve::Alliance.search_by_name_and_ticker(params[:q]), per_page: 10

@@ -1,5 +1,2 @@
-<%#= async_combobox_options @page.records,
-                           render_in: { partial: "searchables/searchable" },
-                           next_page: @page.last? ? nil : @page.next_param %>
-
-<%= async_combobox_options @alliances %>
+<%= async_combobox_options @alliances,
+                           next_page: @alliances.last_page? ? nil : @alliances.next_page %>
