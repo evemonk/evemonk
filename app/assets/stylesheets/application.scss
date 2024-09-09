@@ -40,6 +40,7 @@ button {
   color: var(--bs-dark);
 }
 
-//.hw-combobox__option {
-//  color: var(--bs-primary-text)
-//}
+.hw-combobox__option {
+  background-color: var(--bs-body-color);
+  color: var(--bs-dark);
+}
