@@ -383,7 +383,7 @@ GEM
     mutex_m (0.2.0)
     net-http (0.4.1)
       uri
-    net-http-persistent (4.0.2)
+    net-http-persistent (4.0.4)
       connection_pool (~> 2.2)
     net-imap (0.4.16)
       date
@@ -1000,7 +1000,7 @@ CHECKSUMS
   multi_xml (0.7.1) sha256=4fce100c68af588ff91b8ba90a0bb3f0466f06c909f21a32f4962059140ba61b
   mutex_m (0.2.0) sha256=b6ef0c6c842ede846f2ec0ade9e266b1a9dac0bc151682b04835e8ebd54840d5
   net-http (0.4.1) sha256=a96efc5ea18bcb9715e24dda4159d10f67ff0345c8a980d04630028055b2c282
-  net-http-persistent (4.0.2) sha256=03f827a33857b1d56b4e796957ad19bf5b58367d853fd0a224eb70fba8d02a44
+  net-http-persistent (4.0.4) sha256=b62b7e528f72890f5cd67e7f687eeae55cf9f2cda22fd659494363da2fa7f4b2
   net-imap (0.4.16) sha256=70e104926f042e30e2fd3b4c2632cc97661762d6e09679e5fc9be4a346d43243
   net-pop (0.1.2) sha256=848b4e982013c15b2f0382792268763b748cce91c9e91e36b0f27ed26420dff3
   net-protocol (0.2.2) sha256=aa73e0cba6a125369de9837b8d8ef82a61849360eba0521900e2c3713aa162a8
