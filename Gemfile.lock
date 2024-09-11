@@ -310,7 +310,7 @@ GEM
       activesupport (>= 6.1)
     pghero (3.6.0)
       activerecord (>= 6.1)
-    propshaft (0.9.1)
+    propshaft (1.0.0)
       actionpack (>= 7.0.0)
       activesupport (>= 7.0.0)
       rack
@@ -733,7 +733,7 @@ CHECKSUMS
   pg_query (5.1.0) sha256=b7f7f47c864f08ccbed46a8244906fb6ee77ee344fd27250717963928c93145d
   pg_search (2.3.7) sha256=27868941844961e593526b835da20e48995e9b846515e91856084c5bd9ab4f35
   pghero (3.6.0) sha256=cad9cb865f99ff40bb5ba47d3dae20d06be06ac8ea6b01172f6a8ccc85671109
-  propshaft (0.9.1) sha256=995fe8e7346a87d8e22708da41a3a9dddc2181b28364348303b642962267ea17
+  propshaft (1.0.0) sha256=97d4d545ca09b5560021dbf12e5d280853ddd79d9891ca77b2430ad7479abcf8
   prosopite (1.4.2) sha256=b2e422e2d9dbf3ce20130ded3252fe14adb3833555eacd451f5015d8c9177e79
   pry (0.14.2) sha256=c4fe54efedaca1d351280b45b8849af363184696fcac1c72e0415f9bdac4334d
   pry-rails (0.3.11) sha256=a69e28e24a34d75d1f60bcf241192a54253f8f7ef8a62cba1e75750a9653593d
