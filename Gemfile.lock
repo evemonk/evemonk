@@ -171,7 +171,7 @@ GEM
       rake (>= 13)
     graphiql-rails (1.10.1)
       railties
-    graphql (2.3.15)
+    graphql (2.3.16)
       base64
       fiber-storage
     graphql-rails_logger (1.2.4)
@@ -673,7 +673,7 @@ CHECKSUMS
   google-protobuf (4.28.1-x86_64-darwin) sha256=64c726886d5e2cd258fcba92a6984e2b6b5c2b9106f8e843a10065529b75a5cc
   google-protobuf (4.28.1-x86_64-linux) sha256=7feb64d977d1cf949c58d523bd44d6352720c5435e7a2e1e2ba64c93942d31aa
   graphiql-rails (1.10.1) sha256=d43d9ed812bf0bd0f213a0314301ffd8ccb05a681f6225c1b9ad6e66e3561429
-  graphql (2.3.15) sha256=5c171630e11559b425b1215d798b9816b9e20e39bae8a5a367337c2edb8b54aa
+  graphql (2.3.16) sha256=6ac9966998914c5b470e527c7105d936db70af2306ec0445f88953404bce49c7
   graphql-rails_logger (1.2.4) sha256=cc0a348d5a1b7d020cd19225a9811356bb092845ab999bd9dfe813af53451780
   hashdiff (1.1.1) sha256=c7966316726e0ceefe9f5c6aef107ebc3ccfef8b6db55fe3934f046b2cf0936a
   htmlbeautifier (1.4.3) sha256=b43d08f7e2aa6ae1b5a6f0607b4ed8954c8d4a8e85fd2336f975dda1e4db385b
