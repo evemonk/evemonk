@@ -507,7 +507,7 @@ GEM
       railties (>= 6.0.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
-    unicode-display_width (2.5.0)
+    unicode-display_width (2.6.0)
     uri (0.13.1)
     useragent (0.16.10)
     vcr (6.3.1)
@@ -806,7 +806,7 @@ CHECKSUMS
   tomlrb (2.0.3) sha256=c2736acf24919f793334023a4ff396c0647d93fce702a73c9d348deaa815d4f7
   turbo-rails (2.0.7) sha256=03a88d4d98af02efd747f2d99d5b992c961c2a39da4613f5bba555e20c9a99de
   tzinfo (2.0.6) sha256=8daf828cc77bcf7d63b0e3bdb6caa47e2272dcfaf4fbfe46f8c3a9df087a829b
-  unicode-display_width (2.5.0) sha256=7e7681dcade1add70cb9fda20dd77f300b8587c81ebbd165d14fd93144ff0ab4
+  unicode-display_width (2.6.0) sha256=12279874bba6d5e4d2728cef814b19197dbb10d7a7837a869bab65da943b7f5a
   uri (0.13.1) sha256=df2d8b13e3e8c8a43432637e2ace4f9de7b42674361b4dd26302b40f7d7fcd1e
   useragent (0.16.10) sha256=1794380d9ea5c087d687bbfe14752f81839293f238c1132ef05c9344f09e65bb
   vcr (6.3.1) sha256=37b56e157e720446a3f4d2d39919cabef8cb7b6c45936acffd2ef8229fec03ed
