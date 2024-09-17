@@ -17,7 +17,7 @@ services:
       - "5432:5432"
 
   redis:
-    image: "docker.io/valkey/valkey:7.2.5"
+    image: "docker.io/valkey/valkey:7.2.6"
     container_name: "evemonk_redis"
     restart: "unless-stopped"
     volumes:
