@@ -612,16 +612,16 @@ GEM
     sanitize (6.1.3)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
-    sass-embedded (1.79.2)
+    sass-embedded (1.79.3)
       google-protobuf (~> 4.27)
       rake (>= 13)
-    sass-embedded (1.79.2-aarch64-linux-gnu)
+    sass-embedded (1.79.3-aarch64-linux-gnu)
       google-protobuf (~> 4.27)
-    sass-embedded (1.79.2-arm64-darwin)
+    sass-embedded (1.79.3-arm64-darwin)
       google-protobuf (~> 4.27)
-    sass-embedded (1.79.2-x86_64-darwin)
+    sass-embedded (1.79.3-x86_64-darwin)
       google-protobuf (~> 4.27)
-    sass-embedded (1.79.2-x86_64-linux-gnu)
+    sass-embedded (1.79.3-x86_64-linux-gnu)
       google-protobuf (~> 4.27)
     sassc (2.4.0)
       ffi (~> 1.9)
@@ -1092,11 +1092,11 @@ CHECKSUMS
   rubyzip (2.3.2) sha256=3f57e3935dc2255c414484fbf8d673b4909d8a6a57007ed754dde39342d2373f
   rufus-scheduler (3.9.2) sha256=55fa9e4db0ff69d7f38c804f17baba0c9bce5cba39984ae3c5cf6c039d1323b9
   sanitize (6.1.3) sha256=a42ce5f933d82765a8243599d5ab2e8867237e76cf5a699caaddfe60bb944152
-  sass-embedded (1.79.2) sha256=5b4d7678cbf5a0ebb3d4cdc9a400be7d1a562d4f082190f32093dad0ad1b603e
-  sass-embedded (1.79.2-aarch64-linux-gnu) sha256=604836e0f0edd4a49e986df4494d70f23746bde43f13d42e11ef420b1485ec92
-  sass-embedded (1.79.2-arm64-darwin) sha256=f32d365c27261b11f4341db8050355f13b82fa3a0e1dd2be9b461579607bdc12
-  sass-embedded (1.79.2-x86_64-darwin) sha256=aa585a7b04c3cb63e77cda08dfda2f44dbf16e527dbbe1671d19012ab1367cb8
-  sass-embedded (1.79.2-x86_64-linux-gnu) sha256=204d70f3f3ff491342ae267fccfea03601324932dc1cbb578c4b8d136a3e6471
+  sass-embedded (1.79.3) sha256=c0ffcd8774be91ead8689ae961846fc971700afe8dbf09e0db95534c70928390
+  sass-embedded (1.79.3-aarch64-linux-gnu) sha256=56bf2c769739e86a3a36ae7ffae76522cbb3867242a1276e46e240871a0d647b
+  sass-embedded (1.79.3-arm64-darwin) sha256=324ff686af39a1a3a9bd1561f0e3ceee497acb9a2064ab683b229a8851dc839c
+  sass-embedded (1.79.3-x86_64-darwin) sha256=a5cc05d590962e1d049c1ba7e240f67a6616ca70481464871ba58ca899b9a3f2
+  sass-embedded (1.79.3-x86_64-linux-gnu) sha256=e67b3ae75137257cf1fce219503b6b5516525a252e3955ccb1bc6ee18f686f5f
   sassc (2.4.0) sha256=4c60a2b0a3b36685c83b80d5789401c2f678c1652e3288315a1551d811d9f83e
   sassc-rails (2.1.2) sha256=5f4fdf3881fc9bdc8e856ffbd9850d70a2878866feae8114aa45996179952db5
   sawyer (0.9.2) sha256=fa3a72d62a4525517b18857ddb78926aab3424de0129be6772a8e2ba240e7aca
