@@ -490,7 +490,7 @@ GEM
     stimulus-rails (1.3.4)
       railties (>= 6.0.0)
     stringio (3.1.1)
-    super_diff (0.12.1)
+    super_diff (0.13.0)
       attr_extras (>= 6.2.4)
       diff-lcs
       patience_diff
@@ -796,7 +796,7 @@ CHECKSUMS
   standard-performance (1.4.0) sha256=de9f72b65964826cd55db59e51916d969b19ca2c62b12727cbc763cf256fa194
   stimulus-rails (1.3.4) sha256=765676ffa1f33af64ce026d26b48e8ffb2e0b94e0f50e9119e11d6107d67cb06
   stringio (3.1.1) sha256=53456e14175c594e0e8eb2206a1be33f3974d4fe21c131e628908b05c8c2ae1e
-  super_diff (0.12.1) sha256=a655c215ba7c57c8cde73ed7b6ebdcd23fdec44b5550c2269407ddd62a865bff
+  super_diff (0.13.0) sha256=8529bc933da35caa0453bebcf934f7421b599dca56c01cbfb487f50f810e5694
   thor (1.3.2) sha256=eef0293b9e24158ccad7ab383ae83534b7ad4ed99c09f96f1a6b036550abbeda
   thruster (0.1.8) sha256=af344f0955d16462c663fbf1658a4c49b134151f0b49d1fcb261d13302d181a0
   thruster (0.1.8-aarch64-linux) sha256=42ca8fa5b635b21caac45602de99135b2b0b4bc4848210df4f86f05aea894039
