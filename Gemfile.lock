@@ -388,7 +388,7 @@ GEM
     responders (3.1.1)
       actionpack (>= 5.2)
       railties (>= 5.2)
-    rexml (3.3.7)
+    rexml (3.3.8)
     rouge (3.30.0)
     rspec-core (3.13.1)
       rspec-support (~> 3.13.0)
@@ -763,7 +763,7 @@ CHECKSUMS
   reline (0.5.10) sha256=1660c969a792ebd034e6ceee8ca628f3b6698dcdb34f7a282a5edda37b958166
   request_store (1.7.0) sha256=e1b75d5346a315f452242a68c937ef8e48b215b9453a77a6c0acdca2934c88cb
   responders (3.1.1) sha256=92f2a87e09028347368639cfb468f5fefa745cb0dc2377ef060db1cdd79a341a
-  rexml (3.3.7) sha256=62a3a4d288ace18830ad6ca8aba845037d231c4f8cb481ba270ca1b75b605027
+  rexml (3.3.8) sha256=f68fd96345330a1062896d0d0401324b0dae0ee20f784791b0843db96b212167
   rouge (3.30.0) sha256=a3d353222aa72e49e2c86726c0bcfd719f82592f57d494474655f48e669eceb6
   rspec-core (3.13.1) sha256=9daa4ff29812e620193ebc8952e032f031fe167a9f6daf7ea3d29dc31d47c868
   rspec-expectations (3.13.3) sha256=0e6b5af59b900147698ea0ff80456c4f2e69cac4394fbd392fbd1ca561f66c58
