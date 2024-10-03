@@ -3,14 +3,14 @@
 require "rails_helper"
 
 RSpec.describe CharacterBlueprintsFilterForm do
-  it { should be_an(ActiveModel::Model) }
+  it { is_expected.to be_an(ActiveModel::Model) }
 
   let(:filter) { double }
 
   subject { described_class.new(filter) }
 
   describe "#initialize" do
-    its(:filter) { should eq(filter) }
+    its(:filter) { is_expected.to eq(filter) }
   end
 
   describe "#select_data" do

@@ -3,14 +3,14 @@
 require "rails_helper"
 
 RSpec.describe CharacterAgentDivisionsFilterForm do
-  it { should be_an(ActiveModel::Model) }
+  it { is_expected.to be_an(ActiveModel::Model) }
 
   let(:division_id) { double }
 
   subject { described_class.new(division_id) }
 
   describe "#initialize" do
-    its(:division_id) { should eq(division_id) }
+    its(:division_id) { is_expected.to eq(division_id) }
   end
 
   describe "#select_data" do

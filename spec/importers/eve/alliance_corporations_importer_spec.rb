@@ -7,12 +7,12 @@ RSpec.describe Eve::AllianceCorporationsImporter do
 
   subject { described_class.new(id) }
 
-  it { should be_a(Eve::BaseImporter) }
+  it { is_expected.to be_a(Eve::BaseImporter) }
 
   describe "#initialize" do
     let(:esi) { instance_double(EveOnline::ESI::AllianceCorporations) }
 
-    its(:id) { should eq(id) }
+    its(:id) { is_expected.to eq(id) }
   end
 
   describe "#import" do
