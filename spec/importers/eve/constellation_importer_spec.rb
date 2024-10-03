@@ -7,13 +7,13 @@ RSpec.describe Eve::ConstellationImporter do
 
   subject { described_class.new(constellation_id) }
 
-  it { should be_a(Eve::BaseImporter) }
+  it { is_expected.to be_a(Eve::BaseImporter) }
 
   describe "#initialize" do
     context "without locale" do
-      its(:constellation_id) { should eq(constellation_id) }
+      its(:constellation_id) { is_expected.to eq(constellation_id) }
 
-      its(:locale) { should eq(:en) }
+      its(:locale) { is_expected.to eq(:en) }
     end
 
     context "with locale" do
@@ -21,9 +21,9 @@ RSpec.describe Eve::ConstellationImporter do
 
       subject { described_class.new(constellation_id, locale) }
 
-      its(:constellation_id) { should eq(constellation_id) }
+      its(:constellation_id) { is_expected.to eq(constellation_id) }
 
-      its(:locale) { should eq(:ru) }
+      its(:locale) { is_expected.to eq(:ru) }
     end
   end
 

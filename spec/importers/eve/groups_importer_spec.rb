@@ -3,7 +3,7 @@
 require "rails_helper"
 
 RSpec.describe Eve::GroupsImporter do
-  it { should be_a(Eve::BaseImporter) }
+  it { is_expected.to be_a(Eve::BaseImporter) }
 
   let(:page) { double }
 
@@ -11,13 +11,13 @@ RSpec.describe Eve::GroupsImporter do
 
   describe "#initialize" do
     context "with page" do
-      its(:page) { should eq(page) }
+      its(:page) { is_expected.to eq(page) }
     end
 
     context "without page" do
       subject { described_class.new }
 
-      its(:page) { should eq(1) }
+      its(:page) { is_expected.to eq(1) }
     end
   end
 

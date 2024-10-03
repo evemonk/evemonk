@@ -7,7 +7,7 @@ RSpec.describe Eve::SystemImporter do
 
   subject { described_class.new(system_id) }
 
-  it { should be_a(Eve::BaseImporter) }
+  it { is_expected.to be_a(Eve::BaseImporter) }
 
   describe "#initialize" do
     context "without locale" do
@@ -15,9 +15,9 @@ RSpec.describe Eve::SystemImporter do
 
       subject { described_class.new(system_id) }
 
-      its(:system_id) { should eq(system_id) }
+      its(:system_id) { is_expected.to eq(system_id) }
 
-      its(:locale) { should eq(:en) }
+      its(:locale) { is_expected.to eq(:en) }
     end
 
     context "with locale" do
@@ -27,9 +27,9 @@ RSpec.describe Eve::SystemImporter do
 
       subject { described_class.new(system_id, locale) }
 
-      its(:system_id) { should eq(system_id) }
+      its(:system_id) { is_expected.to eq(system_id) }
 
-      its(:locale) { should eq(:ru) }
+      its(:locale) { is_expected.to eq(:ru) }
     end
   end
 

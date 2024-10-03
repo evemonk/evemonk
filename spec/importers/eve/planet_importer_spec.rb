@@ -7,10 +7,10 @@ RSpec.describe Eve::PlanetImporter do
 
   subject { described_class.new(planet_id) }
 
-  it { should be_a(Eve::BaseImporter) }
+  it { is_expected.to be_a(Eve::BaseImporter) }
 
   describe "#initialize" do
-    its(:planet_id) { should eq(planet_id) }
+    its(:planet_id) { is_expected.to eq(planet_id) }
   end
 
   describe "#import" do

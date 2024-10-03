@@ -9,12 +9,12 @@ RSpec.describe Eve::MoonImporter do
 
   subject { described_class.new(planet_id, moon_id) }
 
-  it { should be_a(Eve::BaseImporter) }
+  it { is_expected.to be_a(Eve::BaseImporter) }
 
   describe "#initialize" do
-    its(:planet_id) { should eq(planet_id) }
+    its(:planet_id) { is_expected.to eq(planet_id) }
 
-    its(:moon_id) { should eq(moon_id) }
+    its(:moon_id) { is_expected.to eq(moon_id) }
   end
 
   describe "#import" do
