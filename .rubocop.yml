@@ -261,6 +261,9 @@ RSpec/ImplicitSubject:
   Enabled: true
   EnforcedStyle: disallow
 
+RSpec/LetBeforeExamples:
+  Enabled: false
+
 # Enable and fix later...
 Capybara/ClickLinkOrButtonStyle:
   Enabled: false
