@@ -88,7 +88,7 @@ RSpec.describe Eve::ImplantBonuses do
   subject { described_class.new(implant) }
 
   describe "#initialize" do
-    its(:implant) { should eq(implant) }
+    its(:implant) { is_expected.to eq(implant) }
   end
 
   describe "#implant_bonuses" do

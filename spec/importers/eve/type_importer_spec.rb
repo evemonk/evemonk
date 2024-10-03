@@ -7,13 +7,13 @@ RSpec.describe Eve::TypeImporter do
 
   subject { described_class.new(type_id) }
 
-  it { should be_a(Eve::BaseImporter) }
+  it { is_expected.to be_a(Eve::BaseImporter) }
 
   describe "#initialize" do
     context "without locale" do
-      its(:type_id) { should eq(type_id) }
+      its(:type_id) { is_expected.to eq(type_id) }
 
-      its(:locale) { should eq(:en) }
+      its(:locale) { is_expected.to eq(:en) }
     end
 
     context "with locale" do
@@ -21,9 +21,9 @@ RSpec.describe Eve::TypeImporter do
 
       subject { described_class.new(type_id, locale) }
 
-      its(:type_id) { should eq(type_id) }
+      its(:type_id) { is_expected.to eq(type_id) }
 
-      its(:locale) { should eq(:ru) }
+      its(:locale) { is_expected.to eq(:ru) }
     end
   end
 

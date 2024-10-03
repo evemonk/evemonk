@@ -3,9 +3,9 @@
 require "rails_helper"
 
 RSpec.describe Alliances::TopController do
-  it { should be_an(ApplicationController) }
+  it { is_expected.to be_an(ApplicationController) }
 
-  it { should_not use_before_action(:authenticate_user!) }
+  it { is_expected.to_not use_before_action(:authenticate_user!) }
 
   describe "#index" do
     before do
@@ -21,10 +21,10 @@ RSpec.describe Alliances::TopController do
 
     before { get :index }
 
-    it { should respond_with(:ok) }
+    it { is_expected.to respond_with(:ok) }
 
-    it { should_not render_with_layout }
+    it { is_expected.to_not render_with_layout }
 
-    it { should render_template(:index) }
+    it { is_expected.to render_template(:index) }
   end
 end

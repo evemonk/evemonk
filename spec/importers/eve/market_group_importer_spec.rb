@@ -7,13 +7,13 @@ RSpec.describe Eve::MarketGroupImporter do
 
   subject { described_class.new(market_group_id) }
 
-  it { should be_a(Eve::BaseImporter) }
+  it { is_expected.to be_a(Eve::BaseImporter) }
 
   describe "#initialize" do
     context "without locale" do
-      its(:market_group_id) { should eq(market_group_id) }
+      its(:market_group_id) { is_expected.to eq(market_group_id) }
 
-      its(:locale) { should eq(:en) }
+      its(:locale) { is_expected.to eq(:en) }
     end
 
     context "with locale" do
@@ -21,9 +21,9 @@ RSpec.describe Eve::MarketGroupImporter do
 
       subject { described_class.new(market_group_id, locale) }
 
-      its(:market_group_id) { should eq(market_group_id) }
+      its(:market_group_id) { is_expected.to eq(market_group_id) }
 
-      its(:locale) { should eq(:ru) }
+      its(:locale) { is_expected.to eq(:ru) }
     end
   end
 

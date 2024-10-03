@@ -7,13 +7,13 @@ RSpec.describe Eve::CategoryImporter do
 
   subject { described_class.new(category_id) }
 
-  it { should be_a(Eve::BaseImporter) }
+  it { is_expected.to be_a(Eve::BaseImporter) }
 
   describe "#initialize" do
     context "without locale" do
-      its(:category_id) { should eq(category_id) }
+      its(:category_id) { is_expected.to eq(category_id) }
 
-      its(:locale) { should eq(:en) }
+      its(:locale) { is_expected.to eq(:en) }
     end
 
     context "with locale" do
@@ -21,9 +21,9 @@ RSpec.describe Eve::CategoryImporter do
 
       subject { described_class.new(category_id, locale) }
 
-      its(:category_id) { should eq(category_id) }
+      its(:category_id) { is_expected.to eq(category_id) }
 
-      its(:locale) { should eq(:ru) }
+      its(:locale) { is_expected.to eq(:ru) }
     end
   end
 

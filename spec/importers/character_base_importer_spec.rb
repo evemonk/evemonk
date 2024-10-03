@@ -8,7 +8,7 @@ RSpec.describe CharacterBaseImporter do
   subject { described_class.new(character_id) }
 
   describe "#initialize" do
-    its(:character_id) { should eq(character_id) }
+    its(:character_id) { is_expected.to eq(character_id) }
   end
 
   describe "#import" do

@@ -7,7 +7,7 @@ RSpec.describe Eve::CharacterPortraitImporter do
 
   subject { described_class.new(id) }
 
-  it { should be_a(Eve::BaseImporter) }
+  it { is_expected.to be_a(Eve::BaseImporter) }
 
   specify { expect(described_class::CHARACTERS_PORTRAIT_URL).to eq("https://images.evetech.net/characters/%<id>s/portrait") }
 

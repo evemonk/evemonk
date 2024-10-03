@@ -7,12 +7,12 @@ RSpec.describe CharacterIndustryJobsImporter do
 
   subject { described_class.new(character_id) }
 
-  it { should be_a(CharacterBaseImporter) }
+  it { is_expected.to be_a(CharacterBaseImporter) }
 
   describe "#initialize" do
     subject { described_class.new(character_id) }
 
-    its(:character_id) { should eq(character_id) }
+    its(:character_id) { is_expected.to eq(character_id) }
   end
 
   describe "#import!" do

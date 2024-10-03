@@ -12,7 +12,7 @@ RSpec.describe CharacterSkillsTree do
   subject { described_class.new(character) }
 
   describe "#initialize" do
-    its(:character) { should eq(character) }
+    its(:character) { is_expected.to eq(character) }
   end
 
   describe "#preload" do

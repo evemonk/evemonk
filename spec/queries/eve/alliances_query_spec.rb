@@ -7,7 +7,7 @@ RSpec.describe Eve::AlliancesQuery do
 
   subject { described_class.new(order_by) }
 
-  it { should be_a(BaseQuery) }
+  it { is_expected.to be_a(BaseQuery) }
 
   describe "#initialize" do
     context "without order_by and scope" do
@@ -17,9 +17,9 @@ RSpec.describe Eve::AlliancesQuery do
 
       subject { described_class.new }
 
-      its(:order_by) { should eq(nil) }
+      its(:order_by) { is_expected.to eq(nil) }
 
-      its(:scope) { should eq(scope) }
+      its(:scope) { is_expected.to eq(scope) }
     end
 
     context "with order_by and scope" do
@@ -27,9 +27,9 @@ RSpec.describe Eve::AlliancesQuery do
 
       subject { described_class.new(order_by, scope) }
 
-      its(:order_by) { should eq(order_by) }
+      its(:order_by) { is_expected.to eq(order_by) }
 
-      its(:scope) { should eq(scope) }
+      its(:scope) { is_expected.to eq(scope) }
     end
   end
 

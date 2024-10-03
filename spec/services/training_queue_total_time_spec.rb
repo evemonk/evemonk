@@ -10,7 +10,7 @@ RSpec.describe TrainingQueueTotalTime do
 
     subject { described_class.new(character.skillqueues) }
 
-    its(:skillqueues) { should eq(skillqueues) }
+    its(:skillqueues) { is_expected.to eq(skillqueues) }
   end
 
   describe "#total_time" do

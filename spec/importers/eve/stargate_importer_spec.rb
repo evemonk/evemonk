@@ -7,10 +7,10 @@ RSpec.describe Eve::StargateImporter do
 
   subject { described_class.new(stargate_id) }
 
-  it { should be_a(Eve::BaseImporter) }
+  it { is_expected.to be_a(Eve::BaseImporter) }
 
   describe "#initialize" do
-    its(:stargate_id) { should eq(stargate_id) }
+    its(:stargate_id) { is_expected.to eq(stargate_id) }
   end
 
   describe "#import" do

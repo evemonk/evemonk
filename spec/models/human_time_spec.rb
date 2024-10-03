@@ -14,9 +14,9 @@ RSpec.describe HumanTime do
   subject { described_class.new(seconds) }
 
   describe "#initialize" do
-    its(:seconds) { should eq(seconds) }
+    its(:seconds) { is_expected.to eq(seconds) }
 
-    its(:parsed) { should eq(false) }
+    its(:parsed) { is_expected.to eq(false) }
   end
 
   describe "#long_formatted" do

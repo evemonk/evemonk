@@ -9,21 +9,21 @@ RSpec.describe CharacterKillmailsImporter do
 
   subject { described_class.new(character_id, page) }
 
-  it { should be_a(CharacterBaseImporter) }
+  it { is_expected.to be_a(CharacterBaseImporter) }
 
   describe "#initialize" do
     context "when page not present" do
       subject { described_class.new(character_id) }
 
-      its(:character_id) { should eq(character_id) }
+      its(:character_id) { is_expected.to eq(character_id) }
 
-      its(:page) { should eq(1) }
+      its(:page) { is_expected.to eq(1) }
     end
 
     context "when page is present" do
-      its(:character_id) { should eq(character_id) }
+      its(:character_id) { is_expected.to eq(character_id) }
 
-      its(:page) { should eq(page) }
+      its(:page) { is_expected.to eq(page) }
     end
   end
 

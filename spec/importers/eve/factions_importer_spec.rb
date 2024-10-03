@@ -3,11 +3,11 @@
 require "rails_helper"
 
 RSpec.describe Eve::FactionsImporter do
-  it { should be_a(Eve::BaseImporter) }
+  it { is_expected.to be_a(Eve::BaseImporter) }
 
   describe "#initialize" do
     context "without locale" do
-      its(:locale) { should eq(:en) }
+      its(:locale) { is_expected.to eq(:en) }
     end
 
     context "with locale" do
@@ -15,7 +15,7 @@ RSpec.describe Eve::FactionsImporter do
 
       subject { described_class.new(locale) }
 
-      its(:locale) { should eq(:ru) }
+      its(:locale) { is_expected.to eq(:ru) }
     end
   end
 

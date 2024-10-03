@@ -7,10 +7,10 @@ RSpec.describe Eve::CorporationLoyaltyStoreImporter do
 
   subject { described_class.new(corporation_id) }
 
-  it { should be_a(Eve::BaseImporter) }
+  it { is_expected.to be_a(Eve::BaseImporter) }
 
   describe "#initialize" do
-    its(:corporation_id) { should eq(corporation_id) }
+    its(:corporation_id) { is_expected.to eq(corporation_id) }
   end
 
   describe "#import" do

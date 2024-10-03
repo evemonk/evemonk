@@ -10,9 +10,9 @@ RSpec.describe EveOnlineCallbackService do
   subject { described_class.new(user, request) }
 
   describe "#initialize" do
-    its(:user) { should eq(user) }
+    its(:user) { is_expected.to eq(user) }
 
-    its(:request) { should eq(request) }
+    its(:request) { is_expected.to eq(request) }
   end
 
   describe "#save!" do

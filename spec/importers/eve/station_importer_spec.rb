@@ -7,10 +7,10 @@ RSpec.describe Eve::StationImporter do
 
   subject { described_class.new(station_id) }
 
-  it { should be_a(Eve::BaseImporter) }
+  it { is_expected.to be_a(Eve::BaseImporter) }
 
   describe "#initialize" do
-    its(:station_id) { should eq(station_id) }
+    its(:station_id) { is_expected.to eq(station_id) }
   end
 
   describe "#import" do

@@ -3,15 +3,15 @@
 require "rails_helper"
 
 RSpec.describe Auth::EveOnlineSso::CallbacksController do
-  it { should be_a(ApplicationController) }
+  it { is_expected.to be_a(ApplicationController) }
 
-  it { should rescue_from(EveOnline::Exceptions::ServiceUnavailable).with(:handle_service_unavailable) }
+  it { is_expected.to rescue_from(EveOnline::Exceptions::ServiceUnavailable).with(:handle_service_unavailable) }
 
-  it { should rescue_from(EveOnline::Exceptions::InternalServerError).with(:handle_internal_server_error) }
+  it { is_expected.to rescue_from(EveOnline::Exceptions::InternalServerError).with(:handle_internal_server_error) }
 
-  it { should rescue_from(EveOnline::Exceptions::BadGateway).with(:handle_bad_gateway) }
+  it { is_expected.to rescue_from(EveOnline::Exceptions::BadGateway).with(:handle_bad_gateway) }
 
-  it { should rescue_from(EveOnline::Exceptions::Timeout).with(:handle_timeout) }
+  it { is_expected.to rescue_from(EveOnline::Exceptions::Timeout).with(:handle_timeout) }
 
   describe "#show" do
     let(:user) { create(:user, locale: "english") }
@@ -34,11 +34,11 @@ RSpec.describe Auth::EveOnlineSso::CallbacksController do
 
       before { get :show }
 
-      it { should respond_with(:found) }
+      it { is_expected.to respond_with(:found) }
 
-      it { should redirect_to("/characters") }
+      it { is_expected.to redirect_to("/characters") }
 
-      it { should set_flash[:notice].to("Character &laquo;Green Black&raquo; successful added.") }
+      it { is_expected.to set_flash[:notice].to("Character &laquo;Green Black&raquo; successful added.") }
     end
 
     context "when service unavailable" do
@@ -46,11 +46,11 @@ RSpec.describe Auth::EveOnlineSso::CallbacksController do
 
       before { get :show }
 
-      it { should respond_with(:found) }
+      it { is_expected.to respond_with(:found) }
 
-      it { should redirect_to("/characters") }
+      it { is_expected.to redirect_to("/characters") }
 
-      it { should set_flash[:alert].to("Service Unavailable (503). Please, try again later.") }
+      it { is_expected.to set_flash[:alert].to("Service Unavailable (503). Please, try again later.") }
     end
 
     context "when service unavailable" do
@@ -58,11 +58,11 @@ RSpec.describe Auth::EveOnlineSso::CallbacksController do
 
       before { get :show }
 
-      it { should respond_with(:found) }
+      it { is_expected.to respond_with(:found) }
 
-      it { should redirect_to("/characters") }
+      it { is_expected.to redirect_to("/characters") }
 
-      it { should set_flash[:alert].to("Internal Server Error (500). Please, try again later.") }
+      it { is_expected.to set_flash[:alert].to("Internal Server Error (500). Please, try again later.") }
     end
 
     context "when bad gateway" do
@@ -70,11 +70,11 @@ RSpec.describe Auth::EveOnlineSso::CallbacksController do
 
       before { get :show }
 
-      it { should respond_with(:found) }
+      it { is_expected.to respond_with(:found) }
 
-      it { should redirect_to("/characters") }
+      it { is_expected.to redirect_to("/characters") }
 
-      it { should set_flash[:alert].to("Bad Gateway (502). Please, try again later.") }
+      it { is_expected.to set_flash[:alert].to("Bad Gateway (502). Please, try again later.") }
     end
 
     context "when timeout" do
@@ -82,11 +82,11 @@ RSpec.describe Auth::EveOnlineSso::CallbacksController do
 
       before { get :show }
 
-      it { should respond_with(:found) }
+      it { is_expected.to respond_with(:found) }
 
-      it { should redirect_to("/characters") }
+      it { is_expected.to redirect_to("/characters") }
 
-      it { should set_flash[:alert].to("Timeout Error. Please, try again later.") }
+      it { is_expected.to set_flash[:alert].to("Timeout Error. Please, try again later.") }
     end
   end
 end

@@ -3,39 +3,39 @@
 require "rails_helper"
 
 RSpec.describe Eve::Corporation do
-  it { should be_an(ApplicationRecord) }
+  it { is_expected.to be_an(ApplicationRecord) }
 
-  it { should be_a(PgSearch::Model) }
+  it { is_expected.to be_a(PgSearch::Model) }
 
-  it { should be_an(ActionView::Helpers::NumberHelper) }
+  it { is_expected.to be_an(ActionView::Helpers::NumberHelper) }
 
-  it { should be_an(Imageable) }
+  it { is_expected.to be_an(Imageable) }
 
   it { expect(described_class.table_name).to eq("eve_corporations") }
 
-  it { should belong_to(:alliance).optional(true) }
+  it { is_expected.to belong_to(:alliance).optional(true) }
 
-  it { should belong_to(:ceo).class_name("Eve::Character").optional(true) }
+  it { is_expected.to belong_to(:ceo).class_name("Eve::Character").optional(true) }
 
-  it { should belong_to(:creator).class_name("Eve::Character").optional(true) }
+  it { is_expected.to belong_to(:creator).class_name("Eve::Character").optional(true) }
 
-  it { should belong_to(:faction).optional(true) }
+  it { is_expected.to belong_to(:faction).optional(true) }
 
-  it { should belong_to(:home_station).class_name("Eve::Station").optional(true) }
+  it { is_expected.to belong_to(:home_station).class_name("Eve::Station").optional(true) }
 
-  it { should have_many(:agents) }
+  it { is_expected.to have_many(:agents) }
 
-  it { should have_many(:characters) }
+  it { is_expected.to have_many(:characters) }
 
-  it { should have_many(:corporation_alliance_histories) }
+  it { is_expected.to have_many(:corporation_alliance_histories) }
 
-  it { should have_many(:standings) }
+  it { is_expected.to have_many(:standings) }
 
-  it { should have_many(:loyalty_store_offers) }
+  it { is_expected.to have_many(:loyalty_store_offers) }
 
-  it { should have_one_attached(:logo) }
+  it { is_expected.to have_one_attached(:logo) }
 
-  it { should have_db_index([:name, :ticker]) }
+  it { is_expected.to have_db_index([:name, :ticker]) }
 
   describe ".npc" do
     let!(:eve_corporation_1) { create(:eve_corporation, npc: false) }

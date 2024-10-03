@@ -3,19 +3,19 @@
 require "rails_helper"
 
 RSpec.describe Eve::Agent do
-  it { should be_an(ApplicationRecord) }
+  it { is_expected.to be_an(ApplicationRecord) }
 
-  it { should be_a(Locationable) }
+  it { is_expected.to be_a(Locationable) }
 
-  it { should be_a(Imageable) }
+  it { is_expected.to be_a(Imageable) }
 
   it { expect(described_class.table_name).to eq("eve_agents") }
 
-  it { should belong_to(:corporation).optional(true) }
+  it { is_expected.to belong_to(:corporation).optional(true) }
 
-  it { should belong_to(:division).optional(true) }
+  it { is_expected.to belong_to(:division).optional(true) }
 
-  it { should have_many(:standings) }
+  it { is_expected.to have_many(:standings) }
 
   describe "#icon_tiny" do
     before { expect(subject).to receive(:character_portrait_url).with(32) }

@@ -3,9 +3,9 @@
 require "rails_helper"
 
 RSpec.describe Eve::Faction do
-  it { should be_an(ApplicationRecord) }
+  it { is_expected.to be_an(ApplicationRecord) }
 
-  it { should be_a(Imageable) }
+  it { is_expected.to be_a(Imageable) }
 
   it { expect(described_class).to respond_to(:translates) }
 
@@ -13,15 +13,15 @@ RSpec.describe Eve::Faction do
 
   it { expect(described_class.table_name).to eq("eve_factions") }
 
-  it { should belong_to(:corporation).optional(true) }
+  it { is_expected.to belong_to(:corporation).optional(true) }
 
-  it { should belong_to(:militia_corporation).class_name("Eve::Corporation").optional(true) }
+  it { is_expected.to belong_to(:militia_corporation).class_name("Eve::Corporation").optional(true) }
 
-  it { should belong_to(:solar_system).class_name("Eve::System").optional(true) }
+  it { is_expected.to belong_to(:solar_system).class_name("Eve::System").optional(true) }
 
-  it { should have_many(:alliances) }
+  it { is_expected.to have_many(:alliances) }
 
-  it { should have_many(:standings) }
+  it { is_expected.to have_many(:standings) }
 
   describe "#icon_tiny" do
     before { expect(subject).to receive(:corporations_logo_url).with(32) }

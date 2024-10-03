@@ -18,7 +18,7 @@ RSpec.describe UserLocale do
   end
 
   describe "#initialize" do
-    its(:language) { should eq(language) }
+    its(:language) { is_expected.to eq(language) }
   end
 
   describe "#to_locale" do

@@ -8,7 +8,7 @@ RSpec.describe Sde::UnitsImporter do
   subject { described_class.new(file) }
 
   describe "#initialize" do
-    its(:file) { should eq(file) }
+    its(:file) { is_expected.to eq(file) }
   end
 
   describe "#import" do

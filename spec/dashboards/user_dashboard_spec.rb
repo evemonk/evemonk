@@ -3,5 +3,5 @@
 require "rails_helper"
 
 RSpec.describe UserDashboard do
-  it { should be_an(Administrate::BaseDashboard) }
+  it { is_expected.to be_an(Administrate::BaseDashboard) }
 end

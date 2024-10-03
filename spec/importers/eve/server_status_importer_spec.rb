@@ -3,7 +3,7 @@
 require "rails_helper"
 
 RSpec.describe Eve::ServerStatusImporter do
-  it { should be_a(Eve::BaseImporter) }
+  it { is_expected.to be_a(Eve::BaseImporter) }
 
   describe "#import" do
     let(:json) { double }

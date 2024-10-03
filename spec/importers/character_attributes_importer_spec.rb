@@ -7,7 +7,7 @@ RSpec.describe CharacterAttributesImporter do
 
   subject { described_class.new(character_id) }
 
-  it { should be_a(CharacterBaseImporter) }
+  it { is_expected.to be_a(CharacterBaseImporter) }
 
   describe "#import!" do
     let(:json) { double }

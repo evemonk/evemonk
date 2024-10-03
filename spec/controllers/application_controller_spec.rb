@@ -3,11 +3,11 @@
 require "rails_helper"
 
 RSpec.describe ApplicationController do
-  it { should use_before_action(:authenticate_user!) }
+  it { is_expected.to use_before_action(:authenticate_user!) }
 
-  it { should use_before_action(:default_locale) }
+  it { is_expected.to use_before_action(:default_locale) }
 
-  it { should use_before_action(:current_user_locale) }
+  it { is_expected.to use_before_action(:current_user_locale) }
 
   # private methods
 

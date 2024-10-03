@@ -3,7 +3,7 @@
 require "rails_helper"
 
 RSpec.describe Eve::SystemDashboard do
-  it { should be_an(Administrate::BaseDashboard) }
+  it { is_expected.to be_an(Administrate::BaseDashboard) }
 
   describe "#display_resource" do
     let(:system) { build(:eve_system, name_en: "Penirgman") }

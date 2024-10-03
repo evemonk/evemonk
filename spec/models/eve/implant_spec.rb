@@ -3,5 +3,5 @@
 require "rails_helper"
 
 RSpec.describe Eve::Implant do
-  it { should be_a(Eve::Type) }
+  it { is_expected.to be_a(Eve::Type) }
 end

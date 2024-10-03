@@ -10,9 +10,9 @@ RSpec.describe CharacterAgents do
   subject { described_class.new(character, division_id) }
 
   describe "#initialize" do
-    its(:character) { should eq(character) }
+    its(:character) { is_expected.to eq(character) }
 
-    its(:division_id) { should eq(division_id) }
+    its(:division_id) { is_expected.to eq(division_id) }
   end
 
   describe "#query" do

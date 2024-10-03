@@ -3,5 +3,5 @@
 require "rails_helper"
 
 RSpec.describe SafeEveSanitizer do
-  it { should be_a(Rails::Html::Sanitizer) }
+  it { is_expected.to be_a(Rails::Html::Sanitizer) }
 end

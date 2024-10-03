@@ -3,7 +3,7 @@
 require "rails_helper"
 
 RSpec.describe Eve::Region do
-  it { should be_an(ApplicationRecord) }
+  it { is_expected.to be_an(ApplicationRecord) }
 
   it { expect(described_class.primary_key).to eq("region_id") }
 
@@ -13,7 +13,7 @@ RSpec.describe Eve::Region do
 
   it { expect(described_class.table_name).to eq("eve_regions") }
 
-  it { should have_many(:constellations) }
+  it { is_expected.to have_many(:constellations) }
 
-  it { should have_many(:contracts) }
+  it { is_expected.to have_many(:contracts) }
 end

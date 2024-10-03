@@ -7,13 +7,13 @@ RSpec.describe Eve::GroupImporter do
 
   subject { described_class.new(group_id) }
 
-  it { should be_a(Eve::BaseImporter) }
+  it { is_expected.to be_a(Eve::BaseImporter) }
 
   describe "#initialize" do
     context "without locale" do
-      its(:group_id) { should eq(group_id) }
+      its(:group_id) { is_expected.to eq(group_id) }
 
-      its(:locale) { should eq(:en) }
+      its(:locale) { is_expected.to eq(:en) }
     end
 
     context "with locale" do
@@ -21,9 +21,9 @@ RSpec.describe Eve::GroupImporter do
 
       subject { described_class.new(group_id, locale) }
 
-      its(:group_id) { should eq(group_id) }
+      its(:group_id) { is_expected.to eq(group_id) }
 
-      its(:locale) { should eq(:ru) }
+      its(:locale) { is_expected.to eq(:ru) }
     end
   end
 

@@ -15,13 +15,13 @@ RSpec.describe PushOver::Notification do
           "message")
       end
 
-      its(:app_token) { should eq("app-token") }
+      its(:app_token) { is_expected.to eq("app-token") }
 
-      its(:user_key) { should eq("user-token") }
+      its(:user_key) { is_expected.to eq("user-token") }
 
-      its(:message) { should eq("message") }
+      its(:message) { is_expected.to eq("message") }
 
-      its(:title) { should eq("") }
+      its(:title) { is_expected.to eq("") }
     end
 
     context "with title" do
@@ -32,13 +32,13 @@ RSpec.describe PushOver::Notification do
           title: "title")
       end
 
-      its(:app_token) { should eq("app-token") }
+      its(:app_token) { is_expected.to eq("app-token") }
 
-      its(:user_key) { should eq("user-token") }
+      its(:user_key) { is_expected.to eq("user-token") }
 
-      its(:message) { should eq("message") }
+      its(:message) { is_expected.to eq("message") }
 
-      its(:title) { should eq("title") }
+      its(:title) { is_expected.to eq("title") }
     end
   end
 
