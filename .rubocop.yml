@@ -138,6 +138,8 @@ Style/GuardClause:
 Naming/VariableNumber:
   Enabled: true
   EnforcedStyle: snake_case
+  Exclude:
+    - "config/initializers/ancestry.rb"
 
 Style/StringLiteralsInInterpolation:
   Enabled: true
