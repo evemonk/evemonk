@@ -16,7 +16,7 @@ class HumanTime
   def long_formatted
     return if @seconds.blank?
 
-    parse unless parsed
+    parse if !parsed
 
     output = ""
     output += I18n.t("human_time.days", count: @days) if @days.positive?
