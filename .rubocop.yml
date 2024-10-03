@@ -273,6 +273,11 @@ RSpec/DescribedClass:
     - "spec/models/concerns/imageable_spec.rb"
     - "spec/models/concerns/locationable_spec.rb"
 
+Rails/SkipsModelValidations:
+  Enabled: true
+  Exclude:
+    - "db/migrate/20220210002902_add_service_name_to_active_storage_blobs.active_storage.rb"
+
 # Enable and fix later...
 Capybara/ClickLinkOrButtonStyle:
   Enabled: false
