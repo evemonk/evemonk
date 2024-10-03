@@ -44,7 +44,7 @@ RSpec.describe Eve::Alliance do
 
     before { subject.update!(corporations_count: 0) }
 
-    specify { expect { subject.reset_corporations_count }.to change { subject.corporations_count }.from(0).to(2) }
+    specify { expect { subject.reset_corporations_count }.to change(subject, :corporations_count).from(0).to(2) }
   end
 
   describe "#reset_characters_count" do
@@ -58,7 +58,7 @@ RSpec.describe Eve::Alliance do
 
     before { subject.update!(characters_count: 0) }
 
-    specify { expect { subject.reset_characters_count }.to change { subject.characters_count }.from(0).to(246) }
+    specify { expect { subject.reset_characters_count }.to change(subject, :characters_count).from(0).to(246) }
   end
 
   describe "#icon_tiny" do
