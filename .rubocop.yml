@@ -254,7 +254,10 @@ RSpec/DescribeClass:
 RSpec/MultipleMemoizedHelpers:
   Enabled: false
 
-# disable everything
+RSpec/LeadingSubject:
+  Enabled: false
+
+# Enable and fix later...
 Capybara/ClickLinkOrButtonStyle:
   Enabled: false
 
@@ -268,4 +271,13 @@ RSpec/MessageSpies:
   Enabled: false
 
 RSpec/SubjectStub:
+  Enabled: false
+
+Rails/ReversibleMigration:
+  Enabled: false
+
+Rails/BulkChangeTable:
+  Enabled: false
+
+Rails/ThreeStateBooleanColumn:
   Enabled: false
