@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.describe Types::EveRegionType do
+RSpec.describe Types::EveTypeType do
   describe "get types" do
     let!(:eve_type_1) do
       create(:eve_type,
