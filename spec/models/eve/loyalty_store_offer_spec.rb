@@ -3,13 +3,13 @@
 require "rails_helper"
 
 RSpec.describe Eve::LoyaltyStoreOffer do
-  it { should be_an(ApplicationRecord) }
+  it { is_expected.to be_an(ApplicationRecord) }
 
   it { expect(described_class.table_name).to eq("eve_loyalty_store_offers") }
 
-  it { should belong_to(:corporation).optional(true) }
+  it { is_expected.to belong_to(:corporation).optional(true) }
 
-  it { should belong_to(:type).optional(true) }
+  it { is_expected.to belong_to(:type).optional(true) }
 
-  it { should have_many(:required_items).with_foreign_key("eve_loyalty_store_offer_id").dependent(:destroy) }
+  it { is_expected.to have_many(:required_items).with_foreign_key("eve_loyalty_store_offer_id").dependent(:destroy) }
 end
