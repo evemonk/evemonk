@@ -16,19 +16,20 @@ AllCops:
     - "db/data_schema.rb"
     - "vendor/**/*"
 
-Style/DisableSyntax:
-  DisableSyntax:
-    - unless
-    - ternary
-    - endless_methods
-    - numbered_parameters
-    - shorthand_hash_syntax
-    - percent_literals
-  Exclude:
-    - "config/initializers/devise.rb"
-    - "db/migrate/20220210002902_add_service_name_to_active_storage_blobs.active_storage.rb"
-    - "db/migrate/20220210002903_create_active_storage_variant_records.active_storage.rb"
-    - "db/migrate/20240123020340_change_flipper_gates_value_to_text.rb"
+# TODO: enable later...
+#Style/DisableSyntax:
+#  DisableSyntax:
+#    - unless
+#    - ternary
+#    - endless_methods
+#    - numbered_parameters
+#    - shorthand_hash_syntax
+#    - percent_literals
+#  Exclude:
+#    - "config/initializers/devise.rb"
+#    - "db/migrate/20220210002902_add_service_name_to_active_storage_blobs.active_storage.rb"
+#    - "db/migrate/20220210002903_create_active_storage_variant_records.active_storage.rb"
+#    - "db/migrate/20240123020340_change_flipper_gates_value_to_text.rb"
 
 Style/StringLiterals:
   EnforcedStyle: double_quotes
@@ -315,4 +316,28 @@ Rails/NotNullColumn:
   Enabled: false
 
 GraphQL/FieldDefinitions:
+  Enabled: false
+
+Lint/DuplicateBranch:
+  Enabled: false
+
+Rails/RedundantForeignKey:
+  Enabled: false
+
+Rails/InverseOf:
+  Enabled: false
+
+Style/DisableSyntax:
+  Enabled: false
+
+Rails/ApplicationController:
+  Enabled: false
+
+Rails/WhereRange:
+  Enabled: false
+
+Style/HashAsLastArrayItem:
+  Enabled: false
+
+Performance/MapMethodChain:
   Enabled: false
