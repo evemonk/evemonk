@@ -148,7 +148,7 @@ RSpec.describe CharacterBaseImporter do
 
   describe "#character_scope_present?" do
     context "when scope present" do
-      let(:esi) { double(scope: "esi-location.read_ship_type.v1") }
+      let(:esi) { instance_double(EveOnline::ESI::CharacterShip, scope: "esi-location.read_ship_type.v1") }
 
       before { expect(subject).to receive(:esi).and_return(esi).twice }
 
@@ -160,7 +160,7 @@ RSpec.describe CharacterBaseImporter do
     end
 
     context "when scope not present" do
-      let(:esi) { double(scope: "esi-location.read_ship_type.v1") }
+      let(:esi) { instance_double(EveOnline::ESI::CharacterShip, scope: "esi-location.read_ship_type.v1") }
 
       before { expect(subject).to receive(:esi).and_return(esi).twice }
 
@@ -172,7 +172,7 @@ RSpec.describe CharacterBaseImporter do
     end
 
     context "when scope nil" do
-      let(:esi) { double(scope: nil) }
+      let(:esi) { instance_double(EveOnline::ESI::CharacterShip, scope: nil) }
 
       before { expect(subject).to receive(:esi).and_return(esi) }
 
@@ -204,7 +204,7 @@ RSpec.describe CharacterBaseImporter do
 
   describe "#configure_esi_token" do
     context "when esi scope present" do
-      let(:esi) { double(scope: "esi-location.read_ship_type.v1") }
+      let(:esi) { instance_double(EveOnline::ESI::CharacterShip, scope: "esi-location.read_ship_type.v1") }
 
       before { expect(subject).to receive(:esi).and_return(esi).twice }
 
@@ -220,7 +220,7 @@ RSpec.describe CharacterBaseImporter do
     end
 
     context "when esi scope blank" do
-      let(:esi) { double(scope: "") }
+      let(:esi) { instance_double(EveOnline::ESI::CharacterShip, scope: "") }
 
       before { expect(subject).to receive(:esi).and_return(esi) }
 
