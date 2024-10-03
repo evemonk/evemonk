@@ -3,7 +3,7 @@
 require "rails_helper"
 
 RSpec.describe Eve::MarketGroup do
-  it { is_expected.to be_an(ApplicationRecord) }
+  it { expect(subject).to be_an(ApplicationRecord) }
 
   it { expect(described_class.primary_key).to eq("market_group_id") }
 
@@ -13,13 +13,13 @@ RSpec.describe Eve::MarketGroup do
 
   it { expect(described_class.table_name).to eq("eve_market_groups") }
 
-  it { is_expected.to belong_to(:parent_group).class_name("Eve::MarketGroup").optional(true) }
+  it { expect(subject).to belong_to(:parent_group).class_name("Eve::MarketGroup").optional(true) }
 
-  it { is_expected.to belong_to(:icon).optional(true) }
+  it { expect(subject).to belong_to(:icon).optional(true) }
 
-  it { is_expected.to have_many(:types) }
+  it { expect(subject).to have_many(:types) }
 
-  it { is_expected.to have_many(:subgroups).class_name("Eve::MarketGroup").with_foreign_key("parent_group_id") }
+  it { expect(subject).to have_many(:subgroups).class_name("Eve::MarketGroup").with_foreign_key("parent_group_id") }
 
   describe ".main_groups" do
     let!(:eve_market_group_1) { create(:eve_market_group, parent_group_id: nil) }

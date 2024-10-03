@@ -3,7 +3,7 @@
 require "rails_helper"
 
 RSpec.describe Eve::Constellation do
-  it { is_expected.to be_an(ApplicationRecord) }
+  it { expect(subject).to be_an(ApplicationRecord) }
 
   it { expect(described_class.primary_key).to eq("constellation_id") }
 
@@ -13,9 +13,9 @@ RSpec.describe Eve::Constellation do
 
   it { expect(described_class.table_name).to eq("eve_constellations") }
 
-  it { is_expected.to belong_to(:region).optional(true) }
+  it { expect(subject).to belong_to(:region).optional(true) }
 
-  it { is_expected.to have_many(:systems) }
+  it { expect(subject).to have_many(:systems) }
 
-  it { is_expected.to have_one(:position).dependent(:destroy) }
+  it { expect(subject).to have_one(:position).dependent(:destroy) }
 end

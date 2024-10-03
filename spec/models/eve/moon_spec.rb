@@ -3,13 +3,13 @@
 require "rails_helper"
 
 RSpec.describe Eve::Moon do
-  it { is_expected.to be_an(ApplicationRecord) }
+  it { expect(subject).to be_an(ApplicationRecord) }
 
   it { expect(described_class.primary_key).to eq("moon_id") }
 
-  it { is_expected.to belong_to(:system).optional(true) }
+  it { expect(subject).to belong_to(:system).optional(true) }
 
-  it { is_expected.to belong_to(:planet).optional(true) }
+  it { expect(subject).to belong_to(:planet).optional(true) }
 
-  it { is_expected.to have_one(:position).dependent(:destroy) }
+  it { expect(subject).to have_one(:position).dependent(:destroy) }
 end
