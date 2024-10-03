@@ -215,3 +215,6 @@ RSpec/HookArgument:
 
 RSpec/StubbedMock:
   Enabled: false
+
+RSpec/ScatteredSetup:
+  Enabled: false
