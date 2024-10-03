@@ -235,3 +235,19 @@ RSpec/ExampleLength:
 
 RSpec/NestedGroups:
   Enabled: false
+
+RSpec/LetSetup:
+  Enabled: false
+
+# disable everything
+Capybara/ClickLinkOrButtonStyle:
+  Enabled: false
+
+RSpec/NoExpectationExample:
+  Enabled: false
+
+RSpec/ExampleWording:
+  Enabled: false
+
+RSpec/MessageSpies:
+  Enabled: false
