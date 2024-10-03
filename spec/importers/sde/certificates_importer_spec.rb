@@ -18,7 +18,7 @@ RSpec.describe Sde::CertificatesImporter do
   end
 
   describe "#initialize" do
-    its(:file) { should eq(file) }
+    its(:file) { is_expected.to eq(file) }
   end
 
   describe "#import" do
