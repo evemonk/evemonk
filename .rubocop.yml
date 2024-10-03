@@ -221,3 +221,6 @@ RSpec/ScatteredSetup:
 
 RSpec/ScatteredLet:
   Enabled: false
+
+RSpec/ExpectInHook:
+  Enabled: false
