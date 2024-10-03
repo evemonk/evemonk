@@ -9,7 +9,7 @@ module Api
     end
 
     def refresh
-      return unless character.token_expired?
+      return if !character.token_expired?
 
       oauth_client_options = OmniAuth::Strategies::EveOnlineSso.default_options["client_options"].to_hash.symbolize_keys
 
