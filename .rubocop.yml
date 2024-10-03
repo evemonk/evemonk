@@ -245,6 +245,11 @@ RSpec/IndexedLet:
 RSpec/BeEq:
   Enabled: false
 
+RSpec/DescribeClass:
+  Enabled: true
+  Exclude:
+    - "spec/integration/graphql/*_spec.rb"
+
 # disable everything
 Capybara/ClickLinkOrButtonStyle:
   Enabled: false
