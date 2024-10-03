@@ -3,7 +3,7 @@
 require "rails_helper"
 
 RSpec.describe Eve::Category do
-  it { is_expected.to be_an(ApplicationRecord) }
+  it { expect(subject).to be_an(ApplicationRecord) }
 
   it { expect(described_class).to respond_to(:translates) }
 
@@ -11,9 +11,9 @@ RSpec.describe Eve::Category do
 
   it { expect(described_class.table_name).to eq("eve_categories") }
 
-  it { is_expected.to have_many(:groups) }
+  it { expect(subject).to have_many(:groups) }
 
-  it { is_expected.to have_many(:types).through(:groups) }
+  it { expect(subject).to have_many(:types).through(:groups) }
 
   describe ".published" do
     let!(:eve_category_1) { create(:eve_category, published: false) }

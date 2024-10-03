@@ -3,19 +3,19 @@
 require "rails_helper"
 
 RSpec.describe Eve::Blueprint do
-  it { is_expected.to be_a(Eve::Type) }
+  it { expect(subject).to be_a(Eve::Type) }
 
-  it { is_expected.to have_many(:blueprint_invention_materials).dependent(:destroy) }
+  it { expect(subject).to have_many(:blueprint_invention_materials).dependent(:destroy) }
 
-  it { is_expected.to have_many(:blueprint_invention_products).dependent(:destroy) }
+  it { expect(subject).to have_many(:blueprint_invention_products).dependent(:destroy) }
 
-  it { is_expected.to have_many(:blueprint_invention_skills).dependent(:destroy) }
+  it { expect(subject).to have_many(:blueprint_invention_skills).dependent(:destroy) }
 
-  it { is_expected.to have_many(:blueprint_manufacturing_materials).dependent(:destroy) }
+  it { expect(subject).to have_many(:blueprint_manufacturing_materials).dependent(:destroy) }
 
-  it { is_expected.to have_many(:blueprint_manufacturing_products).dependent(:destroy) }
+  it { expect(subject).to have_many(:blueprint_manufacturing_products).dependent(:destroy) }
 
-  it { is_expected.to have_many(:blueprint_manufacturing_skills).dependent(:destroy) }
+  it { expect(subject).to have_many(:blueprint_manufacturing_skills).dependent(:destroy) }
 
   describe "#copying_time_formatted" do
     subject do
