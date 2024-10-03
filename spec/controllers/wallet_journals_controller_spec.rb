@@ -3,9 +3,9 @@
 require "rails_helper"
 
 RSpec.describe WalletJournalsController do
-  it { is_expected.to be_an(ApplicationController) }
+  it { expect(subject).to be_an(ApplicationController) }
 
-  it { is_expected.to use_before_action(:authenticate_user!) }
+  it { expect(subject).to use_before_action(:authenticate_user!) }
 
   describe "#index" do
     context "when user signed in" do
@@ -57,15 +57,15 @@ RSpec.describe WalletJournalsController do
 
       before { get :index, params: {character_id: "1", page: "1"} }
 
-      it { is_expected.to respond_with(:ok) }
+      it { expect(subject).to respond_with(:ok) }
 
-      it { is_expected.to render_template(:index) }
+      it { expect(subject).to render_template(:index) }
     end
 
     context "when user not signed in" do
       before { get :index, params: {character_id: "1"} }
 
-      it { is_expected.to redirect_to(new_user_session_path) }
+      it { expect(subject).to redirect_to(new_user_session_path) }
     end
   end
 end

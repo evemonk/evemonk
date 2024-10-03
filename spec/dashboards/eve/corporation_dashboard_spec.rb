@@ -3,7 +3,7 @@
 require "rails_helper"
 
 RSpec.describe Eve::CorporationDashboard do
-  it { is_expected.to be_an(Administrate::BaseDashboard) }
+  it { expect(subject).to be_an(Administrate::BaseDashboard) }
 
   describe "#display_resource" do
     let(:corporation) { build(:eve_corporation, name: "Freighting Solutions Inc.") }

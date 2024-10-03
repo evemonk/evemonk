@@ -3,7 +3,7 @@
 require "rails_helper"
 
 RSpec.describe Eve::MarketGroupDashboard do
-  it { is_expected.to be_an(Administrate::BaseDashboard) }
+  it { expect(subject).to be_an(Administrate::BaseDashboard) }
 
   describe "#display_resource" do
     let(:market_group) { build(:eve_market_group, name_en: "Missiles") }

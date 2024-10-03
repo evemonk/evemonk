@@ -3,9 +3,9 @@
 require "rails_helper"
 
 RSpec.describe Universe::Alliances::CorporationsController do
-  it { is_expected.to be_an(ApplicationController) }
+  it { expect(subject).to be_an(ApplicationController) }
 
-  it { is_expected.not_to use_before_action(:authenticate_user!) }
+  it { expect(subject).not_to use_before_action(:authenticate_user!) }
 
   describe "#index" do
     let(:eve_alliance) { instance_double(Eve::Alliance) }
@@ -31,10 +31,10 @@ RSpec.describe Universe::Alliances::CorporationsController do
 
     before { get :index, params: {alliance_id: "1354830081"} }
 
-    it { is_expected.to respond_with(:ok) }
+    it { expect(subject).to respond_with(:ok) }
 
-    it { is_expected.not_to render_with_layout }
+    it { expect(subject).not_to render_with_layout }
 
-    it { is_expected.to render_template(:index) }
+    it { expect(subject).to render_template(:index) }
   end
 end
