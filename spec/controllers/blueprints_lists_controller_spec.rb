@@ -57,7 +57,7 @@ RSpec.describe BlueprintsListsController do
 
       it { is_expected.to respond_with(:ok) }
 
-      it { is_expected.to_not render_with_layout }
+      it { is_expected.not_to render_with_layout }
 
       it { is_expected.to render_template(:index) }
     end
