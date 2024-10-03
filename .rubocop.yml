@@ -267,6 +267,12 @@ RSpec/LetBeforeExamples:
 RSpec/HooksBeforeExamples:
   Enabled: false
 
+RSpec/DescribedClass:
+  Enabled: true
+  Exclude:
+    - "spec/models/concerns/imageable_spec.rb"
+    - "spec/models/concerns/locationable_spec.rb"
+
 # Enable and fix later...
 Capybara/ClickLinkOrButtonStyle:
   Enabled: false

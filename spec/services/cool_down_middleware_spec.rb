@@ -30,7 +30,7 @@ RSpec.describe CoolDownMiddleware do
 
   let(:conn) do
     conn = Faraday.new { |f|
-      f.use CoolDownMiddleware
+      f.use described_class
       f.adapter Faraday.default_adapter
     }
 
