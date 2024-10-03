@@ -242,6 +242,9 @@ RSpec/LetSetup:
 RSpec/IndexedLet:
   Enabled: false
 
+RSpec/BeEq:
+  Enabled: false
+
 # disable everything
 Capybara/ClickLinkOrButtonStyle:
   Enabled: false
@@ -253,4 +256,7 @@ RSpec/ExampleWording:
   Enabled: false
 
 RSpec/MessageSpies:
+  Enabled: false
+
+RSpec/SubjectStub:
   Enabled: false
