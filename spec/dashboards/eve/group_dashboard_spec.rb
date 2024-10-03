@@ -3,7 +3,7 @@
 require "rails_helper"
 
 RSpec.describe Eve::GroupDashboard do
-  it { should be_an(Administrate::BaseDashboard) }
+  it { is_expected.to be_an(Administrate::BaseDashboard) }
 
   describe "#display_resource" do
     let(:group) { build(:eve_group, name_en: "Missiles") }

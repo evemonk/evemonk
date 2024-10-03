@@ -3,7 +3,7 @@
 require "rails_helper"
 
 RSpec.describe Eve::TypeDashboard do
-  it { should be_an(Administrate::BaseDashboard) }
+  it { is_expected.to be_an(Administrate::BaseDashboard) }
 
   describe "#display_resource" do
     let(:type) { build(:eve_type, name_en: "Raven") }
