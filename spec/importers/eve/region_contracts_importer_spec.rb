@@ -9,7 +9,7 @@ RSpec.describe Eve::RegionContractsImporter do
 
   subject { described_class.new(region_id, page) }
 
-  it { is_expected.to be_a(Eve::BaseImporter) }
+  it { expect(subject).to be_a(Eve::BaseImporter) }
 
   describe "#initialize" do
     its(:region_id) { is_expected.to eq(region_id) }

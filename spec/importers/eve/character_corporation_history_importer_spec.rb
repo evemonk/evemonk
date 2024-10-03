@@ -7,7 +7,7 @@ RSpec.describe Eve::CharacterCorporationHistoryImporter do
 
   subject { described_class.new(id) }
 
-  it { is_expected.to be_a(Eve::BaseImporter) }
+  it { expect(subject).to be_a(Eve::BaseImporter) }
 
   describe "#import" do
     before { expect(subject).to receive(:configure_middlewares) }

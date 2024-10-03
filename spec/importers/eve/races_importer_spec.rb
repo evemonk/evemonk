@@ -3,7 +3,7 @@
 require "rails_helper"
 
 RSpec.describe Eve::RacesImporter do
-  it { is_expected.to be_a(Eve::BaseImporter) }
+  it { expect(subject).to be_a(Eve::BaseImporter) }
 
   describe "#initialize" do
     context "without locale" do

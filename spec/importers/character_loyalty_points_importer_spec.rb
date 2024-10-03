@@ -7,7 +7,7 @@ RSpec.describe CharacterLoyaltyPointsImporter do
 
   subject { described_class.new(character_id) }
 
-  it { is_expected.to be_a(CharacterBaseImporter) }
+  it { expect(subject).to be_a(CharacterBaseImporter) }
 
   describe "#import!" do
     let(:character) { instance_double(Character) }
