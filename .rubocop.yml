@@ -138,6 +138,8 @@ Style/GuardClause:
 Naming/VariableNumber:
   Enabled: true
   EnforcedStyle: snake_case
+  Exclude:
+    - "config/initializers/ancestry.rb"
 
 Style/StringLiteralsInInterpolation:
   Enabled: true
@@ -220,4 +222,62 @@ RSpec/ScatteredSetup:
   Enabled: false
 
 RSpec/ScatteredLet:
+  Enabled: false
+
+RSpec/ExpectInHook:
+  Enabled: false
+
+RSpec/MultipleExpectations:
+  Enabled: false
+
+RSpec/ExampleLength:
+  Enabled: false
+
+RSpec/NestedGroups:
+  Enabled: false
+
+RSpec/LetSetup:
+  Enabled: false
+
+RSpec/IndexedLet:
+  Enabled: false
+
+RSpec/BeEq:
+  Enabled: false
+
+RSpec/DescribeClass:
+  Enabled: true
+  Exclude:
+    - "spec/integration/graphql/*_spec.rb"
+    - "spec/system/**/*_spec.rb"
+
+RSpec/MultipleMemoizedHelpers:
+  Enabled: false
+
+RSpec/LeadingSubject:
+  Enabled: false
+
+# Enable and fix later...
+Capybara/ClickLinkOrButtonStyle:
+  Enabled: false
+
+RSpec/NoExpectationExample:
+  Enabled: false
+
+RSpec/ExampleWording:
+  Enabled: false
+
+RSpec/MessageSpies:
+  Enabled: false
+
+RSpec/SubjectStub:
+  Enabled: false
+
+Rails/ReversibleMigration:
+  Enabled: false
+
+Rails/BulkChangeTable:
+  Enabled: false
+
+Rails/ThreeStateBooleanColumn:
   Enabled: false

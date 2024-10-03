@@ -5,7 +5,7 @@ require "rails_helper"
 RSpec.describe Universe::MarketGroupsController do
   it { is_expected.to be_a(ApplicationController) }
 
-  it { is_expected.to_not use_before_action(:authenticate_user!) }
+  it { is_expected.not_to use_before_action(:authenticate_user!) }
 
   describe "#index" do
     before do
