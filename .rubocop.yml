@@ -249,6 +249,7 @@ RSpec/DescribeClass:
   Enabled: true
   Exclude:
     - "spec/integration/graphql/*_spec.rb"
+    - "spec/system/**/*_spec.rb"
 
 RSpec/MultipleMemoizedHelpers:
   Enabled: false
