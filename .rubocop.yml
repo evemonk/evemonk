@@ -257,6 +257,10 @@ RSpec/MultipleMemoizedHelpers:
 RSpec/LeadingSubject:
   Enabled: false
 
+RSpec/ImplicitSubject:
+  Enabled: true
+  EnforcedStyle: disallow
+
 # Enable and fix later...
 Capybara/ClickLinkOrButtonStyle:
   Enabled: false
