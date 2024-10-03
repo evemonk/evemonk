@@ -7,7 +7,7 @@ RSpec.describe Eve::SearchManufacturingItemsQuery do
 
   subject { described_class.new(search) }
 
-  it { should be_a(BaseQuery) }
+  it { is_expected.to be_a(BaseQuery) }
 
   describe "#initialize" do
     context "without search and scope" do
@@ -26,9 +26,9 @@ RSpec.describe Eve::SearchManufacturingItemsQuery do
 
       subject { described_class.new }
 
-      its(:search) { should eq(nil) }
+      its(:search) { is_expected.to eq(nil) }
 
-      its(:scope) { should eq(scope) }
+      its(:scope) { is_expected.to eq(scope) }
     end
 
     context "with search and scope" do
@@ -36,9 +36,9 @@ RSpec.describe Eve::SearchManufacturingItemsQuery do
 
       subject { described_class.new(search, scope) }
 
-      its(:search) { should eq(search) }
+      its(:search) { is_expected.to eq(search) }
 
-      its(:scope) { should eq(scope) }
+      its(:scope) { is_expected.to eq(scope) }
     end
   end
 

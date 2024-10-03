@@ -10,9 +10,9 @@ RSpec.describe CharacterBlueprints do
   subject { described_class.new(character, filter) }
 
   describe "#initialize" do
-    its(:character) { should eq(character) }
+    its(:character) { is_expected.to eq(character) }
 
-    its(:filter) { should eq(filter) }
+    its(:filter) { is_expected.to eq(filter) }
   end
 
   describe "#query" do

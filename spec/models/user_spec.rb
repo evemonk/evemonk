@@ -3,7 +3,7 @@
 require "rails_helper"
 
 RSpec.describe User do
-  it { should be_an(ApplicationRecord) }
+  it { is_expected.to be_an(ApplicationRecord) }
 
   it {
     expect(described_class.devise_modules).to eq([:database_authenticatable,
@@ -16,10 +16,10 @@ RSpec.describe User do
       :zxcvbnable])
   }
 
-  it { should have_many(:characters).dependent(:destroy) }
+  it { is_expected.to have_many(:characters).dependent(:destroy) }
 
   it {
-    should define_enum_for(:locale).with_values(
+    is_expected.to define_enum_for(:locale).with_values(
       auto_detect: 0,
       english: 1,
       german: 2,
