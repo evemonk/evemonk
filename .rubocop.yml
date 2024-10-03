@@ -250,6 +250,9 @@ RSpec/DescribeClass:
   Exclude:
     - "spec/integration/graphql/*_spec.rb"
 
+RSpec/MultipleMemoizedHelpers:
+  Enabled: false
+
 # disable everything
 Capybara/ClickLinkOrButtonStyle:
   Enabled: false
