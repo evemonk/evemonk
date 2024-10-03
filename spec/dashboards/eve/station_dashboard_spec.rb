@@ -3,7 +3,7 @@
 require "rails_helper"
 
 RSpec.describe Eve::StationDashboard do
-  it { is_expected.to be_an(Administrate::BaseDashboard) }
+  it { expect(subject).to be_an(Administrate::BaseDashboard) }
 
   describe "#display_resource" do
     let(:station) { build(:eve_station, name: "Penirgman V - Moon 3 - Ishukone Corporation Factory") }

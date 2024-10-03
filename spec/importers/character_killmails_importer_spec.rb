@@ -9,7 +9,7 @@ RSpec.describe CharacterKillmailsImporter do
 
   subject { described_class.new(character_id, page) }
 
-  it { is_expected.to be_a(CharacterBaseImporter) }
+  it { expect(subject).to be_a(CharacterBaseImporter) }
 
   describe "#initialize" do
     context "when page not present" do

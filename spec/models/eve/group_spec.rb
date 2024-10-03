@@ -3,7 +3,7 @@
 require "rails_helper"
 
 RSpec.describe Eve::Group do
-  it { is_expected.to be_an(ApplicationRecord) }
+  it { expect(subject).to be_an(ApplicationRecord) }
 
   it { expect(described_class).to respond_to(:translates) }
 
@@ -11,11 +11,11 @@ RSpec.describe Eve::Group do
 
   it { expect(described_class.table_name).to eq("eve_groups") }
 
-  it { is_expected.to belong_to(:category).optional(true) }
+  it { expect(subject).to belong_to(:category).optional(true) }
 
-  it { is_expected.to have_many(:types) }
+  it { expect(subject).to have_many(:types) }
 
-  it { is_expected.to have_many(:certificates) }
+  it { expect(subject).to have_many(:certificates) }
 
   describe ".published" do
     let!(:eve_group_1) { create(:eve_group, published: false) }

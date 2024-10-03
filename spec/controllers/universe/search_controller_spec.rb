@@ -3,9 +3,9 @@
 require "rails_helper"
 
 RSpec.describe Universe::SearchController do
-  it { is_expected.to be_a(ApplicationController) }
+  it { expect(subject).to be_a(ApplicationController) }
 
-  it { is_expected.not_to use_before_action(:authenticate_user!) }
+  it { expect(subject).not_to use_before_action(:authenticate_user!) }
 
   describe "#index" do
     # TODO: write

@@ -3,11 +3,11 @@
 require "rails_helper"
 
 RSpec.describe Admin::ApplicationController do
-  it { is_expected.to be_an(Administrate::ApplicationController) }
+  it { expect(subject).to be_an(Administrate::ApplicationController) }
 
-  it { is_expected.to use_before_action(:authenticate_user!) }
+  it { expect(subject).to use_before_action(:authenticate_user!) }
 
-  it { is_expected.to use_before_action(:admin?) }
+  it { expect(subject).to use_before_action(:admin?) }
 
   # private methods
 

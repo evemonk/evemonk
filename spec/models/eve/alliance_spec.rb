@@ -3,33 +3,33 @@
 require "rails_helper"
 
 RSpec.describe Eve::Alliance do
-  it { is_expected.to be_an(ApplicationRecord) }
+  it { expect(subject).to be_an(ApplicationRecord) }
 
-  it { is_expected.to be_a(PgSearch::Model) }
+  it { expect(subject).to be_a(PgSearch::Model) }
 
-  it { is_expected.to be_a(ActionView::Helpers::NumberHelper) }
+  it { expect(subject).to be_a(ActionView::Helpers::NumberHelper) }
 
-  it { is_expected.to be_a(Imageable) }
+  it { expect(subject).to be_a(Imageable) }
 
   it { expect(described_class.table_name).to eq("eve_alliances") }
 
-  it { is_expected.to belong_to(:creator_corporation).class_name("Eve::Corporation").optional(true) }
+  it { expect(subject).to belong_to(:creator_corporation).class_name("Eve::Corporation").optional(true) }
 
-  it { is_expected.to belong_to(:creator).class_name("Eve::Character").optional(true) }
+  it { expect(subject).to belong_to(:creator).class_name("Eve::Character").optional(true) }
 
-  it { is_expected.to belong_to(:executor_corporation).class_name("Eve::Corporation").optional(true) }
+  it { expect(subject).to belong_to(:executor_corporation).class_name("Eve::Corporation").optional(true) }
 
-  it { is_expected.to belong_to(:faction).optional(true) }
+  it { expect(subject).to belong_to(:faction).optional(true) }
 
-  it { is_expected.to have_many(:corporations) }
+  it { expect(subject).to have_many(:corporations) }
 
-  it { is_expected.to have_many(:characters).through(:corporations) }
+  it { expect(subject).to have_many(:characters).through(:corporations) }
 
-  it { is_expected.to have_many(:corporation_alliance_histories) }
+  it { expect(subject).to have_many(:corporation_alliance_histories) }
 
-  it { is_expected.to have_one_attached(:logo) }
+  it { expect(subject).to have_one_attached(:logo) }
 
-  it { is_expected.to have_db_index([:name, :ticker]) }
+  it { expect(subject).to have_db_index([:name, :ticker]) }
 
   it { expect(described_class).to respond_to(:search_by_name_and_ticker) }
 
@@ -44,7 +44,7 @@ RSpec.describe Eve::Alliance do
 
     before { subject.update!(corporations_count: 0) }
 
-    specify { expect { subject.reset_corporations_count }.to change { subject.corporations_count }.from(0).to(2) }
+    specify { expect { subject.reset_corporations_count }.to change(subject, :corporations_count).from(0).to(2) }
   end
 
   describe "#reset_characters_count" do
@@ -58,7 +58,7 @@ RSpec.describe Eve::Alliance do
 
     before { subject.update!(characters_count: 0) }
 
-    specify { expect { subject.reset_characters_count }.to change { subject.characters_count }.from(0).to(246) }
+    specify { expect { subject.reset_characters_count }.to change(subject, :characters_count).from(0).to(246) }
   end
 
   describe "#icon_tiny" do

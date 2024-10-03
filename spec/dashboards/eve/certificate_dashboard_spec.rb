@@ -3,7 +3,7 @@
 require "rails_helper"
 
 RSpec.describe Eve::CertificateDashboard do
-  it { is_expected.to be_an(Administrate::BaseDashboard) }
+  it { expect(subject).to be_an(Administrate::BaseDashboard) }
 
   describe "#display_resource" do
     let(:certificate) { build(:eve_certificate, name: "Small Energy Turret") }

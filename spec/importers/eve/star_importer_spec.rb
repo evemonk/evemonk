@@ -7,7 +7,7 @@ RSpec.describe Eve::StarImporter do
 
   subject { described_class.new(star_id) }
 
-  it { is_expected.to be_a(Eve::BaseImporter) }
+  it { expect(subject).to be_a(Eve::BaseImporter) }
 
   describe "#initialize" do
     its(:star_id) { is_expected.to eq(star_id) }

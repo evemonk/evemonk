@@ -7,7 +7,7 @@ RSpec.describe Eve::RegionImporter do
 
   subject { described_class.new(region_id) }
 
-  it { is_expected.to be_a(Eve::BaseImporter) }
+  it { expect(subject).to be_a(Eve::BaseImporter) }
 
   describe "#initialize" do
     context "without locale" do

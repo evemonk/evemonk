@@ -7,7 +7,7 @@ RSpec.describe Eve::DogmaAttributeImporter do
 
   subject { described_class.new(attribute_id) }
 
-  it { is_expected.to be_a(Eve::BaseImporter) }
+  it { expect(subject).to be_a(Eve::BaseImporter) }
 
   describe "#initialize" do
     its(:attribute_id) { is_expected.to eq(attribute_id) }

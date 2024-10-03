@@ -3,29 +3,29 @@
 require "rails_helper"
 
 RSpec.describe Eve::Character do
-  it { is_expected.to be_an(ApplicationRecord) }
+  it { expect(subject).to be_an(ApplicationRecord) }
 
-  it { is_expected.to be_a(PgSearch::Model) }
+  it { expect(subject).to be_a(PgSearch::Model) }
 
-  it { is_expected.to be_a(Imageable) }
+  it { expect(subject).to be_a(Imageable) }
 
   it { expect(described_class.table_name).to eq("eve_characters") }
 
-  it { is_expected.to belong_to(:alliance).optional(true) }
+  it { expect(subject).to belong_to(:alliance).optional(true) }
 
-  it { is_expected.to belong_to(:bloodline).optional(true) }
+  it { expect(subject).to belong_to(:bloodline).optional(true) }
 
-  it { is_expected.to belong_to(:corporation).optional(true) }
+  it { expect(subject).to belong_to(:corporation).optional(true) }
 
-  it { is_expected.to belong_to(:faction).optional(true) }
+  it { expect(subject).to belong_to(:faction).optional(true) }
 
-  it { is_expected.to belong_to(:race).optional(true) }
+  it { expect(subject).to belong_to(:race).optional(true) }
 
-  it { is_expected.to have_many(:character_corporation_histories).dependent(:destroy) }
+  it { expect(subject).to have_many(:character_corporation_histories).dependent(:destroy) }
 
-  it { is_expected.to have_one_attached(:portrait) }
+  it { expect(subject).to have_one_attached(:portrait) }
 
-  it { is_expected.to have_db_index(:name) }
+  it { expect(subject).to have_db_index(:name) }
 
   it { expect(described_class).to respond_to(:search_by_name) }
 

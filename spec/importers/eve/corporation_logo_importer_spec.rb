@@ -7,7 +7,7 @@ RSpec.describe Eve::CorporationLogoImporter do
 
   subject { described_class.new(id) }
 
-  it { is_expected.to be_a(Eve::BaseImporter) }
+  it { expect(subject).to be_a(Eve::BaseImporter) }
 
   specify { expect(described_class::CORPORATIONS_LOGO_URL).to eq("https://images.evetech.net/corporations/%s/logo") }
 

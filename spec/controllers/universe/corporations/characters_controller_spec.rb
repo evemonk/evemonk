@@ -3,9 +3,9 @@
 require "rails_helper"
 
 RSpec.describe Universe::Corporations::CharactersController do
-  it { is_expected.to be_a(ApplicationController) }
+  it { expect(subject).to be_a(ApplicationController) }
 
-  it { is_expected.not_to use_before_action(:authenticate_user!) }
+  it { expect(subject).not_to use_before_action(:authenticate_user!) }
 
   describe "#index" do
     let(:eve_corporation) { instance_double(Eve::Corporation) }
@@ -32,10 +32,10 @@ RSpec.describe Universe::Corporations::CharactersController do
 
     before { get :index, params: {corporation_id: "1000001"} }
 
-    it { is_expected.to respond_with(:ok) }
+    it { expect(subject).to respond_with(:ok) }
 
-    it { is_expected.not_to render_with_layout }
+    it { expect(subject).not_to render_with_layout }
 
-    it { is_expected.to render_template(:index) }
+    it { expect(subject).to render_template(:index) }
   end
 end

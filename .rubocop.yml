@@ -24,6 +24,11 @@ Style/DisableSyntax:
     - numbered_parameters
     - shorthand_hash_syntax
     - percent_literals
+  Exclude:
+    - "config/initializers/devise.rb"
+    - "db/migrate/20220210002902_add_service_name_to_active_storage_blobs.active_storage.rb"
+    - "db/migrate/20220210002903_create_active_storage_variant_records.active_storage.rb"
+    - "db/migrate/20240123020340_change_flipper_gates_value_to_text.rb"
 
 Style/StringLiterals:
   EnforcedStyle: double_quotes
@@ -257,6 +262,30 @@ RSpec/MultipleMemoizedHelpers:
 RSpec/LeadingSubject:
   Enabled: false
 
+RSpec/ImplicitSubject:
+  Enabled: true
+  EnforcedStyle: disallow
+
+RSpec/LetBeforeExamples:
+  Enabled: false
+
+RSpec/HooksBeforeExamples:
+  Enabled: false
+
+RSpec/DescribedClass:
+  Enabled: true
+  Exclude:
+    - "spec/models/concerns/imageable_spec.rb"
+    - "spec/models/concerns/locationable_spec.rb"
+
+Rails/SkipsModelValidations:
+  Enabled: true
+  Exclude:
+    - "db/migrate/20220210002902_add_service_name_to_active_storage_blobs.active_storage.rb"
+
+FactoryBot/AssociationStyle:
+  Enabled: false
+
 # Enable and fix later...
 Capybara/ClickLinkOrButtonStyle:
   Enabled: false
@@ -280,4 +309,10 @@ Rails/BulkChangeTable:
   Enabled: false
 
 Rails/ThreeStateBooleanColumn:
+  Enabled: false
+
+Rails/NotNullColumn:
+  Enabled: false
+
+GraphQL/FieldDefinitions:
   Enabled: false

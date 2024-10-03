@@ -3,7 +3,7 @@
 require "rails_helper"
 
 RSpec.describe Eve::MarketPricesImporter do
-  it { is_expected.to be_a(Eve::BaseImporter) }
+  it { expect(subject).to be_a(Eve::BaseImporter) }
 
   describe "#import" do
     before { expect(subject).to receive(:configure_middlewares) }

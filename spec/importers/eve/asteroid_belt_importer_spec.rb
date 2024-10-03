@@ -9,7 +9,7 @@ RSpec.describe Eve::AsteroidBeltImporter do
 
   subject { described_class.new(planet_id, asteroid_belt_id) }
 
-  it { is_expected.to be_a(Eve::BaseImporter) }
+  it { expect(subject).to be_a(Eve::BaseImporter) }
 
   describe "#import" do
     before { expect(subject).to receive(:configure_middlewares) }

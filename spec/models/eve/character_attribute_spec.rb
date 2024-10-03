@@ -3,7 +3,7 @@
 require "rails_helper"
 
 RSpec.describe Eve::CharacterAttribute do
-  it { is_expected.to be_an(ApplicationRecord) }
+  it { expect(subject).to be_an(ApplicationRecord) }
 
   it { expect(described_class).to respond_to(:translates) }
 
@@ -11,7 +11,7 @@ RSpec.describe Eve::CharacterAttribute do
 
   it { expect(described_class.table_name).to eq("eve_character_attributes") }
 
-  it { is_expected.to belong_to(:icon).optional(true) }
+  it { expect(subject).to belong_to(:icon).optional(true) }
 
   describe "#sanitized_description" do
     subject do

@@ -3,7 +3,7 @@
 require "rails_helper"
 
 RSpec.describe Eve::RaceDashboard do
-  it { is_expected.to be_an(Administrate::BaseDashboard) }
+  it { expect(subject).to be_an(Administrate::BaseDashboard) }
 
   describe "#display_resource" do
     let(:race) { build(:eve_race, name: "Caldari") }

@@ -7,7 +7,7 @@ RSpec.describe Eve::TypesImporter do
 
   subject { described_class.new(page) }
 
-  it { is_expected.to be_a(Eve::BaseImporter) }
+  it { expect(subject).to be_a(Eve::BaseImporter) }
 
   describe "#initialize" do
     context "with page" do

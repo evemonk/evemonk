@@ -3,9 +3,9 @@
 require "rails_helper"
 
 RSpec.describe Universe::TypesController do
-  it { is_expected.to be_a(ApplicationController) }
+  it { expect(subject).to be_a(ApplicationController) }
 
-  it { is_expected.not_to use_before_action(:authenticate_user!) }
+  it { expect(subject).not_to use_before_action(:authenticate_user!) }
 
   describe "#show" do
     before do
@@ -26,8 +26,8 @@ RSpec.describe Universe::TypesController do
 
     before { get :show, params: {id: "9899"} }
 
-    it { is_expected.to respond_with(:ok) }
+    it { expect(subject).to respond_with(:ok) }
 
-    it { is_expected.to render_template(:show) }
+    it { expect(subject).to render_template(:show) }
   end
 end

@@ -7,7 +7,7 @@ RSpec.describe Eve::AlliancesQuery do
 
   subject { described_class.new(order_by) }
 
-  it { is_expected.to be_a(BaseQuery) }
+  it { expect(subject).to be_a(BaseQuery) }
 
   describe "#initialize" do
     context "without order_by and scope" do

@@ -3,7 +3,7 @@
 require "rails_helper"
 
 RSpec.describe Alliances::TopController do
-  it { is_expected.to be_an(ApplicationController) }
+  it { expect(subject).to be_an(ApplicationController) }
 
   describe "#index" do
     before { create(:eve_alliance) }

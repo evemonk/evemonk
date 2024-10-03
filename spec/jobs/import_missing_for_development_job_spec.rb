@@ -3,7 +3,7 @@
 require "rails_helper"
 
 RSpec.describe ImportMissingForDevelopmentJob do
-  it { is_expected.to be_an(ApplicationJob) }
+  it { expect(subject).to be_an(ApplicationJob) }
 
   it { expect(described_class.queue_name).to eq("default") }
 

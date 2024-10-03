@@ -3,7 +3,7 @@
 require "rails_helper"
 
 RSpec.describe CharacterBlueprintsFilterForm do
-  it { is_expected.to be_an(ActiveModel::Model) }
+  it { expect(subject).to be_an(ActiveModel::Model) }
 
   let(:filter) { double }
 

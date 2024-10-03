@@ -3,15 +3,15 @@
 require "rails_helper"
 
 RSpec.describe CharacterBlueprint do
-  it { is_expected.to be_an(ApplicationRecord) }
+  it { expect(subject).to be_an(ApplicationRecord) }
 
-  it { is_expected.to be_a(Locationable) }
+  it { expect(subject).to be_a(Locationable) }
 
-  it { is_expected.to be_a(Imageable) }
+  it { expect(subject).to be_a(Imageable) }
 
-  it { is_expected.to belong_to(:character) }
+  it { expect(subject).to belong_to(:character) }
 
-  it { is_expected.to belong_to(:blueprint).class_name("Eve::Blueprint").with_foreign_key("type_id").optional(true) }
+  it { expect(subject).to belong_to(:blueprint).class_name("Eve::Blueprint").with_foreign_key("type_id").optional(true) }
 
   describe "#bpo?" do
     context "when blueprint is original" do

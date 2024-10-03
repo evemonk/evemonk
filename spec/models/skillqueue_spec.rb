@@ -3,15 +3,15 @@
 require "rails_helper"
 
 RSpec.describe Skillqueue do
-  it { is_expected.to be_an(ApplicationRecord) }
+  it { expect(subject).to be_an(ApplicationRecord) }
 
   specify do
     expect(described_class::LEVELS).to eq(1 => "I", 2 => "II", 3 => "III", 4 => "IV", 5 => "V")
   end
 
-  it { is_expected.to belong_to(:character) }
+  it { expect(subject).to belong_to(:character) }
 
-  it { is_expected.to belong_to(:skill).class_name("Eve::Type").optional(true) }
+  it { expect(subject).to belong_to(:skill).class_name("Eve::Type").optional(true) }
 
   describe "#finished_level_formatted" do
     subject { build(:skillqueue, finished_level: 1) }

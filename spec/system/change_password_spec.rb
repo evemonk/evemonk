@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.xdescribe "Change password features" do
+RSpec.describe "Change password features", pending: "broken" do
   it "when user successfully change password" do
     user = create(:user, email: "me@example.com", password: "eidii7EeooVe8ahk")
 

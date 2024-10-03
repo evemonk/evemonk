@@ -3,7 +3,7 @@
 require "rails_helper"
 
 RSpec.describe Api::Eve::ManufacturingItemsController do
-  it { is_expected.to be_a(Api::BaseController) }
+  it { expect(subject).to be_a(Api::BaseController) }
 
   describe "#index" do
     context "with supported content type" do
@@ -26,15 +26,15 @@ RSpec.describe Api::Eve::ManufacturingItemsController do
 
       before { get :index, params: {format: :json, page: "1", q: "drake"} }
 
-      it { is_expected.to respond_with(:ok) }
+      it { expect(subject).to respond_with(:ok) }
 
-      it { is_expected.to render_template(:index) }
+      it { expect(subject).to render_template(:index) }
     end
 
     context "when not supported accept type" do
       before { get :index, params: {format: :html} }
 
-      it { is_expected.to respond_with(:not_acceptable) }
+      it { expect(subject).to respond_with(:not_acceptable) }
     end
   end
 end

@@ -3,15 +3,15 @@
 require "rails_helper"
 
 RSpec.describe Eve::Type do
-  it { is_expected.to be_an(ApplicationRecord) }
+  it { expect(subject).to be_an(ApplicationRecord) }
 
   it { expect(described_class.primary_key).to eq("type_id") }
 
-  it { is_expected.to be_a(PgSearch::Model) }
+  it { expect(subject).to be_a(PgSearch::Model) }
 
-  it { is_expected.to be_an(ActionView::Helpers::NumberHelper) }
+  it { expect(subject).to be_an(ActionView::Helpers::NumberHelper) }
 
-  it { is_expected.to be_a(Imageable) }
+  it { expect(subject).to be_a(Imageable) }
 
   specify { expect(described_class::PRIMARY_ATTRIBUTE_NAME).to eq("primaryAttribute") }
 
@@ -23,23 +23,23 @@ RSpec.describe Eve::Type do
 
   it { expect(described_class.table_name).to eq("eve_types") }
 
-  it { is_expected.to belong_to(:graphic).optional(true) }
+  it { expect(subject).to belong_to(:graphic).optional(true) }
 
-  it { is_expected.to belong_to(:group).optional(true) }
+  it { expect(subject).to belong_to(:group).optional(true) }
 
-  it { is_expected.to belong_to(:icon).optional(true) }
+  it { expect(subject).to belong_to(:icon).optional(true) }
 
-  it { is_expected.to belong_to(:market_group).optional(true) }
+  it { expect(subject).to belong_to(:market_group).optional(true) }
 
-  it { is_expected.to have_many(:type_dogma_attributes).dependent(:destroy) }
+  it { expect(subject).to have_many(:type_dogma_attributes).dependent(:destroy) }
 
-  it { is_expected.to have_many(:dogma_attributes).through(:type_dogma_attributes) }
+  it { expect(subject).to have_many(:dogma_attributes).through(:type_dogma_attributes) }
 
-  it { is_expected.to have_many(:type_dogma_effects).dependent(:destroy) }
+  it { expect(subject).to have_many(:type_dogma_effects).dependent(:destroy) }
 
   # it { should have_many(:dogma_effects).through(:type_dogma_effects) }
 
-  it { is_expected.to have_many(:stargates) }
+  it { expect(subject).to have_many(:stargates) }
 
   describe ".published" do
     let!(:eve_type_1) { create(:eve_type, published: false) }
