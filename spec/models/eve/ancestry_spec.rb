@@ -3,7 +3,7 @@
 require "rails_helper"
 
 RSpec.describe Eve::Ancestry do
-  it { should be_an(ApplicationRecord) }
+  it { is_expected.to be_an(ApplicationRecord) }
 
   it { expect(described_class).to respond_to(:translates) }
 
@@ -11,7 +11,7 @@ RSpec.describe Eve::Ancestry do
 
   it { expect(described_class.table_name).to eq("eve_ancestries") }
 
-  it { should belong_to(:bloodline).optional(true) }
+  it { is_expected.to belong_to(:bloodline).optional(true) }
 
-  it { should belong_to(:icon).optional(true) }
+  it { is_expected.to belong_to(:icon).optional(true) }
 end

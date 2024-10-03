@@ -115,7 +115,7 @@ RSpec.describe CharacterAttributes do
   subject { described_class.new(character) }
 
   describe "#initialize" do
-    its(:character) { should eq(character) }
+    its(:character) { is_expected.to eq(character) }
   end
 
   describe "#perception_without_bonuses" do
