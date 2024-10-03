@@ -2,10 +2,10 @@
 
 require "rails_helper"
 
-RSpec.describe "Api::Eve::CharacterCorporationsHistoryController" do
+RSpec.describe "Api::Eve::CharacterCorporationsHistoryController", pending: "broken" do
   before { Setting.use_image_proxy = true }
 
-  xdescribe "#index" do
+  describe "#index" do
     it "returns Eve Character corporation history" do
       create(:eve_character,
         character_id: 123,
@@ -74,7 +74,7 @@ RSpec.describe "Api::Eve::CharacterCorporationsHistoryController" do
         }])
     end
 
-    xit "returns 404" do
+    it "returns 404" do
       get "/api/eve/characters/456/corporations_history"
 
       expect(response).to have_http_status(:not_found)

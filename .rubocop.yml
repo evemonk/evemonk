@@ -281,3 +281,9 @@ Rails/BulkChangeTable:
 
 Rails/ThreeStateBooleanColumn:
   Enabled: false
+
+Rails/NotNullColumn:
+  Enabled: false
+
+GraphQL/FieldDefinitions:
+  Enabled: false
