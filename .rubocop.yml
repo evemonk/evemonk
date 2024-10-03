@@ -239,6 +239,9 @@ RSpec/NestedGroups:
 RSpec/LetSetup:
   Enabled: false
 
+RSpec/IndexedLet:
+  Enabled: false
+
 # disable everything
 Capybara/ClickLinkOrButtonStyle:
   Enabled: false
