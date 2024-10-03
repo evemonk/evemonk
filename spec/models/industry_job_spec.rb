@@ -3,11 +3,11 @@
 require "rails_helper"
 
 RSpec.describe IndustryJob do
-  it { is_expected.to be_an(ApplicationRecord) }
+  it { expect(subject).to be_an(ApplicationRecord) }
 
-  it { is_expected.to belong_to(:character) }
+  it { expect(subject).to belong_to(:character) }
 
-  it { is_expected.to belong_to(:product_type).class_name("Eve::Type").optional(true) }
+  it { expect(subject).to belong_to(:product_type).class_name("Eve::Type").optional(true) }
 
-  it { is_expected.to belong_to(:blueprint_type).class_name("Eve::Type").optional(true) }
+  it { expect(subject).to belong_to(:blueprint_type).class_name("Eve::Type").optional(true) }
 end

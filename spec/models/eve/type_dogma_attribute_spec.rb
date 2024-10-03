@@ -3,15 +3,15 @@
 require "rails_helper"
 
 RSpec.describe Eve::TypeDogmaAttribute do
-  it { is_expected.to be_an(ApplicationRecord) }
+  it { expect(subject).to be_an(ApplicationRecord) }
 
-  it { is_expected.to be_an(ActionView::Helpers::NumberHelper) }
+  it { expect(subject).to be_an(ActionView::Helpers::NumberHelper) }
 
   it { expect(described_class.table_name).to eq("eve_type_dogma_attributes") }
 
-  it { is_expected.to belong_to(:type).optional }
+  it { expect(subject).to belong_to(:type).optional }
 
-  it { is_expected.to belong_to(:dogma_attribute).with_primary_key("attribute_id").with_foreign_key("attribute_id").optional }
+  it { expect(subject).to belong_to(:dogma_attribute).with_primary_key("attribute_id").with_foreign_key("attribute_id").optional }
 
   describe "#value_with_unit" do
     describe "#when dogma attribute without unit" do

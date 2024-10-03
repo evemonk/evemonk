@@ -3,7 +3,7 @@
 require "rails_helper"
 
 RSpec.describe Setting do
-  it { is_expected.to be_a(RailsSettings::Base) }
+  it { expect(subject).to be_a(RailsSettings::Base) }
 
   describe ".use_image_proxy" do
     specify { expect(described_class.use_image_proxy).to eq(true) }

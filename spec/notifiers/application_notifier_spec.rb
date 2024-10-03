@@ -3,5 +3,5 @@
 require "rails_helper"
 
 RSpec.describe ApplicationNotifier do
-  it { is_expected.to be_a(Noticed::Event) }
+  it { expect(subject).to be_a(Noticed::Event) }
 end
