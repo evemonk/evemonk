@@ -3,9 +3,9 @@
 require "rails_helper"
 
 RSpec.describe BlueprintsController do
-  it { should be_an(ApplicationController) }
+  it { is_expected.to be_an(ApplicationController) }
 
-  it { should use_before_action(:authenticate_user!) }
+  it { is_expected.to use_before_action(:authenticate_user!) }
 
   describe "#index" do
     context "when user signed in" do
@@ -39,15 +39,15 @@ RSpec.describe BlueprintsController do
 
       before { get :index, params: {character_id: "1"} }
 
-      it { should respond_with(:ok) }
+      it { is_expected.to respond_with(:ok) }
 
-      it { should render_template(:index) }
+      it { is_expected.to render_template(:index) }
     end
 
     context "when user not signed in" do
       before { get :index, params: {character_id: "1"} }
 
-      it { should redirect_to(new_user_session_path) }
+      it { is_expected.to redirect_to(new_user_session_path) }
     end
   end
 
@@ -103,15 +103,15 @@ RSpec.describe BlueprintsController do
 
       before { get :show, params: {character_id: "1", id: "2"} }
 
-      it { should respond_with(:ok) }
+      it { is_expected.to respond_with(:ok) }
 
-      it { should render_template(:show) }
+      it { is_expected.to render_template(:show) }
     end
 
     context "when user not signed in" do
       before { get :show, params: {character_id: "1", id: "2"} }
 
-      it { should redirect_to(new_user_session_path) }
+      it { is_expected.to redirect_to(new_user_session_path) }
     end
   end
 end

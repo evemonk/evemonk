@@ -3,9 +3,9 @@
 require "rails_helper"
 
 RSpec.describe CharactersController do
-  it { should be_an(ApplicationController) }
+  it { is_expected.to be_an(ApplicationController) }
 
-  it { should use_before_action(:authenticate_user!) }
+  it { is_expected.to use_before_action(:authenticate_user!) }
 
   describe "#index" do
     context "when user signed in" do
@@ -44,15 +44,15 @@ RSpec.describe CharactersController do
 
       before { get :index, params: {page: "1"} }
 
-      it { should respond_with(:ok) }
+      it { is_expected.to respond_with(:ok) }
 
-      it { should render_template(:index) }
+      it { is_expected.to render_template(:index) }
     end
 
     context "when user not signed in" do
       before { get :index, params: {page: "1"} }
 
-      it { should redirect_to(new_user_session_path) }
+      it { is_expected.to redirect_to(new_user_session_path) }
     end
   end
 
@@ -88,15 +88,15 @@ RSpec.describe CharactersController do
 
       before { get :show, params: {id: "1"} }
 
-      it { should respond_with(:ok) }
+      it { is_expected.to respond_with(:ok) }
 
-      it { should render_template(:show) }
+      it { is_expected.to render_template(:show) }
     end
 
     context "when user not signed in" do
       before { get :show, params: {id: "1"} }
 
-      it { should redirect_to(new_user_session_path) }
+      it { is_expected.to redirect_to(new_user_session_path) }
     end
   end
 
@@ -140,24 +140,24 @@ RSpec.describe CharactersController do
       context "when format turbo stream" do
         before { patch :update, params: {id: "1", format: "turbo_stream"} }
 
-        it { should respond_with(:ok) }
+        it { is_expected.to respond_with(:ok) }
 
-        it { should render_template(:update) }
+        it { is_expected.to render_template(:update) }
 
-        it { should set_flash.now[:notice].to("Character &laquo;#{character.name}&raquo; scheduled to update. Check it later.") }
+        it { is_expected.to set_flash.now[:notice].to("Character &laquo;#{character.name}&raquo; scheduled to update. Check it later.") }
       end
 
       context "when format html" do
         before { patch :update, params: {id: "1", format: "html"} }
 
-        it { should redirect_to(character_path(character.character_id)) }
+        it { is_expected.to redirect_to(character_path(character.character_id)) }
       end
     end
 
     context "when user not signed in" do
       before { patch :update, params: {id: "1"} }
 
-      it { should redirect_to(new_user_session_path) }
+      it { is_expected.to redirect_to(new_user_session_path) }
     end
   end
 
@@ -192,28 +192,28 @@ RSpec.describe CharactersController do
       context "when format turbo stream" do
         before { delete :destroy, params: {id: "1", format: "turbo_stream"} }
 
-        it { should respond_with(:ok) }
+        it { is_expected.to respond_with(:ok) }
 
-        it { should render_template(:destroy) }
+        it { is_expected.to render_template(:destroy) }
 
-        it { should set_flash.now[:notice].to("Character was successfully removed.") }
+        it { is_expected.to set_flash.now[:notice].to("Character was successfully removed.") }
       end
 
       context "when format html" do
         before { delete :destroy, params: {id: "1", format: "html"} }
 
-        it { should respond_with(:see_other) }
+        it { is_expected.to respond_with(:see_other) }
 
-        it { should redirect_to(characters_path) }
+        it { is_expected.to redirect_to(characters_path) }
 
-        it { should set_flash[:notice].to("Character was successfully removed.") }
+        it { is_expected.to set_flash[:notice].to("Character was successfully removed.") }
       end
     end
 
     context "when user not signed in" do
       before { delete :destroy, params: {id: "1"} }
 
-      it { should redirect_to(new_user_session_path) }
+      it { is_expected.to redirect_to(new_user_session_path) }
     end
   end
 end

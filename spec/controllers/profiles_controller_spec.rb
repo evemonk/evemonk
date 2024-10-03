@@ -3,9 +3,9 @@
 require "rails_helper"
 
 RSpec.describe ProfilesController do
-  it { should be_an(ApplicationController) }
+  it { is_expected.to be_an(ApplicationController) }
 
-  it { should use_before_action(:authenticate_user!) }
+  it { is_expected.to use_before_action(:authenticate_user!) }
 
   describe "#show" do
     context "when user signed in" do
@@ -15,15 +15,15 @@ RSpec.describe ProfilesController do
 
       before { get :show }
 
-      it { should respond_with(:ok) }
+      it { is_expected.to respond_with(:ok) }
 
-      it { should render_template(:show) }
+      it { is_expected.to render_template(:show) }
     end
 
     context "when user not signed in" do
       before { get :show }
 
-      it { should redirect_to(new_user_session_path) }
+      it { is_expected.to redirect_to(new_user_session_path) }
     end
   end
 end
