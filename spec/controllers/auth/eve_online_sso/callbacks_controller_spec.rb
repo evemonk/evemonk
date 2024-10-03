@@ -53,7 +53,7 @@ RSpec.describe Auth::EveOnlineSso::CallbacksController do
       it { expect(subject).to set_flash[:alert].to("Service Unavailable (503). Please, try again later.") }
     end
 
-    context "when service unavailable" do
+    context "when internal server error" do
       before { expect(service).to receive(:save!).and_raise(EveOnline::Exceptions::InternalServerError) }
 
       before { get :show }
