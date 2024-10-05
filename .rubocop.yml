@@ -287,10 +287,11 @@ Rails/SkipsModelValidations:
 FactoryBot/AssociationStyle:
   Enabled: false
 
-# Enable and fix later...
+# Deprecated. This cop will be removed in rubocop-capybara 3.0 release.
 Capybara/ClickLinkOrButtonStyle:
   Enabled: false
 
+# Enable and fix later...
 RSpec/NoExpectationExample:
   Enabled: false
 
