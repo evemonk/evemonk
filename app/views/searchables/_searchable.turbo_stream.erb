@@ -1,0 +1,18 @@
+<% if searchable.is_a?(Eve::Alliance) %>
+  <div class="card">
+    <div class="col-md-4">
+      <%= image_tag(searchable.icon_small,
+                    alt: searchable.name,
+                    class: "img-fluid rounded-start",
+                    size: "34x34",
+                    loading: "lazy") %>
+
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title"><%= searchable.to_combobox_display %></h5>
+      </div>
+    </div>
+  </div>
+  <%#= searchable.to_combobox_display %>
+<% end %>
