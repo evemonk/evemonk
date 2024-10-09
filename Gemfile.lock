@@ -570,15 +570,14 @@ GEM
       rspec-mocks (~> 3.13)
       rspec-support (~> 3.13)
     rspec-support (3.13.1)
-    rubocop (1.65.1)
+    rubocop (1.66.1)
       json (~> 2.3)
       language_server-protocol (>= 3.17.0)
       parallel (~> 1.10)
       parser (>= 3.3.0.2)
       rainbow (>= 2.2.2, < 4.0)
       regexp_parser (>= 2.4, < 3.0)
-      rexml (>= 3.2.5, < 4.0)
-      rubocop-ast (>= 1.31.1, < 2.0)
+      rubocop-ast (>= 1.32.2, < 2.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 2.4.0, < 3.0)
     rubocop-ast (1.32.3)
@@ -688,12 +687,12 @@ GEM
       net-sftp (>= 2.1.2)
       net-ssh (>= 2.8.0)
       ostruct
-    standard (1.40.1)
+    standard (1.41.0)
       language_server-protocol (~> 3.17.0.2)
       lint_roller (~> 1.0)
-      rubocop (~> 1.65.0)
+      rubocop (~> 1.66.0)
       standard-custom (~> 1.0.0)
-      standard-performance (~> 1.4)
+      standard-performance (~> 1.5)
     standard-custom (1.0.2)
       lint_roller (~> 1.0)
       rubocop (~> 1.50)
@@ -855,7 +854,7 @@ DEPENDENCIES
   sql_tracker
   squasher
   sshkit
-  standard (= 1.40.1)
+  standard (= 1.41.0)
   stimulus-rails
   super_diff
   thruster
@@ -1079,7 +1078,7 @@ CHECKSUMS
   rspec-mocks (3.13.2) sha256=2327335def0e1665325a9b617e3af9ae20272741d80ac550336309a7c59abdef
   rspec-rails (7.0.1) sha256=ad2b2cb6dabca072260e21b188059645bac10659466c02a674f9ad5fd97b92f9
   rspec-support (3.13.1) sha256=48877d4f15b772b7538f3693c22225f2eda490ba65a0515c4e7cf6f2f17de70f
-  rubocop (1.65.1) sha256=3a239b71fcfdeb32c654f4b48c2e6aeb4f77b128e348fa9442184f207e70718d
+  rubocop (1.66.1) sha256=0679c263b1164fd003b8590ae83b3e9e9bf72282d411755f227f1d6268ee5ee7
   rubocop-ast (1.32.3) sha256=40201e861c73a3c2d59428c7627828ef81fb2f8a306bc4a1c1801452afe3fe0f
   rubocop-capybara (2.21.0) sha256=5d264efdd8b6c7081a3d4889decf1451a1cfaaec204d81534e236bc825b280ab
   rubocop-disable_syntax (0.1.1) sha256=fba0b24edbd3de049ccaac8473c18fed308b5bd991e389a3368965f6cb88edbb
@@ -1121,7 +1120,7 @@ CHECKSUMS
   sql_tracker (1.3.2) sha256=17c8534efcdc09ddd8145ddcbaaa3fc2852fb8f908842ae88db963e54604639d
   squasher (0.8.0) sha256=075f406a369d7fdcdd277a981bdcefcf4005a83ae89ef2f4aaa21c719f1438c6
   sshkit (1.23.1) sha256=888308f31bf85d926200e396f5bfc981892cd5f53513c0205449a7f85fd42ff0
-  standard (1.40.1) sha256=99a3bac2b5898abba1a6e5c08d47cd71b7e346cd8d982dea40fdee83ff5a0377
+  standard (1.41.0) sha256=202d099d9e2958d8c1fbf268303079e7b634b3686cab8fa590211dbc2ada5d16
   standard-custom (1.0.2) sha256=424adc84179a074f1a2a309bb9cf7cd6bfdb2b6541f20c6bf9436c0ba22a652b
   standard-performance (1.5.0) sha256=0a97ecf30af7f1148cb71b668f2fcda6ea5fc0a64f48011ac653d1eceb9faf31
   stimulus-rails (1.3.4) sha256=765676ffa1f33af64ce026d26b48e8ffb2e0b94e0f50e9119e11d6107d67cb06
