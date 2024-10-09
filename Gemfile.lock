@@ -591,7 +591,7 @@ GEM
       rubocop (~> 1.61)
     rubocop-graphql (1.5.4)
       rubocop (>= 1.50, < 2)
-    rubocop-performance (1.21.1)
+    rubocop-performance (1.22.1)
       rubocop (>= 1.48.1, < 2.0)
       rubocop-ast (>= 1.31.1, < 2.0)
     rubocop-rails (2.26.2)
@@ -697,9 +697,9 @@ GEM
     standard-custom (1.0.2)
       lint_roller (~> 1.0)
       rubocop (~> 1.50)
-    standard-performance (1.4.0)
+    standard-performance (1.5.0)
       lint_roller (~> 1.1)
-      rubocop-performance (~> 1.21.0)
+      rubocop-performance (~> 1.22.0)
     stimulus-rails (1.3.4)
       railties (>= 6.0.0)
     stringio (3.1.1)
@@ -1085,7 +1085,7 @@ CHECKSUMS
   rubocop-disable_syntax (0.1.1) sha256=fba0b24edbd3de049ccaac8473c18fed308b5bd991e389a3368965f6cb88edbb
   rubocop-factory_bot (2.26.1) sha256=8de13cd4edcee5ca800f255188167ecef8dbfc3d1fae9f15734e9d2e755392aa
   rubocop-graphql (1.5.4) sha256=2d888d40b08577daf1e74ca4623be1e3058c1a93543d5a7220818f561a254192
-  rubocop-performance (1.21.1) sha256=5cf20002a544275ad6aa99abca4b945d2a2ed71be925c38fe83700360ed8734e
+  rubocop-performance (1.22.1) sha256=9ed9737af1ee90655654b483e0eac4e64702139e85d33335bf744b57a309a679
   rubocop-rails (2.26.2) sha256=f5561a09d6afd2f54316f3f0f6057338ca55b6c24a25ba6a938d3ed0fded84ad
   rubocop-rspec (3.1.0) sha256=1edcd4dbb4feebbb6e4d8b0d7e43147e8f4f69d317fa964ae9413f2124898bdb
   rubocop-rspec_rails (2.30.0) sha256=888112e83f9d7ef7ad2397e9d69a0b9614a4bae24f072c399804a180f80c4c46
@@ -1123,7 +1123,7 @@ CHECKSUMS
   sshkit (1.23.1) sha256=888308f31bf85d926200e396f5bfc981892cd5f53513c0205449a7f85fd42ff0
   standard (1.40.1) sha256=99a3bac2b5898abba1a6e5c08d47cd71b7e346cd8d982dea40fdee83ff5a0377
   standard-custom (1.0.2) sha256=424adc84179a074f1a2a309bb9cf7cd6bfdb2b6541f20c6bf9436c0ba22a652b
-  standard-performance (1.4.0) sha256=de9f72b65964826cd55db59e51916d969b19ca2c62b12727cbc763cf256fa194
+  standard-performance (1.5.0) sha256=0a97ecf30af7f1148cb71b668f2fcda6ea5fc0a64f48011ac653d1eceb9faf31
   stimulus-rails (1.3.4) sha256=765676ffa1f33af64ce026d26b48e8ffb2e0b94e0f50e9119e11d6107d67cb06
   stringio (3.1.1) sha256=53456e14175c594e0e8eb2206a1be33f3974d4fe21c131e628908b05c8c2ae1e
   super_diff (0.13.0) sha256=8529bc933da35caa0453bebcf934f7421b599dca56c01cbfb487f50f810e5694
