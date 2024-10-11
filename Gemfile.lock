@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/kucho/database_rewinder.git
+  revision: 6f49f6e7311c071daec11af59ffaa75975394c8c
+  branch: fix/rails-7-2-connection-warning
+  specs:
+    database_rewinder (1.0.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -148,7 +155,6 @@ GEM
     dartsass-rails (0.5.1)
       railties (>= 6.0.0)
       sass-embedded (~> 1.63)
-    database_rewinder (1.0.1)
     date (3.3.4)
     devise (4.9.4)
       bcrypt (~> 3.0)
@@ -751,7 +757,7 @@ DEPENDENCIES
   capybara (>= 3.26)
   connection_pool
   dartsass-rails
-  database_rewinder
+  database_rewinder!
   devise
   devise-i18n
   devise-two-factor (>= 5.0.0)
@@ -889,7 +895,7 @@ CHECKSUMS
   css_parser (1.19.0) sha256=0a8399b5398fc5f57c628219cf690ecd88340f5830948604243f3c0e23684377
   csv (3.3.0) sha256=0bbd1defdc31134abefed027a639b3723c2753862150f4c3ee61cab71b20d67d
   dartsass-rails (0.5.1) sha256=f19510fb1b29c76c1739a06954d615f1d20ad653b6fc668dd7c68542bb303a1a
-  database_rewinder (1.0.1) sha256=7a17c3f8e92938846831af2ee496aed7cca593c81b0fbc2a8d77d8028fd0c28d
+  database_rewinder (1.0.1)
   date (3.3.4) sha256=971f2cb66b945bcbea4ddd9c7908c9400b31a71bc316833cb42fa584b59d3291
   devise (4.9.4) sha256=920042fe5e704c548aa4eb65ebdd65980b83ffae67feb32c697206bfd975a7f8
   devise-i18n (1.12.1) sha256=b0d789b5773d761436409232bbffeb09bd0cb60340620b94602f90bcf1f1377f
