@@ -57,12 +57,7 @@ en:
           successful: "Character &laquo;%{name}&raquo; successful added."
   welcome:
     index:
-      alliances_html: "<u>A</u>lliances"
       corporations_html: "<u>C</u>orporations"
-  alliances:
-    top:
-      index:
-        alliances_html: "<u>A</u>lliances"
   corporations:
     top:
       index:
