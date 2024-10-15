@@ -19,8 +19,8 @@ RSpec.describe TopAlliancesComponent, type: :component do
         build(:eve_alliance,
               id: 99_005_338,
               name: "Pandemic Horde",
-              corporations_count: 12_345,
-              characters_count: 12_345)
+              corporations_count: 1_001,
+              characters_count: 2_002)
       ]
     end
 
@@ -28,8 +28,12 @@ RSpec.describe TopAlliancesComponent, type: :component do
 
     before { render_inline(subject) }
 
-    specify { expect(page).not_to have_text("Loading...") }
+    specify { expect(page).to have_no_text("Loading...") }
 
     specify { expect(page).to have_link("Pandemic Horde", href: "/universe/alliances/99005338") }
+
+    specify { expect(page).to have_text("1 001") }
+
+    specify { expect(page).to have_text("2 002") }
   end
 end
