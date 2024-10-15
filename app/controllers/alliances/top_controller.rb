@@ -7,7 +7,7 @@ module Alliances
     def index
       alliances = ::Eve::Alliance.order(characters_count: :desc).limit(20)
 
-      render TopAlliancesComponent.new(alliances: alliances), layout: false
+      render TopAlliancesComponent.new(alliances), layout: false
     end
   end
 end
