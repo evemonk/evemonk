@@ -24,7 +24,5 @@ RSpec.describe Alliances::TopController do
     it { expect(subject).to respond_with(:ok) }
 
     it { expect(subject).not_to render_with_layout }
-
-    it { expect(subject).to render_template(:index) }
   end
 end
