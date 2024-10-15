@@ -176,10 +176,6 @@ GEM
       zxcvbn (~> 0.1.7)
     diff-lcs (1.5.1)
     docile (1.4.1)
-    dotenv (3.1.4)
-    dotenv-rails (3.1.4)
-      dotenv (= 3.1.4)
-      railties (>= 6.1)
     down (5.4.2)
       addressable (~> 2.8)
     drb (2.2.1)
@@ -762,7 +758,6 @@ DEPENDENCIES
   devise-i18n
   devise-two-factor (>= 5.0.0)
   devise_zxcvbn
-  dotenv-rails
   down
   erb_lint
   eve_online
@@ -903,8 +898,6 @@ CHECKSUMS
   devise_zxcvbn (6.0.0) sha256=92b45f0b50657f17d9472dfb72b4414482f59942a0cbdd8c4346e054d77ee3ee
   diff-lcs (1.5.1) sha256=273223dfb40685548436d32b4733aa67351769c7dea621da7d9dd4813e63ddfe
   docile (1.4.1) sha256=96159be799bfa73cdb721b840e9802126e4e03dfc26863db73647204c727f21e
-  dotenv (3.1.4) sha256=6dc502e718ea0d3542673345da05c7a69039840898e251757adb3405d2b35629
-  dotenv-rails (3.1.4) sha256=a7d75f6ab3cc7f1b28e7deb0462efb155878e4e87ce3cc6e42ce35bea61c6fe4
   down (5.4.2) sha256=516e5e01e7a96214a7e2cd155aac6f700593038ae6c857c0f4a05413b1c58acf
   drb (2.2.1) sha256=e9d472bf785f558b96b25358bae115646da0dbfd45107ad858b0bc0d935cb340
   erb_lint (0.7.0) sha256=718e727f62d98580c7d0ef6d786cf58592eafb1b7328caaa9dae88169fd6c2ee
