@@ -17,10 +17,10 @@ RSpec.describe TopAlliancesComponent, type: :component do
     let(:alliances) do
       [
         build(:eve_alliance,
-              id: 99_005_338,
-              name: "Pandemic Horde",
-              corporations_count: 1_001,
-              characters_count: 2_002)
+          id: 99_005_338,
+          name: "Pandemic Horde",
+          corporations_count: 1_001,
+          characters_count: 2_002)
       ]
     end
 
