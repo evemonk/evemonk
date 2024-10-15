@@ -5,9 +5,9 @@ module Alliances
     skip_before_action :authenticate_user!
 
     def index
-      @alliances = ::Eve::Alliance.order(characters_count: :desc).limit(20)
+      alliances = ::Eve::Alliance.order(characters_count: :desc).limit(20)
 
-      render layout: false
+      render TopAlliancesComponent.new(alliances: alliances), layout: false
     end
   end
 end
