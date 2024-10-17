@@ -673,7 +673,7 @@ GEM
       net-sftp (>= 2.1.2)
       net-ssh (>= 2.8.0)
       ostruct
-    standard (1.41.0)
+    standard (1.41.1)
       language_server-protocol (~> 3.17.0.2)
       lint_roller (~> 1.0)
       rubocop (~> 1.66.0)
@@ -838,7 +838,7 @@ DEPENDENCIES
   sprockets-rails
   squasher
   sshkit
-  standard (= 1.41.0)
+  standard (= 1.41.1)
   stimulus-rails
   super_diff
   thruster
@@ -1098,7 +1098,7 @@ CHECKSUMS
   sprockets-rails (3.5.2) sha256=a9e88e6ce9f8c912d349aa5401509165ec42326baf9e942a85de4b76dbc4119e
   squasher (0.8.0) sha256=075f406a369d7fdcdd277a981bdcefcf4005a83ae89ef2f4aaa21c719f1438c6
   sshkit (1.23.2) sha256=76d7088fddeaf3ac37bad20e7121f7352367cae6bb0cdbc7d7354efc714d213b
-  standard (1.41.0) sha256=202d099d9e2958d8c1fbf268303079e7b634b3686cab8fa590211dbc2ada5d16
+  standard (1.41.1) sha256=ac244a770e1ede2630ebb501877cb2089cb626a837bd80e7487ed8f21099e12b
   standard-custom (1.0.2) sha256=424adc84179a074f1a2a309bb9cf7cd6bfdb2b6541f20c6bf9436c0ba22a652b
   standard-performance (1.5.0) sha256=0a97ecf30af7f1148cb71b668f2fcda6ea5fc0a64f48011ac653d1eceb9faf31
   stimulus-rails (1.3.4) sha256=765676ffa1f33af64ce026d26b48e8ffb2e0b94e0f50e9119e11d6107d67cb06
