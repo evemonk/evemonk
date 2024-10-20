@@ -30,4 +30,4 @@ jobs:
           rubygems: latest
           bundler: latest
           bundler-cache: true
-      - run: bin/erblint --lint-all
+      - run: bin/erb_lint --lint-all
