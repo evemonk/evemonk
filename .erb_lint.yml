@@ -13,6 +13,6 @@ linters:
       require: standard
       inherit_gem:
         standard: config/base.yml
-      inherit_from: .erb-lint_rubocop.yml
+      inherit_from: .erb_lint_rubocop.yml
       AllCops:
         DisabledByDefault: true
