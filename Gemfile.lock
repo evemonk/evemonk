@@ -418,7 +418,7 @@ GEM
       hashie (>= 3.4.6)
       rack (>= 2.2.3)
       rack-protection
-    omniauth-eve_online-sso (0.6.0)
+    omniauth-eve_online-sso (0.7.0)
       jwt
       omniauth-oauth2
     omniauth-oauth2 (1.8.0)
@@ -999,7 +999,7 @@ CHECKSUMS
   oauth2 (2.0.9) sha256=b21f9defcf52dc1610e0dfab4c868342173dcd707fd15c777d9f4f04e153f7fb
   octokit (9.2.0) sha256=4fa47ff35ce654127edf2c836ab9269bcc8829f5542dc1e86871f697ce7f4316
   omniauth (2.1.2) sha256=def03277298b8f8a5d3ff16cdb2eb5edb9bffed60ee7dda24cc0c89b3ae6a0ce
-  omniauth-eve_online-sso (0.6.0) sha256=b727da92c9bee50ec456307f5ede5ed86906ccb73725b6b6908f5a97c05f733b
+  omniauth-eve_online-sso (0.7.0) sha256=c4b7ac924234870bddfc05b1d6400107044ec278adab8a043c4a4433ad2afbb6
   omniauth-oauth2 (1.8.0) sha256=b2f8e9559cc7e2d4efba57607691d6d2b634b879fc5b5b6ccfefa3da85089e78
   omniauth-rails_csrf_protection (1.0.2) sha256=1170fd672aff092b9b7ebebc1453559f073ed001e3ce62a1df616e32f8dc5fe0
   optimist (3.1.0) sha256=81886f53ee8919f330aa30076d320d88eef9bc85aae2275376b4afb007c69260
