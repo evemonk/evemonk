@@ -498,7 +498,7 @@ GEM
     rails-html-sanitizer (1.6.0)
       loofah (~> 2.21)
       nokogiri (~> 1.14)
-    rails-i18n (7.0.9)
+    rails-i18n (7.0.10)
       i18n (>= 0.7, < 2)
       railties (>= 6.0.0, < 8)
     rails-settings-cached (2.9.5)
@@ -808,7 +808,7 @@ DEPENDENCIES
   rails (= 7.2.1.2)
   rails-controller-testing
   rails-html-sanitizer
-  rails-i18n (~> 7.0.9)
+  rails-i18n (~> 7.0.10)
   rails-settings-cached
   redis
   redis-client
@@ -1031,7 +1031,7 @@ CHECKSUMS
   rails-controller-testing (1.0.5) sha256=741448db59366073e86fc965ba403f881c636b79a2c39a48d0486f2607182e94
   rails-dom-testing (2.2.0) sha256=e515712e48df1f687a1d7c380fd7b07b8558faa26464474da64183a7426fa93b
   rails-html-sanitizer (1.6.0) sha256=86e9f19d2e6748890dcc2633c8945ca45baa08a1df9d8c215ce17b3b0afaa4de
-  rails-i18n (7.0.9) sha256=c184db80a7c7bf21c14e0e400fe9e27c4c20312f019aaff5b364a82858dc1369
+  rails-i18n (7.0.10) sha256=efae16e0ac28c0f42e98555c8db1327d69ab02058c8b535e0933cb106dd931ca
   rails-settings-cached (2.9.5) sha256=7549af5097bba5dd5464721ccbcd9b2a6fdaf98ca580e39a6bbca306de4ee1b3
   railties (7.2.1.2) sha256=8b6fc1700ee182fa4e1299cb89bdd61b1423d9a68f2d350679e1686abef058c5
   rainbow (3.1.1) sha256=039491aa3a89f42efa1d6dec2fc4e62ede96eb6acd95e52f1ad581182b79bc6a
