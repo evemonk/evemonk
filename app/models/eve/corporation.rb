@@ -64,7 +64,7 @@ module Eve
     end
 
     def formatted_member_count
-      number_with_delimiter(member_count, delimiter: ",")
+      number_with_delimiter(member_count, delimiter: " ")
     end
 
     def sanitized_description

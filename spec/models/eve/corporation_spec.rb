@@ -147,7 +147,7 @@ RSpec.describe Eve::Corporation do
           member_count: 111_222)
       end
 
-      specify { expect(subject.formatted_member_count).to eq("111,222") }
+      specify { expect(subject.formatted_member_count).to eq("111 222") }
     end
   end
 
