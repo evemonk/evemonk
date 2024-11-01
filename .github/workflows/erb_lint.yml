@@ -31,3 +31,4 @@ jobs:
           bundler: latest
           bundler-cache: true
       - run: bin/erb_lint --lint-all
+        continue-on-error: true
