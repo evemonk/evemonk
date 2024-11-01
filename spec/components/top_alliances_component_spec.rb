@@ -3,17 +3,23 @@
 require "rails_helper"
 
 RSpec.describe TopAlliancesComponent, type: :component do
+  let(:alliances) { Eve::Alliance.none }
+
+  subject { described_class.new(alliances: alliances, lazy: true) }
+
   it { expect(subject).to be_an(ApplicationComponent) }
 
-  context "when alliances is blank" do
-    subject { described_class.new }
+  context "when lazy is true" do
+    let(:alliances) { Eve::Alliance.none }
+
+    subject { described_class.new(alliances: alliances, lazy: true) }
 
     before { render_inline(subject) }
 
     specify { expect(page).to have_text("Loading...") }
   end
 
-  context "when alliances is present" do
+  context "when lazy is false" do
     let(:alliances) do
       [
         build(:eve_alliance,
@@ -24,7 +30,7 @@ RSpec.describe TopAlliancesComponent, type: :component do
       ]
     end
 
-    subject { described_class.new(alliances) }
+    subject { described_class.new(alliances: alliances, lazy: false) }
 
     before { render_inline(subject) }
 
