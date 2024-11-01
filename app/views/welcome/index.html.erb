@@ -22,19 +22,5 @@
 <div class="row">
   <%= render TopAlliancesComponent.new(alliances: @alliances, lazy: true) %>
 
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
-    <%= turbo_frame_tag "corporations:top",
-                        src: corporations_top_index_path,
-                        loading: :lazy,
-                        target: "_top" do %>
-      <h4 class="text-center">
-        <%= link_to(t(".corporations_html"),
-                    universe_corporations_path,
-                    class: "text-decoration-none",
-                    "data-hotkey": "c") %>
-      </h4>
-
-      <h4 class="text-center">Loading...</h4>
-    <% end %>
-  </div>
+  <%= render TopCorporationsComponent.new(corporations: @corporations, lazy: true) %>
 </div>
