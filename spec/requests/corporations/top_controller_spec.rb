@@ -12,8 +12,6 @@ RSpec.describe Corporations::TopController do
 
     context "when user not logged in" do
       it "is expected to render template index with status ok" do
-        expect(response).to render_template(:index)
-
         expect(response).to have_http_status(:ok)
 
         expect(response.body).to include("<u>C</u>orporations")
@@ -26,8 +24,6 @@ RSpec.describe Corporations::TopController do
       before { sign_in(user) }
 
       it "is expected to render template index with status ok" do
-        expect(response).to render_template(:index)
-
         expect(response).to have_http_status(:ok)
 
         expect(response.body).to include("<u>C</u>orporations")

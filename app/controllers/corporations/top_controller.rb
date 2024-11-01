@@ -5,9 +5,9 @@ module Corporations
     skip_before_action :authenticate_user!
 
     def index
-      @corporations = ::Eve::Corporation.not_npc.order(member_count: :desc).limit(20)
+      corporations = ::Eve::Corporation.not_npc.order(member_count: :desc).limit(20)
 
-      render layout: false
+      render TopCorporationsComponent.new(corporations: corporations, lazy: false), layout: false
     end
   end
 end

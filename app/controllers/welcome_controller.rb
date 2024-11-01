@@ -5,5 +5,6 @@ class WelcomeController < ApplicationController
 
   def index
     @alliances = Eve::Alliance.none
+    @corporations = Eve::Corporation.none
   end
 end
