@@ -723,7 +723,7 @@ GEM
       addressable (>= 2.8.0)
       crack (>= 0.3.2)
       hashdiff (>= 0.4.0, < 2.0.0)
-    webrick (1.8.2)
+    webrick (1.9.0)
     websocket (1.2.11)
     websocket-driver (0.7.6)
       websocket-extensions (>= 0.1.0)
@@ -1125,7 +1125,7 @@ CHECKSUMS
   view_component (3.19.0) sha256=b44ed2e1df5bae692d6c680d5a32c8f635be207cc58ac37094390614044987f9
   warden (1.2.9) sha256=46684f885d35a69dbb883deabf85a222c8e427a957804719e143005df7a1efd0
   webmock (3.24.0) sha256=be01357f6fc773606337ca79f3ba332b7d52cbe5c27587671abc0572dbec7122
-  webrick (1.8.2) sha256=431746a349199546ff9dd272cae10849c865f938216e41c402a6489248f12f21
+  webrick (1.9.0) sha256=9ee50c57006489960b2a07544f68de6f23dfbee30e7b424167b5c14b72ace964
   websocket (1.2.11) sha256=b7e7a74e2410b5e85c25858b26b3322f29161e300935f70a0e0d3c35e0462737
   websocket-driver (0.7.6) sha256=f69400be7bc197879726ad8e6f5869a61823147372fd8928836a53c2c741d0db
   websocket-extensions (0.1.5) sha256=1c6ba63092cda343eb53fc657110c71c754c56484aad42578495227d717a8241
