@@ -2,19 +2,21 @@
 
 class TopAlliancesComponentPreview < Lookbook::Preview
   def loading
-    render TopAlliancesComponent.new
+    alliances = Eve::Alliance.none
+
+    render TopAlliancesComponent.new(alliances: alliances, lazy: true)
   end
 
   def loaded
-    render TopAlliancesComponent.new(
-      FactoryBot.build_list(
-        :eve_alliance,
-        20,
-        id: 99_005_338,
-        name: "Pandemic Horde",
-        corporations_count: 12_345,
-        characters_count: 12_345
-      )
+    alliances = FactoryBot.build_list(
+      :eve_alliance,
+      20,
+      id: 99_005_338,
+      name: "Pandemic Horde",
+      corporations_count: 12_345,
+      characters_count: 12_345
     )
+
+    render TopAlliancesComponent.new(alliances: alliances, lazy: false)
   end
 end
