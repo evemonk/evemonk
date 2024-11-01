@@ -4,5 +4,6 @@ class WelcomeController < ApplicationController
   skip_before_action :authenticate_user!
 
   def index
+    @alliances = Eve::Alliance.none
   end
 end

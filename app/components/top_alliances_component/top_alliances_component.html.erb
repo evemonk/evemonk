@@ -1,5 +1,5 @@
 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
-  <% if @alliances.blank? %>
+  <% if @lazy %>
     <%= turbo_frame_tag "alliances:top",
                         src: alliances_top_index_path,
                         loading: :lazy,

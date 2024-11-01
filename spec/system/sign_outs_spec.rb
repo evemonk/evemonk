@@ -8,8 +8,6 @@ RSpec.describe "Sign out features" do
   it "when user successfully sign in and sign out" do
     create(:user, email: "me@example.com", password: "eidii7EeooVe8ahk", locale: "english")
 
-    create_list(:eve_alliance, 10)
-
     visit root_path
 
     click_link "Log in"

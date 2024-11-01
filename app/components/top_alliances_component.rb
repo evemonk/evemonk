@@ -4,7 +4,9 @@ class TopAlliancesComponent < ApplicationComponent
   include Turbo::FramesHelper
 
   # @param alliances [ActiveRecord::Relation<Eve::Alliance>, Array<Eve::Alliance>]
-  def initialize(alliances = Eve::Alliance.none)
+  # @param lazy [Boolean]
+  def initialize(alliances:, lazy:)
     @alliances = alliances
+    @lazy = lazy
   end
 end
