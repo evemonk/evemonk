@@ -370,7 +370,7 @@ GEM
     msgpack (1.7.3)
     multi_xml (0.7.1)
       bigdecimal (~> 3.1)
-    net-http (0.4.1)
+    net-http (0.5.0)
       uri
     net-http-persistent (4.0.4)
       connection_pool (~> 2.2)
@@ -973,7 +973,7 @@ CHECKSUMS
   mobility (1.2.9) sha256=e0b88f1e0654e2d02e82d89140ed9d1882f3346bdf2ec1ddd707aef8a442bf4c
   msgpack (1.7.3) sha256=edb751dc3378020296365fef3197e5eeab8a7d9a571a25d046464d71b97d3012
   multi_xml (0.7.1) sha256=4fce100c68af588ff91b8ba90a0bb3f0466f06c909f21a32f4962059140ba61b
-  net-http (0.4.1) sha256=a96efc5ea18bcb9715e24dda4159d10f67ff0345c8a980d04630028055b2c282
+  net-http (0.5.0) sha256=ed7f88205afe03bf53142a4b81ded91f2c01522dcf03089cb6ad4acb476ce1da
   net-http-persistent (4.0.4) sha256=b62b7e528f72890f5cd67e7f687eeae55cf9f2cda22fd659494363da2fa7f4b2
   net-imap (0.5.0) sha256=b8281598f3c1860679a88de19287673c6835bed6cf0fe1710fb96a5ffcb94aa0
   net-pop (0.1.2) sha256=848b4e982013c15b2f0382792268763b748cce91c9e91e36b0f27ed26420dff3
