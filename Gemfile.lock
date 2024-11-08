@@ -193,7 +193,7 @@ GEM
     erubi (1.13.0)
     et-orbi (1.2.11)
       tzinfo
-    eve_online (0.45.0)
+    eve_online (0.46.0)
       activesupport (>= 7.1.0)
       faraday (>= 2.3.0)
     factory_bot (6.5.0)
@@ -908,7 +908,7 @@ CHECKSUMS
   erb_lint (0.7.0) sha256=718e727f62d98580c7d0ef6d786cf58592eafb1b7328caaa9dae88169fd6c2ee
   erubi (1.13.0) sha256=fca61b47daefd865d0fb50d168634f27ad40181867445badf6427c459c33cd62
   et-orbi (1.2.11) sha256=d26e868cc21db88280a9ec1a50aa3da5d267eb9b2037ba7b831d6c2731f5df64
-  eve_online (0.45.0) sha256=2fcdc73893ecadd3f7bda3e98d338e300c394018f3163afdfd8cbae49401f57c
+  eve_online (0.46.0) sha256=8912ad961c7134d8138d43373c14f945e5c6bc3706acb14574ec6f81d865ba6d
   factory_bot (6.5.0) sha256=6374b3a3593b8077ee9856d553d2e84d75b47b912cc24eafea4062f9363d2261
   factory_bot_rails (6.4.4) sha256=139e17caa2c50f098fddf5e5e1f29e8067352024e91ca1186d018b36589e5c88
   faker (3.5.1) sha256=1ad1fbea279d882f486059c23fe3ddb816ccd1d7052c05a45014b4450d859bfc
