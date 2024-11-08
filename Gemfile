@@ -71,6 +71,8 @@ gem "prosopite"
 gem "sshkit", require: false
 gem "uri", ">= 0.12.2"
 
+gem "airbrake", "~> 13.0"
+
 group :production do
   gem "rack-timeout"
 end

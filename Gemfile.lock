@@ -91,6 +91,10 @@ GEM
       kaminari (~> 1.2.2)
       sassc-rails (~> 2.1)
       selectize-rails (~> 0.6)
+    airbrake (13.0.4)
+      airbrake-ruby (~> 6.0)
+    airbrake-ruby (6.2.2)
+      rbtree3 (~> 0.6)
     ancestry (4.3.3)
       activerecord (>= 5.2.6)
     ast (2.4.2)
@@ -511,6 +515,7 @@ GEM
       zeitwerk (~> 2.6)
     rainbow (3.1.1)
     rake (13.2.1)
+    rbtree3 (0.7.1)
     rdoc (6.7.0)
       psych (>= 4.0.0)
     redcarpet (3.6.0)
@@ -741,6 +746,7 @@ PLATFORMS
 DEPENDENCIES
   active_record_doctor
   administrate
+  airbrake (~> 13.0)
   ancestry
   aws-sdk-s3
   better_html
@@ -858,6 +864,8 @@ CHECKSUMS
   activesupport (7.2.2) sha256=436360924cf758dfa9d60ab22a8afe6da8babf6f1286d4087f0a9c576bf8328a
   addressable (2.8.7) sha256=462986537cf3735ab5f3c0f557f14155d778f4b43ea4f485a9deb9c8f7c58232
   administrate (0.20.1) sha256=4ba271003c446e486fe4e67d2173eb4ee6118ed0fba5972be0e8ea757f7b67d5
+  airbrake (13.0.4) sha256=5ccb0cd49fbdae8ddc461351f51636cc0f770f5b3be763ca016d558a22ba4103
+  airbrake-ruby (6.2.2) sha256=293e34fb36e763e1b6d67ab584cce7c5b6fe9eea1a70c26d8c13c0f5d7de2fbc
   ancestry (4.3.3) sha256=af3f6bcf405c219af02eec5b9c8206e68cba8d7976fe5269559ef0986f5e7ca0
   ast (2.4.2) sha256=1e280232e6a33754cde542bc5ef85520b74db2aac73ec14acef453784447cc12
   attr_extras (7.1.0) sha256=d96fc9a9dd5d85ba2d37762440a816f840093959ae26bb90da994c2d9f1fc827
@@ -1030,6 +1038,7 @@ CHECKSUMS
   railties (7.2.2) sha256=e8fd3dd1f0e1ff7f6f3d8e5305b0a8476a35cd840d7031f467e1a7d08efbf57c
   rainbow (3.1.1) sha256=039491aa3a89f42efa1d6dec2fc4e62ede96eb6acd95e52f1ad581182b79bc6a
   rake (13.2.1) sha256=46cb38dae65d7d74b6020a4ac9d48afed8eb8149c040eccf0523bec91907059d
+  rbtree3 (0.7.1) sha256=ab60ead728a5491b70df4f4065e180b18dbab5319f817ce1dbf5dd906f26d8ba
   rdoc (6.7.0) sha256=b17d5f0f57b0853d7b880d4360a32c7caf8dbb81f8503a36426df809e617f379
   redcarpet (3.6.0) sha256=8ad1889c0355ff4c47174af14edd06d62f45a326da1da6e8a121d59bdcd2e9e9
   redis (5.3.0) sha256=6bf810c5ae889187f0c45f77db503310980310afa57cf1640d57f419ccda72b1
