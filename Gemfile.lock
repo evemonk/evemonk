@@ -844,7 +844,6 @@ DEPENDENCIES
   thruster
   turbo-rails
   tzinfo-data
-  uri (>= 0.12.2)
   vcr
   view_component
   webmock
