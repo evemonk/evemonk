@@ -12,8 +12,8 @@ RSpec.describe CharacterAssetsJob do
 
     let(:page) { double }
 
-    context "when character_assets_job enabled" do
-      before { Flipper.enable(:character_assets_job) }
+    context "when jobs character assets enabled" do
+      before { Rails.configuration.evemonk.jobs[:character][:assets] = true }
 
       before do
         #
@@ -29,8 +29,8 @@ RSpec.describe CharacterAssetsJob do
       specify { expect { subject.perform(id, page) }.not_to raise_error }
     end
 
-    context "when character_assets_job disabled" do
-      before { Flipper.disable(:character_assets_job) }
+    context "when jobs character assets disabled" do
+      before { Rails.configuration.evemonk.jobs[:character][:assets] = false }
 
       before { expect(CharacterAssetsImporter).not_to receive(:new) }
 

@@ -9,6 +9,7 @@ test:
   jobs:
     character:
       info: true
+      assets: true
       wallet_job: true
 
 development:
@@ -20,6 +21,7 @@ development:
   jobs:
     character:
       info: true
+      assets: true
       wallet_job: true
 
 production:
@@ -31,4 +33,5 @@ production:
   jobs:
     character:
       info: true
+      assets: true
       wallet_job: true

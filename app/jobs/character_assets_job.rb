@@ -13,7 +13,7 @@ class CharacterAssetsJob < ApplicationJob
   discard_on CharacterInvalidToken
 
   def perform(id, page = 1)
-    if Flipper.enabled?(:character_assets_job)
+    if Rails.configuration.evemonk.jobs[:character][:assets]
       CharacterAssetsImporter.new(id, page).import
     end
   end
