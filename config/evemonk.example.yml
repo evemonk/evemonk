@@ -16,6 +16,7 @@ test:
       server_status: true
       update_alliance: true
       update_alliances: true
+      local_alliances: true
 
 development:
   eve_online_sso:
@@ -33,6 +34,7 @@ development:
       server_status: true
       update_alliance: true
       update_alliances: true
+      local_alliances: true
 
 production:
   eve_online_sso:
@@ -50,3 +52,4 @@ production:
       server_status: true
       update_alliance: true
       update_alliances: true
+      local_alliances: true
