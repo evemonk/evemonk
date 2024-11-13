@@ -809,7 +809,7 @@ DEPENDENCIES
   rails (= 7.2.2)
   rails-controller-testing
   rails-html-sanitizer
-  rails-i18n (~> 7.0.10)
+  rails-i18n
   rails-settings-cached
   redis
   redis-client
