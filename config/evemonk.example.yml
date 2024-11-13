@@ -6,6 +6,9 @@ test:
     secret_key: ""
   slack:
     updates_webhook_channel_url: ""
+  jobs:
+    character:
+      wallet_job: true
 
 development:
   eve_online_sso:
@@ -13,6 +16,9 @@ development:
     secret_key: ""
   slack:
     updates_webhook_channel_url: ""
+  jobs:
+    character:
+      wallet_job: true
 
 production:
   eve_online_sso:
@@ -20,3 +26,6 @@ production:
     secret_key: ""
   slack:
     updates_webhook_channel_url: ""
+  jobs:
+    character:
+      wallet_job: true
