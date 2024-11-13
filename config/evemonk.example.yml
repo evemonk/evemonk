@@ -14,6 +14,7 @@ test:
       wallet_job: true
     eve:
       server_status: true
+      update_alliance: true
 
 development:
   eve_online_sso:
@@ -29,6 +30,7 @@ development:
       wallet_job: true
     eve:
       server_status: true
+      update_alliance: true
 
 production:
   eve_online_sso:
@@ -44,3 +46,4 @@ production:
       wallet_job: true
     eve:
       server_status: true
+      update_alliance: true
