@@ -4,7 +4,7 @@ class UpdateCharactersJob < ApplicationJob
   queue_as :important
 
   def perform
-    return unless Flipper.enabled?(:update_characters_job)
+    return if !Rails.configuration.evemonk.jobs[:update_characters]
 
     Character.with_valid_tokens.pluck(:character_id).sort.uniq.each do |character_id|
       UpdateCharacterInfoService.new(character_id).execute
