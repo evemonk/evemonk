@@ -8,8 +8,8 @@ RSpec.describe UpdateCharactersJob do
   it { expect(described_class.queue_name).to eq("important") }
 
   describe "#perform" do
-    context "when update_characters_job enabled" do
-      before { Flipper.enable(:update_characters_job) }
+    context "when jobs update_characters enabled" do
+      before { Rails.configuration.evemonk.jobs[:update_characters] = true }
 
       let(:character_id) { double }
 
@@ -62,8 +62,8 @@ RSpec.describe UpdateCharactersJob do
       specify { expect { subject.perform }.not_to raise_error }
     end
 
-    context "when update_characters_job disabled" do
-      before { Flipper.disable(:update_characters_job) }
+    context "when jobs update_characters disabled" do
+      before { Rails.configuration.evemonk.jobs[:update_characters] = false }
 
       before { expect(Character).not_to receive(:with_valid_tokens) }
 

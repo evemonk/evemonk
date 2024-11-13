@@ -10,8 +10,8 @@ RSpec.describe CharacterWalletJob do
   describe "#perform" do
     let(:character_id) { double }
 
-    context "when character_wallet_job enabled" do
-      before { Flipper.enable(:character_wallet_job) }
+    context "when jobs character wallet_job enabled" do
+      before { Rails.configuration.evemonk.jobs[:character][:wallet_job] = true }
 
       before do
         #
@@ -27,8 +27,8 @@ RSpec.describe CharacterWalletJob do
       specify { expect { subject.perform(character_id) }.not_to raise_error }
     end
 
-    context "when character_wallet_job disabled" do
-      before { Flipper.disable(:character_wallet_job) }
+    context "when jobs character wallet_job disabled" do
+      before { Rails.configuration.evemonk.jobs[:character][:wallet_job] = false }
 
       before { expect(CharacterWalletImporter).not_to receive(:new) }
 

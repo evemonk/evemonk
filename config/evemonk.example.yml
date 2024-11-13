@@ -6,6 +6,22 @@ test:
     secret_key: ""
   slack:
     updates_webhook_channel_url: ""
+  jobs:
+    character:
+      info: true
+      assets: true
+      standings: true
+      wallet_job: true
+    eve:
+      server_status: true
+      update_alliance: true
+      update_alliances: true
+      local_alliances: true
+      update_alliance_logo: true
+      update_alliance_corporations: true
+      update_alliances_corporations: true
+    update_characters: true
+    import_missing: true
 
 development:
   eve_online_sso:
@@ -13,6 +29,22 @@ development:
     secret_key: ""
   slack:
     updates_webhook_channel_url: ""
+  jobs:
+    character:
+      info: true
+      assets: true
+      standings: true
+      wallet_job: true
+    eve:
+      server_status: true
+      update_alliance: true
+      update_alliances: true
+      local_alliances: true
+      update_alliance_logo: true
+      update_alliance_corporations: true
+      update_alliances_corporations: true
+    update_characters: true
+    import_missing: true
 
 production:
   eve_online_sso:
@@ -20,3 +52,19 @@ production:
     secret_key: ""
   slack:
     updates_webhook_channel_url: ""
+  jobs:
+    character:
+      info: true
+      assets: true
+      standings: true
+      wallet_job: true
+    eve:
+      server_status: true
+      update_alliance: true
+      update_alliances: true
+      local_alliances: true
+      update_alliance_logo: true
+      update_alliance_corporations: true
+      update_alliances_corporations: true
+    update_characters: true
+    import_missing: true

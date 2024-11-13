@@ -4,7 +4,7 @@ class ImportMissingJob < ApplicationJob
   queue_as :default
 
   def perform
-    if Flipper.enabled?(:import_missing_job)
+    if Rails.configuration.evemonk.jobs[:import_missing]
       ImportMissing::Everything.new.import
     end
   end

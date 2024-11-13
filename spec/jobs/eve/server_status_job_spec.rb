@@ -12,8 +12,8 @@ RSpec.describe Eve::ServerStatusJob do
   end
 
   describe "#perform" do
-    context "when eve_server_status_job enabled" do
-      before { Flipper.enable(:eve_server_status_job) }
+    context "when jobs eve server_status enabled" do
+      before { Rails.configuration.evemonk.jobs[:eve][:server_status] = true }
 
       before do
         #
@@ -29,8 +29,8 @@ RSpec.describe Eve::ServerStatusJob do
       specify { expect { subject.perform }.not_to raise_error }
     end
 
-    context "when eve_server_status_job disabled" do
-      before { Flipper.disable(:eve_server_status_job) }
+    context "when jobs eve server_status disabled" do
+      before { Rails.configuration.evemonk.jobs[:eve][:server_status] = false }
 
       before { expect(Eve::ServerStatusImporter).not_to receive(:new) }
 
