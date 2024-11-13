@@ -8,6 +8,7 @@ test:
     updates_webhook_channel_url: ""
   jobs:
     character:
+      info: true
       wallet_job: true
 
 development:
@@ -18,6 +19,7 @@ development:
     updates_webhook_channel_url: ""
   jobs:
     character:
+      info: true
       wallet_job: true
 
 production:
@@ -28,4 +30,5 @@ production:
     updates_webhook_channel_url: ""
   jobs:
     character:
+      info: true
       wallet_job: true
