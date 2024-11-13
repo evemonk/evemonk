@@ -29,6 +29,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootswatch@5.2.3/dist/darkly/bootstrap.css" rel="stylesheet">
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= combobox_style_tag "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
 
     <link href="https://fonts.googleapis.com/css?family=Material+Icons&display=block" rel="stylesheet">
@@ -83,9 +84,17 @@
                 </ul>
               </li>
             </ul>
-            <form role="search">
-              <input class="form-control" type="search" placeholder="Search" aria-label="Search" autocomplete="off">
-            </form>
+
+            <%= form_with(url: search_url, html: {role: "search"}) do |f| %>
+<!--              <input class="form-control" type="search" placeholder="Search" aria-label="Search" autocomplete="off">-->
+              <%#= f.combobox :search, searchables_path, name_when_new: :search, mobile_at: "0px" %>
+              <%#= f.combobox :alliance, Eve::Alliance.all %>
+              <%= f.combobox :alliance, searchables_path, id: "alliance-box" %>
+            <% end %>
+
+<!--            <form role="search">-->
+<!--              <input class="form-control" type="search" placeholder="Search" aria-label="Search" autocomplete="off">-->
+<!--            </form>-->
           </div>
         </div>
       </nav>
