@@ -8,7 +8,7 @@ module Eve
       Down::ConnectionError
 
     def perform(id)
-      if Flipper.enabled?(:eve_update_alliance_logo_job)
+      if Rails.configuration.evemonk.jobs[:eve][:update_alliance_logo]
         Eve::AllianceLogoImporter.new(id).import
       end
     end
