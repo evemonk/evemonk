@@ -13,7 +13,7 @@ class CharacterStandingsJob < ApplicationJob
   discard_on CharacterInvalidToken
 
   def perform(character_id)
-    if Flipper.enabled?(:character_standings_job)
+    if Rails.configuration.evemonk.jobs[:character][:standings]
       CharacterStandingsImporter.new(character_id).import
     end
   end

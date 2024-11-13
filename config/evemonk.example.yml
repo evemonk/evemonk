@@ -10,6 +10,7 @@ test:
     character:
       info: true
       assets: true
+      standings: true
       wallet_job: true
 
 development:
@@ -22,6 +23,7 @@ development:
     character:
       info: true
       assets: true
+      standings: true
       wallet_job: true
 
 production:
@@ -34,4 +36,5 @@ production:
     character:
       info: true
       assets: true
+      standings: true
       wallet_job: true

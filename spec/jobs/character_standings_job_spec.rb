@@ -10,8 +10,8 @@ RSpec.describe CharacterStandingsJob do
   describe "#perform" do
     let(:character_id) { double }
 
-    context "when character_standings_job enabled" do
-      before { Flipper.enable(:character_standings_job) }
+    context "when jobs character standings enabled" do
+      before { Rails.configuration.evemonk.jobs[:character][:standings] = true }
 
       before do
         #
@@ -27,8 +27,8 @@ RSpec.describe CharacterStandingsJob do
       specify { expect { subject.perform(character_id) }.not_to raise_error }
     end
 
-    context "when character_standings_job disabled" do
-      before { Flipper.disable(:character_job) }
+    context "when jobs character standings disabled" do
+      before { Rails.configuration.evemonk.jobs[:character][:standings] = false }
 
       before { expect(CharacterStandingsImporter).not_to receive(:new) }
 
