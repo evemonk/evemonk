@@ -679,11 +679,11 @@ GEM
       diff-lcs
       patience_diff
     thor (1.3.2)
-    thruster (0.1.8)
-    thruster (0.1.8-aarch64-linux)
-    thruster (0.1.8-arm64-darwin)
-    thruster (0.1.8-x86_64-darwin)
-    thruster (0.1.8-x86_64-linux)
+    thruster (0.1.9)
+    thruster (0.1.9-aarch64-linux)
+    thruster (0.1.9-arm64-darwin)
+    thruster (0.1.9-x86_64-darwin)
+    thruster (0.1.9-x86_64-linux)
     tilt (2.4.0)
     timeout (0.4.2)
     tomlrb (2.0.3)
@@ -1084,11 +1084,11 @@ CHECKSUMS
   stringio (3.1.2) sha256=204f1828f85cdb39d57cac4abc6dc44b04505a223f131587f2e20ae3729ba131
   super_diff (0.13.0) sha256=8529bc933da35caa0453bebcf934f7421b599dca56c01cbfb487f50f810e5694
   thor (1.3.2) sha256=eef0293b9e24158ccad7ab383ae83534b7ad4ed99c09f96f1a6b036550abbeda
-  thruster (0.1.8) sha256=af344f0955d16462c663fbf1658a4c49b134151f0b49d1fcb261d13302d181a0
-  thruster (0.1.8-aarch64-linux) sha256=42ca8fa5b635b21caac45602de99135b2b0b4bc4848210df4f86f05aea894039
-  thruster (0.1.8-arm64-darwin) sha256=348f6a4efb87fef0739e286de20ffd405d20fe7b85e7b385e9b1bbd00392e5b0
-  thruster (0.1.8-x86_64-darwin) sha256=52f3f451dcb98ad2a87556cd77de16fd90246dbfb7f1a80216176327d0a6e92c
-  thruster (0.1.8-x86_64-linux) sha256=0efdf4562b70dd357e0d2f24a1bfe6d1482590ad5f972c92328671bbc59c45b9
+  thruster (0.1.9) sha256=8ef3e143012ce2a3b7b6a876cc1878dff8b865f2e95a70561326eca92b0c7f01
+  thruster (0.1.9-aarch64-linux) sha256=8e8b53662f1701097b61fa3074ef12ee52da50c9ec68ba337a984a444f9f06eb
+  thruster (0.1.9-arm64-darwin) sha256=a5bb7e636df5e1a50ca5bd7e3301f9af5caff00d6b5479379d4ecb79e918bed6
+  thruster (0.1.9-x86_64-darwin) sha256=c9f081af2065b04cccba3f55fea8ac8ec79ee9488e08d9139e1bf6b94faa4ae6
+  thruster (0.1.9-x86_64-linux) sha256=86175171fff8c984861fb73591c32d294b5aad67e6b95a6575ffa6c2ab0a7f19
   tilt (2.4.0) sha256=df74f29a451daed26591a85e8e0cebb198892cb75b6573394303acda273fba4d
   timeout (0.4.2) sha256=8aca2d5ff98eb2f7a501c03f8c3622065932cc58bc58f725cd50a09e63b4cc19
   tomlrb (2.0.3) sha256=c2736acf24919f793334023a4ff396c0647d93fce702a73c9d348deaa815d4f7
