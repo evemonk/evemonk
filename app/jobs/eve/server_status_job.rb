@@ -7,7 +7,7 @@ module Eve
     sidekiq_options retry: false
 
     def perform
-      if Flipper.enabled?(:eve_server_status_job)
+      if Rails.configuration.evemonk.jobs[:eve][:server_status]
         Eve::ServerStatusImporter.new.import
       end
     end

@@ -12,6 +12,8 @@ test:
       assets: true
       standings: true
       wallet_job: true
+    eve:
+      server_status: true
 
 development:
   eve_online_sso:
@@ -25,6 +27,8 @@ development:
       assets: true
       standings: true
       wallet_job: true
+    eve:
+      server_status: true
 
 production:
   eve_online_sso:
@@ -38,3 +42,5 @@ production:
       assets: true
       standings: true
       wallet_job: true
+    eve:
+      server_status: true
