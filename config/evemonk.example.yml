@@ -19,6 +19,7 @@ test:
       local_alliances: true
       update_alliance_logo: true
       update_alliance_corporations: true
+      update_alliances_corporations: true
 
 development:
   eve_online_sso:
@@ -39,6 +40,7 @@ development:
       local_alliances: true
       update_alliance_logo: true
       update_alliance_corporations: true
+      update_alliances_corporations: true
 
 production:
   eve_online_sso:
@@ -59,3 +61,4 @@ production:
       local_alliances: true
       update_alliance_logo: true
       update_alliance_corporations: true
+      update_alliances_corporations: true

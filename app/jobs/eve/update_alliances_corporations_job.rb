@@ -5,7 +5,7 @@ module Eve
     queue_as :default
 
     def perform
-      if Flipper.enabled?(:eve_update_alliances_corporations_job)
+      if Rails.configuration.evemonk.jobs[:eve][:update_alliances_corporations]
         Eve::AlliancesCorporationsImporter.new.import
       end
     end
