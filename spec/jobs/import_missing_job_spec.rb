@@ -8,8 +8,8 @@ RSpec.describe ImportMissingJob do
   it { expect(described_class.queue_name).to eq("default") }
 
   describe "#perform" do
-    context "when import_missing_job enabled" do
-      before { Flipper.enable(:import_missing_job) }
+    context "when jobs import_missing enabled" do
+      before { Rails.configuration.evemonk.jobs[:import_missing] = true }
 
       before do
         #
@@ -25,8 +25,8 @@ RSpec.describe ImportMissingJob do
       specify { expect { subject.perform }.not_to raise_error }
     end
 
-    context "when import_missing_job disabled" do
-      before { Flipper.disable(:import_missing_job) }
+    context "when jobs import_missing disabled" do
+      before { Rails.configuration.evemonk.jobs[:import_missing] = false }
 
       before { expect(ImportMissing::Everything).not_to receive(:new) }
 

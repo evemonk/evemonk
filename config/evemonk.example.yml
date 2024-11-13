@@ -21,6 +21,7 @@ test:
       update_alliance_corporations: true
       update_alliances_corporations: true
     update_characters: true
+    import_missing: true
 
 development:
   eve_online_sso:
@@ -43,6 +44,7 @@ development:
       update_alliance_corporations: true
       update_alliances_corporations: true
     update_characters: true
+    import_missing: true
 
 production:
   eve_online_sso:
@@ -65,3 +67,4 @@ production:
       update_alliance_corporations: true
       update_alliances_corporations: true
     update_characters: true
+    import_missing: true
