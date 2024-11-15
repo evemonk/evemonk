@@ -33,7 +33,7 @@ jobs:
 
     services:
       postgres:
-        image: "postgres:17.0"
+        image: "postgres:17.1"
         env:
           POSTGRES_HOST_AUTH_METHOD: "trust"
           POSTGRES_USER: "runner"
