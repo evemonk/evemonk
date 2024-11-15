@@ -586,16 +586,16 @@ GEM
     rubyzip (2.3.2)
     rufus-scheduler (3.9.2)
       fugit (~> 1.1, >= 1.11.1)
-    sass-embedded (1.80.7)
+    sass-embedded (1.81.0)
       google-protobuf (~> 4.28)
       rake (>= 13)
-    sass-embedded (1.80.7-aarch64-linux-gnu)
+    sass-embedded (1.81.0-aarch64-linux-gnu)
       google-protobuf (~> 4.28)
-    sass-embedded (1.80.7-arm64-darwin)
+    sass-embedded (1.81.0-arm64-darwin)
       google-protobuf (~> 4.28)
-    sass-embedded (1.80.7-x86_64-darwin)
+    sass-embedded (1.81.0-x86_64-darwin)
       google-protobuf (~> 4.28)
-    sass-embedded (1.80.7-x86_64-linux-gnu)
+    sass-embedded (1.81.0-x86_64-linux-gnu)
       google-protobuf (~> 4.28)
     sassc (2.4.0)
       ffi (~> 1.9)
@@ -1050,11 +1050,11 @@ CHECKSUMS
   ruby_parser (3.21.1) sha256=9d931abe5aec287d65280f811d3cf672564956ef1bd49f528ca48479984d6fec
   rubyzip (2.3.2) sha256=3f57e3935dc2255c414484fbf8d673b4909d8a6a57007ed754dde39342d2373f
   rufus-scheduler (3.9.2) sha256=55fa9e4db0ff69d7f38c804f17baba0c9bce5cba39984ae3c5cf6c039d1323b9
-  sass-embedded (1.80.7) sha256=839f46bf23551b8b1015db1ce53aeb37448db0539732a96953bc8413472e2eb8
-  sass-embedded (1.80.7-aarch64-linux-gnu) sha256=16482c729e9457d245e7a3f3d03e2341ddafa0b7a26e0c1068aca1651e0db5cb
-  sass-embedded (1.80.7-arm64-darwin) sha256=e1e99cc348d99832d7332e3445f93e4a642d17e840ec00e9d3a1b215233594a6
-  sass-embedded (1.80.7-x86_64-darwin) sha256=f740f173d0f04827bd8f43319fededcbe5efd21e7e44596af4ce0b2e82abfba1
-  sass-embedded (1.80.7-x86_64-linux-gnu) sha256=00cdeeb53a01eea154de3a1547734094b2ae726a1d2c651bd05d2fc005590770
+  sass-embedded (1.81.0) sha256=5ddd47f106d8fe8e29fbdc838e5a8c4367dbbf8c4164124861e212c8dc9c26b7
+  sass-embedded (1.81.0-aarch64-linux-gnu) sha256=9087759cf2f16d0a9263eb97a812dce9882ce79353cfb416f5721835ba2d8706
+  sass-embedded (1.81.0-arm64-darwin) sha256=85a852fb2fc1cc644ff193b25b96e2fec1196b9c9a687344d1927e3f39135ec7
+  sass-embedded (1.81.0-x86_64-darwin) sha256=fb5f26a6a9a43cfddda74510ce5dbc75c4e8e5b77e51346540d6750792bfa05c
+  sass-embedded (1.81.0-x86_64-linux-gnu) sha256=5e2c5ed82496eb4e217bf171300e8b66cb5a06394eeb1009bfa99ec271099ecf
   sassc (2.4.0) sha256=4c60a2b0a3b36685c83b80d5789401c2f678c1652e3288315a1551d811d9f83e
   sassc-rails (2.1.2) sha256=5f4fdf3881fc9bdc8e856ffbd9850d70a2878866feae8114aa45996179952db5
   sawyer (0.9.2) sha256=fa3a72d62a4525517b18857ddb78926aab3424de0129be6772a8e2ba240e7aca
