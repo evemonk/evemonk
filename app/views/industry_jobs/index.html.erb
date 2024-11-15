@@ -11,11 +11,7 @@
   </div>
 </div>
 
-<%= render partial: "characters/character_nav_bar",
-           locals: {
-             character: @character,
-             page: :industry_jobs
-           } %>
+<%= render CharacterNavBarComponent.new(character: @character, current_page: :industry_jobs) %>
 
 <hr>
 
