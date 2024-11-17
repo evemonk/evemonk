@@ -7,7 +7,12 @@ RSpec.describe CharacterCardComponent, type: :component do
 
   let(:eve_bloodline) { create(:eve_bloodline, name_en: "Brutor") }
 
-  let(:character) { create(:character, race: eve_race, bloodline: eve_bloodline) }
+  let(:character) do
+    create(:character,
+      gender: "male",
+      race: eve_race,
+      bloodline: eve_bloodline)
+  end
 
   subject { described_class.new(character) }
 
@@ -23,6 +28,8 @@ RSpec.describe CharacterCardComponent, type: :component do
 
     specify { expect(page).to have_content("Minmatar / Brutor") }
 
+    specify { expect(page).to have_content("Gender: male") }
+
     # specify { expect(page).to have_text("Loading...") }
     # specify { expect(page).to have_text("Loading...") }
     # specify { expect(page).to have_text("Loading...") }
@@ -35,6 +42,8 @@ RSpec.describe CharacterCardComponent, type: :component do
 
     before { render_inline(subject) }
 
-    specify { expect(page).not_to have_content("Minmatar / Brutor") }
+    specify { expect(page).to have_no_content("Minmatar / Brutor") }
+
+    specify { expect(page).to have_no_content("Gender: male") }
   end
 end
