@@ -13,6 +13,8 @@ RSpec.describe CharacterCardComponent, type: :component do
       total_sp: 90_657_889,
       unallocated_sp: 2_640_075,
       security_status: 3.83155339,
+      wallet: 3_378_103.44,
+      birthday: Time.zone.local(2010, 1, 15),
       race: eve_race,
       bloodline: eve_bloodline)
   end
@@ -38,6 +40,10 @@ RSpec.describe CharacterCardComponent, type: :component do
     specify { expect(page).to have_content("Unallocated SP: 2 640 075") }
 
     specify { expect(page).to have_content("Security status: 3.8") }
+
+    specify { expect(page).to have_content("Wallet: 3 378 103 ISK") }
+
+    specify { expect(page).to have_content("Born: 2010.01.15") }
   end
 
   context "when not full card" do
@@ -54,5 +60,9 @@ RSpec.describe CharacterCardComponent, type: :component do
     specify { expect(page).to have_content("Unallocated SP: 2 640 075") }
 
     specify { expect(page).to have_content("Security status: 3.8") }
+
+    specify { expect(page).to have_content("Wallet: 3 378 103 ISK") }
+
+    specify { expect(page).to have_no_content("Born: 2010.01.15") }
   end
 end

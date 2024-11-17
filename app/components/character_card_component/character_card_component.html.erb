@@ -25,42 +25,51 @@
                                    universe_corporation_path(@character.corporation)) %>
         </li>
       <% end %>
+
       <% if @character.alliance.present? %>
         <li class="list-group-item text-break">
           Alliance: <%= link_to(@character.alliance.name,
                                 universe_alliance_path(@character.alliance)) %>
         </li>
       <% end %>
+
       <% if @full %>
         <% if @character.race.present? && @character.bloodline.present? %>
           <li class="list-group-item text-break">
             <%= @character.race.name %> / <%= @character.bloodline.name %>
           </li>
         <% end %>
+
         <li class="list-group-item">
           Gender: <%= @character.gender %>
         </li>
       <% end %>
+
       <li class="list-group-item text-break">
         Total SP: <%= @character.full_sp_formatted %>
       </li>
+
       <% if @character.unallocated_sp && @character.unallocated_sp > 0 %>
         <li class="list-group-item text-break">
           Unallocated SP: <%= @character.unallocated_sp_formatted %>
         </li>
       <% end %>
+
       <li class="list-group-item text-break">
         Security status: <%= @character.rounded_security_status %>
       </li>
+
       <li class="list-group-item text-break">
         Wallet: <%= @character.wallet_formatted %> ISK
       </li>
+
       <% if @full %>
         <li class="list-group-item text-break">
           Born: <%= @character.birthday_formatted %>
         </li>
       <% end %>
     </ul>
+
     <p class="card-text text-center">
       <small class="text-muted">
         Last updated: <%= helpers.local_time_ago(@character.updated_at) %>
