@@ -13,6 +13,7 @@ RSpec.describe CharacterCardComponent, type: :component do
 
   let(:character) do
     create(:character,
+      name: "Johnn Dillinger",
       gender: "male",
       total_sp: 90_657_889,
       unallocated_sp: 2_640_075,
@@ -33,6 +34,8 @@ RSpec.describe CharacterCardComponent, type: :component do
     subject { described_class.new(character, full: true) }
 
     before { render_inline(subject) }
+
+    specify { expect(page).to have_content("Johnn Dillinger") }
 
     specify { expect(page).to have_content("Corporation: Freighting Solutions Inc.") }
 
@@ -57,6 +60,8 @@ RSpec.describe CharacterCardComponent, type: :component do
     subject { described_class.new(character, full: false) }
 
     before { render_inline(subject) }
+
+    specify { expect(page).to have_content("Johnn Dillinger") }
 
     specify { expect(page).to have_content("Corporation: Freighting Solutions Inc.") }
 
