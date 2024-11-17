@@ -12,13 +12,6 @@ class CharacterCardComponentPreview < Lookbook::Preview
   def full(id: "1")
     character = Character.find(id)
 
-    render CharacterCardComponent.new(character)
-  end
-
-  # @param id text
-  def small(id: "1")
-    character = Character.find(id)
-
-    render CharacterCardComponent.new(character)
+    render CharacterCardComponent.new(character, full: true)
   end
 end
