@@ -435,7 +435,7 @@ GEM
     pghero (3.6.1)
       activerecord (>= 6.1)
     prosopite (1.4.2)
-    pry (0.14.2)
+    pry (0.15.0)
       coderay (~> 1.1)
       method_source (~> 1.0)
     pry-rails (0.3.11)
@@ -992,7 +992,7 @@ CHECKSUMS
   pg_search (2.3.7) sha256=27868941844961e593526b835da20e48995e9b846515e91856084c5bd9ab4f35
   pghero (3.6.1) sha256=e6d4f6ec3979d4828dafcd1eaa4214e70279fe2502b9fe5bd632d8333aa79cd4
   prosopite (1.4.2) sha256=b2e422e2d9dbf3ce20130ded3252fe14adb3833555eacd451f5015d8c9177e79
-  pry (0.14.2) sha256=c4fe54efedaca1d351280b45b8849af363184696fcac1c72e0415f9bdac4334d
+  pry (0.15.0) sha256=91e7925ea58c88e671b058a3a939bb529016de5ec57084b000057b2a1fec1930
   pry-rails (0.3.11) sha256=a69e28e24a34d75d1f60bcf241192a54253f8f7ef8a62cba1e75750a9653593d
   psych (5.2.0) sha256=6603fe756bcaf14daa25bc17625f36c90931dcf70452ac1e8da19760dc310573
   public_suffix (6.0.1) sha256=61d44e1cab5cbbbe5b31068481cf16976dd0dc1b6b07bd95617ef8c5e3e00c6f
