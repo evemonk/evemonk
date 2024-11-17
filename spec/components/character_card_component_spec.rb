@@ -7,6 +7,10 @@ RSpec.describe CharacterCardComponent, type: :component do
 
   let(:eve_bloodline) { create(:eve_bloodline, name_en: "Brutor") }
 
+  let(:eve_alliance) { create(:eve_alliance, name: "The Dead Parrots") }
+
+  let(:eve_corporation) { create(:eve_corporation, name: "Freighting Solutions Inc.", alliance: eve_alliance) }
+
   let(:character) do
     create(:character,
       gender: "male",
@@ -16,7 +20,9 @@ RSpec.describe CharacterCardComponent, type: :component do
       wallet: 3_378_103.44,
       birthday: Time.zone.local(2010, 1, 15),
       race: eve_race,
-      bloodline: eve_bloodline)
+      bloodline: eve_bloodline,
+      corporation: eve_corporation,
+      alliance: eve_alliance)
   end
 
   subject { described_class.new(character) }
@@ -28,8 +34,9 @@ RSpec.describe CharacterCardComponent, type: :component do
 
     before { render_inline(subject) }
 
-    # TODO: Corporation
-    # TODO: Alliance
+    specify { expect(page).to have_content("Corporation: Freighting Solutions Inc.") }
+
+    specify { expect(page).to have_content("Alliance: The Dead Parrots") }
 
     specify { expect(page).to have_content("Minmatar / Brutor") }
 
@@ -50,6 +57,10 @@ RSpec.describe CharacterCardComponent, type: :component do
     subject { described_class.new(character, full: false) }
 
     before { render_inline(subject) }
+
+    specify { expect(page).to have_content("Corporation: Freighting Solutions Inc.") }
+
+    specify { expect(page).to have_content("Alliance: The Dead Parrots") }
 
     specify { expect(page).to have_no_content("Minmatar / Brutor") }
 
