@@ -37,13 +37,6 @@
             <%= @character.race.name %> / <%= @character.bloodline.name %>
           </li>
         <% end %>
-      <% end %>
-      <% if @character.faction.present? %>
-        <li class="list-group-item text-break">
-          Faction: <%= @character.faction.name %>
-        </li>
-      <% end %>
-      <% if @full %>
         <li class="list-group-item">
           Gender: <%= @character.gender %>
         </li>
