@@ -11,20 +11,12 @@
   </div>
 </div>
 
-<%= render partial: "characters/character_nav_bar",
-           locals: {
-             character: @character,
-             page: :employment_history
-           } %>
+<%= render CharacterNavBarComponent.new(@character, "employment_history") %>
 
 <hr class="text-dark">
 
 <div class="row">
-  <%= render partial: "characters/character_card_info",
-             locals: {
-               character: @character,
-               full: false
-             } %>
+  <%= render CharacterCardComponent.new(@character) %>
 
   <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
     <h4 class="text-center">Employment History (<%= @character_corporation_histories.size %>)</h4>

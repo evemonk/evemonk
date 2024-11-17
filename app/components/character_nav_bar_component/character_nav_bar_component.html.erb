@@ -1,0 +1,153 @@
+<ul class="nav nav-pills">
+  <li class="nav-item">
+    <% if @current_page == "sheet" %>
+      <%= link_to("Sheet", character_path(@character), class: "nav-link active") %>
+    <% else %>
+      <%= link_to("Sheet", character_path(@character), class: "nav-link") %>
+    <% end %>
+  </li>
+
+  <li class="nav-item">
+    <% if @current_page == "employment_history" %>
+      <%= link_to("Employment History", character_employment_histories_path(@character), class: "nav-link active") %>
+    <% else %>
+      <%= link_to("Employment History", character_employment_histories_path(@character), class: "nav-link") %>
+    <% end %>
+  </li>
+
+  <li class="nav-item">
+    <% if @current_page == "agents" %>
+      <%= link_to("Agents", character_agents_path(@character), class: "nav-link active") %>
+    <% else %>
+      <%= link_to("Agents", character_agents_path(@character), class: "nav-link") %>
+    <% end %>
+  </li>
+
+  <% if Setting.enabled_assets %>
+    <li class="nav-item">
+      <% if @current_page == "assets" %>
+        <%= link_to("Assets", character_assets_path(@character), class: "nav-link active") %>
+      <% else %>
+        <%= link_to("Assets", character_assets_path(@character), class: "nav-link") %>
+      <% end %>
+    </li>
+  <% end %>
+
+  <li class="nav-item">
+    <% if @current_page == "loyalty_points" %>
+      <%= link_to("Loyalty points", character_loyalty_points_path(@character), class: "nav-link active") %>
+    <% else %>
+      <%= link_to("Loyalty points", character_loyalty_points_path(@character), class: "nav-link") %>
+    <% end %>
+  </li>
+
+  <li class="nav-item">
+    <% if @current_page == "skills" %>
+      <%= link_to("Skills", character_skills_path(@character), class: "nav-link active") %>
+    <% else %>
+      <%= link_to("Skills", character_skills_path(@character), class: "nav-link") %>
+    <% end %>
+  </li>
+
+  <% if Setting.enabled_mails %>
+    <li class="nav-item">
+      <% if @current_page == "mail" %>
+        <%= link_to("Mail", character_mails_path(@character), class: "nav-link active") %>
+      <% else %>
+        <%= link_to("Mail", character_mails_path(@character), class: "nav-link") %>
+      <% end %>
+    </li>
+  <% end %>
+
+  <% if Setting.enabled_standings %>
+    <li class="nav-item">
+      <% if @current_page == "standings" %>
+        <%= link_to("Standings", character_standings_path(@character), class: "nav-link active") %>
+      <% else %>
+        <%= link_to("Standings", character_standings_path(@character), class: "nav-link") %>
+      <% end %>
+    </li>
+  <% end %>
+
+  <% if Setting.enabled_wallet_journal %>
+    <li class="nav-item">
+      <% if @current_page == "wallet_journal" %>
+        <%= link_to("Wallet journal", character_wallet_journals_path(@character), class: "nav-link active") %>
+      <% else %>
+        <%= link_to("Wallet journal", character_wallet_journals_path(@character), class: "nav-link") %>
+      <% end %>
+    </li>
+  <% end %>
+
+  <% if Setting.enabled_wallet_transactions %>
+    <li class="nav-item">
+      <% if @current_page == "wallet_transactions" %>
+        <%= link_to("Wallet transactions", nil, class: "nav-link active") %>
+      <% else %>
+        <%= link_to("Wallet transactions", nil, class: "nav-link") %>
+      <% end %>
+    </li>
+  <% end %>
+
+  <% if Setting.enabled_industry_jobs %>
+    <li class="nav-item">
+      <% if @current_page == "industry_jobs" %>
+        <%= link_to("Industry Jobs", character_industry_jobs_path(@character), class: "nav-link active") %>
+      <% else %>
+        <%= link_to("Industry Jobs", character_industry_jobs_path(@character), class: "nav-link") %>
+      <% end %>
+    </li>
+  <% end %>
+
+  <li class="nav-item">
+    <% if @current_page == "blueprints" %>
+      <%= link_to("Blueprints", character_blueprints_path(@character), class: "nav-link active") %>
+    <% else %>
+      <%= link_to("Blueprints", character_blueprints_path(@character), class: "nav-link") %>
+    <% end %>
+  </li>
+
+  <% if Setting.manufacturing_jobs %>
+    <li class="nav-item">
+      <% if @current_page == "manufacturing_jobs" %>
+        <%= link_to("Manufacturing Jobs", character_manufacturing_jobs_path(@character), class: "nav-link active") %>
+      <% else %>
+        <%= link_to("Manufacturing Jobs", character_manufacturing_jobs_path(@character), class: "nav-link") %>
+      <% end %>
+    </li>
+  <% end %>
+
+  <% if Setting.enabled_character_orders %>
+    <li class="nav-item">
+      <% if @current_page == "orders" %>
+        <%= link_to("Orders", character_orders_path(@character), class: "nav-link active") %>
+      <% else %>
+        <%= link_to("Orders", character_orders_path(@character), class: "nav-link") %>
+      <% end %>
+    </li>
+  <% end %>
+
+  <li class="nav-item">
+    <% if @current_page == "training_queue" %>
+      <%= link_to("Training Queue", character_training_queues_path(@character), class: "nav-link active") %>
+    <% else %>
+      <%= link_to("Training Queue", character_training_queues_path(@character), class: "nav-link") %>
+    <% end %>
+  </li>
+
+  <li class="nav-item">
+    <% if @current_page == "certificates" %>
+      <%= link_to("Certificates", character_certificates_path(@character), class: "nav-link active") %>
+    <% else %>
+      <%= link_to("Certificates", character_certificates_path(@character), class: "nav-link") %>
+    <% end %>
+  </li>
+
+  <li class="nav-item">
+    <% if @current_page == "settings" %>
+      <%= link_to("Settings", character_settings_path(@character), class: "nav-link active") %>
+    <% else %>
+      <%= link_to("Settings", character_settings_path(@character), class: "nav-link") %>
+    <% end %>
+  </li>
+</ul>

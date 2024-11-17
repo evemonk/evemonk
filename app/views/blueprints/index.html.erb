@@ -11,20 +11,12 @@
   </div>
 </div>
 
-<%= render partial: "characters/character_nav_bar",
-           locals: {
-             character: @character,
-             page: :blueprints
-           } %>
+<%= render CharacterNavBarComponent.new(@character, "blueprints") %>
 
 <hr class="text-dark">
 
 <div class="row">
-  <%= render partial: "characters/character_card_info",
-             locals: {
-               character: @character,
-               full: false
-             } %>
+  <%= render CharacterCardComponent.new(@character) %>
 
   <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
     <%= turbo_frame_tag dom_id(@character, :blueprints),

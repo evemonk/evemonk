@@ -11,20 +11,12 @@
   </div>
 </div>
 
-<%= render partial: "characters/character_nav_bar",
-           locals: {
-             character: @character,
-             page: :agents
-           } %>
+<%= render CharacterNavBarComponent.new(@character, "agents") %>
 
 <hr class="text-dark">
 
 <div class="row">
-  <%= render partial: "characters/character_card_info",
-             locals: {
-               character: @character,
-               full: false
-             } %>
+  <%= render CharacterCardComponent.new(@character) %>
 
   <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
     <%= turbo_frame_tag dom_id(@character, :agents) do %>
@@ -57,6 +49,7 @@
                             size: "34x34",
                             loading: "lazy") %>
             </div>
+
             <div class="col-8">
               <div class="card-body">
                 <div class="card-text">
@@ -64,6 +57,7 @@
                     <div class="col-12">
                       <%= standing.standingable.name %> <span class="text-muted">(Level <%= standing.standingable.level %>)</span>
                     </div>
+
                     <div class="col-12 text-muted">
                       <%= standing.standingable.division&.name %>
                     </div>
@@ -71,6 +65,7 @@
                 </div>
               </div>
             </div>
+
             <div class="col-2 text-center m-auto">
               <%= standing.rounded_standing %>
             </div>

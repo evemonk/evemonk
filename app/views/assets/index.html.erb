@@ -11,11 +11,7 @@
   </div>
 </div>
 
-<%= render partial: "characters/character_nav_bar",
-           locals: {
-             character: @character,
-             page: :assets
-           } %>
+<%= render CharacterNavBarComponent.new(@character, "assets") %>
 
 <hr>
 
@@ -23,6 +19,7 @@
   <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
     <div class="clearfix">
       <h4 class="float-left"><%= @character.name %></h4>
+
       <%= form_with(url: character_path(@character), method: :patch, class: "float-right") do %>
         <%= button_tag(class: "btn btn-primary mb-2") do %>
           <i class="bi bi-arrow-repeat"></i>
@@ -39,33 +36,40 @@
                         size: "130x130",
                         loading: "lazy") %>
         </li>
+
         <% if @character.corporation %>
           <li class="list-group-item text-break">
             Corporation: <%= link_to(@character.corporation.name,
                                      universe_corporation_path(@character.corporation.corporation_id)) %>
           </li>
         <% end %>
+
         <% if @character.alliance %>
           <li class="list-group-item text-break">
             Alliance: <%= link_to(@character.alliance.name,
                                   universe_alliance_path(@character.alliance)) %>
           </li>
         <% end %>
+
         <li class="list-group-item text-break">
           SP: <%= @character.total_sp_formatted %>
         </li>
+
         <% if @character.unallocated_sp && @character.unallocated_sp > 0 %>
           <li class="list-group-item text-break">
             Unallocated SP: <%= @character.unallocated_sp_formatted %>
           </li>
         <% end %>
+
         <li class="list-group-item text-break">
           Security status: <%= @character.rounded_security_status %>
         </li>
+
         <li class="list-group-item text-break">
           Wallet: <%= @character.wallet_formatted %> ISK
         </li>
       </ul>
+
       <p class="card-text text-center">
         <small class="text-muted">
           Last updated: <%= local_time_ago(@character.updated_at) %>
