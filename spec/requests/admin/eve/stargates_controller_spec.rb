@@ -2,9 +2,7 @@
 
 require "rails_helper"
 
-RSpec.describe "Admin::Eve::Unit's features" do
-  before { driven_by(:selenium_chrome_headless) }
-
+RSpec.describe Admin::Eve::StargatesController do
   describe "#index" do
     context "when user is logged in" do
       context "when user is admin" do
@@ -13,11 +11,11 @@ RSpec.describe "Admin::Eve::Unit's features" do
 
           sign_in user
 
-          create(:eve_unit)
+          create(:eve_stargate)
 
-          visit admin_eve_units_path
+          get admin_eve_stargates_path
 
-          assert current_path == admin_eve_units_path
+          expect(response).to have_http_status(:ok)
         end
       end
 
@@ -27,22 +25,26 @@ RSpec.describe "Admin::Eve::Unit's features" do
 
           sign_in user
 
-          create(:eve_unit)
+          create(:eve_stargate)
 
-          visit admin_eve_units_path
+          get admin_eve_stargates_path
 
-          assert current_path == root_path
+          expect(response).to redirect_to(root_path)
+
+          expect(response).to have_http_status(:found)
         end
       end
     end
 
     context "when user is not logged in" do
       it "should render page" do
-        create(:eve_unit)
+        create(:eve_stargate)
 
-        visit admin_eve_units_path
+        get admin_eve_stargates_path
 
-        assert current_path == new_user_session_path
+        expect(response).to redirect_to(new_user_session_path)
+
+        expect(response).to have_http_status(:found)
       end
     end
   end
@@ -55,11 +57,11 @@ RSpec.describe "Admin::Eve::Unit's features" do
 
           sign_in user
 
-          eve_unit = create(:eve_unit)
+          eve_stargate = create(:eve_stargate)
 
-          visit admin_eve_unit_path(eve_unit)
+          get admin_eve_stargate_path(eve_stargate)
 
-          assert current_path == admin_eve_unit_path(eve_unit)
+          expect(response).to have_http_status(:ok)
         end
       end
 
@@ -69,22 +71,26 @@ RSpec.describe "Admin::Eve::Unit's features" do
 
           sign_in user
 
-          eve_unit = create(:eve_unit)
+          eve_stargate = create(:eve_stargate)
 
-          visit admin_eve_unit_path(eve_unit)
+          get admin_eve_stargate_path(eve_stargate)
 
-          assert current_path == root_path
+          expect(response).to redirect_to(root_path)
+
+          expect(response).to have_http_status(:found)
         end
       end
     end
 
     context "when user is not logged in" do
       it "should render page" do
-        eve_unit = create(:eve_unit)
+        eve_stargate = create(:eve_stargate)
 
-        visit admin_eve_unit_path(eve_unit)
+        get admin_eve_stargate_path(eve_stargate)
 
-        assert current_path == new_user_session_path
+        expect(response).to redirect_to(new_user_session_path)
+
+        expect(response).to have_http_status(:found)
       end
     end
   end
