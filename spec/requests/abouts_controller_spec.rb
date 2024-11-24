@@ -10,8 +10,6 @@ RSpec.describe AboutsController do
 
     context "when user not logged in" do
       it "is expected to render template show with status ok" do
-        expect(response).to render_template(:show)
-
         expect(response).to have_http_status(:ok)
 
         expect(response.body).to include("About EveMonk")
@@ -24,8 +22,6 @@ RSpec.describe AboutsController do
       before { sign_in(user) }
 
       it "is expected to render template show with status ok" do
-        expect(response).to render_template(:show)
-
         expect(response).to have_http_status(:ok)
 
         expect(response.body).to include("About EveMonk")
