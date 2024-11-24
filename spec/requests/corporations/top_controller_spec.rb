@@ -11,7 +11,7 @@ RSpec.describe Corporations::TopController do
     before { get corporations_top_index_path }
 
     context "when user not logged in" do
-      it "is expected to render template index with status ok" do
+      it "is expected to have http status ok" do
         expect(response).to have_http_status(:ok)
 
         expect(response.body).to include("<u>C</u>orporations")
@@ -23,7 +23,7 @@ RSpec.describe Corporations::TopController do
 
       before { sign_in(user) }
 
-      it "is expected to render template index with status ok" do
+      it "is expected to have http status ok" do
         expect(response).to have_http_status(:ok)
 
         expect(response.body).to include("<u>C</u>orporations")
