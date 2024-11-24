@@ -107,6 +107,7 @@ end
 
 group :test do
   gem "capybara", ">= 3.26"
+  gem "pundit-matchers"
   gem "selenium-webdriver"
   gem "rails-controller-testing"
   gem "shoulda-matchers"
