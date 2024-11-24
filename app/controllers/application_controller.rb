@@ -14,9 +14,21 @@ class ApplicationController < ActionController::Base
 
   before_action :current_user_locale
 
+  after_action :verify_pundit_authorization
+
+  skip_after_action :verify_pundit_authorization, if: :devise_controller?
+
   rescue_from Pundit::NotAuthorizedError, with: :redirect_user_to_root_path
 
   private
+
+  def verify_pundit_authorization
+    if action_name == "index"
+      verify_policy_scoped
+    else
+      verify_authorized
+    end
+  end
 
   def redirect_user_to_root_path
     redirect_to root_path

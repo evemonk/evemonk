@@ -5,6 +5,8 @@ module Universe
     skip_before_action :authenticate_user!
 
     def index
+      skip_policy_scope
+
       @characters = Eve::SearchCharactersQuery
         .new(params[:q])
         .query
@@ -12,6 +14,8 @@ module Universe
     end
 
     def show
+      skip_authorization
+
       @character = ::Eve::Character
         .includes(:alliance, :corporation)
         .find(params[:id])

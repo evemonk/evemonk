@@ -6,7 +6,7 @@ module Universe
 
     def index
       @alliances = Eve::SearchAlliancesQuery
-        .new(params[:q])
+        .new(params[:q], policy_scope(Eve::Alliance))
         .query
         .page(params[:page])
     end
@@ -15,6 +15,8 @@ module Universe
       @alliance = ::Eve::Alliance
         .includes(:faction, :creator_corporation, :creator, :executor_corporation)
         .find(params[:id])
+
+      authorize @alliance
     end
   end
 end

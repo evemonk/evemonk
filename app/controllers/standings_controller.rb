@@ -2,7 +2,7 @@
 
 class StandingsController < ApplicationController
   def index
-    @character = current_user.characters
+    @character = policy_scope(Character)
       .includes(:alliance, :corporation, :factions_standings,
         :corporations_standings, :agents_standings)
       .find_by!(character_id: params[:character_id])
