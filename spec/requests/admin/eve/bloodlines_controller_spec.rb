@@ -2,9 +2,7 @@
 
 require "rails_helper"
 
-RSpec.describe "Admin::Eve::Group's features" do
-  before { driven_by(:selenium_chrome_headless) }
-
+RSpec.describe Admin::Eve::BloodlinesController do
   describe "#index" do
     context "when user is logged in" do
       context "when user is admin" do
@@ -13,11 +11,11 @@ RSpec.describe "Admin::Eve::Group's features" do
 
           sign_in user
 
-          create(:eve_group)
+          create(:eve_bloodline)
 
-          visit admin_eve_groups_path
+          get admin_eve_bloodlines_path
 
-          assert current_path == admin_eve_groups_path
+          expect(response).to have_http_status(:ok)
         end
       end
 
@@ -27,22 +25,26 @@ RSpec.describe "Admin::Eve::Group's features" do
 
           sign_in user
 
-          create(:eve_group)
+          create(:eve_bloodline)
 
-          visit admin_eve_groups_path
+          get admin_eve_bloodlines_path
 
-          assert current_path == root_path
+          expect(response).to redirect_to(root_path)
+
+          expect(response).to have_http_status(:found)
         end
       end
     end
 
     context "when user is not logged in" do
       it "should render page" do
-        create(:eve_group)
+        create(:eve_bloodline)
 
-        visit admin_eve_groups_path
+        get admin_eve_bloodlines_path
 
-        assert current_path == new_user_session_path
+        expect(response).to redirect_to(new_user_session_path)
+
+        expect(response).to have_http_status(:found)
       end
     end
   end
@@ -55,11 +57,11 @@ RSpec.describe "Admin::Eve::Group's features" do
 
           sign_in user
 
-          eve_group = create(:eve_group)
+          eve_bloodline = create(:eve_bloodline)
 
-          visit admin_eve_group_path(eve_group)
+          get admin_eve_bloodline_path(eve_bloodline)
 
-          assert current_path == admin_eve_group_path(eve_group)
+          expect(response).to have_http_status(:ok)
         end
       end
 
@@ -69,22 +71,26 @@ RSpec.describe "Admin::Eve::Group's features" do
 
           sign_in user
 
-          eve_group = create(:eve_group)
+          eve_bloodline = create(:eve_bloodline)
 
-          visit admin_eve_group_path(eve_group)
+          get admin_eve_bloodline_path(eve_bloodline)
 
-          assert current_path == root_path
+          expect(response).to redirect_to(root_path)
+
+          expect(response).to have_http_status(:found)
         end
       end
     end
 
     context "when user is not logged in" do
       it "should render page" do
-        eve_group = create(:eve_group)
+        eve_bloodline = create(:eve_bloodline)
 
-        visit admin_eve_group_path(eve_group)
+        get admin_eve_bloodline_path(eve_bloodline)
 
-        assert current_path == new_user_session_path
+        expect(response).to redirect_to(new_user_session_path)
+
+        expect(response).to have_http_status(:found)
       end
     end
   end
