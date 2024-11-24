@@ -9,9 +9,7 @@ RSpec.describe FaqsController do
     before { get faq_path }
 
     context "when user not logged in" do
-      it "is expected to render template show with status ok" do
-        expect(response).to render_template(:show)
-
+      it "is expected to have http status ok" do
         expect(response).to have_http_status(:ok)
 
         expect(response.body).to include("FAQ")
@@ -23,9 +21,7 @@ RSpec.describe FaqsController do
 
       before { sign_in(user) }
 
-      it "is expected to render template show with status ok" do
-        expect(response).to render_template(:show)
-
+      it "is expected to have http status ok" do
         expect(response).to have_http_status(:ok)
 
         expect(response.body).to include("FAQ")

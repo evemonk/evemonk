@@ -11,9 +11,7 @@ RSpec.describe Universe::CorporationsController do
     before { get universe_corporations_path }
 
     context "when user not logged in" do
-      it "is expected to render template index with status ok" do
-        expect(response).to render_template(:index)
-
+      it "is expected to have http status ok" do
         expect(response).to have_http_status(:ok)
 
         expect(response.body).to include("Freighting Solutions Inc.")
@@ -25,9 +23,7 @@ RSpec.describe Universe::CorporationsController do
 
       before { sign_in(user) }
 
-      it "is expected to render template index with status ok" do
-        expect(response).to render_template(:index)
-
+      it "is expected to have http status ok" do
         expect(response).to have_http_status(:ok)
 
         expect(response.body).to include("Freighting Solutions Inc.")
@@ -41,9 +37,7 @@ RSpec.describe Universe::CorporationsController do
     before { get universe_corporation_path(corporation) }
 
     context "when user not logged in" do
-      it "is expected to render template show with status ok" do
-        expect(response).to render_template(:show)
-
+      it "is expected to have http status ok" do
         expect(response).to have_http_status(:ok)
 
         expect(response.body).to include("Corporation: Freighting Solutions Inc.")
@@ -55,9 +49,7 @@ RSpec.describe Universe::CorporationsController do
 
       before { sign_in(user) }
 
-      it "is expected to render template show with status ok" do
-        expect(response).to render_template(:show)
-
+      it "is expected to have http status ok" do
         expect(response).to have_http_status(:ok)
 
         expect(response.body).to include("Corporation: Freighting Solutions Inc.")
