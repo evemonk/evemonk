@@ -62,4 +62,4 @@ en:
     update:
       successful: "Character &laquo;%{name}&raquo; scheduled to update. Check it later."
     destroy:
-      successful: "Character was successfully removed."
+      successful: "Character &laquo;%{name}&raquo; was successfully removed."

@@ -10,7 +10,9 @@ FactoryBot.define do
 
     confirmed_at { Time.zone.now }
 
-    locale { User.locales.keys.sample }
+    # locale { User.locales.keys.sample }
+
+    locale { :english }
 
     admin { [true, false].sample }
   end

@@ -9,7 +9,13 @@ class ApplicationController < ActionController::Base
 
   before_action :current_user_locale
 
+  rescue_from Pundit::NotAuthorizedError, with: :redirect_user_to_root_path
+
   private
+
+  def redirect_user_to_root_path
+    redirect_to root_path
+  end
 
   def after_sign_in_path_for(_)
     characters_path
