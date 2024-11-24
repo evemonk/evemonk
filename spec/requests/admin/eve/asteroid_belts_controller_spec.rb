@@ -2,9 +2,7 @@
 
 require "rails_helper"
 
-RSpec.describe "Admin::Eve::AsteroidBelt's features" do
-  before { driven_by(:selenium_chrome_headless) }
-
+RSpec.describe Admin::Eve::AsteroidBeltsController do
   describe "#index" do
     context "when user is logged in" do
       context "when user is admin" do
@@ -15,9 +13,9 @@ RSpec.describe "Admin::Eve::AsteroidBelt's features" do
 
           create(:eve_asteroid_belt)
 
-          visit admin_eve_asteroid_belts_path
+          get admin_eve_asteroid_belts_path
 
-          assert current_path == admin_eve_asteroid_belts_path
+          expect(response).to have_http_status(:ok)
         end
       end
 
@@ -29,9 +27,11 @@ RSpec.describe "Admin::Eve::AsteroidBelt's features" do
 
           create(:eve_asteroid_belt)
 
-          visit admin_eve_asteroid_belts_path
+          get admin_eve_asteroid_belts_path
 
-          assert current_path == root_path
+          expect(response).to redirect_to(root_path)
+
+          expect(response).to have_http_status(:found)
         end
       end
     end
@@ -40,9 +40,11 @@ RSpec.describe "Admin::Eve::AsteroidBelt's features" do
       it "should render page" do
         create(:eve_asteroid_belt)
 
-        visit admin_eve_asteroid_belts_path
+        get admin_eve_asteroid_belts_path
 
-        assert current_path == new_user_session_path
+        expect(response).to redirect_to(new_user_session_path)
+
+        expect(response).to have_http_status(:found)
       end
     end
   end
@@ -57,9 +59,9 @@ RSpec.describe "Admin::Eve::AsteroidBelt's features" do
 
           eve_asteroid_belt = create(:eve_asteroid_belt)
 
-          visit admin_eve_asteroid_belt_path(eve_asteroid_belt)
+          get admin_eve_asteroid_belt_path(eve_asteroid_belt)
 
-          assert current_path == admin_eve_asteroid_belt_path(eve_asteroid_belt)
+          expect(response).to have_http_status(:ok)
         end
       end
 
@@ -71,9 +73,11 @@ RSpec.describe "Admin::Eve::AsteroidBelt's features" do
 
           eve_asteroid_belt = create(:eve_asteroid_belt)
 
-          visit admin_eve_asteroid_belt_path(eve_asteroid_belt)
+          get admin_eve_asteroid_belt_path(eve_asteroid_belt)
 
-          assert current_path == root_path
+          expect(response).to redirect_to(root_path)
+
+          expect(response).to have_http_status(:found)
         end
       end
     end
@@ -82,9 +86,11 @@ RSpec.describe "Admin::Eve::AsteroidBelt's features" do
       it "should render page" do
         eve_asteroid_belt = create(:eve_asteroid_belt)
 
-        visit admin_eve_asteroid_belt_path(eve_asteroid_belt)
+        get admin_eve_asteroid_belt_path(eve_asteroid_belt)
 
-        assert current_path == new_user_session_path
+        expect(response).to redirect_to(new_user_session_path)
+
+        expect(response).to have_http_status(:found)
       end
     end
   end

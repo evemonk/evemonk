@@ -2,9 +2,7 @@
 
 require "rails_helper"
 
-RSpec.describe "Admin::Eve::Race's features" do
-  before { driven_by(:selenium_chrome_headless) }
-
+RSpec.describe Admin::Eve::MoonsController do
   describe "#index" do
     context "when user is logged in" do
       context "when user is admin" do
@@ -13,11 +11,11 @@ RSpec.describe "Admin::Eve::Race's features" do
 
           sign_in user
 
-          create(:eve_race)
+          create(:eve_moon)
 
-          visit admin_eve_races_path
+          get admin_eve_moons_path
 
-          assert current_path == admin_eve_races_path
+          expect(response).to have_http_status(:ok)
         end
       end
 
@@ -27,22 +25,26 @@ RSpec.describe "Admin::Eve::Race's features" do
 
           sign_in user
 
-          create(:eve_race)
+          create(:eve_moon)
 
-          visit admin_eve_races_path
+          get admin_eve_moons_path
 
-          assert current_path == root_path
+          expect(response).to redirect_to(root_path)
+
+          expect(response).to have_http_status(:found)
         end
       end
     end
 
     context "when user is not logged in" do
       it "should render page" do
-        create(:eve_race)
+        create(:eve_moon)
 
-        visit admin_eve_races_path
+        get admin_eve_moons_path
 
-        assert current_path == new_user_session_path
+        expect(response).to redirect_to(new_user_session_path)
+
+        expect(response).to have_http_status(:found)
       end
     end
   end
@@ -55,11 +57,11 @@ RSpec.describe "Admin::Eve::Race's features" do
 
           sign_in user
 
-          eve_race = create(:eve_race)
+          eve_moon = create(:eve_moon)
 
-          visit admin_eve_race_path(eve_race)
+          get admin_eve_moon_path(eve_moon)
 
-          assert current_path == admin_eve_race_path(eve_race)
+          expect(response).to have_http_status(:ok)
         end
       end
 
@@ -69,22 +71,26 @@ RSpec.describe "Admin::Eve::Race's features" do
 
           sign_in user
 
-          eve_race = create(:eve_race)
+          eve_moon = create(:eve_moon)
 
-          visit admin_eve_race_path(eve_race)
+          get admin_eve_moon_path(eve_moon)
 
-          assert current_path == root_path
+          expect(response).to redirect_to(root_path)
+
+          expect(response).to have_http_status(:found)
         end
       end
     end
 
     context "when user is not logged in" do
       it "should render page" do
-        eve_race = create(:eve_race)
+        eve_moon = create(:eve_moon)
 
-        visit admin_eve_race_path(eve_race)
+        get admin_eve_moon_path(eve_moon)
 
-        assert current_path == new_user_session_path
+        expect(response).to redirect_to(new_user_session_path)
+
+        expect(response).to have_http_status(:found)
       end
     end
   end

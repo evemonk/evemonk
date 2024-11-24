@@ -2,9 +2,7 @@
 
 require "rails_helper"
 
-RSpec.describe "Admin::Eve::MarketGroup's features" do
-  before { driven_by(:selenium_chrome_headless) }
-
+RSpec.describe Admin::Eve::IconsController do
   describe "#index" do
     context "when user is logged in" do
       context "when user is admin" do
@@ -13,11 +11,11 @@ RSpec.describe "Admin::Eve::MarketGroup's features" do
 
           sign_in user
 
-          create(:eve_market_group)
+          create(:eve_icon)
 
-          visit admin_eve_market_groups_path
+          get admin_eve_icons_path
 
-          assert current_path == admin_eve_market_groups_path
+          expect(response).to have_http_status(:ok)
         end
       end
 
@@ -27,22 +25,26 @@ RSpec.describe "Admin::Eve::MarketGroup's features" do
 
           sign_in user
 
-          create(:eve_market_group)
+          create(:eve_icon)
 
-          visit admin_eve_market_groups_path
+          get admin_eve_icons_path
 
-          assert current_path == root_path
+          expect(response).to redirect_to(root_path)
+
+          expect(response).to have_http_status(:found)
         end
       end
     end
 
     context "when user is not logged in" do
       it "should render page" do
-        create(:eve_market_group)
+        create(:eve_icon)
 
-        visit admin_eve_market_groups_path
+        get admin_eve_icons_path
 
-        assert current_path == new_user_session_path
+        expect(response).to redirect_to(new_user_session_path)
+
+        expect(response).to have_http_status(:found)
       end
     end
   end
@@ -55,11 +57,11 @@ RSpec.describe "Admin::Eve::MarketGroup's features" do
 
           sign_in user
 
-          eve_market_group = create(:eve_market_group)
+          eve_icon = create(:eve_icon)
 
-          visit admin_eve_market_group_path(eve_market_group)
+          get admin_eve_icon_path(eve_icon)
 
-          assert current_path == admin_eve_market_group_path(eve_market_group)
+          expect(response).to have_http_status(:ok)
         end
       end
 
@@ -69,22 +71,26 @@ RSpec.describe "Admin::Eve::MarketGroup's features" do
 
           sign_in user
 
-          eve_market_group = create(:eve_market_group)
+          eve_icon = create(:eve_icon)
 
-          visit admin_eve_market_group_path(eve_market_group)
+          get admin_eve_icon_path(eve_icon)
 
-          assert current_path == root_path
+          expect(response).to redirect_to(root_path)
+
+          expect(response).to have_http_status(:found)
         end
       end
     end
 
     context "when user is not logged in" do
       it "should render page" do
-        eve_market_group = create(:eve_market_group)
+        eve_icon = create(:eve_icon)
 
-        visit admin_eve_market_group_path(eve_market_group)
+        get admin_eve_icon_path(eve_icon)
 
-        assert current_path == new_user_session_path
+        expect(response).to redirect_to(new_user_session_path)
+
+        expect(response).to have_http_status(:found)
       end
     end
   end

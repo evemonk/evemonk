@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.describe Admin::Eve::AgentsController do
+RSpec.describe Admin::Eve::CorporationsController do
   describe "#index" do
     context "when user is logged in" do
       context "when user is admin" do
@@ -11,9 +11,9 @@ RSpec.describe Admin::Eve::AgentsController do
 
           sign_in user
 
-          create(:eve_agent)
+          create(:eve_corporation)
 
-          get admin_eve_agents_path
+          get admin_eve_corporations_path
 
           expect(response).to have_http_status(:ok)
         end
@@ -25,9 +25,9 @@ RSpec.describe Admin::Eve::AgentsController do
 
           sign_in user
 
-          create(:eve_agent)
+          create(:eve_corporation)
 
-          get admin_eve_agents_path
+          get admin_eve_corporations_path
 
           expect(response).to redirect_to(root_path)
 
@@ -38,9 +38,9 @@ RSpec.describe Admin::Eve::AgentsController do
 
     context "when user is not logged in" do
       it "should render page" do
-        create(:eve_agent)
+        create(:eve_corporation)
 
-        get admin_eve_agents_path
+        get admin_eve_corporations_path
 
         expect(response).to redirect_to(new_user_session_path)
 
@@ -57,9 +57,9 @@ RSpec.describe Admin::Eve::AgentsController do
 
           sign_in user
 
-          eve_agent = create(:eve_agent)
+          eve_corporation = create(:eve_corporation)
 
-          get admin_eve_agent_path(eve_agent)
+          get admin_eve_corporation_path(eve_corporation)
 
           expect(response).to have_http_status(:ok)
         end
@@ -71,9 +71,9 @@ RSpec.describe Admin::Eve::AgentsController do
 
           sign_in user
 
-          eve_agent = create(:eve_agent)
+          eve_corporation = create(:eve_corporation)
 
-          get admin_eve_agent_path(eve_agent)
+          get admin_eve_corporation_path(eve_corporation)
 
           expect(response).to redirect_to(root_path)
 
@@ -84,9 +84,9 @@ RSpec.describe Admin::Eve::AgentsController do
 
     context "when user is not logged in" do
       it "should render page" do
-        eve_agent = create(:eve_agent)
+        eve_corporation = create(:eve_corporation)
 
-        get admin_eve_agent_path(eve_agent)
+        get admin_eve_corporation_path(eve_corporation)
 
         expect(response).to redirect_to(new_user_session_path)
 

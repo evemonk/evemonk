@@ -2,9 +2,7 @@
 
 require "rails_helper"
 
-RSpec.describe "Admin::Eve::Character's features" do
-  before { driven_by(:selenium_chrome_headless) }
-
+RSpec.describe Admin::Eve::CharactersController do
   describe "#index" do
     context "when user is logged in" do
       context "when user is admin" do
@@ -15,9 +13,9 @@ RSpec.describe "Admin::Eve::Character's features" do
 
           create(:eve_character)
 
-          visit admin_eve_characters_path
+          get admin_eve_characters_path
 
-          assert current_path == admin_eve_characters_path
+          expect(response).to have_http_status(:ok)
         end
       end
 
@@ -29,9 +27,11 @@ RSpec.describe "Admin::Eve::Character's features" do
 
           create(:eve_character)
 
-          visit admin_eve_characters_path
+          get admin_eve_characters_path
 
-          assert current_path == root_path
+          expect(response).to redirect_to(root_path)
+
+          expect(response).to have_http_status(:found)
         end
       end
     end
@@ -40,9 +40,11 @@ RSpec.describe "Admin::Eve::Character's features" do
       it "should render page" do
         create(:eve_character)
 
-        visit admin_eve_characters_path
+        get admin_eve_characters_path
 
-        assert current_path == new_user_session_path
+        expect(response).to redirect_to(new_user_session_path)
+
+        expect(response).to have_http_status(:found)
       end
     end
   end
@@ -57,9 +59,9 @@ RSpec.describe "Admin::Eve::Character's features" do
 
           eve_character = create(:eve_character)
 
-          visit admin_eve_character_path(eve_character)
+          get admin_eve_character_path(eve_character)
 
-          assert current_path == admin_eve_character_path(eve_character)
+          expect(response).to have_http_status(:ok)
         end
       end
 
@@ -71,9 +73,11 @@ RSpec.describe "Admin::Eve::Character's features" do
 
           eve_character = create(:eve_character)
 
-          visit admin_eve_character_path(eve_character)
+          get admin_eve_character_path(eve_character)
 
-          assert current_path == root_path
+          expect(response).to redirect_to(root_path)
+
+          expect(response).to have_http_status(:found)
         end
       end
     end
@@ -82,9 +86,11 @@ RSpec.describe "Admin::Eve::Character's features" do
       it "should render page" do
         eve_character = create(:eve_character)
 
-        visit admin_eve_character_path(eve_character)
+        get admin_eve_character_path(eve_character)
 
-        assert current_path == new_user_session_path
+        expect(response).to redirect_to(new_user_session_path)
+
+        expect(response).to have_http_status(:found)
       end
     end
   end

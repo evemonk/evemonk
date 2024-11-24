@@ -2,9 +2,7 @@
 
 require "rails_helper"
 
-RSpec.describe "Admin::Eve::Corporation's features" do
-  before { driven_by(:selenium_chrome_headless) }
-
+RSpec.describe Admin::Eve::FactionsController do
   describe "#index" do
     context "when user is logged in" do
       context "when user is admin" do
@@ -13,11 +11,11 @@ RSpec.describe "Admin::Eve::Corporation's features" do
 
           sign_in user
 
-          create(:eve_corporation)
+          create(:eve_faction)
 
-          visit admin_eve_corporations_path
+          get admin_eve_factions_path
 
-          assert current_path == admin_eve_corporations_path
+          expect(response).to have_http_status(:ok)
         end
       end
 
@@ -27,22 +25,26 @@ RSpec.describe "Admin::Eve::Corporation's features" do
 
           sign_in user
 
-          create(:eve_corporation)
+          create(:eve_faction)
 
-          visit admin_eve_corporations_path
+          get admin_eve_factions_path
 
-          assert current_path == root_path
+          expect(response).to redirect_to(root_path)
+
+          expect(response).to have_http_status(:found)
         end
       end
     end
 
     context "when user is not logged in" do
       it "should render page" do
-        create(:eve_corporation)
+        create(:eve_faction)
 
-        visit admin_eve_corporations_path
+        get admin_eve_factions_path
 
-        assert current_path == new_user_session_path
+        expect(response).to redirect_to(new_user_session_path)
+
+        expect(response).to have_http_status(:found)
       end
     end
   end
@@ -55,11 +57,11 @@ RSpec.describe "Admin::Eve::Corporation's features" do
 
           sign_in user
 
-          eve_corporation = create(:eve_corporation)
+          eve_faction = create(:eve_faction)
 
-          visit admin_eve_corporation_path(eve_corporation)
+          get admin_eve_faction_path(eve_faction)
 
-          assert current_path == admin_eve_corporation_path(eve_corporation)
+          expect(response).to have_http_status(:ok)
         end
       end
 
@@ -69,22 +71,26 @@ RSpec.describe "Admin::Eve::Corporation's features" do
 
           sign_in user
 
-          eve_corporation = create(:eve_corporation)
+          eve_faction = create(:eve_faction)
 
-          visit admin_eve_corporation_path(eve_corporation)
+          get admin_eve_faction_path(eve_faction)
 
-          assert current_path == root_path
+          expect(response).to redirect_to(root_path)
+
+          expect(response).to have_http_status(:found)
         end
       end
     end
 
     context "when user is not logged in" do
       it "should render page" do
-        eve_corporation = create(:eve_corporation)
+        eve_faction = create(:eve_faction)
 
-        visit admin_eve_corporation_path(eve_corporation)
+        get admin_eve_faction_path(eve_faction)
 
-        assert current_path == new_user_session_path
+        expect(response).to redirect_to(new_user_session_path)
+
+        expect(response).to have_http_status(:found)
       end
     end
   end
