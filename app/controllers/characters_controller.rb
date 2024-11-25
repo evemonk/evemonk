@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 class CharactersController < ApplicationController
-  include Pundit::Authorization
-
   def index
     @characters = policy_scope(Character)
       .includes(:alliance, :corporation)
