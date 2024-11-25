@@ -2,7 +2,7 @@
 
 class BlueprintsListsController < ApplicationController
   def index
-    @character = current_user.characters
+    @character = policy_scope(Character)
       .find_by!(character_id: params[:character_id])
 
     @form = CharacterBlueprintsFilterForm.new(params[:filter])
