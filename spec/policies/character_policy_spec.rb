@@ -3,6 +3,14 @@
 require "rails_helper"
 
 RSpec.describe CharacterPolicy do
+  it { expect(subject).to be_an(ApplicationPolicy) }
+
+  let(:user) { build_stubbed(:user) }
+
+  let(:character) { build_stubbed(:character) }
+
+  subject { described_class.new(user, character) }
+
   context "when user is not logged in" do
     let(:user) { nil }
 
