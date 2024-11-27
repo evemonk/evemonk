@@ -5,6 +5,17 @@ GIT
   specs:
     database_rewinder (1.0.1)
 
+GIT
+  remote: https://github.com/thoughtbot/administrate.git
+  revision: 8c9323d23e628f4c9fe67bd0994ead66c39de3eb
+  branch: main
+  specs:
+    administrate (1.0.0.beta2)
+      actionpack (>= 6.0, < 9.0)
+      actionview (>= 6.0, < 9.0)
+      activerecord (>= 6.0, < 9.0)
+      kaminari (~> 1.2.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -83,11 +94,6 @@ GEM
       tzinfo (~> 2.0, >= 2.0.5)
     addressable (2.8.7)
       public_suffix (>= 2.0.2, < 7.0)
-    administrate (1.0.0.beta2)
-      actionpack (>= 6.0, < 8.0)
-      actionview (>= 6.0, < 8.0)
-      activerecord (>= 6.0, < 8.0)
-      kaminari (~> 1.2.2)
     airbrake (13.0.4)
       airbrake-ruby (~> 6.0)
     airbrake-ruby (6.2.2)
@@ -714,7 +720,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_record_doctor
-  administrate (= 1.0.0.beta2)
+  administrate!
   airbrake (~> 13.0)
   ancestry
   aws-sdk-s3
