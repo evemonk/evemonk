@@ -83,14 +83,11 @@ GEM
       tzinfo (~> 2.0, >= 2.0.5)
     addressable (2.8.7)
       public_suffix (>= 2.0.2, < 7.0)
-    administrate (0.20.1)
+    administrate (1.0.0.beta2)
       actionpack (>= 6.0, < 8.0)
       actionview (>= 6.0, < 8.0)
       activerecord (>= 6.0, < 8.0)
-      jquery-rails (~> 4.6.0)
       kaminari (~> 1.2.2)
-      sassc-rails (~> 2.1)
-      selectize-rails (~> 0.6)
     airbrake (13.0.4)
       airbrake-ruby (~> 6.0)
     airbrake-ruby (6.2.2)
@@ -215,11 +212,6 @@ GEM
       faraday (~> 2.0)
     fasterer (0.11.0)
       ruby_parser (>= 3.19.1)
-    ffi (1.17.0)
-    ffi (1.17.0-aarch64-linux-gnu)
-    ffi (1.17.0-arm64-darwin)
-    ffi (1.17.0-x86_64-darwin)
-    ffi (1.17.0-x86_64-linux-gnu)
     fiber-storage (1.0.0)
     foreman (0.88.1)
     fugit (1.11.1)
@@ -286,10 +278,6 @@ GEM
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
     jmespath (1.6.2)
-    jquery-rails (4.6.0)
-      rails-dom-testing (>= 1, < 3)
-      railties (>= 4.2.0)
-      thor (>= 0.14, < 2.0)
     json (2.8.2)
     jwt (2.9.3)
       base64
@@ -603,19 +591,10 @@ GEM
       google-protobuf (~> 4.28)
     sass-embedded (1.81.0-x86_64-linux-gnu)
       google-protobuf (~> 4.28)
-    sassc (2.4.0)
-      ffi (~> 1.9)
-    sassc-rails (2.1.2)
-      railties (>= 4.0.0)
-      sassc (>= 2.0)
-      sprockets (> 3.0)
-      sprockets-rails
-      tilt
     sawyer (0.9.2)
       addressable (>= 2.3.5)
       faraday (>= 0.17.3, < 3)
     securerandom (0.3.2)
-    selectize-rails (0.12.6)
     selenium-webdriver (4.27.0)
       base64 (~> 0.2)
       logger (~> 1.4)
@@ -690,7 +669,6 @@ GEM
     thruster (0.1.9-arm64-darwin)
     thruster (0.1.9-x86_64-darwin)
     thruster (0.1.9-x86_64-linux)
-    tilt (2.4.0)
     timeout (0.4.2)
     tomlrb (2.0.3)
     turbo-rails (2.0.11)
@@ -736,7 +714,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_record_doctor
-  administrate
+  administrate (= 1.0.0.beta2)
   airbrake (~> 13.0)
   ancestry
   aws-sdk-s3
@@ -851,7 +829,7 @@ CHECKSUMS
   activestorage (7.2.2) sha256=2448162d87a874586515a15caae224b17c4693459e321d68ab54914de94b630e
   activesupport (7.2.2) sha256=436360924cf758dfa9d60ab22a8afe6da8babf6f1286d4087f0a9c576bf8328a
   addressable (2.8.7) sha256=462986537cf3735ab5f3c0f557f14155d778f4b43ea4f485a9deb9c8f7c58232
-  administrate (0.20.1) sha256=4ba271003c446e486fe4e67d2173eb4ee6118ed0fba5972be0e8ea757f7b67d5
+  administrate (1.0.0.beta2)
   airbrake (13.0.4) sha256=5ccb0cd49fbdae8ddc461351f51636cc0f770f5b3be763ca016d558a22ba4103
   airbrake-ruby (6.2.2) sha256=293e34fb36e763e1b6d67ab584cce7c5b6fe9eea1a70c26d8c13c0f5d7de2fbc
   ancestry (4.3.3) sha256=af3f6bcf405c219af02eec5b9c8206e68cba8d7976fe5269559ef0986f5e7ca0
@@ -906,11 +884,6 @@ CHECKSUMS
   faraday-net_http (3.4.0) sha256=a1f1e4cd6a2cf21599c8221595e27582d9936819977bbd4089a601f24c64e54a
   faraday-retry (2.2.1) sha256=4146fed14549c0580bf14591fca419a40717de0dd24f267a8ec2d9a728677608
   fasterer (0.11.0) sha256=9c38b77583584f3339a729eb077fd8f2856a317abe747528f6563d7c23e9dda8
-  ffi (1.17.0) sha256=51630e43425078311c056ca75f961bb3bda1641ab36e44ad4c455e0b0e4a231c
-  ffi (1.17.0-aarch64-linux-gnu) sha256=228c8fb79e6b018a31c75414115a75ca65f74e8138b2c9c97d22041e4e12f2c1
-  ffi (1.17.0-arm64-darwin) sha256=609c874e76614542c6d485b0576e42a7a38ffcdf086612f9a300c4ec3fcd0d12
-  ffi (1.17.0-x86_64-darwin) sha256=fdcd48c69db3303ef95aec5c64d6275fcf9878a02c0bec0afddc506ceca0f56b
-  ffi (1.17.0-x86_64-linux-gnu) sha256=1015e59d5919dd6bbcb0704325b0bd639be664a79b1e2189943ceb18faa34198
   fiber-storage (1.0.0) sha256=b80a323f1e0b95e79b11c1d4df7f654dbe517c11a344c90f2a43dec67ba5ab7f
   foreman (0.88.1) sha256=59c022125b6a328a2ce63da8d70b731f5dd13519e8d9a4184c696538088ea00a
   fugit (1.11.1) sha256=e89485e7be22226d8e9c6da411664d0660284b4b1c08cacb540f505907869868
@@ -938,7 +911,6 @@ CHECKSUMS
   irb (1.14.1) sha256=5975003b58d36efaf492380baa982ceedf5aed36967a4d5b40996bc5c66e80f8
   jbuilder (2.13.0) sha256=7200a38a1c0081aa81b7a9757e7a299db75bc58cf1fd45ca7919a91627d227d6
   jmespath (1.6.2) sha256=238d774a58723d6c090494c8879b5e9918c19485f7e840f2c1c7532cf84ebcb1
-  jquery-rails (4.6.0) sha256=3c4e6bf47274340b44d836b8aa1b5472c6d451e2739af5ec094421f39025a7e2
   json (2.8.2) sha256=dd4fa6c9c81daecf72b86ea36e56ed8955fdbb4d4dc379c93d313a59344486cf
   jwt (2.9.3) sha256=55fd07ccdd64c622d36859748f2290fb9c119ce30b482867504e9f12654d6a65
   kaminari (1.2.2) sha256=c4076ff9adccc6109408333f87b5c4abbda5e39dc464bd4c66d06d9f73442a3e
@@ -1063,11 +1035,8 @@ CHECKSUMS
   sass-embedded (1.81.0-arm64-darwin) sha256=85a852fb2fc1cc644ff193b25b96e2fec1196b9c9a687344d1927e3f39135ec7
   sass-embedded (1.81.0-x86_64-darwin) sha256=fb5f26a6a9a43cfddda74510ce5dbc75c4e8e5b77e51346540d6750792bfa05c
   sass-embedded (1.81.0-x86_64-linux-gnu) sha256=5e2c5ed82496eb4e217bf171300e8b66cb5a06394eeb1009bfa99ec271099ecf
-  sassc (2.4.0) sha256=4c60a2b0a3b36685c83b80d5789401c2f678c1652e3288315a1551d811d9f83e
-  sassc-rails (2.1.2) sha256=5f4fdf3881fc9bdc8e856ffbd9850d70a2878866feae8114aa45996179952db5
   sawyer (0.9.2) sha256=fa3a72d62a4525517b18857ddb78926aab3424de0129be6772a8e2ba240e7aca
   securerandom (0.3.2) sha256=e8b2ffa651dfbbb26eb4bfb8ddcfff94221a93e3f118f39e0f7f94c14fea9dc0
-  selectize-rails (0.12.6) sha256=425b0b48de8ad02992de0190e37f4b12a84f4252af8a41429c847a3cd6b9bfa9
   selenium-webdriver (4.27.0) sha256=8821f4ad60b935cfcdc5954c0a6642d894e936250aece8bf37a6fcbebe5eb6e0
   sexp_processor (4.17.3) sha256=5ef0d952565eeedb416519f678b6b41c6ab6700abba828f46986f2d85d295dae
   shoulda-matchers (6.4.0) sha256=9055bb7f4bb342125fb860809798855c630e05ef5e75837b3168b8e6ee1608b0
@@ -1097,7 +1066,6 @@ CHECKSUMS
   thruster (0.1.9-arm64-darwin) sha256=a5bb7e636df5e1a50ca5bd7e3301f9af5caff00d6b5479379d4ecb79e918bed6
   thruster (0.1.9-x86_64-darwin) sha256=c9f081af2065b04cccba3f55fea8ac8ec79ee9488e08d9139e1bf6b94faa4ae6
   thruster (0.1.9-x86_64-linux) sha256=86175171fff8c984861fb73591c32d294b5aad67e6b95a6575ffa6c2ab0a7f19
-  tilt (2.4.0) sha256=df74f29a451daed26591a85e8e0cebb198892cb75b6573394303acda273fba4d
   timeout (0.4.2) sha256=8aca2d5ff98eb2f7a501c03f8c3622065932cc58bc58f725cd50a09e63b4cc19
   tomlrb (2.0.3) sha256=c2736acf24919f793334023a4ff396c0647d93fce702a73c9d348deaa815d4f7
   turbo-rails (2.0.11) sha256=fc47674736372780abd2a4dc0d84bef242f5ca156a457cd7fa6308291e397fcf
