@@ -13,7 +13,7 @@ pin "@rails/request.js", to: "@rails--request.js.js", preload: false # @0.0.11
 
 pin "local-time", preload: false # @3.0.2
 
-pin "@github/hotkey", to: "@github--hotkey.js" # @3.1.1
+pin "@github/hotkey", to: "@github--hotkey.js", preload: false # @3.1.1
 
 pin "@popperjs/core", to: "popper.js", preload: false # @2.11.8
 pin "bootstrap", to: "bootstrap.esm.min.js", preload: false # @5.2.3
