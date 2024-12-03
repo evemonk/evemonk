@@ -586,16 +586,16 @@ GEM
     rubyzip (2.3.2)
     rufus-scheduler (3.9.2)
       fugit (~> 1.1, >= 1.11.1)
-    sass-embedded (1.81.0)
+    sass-embedded (1.81.1)
       google-protobuf (~> 4.28)
       rake (>= 13)
-    sass-embedded (1.81.0-aarch64-linux-gnu)
+    sass-embedded (1.81.1-aarch64-linux-gnu)
       google-protobuf (~> 4.28)
-    sass-embedded (1.81.0-arm64-darwin)
+    sass-embedded (1.81.1-arm64-darwin)
       google-protobuf (~> 4.28)
-    sass-embedded (1.81.0-x86_64-darwin)
+    sass-embedded (1.81.1-x86_64-darwin)
       google-protobuf (~> 4.28)
-    sass-embedded (1.81.0-x86_64-linux-gnu)
+    sass-embedded (1.81.1-x86_64-linux-gnu)
       google-protobuf (~> 4.28)
     sawyer (0.9.2)
       addressable (>= 2.3.5)
@@ -1036,11 +1036,11 @@ CHECKSUMS
   ruby_parser (3.21.1) sha256=9d931abe5aec287d65280f811d3cf672564956ef1bd49f528ca48479984d6fec
   rubyzip (2.3.2) sha256=3f57e3935dc2255c414484fbf8d673b4909d8a6a57007ed754dde39342d2373f
   rufus-scheduler (3.9.2) sha256=55fa9e4db0ff69d7f38c804f17baba0c9bce5cba39984ae3c5cf6c039d1323b9
-  sass-embedded (1.81.0) sha256=5ddd47f106d8fe8e29fbdc838e5a8c4367dbbf8c4164124861e212c8dc9c26b7
-  sass-embedded (1.81.0-aarch64-linux-gnu) sha256=9087759cf2f16d0a9263eb97a812dce9882ce79353cfb416f5721835ba2d8706
-  sass-embedded (1.81.0-arm64-darwin) sha256=85a852fb2fc1cc644ff193b25b96e2fec1196b9c9a687344d1927e3f39135ec7
-  sass-embedded (1.81.0-x86_64-darwin) sha256=fb5f26a6a9a43cfddda74510ce5dbc75c4e8e5b77e51346540d6750792bfa05c
-  sass-embedded (1.81.0-x86_64-linux-gnu) sha256=5e2c5ed82496eb4e217bf171300e8b66cb5a06394eeb1009bfa99ec271099ecf
+  sass-embedded (1.81.1) sha256=8ddb83627b9cec1098f3d2198b3dfdb44b5893881ff5f500f434668ef7e13b8b
+  sass-embedded (1.81.1-aarch64-linux-gnu) sha256=63e2044c55a42d94fe19c5222405a982e2c786992990885a351496991f3627ac
+  sass-embedded (1.81.1-arm64-darwin) sha256=b15f1ccddf1fdffd82ad58abfbfe2bd782df8fd5f7d6632d4d67b60528479bdb
+  sass-embedded (1.81.1-x86_64-darwin) sha256=1f65d400407b17be0d462deffcb7306a2e44ffcd34e6121f2e13b99d78094d6d
+  sass-embedded (1.81.1-x86_64-linux-gnu) sha256=7d7eaef332a0f4ef5c42e1c61f825e02a0db238fc0d45788a21f1cab31bdad4d
   sawyer (0.9.2) sha256=fa3a72d62a4525517b18857ddb78926aab3424de0129be6772a8e2ba240e7aca
   securerandom (0.4.0) sha256=37a844aa4fe4dac8e47c5bc35f91531d4dc636ccee54a1ba1629087dda0a53a8
   selenium-webdriver (4.27.0) sha256=8821f4ad60b935cfcdc5954c0a6642d894e936250aece8bf37a6fcbebe5eb6e0
