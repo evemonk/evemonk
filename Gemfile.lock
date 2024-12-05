@@ -233,19 +233,19 @@ GEM
     good_migrations (0.3.0)
       activerecord (>= 3.1)
       railties (>= 3.1)
-    google-protobuf (4.29.0)
+    google-protobuf (4.29.1)
       bigdecimal
       rake (>= 13)
-    google-protobuf (4.29.0-aarch64-linux)
+    google-protobuf (4.29.1-aarch64-linux)
       bigdecimal
       rake (>= 13)
-    google-protobuf (4.29.0-arm64-darwin)
+    google-protobuf (4.29.1-arm64-darwin)
       bigdecimal
       rake (>= 13)
-    google-protobuf (4.29.0-x86_64-darwin)
+    google-protobuf (4.29.1-x86_64-darwin)
       bigdecimal
       rake (>= 13)
-    google-protobuf (4.29.0-x86_64-linux)
+    google-protobuf (4.29.1-x86_64-linux)
       bigdecimal
       rake (>= 13)
     graphiql-rails (1.8.0)
@@ -897,11 +897,11 @@ CHECKSUMS
   gemdiff (6.0.0) sha256=65798b6abfed066a72f8bb354bfb40cf23ee96db46c082c18201ce6e28238de8
   globalid (1.2.1) sha256=70bf76711871f843dbba72beb8613229a49429d1866828476f9c9d6ccc327ce9
   good_migrations (0.3.0) sha256=9874ac49bac87f4a160a8be3f5c4f996e63f96d1cd4cb8c7d000b7f1024b8e74
-  google-protobuf (4.29.0) sha256=2ff7dad8803dab85f6e2e3d953c7831fa1c3ea0d91b68adf71acd21c28aa6fd4
-  google-protobuf (4.29.0-aarch64-linux) sha256=503912ebd9e2569c0bb602cb8a1a3eaa70bac44481f01dd77de58f6d834a0b90
-  google-protobuf (4.29.0-arm64-darwin) sha256=ca6dc74c781e7edc16e68812591225c7d1bf08d75c670c0c42154371f2afddc1
-  google-protobuf (4.29.0-x86_64-darwin) sha256=9406d19f7119b762022bd59ff9a0e6f780c530152007f892eba95767b166d504
-  google-protobuf (4.29.0-x86_64-linux) sha256=2e13afd53ed52c32b68a08344e8f4b1486d64a2e9c117e301c39b2020608947a
+  google-protobuf (4.29.1) sha256=323ab7b6a597d9806fbc0633062432a35be2ce932197dba1b1efca76b6aef4ff
+  google-protobuf (4.29.1-aarch64-linux) sha256=476be43118e7fe93665584847629f1a9ee49ed2f8e192d31ab0d76ac9954e9d9
+  google-protobuf (4.29.1-arm64-darwin) sha256=33df2980747fded3f6642e96fb5a6a7cd65cc53166dd7716b1ed2f40889425bf
+  google-protobuf (4.29.1-x86_64-darwin) sha256=ac0c1675b569909ff930f0bde536b661177b0edb32adc3b256582018b9c0f104
+  google-protobuf (4.29.1-x86_64-linux) sha256=b4ca9a8d3542e6080ec374850ff192df66ff84d91491b2d24c9096070791d5bd
   graphiql-rails (1.8.0) sha256=02e2c5098be2c6c29219a0e9b2910a2cd3c494301587a3199a7c4484d8038ed1
   graphql (2.4.5) sha256=78360210cdc4679c71877bfa6667c6bb406bc0480cf9e97c0772634760a7d983
   graphql-rails_logger (1.2.5) sha256=d2117c047546aa2922550a313d3904d95949bdff819e0997f8246ebd6f49860d
