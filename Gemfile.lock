@@ -223,7 +223,7 @@ GEM
     fugit (1.11.1)
       et-orbi (~> 1, >= 1.2.11)
       raabro (~> 1.4)
-    gemdiff (6.0.0)
+    gemdiff (6.0.1)
       faraday-retry (~> 2.2)
       launchy (~> 3.0)
       octokit (~> 9.0)
@@ -894,7 +894,7 @@ CHECKSUMS
   fiber-storage (1.0.0) sha256=b80a323f1e0b95e79b11c1d4df7f654dbe517c11a344c90f2a43dec67ba5ab7f
   foreman (0.88.1) sha256=59c022125b6a328a2ce63da8d70b731f5dd13519e8d9a4184c696538088ea00a
   fugit (1.11.1) sha256=e89485e7be22226d8e9c6da411664d0660284b4b1c08cacb540f505907869868
-  gemdiff (6.0.0) sha256=65798b6abfed066a72f8bb354bfb40cf23ee96db46c082c18201ce6e28238de8
+  gemdiff (6.0.1) sha256=729b0f9dd43632b84a7180891631c633d3b9fbfd48eb2459f3aeaa89e359a272
   globalid (1.2.1) sha256=70bf76711871f843dbba72beb8613229a49429d1866828476f9c9d6ccc327ce9
   good_migrations (0.3.0) sha256=9874ac49bac87f4a160a8be3f5c4f996e63f96d1cd4cb8c7d000b7f1024b8e74
   google-protobuf (4.29.1) sha256=323ab7b6a597d9806fbc0633062432a35be2ce932197dba1b1efca76b6aef4ff
