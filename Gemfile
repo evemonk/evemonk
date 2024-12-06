@@ -6,7 +6,7 @@ ruby file: ".ruby-version"
 
 gem "rails", "8.0.0"
 
-gem "sprockets-rails"
+gem "propshaft"
 gem "pg"
 gem "puma"
 gem "importmap-rails"
