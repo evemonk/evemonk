@@ -7,7 +7,7 @@ GIT
 
 GIT
   remote: https://github.com/thoughtbot/administrate.git
-  revision: 8c9323d23e628f4c9fe67bd0994ead66c39de3eb
+  revision: e611561389fa1aa365d1a2f8934920059d8ba8f8
   branch: main
   specs:
     administrate (1.0.0.beta2)
@@ -248,9 +248,8 @@ GEM
     google-protobuf (4.29.1-x86_64-linux)
       bigdecimal
       rake (>= 13)
-    graphiql-rails (1.8.0)
+    graphiql-rails (1.10.1)
       railties
-      sprockets-rails
     graphql (2.4.6)
       base64
       fiber-storage
@@ -642,13 +641,6 @@ GEM
       activejob (>= 7)
       activerecord (>= 7)
       railties (>= 7)
-    sprockets (4.2.1)
-      concurrent-ruby (~> 1.0)
-      rack (>= 2.2.4, < 4)
-    sprockets-rails (3.5.2)
-      actionpack (>= 6.1)
-      activesupport (>= 6.1)
-      sprockets (>= 3.0.0)
     squasher (0.8.0)
     sshkit (1.23.2)
       base64
@@ -907,7 +899,7 @@ CHECKSUMS
   google-protobuf (4.29.1-arm64-darwin) sha256=33df2980747fded3f6642e96fb5a6a7cd65cc53166dd7716b1ed2f40889425bf
   google-protobuf (4.29.1-x86_64-darwin) sha256=ac0c1675b569909ff930f0bde536b661177b0edb32adc3b256582018b9c0f104
   google-protobuf (4.29.1-x86_64-linux) sha256=b4ca9a8d3542e6080ec374850ff192df66ff84d91491b2d24c9096070791d5bd
-  graphiql-rails (1.8.0) sha256=02e2c5098be2c6c29219a0e9b2910a2cd3c494301587a3199a7c4484d8038ed1
+  graphiql-rails (1.10.1) sha256=d43d9ed812bf0bd0f213a0314301ffd8ccb05a681f6225c1b9ad6e66e3561429
   graphql (2.4.6) sha256=5e3dae289de8c2483bc1c6a79e1ecbfbbf9127baacb7a89ee4ed3eb7ed751411
   graphql-rails_logger (1.2.5) sha256=d2117c047546aa2922550a313d3904d95949bdff819e0997f8246ebd6f49860d
   hashdiff (1.1.2) sha256=2c30eeded6ed3dce8401d2b5b99e6963fe5f14ed85e60dd9e33c545a44b71a77
@@ -1063,8 +1055,6 @@ CHECKSUMS
   smart_properties (1.17.0) sha256=f9323f8122e932341756ddec8e0ac9ec6e238408a7661508be99439ca6d6384b
   snaky_hash (2.0.1) sha256=1ac87ec157fcfe7a460e821e0cd48ae1e6f5e3e082ab520f03f31a9259dbdc31
   solid_cache (0.6.0) sha256=b2ce77376c89040b27e6c01bedca95da4dc347f62de5787f3668e39e03616a49
-  sprockets (4.2.1) sha256=951b13dd2f2fcae840a7184722689a803e0ff9d2702d902bd844b196da773f97
-  sprockets-rails (3.5.2) sha256=a9e88e6ce9f8c912d349aa5401509165ec42326baf9e942a85de4b76dbc4119e
   squasher (0.8.0) sha256=075f406a369d7fdcdd277a981bdcefcf4005a83ae89ef2f4aaa21c719f1438c6
   sshkit (1.23.2) sha256=76d7088fddeaf3ac37bad20e7121f7352367cae6bb0cdbc7d7354efc714d213b
   standard (1.42.1) sha256=5ae80bb45d56b71d225ff086cd894af05db228c8b6efce73549cefe90b329a2e

@@ -9,7 +9,7 @@ class EvemonkSchema < GraphQL::Schema
 
   default_max_page_size 50
 
-  max_complexity 200
+  max_complexity 250
 
   max_depth 20
 
