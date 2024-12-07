@@ -18,4 +18,4 @@ pin "@github/hotkey", to: "@github--hotkey.js", preload: false # @3.1.1
 pin "@popperjs/core", to: "popper.js", preload: false # @2.11.8
 pin "bootstrap", to: "bootstrap.esm.min.js", preload: false # @5.2.3
 
-pin "stimulus-password-visibility", to: "https://ga.jspm.io/npm:stimulus-password-visibility@2.1.1/dist/stimulus-password-visibility.mjs", preload: false
+pin "@stimulus-components/password-visibility", to: "@stimulus-components--password-visibility.js", preload: false # @3.0.0
