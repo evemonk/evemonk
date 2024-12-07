@@ -1,5 +1,5 @@
 import { Application } from "@hotwired/stimulus";
-import PasswordVisibility from "stimulus-password-visibility";
+import PasswordVisibility from "@stimulus-components/password-visibility";
 
 const application = Application.start();
 
