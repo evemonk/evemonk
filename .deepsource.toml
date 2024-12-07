@@ -11,4 +11,4 @@ enabled = true
 [[analyzers]]
 name = "javascript"
 enabled = true
-exclude_patterns = ["vendor/**"]
+exclude_patterns = ["vendor/**/*"]
