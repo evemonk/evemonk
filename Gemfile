@@ -12,13 +12,14 @@ gem "puma"
 gem "importmap-rails"
 gem "turbo-rails"
 gem "stimulus-rails"
+gem "dartsass-rails"
 gem "jbuilder"
+
 gem "tzinfo-data", platforms: [:windows, :jruby]
 gem "bootsnap", require: false
 
 gem "solid_cache"
 gem "thruster"
-gem "dartsass-rails"
 gem "view_component"
 gem "inline_svg"
 gem "good_migrations"
