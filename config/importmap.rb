@@ -9,11 +9,11 @@ pin "@hotwired/stimulus-loading", to: "stimulus-loading.js"
 
 pin_all_from "app/javascript/controllers", under: "controllers"
 
-pin "@rails/request.js", to: "https://ga.jspm.io/npm:@rails/request.js@0.0.11/src/index.js", preload: false
+pin "@rails/request.js", to: "@rails--request.js.js", preload: false # @0.0.11
 
-pin "local-time", to: "https://ga.jspm.io/npm:local-time@3.0.2/app/assets/javascripts/local-time.es2017-esm.js", preload: false
+pin "local-time", preload: false # @3.0.2
 
-pin "@github/hotkey", to: "https://ga.jspm.io/npm:@github/hotkey@3.1.1/dist/index.js", preload: false
+pin "@github/hotkey", to: "@github--hotkey.js", preload: false # @3.1.1
 
 pin "@popperjs/core", to: "popper.js", preload: false # @2.11.8
 pin "bootstrap", to: "bootstrap.esm.min.js", preload: false # @5.2.3
