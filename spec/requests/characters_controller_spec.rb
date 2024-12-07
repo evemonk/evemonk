@@ -104,7 +104,7 @@ RSpec.describe CharactersController do
 
           it { expect(response).to have_http_status(:ok) }
 
-          it { expect(response.body).to include("Character &laquo;Johnn Dillinger&raquo; scheduled to update. Check it later.") }
+          it { expect(flash.now[:notice]).to eq("Character &laquo;Johnn Dillinger&raquo; scheduled to update. Check it later.") }
         end
       end
 
@@ -164,11 +164,7 @@ RSpec.describe CharactersController do
 
           it { expect(subject).to redirect_to(characters_path) }
 
-          it do
-            follow_redirect!
-
-            expect(response.body).to include("Character &laquo;Johnn Dillinger&raquo; was successfully removed.")
-          end
+          it { expect(flash[:notice]).to eq("Character &laquo;Johnn Dillinger&raquo; was successfully removed.") }
         end
 
         context "when format stream" do
@@ -180,7 +176,7 @@ RSpec.describe CharactersController do
 
           it { expect(response).to have_http_status(:ok) }
 
-          it { expect(response.body).to include("Character &laquo;Johnn Dillinger&raquo; was successfully removed.") }
+          it { expect(flash.now[:notice]).to eq("Character &laquo;Johnn Dillinger&raquo; was successfully removed.") }
         end
       end
 
