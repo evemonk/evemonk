@@ -25,7 +25,7 @@
       <div class="mb-3">
         <%= f.label :password, "Password (leave blank if you don't want to change it)", class: "form-label" %>
 
-        <div class="input-group" data-controller="password-visibility">
+        <div class="input-group" data-controller="password-visibility" data-password-visibility-hidden-class="d-none">
           <%= f.password_field :password,
                                data: {"password-visibility-target": "input"},
                                class: "form-control",
@@ -35,7 +35,7 @@
             <span data-password-visibility-target="icon">
               <%= inline_svg_tag "icons/eye.svg", class: "vertical-align-125" %>
             </span>
-            <span data-password-visibility-target="icon" class="hidden">
+            <span data-password-visibility-target="icon" class="d-none">
               <%= inline_svg_tag "icons/eye-slash.svg", class: "vertical-align-125" %>
             </span>
           </button>
@@ -49,7 +49,7 @@
       <div class="mb-3">
         <%= f.label :password_confirmation, "Password confirmation", class: "form-label" %>
 
-        <div class="input-group" data-controller="password-visibility">
+        <div class="input-group" data-controller="password-visibility" data-password-visibility-hidden-class="d-none">
           <%= f.password_field :password_confirmation,
                                data: {"password-visibility-target": "input"},
                                class: "form-control",
@@ -59,7 +59,7 @@
             <span data-password-visibility-target="icon">
               <%= inline_svg_tag "icons/eye.svg", class: "vertical-align-125" %>
             </span>
-            <span data-password-visibility-target="icon" class="hidden">
+            <span data-password-visibility-target="icon" class="d-none">
               <%= inline_svg_tag "icons/eye-slash.svg", class: "vertical-align-125" %>
             </span>
           </button>
@@ -69,7 +69,7 @@
       <div class="mb-3">
         <%= f.label :current_password, "Current password", class: "form-label" %>
 
-        <div class="input-group" data-controller="password-visibility">
+        <div class="input-group" data-controller="password-visibility" data-password-visibility-hidden-class="d-none">
           <%= f.password_field :current_password,
                                data: {"password-visibility-target": "input"},
                                class: "form-control",
@@ -79,7 +79,7 @@
             <span data-password-visibility-target="icon">
               <%= inline_svg_tag "icons/eye.svg", class: "vertical-align-125" %>
             </span>
-            <span data-password-visibility-target="icon" class="hidden">
+            <span data-password-visibility-target="icon" class="d-none">
               <%= inline_svg_tag "icons/eye-slash.svg", class: "vertical-align-125" %>
             </span>
           </button>
