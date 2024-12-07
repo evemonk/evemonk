@@ -62,7 +62,7 @@ GEM
       erubi (~> 1.11)
       rails-dom-testing (~> 2.2)
       rails-html-sanitizer (~> 1.6)
-    active_record_doctor (1.14.0)
+    active_record_doctor (1.15.0)
       activerecord (>= 4.2.0)
     activejob (8.0.0)
       activesupport (= 8.0.0)
@@ -826,7 +826,7 @@ CHECKSUMS
   actionpack (8.0.0) sha256=2ebd3d550b7a9ececa684e0c4b25ff36d74b5d90babe755d9a2d2ef5b4bd7018
   actiontext (8.0.0) sha256=e6114f593d269f045779a6c1234badc12385642a1eec9d067c094df3bd75f763
   actionview (8.0.0) sha256=c64473444d7c90b050f39b093ee03a215597b577fc0fa915d033e0d1abb4036c
-  active_record_doctor (1.14.0) sha256=ca552a720d0f572db60bf7101f1fe12008719f6a64b1d8c00f79196a09b91ed5
+  active_record_doctor (1.15.0) sha256=614a49e259a679d17cbc62dead9217acaf7191a371115606132473123b426b13
   activejob (8.0.0) sha256=d3142e4d2ebacd1e8e0d01aab42c9cd7e94a702ace346d454f684d058ea284ba
   activemodel (8.0.0) sha256=55f27b9b1668ea371a9a8aa1ea47f95eac40d7b268817aa482707fedd8ec1947
   activerecord (8.0.0) sha256=a95dfb9321c6f058ca7e5bfeef89bb2db8ee8f57aeca590b926b8e232d6cab2f
