@@ -379,6 +379,8 @@ GEM
       racc (~> 1.4)
     nokogiri (1.17.0-aarch64-linux)
       racc (~> 1.4)
+    nokogiri (1.17.0-arm-linux)
+      racc (~> 1.4)
     nokogiri (1.17.0-arm64-darwin)
       racc (~> 1.4)
     nokogiri (1.17.0-x86_64-darwin)
@@ -596,6 +598,8 @@ GEM
       rake (>= 13)
     sass-embedded (1.82.0-aarch64-linux-gnu)
       google-protobuf (~> 4.28)
+    sass-embedded (1.82.0-arm-linux-gnueabihf)
+      google-protobuf (~> 4.28)
     sass-embedded (1.82.0-arm64-darwin)
       google-protobuf (~> 4.28)
     sass-embedded (1.82.0-x86_64-darwin)
@@ -711,6 +715,7 @@ GEM
 
 PLATFORMS
   aarch64-linux
+  arm-linux
   arm64-darwin
   ruby
   x86_64-darwin
@@ -954,6 +959,7 @@ CHECKSUMS
   nio4r (2.7.4) sha256=d95dee68e0bb251b8ff90ac3423a511e3b784124e5db7ff5f4813a220ae73ca9
   nokogiri (1.17.0) sha256=4200f1c9525ad91b7226d35849f2c7909b20a5e4571ab1204cc3cda1debe59ef
   nokogiri (1.17.0-aarch64-linux) sha256=95cdf0d33fe29dd2478d6a34656c9dd909e4b7dae9467b24721af67e1944d6e6
+  nokogiri (1.17.0-arm-linux) sha256=f0c1e71e6f4cd64a6efea4761c85e280318a450968262d02bb917c13874c1c48
   nokogiri (1.17.0-arm64-darwin) sha256=a0364ad985eb4c0a235e95896324969c20795be941a621fe753734bdee8cfa73
   nokogiri (1.17.0-x86_64-darwin) sha256=8d9d5bd2db1aa6b41b4ed9c0b890a9e76c33cb031008971b1fd34a35b1f525a5
   nokogiri (1.17.0-x86_64-linux) sha256=fd34467481d6c50f800a516e5db029ca3ad3fb8fcdec032bae581a2d80a4a74b
@@ -1037,6 +1043,7 @@ CHECKSUMS
   rufus-scheduler (3.9.2) sha256=55fa9e4db0ff69d7f38c804f17baba0c9bce5cba39984ae3c5cf6c039d1323b9
   sass-embedded (1.82.0) sha256=293989cbfe23685f1c0dc108ab82aee356ac5231e69e8a242c5ab6b90faf7c42
   sass-embedded (1.82.0-aarch64-linux-gnu) sha256=c0bf9c2f0e3b92c58ff258c7a14c444d50bd86429ca715fa577d92e543c3f169
+  sass-embedded (1.82.0-arm-linux-gnueabihf) sha256=a1d9b30229718d085d995c720f54d12ae67c32e96f81d5d6ad2c6ceef9da8c9b
   sass-embedded (1.82.0-arm64-darwin) sha256=52ab82b11623a4811241ee66644ba5617229f92075c73c4a88227ecb4d6adf08
   sass-embedded (1.82.0-x86_64-darwin) sha256=06edc9fdad88a2fd4701aeab61beb96b422383066df4e259018067bb24aa17fb
   sass-embedded (1.82.0-x86_64-linux-gnu) sha256=06e1193099fa82a263927a86a4ec95f1aaca6fdc82ee6a4961b2d117afdde4b9
