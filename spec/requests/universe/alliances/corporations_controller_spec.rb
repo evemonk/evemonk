@@ -6,36 +6,30 @@ RSpec.describe Universe::Alliances::CorporationsController do
   it { expect(subject).to be_an(ApplicationController) }
 
   describe "#index" do
-  end
+    let!(:alliance) { create(:eve_alliance, name: "The Dead Parrots") }
 
-  # describe "#index" do
-  #   let(:eve_alliance) { instance_double(Eve::Alliance) }
-  #
-  #   before do
-  #     #
-  #     # Eve::Alliance.find(params[:alliance_id])
-  #     #
-  #     expect(Eve::Alliance).to receive(:find).with("1354830081").and_return(eve_alliance)
-  #   end
-  #
-  #   before do
-  #     #
-  #     # Eve::Corporation.where(alliance: @alliance)
-  #     #                 .order(:name)
-  #     #
-  #     expect(Eve::Corporation).to receive(:where).with(alliance: eve_alliance) do
-  #       double.tap do |a|
-  #         expect(a).to receive(:order).with(:name)
-  #       end
-  #     end
-  #   end
-  #
-  #   before { get :index, params: {alliance_id: "1354830081"} }
-  #
-  #   it { expect(subject).to respond_with(:ok) }
-  #
-  #   it { expect(subject).not_to render_with_layout }
-  #
-  #   it { expect(subject).to render_template(:index) }
-  # end
+    let!(:corporation) { create(:eve_corporation, alliance: alliance) }
+
+    before { get universe_alliance_corporations_path(alliance) }
+
+    context "when user not logged in" do
+      it "is expected to have http status ok" do
+        expect(response).to have_http_status(:ok)
+
+        expect(response.body).to include("Corporations (1)")
+      end
+    end
+
+    context "when user is logged in" do
+      let(:user) { create(:user) }
+
+      before { sign_in(user) }
+
+      it "is expected to have http status ok" do
+        expect(response).to have_http_status(:ok)
+
+        expect(response.body).to include("Corporations (1)")
+      end
+    end
+  end
 end
