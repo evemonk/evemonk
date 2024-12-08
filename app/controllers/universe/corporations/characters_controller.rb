@@ -6,9 +6,9 @@ module Universe
       skip_before_action :authenticate_user!
 
       def index
-        @corporation = ::Eve::Corporation.find(params[:corporation_id])
+        @corporation = policy_scope(Eve::Corporation).find(params[:corporation_id])
 
-        @characters = ::Eve::Character
+        @characters = policy_scope(Eve::Character)
           .where(corporation: @corporation)
           .order(:name)
 
