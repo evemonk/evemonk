@@ -6,7 +6,7 @@ RSpec.describe Universe::Alliances::CorporationsController do
   it { expect(subject).to be_an(ApplicationController) }
 
   describe "#index" do
-    let!(:alliance) { create(:eve_alliance, name: "The Dead Parrots") }
+    let!(:alliance) { create(:eve_alliance) }
 
     let!(:corporation) { create(:eve_corporation, alliance: alliance) }
 
