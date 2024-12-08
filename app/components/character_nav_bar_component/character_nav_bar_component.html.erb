@@ -23,7 +23,7 @@
     <% end %>
   </li>
 
-  <% if Setting.enabled_assets %>
+  <% if Rails.configuration.evemonk.beta[:assets] %>
     <li class="nav-item">
       <% if @current_page == "assets" %>
         <%= link_to("Assets", character_assets_path(@character), class: "nav-link active") %>
@@ -49,7 +49,7 @@
     <% end %>
   </li>
 
-  <% if Setting.enabled_mails %>
+  <% if Rails.configuration.evemonk.beta[:mails] %>
     <li class="nav-item">
       <% if @current_page == "mail" %>
         <%= link_to("Mail", character_mails_path(@character), class: "nav-link active") %>

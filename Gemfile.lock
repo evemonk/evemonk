@@ -488,10 +488,6 @@ GEM
       activesupport (= 8.0.0)
       bundler (>= 1.15.0)
       railties (= 8.0.0)
-    rails-controller-testing (1.0.5)
-      actionpack (>= 5.0.1.rc1)
-      actionview (>= 5.0.1.rc1)
-      activesupport (>= 5.0.1.rc1)
     rails-dom-testing (2.2.0)
       activesupport (>= 5.0.0)
       minitest
@@ -792,7 +788,6 @@ DEPENDENCIES
   rack-cors
   rack-timeout
   rails (= 8.0.0)
-  rails-controller-testing
   rails-html-sanitizer
   rails-i18n
   rails-settings-cached
@@ -1009,7 +1004,6 @@ CHECKSUMS
   rack-timeout (0.7.0) sha256=757337e9793cca999bb73a61fe2a7d4280aa9eefbaf787ce3b98d860749c87d9
   rackup (2.2.1) sha256=f737191fd5c5b348b7f0a4412a3b86383f88c43e13b8217b63d4c8d90b9e798d
   rails (8.0.0) sha256=402dd94e82e1ff85c1c18a360894ec59dfe196335c310571c5faee89f4b321a4
-  rails-controller-testing (1.0.5) sha256=741448db59366073e86fc965ba403f881c636b79a2c39a48d0486f2607182e94
   rails-dom-testing (2.2.0) sha256=e515712e48df1f687a1d7c380fd7b07b8558faa26464474da64183a7426fa93b
   rails-html-sanitizer (1.6.1) sha256=e3d2fb10339f03b802e39c7f6cac28c54fd404d3f65ae39c31cca9d150c5cbf0
   rails-i18n (8.0.1) sha256=15303195450bdac9a80636cf14c7e5ada2f43907cc60fcd19bbb3f81ab45be0d

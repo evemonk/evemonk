@@ -25,14 +25,6 @@ RSpec.describe Setting do
     specify { expect(described_class.use_fathom_evemonk).to eq(false) }
   end
 
-  describe ".enabled_assets" do
-    specify { expect(described_class.enabled_assets).to eq(false) }
-  end
-
-  describe ".enabled_mails" do
-    specify { expect(described_class.enabled_mails).to eq(false) }
-  end
-
   describe ".enabled_neural_map_available" do
     specify { expect(described_class.enabled_neural_map_available).to eq(false) }
   end

@@ -11,10 +11,6 @@ class Setting < RailsSettings::Base
 
   field :use_fathom_evemonk, type: :boolean, default: false
 
-  field :enabled_assets, type: :boolean, default: false
-
-  field :enabled_mails, type: :boolean, default: false
-
   field :enabled_neural_map_available, type: :boolean, default: false
 
   field :enabled_standings, type: :boolean, default: false

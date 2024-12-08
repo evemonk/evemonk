@@ -4,6 +4,22 @@ test:
   eve_online_sso:
     client_id: ""
     secret_key: ""
+  features:
+    image_proxy: false
+    image_proxy_url: "https://imageproxy.evemonk.com/"
+    google_search_console: false
+    google_site_verification_token: ""
+    fathom: false
+  beta:
+    assets: false
+    mails: false
+    neural_map_available: false
+    standings: false
+    wallet_journal: false
+    wallet_transactions: false
+    industry_jobs: false
+    character_orders: false
+    manufacturing_jobs: false
   slack:
     updates_webhook_channel_url: ""
   jobs:
@@ -27,6 +43,22 @@ development:
   eve_online_sso:
     client_id: ""
     secret_key: ""
+  features:
+    image_proxy: false
+    image_proxy_url: "https://imageproxy.evemonk.com/"
+    google_search_console: false
+    google_site_verification_token: ""
+    fathom: false
+  beta:
+    assets: false
+    mails: false
+    neural_map_available: false
+    standings: false
+    wallet_journal: false
+    wallet_transactions: false
+    industry_jobs: false
+    character_orders: false
+    manufacturing_jobs: false
   slack:
     updates_webhook_channel_url: ""
   jobs:
@@ -50,6 +82,22 @@ production:
   eve_online_sso:
     client_id: ""
     secret_key: ""
+  features:
+    image_proxy: true
+    image_proxy_url: "https://imageproxy.evemonk.com/"
+    google_search_console: true
+    google_site_verification_token: ""
+    fathom: true
+  beta:
+    assets: false
+    mails: false
+    neural_map_available: false
+    standings: false
+    wallet_journal: false
+    wallet_transactions: false
+    industry_jobs: false
+    character_orders: false
+    manufacturing_jobs: false
   slack:
     updates_webhook_channel_url: ""
   jobs:
