@@ -32,7 +32,11 @@ RSpec.describe Universe::CharactersController do
   end
 
   describe "#show" do
-    let!(:character) { create(:eve_character, name: "Johnn Dillinger") }
+    let!(:alliance) { create(:eve_alliance, name: "The Dead Parrots") }
+
+    let!(:corporation) { create(:eve_corporation, alliance: alliance, name: "Freighting Solutions Inc.") }
+
+    let!(:character) { create(:eve_character, name: "Johnn Dillinger", alliance: alliance, corporation: corporation) }
 
     before { get universe_character_path(character) }
 
