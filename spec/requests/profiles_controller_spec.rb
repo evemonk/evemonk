@@ -9,13 +9,15 @@ RSpec.describe ProfilesController do
     context "when user signed in" do
       let(:user) { create(:user) }
 
+      let!(:character) { create(:character, user: user) }
+
       before { sign_in(user) }
 
       before { get profile_path }
 
       it { expect(response).to have_http_status(:ok) }
 
-      it { expect(response.body).to include("Characters count: 0") }
+      it { expect(response.body).to include("Characters count: 1") }
     end
 
     context "when user not signed in" do
