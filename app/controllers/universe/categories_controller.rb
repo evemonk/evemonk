@@ -9,7 +9,9 @@ module Universe
     end
 
     def show
-      # @category = Eve::Category.find_by(category_id: params[:id])
+      @category = Eve::Category.find(params[:id])
+
+      authorize @category
     end
   end
 end
