@@ -32,7 +32,11 @@ RSpec.describe Universe::CorporationsController do
   end
 
   describe "#show" do
-    let!(:corporation) { create(:eve_corporation, name: "Freighting Solutions Inc.") }
+    let!(:alliance) { create(:eve_alliance) }
+
+    let!(:ceo) { create(:eve_character) }
+
+    let!(:corporation) { create(:eve_corporation, alliance: alliance, ceo: ceo, name: "Freighting Solutions Inc.") }
 
     before { get universe_corporation_path(corporation) }
 
