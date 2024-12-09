@@ -5,7 +5,7 @@ module Universe
     skip_before_action :authenticate_user!
 
     def index
-      # @categories = Eve::Category.page(params[:page])
+      @categories = policy_scope(Eve::Category).order(:name_en).page(params[:page])
     end
 
     def show
