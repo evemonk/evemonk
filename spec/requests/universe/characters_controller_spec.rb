@@ -3,7 +3,7 @@
 require "rails_helper"
 
 RSpec.describe Universe::CharactersController do
-  it { expect(subject).to be_a(ApplicationController) }
+  it { expect(subject).to be_an(ApplicationController) }
 
   describe "#index" do
     let!(:character) { create(:eve_character, name: "Johnn Dillinger") }
@@ -32,7 +32,19 @@ RSpec.describe Universe::CharactersController do
   end
 
   describe "#show" do
-    let!(:character) { create(:eve_character, name: "Johnn Dillinger") }
+    let!(:alliance) { create(:eve_alliance, name: "The Dead Parrots") }
+
+    let!(:corporation) { create(:eve_corporation, alliance: alliance, name: "Freighting Solutions Inc.") }
+
+    let!(:character) { create(:eve_character, name: "Johnn Dillinger", alliance: alliance, corporation: corporation) }
+
+    let!(:character_corporation_history) do
+      create(:eve_character_corporation_history,
+        character: character,
+        corporation: corporation,
+        is_deleted: nil,
+        start_date: Time.zone.local(2020, 4, 24, 17, 23, 0))
+    end
 
     before { get universe_character_path(character) }
 

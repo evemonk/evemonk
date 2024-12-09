@@ -48,6 +48,7 @@
           </li>
         <% end %>
       </ul>
+
       <p class="card-text text-center">
         <small class="text-muted">
           Last updated: <%= local_time_ago(@character.updated_at) %>
@@ -66,6 +67,7 @@
           <th class="text-end">Joined at</th>
         </tr>
       </thead>
+
       <tbody>
         <% @character_corporation_histories.each do |record| %>
           <%# In some cases we don't have corporation yet in db %>
