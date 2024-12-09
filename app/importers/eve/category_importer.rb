@@ -14,7 +14,7 @@ module Eve
         Mobility.with_locale(locale) do
           eve_category = Eve::Category.find_or_initialize_by(id: category_id)
 
-          eve_category.update!(esi.as_json)
+          eve_category.update!(esi.as_json.transform_keys(category_id: :id))
         rescue EveOnline::Exceptions::ResourceNotFound
           Rails.logger.info("EveOnline::Exceptions::ResourceNotFound: Eve Category ID #{category_id}")
 
