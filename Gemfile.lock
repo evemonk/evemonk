@@ -103,7 +103,7 @@ GEM
     ast (2.4.2)
     attr_extras (7.1.0)
     aws-eventstream (1.3.0)
-    aws-partitions (1.1018.0)
+    aws-partitions (1.1019.0)
     aws-sdk-core (3.214.0)
       aws-eventstream (~> 1, >= 1.3.0)
       aws-partitions (~> 1, >= 1.992.0)
@@ -853,7 +853,7 @@ CHECKSUMS
   ast (2.4.2) sha256=1e280232e6a33754cde542bc5ef85520b74db2aac73ec14acef453784447cc12
   attr_extras (7.1.0) sha256=d96fc9a9dd5d85ba2d37762440a816f840093959ae26bb90da994c2d9f1fc827
   aws-eventstream (1.3.0) sha256=f1434cc03ab2248756eb02cfa45e900e59a061d7fbdc4a9fd82a5dd23d796d3f
-  aws-partitions (1.1018.0) sha256=b2915082fc0b25299d375b7e5f501be9b8efd8731d0a7618184177c240cabafb
+  aws-partitions (1.1019.0) sha256=73cf8f4abb498243a7d124d1cf5c7fe126c088bd72646aad3e6cf2acad7540aa
   aws-sdk-core (3.214.0) sha256=24f2a0f29dc3b5d9ee38d6ff8341a66fba48a4ebca2424688f7bac9952d8488b
   aws-sdk-kms (1.96.0) sha256=b1818e140b4d1b3cbe154e6b2df1d157f8c65aa297d488f69b5745995a6ba375
   aws-sdk-s3 (1.176.0) sha256=c1c00dd35e8896042dce589889051291d2080aa3d938cb6b9cc60496bbc6e9c1
