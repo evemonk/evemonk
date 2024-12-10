@@ -2,19 +2,19 @@
 
 require "rails_helper"
 
-RSpec.describe Universe::CorporationsController do
+RSpec.describe Universe::CategoriesController do
   it { expect(subject).to be_an(ApplicationController) }
 
   describe "#index" do
-    let!(:corporation) { create(:eve_corporation, name: "Freighting Solutions Inc.") }
+    let!(:category) { create(:eve_category, name_en: "Test Category") }
 
-    before { get universe_corporations_path }
+    before { get universe_categories_path }
 
     context "when user not logged in" do
       it "is expected to have http status ok" do
         expect(response).to have_http_status(:ok)
 
-        expect(response.body).to include("Freighting Solutions Inc.")
+        expect(response.body).to include("Test Category")
       end
     end
 
@@ -26,25 +26,21 @@ RSpec.describe Universe::CorporationsController do
       it "is expected to have http status ok" do
         expect(response).to have_http_status(:ok)
 
-        expect(response.body).to include("Freighting Solutions Inc.")
+        expect(response.body).to include("Test Category")
       end
     end
   end
 
   describe "#show" do
-    let!(:alliance) { create(:eve_alliance) }
+    let!(:category) { create(:eve_category, name_en: "Test Category") }
 
-    let!(:ceo) { create(:eve_character) }
-
-    let!(:corporation) { create(:eve_corporation, alliance: alliance, ceo: ceo, name: "Freighting Solutions Inc.") }
-
-    before { get universe_corporation_path(corporation) }
+    before { get universe_category_path(category) }
 
     context "when user not logged in" do
       it "is expected to have http status ok" do
         expect(response).to have_http_status(:ok)
 
-        expect(response.body).to include("Corporation: Freighting Solutions Inc.")
+        expect(response.body).to include("Test Category")
       end
     end
 
@@ -56,7 +52,7 @@ RSpec.describe Universe::CorporationsController do
       it "is expected to have http status ok" do
         expect(response).to have_http_status(:ok)
 
-        expect(response.body).to include("Corporation: Freighting Solutions Inc.")
+        expect(response.body).to include("Test Category")
       end
     end
   end

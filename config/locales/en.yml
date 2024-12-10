@@ -44,6 +44,7 @@ en:
       alliances: "Alliances"
       corporations: "Corporations"
       characters: "Characters"
+      categories: "Categories"
       market_groups: "Market Groups"
       inventory: "Inventory"
   auth:
