@@ -94,7 +94,7 @@ GEM
       uri (>= 0.13.1)
     addressable (2.8.7)
       public_suffix (>= 2.0.2, < 7.0)
-    airbrake (13.0.4)
+    airbrake (13.0.5)
       airbrake-ruby (~> 6.0)
     airbrake-ruby (6.2.2)
       rbtree3 (~> 0.6)
@@ -849,7 +849,7 @@ CHECKSUMS
   activesupport (8.0.0.1) sha256=8d4df7918f51533bf6269e2a7d18f5bce929a2a380d41473b6bd6b04161ab251
   addressable (2.8.7) sha256=462986537cf3735ab5f3c0f557f14155d778f4b43ea4f485a9deb9c8f7c58232
   administrate (1.0.0.beta2)
-  airbrake (13.0.4) sha256=5ccb0cd49fbdae8ddc461351f51636cc0f770f5b3be763ca016d558a22ba4103
+  airbrake (13.0.5) sha256=901f5074c25d5ef77ed87f5bde7a28400a7324f5d7013a8a12d07e0099cc31b6
   airbrake-ruby (6.2.2) sha256=293e34fb36e763e1b6d67ab584cce7c5b6fe9eea1a70c26d8c13c0f5d7de2fbc
   ancestry (4.3.3) sha256=af3f6bcf405c219af02eec5b9c8206e68cba8d7976fe5269559ef0986f5e7ca0
   ast (2.4.2) sha256=1e280232e6a33754cde542bc5ef85520b74db2aac73ec14acef453784447cc12
