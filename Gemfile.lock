@@ -598,20 +598,20 @@ GEM
     rubyzip (2.3.2)
     rufus-scheduler (3.9.2)
       fugit (~> 1.1, >= 1.11.1)
-    sass-embedded (1.82.0)
+    sass-embedded (1.83.0)
       google-protobuf (~> 4.28)
       rake (>= 13)
-    sass-embedded (1.82.0-aarch64-linux-gnu)
+    sass-embedded (1.83.0-aarch64-linux-gnu)
       google-protobuf (~> 4.28)
-    sass-embedded (1.82.0-arm-linux-gnueabihf)
+    sass-embedded (1.83.0-arm-linux-gnueabihf)
       google-protobuf (~> 4.28)
-    sass-embedded (1.82.0-arm64-darwin)
+    sass-embedded (1.83.0-arm64-darwin)
       google-protobuf (~> 4.28)
-    sass-embedded (1.82.0-x86-linux-gnu)
+    sass-embedded (1.83.0-x86-linux-gnu)
       google-protobuf (~> 4.28)
-    sass-embedded (1.82.0-x86_64-darwin)
+    sass-embedded (1.83.0-x86_64-darwin)
       google-protobuf (~> 4.28)
-    sass-embedded (1.82.0-x86_64-linux-gnu)
+    sass-embedded (1.83.0-x86_64-linux-gnu)
       google-protobuf (~> 4.28)
     sawyer (0.9.2)
       addressable (>= 2.3.5)
@@ -1053,13 +1053,13 @@ CHECKSUMS
   ruby_parser (3.21.1) sha256=9d931abe5aec287d65280f811d3cf672564956ef1bd49f528ca48479984d6fec
   rubyzip (2.3.2) sha256=3f57e3935dc2255c414484fbf8d673b4909d8a6a57007ed754dde39342d2373f
   rufus-scheduler (3.9.2) sha256=55fa9e4db0ff69d7f38c804f17baba0c9bce5cba39984ae3c5cf6c039d1323b9
-  sass-embedded (1.82.0) sha256=293989cbfe23685f1c0dc108ab82aee356ac5231e69e8a242c5ab6b90faf7c42
-  sass-embedded (1.82.0-aarch64-linux-gnu) sha256=c0bf9c2f0e3b92c58ff258c7a14c444d50bd86429ca715fa577d92e543c3f169
-  sass-embedded (1.82.0-arm-linux-gnueabihf) sha256=a1d9b30229718d085d995c720f54d12ae67c32e96f81d5d6ad2c6ceef9da8c9b
-  sass-embedded (1.82.0-arm64-darwin) sha256=52ab82b11623a4811241ee66644ba5617229f92075c73c4a88227ecb4d6adf08
-  sass-embedded (1.82.0-x86-linux-gnu) sha256=65ac60ed2a9c19ddd5134162f86f7f99c5bdf3d792613986978950f60e2af961
-  sass-embedded (1.82.0-x86_64-darwin) sha256=06edc9fdad88a2fd4701aeab61beb96b422383066df4e259018067bb24aa17fb
-  sass-embedded (1.82.0-x86_64-linux-gnu) sha256=06e1193099fa82a263927a86a4ec95f1aaca6fdc82ee6a4961b2d117afdde4b9
+  sass-embedded (1.83.0) sha256=0da4c3eb3422799e5734bcc15d8ff43d65154084a2720f18e05417a3720f0e93
+  sass-embedded (1.83.0-aarch64-linux-gnu) sha256=439773d94f4f6f60088ecf776dbac6cc4342434039086a20cebc979c90761805
+  sass-embedded (1.83.0-arm-linux-gnueabihf) sha256=f05b5f2ab54fc009f98c7a28a21fd83080675718eb6b058197f32c1a87fd2972
+  sass-embedded (1.83.0-arm64-darwin) sha256=f9bf292ae8ada5de0cd95984b3ad0482ba5eb28a073b7284646d5d4a2a8fdcb2
+  sass-embedded (1.83.0-x86-linux-gnu) sha256=4956e98c2b06575cbc1acdb9185a7fbfc7d92d5be3cdc9fef85335000b44950a
+  sass-embedded (1.83.0-x86_64-darwin) sha256=bd29b524ceb7ecb72060d1a665e379974727f4da1d0f7a643ace8efc3b81162b
+  sass-embedded (1.83.0-x86_64-linux-gnu) sha256=726f0942092bfad417b85b4c2c2d34f2f824482c0a9f647059b13450ad7e75d9
   sawyer (0.9.2) sha256=fa3a72d62a4525517b18857ddb78926aab3424de0129be6772a8e2ba240e7aca
   securerandom (0.4.0) sha256=37a844aa4fe4dac8e47c5bc35f91531d4dc636ccee54a1ba1629087dda0a53a8
   selenium-webdriver (4.27.0) sha256=8821f4ad60b935cfcdc5954c0a6642d894e936250aece8bf37a6fcbebe5eb6e0
