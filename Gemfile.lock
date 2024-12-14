@@ -516,7 +516,7 @@ GEM
     rainbow (3.1.1)
     rake (13.2.1)
     rbtree3 (0.7.1)
-    rdoc (6.8.1)
+    rdoc (6.9.0)
       psych (>= 4.0.0)
     redcarpet (3.6.0)
     redis (5.3.0)
@@ -1020,7 +1020,7 @@ CHECKSUMS
   rainbow (3.1.1) sha256=039491aa3a89f42efa1d6dec2fc4e62ede96eb6acd95e52f1ad581182b79bc6a
   rake (13.2.1) sha256=46cb38dae65d7d74b6020a4ac9d48afed8eb8149c040eccf0523bec91907059d
   rbtree3 (0.7.1) sha256=ab60ead728a5491b70df4f4065e180b18dbab5319f817ce1dbf5dd906f26d8ba
-  rdoc (6.8.1) sha256=0128002d1bfc4892bdd780940841e4ca41275f63781fd832d11bc8ba4461462c
+  rdoc (6.9.0) sha256=91a9d213ac66a3c2d8c7f4e8b38eafde0ae3dd2a96c9f9f6a2620644ea54b209
   redcarpet (3.6.0) sha256=8ad1889c0355ff4c47174af14edd06d62f45a326da1da6e8a121d59bdcd2e9e9
   redis (5.3.0) sha256=6bf810c5ae889187f0c45f77db503310980310afa57cf1640d57f419ccda72b1
   redis-client (0.23.0) sha256=1f83884ea1b08b83184ad06371c18dfcfebbf05685bfad2b76cec6dffb5a184c
