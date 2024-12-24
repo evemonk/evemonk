@@ -15,7 +15,7 @@ permissions:
 
 jobs:
   license_finder:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
 
     steps:
       - name: Harden Runner
