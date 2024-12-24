@@ -18,7 +18,6 @@ gem "jbuilder"
 gem "tzinfo-data", platforms: [:windows, :jruby]
 gem "bootsnap", require: false
 
-gem "solid_cache"
 gem "thruster"
 gem "view_component"
 gem "inline_svg"
