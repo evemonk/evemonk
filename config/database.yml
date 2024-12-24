@@ -78,4 +78,14 @@ test:
 # for a full overview on how database connection configuration can be specified.
 #
 production:
-  url: <%= ENV["DATABASE_URL"] %>
+  primary:
+    url: <%= ENV["PRIMARY_DATABASE_URL"] %>
+  cache:
+    url: <%= ENV["CACHE_DATABASE_URL"] %>
+    migrations_paths: db/cache_migrate
+#  queue:
+#    url: <%#= ENV["QUEUE_DATABASE_URL"] %>
+#    migrations_paths: db/queue_migrate
+#  cable:
+#    url: <%#= ENV["CABLE_DATABASE_URL"] %>
+#    migrations_paths: db/cable_migrate
