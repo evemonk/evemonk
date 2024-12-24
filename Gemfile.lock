@@ -7,10 +7,10 @@ GIT
 
 GIT
   remote: https://github.com/thoughtbot/administrate.git
-  revision: dfd893aae7ce2aae7af7e64515edcc33c62a8593
+  revision: 45c939bf08f4f380f759b87debf4fa227d8d71fd
   branch: main
   specs:
-    administrate (1.0.0.beta2)
+    administrate (1.0.0.beta3)
       actionpack (>= 6.0, < 9.0)
       actionview (>= 6.0, < 9.0)
       activerecord (>= 6.0, < 9.0)
@@ -848,7 +848,7 @@ CHECKSUMS
   activestorage (8.0.1) sha256=91a8f156638568fac971ff25962a617d9c58fdc0e44eb6bd0edff36aff7df205
   activesupport (8.0.1) sha256=fd5bc74641c24ac3541055c2879789198ff42adee3e39c2933289ba008912e37
   addressable (2.8.7) sha256=462986537cf3735ab5f3c0f557f14155d778f4b43ea4f485a9deb9c8f7c58232
-  administrate (1.0.0.beta2)
+  administrate (1.0.0.beta3)
   airbrake (13.0.5) sha256=901f5074c25d5ef77ed87f5bde7a28400a7324f5d7013a8a12d07e0099cc31b6
   airbrake-ruby (6.2.2) sha256=293e34fb36e763e1b6d67ab584cce7c5b6fe9eea1a70c26d8c13c0f5d7de2fbc
   ancestry (4.3.3) sha256=af3f6bcf405c219af02eec5b9c8206e68cba8d7976fe5269559ef0986f5e7ca0
