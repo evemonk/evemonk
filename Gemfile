@@ -61,9 +61,7 @@ gem "responders"
 gem "aws-sdk-s3"
 gem "down"
 gem "sitemap_generator"
-gem "administrate",
-  git: "https://github.com/thoughtbot/administrate.git",
-  branch: "main"
+gem "administrate", "1.0.0.beta3"
 gem "pry-rails"
 gem "skylight"
 gem "lograge"
