@@ -4,3 +4,7 @@ parallel: true
 ignore:
   - "bin/*"
   - "db/schema.rb"
+  - "db/data_schema.rb"
+  - "db/cache_schema.rb"
+  - "db/queue_schema.rb"
+  - "vendor/**/*"
