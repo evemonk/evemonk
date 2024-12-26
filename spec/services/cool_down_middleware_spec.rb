@@ -51,7 +51,7 @@ RSpec.describe CoolDownMiddleware do
 
   context "when esi_error_limit_remain and esi_error_limit_remain_till are set" do
     context "when esi_error_limit_remain less than 50" do
-      before { freeze_time }
+      before { freeze_time(with_usec: true) }
 
       before { expect(Redis).to receive(:new).and_return(redis).exactly(4).times }
 
