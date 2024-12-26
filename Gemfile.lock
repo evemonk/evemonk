@@ -281,7 +281,7 @@ GEM
       activesupport (>= 5.0.0)
     jmespath (1.6.2)
     json (2.9.1)
-    jwt (2.9.3)
+    jwt (2.10.0)
       base64
     kaminari (1.2.2)
       activesupport (>= 4.1.0)
@@ -975,7 +975,7 @@ CHECKSUMS
   jbuilder (2.13.0) sha256=7200a38a1c0081aa81b7a9757e7a299db75bc58cf1fd45ca7919a91627d227d6
   jmespath (1.6.2) sha256=238d774a58723d6c090494c8879b5e9918c19485f7e840f2c1c7532cf84ebcb1
   json (2.9.1) sha256=d2bdef4644052fad91c1785d48263756fe32fcac08b96a20bb15840e96550d11
-  jwt (2.9.3) sha256=55fd07ccdd64c622d36859748f2290fb9c119ce30b482867504e9f12654d6a65
+  jwt (2.10.0) sha256=e096b7b5b707b3ed6fb4a1a61e85262d73b53eddf1a86851a9b1434dc1ff4d0f
   kaminari (1.2.2) sha256=c4076ff9adccc6109408333f87b5c4abbda5e39dc464bd4c66d06d9f73442a3e
   kaminari-actionview (1.2.2) sha256=1330f6fc8b59a4a4ef6a549ff8a224797289ebf7a3a503e8c1652535287cc909
   kaminari-activerecord (1.2.2) sha256=0dd3a67bab356a356f36b3b7236bcb81cef313095365befe8e98057dd2472430
