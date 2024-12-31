@@ -83,9 +83,9 @@ production:
   cache:
     url: <%= ENV["CACHE_DATABASE_URL"] %>
     migrations_paths: db/cache_migrate
-#  queue:
-#    url: <%#= ENV["QUEUE_DATABASE_URL"] %>
-#    migrations_paths: db/queue_migrate
+  queue:
+    url: <%= ENV["QUEUE_DATABASE_URL"] %>
+    migrations_paths: db/queue_migrate
 #  cable:
 #    url: <%#= ENV["CABLE_DATABASE_URL"] %>
 #    migrations_paths: db/cable_migrate
