@@ -1,0 +1,63 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://esi.evetech.net/v2/status/
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - EveOnline API (https://github.com/evemonk/eve_online) v0.46.0
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 02 Jan 2025 20:04:59 GMT
+      Content-Type:
+      - application/json; charset=UTF-8
+      Content-Length:
+      - '80'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - Content-Type,Authorization,If-None-Match,X-User-Agent
+      Access-Control-Allow-Methods:
+      - GET,HEAD,OPTIONS
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - Content-Type,Warning,ETag,X-Pages,X-ESI-Error-Limit-Remain,X-ESI-Error-Limit-Reset
+      Access-Control-Max-Age:
+      - '600'
+      Allow:
+      - GET,HEAD,OPTIONS
+      Cache-Control:
+      - public
+      Etag:
+      - '"958a79667a45dc98c19f2517ef40094bc4b5830afb4b1964c112d4fe"'
+      Expires:
+      - Thu, 02 Jan 2025 20:05:21 GMT
+      Last-Modified:
+      - Thu, 02 Jan 2025 20:04:51 GMT
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Esi-Error-Limit-Remain:
+      - '100'
+      X-Esi-Error-Limit-Reset:
+      - '1'
+      X-Esi-Request-Id:
+      - fe617318-f0d5-4b4e-8fa0-1d9fe63fe1d6
+    body:
+      encoding: UTF-8
+      string: '{"players":29568,"server_version":"2776971","start_time":"2025-01-02T11:01:17Z"}'
+  recorded_at: Thu, 02 Jan 2025 20:04:58 GMT
+recorded_with: VCR 6.3.1
