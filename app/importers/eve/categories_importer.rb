@@ -10,11 +10,11 @@ module Eve
       end
     end
 
+    private
+
     def esi
       @esi ||= EveOnline::ESI::UniverseCategories.new
     end
-
-    private
 
     def import_new_categories
       eve_category_ids = Eve::Category.ids
