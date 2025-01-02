@@ -23,12 +23,12 @@ RSpec.describe "Get Bloodlines" do
       id: 8)
   end
 
-  let!(:eve_ship_type_1) do
+  let!(:eve_ship_1) do
     create(:eve_ship,
       type_id: 1_001)
   end
 
-  let!(:eve_ship_type_2) do
+  let!(:eve_ship_2) do
     create(:eve_ship,
       type_id: 1_002)
   end
@@ -60,7 +60,7 @@ RSpec.describe "Get Bloodlines" do
       description_ko: "KO: description 1",
       corporation: eve_corporation_1,
       race: eve_race_1,
-      ship_type: eve_ship_type_1,
+      ship: eve_ship_1,
       charisma: 1,
       intelligence: 2,
       memory: 3,
@@ -83,7 +83,7 @@ RSpec.describe "Get Bloodlines" do
       description_ko: "KO: description 2",
       corporation: eve_corporation_2,
       race: eve_race_2,
-      ship_type: eve_ship_type_2,
+      ship: eve_ship_2,
       charisma: 6,
       intelligence: 7,
       memory: 8,
@@ -121,7 +121,7 @@ RSpec.describe "Get Bloodlines" do
                 id
               }
               shipTypeId
-              shipType {
+              ship {
                 id
               }
               charisma
@@ -189,7 +189,7 @@ RSpec.describe "Get Bloodlines" do
                 "id" => "4"
               },
               "shipTypeId" => 1_001,
-              "shipType" => {
+              "ship" => {
                 "id" => "1001"
               },
               "charisma" => 1,
@@ -242,7 +242,7 @@ RSpec.describe "Get Bloodlines" do
                 "id" => "8"
               },
               "shipTypeId" => 1_002,
-              "shipType" => {
+              "ship" => {
                 "id" => "1002"
               },
               "charisma" => 6,
