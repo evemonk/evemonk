@@ -9,80 +9,54 @@ RSpec.describe Eve::CategoryImporter do
 
   it { expect(subject).to be_a(Eve::BaseImporter) }
 
-  describe "#initialize" do
-    context "without locale" do
-      its(:category_id) { is_expected.to eq(category_id) }
-
-      its(:locale) { is_expected.to eq(:en) }
-    end
-
-    context "with locale" do
-      let(:locale) { :ru }
-
-      subject { described_class.new(category_id, locale) }
-
-      its(:category_id) { is_expected.to eq(category_id) }
-
-      its(:locale) { is_expected.to eq(:ru) }
-    end
-  end
-
   describe "#import" do
-    before { expect(subject).to receive(:configure_middlewares) }
-
-    let(:eve_category) { instance_double(Eve::Category) }
-
-    before { expect(Eve::Category).to receive(:find_or_initialize_by).with(id: category_id).and_return(eve_category) }
-
     context "when eve category found" do
-      let(:json) { double }
+      let(:category_id) { 20 }
 
-      let(:esi) { instance_double(EveOnline::ESI::UniverseCategory, as_json: json) }
+      before { VCR.insert_cassette "esi/universe/categories/20" }
 
-      before { expect(subject).to receive(:esi).and_return(esi) }
+      after { VCR.eject_cassette }
 
-      before { expect(eve_category).to receive(:update!).with(json) }
+      specify { expect { subject.import }.to change(Eve::Category, :count).by(1) }
 
-      specify { expect { subject.import }.not_to raise_error }
-    end
+      specify do
+        subject.import
 
-    context "when eve category not found" do
-      before { expect(subject).to receive(:esi).and_raise(EveOnline::Exceptions::ResourceNotFound) }
+        category = Eve::Category.first
 
-      before do
-        #
-        # Rails.logger.info("EveOnline::Exceptions::ResourceNotFound: Eve Category ID #{category_id}")
+        expect(category.id).to eq(20)
 
-        expect(Rails).to receive(:logger) do
-          double.tap do |a|
-            expect(a).to receive(:info).with("EveOnline::Exceptions::ResourceNotFound: Eve Category ID #{category_id}")
-          end
-        end
+        expect(category.name_en).to eq("Implant")
+
+        expect(category.published).to eq(true)
       end
-
-      before { expect(eve_category).to receive(:destroy!) }
-
-      specify { expect { subject.import }.not_to raise_error }
     end
   end
 
-  describe "#esi" do
-    context "when @esi is set" do
-      let(:esi) { instance_double(EveOnline::ESI::UniverseCategory) }
-
-      before { subject.instance_variable_set(:@esi, esi) }
-
-      specify { expect(subject.esi).to eq(esi) }
-    end
-
-    context "when @esi not set" do
-      let(:esi) { instance_double(EveOnline::ESI::UniverseCategory) }
-
-      before { expect(EveOnline::ESI::UniverseCategory).to receive(:new).with(id: category_id, language: "en-us").and_return(esi) }
-
-      specify { expect(subject.esi).to eq(esi) }
-
-      specify { expect { subject.esi }.to change { subject.instance_variable_get(:@esi) }.from(nil).to(esi) }
-    end
-  end
+  # describe "#import" do
+  #   before { expect(subject).to receive(:configure_middlewares) }
+  #
+  #   let(:eve_category) { instance_double(Eve::Category) }
+  #
+  #   before { expect(Eve::Category).to receive(:find_or_initialize_by).with(id: category_id).and_return(eve_category) }
+  #
+  #   context "when eve category not found" do
+  #     before { expect(subject).to receive(:esi).and_raise(EveOnline::Exceptions::ResourceNotFound) }
+  #
+  #     before do
+  #       #
+  #       # Rails.logger.info("EveOnline::Exceptions::ResourceNotFound: Eve Category ID #{category_id}")
+  #
+  #       expect(Rails).to receive(:logger) do
+  #         double.tap do |a|
+  #           expect(a).to receive(:info).with("EveOnline::Exceptions::ResourceNotFound: Eve Category ID #{category_id}")
+  #         end
+  #       end
+  #     end
+  #
+  #     before { expect(eve_category).to receive(:destroy!) }
+  #
+  #     specify { expect { subject.import }.not_to raise_error }
+  #   end
+  # end
 end

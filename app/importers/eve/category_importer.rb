@@ -4,6 +4,8 @@ module Eve
   class CategoryImporter < BaseImporter
     attr_reader :category_id, :locale
 
+    # @param category_id [Integer] Category ID to import
+    # @param locale [Symbol] Locale. Default: :en
     def initialize(category_id, locale = :en)
       @category_id = category_id
       @locale = locale
@@ -23,8 +25,10 @@ module Eve
       end
     end
 
+    private
+
     def esi
-      @esi ||= EveOnline::ESI::UniverseCategory.new(id: category_id, language: LanguageMapper::LANGUAGES[locale])
+      @esi ||= EveOnline::ESI::UniverseCategory.new(category_id: category_id, language: LanguageMapper::LANGUAGES[locale])
     end
   end
 end
