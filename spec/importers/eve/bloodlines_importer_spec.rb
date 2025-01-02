@@ -13,7 +13,7 @@ RSpec.describe Eve::BloodlinesImporter do
 
       specify { expect { subject.import }.to change(Eve::Bloodline, :count).by(18) }
 
-      specify "" do
+      specify do
         subject.import
 
         bloodline = Eve::Bloodline.first
@@ -39,6 +39,24 @@ RSpec.describe Eve::BloodlinesImporter do
         expect(bloodline.ship_type_id).to eq(601)
 
         expect(bloodline.willpower).to eq(5)
+      end
+    end
+
+    context "with de locale" do
+      before { VCR.insert_cassette "esi/universe/bloodlines_de" }
+
+      after { VCR.eject_cassette }
+
+      subject { described_class.new(:de) }
+
+      specify do
+        subject.import
+
+        bloodline = Eve::Bloodline.first
+
+        expect(bloodline.id).to eq(1)
+
+        expect(bloodline.description_de).to start_with("Führungsstärke hat in der Gesellschaft der Caldari ein Gesicht: das der Deteis.")
       end
     end
   end
