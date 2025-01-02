@@ -1,0 +1,339 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://esi.evetech.net/v1/universe/ancestries/?language=de
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - EveOnline API (https://github.com/evemonk/eve_online) v0.46.0
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 02 Jan 2025 17:48:25 GMT
+      Content-Type:
+      - application/json; charset=UTF-8
+      Content-Length:
+      - '23673'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - Content-Type,Authorization,If-None-Match,X-User-Agent
+      Access-Control-Allow-Methods:
+      - GET,HEAD,OPTIONS
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - Content-Type,Warning,ETag,X-Pages,X-ESI-Error-Limit-Remain,X-ESI-Error-Limit-Reset
+      Access-Control-Max-Age:
+      - '600'
+      Allow:
+      - GET,HEAD,OPTIONS
+      Cache-Control:
+      - public
+      Content-Language:
+      - de
+      Etag:
+      - '"71e655c22da484d5e6466ec84d40e14997b5b24b94901ab8c31b0781"'
+      Expires:
+      - Fri, 03 Jan 2025 11:05:00 GMT
+      Last-Modified:
+      - Thu, 02 Jan 2025 11:01:17 GMT
+      Strict-Transport-Security:
+      - max-age=31536000
+      Vary:
+      - Accept-Encoding,Accept-Language
+      X-Esi-Error-Limit-Remain:
+      - '100'
+      X-Esi-Error-Limit-Reset:
+      - '35'
+      X-Esi-Request-Id:
+      - 2d3b61ca-3ae5-4889-97d8-35711bcdffda
+    body:
+      encoding: UTF-8
+      string: '[{"bloodline_id":7,"description":"Die Gallente sch\u00e4tzen politischen
+        Aktivismus mehr als alle anderen Imperien. Viele engagieren sich an einer
+        oder mehreren Fronten, um ihre pers\u00f6nlichen Interessen durchzusetzen.
+        Aktivisten sind sich dar\u00fcber bewusst, dass sich die Dinge erst dann zum
+        Besseren \u00e4ndern, wenn jemand den Mut fasst, f\u00fcr das Gute zu k\u00e4mpfen.","icon_id":1653,"id":13,"name":"Aktivisten","short_description":"Making
+        the universe a better place, one fight at a time."},{"bloodline_id":9,"description":"Gentechnologie
+        hat die Gesellschaft der Jove \u00fcber die Jahrhunderte hinweg in jeder Hinsicht
+        ver\u00e4ndert. Viele Jove glauben, dass das Ma\u00df in dieser Hinsicht voll
+        ist. Die \"Unbefleckten\" sind eine Gruppe von Jove, die weitere genetische
+        Experimente ablehnen und sich stattdessen konventionellen Methoden zuwenden,
+        um mit Krankheit und Alter umzugehen. Sie pl\u00e4dieren f\u00fcr Cyber-Implantate
+        und m\u00f6chten Maschinen statt Genen bei der Suche nach einem besseren Leben
+        einsetzen.","id":26,"name":"Unbefleckte","short_description":""},{"bloodline_id":13,"description":"In
+        der Regel sind die Khanid nicht gerade besonders fromme Zeitgenossen; falls
+        aber doch, dann \u00fcbersteigt ihr Fanatismus selbst amarrianische Verh\u00e4ltnisse.
+        Religi\u00f6se Khanid geben sich h\u00e4ufig strikten Kulten hin, deren Praxis
+        von der jeweiligen Interpretation der Heiligen Schrift bestimmt wird. Die
+        Amarr behalten diese religi\u00f6sen Eiferer aufmerksam im Auge, denn deren
+        kultische H\u00f6rigkeit schreckt sie eigentlich ab; andererseits m\u00fcssen
+        sie jedoch neidlos die tiefgreifenden theosophischen Einsichten anerkennen,
+        die genau dieser Extremismus mit sich bringt.","icon_id":3033,"id":39,"name":"Fanatiker","short_description":"Religious
+        fanatics who pursue their faith with fervor."},{"bloodline_id":5,"description":"Die
+        meisten L\u00e4ndereien Amarrs geh\u00f6ren den Gro\u00dfgrundbesitzern, die
+        \u00fcblicherweise erzkonservativ sind und die Tradition hochhalten. Einige
+        haben sich indes von ihren engstirnigen und machtgierigen Zeitgenossen distanziert
+        und setzen sich lieber f\u00fcr religi\u00f6se und grundlegende wirtschaftliche
+        Reformen innerhalb ihrer Gesellschaft ein. Dabei hat sich besonders der udorianische
+        Thronanw\u00e4rter Catiz Tash-Murkon hervorgetan.","icon_id":1641,"id":1,"name":"Liberale
+        Gro\u00dfgrundbesitzer","short_description":"Progressive members of the upper
+        class who have rejected their traditional ways."},{"bloodline_id":7,"description":"Die
+        aufopferungsvollen Pioniere der Bergbauindustrie der Gallente trotzten fremden
+        Gefahren, um den Weg f\u00fcr Wachstum und Raumerkundung zu ebnen. Die F\u00f6deration
+        der Gallente ben\u00f6tigt immer gewaltigere Mengen an Mineralien. Ihr Nationalstolz
+        verbietet ihnen, diese von anderen V\u00f6lkern zu erwerben, da dies als Abh\u00e4ngigkeit
+        interpretiert werden k\u00f6nnte.","icon_id":1654,"id":14,"name":"Bergleute","short_description":"The
+        backbone of a core national industry."},{"bloodline_id":9,"description":"F\u00fcr
+        viele Jove befindet sich ihre Rasse in der D\u00e4mmerung ihrer Gr\u00f6\u00dfe.
+        Seit dem Sturz des ersten Imperiums befindet sich die Gesellschaft der Jove
+        in einem langsamen, st\u00e4ndigen Abstieg. Die meisten machen die Jovianische
+        Seuche daf\u00fcr verantwortlich und glauben, dass die Jove nur dann auf eine
+        Wende hoffen k\u00f6nnen, wenn f\u00fcr die Seuche ein Heilmittel gefunden
+        wurde. Die Stasis-Menschen sind Jove, die freiwillig f\u00fcr Jahrzehnte oder
+        Jahrhunderte in den K\u00e4lteschlaf gehen mit der Hoffnung, dass sie beim
+        Erwachen von einer freundlicheren, besseren Welt begr\u00fc\u00dft werden.","id":27,"name":"Stasis-Menschen","short_description":""},{"bloodline_id":14,"description":"Vielen
+        Vherokiors wohnt eine gro\u00dfe Wanderlust inne, was wohl daran liegt, dass
+        sie von Nomaden abstammen. W\u00e4hrend manche ihre Abenteuerlust z\u00fcgeln,
+        weigern sich andere wiederum, lange an einem Ort zu verweilen. Ihre rastlose
+        Natur treibt sie gen Horizont auf der Suche nach neuen L\u00e4ndern und Ressourcen.","icon_id":3036,"id":40,"name":"Wanderer","short_description":"Wandering
+        the cluster in search of adventure."},{"bloodline_id":5,"description":"Einige
+        B\u00fcrgerliche k\u00f6nnen aus dem strikten Kastensystem der amarrianischen
+        Gesellschaft ausbrechen und sich einen Namen machen - zumeist durch Handel
+        oder andere kaufm\u00e4nnische T\u00e4tigkeiten. Politische Positionen innerhalb
+        des Imperiums bleiben ihnen zwar auf immer verwehrt, jedoch k\u00f6nnen sie
+        durch interstellaren Handel zu viel Reichtum, Macht und Einfluss gelangen.","icon_id":1642,"id":2,"name":"Wohlhabende
+        B\u00fcrgerliche","short_description":"Commoners who have transcended their
+        class through shrewd business sense."},{"bloodline_id":7,"description":"Einwanderer
+        werden nirgends mit solch offenen Armen empfangen wie in der Gallente F\u00f6deration.
+        Immigranten mit einer gefestigten Arbeitsmoral k\u00f6nnen in der F\u00f6deration,
+        dem Land der unbegrenzten M\u00f6glichkeiten, ihr Gl\u00fcck finden. Rassenzugeh\u00f6rigkeit,
+        Glaubensrichtung und Hautfarbe sind in dieser freiheitsliebenden Kultur unerheblich,
+        wo Arbeiter immerzu gesucht und von der Regierung sozial vortrefflich abgesichert
+        werden.","icon_id":1655,"id":15,"name":"Einwanderer","short_description":"Recent
+        arrivals to the land of plenty."},{"bloodline_id":10,"description":"Die Existenzialisten
+        sind die energiegeladenste und sich am meisten bemerkbar machenden Gruppe
+        der Jove. Sie leben f\u00fcr den Augenblick und sind immer zu Experimenten
+        aufgelegt - auch mit ihren eigenen K\u00f6rpern. Ihnen ist nichts heilig.
+        Die Existenzialisten versuchen, nichts mit anderen V\u00f6lkern zu tun zu
+        haben, da sie ihnen zu langweilig und ideenlos erscheinen.","id":28,"name":"Existenzialisten","short_description":""},{"bloodline_id":14,"description":"Die
+        Vherokior sind den anderen St\u00e4mmen der Minmatar seit jeher suspekt -
+        besonders dann, wenn sie einen Hang zum Mystischen haben. Deshalb verehren
+        und f\u00fcrchten die Minmatar die Mystiker der Vherokior gleicherma\u00dfen.
+        Diese haben auch Voluval entwickelt und h\u00fcten dessen Geheimnis wie ihren
+        Augapfel. W\u00e4hrend dieses uralten Rituals offenbaren sich Seele und Karma
+        \u00fcber eine T\u00e4towierung, die urpl\u00f6tzlich am K\u00f6rper einer
+        Person auftaucht. ","icon_id":3034,"id":41,"name":"Mystiker","short_description":"Revered
+        keepers of ancient, sacred traditions."},{"bloodline_id":5,"description":"Viele
+        Amarr gedenken noch der Hochzeit des Imperiums, als scheinbar keine Macht
+        des Universums ihren Siegeszug aufhalten konnte. Sie verabscheuen das neue
+        System und sehen dessen Beschwichtigungspolitik als Schw\u00e4che an, weil
+        sie der glorreichen Vergangenheit des Imperiums spottet.","icon_id":1643,"id":3,"name":"Religi\u00f6se
+        Forderer","short_description":"Traditionalists who wish to see the Empire
+        regain its former glory."},{"bloodline_id":8,"description":"Die Intaki gelten
+        im System gemeinhin als besonders geschickte und provokante K\u00fcnstler.
+        Sie haben so manche Kunstform entstaubt oder neu aus der Taufe gehoben, beispielsweise
+        die Meta-Malerei und die Ber\u00fchrungsskulptur. Die K\u00fcnstler unter
+        den Intaki haben offenbar die einzigartige F\u00e4higkeit, eine aus unerfindlichen
+        Gr\u00fcnden von allen Menschen verstandene, unvergleichliche Sch\u00f6nheit
+        heraufzubeschw\u00f6ren und darzustellen.","icon_id":1656,"id":16,"name":"K\u00fcnstler","short_description":"Intaki
+        sculptors and painters are among the most revered artists in the cluster."},{"bloodline_id":10,"description":"Viele
+        Jove tr\u00e4umen davon, zu ihren genetischen Wurzeln zur\u00fcckzukehren,
+        die schon lange - seit den \"D\u00fcsteren Tagen\" - verloren sind. Diejenigen,
+        die bei ihrer Suche nach den \"unverf\u00e4lschten\" Genen der Jove am aktivsten
+        sind, werden als \"Puritaner\" bezeichnet. \r\nIn der Hoffnung, das Volk von
+        der Jovianischen Seuche zu befreien, experimentieren die Puritaner mit immer
+        gewagteren genetischen Manipulationen, oft mit ziemlich unerwarteten Ergebnissen.
+        Aber anders als bei den Existenzialisten hat die Gentechnologie der Puritaner
+        zum Ziel, den Jove das menschliche Element zur\u00fcckzubringen, anstatt sich
+        Naturnarzissmus hinzugeben.","id":29,"name":"Puritaner","short_description":""},{"bloodline_id":14,"description":"Wenn
+        man eine der Haupt-Marktstationen im minmatarischen Raum besucht und eines
+        der vielen Gesch\u00e4fte oder Restaurants entlang der Promenade betritt,
+        kann man sich fast sicher sein, dass es von Vherokior betrieben wird. Sie
+        waren schon eifrige Hausierer und H\u00e4ndler, als sie noch in Karawanen
+        umherzogen, und seitdem haben sich ihr Erfahrungsschatz und Einfluss auf die
+        Gesch\u00e4ftswelt in der Republik stetig vergr\u00f6\u00dfert.","icon_id":3035,"id":42,"name":"Einzelh\u00e4ndler","short_description":"Business
+        owners and purveyors of everyday goods."},{"bloodline_id":6,"description":"Das
+        einstige Sklavenvolk der Ni-Kunni hat sich nunmehr beinahe vollst\u00e4ndig
+        als freie B\u00fcrgerschicht in der Gesellschaft des Amarr-Imperiums etabliert.
+        Die Antipathie der amarrianischen Oberschicht gegen\u00fcber dem Handelswesen
+        kam ihnen dabei zugute, denn die wirtschaftlichen Schl\u00fcsselpositionen
+        des Imperiums sind heute gr\u00f6\u00dftenteils von Ni-Kunni besetzt.","icon_id":1644,"id":4,"name":"Freie
+        Kaufleute","short_description":"Roaming businessmen who find opportunity in
+        any marketplace."},{"bloodline_id":8,"description":"Seit ihrer Aufnahme in
+        die F\u00f6deration haben die Intaki sich immer st\u00e4rker als \u00fcberragende
+        Diplomaten, Verhandlungsf\u00fchrer und Verwaltungsspezialisten verdient gemacht.
+        In der oftmals mit harten Bandagen betriebenen interstellaren Politik kann
+        der gute Ratschlag eines Intaki bisweilen \u00fcber Krieg und Frieden entscheiden.","icon_id":1657,"id":17,"name":"Diplomaten","short_description":"Those
+        who build bridges between cultures."},{"bloodline_id":10,"description":"Alle
+        Jove sind k\u00fcnstlich gezeugt. In den meisten F\u00e4llen ist ein Familienmitglied
+        beteiligt, das die Gene bereitstellt und sich sp\u00e4ter auch um die Erziehung
+        k\u00fcmmert, aber das ist nicht immer so. Oft werden Personen auch aus altruistischen
+        Gr\u00fcnden gezeugt, \u00fcblicherweise aus Forschungsgr\u00fcnden. Diese
+        Jove werden ebenso behandelt wie alle anderen, aber in vielen F\u00e4llen
+        scheinen sie ein wenig \"daneben\" zu sein, m\u00f6glicherweise wegen ihrer
+        klinischen Zeugung.","id":30,"name":"Laborratte","short_description":""},{"bloodline_id":6,"description":"Die
+        strengen Handelsbestimmungen des Amarr-Imperiums im Umgang mit fremden Rassen
+        fordern den Warenschmuggel geradezu heraus. Die Ni-Kunni sind besonders gewiefte
+        H\u00e4ndler auf dem Schwarzmarkt und haben ihre F\u00e4higkeiten als Schieber
+        \u00fcber Generationen hinweg perfektioniert.","icon_id":1645,"id":5,"name":"Grenzl\u00e4ufer","short_description":"Wily
+        smugglers, bound by no border."},{"bloodline_id":8,"description":"Was bei
+        den Intaki Usus ist, sehen Au\u00dfenstehende oftmals als d\u00fcsteren Hokuspokus
+        an: Sie \u00fcbertragen die Pers\u00f6nlichkeit eines Sterbenden auf Neugeborene.
+        Wiedergeborene sind nicht durchweg dem traditionellen Glauben der Intaki verhaftet,
+        doch g\u00e4be es ohne sie innerhalb der breiten Bev\u00f6lkerung der Intaki
+        wesentlich weniger Kapselpiloten.","icon_id":1658,"id":18,"name":"Wiedergeboren","short_description":"Those
+        who have been There and Back."},{"bloodline_id":11,"description":"Die Achur
+        glauben, dass derjenige den Schl\u00fcssel zum universellen Bewusstsein besitzt,
+        der \u00fcber sein Inneres die Verbundenheit aller Dinge miteinander erfassen
+        und daraus neue Ideen sch\u00f6pfen kann. Erfindungen haben f\u00fcr die Achur
+        eher spirituelle als wissenschaftliche Bedeutung. Deshalb halten sie gro\u00dfe
+        St\u00fccke auf Kreativit\u00e4t und verehren Personen mit Erfindergeist.","icon_id":3025,"id":31,"name":"Erfinder","short_description":"Those
+        sufficiently attuned with the universe to receive its idea-gifts."},{"bloodline_id":6,"description":"Ein
+        Gro\u00dfteil der Ni-Kunni lebt nach wie vor verarmt in k\u00e4rglichen Verh\u00e4ltnissen.
+        Die Imperiale Navy bietet den Mittellosen eine Fluchtm\u00f6glichkeit, denn
+        dort werden sie ausgebildet und auf eine erfolgreiche - wenn auch gef\u00e4hrliche
+        - Karriere vorbereitet, durch die sie f\u00fcr sich und ihre Familien aufkommen
+        k\u00f6nnen.","id":6,"name":"K\u00e4mpfer der Navy","short_description":"Those
+        who have escaped poverty through enlisted service on behalf of the Empire."},{"bloodline_id":3,"description":"Die
+        Sebiestor sind die Techniker und Erfinder der Minmatar. \u00dcberaus geschickt
+        entwickeln sie bereits bestehende Produkte zu Ger\u00e4ten mit einzigartigem
+        Design weiter. Die Fingerfertigkeit einiger Sebiestor ist geradezu unheimlich
+        und macht sie zu \u00e4u\u00dferst beschlagenen Handwerkern.","icon_id":1659,"id":19,"name":"Bastler","short_description":"Natural
+        engineers and inventors."},{"bloodline_id":11,"description":"Im Saisio-System
+        gibt es zahllose Kl\u00f6ster und Dutzende unterschiedlicher M\u00f6nchsorden.
+        Letztere eint trotz abweichender Verhaltensregeln, F\u00fchrungs- und Alltagsprinzipien
+        ein grundlegender Glaube: Nur wer das Universum versteht, entwickelt seine
+        Seele zur Vollendung. ","icon_id":3027,"id":32,"name":"M\u00f6nche","short_description":"Aspirants
+        of Achur spiritualism and the quest for perfect understanding."},{"bloodline_id":2,"description":"Civire
+        gelten nicht unbedingt als ausgemachte Gesch\u00e4ftsleute, aber wenn sie
+        sich auf Verhandlungen einlassen, dann verhalten sie sich dabei genauso aggressiv
+        und selbstbewusst wie auf dem Schlachtfeld. F\u00fcr sie sind Gesch\u00e4ftsangelegenheiten
+        ein geistiger Wettstreit, den man ohne Skrupel und mit Umsicht f\u00fchren
+        muss.","icon_id":1647,"id":7,"name":"Unternehmer","short_description":"Warriors
+        of the board room."},{"bloodline_id":3,"description":"Viele H\u00e4ndler der
+        Sebiestor f\u00fchren ein Nomadenleben und durchstreifen das All auf der Suche
+        nach dem schnellen Geld. Sie halten sich selten l\u00e4nger an einem Ort auf,
+        um eine aussichtsreiche Einnahmequelle zu erschlie\u00dfen; sie bleiben lieber
+        in Bewegung und wollen den gro\u00dfen Coup landen, der ihnen Reichtum \u00fcber
+        alle Ma\u00dfen verschafft.","icon_id":1660,"id":20,"name":"H\u00e4ndler","short_description":"Nomadic
+        merchants looking to strike it rich."},{"bloodline_id":11,"description":"Man
+        kann die Spiritualit\u00e4t der Achur nicht mit organisierter Religion gleichsetzen,
+        doch die Wahrsager und Hellseher der Nation Achura genie\u00dfen hohes Ansehen.
+        Obwohl f\u00fcr die Achur hellseherische F\u00e4higkeiten nichts \u00dcbernat\u00fcrliches
+        sind, gestehen sie dem Stargazer ein tiefgreifendes Verst\u00e4ndnis des lebendigen
+        Universums zu.","icon_id":3026,"id":33,"name":"Stargazer","short_description":"Seers
+        of the hidden mysteries before our very eyes."},{"bloodline_id":2,"description":"Viele
+        Civire sind geradezu fasziniert von der Brutalit\u00e4t des Kampfes. Die Dreistigkeit,
+        mit der sie sich stets dem H\u00f6chstbietenden andienen, resultiert aus ihrer
+        st\u00e4ndigen Hoffnung auf ein Gefecht. Die S\u00f6ldnertradition reicht
+        in einigen ihrer Familien, die gleichwohl dem zwielichtigen Teil der Gesellschaft
+        angeh\u00f6ren, mehrere Generationen weit in die Vergangenheit zur\u00fcck.","icon_id":1648,"id":8,"name":"S\u00f6ldner","short_description":"Guns
+        for hire that are always available to the highest bidder."},{"bloodline_id":3,"description":"Die
+        meisten Minmatar begn\u00fcgen sich mit einem geregelten Alltagsleben in der
+        Republik, doch nicht wenige halten den Amarr die zahllosen und unm\u00f6glich
+        zu vergessenen Grausamkeiten vor, die das Volk auch weiterhin erdulden muss.
+        Sie haben es sich zur Aufgabe gemacht, jeden einzelnen minmatarischen Sklaven
+        in New Eden zu befreien. Diese Umst\u00fcrzler schrecken f\u00fcr ihre Zwecke
+        vor nichts zur\u00fcck - koste es, was es wolle.","icon_id":1661,"id":21,"name":"Rebellen","short_description":"Those
+        who will never forget."},{"bloodline_id":12,"description":"Die Sang-Do-Kaste
+        (was \u00fcbersetzt \"Gebieter\" bedeutet) ist die regierende Kaste in der
+        Gesellschaft der Jin-Mei. Anders als in den meisten Gesellschaften mit einer
+        \u00e4hnlichen Kasten-Hierarchie herrschen sie mit G\u00fcte  und Wohlt\u00e4tigkeit.
+        Durch ihre einf\u00fchlsame und inspirierende Art f\u00e4llt es ihnen au\u00dfergew\u00f6hnlich
+        leicht, die Loyalit\u00e4t ihrer Untergebenen zu gewinnen.","icon_id":3028,"id":34,"name":"Sang-Do-Kaste","short_description":"Benevolent
+        and charitable, the Sang Do are the ruling class of Jin-Mei society."},{"bloodline_id":2,"description":"Die
+        k\u00fchle Disziplin der caldarischen Gesellschaft ist genauso wenig jedermanns
+        Sache wie die Strenge, mit der die Oberh\u00e4upter der herrschenden Firmen
+        das Alltagsleben bestimmen. Rebellion findet im Verborgenen statt, denn Dissidenten
+        bem\u00fchen sich intensiv um einen Umsturz aus dem Inneren des Systems heraus.
+        Der Staat beh\u00e4lt solche Individuen sehr genau im Auge.","icon_id":1649,"id":9,"name":"Dissidenten","short_description":"Unhappy
+        cogs in the capitalist machine."},{"bloodline_id":4,"description":"Viele Brutor
+        widmen ihre Arbeitskraft den Farmen, Minen und Fabriken, die die Republik
+        am Leben halten. Waren sie einst unter dem Joch der Amarr versklavt, zeichnen
+        sie sich heute als freie Handwerker und Baumeister aus.","icon_id":1662,"id":22,"name":"Handwerker","short_description":"People
+        of the fields, mines and factories."},{"bloodline_id":12,"description":"Die
+        Saan-Go (was \u00fcbersetzt \"In der Gunst\" bedeutet) stellen innerhalb der
+        Gesellschaftsordnung der Jin-Mei die gehobene Mittelklasse dar. Haupts\u00e4chlich
+        werden sie als Staats- oder Verwaltungsbeamte, Polizeioffiziere oder in \u00e4hnlichen
+        Positionen eingesetzt. Sie sind belastbar und freundlich, haben generell eine
+        gute Bildung und zeichnen sich durch eine praktische Denkweise aus.","icon_id":3029,"id":35,"name":"Saan-Go-Kaste","short_description":"Well-educated
+        and practical thinkers, the Saan Go are the administrative class of the Jin-Mei."},{"bloodline_id":1,"description":"Deteis
+        sind sehr darauf bedacht, ihre Gesch\u00e4fte vollst\u00e4ndig unter Kontrolle
+        zu haben - besonders, was industrielle Produktion betrifft. Jeden Schritt
+        im Herstellungsprozess m\u00f6chten sie perfektionieren - von der Rohstoffbeschaffung
+        \u00fcber die Fertigung bis hin zur Vermarktung der Endprodukte.","icon_id":1650,"id":10,"name":"Kaufm\u00e4nner","short_description":"Intrepid
+        industrialists with a passion for mastery of production."},{"bloodline_id":4,"description":"W\u00e4hrend
+        der Besetzung durch die Amarr litten die Brutor unter einer brutalen und unmenschlichen
+        Herrschaft. Auch wenn sie oft zu den gef\u00e4hrlichsten Arbeiten gezwungen
+        wurden, fanden sie immer noch Trost in der einen Sache, die ihnen die Amarr
+        nicht wegnehmen konnten: ihren kulturellen Traditionen.","icon_id":1663,"id":23,"name":"Stammestraditionalisten","short_description":"Staying
+        true to the Way."},{"bloodline_id":12,"description":"Zur Jing-Ko-Kaste (was
+        \u00fcbersetzt \"Guten Mutes\" bedeutet) geh\u00f6ren die Mittel- und Unterschichten
+        der Jin-Mei-Gesellschaft. Die meisten dieser Leute m\u00fchen sich abseits
+        des \u00f6ffentlichen Bewusstseins ab, und nur wenige Auserw\u00e4hlte erheben
+        sich durch ihre au\u00dferordentliche Begabung \u00fcber den P\u00f6bel. F\u00fcr
+        gew\u00f6hnlich schlie\u00dfen sich diese stets getriebenen und streng disziplinierten
+        Personen einem Saan-Go- oder sogar Sang-Do-Patron an. Solche F\u00f6rderer
+        beg\u00fcnstigen ihren Aufstieg noch weiter.","icon_id":3030,"id":36,"name":"Jing-Ko-Kaste","short_description":"Traditionally
+        regulated to the lowest tier of Jin-Mei society, exceptional Jing Ko are driven
+        and highly disciplined."},{"bloodline_id":1,"description":"Die Deteis sind
+        hervorragende Forscher und Wissenschaftler, weil sie auf wunderbare Weise
+        n\u00fcchterne Effizienz mit Ideenreichtum verbinden. Durch diese Talente
+        und ihrer kulturell bedingte Entschlossenheit, wurde der Staat der Caldari
+        zur ersten Adresse, wenn es um technische Innovation geht.","icon_id":1651,"id":11,"name":"Wissenschaftler","short_description":"Combining
+        efficiency with inventiveness, Deteis scientists are on the bleeding edge
+        of technology."},{"bloodline_id":4,"description":"Millionen Sklaven tr\u00e4umen
+        im Imperium der Amarr von der Freiheit, insbesondere f\u00fcr ihre Kinder.
+        J\u00e4hrlich werden Tausende neugeborene Sklavenkinder aus dem Imperium in
+        den sicheren Raum der Matari geschleust, wo Pflegeeltern sie gro\u00dfziehen.","icon_id":1664,"id":24,"name":"Befreite
+        Kinder","short_description":"Torn from the cold and brought to the warmth
+        of a new life."},{"bloodline_id":13,"description":"Viele Khanid s\u00e4hen
+        es gerne, wenn ihre Krieger auch in der Moderne konkurrenzf\u00e4hige K\u00e4mpfer
+        blieben, doch dies ist nur durch umfangreiche Modifikationen am K\u00f6rper
+        m\u00f6glich. In dieser Hinsicht hat sich das moderne Wissen der Amarr \u00fcber
+        Cyberimplantate als \u00fcberaus g\u00fcnstig erwiesen. Einige Khanid m\u00f6chten
+        ihr K\u00f6nnen zwar immer noch im Kampf Mann gegen Mann beweisen, aber diejenigen,
+        die etwas fortschrittlicher denken, konzentrieren sich auf die moderne Kriegsf\u00fchrung.","icon_id":3031,"id":37,"name":"Cyber-Ritter
+        ","short_description":"Spacefaring crusaders, bred for combat superiority."},{"bloodline_id":1,"description":"Den
+        Deteis der vorherigen Generation war die niedrige Bev\u00f6lkerungszahl des
+        Staates Caldari in Relation zur bl\u00fchenden F\u00f6deration der Gallente
+        schmerzlich bewusst. Dem wollten sie \u00fcber k\u00fcnstliche Fortpflanzungsmethoden
+        entgegenwirken, die der Staat nun nicht mehr subventioniert. Unabh\u00e4ngig
+        davon kommen die im Reagenzglas gezeugten Kinder heute aus unwirtlichen staatseigenen
+        Waisenh\u00e4usern. Viele davon sind vehement eigensinnige Loyalisten des
+        Staates Caldari.  ","icon_id":1652,"id":12,"name":"Retortenbaby","short_description":"Manufactured
+        citizens of the State."},{"bloodline_id":9,"description":"Die \u00c4ltesten
+        waren eine der ersten Gruppierungen, die Gentechnik f\u00fcr einen besonderen
+        Zweck eingesetzt haben, namentlich f\u00fcr das Verlangsamen des Alterungsprozesses.
+        Fr\u00fcher waren die \u00c4ltesten eine bekannte politische Kraft in der
+        Gesellschaft der Jove, aber seit dem Fall des ersten jovianischen Imperiums
+        sind sie verschlossener geworden. Die \u00c4ltesten k\u00f6nnen viele Jahrhunderte
+        alt werden - wie alt sie genau werden k\u00f6nnen, ist nicht bekannt - aber
+        einige Leute vermuten, dass sie sogar Mitglieder der kaiserlichen Familien
+        der Amarr \u00fcberleben k\u00f6nnen.","id":25,"name":"\u00c4lteste","short_description":""},{"bloodline_id":13,"description":"Einige
+        Khanid waren unzufrieden, als man sich vom Imperium Amarr l\u00f6ste. Sie
+        h\u00e4tten deshalb aber nie zu den Waffen gegriffen und freuen sich nun umso
+        mehr, da sie aus den wieder enger werdenden Banden mit den Amarr Hoffnungen
+        auf einen neuerlichen Zusammenschluss beider Parteien hegen. Sie sind versessen
+        darauf, jeden in ihrer Macht stehenden Beitrag dazu zu leisten und schrecken
+        nicht davor zur\u00fcck, sich den gemeinsamen Feinden des Imperiums und des
+        K\u00f6nigreichs zu stellen.","icon_id":3032,"id":38,"name":"Unionisten","short_description":"Those
+        who would see the Khanid Kingdom and the Amarr Empire reunited."},{"bloodline_id":19,"description":"Undefinierte
+        Abstammung f\u00fcr Charaktere, die bei der Charaktererstellung keine Abstammung
+        ausgew\u00e4hlt haben.","id":64,"name":"Nicht definiert"}]'
+  recorded_at: Thu, 02 Jan 2025 17:48:25 GMT
+recorded_with: VCR 6.3.1

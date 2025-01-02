@@ -5,63 +5,49 @@ require "rails_helper"
 RSpec.describe Eve::AncestriesImporter do
   it { expect(subject).to be_a(Eve::BaseImporter) }
 
-  describe "#initialize" do
-    context "without locale" do
-      its(:locale) { is_expected.to eq(:en) }
-    end
-
-    context "with locale" do
-      let(:locale) { :ru }
-
-      subject { described_class.new(locale) }
-
-      its(:locale) { is_expected.to eq(:ru) }
-    end
-  end
-
   describe "#import" do
-    before { expect(subject).to receive(:configure_middlewares) }
+    context "with default locale" do
+      before { VCR.insert_cassette "esi/universe/ancestries" }
 
-    let(:ancestry_id) { double }
+      after { VCR.eject_cassette }
 
-    let(:json) { double }
+      specify { expect { subject.import }.to change(Eve::Ancestry, :count).by(43) }
 
-    let(:ancestry) { instance_double(EveOnline::ESI::Models::Ancestry, ancestry_id: ancestry_id, as_json: json) }
+      specify do
+        subject.import
 
-    let(:esi) { instance_double(EveOnline::ESI::UniverseAncestries, ancestries: [ancestry]) }
+        ancestry = Eve::Ancestry.first
 
-    before { expect(subject).to receive(:esi).and_return(esi) }
+        expect(ancestry.id).to eq(1)
 
-    let(:eve_ancestry) { instance_double(Eve::Ancestry) }
+        expect(ancestry.bloodline_id).to eq(5)
 
-    before { expect(Eve::Ancestry).to receive(:find_or_initialize_by).with(id: ancestry_id).and_return(eve_ancestry) }
+        expect(ancestry.description_en).to start_with("Holders, the major landholding class in Amarr society, are generally conservative traditionalists.")
 
-    let(:transformed_json) { double }
+        expect(ancestry.icon_id).to eq(1641)
 
-    before { expect(json).to receive(:transform_keys).with(ancestry_id: :id).and_return(transformed_json) }
+        expect(ancestry.name_en).to eq("Liberal Holders")
 
-    before { expect(eve_ancestry).to receive(:update!).with(transformed_json) }
-
-    specify { expect { subject.import }.not_to raise_error }
-  end
-
-  describe "#esi" do
-    context "when @esi is set" do
-      let(:esi) { instance_double(EveOnline::ESI::UniverseAncestries) }
-
-      before { subject.instance_variable_set(:@esi, esi) }
-
-      specify { expect(subject.esi).to eq(esi) }
+        expect(ancestry.short_description).to eq("Progressive members of the upper class who have rejected their traditional ways.")
+      end
     end
 
-    context "when @esi not set" do
-      let(:esi) { instance_double(EveOnline::ESI::UniverseAncestries) }
+    context "with de locale" do
+      before { VCR.insert_cassette "esi/universe/ancestries_de" }
 
-      before { expect(EveOnline::ESI::UniverseAncestries).to receive(:new).with(language: "en-us").and_return(esi) }
+      after { VCR.eject_cassette }
 
-      specify { expect(subject.esi).to eq(esi) }
+      subject { described_class.new(:de) }
 
-      specify { expect { subject.esi }.to change { subject.instance_variable_get(:@esi) }.from(nil).to(esi) }
+      specify do
+        subject.import
+
+        ancestry = Eve::Ancestry.first
+
+        expect(ancestry.name_de).to eq("Liberale Großgrundbesitzer")
+
+        expect(ancestry.description_de).to start_with("Die meisten Ländereien Amarrs gehören den Großgrundbesitzern, die üblicherweise erzkonservativ sind und die Tradition hochhalten.")
+      end
     end
   end
 end
