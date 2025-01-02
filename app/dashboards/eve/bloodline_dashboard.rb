@@ -23,7 +23,7 @@ module Eve
       perception: Field::Number,
       willpower: Field::Number,
       corporation: Field::BelongsTo,
-      # ship_type: Field::BelongsTo.with_options(class_name: "Eve::Ship"), TODO
+      # ship: Field::BelongsTo.with_options(class_name: "Eve::Ship"), TODO
       created_at: Field::DateTime,
       updated_at: Field::DateTime,
       ancestries: Field::HasMany
@@ -50,7 +50,7 @@ module Eve
       :perception,
       :willpower,
       :corporation,
-      # :ship_type,
+      # :ship, TODO
       :created_at,
       :updated_at,
       :ancestries
