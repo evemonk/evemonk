@@ -5,63 +5,43 @@ require "rails_helper"
 RSpec.describe Eve::RacesImporter do
   it { expect(subject).to be_a(Eve::BaseImporter) }
 
-  describe "#initialize" do
-    context "without locale" do
-      its(:locale) { is_expected.to eq(:en) }
-    end
-
-    context "with locale" do
-      let(:locale) { :ru }
-
-      subject { described_class.new(locale) }
-
-      its(:locale) { is_expected.to eq(:ru) }
-    end
-  end
-
   describe "#import" do
-    before { expect(subject).to receive(:configure_middlewares) }
+    context "with default locale" do
+      before { VCR.insert_cassette "esi/universe/races" }
 
-    let(:race_id) { double }
+      after { VCR.eject_cassette }
 
-    let(:json) { double }
+      specify { expect { subject.import }.to change(Eve::Race, :count).by(6) }
 
-    let(:race) { instance_double(EveOnline::ESI::Models::Race, race_id: race_id, as_json: json) }
+      specify do
+        subject.import
 
-    let(:esi) { instance_double(EveOnline::ESI::UniverseRaces, races: [race]) }
+        race = Eve::Race.first
 
-    before { expect(subject).to receive(:esi).and_return(esi) }
+        expect(race.id).to eq(1)
 
-    let(:eve_race) { instance_double(Eve::Race) }
+        expect(race.faction_id).to eq(500_001)
 
-    before { expect(Eve::Race).to receive(:find_or_initialize_by).with(id: race_id).and_return(eve_race) }
+        expect(race.description_en).to start_with("Founded on the tenets of patriotism and hard work")
 
-    let(:transformed_json) { double }
-
-    before { expect(json).to receive(:transform_keys).with(race_id: :id).and_return(transformed_json) }
-
-    before { expect(eve_race).to receive(:update!).with(transformed_json) }
-
-    specify { expect { subject.import }.not_to raise_error }
-  end
-
-  describe "#esi" do
-    context "when @esi is set" do
-      let(:esi) { instance_double(EveOnline::ESI::UniverseRaces) }
-
-      before { subject.instance_variable_set(:@esi, esi) }
-
-      specify { expect(subject.esi).to eq(esi) }
+        expect(race.name_en).to eq("Caldari")
+      end
     end
 
-    context "when @esi not set" do
-      let(:esi) { instance_double(EveOnline::ESI::UniverseRaces) }
+    context "with de locale" do
+      before { VCR.insert_cassette "esi/universe/races_de" }
 
-      before { expect(EveOnline::ESI::UniverseRaces).to receive(:new).with(language: "en-us").and_return(esi) }
+      after { VCR.eject_cassette }
 
-      specify { expect(subject.esi).to eq(esi) }
+      subject { described_class.new(:de) }
 
-      specify { expect { subject.esi }.to change { subject.instance_variable_get(:@esi) }.from(nil).to(esi) }
+      specify do
+        subject.import
+
+        race = Eve::Race.first
+
+        expect(race.description_de).to start_with("Der Staat der Caldari gründet sich auf den Grundsätzen von Patriotismus")
+      end
     end
   end
 end

@@ -12,13 +12,15 @@ module Eve
       import! do
         Mobility.with_locale(locale) do
           esi.ancestries.each do |ancestry|
-            eve_ancestry = Eve::Ancestry.find_or_initialize_by(id: ancestry.ancestry_id)
+            eve_ancestry = Eve::Ancestry.find_or_initialize_by(id: ancestry.id)
 
-            eve_ancestry.update!(ancestry.as_json.transform_keys(ancestry_id: :id))
+            eve_ancestry.update!(ancestry.as_json)
           end
         end
       end
     end
+
+    private
 
     def esi
       @esi ||= EveOnline::ESI::UniverseAncestries.new(language: LanguageMapper::LANGUAGES[locale])

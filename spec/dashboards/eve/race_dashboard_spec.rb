@@ -6,7 +6,7 @@ RSpec.describe Eve::RaceDashboard do
   it { expect(subject).to be_an(Administrate::BaseDashboard) }
 
   describe "#display_resource" do
-    let(:race) { build(:eve_race, name: "Caldari") }
+    let(:race) { build(:eve_race, name_en: "Caldari") }
 
     specify { expect(subject.display_resource(race)).to eq("Caldari") }
   end

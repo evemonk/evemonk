@@ -10,13 +10,11 @@ module Eve
       name_de: Field::String,
       name_fr: Field::String,
       name_ja: Field::String,
-      name_ru: Field::String,
       name_ko: Field::String,
       description_en: Field::Text,
       description_de: Field::Text,
       description_fr: Field::Text,
       description_ja: Field::Text,
-      description_ru: Field::Text,
       description_ko: Field::Text,
       race: Field::BelongsTo,
       charisma: Field::Number,
@@ -25,7 +23,7 @@ module Eve
       perception: Field::Number,
       willpower: Field::Number,
       corporation: Field::BelongsTo,
-      # ship_type: Field::BelongsTo.with_options(class_name: "Eve::Ship"), TODO
+      # ship: Field::BelongsTo.with_options(class_name: "Eve::Ship"), TODO
       created_at: Field::DateTime,
       updated_at: Field::DateTime,
       ancestries: Field::HasMany
@@ -39,13 +37,11 @@ module Eve
       :name_de,
       :name_fr,
       :name_ja,
-      :name_ru,
       :name_ko,
       :description_en,
       :description_de,
       :description_fr,
       :description_ja,
-      :description_ru,
       :description_ko,
       :race,
       :charisma,
@@ -54,7 +50,7 @@ module Eve
       :perception,
       :willpower,
       :corporation,
-      # :ship_type,
+      # :ship, TODO
       :created_at,
       :updated_at,
       :ancestries

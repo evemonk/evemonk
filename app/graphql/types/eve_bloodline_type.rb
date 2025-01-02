@@ -38,7 +38,7 @@ module Types
       description: "Ship Type ID (Ship ID)",
       null: true
 
-    field :ship_type, Types::EveShipType,
+    field :ship, Types::EveShipType,
       description: "Ship Type (Ship)",
       null: true
 

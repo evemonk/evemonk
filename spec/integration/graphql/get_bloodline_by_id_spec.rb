@@ -13,7 +13,7 @@ RSpec.describe "Get Bloodline By ID" do
       id: 4)
   end
 
-  let!(:eve_ship_type) do
+  let!(:eve_ship) do
     create(:eve_ship,
       type_id: 1_001)
   end
@@ -39,7 +39,7 @@ RSpec.describe "Get Bloodline By ID" do
       description_ko: "KO: description 1",
       corporation: eve_corporation,
       race: eve_race,
-      ship_type: eve_ship_type,
+      ship: eve_ship,
       charisma: 1,
       intelligence: 2,
       memory: 3,
@@ -75,7 +75,7 @@ RSpec.describe "Get Bloodline By ID" do
             id
           }
           shipTypeId
-          shipType {
+          ship {
             id
           }
           charisma
@@ -131,7 +131,7 @@ RSpec.describe "Get Bloodline By ID" do
           "id" => "4"
         },
         "shipTypeId" => 1_001,
-        "shipType" => {
+        "ship" => {
           "id" => "1001"
         },
         "charisma" => 1,
