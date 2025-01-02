@@ -15,7 +15,7 @@ RSpec.describe Eve::Bloodline do
 
   it { expect(subject).to belong_to(:race).optional(true) }
 
-  it { expect(subject).to belong_to(:ship_type).class_name("Eve::Ship").optional(true) }
+  it { expect(subject).to belong_to(:ship).with_foreign_key(:ship_type_id).class_name("Eve::Ship").optional(true) }
 
   it { expect(subject).to have_many(:ancestries) }
 end
