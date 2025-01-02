@@ -10,7 +10,6 @@ module Eve
       name_de: Field::String,
       name_fr: Field::String,
       name_ja: Field::String,
-      name_ru: Field::String,
       name_ko: Field::String,
       # t.string "name_zh"
       # t.string "name_es"
@@ -18,7 +17,6 @@ module Eve
       description_de: Field::Text,
       description_fr: Field::Text,
       description_ja: Field::Text,
-      description_ru: Field::Text,
       description_ko: Field::Text,
       # t.text "description_zh"
       # t.text "description_es"
@@ -55,7 +53,6 @@ module Eve
       :name_de,
       :name_fr,
       :name_ja,
-      :name_ru,
       :name_ko,
       # t.string "name_zh"
       # t.string "name_es"
@@ -63,7 +60,6 @@ module Eve
       :description_de,
       :description_fr,
       :description_ja,
-      :description_ru,
       :description_ko,
       # t.text "description_zh"
       # t.text "description_es"
