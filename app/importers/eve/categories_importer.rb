@@ -21,9 +21,9 @@ module Eve
 
       categories_ids_to_create = esi.category_ids - eve_category_ids
 
-      categories_ids_to_create.each do |category_id|
-        Eve::UpdateCategoryJob.perform_later(category_id)
-      end
+      jobs = categories_ids_to_create.map { |category_id| Eve::UpdateCategoryJob.new(category_id) }
+
+      ActiveJob.perform_all_later(jobs)
     end
 
     def remove_old_categories
