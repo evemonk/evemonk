@@ -5,63 +5,41 @@ require "rails_helper"
 RSpec.describe Eve::BloodlinesImporter do
   it { expect(subject).to be_a(Eve::BaseImporter) }
 
-  describe "#initialize" do
-    context "without locale" do
-      its(:locale) { is_expected.to eq(:en) }
-    end
-
-    context "with locale" do
-      let(:locale) { :ru }
-
-      subject { described_class.new(locale) }
-
-      its(:locale) { is_expected.to eq(:ru) }
-    end
-  end
-
   describe "#import" do
-    before { expect(subject).to receive(:configure_middlewares) }
+    context "with default locale" do
+      before { VCR.insert_cassette "esi/universe/bloodlines" }
 
-    let(:bloodline_id) { double }
+      after { VCR.eject_cassette }
 
-    let(:json) { double }
+      specify { expect { subject.import }.to change(Eve::Bloodline, :count).by(18) }
 
-    let(:bloodline) { instance_double(EveOnline::ESI::Models::Bloodline, bloodline_id: bloodline_id, as_json: json) }
+      specify "" do
+        subject.import
 
-    let(:esi) { instance_double(EveOnline::ESI::UniverseBloodlines, bloodlines: [bloodline]) }
+        bloodline = Eve::Bloodline.first
 
-    before { expect(subject).to receive(:esi).and_return(esi) }
+        expect(bloodline.id).to eq(1)
 
-    let(:eve_bloodline) { instance_double(Eve::Bloodline) }
+        expect(bloodline.charisma).to eq(6)
 
-    before { expect(Eve::Bloodline).to receive(:find_or_initialize_by).with(id: bloodline_id).and_return(eve_bloodline) }
+        expect(bloodline.corporation_id).to eq(1_000_006)
 
-    let(:transformed_json) { double }
+        expect(bloodline.description_en).to start_with("The Deteis are regarded as the face of leadership in Caldari society.")
 
-    before { expect(json).to receive(:transform_keys).with(bloodline_id: :id).and_return(transformed_json) }
+        expect(bloodline.intelligence).to eq(7)
 
-    before { expect(eve_bloodline).to receive(:update!).with(transformed_json) }
+        expect(bloodline.memory).to eq(7)
 
-    specify { expect { subject.import }.not_to raise_error }
-  end
+        expect(bloodline.name_en).to eq("Deteis")
 
-  describe "#esi" do
-    context "when @esi is set" do
-      let(:esi) { instance_double(EveOnline::ESI::UniverseBloodlines) }
+        expect(bloodline.perception).to eq(5)
 
-      before { subject.instance_variable_set(:@esi, esi) }
+        expect(bloodline.race_id).to eq(1)
 
-      specify { expect(subject.esi).to eq(esi) }
-    end
+        expect(bloodline.ship_type_id).to eq(601)
 
-    context "when @esi not set" do
-      let(:esi) { instance_double(EveOnline::ESI::UniverseBloodlines) }
-
-      before { expect(EveOnline::ESI::UniverseBloodlines).to receive(:new).with(language: "en-us").and_return(esi) }
-
-      specify { expect(subject.esi).to eq(esi) }
-
-      specify { expect { subject.esi }.to change { subject.instance_variable_get(:@esi) }.from(nil).to(esi) }
+        expect(bloodline.willpower).to eq(5)
+      end
     end
   end
 end
