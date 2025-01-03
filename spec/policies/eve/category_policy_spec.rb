@@ -23,7 +23,6 @@ RSpec.describe Eve::CategoryPolicy do
     it { expect(subject).to forbid_actions(:index, :create, :new, :update, :edit, :destroy) }
   end
 
-
   context "when user is not logged in" do
     let(:user) { nil }
 
@@ -35,7 +34,6 @@ RSpec.describe Eve::CategoryPolicy do
 
     it { expect(subject).to forbid_actions(:index, :create, :new, :update, :edit, :destroy) }
   end
-
 
   describe Eve::CategoryPolicy::Scope do
     context "when user is logged in" do
