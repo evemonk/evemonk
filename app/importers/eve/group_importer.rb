@@ -4,6 +4,8 @@ module Eve
   class GroupImporter < BaseImporter
     attr_reader :group_id, :locale
 
+    # @param group_id [Integer]
+    # @param locale [Symbol] Default: :en
     def initialize(group_id, locale = :en)
       @group_id = group_id
       @locale = locale
@@ -23,8 +25,10 @@ module Eve
       end
     end
 
+    private
+
     def esi
-      @esi ||= EveOnline::ESI::UniverseGroup.new(id: group_id, language: LanguageMapper::LANGUAGES[locale])
+      @esi ||= EveOnline::ESI::UniverseGroup.new(group_id: group_id, language: LanguageMapper::LANGUAGES[locale])
     end
   end
 end
