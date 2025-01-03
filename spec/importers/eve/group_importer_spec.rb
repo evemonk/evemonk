@@ -45,5 +45,15 @@ RSpec.describe Eve::GroupImporter do
         expect(group.name_de).to eq("Arkonor")
       end
     end
+
+    context "when group not found" do
+      let(:group_id) { 9_999_999 }
+
+      before { VCR.insert_cassette "esi/universe/groups/not_found" }
+
+      after { VCR.eject_cassette }
+
+      specify { expect { subject.import }.not_to change(Eve::Group, :count) }
+    end
   end
 end
