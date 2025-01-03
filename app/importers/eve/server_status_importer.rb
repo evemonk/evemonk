@@ -8,6 +8,8 @@ module Eve
       end
     end
 
+    private
+
     def esi
       @esi ||= EveOnline::ESI::ServerStatus.new
     end

@@ -6,36 +6,24 @@ RSpec.describe Eve::ServerStatusImporter do
   it { expect(subject).to be_a(Eve::BaseImporter) }
 
   describe "#import" do
-    let(:json) { double }
+    before { VCR.insert_cassette "esi/server/status" }
 
-    let(:esi) { instance_double(EveOnline::ESI::ServerStatus, as_json: json) }
+    after { VCR.eject_cassette }
 
-    before { expect(subject).to receive(:configure_middlewares) }
+    specify { expect { subject.import }.to change(Eve::ServerStatus, :count).by(1) }
 
-    before { expect(EveOnline::ESI::ServerStatus).to receive(:new).and_return(esi) }
+    specify do
+      subject.import
 
-    before { expect(Eve::ServerStatus).to receive(:create!).with(json) }
+      server_status = Eve::ServerStatus.first
 
-    specify { expect { subject.import }.not_to raise_error }
-  end
+      expect(server_status.players).to eq(29_568)
 
-  describe "#esi" do
-    context "when @esi is set" do
-      let(:esi) { instance_double(EveOnline::ESI::ServerStatus) }
+      expect(server_status.server_version).to eq("2776971")
 
-      before { subject.instance_variable_set(:@esi, esi) }
+      expect(server_status.start_time).to eq("2025-01-02T11:01:17Z")
 
-      specify { expect(subject.esi).to eq(esi) }
-    end
-
-    context "when @esi not set" do
-      let(:esi) { instance_double(EveOnline::ESI::ServerStatus) }
-
-      before { expect(EveOnline::ESI::ServerStatus).to receive(:new).and_return(esi) }
-
-      specify { expect(subject.esi).to eq(esi) }
-
-      specify { expect { subject.esi }.to change { subject.instance_variable_get(:@esi) }.from(nil).to(esi) }
+      expect(server_status.vip).to eq(nil)
     end
   end
 end

@@ -10,20 +10,20 @@ module Eve
       end
     end
 
+    private
+
     def esi
       @esi ||= EveOnline::ESI::UniverseCategories.new
     end
-
-    private
 
     def import_new_categories
       eve_category_ids = Eve::Category.ids
 
       categories_ids_to_create = esi.category_ids - eve_category_ids
 
-      categories_ids_to_create.each do |category_id|
-        Eve::UpdateCategoryJob.perform_later(category_id)
-      end
+      jobs = categories_ids_to_create.map { |category_id| Eve::UpdateCategoryJob.new(category_id) }
+
+      ActiveJob.perform_all_later(jobs)
     end
 
     def remove_old_categories
