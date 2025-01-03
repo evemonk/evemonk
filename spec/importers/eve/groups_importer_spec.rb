@@ -41,5 +41,23 @@ RSpec.describe Eve::GroupsImporter do
         expect(Eve::UpdateGroupsJob).not_to have_been_enqueued
       end
     end
+
+    context "when group already exists" do
+      let!(:eve_group) { create(:eve_group, id: 775) }
+
+      before { VCR.insert_cassette "esi/universe/groups" }
+
+      before { clear_enqueued_jobs }
+
+      after { VCR.eject_cassette }
+
+      specify do
+        subject.import
+
+        expect(Eve::UpdateGroupJob).to have_been_enqueued.exactly(999).times
+
+        expect(Eve::UpdateGroupsJob).to have_been_enqueued.exactly(1).times.with(2)
+      end
+    end
   end
 end
