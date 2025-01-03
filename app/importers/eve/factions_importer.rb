@@ -12,13 +12,15 @@ module Eve
       import! do
         Mobility.with_locale(locale) do
           esi.factions.each do |faction|
-            eve_faction = Eve::Faction.find_or_initialize_by(id: faction.faction_id)
+            eve_faction = Eve::Faction.find_or_initialize_by(id: faction.id)
 
-            eve_faction.update!(faction.as_json.transform_keys(faction_id: :id))
+            eve_faction.update!(faction.as_json)
           end
         end
       end
     end
+
+    private
 
     def esi
       @esi ||= EveOnline::ESI::UniverseFactions.new(language: LanguageMapper::LANGUAGES[locale])
