@@ -9,11 +9,11 @@ RSpec.describe Eve::GroupsImporter do
     context "when page is first" do
       before { VCR.insert_cassette "esi/universe/groups" }
 
+      before { clear_enqueued_jobs }
+
       after { VCR.eject_cassette }
 
       specify do
-        ActiveJob::Base.queue_adapter.enqueued_jobs.clear
-
         subject.import
 
         expect(Eve::UpdateGroupJob).to have_been_enqueued.exactly(1000).times
@@ -29,11 +29,11 @@ RSpec.describe Eve::GroupsImporter do
 
       before { VCR.insert_cassette "esi/universe/groups_last_page" }
 
+      before { clear_enqueued_jobs }
+
       after { VCR.eject_cassette }
 
       specify do
-        ActiveJob::Base.queue_adapter.enqueued_jobs.clear
-
         subject.import
 
         expect(Eve::UpdateGroupJob).to have_been_enqueued.exactly(549).times
