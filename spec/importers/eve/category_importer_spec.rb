@@ -51,5 +51,15 @@ RSpec.describe Eve::CategoryImporter do
         end
       end
     end
+
+    context "when eve category not found" do
+      let(:category_id) { 9_999_999 }
+
+      before { VCR.insert_cassette "esi/universe/categories/not_found" }
+
+      after { VCR.eject_cassette }
+
+      specify { expect { subject.import }.not_to change(Eve::Category, :count) }
+    end
   end
 end

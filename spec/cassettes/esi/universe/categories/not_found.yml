@@ -1,0 +1,61 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://esi.evetech.net/v1/universe/categories/9999999/?language=en-us
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - EveOnline API (https://github.com/evemonk/eve_online) v0.46.0
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Date:
+      - Fri, 03 Jan 2025 07:51:12 GMT
+      Content-Type:
+      - application/json; charset=UTF-8
+      Content-Length:
+      - '30'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - Content-Type,Authorization,If-None-Match,X-User-Agent
+      Access-Control-Allow-Methods:
+      - GET,HEAD,OPTIONS
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - Content-Type,Warning,ETag,X-Pages,X-ESI-Error-Limit-Remain,X-ESI-Error-Limit-Reset
+      Access-Control-Max-Age:
+      - '600'
+      Allow:
+      - GET,HEAD,OPTIONS
+      Content-Language:
+      - en-us
+      Etag:
+      - W/"71e655c22da484d5e6466ec84d40e14997b5b24b94901ab8c31b0781"
+      Strict-Transport-Security:
+      - max-age=31536000
+      Vary:
+      - Accept-Language
+      X-Esi-Error-Limit-Remain:
+      - '99'
+      X-Esi-Error-Limit-Reset:
+      - '48'
+      X-Esi-Request-Id:
+      - 6f4e8c34-cf6e-4eb2-b320-12c05bd74007
+    body:
+      encoding: UTF-8
+      string: '{"error":"Category not found"}'
+  recorded_at: Fri, 03 Jan 2025 07:51:12 GMT
+recorded_with: VCR 6.3.1
