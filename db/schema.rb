@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_01_03_091027) do
+ActiveRecord::Schema[8.0].define(version: 2025_01_03_102550) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_buffercache"
   enable_extension "pg_catalog.plpgsql"
@@ -648,11 +648,12 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_03_091027) do
     t.string "name_de"
     t.string "name_fr"
     t.string "name_ja"
-    t.string "name_ru"
     t.boolean "published"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name_ko"
+    t.string "name_zh"
+    t.string "name_es"
     t.index ["category_id"], name: "index_eve_groups_on_category_id"
   end
 

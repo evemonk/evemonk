@@ -10,6 +10,8 @@ RSpec.describe Eve::CategoriesImporter do
 
     before { VCR.insert_cassette "esi/universe/categories" }
 
+    before { clear_enqueued_jobs }
+
     after { VCR.eject_cassette }
 
     specify do

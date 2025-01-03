@@ -4,6 +4,7 @@ module Eve
   class GroupsImporter < BaseImporter
     attr_reader :page
 
+    # @param page [Integer] Default: 1
     def initialize(page = 1)
       @page = page
     end
@@ -16,11 +17,11 @@ module Eve
       end
     end
 
+    private
+
     def esi
       @esi ||= EveOnline::ESI::UniverseGroups.new(page: page)
     end
-
-    private
 
     def import_groups
       esi.group_ids.each do |group_id|
