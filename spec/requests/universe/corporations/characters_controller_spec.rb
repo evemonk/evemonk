@@ -3,7 +3,7 @@
 require "rails_helper"
 
 RSpec.describe Universe::Corporations::CharactersController do
-  it { expect(subject).to be_a(ApplicationController) }
+  it { expect(subject).to be_an(ApplicationController) }
 
   describe "#index" do
     let!(:corporation) { create(:eve_corporation) }

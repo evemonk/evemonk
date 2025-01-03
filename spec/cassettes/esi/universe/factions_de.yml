@@ -1,0 +1,360 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://esi.evetech.net/v2/universe/factions/?language=de
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - EveOnline API (https://github.com/evemonk/eve_online) v0.46.0
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 03 Jan 2025 09:02:41 GMT
+      Content-Type:
+      - application/json; charset=UTF-8
+      Content-Length:
+      - '26704'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - Content-Type,Authorization,If-None-Match,X-User-Agent
+      Access-Control-Allow-Methods:
+      - GET,HEAD,OPTIONS
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - Content-Type,Warning,ETag,X-Pages,X-ESI-Error-Limit-Remain,X-ESI-Error-Limit-Reset
+      Access-Control-Max-Age:
+      - '600'
+      Allow:
+      - GET,HEAD,OPTIONS
+      Cache-Control:
+      - public
+      Content-Language:
+      - de
+      Etag:
+      - W/"71e655c22da484d5e6466ec84d40e14997b5b24b94901ab8c31b0781"
+      Expires:
+      - Fri, 03 Jan 2025 11:05:00 GMT
+      Last-Modified:
+      - Thu, 02 Jan 2025 11:01:17 GMT
+      Strict-Transport-Security:
+      - max-age=31536000
+      Vary:
+      - Accept-Encoding,Accept-Language
+      X-Esi-Error-Limit-Remain:
+      - '100'
+      X-Esi-Error-Limit-Reset:
+      - '19'
+      X-Esi-Request-Id:
+      - 48577dad-c1c8-4ee9-b751-d63127770913
+    body:
+      encoding: UTF-8
+      string: '[{"corporation_id":1000084,"description":"Das gr\u00f6\u00dfte der
+        f\u00fcnf Hauptimperien, das Imperium der Amarr, ist ein ausuferndes Konglomerat
+        feudaler Provinzen, das durch die Macht der Kaiserin zusammengehalten wird.
+        Religion hat in der Politik der Amarr immer eine wichtige Rolle gespielt und
+        die Amarr glauben, die rechtm\u00e4\u00dfigen Herrscher der Welt zu sein,
+        was die Beziehungen zu ihren Nachbarn verschlechtert. Ein weiterer Grund f\u00fcr
+        die Abneigung gegen die Amarr vonseiten der anderen Imperien ist die Tatsache,
+        dass die Amarr Sklaverei bef\u00fcrworten.","faction_id":500003,"is_unique":true,"militia_corporation_id":1000179,"name":"Amarr
+        Empire","size_factor":5.0,"solar_system_id":30002187,"station_count":1032,"station_system_count":508},{"corporation_id":1000127,"description":"Gegr\u00fcndet
+        von zwei ehemaligen Piloten der Caldari Navy - sie sind unter den Namen \"Fatal\"
+        und \"The Rabbit\" bekannt - sind die Guristas ein st\u00e4ndiger Dorn im
+        Fleisch des Staates Caldari. Die Guristas sind in dem Sinne traditionelle
+        Piraten, dass ihre Aktivit\u00e4ten nicht einer Glaubensrichtung oder einer
+        Ideologie entspringen, sondern ganz einfach auf Habgier beruhen. Die Guristas
+        haben St\u00fctzpunkte in der N\u00e4he des Herrschaftsgebietes der Caldari
+        und von dort aus brechen sie zu ihren Furcht verbreitenden Raubz\u00fcgen
+        auf - oft auch in den Staat Caldari selbst. Obwohl man die Guristas f\u00fcr
+        ehrenhafter h\u00e4lt als viele andere Piratengruppen, sind sie extrem gef\u00e4hrlich
+        und man sollte sich nicht mit ihnen anlegen.","faction_id":500010,"is_unique":true,"militia_corporation_id":1000437,"name":"Guristas
+        Pirates","size_factor":4.0,"solar_system_id":30001290,"station_count":9,"station_system_count":7},{"corporation_id":1000131,"description":"Die
+        Society of Conscious Thought (Gesellschaft f\u00fcr bewusstes Denken) ist
+        drei Jahrhunderte alt und wurde von einem Jove namens Labron gegr\u00fcndet,
+        der nach spiritueller Erleuchtung suchte. Die Gesellschaft hat sich seither
+        in vielen Gew\u00e4ndern gezeigt und ist alles gewesen: von einer religi\u00f6sen
+        Sekte f\u00fcr Einsiedler bis hin zu einem Polit-Institut, das sich an Machtspielen
+        beteiligte. Heutzutage ist die SoCT haupts\u00e4chlich bekannt f\u00fcr ihre
+        schulischen Erfolge, ihre Lehrinstitute sind weithin als die besten in der
+        Welt angesehen. Reiche und einflussreiche Eltern \u00fcberall auf der Welt
+        bem\u00fchen sich darum, dass ihre Kinder aufgenommen werden. Gro\u00dfe Geldsummen
+        anzubieten ist allerdings keine Garantie f\u00fcr die Zulassung, da die Schule
+        ein eigenes, ungew\u00f6hnliches Auswahlverfahren anwendet, das f\u00fcr Au\u00dfenstehende
+        weder Hand noch Fu\u00df zu haben scheint. Die SoCT ist in abgelegenen Gebieten
+        t\u00e4tig, wo sie ihre Festungen gebaut hat, die man \"Kitz\" nennt. Nicht
+        alle Kitz sind Lehrinstitute, einige sind nach wie vor geistiger Erleuchtung
+        gewidmet oder dienen wissenschaftlichen Zwecken.","faction_id":500017,"is_unique":true,"name":"The
+        Society of Conscious Thought","size_factor":3.0,"solar_system_id":30002423,"station_count":137,"station_system_count":100},{"corporation_id":1000274,"description":"Die
+        Drifter tauchten aus den Ruinen der Sleeper-Zivilisation auf, die \u00fcber
+        ganz Anoikis verteilt war - auch bekannt als Wurmlochraum - und stellen eine
+        gewaltige Herausforderung und vielleicht eine schreckliche Bedrohung, sowohl
+        f\u00fcr die Imperien, als auch Kapselpiloten dar. Allem Anschein nach sind
+        die Drifter die Erben eines Verm\u00e4chtnisses, das von einigen den \u00e4ltesten
+        Jove zur\u00fcckgelassen wurde und schrecken nicht davor zur\u00fcck, unglaubliche
+        Macht \u00fcber jeden auszu\u00fcben, der sich ihnen in den Weg stellt. Demnach
+        sind die Drifter ein ganz anderes Kaliber als die relativ harmlose Pr\u00e4senz
+        des ehemaligen Jove Imperiums.","faction_id":500024,"is_unique":false,"name":"Drifters","size_factor":0.0,"solar_system_id":30005286,"station_count":0,"station_system_count":0},{"corporation_id":1000120,"description":"Die
+        F\u00f6deration der Gallente umfasst mehrere V\u00f6lker, von denen die Gallente
+        mit Abstand den gr\u00f6\u00dften Teil ausmachen. Die F\u00f6deration ist
+        demokratisch und sehr liberal in einer Welt voller Diktatoren und Oligarchien.
+        Der Staat der Caldari war einst Teil der F\u00f6deration, aber ein heftiger
+        Konflikt f\u00fchrte zu dessen Abspaltung und einem langen Krieg zwischen
+        der F\u00f6deration der Gallente und dem Staat der Caldari. Die Gallente sind
+        Meister der Unterhaltung und des Vergn\u00fcgens und ihrem wohlhabenden Handelsimperium
+        hat die Welt viele einzigartige Spektakel zu verdanken.","faction_id":500004,"is_unique":true,"militia_corporation_id":1000181,"name":"Gallente
+        Federation","size_factor":5.0,"solar_system_id":30004993,"station_count":1074,"station_system_count":518},{"corporation_id":1000138,"description":"Heutzutage
+        ist das Angel Cartel eine der gr\u00f6\u00dften und bestorganisierten kriminellen
+        Fraktionen im All. Sie operieren aus dem Herzen der Curse Region und sind
+        in verschiedene Gruppen unterteilt, von denen jede ihre eigene, spezielle
+        Funktion hat. Die Angel werden von den Dominations kommandiert und in dem
+        Jahrhundert, das sie nun schon im tiefen Raum lauern, raubten, pl\u00fcnderten
+        und sabotierten sie zahllose Schiffe und entf\u00fchrten, bel\u00e4stigten
+        und t\u00f6teten tausende Menschen. Die Angel rekrutieren Mitglieder aus allen
+        Rassen und operieren somit nicht gebietsabh\u00e4ngig. Dadurch erstreckt sich
+        ihr Operationsgebiet fast \u00fcber die ganze bekannte Welt. Viele glauben,
+        dass die Angel ihre Macht durch die Entdeckung von Jove-Technologie in deren
+        alter Heimat erlangt haben, die nun von dem Angel Cartel behaust wird.","faction_id":500011,"is_unique":true,"militia_corporation_id":1000436,"name":"Angel
+        Cartel","size_factor":4.0,"solar_system_id":30001045,"station_count":64,"station_system_count":38},{"corporation_id":1000128,"description":"Der
+        Ursprung von Mordu''s Legion liegt im Gallente-Caldari-Krieg als eine Gruppe
+        aus Milit\u00e4rangeh\u00f6rigen der Intaki sich auf die Seite der Caldari
+        stellte. Diese Intaki wurden in eine eigene Einheit eingegliedert, die ein
+        Caldari-Offizier mit Namen Mordu f\u00fchrte. Nach dem Krieg siedelten sich
+        die Intaki im Caldari-Raum an, gerieten aber unwillentlich mit den einheimischen
+        Caldari aneinander, was sp\u00e4ter als der Waschi-Aufstand bezeichnet wurde.
+        Mordu''s Legion wurde zu der Zeit als eine S\u00f6ldnerkampftruppe gegr\u00fcndet
+        und nach dem Aufstand blieb sie weiterhin bestehen. Die Legion ist zwar lose
+        mit der Caldai Navy verbunden, aber ist zum gr\u00f6\u00dften Teil vollkommen
+        unabh\u00e4ngig. Mordu''s Legion wird gew\u00f6hnlich von Unternehmen angeheuert,
+        um wertvolle Akvia au\u00dferhalb des Raumes der Imperien zu besch\u00fctzen,
+        zum Beispiel bezahlt ihnen Outer Ring Excavations ein ansehnliches S\u00fcmmchen,
+        damit sie in der Outer Ring-Region patrouillieren.","faction_id":500018,"is_unique":true,"name":"Mordu''s
+        Legion Command","size_factor":3.0,"solar_system_id":30002005,"station_count":1,"station_system_count":1},{"corporation_id":1000287,"description":"Raubdrohnen
+        existieren in allen Formen, Gr\u00f6\u00dfen und sogar Pers\u00f6nlichkeiten,
+        und vieles deutet darauf hin, dass sie kein einheitliches Kollektiv bilden.
+        Genau wie ihre versehentlichen Sch\u00f6pfer, kooperieren Raubdrohnen lokal
+        miteinander \u2013 und das sogar in relativ gro\u00dfen und weit gef\u00e4cherten
+        \u201eSchwarmgehirnen\u201c \u2013, aber sie attackieren und recyceln Drohnen
+        aus anderen Schw\u00e4rmen bereitwillig.","faction_id":500025,"is_unique":false,"name":"Raubdrohnen","size_factor":0.0,"solar_system_id":30005286,"station_count":0,"station_system_count":0},{"corporation_id":1000149,"description":"Das
+        Imperium der Jove ist - mit wenigen Ausnahmen - vom Rest des Universums isoliert.
+        Die Jove sind f\u00fcr die anderen V\u00f6lker ein Mysterium, was sich nicht
+        nur durch ihre Abgeschiedenheit, sondern auch durch ihre weit fortschrittliche
+        Technologie erkl\u00e4rt, die den anderen V\u00f6lkern um \u00c4onen voraus
+        ist.\r\nDie Jove sind schon weitaus l\u00e4nger eine Zivilisation als alle
+        anderen V\u00f6lker in EVE und haben bereits mehrere goldene Zeitalter durchschritten,
+        die schon lange der Vergangenheit angeh\u00f6ren. Das derzeitige Imperium
+        der Jove ist nur ein bleicher Schatten seines fr\u00fcheren Selbst - haupts\u00e4chlich
+        wegen der Jovianischen Seuche, einer psychischen St\u00f6rung, die immer t\u00f6dlich
+        verl\u00e4uft.","faction_id":500005,"is_unique":true,"name":"Jove Empire","size_factor":5.0,"solar_system_id":30001642,"station_count":132,"station_system_count":67},{"corporation_id":1000134,"description":"Auch
+        das Imperium Amarr hat in der Vergangenheit seinen Anteil an religi\u00f6sen
+        Kulten und Fanatikern zu tragen gehabt, aber nur wenige waren so erfolgreich
+        - oder so gef\u00fcrchtet - wie die Blood Raider. Die Blood Raider sind eine
+        Sekte des alten Kultes namens Sani Sabek, in dessen Riten Blut verwendet wird.
+        Die Blood Raider glauben, dass geklonte K\u00f6rper \"reineres Blut\" als
+        normale K\u00f6rper enthalten und das erkl\u00e4rt, warum sie haupts\u00e4chlich
+        im Weltraum t\u00e4tig sind, unachtsame Raumfahrer \u00fcberfallen und deren
+        K\u00f6rpern das Blut entziehen. Die Blood Raider werden von dem gef\u00fcrchteten
+        Omir Sarikusa angef\u00fchrt, der nun schon seit mehreren Jahren an der Spitze
+        der DED-Liste der meistgesuchten Personen steht. Unter seiner F\u00fchrung
+        haben sich die Blood Raider noch besser organisiert und mehrere Basen in der
+        Region Bleak Lands eingerichtet.","faction_id":500012,"is_unique":true,"name":"Blood
+        Raider-Bund","size_factor":3.0,"solar_system_id":30003088,"station_count":13,"station_system_count":12},{"corporation_id":1000162,"description":"Sansha''s
+        Nation wurde vor \u00fcber einem Jahrhundert gegr\u00fcndet, kurz nachdem
+        alle Imperien zueinander Kontakt aufgenommen hatten und die Erforschung und
+        Besiedelung des Weltraums begann. Sansha war ein caldarischer Konzernchef,
+        der f\u00fcr sich selbst ein gro\u00dfes St\u00fcck des Weltraums reservierte.
+        Dorthin siedelte er aus, um einen utopischen Staat zu gr\u00fcnden. Seine
+        Vision und sein Charme lockten Tausende Menschen an und f\u00fcr eine gewisse
+        Zeit lang bl\u00fchte die Nation. Aber Sansha wurde immer verschrobener, je
+        mehr sein Erfolg zunahm. Er begann zu experimentieren, verband Kapseltechnologie
+        mit dem menschlichen Gehirn und erschuf zombie-\u00e4hnliche Kreaturen, die
+        den kalten, kalkulierenden Verstand eines Computers hatten, dabei aber den
+        Einfallsreichtum eines Menschen. Als die \u00d6ffentlichkeit davon erfuhr,
+        wurde Sansha verurteilt und die anderen Imperien zogen Streitkr\u00e4fte zusammen,
+        um sein Reich zu zerschlagen. Seine Flotten wurden dezimiert und in alle Winde
+        zerstreut. \r\n\u00dcberbleibsel findet man noch heute in den Au\u00dfenregionen,
+        aber die einstmals glorreiche Nation ist nun reduziert auf ein paar Piraten
+        und Wegelagerer.","faction_id":500019,"is_unique":true,"name":"Sansha''s Nation","size_factor":4.0,"solar_system_id":30001868,"station_count":75,"station_system_count":49},{"corporation_id":1000298,"description":"Das
+        Triglavia-Kollektiv scheint eine menschliche Zivilisation zu sein, die sich
+        selbst in den Tiefen der Raumverwerfung des Abgrunds vor Jahrhunderten, vielleicht
+        Jahrtausenden abgeschottet hat. Die Triglavia-Zivilisation verf\u00fcgt nachweislich
+        \u00fcber Kompetenzen in fortschrittlichen Raum-Zeit-Mechaniken, gepaart mit
+        der Beherrschung bioadaptiver Technologie, die sie zum \u00dcberleben in der
+        ver\u00e4nderlichen Umgebung des Abgrunds einsetzt.","faction_id":500026,"is_unique":true,"name":"Triglavia-Kollektiv","size_factor":5.0,"solar_system_id":30005286,"station_count":53,"station_system_count":20},{"corporation_id":1000137,"description":"CONCORD
+        ist eine unabh\u00e4ngige Organisation, die vor einem Jahrhundert gegr\u00fcndet
+        wurde, um Verhandlungen zwischen den Nationen zur Verbesserung der Beziehungen
+        untereinander zu erleichtern, aber auch, um den interstellaren Handel durch
+        Verhaltensregeln und Bestimmungen zu f\u00f6rdern. Zu Beginn nur ein unbedeutender
+        Versammlungsort f\u00fcr Diplomaten, hat CONCORD in den Jahrzehnten seit der
+        Gr\u00fcndung seine Macht und seinen Einfluss stetig vergr\u00f6\u00dfert.
+        CONCORD wurde zu einer von den V\u00f6lkern unabh\u00e4ngigen Organisation,
+        da sie in der Lage ist, ihre Operationen weitgehend unabh\u00e4ngig aus Z\u00f6llen,
+        Beschlagnahme von Schmuggelgut und \u00c4hnlichem zu finanzieren.","faction_id":500006,"is_unique":true,"name":"CONCORD
+        Assembly","size_factor":5.0,"solar_system_id":30005204,"station_count":137,"station_system_count":93},{"corporation_id":1000148,"description":"Evermore
+        wurde von CEO Alexander Ducasse gegr\u00fcndet, um als Holding-Corporation
+        f\u00fcr Interbus zu fungieren. Lange Zeit war Interbus das erfolgreichste
+        Gemeinschaftsprojekt der Kernimperien, doch als ihre Beziehungen ins Wanken
+        gerieten, geriet auch die Zukunft von Interbus in Gefahr. Um dem entgegenzuwirken,
+        gr\u00fcndete Ducasse die private Corporation Evermore, die die Mehrheit der
+        Anteile aufkaufte. Dank des bestehenden Netzwerks von Interbus konnte Evermore
+        schnell expandieren. Die Gesch\u00e4ftsinteressen der Corporation sind vielf\u00e4ltig
+        und reichen von Weltraumhabitaten bis hin zu k\u00fcnstlicher Intelligenz.
+        Diese Diversifizierung ist Teil von Evermores Vision \u201eProduktvielfalt
+        f\u00fcr jedermann\u201c. Die Corporation agiert unabh\u00e4ngig von den Imperien,
+        die den Vorg\u00e4nger Interbus erschufen, und unterliegt nur minimaler Kontrolle.
+        Kritiker von Evermore werfen der Corporation vor, sie w\u00fcrde ihre Tochterunternehmen
+        bewusst anweisen, wichtige Dienstleistungen untereinander auszulagern, um
+        ihre internen Abl\u00e4ufe zu verschleiern. Trotz dieser Anschuldigungen stieg
+        Evermore schnell zu einer im ganzen Universum bekannten Megacorporation auf.","faction_id":500013,"is_unique":true,"name":"Evermore","size_factor":3.0,"solar_system_id":30005203,"station_count":14,"station_system_count":14},{"corporation_id":1000135,"description":"Die
+        Serpentis Corporation wurde vor einigen Jahrzehnten von V. Salvador Sarpati
+        gegr\u00fcndet. Zun\u00e4chst war sie in der High-Tech-Forschung t\u00e4tig,
+        aber mit der Zeit wuchsen ihre Verbindungen zur Unterwelt und die Forschungsstationen
+        der Serpentis - verstreut in au\u00dferhalb gelegenen Regionen - wurden ber\u00fcchtigte
+        Piratenst\u00fctzpunkte. Schon fr\u00fch handelte Sarpati mit dem Angel Cartel
+        einen Deal aus, ihm Schutz f\u00fcr seine Stationen zu gew\u00e4hren, und
+        die Aufgabe wurde von den Guardian Angels \u00fcbernommen. Beide Seiten zogen
+        aus diesem Vertrag enorme Vorteile: Die Serpentis k\u00f6nnen in Ruhe arbeiten
+        und das Angel Cartel hat Zugang zu den illegalen Forschungserfolgen der Serpentis
+        Corporation. Man geht davon aus, dass die Serpentis der wichtigste Entwickler
+        und Hersteller illegaler Neuralbooster sind, ganz besonders deswegen, weil
+        Sarpatis Vater ein bekannter Spezialist auf diesem Gebiet war. Als Heimat
+        der Serpentis wird die Konstellation Phoenix in der Region Fountain angegeben.","faction_id":500020,"is_unique":true,"name":"Serpentis","size_factor":4.0,"solar_system_id":30004623,"station_count":25,"station_system_count":16},{"corporation_id":1000297,"description":"EDENCOM
+        ist die New Eden Common Defense Initiative, ein teilautonomes Milit\u00e4rkommando
+        errichtet von CONCORD und den Kernimperien, den \u201eGro\u00dfen 4\u201c,
+        zur offensiven Kriegsf\u00fchrung gegen die Invasionskr\u00e4fte des Triglavia-Kollektivs
+        in YC122. EDENCOM verf\u00fcgt \u00fcber enorme finanzielle Mittel des New
+        Eden Defense Fund und organisiert sowohl die St\u00e4rkung gef\u00e4hrdeter
+        Systeme als auch die Verteidigung New Edens mit Flotten und Truppen aus ganz
+        CONCORD und den Imperien.","faction_id":500027,"is_unique":false,"name":"EDENCOM","size_factor":5.0,"solar_system_id":30005204,"station_count":0,"station_system_count":0},{"corporation_id":1000123,"description":"Die
+        Ammatar sind ein Teil des Amarr Imperiums, stammen jedoch von den Minmatar
+        ab. In der Zeit, als die Amarr die Heimatwelten der Minmatar besetzten, arbeitete
+        einer der minmatarischen St\u00e4mme, die Nefantar, stark mit den Amarr zusammen.
+        Die Nefantar flohen w\u00e4hrend der Minmatar-Rebellion aus dem Herrschaftsgebiet
+        der Minmatar und der amarrianische Kaiser erm\u00f6glichte ihnen die Niederlassung
+        in von Amarr kontrolliertem Gebiet, das nah am Herrschaftsgebiet der Minmatar
+        lag. Schon bald darauf fingen die Leute an, sie Ammatar zu nennen. Heutzutage
+        sind die Ammatar zur H\u00e4lfte eigenst\u00e4ndig und befinden sich immer
+        noch im Krieg mit ihren ehemaligen minmatarischen Br\u00fcdern.","faction_id":500007,"is_unique":true,"name":"Ammatar
+        Mandate","size_factor":4.0,"solar_system_id":30000001,"station_count":34,"station_system_count":30},{"corporation_id":1000129,"description":"Outer
+        Ring Excavations - oder ORE - ist die gr\u00f6\u00dfte unabh\u00e4ngige Bergbaugesellschaft,
+        die es gibt. ORE war urspr\u00fcnglich eine dahin d\u00fcmpelnde gallentische
+        Firma, bis sie auf eine Goldader stie\u00df: extrem reichhaltige Nocxium Asteroideng\u00fcrtel
+        in der Region Outer Ring. Als die Gallente F\u00f6deration versuchte, ORE
+        zur Bekanntgabe der Koordinaten der Asteroidenfelder zu zwingen, verlie\u00df
+        die Gesellschaft das Herrschaftsgebiet der F\u00f6deration und bezog ihr Hauptquartier
+        in der Region Outer Ring. Sie verwendeten ihren immensen Reichtum, um Schutztruppen
+        f\u00fcr ihre Basen zu kaufen und ihre Vorhaben geheim zu halten. Mehrere
+        Piratenfraktionen haben versucht, gewaltsam in Territorien von ORE einzudringen,
+        bisher aber nur mit geringem Erfolg.","faction_id":500014,"is_unique":true,"name":"ORE","size_factor":3.0,"solar_system_id":30004504,"station_count":4,"station_system_count":2},{"description":"Unbekannt","faction_id":500021,"is_unique":false,"name":"Unbekannt","size_factor":0.0,"solar_system_id":30005286,"station_count":0,"station_system_count":0},{"corporation_id":1000413,"description":"Die
+        Association for Interdisciplinary Research (AIR) ist eine unabh\u00e4ngige
+        Organisation, die ihren Schwerpunkt auf die Erforschung und Entwicklung neuer
+        Technologien in verschiedenen Industriezweigen setzt. Das Unternehmen hat
+        Abteilungen, die alles, von R\u00fcstungstechnologie, \u00fcber industrielle
+        und wirtschaftliche Aufgaben, bis hin zu Erkundungsoperationen, abdecken.","faction_id":500028,"is_unique":true,"name":"Association
+        for Interdisciplinary Research","size_factor":5.0,"solar_system_id":30005305,"station_count":12,"station_system_count":12},{"corporation_id":1000035,"description":"Der
+        Staat der Caldari wird von mehreren Mega-Corporations beherrscht. Es gibt
+        keine zentrale Regierung - alle Gebiete innerhalb des Staates sind im Besitz
+        und unter der Kontrolle von Corporations. Pflichtgef\u00fchl und Disziplin
+        geh\u00f6ren zur B\u00fcrgerpflicht eines Caldari, sowie bedingungslose Loyalit\u00e4t
+        gegen\u00fcber der Corporation, in deren Dienst sie ihr Leben stellen. Die
+        Corporations konkurrieren aggressiv sowohl untereinander, als auch mit Firmen
+        au\u00dferhalb des Staates, was eine \u00e4u\u00dferst kapitalistische Gesellschaft
+        zur Folge hat.","faction_id":500001,"is_unique":true,"militia_corporation_id":1000180,"name":"Caldari
+        State","size_factor":5.0,"solar_system_id":30000145,"station_count":1527,"station_system_count":528},{"corporation_id":1000156,"description":"Das
+        K\u00f6nigreich Khanid, auch bekannt als Dark Amarr, wurde vor einigen hundert
+        Jahren gegr\u00fcndet, als der letzte Kaiser gew\u00e4hlt wurde. Khanid war
+        damals einer der Thronfolger und h\u00e4tte sich - wie die Tradition es fordert
+        - selbst t\u00f6ten m\u00fcssen, nachdem er es nicht geschafft hatte, den
+        Kaisertitel zu erwerben. Khanid wies das zur\u00fcck und l\u00f6ste seine
+        weitl\u00e4ufigen Besitzt\u00fcmer aus dem Amarr Empire. Das Imperium schlug
+        zur\u00fcck, aber es gelang ihm nur, einige der anf\u00e4lligen Au\u00dfenbezirke
+        von Khanid zu erobern. Das K\u00f6nigreich h\u00e4lt viele Traditionen der
+        Gesellschaft der Amarr aufrecht, hat aber auch die Br\u00e4uche anderer V\u00f6lker,
+        insbesondere der Caldari, \u00fcbernommen. Viele Besucher des K\u00f6nigreiches
+        Khanid empfinden es als einen surrealen Mix der Imperien der Caldari und der
+        Amarr.","faction_id":500008,"is_unique":true,"name":"Khanid Kingdom","size_factor":4.0,"solar_system_id":30003863,"station_count":32,"station_system_count":23},{"corporation_id":1000163,"description":"Der
+        Stamm der Thukker ist einer der sieben urspr\u00fcnglichen St\u00e4mme der
+        Minmatar. Nach der Minmatar-Rebellion verlie\u00dfen die Thukker den Raum
+        der Minmatar und \u00fcbernahmen den nomadischen Lebensstil ihrer Vorfahren,
+        nur dieses Mal im Weltall. F\u00fcr sie stellt nur die Great Wildlands Region
+        so etwas wie eine Heimat dar. Dort leben viele von ihnen, allerdings sind
+        die Thukker gerne in Bewegung und wandern in ihren riesigen Karawanen st\u00e4ndig
+        von einem Sonnensystem ins n\u00e4chste. Dabei suchen sie nach n\u00fctzlichen
+        Abf\u00e4llen und handeln mit anderen V\u00f6lkern. Die ehrbaren B\u00fcrger
+        von EVE verabscheuen die Thukker und sehen in ihnen nichts weiter als Schurken
+        und Diebe. Tats\u00e4chlich operieren die Thukker oft auf der Schattenseite
+        des Gesetzes, dennoch tragen ihre Findigkeit und ihr Eifer wesentlich mehr
+        zu ihrem Erfolg bei, als ihre kriminellen Aktivit\u00e4ten.","faction_id":500015,"is_unique":true,"name":"Thukker
+        Tribe","size_factor":3.0,"solar_system_id":30000905,"station_count":61,"station_system_count":54},{"corporation_id":1000441,"description":"Der
+        Deathless Circle trat aus den Schatten der kriminellen Unterwelt von New Eden
+        hervor als eine neue Macht unter den bedeutenden Piratenfraktionen im Jahr
+        YC125. Mit ihrer Besetzung und Kontrolle des verlassenen Jovian-Au\u00dfenpostensystems
+        \u201eZarzakh\u201c stellen sie eine neue Herausforderung f\u00fcr die Kr\u00e4fte
+        von Recht und Ordnung dar. Nach Jahren voller Ger\u00fcchten und Verd\u00e4chtigungen
+        bez\u00fcglich der Aktivit\u00e4ten der mysteri\u00f6sen Gestalt, bekannt
+        als \u201eDer Todlose\u201c, ist der Kreis nun klar als eine Koalition von
+        Kriminellen, Piraten und Abtr\u00fcnnigen aus ganz New Eden erkennbar, wobei
+        haupts\u00e4chlich Mitglieder der organisierten Kriminalit\u00e4tsgruppen
+        der Caldari und Minmatar beteiligt sind. Die dunkle Unterwelt des Netzwerks
+        von Verbrecherfamilien der Caldari-Gesellschaft und der sogenannten \u201eDissoziierten\u201c,
+        kombiniert mit der Reichweite von Thukker-Gangstern und Schmugglern, stellt
+        dem Deathless Circle ein m\u00e4chtiges Reservoir an Talenten und Ressourcen
+        zur Verf\u00fcgung. <br><br>Die Elite der Spionage- und Forschungsgruppen
+        des Deathless Circle wird offensichtlich auch aus ganz New Eden rekrutiert,
+        wobei offensichtliche Verbindungen zu jenen bestehen, die in den Schatten
+        der Caldari und Minmatar Gegen-\u00d6konomien operieren. Die gr\u00f6\u00dfte
+        Errungenschaft des Deathless Circle ist die Entdeckung von Zarzakh und die
+        Besetzung des antiken Jovian-Au\u00dfenpostens, der nun als \u201eDer St\u00fctzpunkt\u201c
+        bekannt ist. Mit den gesammelten Ressourcen einer Jovian-Megastruktur, die
+        ihnen zur Verf\u00fcgung stehen, ist es schwierig, die Grenzen dessen abzusch\u00e4tzen,
+        was der Todlose und seine Organisation in der Zukunft erreichen k\u00f6nnten.","faction_id":500029,"is_unique":true,"name":"Deathless
+        Circle","size_factor":4.0,"solar_system_id":30100000,"station_count":1,"station_system_count":1},{"corporation_id":1000051,"description":"Die
+        Republik Minmatar wurde vor \u00fcber einem Jahrhundert gegr\u00fcndet, als
+        die Minmatar in einem Aufstand, der als die Minmatar-Rebellion bekannt wurde,
+        ihre Amarr-Feudalherren vertrieben. Die Minmatar wurden darin von der F\u00f6deration
+        der Gallente unterst\u00fctzt und bis heute sind beide Nationen enge Verb\u00fcndete.
+        Allerding lebt derzeit nur ein Viertel der Bev\u00f6lkerung der Minmatar in
+        der Republik. Die anderen sind zwischen den Sternen verteilt - einschlie\u00dflich
+        einer gro\u00dfen Gruppe, die sich noch in Sklaverei im Imperium der Amarr
+        befindet. Die Minmatar sind unabh\u00e4ngig und stolz, besitzen einen starken
+        Willen und eine Vielzahl an Stammesbr\u00e4uchen.","faction_id":500002,"is_unique":true,"militia_corporation_id":1000182,"name":"Minmatar
+        Republic","size_factor":5.0,"solar_system_id":30002544,"station_count":595,"station_system_count":306},{"corporation_id":1000146,"description":"Das
+        Syndicate wurde von Exil-Intaki aus der Gallente F\u00f6deration w\u00e4hrend
+        des Caldari-Gallente Krieges gegr\u00fcndet. Es ist im Umfang und Einfluss
+        langsam gewachsen und dient jetzt als wichtiges Verbindungsglied zwischen
+        den Imperien und den illegalen Elementen in den Au\u00dfenregionen. Das Territorium
+        des Syndicates ist zwar ein Tummelplatz f\u00fcr Piraten, hat sich aber soviel
+        Zivilisation bewahrt, dass nahezu jedermann hier reisen kann, um seinen Gesch\u00e4ften
+        nachzugehen. Die M\u00e4rkte des Syndicates sind immer randvoll mit Schmuggelware
+        und illegalen G\u00fctern, die man anderswo nicht oder nur sehr schwer bekommen
+        kann. Jede Station des Syndicates ist eine autonome Einheit, sie arbeiten
+        aber in den Punkten Sicherheit und Informationsaustausch zusammen. Die inoffizielle
+        Anf\u00fchrerin des Syndicates ist Silphy en Diabel, eine ehemalige Angeh\u00f6rige
+        der Sisters of EVE, die in das Herrschaftsgebiet des Syndicates zur\u00fcckgekehrt
+        ist, um das Verm\u00f6gen ihrer Familie zu retten. Seither hat sich herausgestellt,
+        dass sie ebenso einfallsreich und r\u00fccksichtslos ist wie ihr verstorbener
+        Vater.","faction_id":500009,"is_unique":true,"name":"The Syndicate","size_factor":4.0,"solar_system_id":30003271,"station_count":66,"station_system_count":46},{"corporation_id":1000130,"description":"Die
+        Sisters of EVE sind haupts\u00e4chlich bekannt f\u00fcr ihre humanit\u00e4ren
+        Hilfsbem\u00fchungen gegen\u00fcber denen, die unter Krieg leiden, hungern
+        oder einfach nur im Weltraum gestrandet sind. Aber die Sisters of EVE gr\u00fcnden
+        ihre Existenz auf strenge religi\u00f6se Anschauungen, die sie mit wissenschaftlichen
+        Fakten verbr\u00e4mt haben. Sie glauben, dass das Sprungtor EVE ein Zugang
+        zum Himmel ist und Gott auf der anderen Seite des Tores residiert. Ebenso,
+        wie sie sich in der Hilfe f\u00fcr Bed\u00fcrftige engagieren, sind sie bei
+        Experimenten im Zusammenhang mit dem EVE-Tor sehr r\u00fchrig und hoffen auf
+        ein besseres Verst\u00e4ndnis f\u00fcr die Kr\u00e4fte, die dort am Werk sind.","faction_id":500016,"is_unique":true,"name":"Servant
+        Sisters of EVE","size_factor":3.0,"solar_system_id":30001978,"station_count":52,"station_system_count":39}]'
+  recorded_at: Fri, 03 Jan 2025 09:02:41 GMT
+recorded_with: VCR 6.3.1

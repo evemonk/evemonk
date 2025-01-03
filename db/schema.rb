@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_01_02_182213) do
+ActiveRecord::Schema[8.0].define(version: 2025_01_03_091027) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_buffercache"
   enable_extension "pg_catalog.plpgsql"
@@ -394,11 +394,12 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_02_182213) do
     t.string "name_de"
     t.string "name_fr"
     t.string "name_ja"
-    t.string "name_ru"
     t.boolean "published"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name_ko"
+    t.string "name_zh"
+    t.string "name_es"
   end
 
   create_table "eve_certificate_recommended_types", force: :cascade do |t|
@@ -616,13 +617,15 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_02_182213) do
     t.string "name_de"
     t.string "name_fr"
     t.string "name_ja"
-    t.string "name_ru"
     t.text "description_de"
     t.text "description_fr"
     t.text "description_ja"
-    t.text "description_ru"
     t.string "name_ko"
     t.text "description_ko"
+    t.string "name_zh"
+    t.string "name_es"
+    t.text "description_zh"
+    t.text "description_es"
   end
 
   create_table "eve_graphics", force: :cascade do |t|

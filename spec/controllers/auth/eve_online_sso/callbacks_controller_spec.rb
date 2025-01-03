@@ -3,7 +3,7 @@
 require "rails_helper"
 
 RSpec.describe Auth::EveOnlineSso::CallbacksController do
-  it { expect(subject).to be_a(ApplicationController) }
+  it { expect(subject).to be_an(ApplicationController) }
 
   it { expect(subject).to rescue_from(EveOnline::Exceptions::ServiceUnavailable).with(:handle_service_unavailable) }
 
