@@ -12,11 +12,33 @@ RSpec.describe Eve::GroupsImporter do
       after { VCR.eject_cassette }
 
       specify do
+        ActiveJob::Base.queue_adapter.enqueued_jobs.clear
+
         subject.import
 
         expect(Eve::UpdateGroupJob).to have_been_enqueued.exactly(1000).times
 
         expect(Eve::UpdateGroupsJob).to have_been_enqueued.exactly(1).times.with(2)
+      end
+    end
+
+    context "when page is last" do
+      let(:page) { 2 }
+
+      subject { described_class.new(page) }
+
+      before { VCR.insert_cassette "esi/universe/groups_last_page" }
+
+      after { VCR.eject_cassette }
+
+      specify do
+        ActiveJob::Base.queue_adapter.enqueued_jobs.clear
+
+        subject.import
+
+        expect(Eve::UpdateGroupJob).to have_been_enqueued.exactly(549).times
+
+        expect(Eve::UpdateGroupsJob).not_to have_been_enqueued
       end
     end
   end
