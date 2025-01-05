@@ -13,11 +13,15 @@ module Universe
     def show
       # @character = ::Eve::Character.includes(:alliance, :corporation).find(params[:id])
 
+      # @character_corporation_histories = Eve::CharacterCorporationHistory.where(character: @character).includes(:corporation).order(start_date: :desc)
+
       @character = Eve::Character.includes(:alliance, :corporation).find(params[:id])
 
       authorize @character
 
-      @character_corporation_histories = Eve::CharacterCorporationHistory.where(character: @character)
+      # TODO: add policy for Eve::CharacterCorporationHistory
+      @character_corporation_histories = Eve::CharacterCorporationHistory
+        .where(character: @character)
         .includes(:corporation)
         .order(start_date: :desc)
     end
