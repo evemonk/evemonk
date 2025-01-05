@@ -5,10 +5,9 @@ module Universe
     skip_before_action :authenticate_user!
 
     def index
-      @characters = Eve::SearchCharactersQuery
-        .new(params[:q])
-        .query
-        .page(params[:page])
+      # @characters = Eve::SearchCharactersQuery.new(params[:q]).query.page(params[:page])
+
+      @characters = policy_scope(Eve::Character).order(:name).page(params[:page])
     end
 
     def show
