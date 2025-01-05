@@ -6,6 +6,7 @@ test:
     secret_key: ""
   slack:
     updates_webhook_channel_url: ""
+  pghero: false
   jobs:
     character:
       info: false
@@ -29,6 +30,7 @@ development:
     secret_key: ""
   slack:
     updates_webhook_channel_url: ""
+  pghero: true
   jobs:
     character:
       info: false
@@ -36,7 +38,7 @@ development:
       standings: false
       wallet_job: false
     eve:
-      server_status: false
+      server_status: true
       update_alliance: false
       update_alliances: false
       local_alliances: false
@@ -52,6 +54,7 @@ production:
     secret_key: ""
   slack:
     updates_webhook_channel_url: ""
+  pghero: false
   jobs:
     character:
       info: false
