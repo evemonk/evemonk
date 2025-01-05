@@ -46,9 +46,6 @@ module Evemonk
     # Compiles the ERB template with the frozen_string_literal true magic comment
     config.action_view.frozen_string_literal = true
 
-    # sidekiq
-    config.active_job.queue_adapter = :sidekiq
-
     # graphql
     config.active_record.query_log_tags_enabled = true
     config.active_record.query_log_tags = [
