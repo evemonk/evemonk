@@ -6,22 +6,23 @@ test:
     secret_key: ""
   slack:
     updates_webhook_channel_url: ""
+  pghero: false
   jobs:
     character:
-      info: true
-      assets: true
-      standings: true
-      wallet_job: true
+      info: false
+      assets: false
+      standings: false
+      wallet_job: false
     eve:
-      server_status: true
-      update_alliance: true
-      update_alliances: true
-      local_alliances: true
-      update_alliance_logo: true
-      update_alliance_corporations: true
-      update_alliances_corporations: true
-    update_characters: true
-    import_missing: true
+      server_status: false
+      update_alliance: false
+      update_alliances: false
+      local_alliances: false
+      update_alliance_logo: false
+      update_alliance_corporations: false
+      update_alliances_corporations: false
+    update_characters: false
+    import_missing: false
 
 development:
   eve_online_sso:
@@ -29,22 +30,23 @@ development:
     secret_key: ""
   slack:
     updates_webhook_channel_url: ""
+  pghero: true
   jobs:
     character:
-      info: true
-      assets: true
-      standings: true
-      wallet_job: true
+      info: false
+      assets: false
+      standings: false
+      wallet_job: false
     eve:
       server_status: true
-      update_alliance: true
-      update_alliances: true
-      local_alliances: true
-      update_alliance_logo: true
-      update_alliance_corporations: true
-      update_alliances_corporations: true
-    update_characters: true
-    import_missing: true
+      update_alliance: false
+      update_alliances: false
+      local_alliances: false
+      update_alliance_logo: false
+      update_alliance_corporations: false
+      update_alliances_corporations: false
+    update_characters: false
+    import_missing: false
 
 production:
   eve_online_sso:
@@ -52,19 +54,20 @@ production:
     secret_key: ""
   slack:
     updates_webhook_channel_url: ""
+  pghero: false
   jobs:
     character:
-      info: true
-      assets: true
-      standings: true
-      wallet_job: true
+      info: false
+      assets: false
+      standings: false
+      wallet_job: false
     eve:
-      server_status: true
-      update_alliance: true
-      update_alliances: true
-      local_alliances: true
-      update_alliance_logo: true
-      update_alliance_corporations: true
-      update_alliances_corporations: true
-    update_characters: true
-    import_missing: true
+      server_status: false
+      update_alliance: false
+      update_alliances: false
+      local_alliances: false
+      update_alliance_logo: false
+      update_alliance_corporations: false
+      update_alliances_corporations: false
+    update_characters: false
+    import_missing: false

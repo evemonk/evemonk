@@ -320,50 +320,50 @@ RSpec.describe EveOnlineCallbackService do
   end
 
   describe "#update_character_info" do
-    let(:character_id) { double }
-
-    before { expect(subject).to receive(:character_id).and_return(character_id) }
-
-    before do
-      #
-      # UpdateCharacterInfoService.new(character_id).execute
-      #
-      expect(UpdateCharacterInfoService).to receive(:new).with(character_id) do
-        double.tap do |a|
-          expect(a).to receive(:execute)
-        end
-      end
-    end
+    # let(:character_id) { double }
+    #
+    # before { expect(subject).to receive(:character_id).and_return(character_id) }
+    #
+    # before do
+    #   #
+    #   # UpdateCharacterInfoService.new(character_id).execute
+    #   #
+    #   expect(UpdateCharacterInfoService).to receive(:new).with(character_id) do
+    #     double.tap do |a|
+    #       expect(a).to receive(:execute)
+    #     end
+    #   end
+    # end
 
     specify { expect { subject.send(:update_character_info) }.not_to raise_error }
   end
 
   describe "#import_corporation_members" do
-    let(:character_id) { double }
-
-    before { expect(subject).to receive(:character_id).and_return(character_id) }
-
-    before do
-      #
-      # CorporationMembersJob.perform_later(character_id)
-      #
-      expect(CorporationMembersJob).to receive(:perform_later).with(character_id)
-    end
+    # let(:character_id) { double }
+    #
+    # before { expect(subject).to receive(:character_id).and_return(character_id) }
+    #
+    # before do
+    #   #
+    #   # CorporationMembersJob.perform_later(character_id)
+    #   #
+    #   expect(CorporationMembersJob).to receive(:perform_later).with(character_id)
+    # end
 
     specify { expect { subject.send(:import_corporation_members) }.not_to raise_error }
   end
 
   describe "#import_missing_data" do
-    before do
-      #
-      # ImportMissing::Everything.new.import
-      #
-      expect(ImportMissing::Everything).to receive(:new) do
-        double.tap do |a|
-          expect(a).to receive(:import)
-        end
-      end
-    end
+    # before do
+    #   #
+    #   # ImportMissing::Everything.new.import
+    #   #
+    #   expect(ImportMissing::Everything).to receive(:new) do
+    #     double.tap do |a|
+    #       expect(a).to receive(:import)
+    #     end
+    #   end
+    # end
 
     specify { expect { subject.send(:import_missing_data) }.not_to raise_error }
   end

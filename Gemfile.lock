@@ -756,7 +756,9 @@ PLATFORMS
   aarch64-mingw-ucrt
   arm-linux
   arm-linux-androideabi
+  arm-linux-gnu
   arm-linux-gnueabihf
+  arm-linux-musl
   arm-linux-musleabihf
   arm64-darwin
   riscv64-linux-android

@@ -8,8 +8,20 @@ RSpec.describe Pghero::CaptureSpaceStatsJob do
   it { expect(described_class.queue_name).to eq("pghero") }
 
   describe "#perform" do
-    before { expect(PgHero).to receive(:capture_space_stats) }
+    context "when pghero enabled" do
+      before { Rails.configuration.evemonk.pghero = true }
 
-    specify { expect { subject.perform }.not_to raise_error }
+      before { expect(PgHero).to receive(:capture_space_stats) }
+
+      specify { expect { subject.perform }.not_to raise_error }
+    end
+
+    context "when pghero disabled" do
+      before { Rails.configuration.evemonk.pghero = false }
+
+      before { expect(PgHero).not_to receive(:capture_space_stats) }
+
+      specify { expect { subject.perform }.not_to raise_error }
+    end
   end
 end
