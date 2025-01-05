@@ -11,9 +11,11 @@ module Universe
     end
 
     def show
-      @character = ::Eve::Character
-        .includes(:alliance, :corporation)
-        .find(params[:id])
+      # @character = ::Eve::Character.includes(:alliance, :corporation).find(params[:id])
+
+      @character = Eve::Character.includes(:alliance, :corporation).find(params[:id])
+
+      authorize @character
 
       @character_corporation_histories = Eve::CharacterCorporationHistory.where(character: @character)
         .includes(:corporation)
