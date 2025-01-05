@@ -5,7 +5,9 @@ module Pghero
     queue_as :pghero
 
     def perform
-      PgHero.capture_space_stats
+      if Rails.configuration.evemonk.pghero
+        PgHero.capture_space_stats
+      end
     end
   end
 end
