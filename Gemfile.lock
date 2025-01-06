@@ -1,11 +1,12 @@
 GIT
   remote: https://github.com/evemonk/eve_online.git
-  revision: f176b7b3fa39973007dff6b82bab9f7d69087b90
+  revision: a9fcb05074319c8ae92c841598952c21f75f61ed
   branch: updates
   specs:
     eve_online (0.46.0)
       activesupport (>= 7.2.0)
       faraday (>= 2.3.0)
+      faraday-http-cache
 
 GIT
   remote: https://github.com/kucho/database_rewinder.git
