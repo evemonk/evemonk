@@ -12,8 +12,10 @@ module Eve
       Faraday::ConnectionFailed
 
     def perform
-      LanguageMapper::LANGUAGES.each_key do |locale|
-        Eve::FactionsImporter.new(locale).import
+      if Rails.configuration.evemonk.jobs[:eve][:factions]
+        LanguageMapper::LANGUAGES.each_key do |locale|
+          Eve::FactionsImporter.new(locale).import
+        end
       end
     end
   end
