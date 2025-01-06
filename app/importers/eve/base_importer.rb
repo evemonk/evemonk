@@ -37,5 +37,9 @@ module Eve
         class: CoolDownMiddleware
       }
     end
+
+    def cache
+      Rails.cache
+    end
   end
 end
