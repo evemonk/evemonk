@@ -4,6 +4,7 @@ module Eve
   class RacesImporter < BaseImporter
     attr_reader :locale
 
+    # @param locale [Symbol] Default: :en
     def initialize(locale = :en)
       @locale = locale
     end
@@ -23,7 +24,7 @@ module Eve
     private
 
     def esi
-      @esi ||= EveOnline::ESI::UniverseRaces.new(language: LanguageMapper::LANGUAGES[locale])
+      @esi ||= EveOnline::ESI::UniverseRaces.new(language: LanguageMapper::LANGUAGES[locale], cache: Rails.cache)
     end
   end
 end
