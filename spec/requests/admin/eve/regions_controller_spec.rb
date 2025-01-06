@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.describe Admin::Eve::RegionsController do
+RSpec.describe Admin::Eve::RegionsController, type: :request do
   it { expect(subject).to be_an(Admin::ApplicationController) }
 
   describe "#index" do
