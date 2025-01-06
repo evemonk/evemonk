@@ -9,7 +9,9 @@ RSpec.describe LanguageMapper do
       de: "de",
       fr: "fr",
       ja: "ja",
-      ko: "ko"
+      zh: "zh",
+      ko: "ko",
+      es: "es"
     )
   end
 end

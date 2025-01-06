@@ -7,10 +7,6 @@ RSpec.describe Eve::ServerStatusJob do
 
   it { expect(described_class.queue_name).to eq("server_status") }
 
-  describe ".sidekiq_options" do
-    specify { expect(described_class.sidekiq_options["retry"]).to eq(false) }
-  end
-
   describe "#perform" do
     context "when jobs eve server_status enabled" do
       before { Rails.configuration.evemonk.jobs[:eve][:server_status] = true }

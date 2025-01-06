@@ -11,7 +11,7 @@ module Eve
     private
 
     def esi
-      @esi ||= EveOnline::ESI::ServerStatus.new
+      @esi ||= EveOnline::ESI::ServerStatus.new(cache: Rails.cache)
     end
   end
 end

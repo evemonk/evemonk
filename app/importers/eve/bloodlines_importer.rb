@@ -23,7 +23,7 @@ module Eve
     private
 
     def esi
-      @esi ||= EveOnline::ESI::UniverseBloodlines.new(language: LanguageMapper::LANGUAGES[locale])
+      @esi ||= EveOnline::ESI::UniverseBloodlines.new(language: LanguageMapper::LANGUAGES[locale], cache: Rails.cache)
     end
   end
 end

@@ -15,6 +15,8 @@ test:
       wallet_job: false
     eve:
       server_status: false
+      bloodlines: false
+      factions: false
       update_alliance: false
       update_alliances: false
       local_alliances: false
@@ -39,6 +41,8 @@ development:
       wallet_job: false
     eve:
       server_status: true
+      bloodlines: true
+      factions: true
       update_alliance: false
       update_alliances: false
       local_alliances: false
@@ -63,6 +67,8 @@ production:
       wallet_job: false
     eve:
       server_status: false
+      bloodlines: false
+      factions: false
       update_alliance: false
       update_alliances: false
       local_alliances: false

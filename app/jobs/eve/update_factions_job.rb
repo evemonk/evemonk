@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Eve
-  class UpdateBloodlinesJob < ApplicationJob
+  class UpdateFactionsJob < ApplicationJob
     queue_as :default
 
     retry_on EveOnline::Exceptions::Timeout,
@@ -12,8 +12,10 @@ module Eve
       Faraday::ConnectionFailed
 
     def perform
-      LanguageMapper::LANGUAGES.each_key do |locale|
-        Eve::BloodlinesImporter.new(locale).import
+      if Rails.configuration.evemonk.jobs[:eve][:factions]
+        LanguageMapper::LANGUAGES.each_key do |locale|
+          Eve::FactionsImporter.new(locale).import
+        end
       end
     end
   end
