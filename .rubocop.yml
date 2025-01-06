@@ -212,6 +212,9 @@ Lint/EmptyFile:
 Style/NegatedIf:
   Enabled: false
 
+RSpecRails/InferredSpecType:
+  Enabled: false
+
 RSpec/EmptyExampleGroup:
   Enabled: false
 
