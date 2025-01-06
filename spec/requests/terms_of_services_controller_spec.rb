@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.describe TermsOfServicesController do
+RSpec.describe TermsOfServicesController, type: :request do
   it { expect(subject).to be_an(ApplicationController) }
 
   describe "#show" do

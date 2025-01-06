@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.describe WalletJournalsController do
+RSpec.describe WalletJournalsController, type: :request do
   it { expect(subject).to be_an(ApplicationController) }
 
   describe "#index" do

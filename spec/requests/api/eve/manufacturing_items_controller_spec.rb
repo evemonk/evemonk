@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.describe Api::Eve::ManufacturingItemsController do
+RSpec.describe Api::Eve::ManufacturingItemsController, type: :request do
   describe "#index" do
     before { Setting.use_image_proxy = true }
 

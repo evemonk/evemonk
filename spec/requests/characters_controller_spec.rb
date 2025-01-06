@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.describe CharactersController do
+RSpec.describe CharactersController, type: :request do
   it { expect(subject).to be_an(ApplicationController) }
 
   describe "#index" do

@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.describe "Api::Eve::CharacterCorporationsHistoryController", pending: "broken" do
+RSpec.describe "Api::Eve::CharacterCorporationsHistoryController", pending: "broken", type: :request do
   before { Setting.use_image_proxy = true }
 
   describe "#index" do

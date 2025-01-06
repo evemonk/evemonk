@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.describe BlueprintsListsController do
+RSpec.describe BlueprintsListsController, type: :request do
   it { expect(subject).to be_an(ApplicationController) }
 
   describe "#index" do

@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.describe TrainingQueuesController do
+RSpec.describe TrainingQueuesController, type: :request do
   it { expect(subject).to be_an(ApplicationController) }
 
   describe "#index" do

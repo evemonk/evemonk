@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.describe Universe::CategoriesController do
+RSpec.describe Universe::CategoriesController, type: :request do
   it { expect(subject).to be_an(ApplicationController) }
 
   describe "#index" do

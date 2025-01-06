@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.describe Corporations::TopController do
+RSpec.describe Corporations::TopController, type: :request do
   it { expect(subject).to be_an(ApplicationController) }
 
   describe "#index" do

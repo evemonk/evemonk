@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.describe AboutsController do
+RSpec.describe AboutsController, type: :request do
   it { expect(subject).to be_an(ApplicationController) }
 
   describe "#show" do

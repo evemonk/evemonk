@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.describe EmploymentHistoriesController do
+RSpec.describe EmploymentHistoriesController, type: :request do
   it { expect(subject).to be_an(ApplicationController) }
 
   describe "#index" do

@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.describe "Api::Eve::ServerStatusLastsController", pending: "broken" do
+RSpec.describe "Api::Eve::ServerStatusLastsController", pending: "broken", type: :request do
   describe "#show" do
     it "returns last eve server status" do
       create(:eve_server_status,
