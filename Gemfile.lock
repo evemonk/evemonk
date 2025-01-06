@@ -815,7 +815,6 @@ DEPENDENCIES
   eve_online!
   factory_bot_rails
   faker
-  faraday-http-cache
   fasterer
   foreman
   gemdiff
