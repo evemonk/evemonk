@@ -4,6 +4,7 @@ module Eve
   class BloodlinesImporter < BaseImporter
     attr_reader :locale
 
+    # @param locale [Symbol] Default: :en
     def initialize(locale = :en)
       @locale = locale
     end

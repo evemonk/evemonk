@@ -15,7 +15,9 @@ test:
       wallet_job: false
     eve:
       server_status: false
+      races: false
       bloodlines: false
+      ancestries: false
       factions: false
       update_alliance: false
       update_alliances: false
@@ -41,7 +43,9 @@ development:
       wallet_job: false
     eve:
       server_status: true
+      races: true
       bloodlines: true
+      ancestries: true
       factions: true
       update_alliance: false
       update_alliances: false
@@ -67,7 +71,9 @@ production:
       wallet_job: false
     eve:
       server_status: false
+      races: false
       bloodlines: false
+      ancestries: false
       factions: false
       update_alliance: false
       update_alliances: false
