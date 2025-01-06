@@ -212,6 +212,7 @@ Lint/EmptyFile:
 Style/NegatedIf:
   Enabled: false
 
+# We don't need this
 RSpecRails/InferredSpecType:
   Enabled: false
 
