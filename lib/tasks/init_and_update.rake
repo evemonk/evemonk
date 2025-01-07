@@ -86,22 +86,6 @@ namespace :evemonk do
 
   desc "Update static data from new eve online release"
   task update: :environment do
-    # 6 call to esi
-    Rails.logger.info "Update eve races"
-    Eve::UpdateRacesJob.perform_later
-
-    # 6 call to esi
-    Rails.logger.info "Update eve bloodlines"
-    Eve::UpdateBloodlinesJob.perform_later
-
-    # 6 call to esi
-    Rails.logger.info "Update eve ancestries"
-    Eve::UpdateAncestriesJob.perform_later
-
-    # 6 call to esi
-    Rails.logger.info "Update eve factions"
-    Eve::UpdateFactionsJob.perform_later
-
     # 1 + new categories calls to esi
     Rails.logger.info "Import new eve categories"
     Eve::UpdateCategoriesJob.perform_later
