@@ -2,8 +2,8 @@
 
 require "rails_helper"
 
-RSpec.describe Api::Eve::ManufacturingItemsController do
-  it { expect(subject).to be_a(Api::BaseController) }
+RSpec.describe Api::Eve::ManufacturingItemsController, type: :controller do
+  it { expect(subject).to be_an(Api::BaseController) }
 
   describe "#index" do
     context "with supported content type" do

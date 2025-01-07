@@ -2,6 +2,6 @@
 
 require "rails_helper"
 
-RSpec.describe Admin::SettingsController do
+RSpec.describe Admin::SettingsController, type: :controller do
   it { expect(subject).to be_an(Admin::ApplicationController) }
 end
