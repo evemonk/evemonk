@@ -68,6 +68,7 @@ Rails.application.configure do
 
   # Replace the default in-process memory cache store with a durable alternative.
   config.cache_store = :solid_cache_store
+  config.solid_queue.connects_to = {database: {writing: :queue}}
 
   # Use a real queuing backend for Active Job (and separate queues per environment).
   # config.active_job.queue_adapter = :resque
@@ -113,4 +114,7 @@ Rails.application.configure do
   }
 
   config.action_mailer.default_url_options = {host: "evemonk.com", protocol: "https"}
+
+  # mission_control-jobs
+  config.mission_control.jobs.http_basic_auth_enabled = false
 end

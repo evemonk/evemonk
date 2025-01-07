@@ -17,6 +17,8 @@ Rails.application.routes.draw do
 
   mount MaintenanceTasks::Engine, at: "/maintenance_tasks"
 
+  mount MissionControl::Jobs::Engine, at: "/jobs"
+
   post "/graphql", to: "graphql#execute"
 
   devise_for :users
