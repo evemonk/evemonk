@@ -114,4 +114,7 @@ Rails.application.configure do
   }
 
   config.action_mailer.default_url_options = {host: "evemonk.com", protocol: "https"}
+
+  # mission_control-jobs
+  config.mission_control.jobs.http_basic_auth_enabled = false
 end
