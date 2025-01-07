@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.describe Universe::MarketGroupsController do
+RSpec.describe Universe::MarketGroupsController, type: :routing do
   describe "routing" do
     it "should route GET /universe/market_groups to universe/market_groups#index" do
       expect(get: "/universe/market_groups").to route_to(

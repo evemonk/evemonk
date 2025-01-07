@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.describe Admin::CharactersController do
+RSpec.describe Admin::CharactersController, type: :routing do
   describe "routing" do
     it "should route GET /admin/characters to admin/characters#index" do
       expect(get: "/admin/characters").to route_to(

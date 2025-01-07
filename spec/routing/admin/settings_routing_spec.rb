@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.describe Admin::SettingsController do
+RSpec.describe Admin::SettingsController, type: :routing do
   describe "routing" do
     it "should route GET /admin/settings to admin/settings#index" do
       expect(get: "/admin/settings").to route_to(
