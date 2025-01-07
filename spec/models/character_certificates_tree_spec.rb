@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.describe CharacterCertificatesTree do
+RSpec.describe CharacterCertificatesTree, type: :model do
   let(:character) { instance_double(Character) }
 
   subject { described_class.new(character) }

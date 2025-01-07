@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.describe CharacterBlueprint do
+RSpec.describe CharacterBlueprint, type: :model do
   it { expect(subject).to be_an(ApplicationRecord) }
 
   it { expect(subject).to be_a(Locationable) }
