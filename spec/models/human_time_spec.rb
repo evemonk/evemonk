@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.describe HumanTime do
+RSpec.describe HumanTime, type: :model do
   it { expect(described_class::SECONDS_IN_DAY).to eq(86_400) }
 
   it { expect(described_class::SECONDS_IN_HOUR).to eq(3600) }
