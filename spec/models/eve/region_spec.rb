@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.describe Eve::Region do
+RSpec.describe Eve::Region, type: :model do
   it { expect(subject).to be_an(ApplicationRecord) }
 
   it { expect(described_class.primary_key).to eq("region_id") }

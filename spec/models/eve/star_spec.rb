@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.describe Eve::Star do
+RSpec.describe Eve::Star, type: :model do
   it { expect(subject).to be_an(ApplicationRecord) }
 
   it { expect(described_class.primary_key).to eq("star_id") }

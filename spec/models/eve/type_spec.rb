@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.describe Eve::Type do
+RSpec.describe Eve::Type, type: :model do
   it { expect(subject).to be_an(ApplicationRecord) }
 
   it { expect(described_class.primary_key).to eq("type_id") }

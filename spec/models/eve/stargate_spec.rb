@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.describe Eve::Stargate do
+RSpec.describe Eve::Stargate, type: :model do
   it { expect(subject).to be_an(ApplicationRecord) }
 
   it { expect(described_class.primary_key).to eq("stargate_id") }

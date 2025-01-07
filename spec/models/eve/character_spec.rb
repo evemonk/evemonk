@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.describe Eve::Character do
+RSpec.describe Eve::Character, type: :model do
   it { expect(subject).to be_an(ApplicationRecord) }
 
   it { expect(subject).to be_a(PgSearch::Model) }

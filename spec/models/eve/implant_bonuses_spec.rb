@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.describe Eve::ImplantBonuses do
+RSpec.describe Eve::ImplantBonuses, type: :model do
   specify do
     expect(described_class::DOGMA_ATTRIBUTE_NAMES).to eq([
       "perceptionBonus",

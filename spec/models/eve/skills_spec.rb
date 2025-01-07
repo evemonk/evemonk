@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.describe Eve::Skills do
+RSpec.describe Eve::Skills, type: :model do
   it { expect(described_class::SCIENCE_ID).to eq(3402) }
 
   it { expect(described_class::ADVANCED_INDUSTRY_ID).to eq(3388) }

@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.describe Eve::MarketGroup do
+RSpec.describe Eve::MarketGroup, type: :model do
   it { expect(subject).to be_an(ApplicationRecord) }
 
   it { expect(described_class.primary_key).to eq("market_group_id") }
