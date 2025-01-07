@@ -1,5 +1,0 @@
-#! /bin/bash
-
-set -eux
-
-bundle exec sidekiq -C config/sidekiq.yml
