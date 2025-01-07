@@ -44,14 +44,6 @@ namespace :evemonk do
   desc "Init new evemonk installation"
   task init: :environment do
     # 6 call to esi
-    Rails.logger.info "Import eve races"
-    Eve::UpdateRacesJob.perform_later
-
-    # 6 call to esi
-    Rails.logger.info "Import eve bloodlines"
-    Eve::UpdateBloodlinesJob.perform_later
-
-    # 6 call to esi
     Rails.logger.info "Import eve ancestries"
     Eve::UpdateAncestriesJob.perform_later
 
