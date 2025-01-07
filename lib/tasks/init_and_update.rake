@@ -43,22 +43,6 @@ namespace :evemonk do
 
   desc "Init new evemonk installation"
   task init: :environment do
-    # 6 call to esi
-    Rails.logger.info "Import eve races"
-    Eve::UpdateRacesJob.perform_later
-
-    # 6 call to esi
-    Rails.logger.info "Import eve bloodlines"
-    Eve::UpdateBloodlinesJob.perform_later
-
-    # 6 call to esi
-    Rails.logger.info "Import eve ancestries"
-    Eve::UpdateAncestriesJob.perform_later
-
-    # 6 call to esi
-    Rails.logger.info "Import eve factions"
-    Eve::UpdateFactionsJob.perform_later
-
     # Around 300 calls to esi
     Rails.logger.info "Import eve categories"
     Eve::UpdateCategoriesJob.perform_later
@@ -102,22 +86,6 @@ namespace :evemonk do
 
   desc "Update static data from new eve online release"
   task update: :environment do
-    # 6 call to esi
-    Rails.logger.info "Update eve races"
-    Eve::UpdateRacesJob.perform_later
-
-    # 6 call to esi
-    Rails.logger.info "Update eve bloodlines"
-    Eve::UpdateBloodlinesJob.perform_later
-
-    # 6 call to esi
-    Rails.logger.info "Update eve ancestries"
-    Eve::UpdateAncestriesJob.perform_later
-
-    # 6 call to esi
-    Rails.logger.info "Update eve factions"
-    Eve::UpdateFactionsJob.perform_later
-
     # 1 + new categories calls to esi
     Rails.logger.info "Import new eve categories"
     Eve::UpdateCategoriesJob.perform_later
@@ -255,9 +223,6 @@ namespace :evemonk do
     # 1 call to esi
     Rails.logger.info "Update NPC Corporations"
     Eve::NpcCorporationsJob.perform_later
-
-    Rails.logger.info "Update sitemap and ping google"
-    SitemapUpdaterJob.perform_later
   end
 
   desc "Import missing data for development"
