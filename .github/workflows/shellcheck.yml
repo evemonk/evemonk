@@ -27,4 +27,4 @@ jobs:
       - name: Download shellcheck
         run: wget -qO- https://github.com/koalaman/shellcheck/releases/download/stable/shellcheck-stable.linux.x86_64.tar.xz | tar -xJv
       - run: shellcheck-stable/shellcheck --version
-      - run: shellcheck-stable/shellcheck bin/backend bin/sidekiq-server bin/cron bin/standardize
+      - run: shellcheck-stable/shellcheck bin/backend bin/cron bin/standardize
