@@ -2,6 +2,6 @@
 
 require "rails_helper"
 
-RSpec.describe Eve::Implant do
+RSpec.describe Eve::Implant, type: :model do
   it { expect(subject).to be_a(Eve::Type) }
 end

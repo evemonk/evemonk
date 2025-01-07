@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.describe Eve::DogmaAttributes do
+RSpec.describe Eve::DogmaAttributes, type: :model do
   it { expect(described_class::COPY_SPEED_BONUS).to eq("copySpeedBonus") }
 
   it { expect(described_class::ADVANCED_INDUSTRY_SKILL_INDUSTRY_JOB_TIME_BONUS).to eq("advancedIndustrySkillIndustryJobTimeBonus") }

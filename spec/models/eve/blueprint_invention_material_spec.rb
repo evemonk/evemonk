@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.describe Eve::BlueprintInventionMaterial do
+RSpec.describe Eve::BlueprintInventionMaterial, type: :model do
   it { expect(subject).to be_an(ApplicationRecord) }
 
   it { expect(subject).to belong_to(:blueprint) }

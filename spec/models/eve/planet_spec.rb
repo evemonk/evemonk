@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.describe Eve::Planet do
+RSpec.describe Eve::Planet, type: :model do
   it { expect(subject).to be_an(ApplicationRecord) }
 
   it { expect(described_class.primary_key).to eq("planet_id") }

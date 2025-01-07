@@ -73,6 +73,7 @@ gem "skylight"
 gem "lograge"
 gem "prosopite"
 gem "sshkit", require: false
+gem "maintenance_tasks"
 
 gem "airbrake", "~> 13.0"
 

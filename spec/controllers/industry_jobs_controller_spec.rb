@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.describe IndustryJobsController do
+RSpec.describe IndustryJobsController, type: :controller do
   it { expect(subject).to be_an(ApplicationController) }
 
   it { expect(subject).to use_before_action(:authenticate_user!) }

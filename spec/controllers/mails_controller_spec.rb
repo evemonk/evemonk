@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.describe MailsController do
+RSpec.describe MailsController, type: :controller do
   it { expect(subject).to be_an(ApplicationController) }
 
   it { expect(subject).to use_before_action(:authenticate_user!) }

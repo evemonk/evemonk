@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.describe Universe::TypesController do
+RSpec.describe Universe::TypesController, type: :routing do
   describe "routing" do
     it "should route GET /universe/types/:id to universe/types#show" do
       expect(get: "/universe/types/4259").to route_to(

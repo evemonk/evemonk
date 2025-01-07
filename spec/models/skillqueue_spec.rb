@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.describe Skillqueue do
+RSpec.describe Skillqueue, type: :model do
   it { expect(subject).to be_an(ApplicationRecord) }
 
   specify do

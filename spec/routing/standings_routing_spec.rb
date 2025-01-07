@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.describe StandingsController do
+RSpec.describe StandingsController, type: :routing do
   describe "routing" do
     it "should route GET /characters/:character_id/standings to standings#index" do
       expect(get: "/characters/90729314/standings").to route_to(

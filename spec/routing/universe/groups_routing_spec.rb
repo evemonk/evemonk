@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.describe Universe::GroupsController do
+RSpec.describe Universe::GroupsController, type: :routing do
   describe "routing" do
     it "should route GET /universe/groups/:id to universe/groups#show" do
       expect(get: "/universe/groups/1").to route_to(

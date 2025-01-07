@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.describe Admin::ApplicationController do
+RSpec.describe Admin::ApplicationController, type: :controller do
   it { expect(subject).to be_an(Administrate::ApplicationController) }
 
   it { expect(subject).to use_before_action(:authenticate_user!) }

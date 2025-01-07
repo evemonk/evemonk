@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.describe Eve::AsteroidBelt do
+RSpec.describe Eve::AsteroidBelt, type: :model do
   it { expect(subject).to be_an(ApplicationRecord) }
 
   it { expect(described_class.primary_key).to eq("asteroid_belt_id") }

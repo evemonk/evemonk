@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.describe WelcomeController do
+RSpec.describe WelcomeController, type: :request do
   it { expect(subject).to be_an(ApplicationController) }
 
   describe "#index" do

@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.describe Admin::Eve::CertificatesController do
+RSpec.describe Admin::Eve::CertificatesController, type: :routing do
   describe "routing" do
     it "should route GET /admin/eve/certificates to admin/eve/certificates#index" do
       expect(get: "/admin/eve/certificates").to route_to(

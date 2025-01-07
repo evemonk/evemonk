@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.describe LoyaltyPoint do
+RSpec.describe LoyaltyPoint, type: :model do
   it { expect(subject).to be_an(ApplicationRecord) }
 
   it { expect(subject).to belong_to(:character) }

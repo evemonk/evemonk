@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.describe Eve::War do
+RSpec.describe Eve::War, type: :model do
   it { expect(subject).to be_an(ApplicationRecord) }
 
   it { expect(described_class.table_name).to eq("eve_wars") }

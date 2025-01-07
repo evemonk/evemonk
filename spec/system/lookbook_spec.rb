@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.describe "Lookbook" do
+RSpec.describe "Lookbook", type: :system do
   before { driven_by(:selenium_chrome_headless) }
 
   it "should render page" do

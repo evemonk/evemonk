@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.describe Eve::Moon do
+RSpec.describe Eve::Moon, type: :model do
   it { expect(subject).to be_an(ApplicationRecord) }
 
   it { expect(described_class.primary_key).to eq("moon_id") }

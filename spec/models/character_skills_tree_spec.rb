@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.describe CharacterSkillsTree do
+RSpec.describe CharacterSkillsTree, type: :model do
   it { expect(described_class::PRIMARY_ATTRIBUTE_NAME).to eq("primaryAttribute") }
 
   it { expect(described_class::SECONDARY_ATTRIBUTE_NAME).to eq("secondaryAttribute") }

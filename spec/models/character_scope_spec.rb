@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.describe CharacterScope do
+RSpec.describe CharacterScope, type: :model do
   it { expect(subject).to be_an(ApplicationRecord) }
 
   it do

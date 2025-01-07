@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.describe Eve::Division do
+RSpec.describe Eve::Division, type: :model do
   it { expect(subject).to be_an(ApplicationRecord) }
 
   it { expect(described_class).to respond_to(:translates) }

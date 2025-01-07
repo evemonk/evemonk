@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.describe Setting do
+RSpec.describe Setting, type: :model do
   it { expect(subject).to be_a(RailsSettings::Base) }
 
   describe ".use_image_proxy" do

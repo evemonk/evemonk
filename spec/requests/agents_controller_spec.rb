@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.describe AgentsController do
+RSpec.describe AgentsController, type: :request do
   it { expect(subject).to be_an(ApplicationController) }
 
   describe "#index" do

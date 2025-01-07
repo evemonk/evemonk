@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.describe Eve::CharacterAttribute do
+RSpec.describe Eve::CharacterAttribute, type: :model do
   it { expect(subject).to be_an(ApplicationRecord) }
 
   it { expect(described_class).to respond_to(:translates) }

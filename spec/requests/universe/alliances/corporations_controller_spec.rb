@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.describe Universe::Alliances::CorporationsController do
+RSpec.describe Universe::Alliances::CorporationsController, type: :request do
   it { expect(subject).to be_an(ApplicationController) }
 
   describe "#index" do

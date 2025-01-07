@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.describe Eve::DogmaAttribute do
+RSpec.describe Eve::DogmaAttribute, type: :model do
   it { expect(subject).to be_an(ApplicationRecord) }
 
   it { expect(subject).to belong_to(:unit).optional(true) }

@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.describe "Sign out features" do
+RSpec.describe "Sign out features", type: :system do
   before { driven_by(:selenium_chrome_headless) }
 
   it "when user successfully sign in and sign out" do

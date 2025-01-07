@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.describe Blueprints::CalculatorController do
+RSpec.describe Blueprints::CalculatorController, type: :controller do
   it { expect(subject).to be_an(ApplicationController) }
 
   it { expect(subject).not_to use_before_action(:authenticate_user!) }

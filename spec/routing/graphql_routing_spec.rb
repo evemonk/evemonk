@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.describe GraphqlController do
+RSpec.describe GraphqlController, type: :routing do
   describe "routing" do
     it "should route POST /graphql to graphql#execute" do
       expect(post: "/graphql").to route_to(

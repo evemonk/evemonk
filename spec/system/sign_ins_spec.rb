@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.describe "Sign in features" do
+RSpec.describe "Sign in features", type: :system do
   before { driven_by(:selenium_chrome_headless) }
 
   it "when user successfully sign in" do
