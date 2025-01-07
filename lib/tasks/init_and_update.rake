@@ -223,9 +223,6 @@ namespace :evemonk do
     # 1 call to esi
     Rails.logger.info "Update NPC Corporations"
     Eve::NpcCorporationsJob.perform_later
-
-    Rails.logger.info "Update sitemap and ping google"
-    SitemapUpdaterJob.perform_later
   end
 
   desc "Import missing data for development"
