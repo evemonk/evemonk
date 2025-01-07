@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.describe Eve::Blueprint do
+RSpec.describe Eve::Blueprint, type: :model do
   it { expect(subject).to be_a(Eve::Type) }
 
   it { expect(subject).to have_many(:blueprint_invention_materials).dependent(:destroy) }

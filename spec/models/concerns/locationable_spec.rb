@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.describe Locationable do
+RSpec.describe Locationable, type: :model do
   let(:klass) { Class.new }
 
   before do
