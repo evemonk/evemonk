@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_01_06_193511) do
+ActiveRecord::Schema[8.0].define(version: 2025_01_07_110351) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_buffercache"
   enable_extension "pg_catalog.plpgsql"
@@ -266,6 +266,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_06_193511) do
     t.index ["executor_corporation_id"], name: "index_eve_alliances_on_executor_corporation_id"
     t.index ["faction_id"], name: "index_eve_alliances_on_faction_id"
     t.index ["name", "ticker"], name: "index_eve_alliances_on_name_and_ticker", opclass: :gin_trgm_ops, using: :gin
+    t.index ["name"], name: "index_eve_alliances_on_name"
   end
 
   create_table "eve_ancestries", force: :cascade do |t|
@@ -555,6 +556,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_06_193511) do
     t.index ["home_station_id"], name: "index_eve_corporations_on_home_station_id"
     t.index ["member_count"], name: "index_eve_corporations_on_member_count"
     t.index ["name", "ticker"], name: "index_eve_corporations_on_name_and_ticker", opclass: :gin_trgm_ops, using: :gin
+    t.index ["name"], name: "index_eve_corporations_on_name"
     t.index ["npc", "member_count"], name: "index_eve_corporations_on_npc_and_member_count"
   end
 
