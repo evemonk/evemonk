@@ -24,7 +24,4 @@ jobs:
           egress-policy: audit
 
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
-      - name: Download shellcheck
-        run: wget -qO- https://github.com/koalaman/shellcheck/releases/download/stable/shellcheck-stable.linux.x86_64.tar.xz | tar -xJv
-      - run: shellcheck-stable/shellcheck --version
-      - run: shellcheck-stable/shellcheck bin/backend bin/cron bin/standardize
+      - uses: ludeeus/action-shellcheck@2.0.0
