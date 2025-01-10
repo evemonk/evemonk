@@ -1,7 +1,6 @@
 :queues:
   - [server_status, 2]
   - [pghero, 2]
-  - [sentry, 2]
   - [important, 2]
   - mailers
   - default
