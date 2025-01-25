@@ -694,7 +694,7 @@ GEM
     snaky_hash (2.0.1)
       hashie
       version_gem (~> 1.1, >= 1.1.1)
-    solid_cable (3.0.5)
+    solid_cable (3.0.6)
       actioncable (>= 7.2)
       activejob (>= 7.2)
       activerecord (>= 7.2)
@@ -1171,7 +1171,7 @@ CHECKSUMS
   skylight (6.0.4) sha256=201d9e33da76b95134110785308c141c0d32d591cafd7ad8383f883c3bbdbd0c
   smart_properties (1.17.0) sha256=f9323f8122e932341756ddec8e0ac9ec6e238408a7661508be99439ca6d6384b
   snaky_hash (2.0.1) sha256=1ac87ec157fcfe7a460e821e0cd48ae1e6f5e3e082ab520f03f31a9259dbdc31
-  solid_cable (3.0.5) sha256=258ac22d103275b40affdf86421047899aab22376e78719cfe806c5561403459
+  solid_cable (3.0.6) sha256=560461ef481d0f112d1db48f711e4f44a67a66c142176abe95dab6d72458f242
   solid_cache (1.0.6) sha256=fe1acf73fbe4a6a53620425317949082d3b99e0cfd35416106b56220fa66c311
   solid_queue (1.1.2) sha256=178c9396d1cf0dac595c7508da90ddb397d25848ca007b5c5ed48e6ac6fc360c
   squasher (0.8.0) sha256=075f406a369d7fdcdd277a981bdcefcf4005a83ae89ef2f4aaa21c719f1438c6
