@@ -122,9 +122,7 @@ group :test do
   gem "super_diff"
   gem "simplecov"
   gem "simplecov-cobertura", require: false
-  gem "database_rewinder",
-    git: "https://github.com/kucho/database_rewinder.git",
-    branch: "fix/rails-7-2-connection-warning"
+  gem "database_rewinder"
   gem "webmock"
   gem "vcr"
 end
