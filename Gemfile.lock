@@ -8,13 +8,6 @@ GIT
       faraday (>= 2.3.0)
       faraday-http-cache
 
-GIT
-  remote: https://github.com/kucho/database_rewinder.git
-  revision: 6f49f6e7311c071daec11af59ffaa75975394c8c
-  branch: fix/rails-7-2-connection-warning
-  specs:
-    database_rewinder (1.0.1)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -168,6 +161,7 @@ GEM
     dartsass-rails (0.5.1)
       railties (>= 6.0.0)
       sass-embedded (~> 1.63)
+    database_rewinder (1.1.0)
     date (3.4.1)
     devise (4.9.4)
       bcrypt (~> 3.0)
@@ -825,7 +819,7 @@ DEPENDENCIES
   capybara (>= 3.26)
   connection_pool
   dartsass-rails
-  database_rewinder!
+  database_rewinder
   devise
   devise-i18n
   devise-two-factor (>= 5.0.0)
@@ -962,7 +956,7 @@ CHECKSUMS
   css_parser (1.21.0) sha256=6753f5b8b49dd6d5c6a90f300d5a82af8399c19dbba56d886081740ec7014518
   csv (3.3.2) sha256=6ff0c135e65e485d1864dde6c1703b60d34cc9e19bed8452834a0b28a519bd4e
   dartsass-rails (0.5.1) sha256=f19510fb1b29c76c1739a06954d615f1d20ad653b6fc668dd7c68542bb303a1a
-  database_rewinder (1.0.1)
+  database_rewinder (1.1.0) sha256=950398ba97bb20fb4653b6ee502a7d6658a6333a61d88ba756217f32bfa04510
   date (3.4.1) sha256=bf268e14ef7158009bfeaec40b5fa3c7271906e88b196d958a89d4b408abe64f
   devise (4.9.4) sha256=920042fe5e704c548aa4eb65ebdd65980b83ffae67feb32c697206bfd975a7f8
   devise-i18n (1.12.1) sha256=b0d789b5773d761436409232bbffeb09bd0cb60340620b94602f90bcf1f1377f
@@ -1215,4 +1209,4 @@ RUBY VERSION
    ruby 3.3.6p108
 
 BUNDLED WITH
-   2.6.2
+   2.6.3
