@@ -28,3 +28,14 @@ button {
     }
   }
 }
+
+// hotwire_combobox
+.hw-combobox__input {
+  background-color: var(--bs-body-color);
+  color: var(--bs-dark);
+}
+
+.hw-combobox__option {
+  background-color: var(--bs-body-color);
+  color: var(--bs-dark);
+}
