@@ -305,7 +305,7 @@ GEM
       kaminari
       rails
     language_server-protocol (3.17.0.4)
-    launchy (3.1.0)
+    launchy (3.1.1)
       addressable (~> 2.8)
       childprocess (~> 5.0)
       logger (~> 1.6)
@@ -1018,7 +1018,7 @@ CHECKSUMS
   kaminari-core (1.2.2) sha256=3bd26fec7370645af40ca73b9426a448d09b8a8ba7afa9ba3c3e0d39cdbb83ff
   kaminari-i18n (0.5.0) sha256=f20efcd31370f07eb423defdb296b8e05e48c8bc897655c636bc1b69b0fbe252
   language_server-protocol (3.17.0.4) sha256=c484626478664fd13482d8180947c50a8590484b1258b99b7aedb3b69df89669
-  launchy (3.1.0) sha256=4964ae775cd802f5a57ae5584fbdb1151a8908cb0c626341563430d614a59572
+  launchy (3.1.1) sha256=72b847b5cc961589dde2c395af0108c86ff0119f42d4648d25b5440ebb10059e
   license_finder (7.2.1) sha256=179ead19b64b170638b72fd16024233813673ac9d20d5ba75ae0b4444887ef14
   lint_roller (1.1.0) sha256=2c0c845b632a7d172cb849cc90c1bce937a28c5c8ccccb50dfd46a485003cc87
   local_time (3.0.2) sha256=cb8abb2d56726ae285d00b0bd7f4c34bafc38c0c1cbc70ddc28f3a5661168d9d
