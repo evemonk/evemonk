@@ -247,7 +247,7 @@ GEM
     google-protobuf (4.29.3-x86_64-linux)
       bigdecimal
       rake (>= 13)
-    graphiql-rails (1.10.1)
+    graphiql-rails (1.10.2)
       railties
     graphql (2.4.10)
       base64
@@ -993,7 +993,7 @@ CHECKSUMS
   google-protobuf (4.29.3-x86-linux) sha256=d4e7406c9830e520504ea96aaf6daa55ce436dd403fa2c09b10c4b0fe4ae3023
   google-protobuf (4.29.3-x86_64-darwin) sha256=2d1051fd88ca2c7f6a09d2f12feabe8ded7b13f049799423b62d83ee88f968b4
   google-protobuf (4.29.3-x86_64-linux) sha256=4ac194b06c59559457ce1d1d57d03760b50e009dbcfe5ef065a1af48ce4a2d0e
-  graphiql-rails (1.10.1) sha256=d43d9ed812bf0bd0f213a0314301ffd8ccb05a681f6225c1b9ad6e66e3561429
+  graphiql-rails (1.10.2) sha256=2e17d1e3c0c8cb89decb88eff71a2028f1158ab52c55503490815a16427143f2
   graphql (2.4.10) sha256=784959f0501a52891e92bfd9ed06adc3399a5f4a1ca3a5654d33407bc5288012
   graphql-rails_logger (1.2.5) sha256=d2117c047546aa2922550a313d3904d95949bdff819e0997f8246ebd6f49860d
   hashdiff (1.1.2) sha256=2c30eeded6ed3dce8401d2b5b99e6963fe5f14ed85e60dd9e33c545a44b71a77
