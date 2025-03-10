@@ -170,8 +170,9 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
-    devise-i18n (1.12.1)
+    devise-i18n (1.13.0)
       devise (>= 4.9.0)
+      rails-i18n
     devise-two-factor (6.1.0)
       activesupport (>= 7.0, < 8.1)
       devise (~> 4.0)
@@ -960,7 +961,7 @@ CHECKSUMS
   database_rewinder (1.1.0) sha256=950398ba97bb20fb4653b6ee502a7d6658a6333a61d88ba756217f32bfa04510
   date (3.4.1) sha256=bf268e14ef7158009bfeaec40b5fa3c7271906e88b196d958a89d4b408abe64f
   devise (4.9.4) sha256=920042fe5e704c548aa4eb65ebdd65980b83ffae67feb32c697206bfd975a7f8
-  devise-i18n (1.12.1) sha256=b0d789b5773d761436409232bbffeb09bd0cb60340620b94602f90bcf1f1377f
+  devise-i18n (1.13.0) sha256=306753c8ba4c687bdab82bc71daeab566b2286fb3f52311b88e54556f45f2f2e
   devise-two-factor (6.1.0) sha256=90389ea00e6eab999f1868311972b6f4c84e6d7d6d1e90990eea8fcaf3372c10
   devise_zxcvbn (6.0.0) sha256=92b45f0b50657f17d9472dfb72b4414482f59942a0cbdd8c4346e054d77ee3ee
   diff-lcs (1.6.0) sha256=a1e7f7b272962f8fc769358ad00001b87cdcf32ba349d6c70c6b544613d2da2e
