@@ -733,11 +733,11 @@ GEM
       diff-lcs
       patience_diff
     thor (1.3.2)
-    thruster (0.1.11)
-    thruster (0.1.11-aarch64-linux)
-    thruster (0.1.11-arm64-darwin)
-    thruster (0.1.11-x86_64-darwin)
-    thruster (0.1.11-x86_64-linux)
+    thruster (0.1.12)
+    thruster (0.1.12-aarch64-linux)
+    thruster (0.1.12-arm64-darwin)
+    thruster (0.1.12-x86_64-darwin)
+    thruster (0.1.12-x86_64-linux)
     timeout (0.4.3)
     tomlrb (2.0.3)
     turbo-rails (2.0.13)
@@ -1178,11 +1178,11 @@ CHECKSUMS
   stringio (3.1.5) sha256=bca92461515a131535743bc81d5559fa1de7d80cff9a654d6c0af6f9f27e35c8
   super_diff (0.15.0) sha256=1c857c27ea49ed57685ce05897efc35839d169e74a30fca1a97e7a401f0cb914
   thor (1.3.2) sha256=eef0293b9e24158ccad7ab383ae83534b7ad4ed99c09f96f1a6b036550abbeda
-  thruster (0.1.11) sha256=ee21374777c4da0aa24e19c17269e80c35e4ab361899d5bfc7965c0615ae6fee
-  thruster (0.1.11-aarch64-linux) sha256=1f53747ad2875a56e9b54a467913598e2fe4ccbcdac3a14303df92238ff43436
-  thruster (0.1.11-arm64-darwin) sha256=b77e7033a3d941f2b39f092ef9a4e6d8992590e037c32d30e8572bd15efd19f4
-  thruster (0.1.11-x86_64-darwin) sha256=6187bb129f7da967913120ae73108f903f2d114be4f2788ed58858bc56fa337e
-  thruster (0.1.11-x86_64-linux) sha256=74b734e16b948e476354bcd1ebfe722d564313c99db364ea5d0b7081e0fa9956
+  thruster (0.1.12) sha256=a6271224fbb4bbcfb9fe6231591656724d73d0a0c774bc6f35b0a3bc88413bb2
+  thruster (0.1.12-aarch64-linux) sha256=c70dad353ed75d0cece9070b553e2ca3f27ecc16ac209e06b7e7076a9c7da8a2
+  thruster (0.1.12-arm64-darwin) sha256=c05126962184946c3d2b40977c09912dbda68cffd2a18d8610cda468bdb75665
+  thruster (0.1.12-x86_64-darwin) sha256=bdcb84dbdb620c46e0d26c7035a5e1a40a851a028b666355c0748735302cf121
+  thruster (0.1.12-x86_64-linux) sha256=cb2427f6c0661c9637406863172543de05672b7f7ae2ee04a1874322f2f5425f
   timeout (0.4.3) sha256=9509f079b2b55fe4236d79633bd75e34c1c1e7e3fb4b56cb5fda61f80a0fe30e
   tomlrb (2.0.3) sha256=c2736acf24919f793334023a4ff396c0647d93fce702a73c9d348deaa815d4f7
   turbo-rails (2.0.13) sha256=c40ac0a3ccd57c129925c8ac524a5dfd1e17fad080906e2d32135721a8bba22f
