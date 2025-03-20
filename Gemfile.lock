@@ -97,7 +97,7 @@ GEM
       rbtree3 (~> 0.6)
     ancestry (4.3.3)
       activerecord (>= 5.2.6)
-    ast (2.4.2)
+    ast (2.4.3)
     attr_extras (7.1.0)
     aws-eventstream (1.3.2)
     aws-partitions (1.1069.0)
@@ -936,7 +936,7 @@ CHECKSUMS
   airbrake (13.0.5) sha256=901f5074c25d5ef77ed87f5bde7a28400a7324f5d7013a8a12d07e0099cc31b6
   airbrake-ruby (6.2.2) sha256=293e34fb36e763e1b6d67ab584cce7c5b6fe9eea1a70c26d8c13c0f5d7de2fbc
   ancestry (4.3.3) sha256=af3f6bcf405c219af02eec5b9c8206e68cba8d7976fe5269559ef0986f5e7ca0
-  ast (2.4.2) sha256=1e280232e6a33754cde542bc5ef85520b74db2aac73ec14acef453784447cc12
+  ast (2.4.3) sha256=954615157c1d6a382bc27d690d973195e79db7f55e9765ac7c481c60bdb4d383
   attr_extras (7.1.0) sha256=d96fc9a9dd5d85ba2d37762440a816f840093959ae26bb90da994c2d9f1fc827
   aws-eventstream (1.3.2) sha256=7e2c3a55ca70d7861d5d3c98e47daa463ed539c349caba22b48305b8919572d7
   aws-partitions (1.1069.0) sha256=9806a8923d079f35c20e7fa1ac399de4eb961b118af01dbe5ac5845933975993
