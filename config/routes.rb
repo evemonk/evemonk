@@ -95,6 +95,12 @@ Rails.application.routes.draw do
 
   resource :privacy_policy, only: :show
 
+  # resources :search, only: :index
+
+  resource :search, only: :create
+
+  resources :searchables, only: :index
+
   namespace :blueprints do
     resources :calculator, only: [:index, :show]
   end

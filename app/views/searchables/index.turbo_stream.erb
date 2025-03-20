@@ -1,0 +1,5 @@
+<%# render_in: { partial: "states/state" }, %>
+
+<%= async_combobox_options @alliances,
+                           render_in: {partial: "searchables/searchable"},
+                           next_page: @alliances.last_page? ? nil : @alliances.next_page %>
