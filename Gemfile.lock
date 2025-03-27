@@ -228,7 +228,7 @@ GEM
       thor (~> 1.0)
     globalid (1.2.1)
       activesupport (>= 6.1)
-    good_migrations (0.3.0)
+    good_migrations (0.3.1)
       activerecord (>= 3.1)
       railties (>= 3.1)
     google-protobuf (4.30.2)
@@ -997,7 +997,7 @@ CHECKSUMS
   fugit (1.11.1) sha256=e89485e7be22226d8e9c6da411664d0660284b4b1c08cacb540f505907869868
   gemdiff (6.0.2) sha256=1282675c8bbc7eaf2656aa6c79a238373cdb375201c7b353650baf4b56b24a42
   globalid (1.2.1) sha256=70bf76711871f843dbba72beb8613229a49429d1866828476f9c9d6ccc327ce9
-  good_migrations (0.3.0) sha256=9874ac49bac87f4a160a8be3f5c4f996e63f96d1cd4cb8c7d000b7f1024b8e74
+  good_migrations (0.3.1) sha256=3f8267c00caa29689823cb8d53cbfb62cd5b0310fe6b088f5ce589243f6f797f
   google-protobuf (4.30.2) sha256=0f35168dbeeccf13d928acf6c128cfec17b9a826ae4505246a02c115f4ae16ed
   google-protobuf (4.30.2-aarch64-linux) sha256=a99d2f31bc2bebf4994b7cd2dd4c1d3ef28a0acc8f1b37be236982f7dc21bd8d
   google-protobuf (4.30.2-arm64-darwin) sha256=c66a93ceef100fb2390615e76310491cc6e1944f7b9cda2cf1e3279887f817d1
