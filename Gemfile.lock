@@ -638,38 +638,38 @@ GEM
     rubyzip (2.4.1)
     rufus-scheduler (3.9.2)
       fugit (~> 1.1, >= 1.11.1)
-    sass-embedded (1.86.1)
+    sass-embedded (1.86.3)
       google-protobuf (~> 4.30)
       rake (>= 13)
-    sass-embedded (1.86.1-aarch64-linux-android)
+    sass-embedded (1.86.3-aarch64-linux-android)
       google-protobuf (~> 4.30)
-    sass-embedded (1.86.1-aarch64-linux-gnu)
+    sass-embedded (1.86.3-aarch64-linux-gnu)
       google-protobuf (~> 4.30)
-    sass-embedded (1.86.1-aarch64-linux-musl)
+    sass-embedded (1.86.3-aarch64-linux-musl)
       google-protobuf (~> 4.30)
-    sass-embedded (1.86.1-aarch64-mingw-ucrt)
+    sass-embedded (1.86.3-aarch64-mingw-ucrt)
       google-protobuf (~> 4.30)
-    sass-embedded (1.86.1-arm-linux-androideabi)
+    sass-embedded (1.86.3-arm-linux-androideabi)
       google-protobuf (~> 4.30)
-    sass-embedded (1.86.1-arm-linux-gnueabihf)
+    sass-embedded (1.86.3-arm-linux-gnueabihf)
       google-protobuf (~> 4.30)
-    sass-embedded (1.86.1-arm-linux-musleabihf)
+    sass-embedded (1.86.3-arm-linux-musleabihf)
       google-protobuf (~> 4.30)
-    sass-embedded (1.86.1-arm64-darwin)
+    sass-embedded (1.86.3-arm64-darwin)
       google-protobuf (~> 4.30)
-    sass-embedded (1.86.1-riscv64-linux-android)
+    sass-embedded (1.86.3-riscv64-linux-android)
       google-protobuf (~> 4.30)
-    sass-embedded (1.86.1-riscv64-linux-gnu)
+    sass-embedded (1.86.3-riscv64-linux-gnu)
       google-protobuf (~> 4.30)
-    sass-embedded (1.86.1-riscv64-linux-musl)
+    sass-embedded (1.86.3-riscv64-linux-musl)
       google-protobuf (~> 4.30)
-    sass-embedded (1.86.1-x86_64-darwin)
+    sass-embedded (1.86.3-x86_64-darwin)
       google-protobuf (~> 4.30)
-    sass-embedded (1.86.1-x86_64-linux-android)
+    sass-embedded (1.86.3-x86_64-linux-android)
       google-protobuf (~> 4.30)
-    sass-embedded (1.86.1-x86_64-linux-gnu)
+    sass-embedded (1.86.3-x86_64-linux-gnu)
       google-protobuf (~> 4.30)
-    sass-embedded (1.86.1-x86_64-linux-musl)
+    sass-embedded (1.86.3-x86_64-linux-musl)
       google-protobuf (~> 4.30)
     sawyer (0.9.2)
       addressable (>= 2.3.5)
@@ -1150,22 +1150,22 @@ CHECKSUMS
   ruby_parser (3.21.1) sha256=9d931abe5aec287d65280f811d3cf672564956ef1bd49f528ca48479984d6fec
   rubyzip (2.4.1) sha256=8577c88edc1fde8935eb91064c5cb1aef9ad5494b940cf19c775ee833e075615
   rufus-scheduler (3.9.2) sha256=55fa9e4db0ff69d7f38c804f17baba0c9bce5cba39984ae3c5cf6c039d1323b9
-  sass-embedded (1.86.1) sha256=feba04ba33052d39d220caf62596ad70e2973569d14600e17e0ac73b4087f5c3
-  sass-embedded (1.86.1-aarch64-linux-android) sha256=5b13aa511c4a7f8249b687c4a8453526002d8e3c44b94c2f93361a2f2e240561
-  sass-embedded (1.86.1-aarch64-linux-gnu) sha256=586e40848c3ab39e7a441ee2c7c711894900a27dfc2dbebdee1d44ca28610cf6
-  sass-embedded (1.86.1-aarch64-linux-musl) sha256=ef98c0e6e3a5983c52f29629a69aea5f7b4a60e14a450585f1ef995836583788
-  sass-embedded (1.86.1-aarch64-mingw-ucrt) sha256=ad79347f460bab7ea44110932e38b4a84b537a2f06915dfbaedb29ee87f843e3
-  sass-embedded (1.86.1-arm-linux-androideabi) sha256=c52549fa7c0bcb37c474eb20d97ef831e6f8ca9b67cf2ab776db8eed356f47db
-  sass-embedded (1.86.1-arm-linux-gnueabihf) sha256=52f66e6cf1c1c0a191a27faa08d980ac8f261793d400c154166f5a15df82a27e
-  sass-embedded (1.86.1-arm-linux-musleabihf) sha256=8355da2cda7ce242b5343598ed187a95ba80d812bc8570dc11f0c55d2a2efc31
-  sass-embedded (1.86.1-arm64-darwin) sha256=8cf21f24a70cc19cac91e2a26fe147909f1a69db97518fbe9e6852ebf8c96aee
-  sass-embedded (1.86.1-riscv64-linux-android) sha256=c99ab0c1e5137502d738c05d7e37017e02d4bf9dbb44172f6294f5ae40a415c5
-  sass-embedded (1.86.1-riscv64-linux-gnu) sha256=95f91669b6614bdbf2ba6dad2e17f134c4ba87fd47c10ac16bcb307d00b48d57
-  sass-embedded (1.86.1-riscv64-linux-musl) sha256=de709c62f36f1c5e612528372b186d563f7a1addf24e10e307c4ea2dbdbf9a7f
-  sass-embedded (1.86.1-x86_64-darwin) sha256=8af7694c0de4b7fe382f8bda76456ebab70581d6007b7935ec172466d10ce7b7
-  sass-embedded (1.86.1-x86_64-linux-android) sha256=dc15d50e5ea5369709726e7460a5d3b3269da29ca332cfb78f25b544ce9c4a6d
-  sass-embedded (1.86.1-x86_64-linux-gnu) sha256=873e4e505677549e8b07f49a2fee2fbe09a11a9fb7f78d6d345998df6659d7e6
-  sass-embedded (1.86.1-x86_64-linux-musl) sha256=ae2647c47276e370979d9fe0bb1c8de93a1a0272bcbdfc41592f7476cc8da7db
+  sass-embedded (1.86.3) sha256=476dd84d18bf6e3f905f576da75eb723bbc7f76620eed5fec7c0f7bca674905a
+  sass-embedded (1.86.3-aarch64-linux-android) sha256=e87c075681dc05cd405426158e928a37ba27e7ad1959a32b6f4cd8a5d9bcf055
+  sass-embedded (1.86.3-aarch64-linux-gnu) sha256=e5f9d222d7b933c2f6dc8682328750c26a7bdc5ede3666814fc8cd79d8e1f271
+  sass-embedded (1.86.3-aarch64-linux-musl) sha256=4122f185d049be7e28b288b876941d9234364c1f6d6dc012a6061a32ebf8d972
+  sass-embedded (1.86.3-aarch64-mingw-ucrt) sha256=886b36ba1c36e88fce2b4de7690c327802af519531c559e274d4079efe2ef2f0
+  sass-embedded (1.86.3-arm-linux-androideabi) sha256=3c2a2e7f46aa1946fc6d5f0a041be2956dc659f1aed4f4c32f27a5ea29919256
+  sass-embedded (1.86.3-arm-linux-gnueabihf) sha256=eeaefe7d5e5c80c7c4232914b0d4bd6c0017c42c1665060d4ca9e3ebc0194e10
+  sass-embedded (1.86.3-arm-linux-musleabihf) sha256=73fc8e91cf0958e5ec74f643d0def572fe3c2ead21f31a38c17bd339d9fc6c30
+  sass-embedded (1.86.3-arm64-darwin) sha256=722cae205a971efb982e151a3d098e62b331d7b97525376a2fee5b2b84e6158d
+  sass-embedded (1.86.3-riscv64-linux-android) sha256=758663e7e9e2a51d30f9602b81fb30ca4c11ed89e44d0fd0d1a4e883f919e28b
+  sass-embedded (1.86.3-riscv64-linux-gnu) sha256=11a75a50aebb19264a05e331e960b12f01db7237f2380a110b66a44b14973fb9
+  sass-embedded (1.86.3-riscv64-linux-musl) sha256=f63e385d938b9f6387dc8d20bbbd91e75616deb3c76d51d18f8948321e802349
+  sass-embedded (1.86.3-x86_64-darwin) sha256=92e64cf8358a439fed165995a0e3783464f7768882c07ae0f40af2a2eb906a58
+  sass-embedded (1.86.3-x86_64-linux-android) sha256=f3e8d3f579811ef61ee89eb5608c4b5070322d2d942f420aa2a2368dec8f9f76
+  sass-embedded (1.86.3-x86_64-linux-gnu) sha256=7a62a2e706a457e063f2877a6953c1ae8fed60ffee312bcf3969810d54bd9b5f
+  sass-embedded (1.86.3-x86_64-linux-musl) sha256=add22b474d0cbc66f9db3e38c7684fdf62ce0dd95726c68ec70489aebb4b590e
   sawyer (0.9.2) sha256=fa3a72d62a4525517b18857ddb78926aab3424de0129be6772a8e2ba240e7aca
   securerandom (0.4.1) sha256=cc5193d414a4341b6e225f0cb4446aceca8e50d5e1888743fac16987638ea0b1
   selenium-webdriver (4.30.1) sha256=c498fef823a44bf2b110b46edaee3e86aeeb21f8b4e7e12088b4995af4a216f7
