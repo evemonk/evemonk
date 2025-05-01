@@ -570,7 +570,7 @@ GEM
     rqrcode_core (1.2.0)
     rspec-core (3.13.3)
       rspec-support (~> 3.13.0)
-    rspec-expectations (3.13.3)
+    rspec-expectations (3.13.4)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.13.0)
     rspec-its (2.0.0)
@@ -1131,7 +1131,7 @@ CHECKSUMS
   rqrcode (2.2.0) sha256=23eea88bb44c7ee6d6cab9354d08c287f7ebcdc6112e1fe7bcc2d010d1ffefc1
   rqrcode_core (1.2.0) sha256=cf4989dc82d24e2877984738c4ee569308625fed2a810960f1b02d68d0308d1a
   rspec-core (3.13.3) sha256=25136507f4f9cf2e8977a2851e64e438b4331646054e345998714108745cdfe4
-  rspec-expectations (3.13.3) sha256=0e6b5af59b900147698ea0ff80456c4f2e69cac4394fbd392fbd1ca561f66c58
+  rspec-expectations (3.13.4) sha256=4e43459765dfee900b25aa1361e106ab0799895ede65fc57872069feb559ecd8
   rspec-its (2.0.0) sha256=a88e8bc38149f2835e93533591ec4f5c829aacbfd41269a2e6f9f5b82f5260df
   rspec-mocks (3.13.2) sha256=2327335def0e1665325a9b617e3af9ae20272741d80ac550336309a7c59abdef
   rspec-rails (8.0.0) sha256=977a508cd94d152db2068c6585470db5d0cd47eef56d5410b9531034fb9d97bf
