@@ -123,6 +123,11 @@ RSpec.describe "Get Alliances" do
                 large
                 huge
               }
+              iconTiny
+              iconSmall
+              iconMedium
+              iconLarge
+              iconHuge
               dateFounded
               creatorCorporationId
               creatorCorporation {
@@ -202,6 +207,11 @@ RSpec.describe "Get Alliances" do
                 "large" => "https://imageproxy.evemonk.com/https://images.evetech.net/alliances/123/logo?size=256",
                 "huge" => "https://imageproxy.evemonk.com/https://images.evetech.net/alliances/123/logo?size=512"
               },
+              "iconTiny" => "https://imageproxy.evemonk.com/https://images.evetech.net/alliances/123/logo?size=32",
+              "iconSmall" => "https://imageproxy.evemonk.com/https://images.evetech.net/alliances/123/logo?size=64",
+              "iconMedium" => "https://imageproxy.evemonk.com/https://images.evetech.net/alliances/123/logo?size=128",
+              "iconLarge" => "https://imageproxy.evemonk.com/https://images.evetech.net/alliances/123/logo?size=256",
+              "iconHuge" => "https://imageproxy.evemonk.com/https://images.evetech.net/alliances/123/logo?size=512",
               "dateFounded" => date_founded_1.iso8601,
               "creatorCorporationId" => 222,
               "creatorCorporation" => {
@@ -268,6 +278,11 @@ RSpec.describe "Get Alliances" do
                 "large" => "https://imageproxy.evemonk.com/https://images.evetech.net/alliances/321/logo?size=256",
                 "huge" => "https://imageproxy.evemonk.com/https://images.evetech.net/alliances/321/logo?size=512"
               },
+              "iconTiny" => "https://imageproxy.evemonk.com/https://images.evetech.net/alliances/321/logo?size=32",
+              "iconSmall" => "https://imageproxy.evemonk.com/https://images.evetech.net/alliances/321/logo?size=64",
+              "iconMedium" => "https://imageproxy.evemonk.com/https://images.evetech.net/alliances/321/logo?size=128",
+              "iconLarge" => "https://imageproxy.evemonk.com/https://images.evetech.net/alliances/321/logo?size=256",
+              "iconHuge" => "https://imageproxy.evemonk.com/https://images.evetech.net/alliances/321/logo?size=512",
               "dateFounded" => date_founded_2.iso8601,
               "creatorCorporationId" => 333,
               "creatorCorporation" => {
