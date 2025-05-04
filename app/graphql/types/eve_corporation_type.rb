@@ -11,7 +11,7 @@ module Types
     field :icon, EveCorporationIconType,
       description: "Eve Corporation Icons",
       method: :itself,
-      deprecation_reason: "Use icon_tiny, icon_small, icon_medium or icon_large instead",
+      deprecation_reason: "Use iconTiny, iconSmall, iconMedium or iconLarge instead",
       null: true
 
     field :icon_tiny, String,
