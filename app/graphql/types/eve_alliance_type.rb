@@ -18,8 +18,31 @@ module Types
 
     field :icon, EveAllianceIconType,
       description: "Eve Alliance Icons",
+      deprecation_reason: "Use iconTiny, iconSmall, iconMedium, iconLarge or iconHuge instead",
       method: :itself,
       null: true
+
+    # rubocop:disable GraphQL/ExtractType
+    field :icon_tiny, String,
+      description: "URL to tiny alliance icon",
+      null: true
+
+    field :icon_small, String,
+      description: "URL to small alliance icon",
+      null: true
+
+    field :icon_medium, String,
+      description: "URL to medium alliance icon",
+      null: true
+
+    field :icon_large, String,
+      description: "URL to large alliance icon",
+      null: true
+
+    field :icon_huge, String,
+      description: "URL to huge alliance icon",
+      null: true
+    # rubocop:enable GraphQL/ExtractType
 
     field :date_founded, GraphQL::Types::ISO8601DateTime,
       description: "Date founded",
