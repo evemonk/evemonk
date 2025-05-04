@@ -14,6 +14,7 @@ module Types
       deprecation_reason: "Use iconTiny, iconSmall, iconMedium or iconLarge instead",
       null: true
 
+    # rubocop:disable GraphQL/ExtractType
     field :icon_tiny, String,
       description: "URL to tiny corporation icon",
       null: true
@@ -29,6 +30,7 @@ module Types
     field :icon_large, String,
       description: "URL to large corporation icon",
       null: true
+    # rubocop:enable GraphQL/ExtractType
 
     field :alliance_id, Integer,
       description: "Alliance ID",
