@@ -262,6 +262,10 @@ GEM
       rouge (>= 3.0)
     hashdiff (1.1.2)
     hashie (5.0.0)
+    hotwire_combobox (0.3.2)
+      rails (>= 7.0.7.2)
+      stimulus-rails (>= 1.2)
+      turbo-rails (>= 1.2)
     htmlbeautifier (1.4.3)
     htmlentities (4.3.4)
     http_accept_language (2.1.1)
@@ -850,6 +854,7 @@ DEPENDENCIES
   graphiql-rails
   graphql
   graphql-rails_logger
+  hotwire_combobox
   http_accept_language
   httplog
   importmap-rails
@@ -1009,6 +1014,7 @@ CHECKSUMS
   graphql-rails_logger (1.2.5) sha256=d2117c047546aa2922550a313d3904d95949bdff819e0997f8246ebd6f49860d
   hashdiff (1.1.2) sha256=2c30eeded6ed3dce8401d2b5b99e6963fe5f14ed85e60dd9e33c545a44b71a77
   hashie (5.0.0) sha256=9d6c4e51f2a36d4616cbc8a322d619a162d8f42815a792596039fc95595603da
+  hotwire_combobox (0.3.2) sha256=b97a0aea9fb89f5e19b4c8c1bd618a5db52faf9f08adc63022d7ae7b57b18797
   htmlbeautifier (1.4.3) sha256=b43d08f7e2aa6ae1b5a6f0607b4ed8954c8d4a8e85fd2336f975dda1e4db385b
   htmlentities (4.3.4) sha256=125a73c6c9f2d1b62100b7c3c401e3624441b663762afa7fe428476435a673da
   http_accept_language (2.1.1) sha256=0043f0d55a148cf45b604dbdd197cb36437133e990016c68c892d49dbea31634
