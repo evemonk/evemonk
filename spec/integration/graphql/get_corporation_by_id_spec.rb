@@ -68,6 +68,10 @@ RSpec.describe "Get Corporation by ID" do
             medium
             large
           }
+          icon_tiny
+          icon_small
+          icon_medium
+          icon_large
           allianceId
           alliance {
             id
@@ -129,6 +133,10 @@ RSpec.describe "Get Corporation by ID" do
           "medium" => "https://imageproxy.evemonk.com/https://images.evetech.net/corporations/123/logo?size=128",
           "large" => "https://imageproxy.evemonk.com/https://images.evetech.net/corporations/123/logo?size=256"
         },
+        "icon_tiny" => "https://imageproxy.evemonk.com/https://images.evetech.net/corporations/123/logo?size=32",
+        "icon_small" => "https://imageproxy.evemonk.com/https://images.evetech.net/corporations/123/logo?size=64",
+        "icon_medium" => "https://imageproxy.evemonk.com/https://images.evetech.net/corporations/123/logo?size=128",
+        "icon_large" => "https://imageproxy.evemonk.com/https://images.evetech.net/corporations/123/logo?size=256",
         "allianceId" => 1_111,
         "alliance" => {
           "id" => "1111"

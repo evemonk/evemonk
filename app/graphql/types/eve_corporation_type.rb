@@ -11,6 +11,23 @@ module Types
     field :icon, EveCorporationIconType,
       description: "Eve Corporation Icons",
       method: :itself,
+      deprecation_reason: "Use icon_tiny, icon_small, icon_medium or icon_large instead",
+      null: true
+
+    field :icon_tiny, String,
+      description: "URL to tiny corporation icon",
+      null: true
+
+    field :icon_small, String,
+      description: "URL to small corporation icon",
+      null: true
+
+    field :icon_medium, String,
+      description: "URL to medium corporation icon",
+      null: true
+
+    field :icon_large, String,
+      description: "URL to large corporation icon",
       null: true
 
     field :alliance_id, Integer,
