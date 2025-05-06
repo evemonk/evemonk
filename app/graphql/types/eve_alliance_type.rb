@@ -16,12 +16,6 @@ module Types
       description: "Ticker",
       null: true
 
-    field :icon, EveAllianceIconType,
-      description: "Eve Alliance Icons",
-      deprecation_reason: "Use iconTiny, iconSmall, iconMedium, iconLarge or iconHuge instead",
-      method: :itself,
-      null: true
-
     # rubocop:disable GraphQL/ExtractType
     field :icon_tiny, String,
       description: "URL to tiny alliance icon",
