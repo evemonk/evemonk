@@ -63,13 +63,6 @@ RSpec.describe "Get Alliance by ID" do
           id
           name
           ticker
-          icon {
-            tiny
-            small
-            medium
-            large
-            huge
-          }
           iconTiny
           iconSmall
           iconMedium
@@ -135,13 +128,6 @@ RSpec.describe "Get Alliance by ID" do
         "id" => "123",
         "name" => "Alliance 1",
         "ticker" => "ALLIANCE1",
-        "icon" => {
-          "tiny" => "https://imageproxy.evemonk.com/https://images.evetech.net/alliances/123/logo?size=32",
-          "small" => "https://imageproxy.evemonk.com/https://images.evetech.net/alliances/123/logo?size=64",
-          "medium" => "https://imageproxy.evemonk.com/https://images.evetech.net/alliances/123/logo?size=128",
-          "large" => "https://imageproxy.evemonk.com/https://images.evetech.net/alliances/123/logo?size=256",
-          "huge" => "https://imageproxy.evemonk.com/https://images.evetech.net/alliances/123/logo?size=512"
-        },
         "iconTiny" => "https://imageproxy.evemonk.com/https://images.evetech.net/alliances/123/logo?size=32",
         "iconSmall" => "https://imageproxy.evemonk.com/https://images.evetech.net/alliances/123/logo?size=64",
         "iconMedium" => "https://imageproxy.evemonk.com/https://images.evetech.net/alliances/123/logo?size=128",
