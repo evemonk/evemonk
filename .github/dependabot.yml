@@ -31,3 +31,10 @@ updates:
     open-pull-requests-limit: 99
     assignees:
       - "biow0lf"
+  - package-ecosystem: "docker-compose"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    open-pull-requests-limit: 99
+    assignees:
+      - "biow0lf"
