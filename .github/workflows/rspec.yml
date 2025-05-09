@@ -36,7 +36,7 @@ jobs:
 
     services:
       postgres:
-        image: "postgres:17.4"
+        image: "postgres:17.5"
         env:
           POSTGRES_HOST_AUTH_METHOD: "trust"
           POSTGRES_USER: "runner"
@@ -46,7 +46,7 @@ jobs:
         # needed because the postgres container does not provide a healthcheck
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
       redis:
-        image: "valkey/valkey:8.0.2"
+        image: "valkey/valkey:8.1.1"
         # Set health checks to wait until redis has started
         options: >-
           --health-cmd "redis-cli ping"
