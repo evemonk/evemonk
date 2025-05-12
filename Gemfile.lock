@@ -182,7 +182,7 @@ GEM
     devise_zxcvbn (6.0.0)
       devise
       zxcvbn (~> 0.1.7)
-    diff-lcs (1.6.1)
+    diff-lcs (1.6.2)
     docile (1.4.1)
     down (5.4.2)
       addressable (~> 2.8)
@@ -976,7 +976,7 @@ CHECKSUMS
   devise-i18n (1.13.0) sha256=306753c8ba4c687bdab82bc71daeab566b2286fb3f52311b88e54556f45f2f2e
   devise-two-factor (6.1.0) sha256=90389ea00e6eab999f1868311972b6f4c84e6d7d6d1e90990eea8fcaf3372c10
   devise_zxcvbn (6.0.0) sha256=92b45f0b50657f17d9472dfb72b4414482f59942a0cbdd8c4346e054d77ee3ee
-  diff-lcs (1.6.1) sha256=12a5a83f3e37a8e2f4427268e305914d5f1879f22b4e73bb1a09f76a3dd86cd4
+  diff-lcs (1.6.2) sha256=9ae0d2cba7d4df3075fe8cd8602a8604993efc0dfa934cff568969efb1909962
   docile (1.4.1) sha256=96159be799bfa73cdb721b840e9802126e4e03dfc26863db73647204c727f21e
   down (5.4.2) sha256=516e5e01e7a96214a7e2cd155aac6f700593038ae6c857c0f4a05413b1c58acf
   drb (2.2.1) sha256=e9d472bf785f558b96b25358bae115646da0dbfd45107ad858b0bc0d935cb340
