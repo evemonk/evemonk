@@ -711,9 +711,9 @@ GEM
     skylight (6.0.4)
       activesupport (>= 5.2.0)
     smart_properties (1.17.0)
-    snaky_hash (2.0.1)
-      hashie
-      version_gem (~> 1.1, >= 1.1.1)
+    snaky_hash (2.0.2)
+      hashie (>= 0.1.0, < 6)
+      version_gem (>= 1.1.8, < 3)
     solid_cable (3.0.8)
       actioncable (>= 7.2)
       activejob (>= 7.2)
@@ -1195,7 +1195,7 @@ CHECKSUMS
   sitemap_generator (6.3.0) sha256=1d803cbf03c44736bea05b9e3363d3523fec4e24f3abedad294d9c57cab994f3
   skylight (6.0.4) sha256=201d9e33da76b95134110785308c141c0d32d591cafd7ad8383f883c3bbdbd0c
   smart_properties (1.17.0) sha256=f9323f8122e932341756ddec8e0ac9ec6e238408a7661508be99439ca6d6384b
-  snaky_hash (2.0.1) sha256=1ac87ec157fcfe7a460e821e0cd48ae1e6f5e3e082ab520f03f31a9259dbdc31
+  snaky_hash (2.0.2) sha256=aeb0ca73a1fa8b7a4750833a659abaacd9a8a1bf9c4d783e689eca2bb4c10373
   solid_cable (3.0.8) sha256=71fcc85587c8899d4c145f25ac15e092ed0ecc14477e67c9220f82ae3cdd8c3a
   solid_cache (1.0.7) sha256=58e690ccee057be7351f21b1940d5f9cf6bb132074316e70478e554a79e6a490
   solid_queue (1.1.5) sha256=bae0c9d76310f4953ebc57466f2e8c78703a0fbf4b89d25756c23c88f9b6df9b
