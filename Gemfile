@@ -82,7 +82,8 @@ end
 
 group :development, :test do
   gem "lookbook"
-  gem "rspec-rails", ">= 6.0.1"
+  gem "rspec-rails", ">= 6.0.1", require: false
+  gem "rspec-retry", require: false
   gem "factory_bot_rails"
   gem "faker"
   gem "rubocop", require: false

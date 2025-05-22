@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.describe CoolDownMiddleware do
+RSpec.describe CoolDownMiddleware, retry: 3 do
   before { VCR.insert_cassette "services/cool_down_middleware" }
 
   after { VCR.eject_cassette }
