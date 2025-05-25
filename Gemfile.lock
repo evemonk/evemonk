@@ -690,7 +690,7 @@ GEM
       addressable (>= 2.3.5)
       faraday (>= 0.17.3, < 3)
     securerandom (0.4.1)
-    selenium-webdriver (4.32.0)
+    selenium-webdriver (4.33.0)
       base64 (~> 0.2)
       logger (~> 1.4)
       rexml (~> 3.2, >= 3.2.5)
@@ -772,6 +772,8 @@ GEM
       railties (>= 7.1.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
+    tzinfo-data (1.2025.2)
+      tzinfo (>= 1.0.0)
     unicode-display_width (3.1.4)
       unicode-emoji (~> 4.0, >= 4.0.4)
     unicode-emoji (4.0.4)
@@ -1189,7 +1191,7 @@ CHECKSUMS
   sass-embedded (1.89.0-x86_64-linux-musl) sha256=a75dcb4d5d088676b092afd2882326d98ba428315d85fa555525a64c7ea6c637
   sawyer (0.9.2) sha256=fa3a72d62a4525517b18857ddb78926aab3424de0129be6772a8e2ba240e7aca
   securerandom (0.4.1) sha256=cc5193d414a4341b6e225f0cb4446aceca8e50d5e1888743fac16987638ea0b1
-  selenium-webdriver (4.32.0) sha256=20dbdf27b586beeac9e2791a22312b414d0a30192b6ce144779f7dfde8ae8afe
+  selenium-webdriver (4.33.0) sha256=720cad35cb7c2fdd87706940ed107bf2ec6873e50fa45b26f497fa28a8f97e1d
   sexp_processor (4.17.3) sha256=5ef0d952565eeedb416519f678b6b41c6ab6700abba828f46986f2d85d295dae
   shoulda-matchers (6.5.0) sha256=ef6b572b2bed1ac4aba6ab2c5ff345a24b6d055a93a3d1c3bfc86d9d499e3f44
   simplecov (0.22.0) sha256=fe2622c7834ff23b98066bb0a854284b2729a569ac659f82621fc22ef36213a5
@@ -1221,6 +1223,7 @@ CHECKSUMS
   tomlrb (2.0.3) sha256=c2736acf24919f793334023a4ff396c0647d93fce702a73c9d348deaa815d4f7
   turbo-rails (2.0.13) sha256=c40ac0a3ccd57c129925c8ac524a5dfd1e17fad080906e2d32135721a8bba22f
   tzinfo (2.0.6) sha256=8daf828cc77bcf7d63b0e3bdb6caa47e2272dcfaf4fbfe46f8c3a9df087a829b
+  tzinfo-data (1.2025.2) sha256=a92375a1fbb47d38fe88fd514c40a38cc8f97d168da2a6479f15185e86470939
   unicode-display_width (3.1.4) sha256=8caf2af1c0f2f07ec89ef9e18c7d88c2790e217c482bfc78aaa65eadd5415ac1
   unicode-emoji (4.0.4) sha256=2c2c4ef7f353e5809497126285a50b23056cc6e61b64433764a35eff6c36532a
   uri (1.0.3) sha256=e9f2244608eea2f7bc357d954c65c910ce0399ca5e18a7a29207ac22d8767011
