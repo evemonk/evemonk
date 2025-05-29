@@ -9,9 +9,9 @@ pin "@hotwired/stimulus-loading", to: "stimulus-loading.js"
 
 pin_all_from "app/javascript/controllers", under: "controllers"
 
-pin "@rails/request.js", to: "@rails--request.js.js", preload: false # @0.0.11
+pin "@rails/request.js", to: "@rails--request.js.js", preload: false # @0.0.12
 
-pin "local-time", preload: false # @3.0.2
+pin "local-time", preload: false # @3.0.3
 
 pin "@github/hotkey", to: "@github--hotkey.js", preload: false # @3.1.1
 
