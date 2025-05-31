@@ -232,31 +232,31 @@ GEM
     good_migrations (0.3.1)
       activerecord (>= 3.1)
       railties (>= 3.1)
-    google-protobuf (4.31.0)
+    google-protobuf (4.31.1)
       bigdecimal
       rake (>= 13)
-    google-protobuf (4.31.0-aarch64-linux-gnu)
+    google-protobuf (4.31.1-aarch64-linux-gnu)
       bigdecimal
       rake (>= 13)
-    google-protobuf (4.31.0-aarch64-linux-musl)
+    google-protobuf (4.31.1-aarch64-linux-musl)
       bigdecimal
       rake (>= 13)
-    google-protobuf (4.31.0-arm64-darwin)
+    google-protobuf (4.31.1-arm64-darwin)
       bigdecimal
       rake (>= 13)
-    google-protobuf (4.31.0-x86-linux-gnu)
+    google-protobuf (4.31.1-x86-linux-gnu)
       bigdecimal
       rake (>= 13)
-    google-protobuf (4.31.0-x86-linux-musl)
+    google-protobuf (4.31.1-x86-linux-musl)
       bigdecimal
       rake (>= 13)
-    google-protobuf (4.31.0-x86_64-darwin)
+    google-protobuf (4.31.1-x86_64-darwin)
       bigdecimal
       rake (>= 13)
-    google-protobuf (4.31.0-x86_64-linux-gnu)
+    google-protobuf (4.31.1-x86_64-linux-gnu)
       bigdecimal
       rake (>= 13)
-    google-protobuf (4.31.0-x86_64-linux-musl)
+    google-protobuf (4.31.1-x86_64-linux-musl)
       bigdecimal
       rake (>= 13)
     graphiql-rails (1.10.5)
@@ -1027,15 +1027,15 @@ CHECKSUMS
   gemdiff (6.0.2) sha256=1282675c8bbc7eaf2656aa6c79a238373cdb375201c7b353650baf4b56b24a42
   globalid (1.2.1) sha256=70bf76711871f843dbba72beb8613229a49429d1866828476f9c9d6ccc327ce9
   good_migrations (0.3.1) sha256=3f8267c00caa29689823cb8d53cbfb62cd5b0310fe6b088f5ce589243f6f797f
-  google-protobuf (4.31.0) sha256=4db6fe6c92dd683aa9671432c38976685aaf9ba2f92450eebd63d76bcdbe4891
-  google-protobuf (4.31.0-aarch64-linux-gnu) sha256=7649e7e74d27c23b22cd4cd09714184e80629d1f87540b59819761082cc44989
-  google-protobuf (4.31.0-aarch64-linux-musl) sha256=a6097e563b7fdc5fca969565cd2e026796db4e5b5abb815d858a427349f65d35
-  google-protobuf (4.31.0-arm64-darwin) sha256=2b21ed0b14c07ce63b2aa7872621edd934fb1b19879e90c211aa3e1ca056bcfb
-  google-protobuf (4.31.0-x86-linux-gnu) sha256=1b56b901af4e323dc8f527164c80164bd0b8398aeba9f6d5b6a66589148971a7
-  google-protobuf (4.31.0-x86-linux-musl) sha256=e7b976fc5bcc25a1e401257fa9589ea800674df7c9b7bf74ba7e0dcdca952053
-  google-protobuf (4.31.0-x86_64-darwin) sha256=b10658bcc4c903e662cbafd79ec859d99debfce6e524ca64d144318a4f8c8e71
-  google-protobuf (4.31.0-x86_64-linux-gnu) sha256=3d4f8784e448ef91831251d6c0b1d6427f1ca251cd2d33c67446d40a444d0b18
-  google-protobuf (4.31.0-x86_64-linux-musl) sha256=d4447e1ea7119836cf5c88137b4e9f845cc8bfc9d7fd5645360c72d6f7f6d393
+  google-protobuf (4.31.1) sha256=022bc82931a0860a7f2ace41bd48e904c8e65032c1d5eefc33294b5edf9741f8
+  google-protobuf (4.31.1-aarch64-linux-gnu) sha256=d5b8268b2e07776b15a73ed96ca416eab771821b162b239dbdbfb2c85e2d17e5
+  google-protobuf (4.31.1-aarch64-linux-musl) sha256=fcd5b79ac4048e89e44c4c64fb432fa6400ec3c2f0344a7effa95fbc6895d24a
+  google-protobuf (4.31.1-arm64-darwin) sha256=177ca61d254e4516d42997aa9d3127fd5e04ffc60c4ad333b1515ded6d7af89d
+  google-protobuf (4.31.1-x86-linux-gnu) sha256=88fbe376846cd2eb16f538f56c987ec389b932316f40a4db53c317543e0c978e
+  google-protobuf (4.31.1-x86-linux-musl) sha256=8f91a6046bf9c94cf5dfe70a3415c38931f60851cfedefc059c2bda13d758256
+  google-protobuf (4.31.1-x86_64-darwin) sha256=bdf067d1456167275ca7ce269922a99d24fcb9071d86429289cd73f0cf536ae4
+  google-protobuf (4.31.1-x86_64-linux-gnu) sha256=7def6dbf996dab289dd541a3ee8b201e2c3e35911c274325ad9b483ebffb6dcd
+  google-protobuf (4.31.1-x86_64-linux-musl) sha256=7d99d7728d9d7a6fda36130acac2a9947b868e28fe3f4aec4131cebce0d420f9
   graphiql-rails (1.10.5) sha256=d911486eeac01e125d403a61c04f634cccaff9f8ecee5dc4efce3e7aa11bf5d3
   graphql (2.5.8) sha256=72206d625c19f1eb53100cab95cd6cb79b0ec7ba0e576ec6d14763c4a5070668
   graphql-rails_logger (1.2.5) sha256=d2117c047546aa2922550a313d3904d95949bdff819e0997f8246ebd6f49860d
