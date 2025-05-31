@@ -75,6 +75,7 @@ gem "lograge"
 gem "prosopite"
 gem "sshkit", require: false
 gem "maintenance_tasks"
+gem "rails_charts"
 
 gem "airbrake", "~> 13.0"
 

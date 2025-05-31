@@ -550,6 +550,8 @@ GEM
     rails-settings-cached (2.9.6)
       activerecord (>= 5.0.0)
       railties (>= 5.0.0)
+    rails_charts (0.0.7)
+      rails
     railties (8.0.2)
       actionpack (= 8.0.2)
       activesupport (= 8.0.2)
@@ -913,6 +915,7 @@ DEPENDENCIES
   rails-i18n
   rails-pg-extras
   rails-settings-cached
+  rails_charts
   redis
   responders
   rqrcode
@@ -1146,6 +1149,7 @@ CHECKSUMS
   rails-i18n (8.0.1) sha256=15303195450bdac9a80636cf14c7e5ada2f43907cc60fcd19bbb3f81ab45be0d
   rails-pg-extras (5.6.10) sha256=2c58998dda665d7e1719367df3d1596e7f305ed4f5422dffef69320b93a8e62b
   rails-settings-cached (2.9.6) sha256=761d6128221f1a162950b8b3911e233f3a49c6ecfd8b421110ed060e8c58a9b8
+  rails_charts (0.0.7) sha256=2aefae7ac7958ecd294aebb9d76f9ba7da61637eb82d718501bd7d9b44c54e82
   railties (8.0.2) sha256=0d7c3f40c49ba74980f1bac1d4bb153a9331c5ee8a9631d89c7bf79db82e5cf9
   rainbow (3.1.1) sha256=039491aa3a89f42efa1d6dec2fc4e62ede96eb6acd95e52f1ad581182b79bc6a
   rake (13.3.0) sha256=96f5092d786ff412c62fde76f793cc0541bd84d2eb579caa529aa8a059934493
