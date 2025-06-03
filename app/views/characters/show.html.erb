@@ -58,6 +58,8 @@
   <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
     <h4 class="text-center text-break">Attributes &amp; Implants (<%= @character.implants.size %>)</h4>
 
+    <%= render CharacterRadarComponent.new(@character) %>
+
     <% if @character.perception_attribute %>
       <div class="card bg-dark rounded-0 border-secondary">
         <div class="row g-0">
