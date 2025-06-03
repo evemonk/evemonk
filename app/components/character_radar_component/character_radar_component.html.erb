@@ -1,0 +1,57 @@
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<div>
+  <canvas id="radar"></canvas>
+</div>
+
+<script>
+  const data = {
+    labels: [
+      "Perception",
+      "Willpower",
+      "Charisma",
+      "Intelligence",
+      "Memory"
+    ],
+    datasets: [
+      {
+        label: "Base",
+        data: [20, 20, 17, 21, 21],
+        fill: true,
+        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+        borderColor: 'rgb(255, 99, 132)',
+        pointBackgroundColor: 'rgb(255, 99, 132)',
+        pointBorderColor: '#fff',
+        pointHoverBackgroundColor: '#fff',
+        pointHoverBorderColor: 'rgb(255, 99, 132)'
+      },
+      {
+        label: "With Implants",
+        data: [23, 23, 20, 24, 24],
+        fill: true,
+        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+        borderColor: 'rgb(54, 162, 235)',
+        pointBackgroundColor: 'rgb(54, 162, 235)',
+        pointBorderColor: '#fff',
+        pointHoverBackgroundColor: '#fff',
+        pointHoverBorderColor: 'rgb(54, 162, 235)'
+      }
+    ]
+  };
+
+  const config = {
+    type: "radar",
+    data: data,
+    options: {
+      elements: {
+        line: {
+          borderWidth: 3
+        }
+      }
+    }
+  };
+
+  const cxt = document.getElementById("radar");
+
+  new Chart(cxt, config);
+</script>
