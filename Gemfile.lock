@@ -468,8 +468,8 @@ GEM
     pg_search (2.3.7)
       activerecord (>= 6.1)
       activesupport (>= 6.1)
-    pghero (3.6.2)
-      activerecord (>= 6.1)
+    pghero (3.7.0)
+      activerecord (>= 7.1)
     pp (0.6.2)
       prettyprint
     prettyprint (0.2.0)
@@ -1117,7 +1117,7 @@ CHECKSUMS
   pg (1.5.9) sha256=761efbdf73b66516f0c26fcbe6515dc7500c3f0aa1a1b853feae245433c64fdc
   pg_query (6.1.0) sha256=8b005229e209f12c5887c34c60d0eb2a241953b9475b53a9840d24578532481e
   pg_search (2.3.7) sha256=27868941844961e593526b835da20e48995e9b846515e91856084c5bd9ab4f35
-  pghero (3.6.2) sha256=0520429820a6c209e32d39471fe09ea270f73f0a8f6154897c408fb02f2e5896
+  pghero (3.7.0) sha256=a8d8497095dbe168bb03fe50a11309ab068cd1c1ef4c88d9bbeb97be4809f522
   pp (0.6.2) sha256=947ec3120c6f92195f8ee8aa25a7b2c5297bb106d83b41baa02983686577b6ff
   prettyprint (0.2.0) sha256=2bc9e15581a94742064a3cc8b0fb9d45aae3d03a1baa6ef80922627a0766f193
   prism (1.4.0) sha256=dc0e3e00e93160213dc2a65519d9002a4a1e7b962db57d444cf1a71565bb703e
