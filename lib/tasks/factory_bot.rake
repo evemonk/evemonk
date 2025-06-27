@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# rubocop:disable Style/SignalException, Style/SpecialGlobalVars
 namespace :factory_bot do
   desc "Verify that all FactoryBot factories are valid"
   task lint: :environment do
@@ -20,3 +21,4 @@ namespace :factory_bot do
     end
   end
 end
+# rubocop:enable Style/SignalException, Style/SpecialGlobalVars
