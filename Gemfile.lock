@@ -544,9 +544,9 @@ GEM
     rails-i18n (8.0.1)
       i18n (>= 0.7, < 2)
       railties (>= 8.0.0, < 9)
-    rails-pg-extras (5.6.10)
+    rails-pg-extras (5.6.12)
       rails
-      ruby-pg-extras (= 5.6.10)
+      ruby-pg-extras (= 5.6.12)
     rails-settings-cached (2.9.6)
       activerecord (>= 5.0.0)
       railties (>= 5.0.0)
@@ -649,7 +649,7 @@ GEM
       lint_roller (~> 1.1)
       rubocop (~> 1.72, >= 1.72.1)
       rubocop-rspec (~> 3.5)
-    ruby-pg-extras (5.6.10)
+    ruby-pg-extras (5.6.12)
       pg
       terminal-table
     ruby-progressbar (1.13.0)
@@ -1144,7 +1144,7 @@ CHECKSUMS
   rails-dom-testing (2.3.0) sha256=8acc7953a7b911ca44588bf08737bc16719f431a1cc3091a292bca7317925c1d
   rails-html-sanitizer (1.6.2) sha256=35fce2ca8242da8775c83b6ba9c1bcaad6751d9eb73c1abaa8403475ab89a560
   rails-i18n (8.0.1) sha256=15303195450bdac9a80636cf14c7e5ada2f43907cc60fcd19bbb3f81ab45be0d
-  rails-pg-extras (5.6.10) sha256=2c58998dda665d7e1719367df3d1596e7f305ed4f5422dffef69320b93a8e62b
+  rails-pg-extras (5.6.12) sha256=03f0ce6d62bcf7326a130d219a1b26161b67a3c947b47b9993658ab422e950c5
   rails-settings-cached (2.9.6) sha256=761d6128221f1a162950b8b3911e233f3a49c6ecfd8b421110ed060e8c58a9b8
   railties (8.0.2) sha256=0d7c3f40c49ba74980f1bac1d4bb153a9331c5ee8a9631d89c7bf79db82e5cf9
   rainbow (3.1.1) sha256=039491aa3a89f42efa1d6dec2fc4e62ede96eb6acd95e52f1ad581182b79bc6a
@@ -1180,7 +1180,7 @@ CHECKSUMS
   rubocop-rails (2.32.0) sha256=9fcc623c8722fe71e835e99c4a18b740b5b0d3fb69915d7f0777f00794b30490
   rubocop-rspec (3.6.0) sha256=c0e4205871776727e54dee9cc91af5fd74578001551ba40e1fe1a1ab4b404479
   rubocop-rspec_rails (2.31.0) sha256=775375e18a26a1184a812ef3054b79d218e85601b9ae897f38f8be24dddf1f45
-  ruby-pg-extras (5.6.10) sha256=1a4655cc7e74e4dfb3b366ac0b609b96924da084b50ff31d02be14b82f34850f
+  ruby-pg-extras (5.6.12) sha256=ff80f57a0cbea3aaa940183bdb269788f17fb50ca157efdc5eb4386a42e1d425
   ruby-progressbar (1.13.0) sha256=80fc9c47a9b640d6834e0dc7b3c94c9df37f08cb072b7761e4a71e22cff29b33
   ruby_parser (3.21.1) sha256=9d931abe5aec287d65280f811d3cf672564956ef1bd49f528ca48479984d6fec
   rubyzip (2.4.1) sha256=8577c88edc1fde8935eb91064c5cb1aef9ad5494b940cf19c775ee833e075615
