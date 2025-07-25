@@ -275,7 +275,7 @@ GEM
     htmlbeautifier (1.4.3)
     htmlentities (4.3.4)
     http_accept_language (2.1.1)
-    httplog (1.7.1)
+    httplog (1.7.2)
       rack (>= 2.0)
       rainbow (>= 2.0.0)
     i18n (1.14.7)
@@ -1043,7 +1043,7 @@ CHECKSUMS
   htmlbeautifier (1.4.3) sha256=b43d08f7e2aa6ae1b5a6f0607b4ed8954c8d4a8e85fd2336f975dda1e4db385b
   htmlentities (4.3.4) sha256=125a73c6c9f2d1b62100b7c3c401e3624441b663762afa7fe428476435a673da
   http_accept_language (2.1.1) sha256=0043f0d55a148cf45b604dbdd197cb36437133e990016c68c892d49dbea31634
-  httplog (1.7.1) sha256=5ec90466e8a76f76f9107ea52adf7fe852c2de5bdcdbdb0d70776cc48df18bf8
+  httplog (1.7.2) sha256=78f4d3cb07c84acf511f0d8b3c41704a61e94ac174c98b70d236c1bf71c34ea1
   i18n (1.14.7) sha256=ceba573f8138ff2c0915427f1fc5bdf4aa3ab8ae88c8ce255eb3ecf0a11a5d0f
   importmap-rails (2.2.0) sha256=91bf0067c872dda551999a4fed82b386161d1e21eda04a3fe16ea1e8aba8dd35
   inline_svg (1.10.0) sha256=5b652934236fd9f8adc61f3fd6e208b7ca3282698b19f28659971da84bf9a10f
