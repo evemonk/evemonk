@@ -281,7 +281,7 @@ GEM
       rainbow (>= 2.0.0)
     i18n (1.14.7)
       concurrent-ruby (~> 1.0)
-    importmap-rails (2.2.0)
+    importmap-rails (2.2.1)
       actionpack (>= 6.0.0)
       activesupport (>= 6.0.0)
       railties (>= 6.0.0)
@@ -505,7 +505,7 @@ GEM
       rspec-support (~> 3.12)
     raabro (1.4.0)
     racc (1.8.1)
-    rack (3.1.16)
+    rack (3.2.0)
     rack-cors (3.0.0)
       logger
       rack (>= 3.0.14)
@@ -1050,7 +1050,7 @@ CHECKSUMS
   http_accept_language (2.1.1) sha256=0043f0d55a148cf45b604dbdd197cb36437133e990016c68c892d49dbea31634
   httplog (1.7.2) sha256=78f4d3cb07c84acf511f0d8b3c41704a61e94ac174c98b70d236c1bf71c34ea1
   i18n (1.14.7) sha256=ceba573f8138ff2c0915427f1fc5bdf4aa3ab8ae88c8ce255eb3ecf0a11a5d0f
-  importmap-rails (2.2.0) sha256=91bf0067c872dda551999a4fed82b386161d1e21eda04a3fe16ea1e8aba8dd35
+  importmap-rails (2.2.1) sha256=0d4e660966d7728a3574b303f5f0f073c5b5580131c87684098fbabec04d7b03
   inline_svg (1.10.0) sha256=5b652934236fd9f8adc61f3fd6e208b7ca3282698b19f28659971da84bf9a10f
   io-console (0.8.1) sha256=1e15440a6b2f67b6ea496df7c474ed62c860ad11237f29b3bd187f054b925fcb
   irb (1.15.2) sha256=222f32952e278da34b58ffe45e8634bf4afc2dc7aa9da23fed67e581aa50fdba
@@ -1141,7 +1141,7 @@ CHECKSUMS
   pundit-matchers (4.0.0) sha256=59d6077a1d575ea7cceca3ed73df5257488ee1a111ec707b2a797e76908cffd5
   raabro (1.4.0) sha256=d4fa9ff5172391edb92b242eed8be802d1934b1464061ae5e70d80962c5da882
   racc (1.8.1) sha256=4a7f6929691dbec8b5209a0b373bc2614882b55fc5d2e447a21aaa691303d62f
-  rack (3.1.16) sha256=efb5606c351efc56b85b10c3493055d0d35209d23f44792ec4e1183eb0234635
+  rack (3.2.0) sha256=79cd21514d696c59d61fae02e62900f087aac2d053fdc77d45f4e91b94fb3612
   rack-cors (3.0.0) sha256=7b95be61db39606906b61b83bd7203fa802b0ceaaad8fcb2fef39e097bf53f68
   rack-protection (4.1.1) sha256=51a254a5d574a7f0ca4f0672025ce2a5ef7c8c3bd09c431349d683e825d7d16a
   rack-session (2.1.1) sha256=0b6dc07dea7e4b583f58a48e8b806d4c9f1c6c9214ebc202ec94562cbea2e4e9
