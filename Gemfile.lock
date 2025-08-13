@@ -577,7 +577,7 @@ GEM
       redis-client (>= 0.22.0)
     redis-client (0.25.2)
       connection_pool
-    regexp_parser (2.11.1)
+    regexp_parser (2.11.2)
     reline (0.6.2)
       io-console (~> 0.5)
     request_store (1.7.0)
@@ -1168,7 +1168,7 @@ CHECKSUMS
   redcarpet (3.6.1) sha256=d444910e6aa55480c6bcdc0cdb057626e8a32c054c29e793fa642ba2f155f445
   redis (5.4.1) sha256=b5e675b57ad22b15c9bcc765d5ac26f60b675408af916d31527af9bd5a81faae
   redis-client (0.25.2) sha256=aa37e34c29da39fdb0b8663e7a649adb0923959cd4a9351befe2cd19e6f8d6f0
-  regexp_parser (2.11.1) sha256=5a5665b92d22e38c54481fda01050da7c5058ddbd5037ad91b6c9fc7432739ee
+  regexp_parser (2.11.2) sha256=5e5e9c1485ffd8de53ab1d2807affd81f617f72967dfc64fc75a69e2cbf0ff98
   reline (0.6.2) sha256=1dad26a6008872d59c8e05244b119347c9f2ddaf4a53dce97856cd5f30a02846
   request_store (1.7.0) sha256=e1b75d5346a315f452242a68c937ef8e48b215b9453a77a6c0acdca2934c88cb
   responders (3.1.1) sha256=92f2a87e09028347368639cfb468f5fefa745cb0dc2377ef060db1cdd79a341a
