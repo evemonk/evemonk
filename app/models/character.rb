@@ -196,6 +196,23 @@ class Character < ApplicationRecord
     character_id&.to_s
   end
 
+  # TODO: later
+  # def to_radar
+  #   {
+  #     indicators: { perception: 40, willpower: 40, memory: 40 },
+  #     data: [
+  #       {
+  #         name: "Base",
+  #         value: [20, 22, 24]
+  #       },
+  #       {
+  #         name: "With implants",
+  #         value: [21, 23, 25]
+  #       }
+  #     ]
+  #   }
+  # end
+
   private
 
   def character_portrait_url(size)
