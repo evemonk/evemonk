@@ -77,23 +77,33 @@ class Character < ApplicationRecord
   delegate :advanced_industry_skill, :advanced_industry_level, to: :character_skills_levels
 
   def perception_attribute
-    @perception_attribute ||= Eve::CharacterAttribute.find_by(name_en: "Perception")
+    return @perception_attribute if defined?(@perception_attribute)
+
+    @perception_attribute = Eve::CharacterAttribute.find_by(name_en: "Perception")
   end
 
   def memory_attribute
-    @memory_attribute ||= Eve::CharacterAttribute.find_by(name_en: "Memory")
+    return @memory_attribute if defined?(@memory_attribute)
+
+    @memory_attribute = Eve::CharacterAttribute.find_by(name_en: "Memory")
   end
 
   def willpower_attribute
-    @willpower_attribute ||= Eve::CharacterAttribute.find_by(name_en: "Willpower")
+    return @willpower_attribute if defined?(@willpower_attribute)
+
+    @willpower_attribute = Eve::CharacterAttribute.find_by(name_en: "Willpower")
   end
 
   def intelligence_attribute
-    @intelligence_attribute ||= Eve::CharacterAttribute.find_by(name_en: "Intelligence")
+    return @intelligence_attribute if defined?(@intelligence_attribute)
+
+    @intelligence_attribute = Eve::CharacterAttribute.find_by(name_en: "Intelligence")
   end
 
   def charisma_attribute
-    @charisma_attribute ||= Eve::CharacterAttribute.find_by(name_en: "Charisma")
+    return @charisma_attribute if defined?(@charisma_attribute)
+
+    @charisma_attribute = Eve::CharacterAttribute.find_by(name_en: "Charisma")
   end
 
   def character_attributes
