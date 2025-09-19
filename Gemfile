@@ -103,7 +103,6 @@ group :development, :test do
   gem "fasterer", require: false
   gem "license_finder", require: false
   gem "herb", require: false
-  gem "erb_lint", require: false
 end
 
 group :development do
