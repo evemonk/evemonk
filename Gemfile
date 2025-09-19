@@ -102,7 +102,7 @@ group :development, :test do
   gem "brakeman", require: false
   gem "fasterer", require: false
   gem "license_finder", require: false
-  gem "better_html", require: false
+  gem "herb", require: false
   gem "erb_lint", require: false
 end
 
