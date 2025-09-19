@@ -300,7 +300,7 @@ GEM
     jmespath (1.6.2)
     job-iteration (1.11.0)
       activejob (>= 6.1)
-    json (2.14.0)
+    json (2.14.1)
     jwt (3.1.2)
       base64
     kaminari (1.2.2)
@@ -1062,7 +1062,7 @@ CHECKSUMS
   jbuilder (2.14.1) sha256=4eb26376ff60ef100cb4fd6fd7533cd271f9998327e86adf20fd8c0e69fabb42
   jmespath (1.6.2) sha256=238d774a58723d6c090494c8879b5e9918c19485f7e840f2c1c7532cf84ebcb1
   job-iteration (1.11.0) sha256=3a5c876f26d65aaef20c190ecbda5ed72075b37949ef4870d79c8af7b97e3f16
-  json (2.14.0) sha256=f2fe1759fa907b68744a5215ae81e0e9e85d257a85d3e55af58486b9411fff09
+  json (2.14.1) sha256=b08994d751e9f0697cc089243a3cfabf998da1d25e81e7dd0d0f84136ff74642
   jwt (3.1.2) sha256=af6991f19a6bb4060d618d9add7a66f0eeb005ac0bc017cd01f63b42e122d535
   kaminari (1.2.2) sha256=c4076ff9adccc6109408333f87b5c4abbda5e39dc464bd4c66d06d9f73442a3e
   kaminari-actionview (1.2.2) sha256=1330f6fc8b59a4a4ef6a549ff8a224797289ebf7a3a503e8c1652535287cc909
