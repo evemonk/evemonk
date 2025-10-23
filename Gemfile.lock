@@ -699,7 +699,7 @@ GEM
       google-protobuf (~> 4.31)
     sass-embedded (1.93.2-x86_64-linux-musl)
       google-protobuf (~> 4.31)
-    sawyer (0.9.2)
+    sawyer (0.9.3)
       addressable (>= 2.3.5)
       faraday (>= 0.17.3, < 3)
     securerandom (0.4.1)
@@ -1219,7 +1219,7 @@ CHECKSUMS
   sass-embedded (1.93.2-x86_64-linux-android) sha256=c671b420de9c475c9efd7fd3e7db80641dbc674eabc24c604aa8caba5edf6ca7
   sass-embedded (1.93.2-x86_64-linux-gnu) sha256=5b7767c5f2e7ae2b1a6b0411ec64293cc694cea94b07de61bd088a72a3ecd7aa
   sass-embedded (1.93.2-x86_64-linux-musl) sha256=c3c43c65566c9b33f6bdee1167999487a61e9e215a40943856256826e4c17a87
-  sawyer (0.9.2) sha256=fa3a72d62a4525517b18857ddb78926aab3424de0129be6772a8e2ba240e7aca
+  sawyer (0.9.3) sha256=0d0f19298408047037638639fe62f4794483fb04320269169bd41af2bdcf5e41
   securerandom (0.4.1) sha256=cc5193d414a4341b6e225f0cb4446aceca8e50d5e1888743fac16987638ea0b1
   selenium-webdriver (4.37.0) sha256=50873c16ad6c8720048a410f65ecac4bfef26abc7b31e8562477b504b2b976a6
   sexp_processor (4.17.4) sha256=af0d2a40124b00f7bc1315d220471990403bd4cf9138f289417ae4e54e6e1ad0
