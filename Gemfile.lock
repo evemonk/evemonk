@@ -798,8 +798,8 @@ GEM
     vcr (6.3.1)
       base64
     version_gem (1.1.9)
-    view_component (4.0.2)
-      activesupport (>= 7.1.0, < 8.1)
+    view_component (4.1.0)
+      activesupport (>= 7.1.0, < 8.2)
       concurrent-ruby (~> 1)
     warden (1.2.9)
       rack (>= 2.0.9)
@@ -1262,7 +1262,7 @@ CHECKSUMS
   useragent (0.16.11) sha256=700e6413ad4bb954bb63547fa098dddf7b0ebe75b40cc6f93b8d54255b173844
   vcr (6.3.1) sha256=37b56e157e720446a3f4d2d39919cabef8cb7b6c45936acffd2ef8229fec03ed
   version_gem (1.1.9) sha256=0c1a0962ae543c84a00889bb018d9f14d8f8af6029d26b295d98774e3d2eb9a4
-  view_component (4.0.2) sha256=80eb4a8ecf8ff4cf152aea4821a8748d071a2e3af04f0532efcbf5011e8e9f65
+  view_component (4.1.0) sha256=e9a26a8cc5bb59241d410a49a83339055739d0c867049b2f24d94a28391d316c
   warden (1.2.9) sha256=46684f885d35a69dbb883deabf85a222c8e427a957804719e143005df7a1efd0
   webmock (3.25.1) sha256=ab9d5d9353bcbe6322c83e1c60a7103988efc7b67cd72ffb9012629c3d396323
   websocket (1.2.11) sha256=b7e7a74e2410b5e85c25858b26b3322f29161e300935f70a0e0d3c35e0462737
