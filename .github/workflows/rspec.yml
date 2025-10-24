@@ -55,16 +55,6 @@ jobs:
           --health-retries 5
         ports:
           - "6379:6379"
-      minio:
-        image: "minio/minio"
-        env:
-          MINIO_ROOT_USER: "root"
-          MINIO_ROOT_PASSWORD: "password"
-          MINIO_REGION_NAME: "us-east-1"
-        ports:
-          - "9000:9000"
-          - "9001:9001"
-        options: minio/minio server /data
 
     steps:
       - name: Harden Runner
