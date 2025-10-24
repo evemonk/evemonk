@@ -96,7 +96,7 @@ TODO
 
 ## Author
 
-- Igor Zubkov (@biow0lf)
+- Ihor Zubkov (@biow0lf)
 
 ## License
 
