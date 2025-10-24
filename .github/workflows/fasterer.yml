@@ -15,7 +15,7 @@ permissions:
   contents: read
 
 jobs:
-  fasterer:
+  run:
     runs-on: ubuntu-24.04
 
     steps:

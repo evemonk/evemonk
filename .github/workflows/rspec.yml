@@ -32,7 +32,7 @@ env:
   SE_AVOID_STATS: "true"
 
 jobs:
-  rspec:
+  run:
     runs-on: ubuntu-24.04
 
     services:
