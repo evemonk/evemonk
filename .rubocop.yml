@@ -17,6 +17,7 @@ AllCops:
     - "db/cache_schema.rb"
     - "db/cable_schema.rb"
     - "db/queue_schema.rb"
+    - "db/rails_pulse_schema.rb"
     - "vendor/**/*"
 
 # TODO: enable later...
