@@ -5,7 +5,7 @@ class InstallRailsPulseTables < ActiveRecord::Migration[8.0]
   def change
     # Load and execute the Rails Pulse schema directly
     # This ensures the migration is always in sync with the schema file
-    schema_file = File.join(::Rails.root.to_s, "db/rails_pulse_schema.rb")
+    schema_file = Rails.root.join("db/rails_pulse_schema.rb").to_s
 
     if File.exist?(schema_file)
       say "Loading Rails Pulse schema from db/rails_pulse_schema.rb"

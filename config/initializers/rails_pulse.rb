@@ -16,23 +16,23 @@ RailsPulse.configure do |config|
 
   # Thresholds for an individual route
   config.route_thresholds = {
-    slow:      500,
-    very_slow: 1500,
-    critical:  3000
+    slow: 500,
+    very_slow: 1_500,
+    critical: 3_000
   }
 
   # Thresholds for an individual request
   config.request_thresholds = {
-    slow:      700,
-    very_slow: 2000,
-    critical:  4000
+    slow: 700,
+    very_slow: 2_000,
+    critical: 4_000
   }
 
   # Thresholds for an individual database query
   config.query_thresholds = {
-    slow:      100,
+    slow: 100,
     very_slow: 500,
-    critical:  1000
+    critical: 1_000
   }
 
   # ====================================================================================================
@@ -69,9 +69,9 @@ RailsPulse.configure do |config|
   #   config.ignored_requests = ["GET /status", %r{POST /api/v1/.*}]
   #   config.ignored_queries  = ["SELECT 1", %r{FROM \"schema_migrations\"}]
 
-  config.ignored_routes   = []
+  config.ignored_routes = []
   config.ignored_requests = []
-  config.ignored_queries  = []
+  config.ignored_queries = []
 
   # ====================================================================================================
   #                                                 TAGGING
@@ -92,7 +92,7 @@ RailsPulse.configure do |config|
   # Example configuration:
   #   config.tags = ["ignored", "critical", "experimental", "deprecated", "external", "admin"]
 
-  config.tags = [ "ignored", "critical", "experimental" ]
+  config.tags = ["ignored", "critical", "experimental"]
 
   # ====================================================================================================
   #                                            DATABASE CONFIGURATION
@@ -201,9 +201,9 @@ RailsPulse.configure do |config|
   # After time-based cleanup, if tables still exceed these limits,
   # the oldest remaining records will be deleted to stay under the limit
   config.max_table_records = {
-    rails_pulse_requests: 10000,    # HTTP requests (moderate volume)
-    rails_pulse_operations: 50000,  # Operations within requests (high volume)
-    rails_pulse_routes: 1000,       # Unique routes (low volume)
-    rails_pulse_queries: 500        # Normalized SQL queries (low volume)
+    rails_pulse_requests: 10_000, # HTTP requests (moderate volume)
+    rails_pulse_operations: 50_000, # Operations within requests (high volume)
+    rails_pulse_routes: 1_000, # Unique routes (low volume)
+    rails_pulse_queries: 500 # Normalized SQL queries (low volume)
   }
 end
