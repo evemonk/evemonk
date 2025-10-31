@@ -12,6 +12,7 @@ services:
       - "./docker/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d:ro"
     environment:
       POSTGRES_HOST_AUTH_METHOD: "trust"
+      PGDATA: "/var/lib/postgresql/data"
     ports:
       - "5432:5432"
 
