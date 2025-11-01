@@ -89,7 +89,7 @@ GEM
       uri (>= 0.13.1)
     addressable (2.8.7)
       public_suffix (>= 2.0.2, < 7.0)
-    administrate (1.0.0.beta3)
+    administrate (1.0.0)
       actionpack (>= 6.0, < 9.0)
       actionview (>= 6.0, < 9.0)
       activerecord (>= 6.0, < 9.0)
@@ -874,7 +874,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_record_doctor
-  administrate (= 1.0.0.beta3)
+  administrate (= 1.0.0)
   airbrake (~> 13.0)
   ancestry
   aws-sdk-s3
@@ -995,7 +995,7 @@ CHECKSUMS
   activestorage (8.1.1) sha256=bc01d8b4c55e309a0a2e218bfe502c382c9f232e28b1f4b0adc9d8719d2bf28d
   activesupport (8.1.1) sha256=5e92534e8d0c8b8b5e6b16789c69dbea65c1d7b752269f71a39422e9546cea67
   addressable (2.8.7) sha256=462986537cf3735ab5f3c0f557f14155d778f4b43ea4f485a9deb9c8f7c58232
-  administrate (1.0.0.beta3) sha256=4c77257136814ea138babc374c98258fd88862a20bb866d0a6b8f68d52ff8b53
+  administrate (1.0.0) sha256=65b0008214d352cab51e8230086ddcd3af11ac5ee91233db89dbea24bd432471
   airbrake (13.0.5) sha256=901f5074c25d5ef77ed87f5bde7a28400a7324f5d7013a8a12d07e0099cc31b6
   airbrake-ruby (6.2.2) sha256=293e34fb36e763e1b6d67ab584cce7c5b6fe9eea1a70c26d8c13c0f5d7de2fbc
   ancestry (4.3.3) sha256=af3f6bcf405c219af02eec5b9c8206e68cba8d7976fe5269559ef0986f5e7ca0
