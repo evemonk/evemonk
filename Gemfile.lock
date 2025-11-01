@@ -874,7 +874,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_record_doctor
-  administrate (= 1.0.0)
+  administrate
   airbrake (~> 13.0)
   ancestry
   aws-sdk-s3
