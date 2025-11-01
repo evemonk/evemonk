@@ -587,7 +587,7 @@ GEM
       activesupport (>= 7.2)
       i18n
     rbtree3 (0.7.1)
-    rdoc (6.15.0)
+    rdoc (6.15.1)
       erb
       psych (>= 4.0.0)
       tsort
@@ -1195,7 +1195,7 @@ CHECKSUMS
   rake (13.3.1) sha256=8c9e89d09f66a26a01264e7e3480ec0607f0c497a861ef16063604b1b08eb19c
   ransack (4.4.1) sha256=6aeaac36fc19088570e10da1044e6cfd88c740e20f871b84566fd30e32b7a63d
   rbtree3 (0.7.1) sha256=ab60ead728a5491b70df4f4065e180b18dbab5319f817ce1dbf5dd906f26d8ba
-  rdoc (6.15.0) sha256=0f0e68864969e77c2acd4063a9585baa5216d362701d827a93feaa9cbae78b05
+  rdoc (6.15.1) sha256=28bfac73cd8b226a8079f53a564ceaccdb5b4480e34335100001570ddb1a481a
   redcarpet (3.6.1) sha256=d444910e6aa55480c6bcdc0cdb057626e8a32c054c29e793fa642ba2f155f445
   redis (5.4.1) sha256=b5e675b57ad22b15c9bcc765d5ac26f60b675408af916d31527af9bd5a81faae
   redis-client (0.26.1) sha256=1e39d2862c4516a75ff777ee6ed08827af39336bfece4a48e944244891d9a073
