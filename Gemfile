@@ -4,7 +4,7 @@ source "https://rubygems.org"
 
 ruby file: ".ruby-version"
 
-gem "rails", "8.0.4"
+gem "rails", "8.1.1"
 
 gem "propshaft"
 gem "pg"
@@ -131,3 +131,5 @@ group :test do
 end
 
 gem "httplog"
+# Also please contact the author of httplog-1.7.3 to request adding benchmark into its gemspec.
+gem "benchmark"
