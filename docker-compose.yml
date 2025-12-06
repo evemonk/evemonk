@@ -4,7 +4,7 @@ volumes:
 
 services:
   postgresql:
-    image: "docker.io/library/postgres:18.1"
+    image: "docker.io/library/postgres:18"
     container_name: "evemonk_postgresql"
     restart: "unless-stopped"
     volumes:
@@ -17,7 +17,7 @@ services:
       - "5432:5432"
 
   redis:
-    image: "docker.io/valkey/valkey:9.0.0"
+    image: "docker.io/valkey/valkey:9.0"
     container_name: "evemonk_redis"
     restart: "unless-stopped"
     volumes:
