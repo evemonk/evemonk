@@ -208,7 +208,6 @@ GEM
       faraday (~> 2.0)
     fasterer (0.11.0)
       ruby_parser (>= 3.19.1)
-    fiber-storage (1.0.1)
     foreman (0.90.0)
       thor (~> 1.4)
     fugit (1.12.1)
@@ -253,9 +252,8 @@ GEM
       rake (>= 13)
     graphiql-rails (1.10.5)
       railties
-    graphql (2.5.14)
+    graphql (2.5.15)
       base64
-      fiber-storage
       logger
     graphql-rails_logger (1.2.5)
       actionpack (> 5.0)
@@ -1058,7 +1056,6 @@ CHECKSUMS
   faraday-net_http (3.4.2) sha256=f147758260d3526939bf57ecf911682f94926a3666502e24c69992765875906c
   faraday-retry (2.3.2) sha256=2402d2029032ebd238a2046221e67f6ef0da78c5a8ce8cd4f8b9c62e4d6451d1
   fasterer (0.11.0) sha256=9c38b77583584f3339a729eb077fd8f2856a317abe747528f6563d7c23e9dda8
-  fiber-storage (1.0.1) sha256=f48e5b6d8b0be96dac486332b55cee82240057065dc761c1ea692b2e719240e1
   foreman (0.90.0) sha256=ff675e2d47b607ac58714a6d4ac3e1ee8f06f41d8db084531c31961e2c3f117c
   fugit (1.12.1) sha256=5898f478ede9b415f0804e42b8f3fd53f814bd85eebffceebdbc34e1107aaf68
   gemdiff (6.0.2) sha256=1282675c8bbc7eaf2656aa6c79a238373cdb375201c7b353650baf4b56b24a42
@@ -1074,7 +1071,7 @@ CHECKSUMS
   google-protobuf (4.33.2-x86_64-linux-gnu) sha256=73cba041477afcac92ff383fcbdec195ea28d96b994876d1deaa944d18f91786
   google-protobuf (4.33.2-x86_64-linux-musl) sha256=97cdf4f772c5540f9274603b00f1474ed5e6e2238b1d8b1585e77f941a36bd2c
   graphiql-rails (1.10.5) sha256=d911486eeac01e125d403a61c04f634cccaff9f8ecee5dc4efce3e7aa11bf5d3
-  graphql (2.5.14) sha256=c52612e17477517c369411abca26ddb593994e03a64cad5788bbd498baddea63
+  graphql (2.5.15) sha256=c9e587cae18ceb043ec62e4c5fefe69f3bebe2a06afc1a7004c4969909481974
   graphql-rails_logger (1.2.5) sha256=d2117c047546aa2922550a313d3904d95949bdff819e0997f8246ebd6f49860d
   groupdate (6.7.0) sha256=beaa8d5bf3856814681914a1d4a20e77436a2214b85d0017dc2ea5c355fb6777
   hashdiff (1.2.1) sha256=9c079dbc513dfc8833ab59c0c2d8f230fa28499cc5efb4b8dd276cf931457cd1
