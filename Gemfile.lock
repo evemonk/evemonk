@@ -667,10 +667,10 @@ GEM
     rubocop-graphql (1.5.6)
       lint_roller (~> 1.1)
       rubocop (>= 1.72.1, < 2)
-    rubocop-performance (1.25.0)
+    rubocop-performance (1.26.1)
       lint_roller (~> 1.1)
       rubocop (>= 1.75.0, < 2.0)
-      rubocop-ast (>= 1.38.0, < 2.0)
+      rubocop-ast (>= 1.47.1, < 2.0)
     rubocop-rails (2.34.2)
       activesupport (>= 4.2.0)
       lint_roller (~> 1.1)
@@ -789,9 +789,9 @@ GEM
     standard-custom (1.0.2)
       lint_roller (~> 1.0)
       rubocop (~> 1.50)
-    standard-performance (1.8.0)
+    standard-performance (1.9.0)
       lint_roller (~> 1.1)
-      rubocop-performance (~> 1.25.0)
+      rubocop-performance (~> 1.26.0)
     stimulus-rails (1.3.4)
       railties (>= 6.0.0)
     stringio (3.1.9)
@@ -1236,7 +1236,7 @@ CHECKSUMS
   rubocop-disable_syntax (0.2.0) sha256=1e61645773b3fc2f74e995ec65f605f7db59437c274fdfd4f385f60bf86af73e
   rubocop-factory_bot (2.28.0) sha256=4b17fc02124444173317e131759d195b0d762844a71a29fe8139c1105d92f0cb
   rubocop-graphql (1.5.6) sha256=5bb25739d014cb9678edf306aa303705370b2b23c6fc54adbfff71fb6c45b4ba
-  rubocop-performance (1.25.0) sha256=6f7d03568a770054117a78d0a8e191cefeffb703b382871ca7743831b1a52ec1
+  rubocop-performance (1.26.1) sha256=cd19b936ff196df85829d264b522fd4f98b6c89ad271fa52744a8c11b8f71834
   rubocop-rails (2.34.2) sha256=10ff246ee48b25ffeabddc5fee86d159d690bb3c7b9105755a9c7508a11d6e22
   rubocop-rspec (3.8.0) sha256=28440dccb3f223a9938ca1f946bd3438275b8c6c156dab909e2cb8bc424cab33
   rubocop-rspec_rails (2.32.0) sha256=4a0d641c72f6ebb957534f539d9d0a62c47abd8ce0d0aeee1ef4701e892a9100
@@ -1280,7 +1280,7 @@ CHECKSUMS
   sshkit (1.24.0) sha256=9597c1f984778ae9742f2dc839778d57a6a2efb868107046575c52ac7c628e6c
   standard (1.52.0) sha256=ec050e63228e31fabe40da3ef96da7edda476f7acdf3e7c2ad47b6e153f6a076
   standard-custom (1.0.2) sha256=424adc84179a074f1a2a309bb9cf7cd6bfdb2b6541f20c6bf9436c0ba22a652b
-  standard-performance (1.8.0) sha256=ed17b7d0e061b2a19a91dd434bef629439e2f32310f22f26acb451addc92b788
+  standard-performance (1.9.0) sha256=49483d31be448292951d80e5e67cdcb576c2502103c7b40aec6f1b6e9c88e3f2
   stimulus-rails (1.3.4) sha256=765676ffa1f33af64ce026d26b48e8ffb2e0b94e0f50e9119e11d6107d67cb06
   stringio (3.1.9) sha256=c111af13d3a73eab96a3bc2655ecf93788d13d28cb8e25c1dcbff89ace885121
   super_diff (0.18.0) sha256=9f5e77464fa75150619f7783174fbbe1bbac50a1eaf157cd39ad5584b0eac142
