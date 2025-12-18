@@ -1,4 +1,4 @@
-FROM registry.docker.com/library/ruby:3.4.7-slim@sha256:93dd13e28987e373857fbda4a7f4ae99e9f7acb6fcc266035e551229974d1c89 AS builder
+FROM registry.docker.com/library/ruby:3.4.8-slim@sha256:ab799da9ea11230e3e28f0b60de30f801e036624affbcbff1d206088d89b730d AS builder
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
@@ -25,10 +25,10 @@ ENV RAILS_ENV=production
 
 ENV RAILS_LOG_TO_STDOUT=true
 
-RUN gem update --system "4.0.0"
+RUN gem update --system "4.0.2"
 
 # skipcq: DOK-DL3028
-RUN gem install bundler --version "4.0.0" --force
+RUN gem install bundler --version "4.0.2" --force
 
 RUN gem --version
 
@@ -78,7 +78,7 @@ RUN bundle exec rake SECRET_KEY_BASE=no \
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
-FROM registry.docker.com/library/ruby:3.4.7-slim@sha256:93dd13e28987e373857fbda4a7f4ae99e9f7acb6fcc266035e551229974d1c89
+FROM registry.docker.com/library/ruby:3.4.8-slim@sha256:ab799da9ea11230e3e28f0b60de30f801e036624affbcbff1d206088d89b730d
 
 # skipcq: DOK-DL3008
 RUN set -eux; \
