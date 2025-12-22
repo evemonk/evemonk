@@ -42,7 +42,6 @@ gem "graphiql-rails"
 gem "rack-cors"
 gem "pg_search"
 gem "meta-tags"
-gem "rufus-scheduler"
 gem "eve_online",
   git: "https://github.com/evemonk/eve_online.git",
   branch: "updates"
