@@ -1,0 +1,7 @@
+production:
+  pghero_capture_query_stats:
+    class: Pghero::CaptureQueryStatsJob
+    schedule: every 5m
+  pghero_capture_space_stats:
+    class: Pghero::CaptureSpaceStatsJob
+    schedule: every day at 2 pm
