@@ -11,3 +11,6 @@ production:
   rails_pulse_cleanup:
     class: RailsPulse::CleanupJob
     schedule: every day at 2 pm
+  eve_server_status:
+    class: Eve::ServerStatusJob
+    schedule: every 1m
