@@ -1,5 +1,0 @@
-#! /bin/bash
-
-set -eux
-
-bundle exec ruby cron.rb
