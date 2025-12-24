@@ -195,8 +195,7 @@ RailsPulse.configure do |config|
   config.archiving_enabled = true
 
   # Time-based retention - delete records older than this period
-  # config.full_retention_period = 2.weeks
-  config.full_retention_period = 1.week
+  config.full_retention_period = 2.weeks
 
   # Count-based retention - maximum records to keep per table
   # After time-based cleanup, if tables still exceed these limits,

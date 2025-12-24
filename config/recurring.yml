@@ -5,6 +5,12 @@ production:
   pghero_capture_space_stats:
     class: Pghero::CaptureSpaceStatsJob
     schedule: every day at 2 pm
+  pghero_clean_query_stats:
+    class: "PgHero.clean_query_stats"
+    schedule: every day at 2 pm
+  pghero_clean_space_stats:
+    class: "PgHero.clean_space_stats"
+    schedule: every day at 2 pm
   rails_pulse_summary:
     class: RailsPulse::SummaryJob
     schedule: every 5m
