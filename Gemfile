@@ -101,7 +101,6 @@ group :development, :test do
   gem "standard", "1.52.0", require: false
   gem "squasher", require: false
   gem "brakeman", require: false
-  gem "fasterer", require: false
   gem "license_finder", require: false
   gem "herb", require: false
 end
