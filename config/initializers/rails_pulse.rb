@@ -6,7 +6,7 @@ RailsPulse.configure do |config|
   # ====================================================================================================
 
   # Enable or disable Rails Pulse
-  config.enabled = true
+  config.enabled = false
 
   # ====================================================================================================
   #                                               THRESHOLDS
