@@ -11,12 +11,12 @@ production:
   pghero_clean_space_stats:
     command: "PgHero.clean_space_stats"
     schedule: every day at 2 pm
-  rails_pulse_summary:
-    class: RailsPulse::SummaryJob
-    schedule: every 5m
-  rails_pulse_cleanup:
-    class: RailsPulse::CleanupJob
-    schedule: every day at 2 pm
+  #  rails_pulse_summary:
+  #    class: RailsPulse::SummaryJob
+  #    schedule: every 5m
+  #  rails_pulse_cleanup:
+  #    class: RailsPulse::CleanupJob
+  #    schedule: every day at 2 pm
   eve_server_status:
     class: Eve::ServerStatusJob
     schedule: every 1m
