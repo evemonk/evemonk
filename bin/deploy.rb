@@ -16,4 +16,10 @@ on host do |_|
     execute :docker, :compose, :down
     execute :docker, :compose, "up -d"
   end
+
+  within "/root/docker/evemonk-queue" do
+    execute :docker, :compose, :pull
+    execute :docker, :compose, :down
+    execute :docker, :compose, "up -d"
+  end
 end
