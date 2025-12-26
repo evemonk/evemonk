@@ -74,6 +74,8 @@ gem "skylight"
 gem "lograge"
 gem "prosopite"
 gem "sshkit", require: false
+gem "ed25519", require: false
+gem "bcrypt_pbkdf", require: false
 gem "maintenance_tasks"
 gem "rails_pulse"
 
