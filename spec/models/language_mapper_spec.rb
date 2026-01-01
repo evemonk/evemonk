@@ -5,7 +5,7 @@ require "rails_helper"
 RSpec.describe LanguageMapper, type: :model do
   specify do
     expect(described_class::LANGUAGES).to eq(
-      en: "en-us",
+      en: "en",
       de: "de",
       fr: "fr",
       ja: "ja",
