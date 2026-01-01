@@ -7,7 +7,7 @@ RSpec.describe Eve::RacesImporter do
 
   describe "#import" do
     context "with default locale" do
-      before { VCR.insert_cassette "esi/universe/races_new" }
+      before { VCR.insert_cassette "esi/universe/races" }
 
       after { VCR.eject_cassette }
 
