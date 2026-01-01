@@ -4,7 +4,7 @@ module Eve
   class BloodlinesImporter < BaseImporter
     attr_reader :locale
 
-    # @param locale [Symbol] Default: :en
+    # @param locale [String] Default: "en".
     def initialize(locale = :en)
       @locale = locale
     end
@@ -25,6 +25,10 @@ module Eve
 
     def esi
       @esi ||= EveOnline::ESI::UniverseBloodlines.new(language: LanguageMapper::LANGUAGES[locale], cache: Rails.cache)
+    end
+
+    def client
+      @client ||= EveOnline::ESI::Client.new(cache: true, cache_store: Rails.cache)
     end
   end
 end

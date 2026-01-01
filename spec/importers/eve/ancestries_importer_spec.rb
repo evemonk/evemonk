@@ -7,7 +7,7 @@ RSpec.describe Eve::AncestriesImporter do
 
   describe "#import" do
     context "with default locale" do
-      before { VCR.insert_cassette "esi/universe/ancestries" }
+      before { VCR.insert_cassette "esi/universe/ancestries_new" }
 
       after { VCR.eject_cassette }
 
@@ -33,11 +33,11 @@ RSpec.describe Eve::AncestriesImporter do
     end
 
     context "with de locale" do
-      before { VCR.insert_cassette "esi/universe/ancestries_de" }
+      before { VCR.insert_cassette "esi/universe/ancestries_de_new" }
 
       after { VCR.eject_cassette }
 
-      subject { described_class.new(:de) }
+      subject { described_class.new("de") }
 
       specify do
         subject.import

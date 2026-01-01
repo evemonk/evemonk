@@ -2,16 +2,16 @@
 
 module Eve
   class RacesImporter < BaseImporter
-    attr_reader :locale
+    attr_reader :language
 
-    # @param locale [String] Default: "en".
-    def initialize(locale = "en")
-      @locale = locale
+    # @param language [String] Default: "en".
+    def initialize(language = "en")
+      @language = language
     end
 
     def import
       import! do
-        Mobility.with_locale(locale) do
+        Mobility.with_locale(language.to_sym) do
           races.each do |race|
             eve_race = Eve::Race.find_or_initialize_by(id: race.id)
 
@@ -24,7 +24,7 @@ module Eve
     private
 
     def client
-      @client ||= EveOnline::ESI::Client.new(language: locale, cache: true, cache_store: Rails.cache)
+      @client ||= EveOnline::ESI::Client.new(language: language, cache: true, cache_store: Rails.cache)
     end
 
     def races

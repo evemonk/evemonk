@@ -2,16 +2,17 @@
 
 module Eve
   class AncestriesImporter < BaseImporter
-    attr_reader :locale
+    attr_reader :language
 
-    def initialize(locale = :en)
-      @locale = locale
+    # @param language [String] Default: "en".
+    def initialize(language = "en")
+      @language = language
     end
 
     def import
       import! do
-        Mobility.with_locale(locale) do
-          esi.ancestries.each do |ancestry|
+        Mobility.with_locale(language.to_sym) do
+          ancestries.each do |ancestry|
             eve_ancestry = Eve::Ancestry.find_or_initialize_by(id: ancestry.id)
 
             eve_ancestry.update!(ancestry.as_json)
@@ -22,8 +23,12 @@ module Eve
 
     private
 
-    def esi
-      @esi ||= EveOnline::ESI::UniverseAncestries.new(language: LanguageMapper::LANGUAGES[locale], cache: Rails.cache)
+    def client
+      @client ||= EveOnline::ESI::Client.new(language: language, cache: true, cache_store: Rails.cache)
+    end
+
+    def ancestries
+      @ancestries ||= client.universe.ancestries
     end
   end
 end

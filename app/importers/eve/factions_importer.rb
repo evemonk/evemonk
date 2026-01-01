@@ -4,14 +4,14 @@ module Eve
   class FactionsImporter < BaseImporter
     attr_reader :locale
 
-    # @param locale [Symbol] Default: :en
-    def initialize(locale = :en)
+    # @param locale [String] Default: "en".
+    def initialize(locale = "en")
       @locale = locale
     end
 
     def import
       import! do
-        Mobility.with_locale(locale) do
+        Mobility.with_locale(locale.to_sym) do
           esi.factions.each do |faction|
             eve_faction = Eve::Faction.find_or_initialize_by(id: faction.id)
 
@@ -25,6 +25,10 @@ module Eve
 
     def esi
       @esi ||= EveOnline::ESI::UniverseFactions.new(language: LanguageMapper::LANGUAGES[locale], cache: Rails.cache)
+    end
+
+    def client
+      @client ||= EveOnline::ESI::Client.new(cache: true, cache_store: Rails.cache)
     end
   end
 end
