@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2025_10_28_121637) do
+ActiveRecord::Schema[8.1].define(version: 2025_12_24_123506) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_buffercache"
   enable_extension "pg_catalog.plpgsql"
@@ -478,6 +478,7 @@ ActiveRecord::Schema[8.1].define(version: 2025_10_28_121637) do
     t.index ["corporation_id"], name: "index_eve_characters_on_corporation_id"
     t.index ["faction_id"], name: "index_eve_characters_on_faction_id"
     t.index ["name"], name: "index_eve_characters_on_name", opclass: :gin_trgm_ops, using: :gin
+    t.index ["name"], name: "index_eve_characters_on_name_2"
     t.index ["race_id"], name: "index_eve_characters_on_race_id"
   end
 
