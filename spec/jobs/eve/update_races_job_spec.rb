@@ -13,11 +13,11 @@ RSpec.describe Eve::UpdateRacesJob do
 
       before do
         #
-        # LanguageMapper::LANGUAGES.each_key do |locale|
+        # LanguageMapper::LANGUAGES.each_value do |locale|
         #   Eve::RacesImporter.new(locale).import
         # end
         #
-        LanguageMapper::LANGUAGES.each_key do |locale|
+        LanguageMapper::LANGUAGES.each_value do |locale|
           expect(Eve::RacesImporter).to receive(:new).with(locale) do
             double.tap do |a|
               expect(a).to receive(:import)
