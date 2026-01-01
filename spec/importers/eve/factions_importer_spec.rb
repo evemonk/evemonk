@@ -7,7 +7,7 @@ RSpec.describe Eve::FactionsImporter do
 
   describe "#import" do
     context "with default locale" do
-      before { VCR.insert_cassette "esi/universe/factions_new" }
+      before { VCR.insert_cassette "esi/universe/factions" }
 
       after { VCR.eject_cassette }
 
@@ -43,7 +43,7 @@ RSpec.describe Eve::FactionsImporter do
     end
 
     context "with de locale" do
-      before { VCR.insert_cassette "esi/universe/factions_de_new" }
+      before { VCR.insert_cassette "esi/universe/factions_de" }
 
       after { VCR.eject_cassette }
 
