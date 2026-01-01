@@ -10,7 +10,7 @@ module Eve
       end
     end
 
-    def esi
+    def client
       raise NotImplementedError
     end
 
