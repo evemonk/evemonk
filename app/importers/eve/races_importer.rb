@@ -4,7 +4,7 @@ module Eve
   class RacesImporter < BaseImporter
     attr_reader :locale
 
-    # @param locale [Symbol] Default: :en
+    # @param locale [String] Default: "en".
     def initialize(locale = "en")
       @locale = locale
     end
