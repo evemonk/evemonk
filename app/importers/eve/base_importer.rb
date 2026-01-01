@@ -3,7 +3,7 @@
 module Eve
   class BaseImporter
     def import!
-      # configure_middlewares
+      configure_middlewares
 
       ActiveRecord::Base.transaction do
         yield if block_given?

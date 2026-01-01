@@ -4,7 +4,7 @@ require "rails_helper"
 
 RSpec.describe Eve::BaseImporter do
   describe "#import!" do
-    # before { expect(subject).to receive(:configure_middlewares) }
+    before { expect(subject).to receive(:configure_middlewares) }
 
     context "when block" do
       specify { expect { subject.import! {} }.not_to raise_error }
