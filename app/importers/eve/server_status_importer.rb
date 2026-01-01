@@ -10,12 +10,12 @@ module Eve
 
     private
 
-    def server_status
-      @server_status ||= client.server_status.info
-    end
-
     def client
       @client ||= EveOnline::ESI::Client.new(cache: true, cache_store: Rails.cache)
+    end
+
+    def server_status
+      @server_status ||= client.server_status.info
     end
   end
 end

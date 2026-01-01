@@ -13,7 +13,7 @@ module Eve
 
     def perform
       if Rails.configuration.evemonk.jobs[:eve][:races]
-        LanguageMapper::LANGUAGES.each_key do |locale|
+        LanguageMapper::LANGUAGES.each_value do |locale|
           Eve::RacesImporter.new(locale).import
         end
       end
