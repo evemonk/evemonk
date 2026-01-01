@@ -3,7 +3,7 @@
 module Eve
   class BaseImporter
     def import!
-      configure_middlewares
+      # configure_middlewares
 
       ActiveRecord::Base.transaction do
         yield if block_given?
@@ -21,9 +21,9 @@ module Eve
     private
 
     def configure_middlewares
-      esi.add_middleware(statistics_middleware)
+      client.add_middleware(statistics_middleware)
 
-      esi.add_middleware(cool_down_middleware)
+      client.add_middleware(cool_down_middleware)
     end
 
     def statistics_middleware

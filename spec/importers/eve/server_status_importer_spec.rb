@@ -6,7 +6,7 @@ RSpec.describe Eve::ServerStatusImporter do
   it { expect(subject).to be_a(Eve::BaseImporter) }
 
   describe "#import" do
-    before { VCR.insert_cassette "esi/server/status" }
+    before { VCR.insert_cassette "esi/server_status/info" }
 
     after { VCR.eject_cassette }
 
@@ -17,11 +17,11 @@ RSpec.describe Eve::ServerStatusImporter do
 
       server_status = Eve::ServerStatus.first
 
-      expect(server_status.players).to eq(29_568)
+      expect(server_status.players).to eq(34_408)
 
-      expect(server_status.server_version).to eq("2776971")
+      expect(server_status.server_version).to eq("3145366")
 
-      expect(server_status.start_time).to eq("2025-01-02T11:01:17Z")
+      expect(server_status.start_time).to eq(Time.utc(2026, 1, 1, 11, 1, 47))
 
       expect(server_status.vip).to eq(nil)
     end
