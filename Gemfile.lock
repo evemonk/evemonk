@@ -1,9 +1,9 @@
 GIT
   remote: https://github.com/evemonk/eve_online.git
-  revision: 56f720cf4a412e19ce5031ae54d4bf5cf504deb2
+  revision: f43c23b1efc3714a299015221d8cf16b3421327a
   branch: refactor-2025
   specs:
-    eve_online (0.46.0)
+    eve_online (0.47.0)
       activesupport (>= 7.2.0)
       faraday (>= 2.0.0)
       faraday-http-cache
@@ -1048,7 +1048,7 @@ CHECKSUMS
   erb (6.0.1) sha256=28ecdd99c5472aebd5674d6061e3c6b0a45c049578b071e5a52c2a7f13c197e5
   erubi (1.13.1) sha256=a082103b0885dbc5ecf1172fede897f9ebdb745a4b97a5e8dc63953db1ee4ad9
   et-orbi (1.4.0) sha256=6c7e3c90779821f9e3b324c5e96fda9767f72995d6ae435b96678a4f3e2de8bc
-  eve_online (0.46.0)
+  eve_online (0.47.0)
   factory_bot (6.5.6) sha256=12beb373214dccc086a7a63763d6718c49769d5606f0501e0a4442676917e077
   factory_bot_rails (6.5.1) sha256=d3cc4851eae4dea8a665ec4a4516895045e710554d2b5ac9e68b94d351bc6d68
   faker (3.5.3) sha256=b961482dc0bb15ccb9a98ea7878b925669e9ae8f5e59b607da540b768137d765
