@@ -10,7 +10,7 @@ module Eve
       end
     end
 
-    def esi
+    def client
       raise NotImplementedError
     end
 
@@ -21,9 +21,9 @@ module Eve
     private
 
     def configure_middlewares
-      esi.add_middleware(statistics_middleware)
+      client.add_middleware(statistics_middleware)
 
-      esi.add_middleware(cool_down_middleware)
+      client.add_middleware(cool_down_middleware)
     end
 
     def statistics_middleware

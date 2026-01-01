@@ -2,7 +2,7 @@
 
 class LanguageMapper
   LANGUAGES = {
-    en: "en-us",
+    en: "en",
     de: "de",
     fr: "fr",
     ja: "ja",

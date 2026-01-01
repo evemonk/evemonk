@@ -1,12 +1,13 @@
 GIT
   remote: https://github.com/evemonk/eve_online.git
-  revision: a9fcb05074319c8ae92c841598952c21f75f61ed
-  branch: updates
+  revision: 71dd26dcacb88740bcf0c21eb3d6839feb8218d4
+  branch: refactor-2025
   specs:
-    eve_online (0.46.0)
+    eve_online (0.47.0)
       activesupport (>= 7.2.0)
-      faraday (>= 2.3.0)
+      faraday (>= 2.0.0)
       faraday-http-cache
+      ostruct
 
 GEM
   remote: https://rubygems.org/
@@ -150,7 +151,7 @@ GEM
     chunky_png (1.4.0)
     coderay (1.1.3)
     concurrent-ruby (1.3.6)
-    connection_pool (3.0.2)
+    connection_pool (2.5.5)
     crack (1.0.1)
       bigdecimal
       rexml
@@ -888,7 +889,7 @@ DEPENDENCIES
   bundler-audit
   cacheflow
   capybara (>= 3.26)
-  connection_pool
+  connection_pool (< 3.0.0)
   dartsass-rails
   database_rewinder
   devise
@@ -1026,7 +1027,7 @@ CHECKSUMS
   chunky_png (1.4.0) sha256=89d5b31b55c0cf4da3cf89a2b4ebc3178d8abe8cbaf116a1dba95668502fdcfe
   coderay (1.1.3) sha256=dc530018a4684512f8f38143cd2a096c9f02a1fc2459edcfe534787a7fc77d4b
   concurrent-ruby (1.3.6) sha256=6b56837e1e7e5292f9864f34b69c5a2cbc75c0cf5338f1ce9903d10fa762d5ab
-  connection_pool (3.0.2) sha256=33fff5ba71a12d2aa26cb72b1db8bba2a1a01823559fb01d29eb74c286e62e0a
+  connection_pool (2.5.5) sha256=e54ff92855753df1fd7c59fa04a398833355f27dd14c074f8c83a05f72a716ad
   crack (1.0.1) sha256=ff4a10390cd31d66440b7524eb1841874db86201d5b70032028553130b6d4c7e
   crass (1.0.6) sha256=dc516022a56e7b3b156099abc81b6d2b08ea1ed12676ac7a5657617f012bd45d
   css-zero (1.1.15) sha256=7fe6a739d837114ec69c94e2860e5259281c49c2f74b5005a11c70b7bb8331ca
@@ -1047,7 +1048,7 @@ CHECKSUMS
   erb (6.0.1) sha256=28ecdd99c5472aebd5674d6061e3c6b0a45c049578b071e5a52c2a7f13c197e5
   erubi (1.13.1) sha256=a082103b0885dbc5ecf1172fede897f9ebdb745a4b97a5e8dc63953db1ee4ad9
   et-orbi (1.4.0) sha256=6c7e3c90779821f9e3b324c5e96fda9767f72995d6ae435b96678a4f3e2de8bc
-  eve_online (0.46.0)
+  eve_online (0.47.0)
   factory_bot (6.5.6) sha256=12beb373214dccc086a7a63763d6718c49769d5606f0501e0a4442676917e077
   factory_bot_rails (6.5.1) sha256=d3cc4851eae4dea8a665ec4a4516895045e710554d2b5ac9e68b94d351bc6d68
   faker (3.5.3) sha256=b961482dc0bb15ccb9a98ea7878b925669e9ae8f5e59b607da540b768137d765

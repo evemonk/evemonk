@@ -47,7 +47,7 @@ RSpec.describe Eve::FactionsImporter do
 
       after { VCR.eject_cassette }
 
-      subject { described_class.new(:de) }
+      subject { described_class.new("de") }
 
       specify do
         subject.import

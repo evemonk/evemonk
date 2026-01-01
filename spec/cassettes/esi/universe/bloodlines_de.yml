@@ -2,15 +2,21 @@
 http_interactions:
 - request:
     method: get
-    uri: https://esi.evetech.net/v1/universe/bloodlines/?language=de
+    uri: https://esi.evetech.net/universe/bloodlines
     body:
       encoding: US-ASCII
       string: ''
     headers:
       User-Agent:
-      - EveOnline API (https://github.com/evemonk/eve_online) v0.46.0
+      - EveOnline API (https://github.com/evemonk/eve_online) v0.47.0
       Accept:
       - application/json
+      Accept-Language:
+      - de
+      X-Tenant:
+      - tranquility
+      X-Compatibility-Date:
+      - '2025-12-16'
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
   response:
@@ -19,7 +25,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 02 Jan 2025 17:07:15 GMT
+      - Thu, 01 Jan 2026 19:49:11 GMT
       Content-Type:
       - application/json; charset=UTF-8
       Content-Length:
@@ -28,38 +34,37 @@ http_interactions:
       - keep-alive
       Access-Control-Allow-Credentials:
       - 'true'
-      Access-Control-Allow-Headers:
-      - Content-Type,Authorization,If-None-Match,X-User-Agent
-      Access-Control-Allow-Methods:
-      - GET,HEAD,OPTIONS
       Access-Control-Allow-Origin:
       - "*"
       Access-Control-Expose-Headers:
-      - Content-Type,Warning,ETag,X-Pages,X-ESI-Error-Limit-Remain,X-ESI-Error-Limit-Reset
-      Access-Control-Max-Age:
-      - '600'
-      Allow:
-      - GET,HEAD,OPTIONS
+      - Etag, Retry-After, X-Compatibility-Date, X-Esi-Error-Limit-Remain, X-Esi-Error-Limit-Reset,
+        X-Pages, X-Ratelimit-Group, X-Ratelimit-Limit, X-Ratelimit-Remaining, X-Ratelimit-Used
       Cache-Control:
       - public
       Content-Language:
       - de
       Etag:
-      - W/"71e655c22da484d5e6466ec84d40e14997b5b24b94901ab8c31b0781"
+      - W/"d53e06315fe6f15f4dd47da86f16b3cb51977abc22701227d931f03b"
       Expires:
-      - Fri, 03 Jan 2025 11:05:00 GMT
+      - Fri, 02 Jan 2026 11:05:00 GMT
       Last-Modified:
-      - Thu, 02 Jan 2025 11:01:17 GMT
+      - Thu, 01 Jan 2026 11:01:47 GMT
       Strict-Transport-Security:
       - max-age=31536000
       Vary:
-      - Accept-Encoding,Accept-Language
+      - Accept-Language
+      - Accept-Language
+      - X-Compatibility-Date
+      X-Compatibility-Date:
+      - '2020-01-01'
+      X-Esi-Cache-Status:
+      - HIT
       X-Esi-Error-Limit-Remain:
       - '100'
       X-Esi-Error-Limit-Reset:
-      - '45'
+      - '49'
       X-Esi-Request-Id:
-      - 8e559a96-d56c-4cfe-a5b6-2d255d8cdadf
+      - a3c94011-12cb-4a88-aa78-c1d4be5889fe
     body:
       encoding: UTF-8
       string: '[{"bloodline_id":5,"charisma":3,"corporation_id":1000066,"description":"Wahre
@@ -180,5 +185,5 @@ http_interactions:
         Ziele sind, die Technologie, die ihnen zur Verf\u00fcgung steht, kann es ohne
         Frage mit der aufnehmen, die andere Jove benutzen, und sie vielleicht sogar
         \u00fcbertreffen.","intelligence":0,"memory":0,"name":"Drifter","perception":0,"race_id":16,"ship_type_id":null,"willpower":0}]'
-  recorded_at: Thu, 02 Jan 2025 17:07:15 GMT
-recorded_with: VCR 6.3.1
+  recorded_at: Thu, 01 Jan 2026 19:49:12 GMT
+recorded_with: VCR 6.4.0

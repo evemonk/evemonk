@@ -15,8 +15,8 @@ RSpec.describe Eve::BaseImporter do
     end
   end
 
-  describe "#esi" do
-    specify { expect { subject.esi }.to raise_error(NotImplementedError) }
+  describe "#client" do
+    specify { expect { subject.client }.to raise_error(NotImplementedError) }
   end
 
   describe "#import" do
@@ -30,17 +30,17 @@ RSpec.describe Eve::BaseImporter do
 
     let(:cool_down_middleware) { double }
 
-    let(:esi) { double }
+    let(:client) { instance_double(EveOnline::ESI::Client) }
 
     before { expect(subject).to receive(:statistics_middleware).and_return(statistics_middleware) }
 
     before { expect(subject).to receive(:cool_down_middleware).and_return(cool_down_middleware) }
 
-    before { expect(subject).to receive(:esi).and_return(esi).twice }
+    before { expect(subject).to receive(:client).and_return(client).twice }
 
-    before { expect(esi).to receive(:add_middleware).and_return(statistics_middleware) }
+    before { expect(client).to receive(:add_middleware).and_return(statistics_middleware) }
 
-    before { expect(esi).to receive(:add_middleware).and_return(cool_down_middleware) }
+    before { expect(client).to receive(:add_middleware).and_return(cool_down_middleware) }
 
     specify { expect { subject.send(:configure_middlewares) }.not_to raise_error }
   end
