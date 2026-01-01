@@ -7,7 +7,7 @@ RSpec.describe Eve::BloodlinesImporter do
 
   describe "#import" do
     context "with default locale" do
-      before { VCR.insert_cassette "esi/universe/bloodlines_new" }
+      before { VCR.insert_cassette "esi/universe/bloodlines" }
 
       after { VCR.eject_cassette }
 
