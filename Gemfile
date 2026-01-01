@@ -44,7 +44,7 @@ gem "pg_search"
 gem "meta-tags"
 gem "eve_online",
   git: "https://github.com/evemonk/eve_online.git",
-  branch: "updates"
+  branch: "refactor-2025"
 gem "omniauth-eve_online-sso"
 gem "omniauth-rails_csrf_protection"
 gem "jwt"
