@@ -33,7 +33,7 @@ RSpec.describe Eve::AncestriesImporter do
     end
 
     context "with de locale" do
-      before { VCR.insert_cassette "esi/universe/ancestries_de_new" }
+      before { VCR.insert_cassette "esi/universe/ancestries_de" }
 
       after { VCR.eject_cassette }
 
