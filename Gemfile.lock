@@ -1,11 +1,12 @@
 GIT
   remote: https://github.com/evemonk/eve_online.git
-  revision: 01c8956b92add258aea2eb97c2eeac82261d8dea
+  revision: d0dc291c1fb4ff632af4202a7cfd73e78928c51e
   branch: refactor-2025
   specs:
     eve_online (0.46.0)
       activesupport (>= 7.2.0)
       faraday (>= 2.0.0)
+      faraday-http-cache
       ostruct
 
 GEM
@@ -900,7 +901,6 @@ DEPENDENCIES
   eve_online!
   factory_bot_rails
   faker
-  faraday-http-cache
   foreman
   gemdiff
   good_migrations
