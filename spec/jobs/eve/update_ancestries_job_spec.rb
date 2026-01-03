@@ -9,7 +9,9 @@ RSpec.describe Eve::UpdateAncestriesJob do
 
   describe "#perform" do
     context "when jobs eve ancestries enabled" do
-      before { Rails.configuration.evemonk.jobs[:eve][:ancestries] = true }
+      before { Flipper.enable(:eve_ancestries) }
+
+      after { Flipper.disable(:eve_ancestries) }
 
       before do
         #
@@ -30,8 +32,6 @@ RSpec.describe Eve::UpdateAncestriesJob do
     end
 
     context "when jobs eve ancestries disabled" do
-      before { Rails.configuration.evemonk.jobs[:eve][:ancestries] = false }
-
       before { expect(Eve::AncestriesImporter).not_to receive(:new) }
 
       specify { expect { subject.perform }.not_to raise_error }

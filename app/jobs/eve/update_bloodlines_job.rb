@@ -12,7 +12,7 @@ module Eve
       Faraday::ConnectionFailed
 
     def perform
-      if Rails.configuration.evemonk.jobs[:eve][:bloodlines]
+      if Flipper.enabled?(:eve_bloodlines)
         LanguageMapper::LANGUAGES.each_value do |language|
           Eve::BloodlinesImporter.new(language).import
         end

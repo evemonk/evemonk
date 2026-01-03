@@ -5,7 +5,7 @@ module Eve
     queue_as :server_status
 
     def perform
-      if Rails.configuration.evemonk.jobs[:eve][:server_status]
+      if Flipper.enabled?(:eve_server_status)
         Eve::ServerStatusImporter.new.import
       end
     end

@@ -9,7 +9,9 @@ RSpec.describe Eve::UpdateRacesJob do
 
   describe "#perform" do
     context "when jobs eve races enabled" do
-      before { Rails.configuration.evemonk.jobs[:eve][:races] = true }
+      before { Flipper.enable(:eve_races) }
+
+      after { Flipper.disable(:eve_races) }
 
       before do
         #
@@ -30,8 +32,6 @@ RSpec.describe Eve::UpdateRacesJob do
     end
 
     context "when jobs eve races disabled" do
-      before { Rails.configuration.evemonk.jobs[:eve][:races] = false }
-
       before { expect(Eve::RacesImporter).not_to receive(:new) }
 
       specify { expect { subject.perform }.not_to raise_error }
