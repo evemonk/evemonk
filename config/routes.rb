@@ -15,6 +15,8 @@ Rails.application.routes.draw do
 
   mount MissionControl::Jobs::Engine, at: "/jobs"
 
+  mount Flipper::UI.app(Flipper), at: "/flipper"
+
   post "/graphql", to: "graphql#execute"
 
   devise_for :users
