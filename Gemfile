@@ -77,6 +77,7 @@ gem "sshkit", require: false
 gem "ed25519", require: false
 gem "bcrypt_pbkdf", require: false
 gem "maintenance_tasks"
+gem "flipper"
 gem "rails_pulse"
 
 gem "airbrake", "~> 13.0"
