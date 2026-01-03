@@ -4,7 +4,7 @@ require "rails_helper"
 
 RSpec.describe Maintenance::EveFactionsTask do
   describe "#process" do
-    before { expect(Eve::UpdateFactionsJob).to receive(:perform_later) }
+    before { expect(Eve::UpdateFactionsJob).to receive(:perform_now) }
 
     specify { expect { subject.process }.not_to raise_error }
   end

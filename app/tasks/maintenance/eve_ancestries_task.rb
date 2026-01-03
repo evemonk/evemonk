@@ -8,7 +8,7 @@ module Maintenance
     no_collection
 
     def process
-      Eve::UpdateAncestriesJob.perform_later
+      Eve::UpdateAncestriesJob.perform_now
     end
   end
 end

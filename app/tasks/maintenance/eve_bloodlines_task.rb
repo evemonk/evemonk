@@ -8,7 +8,7 @@ module Maintenance
     no_collection
 
     def process
-      Eve::UpdateBloodlinesJob.perform_later
+      Eve::UpdateBloodlinesJob.perform_now
     end
   end
 end

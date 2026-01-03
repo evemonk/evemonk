@@ -13,12 +13,12 @@ RSpec.describe Eve::UpdateBloodlinesJob do
 
       before do
         #
-        # LanguageMapper::LANGUAGES.each_key do |locale|
-        #   Eve::BloodlinesImporter.new(locale).import
+        # LanguageMapper::LANGUAGES.each_value do |language|
+        #   Eve::BloodlinesImporter.new(language).import
         # end
         #
-        LanguageMapper::LANGUAGES.each_key do |locale|
-          expect(Eve::BloodlinesImporter).to receive(:new).with(locale) do
+        LanguageMapper::LANGUAGES.each_value do |language|
+          expect(Eve::BloodlinesImporter).to receive(:new).with(language) do
             double.tap do |a|
               expect(a).to receive(:import)
             end

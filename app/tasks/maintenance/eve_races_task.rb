@@ -8,7 +8,7 @@ module Maintenance
     no_collection
 
     def process
-      Eve::UpdateRacesJob.perform_later
+      Eve::UpdateRacesJob.perform_now
     end
   end
 end
