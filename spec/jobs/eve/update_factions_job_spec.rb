@@ -9,7 +9,9 @@ RSpec.describe Eve::UpdateFactionsJob do
 
   describe "#perform" do
     context "when jobs eve factions enabled" do
-      before { Rails.configuration.evemonk.jobs[:eve][:factions] = true }
+      before { Flipper.enable(:eve_factions) }
+
+      after { Flipper.disable(:eve_factions) }
 
       before do
         #
@@ -30,8 +32,6 @@ RSpec.describe Eve::UpdateFactionsJob do
     end
 
     context "when jobs eve factions disabled" do
-      before { Rails.configuration.evemonk.jobs[:eve][:factions] = false }
-
       before { expect(Eve::FactionsImporter).not_to receive(:new) }
 
       specify { expect { subject.perform }.not_to raise_error }

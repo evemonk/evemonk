@@ -9,7 +9,9 @@ RSpec.describe Eve::UpdateBloodlinesJob do
 
   describe "#perform" do
     context "when jobs eve bloodlines enabled" do
-      before { Rails.configuration.evemonk.jobs[:eve][:bloodlines] = true }
+      before { Flipper.enable(:eve_bloodlines) }
+
+      after { Flipper.disable(:eve_bloodlines) }
 
       before do
         #
@@ -30,8 +32,6 @@ RSpec.describe Eve::UpdateBloodlinesJob do
     end
 
     context "when jobs eve bloodlines disabled" do
-      before { Rails.configuration.evemonk.jobs[:eve][:bloodlines] = false }
-
       before { expect(Eve::BloodlinesImporter).not_to receive(:new) }
 
       specify { expect { subject.perform }.not_to raise_error }
