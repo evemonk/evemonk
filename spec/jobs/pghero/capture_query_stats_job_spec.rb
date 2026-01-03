@@ -9,7 +9,9 @@ RSpec.describe Pghero::CaptureQueryStatsJob do
 
   describe "#perform" do
     context "when pghero enabled" do
-      before { Rails.configuration.evemonk.pghero = true }
+      before { Flipper.enable(:pghero) }
+
+      after { Flipper.disable(:pghero) }
 
       before { expect(PgHero).to receive(:capture_query_stats) }
 
@@ -17,8 +19,6 @@ RSpec.describe Pghero::CaptureQueryStatsJob do
     end
 
     context "when pghero disabled" do
-      before { Rails.configuration.evemonk.pghero = false }
-
       before { expect(PgHero).not_to receive(:capture_query_stats) }
 
       specify { expect { subject.perform }.not_to raise_error }

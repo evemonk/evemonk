@@ -2,6 +2,9 @@
 
 class DisableFeatures < ActiveRecord::Migration[8.1]
   def change
+    # Disable pghero
+    Flipper.disable :pghero
+
     # Disable external calls to ESI server status
     Flipper.disable :eve_server_status
 

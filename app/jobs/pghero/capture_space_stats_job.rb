@@ -5,7 +5,7 @@ module Pghero
     queue_as :pghero
 
     def perform
-      if Rails.configuration.evemonk.pghero
+      if Flipper.enabled?(:pghero)
         PgHero.capture_space_stats
       end
     end
