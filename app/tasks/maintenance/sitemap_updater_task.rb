@@ -6,7 +6,7 @@ module Maintenance
     no_collection
 
     def process
-      SitemapUpdaterJob.perform_now
+      SitemapUpdaterJob.perform_later
     end
   end
 end
