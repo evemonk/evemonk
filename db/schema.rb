@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_01_03_161820) do
+ActiveRecord::Schema[8.1].define(version: 2026_01_03_192130) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_buffercache"
   enable_extension "pg_catalog.plpgsql"
@@ -440,7 +440,6 @@ ActiveRecord::Schema[8.1].define(version: 2026_01_03_161820) do
     t.string "name_fr"
     t.string "name_ja"
     t.string "name_ko"
-    t.string "name_ru"
     t.text "notes"
     t.text "short_description"
     t.datetime "updated_at", null: false
@@ -490,7 +489,6 @@ ActiveRecord::Schema[8.1].define(version: 2026_01_03_161820) do
     t.string "name_fr"
     t.string "name_ja"
     t.string "name_ko"
-    t.string "name_ru"
     t.bigint "region_id"
     t.datetime "updated_at", null: false
     t.index ["constellation_id"], name: "index_eve_constellations_on_constellation_id", unique: true
@@ -569,7 +567,6 @@ ActiveRecord::Schema[8.1].define(version: 2026_01_03_161820) do
     t.text "description_full_fr"
     t.text "description_full_ja"
     t.text "description_full_ko"
-    t.text "description_full_ru"
     t.text "description_full_zh"
     t.string "internal_name"
     t.string "leader_type_name_de"
@@ -577,14 +574,12 @@ ActiveRecord::Schema[8.1].define(version: 2026_01_03_161820) do
     t.string "leader_type_name_fr"
     t.string "leader_type_name_ja"
     t.string "leader_type_name_ko"
-    t.string "leader_type_name_ru"
     t.string "leader_type_name_zh"
     t.string "name_de"
     t.string "name_en"
     t.string "name_fr"
     t.string "name_ja"
     t.string "name_ko"
-    t.string "name_ru"
     t.string "name_zh"
     t.datetime "updated_at", null: false
   end
@@ -692,7 +687,6 @@ ActiveRecord::Schema[8.1].define(version: 2026_01_03_161820) do
     t.text "description_fr"
     t.text "description_ja"
     t.text "description_ko"
-    t.text "description_ru"
     t.boolean "has_types"
     t.bigint "icon_id"
     t.bigint "market_group_id"
@@ -701,7 +695,6 @@ ActiveRecord::Schema[8.1].define(version: 2026_01_03_161820) do
     t.string "name_fr"
     t.string "name_ja"
     t.string "name_ko"
-    t.string "name_ru"
     t.bigint "parent_group_id"
     t.datetime "updated_at", null: false
     t.index ["ancestry"], name: "index_eve_market_groups_on_ancestry"
@@ -771,13 +764,11 @@ ActiveRecord::Schema[8.1].define(version: 2026_01_03_161820) do
     t.text "description_fr"
     t.text "description_ja"
     t.text "description_ko"
-    t.text "description_ru"
     t.string "name_de"
     t.string "name_en"
     t.string "name_fr"
     t.string "name_ja"
     t.string "name_ko"
-    t.string "name_ru"
     t.bigint "region_id"
     t.datetime "updated_at", null: false
     t.index ["region_id"], name: "index_eve_regions_on_region_id", unique: true
@@ -860,7 +851,6 @@ ActiveRecord::Schema[8.1].define(version: 2026_01_03_161820) do
     t.string "name_fr"
     t.string "name_ja"
     t.string "name_ko"
-    t.string "name_ru"
     t.string "security_class"
     t.float "security_status"
     t.bigint "star_id"
@@ -903,7 +893,6 @@ ActiveRecord::Schema[8.1].define(version: 2026_01_03_161820) do
     t.text "description_fr"
     t.text "description_ja"
     t.text "description_ko"
-    t.text "description_ru"
     t.text "description_zh"
     t.bigint "graphic_id"
     t.bigint "group_id"
@@ -921,7 +910,6 @@ ActiveRecord::Schema[8.1].define(version: 2026_01_03_161820) do
     t.string "name_fr"
     t.string "name_ja"
     t.string "name_ko"
-    t.string "name_ru"
     t.string "name_zh"
     t.float "packaged_volume"
     t.integer "portion_size"
