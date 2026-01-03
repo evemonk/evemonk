@@ -15,7 +15,9 @@ Rails.application.routes.draw do
 
   mount MissionControl::Jobs::Engine, at: "/jobs"
 
-  mount Flipper::UI.app(Flipper), at: "/flipper"
+  constraints CanAccessFlipperUI do
+    mount Flipper::UI.app(Flipper), at: "/flipper"
+  end
 
   post "/graphql", to: "graphql#execute"
 
