@@ -31,7 +31,7 @@
       </thead>
 
       <tbody>
-        <% CharacterScope::SCOPES.each do |scope| %>
+        <% Scopes::SCOPES.each do |scope| %>
           <tr>
             <td><%= scope %></td>
             <td><%= (@character.character_scopes.select { |cs| cs.scope == scope }.size == 1) ? "Yes" : "No" %></td>
