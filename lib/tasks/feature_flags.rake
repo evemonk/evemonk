@@ -41,5 +41,8 @@ namespace :evemonk do
 
     # Disable external calls to ESI alliances
     Flipper.disable :eve_alliances
+
+    # Disable internal certificates tab for character
+    Flipper.disable :internal_certificates_tab
   end
 end

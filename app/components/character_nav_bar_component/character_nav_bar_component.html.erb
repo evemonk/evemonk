@@ -135,13 +135,15 @@
     <% end %>
   </li>
 
-  <li class="nav-item">
-    <% if @current_page == "certificates" %>
-      <%= link_to("Certificates", character_certificates_path(@character), class: "nav-link active") %>
-    <% else %>
-      <%= link_to("Certificates", character_certificates_path(@character), class: "nav-link") %>
-    <% end %>
-  </li>
+  <% if Flipper.enabled?(:internal_certificates_tab) %>
+    <li class="nav-item">
+      <% if @current_page == "certificates" %>
+        <%= link_to("Certificates", character_certificates_path(@character), class: "nav-link active") %>
+      <% else %>
+        <%= link_to("Certificates", character_certificates_path(@character), class: "nav-link") %>
+      <% end %>
+    </li>
+  <% end %>
 
   <li class="nav-item">
     <% if @current_page == "settings" %>
