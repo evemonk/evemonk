@@ -21,7 +21,7 @@
   <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
     <h4 class="text-center text-break">Help</h4>
 
-    <div class="accordion" id="accordion_help">
+    <div class="accordion" id="help_accordion">
       <div class="accordion-item">
         <h2 class="accordion-header">
           <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#help_1" aria-expanded="true" aria-controls="help_1">
@@ -29,9 +29,11 @@
           </button>
         </h2>
 
-        <div id="help_1" class="accordion-collapse collapse show" data-bs-parent="#accordion_help">
+        <div id="help_1" class="accordion-collapse collapse show" data-bs-parent="#help_accordion">
           <div class="accordion-body">
-            <p>You need to login via ESI (Eve Online API) with scope <code>esi-wallet.read_character_wallet.v1</code>.</p>
+            <p>You need to log in via ESI (Eve Online API) with scope <code>esi-wallet.read_character_wallet.v1</code>.</p>
+
+            <p>You can log in with this scope below:</p>
 
             <%= form_tag("/auth/eve_online_sso", data: {turbo: false}) do %>
               <%= hidden_field_tag :scope, "esi-wallet.read_character_wallet.v1" %>
