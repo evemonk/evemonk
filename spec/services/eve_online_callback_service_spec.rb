@@ -149,21 +149,21 @@ RSpec.describe EveOnlineCallbackService do
     specify { expect { subject.send(:token_expires) }.not_to raise_error }
   end
 
-  # describe "#scopes" do
-  #   before do
-  #     #
-  #     # request.env.dig("omniauth.auth", "info", "scopes")
-  #     #
-  #     expect(request).to receive(:env) do
-  #       double.tap do |a|
-  #         expect(a).to receive(:dig).with("omniauth.auth", "info", "scopes")
-  #       end
-  #     end
-  #   end
-  #
-  #   specify { expect { subject.send(:scopes) }.not_to raise_error }
-  # end
-  #
+  describe "#scope" do
+    before do
+      #
+      # request.env.dig("omniauth.auth", "info", "scopes")
+      #
+      expect(request).to receive(:env) do
+        double.tap do |a|
+          expect(a).to receive(:dig).with("omniauth.auth", "info", "scopes")
+        end
+      end
+    end
+
+    specify { expect { subject.send(:scope) }.not_to raise_error }
+  end
+
   # describe "#token_type" do
   #   before do
   #     #
