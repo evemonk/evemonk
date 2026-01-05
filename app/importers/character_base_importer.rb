@@ -1,20 +1,18 @@
 # frozen_string_literal: true
 
 class CharacterBaseImporter
-  attr_reader :id
+  attr_reader :id, :token
 
   def initialize(id)
     @id = id
   end
 
   def import
-    # return unless character_scope_present?
+    configure_esi_token
 
     refresh_character_access_token
 
     configure_middlewares
-
-    # configure_esi_token
 
     ActiveRecord::Base.transaction do
       import!
@@ -41,19 +39,15 @@ class CharacterBaseImporter
     raise NotImplementedError
   end
 
-  def refresh_character_access_token
-    # return unless character_scope_present?
-
-    Api::RefreshCharacterAccessToken.new(character).refresh
+  def scoped_token
+    @scoped_token ||= resource.character_scopes.find_by(scope: scope)
   end
 
-  # def character_scope_present?
-  #   if esi.scope.present?
-  #     character.scopes.include?(esi.scope)
-  #   else
-  #     true
-  #   end
-  # end
+  def refresh_character_access_token
+    return if scope.blank?
+
+    Api::RefreshCharacterAccessToken.new(scoped_token).refresh
+  end
 
   private
 
@@ -63,11 +57,8 @@ class CharacterBaseImporter
     client.add_middleware(cool_down_middleware)
   end
 
-  # def configure_esi_token
-  #   return if esi.scope.blank?
-  #
-  #   esi.token = character.access_token
-  # end
+  def configure_esi_token
+  end
 
   def statistics_middleware
     {

@@ -325,6 +325,9 @@ Rails/ThreeStateBooleanColumn:
 Rails/NotNullColumn:
   Enabled: false
 
+Rails/FindByOrAssignmentMemoization:
+  Enabled: false
+
 GraphQL/FieldDefinitions:
   Enabled: false
 
