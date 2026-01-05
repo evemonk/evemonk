@@ -10,7 +10,9 @@ RSpec.describe SettingsController, type: :request do
       context "when user is own character" do
         let(:user) { create(:user) }
 
-        let(:character) { create(:character, user: user, scopes: "publicData") }
+        let(:character) { create(:character, user: user) }
+
+        let!(:character_scope) { create(:character_scope, character: character, scope: "publicData") }
 
         before { sign_in(user) }
 
