@@ -33,7 +33,14 @@
           <div class="accordion-body">
             <p>You need to login via ESI (Eve Online API) with scope <code>esi-wallet.read_character_wallet.v1</code>.</p>
 
-            <strong>This is the first item’s accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It’s also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+            <%= form_tag("/auth/eve_online_sso", data: {turbo: false}) do %>
+              <%= hidden_field_tag :scope, "esi-wallet.read_character_wallet.v1" %>
+              <%= button_tag do %>
+                <% image_uri = "https://web.ccpgamescdn.com/eveonlineassets/developers/eve-sso-login-black-large.png" %>
+                <% image_uri = "#{Setting.image_proxy_url}#{image_uri}" if Setting.use_image_proxy %>
+                <%= image_tag(image_uri, alt: "Sign in via EVE Online") %>
+              <% end %>
+            <% end %>
           </div>
         </div>
       </div>
