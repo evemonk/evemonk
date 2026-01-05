@@ -227,6 +227,19 @@ RSpec.describe EveOnlineCallbackService do
     end
   end
 
+  describe "#character_scope" do
+    context "when @character_scope is set" do
+      let(:character_scope) { instance_double(CharacterScope) }
+
+      before { subject.instance_variable_set(:@character_scope, character_scope) }
+
+      specify { expect(subject.send(:character_scope)).to eq(character_scope) }
+    end
+
+    context "when @character_scope not set" do
+    end
+  end
+
   # describe "#assign_character_attributes" do
   #   let(:character) { instance_double(Character) }
   #
