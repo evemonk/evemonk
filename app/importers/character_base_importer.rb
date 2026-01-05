@@ -1,35 +1,35 @@
 # frozen_string_literal: true
 
 class CharacterBaseImporter
-  attr_reader :character_id
+  attr_reader :id
 
-  def initialize(character_id)
-    @character_id = character_id
+  def initialize(id)
+    @id = id
   end
 
   def import
-    return unless character_scope_present?
+    # return unless character_scope_present?
 
     refresh_character_access_token
 
     configure_middlewares
 
-    configure_esi_token
+    # configure_esi_token
 
     ActiveRecord::Base.transaction do
       import!
     end
   rescue EveOnline::Exceptions::ResourceNotFound
-    Rails.logger.info("WARNING: ESI response with 404 (NOT FOUND) for Character with ID #{character_id}")
+    Rails.logger.info("WARNING: ESI response with 404 (NOT FOUND) for Character with ID #{id}")
   rescue ActiveRecord::RecordNotFound
-    Rails.logger.info("Character with ID #{character_id} not found")
+    Rails.logger.info("Character with ID #{id} not found")
   end
 
-  def character
-    @character ||= Character.lock.find_by!(character_id: character_id)
+  def resource
+    @resource ||= Character.lock.find_by!(character_id: id)
   end
 
-  def esi
+  def client
     raise NotImplementedError
   end
 
@@ -38,32 +38,32 @@ class CharacterBaseImporter
   end
 
   def refresh_character_access_token
-    return unless character_scope_present?
+    # return unless character_scope_present?
 
     Api::RefreshCharacterAccessToken.new(character).refresh
   end
 
-  def character_scope_present?
-    if esi.scope.present?
-      character.scopes.include?(esi.scope)
-    else
-      true
-    end
-  end
+  # def character_scope_present?
+  #   if esi.scope.present?
+  #     character.scopes.include?(esi.scope)
+  #   else
+  #     true
+  #   end
+  # end
 
   private
 
   def configure_middlewares
-    esi.add_middleware(statistics_middleware)
+    client.add_middleware(statistics_middleware)
 
-    esi.add_middleware(cool_down_middleware)
+    client.add_middleware(cool_down_middleware)
   end
 
-  def configure_esi_token
-    return if esi.scope.blank?
-
-    esi.token = character.access_token
-  end
+  # def configure_esi_token
+  #   return if esi.scope.blank?
+  #
+  #   esi.token = character.access_token
+  # end
 
   def statistics_middleware
     {
