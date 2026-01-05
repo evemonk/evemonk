@@ -44,5 +44,8 @@ namespace :evemonk do
 
     # Disable internal certificates tab for character
     Flipper.disable :internal_certificates_tab
+
+    # Disable internal training queue tab for character
+    Flipper.disable :internal_training_queue_tab
   end
 end
