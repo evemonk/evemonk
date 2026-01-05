@@ -58,97 +58,97 @@ RSpec.describe EveOnlineCallbackService do
     specify { expect { subject.name }.not_to raise_error }
   end
 
-  # # private methods
-  #
-  # describe "#character_id" do
-  #   before do
-  #     #
-  #     # request.env.dig("omniauth.auth", "info", "character_id")
-  #     #
-  #     expect(request).to receive(:env) do
-  #       double.tap do |a|
-  #         expect(a).to receive(:dig).with("omniauth.auth", "info", "character_id")
-  #       end
-  #     end
-  #   end
-  #
-  #   specify { expect { subject.send(:character_id) }.not_to raise_error }
-  # end
-  #
-  # describe "#access_token" do
-  #   before do
-  #     #
-  #     # request.env.dig("omniauth.auth", "credentials", "token")
-  #     #
-  #     expect(request).to receive(:env) do
-  #       double.tap do |a|
-  #         expect(a).to receive(:dig).with("omniauth.auth", "credentials", "token")
-  #       end
-  #     end
-  #   end
-  #
-  #   specify { expect { subject.send(:access_token) }.not_to raise_error }
-  # end
-  #
-  # describe "#refresh_token" do
-  #   before do
-  #     #
-  #     # request.env.dig("omniauth.auth", "credentials", "refresh_token")
-  #     #
-  #     expect(request).to receive(:env) do
-  #       double.tap do |a|
-  #         expect(a).to receive(:dig).with("omniauth.auth", "credentials", "refresh_token")
-  #       end
-  #     end
-  #   end
-  #
-  #   specify { expect { subject.send(:refresh_token) }.not_to raise_error }
-  # end
-  #
-  # describe "#token_expires_at" do
-  #   let(:expires_at) { double }
-  #
-  #   before do
-  #     #
-  #     # request.env.dig("omniauth.auth", "credentials", "expires_at")
-  #     #
-  #     expect(request).to receive(:env) do
-  #       double.tap do |a|
-  #         expect(a).to receive(:dig).with("omniauth.auth", "credentials", "expires_at")
-  #           .and_return(expires_at)
-  #       end
-  #     end
-  #   end
-  #
-  #   before do
-  #     #
-  #     # Time.zone.at(expires_at)
-  #     #
-  #     expect(Time).to receive(:zone) do
-  #       double.tap do |a|
-  #         expect(a).to receive(:at).with(expires_at)
-  #       end
-  #     end
-  #   end
-  #
-  #   specify { expect { subject.send(:token_expires_at) }.not_to raise_error }
-  # end
-  #
-  # describe "#token_expires" do
-  #   before do
-  #     #
-  #     # request.env.dig("omniauth.auth", "credentials", "expires")
-  #     #
-  #     expect(request).to receive(:env) do
-  #       double.tap do |a|
-  #         expect(a).to receive(:dig).with("omniauth.auth", "credentials", "expires")
-  #       end
-  #     end
-  #   end
-  #
-  #   specify { expect { subject.send(:token_expires) }.not_to raise_error }
-  # end
-  #
+  # private methods
+
+  describe "#character_id" do
+    before do
+      #
+      # request.env.dig("omniauth.auth", "info", "character_id")
+      #
+      expect(request).to receive(:env) do
+        double.tap do |a|
+          expect(a).to receive(:dig).with("omniauth.auth", "info", "character_id")
+        end
+      end
+    end
+
+    specify { expect { subject.send(:character_id) }.not_to raise_error }
+  end
+
+  describe "#access_token" do
+    before do
+      #
+      # request.env.dig("omniauth.auth", "credentials", "token")
+      #
+      expect(request).to receive(:env) do
+        double.tap do |a|
+          expect(a).to receive(:dig).with("omniauth.auth", "credentials", "token")
+        end
+      end
+    end
+
+    specify { expect { subject.send(:access_token) }.not_to raise_error }
+  end
+
+  describe "#refresh_token" do
+    before do
+      #
+      # request.env.dig("omniauth.auth", "credentials", "refresh_token")
+      #
+      expect(request).to receive(:env) do
+        double.tap do |a|
+          expect(a).to receive(:dig).with("omniauth.auth", "credentials", "refresh_token")
+        end
+      end
+    end
+
+    specify { expect { subject.send(:refresh_token) }.not_to raise_error }
+  end
+
+  describe "#token_expires_at" do
+    let(:expires_at) { double }
+
+    before do
+      #
+      # request.env.dig("omniauth.auth", "credentials", "expires_at")
+      #
+      expect(request).to receive(:env) do
+        double.tap do |a|
+          expect(a).to receive(:dig).with("omniauth.auth", "credentials", "expires_at")
+            .and_return(expires_at)
+        end
+      end
+    end
+
+    before do
+      #
+      # Time.zone.at(expires_at)
+      #
+      expect(Time).to receive(:zone) do
+        double.tap do |a|
+          expect(a).to receive(:at).with(expires_at)
+        end
+      end
+    end
+
+    specify { expect { subject.send(:token_expires_at) }.not_to raise_error }
+  end
+
+  describe "#token_expires" do
+    before do
+      #
+      # request.env.dig("omniauth.auth", "credentials", "expires")
+      #
+      expect(request).to receive(:env) do
+        double.tap do |a|
+          expect(a).to receive(:dig).with("omniauth.auth", "credentials", "expires")
+        end
+      end
+    end
+
+    specify { expect { subject.send(:token_expires) }.not_to raise_error }
+  end
+
   # describe "#scopes" do
   #   before do
   #     #
