@@ -98,7 +98,7 @@ class EveOnlineCallbackService
   end
 
   def update_character_info
-    # UpdateCharacterInfoService.new(character_id).execute
+    UpdateCharacterInfoService.new(character_id).execute
   end
 
   def import_corporation_members
