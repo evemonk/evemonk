@@ -19,21 +19,7 @@
   <%= render CharacterCardComponent.new(@character) %>
 
   <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
-    <h4 class="text-center text-break">Settings</h4>
-
-    <p>Old style scopes</p>
-
-    <table class="table table-dark table-bordered table-striped">
-      <tbody>
-        <% @character.scopes.split(" ").each do |scope| %>
-          <tr>
-            <td><%= scope %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-
-    <p>New style scopes</p>
+    <h4 class="text-center text-break">New style scopes</h4>
 
     <table class="table table-dark table-bordered table-striped">
       <thead>
@@ -50,6 +36,20 @@
             <td><%= scope %></td>
             <td><%= (@character.character_scopes.select { |cs| cs.scope == scope }.size == 1) ? "Yes" : "No" %></td>
             <td>&nbsp;</td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+    <h4 class="text-center text-break">Old style scopes</h4>
+
+    <table class="table table-dark table-bordered table-striped">
+      <tbody>
+        <% @character.scopes.split(" ").each do |scope| %>
+          <tr>
+            <td><%= scope %></td>
           </tr>
         <% end %>
       </tbody>
