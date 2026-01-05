@@ -7,7 +7,7 @@ All external calls should be wrapper with feature flags.
 This is current list with description:
 
 | name                    | description                        |
-| ----------------------- | ---------------------------------- |
+|-------------------------|------------------------------------|
 | `:pghero`               | Disable pghero jobs                |
 | `:eve_server_status`    | Disable ESI server status calls    |
 | `:eve_races`            | Disable ESI races calls            |
