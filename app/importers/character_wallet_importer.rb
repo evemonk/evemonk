@@ -2,10 +2,18 @@
 
 class CharacterWalletImporter < CharacterBaseImporter
   def import!
-    character.update!(esi.as_json)
+    resource.update!(wallet.as_json)
   end
 
-  def esi
-    @esi ||= EveOnline::ESI::CharacterWallet.new(character_id: character.character_id)
+  def scope
+    "esi-wallet.read_character_wallet.v1"
+  end
+
+  def client
+    @client ||= EveOnline::ESI::Client.new(cache: true, cache_store: Rails.cache)
+  end
+
+  def wallet
+    @wallet ||= client.wallet.character(id: id)
   end
 end

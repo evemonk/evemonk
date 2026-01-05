@@ -18,6 +18,7 @@ This is current list with description:
 | `:eve_character_assets`        | Disable ESI character assets calls  |
 | `:eve_character_online`        | Disable ESI character online calls  |
 | `:eve_character_ship`          | Disable ESI character ship calls    |
+| `:eve_character_wallet`        | Disable ESI character wallet calls  |
 | `:eve_corporation`             | Disable ESI corporation calls       |
 | `:eve_alliance`                | Disable ESI alliance calls          |
 | `:eve_alliances`               | Disable ESI alliances calls         |

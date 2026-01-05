@@ -2,11 +2,17 @@
 
 class CharacterImporter < CharacterBaseImporter
   def import!
-    # FIXME: character security status always updates
-    character.update!(esi.as_json)
+    resource.update!(character.as_json)
   end
 
-  def esi
-    @esi ||= EveOnline::ESI::Character.new(character_id: character.character_id)
+  def scope
+  end
+
+  def client
+    @client ||= EveOnline::ESI::Client.new(cache: true, cache_store: Rails.cache)
+  end
+
+  def character
+    @character ||= client.characters.retrieve(id: id)
   end
 end
