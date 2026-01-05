@@ -45,7 +45,9 @@ gem "meta-tags"
 gem "eve_online",
   git: "https://github.com/evemonk/eve_online.git",
   branch: "main"
-gem "omniauth-eve_online-sso"
+gem "omniauth-eve_online-sso",
+  git: "https://github.com/evemonk/omniauth-eve_online-sso.git",
+  branch: "main"
 gem "omniauth-rails_csrf_protection"
 gem "jwt"
 gem "ancestry"
@@ -78,9 +80,15 @@ gem "ed25519", require: false
 gem "bcrypt_pbkdf", require: false
 gem "maintenance_tasks"
 # Til next release https://github.com/flippercloud/flipper/issues/962
-gem "flipper", git: "https://github.com/flippercloud/flipper.git", branch: "main"
-gem "flipper-active_record", git: "https://github.com/flippercloud/flipper.git", branch: "main"
-gem "flipper-ui", git: "https://github.com/flippercloud/flipper.git", branch: "main"
+gem "flipper",
+  git: "https://github.com/flippercloud/flipper.git",
+  branch: "main"
+gem "flipper-active_record",
+  git: "https://github.com/flippercloud/flipper.git",
+  branch: "main"
+gem "flipper-ui",
+  git: "https://github.com/flippercloud/flipper.git",
+  branch: "main"
 gem "rails_pulse"
 
 gem "airbrake", "~> 13.0"
