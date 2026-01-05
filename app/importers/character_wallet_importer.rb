@@ -8,7 +8,7 @@ class CharacterWalletImporter < CharacterBaseImporter
   private
 
   def configure_esi_token
-    @token = character_scope&.access_token
+    @token ||= character_scope&.access_token
   end
 
   def character_scope
