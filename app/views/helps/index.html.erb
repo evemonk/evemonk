@@ -21,16 +21,18 @@
   <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
     <h4 class="text-center text-break">Help</h4>
 
-    <div class="accordion" id="accordionHelp">
+    <div class="accordion" id="accordion_help">
       <div class="accordion-item">
         <h2 class="accordion-header">
-          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-            Accordion Item #1
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#help_1" aria-expanded="true" aria-controls="help_1">
+            Why I don't see my wallet status?
           </button>
         </h2>
 
-        <div class="accordion-collapse collapse show" data-bs-parent="#accordionHelp">
+        <div id="help_1" class="accordion-collapse collapse show" data-bs-parent="#accordion_help">
           <div class="accordion-body">
+            <p>You need to login via ESI (Eve Online API) with scope <code>esi-wallet.read_character_wallet.v1</code>.</p>
+
             <strong>This is the first item’s accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It’s also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
           </div>
         </div>
