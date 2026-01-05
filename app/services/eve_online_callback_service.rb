@@ -12,9 +12,13 @@ class EveOnlineCallbackService
     ActiveRecord::Base.transaction do
       assign_character_attributes
 
+      assign_character_scope_attributes
+
       remove_old_characters
 
       character.save!
+
+      character_scope.save!
     end
 
     update_character_info
@@ -66,6 +70,10 @@ class EveOnlineCallbackService
     @character ||= user.characters.find_or_initialize_by(character_owner_hash: character_owner_hash)
   end
 
+  def character_scope
+    @character_scope ||= character.character_scopes.find_or_initialize_by(scope: scope)
+  end
+
   def assign_character_attributes
     character.assign_attributes(name: name, character_id: character_id)
 
@@ -83,8 +91,6 @@ class EveOnlineCallbackService
   end
 
   def assign_character_scope_attributes
-    character_scope = character.character_scopes.find_or_initialize_by(scope: scope)
-
     character_scope.assign_attributes(
       access_token: access_token,
       refresh_token: refresh_token,
