@@ -164,69 +164,69 @@ RSpec.describe EveOnlineCallbackService do
     specify { expect { subject.send(:scope) }.not_to raise_error }
   end
 
-  # describe "#token_type" do
-  #   before do
-  #     #
-  #     # request.env.dig("omniauth.auth", "info", "token_type")
-  #     #
-  #     expect(request).to receive(:env) do
-  #       double.tap do |a|
-  #         expect(a).to receive(:dig).with("omniauth.auth", "info", "token_type")
-  #       end
-  #     end
-  #   end
-  #
-  #   specify { expect { subject.send(:token_type) }.not_to raise_error }
-  # end
-  #
-  # describe "#character_owner_hash" do
-  #   before do
-  #     #
-  #     # request.env.dig("omniauth.auth", "info", "character_owner_hash")
-  #     #
-  #     expect(request).to receive(:env) do
-  #       double.tap do |a|
-  #         expect(a).to receive(:dig).with("omniauth.auth", "info", "character_owner_hash")
-  #       end
-  #     end
-  #   end
-  #
-  #   specify { expect { subject.send(:character_owner_hash) }.not_to raise_error }
-  # end
-  #
-  # describe "#character" do
-  #   context "when @character is set" do
-  #     let(:character) { instance_double(Character) }
-  #
-  #     before { subject.instance_variable_set(:@character, character) }
-  #
-  #     specify { expect(subject.send(:character)).to eq(character) }
-  #   end
-  #
-  #   context "when @character not set" do
-  #     let(:character) { instance_double(Character) }
-  #
-  #     let(:character_owner_hash) { double }
-  #
-  #     before { expect(subject).to receive(:character_owner_hash).and_return(character_owner_hash) }
-  #
-  #     before do
-  #       #
-  #       # user.characters.find_or_initialize_by(character_owner_hash: character_owner_hash) # => character
-  #       #
-  #       expect(user).to receive(:characters) do
-  #         double.tap do |a|
-  #           expect(a).to receive(:find_or_initialize_by).with(character_owner_hash: character_owner_hash).and_return(character)
-  #         end
-  #       end
-  #     end
-  #
-  #     specify { expect(subject.send(:character)).to eq(character) }
-  #
-  #     specify { expect { subject.send(:character) }.to change { subject.instance_variable_get(:@character) }.from(nil).to(character) }
-  #   end
-  # end
-  #
+  describe "#token_type" do
+    before do
+      #
+      # request.env.dig("omniauth.auth", "info", "token_type")
+      #
+      expect(request).to receive(:env) do
+        double.tap do |a|
+          expect(a).to receive(:dig).with("omniauth.auth", "info", "token_type")
+        end
+      end
+    end
+
+    specify { expect { subject.send(:token_type) }.not_to raise_error }
+  end
+
+  describe "#character_owner_hash" do
+    before do
+      #
+      # request.env.dig("omniauth.auth", "info", "character_owner_hash")
+      #
+      expect(request).to receive(:env) do
+        double.tap do |a|
+          expect(a).to receive(:dig).with("omniauth.auth", "info", "character_owner_hash")
+        end
+      end
+    end
+
+    specify { expect { subject.send(:character_owner_hash) }.not_to raise_error }
+  end
+
+  describe "#character" do
+    context "when @character is set" do
+      let(:character) { instance_double(Character) }
+
+      before { subject.instance_variable_set(:@character, character) }
+
+      specify { expect(subject.send(:character)).to eq(character) }
+    end
+
+    context "when @character not set" do
+      let(:character) { instance_double(Character) }
+
+      let(:character_owner_hash) { double }
+
+      before { expect(subject).to receive(:character_owner_hash).and_return(character_owner_hash) }
+
+      before do
+        #
+        # user.characters.find_or_initialize_by(character_owner_hash: character_owner_hash) # => character
+        #
+        expect(user).to receive(:characters) do
+          double.tap do |a|
+            expect(a).to receive(:find_or_initialize_by).with(character_owner_hash: character_owner_hash).and_return(character)
+          end
+        end
+      end
+
+      specify { expect(subject.send(:character)).to eq(character) }
+
+      specify { expect { subject.send(:character) }.to change { subject.instance_variable_get(:@character) }.from(nil).to(character) }
+    end
+  end
+
   # describe "#assign_character_attributes" do
   #   let(:character) { instance_double(Character) }
   #
