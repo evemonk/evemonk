@@ -47,5 +47,8 @@ namespace :evemonk do
 
     # Disable internal training queue tab for character
     Flipper.disable :internal_training_queue_tab
+
+    # Disable internal help tab for character
+    Flipper.disable :internal_help_tab
   end
 end

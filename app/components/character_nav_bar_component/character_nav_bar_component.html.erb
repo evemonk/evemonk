@@ -154,4 +154,12 @@
       <%= link_to("Settings", character_settings_path(@character), class: "nav-link") %>
     <% end %>
   </li>
+
+  <% if Flipper.enabled?(:internal_help_tab) %>
+    <% if @current_page == "help" %>
+      <%= link_to("Help", character_helps_path(@character), class: "nav-link active") %>
+    <% else %>
+      <%= link_to("Help", character_helps_path(@character), class: "nav-link") %>
+    <% end %>
+  <% end %>
 </ul>

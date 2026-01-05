@@ -23,6 +23,7 @@ This is current list with description:
 | `:eve_alliances`               | Disable ESI alliances calls         |
 | `:internal_certificates_tab`   | Disable internal certificates tab   |
 | `:internal_training_queue_tab` | Disable internal training queue tab |
+| `:internal_help_tab`           | Disable internal help tab           |
 
 ## Enable/Disable feature flag
 

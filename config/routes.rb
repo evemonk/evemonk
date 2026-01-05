@@ -87,6 +87,8 @@ Rails.application.routes.draw do
     resources :certificates, only: :index
 
     resources :settings, only: :index
+
+    resources :helps, only: :index
   end
 
   resource :profile, only: :show
