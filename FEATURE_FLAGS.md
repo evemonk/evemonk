@@ -32,3 +32,7 @@ Flipper.disable(:pghero)
 ## New feature flags
 
 All new feature flags should be added in disabled state.
+
+## UI
+
+UI mounted at `/flipper`. Require `admin` flag on user.
