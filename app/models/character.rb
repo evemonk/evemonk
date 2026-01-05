@@ -114,10 +114,6 @@ class Character < ApplicationRecord
     @character_skills_levels ||= CharacterSkillsLevels.new(self)
   end
 
-  # def token_expired?
-  #   token_expires_at <= Time.zone.now
-  # end
-
   # TODO: write
   # def alpha?
   #   true
