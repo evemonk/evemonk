@@ -64,8 +64,6 @@ class Character < ApplicationRecord
 
   has_many :manufacturing_jobs, dependent: :destroy
 
-  # scope :with_valid_tokens, -> { where(esi_token_valid: true) }
-
   delegate :perception_without_bonuses, :perception_bonus,
     :memory_without_bonuses, :memory_bonus,
     :willpower_without_bonuses, :willpower_bonus,
