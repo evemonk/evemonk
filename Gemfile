@@ -77,9 +77,10 @@ gem "sshkit", require: false
 gem "ed25519", require: false
 gem "bcrypt_pbkdf", require: false
 gem "maintenance_tasks"
-gem "flipper"
-gem "flipper-active_record"
-gem "flipper-ui"
+# Til next release https://github.com/flippercloud/flipper/issues/962
+gem "flipper", git: "https://github.com/flippercloud/flipper.git", branch: "main"
+gem "flipper-active_record", git: "https://github.com/flippercloud/flipper.git", branch: "main"
+gem "flipper-ui", git: "https://github.com/flippercloud/flipper.git", branch: "main"
 gem "rails_pulse"
 
 gem "airbrake", "~> 13.0"
