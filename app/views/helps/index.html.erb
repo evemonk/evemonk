@@ -1,1 +1,14 @@
-Aloha
+<div class="row">
+  <div class="col">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><%= link_to("Home", root_path) %></li>
+        <li class="breadcrumb-item"><%= link_to("My characters", characters_path) %></li>
+        <li class="breadcrumb-item"><%= link_to(@character.name, character_path(@character)) %></li>
+        <li class="breadcrumb-item active" aria-current="page">Help</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+<%= render CharacterNavBarComponent.new(@character, "help") %>
