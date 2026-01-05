@@ -7,6 +7,11 @@ class CharacterShipImporter < CharacterBaseImporter
       current_ship_type_id: esi.ship_type_id)
   end
 
+  def scope
+    "esi-location.read_ship_type.v1"
+  end
+
+
   def esi
     @esi ||= EveOnline::ESI::CharacterShip.new(character_id: character.character_id)
   end

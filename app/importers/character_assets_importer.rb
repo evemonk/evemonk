@@ -19,6 +19,10 @@ class CharacterAssetsImporter < CharacterBaseImporter
     import_other_pages
   end
 
+  def scope
+    "esi-assets.read_assets.v1"
+  end
+
   def esi
     @esi ||= EveOnline::ESI::CharacterAssets.new(character_id: character.character_id,
       page: page)

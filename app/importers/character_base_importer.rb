@@ -37,6 +37,10 @@ class CharacterBaseImporter
     raise NotImplementedError
   end
 
+  def scope
+    raise NotImplementedError
+  end
+
   def refresh_character_access_token
     # return unless character_scope_present?
 
