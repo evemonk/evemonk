@@ -35,7 +35,7 @@
           <tr>
             <td><%= scope %></td>
             <td><%= (@character.character_scopes.select { |cs| cs.scope == scope }.size == 1) ? "Yes" : "No" %></td>
-            <td>&nbsp;</td>
+            <td><%= (@character.character_scopes.find { |cs| cs.scope == scope }&.esi_token_valid?) ? "Yes" : "No" %></td>
           </tr>
         <% end %>
       </tbody>
