@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_01_05_115322) do
+ActiveRecord::Schema[8.1].define(version: 2026_01_05_165306) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_buffercache"
   enable_extension "pg_catalog.plpgsql"
@@ -170,7 +170,6 @@ ActiveRecord::Schema[8.1].define(version: 2026_01_05_115322) do
   end
 
   create_table "characters", force: :cascade do |t|
-    t.string "access_token"
     t.datetime "accrued_remap_cooldown_date", precision: nil
     t.bigint "alliance_id"
     t.datetime "birthday", precision: nil
@@ -188,9 +187,6 @@ ActiveRecord::Schema[8.1].define(version: 2026_01_05_115322) do
     t.bigint "current_station_id"
     t.bigint "current_structure_id"
     t.text "description"
-    t.text "esi_last_error"
-    t.datetime "esi_token_invalid_at", precision: nil
-    t.boolean "esi_token_valid", default: true
     t.bigint "faction_id"
     t.string "gender"
     t.integer "intelligence"
@@ -202,13 +198,8 @@ ActiveRecord::Schema[8.1].define(version: 2026_01_05_115322) do
     t.boolean "online"
     t.integer "perception"
     t.bigint "race_id"
-    t.string "refresh_token"
-    t.text "scopes"
     t.decimal "security_status", precision: 18, scale: 16
     t.string "title"
-    t.boolean "token_expires"
-    t.datetime "token_expires_at", precision: nil
-    t.string "token_type"
     t.bigint "total_sp"
     t.integer "total_unread_count", default: 0
     t.bigint "unallocated_sp"
