@@ -64,7 +64,7 @@ class Character < ApplicationRecord
 
   has_many :manufacturing_jobs, dependent: :destroy
 
-  scope :with_valid_tokens, -> { where(esi_token_valid: true) }
+  # scope :with_valid_tokens, -> { where(esi_token_valid: true) }
 
   delegate :perception_without_bonuses, :perception_bonus,
     :memory_without_bonuses, :memory_bonus,
@@ -114,9 +114,9 @@ class Character < ApplicationRecord
     @character_skills_levels ||= CharacterSkillsLevels.new(self)
   end
 
-  def token_expired?
-    token_expires_at <= Time.zone.now
-  end
+  # def token_expired?
+  #   token_expires_at <= Time.zone.now
+  # end
 
   # TODO: write
   # def alpha?

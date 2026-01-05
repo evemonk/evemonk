@@ -59,13 +59,13 @@ RSpec.describe Character, type: :model do
 
   it { expect(subject).to have_many(:manufacturing_jobs).dependent(:destroy) }
 
-  describe ".with_valid_tokens" do
-    let!(:character_1) { create(:character, esi_token_valid: true) }
-
-    let!(:character_2) { create(:character, esi_token_valid: false) }
-
-    specify { expect(described_class.with_valid_tokens).to eq([character_1]) }
-  end
+  # describe ".with_valid_tokens" do
+  #   let!(:character_1) { create(:character, esi_token_valid: true) }
+  #
+  #   let!(:character_2) { create(:character, esi_token_valid: false) }
+  #
+  #   specify { expect(described_class.with_valid_tokens).to eq([character_1]) }
+  # end
 
   it { expect(subject).to delegate_method(:perception_without_bonuses).to(:character_attributes) }
 
@@ -270,19 +270,19 @@ RSpec.describe Character, type: :model do
     end
   end
 
-  describe "#token_expired?" do
-    context "when expired" do
-      subject { build(:character, token_expires_at: 1.hour.ago) }
-
-      specify { expect(subject.token_expired?).to eq(true) }
-    end
-
-    context "when not expired" do
-      subject { build(:character, token_expires_at: 1.hour.from_now) }
-
-      specify { expect(subject.token_expired?).to eq(false) }
-    end
-  end
+  # describe "#token_expired?" do
+  #   context "when expired" do
+  #     subject { build(:character, token_expires_at: 1.hour.ago) }
+  #
+  #     specify { expect(subject.token_expired?).to eq(true) }
+  #   end
+  #
+  #   context "when not expired" do
+  #     subject { build(:character, token_expires_at: 1.hour.from_now) }
+  #
+  #     specify { expect(subject.token_expired?).to eq(false) }
+  #   end
+  # end
 
   describe "#icon_tiny" do
     before { expect(subject).to receive(:character_portrait_url).with(32) }
