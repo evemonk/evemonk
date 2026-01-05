@@ -50,7 +50,7 @@ class EveOnlineCallbackService
     request.env.dig("omniauth.auth", "credentials", "expires")
   end
 
-  def scopes
+  def scope
     request.env.dig("omniauth.auth", "info", "scopes")
   end
 
@@ -83,9 +83,9 @@ class EveOnlineCallbackService
   end
 
   def assign_character_scope_attributes
-    scope = character.character_scopes.find_or_initialize_by(scope: scopes)
+    character_scope = character.character_scopes.find_or_initialize_by(scope: scope)
 
-    scope.assign_attributes(
+    character_scope.assign_attributes(
       access_token: access_token,
       refresh_token: refresh_token,
       token_expires_at: token_expires_at,
