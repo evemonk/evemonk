@@ -237,6 +237,31 @@ RSpec.describe EveOnlineCallbackService do
     end
 
     context "when @character_scope not set" do
+      let(:scope) { double }
+
+      before { expect(subject).to receive(:scope).and_return(scope) }
+
+      let(:character) { instance_double(Character) }
+
+      before { expect(subject).to receive(:character).and_return(character) }
+
+      let(:character_scope) { instance_double(CharacterScope) }
+
+      before do
+        #
+        # character.character_scopes.find_or_initialize_by(scope: scope)
+        #
+        expect(character).to receive(:character_scopes) do
+          double.tap do |a|
+            expect(a).to receive(:find_or_initialize_by).with(scope: scope)
+              .and_return(character_scope)
+          end
+        end
+      end
+
+      specify { expect(subject.send(:character_scope)).to eq(character_scope) }
+
+      specify { expect { subject.send(:character_scope) }.to change { subject.instance_variable_get(:@character_scope) }.from(nil).to(character_scope) }
     end
   end
 
