@@ -5,7 +5,7 @@ class CharacterScope < ApplicationRecord
 
   validates :scope, presence: true
 
-  scope :with_valid_tokens, -> { all }
+  # scope :with_valid_tokens, -> { all }
 
   # describe ".with_valid_tokens" do
   #   let!(:character_1) { create(:character, esi_token_valid: true) }
