@@ -6,45 +6,17 @@ RSpec.describe Eve::AlliancesImporter do
   it { expect(subject).to be_a(Eve::BaseImporter) }
 
   describe "#import" do
-    before { VCR.insert_cassette "esi/alliances/list" }
+    context "with empty database" do
+      before { VCR.insert_cassette "esi/alliances/list" }
 
-    after { VCR.eject_cassette }
+      after { VCR.eject_cassette }
 
-    before { expect(Eve::UpdateAllianceJob).to receive(:perform_later).exactly(3541).times }
+      before { expect(Eve::UpdateAllianceJob).to receive(:perform_later).exactly(3541).times }
 
-    specify { expect { subject.import }.not_to change(Eve::Alliance, :count) }
+      specify { expect { subject.import }.not_to change(Eve::Alliance, :count) }
+    end
   end
 
-  # describe "#import" do
-  #   before { expect(subject).to receive(:configure_middlewares) }
-  #
-  #   before { expect(subject).to receive(:import_new_alliances) }
-  #
-  #   before { expect(subject).to receive(:remove_old_alliances) }
-  #
-  #   specify { expect { subject.import }.not_to raise_error }
-  # end
-  #
-  # describe "#esi" do
-  #   context "when @esi is set" do
-  #     let(:esi) { instance_double(EveOnline::ESI::Alliances) }
-  #
-  #     before { subject.instance_variable_set(:@esi, esi) }
-  #
-  #     specify { expect(subject.esi).to eq(esi) }
-  #   end
-  #
-  #   context "when @esi not set" do
-  #     let(:esi) { instance_double(EveOnline::ESI::Alliances) }
-  #
-  #     before { expect(EveOnline::ESI::Alliances).to receive(:new).and_return(esi) }
-  #
-  #     specify { expect(subject.esi).to eq(esi) }
-  #
-  #     specify { expect { subject.esi }.to change { subject.instance_variable_get(:@esi) }.from(nil).to(esi) }
-  #   end
-  # end
-  #
   # # private methods
   #
   # describe "#import_new_alliances" do
