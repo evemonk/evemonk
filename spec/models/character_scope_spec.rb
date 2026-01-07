@@ -7,7 +7,7 @@ RSpec.describe CharacterScope, type: :model do
 
   it { expect(subject).to belong_to(:character) }
 
-  it { should validate_presence_of(:scope) }
+  it { is_expected.to validate_presence_of(:scope) }
 
   describe "#token_expired?" do
     context "when expired" do
