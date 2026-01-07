@@ -33,6 +33,9 @@ namespace :evemonk do
     # Disable external calls to ESI character ship
     Flipper.disable :eve_character_ship
 
+    # Disable external calls to ESI character wallet
+    Flipper.disable :eve_character_wallet
+
     # Disable external calls to ESI corporation
     Flipper.disable :eve_corporation
 
