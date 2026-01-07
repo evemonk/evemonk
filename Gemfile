@@ -44,7 +44,7 @@ gem "pg_search"
 gem "meta-tags"
 gem "eve_online",
   git: "https://github.com/evemonk/eve_online.git",
-  branch: "update-3"
+  branch: "main"
 gem "omniauth-eve_online-sso",
   git: "https://github.com/evemonk/omniauth-eve_online-sso.git",
   branch: "main"
