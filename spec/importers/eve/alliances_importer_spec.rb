@@ -17,25 +17,23 @@ RSpec.describe Eve::AlliancesImporter do
     end
 
     context "when database is not empty" do
-      context "when alliance is not exists anymore" do
-        before { VCR.insert_cassette "esi/alliances/list" }
+      before { VCR.insert_cassette "esi/alliances/list" }
 
-        after { VCR.eject_cassette }
+      after { VCR.eject_cassette }
 
-        let!(:alliance) { create(:eve_alliance, id: 123_456) }
+      let!(:alliance) { create(:eve_alliance, id: 123_456) }
 
-        let!(:corporation_1) { create(:eve_corporation, id: 123_444, alliance: alliance) }
+      let!(:corporation_1) { create(:eve_corporation, id: 123_444, alliance: alliance) }
 
-        let!(:corporation_2) { create(:eve_corporation, id: 222_444, alliance: alliance) }
+      let!(:corporation_2) { create(:eve_corporation, id: 222_444, alliance: alliance) }
 
-        before { expect(Eve::UpdateAllianceJob).to receive(:perform_later).exactly(3541).times }
+      before { expect(Eve::UpdateAllianceJob).to receive(:perform_later).exactly(3541).times }
 
-        before { expect(Eve::UpdateCorporationJob).to receive(:perform_later).with(123_444) }
+      before { expect(Eve::UpdateCorporationJob).to receive(:perform_later).with(123_444) }
 
-        before { expect(Eve::UpdateCorporationJob).to receive(:perform_later).with(222_444) }
+      before { expect(Eve::UpdateCorporationJob).to receive(:perform_later).with(222_444) }
 
-        specify { expect { subject.import }.to change(Eve::Alliance, :count).by(-1) }
-      end
+      specify { expect { subject.import }.to change(Eve::Alliance, :count).by(-1) }
     end
   end
 end
