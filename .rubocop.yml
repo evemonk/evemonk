@@ -70,6 +70,9 @@ Layout/FirstHashElementIndentation:
 Naming/FileName:
   Enabled: false
 
+Naming/MemoizedInstanceVariableName:
+  Enabled: false
+
 Style/SymbolArray:
   Enabled: true
   EnforcedStyle: brackets
@@ -323,6 +326,9 @@ Rails/ThreeStateBooleanColumn:
   Enabled: false
 
 Rails/NotNullColumn:
+  Enabled: false
+
+Rails/FindByOrAssignmentMemoization:
   Enabled: false
 
 GraphQL/FieldDefinitions:

@@ -1,0 +1,51 @@
+<div class="row">
+  <div class="col">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><%= link_to("Home", root_path) %></li>
+        <li class="breadcrumb-item"><%= link_to("My characters", characters_path) %></li>
+        <li class="breadcrumb-item"><%= link_to(@character.name, character_path(@character)) %></li>
+        <li class="breadcrumb-item active" aria-current="page">Help</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+<%= render CharacterNavBarComponent.new(@character, "help") %>
+
+<hr class="text-dark">
+
+<div class="row">
+  <%= render CharacterCardComponent.new(@character) %>
+
+  <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+    <h4 class="text-center text-break">Help</h4>
+
+    <div class="accordion" id="help_accordion">
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#help_1" aria-expanded="true" aria-controls="help_1">
+            Why I don't see my wallet status?
+          </button>
+        </h2>
+
+        <div id="help_1" class="accordion-collapse collapse" data-bs-parent="#help_accordion">
+          <div class="accordion-body">
+            <p>You need to log in via ESI (Eve Online API) with scope <code>esi-wallet.read_character_wallet.v1</code>.</p>
+
+            <p>You can log in with this scope below:</p>
+
+            <%= form_tag("/auth/eve_online_sso", data: {turbo: false}) do %>
+              <%= hidden_field_tag :scope, "esi-wallet.read_character_wallet.v1" %>
+              <%= button_tag do %>
+                <% image_uri = "https://web.ccpgamescdn.com/eveonlineassets/developers/eve-sso-login-black-large.png" %>
+                <% image_uri = "#{Setting.image_proxy_url}#{image_uri}" if Setting.use_image_proxy %>
+                <%= image_tag(image_uri, alt: "Sign in via EVE Online") %>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

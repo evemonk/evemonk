@@ -127,21 +127,25 @@
     </li>
   <% end %>
 
-  <li class="nav-item">
-    <% if @current_page == "training_queue" %>
-      <%= link_to("Training Queue", character_training_queues_path(@character), class: "nav-link active") %>
-    <% else %>
-      <%= link_to("Training Queue", character_training_queues_path(@character), class: "nav-link") %>
-    <% end %>
-  </li>
+  <% if Flipper.enabled?(:internal_training_queue_tab) %>
+    <li class="nav-item">
+      <% if @current_page == "training_queue" %>
+        <%= link_to("Training Queue", character_training_queues_path(@character), class: "nav-link active") %>
+      <% else %>
+        <%= link_to("Training Queue", character_training_queues_path(@character), class: "nav-link") %>
+      <% end %>
+    </li>
+  <% end %>
 
-  <li class="nav-item">
-    <% if @current_page == "certificates" %>
-      <%= link_to("Certificates", character_certificates_path(@character), class: "nav-link active") %>
-    <% else %>
-      <%= link_to("Certificates", character_certificates_path(@character), class: "nav-link") %>
-    <% end %>
-  </li>
+  <% if Flipper.enabled?(:internal_certificates_tab) %>
+    <li class="nav-item">
+      <% if @current_page == "certificates" %>
+        <%= link_to("Certificates", character_certificates_path(@character), class: "nav-link active") %>
+      <% else %>
+        <%= link_to("Certificates", character_certificates_path(@character), class: "nav-link") %>
+      <% end %>
+    </li>
+  <% end %>
 
   <li class="nav-item">
     <% if @current_page == "settings" %>
@@ -150,4 +154,12 @@
       <%= link_to("Settings", character_settings_path(@character), class: "nav-link") %>
     <% end %>
   </li>
+
+  <% if Flipper.enabled?(:internal_help_tab) %>
+    <% if @current_page == "help" %>
+      <%= link_to("Help", character_helps_path(@character), class: "nav-link active") %>
+    <% else %>
+      <%= link_to("Help", character_helps_path(@character), class: "nav-link") %>
+    <% end %>
+  <% end %>
 </ul>

@@ -6,7 +6,7 @@ RSpec.describe Eve::FactionsImporter do
   it { expect(subject).to be_a(Eve::BaseImporter) }
 
   describe "#import" do
-    context "with default locale" do
+    context "with default language" do
       before { VCR.insert_cassette "esi/universe/factions" }
 
       after { VCR.eject_cassette }
@@ -42,7 +42,7 @@ RSpec.describe Eve::FactionsImporter do
       end
     end
 
-    context "with de locale" do
+    context "with language" do
       before { VCR.insert_cassette "esi/universe/factions_de" }
 
       after { VCR.eject_cassette }

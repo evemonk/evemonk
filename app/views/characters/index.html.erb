@@ -80,7 +80,7 @@
   <% end %>
 
   <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 text-center m-auto">
-    <%= form_tag("/auth/eve_online_sso", data: {turbo: false}) do |f| %>
+    <%= form_tag("/auth/eve_online_sso", data: {turbo: false}) do %>
       <%= button_tag do %>
         <% image_uri = "https://web.ccpgamescdn.com/eveonlineassets/developers/eve-sso-login-black-large.png" %>
         <% image_uri = "#{Setting.image_proxy_url}#{image_uri}" if Setting.use_image_proxy %>

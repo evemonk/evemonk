@@ -12,7 +12,7 @@ module Eve
       import! do
         eve_alliance = Eve::Alliance.find_or_initialize_by(id: id)
 
-        eve_alliance.update!(esi.as_json)
+        eve_alliance.update!(alliance.as_json)
 
         eve_alliance.reset_corporations_count
 
@@ -24,8 +24,14 @@ module Eve
       end
     end
 
-    def esi
-      @esi ||= EveOnline::ESI::Alliance.new(alliance_id: id)
+    private
+
+    def client
+      @client ||= EveOnline::ESI::Client.new(cache: true, cache_store: Rails.cache)
+    end
+
+    def alliance
+      @alliance ||= client.alliances.retrieve(id: id)
     end
   end
 end

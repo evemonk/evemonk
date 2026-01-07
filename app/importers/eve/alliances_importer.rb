@@ -10,16 +10,20 @@ module Eve
       end
     end
 
-    def esi
-      @esi ||= EveOnline::ESI::Alliances.new
+    private
+
+    def client
+      @client ||= EveOnline::ESI::Client.new(cache: true, cache_store: Rails.cache)
     end
 
-    private
+    def alliances
+      @alliances ||= client.alliances.list
+    end
 
     def import_new_alliances
       eve_alliance_ids = Eve::Alliance.ids
 
-      eve_alliance_ids_to_create = esi.alliance_ids - eve_alliance_ids
+      eve_alliance_ids_to_create = alliances.alliance_ids - eve_alliance_ids
 
       eve_alliance_ids_to_create.each do |alliance_id|
         Eve::UpdateAllianceJob.perform_later(alliance_id)
@@ -29,7 +33,7 @@ module Eve
     def remove_old_alliances
       eve_alliance_ids = Eve::Alliance.ids
 
-      alliance_ids_to_remove = eve_alliance_ids - esi.alliance_ids
+      alliance_ids_to_remove = eve_alliance_ids - alliances.alliance_ids
 
       alliance_ids_to_remove.each do |id|
         eve_alliance = Eve::Alliance.find_or_initialize_by(id: id)

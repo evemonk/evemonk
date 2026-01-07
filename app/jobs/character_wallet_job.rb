@@ -13,7 +13,7 @@ class CharacterWalletJob < ApplicationJob
   discard_on CharacterInvalidToken
 
   def perform(character_id)
-    if Rails.configuration.evemonk.jobs[:character][:wallet_job]
+    if Flipper.enabled?(:eve_character_wallet)
       CharacterWalletImporter.new(character_id).import
     end
   end

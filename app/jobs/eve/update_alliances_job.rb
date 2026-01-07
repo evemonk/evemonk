@@ -12,7 +12,7 @@ module Eve
       Faraday::ConnectionFailed
 
     def perform
-      if Rails.configuration.evemonk.jobs[:eve][:update_alliances]
+      if Flipper.enabled?(:eve_alliances)
         Eve::AlliancesImporter.new.import
       end
     end

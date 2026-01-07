@@ -12,9 +12,13 @@ class EveOnlineCallbackService
     ActiveRecord::Base.transaction do
       assign_character_attributes
 
+      assign_character_scope_attributes
+
       remove_old_characters
 
       character.save!
+
+      character_scope.save!
     end
 
     update_character_info
@@ -50,7 +54,7 @@ class EveOnlineCallbackService
     request.env.dig("omniauth.auth", "credentials", "expires")
   end
 
-  def scopes
+  def scope
     request.env.dig("omniauth.auth", "info", "scopes")
   end
 
@@ -66,18 +70,25 @@ class EveOnlineCallbackService
     @character ||= user.characters.find_or_initialize_by(character_owner_hash: character_owner_hash)
   end
 
+  def character_scope
+    @character_scope ||= character.character_scopes.find_or_initialize_by(scope: scope)
+  end
+
   def assign_character_attributes
-    character.assign_attributes(name: name,
+    character.assign_attributes(name: name, character_id: character_id)
+  end
+
+  def assign_character_scope_attributes
+    character_scope.assign_attributes(
       access_token: access_token,
       refresh_token: refresh_token,
       token_expires_at: token_expires_at,
       token_expires: token_expires,
-      scopes: scopes,
       token_type: token_type,
-      character_id: character_id,
       esi_token_valid: true,
       esi_token_invalid_at: nil,
-      esi_last_error: nil)
+      esi_last_error: nil
+    )
   end
 
   def remove_old_characters
@@ -87,7 +98,7 @@ class EveOnlineCallbackService
   end
 
   def update_character_info
-    # UpdateCharacterInfoService.new(character_id).execute
+    UpdateCharacterInfoService.new(character_id).execute
   end
 
   def import_corporation_members

@@ -54,8 +54,6 @@ FactoryBot.define do
 
     sequence(:faction_id)
 
-    # t.text "scopes"
-
     # t.string "character_owner_hash"
 
     title { "Test title" }
@@ -75,7 +73,5 @@ FactoryBot.define do
     # t.bigint "total_sp"
     #
     # t.bigint "unallocated_sp"
-
-    esi_token_valid { [true, false].sample }
   end
 end

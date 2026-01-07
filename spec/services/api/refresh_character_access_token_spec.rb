@@ -4,14 +4,17 @@ require "rails_helper"
 
 RSpec.describe Api::RefreshCharacterAccessToken do
   context "when token fresh" do
-    let(:character) do
-      create(:character,
+    let(:character) { create(:character, character_id: 1_337_512_245) }
+
+    let!(:character_scope) do
+      create(:character_scope,
+        character: character,
         token_expires_at: 1.day.from_now)
     end
 
-    subject { described_class.new(character) }
+    subject { described_class.new(character_scope) }
 
-    before { expect(character).not_to receive(:update!) }
+    before { expect(character_scope).not_to receive(:update!) }
 
     specify { expect { subject.refresh }.not_to raise_error }
   end
@@ -25,16 +28,18 @@ RSpec.describe Api::RefreshCharacterAccessToken do
 
     before { Rails.application.config.evemonk.eve_online_sso = {} }
 
-    let(:character) do
-      create(:character,
-        character_id: 1_337_512_245,
+    let(:character) { create(:character, character_id: 1_337_512_245) }
+
+    let(:character_scope) do
+      create(:character_scope,
+        character: character,
         refresh_token: "fresh-token-1232132132132131231312312312312312321321321321312312",
         token_expires_at: Time.zone.now)
     end
 
-    subject { described_class.new(character) }
+    subject { described_class.new(character_scope) }
 
-    before { expect(character).to receive(:update!) }
+    before { expect(character_scope).to receive(:update!) }
 
     specify { expect { subject.refresh }.not_to raise_error }
   end
@@ -50,29 +55,33 @@ RSpec.describe Api::RefreshCharacterAccessToken do
 
     after { VCR.eject_cassette }
 
-    let(:character) do
-      create(:character,
-        character_id: 1_337_512_245,
+    let(:character) { create(:character, character_id: 1_337_512_245) }
+
+    let(:character_scope) do
+      create(:character_scope,
+        character: character,
         refresh_token: "fresh-token-1232132132132131231312312312312312321321321321312312",
         token_expires_at: Time.zone.now)
     end
 
-    subject { described_class.new(character) }
+    subject { described_class.new(character_scope) }
 
     before do
       #
-      # character.update!(esi_token_valid: false,
-      #                   esi_token_invalid_at: Time.zone.now,
-      #                   esi_last_error: e.description)
+      # character_scope.update!(esi_token_valid: false,
+      #                         esi_token_invalid_at: Time.zone.now,
+      #                         esi_last_error: e.description)
       #
-      expect(character).to receive(:update!).with(esi_token_valid: false,
+      expect(character_scope).to receive(:update!).with(
+        esi_token_valid: false,
         esi_token_invalid_at: Time.zone.now,
-        esi_last_error: "Invalid refresh token. Unable to migrate grant.")
+        esi_last_error: "Invalid refresh token. Unable to migrate grant."
+      )
     end
 
     before do
       #
-      # Rails.logger.info("OAuth2::Error: Character ID: #{character.character_id} / code: #{e.code} / description: #{e.description}")
+      # Rails.logger.info("OAuth2::Error: Character ID: #{character_scope.character.character_id} / code: #{e.code} / description: #{e.description}")
       #
       expect(Rails).to receive(:logger) do
         double.tap do |a|
