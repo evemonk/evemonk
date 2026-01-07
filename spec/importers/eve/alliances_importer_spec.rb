@@ -6,7 +6,7 @@ RSpec.describe Eve::AlliancesImporter do
   it { expect(subject).to be_a(Eve::BaseImporter) }
 
   describe "#import" do
-    context "with empty database" do
+    context "when database is empty" do
       before { VCR.insert_cassette "esi/alliances/list" }
 
       after { VCR.eject_cassette }
@@ -14,6 +14,20 @@ RSpec.describe Eve::AlliancesImporter do
       before { expect(Eve::UpdateAllianceJob).to receive(:perform_later).exactly(3541).times }
 
       specify { expect { subject.import }.not_to change(Eve::Alliance, :count) }
+    end
+
+    context "when database is not empty" do
+      context "when alliance is not exists anymore" do
+        let!(:alliance) { create(:eve_alliance, id: 123_456) }
+
+        before { VCR.insert_cassette "esi/alliances/list" }
+
+        after { VCR.eject_cassette }
+
+        before { expect(Eve::UpdateAllianceJob).to receive(:perform_later).at_least(1).time }
+
+        specify { expect { subject.import }.to change(Eve::Alliance, :count).by(-1) }
+      end
     end
   end
 
