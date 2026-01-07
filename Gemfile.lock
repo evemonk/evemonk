@@ -402,8 +402,8 @@ GEM
       zeitwerk (>= 2.6.2)
     marcel (1.1.0)
     matrix (0.4.3)
-    meta-tags (2.22.2)
-      actionpack (>= 6.0.0, < 8.2)
+    meta-tags (2.22.3)
+      actionpack (>= 6.0.0)
     method_source (1.1.0)
     mini_mime (1.1.5)
     mini_portile2 (2.8.9)
@@ -1153,7 +1153,7 @@ CHECKSUMS
   maintenance_tasks (2.13.0) sha256=8b58a579e7e26e000c86bc00a35da99678a33430339cc8492e0f2fa322df1a7f
   marcel (1.1.0) sha256=fdcfcfa33cc52e93c4308d40e4090a5d4ea279e160a7f6af988260fa970e0bee
   matrix (0.4.3) sha256=a0d5ab7ddcc1973ff690ab361b67f359acbb16958d1dc072b8b956a286564c5b
-  meta-tags (2.22.2) sha256=7fe78af4a92be12091f473cb84a21f6bddbd37f24c4413172df76cd14fff9e83
+  meta-tags (2.22.3) sha256=41ead5437140869717cbdd659cc6f1caa3e498b3e74b03ed63503b5b38ed504f
   method_source (1.1.0) sha256=181301c9c45b731b4769bc81e8860e72f9161ad7d66dd99103c9ab84f560f5c5
   mini_mime (1.1.5) sha256=8681b7e2e4215f2a159f9400b5816d85e9d8c6c6b491e96a12797e798f8bccef
   mini_portile2 (2.8.9) sha256=0cd7c7f824e010c072e33f68bc02d85a00aeb6fce05bb4819c03dfd3c140c289
