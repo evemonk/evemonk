@@ -7,6 +7,8 @@ RSpec.describe CharacterScope, type: :model do
 
   it { expect(subject).to belong_to(:character) }
 
+  # validates :scope, presence: true
+
   describe "#token_expired?" do
     context "when expired" do
       subject { build(:character_scope, token_expires_at: 1.hour.ago) }
