@@ -72,7 +72,21 @@ RSpec.describe CharacterNavBarComponent, type: :component do
   end
 
   describe "Training Queue" do
-    specify { expect(page).to have_link("Training Queue", href: Rails.application.routes.url_helpers.character_training_queues_path(character)) }
+    it "is expected to have training queue link" do
+      Flipper.enable(:internal_training_queue_tab)
+
+      render_inline(subject)
+
+      expect(page).to have_link("Training Queue", href: Rails.application.routes.url_helpers.character_training_queues_path(character))
+    end
+
+    it "is expected not to have training queue link" do
+      Flipper.disable(:internal_training_queue_tab)
+
+      render_inline(subject)
+
+      expect(page).to have_no_link("Training Queue", href: Rails.application.routes.url_helpers.character_training_queues_path(character))
+    end
   end
 
   describe "Certificates" do
