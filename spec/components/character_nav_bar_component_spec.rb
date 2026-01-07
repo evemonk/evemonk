@@ -71,9 +71,45 @@ RSpec.describe CharacterNavBarComponent, type: :component do
     expect(page).to have_link("Orders", href: Rails.application.routes.url_helpers.character_orders_path(character))
   end
 
-  specify { expect(page).to have_link("Training Queue", href: Rails.application.routes.url_helpers.character_training_queues_path(character)) }
+  describe "Training Queue" do
+    specify { expect(page).to have_link("Training Queue", href: Rails.application.routes.url_helpers.character_training_queues_path(character)) }
+  end
 
-  specify { expect(page).to have_link("Certificates", href: Rails.application.routes.url_helpers.character_certificates_path(character)) }
+  describe "Certificates" do
+    it "is expected to have certificates link" do
+      Flipper.enable(:internal_certificates_tab)
+
+      render_inline(subject)
+
+      expect(page).to have_link("Certificates", href: Rails.application.routes.url_helpers.character_certificates_path(character))
+    end
+
+    it "is expected not to have certificates link" do
+      Flipper.disable(:internal_certificates_tab)
+
+      render_inline(subject)
+
+      expect(page).to have_no_link("Certificates", href: Rails.application.routes.url_helpers.character_certificates_path(character))
+    end
+  end
 
   specify { expect(page).to have_link("Settings", href: Rails.application.routes.url_helpers.character_settings_path(character)) }
+
+  describe "Help" do
+    it "is expected to have help link" do
+      Flipper.enable(:internal_help_tab)
+
+      render_inline(subject)
+
+      expect(page).to have_link("Help", href: Rails.application.routes.url_helpers.character_helps_path(character))
+    end
+
+    it "is expected not to have help link" do
+      Flipper.disable(:internal_help_tab)
+
+      render_inline(subject)
+
+      expect(page).to have_no_link("Help", href: Rails.application.routes.url_helpers.character_helps_path(character))
+    end
+  end
 end
