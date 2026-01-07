@@ -13,8 +13,8 @@ class CharacterAssetsJob < ApplicationJob
   discard_on CharacterInvalidToken
 
   def perform(id, page = 1)
-    if Rails.configuration.evemonk.jobs[:character][:assets]
-      CharacterAssetsImporter.new(id, page).import
-    end
+    # if Rails.configuration.evemonk.jobs[:character][:assets]
+    #   CharacterAssetsImporter.new(id, page).import
+    # end
   end
 end
