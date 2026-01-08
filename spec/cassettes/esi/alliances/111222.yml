@@ -1,0 +1,63 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://esi.evetech.net/alliances/111222
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - EveOnline API (https://github.com/evemonk/eve_online) v0.47.0
+      Accept:
+      - application/json
+      Accept-Language:
+      - en
+      X-Tenant:
+      - tranquility
+      X-Compatibility-Date:
+      - '2025-12-16'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Date:
+      - Thu, 08 Jan 2026 01:25:07 GMT
+      Content-Type:
+      - application/json; charset=UTF-8
+      Content-Length:
+      - '30'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - Etag, Retry-After, X-Compatibility-Date, X-Esi-Error-Limit-Remain, X-Esi-Error-Limit-Reset,
+        X-Pages, X-Ratelimit-Group, X-Ratelimit-Limit, X-Ratelimit-Remaining, X-Ratelimit-Used
+      Content-Language:
+      - en
+      Strict-Transport-Security:
+      - max-age=31536000
+      Vary:
+      - Accept-Language
+      - X-Compatibility-Date
+      X-Compatibility-Date:
+      - '2020-01-01'
+      X-Esi-Cache-Status:
+      - MISS
+      X-Esi-Error-Limit-Remain:
+      - '99'
+      X-Esi-Error-Limit-Reset:
+      - '53'
+      X-Esi-Request-Id:
+      - 636cc948-4aaf-4bab-a29b-fab16a62eb97
+    body:
+      encoding: UTF-8
+      string: '{"error":"Alliance not found"}'
+  recorded_at: Thu, 08 Jan 2026 01:25:07 GMT
+recorded_with: VCR 6.4.0

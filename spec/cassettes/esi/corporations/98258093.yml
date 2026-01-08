@@ -1,0 +1,110 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://esi.evetech.net/corporations/98258093
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - EveOnline API (https://github.com/evemonk/eve_online) v0.47.0
+      Accept:
+      - application/json
+      Accept-Language:
+      - en
+      X-Tenant:
+      - tranquility
+      X-Compatibility-Date:
+      - '2025-12-16'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 08 Jan 2026 01:34:11 GMT
+      Content-Type:
+      - application/json; charset=UTF-8
+      Content-Length:
+      - '3698'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - Etag, Retry-After, X-Compatibility-Date, X-Esi-Error-Limit-Remain, X-Esi-Error-Limit-Reset,
+        X-Pages, X-Ratelimit-Group, X-Ratelimit-Limit, X-Ratelimit-Remaining, X-Ratelimit-Used
+      Cache-Control:
+      - public
+      Content-Language:
+      - en
+      Etag:
+      - '"930466771c46000d65a4df0acf7f2f4f84b51caa98e1de4343ae2127"'
+      Expires:
+      - Thu, 08 Jan 2026 02:22:22 GMT
+      Last-Modified:
+      - Thu, 08 Jan 2026 01:22:22 GMT
+      Strict-Transport-Security:
+      - max-age=31536000
+      Vary:
+      - Accept-Language
+      - X-Compatibility-Date
+      X-Compatibility-Date:
+      - '2020-01-01'
+      X-Esi-Cache-Status:
+      - HIT
+      X-Esi-Error-Limit-Remain:
+      - '100'
+      X-Esi-Error-Limit-Reset:
+      - '49'
+      X-Esi-Request-Id:
+      - 7625143b-ecec-43d0-88f1-593526f239d9
+    body:
+      encoding: UTF-8
+      string: '{"alliance_id":99009268,"ceo_id":93337205,"creator_id":93337205,"date_founded":"2013-10-23T18:19:18Z","description":"<font
+        size=\"13\" color=\"#ff999999\"><\/font><font size=\"12\" color=\"#ffb2b2b2\">Proud
+        member of <\/font><font size=\"12\" color=\"#ffffe400\"><loc><a href=\"https:\/\/eve-linknet.com\/\">the
+        EVE LinkNet community<\/a><\/loc><\/font><font size=\"12\" color=\"#ffb2b2b2\">.<br><br><\/font><font
+        size=\"12\" color=\"#ffffffff\"><b>We are an entry level corporation for the
+        LinkNet community.<\/b><\/font><font size=\"12\" color=\"#ffb2b2b2\"> By joining
+        this corporation you will gain access to all of the benefits and content hosted
+        by the other LinkNet partner corporations.<br><br><\/font><font size=\"12\"
+        color=\"#ffffffff\"><b>Our mission is to connect you with the perfect corporation<\/b><\/font><font
+        size=\"12\" color=\"#ffb2b2b2\"> that matches your personal needs and goals.
+        This corporation allows you to explore your options within EVE and our community
+        without any pressure and with your own pace.<br><br><\/font><font size=\"12\"
+        color=\"#ffffffff\"><b>With no mandatory operations or any types of restrictions<\/b><\/font><font
+        size=\"12\" color=\"#ffb2b2b2\"> you will be able to find the type of gameplay
+        that interests you the most. <br><br><\/font><font size=\"12\" color=\"#ffffffff\"><b>Experience
+        examples of different types of content, gameplay and way of life while in
+        our entry level corporations<\/b><\/font><font size=\"12\" color=\"#ffb2b2b2\">
+        by taking part in the joint operations hosted by our community partners. Once
+        you have figured out what you want to do in New Eden we will guide you towards
+        the corporations that are focusing more specific on the content type you would
+        like to participate in.<br><br><\/font><font size=\"12\" color=\"#ffffffff\"><b>Anyone
+        with a friendly and mature attitude is welcome to join our community!<\/b><\/font><font
+        size=\"12\" color=\"#ffb2b2b2\"> Hop in into the community and <\/font><font
+        size=\"12\" color=\"#ffffe400\"><loc><a href=\"https:\/\/www.youtube.com\/watch?v=D9mXgcDv-3s\">start
+        a new chapter in your journey<\/a><\/loc><\/font><font size=\"12\" color=\"#ffb2b2b2\">:<br><br><\/font><font
+        size=\"12\" color=\"#ffffe400\"><a href=\"https:\/\/eve-linknet.com\/#joining-us\">Joining
+        LINE community for players<\/a><\/font><font size=\"12\" color=\"#ffb2b2b2\">
+        <br><\/font><font size=\"12\" color=\"#ffffe400\"><a href=\"https:\/\/eve-linknet.com\/corporate\/\">Joining
+        Line community for corporations<\/a><\/font><font size=\"12\" color=\"#ffb2b2b2\">
+        <br><br>Recruitment status: <\/font><font size=\"12\" color=\"#ff00ff00\">Open<br><br><\/font><font
+        size=\"14\" color=\"#ff007fff\"><b>More Information<br><br><\/font><font size=\"12\"
+        color=\"#ffd98d00\"><a href=\"showinfo:1377\/\/93337205\">Ikarus Cesaille<\/a><\/b><\/font><font
+        size=\"12\" color=\"#bfffffff\"> (Discord: Ikarus Cesaille#0361)<br><\/font><font
+        size=\"12\" color=\"#ffb2b2b2\">Community Executor<br><br>HOMEPAGE  <\/font><font
+        size=\"12\" color=\"#ffffe400\"><a href=\"https:\/\/eve-linknet.com\">https:\/\/eve-linknet.com<\/a><br><\/font><font
+        size=\"12\" color=\"#ffb2b2b2\">DISCORD    <\/font><font size=\"12\" color=\"#ffffe400\"><loc><a
+        href=\"https:\/\/discord.eve-linknet.com\">https:\/\/discord.eve-linknet.com<\/a><\/loc><br><\/font><font
+        size=\"12\" color=\"#ffb2b2b2\">WIKI      <\/font><font size=\"12\" color=\"#ffffe400\"><loc><a
+        href=\"https:\/\/wiki.eve-linknet.com\/\"> https:\/\/wiki.eve-linknet.com\/<\/a><\/loc><\/font>","home_station_id":60003856,"member_count":12482,"name":"Strategic
+        Exploration and Development Corp","shares":9000,"tax_rate":0.0,"ticker":"SEADC","url":"https:\/\/www.eve-linknet.com"}'
+  recorded_at: Thu, 08 Jan 2026 01:34:11 GMT
+recorded_with: VCR 6.4.0

@@ -4,6 +4,7 @@ module Eve
   class AllianceImporter < BaseImporter
     attr_reader :id
 
+    # @param id [Integer] Eve Alliance ID
     def initialize(id)
       @id = id
     end
@@ -20,7 +21,7 @@ module Eve
       rescue EveOnline::Exceptions::ResourceNotFound
         Rails.logger.info("EveOnline::Exceptions::ResourceNotFound: Eve Alliance ID #{id}")
 
-        eve_alliance.destroy!
+        eve_alliance&.destroy!
       end
     end
 
