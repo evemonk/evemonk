@@ -11,8 +11,11 @@ module Eve
       Faraday::TimeoutError,
       Faraday::ConnectionFailed
 
-    def perform(corporation_id)
-      # Eve::CorporationImporter.new(corporation_id).import
+    # @param id [Integer] Eve Corporation ID
+    def perform(id)
+      if Flipper.enabled?(:eve_corporation)
+        Eve::CorporationImporter.new(id).import
+      end
     end
   end
 end

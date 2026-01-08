@@ -11,6 +11,7 @@ module Eve
       Faraday::TimeoutError,
       Faraday::ConnectionFailed
 
+    # @param id [Integer] Eve Alliance ID
     def perform(id)
       if Flipper.enabled?(:eve_alliance)
         Eve::AllianceImporter.new(id).import
