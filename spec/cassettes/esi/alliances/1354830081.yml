@@ -1,0 +1,72 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://esi.evetech.net/alliances/1354830081
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - EveOnline API (https://github.com/evemonk/eve_online) v0.47.0
+      Accept:
+      - application/json
+      Accept-Language:
+      - en
+      X-Tenant:
+      - tranquility
+      X-Compatibility-Date:
+      - '2025-12-16'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 07 Jan 2026 20:44:01 GMT
+      Content-Type:
+      - application/json; charset=UTF-8
+      Content-Length:
+      - '181'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Expose-Headers:
+      - Etag, Retry-After, X-Compatibility-Date, X-Esi-Error-Limit-Remain, X-Esi-Error-Limit-Reset,
+        X-Pages, X-Ratelimit-Group, X-Ratelimit-Limit, X-Ratelimit-Remaining, X-Ratelimit-Used
+      Cache-Control:
+      - public
+      Content-Language:
+      - en
+      Etag:
+      - '"7b7362de30f26dae2913a4d7e093a50c6316e12a0806da0013833a2d"'
+      Expires:
+      - Wed, 07 Jan 2026 21:13:40 GMT
+      Last-Modified:
+      - Wed, 07 Jan 2026 20:13:40 GMT
+      Strict-Transport-Security:
+      - max-age=31536000
+      Vary:
+      - Accept-Language
+      - X-Compatibility-Date
+      X-Compatibility-Date:
+      - '2020-01-01'
+      X-Esi-Cache-Status:
+      - HIT
+      X-Esi-Error-Limit-Remain:
+      - '100'
+      X-Esi-Error-Limit-Reset:
+      - '59'
+      X-Esi-Request-Id:
+      - 0f0e117e-33cc-4288-ad4b-8170a634252e
+    body:
+      encoding: UTF-8
+      string: '{"creator_corporation_id":459299583,"creator_id":240070320,"date_founded":"2010-06-01T05:36:00Z","executor_corporation_id":1344654522,"name":"Goonswarm
+        Federation","ticker":"CONDI"}'
+  recorded_at: Wed, 07 Jan 2026 20:44:01 GMT
+recorded_with: VCR 6.4.0
