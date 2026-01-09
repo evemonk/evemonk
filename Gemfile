@@ -44,7 +44,7 @@ gem "pg_search"
 gem "meta-tags"
 gem "eve_online",
   git: "https://github.com/evemonk/eve_online.git",
-  branch: "update-4"
+  branch: "main"
 gem "omniauth-eve_online-sso",
   git: "https://github.com/evemonk/omniauth-eve_online-sso.git",
   branch: "main"
@@ -58,7 +58,7 @@ gem "mobility"
 gem "pundit"
 gem "rails-settings-cached"
 gem "net-http-persistent"
-gem "connection_pool", "< 4.0.0"
+gem "connection_pool"
 gem "redis"
 gem "mission_control-jobs"
 gem "pghero"

@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/evemonk/eve_online.git
-  revision: 9bcdc6093abcdfc20e521a3494be34840ee4cb95
-  branch: update-4
+  revision: 16263672b7cae9fc7c029d87fc655cd42f7135cd
+  branch: main
   specs:
     eve_online (0.47.0)
       activesupport (>= 7.2.0)
@@ -11,7 +11,7 @@ GIT
 
 GIT
   remote: https://github.com/evemonk/omniauth-eve_online-sso.git
-  revision: 198b032b8c26beb9f7cbd30507095f44fbbe9817
+  revision: 6244b7216b8ada7e5fb84828a989920deba89067
   branch: main
   specs:
     omniauth-eve_online-sso (0.7.0)
@@ -20,7 +20,7 @@ GIT
 
 GIT
   remote: https://github.com/flippercloud/flipper.git
-  revision: 941f417601a77231615dce062948778efab13f1a
+  revision: 30377e6017fd902b9fc322d870ebb6d081d58d64
   branch: main
   specs:
     flipper (1.3.6)
@@ -916,7 +916,7 @@ DEPENDENCIES
   bundler-audit
   cacheflow
   capybara (>= 3.26)
-  connection_pool (< 4.0.0)
+  connection_pool
   dartsass-rails
   database_rewinder
   devise
