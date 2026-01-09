@@ -201,9 +201,9 @@ GEM
     devise-i18n (1.15.0)
       devise (>= 4.9.0)
       rails-i18n
-    devise-two-factor (6.2.0)
+    devise-two-factor (6.3.0)
       activesupport (>= 7.0, < 8.2)
-      devise (~> 4.0)
+      devise (>= 4.0, < 5.0)
       railties (>= 7.0, < 8.2)
       rotp (~> 6.0)
     devise_zxcvbn (6.0.0)
@@ -1068,7 +1068,7 @@ CHECKSUMS
   date (3.5.1) sha256=750d06384d7b9c15d562c76291407d89e368dda4d4fff957eb94962d325a0dc0
   devise (4.9.4) sha256=920042fe5e704c548aa4eb65ebdd65980b83ffae67feb32c697206bfd975a7f8
   devise-i18n (1.15.0) sha256=aff406e8a2941cd1d7614643b1619031a403b2855bb6057e391d1c7c273205cd
-  devise-two-factor (6.2.0) sha256=8a74f5519dc6fd45438a0b34830f07061f90e69efd4412eefe3d7ee093de40a6
+  devise-two-factor (6.3.0) sha256=894354ae90aeb71a459571e4db8c00455e7d68605949ad879d5f541f42f2d2b6
   devise_zxcvbn (6.0.0) sha256=92b45f0b50657f17d9472dfb72b4414482f59942a0cbdd8c4346e054d77ee3ee
   diff-lcs (1.6.2) sha256=9ae0d2cba7d4df3075fe8cd8602a8604993efc0dfa934cff568969efb1909962
   docile (1.4.1) sha256=96159be799bfa73cdb721b840e9802126e4e03dfc26863db73647204c727f21e
