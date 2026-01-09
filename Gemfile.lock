@@ -916,7 +916,7 @@ DEPENDENCIES
   bundler-audit
   cacheflow
   capybara (>= 3.26)
-  connection_pool (< 4.0.0)
+  connection_pool
   dartsass-rails
   database_rewinder
   devise
