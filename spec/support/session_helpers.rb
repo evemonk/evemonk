@@ -19,5 +19,6 @@ module SessionHelpers
 end
 
 RSpec.configure do |config|
+  config.include SessionHelpers, type: :controller
   config.include SessionHelpers, type: :request
 end
