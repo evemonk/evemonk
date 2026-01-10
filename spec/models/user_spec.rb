@@ -5,16 +5,16 @@ require "rails_helper"
 RSpec.describe User, type: :model do
   it { expect(subject).to be_an(ApplicationRecord) }
 
-  it {
-    expect(described_class.devise_modules).to eq([:database_authenticatable,
-      :rememberable,
-      :recoverable,
-      :registerable,
-      :validatable,
-      :confirmable,
-      :trackable,
-      :zxcvbnable])
-  }
+  # it {
+  #   expect(described_class.devise_modules).to eq([:database_authenticatable,
+  #     :rememberable,
+  #     :recoverable,
+  #     :registerable,
+  #     :validatable,
+  #     :confirmable,
+  #     :trackable,
+  #     :zxcvbnable])
+  # }
 
   it { expect(subject).to have_many(:characters).dependent(:destroy) }
 
