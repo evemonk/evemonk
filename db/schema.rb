@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_01_10_123547) do
+ActiveRecord::Schema[8.1].define(version: 2026_01_14_212944) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_buffercache"
   enable_extension "pg_catalog.plpgsql"
@@ -1069,6 +1069,15 @@ ActiveRecord::Schema[8.1].define(version: 2026_01_10_123547) do
     t.index ["database", "captured_at"], name: "index_pghero_space_stats_on_database_and_captured_at"
   end
 
+  create_table "sessions", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.string "ip_address"
+    t.datetime "updated_at", null: false
+    t.string "user_agent"
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_sessions_on_user_id"
+  end
+
   create_table "settings", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -1107,27 +1116,27 @@ ActiveRecord::Schema[8.1].define(version: 2026_01_10_123547) do
 
   create_table "users", force: :cascade do |t|
     t.boolean "admin", default: false
-    t.datetime "confirmation_sent_at", precision: nil
-    t.string "confirmation_token"
-    t.datetime "confirmed_at", precision: nil
     t.datetime "created_at", precision: nil, null: false
-    t.datetime "current_sign_in_at", precision: nil
-    t.inet "current_sign_in_ip"
-    t.string "email"
-    t.string "encrypted_password", default: "", null: false
-    t.datetime "last_sign_in_at", precision: nil
-    t.inet "last_sign_in_ip"
+    t.datetime "devise_confirmation_sent_at", precision: nil
+    t.string "devise_confirmation_token"
+    t.datetime "devise_confirmed_at", precision: nil
+    t.datetime "devise_current_sign_in_at", precision: nil
+    t.inet "devise_current_sign_in_ip"
+    t.string "devise_email"
+    t.string "devise_encrypted_password", default: "", null: false
+    t.datetime "devise_last_sign_in_at", precision: nil
+    t.inet "devise_last_sign_in_ip"
+    t.datetime "devise_remember_created_at", precision: nil
+    t.datetime "devise_reset_password_sent_at", precision: nil
+    t.string "devise_reset_password_token"
+    t.integer "devise_sign_in_count", default: 0, null: false
+    t.string "devise_unconfirmed_email"
+    t.string "email_address", null: false
     t.integer "locale", default: 0
     t.integer "notifications_count", default: 0
-    t.datetime "remember_created_at", precision: nil
-    t.datetime "reset_password_sent_at", precision: nil
-    t.string "reset_password_token"
-    t.integer "sign_in_count", default: 0, null: false
-    t.string "unconfirmed_email"
+    t.string "password_digest", null: false
     t.datetime "updated_at", precision: nil, null: false
-    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["email_address"], name: "index_users_on_email_address", unique: true
   end
 
   create_table "wallet_journals", force: :cascade do |t|
@@ -1182,6 +1191,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_01_10_123547) do
   add_foreign_key "eve_required_items", "eve_loyalty_store_offers"
   add_foreign_key "industry_jobs", "characters"
   add_foreign_key "manufacturing_jobs", "characters"
+  add_foreign_key "sessions", "users"
   add_foreign_key "skillqueues", "characters"
   add_foreign_key "standings", "characters"
   add_foreign_key "wallet_journals", "characters"

@@ -6,7 +6,7 @@ RSpec.describe WelcomeMailer do
   describe "#email" do
     let(:user) do
       create(:user,
-        email: "me@example.com")
+        email_address: "me@example.com")
     end
 
     subject { described_class.with(user: user).email }

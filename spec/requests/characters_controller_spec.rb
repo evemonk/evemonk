@@ -4,12 +4,12 @@ require "rails_helper"
 
 RSpec.describe CharactersController, type: :request do
   describe "#index" do
-    context "when user signed in" do
+    context "when user is signed in" do
       let(:user) { create(:user) }
 
       let!(:character) { create(:character, user: user) }
 
-      before { sign_in(user) }
+      before { sign_in_as(user) }
 
       before { get characters_path }
 
@@ -18,23 +18,23 @@ RSpec.describe CharactersController, type: :request do
       it { expect(response.body).to include("My characters") }
     end
 
-    context "when user not signed in" do
+    context "when user is not signed in" do
       before { get characters_path }
 
       it { expect(response).to have_http_status(:found) }
 
-      it { expect(subject).to redirect_to(new_user_session_path) }
+      it { expect(subject).to redirect_to(new_session_path) }
     end
   end
 
   describe "#show" do
-    context "when user signed in" do
+    context "when user is signed in" do
       context "when user is own character" do
         let(:user) { create(:user) }
 
         let(:character) { create(:character, user: user, name: "Johnn Dillinger") }
 
-        before { sign_in(user) }
+        before { sign_in_as(user) }
 
         before { get character_path(character) }
 
@@ -48,35 +48,35 @@ RSpec.describe CharactersController, type: :request do
 
         let(:character) { create(:character) }
 
-        before { sign_in(user) }
+        before { sign_in_as(user) }
 
         before { get character_path(character) }
 
         it { expect(response).to have_http_status(:found) }
 
-        it { expect(subject).to redirect_to(root_path) }
+        it { expect(response).to redirect_to(root_path) }
       end
     end
 
-    context "when user not signed in" do
+    context "when user is not signed in" do
       let(:character) { create(:character) }
 
       before { get character_path(character) }
 
       it { expect(response).to have_http_status(:found) }
 
-      it { expect(subject).to redirect_to(new_user_session_path) }
+      it { expect(subject).to redirect_to(new_session_path) }
     end
   end
 
   describe "#update" do
-    context "when user signed in" do
+    context "when user is signed in" do
       context "when user is own character" do
         let(:user) { create(:user) }
 
         let(:character) { create(:character, user: user, name: "Johnn Dillinger") }
 
-        before { sign_in(user) }
+        before { sign_in_as(user) }
 
         before do
           #
@@ -111,7 +111,7 @@ RSpec.describe CharactersController, type: :request do
 
         let(:character) { create(:character) }
 
-        before { sign_in(user) }
+        before { sign_in_as(user) }
 
         context "when format html" do
           before { patch character_path(character), params: {format: :html} }
@@ -131,25 +131,25 @@ RSpec.describe CharactersController, type: :request do
       end
     end
 
-    context "when user not signed in" do
+    context "when user is not signed in" do
       let(:character) { create(:character) }
 
       before { patch character_path(character) }
 
       it { expect(response).to have_http_status(:found) }
 
-      it { expect(subject).to redirect_to(new_user_session_path) }
+      it { expect(subject).to redirect_to(new_session_path) }
     end
   end
 
   describe "#destroy" do
-    context "when user signed in" do
+    context "when user is signed in" do
       context "when user is own character" do
         let(:user) { create(:user) }
 
         let!(:character) { create(:character, user: user, name: "Johnn Dillinger") }
 
-        before { sign_in(user) }
+        before { sign_in_as(user) }
 
         context "when format html" do
           before do
@@ -183,7 +183,7 @@ RSpec.describe CharactersController, type: :request do
 
         let(:character) { create(:character) }
 
-        before { sign_in(user) }
+        before { sign_in_as(user) }
 
         context "when format html" do
           before { delete character_path(character), params: {format: :html} }
@@ -203,7 +203,7 @@ RSpec.describe CharactersController, type: :request do
       end
     end
 
-    context "when user not signed in" do
+    context "when user is not signed in" do
       let!(:character) { create(:character) }
 
       before do
@@ -214,7 +214,7 @@ RSpec.describe CharactersController, type: :request do
 
       it { expect(response).to have_http_status(:found) }
 
-      it { expect(subject).to redirect_to(new_user_session_path) }
+      it { expect(subject).to redirect_to(new_session_path) }
     end
   end
 end

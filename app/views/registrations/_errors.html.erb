@@ -1,0 +1,11 @@
+<%# locals: (f:) %>
+
+<% if f.object.errors.any? %>
+  <div class="alert alert-danger" data-turbo-temporary>
+    <ul class="mb-0">
+      <% f.object.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

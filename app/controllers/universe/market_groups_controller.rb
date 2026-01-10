@@ -2,7 +2,7 @@
 
 module Universe
   class MarketGroupsController < ApplicationController
-    skip_before_action :authenticate_user!
+    allow_unauthenticated_access
 
     def index
       @market_groups = Eve::MarketGroup.main_groups

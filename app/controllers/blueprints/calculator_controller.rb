@@ -2,7 +2,7 @@
 
 module Blueprints
   class CalculatorController < ApplicationController
-    skip_before_action :authenticate_user!
+    allow_unauthenticated_access
 
     def index
       @blueprints = Eve::SearchBlueprintsQuery.new(params[:q]).query.limit(10)

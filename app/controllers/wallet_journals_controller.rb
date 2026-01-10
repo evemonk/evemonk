@@ -2,7 +2,7 @@
 
 class WalletJournalsController < ApplicationController
   def index
-    @character = current_user.characters
+    @character = policy_scope(Character)
       .includes(:alliance, :corporation)
       .find_by!(character_id: params[:character_id])
 

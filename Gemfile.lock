@@ -175,7 +175,6 @@ GEM
       xpath (~> 3.2)
     childprocess (5.1.0)
       logger (~> 1.5)
-    chunky_png (1.4.0)
     coderay (1.1.3)
     concurrent-ruby (1.3.6)
     connection_pool (3.0.2)
@@ -191,23 +190,6 @@ GEM
       sass-embedded (~> 1.63)
     database_rewinder (1.1.0)
     date (3.5.1)
-    devise (4.9.4)
-      bcrypt (~> 3.0)
-      orm_adapter (~> 0.1)
-      railties (>= 4.1.0)
-      responders
-      warden (~> 1.2.3)
-    devise-i18n (1.15.0)
-      devise (>= 4.9.0)
-      rails-i18n
-    devise-two-factor (6.3.0)
-      activesupport (>= 7.0, < 8.2)
-      devise (>= 4.0, < 5.0)
-      railties (>= 7.0, < 8.2)
-      rotp (~> 6.0)
-    devise_zxcvbn (6.0.0)
-      devise
-      zxcvbn (~> 0.1.7)
     diff-lcs (1.6.2)
     docile (1.4.1)
     down (5.4.2)
@@ -462,7 +444,6 @@ GEM
       actionpack (>= 4.2)
       omniauth (~> 2.0)
     optimist (3.2.1)
-    orm_adapter (0.5.0)
     ostruct (0.6.3)
     parallel (1.27.0)
     parser (3.3.10.1)
@@ -600,12 +581,7 @@ GEM
       actionpack (>= 7.0)
       railties (>= 7.0)
     rexml (3.4.4)
-    rotp (6.3.0)
     rouge (4.7.0)
-    rqrcode (3.2.0)
-      chunky_png (~> 1.0)
-      rqrcode_core (~> 2.0)
-    rqrcode_core (2.1.0)
     rspec-core (3.13.6)
       rspec-support (~> 3.13.0)
     rspec-expectations (3.13.5)
@@ -812,8 +788,6 @@ GEM
       actionview (>= 7.1.0)
       activesupport (>= 7.1.0)
       concurrent-ruby (~> 1)
-    warden (1.2.9)
-      rack (>= 2.0.9)
     webmock (3.26.1)
       addressable (>= 2.8.0)
       crack (>= 0.3.2)
@@ -830,7 +804,6 @@ GEM
       nokogiri (~> 1.8)
     yard (0.9.38)
     zeitwerk (2.7.4)
-    zxcvbn (0.1.13)
 
 PLATFORMS
   aarch64-linux
@@ -867,6 +840,7 @@ DEPENDENCIES
   airbrake (~> 13.0)
   ancestry
   aws-sdk-s3
+  bcrypt
   bcrypt_pbkdf
   benchmark
   bootsnap
@@ -877,10 +851,6 @@ DEPENDENCIES
   connection_pool
   dartsass-rails
   database_rewinder
-  devise
-  devise-i18n
-  devise-two-factor (>= 5.0.0)
-  devise_zxcvbn
   down
   ed25519
   eve_online!
@@ -937,7 +907,6 @@ DEPENDENCIES
   reactionview
   redis
   responders
-  rqrcode
   rspec-its
   rspec-rails (>= 6.0.1)
   rspec-retry
@@ -968,6 +937,7 @@ DEPENDENCIES
   thruster
   turbo-rails
   tzinfo-data
+  uri
   vcr
   view_component
   webmock
@@ -1011,7 +981,6 @@ CHECKSUMS
   cacheflow (0.5.0) sha256=efb3b78cf1405d3f90610732802d4e5eded42386c59ab31b35b45dc2a90670cd
   capybara (3.40.0) sha256=42dba720578ea1ca65fd7a41d163dd368502c191804558f6e0f71b391054aeef
   childprocess (5.1.0) sha256=9a8d484be2fd4096a0e90a0cd3e449a05bc3aa33f8ac9e4d6dcef6ac1455b6ec
-  chunky_png (1.4.0) sha256=89d5b31b55c0cf4da3cf89a2b4ebc3178d8abe8cbaf116a1dba95668502fdcfe
   coderay (1.1.3) sha256=dc530018a4684512f8f38143cd2a096c9f02a1fc2459edcfe534787a7fc77d4b
   concurrent-ruby (1.3.6) sha256=6b56837e1e7e5292f9864f34b69c5a2cbc75c0cf5338f1ce9903d10fa762d5ab
   connection_pool (3.0.2) sha256=33fff5ba71a12d2aa26cb72b1db8bba2a1a01823559fb01d29eb74c286e62e0a
@@ -1022,10 +991,6 @@ CHECKSUMS
   dartsass-rails (0.5.1) sha256=f19510fb1b29c76c1739a06954d615f1d20ad653b6fc668dd7c68542bb303a1a
   database_rewinder (1.1.0) sha256=950398ba97bb20fb4653b6ee502a7d6658a6333a61d88ba756217f32bfa04510
   date (3.5.1) sha256=750d06384d7b9c15d562c76291407d89e368dda4d4fff957eb94962d325a0dc0
-  devise (4.9.4) sha256=920042fe5e704c548aa4eb65ebdd65980b83ffae67feb32c697206bfd975a7f8
-  devise-i18n (1.15.0) sha256=aff406e8a2941cd1d7614643b1619031a403b2855bb6057e391d1c7c273205cd
-  devise-two-factor (6.3.0) sha256=894354ae90aeb71a459571e4db8c00455e7d68605949ad879d5f541f42f2d2b6
-  devise_zxcvbn (6.0.0) sha256=92b45f0b50657f17d9472dfb72b4414482f59942a0cbdd8c4346e054d77ee3ee
   diff-lcs (1.6.2) sha256=9ae0d2cba7d4df3075fe8cd8602a8604993efc0dfa934cff568969efb1909962
   docile (1.4.1) sha256=96159be799bfa73cdb721b840e9802126e4e03dfc26863db73647204c727f21e
   down (5.4.2) sha256=516e5e01e7a96214a7e2cd155aac6f700593038ae6c857c0f4a05413b1c58acf
@@ -1136,7 +1101,6 @@ CHECKSUMS
   omniauth-oauth2 (1.9.0) sha256=ed15f6d9d20991807ce114cc5b9c1453bce3645b64e51c68c90cff5ff153fee8
   omniauth-rails_csrf_protection (2.0.1) sha256=c6e3204d7e3925bb537cb52d50fdfc9f05293f1a9d87c5d4ab4ca3a39ba8c32d
   optimist (3.2.1) sha256=8cf8a0fd69f3aa24ab48885d3a666717c27bc3d9edd6e976e18b9d771e72e34e
-  orm_adapter (0.5.0) sha256=aa5d0be5d540cbb46d3a93e88061f4ece6a25f6e97d6a47122beb84fe595e9b9
   ostruct (0.6.3) sha256=95a2ed4a4bd1d190784e666b47b2d3f078e4a9efda2fccf18f84ddc6538ed912
   parallel (1.27.0) sha256=4ac151e1806b755fb4e2dc2332cbf0e54f2e24ba821ff2d3dcf86bf6dc4ae130
   parser (3.3.10.1) sha256=06f6a725d2cd91e5e7f2b7c32ba143631e1f7c8ae2fb918fc4cebec187e6a688
@@ -1194,10 +1158,7 @@ CHECKSUMS
   request_store (1.7.0) sha256=e1b75d5346a315f452242a68c937ef8e48b215b9453a77a6c0acdca2934c88cb
   responders (3.2.0) sha256=89c2d6ac0ae16f6458a11524cae4a8efdceba1a3baea164d28ee9046bd3df55a
   rexml (3.4.4) sha256=19e0a2c3425dfbf2d4fc1189747bdb2f849b6c5e74180401b15734bc97b5d142
-  rotp (6.3.0) sha256=75d40087e65ed0d8022c33055a6306c1c400d1c12261932533b5d6cbcd868854
   rouge (4.7.0) sha256=dba5896715c0325c362e895460a6d350803dbf6427454f49a47500f3193ea739
-  rqrcode (3.2.0) sha256=64c1494ca6bb67d731330f38b50e3fd09eeab4f5dcd04b608e21218d1d0b9542
-  rqrcode_core (2.1.0) sha256=f303b85df89c1b8fc5ee8dc19808c9dc4330e6329b660d99d4a8cbb36ca13051
   rspec-core (3.13.6) sha256=a8823c6411667b60a8bca135364351dda34cd55e44ff94c4be4633b37d828b2d
   rspec-expectations (3.13.5) sha256=33a4d3a1d95060aea4c94e9f237030a8f9eae5615e9bd85718fe3a09e4b58836
   rspec-its (2.0.0) sha256=a88e8bc38149f2835e93533591ec4f5c829aacbfd41269a2e6f9f5b82f5260df
@@ -1277,7 +1238,6 @@ CHECKSUMS
   vcr (6.4.0) sha256=077ac92cc16efc5904eb90492a18153b5e6ca5398046d8a249a7c96a9ea24ae6
   version_gem (1.1.9) sha256=0c1a0962ae543c84a00889bb018d9f14d8f8af6029d26b295d98774e3d2eb9a4
   view_component (4.2.0) sha256=f250a3397a794336354f73c229b3b7549af0b24906551b99a03492b54cb5233d
-  warden (1.2.9) sha256=46684f885d35a69dbb883deabf85a222c8e427a957804719e143005df7a1efd0
   webmock (3.26.1) sha256=4f696fb57c90a827c20aadb2d4f9058bbff10f7f043bd0d4c3f58791143b1cd7
   websocket (1.2.11) sha256=b7e7a74e2410b5e85c25858b26b3322f29161e300935f70a0e0d3c35e0462737
   websocket-driver (0.8.0) sha256=ed0dba4b943c22f17f9a734817e808bc84cdce6a7e22045f5315aa57676d4962
@@ -1287,7 +1247,6 @@ CHECKSUMS
   xpath (3.2.0) sha256=6dfda79d91bb3b949b947ecc5919f042ef2f399b904013eb3ef6d20dd3a4082e
   yard (0.9.38) sha256=721fb82afb10532aa49860655f6cc2eaa7130889df291b052e1e6b268283010f
   zeitwerk (2.7.4) sha256=2bef90f356bdafe9a6c2bd32bcd804f83a4f9b8bc27f3600fff051eb3edcec8b
-  zxcvbn (0.1.13) sha256=68e26d6f1d6f9b9a68edb10fc2717a76528cc537376d7d600e9c9079506d4921
 
 RUBY VERSION
   ruby 4.0.1

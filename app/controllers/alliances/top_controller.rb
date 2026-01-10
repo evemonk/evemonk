@@ -2,7 +2,7 @@
 
 module Alliances
   class TopController < ApplicationController
-    skip_before_action :authenticate_user!
+    allow_unauthenticated_access
 
     def index
       alliances = policy_scope(Eve::Alliance).order(characters_count: :desc).limit(20)
