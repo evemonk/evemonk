@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
 
   before_action :default_locale
 
-  # before_action :current_user_locale
+  before_action :current_user_locale
 
   rescue_from Pundit::NotAuthorizedError, with: :redirect_user_to_root_path
 
@@ -38,12 +38,12 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user_locale
-    return if current_user.blank?
+    return if !authenticated?
 
-    I18n.locale = if current_user.auto_detect?
+    I18n.locale = if Current.user.auto_detect?
       http_accept_language.compatible_language_from(I18n.available_locales)
     else
-      UserLocale.new(current_user.locale).to_locale
+      UserLocale.new(Current.user.locale).to_locale
     end
   end
 

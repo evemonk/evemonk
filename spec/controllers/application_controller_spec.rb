@@ -27,7 +27,7 @@ RSpec.describe ApplicationController, type: :controller do
 
   describe "#current_user_locale" do
     context "when user not logged in" do
-      before { expect(subject).to receive(:current_user).and_return(nil) }
+      before { Current.session = nil }
 
       before { expect(I18n).not_to receive(:locale=) }
 
@@ -36,9 +36,9 @@ RSpec.describe ApplicationController, type: :controller do
 
     context "when user logged in" do
       context "when user locale is auto detect" do
-        let(:user) { build(:user, locale: :auto_detect) }
+        let(:user) { create(:user, locale: :auto_detect) }
 
-        before { expect(subject).to receive(:current_user).and_return(user).twice }
+        before { Current.session = user.sessions.create! }
 
         let(:available_locales) { double }
 
@@ -68,9 +68,9 @@ RSpec.describe ApplicationController, type: :controller do
       end
 
       context "when user locale is set" do
-        let(:user) { build(:user, locale: :english) }
+        let(:user) { create(:user, locale: :english) }
 
-        before { expect(subject).to receive(:current_user).and_return(user).exactly(3).times }
+        before { Current.session = user.sessions.create! }
 
         let(:locale) { double }
 
