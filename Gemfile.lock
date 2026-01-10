@@ -183,7 +183,6 @@ GEM
       bigdecimal
       rexml
     crass (1.0.6)
-    css-zero (1.1.15)
     css_parser (1.21.1)
       addressable
     csv (3.3.5)
@@ -266,8 +265,6 @@ GEM
       activesupport (> 5.0)
       railties (> 5.0)
       rouge (>= 3.0)
-    groupdate (6.7.0)
-      activesupport (>= 7.1)
     hashdiff (1.2.1)
     hashie (5.1.0)
       logger
@@ -466,9 +463,6 @@ GEM
     optimist (3.2.1)
     orm_adapter (0.5.0)
     ostruct (0.6.3)
-    pagy (43.2.3)
-      json
-      yaml
     parallel (1.27.0)
     parser (3.3.10.0)
       ast (~> 2.4.1)
@@ -572,14 +566,6 @@ GEM
     rails-settings-cached (2.9.6)
       activerecord (>= 5.0.0)
       railties (>= 5.0.0)
-    rails_pulse (0.2.4)
-      css-zero (~> 1.1, >= 1.1.4)
-      groupdate (~> 6.0)
-      pagy (>= 8, < 44)
-      rails (>= 7.1.0, < 9.0.0)
-      ransack (~> 4.0)
-      request_store (~> 1.5)
-      turbo-rails (~> 2.0.11)
     railties (8.1.2)
       actionpack (= 8.1.2)
       activesupport (= 8.1.2)
@@ -591,10 +577,6 @@ GEM
       zeitwerk (~> 2.6)
     rainbow (3.1.1)
     rake (13.3.1)
-    ransack (4.4.1)
-      activerecord (>= 7.2)
-      activesupport (>= 7.2)
-      i18n
     rbtree3 (0.7.1)
     rdoc (7.0.3)
       erb
@@ -845,7 +827,6 @@ GEM
       rexml
     xpath (3.2.0)
       nokogiri (~> 1.8)
-    yaml (0.4.0)
     yard (0.9.38)
     zeitwerk (2.7.4)
     zxcvbn (0.1.13)
@@ -952,7 +933,6 @@ DEPENDENCIES
   rails-i18n
   rails-pg-extras
   rails-settings-cached
-  rails_pulse
   reactionview
   redis
   responders
@@ -1036,7 +1016,6 @@ CHECKSUMS
   connection_pool (3.0.2) sha256=33fff5ba71a12d2aa26cb72b1db8bba2a1a01823559fb01d29eb74c286e62e0a
   crack (1.0.1) sha256=ff4a10390cd31d66440b7524eb1841874db86201d5b70032028553130b6d4c7e
   crass (1.0.6) sha256=dc516022a56e7b3b156099abc81b6d2b08ea1ed12676ac7a5657617f012bd45d
-  css-zero (1.1.15) sha256=7fe6a739d837114ec69c94e2860e5259281c49c2f74b5005a11c70b7bb8331ca
   css_parser (1.21.1) sha256=6cfd3ffc0a97333b39d2b1b49c95397b05e0e3b684d68f77ec471ba4ec2ef7c7
   csv (3.3.5) sha256=6e5134ac3383ef728b7f02725d9872934f523cb40b961479f69cf3afa6c8e73f
   dartsass-rails (0.5.1) sha256=f19510fb1b29c76c1739a06954d615f1d20ad653b6fc668dd7c68542bb303a1a
@@ -1075,7 +1054,6 @@ CHECKSUMS
   graphiql-rails (1.10.5) sha256=d911486eeac01e125d403a61c04f634cccaff9f8ecee5dc4efce3e7aa11bf5d3
   graphql (2.5.16) sha256=1c156204cf6796a6a99c48d07e2f4e6b4a861fda2cec5753e1eb1f28c6220797
   graphql-rails_logger (1.2.5) sha256=d2117c047546aa2922550a313d3904d95949bdff819e0997f8246ebd6f49860d
-  groupdate (6.7.0) sha256=beaa8d5bf3856814681914a1d4a20e77436a2214b85d0017dc2ea5c355fb6777
   hashdiff (1.2.1) sha256=9c079dbc513dfc8833ab59c0c2d8f230fa28499cc5efb4b8dd276cf931457cd1
   hashie (5.1.0) sha256=c266471896f323c446ea8207f8ffac985d2718df0a0ba98651a3057096ca3870
   herb (0.8.7) sha256=73c5216b1e1b2e84c55411804a95768b1bbbfc99ccc7ee88724ea41498fd2aeb
@@ -1159,7 +1137,6 @@ CHECKSUMS
   optimist (3.2.1) sha256=8cf8a0fd69f3aa24ab48885d3a666717c27bc3d9edd6e976e18b9d771e72e34e
   orm_adapter (0.5.0) sha256=aa5d0be5d540cbb46d3a93e88061f4ece6a25f6e97d6a47122beb84fe595e9b9
   ostruct (0.6.3) sha256=95a2ed4a4bd1d190784e666b47b2d3f078e4a9efda2fccf18f84ddc6538ed912
-  pagy (43.2.3) sha256=b87ad4dba86e90d8ff7216c381b991c55651d6314f942dded400288ca4d0e271
   parallel (1.27.0) sha256=4ac151e1806b755fb4e2dc2332cbf0e54f2e24ba821ff2d3dcf86bf6dc4ae130
   parser (3.3.10.0) sha256=ce3587fa5cc55a88c4ba5b2b37621b3329aadf5728f9eafa36bbd121462aabd6
   patience_diff (1.2.0) sha256=f492094486af02fff4a80070fa6b4d0ebbcf4d42fb38bba29d095eef43f6822c
@@ -1202,11 +1179,9 @@ CHECKSUMS
   rails-i18n (8.1.0) sha256=52d5fd6c0abef28d84223cc05647f6ae0fd552637a1ede92deee9545755b6cf3
   rails-pg-extras (5.6.15) sha256=15392fcbaba7e363d69e5ce4781ed12686f02e9126b481cca9185a3ddb3cc070
   rails-settings-cached (2.9.6) sha256=761d6128221f1a162950b8b3911e233f3a49c6ecfd8b421110ed060e8c58a9b8
-  rails_pulse (0.2.4) sha256=ba4cede1f016386acbf7dfe69bfcbeee7b39d6382147dc483c255f062d218ad6
   railties (8.1.2) sha256=1289ece76b4f7668fc46d07e55cc992b5b8751f2ad85548b7da351b8c59f8055
   rainbow (3.1.1) sha256=039491aa3a89f42efa1d6dec2fc4e62ede96eb6acd95e52f1ad581182b79bc6a
   rake (13.3.1) sha256=8c9e89d09f66a26a01264e7e3480ec0607f0c497a861ef16063604b1b08eb19c
-  ransack (4.4.1) sha256=6aeaac36fc19088570e10da1044e6cfd88c740e20f871b84566fd30e32b7a63d
   rbtree3 (0.7.1) sha256=ab60ead728a5491b70df4f4065e180b18dbab5319f817ce1dbf5dd906f26d8ba
   rdoc (7.0.3) sha256=dfe3d0981d19b7bba71d9dbaeb57c9f4e3a7a4103162148a559c4fc687ea81f9
   reactionview (0.2.0) sha256=adddab493f1e9e6fa2b58d46e5fbcef4a9090ebb2dc4f2b2efd018cfdc6247bd
@@ -1309,7 +1284,6 @@ CHECKSUMS
   with_env (1.1.0) sha256=50b3e4f0a6cda8f90d8a6bd87a6261f6c381429abafb161c4c69ad4a0cd0b6e4
   xml-simple (1.1.9) sha256=d21131e519c86f1a5bc2b6d2d57d46e6998e47f18ed249b25cad86433dbd695d
   xpath (3.2.0) sha256=6dfda79d91bb3b949b947ecc5919f042ef2f399b904013eb3ef6d20dd3a4082e
-  yaml (0.4.0) sha256=240e69d1e6ce3584d6085978719a0faa6218ae426e034d8f9b02fb54d3471942
   yard (0.9.38) sha256=721fb82afb10532aa49860655f6cc2eaa7130889df291b052e1e6b268283010f
   zeitwerk (2.7.4) sha256=2bef90f356bdafe9a6c2bd32bcd804f83a4f9b8bc27f3600fff051eb3edcec8b
   zxcvbn (0.1.13) sha256=68e26d6f1d6f9b9a68edb10fc2717a76528cc537376d7d600e9c9079506d4921

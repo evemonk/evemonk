@@ -89,7 +89,6 @@ gem "flipper-active_record",
 gem "flipper-ui",
   git: "https://github.com/flippercloud/flipper.git",
   branch: "main"
-gem "rails_pulse"
 
 gem "airbrake", "~> 13.0"
 
