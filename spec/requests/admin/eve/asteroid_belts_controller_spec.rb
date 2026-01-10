@@ -42,7 +42,7 @@ RSpec.describe Admin::Eve::AsteroidBeltsController, type: :request do
 
         get admin_eve_asteroid_belts_path
 
-        expect(response).to redirect_to(new_user_session_path)
+        expect(response).to redirect_to(new_session_path)
 
         expect(response).to have_http_status(:found)
       end
@@ -88,7 +88,7 @@ RSpec.describe Admin::Eve::AsteroidBeltsController, type: :request do
 
         get admin_eve_asteroid_belt_path(eve_asteroid_belt)
 
-        expect(response).to redirect_to(new_user_session_path)
+        expect(response).to redirect_to(new_session_path)
 
         expect(response).to have_http_status(:found)
       end

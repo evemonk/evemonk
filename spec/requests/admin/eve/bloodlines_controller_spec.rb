@@ -42,7 +42,7 @@ RSpec.describe Admin::Eve::BloodlinesController, type: :request do
 
         get admin_eve_bloodlines_path
 
-        expect(response).to redirect_to(new_user_session_path)
+        expect(response).to redirect_to(new_session_path)
 
         expect(response).to have_http_status(:found)
       end
@@ -88,7 +88,7 @@ RSpec.describe Admin::Eve::BloodlinesController, type: :request do
 
         get admin_eve_bloodline_path(eve_bloodline)
 
-        expect(response).to redirect_to(new_user_session_path)
+        expect(response).to redirect_to(new_session_path)
 
         expect(response).to have_http_status(:found)
       end
