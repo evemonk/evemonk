@@ -14,7 +14,7 @@ RSpec.describe SettingsController, type: :request do
 
         let!(:character_scope) { create(:character_scope, character: character, scope: "publicData") }
 
-        before { sign_in(user) }
+        before { sign_in_as(user) }
 
         before { get character_settings_path(character) }
 
@@ -28,7 +28,7 @@ RSpec.describe SettingsController, type: :request do
 
         let(:character) { create(:character) }
 
-        before { sign_in(user) }
+        before { sign_in_as(user) }
 
         before { get character_settings_path(character) }
 
@@ -43,7 +43,7 @@ RSpec.describe SettingsController, type: :request do
 
       it { expect(response).to have_http_status(:found) }
 
-      it { expect(subject).to redirect_to(new_user_session_path) }
+      it { expect(subject).to redirect_to(new_session_path) }
     end
   end
 end
