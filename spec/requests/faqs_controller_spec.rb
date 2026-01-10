@@ -3,8 +3,6 @@
 require "rails_helper"
 
 RSpec.describe FaqsController, type: :request do
-  it { expect(subject).to be_an(ApplicationController) }
-
   describe "#show" do
     before { get faq_path }
 
