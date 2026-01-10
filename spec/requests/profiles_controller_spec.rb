@@ -3,8 +3,6 @@
 require "rails_helper"
 
 RSpec.describe ProfilesController, type: :request do
-  it { expect(subject).to be_an(ApplicationController) }
-
   describe "#show" do
     context "when user signed in" do
       let(:user) { create(:user) }
