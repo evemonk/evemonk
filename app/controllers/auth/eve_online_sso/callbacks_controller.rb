@@ -12,7 +12,7 @@ module Auth
       rescue_from EveOnline::Exceptions::Timeout, with: :handle_timeout
 
       def show
-        service = EveOnlineCallbackService.new(current_user, request)
+        service = EveOnlineCallbackService.new(request)
 
         service.save!
 
