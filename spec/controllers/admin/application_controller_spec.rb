@@ -5,17 +5,17 @@ require "rails_helper"
 RSpec.describe Admin::ApplicationController, type: :controller do
   it { expect(subject).to be_an(Administrate::ApplicationController) }
 
-  it { expect(subject).to use_before_action(:authenticate_user!) }
+  it { expect(subject).to use_before_action(:require_authentication) }
 
   it { expect(subject).to use_before_action(:admin?) }
 
   # private methods
 
   describe "#admin?" do
-    before { expect(subject).to receive(:current_user).and_return(user) }
+    before { Current.session = user.sessions.create! }
 
     context "when current user is admin" do
-      let(:user) { build(:user, admin: true) }
+      let(:user) { create(:user, admin: true) }
 
       before { expect(subject).not_to receive(:redirect_to) }
 
@@ -23,7 +23,7 @@ RSpec.describe Admin::ApplicationController, type: :controller do
     end
 
     context "when current user is not admin" do
-      let(:user) { build(:user, admin: false) }
+      let(:user) { create(:user, admin: false) }
 
       let(:root_url) { double }
 

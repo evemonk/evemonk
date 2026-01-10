@@ -17,7 +17,7 @@ class CharacterBlueprint < ApplicationRecord
     quantity == -1
   end
 
-  # BPC -- Blue Print Copy
+  # BPC -- BluePrint Copy
   def bpc?
     quantity == -2
   end

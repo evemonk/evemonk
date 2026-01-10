@@ -52,7 +52,7 @@
 <!--                <a class="nav-link active" aria-current="page" href="#">Home</a>-->
 <!--              </li>-->
 
-              <% if current_user %>
+              <% if authenticated? %>
                 <li class="nav-item">
                   <%= link_to(t(".my_characters"), characters_path, class: "nav-link") %>
                 </li>
@@ -60,14 +60,14 @@
                   <%= link_to(t(".profile"), profile_path, class: "nav-link") %>
                 </li>
                 <li class="nav-item">
-                  <%= link_to(t(".sign_out"), destroy_user_session_path, data: {turbo_method: :delete}, class: "nav-link") %>
+                  <%= link_to(t(".sign_out"), session_path, data: {turbo_method: :delete}, class: "nav-link") %>
                 </li>
               <% else %>
                 <li class="nav-item">
-                  <%= link_to(t(".sign_in"), new_user_session_path, class: "nav-link") %>
+                  <%= link_to(t(".sign_in"), new_session_path, class: "nav-link") %>
                 </li>
                 <li class="nav-item">
-                  <%= link_to(t(".sign_up"), new_user_registration_path, class: "nav-link") %>
+                  <%= link_to(t(".sign_up"), new_registration_path, class: "nav-link") %>
                 </li>
               <% end %>
 

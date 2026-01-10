@@ -1,0 +1,51 @@
+{
+  "ignored_warnings": [
+    {
+      "warning_type": "Unscoped Find",
+      "warning_code": 82,
+      "fingerprint": "1210417d04d189cdc863a5e9737fdd1d99bba19d9089d941c77409ecf659ff31",
+      "check_name": "UnscopedFind",
+      "message": "Unscoped call to `Session#find_by`",
+      "file": "app/channels/application_cable/connection.rb",
+      "line": 14,
+      "link": "https://brakemanscanner.org/docs/warning_types/unscoped_find/",
+      "code": "Session.find_by(:id => cookies.signed[:session_id])",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "ApplicationCable::Connection",
+        "method": "set_current_user"
+      },
+      "user_input": "cookies.signed[:session_id]",
+      "confidence": "Weak",
+      "cwe_id": [
+        285
+      ],
+      "note": ""
+    },
+    {
+      "warning_type": "Unscoped Find",
+      "warning_code": 82,
+      "fingerprint": "bb99c47602bf4e5e8c658f10645d3d0af3f1ac7e78e590db5e66d8986ba1642a",
+      "check_name": "UnscopedFind",
+      "message": "Unscoped call to `Session#find_by`",
+      "file": "app/controllers/concerns/authentication.rb",
+      "line": 32,
+      "link": "https://brakemanscanner.org/docs/warning_types/unscoped_find/",
+      "code": "Session.find_by(:id => cookies.signed[:session_id])",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "Authentication",
+        "method": "find_session_by_cookie"
+      },
+      "user_input": "cookies.signed[:session_id]",
+      "confidence": "Weak",
+      "cwe_id": [
+        285
+      ],
+      "note": ""
+    }
+  ],
+  "brakeman_version": "7.1.2"
+}

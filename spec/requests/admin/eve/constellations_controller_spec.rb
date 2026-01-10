@@ -9,7 +9,7 @@ RSpec.describe Admin::Eve::ConstellationsController, type: :request do
         it "should render page" do
           user = create(:user, locale: :english, admin: true)
 
-          sign_in user
+          sign_in_as user
 
           create(:eve_constellation)
 
@@ -23,7 +23,7 @@ RSpec.describe Admin::Eve::ConstellationsController, type: :request do
         it "should render page" do
           user = create(:user, locale: :english, admin: false)
 
-          sign_in user
+          sign_in_as user
 
           create(:eve_constellation)
 
@@ -42,7 +42,7 @@ RSpec.describe Admin::Eve::ConstellationsController, type: :request do
 
         get admin_eve_constellations_path
 
-        expect(response).to redirect_to(new_user_session_path)
+        expect(response).to redirect_to(new_session_path)
 
         expect(response).to have_http_status(:found)
       end
@@ -55,7 +55,7 @@ RSpec.describe Admin::Eve::ConstellationsController, type: :request do
         it "should render page" do
           user = create(:user, locale: :english, admin: true)
 
-          sign_in user
+          sign_in_as user
 
           eve_constellation = create(:eve_constellation)
 
@@ -69,7 +69,7 @@ RSpec.describe Admin::Eve::ConstellationsController, type: :request do
         it "should render page" do
           user = create(:user, locale: :english, admin: false)
 
-          sign_in user
+          sign_in_as user
 
           eve_constellation = create(:eve_constellation)
 
@@ -88,7 +88,7 @@ RSpec.describe Admin::Eve::ConstellationsController, type: :request do
 
         get admin_eve_constellation_path(eve_constellation)
 
-        expect(response).to redirect_to(new_user_session_path)
+        expect(response).to redirect_to(new_session_path)
 
         expect(response).to have_http_status(:found)
       end

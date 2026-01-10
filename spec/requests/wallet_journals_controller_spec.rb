@@ -10,7 +10,7 @@ RSpec.describe WalletJournalsController, type: :request do
 
         let(:character) { create(:character, user: user) }
 
-        before { sign_in(user) }
+        before { sign_in_as(user) }
 
         before { get character_wallet_journals_path(character) }
 
@@ -24,7 +24,7 @@ RSpec.describe WalletJournalsController, type: :request do
 
         let(:character) { create(:character) }
 
-        before { sign_in(user) }
+        before { sign_in_as(user) }
 
         before { get character_wallet_journals_path(character) }
 
@@ -39,7 +39,7 @@ RSpec.describe WalletJournalsController, type: :request do
 
       it { expect(response).to have_http_status(:found) }
 
-      it { expect(subject).to redirect_to(new_user_session_path) }
+      it { expect(response).to redirect_to(new_session_path) }
     end
   end
 end

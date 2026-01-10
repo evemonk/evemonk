@@ -1,10 +1,9 @@
 # frozen_string_literal: true
 
 class EveOnlineCallbackService
-  attr_reader :user, :request
+  attr_reader :request
 
-  def initialize(user, request)
-    @user = user
+  def initialize(request)
     @request = request
   end
 
@@ -67,7 +66,7 @@ class EveOnlineCallbackService
   end
 
   def character
-    @character ||= user.characters.find_or_initialize_by(character_owner_hash: character_owner_hash)
+    @character ||= Current.user.characters.find_or_initialize_by(character_owner_hash: character_owner_hash)
   end
 
   def character_scope

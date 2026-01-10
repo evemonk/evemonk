@@ -55,6 +55,12 @@ en:
         timeout: "Timeout Error. Please, try again later."
         show:
           successful: "Character &laquo;%{name}&raquo; successful added."
+  sessions:
+    new:
+      sign_in: "Log in"
+  registrations:
+    new:
+      sign_up: "Sign up"
   characters:
     index:
       remove_character: "Remove character"

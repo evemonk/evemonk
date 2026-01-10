@@ -1,10 +1,11 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable, :recoverable,
-    :rememberable, :validatable, :confirmable, :trackable, :zxcvbnable
+  has_secure_password
+
+  normalizes :email_address, with: ->(e) { e.strip.downcase }
+
+  has_many :sessions, dependent: :destroy
 
   has_many :characters, dependent: :destroy
 
@@ -18,4 +19,12 @@ class User < ApplicationRecord
     # chinese: 6,
     korean: 7
   }
+
+  validates :password, length: {minimum: 8, maximum: 72}, on: :create
+
+  validates :email_address, presence: true
+
+  validates :email_address, uniqueness: true
+
+  validates :email_address, format: {with: URI::MailTo::EMAIL_REGEXP}
 end

@@ -70,62 +70,62 @@
     </div>
   </div>
 
-  <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
-    <h4 class="text-center">Factions</h4>
+<!--  <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">-->
+<!--    <h4 class="text-center">Factions</h4>-->
 
-    <table class="table table-dark table-striped table-bordered">
-      <tbody>
-        <% @character.factions_standings.each do |standing| %>
-          <tr>
-            <td>
-              <%= image_tag(standing.standingable.icon_tiny,
+<!--    <table class="table table-dark table-striped table-bordered">-->
+<!--      <tbody>-->
+        <%# @character.standings.factions.each do |standing| %>
+<!--          <tr>-->
+<!--            <td>-->
+              <%#= image_tag(standing.standingable.icon_tiny,
                             alt: standing.standingable.name,
                             class: "rounded border",
                             size: "34x34",
                             loading: "lazy") %>
-              </td>
-            <td><%= standing.standingable.name %></td>
-            <td><%= standing.rounded_standing %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-  </div>
+<!--              </td>-->
+<!--            <td><%#= standing.standingable.name %></td>-->
+<!--            <td><%#= standing.rounded_standing %></td>-->
+<!--          </tr>-->
+        <%# end %>
+<!--      </tbody>-->
+<!--    </table>-->
+<!--  </div>-->
 
-  <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
-    <h4 class="text-center">Corporations</h4>
+<!--  <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">-->
+<!--    <h4 class="text-center">Corporations</h4>-->
 
-    <table class="table table-dark table-striped table-bordered">
-      <tbody>
-        <% @character.corporations_standings.each do |standing| %>
-          <tr>
-            <td>
-              <%= image_tag(standing.standingable.icon_tiny,
+<!--    <table class="table table-dark table-striped table-bordered">-->
+<!--      <tbody>-->
+        <%# @character.standings.corporations.each do |standing| %>
+<!--          <tr>-->
+<!--            <td>-->
+              <%#= image_tag(standing.standingable.icon_tiny,
                             alt: standing.standingable.name,
                             class: "rounded border",
                             size: "34x34",
                             loading: "lazy") %>
-            </td>
-            <td><%= standing.standingable.name %></td>
-            <td><%= standing.rounded_standing %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-  </div>
+<!--            </td>-->
+<!--            <td><%#= standing.standingable.name %></td>-->
+<!--            <td><%#= standing.rounded_standing %></td>-->
+<!--          </tr>-->
+        <%# end %>
+<!--      </tbody>-->
+<!--    </table>-->
+<!--  </div>-->
 
-  <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
-    <h4 class="text-center">Agents</h4>
+<!--  <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">-->
+<!--    <h4 class="text-center">Agents</h4>-->
 
-    <table class="table table-dark table-striped table-bordered">
-      <tbody>
-        <% @character.agents_standings.each do |standing| %>
-          <tr>
-            <td><%= standing.standingable.name %></td>
-            <td><%= standing.rounded_standing %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-  </div>
+<!--    <table class="table table-dark table-striped table-bordered">-->
+<!--      <tbody>-->
+        <%# @character.standings.agents.each do |standing| %>
+<!--          <tr>-->
+<!--            <td><%#= standing.standingable.name %></td>-->
+<!--            <td><%#= standing.rounded_standing %></td>-->
+<!--          </tr>-->
+        <%# end %>
+<!--      </tbody>-->
+<!--    </table>-->
+<!--  </div>-->
 </div>

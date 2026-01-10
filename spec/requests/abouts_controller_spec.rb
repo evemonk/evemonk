@@ -6,7 +6,7 @@ RSpec.describe AboutsController, type: :request do
   describe "#show" do
     before { get about_path }
 
-    context "when user not logged in" do
+    context "when user is not logged in" do
       it "is expected to render template show with status ok" do
         expect(response).to have_http_status(:ok)
 
@@ -17,7 +17,7 @@ RSpec.describe AboutsController, type: :request do
     context "when user is logged in" do
       let(:user) { create(:user) }
 
-      before { sign_in(user) }
+      before { sign_in_as(user) }
 
       it "is expected to render template show with status ok" do
         expect(response).to have_http_status(:ok)
