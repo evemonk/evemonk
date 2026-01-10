@@ -5,7 +5,7 @@ require "rails_helper"
 RSpec.describe ApplicationController, type: :controller do
   it { expect(subject).to be_a(Pundit::Authorization) }
 
-  it { expect(subject).to use_before_action(:authenticate_user!) }
+  it { expect(subject).to use_before_action(:require_authentication) }
 
   it { expect(subject).to use_before_action(:default_locale) }
 
