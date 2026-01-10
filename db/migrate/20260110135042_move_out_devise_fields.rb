@@ -19,11 +19,11 @@ class MoveOutDeviseFields < ActiveRecord::Migration[8.1]
     rename_column :users, :last_sign_in_ip, :devise_last_sign_in_ip
     rename_column :users, :current_sign_in_at, :devise_current_sign_in_at
     rename_column :users, :current_sign_in_ip, :devise_current_sign_in_ip
+    rename_column :users, :encrypted_password, :devise_encrypted_password
 
     # t.string :email_address, null: false
     # t.string :password_digest, null: false
 
-    # t.string "encrypted_password", default: "", null: false
     # t.integer "locale", default: 0
     # t.integer "notifications_count", default: 0
   end
