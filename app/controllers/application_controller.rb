@@ -13,11 +13,11 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery with: :exception, prepend: true
 
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
 
   before_action :default_locale
 
-  before_action :current_user_locale
+  # before_action :current_user_locale
 
   rescue_from Pundit::NotAuthorizedError, with: :redirect_user_to_root_path
 
