@@ -2,7 +2,7 @@
 
 module Universe
   class CharactersController < ApplicationController
-    skip_before_action :authenticate_user!
+    allow_unauthenticated_access
 
     def index
       # @characters = Eve::SearchCharactersQuery.new(params[:q]).query.page(params[:page])

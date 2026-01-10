@@ -5,6 +5,10 @@ Rails.application.routes.draw do
   # Can be used by load balancers and uptime monitors to verify that the app is live.
   get "up" => "rails/health#show", :as => :rails_health_check
 
+  resource :session
+
+  resources :passwords, param: :token
+
   if Rails.env.local?
     mount Lookbook::Engine, at: "/lookbook"
   end
@@ -21,7 +25,7 @@ Rails.application.routes.draw do
 
   post "/graphql", to: "graphql#execute"
 
-  devise_for :users
+  # devise_for :users
 
   get ".well-known/change-password", to: "well_known#change_password"
 

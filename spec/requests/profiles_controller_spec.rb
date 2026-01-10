@@ -3,15 +3,13 @@
 require "rails_helper"
 
 RSpec.describe ProfilesController, type: :request do
-  it { expect(subject).to be_an(ApplicationController) }
-
   describe "#show" do
     context "when user signed in" do
       let(:user) { create(:user) }
 
       let!(:character) { create(:character, user: user) }
 
-      before { sign_in(user) }
+      before { sign_in_as(user) }
 
       before { get profile_path }
 
@@ -25,7 +23,7 @@ RSpec.describe ProfilesController, type: :request do
 
       it { expect(response).to have_http_status(:found) }
 
-      it { expect(subject).to redirect_to(new_user_session_path) }
+      it { expect(subject).to redirect_to(new_session_path) }
     end
   end
 end

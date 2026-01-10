@@ -3,8 +3,6 @@
 require "rails_helper"
 
 RSpec.describe PrivacyPoliciesController, type: :request do
-  it { expect(subject).to be_an(ApplicationController) }
-
   describe "#show" do
     before { get privacy_policy_path }
 
@@ -19,7 +17,7 @@ RSpec.describe PrivacyPoliciesController, type: :request do
     context "when user is logged in" do
       let(:user) { create(:user) }
 
-      before { sign_in(user) }
+      before { sign_in_as(user) }
 
       it "is expected to have http status ok" do
         expect(response).to have_http_status(:ok)

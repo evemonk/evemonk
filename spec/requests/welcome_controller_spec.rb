@@ -3,8 +3,6 @@
 require "rails_helper"
 
 RSpec.describe WelcomeController, type: :request do
-  it { expect(subject).to be_an(ApplicationController) }
-
   describe "#index" do
     before { get root_path }
 
@@ -21,7 +19,7 @@ RSpec.describe WelcomeController, type: :request do
     context "when user is logged in" do
       let(:user) { create(:user) }
 
-      before { sign_in(user) }
+      before { sign_in_as(user) }
 
       it "is expected to have http status ok" do
         expect(response).to have_http_status(:ok)

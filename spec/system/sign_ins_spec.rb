@@ -6,7 +6,7 @@ RSpec.describe "Sign in features", type: :system do
   before { driven_by(:selenium_chrome_headless) }
 
   it "when user successfully sign in" do
-    create(:user, email: "me@example.com", password: "eidii7EeooVe8ahk", locale: "english")
+    create(:user, email_address: "me@example.com", password: "eidii7EeooVe8ahk", locale: "english")
 
     visit "/"
 
@@ -23,7 +23,7 @@ RSpec.describe "Sign in features", type: :system do
   end
 
   it "when user successfully sign in with upper cased email" do
-    create(:user, email: "me@example.com", password: "eidii7EeooVe8ahk", locale: "english")
+    create(:user, email_address: "me@example.com", password: "eidii7EeooVe8ahk", locale: "english")
 
     visit "/"
 
@@ -55,7 +55,7 @@ RSpec.describe "Sign in features", type: :system do
   end
 
   it "when password wrong" do
-    create(:user, email: "me@example.com", password: "eidii7EeooVe8ahk", locale: "english")
+    create(:user, email_address: "me@example.com", password: "eidii7EeooVe8ahk", locale: "english")
 
     visit "/"
 
