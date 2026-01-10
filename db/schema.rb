@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_01_10_140827) do
+ActiveRecord::Schema[8.1].define(version: 2026_01_10_141657) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_buffercache"
   enable_extension "pg_catalog.plpgsql"
@@ -1122,10 +1122,10 @@ ActiveRecord::Schema[8.1].define(version: 2026_01_10_140827) do
     t.string "devise_reset_password_token"
     t.integer "devise_sign_in_count", default: 0, null: false
     t.string "devise_unconfirmed_email"
-    t.string "email_address"
+    t.string "email_address", null: false
     t.integer "locale", default: 0
     t.integer "notifications_count", default: 0
-    t.string "password_digest"
+    t.string "password_digest", null: false
     t.datetime "updated_at", precision: nil, null: false
   end
 
