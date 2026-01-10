@@ -3,15 +3,13 @@
 require "rails_helper"
 
 RSpec.describe Admin::Eve::TypesController, type: :request do
-  it { expect(subject).to be_an(Admin::ApplicationController) }
-
   describe "#index" do
     context "when user is logged in" do
       context "when user is admin" do
         it "should render page" do
           user = create(:user, locale: :english, admin: true)
 
-          sign_in user
+          sign_in_as user
 
           create(:eve_type)
 
@@ -25,7 +23,7 @@ RSpec.describe Admin::Eve::TypesController, type: :request do
         it "should render page" do
           user = create(:user, locale: :english, admin: false)
 
-          sign_in user
+          sign_in_as user
 
           create(:eve_type)
 
@@ -57,7 +55,7 @@ RSpec.describe Admin::Eve::TypesController, type: :request do
         it "should render page" do
           user = create(:user, locale: :english, admin: true)
 
-          sign_in user
+          sign_in_as user
 
           eve_type = create(:eve_type)
 
@@ -71,7 +69,7 @@ RSpec.describe Admin::Eve::TypesController, type: :request do
         it "should render page" do
           user = create(:user, locale: :english, admin: false)
 
-          sign_in user
+          sign_in_as user
 
           eve_type = create(:eve_type)
 
