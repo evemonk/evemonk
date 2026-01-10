@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_01_10_141657) do
+ActiveRecord::Schema[8.1].define(version: 2026_01_10_143723) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_buffercache"
   enable_extension "pg_catalog.plpgsql"
@@ -1069,6 +1069,15 @@ ActiveRecord::Schema[8.1].define(version: 2026_01_10_141657) do
     t.index ["database", "captured_at"], name: "index_pghero_space_stats_on_database_and_captured_at"
   end
 
+  create_table "sessions", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.string "ip_address"
+    t.datetime "updated_at", null: false
+    t.string "user_agent"
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_sessions_on_user_id"
+  end
+
   create_table "settings", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -1181,6 +1190,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_01_10_141657) do
   add_foreign_key "eve_required_items", "eve_loyalty_store_offers"
   add_foreign_key "industry_jobs", "characters"
   add_foreign_key "manufacturing_jobs", "characters"
+  add_foreign_key "sessions", "users"
   add_foreign_key "skillqueues", "characters"
   add_foreign_key "standings", "characters"
   add_foreign_key "wallet_journals", "characters"
