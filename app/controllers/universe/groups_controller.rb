@@ -2,7 +2,7 @@
 
 module Universe
   class GroupsController < ApplicationController
-    skip_before_action :authenticate_user!
+    allow_unauthenticated_access
 
     def show
       # @group = Eve::Group.find_by(group_id: params[:id])

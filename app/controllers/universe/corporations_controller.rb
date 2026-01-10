@@ -2,7 +2,7 @@
 
 module Universe
   class CorporationsController < ApplicationController
-    skip_before_action :authenticate_user!
+    allow_unauthenticated_access
 
     def index
       # @corporations = Eve::SearchCorporationsQuery.new(params[:q]).query.page(params[:page])

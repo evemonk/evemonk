@@ -23,6 +23,10 @@ class ApplicationController < ActionController::Base
 
   private
 
+  def pundit_user
+    Current.user
+  end
+
   def redirect_user_to_root_path
     redirect_to root_path
   end
