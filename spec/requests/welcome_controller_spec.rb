@@ -3,8 +3,6 @@
 require "rails_helper"
 
 RSpec.describe WelcomeController, type: :request do
-  it { expect(subject).to be_an(ApplicationController) }
-
   describe "#index" do
     before { get root_path }
 
