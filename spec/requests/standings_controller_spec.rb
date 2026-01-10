@@ -2,53 +2,44 @@
 
 require "rails_helper"
 
-RSpec.describe StandingsController, type: :controller do
-  it { expect(subject).to be_an(ApplicationController) }
-
-  it { expect(subject).to use_before_action(:authenticate_user!) }
-
+RSpec.describe StandingsController, type: :request do
   describe "#index" do
     context "when user signed in" do
-      let(:user) { create(:user) }
+      context "when user is own character" do
+        let(:user) { create(:user) }
 
-      before { sign_in(user) }
+        let(:character) { create(:character, user: user) }
 
-      before { expect(subject).to receive(:current_user_locale) }
+        before { sign_in_as(user) }
 
-      before do
-        #
-        # subject.current_user.characters
-        #        .includes(:alliance, :corporation, :factions_standings,
-        #                  :corporations_standings, :agents_standings)
-        #        .find_by!(character_id: params[:character_id])
-        #
-        expect(subject).to receive(:current_user) do
-          double.tap do |a|
-            expect(a).to receive(:characters) do
-              double.tap do |b|
-                expect(b).to receive(:includes).with(:alliance, :corporation,
-                  :factions_standings, :corporations_standings, :agents_standings) do
-                  double.tap do |c|
-                    expect(c).to receive(:find_by!).with(character_id: "1")
-                  end
-                end
-              end
-            end
-          end
-        end
+        before { get character_standings_path(character) }
+
+        it { expect(response).to have_http_status(:ok) }
+
+        it { expect(response.body).to include("Standings") }
       end
 
-      before { get :index, params: {character_id: "1"} }
+      context "when user is not own character" do
+        let(:user) { create(:user) }
 
-      it { expect(subject).to respond_with(:ok) }
+        let(:character) { create(:character) }
 
-      it { expect(subject).to render_template(:index) }
+        before { sign_in_as(user) }
+
+        before { get character_standings_path(character) }
+
+        it { expect(response).to have_http_status(:not_found) }
+      end
     end
 
     context "when user not signed in" do
-      before { get :index, params: {character_id: "1"} }
+      let(:character) { create(:character) }
 
-      it { expect(subject).to redirect_to(new_user_session_path) }
+      before { get character_standings_path(character) }
+
+      it { expect(response).to have_http_status(:found) }
+
+      it { expect(subject).to redirect_to(new_session_path) }
     end
   end
 end
