@@ -23,8 +23,5 @@ class MoveOutDeviseFields < ActiveRecord::Migration[8.1]
 
     # t.string :email_address, null: false
     # t.string :password_digest, null: false
-
-    # t.integer "locale", default: 0
-    # t.integer "notifications_count", default: 0
   end
 end
