@@ -9,5 +9,6 @@ RSpec.describe RegistrationsController, type: :request do
     it { expect(response).to have_http_status(:ok) }
   end
 
-  # TODO: more
+  describe "#create" do
+  end
 end
