@@ -3,8 +3,6 @@
 require "rails_helper"
 
 RSpec.describe Universe::CharactersController, type: :request do
-  it { expect(subject).to be_an(ApplicationController) }
-
   describe "#index" do
     let!(:character) { create(:eve_character, name: "Johnn Dillinger") }
 

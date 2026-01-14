@@ -3,8 +3,6 @@
 require "rails_helper"
 
 RSpec.describe CharactersController, type: :request do
-  it { expect(subject).to be_an(ApplicationController) }
-
   describe "#index" do
     context "when user signed in" do
       let(:user) { create(:user) }

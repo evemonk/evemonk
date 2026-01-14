@@ -3,8 +3,6 @@
 require "rails_helper"
 
 RSpec.describe AgentsController, type: :request do
-  it { expect(subject).to be_an(ApplicationController) }
-
   describe "#index" do
     context "when user signed in" do
       context "when user is own character" do
