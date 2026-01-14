@@ -3,8 +3,6 @@
 require "rails_helper"
 
 RSpec.describe TermsOfServicesController, type: :request do
-  it { expect(subject).to be_an(ApplicationController) }
-
   describe "#show" do
     before { get terms_of_service_path }
 

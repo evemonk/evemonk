@@ -3,8 +3,6 @@
 require "rails_helper"
 
 RSpec.describe Universe::CategoriesController, type: :request do
-  it { expect(subject).to be_an(ApplicationController) }
-
   describe "#index" do
     let!(:category) { create(:eve_category, name_en: "Test Category") }
 

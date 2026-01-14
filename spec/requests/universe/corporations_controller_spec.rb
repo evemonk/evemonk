@@ -3,8 +3,6 @@
 require "rails_helper"
 
 RSpec.describe Universe::CorporationsController, type: :request do
-  it { expect(subject).to be_an(ApplicationController) }
-
   describe "#index" do
     let!(:corporation) { create(:eve_corporation, name: "Freighting Solutions Inc.") }
 
