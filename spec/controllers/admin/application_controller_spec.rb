@@ -14,7 +14,7 @@ RSpec.describe Admin::ApplicationController, type: :controller do
   describe "#admin?" do
     before { expect(subject).to receive(:current_user).and_return(user) }
 
-    context "when current user admin" do
+    context "when current user is admin" do
       let(:user) { build(:user, admin: true) }
 
       before { expect(subject).not_to receive(:redirect_to) }
@@ -22,7 +22,7 @@ RSpec.describe Admin::ApplicationController, type: :controller do
       specify { expect(subject.send(:admin?)).to eq(nil) }
     end
 
-    context "when current user not admin" do
+    context "when current user is not admin" do
       let(:user) { build(:user, admin: false) }
 
       let(:root_url) { double }
