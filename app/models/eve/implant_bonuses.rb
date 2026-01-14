@@ -21,8 +21,8 @@ module Eve
         .where(attribute_id: attribute_ids)
         .where.not(value: 0.0)
         .map do |type_dogma_attribute|
-        {name: type_dogma_attribute.dogma_attribute&.display_name,
-         value: type_dogma_attribute.value}
+          {name: type_dogma_attribute.dogma_attribute&.display_name,
+           value: type_dogma_attribute.value}
       end
     end
 
