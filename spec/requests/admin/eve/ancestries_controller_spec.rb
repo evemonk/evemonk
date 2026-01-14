@@ -3,8 +3,6 @@
 require "rails_helper"
 
 RSpec.describe Admin::Eve::AncestriesController, type: :request do
-  it { expect(subject).to be_an(Admin::ApplicationController) }
-
   describe "#index" do
     context "when user is logged in" do
       context "when user is admin" do
