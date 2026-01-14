@@ -59,5 +59,8 @@ module Evemonk
       current_graphql_field: -> { GraphQL::Current.field&.path },
       current_dataloader_source: -> { GraphQL::Current.dataloader_source_class }
     ]
+
+    # Mailer preview
+    config.action_mailer.preview_paths << Rails.root.join("spec/mailers/previews")
   end
 end
