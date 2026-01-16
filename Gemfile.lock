@@ -20,7 +20,7 @@ GIT
 
 GIT
   remote: https://github.com/flippercloud/flipper.git
-  revision: 30377e6017fd902b9fc322d870ebb6d081d58d64
+  revision: e577becfa7f4c8bd5ee89c2fa9f26de9d920685e
   branch: main
   specs:
     flipper (1.3.6)
