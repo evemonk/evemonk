@@ -2,13 +2,13 @@
 
 FactoryBot.define do
   factory :user do
-    email { Faker::Internet.email }
+    email_address { Faker::Internet.email }
 
     password { Faker::Internet.password }
 
     notifications_count { 0 } # TODO: fix
 
-    confirmed_at { Time.zone.now }
+    # confirmed_at { Time.zone.now }
 
     # locale { User.locales.keys.sample }
 

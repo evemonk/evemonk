@@ -2,14 +2,14 @@
 
 module MaintenanceTasks
   class BaseController < ActionController::Base
-    before_action :authenticate_user!
+    include Authentication
 
     before_action :admin?
 
     private
 
     def admin?
-      redirect_to "/" if !current_user.admin?
+      redirect_to root_path if !Current.user.admin?
     end
   end
 end

@@ -357,3 +357,10 @@ Style/HashAsLastArrayItem:
 
 Performance/MapMethodChain:
   Enabled: false
+
+Style/ArgumentsForwarding:
+  Enabled: false
+
+# TODO: enable it later
+Rails/I18nLocaleTexts:
+  Enabled: false
