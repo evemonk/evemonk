@@ -2,14 +2,14 @@
 
 module Admin
   class ApplicationController < Administrate::ApplicationController
-    before_action :authenticate_user!
+    include Authentication
 
     before_action :admin?
 
     private
 
     def admin?
-      redirect_to root_url if !current_user.admin?
+      redirect_to root_url if !Current.user.admin?
     end
 
     def default_sorting_attribute

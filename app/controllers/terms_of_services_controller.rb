@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class TermsOfServicesController < ApplicationController
-  skip_before_action :authenticate_user!
+  allow_unauthenticated_access
 
   def show
     skip_authorization

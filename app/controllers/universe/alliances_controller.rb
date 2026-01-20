@@ -2,7 +2,7 @@
 
 module Universe
   class AlliancesController < ApplicationController
-    skip_before_action :authenticate_user!
+    allow_unauthenticated_access
 
     def index
       # @alliances = Eve::SearchAlliancesQuery.new(params[:q]).query.page(params[:page])

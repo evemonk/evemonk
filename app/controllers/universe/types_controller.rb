@@ -2,7 +2,7 @@
 
 module Universe
   class TypesController < ApplicationController
-    skip_before_action :authenticate_user!
+    allow_unauthenticated_access
 
     def show
       @type = Eve::Type

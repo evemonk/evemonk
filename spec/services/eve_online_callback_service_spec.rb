@@ -3,15 +3,17 @@
 require "rails_helper"
 
 RSpec.describe EveOnlineCallbackService do
-  let(:user) { instance_double(User) }
+  let(:user) { create(:user) }
+
+  before { Current.session = user.sessions.create! }
+
+  after { Current.session = nil }
 
   let(:request) { double }
 
-  subject { described_class.new(user, request) }
+  subject { described_class.new(request) }
 
   describe "#initialize" do
-    its(:user) { is_expected.to eq(user) }
-
     its(:request) { is_expected.to eq(request) }
   end
 

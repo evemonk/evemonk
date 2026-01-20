@@ -3,7 +3,7 @@
 module Universe
   module Corporations
     class CharactersController < ApplicationController
-      skip_before_action :authenticate_user!
+      allow_unauthenticated_access
 
       def index
         @corporation = policy_scope(Eve::Corporation).find(params[:corporation_id])

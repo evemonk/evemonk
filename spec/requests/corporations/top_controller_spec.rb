@@ -19,7 +19,7 @@ RSpec.describe Corporations::TopController, type: :request do
     context "when user is logged in" do
       let(:user) { create(:user) }
 
-      before { sign_in(user) }
+      before { sign_in_as(user) }
 
       it "is expected to have http status ok" do
         expect(response).to have_http_status(:ok)

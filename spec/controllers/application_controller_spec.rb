@@ -3,9 +3,11 @@
 require "rails_helper"
 
 RSpec.describe ApplicationController, type: :controller do
+  it { expect(subject).to be_an(Authentication) }
+
   it { expect(subject).to be_a(Pundit::Authorization) }
 
-  it { expect(subject).to use_before_action(:authenticate_user!) }
+  it { expect(subject).to use_before_action(:require_authentication) }
 
   it { expect(subject).to use_before_action(:default_locale) }
 
@@ -13,10 +15,20 @@ RSpec.describe ApplicationController, type: :controller do
 
   # private methods
 
-  describe "#after_sign_in_path_for" do
-    let(:resource) { double }
+  describe "#pundit_user" do
+    context "when user is not logged in" do
+      before { Current.session = nil }
 
-    specify { expect(subject.send(:after_sign_in_path_for, resource)).to eq("/characters") }
+      specify { expect(subject.send(:pundit_user)).to eq(nil) }
+    end
+
+    context "when user is logged in" do
+      let(:user) { create(:user) }
+
+      before { Current.session = user.sessions.create! }
+
+      specify { expect(subject.send(:pundit_user)).to eq(user) }
+    end
   end
 
   describe "#default_locale" do
@@ -26,19 +38,19 @@ RSpec.describe ApplicationController, type: :controller do
   end
 
   describe "#current_user_locale" do
-    context "when user not logged in" do
-      before { expect(subject).to receive(:current_user).and_return(nil) }
+    context "when user is not logged in" do
+      before { Current.session = nil }
 
       before { expect(I18n).not_to receive(:locale=) }
 
       specify { expect { subject.send(:current_user_locale) }.not_to raise_error }
     end
 
-    context "when user logged in" do
+    context "when user is logged in" do
       context "when user locale is auto detect" do
-        let(:user) { build(:user, locale: :auto_detect) }
+        let(:user) { create(:user, locale: :auto_detect) }
 
-        before { expect(subject).to receive(:current_user).and_return(user).twice }
+        before { Current.session = user.sessions.create! }
 
         let(:available_locales) { double }
 
@@ -68,9 +80,9 @@ RSpec.describe ApplicationController, type: :controller do
       end
 
       context "when user locale is set" do
-        let(:user) { build(:user, locale: :english) }
+        let(:user) { create(:user, locale: :english) }
 
-        before { expect(subject).to receive(:current_user).and_return(user).exactly(3).times }
+        before { Current.session = user.sessions.create! }
 
         let(:locale) { double }
 
