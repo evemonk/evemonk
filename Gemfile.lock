@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/evemonk/eve_online.git
-  revision: 5444f32a0f62608c00a90a75f2b60f3eae0b1a68
+  revision: 935fb465f3dc6d8ba5305b45aac8a5bba0b6d278
   branch: main
   specs:
     eve_online (0.47.0)
