@@ -11,7 +11,7 @@ GIT
 
 GIT
   remote: https://github.com/evemonk/omniauth-eve_online-sso.git
-  revision: 7812c657d6dfa95d82bb91b5f09d5489332d8716
+  revision: 5fe91c606e2818c407348f585ef72b717c149ad0
   branch: main
   specs:
     omniauth-eve_online-sso (0.7.0)
