@@ -4,6 +4,7 @@ module Eve
   class CharacterImporter < BaseImporter
     attr_reader :id
 
+    # @param id [Integer] Eve Character ID
     def initialize(id)
       @id = id
     end
@@ -12,16 +13,24 @@ module Eve
       import! do
         eve_character = Eve::Character.find_or_initialize_by(id: id)
 
-        eve_character.update!(esi.as_json)
+        eve_character.update!(character.as_json)
       rescue EveOnline::Exceptions::ResourceNotFound
         Rails.logger.info("EveOnline::Exceptions::ResourceNotFound: Eve Character ID #{id}")
+
+        DeletedCharacter.find_or_create_by!(id: id).touch
 
         eve_character.destroy!
       end
     end
 
-    def esi
-      @esi ||= EveOnline::ESI::Character.new(character_id: id)
+    private
+
+    def client
+      @client ||= EveOnline::ESI::Client.new(cache: true, cache_store: Rails.cache)
+    end
+
+    def character
+      @character ||= client.characters.retrieve(id: id)
     end
   end
 end
