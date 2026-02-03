@@ -18,13 +18,37 @@ RSpec.describe Eve::CharacterImporter do
       after { VCR.eject_cassette }
 
       context "when character is present in db" do
-        let!(:eve_character) { create(:eve_character, id: id) }
+        let!(:eve_character) { create(:eve_character, id: id, name: nil) }
 
         specify { expect { subject.import }.not_to change(Eve::Character, :count) }
+
+        specify { expect { subject.import }.to change { Eve::Character.first&.name }.from(nil).to("Green Black") }
       end
 
       context "when character is not present in db" do
         specify { expect { subject.import }.to change(Eve::Character, :count).by(1) }
+
+        specify do
+          expect { subject.import }
+            .to change { Eve::Character.first&.attributes&.except("created_at", "updated_at") }
+            .from(nil)
+            .to(
+              {
+                "id" => 90_729_314,
+                "alliance_id" => nil,
+                "birthday" => Time.utc(2011, 5, 10, 10, 23, 0),
+                "bloodline_id" => 7,
+                "corporation_id" => 1_000_168,
+                "description" => "",
+                "faction_id" => nil,
+                "gender" => "male",
+                "name" => "Green Black",
+                "race_id" => 8,
+                "security_status" => 0.0,
+                "title" => nil
+              }
+            )
+        end
       end
     end
 
