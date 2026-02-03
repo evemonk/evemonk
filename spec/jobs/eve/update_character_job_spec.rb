@@ -8,7 +8,7 @@ RSpec.describe Eve::UpdateCharacterJob do
   it { expect(described_class.queue_name).to eq("default") }
 
   describe "#perform" do
-    let(:id) { double }
+    let(:id) { 1 }
 
     before do
       #
