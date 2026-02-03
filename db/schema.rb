@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_01_10_123547) do
+ActiveRecord::Schema[8.1].define(version: 2026_02_03_220949) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_buffercache"
   enable_extension "pg_catalog.plpgsql"
@@ -548,6 +548,11 @@ ActiveRecord::Schema[8.1].define(version: 2026_01_10_123547) do
     t.index ["name", "ticker"], name: "index_eve_corporations_on_name_and_ticker", opclass: :gin_trgm_ops, using: :gin
     t.index ["name"], name: "index_eve_corporations_on_name"
     t.index ["npc", "member_count"], name: "index_eve_corporations_on_npc_and_member_count"
+  end
+
+  create_table "eve_deleted_characters", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "eve_divisions", force: :cascade do |t|
