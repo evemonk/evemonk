@@ -11,25 +11,37 @@ RSpec.describe Eve::CharacterImporter do
 
   describe "#import" do
     context "when eve character is exist" do
+      let(:id) { 90_729_314 }
 
+      before { VCR.insert_cassette "esi/characters/90729314" }
+
+      after { VCR.eject_cassette }
+
+      context "when character is present in db" do
+        let!(:eve_character) { create(:eve_character, id: id) }
+
+        specify { expect { subject.import }.not_to change(Eve::Character, :count) }
+      end
+
+      context "when character is not present in db" do
+        specify { expect { subject.import }.to change(Eve::Character, :count).by(1) }
+      end
     end
 
     context "when eve character is not exist" do
+      let(:id) { 93_002_807 }
+
       before { VCR.insert_cassette "esi/characters/93002807" }
 
       after { VCR.eject_cassette }
 
       context "when character is present in db" do
-        let(:id) { 93_002_807 }
-
         let!(:eve_character) { create(:eve_character, id: id) }
 
         specify { expect { subject.import }.to change(Eve::Character, :count).by(-1) }
       end
 
       context "when character is not present in db" do
-        let(:id) { 93_002_807 }
-
         specify { expect { subject.import }.not_to change(Eve::Character, :count) }
 
         specify { expect { subject.import }.to change(Eve::DeletedCharacter, :count).by(1) }
@@ -38,8 +50,6 @@ RSpec.describe Eve::CharacterImporter do
       end
 
       context "when character is already blacklisted" do
-        let(:id) { 93_002_807 }
-
         let!(:eve_deleted_character) do
           travel_to 1.day.ago do
             create(:eve_deleted_character, id: id)
