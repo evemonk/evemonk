@@ -17,7 +17,7 @@ module Eve
       rescue EveOnline::Exceptions::ResourceNotFound
         Rails.logger.info("EveOnline::Exceptions::ResourceNotFound: Eve Character ID #{id}")
 
-        DeletedCharacter.find_or_create_by!(id: id).touch
+        DeletedCharacter.find_or_create_by!(id: id).touch # rubocop:disable Rails/SkipsModelValidations
 
         eve_character.destroy!
       end
