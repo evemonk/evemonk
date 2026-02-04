@@ -5,6 +5,8 @@ class CharacterImporter < CharacterBaseImporter
     resource.update!(character.as_json)
   end
 
+  private
+
   def scope
   end
 
