@@ -2,7 +2,7 @@
 
 class CreateEveDeletedCharacters < ActiveRecord::Migration[8.1]
   def change
-    create_table :eve_deleted_characters do |t|
+    create_table :eve_deleted_characters do |t| # rubocop:disable Style/SymbolProc
       t.timestamps
     end
   end
