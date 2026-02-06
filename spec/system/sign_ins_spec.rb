@@ -49,7 +49,7 @@ RSpec.describe "Sign in features", type: :system do
 
     click_button "Log in"
 
-    expect(page).to have_content("Invalid Email or password.")
+    expect(page).to have_content("Invalid email or password.")
 
     expect(page).to have_current_path("/users/sign_in")
   end
@@ -66,7 +66,7 @@ RSpec.describe "Sign in features", type: :system do
 
     click_button "Log in"
 
-    expect(page).to have_content("Invalid Email or password.")
+    expect(page).to have_content("Invalid email or password.")
 
     expect(page).to have_current_path("/users/sign_in")
   end
