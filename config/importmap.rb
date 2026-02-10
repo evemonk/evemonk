@@ -15,7 +15,7 @@ pin "local-time", preload: false # @3.0.2
 
 pin "@github/hotkey", to: "@github--hotkey.js", preload: false # @3.1.1
 
-pin "@popperjs/core", to: "@popperjs--core.js", preload: false # @2.11.8
-pin "bootstrap", preload: false # @5.3.8
+pin "@popperjs/core", to: "popper.js", preload: false # @2.11.8
+pin "bootstrap", to: "bootstrap.esm.min.js", preload: false # @5.3.8
 
 pin "@stimulus-components/password-visibility", to: "@stimulus-components--password-visibility.js", preload: false # @3.0.0
