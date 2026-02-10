@@ -56,9 +56,9 @@ All screenshots are real and made in Safari on latest macOS Catalina (10.15.3).
 - [PostgreSQL](https://www.postgresql.org)
 - [Valkey](https://valkey.io/)
 - Amazon S3 compatible storage
-- Bootstrap 5.2.3
+- Bootstrap 5.3.8
 - [Bootstrap Icons](https://icons.getbootstrap.com) 1.13.1
-- Bootswatch Darkly 5.2.3
+- Bootswatch Darkly 5.3.8
 
 ## Configure
 
