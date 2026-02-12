@@ -886,7 +886,6 @@ DEPENDENCIES
   ancestry
   aws-sdk-s3
   bcrypt_pbkdf
-  benchmark
   bootsnap
   brakeman
   bundler-audit
