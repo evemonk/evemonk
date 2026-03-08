@@ -10,7 +10,7 @@ plugins:
 
 AllCops:
   NewCops: enable
-  TargetRubyVersion: 3.4
+  TargetRubyVersion: 4.0
   Exclude:
     - "bin/*"
     - "db/schema.rb"
