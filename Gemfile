@@ -44,9 +44,7 @@ gem "meta-tags"
 gem "eve_online",
   git: "https://github.com/evemonk/eve_online.git",
   branch: "main"
-gem "omniauth-eve_online-sso",
-  git: "https://github.com/evemonk/omniauth-eve_online-sso.git",
-  branch: "main"
+gem "omniauth-eve_online-sso"
 gem "omniauth-rails_csrf_protection"
 gem "jwt"
 gem "ancestry"
