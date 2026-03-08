@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-bs-theme="light">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
@@ -26,8 +26,6 @@
     <%= csp_meta_tag %>
     <%= action_cable_meta_tag %>
 
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootswatch@5.2.3/dist/darkly/bootstrap.css" rel="stylesheet"> -->
-
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload", integrity: true %>
     <%= stylesheet_link_tag "bootstrap", "data-turbo-track": "reload", integrity: true %>
     <%= javascript_importmap_tags %>
@@ -36,7 +34,7 @@
     <%= tag.link(rel: "author", href: "humans.txt") %>
   </head>
 
-  <body data-bs-theme="light">
+  <body>
     <div class="container">
       <nav class="navbar navbar-expand-md bg-dark navbar-dark rounded" aria-label="EveMonk navbar">
         <div class="container-fluid">
