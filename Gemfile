@@ -25,7 +25,6 @@ gem "solid_cable"
 gem "bootsnap", require: false
 
 gem "thruster"
-gem "reactionview"
 gem "view_component"
 gem "inline_svg"
 gem "good_migrations"
