@@ -138,5 +138,3 @@ group :test do
 end
 
 gem "httplog"
-# Also please contact the author of httplog-1.7.3 to request adding benchmark into its gemspec.
-gem "benchmark"
