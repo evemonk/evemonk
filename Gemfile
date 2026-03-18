@@ -74,7 +74,6 @@ gem "sshkit", require: false
 gem "ed25519", require: false
 gem "bcrypt_pbkdf", require: false
 gem "maintenance_tasks"
-# Til next release https://github.com/flippercloud/flipper/issues/962
 gem "flipper"
 gem "flipper-active_record"
 gem "flipper-ui"
