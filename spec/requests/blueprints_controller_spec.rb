@@ -2,37 +2,28 @@
 
 require "rails_helper"
 
-RSpec.describe BlueprintsController, type: :controller do
-  it { expect(subject).to be_an(ApplicationController) }
-
-  it { expect(subject).to use_before_action(:authenticate_user!) }
-
+RSpec.describe BlueprintsController, type: :request do
   describe "#index" do
     context "when user signed in" do
       let(:user) { create(:user) }
+
+      let(:character) { instance_double(Character::ActiveRecord_Relation) }
 
       before { sign_in(user) }
 
       before { expect(subject).to receive(:current_user_locale) }
 
+      before { expect(subject).to receive(:policy_scope).with(Character).and_return(user) }
+
       before do
         #
-        # subject.current_user
-        #        .characters
-        #        .includes(:alliance, :corporation)
-        #        .find_by!(character_id: params[:character_id])
+        # policy_scope(Character)
+        #   .includes(:alliance, :corporation)
+        #   .find_by!(character_id: params[:character_id])
         #
-        expect(subject).to receive(:current_user) do
+        expect(character).to receive(:includes).with(:alliance, :corporation) do |a|
           double.tap do |a|
-            expect(a).to receive(:characters) do
-              double.tap do |b|
-                expect(b).to receive(:includes).with(:alliance, :corporation) do
-                  double.tap do |c|
-                    expect(c).to receive(:find_by!).with(character_id: "1")
-                  end
-                end
-              end
-            end
+            expect(a).to receive(:find_by!).with(character_id: "1")
           end
         end
       end
@@ -75,7 +66,7 @@ RSpec.describe BlueprintsController, type: :controller do
                 expect(b).to receive(:includes).with(:alliance, :corporation) do
                   double.tap do |c|
                     expect(c).to receive(:find_by!).with(character_id: "1")
-                      .and_return(character)
+                                                   .and_return(character)
                   end
                 end
               end
