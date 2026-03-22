@@ -2,8 +2,6 @@
 
 module Universe
   class TypesController < ApplicationController
-    skip_before_action :authenticate_user!
-
     def show
       @type = Eve::Type
         .includes(group: :category,
