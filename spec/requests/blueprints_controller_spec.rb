@@ -41,6 +41,22 @@ RSpec.describe BlueprintsController, type: :request do
     end
   end
 
+  describe "#show" do
+    context "when user signed in" do
+
+    end
+
+    context "when user not signed in" do
+      let(:character) { create(:character) }
+
+      let(:blueprint) { create(:character_blueprint, character: character) }
+
+      before { get character_blueprint_path(character, blueprint) }
+
+      it { expect(response).to have_http_status(:not_found) }
+    end
+  end
+
   # describe "#show" do
   #   context "when user signed in" do
   #     let(:user) { create(:user) }
@@ -96,12 +112,6 @@ RSpec.describe BlueprintsController, type: :request do
   #     it { expect(subject).to respond_with(:ok) }
   #
   #     it { expect(subject).to render_template(:show) }
-  #   end
-  #
-  #   context "when user not signed in" do
-  #     before { get :show, params: {character_id: "1", id: "2"} }
-  #
-  #     it { expect(subject).to redirect_to(new_user_session_path) }
   #   end
   # end
 end
