@@ -2,8 +2,6 @@
 
 module Universe
   class CategoriesController < ApplicationController
-    skip_before_action :authenticate_user!
-
     def index
       @categories = policy_scope(Eve::Category).order(:name_en).page(params[:page])
     end
