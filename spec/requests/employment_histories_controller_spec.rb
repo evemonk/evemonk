@@ -37,9 +37,7 @@ RSpec.describe EmploymentHistoriesController, type: :request do
 
       before { get character_employment_histories_path(character) }
 
-      it { expect(response).to have_http_status(:found) }
-
-      it { expect(subject).to redirect_to(new_user_session_path) }
+      it { expect(response).to have_http_status(:not_found) }
     end
   end
 end
