@@ -7,8 +7,6 @@ RSpec.describe EveOnlineCallbackService do
 
   let(:user) { instance_double(User) }
 
-  let(:request) { double }
-
   subject { described_class.new(request: request, user: user) }
 
   describe "#initialize" do
