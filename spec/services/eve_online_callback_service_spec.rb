@@ -5,9 +5,9 @@ require "rails_helper"
 RSpec.describe EveOnlineCallbackService do
   let(:user) { instance_double(User) }
 
-  let(:request) { double }
+  let(:request) { instance_double(ActionDispatch::Request) }
 
-  subject { described_class.new(user, request) }
+  subject { described_class.new(request: request, user: user) }
 
   describe "#initialize" do
     its(:user) { is_expected.to eq(user) }

@@ -1,11 +1,13 @@
 # frozen_string_literal: true
 
 class EveOnlineCallbackService
-  attr_reader :user, :request
+  attr_reader :request, :user
 
-  def initialize(user, request)
-    @user = user
+  # @param request [ActionDispatch::Request] The request object containing the OmniAuth data
+  # @param user [User] The currently authenticated user
+  def initialize(request:, user:)
     @request = request
+    @user = user
   end
 
   def save!

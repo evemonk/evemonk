@@ -24,7 +24,7 @@ RSpec.describe Auth::EveOnlineSso::CallbacksController, type: :controller do
 
     before do
       #
-      # EveOnlineCallbackService.new(current_user, request) # => service
+      # EveOnlineCallbackService.new(request: request, user: current_user) # => service
       #
       expect(EveOnlineCallbackService).to receive(:new).with(any_args).and_return(service) # TODO: replace `any_args` with real data
     end
