@@ -31,18 +31,35 @@
 
         <div id="help_1" class="accordion-collapse collapse" data-bs-parent="#help_accordion">
           <div class="accordion-body">
-            <p>You need to log in via ESI (Eve Online API) with scope <code>esi-wallet.read_character_wallet.v1</code>.</p>
+            <%= render "form", scope: "esi-wallet.read_character_wallet.v1" %>
+          </div>
+        </div>
+      </div>
 
-            <p>You can log in with this scope below:</p>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#help_2" aria-expanded="true" aria-controls="help_2">
+            Why I don't see my loyalty points?
+          </button>
+        </h2>
 
-            <%= form_tag("/auth/eve_online_sso", data: {turbo: false}) do %>
-              <%= hidden_field_tag :scope, "esi-wallet.read_character_wallet.v1" %>
-              <%= button_tag do %>
-                <% image_uri = "https://web.ccpgamescdn.com/eveonlineassets/developers/eve-sso-login-black-large.png" %>
-                <% image_uri = "#{Setting.image_proxy_url}#{image_uri}" if Setting.use_image_proxy %>
-                <%= image_tag(image_uri, alt: "Sign in via EVE Online") %>
-              <% end %>
-            <% end %>
+        <div id="help_2" class="accordion-collapse collapse" data-bs-parent="#help_accordion">
+          <div class="accordion-body">
+            <%= render "form", scope: "esi-characters.read_loyalty.v1" %>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#help_3" aria-expanded="true" aria-controls="help_3">
+            Why I don't see my implants?
+          </button>
+        </h2>
+
+        <div id="help_3" class="accordion-collapse collapse" data-bs-parent="#help_accordion">
+          <div class="accordion-body">
+            <%= render "form", scope: "esi-clones.read_implants.v1" %>
           </div>
         </div>
       </div>
