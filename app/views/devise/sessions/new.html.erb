@@ -10,7 +10,7 @@
 </div>
 
 <div class="row justify-content-center">
-  <div class="col-12 col-sm-12 col-md-8 col-lg-4 col-xl-4">
+  <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 text-center m-auto">
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="mb-3">
         <%= f.label :email, "Email address", class: "form-label" %>
@@ -49,6 +49,20 @@
       <div class="text-center">
         <%= f.submit t(".sign_in"), class: "btn btn-primary" %>
       </div>
+    <% end %>
+  </div>
+
+  <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 text-center m-auto">
+    <h4>Log in via EVE Online SSO</h4>
+
+    <h5 class="text-muted">with default scope: "publicData"</h5>
+
+    <%= form_tag("/auth/eve_online_sso", data: {turbo: false}) do %>
+      <%= button_tag do %>
+        <% image_uri = "https://web.ccpgamescdn.com/eveonlineassets/developers/eve-sso-login-black-large.png" %>
+        <% image_uri = "#{Setting.image_proxy_url}#{image_uri}" if Setting.use_image_proxy %>
+        <%= image_tag(image_uri, alt: "Sign in via EVE Online") %>
+      <% end %>
     <% end %>
   </div>
 </div>
