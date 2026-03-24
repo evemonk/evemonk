@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_02_03_220949) do
+ActiveRecord::Schema[8.1].define(version: 2026_03_22_151035) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_buffercache"
   enable_extension "pg_catalog.plpgsql"
@@ -1120,6 +1120,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_02_03_220949) do
     t.inet "current_sign_in_ip"
     t.string "email"
     t.string "encrypted_password", default: "", null: false
+    t.boolean "guest", default: false
     t.datetime "last_sign_in_at", precision: nil
     t.inet "last_sign_in_ip"
     t.integer "locale", default: 0

@@ -3,8 +3,6 @@
 module Universe
   module Alliances
     class CorporationsController < ApplicationController
-      skip_before_action :authenticate_user!
-
       def index
         @alliance = policy_scope(Eve::Alliance).find(params[:alliance_id])
 
