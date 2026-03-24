@@ -1,6 +1,8 @@
 volumes:
-  postgresql_data: {}
-  redis_data: {}
+  evemonk_postgresql_data:
+    external: true
+  evemonk_redis_data:
+    external: true
 
 services:
   postgresql:
@@ -8,7 +10,7 @@ services:
     container_name: "evemonk_postgresql"
     restart: "unless-stopped"
     volumes:
-      - "postgresql_data:/var/lib/postgresql/data:rw"
+      - "evemonk_postgresql_data:/var/lib/postgresql/data:rw"
       - "./docker/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d:ro"
     environment:
       POSTGRES_HOST_AUTH_METHOD: "trust"
@@ -21,6 +23,6 @@ services:
     container_name: "evemonk_redis"
     restart: "unless-stopped"
     volumes:
-      - "redis_data:/data:rw"
+      - "evemonk_redis_data:/data:rw"
     ports:
       - "6379:6379"
