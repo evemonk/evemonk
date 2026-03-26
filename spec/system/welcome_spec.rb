@@ -3,8 +3,6 @@
 require "rails_helper"
 
 RSpec.describe "Welcome page feature", type: :system do
-  before { driven_by(:selenium_chrome_headless) }
-
   it "should render page with alliances and corporations" do
     # Let's make sure that we show in testing mode real icons for alliances
     alliance_ids = [1_354_830_081, 99_009_268, 99_005_338, 99_003_581,
