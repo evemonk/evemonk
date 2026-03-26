@@ -205,7 +205,7 @@ GEM
     faraday-retry (2.4.0)
       faraday (~> 2.0)
     fiber-storage (1.0.1)
-    flipper (1.4.0)
+    flipper (1.4.1)
       concurrent-ruby (< 2)
     flipper-active_record (1.4.0)
       activerecord (>= 4.2, < 9)
@@ -1048,7 +1048,7 @@ CHECKSUMS
   faraday-net_http (3.4.2) sha256=f147758260d3526939bf57ecf911682f94926a3666502e24c69992765875906c
   faraday-retry (2.4.0) sha256=7b79c48fb7e56526faf247b12d94a680071ff40c9fda7cf1ec1549439ad11ebe
   fiber-storage (1.0.1) sha256=f48e5b6d8b0be96dac486332b55cee82240057065dc761c1ea692b2e719240e1
-  flipper (1.4.0) sha256=3e2eff8b34bba11ee957262778352bb5461cfbf17059623c54979059f153a084
+  flipper (1.4.1) sha256=05843240fb3093c7037549e34b046b636c765120f22e0a6268212daf44166e4d
   flipper-active_record (1.4.0) sha256=a42531d81e399a2272df19fad4420ad60db2514b143a7b470431832ff50d4d8f
   flipper-ui (1.4.0) sha256=1d773344249778b3f6f6874f4a0ea3e6bc997957da01e8e5ba813af666ff8fd1
   foreman (0.90.0) sha256=ff675e2d47b607ac58714a6d4ac3e1ee8f06f41d8db084531c31961e2c3f117c
