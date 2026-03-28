@@ -8,8 +8,6 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery with: :exception, prepend: true
 
-  before_action :authenticate_user!
-
   before_action :default_locale
 
   before_action :current_user_locale
@@ -24,6 +22,28 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(_)
     characters_path
+  end
+
+  def current_or_guest_user
+    if user_signed_in?
+      current_user
+    else
+      guest_user
+    end
+  end
+
+  def guest_user
+    @guest_user ||= begin
+      User.find(cookies.permanent.signed[:guest_user_id] ||= User.guest.id)
+    rescue ActiveRecord::RecordNotFound
+      cookies.delete :guest_user_id
+
+      User.guest
+    end
+  end
+
+  def pundit_user
+    current_or_guest_user
   end
 
   def default_locale
