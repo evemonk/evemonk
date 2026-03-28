@@ -18,13 +18,13 @@ RSpec.describe Auth::EveOnlineSso::CallbacksController, type: :controller do
 
     before { sign_in(user) }
 
-    before { expect(subject).to receive(:current_user).and_return(user).exactly(4).times }
+    before { expect(subject).to receive(:current_user).and_return(user).exactly(5).times }
 
     let(:service) { instance_double(EveOnlineCallbackService, name: "Green Black") }
 
     before do
       #
-      # EveOnlineCallbackService.new(request: request, user: current_user) # => service
+      # EveOnlineCallbackService.new(request: request, user: current_or_guest_user) # => service
       #
       expect(EveOnlineCallbackService).to receive(:new).with(any_args).and_return(service) # TODO: replace `any_args` with real data
     end
