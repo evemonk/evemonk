@@ -107,12 +107,6 @@ Rails.application.routes.draw do
     resources :calculator, only: [:index, :show]
   end
 
-  namespace :auth do
-    namespace :eve_online_sso do
-      resource :callback, only: :show
-    end
-  end
-
   namespace :api, defaults: {format: "json"} do
     namespace :eve do
       resources :manufacturing_items, only: :index
