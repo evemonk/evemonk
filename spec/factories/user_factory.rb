@@ -15,5 +15,7 @@ FactoryBot.define do
     locale { :english }
 
     admin { [true, false].sample }
+
+    guest { false }
   end
 end
