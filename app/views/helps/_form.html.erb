@@ -4,7 +4,7 @@
 
 <p>You can log in with this scope below:</p>
 
-<%= form_tag("/auth/eve_online_sso", data: {turbo: false}) do %>
+<%= form_tag(user_eve_online_sso_omniauth_authorize_path, data: {turbo: false}) do %>
   <%= hidden_field_tag :scope, scope %>
   <%= button_tag do %>
     <% image_uri = "https://web.ccpgamescdn.com/eveonlineassets/developers/eve-sso-login-black-large.png" %>
