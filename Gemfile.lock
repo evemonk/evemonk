@@ -920,6 +920,7 @@ DEPENDENCIES
   mobility
   net-http-persistent
   noticed
+  omniauth
   omniauth-eve_online-sso
   omniauth-rails_csrf_protection
   pg

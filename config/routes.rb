@@ -21,7 +21,8 @@ Rails.application.routes.draw do
 
   post "/graphql", to: "graphql#execute"
 
-  devise_for :users
+  devise_for :users,
+    controllers: {omniauth_callbacks: "users/omniauth_callbacks"}
 
   get ".well-known/change-password",
     to: "well_known#change_password",
@@ -105,12 +106,6 @@ Rails.application.routes.draw do
 
   namespace :blueprints do
     resources :calculator, only: [:index, :show]
-  end
-
-  namespace :auth do
-    namespace :eve_online_sso do
-      resource :callback, only: :show
-    end
   end
 
   namespace :api, defaults: {format: "json"} do

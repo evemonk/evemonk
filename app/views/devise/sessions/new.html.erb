@@ -57,7 +57,7 @@
 
     <h5 class="text-muted">with default scope: "publicData"</h5>
 
-    <%= form_tag("/auth/eve_online_sso", data: {turbo: false}) do %>
+    <%= form_tag(user_eve_online_sso_omniauth_authorize_path, data: {turbo: false}) do %>
       <%= button_tag do %>
         <% image_uri = "https://web.ccpgamescdn.com/eveonlineassets/developers/eve-sso-login-black-large.png" %>
         <% image_uri = "#{Setting.image_proxy_url}#{image_uri}" if Setting.use_image_proxy %>
