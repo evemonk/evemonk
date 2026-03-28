@@ -2,8 +2,6 @@
 
 module Universe
   class MarketGroupsController < ApplicationController
-    skip_before_action :authenticate_user!
-
     def index
       @market_groups = Eve::MarketGroup.main_groups
         .includes(:icon)

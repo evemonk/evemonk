@@ -2,8 +2,6 @@
 
 module Corporations
   class TopController < ApplicationController
-    skip_before_action :authenticate_user!
-
     def index
       corporations = policy_scope(Eve::Corporation).not_npc.order(member_count: :desc).limit(20)
 
