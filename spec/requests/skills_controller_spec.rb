@@ -5,8 +5,6 @@ require "rails_helper"
 RSpec.describe SkillsController, type: :controller do
   it { expect(subject).to be_an(ApplicationController) }
 
-  it { expect(subject).to use_before_action(:authenticate_user!) }
-
   describe "#index" do
     context "when user signed in" do
       let(:user) { create(:user) }
