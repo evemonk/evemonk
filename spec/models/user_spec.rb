@@ -43,11 +43,15 @@ RSpec.describe User, type: :model do
 
       user = described_class.last
 
+      expect(user.guest).to eq(true)
+
       expect(user.provider).to eq("eve_online_sso")
 
       expect(user.uid).to eq("1337512245")
 
       expect(user.email).to eq("1337512245@evemonk.com")
+
+      expect(user.confirmed?).to eq(true)
     end
   end
 end
