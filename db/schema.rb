@@ -1120,6 +1120,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_03_28_194428) do
     t.inet "current_sign_in_ip"
     t.string "email"
     t.string "encrypted_password", default: "", null: false
+    t.boolean "guest", default: false, null: false
     t.datetime "last_sign_in_at", precision: nil
     t.inet "last_sign_in_ip"
     t.integer "locale", default: 0
