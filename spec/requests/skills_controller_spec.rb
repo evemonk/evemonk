@@ -10,7 +10,7 @@ RSpec.describe SkillsController, type: :request do
 
         let(:character) { create(:character, user: user) }
 
-        # TODO: add move real data
+        # TODO: add more real data
         let!(:eve_category) do
           create(:eve_category,
             id: Eve::Categories::SKILLS_ID,
