@@ -4,15 +4,15 @@ require "rails_helper"
 
 RSpec.describe Users::OmniauthCallbacksController, type: :request do
   describe "#eve_online_sso" do
-    context "when user is not registered in" do
-      before { OmniAuth.config.test_mode = true }
+    before { OmniAuth.config.test_mode = true }
 
-      before { OmniAuth.config.mock_auth[:eve_online_sso] = auth }
+    before { OmniAuth.config.mock_auth[:eve_online_sso] = auth }
 
-      after { OmniAuth.config.test_mode = false }
+    after { OmniAuth.config.test_mode = false }
 
-      after { OmniAuth.config.mock_auth[:eve_online_sso] = nil }
+    after { OmniAuth.config.mock_auth[:eve_online_sso] = nil }
 
+    context "when user is not registered in via SSO" do
       let(:auth) do
         OmniAuth::AuthHash.new(
           provider: "eve_online_sso",
@@ -30,6 +30,15 @@ RSpec.describe Users::OmniauthCallbacksController, type: :request do
         expect(user.provider).to eq("eve_online_sso")
         expect(user.uid).to eq("1337512245")
         expect(response).to redirect_to(characters_path)
+      end
+    end
+
+    context "when user is already registered in via SSO" do
+      let(:auth) do
+        OmniAuth::AuthHash.new(
+          provider: "eve_online_sso",
+          uid: "1337512245"
+        )
       end
 
       it "is expected to sign in the user if already exists" do
