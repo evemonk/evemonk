@@ -58,5 +58,20 @@ RSpec.describe Users::OmniauthCallbacksController, type: :request do
         expect(response).to redirect_to(characters_path)
       end
     end
+
+    context "when there is an error with the SSO service" do
+      context "when the error is due to invalid credentials" do
+        let(:auth) { :invalid_credentials }
+
+        it "is expected to redirect to characters path with an alert" do
+          post user_eve_online_sso_omniauth_callback_path
+
+          expect(subject).to redirect_to(new_user_session_path)
+        end
+      end
+
+      context "when the error is due to a timeout" do
+      end
+    end
   end
 end
