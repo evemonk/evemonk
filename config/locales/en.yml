@@ -36,6 +36,7 @@ en:
   layouts:
     application:
       my_characters: "My characters"
+      profile: "Profile"
       sign_out: "Sign Out"
       sign_in: "Log in"
       sign_up: "Sign Up"
