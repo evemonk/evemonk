@@ -2,9 +2,10 @@
 
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
-  # :lockable, :timeoutable and :omniauthable
+  # :lockable and :timeoutable
   devise :database_authenticatable, :registerable, :recoverable,
-    :rememberable, :validatable, :confirmable, :trackable, :zxcvbnable
+    :rememberable, :validatable, :confirmable, :trackable, :omniauthable,
+    :zxcvbnable, omniauth_providers: [:eve_online_sso]
 
   has_many :characters, dependent: :destroy
 
@@ -18,4 +19,17 @@ class User < ApplicationRecord
     # chinese: 6,
     korean: 7
   }
+
+  class << self
+    def from_omniauth(auth)
+      where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+        user.guest = true
+        user.provider = auth.provider
+        user.uid = auth.uid
+        user.email = "#{auth.uid}@evemonk.com"
+        user.password = Devise.friendly_token[0, 20]
+        user.skip_confirmation!
+      end
+    end
+  end
 end

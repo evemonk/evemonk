@@ -36,6 +36,7 @@ en:
   layouts:
     application:
       my_characters: "My characters"
+      profile: "Profile"
       sign_out: "Sign Out"
       sign_in: "Log in"
       sign_up: "Sign Up"
@@ -54,6 +55,12 @@ en:
         timeout: "Timeout Error. Please, try again later."
         show:
           successful: "Character &laquo;%{name}&raquo; successful added."
+  users:
+    omniauth_callbacks:
+      service_unavailable: "Service Unavailable (503). Please, try again later."
+      internal_server_error: "Internal Server Error (500). Please, try again later."
+      bad_gateway: "Bad Gateway (502). Please, try again later."
+      timeout: "Timeout Error. Please, try again later."
   characters:
     index:
       remove_character: "Remove character"
