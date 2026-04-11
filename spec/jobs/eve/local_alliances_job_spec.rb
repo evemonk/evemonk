@@ -8,8 +8,10 @@ RSpec.describe Eve::LocalAlliancesJob do
   it { expect(described_class.queue_name).to eq("default") }
 
   describe "#perform" do
-    context "when jobs eve local_alliances enabled" do
-      before { Rails.configuration.evemonk.jobs[:eve][:local_alliances] = true }
+    context "when eve alliance is enabled" do
+      before { Flipper.enable(:eve_alliance) }
+
+      after { Flipper.disable(:eve_alliance) }
 
       before do
         #
@@ -25,9 +27,7 @@ RSpec.describe Eve::LocalAlliancesJob do
       specify { expect { subject.perform }.not_to raise_error }
     end
 
-    context "when jobs eve local_alliances disabled" do
-      before { Rails.configuration.evemonk.jobs[:eve][:local_alliances] = false }
-
+    context "when eve alliance is disabled" do
       before { expect(Eve::LocalAlliancesImporter).not_to receive(:new) }
 
       specify { expect { subject.perform }.not_to raise_error }
