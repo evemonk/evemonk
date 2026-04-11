@@ -7,9 +7,11 @@ production:
     schedule: every day at 2 am
   pghero_clean_query_stats:
     command: "PgHero.clean_query_stats"
+    queue: "pghero"
     schedule: every day at 2 am
   pghero_clean_space_stats:
     command: "PgHero.clean_space_stats"
+    queue: "pghero"
     schedule: every day at 2 am
   eve_server_status:
     class: Eve::ServerStatusJob

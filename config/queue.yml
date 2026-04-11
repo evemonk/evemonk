@@ -25,3 +25,7 @@ production:
       threads: 1
       processes: 1
       polling_interval: 0.1 # yes, mostly real-time.
+    - queues: "realtime"
+      threads: 10
+      processes: 1
+      polling_interval: 0.1 # yes, mostly real-time.
