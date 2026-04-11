@@ -3,15 +3,15 @@
 require "rails_helper"
 
 RSpec.describe UpdateCharacterInfoService do
-  describe "#execute" do
+  describe "#call" do
     let(:character_id) { double }
 
     subject { described_class.new(character_id) }
 
-    # before { expect(CharacterJob).to receive(:perform_later).with(character_id) }
-    #
-    # before { expect(CharacterWalletJob).to receive(:perform_later).with(character_id) }
-    #
+    before { expect(CharacterJob).to receive(:perform_later).with(character_id) }
+
+    before { expect(CharacterWalletJob).to receive(:perform_later).with(character_id) }
+
     # before { expect(CharacterAttributesJob).to receive(:perform_later).with(character_id) }
     #
     # before { expect(CharacterLocationJob).to receive(:perform_later).with(character_id) }
@@ -44,6 +44,6 @@ RSpec.describe UpdateCharacterInfoService do
     #
     # before { expect(CharacterOrdersJob).to receive(:perform_later).with(character_id) }
 
-    specify { expect { subject.execute }.not_to raise_error }
+    specify { expect { subject.call }.not_to raise_error }
   end
 end

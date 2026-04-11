@@ -7,11 +7,11 @@ class UpdateCharacterInfoService
     @character_id = character_id
   end
 
-  def execute
-    # CharacterJob.perform_later(character_id)
-    #
-    # CharacterWalletJob.perform_later(character_id)
-    #
+  def call
+    CharacterJob.perform_later(character_id)
+
+    CharacterWalletJob.perform_later(character_id)
+
     # CharacterAttributesJob.perform_later(character_id)
     #
     # CharacterLocationJob.perform_later(character_id)

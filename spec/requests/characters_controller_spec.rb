@@ -80,11 +80,11 @@ RSpec.describe CharactersController, type: :request do
 
         before do
           #
-          # UpdateCharacterInfoService.new(@character.character_id).execute
+          # UpdateCharacterInfoService.new(@character.character_id).call
           #
           expect(UpdateCharacterInfoService).to receive(:new).with(character.character_id) do
             double.tap do |a|
-              expect(a).to receive(:execute)
+              expect(a).to receive(:call)
             end
           end
         end
