@@ -16,3 +16,9 @@ production:
   eve_server_status:
     class: Eve::ServerStatusJob
     schedule: every 1m
+  eve_alliances:
+    class: Eve::UpdateAlliancesJob
+    schedule: every week
+#  eve_local_alliances:
+#    class: Eve::LocalAlliancesJob
+#    schedule: every week
