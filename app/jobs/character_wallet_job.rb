@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class CharacterWalletJob < ApplicationJob
-  queue_as :important
+  queue_as :realtime
 
   retry_on EveOnline::Exceptions::Timeout,
     EveOnline::Exceptions::ServiceUnavailable,

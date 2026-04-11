@@ -5,7 +5,7 @@ require "rails_helper"
 RSpec.describe CharacterAssetsJob do
   it { expect(subject).to be_an(ApplicationJob) }
 
-  it { expect(described_class.queue_name).to eq("important") }
+  it { expect(described_class.queue_name).to eq("realtime") }
 
   describe "#perform" do
     # let(:id) { double }
