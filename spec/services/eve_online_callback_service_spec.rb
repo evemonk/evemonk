@@ -368,15 +368,17 @@ RSpec.describe EveOnlineCallbackService do
   describe "#update_character_info" do
     let(:character_id) { double }
 
+    let(:update_character_info_service) { instance_double(UpdateCharacterInfoService) }
+
     before { expect(subject).to receive(:character_id).and_return(character_id) }
 
     before do
       #
-      # UpdateCharacterInfoService.new(character_id).execute
+      # UpdateCharacterInfoService.new(character_id).call
       #
       expect(UpdateCharacterInfoService).to receive(:new).with(character_id) do
         double.tap do |a|
-          expect(a).to receive(:execute)
+          expect(a).to receive(:call)
         end
       end
     end
