@@ -21,7 +21,7 @@ class CharactersController < ApplicationController
 
     authorize @character
 
-    UpdateCharacterInfoService.new(@character.character_id).execute
+    UpdateCharacterInfoService.new(@character.character_id).call
 
     respond_to do |format|
       format.turbo_stream { flash.now[:notice] = t(".successful", name: @character.name) }
