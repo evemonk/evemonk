@@ -18,7 +18,7 @@ production:
     schedule: "every 1m"
   eve_alliances:
     class: Eve::UpdateAlliancesJob
-    schedule: "every week"
-#  eve_local_alliances:
-#    class: Eve::LocalAlliancesJob
-#    schedule: every week
+    schedule: "0 2 * * 0"
+  eve_local_alliances:
+    class: Eve::LocalAlliancesJob
+    schedule: "0 3 * * 0"
