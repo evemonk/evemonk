@@ -4,16 +4,9 @@ require "rails_helper"
 
 RSpec.describe Eve::LocalAlliancesImporter do
   describe "#import" do
-    let(:id) { double }
+    let!(:eve_alliance) { create(:eve_alliance) }
 
-    before do
-      #
-      # Eve::Alliance.ids # => [id]
-      #
-      expect(Eve::Alliance).to receive(:ids).and_return([id])
-    end
-
-    before { expect(Eve::UpdateAllianceJob).to receive(:perform_later).with(id) }
+    before { expect(Eve::UpdateAllianceJob).to receive(:perform_later).with(eve_alliance.id) }
 
     specify { expect { subject.import }.not_to raise_error }
   end
