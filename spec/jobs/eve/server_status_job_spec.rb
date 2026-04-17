@@ -8,7 +8,7 @@ RSpec.describe Eve::ServerStatusJob do
   it { expect(described_class.queue_name).to eq("server_status") }
 
   describe "#perform" do
-    context "when jobs eve server status enabled" do
+    context "when eve server status enabled" do
       before { Flipper.enable(:eve_server_status) }
 
       after { Flipper.disable(:eve_server_status) }
@@ -27,7 +27,7 @@ RSpec.describe Eve::ServerStatusJob do
       specify { expect { subject.perform }.not_to raise_error }
     end
 
-    context "when jobs eve server status disabled" do
+    context "when eve server status disabled" do
       before { expect(Eve::ServerStatusImporter).not_to receive(:new) }
 
       specify { expect { subject.perform }.not_to raise_error }
