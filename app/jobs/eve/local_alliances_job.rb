@@ -5,7 +5,7 @@ module Eve
     queue_as :default
 
     def perform
-      if Rails.configuration.evemonk.jobs[:eve][:local_alliances]
+      if Flipper.enabled?(:eve_alliance)
         Eve::LocalAlliancesImporter.new.import
       end
     end
