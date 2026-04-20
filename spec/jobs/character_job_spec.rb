@@ -10,7 +10,7 @@ RSpec.describe CharacterJob do
   describe "#perform" do
     let(:character_id) { double }
 
-    context "when character job is enabled" do
+    context "when eve character is enabled" do
       before { Flipper.enable(:eve_character) }
 
       after { Flipper.disable(:eve_character) }
@@ -29,7 +29,7 @@ RSpec.describe CharacterJob do
       specify { expect { subject.perform(character_id) }.not_to raise_error }
     end
 
-    context "when character job is disabled" do
+    context "when eve character is disabled" do
       before { expect(CharacterImporter).not_to receive(:new) }
 
       specify { expect { subject.perform(character_id) }.not_to raise_error }
