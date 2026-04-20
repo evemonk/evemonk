@@ -13,7 +13,9 @@ module Eve
 
     # @param id [Integer] Eve::Character ID
     def perform(id)
-      Eve::CharacterImporter.new(id).import
+      if Flipper.enabled?(:eve_character)
+        Eve::CharacterImporter.new(id).import
+      end
     end
   end
 end
