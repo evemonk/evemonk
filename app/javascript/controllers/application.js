@@ -1,10 +1,12 @@
 import { Application } from "@hotwired/stimulus";
 import PasswordVisibility from "@stimulus-components/password-visibility";
+import HwComboboxController from "controllers/hw_combobox_controller";
 
 const application = Application.start();
 
 // register third party stimulus controllers
 application.register("password-visibility", PasswordVisibility);
+application.register("hw-combobox", HwComboboxController);
 
 // Configure Stimulus development experience
 application.debug = false;
