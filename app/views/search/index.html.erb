@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="col">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><%= link_to("Home", root_path) %></li>
+        <li class="breadcrumb-item active" aria-current="page">Search</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+<%= form_with(url: search_path, method: :get, data: {controller: "search-form", turbo_frame: "search", turbo_action: "advance"}) do |f| %>
+  <%= f.label :q, "Search...", class: "" %>
+  <%= f.text_field :q, value: params[:q], class: "", data: {action: "input->search-form#search"} %>
+
+  <%= f.submit "Search" %>
+<% end %>
+
+<%= render "search",
+           alliances: @alliances,
+           corporations: @corporations,
+           characters: @characters %>

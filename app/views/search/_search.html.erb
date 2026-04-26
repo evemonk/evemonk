@@ -1,0 +1,7 @@
+<%# locals: (alliances:, corporations:, characters:) %>
+
+<%= turbo_frame_tag "search" do %>
+  <%= render alliances %>
+  <%= render corporations %>
+  <%= render characters %>
+<% end %>

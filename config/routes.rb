@@ -27,6 +27,8 @@ Rails.application.routes.draw do
     to: "well_known#change_password",
     as: "well_known_change_password"
 
+  get :search, to: "search#index"
+
   namespace :universe do
     resources :alliances, only: [:index, :show] do
       resources :corporations, only: :index, controller: "alliances/corporations"
@@ -45,8 +47,6 @@ Rails.application.routes.draw do
     resources :market_groups, only: [:index, :show]
 
     resources :types, only: :show
-
-    resources :search, only: :index
   end
 
   namespace :alliances do
