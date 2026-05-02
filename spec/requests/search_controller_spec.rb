@@ -15,19 +15,47 @@ RSpec.describe SearchController, type: :request do
 
       before { sign_in(user) }
 
-      before { get search_path }
+      context "when html request" do
+        before { get search_path(q: "TEST") }
 
-      it { expect(response).to have_http_status(:ok) }
+        it { expect(response).to have_http_status(:ok) }
 
-      it { expect(response.body).to include("Search") }
+        it { expect(response.body).to include("Search") }
+      end
+
+      context "when turbo frame request" do
+        before do
+          get search_path(q: "TEST"), headers: {
+            "Turbo-Frame" => "search"
+          }
+        end
+
+        it { expect(response).to have_http_status(:ok) }
+
+        it { expect(response.body).not_to include("Search") }
+      end
     end
 
     context "when user not signed in" do
-      before { get search_path }
+      context "when html request" do
+        before { get search_path(q: "TEST") }
 
-      it { expect(response).to have_http_status(:ok) }
+        it { expect(response).to have_http_status(:ok) }
 
-      it { expect(response.body).to include("Search") }
+        it { expect(response.body).to include("Search") }
+      end
+
+      context "when turbo frame request" do
+        before do
+          get search_path(q: "TEST"), headers: {
+            "Turbo-Frame" => "search"
+          }
+        end
+
+        it { expect(response).to have_http_status(:ok) }
+
+        it { expect(response.body).not_to include("Search") }
+      end
     end
   end
 end
