@@ -45,6 +45,7 @@ en:
       characters: "Characters"
       market_groups: "Market Groups"
       inventory: "Inventory"
+      search: "Search (⌘+K)"
   auth:
     eve_online_sso:
       callbacks:

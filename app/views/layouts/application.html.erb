@@ -32,6 +32,8 @@
 
     <!-- Links to information about the author(s) of the document -->
     <%= tag.link(rel: "author", href: "humans.txt") %>
+
+    <%= combobox_style_tag %>
   </head>
 
   <body data-bs-theme="light">
@@ -79,10 +81,22 @@
                   <%= link_to(t(".inventory"), nil, class: "dropdown-item") %>
                 </ul>
               </li>
+
+              <li class="nav-item">
+<!--                <span class="nav-link" data-bs-toggle="modal" data-bs-target="#search">Search ⌘+K</span>-->
+                <%= link_to(t(".search"), search_path, class: "nav-link", data: {hotkey: "Meta+k"}) %>
+              </li>
             </ul>
-            <form role="search">
-              <input class="form-control" type="search" placeholder="Search" aria-label="Search" autocomplete="off">
-            </form>
+
+<!--            <form role="search">-->
+<!--              <input class="form-control"-->
+<!--                     data-controller="hotkey"-->
+<!--                     type="search"-->
+<!--                     placeholder="Search ⌘+K"-->
+<!--                     data-action="keydown.meta+k->hotkey#show"-->
+<!--                     aria-label="Search"-->
+<!--                     autocomplete="off">-->
+<!--            </form>-->
           </div>
         </div>
       </nav>
