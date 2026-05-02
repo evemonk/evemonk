@@ -8,7 +8,10 @@ class SearchController < ApplicationController
       .select(:id, :name, :corporations_count, :characters_count)
       .page(1)
 
-    @corporations = policy_scope(Eve::SearchCorporationsQuery.new(params[:q]).query).select(:id, :name).page(1)
+    @corporations = policy_scope(Eve::SearchCorporationsQuery.new(params[:q]).query)
+      .select(:id, :name, :member_count)
+      .page(1)
+
     @characters = policy_scope(Eve::SearchCharactersQuery.new(params[:q]).query).select(:id, :name).page(1)
 
     if turbo_frame_request?

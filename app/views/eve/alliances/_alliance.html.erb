@@ -8,12 +8,15 @@
                   size: "34x34",
                   loading: "lazy") %>
   </td>
+
   <td class="text-break align-middle border-start-0">
     <%= link_to(alliance.name, universe_alliance_path(alliance), target: "_top") %>
   </td>
+
   <td class="text-end align-middle">
     <%= alliance.formatted_corporations_count %>
   </td>
+
   <td class="text-end align-middle">
     <%= alliance.formatted_characters_count %>
   </td>
