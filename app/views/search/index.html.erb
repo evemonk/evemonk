@@ -9,16 +9,22 @@
   </div>
 </div>
 
-<%= form_with(url: search_path, method: :get, data: {controller: "search-form", turbo_frame: "search", turbo_action: "advance"}) do |f| %>
-  <%= f.label :q, "Search...", class: "" %>
-  <%= f.text_field :q, value: params[:q], class: "", data: {action: "input->search-form#search"} %>
+<div class="row">
+  <div class="col">
+    <%= form_with(url: search_path, method: :get, data: {controller: "search-form", turbo_frame: "search", turbo_action: "advance"}) do |f| %>
+      <%= f.label :q, "Search...", class: "" %>
+      <%= f.text_field :q, value: params[:q], class: "", data: {action: "input->search-form#search"} %>
 
-  <%= f.submit "Search" %>
-<% end %>
+      <%= f.submit "Search" %>
+    <% end %>
+  </div>
 
-<hr class="text-dark">
+  <br>
 
-<%= render "search",
-           alliances: @alliances,
-           corporations: @corporations,
-           characters: @characters %>
+  <hr class="text-dark">
+
+  <%= render "search",
+             alliances: @alliances,
+             corporations: @corporations,
+             characters: @characters %>
+</div>
