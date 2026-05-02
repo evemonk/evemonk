@@ -17,7 +17,18 @@ module Eve
 
     has_many :character_corporation_histories, dependent: :destroy
 
-    pg_search_scope :search_by_name, against: :name
+    pg_search_scope :search_by_name,
+      against: :name,
+      using: {
+        tsearch: {
+          prefix: true,
+          dictionary: "english",
+          any_word: true
+        },
+        trigram: {
+          word_similarity: true
+        }
+      }
 
     has_one_attached :portrait
 

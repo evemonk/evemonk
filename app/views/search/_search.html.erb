@@ -1,7 +1,44 @@
 <%# locals: (alliances:, corporations:, characters:) %>
 
 <%= turbo_frame_tag "search" do %>
-  <%= render alliances %>
-  <%= render corporations %>
+  <% if alliances.any? %>
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+      <h4 class="text-center">Alliances</h4>
+
+      <table id="alliances" class="table table-dark table-striped table-bordered">
+        <thead>
+          <tr>
+            <th colspan="2" class="text-center">Name</th>
+            <th class="text-end">Corps</th>
+            <th class="text-end">Members</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <%= render alliances %>
+        </tbody>
+      </table>
+    </div>
+  <% end %>
+
+  <% if corporations.any? %>
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+      <h4 class="text-center">Corporations</h4>
+
+      <table id="corporations" class="table table-dark table-striped table-bordered">
+        <thead>
+          <tr>
+            <th colspan="2" class="text-center">Name</th>
+            <th class="text-end">Members</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <%= render corporations %>
+        </tbody>
+      </table>
+    </div>
+  <% end %>
+
   <%= render characters %>
 <% end %>

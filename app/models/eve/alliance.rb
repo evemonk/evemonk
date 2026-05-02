@@ -26,7 +26,18 @@ module Eve
 
     has_many :corporation_alliance_histories # rubocop:disable Rails/HasManyOrHasOneDependent
 
-    pg_search_scope :search_by_name_and_ticker, against: [:name, :ticker]
+    pg_search_scope :search_by_name_and_ticker,
+      against: [:name, :ticker],
+      using: {
+        tsearch: {
+          prefix: true,
+          dictionary: "english",
+          any_word: true
+        },
+        trigram: {
+          word_similarity: true
+        }
+      }
 
     has_one_attached :logo
 
