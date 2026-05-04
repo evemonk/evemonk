@@ -35,7 +35,7 @@ module Eve
     #
     # after_commit :eve_alliance_reset_characters_count, on: [:create, :update, :destroy]
 
-    meilisearch do
+    meilisearch enqueue: true do
       searchable_attributes [:name, :ticker]
     end
 

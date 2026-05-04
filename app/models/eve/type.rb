@@ -41,7 +41,7 @@ module Eve
 
     scope :manufacturing_items, -> { where(is_manufacturing_item: true) }
 
-    meilisearch primary_key: :type_id, synchronous: true do
+    meilisearch primary_key: :type_id, enqueue: true do
       searchable_attributes [:name_en]
     end
 

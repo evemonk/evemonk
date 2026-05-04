@@ -17,7 +17,7 @@ module Eve
 
     has_many :character_corporation_histories, dependent: :destroy
 
-    meilisearch do
+    meilisearch enqueue: true do
       searchable_attributes [:name]
     end
 

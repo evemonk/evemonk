@@ -26,7 +26,7 @@ module Eve
 
     has_many :corporation_alliance_histories # rubocop:disable Rails/HasManyOrHasOneDependent
 
-    meilisearch do
+    meilisearch enqueue: true do
       searchable_attributes [:name, :ticker]
     end
 
