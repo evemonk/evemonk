@@ -33,11 +33,15 @@ RSpec.describe Blueprints::CalculatorController, type: :controller do
   describe "#show" do
     before do
       #
-      # Eve::Blueprint.published.find_by!(type_id: params[:id])
+      # Eve::Blueprint.published.blueprints.find_by!(type_id: params[:id])
       #
       expect(Eve::Blueprint).to receive(:published) do
         double.tap do |a|
-          expect(a).to receive(:find_by!).with(type_id: "24699")
+          expect(a).to receive(:blueprints) do
+            double.tap do |b|
+              expect(b).to receive(:find_by!).with(type_id: "24699")
+            end
+          end
         end
       end
     end
