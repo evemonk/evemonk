@@ -2,16 +2,16 @@
 
 module Eve
   class SearchBlueprintsQuery < BaseQuery
-    attr_reader :search, :scope
+    attr_reader :q, :scope
 
-    def initialize(search = nil, scope = Eve::Blueprint.published.blueprints)
-      @search = search
+    def initialize(q = nil, scope = Eve::Blueprint.published.blueprints)
+      @q = q
       @scope = scope
     end
 
     def query
-      if search.present?
-        scope.search_by_name(search)
+      if q.present?
+        scope.search(q)
       else
         scope.none
       end
