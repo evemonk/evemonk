@@ -5,14 +5,13 @@ module Maintenance
   #
   # Fast.
   class MeilisearchReindexAlliancesTask < MaintenanceTasks::Task
-    no_collection
+    def collection
+      Eve::Alliance.in_batches(batch_size: 100)
+    end
 
-    def process
-      Eve::Alliance.clear_index!
-
-      Eve::Alliance.find_each(batch_size: 100).each do |alliance|
-        Meilisearch::Rails::MSJob.perform_later(alliance, :index!)
-      end
+    # alliance [Eve::Alliance] The alliance to reindex.
+    def process(alliance)
+      Meilisearch::Rails::MSJob.perform_later(alliance, :index!)
     end
   end
 end
