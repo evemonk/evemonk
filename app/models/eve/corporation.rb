@@ -36,8 +36,7 @@ module Eve
     # after_commit :eve_alliance_reset_characters_count, on: [:create, :update, :destroy]
 
     meilisearch do
-      attribute :name
-      attribute :ticker
+      searchable_attributes [:name, :ticker]
     end
 
     has_one_attached :logo

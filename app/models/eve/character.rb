@@ -18,7 +18,7 @@ module Eve
     has_many :character_corporation_histories, dependent: :destroy
 
     meilisearch do
-      attribute :name
+      searchable_attributes [:name]
     end
 
     has_one_attached :portrait

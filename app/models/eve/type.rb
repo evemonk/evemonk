@@ -41,8 +41,8 @@ module Eve
 
     scope :manufacturing_items, -> { where(is_manufacturing_item: true) }
 
-    meilisearch do
-      attribute :name_en
+    meilisearch primary_key: :type_id, synchronous: true do
+      searchable_attributes [:name_en] #, :name_de, :name_es, :name_fr, :name_ja, :name_ko, :name_zh]
     end
 
     def implant_bonuses

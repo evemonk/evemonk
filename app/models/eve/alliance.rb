@@ -27,8 +27,7 @@ module Eve
     has_many :corporation_alliance_histories # rubocop:disable Rails/HasManyOrHasOneDependent
 
     meilisearch do
-      attribute :name
-      attribute :ticker
+      searchable_attributes [:name, :ticker]
     end
 
     has_one_attached :logo

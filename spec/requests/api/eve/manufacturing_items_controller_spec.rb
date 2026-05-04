@@ -9,7 +9,7 @@ RSpec.describe Api::Eve::ManufacturingItemsController, type: :request do
     it "returns list of manufacturing items" do
       create(:eve_type,
         type_id: 24_698,
-        name: "Drake",
+        name_en: "Drake",
         published: true,
         is_manufacturing_item: true)
 
