@@ -55,6 +55,7 @@ All screenshots are real and made in Safari on latest macOS Catalina (10.15.3).
 - [Stimulus](https://stimulus.hotwired.dev)
 - [PostgreSQL](https://www.postgresql.org)
 - [Valkey](https://valkey.io/)
+- [Meilisearch](https://www.meilisearch.com/)
 - Amazon S3 compatible storage
 - Bootstrap 5.3.8
 - [Bootstrap Icons](https://icons.getbootstrap.com) 1.13.1
