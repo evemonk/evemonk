@@ -2,7 +2,6 @@
 
 module Eve
   class Alliance < ApplicationRecord
-    include PgSearch::Model
     include Meilisearch::Rails
     include ActionView::Helpers::NumberHelper
     include Imageable
@@ -27,18 +26,8 @@ module Eve
 
     has_many :corporation_alliance_histories # rubocop:disable Rails/HasManyOrHasOneDependent
 
-    pg_search_scope :search_by_name_and_ticker,
-      against: [:name, :ticker],
-      using: {
-        tsearch: {
-          prefix: true,
-          dictionary: "english"
-        }
-      }
-
     meilisearch do
-      attribute :name
-      attribute :ticker
+      searchable_attributes [:name, :ticker]
     end
 
     has_one_attached :logo

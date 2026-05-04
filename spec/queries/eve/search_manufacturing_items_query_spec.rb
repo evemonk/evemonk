@@ -3,14 +3,14 @@
 require "rails_helper"
 
 RSpec.describe Eve::SearchManufacturingItemsQuery do
-  let(:search) { double }
+  let(:q) { double }
 
-  subject { described_class.new(search) }
+  subject { described_class.new(q) }
 
   it { expect(subject).to be_a(BaseQuery) }
 
   describe "#initialize" do
-    context "without search and scope" do
+    context "without q and scope" do
       let(:scope) { double }
 
       before do
@@ -26,45 +26,45 @@ RSpec.describe Eve::SearchManufacturingItemsQuery do
 
       subject { described_class.new }
 
-      its(:search) { is_expected.to eq(nil) }
+      its(:q) { is_expected.to eq(nil) }
 
       its(:scope) { is_expected.to eq(scope) }
     end
 
-    context "with search and scope" do
+    context "with q and scope" do
       let(:scope) { double }
 
-      subject { described_class.new(search, scope) }
+      subject { described_class.new(q, scope) }
 
-      its(:search) { is_expected.to eq(search) }
+      its(:q) { is_expected.to eq(q) }
 
       its(:scope) { is_expected.to eq(scope) }
     end
   end
 
   describe "#query" do
-    context "when search is present" do
-      let(:search) { "Drake" }
+    context "when q is present" do
+      let(:q) { "Drake" }
 
       let(:scope) { class_double(Eve::Type) }
 
       let(:query) { double }
 
-      before { expect(scope).to receive(:search_by_name).with(search).and_return(query) }
+      before { expect(scope).to receive(:search).with(q).and_return(query) }
 
-      subject { described_class.new(search, scope) }
+      subject { described_class.new(q, scope) }
 
       specify { expect(subject.query).to eq(query) }
     end
 
-    context "when search is not present" do
-      let(:search) { "" }
+    context "when q is not present" do
+      let(:q) { "" }
 
       let(:scope) { Eve::Type }
 
       before { expect(scope).to receive(:none).and_call_original }
 
-      subject { described_class.new(search, scope) }
+      subject { described_class.new(q, scope) }
 
       specify { expect(subject.query).to eq([]) }
     end

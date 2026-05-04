@@ -4,7 +4,7 @@ module Eve
   class Type < ApplicationRecord
     self.primary_key = "type_id"
 
-    include PgSearch::Model
+    include Meilisearch::Rails
     include ActionView::Helpers::NumberHelper
     include Imageable
 
@@ -41,14 +41,9 @@ module Eve
 
     scope :manufacturing_items, -> { where(is_manufacturing_item: true) }
 
-    pg_search_scope :search_by_name,
-      against: :name_en,
-      using: {
-        tsearch: {
-          prefix: true,
-          negation: true
-        }
-      }
+    meilisearch primary_key: :type_id, synchronous: true do
+      searchable_attributes [:name_en]
+    end
 
     def implant_bonuses
       @implant_bonuses ||= ImplantBonuses.new(self).implant_bonuses

@@ -2,16 +2,16 @@
 
 module Eve
   class SearchCorporationsQuery < BaseQuery
-    attr_reader :search, :scope
+    attr_reader :q, :scope
 
-    def initialize(search = nil, scope = Eve::Corporation.all)
-      @search = search
+    def initialize(q = nil, scope = Eve::Corporation.all)
+      @q = q
       @scope = scope
     end
 
     def query
-      if search.present?
-        scope.search_by_name_and_ticker(search)
+      if q.present?
+        scope.search(q)
       else
         scope
       end

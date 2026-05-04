@@ -9,7 +9,7 @@ module Blueprints
     end
 
     def show
-      @blueprint = Eve::Blueprint.published.find_by!(type_id: params[:id])
+      @blueprint = Eve::Blueprint.published.blueprints.find_by!(type_id: params[:id])
     end
   end
 end

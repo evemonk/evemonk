@@ -5,7 +5,7 @@ require "rails_helper"
 RSpec.describe Eve::Alliance, type: :model do
   it { expect(subject).to be_an(ApplicationRecord) }
 
-  it { expect(subject).to be_a(PgSearch::Model) }
+  it { expect(subject).to be_a(Meilisearch::Rails) }
 
   it { expect(subject).to be_a(ActionView::Helpers::NumberHelper) }
 
@@ -31,7 +31,7 @@ RSpec.describe Eve::Alliance, type: :model do
 
   it { expect(subject).to have_db_index([:name, :ticker]) }
 
-  it { expect(described_class).to respond_to(:search_by_name_and_ticker) }
+  it { expect(described_class).to respond_to(:search) }
 
   describe "#reset_corporations_count" do
     let!(:eve_alliance) { create(:eve_alliance) }
