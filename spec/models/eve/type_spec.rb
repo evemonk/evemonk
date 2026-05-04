@@ -7,7 +7,7 @@ RSpec.describe Eve::Type, type: :model do
 
   it { expect(described_class.primary_key).to eq("type_id") }
 
-  it { expect(subject).to be_a(PgSearch::Model) }
+  it { expect(subject).to be_a(Meilisearch::Rails) }
 
   it { expect(subject).to be_an(ActionView::Helpers::NumberHelper) }
 
@@ -71,7 +71,7 @@ RSpec.describe Eve::Type, type: :model do
     specify { expect(described_class.manufacturing_items).to eq([eve_type_2]) }
   end
 
-  it { expect(described_class).to respond_to(:search_by_name) }
+  it { expect(described_class).to respond_to(:search) }
 
   describe "#implant_bonuses" do
     context "when @implant_bonuses is set" do

@@ -5,7 +5,7 @@ require "rails_helper"
 RSpec.describe Eve::Character, type: :model do
   it { expect(subject).to be_an(ApplicationRecord) }
 
-  it { expect(subject).to be_a(PgSearch::Model) }
+  it { expect(subject).to be_a(Meilisearch::Rails) }
 
   it { expect(subject).to be_a(Imageable) }
 
@@ -27,7 +27,7 @@ RSpec.describe Eve::Character, type: :model do
 
   it { expect(subject).to have_db_index(:name) }
 
-  it { expect(described_class).to respond_to(:search_by_name) }
+  it { expect(described_class).to respond_to(:search) }
 
   describe "#icon_tiny" do
     before { expect(subject).to receive(:character_portrait_url).with(32) }
