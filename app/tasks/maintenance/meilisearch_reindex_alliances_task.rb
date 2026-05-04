@@ -10,7 +10,9 @@ module Maintenance
     def process
       Eve::Alliance.clear_index!
 
-      Eve::Alliance.reindex!(100)
+      Eve::Alliance.find_each(batch_size: 100).each do |alliance|
+        Meilisearch::Rails::MSJob.perform_later(alliance, :index!)
+      end
     end
   end
 end
