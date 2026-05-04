@@ -3,6 +3,7 @@
 module Eve
   class Corporation < ApplicationRecord
     include PgSearch::Model
+    include Meilisearch::Rails
     include ActionView::Helpers::NumberHelper
     include Imageable
 
@@ -35,7 +36,22 @@ module Eve
     #
     # after_commit :eve_alliance_reset_characters_count, on: [:create, :update, :destroy]
 
-    pg_search_scope :search_by_name_and_ticker, against: [:name, :ticker]
+    pg_search_scope :search_by_name_and_ticker,
+      against: [:name, :ticker],
+      using: {
+        tsearch: {
+          prefix: true,
+          dictionary: "english"
+        },
+        trigram: {
+          word_similarity: true
+        }
+      }
+
+    meilisearch do
+      attribute :name
+      attribute :ticker
+    end
 
     has_one_attached :logo
 

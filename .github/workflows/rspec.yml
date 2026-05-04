@@ -30,6 +30,8 @@ env:
   DEVISE_PEPPER: "e19db51a470b8259e79616ac00450ea1857d819aa860e2e7cff79b3c295d3993867a68c9524587d2b02b6f76efa8dea8aaf09884f186bfab89442eb2530ea829"
   CI: "yes"
   SE_AVOID_STATS: "true"
+  MEILISEARCH_URL: "http://localhost:7700"
+  MEILISEARCH_API_KEY: "secret"
 
 jobs:
   run:
@@ -46,6 +48,12 @@ jobs:
           - "5432:5432"
         # needed because the postgres container does not provide a healthcheck
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+      meilisearch:
+        image: "getmeili/meilisearch:v1.42.1"
+        env:
+          MEILI_MASTER_KEY: "secret"
+        ports:
+          - "7700:7700"
       redis:
         image: "valkey/valkey:9.0"
         # Set health checks to wait until redis has started

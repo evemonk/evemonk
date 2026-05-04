@@ -3,6 +3,7 @@
 module Eve
   class Character < ApplicationRecord
     include PgSearch::Model
+    include Meilisearch::Rails
     include Imageable
 
     belongs_to :alliance, optional: true
@@ -17,7 +18,21 @@ module Eve
 
     has_many :character_corporation_histories, dependent: :destroy
 
-    pg_search_scope :search_by_name, against: :name
+    pg_search_scope :search_by_name,
+      against: :name,
+      using: {
+        tsearch: {
+          prefix: true,
+          dictionary: "english"
+        },
+        trigram: {
+          word_similarity: true
+        }
+      }
+
+    meilisearch do
+      attribute :name
+    end
 
     has_one_attached :portrait
 

@@ -3,6 +3,8 @@ volumes:
     external: true
   evemonk_redis_data:
     external: true
+  evemonk_meilisearch_data:
+    external: true
 
 services:
   postgresql:
@@ -17,6 +19,17 @@ services:
       PGDATA: "/var/lib/postgresql/data"
     ports:
       - "5432:5432"
+
+  meilisearch:
+    image: "docker.io/getmeili/meilisearch:v1.42.1"
+    container_name: "evemonk_meilisearch"
+    restart: "unless-stopped"
+    volumes:
+      - "evemonk_meilisearch_data:/meili_data:rw"
+    environment:
+      MEILI_MASTER_KEY: "secret"
+    ports:
+      - "7700:7700"
 
   redis:
     image: "docker.io/valkey/valkey:9.0"
