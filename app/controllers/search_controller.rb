@@ -12,9 +12,9 @@ class SearchController < ApplicationController
       .query
       .page(1)
 
-    # @characters = policy_scope(Eve::SearchCharactersQuery.new(params[:q]).query).select(:id, :name).page(1)
-
-    @characters = Eve::Character.search(params[:q]).page(1)
+    @characters = Eve::SearchCharactersQuery.new(params[:q], policy_scope(Eve::Character.all))
+      .query
+      .page(1)
 
     if turbo_frame_request?
       render partial: "search",
