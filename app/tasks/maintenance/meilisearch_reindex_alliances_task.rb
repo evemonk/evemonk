@@ -9,9 +9,9 @@ module Maintenance
       Eve::Alliance.in_batches(batch_size: 100)
     end
 
-    # alliance [Eve::Alliance] The alliance to reindex.
+    # @param alliance [Eve::Alliance] The alliance to reindex.
     def process(alliance)
-      Meilisearch::Rails::MSJob.perform_later(alliance, :index!)
+      Meilisearch::ReindexAllianceJob.perform_later(alliance.id, false)
     end
   end
 end
