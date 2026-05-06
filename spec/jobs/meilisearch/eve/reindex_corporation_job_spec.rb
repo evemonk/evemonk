@@ -6,6 +6,10 @@ RSpec.describe Meilisearch::Eve::ReindexCorporationJob, type: :job do
   it { expect(described_class.queue_name).to eq("meilisearch") }
 
   describe "#perform" do
+    before { Meilisearch::Rails.activate! }
+
+    after { Meilisearch::Rails.deactivate! }
+
     context "when adding to index" do
       let!(:eve_corporation) { create(:eve_corporation) }
 

@@ -6,12 +6,18 @@ RSpec.describe Api::Eve::ManufacturingItemsController, type: :request do
   describe "#index" do
     before { Setting.use_image_proxy = true }
 
+    before { Meilisearch::Rails.activate! }
+
+    after { Meilisearch::Rails.deactivate! }
+
     it "returns list of manufacturing items" do
       create(:eve_type,
         type_id: 24_698,
         name_en: "Drake",
         published: true,
         is_manufacturing_item: true)
+
+      Eve::Type.last.index!
 
       get "/api/eve/manufacturing_items", params: {q: "drake"}
 
