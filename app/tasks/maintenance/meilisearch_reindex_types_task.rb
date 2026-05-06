@@ -5,8 +5,10 @@ module Maintenance
   #
   # Slow.
   class MeilisearchReindexTypesTask < MaintenanceTasks::Task
+    collection_batch_size(100)
+
     def collection
-      Eve::Type.in_batches(batch_size: 100)
+      Eve::Type.all
     end
 
     # @param type [Eve::Type] The type to reindex.

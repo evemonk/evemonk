@@ -5,8 +5,10 @@ module Maintenance
   #
   # Fast.
   class MeilisearchReindexAlliancesTask < MaintenanceTasks::Task
+    collection_batch_size(100)
+
     def collection
-      Eve::Alliance.in_batches(batch_size: 100)
+      Eve::Alliance.all
     end
 
     # @param alliance [Eve::Alliance] The alliance to reindex.
