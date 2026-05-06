@@ -3,6 +3,12 @@
 require "rails_helper"
 
 RSpec.describe Maintenance::MeilisearchReindexAlliancesTask do
+  describe "#collection" do
+    let!(:eve_alliance) { create(:eve_alliance) }
+
+    specify { expect(subject.collection).to eq([eve_alliance]) }
+  end
+
   describe "#process" do
     let!(:eve_alliance) { create(:eve_alliance) }
 
