@@ -9,9 +9,9 @@ module Meilisearch
       # @param remove [Boolean] Whether to remove the character from the index instead of reindexing it
       def perform(id, remove)
         if remove
-          Eve::Character.index.delete_document(id)
+          ::Eve::Character.index.delete_document(id)
         else
-          Eve::Character.find(id).index!
+          ::Eve::Character.find(id).index!
         end
       end
     end

@@ -9,9 +9,9 @@ module Meilisearch
       # @param remove [Boolean] Whether to remove the corporation from the index instead of reindexing it
       def perform(id, remove)
         if remove
-          Eve::Corporation.index.delete_document(id)
+          ::Eve::Corporation.index.delete_document(id)
         else
-          Eve::Corporation.find(id).index!
+          ::Eve::Corporation.find(id).index!
         end
       end
     end

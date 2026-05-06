@@ -9,9 +9,9 @@ module Meilisearch
       # @param remove [Boolean] Whether to remove the alliance from the index instead of reindexing it
       def perform(id, remove)
         if remove
-          Eve::Alliance.index.delete_document(id)
+          ::Eve::Alliance.index.delete_document(id)
         else
-          Eve::Alliance.find(id).index!
+          ::Eve::Alliance.find(id).index!
         end
       end
     end
