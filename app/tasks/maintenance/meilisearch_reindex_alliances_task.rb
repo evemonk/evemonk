@@ -11,7 +11,7 @@ module Maintenance
 
     # @param alliance [Eve::Alliance] The alliance to reindex.
     def process(alliance)
-      Meilisearch::ReindexAllianceJob.perform_later(alliance.id, false)
+      Meilisearch::Eve::ReindexAllianceJob.perform_later(alliance.id, false)
     end
   end
 end
