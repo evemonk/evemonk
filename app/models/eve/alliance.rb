@@ -26,11 +26,19 @@ module Eve
 
     has_many :corporation_alliance_histories # rubocop:disable Rails/HasManyOrHasOneDependent
 
-    meilisearch do
+    meilisearch enqueue: :trigger_update_index_job do
       searchable_attributes [:name, :ticker]
     end
 
     has_one_attached :logo
+
+    class << self
+      # @param record [Eve::Alliance] The Eve::Alliance record that was updated or deleted
+      # @param remove [Boolean] Whether the record was deleted (true) or updated (false)
+      def trigger_update_index_job(record, remove)
+        Meilisearch::Eve::ReindexAllianceJob.perform_later(record.id, remove)
+      end
+    end
 
     def reset_corporations_count
       update!(corporations_count: corporations.count)

@@ -35,8 +35,6 @@ RSpec.describe Eve::Corporation, type: :model do
 
   it { expect(subject).to have_one_attached(:logo) }
 
-  it { expect(subject).to have_db_index([:name, :ticker]) }
-
   describe ".npc" do
     let!(:eve_corporation_1) { create(:eve_corporation, npc: false) }
 

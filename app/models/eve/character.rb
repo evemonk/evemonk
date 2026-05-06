@@ -17,11 +17,19 @@ module Eve
 
     has_many :character_corporation_histories, dependent: :destroy
 
-    meilisearch do
+    meilisearch enqueue: :trigger_update_index_job do
       searchable_attributes [:name]
     end
 
     has_one_attached :portrait
+
+    class << self
+      # @param record [Eve::Character] The Eve::Character record that was updated or deleted
+      # @param remove [Boolean] Whether the record was deleted (true) or updated (false)
+      def trigger_update_index_job(record, remove)
+        Meilisearch::Eve::ReindexCharacterJob.perform_later(record.id, remove)
+      end
+    end
 
     def icon_tiny
       character_portrait_url(32)

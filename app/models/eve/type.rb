@@ -41,8 +41,16 @@ module Eve
 
     scope :manufacturing_items, -> { where(is_manufacturing_item: true) }
 
-    meilisearch primary_key: :type_id, synchronous: true do
+    meilisearch primary_key: :type_id, enqueue: :trigger_update_index_job do
       searchable_attributes [:name_en]
+    end
+
+    class << self
+      # @param record [Eve::Type] The Eve::Type record that was updated or deleted
+      # @param remove [Boolean] Whether the record was deleted (true) or updated (false)
+      def trigger_update_index_job(record, remove)
+        Meilisearch::Eve::ReindexTypeJob.perform_later(record.id, remove)
+      end
     end
 
     def implant_bonuses

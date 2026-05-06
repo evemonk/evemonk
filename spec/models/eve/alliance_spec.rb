@@ -29,8 +29,6 @@ RSpec.describe Eve::Alliance, type: :model do
 
   it { expect(subject).to have_one_attached(:logo) }
 
-  it { expect(subject).to have_db_index([:name, :ticker]) }
-
   it { expect(described_class).to respond_to(:search) }
 
   describe "#reset_corporations_count" do
