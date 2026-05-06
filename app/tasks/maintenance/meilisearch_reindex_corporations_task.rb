@@ -5,12 +5,13 @@ module Maintenance
   #
   # Very slow.
   class MeilisearchReindexCorporationsTask < MaintenanceTasks::Task
-    no_collection
+    def collection
+      Eve::Corporation.in_batches(batch_size: 100)
+    end
 
-    def process
-      Eve::Corporation.clear_index!
-
-      Eve::Corporation.reindex!(100)
+    # @param corporation [Eve::Corporation] The corporation to reindex.
+    def process(corporation)
+      Meilisearch::Eve::ReindexCorporationJob.perform_later(corporation.id, false)
     end
   end
 end

@@ -5,12 +5,13 @@ module Maintenance
   #
   # Very slow.
   class MeilisearchReindexCharactersTask < MaintenanceTasks::Task
-    no_collection
+    def collection
+      Eve::Character.in_batches(batch_size: 100)
+    end
 
-    def process
-      Eve::Character.clear_index!
-
-      Eve::Character.reindex!(100)
+    # @param character [Eve::Character] The character to reindex.
+    def process(character)
+      Meilisearch::Eve::ReindexCharacterJob.perform_later(character.id, false)
     end
   end
 end
