@@ -9,19 +9,28 @@
   </div>
 </div>
 
-<div class="row">
-  <div class="col">
-    <%= form_with(url: search_path, method: :get, data: {controller: "search-form", turbo_frame: "search", turbo_action: "advance"}) do |f| %>
-      <%= f.label :q, "Search...", class: "" %>
-      <%= f.text_field :q, value: params[:q], class: "", data: {action: "input->search-form#search"} %>
+<hr class="text-dark">
 
-      <%= f.submit "Search" %>
+<div class="row">
+  <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+    <h4 class="text-center text-break">Search</h4>
+
+    <%= form_with(url: search_path, method: :get, data: {controller: "search-form", turbo_frame: "search", turbo_action: "advance"}) do |f| %>
+      <div class="mb-3">
+        <%= f.search_field :q,
+                           value: params[:q],
+                           placeholder: "Type to search...",
+                           class: "form-control",
+                           autofocus: true,
+                           autocomplete: "off",
+                           data: {action: "input->search-form#search"} %>
+      </div>
+
+      <div class="mb-3 text-center">
+        <%= button_tag "Search", name: nil, type: nil, class: "btn btn-primary w-100" %>
+      </div>
     <% end %>
   </div>
-
-  <br>
-
-  <hr class="text-dark">
 
   <%= render "search",
              alliances: @alliances,

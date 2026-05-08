@@ -18,8 +18,8 @@
 <div class="row">
   <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
     <div class="clearfix">
-      <h4 class="float-left"><%= @character.name %></h4>
-      <%= form_with(url: character_path(@character), method: :patch, class: "float-right") do %>
+      <h4 class="float-start"><%= @character.name %></h4>
+      <%= form_with(url: character_path(@character), method: :patch, class: "float-end") do %>
         <%= button_tag(class: "btn btn-primary mb-2") do %>
           <i class="bi bi-arrow-repeat"></i>
         <% end %>
@@ -75,19 +75,19 @@
 
     <%= link_to("Create new job",
                 new_character_manufacturing_job_path(@character),
-                class: "btn btn-primary btn-block") %>
+                class: "btn btn-primary w-100") %>
   </div>
 
   <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4" id="new_manufacturing_job">
     <h4 class="text-center text-break">New Job</h4>
 
     <form>
-      <div class="form-group">
+      <div class="mb-3">
         <label for="name">Name</label>
         <input type="text" class="form-control" id="name" v-model="name">
       </div>
 
-      <div class="form-group">
+      <div class="mb-3">
         <label for="product_id">Product: {{ selected || "not selected" }}</label>
         <v-select v-model="selected"
                   label="name"
