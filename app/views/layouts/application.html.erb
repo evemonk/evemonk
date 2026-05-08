@@ -86,9 +86,9 @@
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false"><%= "Admin stuff" %></a>
                   <ul class="dropdown-menu">
-                    <%= link_to("Jobs", mission_control_jobs_path, class: "dropdown-item") %>
-                    <%= link_to("Maintenance tasks", maintenance_tasks_path, class: "dropdown-item") %>
-                    <%= link_to("Flipper", "/flipper", class: "dropdown-item") %>
+                    <%= link_to(t(".jobs"), mission_control_jobs_path, class: "dropdown-item") %>
+                    <%= link_to(t(".maintenance_tasks"), maintenance_tasks_path, class: "dropdown-item") %>
+                    <%= link_to(t(".flipper"), "/flipper", class: "dropdown-item") %>
                   </ul>
                 </li>
               <% end %>
