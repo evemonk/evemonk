@@ -21,7 +21,7 @@ services:
       - "5432:5432"
 
   meilisearch:
-    image: "docker.io/getmeili/meilisearch:v1.43.0"
+    image: "docker.io/getmeili/meilisearch:v1.43.1"
     container_name: "evemonk_meilisearch"
     restart: "unless-stopped"
     volumes:
