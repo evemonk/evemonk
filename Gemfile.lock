@@ -764,7 +764,7 @@ GEM
       builder (~> 3.0)
     skylight (7.1.1)
       activesupport (>= 7.2.0)
-    snaky_hash (2.0.3)
+    snaky_hash (2.0.4)
       hashie (>= 0.1.0, < 6)
       version_gem (>= 1.1.8, < 3)
     solid_cable (3.0.12)
@@ -1286,7 +1286,7 @@ CHECKSUMS
   simplecov_json_formatter (0.1.4) sha256=529418fbe8de1713ac2b2d612aa3daa56d316975d307244399fa4838c601b428
   sitemap_generator (6.3.0) sha256=1d803cbf03c44736bea05b9e3363d3523fec4e24f3abedad294d9c57cab994f3
   skylight (7.1.1) sha256=90b09ad73288ad11322f7db4e25b3f096b522d752a368d2c9e70bc346986e951
-  snaky_hash (2.0.3) sha256=25a3d299566e8153fb02fa23fd9a9358845950f7a523ddbbe1fa1e0d79a6d456
+  snaky_hash (2.0.4) sha256=2b12758c57defa6796341a1620f84b1a23737421d8d7e2575d0550b53cc4fece
   solid_cable (3.0.12) sha256=a168a54731a455d5627af48d8441ea3b554b8c1f6e6cd6074109de493e6b0460
   solid_cache (1.0.10) sha256=bc05a2fb3ac78a6f43cbb5946679cf9db67dd30d22939ededc385cb93e120d41
   solid_queue (1.4.0) sha256=e6a18d196f0b27cb6e3c77c5b31258b05fb634f8ed64fb1866ed164047216c2a
