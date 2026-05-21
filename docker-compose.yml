@@ -32,7 +32,7 @@ services:
       - "7700:7700"
 
   redis:
-    image: "docker.io/valkey/valkey:9.0"
+    image: "docker.io/valkey/valkey:9.1"
     container_name: "evemonk_redis"
     restart: "unless-stopped"
     volumes:
