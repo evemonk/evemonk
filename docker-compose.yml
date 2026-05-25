@@ -3,8 +3,6 @@ volumes:
     external: true
   evemonk_redis_data:
     external: true
-  evemonk_meilisearch_data:
-    external: true
   evemonk_typesense_data:
     external: true
 
