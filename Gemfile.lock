@@ -848,6 +848,9 @@ GEM
     typesense (2.1.0)
       oj (~> 3.16)
       typhoeus (~> 1.4)
+    typesense-rails (1.0.0.rc4)
+      json (>= 1.5.1)
+      typesense (>= 0.13.0)
     typhoeus (1.6.0)
       ethon (>= 0.18.0)
     tzinfo (2.0.6)
@@ -1020,7 +1023,7 @@ DEPENDENCIES
   super_diff
   thruster
   turbo-rails
-  typesense
+  typesense-rails (~> 1.0.0.rc1)
   tzinfo-data
   vcr
   view_component
@@ -1352,6 +1355,7 @@ CHECKSUMS
   tsort (0.2.0) sha256=9650a793f6859a43b6641671278f79cfead60ac714148aabe4e3f0060480089f
   turbo-rails (2.0.23) sha256=ee0d90733aafff056cf51ff11e803d65e43cae258cc55f6492020ec1f9f9315f
   typesense (2.1.0) sha256=d2d2558b4256a602b3cd23fdf3512c4109c6f880d93fea5b0b804f6ddc13b05a
+  typesense-rails (1.0.0.rc4) sha256=9fc7f5fb9556f0dc42bf50897b0ea1f450b5f99cac21d7ac9a491b4df78f5909
   typhoeus (1.6.0) sha256=bacc41c23e379547e29801dc235cd1699b70b955a1ba3d32b2b877aa844c331d
   tzinfo (2.0.6) sha256=8daf828cc77bcf7d63b0e3bdb6caa47e2272dcfaf4fbfe46f8c3a9df087a829b
   tzinfo-data (1.2026.2) sha256=7db0d3d3d53b8d7601fc183fccc8c6d056a3004e14eb59ea995bf6aec4ae10bc
