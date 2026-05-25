@@ -62,6 +62,8 @@ jobs:
           TYPESENSE_DATA_DIR: "/data"
         volumes:
           - "/tmp/typesense-data:/data:rw"
+        ports:
+          - "8108:8108"
         options: >-
           --health-cmd "curl -f http://localhost:8108/health || exit 1"
           --health-interval 5s
