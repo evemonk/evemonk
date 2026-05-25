@@ -4,7 +4,7 @@ module Eve
   class Type < ApplicationRecord
     self.primary_key = "type_id"
 
-    include Meilisearch::Rails
+    include Typesense
     include ActionView::Helpers::NumberHelper
     include Imageable
 
@@ -41,16 +41,8 @@ module Eve
 
     scope :manufacturing_items, -> { where(is_manufacturing_item: true) }
 
-    meilisearch primary_key: :type_id, enqueue: :trigger_update_index_job do
-      searchable_attributes [:name_en]
-    end
-
-    class << self
-      # @param record [Eve::Type] The Eve::Type record that was updated or deleted
-      # @param remove [Boolean] Whether the record was deleted (true) or updated (false)
-      def trigger_update_index_job(record, remove)
-        Meilisearch::Eve::ReindexTypeJob.perform_later(record.id, remove)
-      end
+    typesense do
+      attributes :name_en
     end
 
     def implant_bonuses
@@ -60,6 +52,7 @@ module Eve
     def primary_attribute
       @primary_attribute ||= begin
         value = type_dogma_attributes.find { |tda| tda.dogma_attribute.name == PRIMARY_ATTRIBUTE_NAME }.value
+
         Eve::DogmaAttribute.find_by!(attribute_id: Integer(value))
       end
     end
@@ -67,6 +60,7 @@ module Eve
     def secondary_attribute
       @secondary_attribute ||= begin
         value = type_dogma_attributes.find { |tda| tda.dogma_attribute.name == SECONDARY_ATTRIBUTE_NAME }.value
+
         Eve::DogmaAttribute.find_by!(attribute_id: Integer(value))
       end
     end

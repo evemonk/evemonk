@@ -2,7 +2,6 @@
 
 module Eve
   class Corporation < ApplicationRecord
-    # include Meilisearch::Rails
     include Typesense
     include ActionView::Helpers::NumberHelper
     include Imageable
