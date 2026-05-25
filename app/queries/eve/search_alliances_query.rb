@@ -11,7 +11,7 @@ module Eve
 
     def query
       if q.present?
-        scope.search(q)
+        scope.search(q, "name,ticker")
       else
         scope
       end

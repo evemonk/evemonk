@@ -55,6 +55,16 @@ jobs:
           MEILI_NO_ANALYTICS: "true"
         ports:
           - "7700:7700"
+      typesense:
+        image: "typesense/typesense:30.2"
+        ports:
+          - "8108:8108"
+        volumes:
+          - "/tmp/typesense-data:/data:rw"
+        env:
+          TYPESENSE_API_KEY: "API_KEY"
+          TYPESENSE_DATA_DIR: "/data"
+          TYPESENSE_ENABLE_CORS: "true"
       redis:
         image: "valkey/valkey:9.0"
         # Set health checks to wait until redis has started
@@ -71,6 +81,14 @@ jobs:
         uses: step-security/harden-runner@9af89fc71515a100421586dfdb3dc9c984fbf411 # v2.19.4
         with:
           egress-policy: audit
+
+      - name: Wait for Typesense
+        run: |
+          for _i in {1..30}; do
+            curl -sf http://localhost:8108/health && exit 0
+            sleep 1
+          done
+          echo "Typesense did not become healthy" && exit 1
 
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
       - name: Set up Ruby

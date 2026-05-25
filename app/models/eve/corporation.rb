@@ -2,7 +2,8 @@
 
 module Eve
   class Corporation < ApplicationRecord
-    include Meilisearch::Rails
+    # include Meilisearch::Rails
+    include Typesense
     include ActionView::Helpers::NumberHelper
     include Imageable
 
@@ -35,19 +36,23 @@ module Eve
     #
     # after_commit :eve_alliance_reset_characters_count, on: [:create, :update, :destroy]
 
-    meilisearch enqueue: :trigger_update_index_job do
-      searchable_attributes [:name, :ticker]
+    # meilisearch enqueue: :trigger_update_index_job do
+    #   searchable_attributes [:name, :ticker]
+    # end
+
+    typesense do
+      attributes :name, :ticker
     end
 
     has_one_attached :logo
 
-    class << self
-      # @param record [Eve::Corporation] The Eve::Corporation record that was updated or deleted
-      # @param remove [Boolean] Whether the record was deleted (true) or updated (false)
-      def trigger_update_index_job(record, remove)
-        Meilisearch::Eve::ReindexCorporationJob.perform_later(record.id, remove)
-      end
-    end
+    # class << self
+    #   # @param record [Eve::Corporation] The Eve::Corporation record that was updated or deleted
+    #   # @param remove [Boolean] Whether the record was deleted (true) or updated (false)
+    #   def trigger_update_index_job(record, remove)
+    #     Meilisearch::Eve::ReindexCorporationJob.perform_later(record.id, remove)
+    #   end
+    # end
 
     # def eve_alliance_reset_corporations_count
     #   alliance&.reset_corporations_count

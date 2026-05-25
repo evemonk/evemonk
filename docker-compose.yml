@@ -5,6 +5,8 @@ volumes:
     external: true
   evemonk_meilisearch_data:
     external: true
+  evemonk_typesense_data:
+    external: true
 
 services:
   postgresql:
@@ -30,6 +32,16 @@ services:
       MEILI_MASTER_KEY: "secret"
     ports:
       - "7700:7700"
+
+  typesense:
+    image: "docker.io/typesense/typesense:30.2"
+    container_name: "evemonk_typesense"
+    restart: "unless-stopped"
+    volumes:
+      - "evemonk_typesense_data:/data:rw"
+    ports:
+      - "8108:8108"
+    command: "--data-dir /data --api-key=API_KEY --enable-cors"
 
   redis:
     image: "docker.io/valkey/valkey:9.1"

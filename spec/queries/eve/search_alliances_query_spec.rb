@@ -41,7 +41,7 @@ RSpec.describe Eve::SearchAlliancesQuery do
 
       let(:query) { double }
 
-      before { expect(scope).to receive(:search).with(q).and_return(query) }
+      before { expect(scope).to receive(:search).with(q, "name,ticker").and_return(query) }
 
       subject { described_class.new(q, scope) }
 
