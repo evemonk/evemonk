@@ -60,6 +60,8 @@ jobs:
         env:
           TYPESENSE_API_KEY: "API_KEY"
           TYPESENSE_DATA_DIR: "/data"
+        volumes:
+          - "/tmp/typesense-data:/data:rw"
         options: >-
           --health-cmd "curl -f http://localhost:8108/health || exit 1"
           --health-interval 5s
