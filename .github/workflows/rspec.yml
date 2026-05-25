@@ -84,9 +84,9 @@ jobs:
 
       - name: Wait for Typesense
         run: |
-          for i in {1..30}; do
-          curl -sf http://localhost:8108/health && exit 0
-          sleep 1
+          for _i in {1..30}; do
+            curl -sf http://localhost:8108/health && exit 0
+            sleep 1
           done
           echo "Typesense did not become healthy" && exit 1
 
