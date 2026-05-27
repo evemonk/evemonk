@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Maintenance
-  # Force reindexing of Eve::Corporation's.
+  # Force reindexing of Eve::Corporation records.
   class EveCorporationsReindexTask < MaintenanceTasks::Task
     no_collection
 

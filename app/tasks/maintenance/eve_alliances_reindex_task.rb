@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Maintenance
-  # Force reindexing of Eve::Alliance's.
+  # Force reindexing of Eve::Alliance records.
   class EveAlliancesReindexTask < MaintenanceTasks::Task
     no_collection
 
