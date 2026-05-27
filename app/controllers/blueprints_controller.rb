@@ -4,16 +4,16 @@ class BlueprintsController < ApplicationController
   def index
     @character = current_user.characters
       .includes(:alliance, :corporation)
-      .find_by!(character_id: params[:character_id])
+      .find_by!(character_id: params.expect(:character_id))
   end
 
   def show
     @character = current_user.characters
       .includes(:alliance, :corporation)
-      .find_by!(character_id: params[:character_id])
+      .find_by!(character_id: params.expect(:character_id))
 
     @blueprint = @character.character_blueprints
       .includes(:blueprint)
-      .find_by!(item_id: params[:id])
+      .find_by!(item_id: params.expect(:id))
   end
 end

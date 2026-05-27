@@ -5,6 +5,6 @@ class StandingsController < ApplicationController
     @character = current_user.characters
       .includes(:alliance, :corporation, :factions_standings,
         :corporations_standings, :agents_standings)
-      .find_by!(character_id: params[:character_id])
+      .find_by!(character_id: params.expect(:character_id))
   end
 end

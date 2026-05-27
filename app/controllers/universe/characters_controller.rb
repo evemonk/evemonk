@@ -15,7 +15,7 @@ module Universe
 
       # @character_corporation_histories = Eve::CharacterCorporationHistory.where(character: @character).includes(:corporation).order(start_date: :desc)
 
-      @character = Eve::Character.includes(:alliance, :corporation).find(params[:id])
+      @character = Eve::Character.includes(:alliance, :corporation).find(params.expect(:id))
 
       authorize @character
 

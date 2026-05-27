@@ -11,7 +11,7 @@ module Universe
     end
 
     def show
-      @market_group = Eve::MarketGroup.find_by!(market_group_id: params[:id])
+      @market_group = Eve::MarketGroup.find_by!(market_group_id: params.expect(:id))
       @market_groups = @market_group.subgroups.includes(:icon).order(:name_en)
     end
   end

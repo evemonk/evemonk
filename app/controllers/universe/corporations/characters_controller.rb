@@ -6,7 +6,7 @@ module Universe
       skip_before_action :authenticate_user!
 
       def index
-        @corporation = policy_scope(Eve::Corporation).find(params[:corporation_id])
+        @corporation = policy_scope(Eve::Corporation).find(params.expect(:corporation_id))
 
         @characters = policy_scope(Eve::Character)
           .where(corporation: @corporation)

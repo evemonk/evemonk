@@ -11,7 +11,7 @@ module Universe
     end
 
     def show
-      @corporation = Eve::Corporation.find(params[:id])
+      @corporation = Eve::Corporation.find(params.expect(:id))
 
       authorize @corporation
     end
