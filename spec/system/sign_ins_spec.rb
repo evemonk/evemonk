@@ -15,7 +15,7 @@ RSpec.describe "Sign in features", type: :system do
 
     click_button "Log in"
 
-    expect(page).to have_content("Signed in successfully.")
+    expect(page).to have_text("Signed in successfully.")
 
     expect(page).to have_current_path("/characters")
   end
@@ -32,7 +32,7 @@ RSpec.describe "Sign in features", type: :system do
 
     click_button "Log in"
 
-    expect(page).to have_content("Signed in successfully.")
+    expect(page).to have_text("Signed in successfully.")
 
     expect(page).to have_current_path("/characters")
   end
@@ -47,7 +47,7 @@ RSpec.describe "Sign in features", type: :system do
 
     click_button "Log in"
 
-    expect(page).to have_content("Invalid email or password.")
+    expect(page).to have_text("Invalid email or password.")
 
     expect(page).to have_current_path("/users/sign_in")
   end
@@ -64,7 +64,7 @@ RSpec.describe "Sign in features", type: :system do
 
     click_button "Log in"
 
-    expect(page).to have_content("Invalid email or password.")
+    expect(page).to have_text("Invalid email or password.")
 
     expect(page).to have_current_path("/users/sign_in")
   end

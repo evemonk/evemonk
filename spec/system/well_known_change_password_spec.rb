@@ -21,16 +21,16 @@ RSpec.describe "/.well-known/change-password", type: :system do
 
     expect(page).to have_current_path("/users/edit")
 
-    expect(page).to have_content("Change email and password")
+    expect(page).to have_text("Change email and password")
 
-    expect(page).to have_content("Email address")
+    expect(page).to have_text("Email address")
 
-    expect(page).to have_content("Password (leave blank if you don't want to change it)")
+    expect(page).to have_text("Password (leave blank if you don't want to change it)")
 
-    expect(page).to have_content("Password confirmation")
+    expect(page).to have_text("Password confirmation")
 
-    expect(page).to have_content("Current password")
+    expect(page).to have_text("Current password")
 
-    expect(page).to have_content("we need your current password to confirm your changes")
+    expect(page).to have_text("we need your current password to confirm your changes")
   end
 end
