@@ -50,7 +50,7 @@ RSpec.describe Eve::SearchBlueprintsQuery do
 
       let(:query) { double }
 
-      before { expect(scope).to receive(:search).with(q).and_return(query) }
+      before { expect(scope).to receive(:search).with(q, "name_en").and_return(query) }
 
       subject { described_class.new(q, scope) }
 
