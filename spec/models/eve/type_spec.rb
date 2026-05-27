@@ -7,7 +7,7 @@ RSpec.describe Eve::Type, type: :model do
 
   it { expect(described_class.primary_key).to eq("type_id") }
 
-  it { expect(subject).to be_a(Meilisearch::Rails) }
+  it { expect(subject).to be_a(Typesense) }
 
   it { expect(subject).to be_an(ActionView::Helpers::NumberHelper) }
 

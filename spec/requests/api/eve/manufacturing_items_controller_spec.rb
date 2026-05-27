@@ -6,10 +6,6 @@ RSpec.describe Api::Eve::ManufacturingItemsController, pending: "broken", type: 
   describe "#index" do
     before { Setting.use_image_proxy = true }
 
-    before { Meilisearch::Rails.activate! }
-
-    after { Meilisearch::Rails.deactivate! }
-
     it "returns list of manufacturing items" do
       create(:eve_type,
         type_id: 24_698,

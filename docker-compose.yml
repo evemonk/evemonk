@@ -3,8 +3,6 @@ volumes:
     external: true
   evemonk_redis_data:
     external: true
-  evemonk_meilisearch_data:
-    external: true
   evemonk_typesense_data:
     external: true
 
@@ -22,26 +20,18 @@ services:
     ports:
       - "5432:5432"
 
-  meilisearch:
-    image: "docker.io/getmeili/meilisearch:v1.44.0"
-    container_name: "evemonk_meilisearch"
-    restart: "unless-stopped"
-    volumes:
-      - "evemonk_meilisearch_data:/meili_data:rw"
-    environment:
-      MEILI_MASTER_KEY: "secret"
-    ports:
-      - "7700:7700"
-
   typesense:
     image: "docker.io/typesense/typesense:30.2"
     container_name: "evemonk_typesense"
     restart: "unless-stopped"
     volumes:
       - "evemonk_typesense_data:/data:rw"
+    environment:
+      TYPESENSE_API_KEY: "API_KEY"
+      TYPESENSE_DATA_DIR: "/data"
+      TYPESENSE_ENABLE_CORS: "true"
     ports:
       - "8108:8108"
-    command: "--data-dir /data --api-key=API_KEY --enable-cors"
 
   redis:
     image: "docker.io/valkey/valkey:9.1"

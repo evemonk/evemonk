@@ -5,8 +5,6 @@ require "rails_helper"
 RSpec.describe Eve::Corporation, type: :model do
   it { expect(subject).to be_an(ApplicationRecord) }
 
-  # it { expect(subject).to be_a(Meilisearch::Rails) }
-
   it { expect(subject).to be_a(Typesense) }
 
   it { expect(subject).to be_an(ActionView::Helpers::NumberHelper) }
