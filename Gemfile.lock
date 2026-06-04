@@ -686,7 +686,8 @@ GEM
       lint_roller (~> 1.1)
       rubocop (~> 1.72, >= 1.72.1)
       rubocop-rspec (~> 3.5)
-    rubocop-view_component (0.5.1)
+    rubocop-view_component (0.6.0)
+      activesupport
       herb
       lint_roller (~> 1.1)
       parser
@@ -1253,7 +1254,7 @@ CHECKSUMS
   rubocop-rails (2.35.3) sha256=6edd45410866912b9b2e90ae3aeafd31d576df2bb2a9c9408f1667a50c32c7de
   rubocop-rspec (3.9.0) sha256=8fa70a3619408237d789aeecfb9beef40576acc855173e60939d63332fdb55e2
   rubocop-rspec_rails (2.32.0) sha256=4a0d641c72f6ebb957534f539d9d0a62c47abd8ce0d0aeee1ef4701e892a9100
-  rubocop-view_component (0.5.1) sha256=1d3dcf5fe5a63627a85b48d53f1bd3ad5a169ca1a68671cc6b8a2fec2a45a324
+  rubocop-view_component (0.6.0) sha256=0253e4244c89593ff328b980c9f41f4a6f7aebb2f3ba1f3f817fd8622851b210
   ruby-pg-extras (5.6.18) sha256=70f54bfdb51f9c3263356618e95cbdd1fea5c35fdd232902074f4a8ac3cd14e8
   ruby-progressbar (1.13.0) sha256=80fc9c47a9b640d6834e0dc7b3c94c9df37f08cb072b7761e4a71e22cff29b33
   rubyzip (2.4.1) sha256=8577c88edc1fde8935eb91064c5cb1aef9ad5494b940cf19c775ee833e075615
