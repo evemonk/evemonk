@@ -3,6 +3,8 @@ volumes:
     external: true
   evemonk_redis_data:
     external: true
+  evemonk_typesense_data:
+    external: true
 
 services:
   postgresql:
@@ -18,8 +20,21 @@ services:
     ports:
       - "5432:5432"
 
+  typesense:
+    image: "docker.io/typesense/typesense:30.2"
+    container_name: "evemonk_typesense"
+    restart: "unless-stopped"
+    volumes:
+      - "evemonk_typesense_data:/data:rw"
+    environment:
+      TYPESENSE_API_KEY: "API_KEY"
+      TYPESENSE_DATA_DIR: "/data"
+      TYPESENSE_ENABLE_CORS: "true"
+    ports:
+      - "8108:8108"
+
   redis:
-    image: "docker.io/valkey/valkey:9.0"
+    image: "docker.io/valkey/valkey:9.1"
     container_name: "evemonk_redis"
     restart: "unless-stopped"
     volumes:

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_02_03_220949) do
+ActiveRecord::Schema[8.1].define(version: 2026_05_04_173014) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_buffercache"
   enable_extension "pg_catalog.plpgsql"
@@ -256,7 +256,6 @@ ActiveRecord::Schema[8.1].define(version: 2026_02_03_220949) do
     t.index ["creator_id"], name: "index_eve_alliances_on_creator_id"
     t.index ["executor_corporation_id"], name: "index_eve_alliances_on_executor_corporation_id"
     t.index ["faction_id"], name: "index_eve_alliances_on_faction_id"
-    t.index ["name", "ticker"], name: "index_eve_alliances_on_name_and_ticker", opclass: :gin_trgm_ops, using: :gin
     t.index ["name"], name: "index_eve_alliances_on_name"
   end
 
@@ -467,7 +466,6 @@ ActiveRecord::Schema[8.1].define(version: 2026_02_03_220949) do
     t.index ["bloodline_id"], name: "index_eve_characters_on_bloodline_id"
     t.index ["corporation_id"], name: "index_eve_characters_on_corporation_id"
     t.index ["faction_id"], name: "index_eve_characters_on_faction_id"
-    t.index ["name"], name: "index_eve_characters_on_name", opclass: :gin_trgm_ops, using: :gin
     t.index ["name"], name: "index_eve_characters_on_name_2"
     t.index ["race_id"], name: "index_eve_characters_on_race_id"
   end
@@ -545,7 +543,6 @@ ActiveRecord::Schema[8.1].define(version: 2026_02_03_220949) do
     t.index ["faction_id"], name: "index_eve_corporations_on_faction_id"
     t.index ["home_station_id"], name: "index_eve_corporations_on_home_station_id"
     t.index ["member_count"], name: "index_eve_corporations_on_member_count"
-    t.index ["name", "ticker"], name: "index_eve_corporations_on_name_and_ticker", opclass: :gin_trgm_ops, using: :gin
     t.index ["name"], name: "index_eve_corporations_on_name"
     t.index ["npc", "member_count"], name: "index_eve_corporations_on_npc_and_member_count"
   end
@@ -920,7 +917,6 @@ ActiveRecord::Schema[8.1].define(version: 2026_02_03_220949) do
     t.index ["group_id"], name: "index_eve_types_on_group_id"
     t.index ["icon_id"], name: "index_eve_types_on_icon_id"
     t.index ["market_group_id"], name: "index_eve_types_on_market_group_id"
-    t.index ["name_en"], name: "index_eve_types_on_name_en", opclass: :gin_trgm_ops, using: :gin
     t.index ["type_id"], name: "index_eve_types_on_type_id", unique: true
   end
 

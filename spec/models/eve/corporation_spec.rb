@@ -5,7 +5,7 @@ require "rails_helper"
 RSpec.describe Eve::Corporation, type: :model do
   it { expect(subject).to be_an(ApplicationRecord) }
 
-  it { expect(subject).to be_a(PgSearch::Model) }
+  it { expect(subject).to be_a(Typesense) }
 
   it { expect(subject).to be_an(ActionView::Helpers::NumberHelper) }
 
@@ -35,8 +35,6 @@ RSpec.describe Eve::Corporation, type: :model do
 
   it { expect(subject).to have_one_attached(:logo) }
 
-  it { expect(subject).to have_db_index([:name, :ticker]) }
-
   describe ".npc" do
     let!(:eve_corporation_1) { create(:eve_corporation, npc: false) }
 
@@ -61,7 +59,7 @@ RSpec.describe Eve::Corporation, type: :model do
   #
   # it { should callback(:eve_alliance_reset_characters_count).after(:commit).on([:create, :update, :destroy]) }
 
-  it { expect(described_class).to respond_to(:search_by_name_and_ticker) }
+  it { expect(described_class).to respond_to(:search) }
 
   # describe "#eve_alliance_reset_corporations_count" do
   #   context "when alliance exists" do

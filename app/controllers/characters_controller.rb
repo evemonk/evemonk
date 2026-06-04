@@ -11,13 +11,13 @@ class CharactersController < ApplicationController
   def show
     @character = Character
       .includes(:race, :bloodline, :faction, :alliance, :corporation, :current_ship_type)
-      .find_by!(character_id: params[:id])
+      .find_by!(character_id: params.expect(:id))
 
     authorize @character
   end
 
   def update
-    @character = Character.find_by!(character_id: params[:id])
+    @character = Character.find_by!(character_id: params.expect(:id))
 
     authorize @character
 
@@ -30,7 +30,7 @@ class CharactersController < ApplicationController
   end
 
   def destroy
-    @character = Character.find_by!(character_id: params[:id])
+    @character = Character.find_by!(character_id: params.expect(:id))
 
     authorize @character
 

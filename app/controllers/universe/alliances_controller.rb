@@ -11,7 +11,7 @@ module Universe
     end
 
     def show
-      @alliance = ::Eve::Alliance.includes(:faction, :creator_corporation, :creator, :executor_corporation).find(params[:id])
+      @alliance = ::Eve::Alliance.includes(:faction, :creator_corporation, :creator, :executor_corporation).find(params.expect(:id))
 
       authorize @alliance
     end

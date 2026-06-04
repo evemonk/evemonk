@@ -18,8 +18,8 @@
 <div class="row">
   <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
     <div class="clearfix">
-      <h4 class="float-left"><%= @character.name %></h4>
-      <%= form_with(url: character_path(@character), method: :patch, class: "float-right") do %>
+      <h4 class="float-start"><%= @character.name %></h4>
+      <%= form_with(url: character_path(@character), method: :patch, class: "float-end") do %>
         <%= button_tag(class: "btn btn-primary mb-2") do %>
           <i class="bi bi-arrow-repeat"></i>
         <% end %>
@@ -75,7 +75,7 @@
 
     <% @wallet_journals.each_with_index do |wallet_journal, index| %>
       <div class="card <%= (index % 2 == 0) ? "bg-dark" : "bg-transparent" %> rounded-0 border-secondary <%= (index == 0) ? "" : "border-top-0" %>">
-        <div class="row no-gutters">
+        <div class="row g-0">
           <div class="col-6">
             <span class="text-primary"><%= wallet_journal.description %></span>
           </div>
@@ -87,7 +87,7 @@
             <% end %>
           </div>
         </div>
-        <div class="row no-gutters">
+        <div class="row g-0">
           <div class="col-6">
             <%= wallet_journal.date %>
           </div>

@@ -14,7 +14,7 @@ RSpec.describe "Sign up features", type: :system do
 
     click_button "Sign up"
 
-    expect(page).to have_content("A message with a confirmation link has been sent to your email address. Please follow the link to activate your account.")
+    expect(page).to have_text("A message with a confirmation link has been sent to your email address. Please follow the link to activate your account.")
 
     User.find_by(email: "me@example.com").confirm
 
@@ -27,7 +27,7 @@ RSpec.describe "Sign up features", type: :system do
 
     click_button "Log in"
 
-    expect(page).to have_content(I18n.t("devise.sessions.signed_in"))
+    expect(page).to have_text(I18n.t("devise.sessions.signed_in"))
 
     expect(page).to have_current_path("/characters")
 

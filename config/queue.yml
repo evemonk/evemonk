@@ -16,7 +16,7 @@ production:
     - queues: "default"
       threads: 3
       processes: 1
-      polling_interval: 0.1
+      polling_interval: 0.1 # yes, mostly real-time.
     - queues: "server_status"
       threads: 1
       processes: 1

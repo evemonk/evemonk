@@ -19,20 +19,20 @@ RSpec.describe "Change password features", pending: "broken" do
 
     visit "/change_password"
 
-    expect(page).to have_content("Change password")
+    expect(page).to have_text("Change password")
 
-    expect(page).to have_content("Current password (leave empty if you are Sign up via Eve Online SSO)")
+    expect(page).to have_text("Current password (leave empty if you are Sign up via Eve Online SSO)")
 
-    expect(page).to have_content("New password")
+    expect(page).to have_text("New password")
 
-    expect(page).to have_content("New password confirmation")
+    expect(page).to have_text("New password confirmation")
 
     fill_in "old_password", with: "eidii7EeooVe8ahk"
     fill_in "password", with: "7bYu9qK1"
     fill_in "password_confirmation", with: "7bYu9qK1"
     find_by_id("change_password_button").click # TODO: change to 'click'
 
-    expect(page).to have_content("Password was successful changed!")
+    expect(page).to have_text("Password was successful changed!")
 
     current_token = page.evaluate_script <<-JAVASCRIPT
       localStorage.getItem('token');

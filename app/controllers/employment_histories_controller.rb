@@ -4,7 +4,7 @@ class EmploymentHistoriesController < ApplicationController
   def index
     @character = current_user.characters
       .includes(:alliance, :corporation)
-      .find_by!(character_id: params[:character_id])
+      .find_by!(character_id: params.expect(:character_id))
 
     @character_corporation_histories = CharacterCorporationHistory.where(character_id: @character.character_id)
       .includes(:corporation)

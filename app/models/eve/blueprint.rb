@@ -14,6 +14,10 @@ module Eve
 
     has_many :blueprint_manufacturing_skills, dependent: :destroy
 
+    typesense if: :is_blueprint? do
+      attributes :name_en
+    end
+
     def copying_time_formatted
       HumanTime.new(copying_time).long_formatted
     end

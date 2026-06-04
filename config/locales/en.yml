@@ -46,6 +46,9 @@ en:
       market_groups: "Market Groups"
       inventory: "Inventory"
       search: "Search (⌘+K)"
+      jobs: "Jobs"
+      maintenance_tasks: "Maintenance tasks"
+      flipper: "Flipper"
   auth:
     eve_online_sso:
       callbacks:

@@ -4,7 +4,7 @@ module Eve
   class Type < ApplicationRecord
     self.primary_key = "type_id"
 
-    include PgSearch::Model
+    include Typesense
     include ActionView::Helpers::NumberHelper
     include Imageable
 
@@ -41,14 +41,9 @@ module Eve
 
     scope :manufacturing_items, -> { where(is_manufacturing_item: true) }
 
-    pg_search_scope :search_by_name,
-      against: :name_en,
-      using: {
-        tsearch: {
-          prefix: true,
-          negation: true
-        }
-      }
+    typesense do
+      attributes :name_en
+    end
 
     def implant_bonuses
       @implant_bonuses ||= ImplantBonuses.new(self).implant_bonuses
@@ -57,6 +52,7 @@ module Eve
     def primary_attribute
       @primary_attribute ||= begin
         value = type_dogma_attributes.find { |tda| tda.dogma_attribute.name == PRIMARY_ATTRIBUTE_NAME }.value
+
         Eve::DogmaAttribute.find_by!(attribute_id: Integer(value))
       end
     end
@@ -64,6 +60,7 @@ module Eve
     def secondary_attribute
       @secondary_attribute ||= begin
         value = type_dogma_attributes.find { |tda| tda.dogma_attribute.name == SECONDARY_ATTRIBUTE_NAME }.value
+
         Eve::DogmaAttribute.find_by!(attribute_id: Integer(value))
       end
     end

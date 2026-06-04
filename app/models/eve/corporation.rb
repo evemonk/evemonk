@@ -2,7 +2,7 @@
 
 module Eve
   class Corporation < ApplicationRecord
-    include PgSearch::Model
+    include Typesense
     include ActionView::Helpers::NumberHelper
     include Imageable
 
@@ -35,7 +35,9 @@ module Eve
     #
     # after_commit :eve_alliance_reset_characters_count, on: [:create, :update, :destroy]
 
-    pg_search_scope :search_by_name_and_ticker, against: [:name, :ticker]
+    typesense do
+      attributes :name, :ticker
+    end
 
     has_one_attached :logo
 

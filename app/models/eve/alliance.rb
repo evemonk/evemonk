@@ -2,7 +2,7 @@
 
 module Eve
   class Alliance < ApplicationRecord
-    include PgSearch::Model
+    include Typesense
     include ActionView::Helpers::NumberHelper
     include Imageable
 
@@ -26,7 +26,9 @@ module Eve
 
     has_many :corporation_alliance_histories # rubocop:disable Rails/HasManyOrHasOneDependent
 
-    pg_search_scope :search_by_name_and_ticker, against: [:name, :ticker]
+    typesense do
+      attributes :name, :ticker
+    end
 
     has_one_attached :logo
 

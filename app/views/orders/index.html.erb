@@ -18,8 +18,8 @@
 <div class="row">
   <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
     <div class="clearfix">
-      <h4 class="float-left"><%= @character.name %></h4>
-      <%= form_with(url: character_path(@character), method: :patch, class: "float-right") do %>
+      <h4 class="float-start"><%= @character.name %></h4>
+      <%= form_with(url: character_path(@character), method: :patch, class: "float-end") do %>
         <%= button_tag(class: "btn btn-primary mb-2") do %>
           <i class="bi bi-arrow-repeat"></i>
         <% end %>
@@ -88,7 +88,7 @@
       <div class="tab-pane fade show active" id="sell" role="tabpanel" aria-labelledby="sell-orders-tab">
         <% @sell_orders.each_with_index do |sell_order, index| %>
           <div class="card <%= (index % 2 == 0) ? "bg-dark" : "bg-transparent" %> rounded-0 border-secondary <%= (index == 0) ? "" : "border-top-0" %>">
-            <div class="row no-gutters">
+            <div class="row g-0">
               <div class="col-2 text-center m-auto">
                 <% if sell_order.type.present? %>
                   <%= image_tag(sell_order.type.icon_tiny,
@@ -114,7 +114,7 @@
               </div>
             </div>
 
-            <div class="row no-gutters">
+            <div class="row g-0">
               <table class="table">
                 <tr>
                   <td>Open:</td>

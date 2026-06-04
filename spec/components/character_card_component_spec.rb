@@ -35,25 +35,25 @@ RSpec.describe CharacterCardComponent, type: :component do
 
     before { render_inline(subject) }
 
-    specify { expect(page).to have_content("Johnn Dillinger") }
+    specify { expect(page).to have_text("Johnn Dillinger") }
 
-    specify { expect(page).to have_content("Corporation: Freighting Solutions Inc.") }
+    specify { expect(page).to have_text("Corporation: Freighting Solutions Inc.") }
 
-    specify { expect(page).to have_content("Alliance: The Dead Parrots") }
+    specify { expect(page).to have_text("Alliance: The Dead Parrots") }
 
-    specify { expect(page).to have_content("Minmatar / Brutor") }
+    specify { expect(page).to have_text("Minmatar / Brutor") }
 
-    specify { expect(page).to have_content("Gender: male") }
+    specify { expect(page).to have_text("Gender: male") }
 
-    specify { expect(page).to have_content("Total SP: 93 297 964") }
+    specify { expect(page).to have_text("Total SP: 93 297 964") }
 
-    specify { expect(page).to have_content("Unallocated SP: 2 640 075") }
+    specify { expect(page).to have_text("Unallocated SP: 2 640 075") }
 
-    specify { expect(page).to have_content("Security status: 3.8") }
+    specify { expect(page).to have_text("Security status: 3.8") }
 
-    specify { expect(page).to have_content("Wallet: 3 378 103 ISK") }
+    specify { expect(page).to have_text("Wallet: 3 378 103 ISK") }
 
-    specify { expect(page).to have_content("Born: 2010.01.15") }
+    specify { expect(page).to have_text("Born: 2010.01.15") }
   end
 
   context "when not full card" do
@@ -61,24 +61,24 @@ RSpec.describe CharacterCardComponent, type: :component do
 
     before { render_inline(subject) }
 
-    specify { expect(page).to have_content("Johnn Dillinger") }
+    specify { expect(page).to have_text("Johnn Dillinger") }
 
-    specify { expect(page).to have_content("Corporation: Freighting Solutions Inc.") }
+    specify { expect(page).to have_text("Corporation: Freighting Solutions Inc.") }
 
-    specify { expect(page).to have_content("Alliance: The Dead Parrots") }
+    specify { expect(page).to have_text("Alliance: The Dead Parrots") }
 
-    specify { expect(page).to have_no_content("Minmatar / Brutor") }
+    specify { expect(page).to have_no_text("Minmatar / Brutor") }
 
-    specify { expect(page).to have_no_content("Gender: male") }
+    specify { expect(page).to have_no_text("Gender: male") }
 
-    specify { expect(page).to have_content("Total SP: 93 297 964") }
+    specify { expect(page).to have_text("Total SP: 93 297 964") }
 
-    specify { expect(page).to have_content("Unallocated SP: 2 640 075") }
+    specify { expect(page).to have_text("Unallocated SP: 2 640 075") }
 
-    specify { expect(page).to have_content("Security status: 3.8") }
+    specify { expect(page).to have_text("Security status: 3.8") }
 
-    specify { expect(page).to have_content("Wallet: 3 378 103 ISK") }
+    specify { expect(page).to have_text("Wallet: 3 378 103 ISK") }
 
-    specify { expect(page).to have_no_content("Born: 2010.01.15") }
+    specify { expect(page).to have_no_text("Born: 2010.01.15") }
   end
 end
