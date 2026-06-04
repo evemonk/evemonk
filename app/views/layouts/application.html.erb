@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-bs-theme="light">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
@@ -36,7 +36,7 @@
     <%= combobox_style_tag %>
   </head>
 
-  <body data-bs-theme="light">
+  <body>
     <div class="container">
       <nav class="navbar navbar-expand-md bg-dark navbar-dark rounded" aria-label="EveMonk navbar">
         <div class="container-fluid">
@@ -86,9 +86,9 @@
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false"><%= "Admin stuff" %></a>
                   <ul class="dropdown-menu">
-                    <%= link_to(t(".jobs"), mission_control_jobs_path, class: "dropdown-item") %>
-                    <%= link_to(t(".maintenance_tasks"), maintenance_tasks_path, class: "dropdown-item") %>
-                    <%= link_to(t(".flipper"), "/flipper", class: "dropdown-item") %>
+                    <%= link_to(t(".jobs"), mission_control_jobs_path, class: "dropdown-item", target: "_blank") %>
+                    <%= link_to(t(".maintenance_tasks"), maintenance_tasks_path, class: "dropdown-item", target: "_blank") %>
+                    <%= link_to(t(".flipper"), "/flipper", class: "dropdown-item", target: "_blank") %>
                   </ul>
                 </li>
               <% end %>
