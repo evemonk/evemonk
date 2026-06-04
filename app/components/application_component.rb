@@ -1,4 +1,4 @@
 # frozen_string_literal: true
 
-class ApplicationComponent < ViewComponent::Base # rubocop:disable ViewComponent/MissingPreview
+class ApplicationComponent < ViewComponent::Base
 end
