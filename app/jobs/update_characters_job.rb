@@ -7,7 +7,7 @@ class UpdateCharactersJob < ApplicationJob
     CharacterScope.includes(:character)
                   .where(esi_token_valid: true)
                   .find_each do |character_scope|
-      # TODO
+      UpdateCharacterInfoService.new(character_scope.character.character_id).call
     end
   end
 end
