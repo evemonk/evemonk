@@ -8,6 +8,7 @@ on:
     - cron: "0 21 * * 6"
 
 permissions:
+  actions: read
   contents: read # Required to checkout and read repo files
   security-events: write # Required to upload SARIF files to Security tab
 
@@ -57,9 +58,16 @@ jobs:
         continue-on-error: true
         with:
           image-ref: "docker.io/biow0lf/evemonk:main"
-          format: "table"
+          format: "sarif"
+          output: "trivy-results.sarif"
           exit-code: "1"
           ignore-unfixed: true
           vuln-type: "os,library"
           severity: "MEDIUM,HIGH,CRITICAL"
           scanners: "vuln"
+
+      - name: Upload Trivy scan results to GitHub Security tab
+        if: always() && hashFiles('trivy-results.sarif') != ''
+        uses: github/codeql-action/upload-sarif@8aad20d150bbac5944a9f9d289da16a4b0d87c1e # v4.36.2
+        with:
+          sarif_file: "trivy-results.sarif"
