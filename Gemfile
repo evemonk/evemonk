@@ -67,6 +67,9 @@ gem "aws-sdk-s3"
 gem "down"
 gem "sitemap_generator"
 gem "administrate"
+# lock pry to master branch until next release.
+# See: https://github.com/pry/pry/pull/2366
+gem "pry", git: "https://github.com/pry/pry.git", branch: "master"
 gem "pry-rails"
 gem "skylight"
 gem "lograge"
