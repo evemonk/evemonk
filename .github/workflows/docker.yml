@@ -65,6 +65,8 @@ jobs:
           vuln-type: "os,library"
           severity: "MEDIUM,HIGH,CRITICAL"
           scanners: "vuln"
+        env:
+          TRIVY_SKIP_VERSION_CHECK: "true"
 
       - name: Upload Trivy scan results to GitHub Security tab
         if: always() && hashFiles('trivy-results.sarif') != ''
