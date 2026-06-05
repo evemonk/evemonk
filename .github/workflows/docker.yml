@@ -8,6 +8,7 @@ on:
     - cron: "0 21 * * 6"
 
 permissions:
+  actions: read
   contents: read # Required to checkout and read repo files
   security-events: write # Required to upload SARIF files to Security tab
 
