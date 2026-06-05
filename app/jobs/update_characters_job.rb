@@ -4,10 +4,10 @@ class UpdateCharactersJob < ApplicationJob
   queue_as :realtime
 
   def perform
-    CharacterScope.includes(:character)
-                  .where(esi_token_valid: true)
-                  .find_each do |character_scope|
-      UpdateCharacterInfoService.new(character_scope.character.character_id).call
+    CharacterScope.with_valid_tokens
+      .includes(:character)
+      .find_each do |scope|
+      UpdateCharacterInfoService.new(scope.character.character_id).call
     end
   end
 end
