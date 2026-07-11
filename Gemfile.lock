@@ -223,7 +223,7 @@ GEM
       sanitize (< 8)
     foreman (0.90.0)
       thor (~> 1.4)
-    fugit (1.12.3)
+    fugit (1.13.0)
       et-orbi (~> 1.4)
       raabro (~> 1.4)
     gemdiff (6.0.2)
@@ -1084,7 +1084,7 @@ CHECKSUMS
   flipper-active_record (1.4.2) sha256=ab70aeb78a44d59c690b5538fc269b08d1c2918abb720fe82832ac77fb1dfcd1
   flipper-ui (1.4.2) sha256=d7b2fd886e922ba5e0c8240cbabd27163125b011a6c42e6dba509a1715540dee
   foreman (0.90.0) sha256=ff675e2d47b607ac58714a6d4ac3e1ee8f06f41d8db084531c31961e2c3f117c
-  fugit (1.12.3) sha256=826d77739086482a6ac2805bc32693845395da688f637890cb4ca457dede2ec2
+  fugit (1.13.0) sha256=a4f093fce740da52f216740a5041e2a594ea763cdb89e8b2754ca4399634ab18
   gemdiff (6.0.2) sha256=1282675c8bbc7eaf2656aa6c79a238373cdb375201c7b353650baf4b56b24a42
   globalid (1.4.0) sha256=037f12fbf1d9d7a014d501c2d5c77356fd4ddd96d7a7991d6700bba96706f427
   good_migrations (0.3.1) sha256=3f8267c00caa29689823cb8d53cbfb62cd5b0310fe6b088f5ce589243f6f797f
