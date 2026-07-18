@@ -40,7 +40,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  # simplecov:disable
+  # simplecov:disable line,branch,method
   if !Rails.env.production?
     around_action :n_plus_one_detection
 
@@ -52,5 +52,5 @@ class ApplicationController < ActionController::Base
       Prosopite.finish
     end
   end
-  # simplecov:enable
+  # simplecov:enable line,branch,method
 end
