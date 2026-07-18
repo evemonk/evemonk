@@ -8,7 +8,7 @@ module Api
 
     respond_to :json
 
-    # :nocov:
+    # simplecov:disable
     rescue_from ActiveRecord::RecordNotFound do
       head :not_found
     end
@@ -16,6 +16,6 @@ module Api
     rescue_from ActionController::UnknownFormat do
       head :not_acceptable
     end
-    # :nocov:
+    # simplecov:enable
   end
 end

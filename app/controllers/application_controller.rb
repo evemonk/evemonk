@@ -40,7 +40,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  # :nocov:
+  # simplecov:disable
   if !Rails.env.production?
     around_action :n_plus_one_detection
 
@@ -52,5 +52,5 @@ class ApplicationController < ActionController::Base
       Prosopite.finish
     end
   end
-  # :nocov:
+  # simplecov:enable
 end
