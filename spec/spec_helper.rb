@@ -9,7 +9,6 @@ if ENV["CI"] == "yes"
 end
 
 SimpleCov.start "rails" do
-  enable_coverage :line
   enable_coverage :branch
   enable_coverage :method
   enable_coverage :eval
