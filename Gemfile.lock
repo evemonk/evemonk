@@ -750,7 +750,7 @@ GEM
       websocket (~> 1.0)
     shoulda-matchers (8.0.1)
       activesupport (>= 7.2)
-    simplecov (1.0.2)
+    simplecov (1.0.3)
     simplecov-cobertura (4.0.0)
       rexml
       simplecov (~> 1.0)
@@ -1278,7 +1278,7 @@ CHECKSUMS
   securerandom (0.4.1) sha256=cc5193d414a4341b6e225f0cb4446aceca8e50d5e1888743fac16987638ea0b1
   selenium-webdriver (4.46.0) sha256=cb6cfa6f79eac041749df0b14cdcb0e9fe5df3715a64c77bfaa56b345b99f957
   shoulda-matchers (8.0.1) sha256=5dbb46e5765b9da225111b085e0819e8c8a121ff94bba430a153eb1ea2c60288
-  simplecov (1.0.2) sha256=c6459434efe4b948b46477cc2df2faa73ab365f83a33c7c17f81262f4f7f1244
+  simplecov (1.0.3) sha256=38ef0514f16ae7562f0d0f4df02610071115103d301b6de7dacbcc000082e39b
   simplecov-cobertura (4.0.0) sha256=e4fb3159b1ecea545b44f5452a8611305323e78ad23eae8aed35924d072e01ea
   sitemap_generator (6.3.0) sha256=1d803cbf03c44736bea05b9e3363d3523fec4e24f3abedad294d9c57cab994f3
   skylight (7.1.1) sha256=90b09ad73288ad11322f7db4e25b3f096b522d752a368d2c9e70bc346986e951
