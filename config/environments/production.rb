@@ -99,11 +99,10 @@ Rails.application.configure do
     port: ENV.fetch("SMTP_PORT", nil),
     user_name: ENV.fetch("SMTP_USER", nil),
     password: ENV.fetch("SMTP_PASSWORD", nil),
-    authentication: :plain,
-    ssl: true,
-    tls: true,
-    open_timeout: 120,
-    read_timeout: 120
+    authentication: "plain",
+    enable_starttls: true,
+    open_timeout: 60,
+    read_timeout: 60
   }
 
   config.action_mailer.default_url_options = {host: "evemonk.com", protocol: "https"}
