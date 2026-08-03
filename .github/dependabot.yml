@@ -4,37 +4,51 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
+    cooldown:
+      default-days: 0
     open-pull-requests-limit: 99
     allow:
       - dependency-type: "direct"
       - dependency-type: "indirect"
     assignees:
       - "biow0lf"
+
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
       interval: "daily"
+    cooldown:
+      default-days: 0
     open-pull-requests-limit: 99
     assignees:
       - "biow0lf"
+
   - package-ecosystem: "docker"
     directory: "/"
     schedule:
       interval: "daily"
+    cooldown:
+      default-days: 0
     open-pull-requests-limit: 99
     assignees:
       - "biow0lf"
+
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
       interval: "daily"
+    cooldown:
+      default-days: 0
     open-pull-requests-limit: 99
     assignees:
       - "biow0lf"
+
   - package-ecosystem: "docker-compose"
     directory: "/"
     schedule:
       interval: "daily"
+    cooldown:
+      default-days: 0
     open-pull-requests-limit: 99
     assignees:
       - "biow0lf"
