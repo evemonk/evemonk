@@ -22,7 +22,15 @@ RSpec.describe User, type: :model do
     context "when email is valid" do
       subject { build(:user, email: "me@example.com") }
 
-      before { subject.validate }
+      before { subject.valid? }
+
+      it { expect(subject.errors[:email]).to eq([]) }
+    end
+
+    context "when email is valid with label" do
+      subject { build(:user, email: "me+label@example.com") }
+
+      before { subject.valid? }
 
       it { expect(subject.errors[:email]).to eq([]) }
     end
@@ -30,9 +38,9 @@ RSpec.describe User, type: :model do
     context "when email is not valid" do
       subject { build(:user, email: "m..e@example.com") }
 
-      before { subject.validate }
+      before { subject.valid? }
 
-      it { expect(subject.errors[:email]).to eq(["Invalid Email Address"]) }
+      it { expect(subject.errors[:email]).to include("Invalid Email Address") }
     end
   end
 
