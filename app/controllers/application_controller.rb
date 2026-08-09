@@ -8,6 +8,8 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery with: :exception, prepend: true
 
+  before_action :configure_permitted_parameters, if: :devise_controller?
+
   before_action :authenticate_user!
 
   before_action :default_locale
@@ -15,6 +17,12 @@ class ApplicationController < ActionController::Base
   before_action :current_user_locale
 
   rescue_from Pundit::NotAuthorizedError, with: :redirect_user_to_root_path
+
+  protected
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_in, keys: [:otp_attempt])
+  end
 
   private
 
