@@ -35,6 +35,14 @@ RSpec.describe User, type: :model do
       it { expect(subject.errors[:email]).to eq([]) }
     end
 
+    context "when email is valid with dots inside" do
+      subject { build(:user, email: "m.e@example.com") }
+
+      before { subject.valid? }
+
+      it { expect(subject.errors[:email]).to eq([]) }
+    end
+
     context "when email is not valid" do
       subject { build(:user, email: "m..e@example.com") }
 
