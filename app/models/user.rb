@@ -1,9 +1,10 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
+  devise :two_factor_authenticatable
   # Include default devise modules. Others available are:
   # :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable, :recoverable,
+  devise :registerable, :recoverable,
     :rememberable, :validatable, :confirmable, :trackable, :zxcvbnable
 
   has_many :characters, dependent: :destroy
