@@ -91,6 +91,7 @@ group :development, :test do
   gem "rspec-retry", require: false
   gem "factory_bot_rails"
   gem "faker"
+  gem "rubydex", require: false
   gem "rubocop", require: false
   gem "rubocop-disable_syntax", require: false
   gem "rubocop-performance", require: false
