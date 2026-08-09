@@ -110,7 +110,7 @@ Rails.application.configure do
   # mission_control-jobs
   config.mission_control.jobs.http_basic_auth_enabled = false
 
-  # Copy the generate key set and set them as environment variables
+  # Copy the generated key set into environment variables (see `bin/rails db:encryption:init`).
 
   # encryption for devise-two-factor gem
   config.active_record.encryption.primary_key = ENV.fetch("ACTIVE_RECORD_ENCRYPTION_PRIMARY_KEY")
