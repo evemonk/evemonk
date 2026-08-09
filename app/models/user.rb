@@ -8,6 +8,8 @@ class User < ApplicationRecord
 
   has_many :characters, dependent: :destroy
 
+  validates_with EmailAddress::ActiveRecordValidator, field: :email
+
   enum :locale, {
     auto_detect: 0,
     english: 1,
