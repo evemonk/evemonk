@@ -25,9 +25,9 @@
         </li>
         <li class="list-group-item text-break">
           <% if current_user.otp_required_for_login %>
-            <%= button_to "Disable 2FA", nil, method: :delete %>
+            <%= button_to "Disable 2FA", otp_path, method: :delete %>
           <% else %>
-            <%= button_to "Enable 2FA", nil, method: :create %>
+            <%= button_to "Enable 2FA", otp_path, method: :create %>
           <% end %>
         </li>
       </ul>

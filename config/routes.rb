@@ -23,6 +23,8 @@ Rails.application.routes.draw do
 
   devise_for :users
 
+  resource :otp, only: [:create, :destroy]
+
   get ".well-known/change-password",
     to: "well_known#change_password",
     as: "well_known_change_password"
