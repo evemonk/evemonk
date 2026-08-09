@@ -6,7 +6,7 @@ RSpec.describe User, type: :model do
   it { expect(subject).to be_an(ApplicationRecord) }
 
   it {
-    expect(described_class.devise_modules).to eq([:database_authenticatable,
+    expect(described_class.devise_modules).to eq([:two_factor_authenticatable,
       :rememberable,
       :recoverable,
       :registerable,
