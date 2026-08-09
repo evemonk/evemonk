@@ -34,9 +34,9 @@
 
           <p class="card-text">
             <% if current_user.otp_required_for_login %>
-              <%= button_to "Disable 2FA", otp_path, method: :delete %>
+              <%= button_to "Disable 2FA", otp_path, data: {turbo_confirm: "Disable 2FA?"}, method: :delete %>
             <% else %>
-              <%= button_to "Enable 2FA", otp_path, method: :post %>
+              <%= button_to "Enable 2FA", otp_path, data: {turbo_confirm: "Enable 2FA?"}, method: :post %>
             <% end %>
           </p>
         </div>
