@@ -7,6 +7,7 @@ RSpec.describe User, type: :model do
 
   it {
     expect(described_class.devise_modules).to eq([:two_factor_authenticatable,
+      :two_factor_backupable,
       :rememberable,
       :recoverable,
       :registerable,

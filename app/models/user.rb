@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
-  devise :two_factor_authenticatable
+  devise :two_factor_authenticatable, :two_factor_backupable
   # Include default devise modules. Others available are:
   # :lockable, :timeoutable and :omniauthable
   devise :registerable, :recoverable,
