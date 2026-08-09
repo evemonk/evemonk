@@ -11,7 +11,6 @@
 
 <div class="row">
   <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
-
     <div class="card">
       <ul class="list-group list-group-flush">
         <li class="list-group-item text-break">
@@ -23,15 +22,25 @@
         <li class="list-group-item text-break">
           <%= link_to("Remove my profile with all data", edit_user_registration_path) %>
         </li>
-        <li class="list-group-item text-break">
-          <% if current_user.otp_required_for_login %>
-            <%= button_to "Disable 2FA", otp_path, method: :delete %>
-          <% else %>
-            <%= button_to "Enable 2FA", otp_path, method: :create %>
-          <% end %>
-        </li>
       </ul>
     </div>
+  </div>
 
+  <div class="col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
+    <div class="card">
+      <div class="card-body">
+        <div class="card-title">
+          <h5>Two-Factor Auth</h5>
+
+          <p class="card-text">
+            <% if current_user.otp_required_for_login %>
+              <%= button_to "Disable 2FA", otp_path, method: :delete %>
+            <% else %>
+              <%= button_to "Enable 2FA", otp_path, method: :post %>
+            <% end %>
+          </p>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
