@@ -12,6 +12,7 @@ class TwoFactorsController < ApplicationController
   end
 
   def destroy
-
+    current_user.otp_required_for_login = false
+    current_user.save!
   end
 end
