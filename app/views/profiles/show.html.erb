@@ -33,8 +33,13 @@
           <h5>Two-Factor Auth</h5>
 
           <p class="card-text">
-            <% if current_user.otp_required_for_login %>
+            <% if current_user.otp_required_for_login? %>
               <%= button_to "Disable 2FA", otp_path, data: {turbo_confirm: "Disable 2FA?"}, method: :delete %>
+              <% totp_uri = current_user.otp_provisioning_uri(current_user.email, issuer: ENV.fetch("OTP_ISSUER")) %>
+              TOTP: <%= totp_uri %>
+              <br>
+              <%= raw RQRCode::QRCode.new(totp_uri).as_svg(module_size: 3) %>
+              <br>
             <% else %>
               <%= button_to "Enable 2FA", otp_path, data: {turbo_confirm: "Enable 2FA?"}, method: :post %>
             <% end %>
