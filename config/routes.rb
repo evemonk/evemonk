@@ -23,7 +23,15 @@ Rails.application.routes.draw do
 
   devise_for :users
 
+  devise_scope :user do
+    scope :users, as: :users do
+      post "pre_otp", to: "users/sessions#pre_otp"
+    end
+  end
+
   resource :otp, only: [:create, :destroy]
+
+  resource :two_factor
 
   get ".well-known/change-password",
     to: "well_known#change_password",
