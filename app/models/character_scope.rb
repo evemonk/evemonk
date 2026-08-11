@@ -5,15 +5,9 @@ class CharacterScope < ApplicationRecord
 
   validates :scope, presence: true
 
-  # scope :with_valid_tokens, -> { all }
+  scope :with_valid_tokens, -> { where(esi_token_valid: true) }
 
-  # describe ".with_valid_tokens" do
-  #   let!(:character_1) { create(:character, esi_token_valid: true) }
-  #
-  #   let!(:character_2) { create(:character, esi_token_valid: false) }
-  #
-  #   specify { expect(described_class.with_valid_tokens).to eq([character_1]) }
-  # end
+  scope :with_invalid_tokens, -> { where(esi_token_valid: false) }
 
   def token_expired?
     token_expires_at <= Time.zone.now
