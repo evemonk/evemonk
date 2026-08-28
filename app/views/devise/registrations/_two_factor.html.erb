@@ -1,0 +1,5 @@
+<% if current_user.otp_required_for_login? %>
+  <%= link_to "Disable", two_factor_path, data: {turbo_method: :delete}, class: "btn btn-danger" %>
+<% else %>
+  <%= link_to "Enable", two_factor_path, data: {turbo_method: :post}, class: "btn btn-success" %>
+<% end %>
