@@ -623,7 +623,8 @@ GEM
       railties (>= 7.0)
     rexml (3.4.4)
     rotp (6.3.0)
-    rouge (4.7.0)
+    rouge (5.1.0)
+      strscan (~> 3.1)
     rqrcode (3.2.0)
       chunky_png (~> 1.0)
       rqrcode_core (~> 2.0)
@@ -809,6 +810,7 @@ GEM
       rubocop-performance (~> 1.26.0)
     stimulus-rails (1.3.4)
       railties (>= 6.0.0)
+    strscan (3.1.8)
     super_diff (0.19.0)
       attr_extras (>= 6.2.4, < 8)
       diff-lcs (~> 1.5)
@@ -1245,7 +1247,7 @@ CHECKSUMS
   responders (3.2.1) sha256=c2772970cbda654c0e772d852e5a851e82cd8e96f5fa958650861ba75b8ffa84
   rexml (3.4.4) sha256=19e0a2c3425dfbf2d4fc1189747bdb2f849b6c5e74180401b15734bc97b5d142
   rotp (6.3.0) sha256=75d40087e65ed0d8022c33055a6306c1c400d1c12261932533b5d6cbcd868854
-  rouge (4.7.0) sha256=dba5896715c0325c362e895460a6d350803dbf6427454f49a47500f3193ea739
+  rouge (5.1.0) sha256=b77c632842ab7f5147940212f0345808cccfbce864fd5b631d7d12a35ac85452
   rqrcode (3.2.0) sha256=64c1494ca6bb67d731330f38b50e3fd09eeab4f5dcd04b608e21218d1d0b9542
   rqrcode_core (2.1.0) sha256=f303b85df89c1b8fc5ee8dc19808c9dc4330e6329b660d99d4a8cbb36ca13051
   rspec-core (3.13.6) sha256=a8823c6411667b60a8bca135364351dda34cd55e44ff94c4be4633b37d828b2d
@@ -1311,6 +1313,7 @@ CHECKSUMS
   standard-custom (1.0.2) sha256=424adc84179a074f1a2a309bb9cf7cd6bfdb2b6541f20c6bf9436c0ba22a652b
   standard-performance (1.9.0) sha256=49483d31be448292951d80e5e67cdcb576c2502103c7b40aec6f1b6e9c88e3f2
   stimulus-rails (1.3.4) sha256=765676ffa1f33af64ce026d26b48e8ffb2e0b94e0f50e9119e11d6107d67cb06
+  strscan (3.1.8) sha256=aae2db611a225559f21ffbb71765c9a4e60fd262534a9ea84f4f11c7f32f679e
   super_diff (0.19.0) sha256=c35fc1c0daa223d67b203fe3fb49a6cfd67850a53920319565c3c654e03ec902
   terminal-table (4.0.0) sha256=f504793203f8251b2ea7c7068333053f0beeea26093ec9962e62ea79f94301d2
   thor (1.5.0) sha256=e3a9e55fe857e44859ce104a84675ab6e8cd59c650a49106a05f55f136425e73
