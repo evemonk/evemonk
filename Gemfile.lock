@@ -296,7 +296,7 @@ GEM
       stimulus-rails (>= 1.2)
       turbo-rails (>= 1.2)
     htmlbeautifier (1.4.3)
-    htmlentities (4.3.4)
+    htmlentities (4.4.2)
     http_accept_language (2.1.1)
     httplog (1.8.0)
       benchmark
@@ -1120,7 +1120,7 @@ CHECKSUMS
   herb (0.10.3-x86_64-linux-musl) sha256=c84482d6b57f13c2e1a0fa029649efb0e5fdc876a3fd564bae09cf42bd4d5ae1
   hotwire_combobox (0.4.1) sha256=2d94741801f6e9814315fd7a36ee192da7e57e62c9eac7e3d2ed577bc2f73607
   htmlbeautifier (1.4.3) sha256=b43d08f7e2aa6ae1b5a6f0607b4ed8954c8d4a8e85fd2336f975dda1e4db385b
-  htmlentities (4.3.4) sha256=125a73c6c9f2d1b62100b7c3c401e3624441b663762afa7fe428476435a673da
+  htmlentities (4.4.2) sha256=bbafbdf69f2eca9262be4efef7e43e6a1de54c95eb600f26984f71d2fe96c5c3
   http_accept_language (2.1.1) sha256=0043f0d55a148cf45b604dbdd197cb36437133e990016c68c892d49dbea31634
   httplog (1.8.0) sha256=2b14bd6a26277765b08ff469d5574fde2a8eedec03962402ab05a606546607bf
   i18n (1.15.2) sha256=00f9eb62412fe593b2a65a97daa75300d37abb8f7202ec748e94b6d46a9dd1b5
