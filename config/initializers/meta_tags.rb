@@ -5,7 +5,7 @@ MetaTags.configure do |config|
   # How many characters should the title meta tag have at most. Default is 70.
   # Set to nil or 0 to remove limits.
   # config.title_limit = 70
-  config.title_limit = nil
+  config.title_limit = 0
 
   # When true, site title will be truncated instead of title. Default is false.
   # config.truncate_site_title_first = false
@@ -19,24 +19,35 @@ MetaTags.configure do |config|
   # a Unicode space (/\p{Space}/).
   # config.truncate_on_natural_separator = " "
 
+  # When true, arrays passed to `title` and `keywords` stop at item
+  # boundaries instead of partially truncating the overflowing item.
+  # Single-item arrays are still truncated normally. Default is false.
+  # config.truncate_array_items_at_boundaries = false
+
   # Maximum length of the page description. Default is 300.
   # Set to nil or 0 to remove limits.
   # config.description_limit = 300
 
-  # Maximum length of the keywords meta tag. Default is 255.
+  # Legacy compatibility: maximum length of the keywords meta tag.
+  # Most search engines ignore this tag. Default is 255.
   # config.keywords_limit = 255
 
-  # Default separator for keywords meta tag (used when an Array passed with
-  # the list of keywords). Default is ", ".
+  # Legacy compatibility: default separator for the keywords meta tag
+  # when an Array is passed. Default is ", ".
   # config.keywords_separator = ', '
 
-  # When true, keywords will be converted to lowercase, otherwise they will
-  # appear on the page as is. Default is true.
+  # Legacy compatibility: when true, keywords will be converted to lowercase.
+  # Otherwise they will appear on the page as is. Default is true.
   # config.keywords_lowercase = true
 
   # When true, the output will not include new line characters between meta tags.
   # Default is false.
   # config.minify_output = false
+
+  # When true, Symbols inside nested meta tag arrays resolve as references to
+  # normalized top-level tags. Default is false until MetaTags 3.0, when this
+  # behavior will become the default.
+  # config.resolve_symbolic_references_in_arrays = false
 
   # When false, generated meta tags will be self-closing (<meta ... />) instead
   # of open (`<meta ...>`). Default is true.
