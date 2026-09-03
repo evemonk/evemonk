@@ -705,11 +705,11 @@ GEM
       pg
       terminal-table
     ruby-progressbar (1.13.0)
-    rubydex (0.4.0)
-    rubydex (0.4.0-aarch64-linux)
-    rubydex (0.4.0-arm64-darwin)
-    rubydex (0.4.0-x86_64-darwin)
-    rubydex (0.4.0-x86_64-linux)
+    rubydex (0.4.1)
+    rubydex (0.4.1-aarch64-linux)
+    rubydex (0.4.1-arm64-darwin)
+    rubydex (0.4.1-x86_64-darwin)
+    rubydex (0.4.1-x86_64-linux)
     rubyzip (2.4.1)
     sanitize (7.0.0)
       crass (~> 1.0.2)
@@ -1270,11 +1270,11 @@ CHECKSUMS
   rubocop-view_component (0.6.0) sha256=0253e4244c89593ff328b980c9f41f4a6f7aebb2f3ba1f3f817fd8622851b210
   ruby-pg-extras (5.7.0) sha256=a5fab08d07739ceaf0ad414847027773a04c969115b9a27f22520dd0c35ff70a
   ruby-progressbar (1.13.0) sha256=80fc9c47a9b640d6834e0dc7b3c94c9df37f08cb072b7761e4a71e22cff29b33
-  rubydex (0.4.0) sha256=4b9c9d3aad5a7134ae0ac53183a9dda3874ea99b4b293c0f21cfb103bd283c11
-  rubydex (0.4.0-aarch64-linux) sha256=fab1f9cbb3301d2f3682f29165d9714aca5456fb3d70616b3676e3302af29709
-  rubydex (0.4.0-arm64-darwin) sha256=badbb7d1a7cfc03f1f7ce9fdc5ee414c729812c4b2eaa2bfe7da80d9a3a8b4b6
-  rubydex (0.4.0-x86_64-darwin) sha256=173bfdad227f4f53aaaab5cdf75d4ebd39c4532a8e7a568b3d8530317a273c3a
-  rubydex (0.4.0-x86_64-linux) sha256=75a4e1c6c4691ff815aee820dd26fb080f8053430a0ad248dd9b3125d621df86
+  rubydex (0.4.1) sha256=9856af8bfbe656eed95449dd9e2c8239a74662b4bb8563e4b99221dbc065a34a
+  rubydex (0.4.1-aarch64-linux) sha256=abc1c9eb22479f60dd015fa81373163c5a71f2700b76bced1282631686bd6271
+  rubydex (0.4.1-arm64-darwin) sha256=d23720253876d88fb98954e5d3a1ef9696a269697acf50e3ab53cdfbb2b66b96
+  rubydex (0.4.1-x86_64-darwin) sha256=a9681db5bc9be6a62f226d96d6889b6b600d0b09e7576391702aafd29912145b
+  rubydex (0.4.1-x86_64-linux) sha256=4e2c8398c9fc585485b54edd28f5ecf76b5a02255e177b6f8402e9d2afffd51b
   rubyzip (2.4.1) sha256=8577c88edc1fde8935eb91064c5cb1aef9ad5494b940cf19c775ee833e075615
   sanitize (7.0.0) sha256=269d1b9d7326e69307723af5643ec032ff86ad616e72a3b36d301ac75a273984
   sass-embedded (1.103.1) sha256=a47bdc1dc3de2a8181c68f8da1396748eb8776dde71df08daa080dccc38f5cf0
