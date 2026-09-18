@@ -586,9 +586,9 @@ GEM
       activerecord
       railties
       ruby-pg-extras (= 5.7.0)
-    rails-settings-cached (2.9.6)
-      activerecord (>= 5.0.0)
-      railties (>= 5.0.0)
+    rails-settings-cached (2.10.0)
+      activerecord (>= 7.0.0)
+      railties (>= 7.0.0)
     railties (8.1.3.1)
       actionpack (= 8.1.3.1)
       activesupport (= 8.1.3.1)
@@ -1233,7 +1233,7 @@ CHECKSUMS
   rails-html-sanitizer (1.7.1) sha256=e797a7c9b01e567307e317c576b49ab4168017e63eea4dba9ce3cb587e2f22c2
   rails-i18n (8.1.0) sha256=52d5fd6c0abef28d84223cc05647f6ae0fd552637a1ede92deee9545755b6cf3
   rails-pg-extras (5.7.0) sha256=9e16d43d32bb293d206f07eb80cd51bfaf0d6aad0a168cea1066660c7370021a
-  rails-settings-cached (2.9.6) sha256=761d6128221f1a162950b8b3911e233f3a49c6ecfd8b421110ed060e8c58a9b8
+  rails-settings-cached (2.10.0) sha256=22fcf0b0d645f20139f55fb07410e621370208c0c8f51de992566f3700301793
   railties (8.1.3.1) sha256=2388a232579a00cefea4487de66c8553c3408c1300abdc6cf1799d86ffb04487
   rainbow (3.1.1) sha256=039491aa3a89f42efa1d6dec2fc4e62ede96eb6acd95e52f1ad581182b79bc6a
   rake (13.4.2) sha256=cb825b2bd5f1f8e91ca37bddb4b9aaf345551b4731da62949be002fa89283701
