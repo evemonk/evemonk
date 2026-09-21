@@ -49,6 +49,8 @@ en:
       jobs: "Jobs"
       maintenance_tasks: "Maintenance tasks"
       flipper: "Flipper"
+      pghero: "PgHero"
+      pg_extras: "PgExtras"
   auth:
     eve_online_sso:
       callbacks:

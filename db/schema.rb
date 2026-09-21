@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_05_04_173014) do
+ActiveRecord::Schema[8.1].define(version: 2026_09_21_163011) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_buffercache"
   enable_extension "pg_catalog.plpgsql"
@@ -1000,6 +1000,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_05_04_173014) do
     t.text "backtrace"
     t.datetime "created_at", null: false
     t.string "cursor"
+    t.boolean "cursor_is_json", default: false, null: false
     t.datetime "ended_at", precision: nil
     t.string "error_class"
     t.string "error_message"
