@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   mount GraphiQL::Rails::Engine, at: "/graphiql", graphql_path: "/graphql"
 
-  authenticate :user, -> (user) { user.admin? } do
+  authenticate :user, ->(user) { user.admin? } do
     mount MaintenanceTasks::Engine, at: "/maintenance_tasks"
 
     mount MissionControl::Jobs::Engine, at: "/jobs"
