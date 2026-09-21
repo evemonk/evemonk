@@ -25,10 +25,10 @@ ENV RAILS_ENV=production
 
 ENV RAILS_LOG_TO_STDOUT=true
 
-RUN gem update --system "4.0.20"
+RUN gem update --system "4.0.21"
 
 # skipcq: DOK-DL3028
-RUN gem install bundler --version "4.0.20" --force --no-document
+RUN gem install bundler --version "4.0.21" --force --no-document
 
 RUN gem --version
 
