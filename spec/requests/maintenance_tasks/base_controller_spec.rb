@@ -24,9 +24,7 @@ RSpec.describe MaintenanceTasks::BaseController, type: :request do
 
         before { get maintenance_tasks_path }
 
-        it { expect(response).to have_http_status(:found) }
-
-        it { expect(subject).to redirect_to("/") }
+        it { expect(response).to have_http_status(:not_found) }
       end
     end
 
@@ -35,7 +33,7 @@ RSpec.describe MaintenanceTasks::BaseController, type: :request do
 
       it { expect(response).to have_http_status(:found) }
 
-      it { expect(subject).to redirect_to(new_user_session_path) }
+      it { expect(subject).to redirect_to("/users/sign_in") }
     end
   end
 end
