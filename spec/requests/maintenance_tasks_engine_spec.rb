@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.describe MaintenanceTasks::BaseController, type: :request do
+RSpec.describe "Maintenance Tasks engine", type: :request do
   describe "#index" do
     context "when user signed in" do
       context "when user is admin" do
