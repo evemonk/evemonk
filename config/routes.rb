@@ -11,15 +11,15 @@ Rails.application.routes.draw do
 
   mount GraphiQL::Rails::Engine, at: "/graphiql", graphql_path: "/graphql"
 
-  mount MaintenanceTasks::Engine, at: "/maintenance_tasks"
+  authenticate :user, -> (user) { user.admin? } do
+    mount MaintenanceTasks::Engine, at: "/maintenance_tasks"
 
-  mount MissionControl::Jobs::Engine, at: "/jobs"
+    mount MissionControl::Jobs::Engine, at: "/jobs"
 
-  mount PgHero::Engine, at: "/pghero"
+    mount PgHero::Engine, at: "/pghero"
 
-  mount RailsPgExtras::Web::Engine, at: "/pg-extras"
+    mount RailsPgExtras::Web::Engine, at: "/pg-extras"
 
-  constraints CanAccessFlipperUI do
     mount Flipper::UI.app(Flipper), at: "/flipper"
   end
 
