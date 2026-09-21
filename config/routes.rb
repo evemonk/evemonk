@@ -17,6 +17,8 @@ Rails.application.routes.draw do
 
   mount PgHero::Engine, at: "/pghero"
 
+  mount RailsPgExtras::Web::Engine, at: "/pg-extras"
+
   constraints CanAccessFlipperUI do
     mount Flipper::UI.app(Flipper), at: "/flipper"
   end
