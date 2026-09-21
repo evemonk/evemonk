@@ -51,21 +51,31 @@ jobs:
           egress-policy: audit
 
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
       - name: Set up Ruby
         uses: ruby/setup-ruby@a0102e0972be65f351c307e2d64b9314a57c8073 # v1.324.0
         with:
-          rubygems: latest
-          bundler: latest
+          rubygems: "4.0.21"
+          bundler: "4.0.21"
           bundler-cache: true
+
       - name: Disable skylight dev warning
         run: bundle exec skylight disable_dev_warning
+
       - run: cp -f config/evemonk.example.yml config/evemonk.yml
+
       - run: bin/rails db:create
+
       - run: bin/rails db:migrate
+
       - name: Extraneous indexes
         run: bin/rake active_record_doctor:extraneous_indexes
+
       - name: Unindexed deleted_at
         run: bin/rake active_record_doctor:unindexed_deleted_at
+
       # - name: Missing foreign keys
       #   run: bin/rake active_record_doctor:missing_foreign_keys
       # - name: Undefined table references
@@ -76,15 +86,20 @@ jobs:
       #   run: bin/rake active_record_doctor:missing_non_null_constraint
       # - name: Missing presence validation
       #   run: bin/rake active_record_doctor:missing_presence_validation
+
       - name: Incorrect boolean presence validation
         run: bin/rake active_record_doctor:incorrect_boolean_presence_validation
+
       # - name: Incorrect length validation
       #   run: bin/rake active_record_doctor:incorrect_length_validation
       # - name: Incorrect dependent option
       #   run: bin/rake active_record_doctor:incorrect_dependent_option
+
       - name: Short primary key type
         run: bin/rake active_record_doctor:short_primary_key_type
+
       - name: Mismatched foreign key type
         run: bin/rake active_record_doctor:mismatched_foreign_key_type
+
       # - name: Unindexed foreign keys
       #   run: bin/rake active_record_doctor:unindexed_foreign_keys
