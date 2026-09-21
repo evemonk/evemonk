@@ -15,6 +15,8 @@ Rails.application.routes.draw do
 
   mount MissionControl::Jobs::Engine, at: "/jobs"
 
+  mount PgHero::Engine, at: "/pghero"
+
   constraints CanAccessFlipperUI do
     mount Flipper::UI.app(Flipper), at: "/flipper"
   end
