@@ -109,10 +109,10 @@ jobs:
       - run: bin/rails db:create
       - run: bin/rails db:migrate
 
-      - run: bin/rails active_search:index:create INDEX=eve_alliances
-      - run: bin/rails active_search:index:create INDEX=eve_characters
-      - run: bin/rails active_search:index:create INDEX=eve_types
-      - run: bin/rails active_search:index:create INDEX=eve_corporations
+      - run: bin/rails active_search:index:create INDEX=eve_alliances RAILS_ENV=test
+      - run: bin/rails active_search:index:create INDEX=eve_characters RAILS_ENV=test
+      - run: bin/rails active_search:index:create INDEX=eve_types RAILS_ENV=test
+      - run: bin/rails active_search:index:create INDEX=eve_corporations RAILS_ENV=test
 
       - run: bin/rspec
 
