@@ -37,15 +37,15 @@ RSpec.describe Eve::SearchCorporationsQuery do
     context "when q is present" do
       let(:q) { "Freighting Solutions Inc." }
 
-      let(:scope) { class_double(Eve::Corporation) }
+      let!(:eve_corporation) { create(:eve_corporation, name: "Freighting Solutions Inc.") }
 
-      let(:query) { double }
+      let!(:index) { ActiveSearch.index(:eve_corporations) }
 
-      before { expect(scope).to receive(:search).with(q, "name,ticker").and_return(query) }
+      before { index.add(eve_corporation) }
 
-      subject { described_class.new(q, scope) }
+      subject { described_class.new(q) }
 
-      specify { expect(subject.query).to eq(query) }
+      specify { expect(subject.query.to_a).to eq([eve_corporation]) }
     end
 
     context "when search is not present" do
