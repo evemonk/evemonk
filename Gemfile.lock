@@ -830,9 +830,6 @@ GEM
       base64 (~> 0.2.0)
       faraday (~> 2.8)
       json (~> 2.9)
-    typesense-rails (1.0.0.rc8)
-      json (>= 1.5.1)
-      typesense (>= 5.0.0, < 6.0.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     tzinfo-data (1.2026.4)
@@ -1004,7 +1001,7 @@ DEPENDENCIES
   super_diff
   thruster
   turbo-rails
-  typesense-rails (= 1.0.0.rc8)
+  typesense
   tzinfo-data
   vcr
   view_component
@@ -1328,7 +1325,6 @@ CHECKSUMS
   tsort (0.2.0) sha256=9650a793f6859a43b6641671278f79cfead60ac714148aabe4e3f0060480089f
   turbo-rails (2.0.23) sha256=ee0d90733aafff056cf51ff11e803d65e43cae258cc55f6492020ec1f9f9315f
   typesense (5.0.0) sha256=acce2facffe0585f5897eeab1aaa6aaa6f2dcf560a73c87a9a1b4a3e4045069e
-  typesense-rails (1.0.0.rc8) sha256=cc6145ecd30e4463aea5021f47a65284e9768566251bea6c1d493f0a58717564
   tzinfo (2.0.6) sha256=8daf828cc77bcf7d63b0e3bdb6caa47e2272dcfaf4fbfe46f8c3a9df087a829b
   tzinfo-data (1.2026.4) sha256=22f5f02608f14938ab8b78513a70a22f0b0277614a07273d3bedb3ea45ece104
   unicode-display_width (3.2.0) sha256=0cdd96b5681a5949cdbc2c55e7b420facae74c4aaf9a9815eee1087cb1853c42
