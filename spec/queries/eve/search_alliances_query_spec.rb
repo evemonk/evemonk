@@ -37,15 +37,15 @@ RSpec.describe Eve::SearchAlliancesQuery do
     context "when q is present" do
       let(:q) { "The Dead Parrots" }
 
-      let(:scope) { class_double(Eve::Alliance) }
+      let!(:eve_alliance) { create(:eve_alliance, name: "The Dead Parrots") }
 
-      let(:query) { double }
+      let!(:index) { ActiveSearch.index(:eve_alliances) }
 
-      before { expect(scope).to receive(:search).with(q, "name,ticker").and_return(query) }
+      before { index.add(eve_alliance) }
 
-      subject { described_class.new(q, scope) }
+      subject { described_class.new(q) }
 
-      specify { expect(subject.query).to eq(query) }
+      specify { expect(subject.query.to_a).to eq([eve_alliance]) }
     end
 
     context "when q is not present" do
