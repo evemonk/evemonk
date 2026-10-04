@@ -16,7 +16,7 @@ RSpec.describe TrainingQueuesController, type: :request do
 
         it { expect(response).to have_http_status(:ok) }
 
-        it { expect(response.body).to include("Training Queue (0)") }
+        it { expect(Nokogiri::HTML5.parse(response.body).css("#character_training_queue").text).to eq("Training Queue (0)") }
       end
 
       context "when user is not own character" do
