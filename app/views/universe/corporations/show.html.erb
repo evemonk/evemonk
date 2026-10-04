@@ -60,7 +60,7 @@
   </div>
 
   <div class="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8">
-    <%= turbo_frame_tag "universe:corporation:#{@corporation.id}:characters",
+    <%= turbo_frame_tag dom_id(@corporation, "universe:corporation:characters"),
                         src: universe_corporation_characters_path(@corporation),
                         target: "_top" do %>
       <h4 class="text-center">Loading...</h4>
