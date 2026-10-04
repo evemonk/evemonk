@@ -23,5 +23,7 @@ end
 
 ActiveSearch.define_index(:eve_types, source: "Eve::Type") do
   text :name_en
+  boolean :published
   boolean :is_blueprint
+  boolean :is_manufacturing_item
 end
