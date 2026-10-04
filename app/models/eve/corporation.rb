@@ -2,7 +2,6 @@
 
 module Eve
   class Corporation < ApplicationRecord
-    include Typesense
     include ActionView::Helpers::NumberHelper
     include Imageable
 
@@ -35,9 +34,9 @@ module Eve
     #
     # after_commit :eve_alliance_reset_characters_count, on: [:create, :update, :destroy]
 
-    typesense do
-      attributes :name, :ticker
-    end
+    # typesense do
+    #   attributes :name, :ticker
+    # end
 
     has_one_attached :logo
 

@@ -4,7 +4,6 @@ module Eve
   class Type < ApplicationRecord
     self.primary_key = "type_id"
 
-    include Typesense
     include ActionView::Helpers::NumberHelper
     include Imageable
 
@@ -41,9 +40,9 @@ module Eve
 
     scope :manufacturing_items, -> { where(is_manufacturing_item: true) }
 
-    typesense do
-      attributes :name_en
-    end
+    # typesense do
+    #   attributes :name_en
+    # end
 
     def implant_bonuses
       @implant_bonuses ||= ImplantBonuses.new(self).implant_bonuses
