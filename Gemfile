@@ -22,6 +22,9 @@ gem "solid_cache"
 gem "solid_queue"
 gem "solid_cable"
 
+gem "herb"
+gem "reactionview"
+
 gem "bootsnap", require: false
 
 gem "thruster"
@@ -107,7 +110,6 @@ group :development, :test do
   gem "squasher", require: false
   gem "brakeman", require: false
   gem "license_finder", require: false
-  gem "herb", require: false
 end
 
 group :development do
