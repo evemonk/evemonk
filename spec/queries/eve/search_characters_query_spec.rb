@@ -37,15 +37,15 @@ RSpec.describe Eve::SearchCharactersQuery do
     context "when q is present" do
       let(:q) { "Green Black" }
 
-      let(:scope) { class_double(Eve::Character) }
+      let!(:eve_character) { create(:eve_character, name: "Green Black") }
 
-      let(:query) { double }
+      let!(:index) { ActiveSearch.index(:eve_characters) }
 
-      before { expect(scope).to receive(:search).with(q, "name").and_return(query) }
+      before { index.add(eve_character) }
 
-      subject { described_class.new(q, scope) }
+      subject { described_class.new(q) }
 
-      specify { expect(subject.query).to eq(query) }
+      specify { expect(subject.query.to_a).to eq([eve_character]) }
     end
 
     context "when q is not present" do

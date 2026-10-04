@@ -11,7 +11,7 @@ module Eve
 
     def query
       if q.present?
-        scope.search(q, "name")
+        scope.search(q).results
       else
         scope
       end
