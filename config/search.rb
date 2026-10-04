@@ -16,3 +16,7 @@ ActiveSearch.define_index(:eve_corporations, source: "Eve::Corporation") do
   text :name
   text :ticker
 end
+
+ActiveSearch.define_index(:eve_characters, source: "Eve::Character") do
+  text :name
+end

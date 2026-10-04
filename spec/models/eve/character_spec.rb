@@ -5,8 +5,6 @@ require "rails_helper"
 RSpec.describe Eve::Character, type: :model do
   it { expect(subject).to be_an(ApplicationRecord) }
 
-  it { expect(subject).to be_a(Typesense) }
-
   it { expect(subject).to be_a(Imageable) }
 
   it { expect(described_class.table_name).to eq("eve_characters") }
