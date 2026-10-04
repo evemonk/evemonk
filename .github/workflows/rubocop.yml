@@ -14,6 +14,10 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 jobs:
   run:
     runs-on: ubuntu-24.04
@@ -31,8 +35,8 @@ jobs:
       - name: Set up Ruby
         uses: ruby/setup-ruby@14594264cd68ce8a2345dd349bc3d138a4ef85c8 # v1.327.0
         with:
-          rubygems: "4.0.21"
-          bundler: "4.0.21"
+          rubygems: "4.0.22"
+          bundler: "4.0.22"
           bundler-cache: true
 
       - run: bin/rubocop --parallel --format github
