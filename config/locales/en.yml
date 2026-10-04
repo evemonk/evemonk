@@ -51,6 +51,10 @@ en:
       flipper: "Flipper"
       pghero: "PgHero"
       pg_extras: "PgExtras"
+      faq: "FAQ"
+      privacy_policy: "Privacy policy"
+      terms_of_use: "Terms of use"
+      about: "About"
   auth:
     eve_online_sso:
       callbacks:
