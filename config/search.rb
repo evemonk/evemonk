@@ -9,7 +9,7 @@
 
 ActiveSearch.define_index(:eve_alliances, source: "Eve::Alliance") do
   text :name
-  text :ticket
+  text :ticker
 end
 
 ActiveSearch.define_index(:eve_corporations, source: "Eve::Corporation") do
@@ -23,4 +23,5 @@ end
 
 ActiveSearch.define_index(:eve_types, source: "Eve::Type") do
   text :name_en
+  boolean :is_blueprint
 end
