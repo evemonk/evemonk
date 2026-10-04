@@ -28,6 +28,7 @@ gem "reactionview"
 gem "bootsnap", require: false
 
 gem "thruster"
+gem "rails-active_search"
 gem "view_component"
 gem "inline_svg"
 gem "good_migrations"

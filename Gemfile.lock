@@ -575,6 +575,8 @@ GEM
       activesupport (= 8.1.3.1)
       bundler (>= 1.15.0)
       railties (= 8.1.3.1)
+    rails-active_search (0.1.0)
+      rails (>= 8.1)
     rails-controller-testing (1.0.5)
       actionpack (>= 5.0.1.rc1)
       actionview (>= 5.0.1.rc1)
@@ -983,6 +985,7 @@ DEPENDENCIES
   rack-cors
   rack-timeout
   rails (= 8.1.3.1)
+  rails-active_search
   rails-controller-testing
   rails-html-sanitizer
   rails-i18n
@@ -1250,6 +1253,7 @@ CHECKSUMS
   rack-timeout (0.7.0) sha256=757337e9793cca999bb73a61fe2a7d4280aa9eefbaf787ce3b98d860749c87d9
   rackup (2.3.1) sha256=6c79c26753778e90983761d677a48937ee3192b3ffef6bc963c0950f94688868
   rails (8.1.3.1) sha256=ccd11a36bfc171bf9c66d585d14c0ece91c0c9dde840aae60c0118d6f5c9c52a
+  rails-active_search (0.1.0) sha256=e79b5d206f4d35a2c1b418f20974d64fd0f0eeff002063b9d503ccf41cf88d76
   rails-controller-testing (1.0.5) sha256=741448db59366073e86fc965ba403f881c636b79a2c39a48d0486f2607182e94
   rails-dom-testing (2.3.0) sha256=8acc7953a7b911ca44588bf08737bc16719f431a1cc3091a292bca7317925c1d
   rails-html-sanitizer (1.7.1) sha256=e797a7c9b01e567307e317c576b49ab4168017e63eea4dba9ce3cb587e2f22c2
