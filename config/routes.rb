@@ -5,10 +5,6 @@ Rails.application.routes.draw do
   # Can be used by load balancers and uptime monitors to verify that the app is live.
   get "up" => "rails/health#show", :as => :rails_health_check
 
-  if Rails.env.local?
-    mount Lookbook::Engine, at: "/lookbook"
-  end
-
   mount GraphiQL::Rails::Engine, at: "/graphiql", graphql_path: "/graphql"
 
   authenticate :user, ->(user) { user.admin? } do
