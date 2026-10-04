@@ -1,5 +1,5 @@
 <%= turbo_frame_tag dom_id(@character, :blueprints) do %>
-  <h4 class="text-center text-break">Blueprints (<%= @character_blueprints.size %>)</h4>
+  <h4 id="character_blueprints" class="text-center text-break">Blueprints (<%= @character_blueprints.size %>)</h4>
 
   <%= form_with(url: character_blueprints_lists_path(@character),
                 method: :get,

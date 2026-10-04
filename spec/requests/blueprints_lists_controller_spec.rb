@@ -16,7 +16,7 @@ RSpec.describe BlueprintsListsController, type: :request do
 
         it { expect(response).to have_http_status(:ok) }
 
-        it { expect(response.body).to include("Blueprints (0)") }
+        it { expect(response.parsed_body.css("#character_blueprints").text).to eq("Blueprints (0)") }
       end
 
       context "when user is not own character" do
