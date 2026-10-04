@@ -9,6 +9,8 @@ module Eve
 
     extend Mobility
 
+    has_search
+
     PRIMARY_ATTRIBUTE_NAME = "primaryAttribute"
     SECONDARY_ATTRIBUTE_NAME = "secondaryAttribute"
 
@@ -39,10 +41,6 @@ module Eve
     scope :blueprints, -> { where(is_blueprint: true) }
 
     scope :manufacturing_items, -> { where(is_manufacturing_item: true) }
-
-    # typesense do
-    #   attributes :name_en
-    # end
 
     def implant_bonuses
       @implant_bonuses ||= ImplantBonuses.new(self).implant_bonuses

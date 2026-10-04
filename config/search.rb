@@ -20,3 +20,7 @@ end
 ActiveSearch.define_index(:eve_characters, source: "Eve::Character") do
   text :name
 end
+
+ActiveSearch.define_index(:eve_types, source: "Eve::Type") do
+  text :name_en
+end
