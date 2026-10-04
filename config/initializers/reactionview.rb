@@ -28,4 +28,6 @@ ReActionView.configure do |config|
 
   # Parser options for every compile, merged over the ones in .herb.yml
   # config.engine.parser_options = { strict_locals: true }
+
+  config.slots = true
 end
