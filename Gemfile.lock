@@ -693,12 +693,6 @@ GEM
       lint_roller (~> 1.1)
       rubocop (~> 1.72, >= 1.72.1)
       rubocop-rspec (~> 3.5)
-    rubocop-view_component (0.6.0)
-      activesupport
-      herb
-      lint_roller (~> 1.1)
-      parser
-      rubocop (>= 1.72.2)
     ruby-pg-extras (5.7.0)
       pg
       terminal-table
@@ -982,7 +976,6 @@ DEPENDENCIES
   rubocop-rails
   rubocop-rspec
   rubocop-rspec_rails
-  rubocop-view_component
   ruby-pg-extras
   rubydex
   selenium-webdriver
@@ -1266,7 +1259,6 @@ CHECKSUMS
   rubocop-rails (2.36.0) sha256=105a5f5b0001ff2ef28a3af90da50862464e0775e8d0016d599079c0ca408bdb
   rubocop-rspec (3.10.2) sha256=0b3e2ecc592cd10ecbf0095bb58d1e357905276e069643523cc19eb7495f65e2
   rubocop-rspec_rails (2.32.0) sha256=4a0d641c72f6ebb957534f539d9d0a62c47abd8ce0d0aeee1ef4701e892a9100
-  rubocop-view_component (0.6.0) sha256=0253e4244c89593ff328b980c9f41f4a6f7aebb2f3ba1f3f817fd8622851b210
   ruby-pg-extras (5.7.0) sha256=a5fab08d07739ceaf0ad414847027773a04c969115b9a27f22520dd0c35ff70a
   ruby-progressbar (1.13.0) sha256=80fc9c47a9b640d6834e0dc7b3c94c9df37f08cb072b7761e4a71e22cff29b33
   rubydex (0.4.1) sha256=9856af8bfbe656eed95449dd9e2c8239a74662b4bb8563e4b99221dbc065a34a
