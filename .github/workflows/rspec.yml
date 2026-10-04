@@ -35,6 +35,7 @@ env:
   CI: "yes"
   SE_AVOID_STATS: "true"
   RAILS_PG_EXTRAS_PUBLIC_DASHBOARD: "true"
+  TYPESENSE_API_KEY: "API_KEY"
 
 jobs:
   run:
