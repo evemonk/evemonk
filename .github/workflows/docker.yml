@@ -12,6 +12,10 @@ permissions:
   contents: read # Required to checkout and read repo files
   security-events: write # Required to upload SARIF files to Security tab
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 jobs:
   build:
     runs-on: ubuntu-24.04
