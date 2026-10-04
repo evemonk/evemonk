@@ -50,7 +50,7 @@ RSpec.describe Universe::CharactersController, type: :request do
       it "is expected to have http status ok" do
         expect(response).to have_http_status(:ok)
 
-        expect(response.body).to include("Character: Johnn Dillinger")
+        expect(Nokogiri::HTML5.parse(response.body).css("#character_name").text).to eq("Character: Johnn Dillinger")
       end
     end
 
@@ -62,7 +62,7 @@ RSpec.describe Universe::CharactersController, type: :request do
       it "is expected to have http status ok" do
         expect(response).to have_http_status(:ok)
 
-        expect(response.body).to include("Character: Johnn Dillinger")
+        expect(Nokogiri::HTML5.parse(response.body).css("#character_name").text).to eq("Character: Johnn Dillinger")
       end
     end
   end
