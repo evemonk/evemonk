@@ -5,6 +5,8 @@ module Eve
     include ActionView::Helpers::NumberHelper
     include Imageable
 
+    has_search
+
     belongs_to :alliance, optional: true
 
     belongs_to :ceo, class_name: "Eve::Character", optional: true
@@ -33,10 +35,6 @@ module Eve
     # after_commit :eve_alliance_reset_corporations_count, on: [:create, :update, :destroy]
     #
     # after_commit :eve_alliance_reset_characters_count, on: [:create, :update, :destroy]
-
-    # typesense do
-    #   attributes :name, :ticker
-    # end
 
     has_one_attached :logo
 

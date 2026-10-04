@@ -11,3 +11,8 @@ ActiveSearch.define_index(:eve_alliances, source: "Eve::Alliance") do
   text :name
   text :ticket
 end
+
+ActiveSearch.define_index(:eve_corporations, source: "Eve::Corporation") do
+  text :name
+  text :ticker
+end
