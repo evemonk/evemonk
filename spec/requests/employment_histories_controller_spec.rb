@@ -16,7 +16,7 @@ RSpec.describe EmploymentHistoriesController, type: :request do
 
         it { expect(response).to have_http_status(:ok) }
 
-        it { expect(response.body).to include("Employment History (0)") }
+        it { expect(response.parsed_body.css("#character_employment_history").text).to eq("Employment History (0)") }
       end
 
       context "when user is not own character" do
