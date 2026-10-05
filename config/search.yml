@@ -10,14 +10,22 @@
 development:
   adapter: typesense
   index_prefix: development_
-  api_key: <%= ENV["TYPESENSE_API_KEY"].to_json %>
+  api_key: <%= ENV["TYPESENSE_API_KEY"] %>
 
 test:
   adapter: typesense
   index_prefix: test_
-  api_key: <%= ENV["TYPESENSE_API_KEY"].to_json %>
+  api_key: <%= ENV["TYPESENSE_API_KEY"] %>
 
 # A local setup. See "Adapter Setup" in the ActiveSearch README for what typesense takes
 # elsewhere -- a database adapter takes nothing, and the rest differ.
 # production:
 #   adapter: typesense
+
+production:
+  adapter: typesense
+  api_key: <%= ENV["TYPESENSE_API_KEY"] %>
+  nodes:
+    - host: <%= ENV.fetch("TYPESENSE_HOST", "localhost") %>
+      port: <%= ENV.fetch("TYPESENSE_PORT", "8108").to_i %>
+      protocol: <%= ENV.fetch("TYPESENSE_PROTOCOL", "http") %>
