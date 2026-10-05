@@ -1,5 +1,5 @@
 <%= turbo_frame_tag dom_id(@corporation, "universe:corporation:characters")  do %>
-  <h4 class="text-center">Members (<%= @characters.size %>)</h4>
+  <h4 id="members" class="text-center">Members (<%= @characters.size %>)</h4>
 
   <table class="table table-dark table-striped table-bordered">
     <thead>
