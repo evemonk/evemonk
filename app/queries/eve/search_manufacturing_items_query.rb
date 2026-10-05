@@ -11,7 +11,10 @@ module Eve
 
     def query
       if q.present?
-        scope.search(q, "name_en")
+        scope.search(q)
+          .filter(published: true)
+          .filter(is_manufacturing_item: true)
+          .results
       else
         scope.none
       end

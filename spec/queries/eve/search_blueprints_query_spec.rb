@@ -46,15 +46,15 @@ RSpec.describe Eve::SearchBlueprintsQuery do
     context "when q is present" do
       let(:q) { "Drake" }
 
-      let(:scope) { class_double(Eve::Blueprint) }
+      let!(:eve_type) { create(:eve_type, name_en: "Drake", published: true, is_blueprint: true) }
 
-      let(:query) { double }
+      let!(:index) { ActiveSearch.index(:eve_types) }
 
-      before { expect(scope).to receive(:search).with(q, "name_en").and_return(query) }
+      before { index.add(eve_type) }
 
-      subject { described_class.new(q, scope) }
+      subject { described_class.new(q) }
 
-      specify { expect(subject.query).to eq(query) }
+      specify { expect(subject.query.to_a).to eq([eve_type]) }
     end
 
     context "when q is not present" do

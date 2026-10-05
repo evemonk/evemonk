@@ -6,7 +6,9 @@ module Maintenance
     no_collection
 
     def process
-      Eve::Alliance.reindex!
+      ActiveSearch.index(:eve_alliances).batch(max_size: 500) do |batch|
+        Eve::Alliance.find_each { |alliance| batch.add(alliance) }
+      end
     end
   end
 end

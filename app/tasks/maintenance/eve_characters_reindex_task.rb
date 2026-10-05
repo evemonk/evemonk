@@ -6,7 +6,9 @@ module Maintenance
     no_collection
 
     def process
-      Eve::Character.reindex!
+      ActiveSearch.index(:eve_characters).batch(max_size: 500) do |batch|
+        Eve::Character.find_each { |character| batch.add(character) }
+      end
     end
   end
 end

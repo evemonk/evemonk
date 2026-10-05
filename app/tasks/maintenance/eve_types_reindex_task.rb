@@ -6,7 +6,9 @@ module Maintenance
     no_collection
 
     def process
-      Eve::Type.reindex!
+      ActiveSearch.index(:eve_types).batch(max_size: 500) do |batch|
+        Eve::Type.find_each { |type| batch.add(type) }
+      end
     end
   end
 end

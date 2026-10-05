@@ -2,18 +2,22 @@
 
 module Eve
   class SearchAlliancesQuery < BaseQuery
-    attr_reader :q, :scope
-
-    def initialize(q = nil, scope = Eve::Alliance.all)
+    # @param q [String, ActionController::Parameters, NilClass] String to search. Default: nil
+    # @param limit [Integer] Limit records. Default: 25
+    # @param scope [Eve::Alliance::ActiveRecord_Relation]
+    def initialize(q: nil, limit: 25, scope: Eve::Alliance.all)
       @q = q
+      @limit = limit
       @scope = scope
     end
 
     def query
-      if q.present?
-        scope.search(q, "name,ticker")
+      if @q.present?
+        Eve::Alliance.search(@q, scope: @scope)
+          .limit(@limit)
+          .results
       else
-        scope
+        @scope.limit(@limit)
       end
     end
   end

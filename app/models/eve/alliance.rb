@@ -2,9 +2,10 @@
 
 module Eve
   class Alliance < ApplicationRecord
-    include Typesense
     include ActionView::Helpers::NumberHelper
     include Imageable
+
+    has_search
 
     belongs_to :creator_corporation,
       class_name: "Eve::Corporation",
@@ -25,10 +26,6 @@ module Eve
     has_many :characters, through: :corporations
 
     has_many :corporation_alliance_histories # rubocop:disable Rails/HasManyOrHasOneDependent
-
-    typesense do
-      attributes :name, :ticker
-    end
 
     has_one_attached :logo
 

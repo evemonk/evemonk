@@ -22,9 +22,14 @@ gem "solid_cache"
 gem "solid_queue"
 gem "solid_cable"
 
+gem "herb"
+gem "reactionview"
+
 gem "bootsnap", require: false
 
 gem "thruster"
+gem "rails-active_search"
+gem "typesense"
 gem "view_component"
 gem "inline_svg"
 gem "good_migrations"
@@ -41,7 +46,6 @@ gem "hotwire_combobox"
 gem "graphql"
 gem "graphiql-rails"
 gem "rack-cors"
-gem "typesense-rails", "1.0.0.rc8"
 gem "meta-tags"
 gem "eve_online"
 gem "omniauth-eve_online-sso"
@@ -87,7 +91,6 @@ group :production do
 end
 
 group :development, :test do
-  gem "lookbook"
   gem "rspec-rails", ">= 6.0.1", require: false
   gem "rspec-retry", require: false
   gem "factory_bot_rails"
@@ -102,12 +105,10 @@ group :development, :test do
   gem "rubocop-rspec", require: false
   gem "rubocop-rspec_rails", require: false
   gem "rubocop-factory_bot", require: false
-  gem "rubocop-view_component", require: false
   gem "standard", "1.56.0", require: false
   gem "squasher", require: false
   gem "brakeman", require: false
   gem "license_finder", require: false
-  gem "herb", require: false
 end
 
 group :development do

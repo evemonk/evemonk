@@ -15,7 +15,7 @@ RSpec.describe ProfilesController, type: :request do
 
       it { expect(response).to have_http_status(:ok) }
 
-      it { expect(response.body).to include("Characters count: 1") }
+      it { expect(response.parsed_body.css("#characters_count").text.strip).to eq("Characters count: 1") }
     end
 
     context "when user not signed in" do

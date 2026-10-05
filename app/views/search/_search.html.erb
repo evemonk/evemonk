@@ -16,7 +16,9 @@
         </thead>
 
         <tbody>
-          <%= render alliances %>
+          <% alliances.each do |alliance| %>
+            <%= render alliance %>
+          <% end %>
         </tbody>
       </table>
     </div>
@@ -35,7 +37,9 @@
         </thead>
 
         <tbody>
-          <%= render corporations %>
+          <% corporations.each do |corporation| %>
+            <%= render corporation %>
+          <% end %>
         </tbody>
       </table>
     </div>
@@ -53,7 +57,9 @@
         </thead>
 
         <tbody>
-          <%= render characters %>
+          <% characters.each do |character| %>
+            <%= render character %>
+          <% end %>
         </tbody>
       </table>
     </div>

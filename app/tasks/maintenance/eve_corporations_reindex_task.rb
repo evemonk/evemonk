@@ -6,7 +6,9 @@ module Maintenance
     no_collection
 
     def process
-      Eve::Corporation.reindex!
+      ActiveSearch.index(:eve_corporations).batch(max_size: 500) do |batch|
+        Eve::Corporation.find_each { |corporation| batch.add(corporation) }
+      end
     end
   end
 end

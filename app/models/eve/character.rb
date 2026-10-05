@@ -2,8 +2,9 @@
 
 module Eve
   class Character < ApplicationRecord
-    include Typesense
     include Imageable
+
+    has_search
 
     belongs_to :alliance, optional: true
 
@@ -16,10 +17,6 @@ module Eve
     belongs_to :race, optional: true
 
     has_many :character_corporation_histories, dependent: :destroy
-
-    typesense do
-      attributes :name
-    end
 
     has_one_attached :portrait
 

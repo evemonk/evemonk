@@ -38,7 +38,7 @@ RSpec.describe Universe::AlliancesController, type: :request do
       it "is expected to have http status ok" do
         expect(response).to have_http_status(:ok)
 
-        expect(response.body).to include("Alliance: The Dead Parrots")
+        expect(response.parsed_body.css("#alliance_name").text).to eq("Alliance: The Dead Parrots")
       end
     end
 
@@ -50,7 +50,7 @@ RSpec.describe Universe::AlliancesController, type: :request do
       it "is expected to have http status ok" do
         expect(response).to have_http_status(:ok)
 
-        expect(response.body).to include("Alliance: The Dead Parrots")
+        expect(response.parsed_body.css("#alliance_name").text).to eq("Alliance: The Dead Parrots")
       end
     end
   end

@@ -7,7 +7,6 @@ plugins:
   - rubocop-factory_bot
   - rubocop-rspec
   - rubocop-rspec_rails
-  - rubocop-view_component
 
 AllCops:
   NewCops: enable

@@ -35,6 +35,7 @@ env:
   CI: "yes"
   SE_AVOID_STATS: "true"
   RAILS_PG_EXTRAS_PUBLIC_DASHBOARD: "true"
+  TYPESENSE_API_KEY: "API_KEY"
 
 jobs:
   run:
@@ -107,6 +108,12 @@ jobs:
       - run: bin/rails zeitwerk:check
       - run: bin/rails db:create
       - run: bin/rails db:migrate
+
+      - run: bin/rails active_search:index:create INDEX=eve_alliances RAILS_ENV=test
+      - run: bin/rails active_search:index:create INDEX=eve_characters RAILS_ENV=test
+      - run: bin/rails active_search:index:create INDEX=eve_types RAILS_ENV=test
+      - run: bin/rails active_search:index:create INDEX=eve_corporations RAILS_ENV=test
+
       - run: bin/rspec
 
       - name: Upload coverage to Codecov

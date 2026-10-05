@@ -1,0 +1,31 @@
+# Which store each index is written to and searched in. One stanza per environment, or a named
+# store per stanza when an index names one with store_name:.
+#
+# Adapters: elasticsearch, manticore, meilisearch, mysql, opensearch, postgresql, redis_search, solr, sqlite, typesense.
+# A database adapter takes its connection from the document class and reads nothing here beyond
+# the adapter name. Every other adapter defaults to localhost on its own port.
+#
+# index_prefix keeps development and test off each other's indexes: they share one store, so
+# without it `rails test` would write to and delete the index the development app reads.
+development:
+  adapter: typesense
+  index_prefix: development_
+  api_key: <%= ENV["TYPESENSE_API_KEY"] %>
+
+test:
+  adapter: typesense
+  index_prefix: test_
+  api_key: <%= ENV["TYPESENSE_API_KEY"] %>
+
+# A local setup. See "Adapter Setup" in the ActiveSearch README for what typesense takes
+# elsewhere -- a database adapter takes nothing, and the rest differ.
+# production:
+#   adapter: typesense
+
+production:
+  adapter: typesense
+  api_key: <%= ENV["TYPESENSE_API_KEY"] %>
+  nodes:
+    - host: <%= ENV.fetch("TYPESENSE_HOST", "localhost") %>
+      port: <%= ENV.fetch("TYPESENSE_PORT", "8108").to_i %>
+      protocol: <%= ENV.fetch("TYPESENSE_PROTOCOL", "http") %>

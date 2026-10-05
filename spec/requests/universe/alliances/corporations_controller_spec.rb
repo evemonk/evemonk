@@ -14,7 +14,7 @@ RSpec.describe Universe::Alliances::CorporationsController, type: :request do
       it "is expected to have http status ok" do
         expect(response).to have_http_status(:ok)
 
-        expect(response.body).to include("Corporations (1)")
+        expect(response.parsed_body.css("#corporations").text).to eq("Corporations (1)")
       end
     end
 
@@ -26,7 +26,7 @@ RSpec.describe Universe::Alliances::CorporationsController, type: :request do
       it "is expected to have http status ok" do
         expect(response).to have_http_status(:ok)
 
-        expect(response.body).to include("Corporations (1)")
+        expect(response.parsed_body.css("#corporations").text).to eq("Corporations (1)")
       end
     end
   end
