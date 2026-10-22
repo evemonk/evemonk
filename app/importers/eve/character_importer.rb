@@ -19,7 +19,7 @@ module Eve
 
         DeletedCharacter.find_or_create_by!(id: id).touch # rubocop:disable Rails/SkipsModelValidations
 
-        eve_character.destroy!
+        eve_character.destroy! if eve_character.persisted?
       end
     end
 
