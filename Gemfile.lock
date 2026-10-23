@@ -826,7 +826,8 @@ GEM
     thruster (0.1.27-x86_64-darwin)
     thruster (0.1.27-x86_64-linux)
     timeout (0.6.1)
-    tomlrb (2.0.4)
+    tomlrb (2.0.5)
+      racc (~> 1.4)
     tsort (0.2.0)
     turbo-rails (2.0.23)
       actionpack (>= 7.1.0)
@@ -1325,7 +1326,7 @@ CHECKSUMS
   thruster (0.1.27-x86_64-darwin) sha256=f389bdfccf332dabff8053194e64cd65d4ae247f1afd386624233a1dfaa41485
   thruster (0.1.27-x86_64-linux) sha256=7e0e6381011401810b047ff25506e0e38755b2430499ff5586f1a110086981c6
   timeout (0.6.1) sha256=78f57368a7e7bbadec56971f78a3f5ecbcfb59b7fcbb0a3ed6ddc08a5094accb
-  tomlrb (2.0.4) sha256=262f77947ac3ac9b3366a0a5940ecd238300c553e2e14f22009e2afcd2181b99
+  tomlrb (2.0.5) sha256=6e9a5e70a94a723842e770fcd14c49867703500d07cd03ebb6c343138a7b4477
   tsort (0.2.0) sha256=9650a793f6859a43b6641671278f79cfead60ac714148aabe4e3f0060480089f
   turbo-rails (2.0.23) sha256=ee0d90733aafff056cf51ff11e803d65e43cae258cc55f6492020ec1f9f9315f
   typesense (5.0.0) sha256=acce2facffe0585f5897eeab1aaa6aaa6f2dcf560a73c87a9a1b4a3e4045069e
