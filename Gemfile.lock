@@ -708,11 +708,11 @@ GEM
       pg
       terminal-table
     ruby-progressbar (1.13.0)
-    rubydex (0.4.1)
-    rubydex (0.4.1-aarch64-linux)
-    rubydex (0.4.1-arm64-darwin)
-    rubydex (0.4.1-x86_64-darwin)
-    rubydex (0.4.1-x86_64-linux)
+    rubydex (0.4.3)
+    rubydex (0.4.3-aarch64-linux)
+    rubydex (0.4.3-arm64-darwin)
+    rubydex (0.4.3-x86_64-darwin)
+    rubydex (0.4.3-x86_64-linux)
     rubyzip (2.4.1)
     sanitize (7.0.0)
       crass (~> 1.0.2)
@@ -1272,11 +1272,11 @@ CHECKSUMS
   rubocop-view_component (0.6.0) sha256=0253e4244c89593ff328b980c9f41f4a6f7aebb2f3ba1f3f817fd8622851b210
   ruby-pg-extras (5.7.0) sha256=a5fab08d07739ceaf0ad414847027773a04c969115b9a27f22520dd0c35ff70a
   ruby-progressbar (1.13.0) sha256=80fc9c47a9b640d6834e0dc7b3c94c9df37f08cb072b7761e4a71e22cff29b33
-  rubydex (0.4.1) sha256=9856af8bfbe656eed95449dd9e2c8239a74662b4bb8563e4b99221dbc065a34a
-  rubydex (0.4.1-aarch64-linux) sha256=abc1c9eb22479f60dd015fa81373163c5a71f2700b76bced1282631686bd6271
-  rubydex (0.4.1-arm64-darwin) sha256=d23720253876d88fb98954e5d3a1ef9696a269697acf50e3ab53cdfbb2b66b96
-  rubydex (0.4.1-x86_64-darwin) sha256=a9681db5bc9be6a62f226d96d6889b6b600d0b09e7576391702aafd29912145b
-  rubydex (0.4.1-x86_64-linux) sha256=4e2c8398c9fc585485b54edd28f5ecf76b5a02255e177b6f8402e9d2afffd51b
+  rubydex (0.4.3) sha256=2af3c35cb82de9db627b373efa9c6355e93924625ffab708e27dd9efbf08fad5
+  rubydex (0.4.3-aarch64-linux) sha256=e7f7368546c8ed034c12829988b17fb570d9ac4991c802c0d9f75a123b965fc9
+  rubydex (0.4.3-arm64-darwin) sha256=6d9735367e2c9e4caece42da2732fa7492c68507aa97a58afc41f58296013cdb
+  rubydex (0.4.3-x86_64-darwin) sha256=f70c6ee8988e20dbc29a69e2b283ebbd6483ea89bf10a806dd8696c3710af71b
+  rubydex (0.4.3-x86_64-linux) sha256=550138ee5a5c005066560321cfe003130a111468821d8ef7cf30826742b1c2f5
   rubyzip (2.4.1) sha256=8577c88edc1fde8935eb91064c5cb1aef9ad5494b940cf19c775ee833e075615
   sanitize (7.0.0) sha256=269d1b9d7326e69307723af5643ec032ff86ad616e72a3b36d301ac75a273984
   sass-embedded (1.106.1) sha256=083d22938e7836e6fe32fd2ae565efc14d2547af18c6c920517484b99d1a26fa
