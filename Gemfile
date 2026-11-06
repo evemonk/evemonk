@@ -103,7 +103,7 @@ group :development, :test do
   gem "rubocop-rspec_rails", require: false
   gem "rubocop-factory_bot", require: false
   gem "rubocop-view_component", require: false
-  gem "standard", "1.56.0", require: false
+  gem "standard", "1.57.0", require: false
   gem "squasher", require: false
   gem "brakeman", require: false
   gem "license_finder", require: false
