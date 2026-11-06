@@ -279,7 +279,7 @@ GEM
       railties (> 5.0)
       rouge (>= 3.0)
     hashdiff (1.2.1)
-    hashie (5.1.0)
+    hashie (5.2.0)
       logger
     herb (0.11.1)
     herb (0.11.1-aarch64-linux-gnu)
@@ -770,9 +770,9 @@ GEM
       builder (~> 3.0)
     skylight (7.1.1)
       activesupport (>= 7.2.0)
-    snaky_hash (2.0.7)
+    snaky_hash (2.0.9)
       hashie (>= 0.1.0, < 6)
-      version_gem (~> 1.1, >= 1.1.14)
+      version_gem (~> 1.1, >= 1.1.16)
     solid_cable (4.0.2)
       actioncable (>= 7.2)
       activejob (>= 7.2)
@@ -848,7 +848,7 @@ GEM
     uri (1.1.2)
     useragent (0.16.11)
     vcr (6.4.0)
-    version_gem (1.1.15)
+    version_gem (1.1.17)
     view_component (4.15.0)
       actionview (>= 7.1.0)
       activesupport (>= 7.1.0)
@@ -1110,7 +1110,7 @@ CHECKSUMS
   graphql (2.6.11) sha256=9a9cde910e805c4c08fdf8d22bf129e935affc9ca8b4f9b2ec26b4b63666b15d
   graphql-rails_logger (1.2.5) sha256=d2117c047546aa2922550a313d3904d95949bdff819e0997f8246ebd6f49860d
   hashdiff (1.2.1) sha256=9c079dbc513dfc8833ab59c0c2d8f230fa28499cc5efb4b8dd276cf931457cd1
-  hashie (5.1.0) sha256=c266471896f323c446ea8207f8ffac985d2718df0a0ba98651a3057096ca3870
+  hashie (5.2.0) sha256=357a22635195c2e3911fbbc3de9a7d528843d1f42ab0aae02171048f16332d72
   herb (0.11.1) sha256=7a5a74c4931b341a2b7b7f5a530616801f5721a633d2655f002156ff553cd2d7
   herb (0.11.1-aarch64-linux-gnu) sha256=5484e0fc0bd5d040380cbbf503e86dccf3fc1d33428b7ad02715ee7dcaa018f9
   herb (0.11.1-aarch64-linux-musl) sha256=1113663d5e7832dad601547edb4606557ac84def516479ee5136fc7072747a58
@@ -1304,7 +1304,7 @@ CHECKSUMS
   simpleidn (0.3.0) sha256=12ca730bed2f3db04d11e9bfd1bca3e11fb37f55b21eb2e9793fb5814bf54d03
   sitemap_generator (6.3.0) sha256=1d803cbf03c44736bea05b9e3363d3523fec4e24f3abedad294d9c57cab994f3
   skylight (7.1.1) sha256=90b09ad73288ad11322f7db4e25b3f096b522d752a368d2c9e70bc346986e951
-  snaky_hash (2.0.7) sha256=7d02c70012a3f932e48860cd024577908300c9aa615e0cb9b450aaa749cbcb4d
+  snaky_hash (2.0.9) sha256=e93e6ec80632f8c8c4a3fe6e25d51eaef253e0e58dc7100f0f8370320feb3128
   solid_cable (4.0.2) sha256=084636a67679ad00d23088b33c84047e614bcf41ee559db24b414d83cdc42d03
   solid_cache (1.0.10) sha256=bc05a2fb3ac78a6f43cbb5946679cf9db67dd30d22939ededc385cb93e120d41
   solid_queue (1.4.0) sha256=e6a18d196f0b27cb6e3c77c5b31258b05fb634f8ed64fb1866ed164047216c2a
@@ -1337,7 +1337,7 @@ CHECKSUMS
   uri (1.1.2) sha256=89292e98eabbef6248b0a0ed5e7e398e152f83f17560023a6d94a7f492b169fb
   useragent (0.16.11) sha256=700e6413ad4bb954bb63547fa098dddf7b0ebe75b40cc6f93b8d54255b173844
   vcr (6.4.0) sha256=077ac92cc16efc5904eb90492a18153b5e6ca5398046d8a249a7c96a9ea24ae6
-  version_gem (1.1.15) sha256=a73241587b29252e3567e0c818ded80730eb754d43b508f6ce4db22ca9ba27d0
+  version_gem (1.1.17) sha256=70420b9675fbb77a7e7e7eb8ed6580dd4dd25be53b1454c1a79cc18f3c5a8dfd
   view_component (4.15.0) sha256=2924e207b102c04ab51c4d318535f03f1c3aab3c81ecff99b1cc631b43e14eac
   warden (1.2.9) sha256=46684f885d35a69dbb883deabf85a222c8e427a957804719e143005df7a1efd0
   webmock (3.34.0) sha256=72eed29dc8c00148d592acaedaaa6b869e2e397de57dfc8602b84aa834f46b33
