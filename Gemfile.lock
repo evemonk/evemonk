@@ -714,9 +714,9 @@ GEM
     rubydex (0.4.1-x86_64-darwin)
     rubydex (0.4.1-x86_64-linux)
     rubyzip (2.4.1)
-    sanitize (7.0.0)
-      crass (~> 1.0.2)
-      nokogiri (>= 1.16.8)
+    sanitize (7.0.2)
+      crass (~> 1.0.8)
+      nokogiri (>= 1.19.7)
     sass-embedded (1.108.0)
       google-protobuf (~> 4.31)
       rake (~> 13.3)
@@ -1279,7 +1279,7 @@ CHECKSUMS
   rubydex (0.4.1-x86_64-darwin) sha256=a9681db5bc9be6a62f226d96d6889b6b600d0b09e7576391702aafd29912145b
   rubydex (0.4.1-x86_64-linux) sha256=4e2c8398c9fc585485b54edd28f5ecf76b5a02255e177b6f8402e9d2afffd51b
   rubyzip (2.4.1) sha256=8577c88edc1fde8935eb91064c5cb1aef9ad5494b940cf19c775ee833e075615
-  sanitize (7.0.0) sha256=269d1b9d7326e69307723af5643ec032ff86ad616e72a3b36d301ac75a273984
+  sanitize (7.0.2) sha256=84c14aca3f69ee42da4ccd8aef5ee0f70c94bd600a652260b37fbfe833a77b97
   sass-embedded (1.108.0) sha256=8596127eb7a1d7d21f0089f17adc1afebc62348e006a02376f78f8ac037e5323
   sass-embedded (1.108.0-aarch64-linux-android) sha256=3a8d040eac503349d115e7c5deb6fa540e3afd012c8c6a90018b44d94aef03e1
   sass-embedded (1.108.0-aarch64-linux-gnu) sha256=e9cb36b758c58604802a414b9745528c71f9be32372d7b53149a6c228b77e90d
