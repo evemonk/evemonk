@@ -117,7 +117,7 @@ GEM
       aws-sigv4 (~> 1.5)
     aws-sigv4 (1.12.1)
       aws-eventstream (~> 1, >= 1.0.2)
-    base64 (0.2.0)
+    base64 (0.3.0)
     bcrypt (3.1.22)
     bcrypt_pbkdf (1.1.2)
     benchmark (0.5.0)
@@ -210,6 +210,9 @@ GEM
       faraday (>= 0.8)
     faraday-net_http (3.4.4)
       net-http (~> 0.5)
+    faraday-net_http_persistent (2.3.1)
+      faraday (~> 2.5)
+      net-http-persistent (>= 4.0.4, < 5)
     faraday-retry (2.4.0)
       faraday (~> 2.0)
     fiber-storage (1.0.1)
@@ -281,17 +284,17 @@ GEM
     hashdiff (1.2.1)
     hashie (5.2.0)
       logger
-    herb (0.11.1)
-    herb (0.11.1-aarch64-linux-gnu)
-    herb (0.11.1-aarch64-linux-musl)
-    herb (0.11.1-arm-linux-gnu)
-    herb (0.11.1-arm-linux-musl)
-    herb (0.11.1-arm64-darwin)
-    herb (0.11.1-x86-linux-gnu)
-    herb (0.11.1-x86-linux-musl)
-    herb (0.11.1-x86_64-darwin)
-    herb (0.11.1-x86_64-linux-gnu)
-    herb (0.11.1-x86_64-linux-musl)
+    herb (0.11.2)
+    herb (0.11.2-aarch64-linux-gnu)
+    herb (0.11.2-aarch64-linux-musl)
+    herb (0.11.2-arm-linux-gnu)
+    herb (0.11.2-arm-linux-musl)
+    herb (0.11.2-arm64-darwin)
+    herb (0.11.2-x86-linux-gnu)
+    herb (0.11.2-x86-linux-musl)
+    herb (0.11.2-x86_64-darwin)
+    herb (0.11.2-x86_64-linux-gnu)
+    herb (0.11.2-x86_64-linux-musl)
     hotwire_combobox (0.4.1)
       platform_agent (>= 1.0.1)
       rails (>= 7.0.7.2)
@@ -400,9 +403,9 @@ GEM
     method_source (1.1.0)
     mini_mime (1.1.5)
     mini_portile2 (2.8.9)
-    minitest (6.0.6)
+    minitest (6.1.0)
       drb (~> 2.0)
-      prism (~> 1.5)
+      prism (>= 1.5, < 3)
     mission_control-jobs (1.3.1)
       actioncable (>= 7.1)
       actionpack (>= 7.1)
@@ -665,9 +668,9 @@ GEM
       rubocop-ast (>= 1.49.0, < 2.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 2.4.0, < 4.0)
-    rubocop-ast (1.50.0)
+    rubocop-ast (1.51.0)
       parser (>= 3.3.7.2)
-      prism (~> 1.7)
+      prism (>= 1.7)
     rubocop-capybara (3.0.0)
       lint_roller (~> 1.1)
       rubocop (~> 1.81)
@@ -832,10 +835,12 @@ GEM
     turbo-rails (2.0.23)
       actionpack (>= 7.1.0)
       railties (>= 7.1.0)
-    typesense (5.0.0)
-      base64 (~> 0.2.0)
+    typesense (5.1.0)
+      base64 (~> 0.2)
       faraday (~> 2.8)
-      json (~> 2.9)
+      faraday-net_http_persistent (~> 2.0)
+      json (>= 2.9, < 4)
+      net-http-persistent (~> 4.0)
     typesense-rails (1.0.0.rc8)
       json (>= 1.5.1)
       typesense (>= 5.0.0, < 6.0.0)
@@ -843,8 +848,8 @@ GEM
       concurrent-ruby (~> 1.0)
     tzinfo-data (1.2026.6)
       tzinfo (>= 1.0.0)
-    unicode-display_width (3.2.0)
-      unicode-emoji (~> 4.1)
+    unicode-display_width (3.3.0)
+      unicode-emoji (~> 4.3)
     unicode-emoji (4.3.0)
     uri (1.1.2)
     useragent (0.16.11)
@@ -1045,7 +1050,7 @@ CHECKSUMS
   aws-sdk-kms (1.132.0) sha256=094b0097bb3be9d5c1ac87e971ca7f5aebb746801dfb5f0f576480bf98dca69c
   aws-sdk-s3 (1.232.1) sha256=124440f3a44fbc28cc3a2dec6eaeeea2a236bfc33772005010a19baa62654870
   aws-sigv4 (1.12.1) sha256=6973ff95cb0fd0dc58ba26e90e9510a2219525d07620c8babeb70ef831826c00
-  base64 (0.2.0) sha256=0f25e9b21a02a0cc0cea8ef92b2041035d39350946e8789c562b2d1a3da01507
+  base64 (0.3.0) sha256=27337aeabad6ffae05c265c450490628ef3ebd4b67be58257393227588f5a97b
   bcrypt (3.1.22) sha256=1f0072e88c2d705d94aff7f2c5cb02eb3f1ec4b8368671e19112527489f29032
   bcrypt_pbkdf (1.1.2) sha256=c2414c23ce66869b3eb9f643d6a3374d8322dfb5078125c82792304c10b94cf6
   benchmark (0.5.0) sha256=465df122341aedcb81a2a24b4d3bd19b6c67c1530713fd533f3ff034e419236c
@@ -1088,6 +1093,7 @@ CHECKSUMS
   faraday (2.14.4) sha256=9bb4408c44621b0dbaaaa39e5dbfc4dbe58cc6751b6eb94d16ae9e1f2f2fab6e
   faraday-http-cache (3.0.0) sha256=44e0b5441825b80aa59446fdb0ceb5a1cf83e9f58fc89752b336d87a991c7994
   faraday-net_http (3.4.4) sha256=0e78af151747ed1b00f33e25973b4bc220d7f16c00c39676817c8b12331eb588
+  faraday-net_http_persistent (2.3.1) sha256=23ffba37d6a27807a10f033d01918ec958aa73fa6ff0fccfbcd5ce2d2e68fca3
   faraday-retry (2.4.0) sha256=7b79c48fb7e56526faf247b12d94a680071ff40c9fda7cf1ec1549439ad11ebe
   fiber-storage (1.0.1) sha256=f48e5b6d8b0be96dac486332b55cee82240057065dc761c1ea692b2e719240e1
   flipper (1.4.2) sha256=dca7d65b5ec660b525b6c599e727219ac4994073c855b41b6656b2d91a9cb304
@@ -1112,17 +1118,17 @@ CHECKSUMS
   graphql-rails_logger (1.2.5) sha256=d2117c047546aa2922550a313d3904d95949bdff819e0997f8246ebd6f49860d
   hashdiff (1.2.1) sha256=9c079dbc513dfc8833ab59c0c2d8f230fa28499cc5efb4b8dd276cf931457cd1
   hashie (5.2.0) sha256=357a22635195c2e3911fbbc3de9a7d528843d1f42ab0aae02171048f16332d72
-  herb (0.11.1) sha256=7a5a74c4931b341a2b7b7f5a530616801f5721a633d2655f002156ff553cd2d7
-  herb (0.11.1-aarch64-linux-gnu) sha256=5484e0fc0bd5d040380cbbf503e86dccf3fc1d33428b7ad02715ee7dcaa018f9
-  herb (0.11.1-aarch64-linux-musl) sha256=1113663d5e7832dad601547edb4606557ac84def516479ee5136fc7072747a58
-  herb (0.11.1-arm-linux-gnu) sha256=849d49d6ec27aaf5a9ea07e66434fbb16a8c599b287e8f24f7478d6b358666da
-  herb (0.11.1-arm-linux-musl) sha256=de283c299df16c089e209dbc461fe003d4b3fbf100168637c8f983cc97186b5e
-  herb (0.11.1-arm64-darwin) sha256=c5d3c1d5f88a504bcfa6a4bb52f56650dc40345e23cdf051b02f3390cf184d9e
-  herb (0.11.1-x86-linux-gnu) sha256=340a962262588527125bc32467e569a99bd163fa796d2393a1275ba241feda46
-  herb (0.11.1-x86-linux-musl) sha256=6c6e1f4ae3399809ff0764a2588ade02c3813eee5091da975807c7adef3b5b5b
-  herb (0.11.1-x86_64-darwin) sha256=f73cad010299bf998bd4ead676b80ae2c1f0ff5487a2ef852e8d83652f74ced0
-  herb (0.11.1-x86_64-linux-gnu) sha256=e3104c5dab07300a2ea6fc3898014cf57db978fbf09f5554a2a6ef6c46f973f8
-  herb (0.11.1-x86_64-linux-musl) sha256=0c687b667b612e7cc2403e9991ee7c8e8d10cfef026cf41165f9d99284630b09
+  herb (0.11.2) sha256=926f16b6c552a077755f686d30f795db049a5596814a0dfd8133cbe36be787ba
+  herb (0.11.2-aarch64-linux-gnu) sha256=b8015cba548ff79f04c69dd9ccf92a8dc8900fca8a0fc23b000f92fdf7219842
+  herb (0.11.2-aarch64-linux-musl) sha256=0b41e988a6c81cb05cacfb3a5444d729fb1c41970bfe594fbdc91319376ce8cc
+  herb (0.11.2-arm-linux-gnu) sha256=f7f7d1ecf69670a39911b7d159705e55d2f0f9f3e935cf27f29a02e4723a6445
+  herb (0.11.2-arm-linux-musl) sha256=677d0e8676f96448c4e0a82da6e772c90f6de43e48ef13987f57518472d69568
+  herb (0.11.2-arm64-darwin) sha256=7a5e23818c3f784690384fc111eae50d6993723eb0c172a8a72d0be167281d78
+  herb (0.11.2-x86-linux-gnu) sha256=8ca9621760c7369b291a4656983b1323b7aab1961f58181d96c20acd93d30634
+  herb (0.11.2-x86-linux-musl) sha256=9bc1d44e03f7ae36da91aa4e1870202becbf9469f8cc93e0070be0f8c22b9e8e
+  herb (0.11.2-x86_64-darwin) sha256=3c44bbfac81d95e5760fa6e20054c4ac6d2aeaca28dcee5df83dcd43adf84897
+  herb (0.11.2-x86_64-linux-gnu) sha256=2627fe909e7e6b0548926573d87a2e12b6d65bc85964832d34abf5ba165bfc37
+  herb (0.11.2-x86_64-linux-musl) sha256=aa6e7aa38d44de757d3076e331234f55ed2f392c2bd0203a3aa4ceea0b6bdd3e
   hotwire_combobox (0.4.1) sha256=2d94741801f6e9814315fd7a36ee192da7e57e62c9eac7e3d2ed577bc2f73607
   htmlbeautifier (1.4.3) sha256=b43d08f7e2aa6ae1b5a6f0607b4ed8954c8d4a8e85fd2336f975dda1e4db385b
   htmlentities (4.4.2) sha256=bbafbdf69f2eca9262be4efef7e43e6a1de54c95eb600f26984f71d2fe96c5c3
@@ -1160,7 +1166,7 @@ CHECKSUMS
   method_source (1.1.0) sha256=181301c9c45b731b4769bc81e8860e72f9161ad7d66dd99103c9ab84f560f5c5
   mini_mime (1.1.5) sha256=8681b7e2e4215f2a159f9400b5816d85e9d8c6c6b491e96a12797e798f8bccef
   mini_portile2 (2.8.9) sha256=0cd7c7f824e010c072e33f68bc02d85a00aeb6fce05bb4819c03dfd3c140c289
-  minitest (6.0.6) sha256=153ea36d1d987a62942382b61075745042a2b3123b1cd48f4c3675af9cc7d6f1
+  minitest (6.1.0) sha256=ff373595aa8888631e8a5463986a76b3845346ae6d7fa46e139c1633d418076e
   mission_control-jobs (1.3.1) sha256=3230be224069b39fee2893eecd27c1c334fb5467290bf575e88b5c9121287b26
   mobility (1.3.2) sha256=32fbbb0e53118ef42de20daa6ac94dbb758c628874092eba311b968a1e1d757b
   msgpack (1.8.7) sha256=dfefec761b5f9047e6e8d95d2c7f8af4b3725d984a01942adc533aa819a2df33
@@ -1261,7 +1267,7 @@ CHECKSUMS
   rspec-retry (0.6.2) sha256=6101ba23a38809811ae3484acde4ab481c54d846ac66d5037ccb40131a60d858
   rspec-support (3.13.7) sha256=0640e5570872aafefd79867901deeeeb40b0c9875a36b983d85f54fb7381c47c
   rubocop (1.88.2) sha256=8def251c90cd955feb4daa3edc0ab56893250c4ce90ef81e6c80c03f9a939bbf
-  rubocop-ast (1.50.0) sha256=b9ca88300da0803ee222ad20cdb30494c0a784eed06fdc35d254b06d662788db
+  rubocop-ast (1.51.0) sha256=0ec311e36b191b3872d909078a35274e962ae97dbce64be6812d145ca59acfcb
   rubocop-capybara (3.0.0) sha256=7a64655238acda7f8f3c87e37ac825a64c615a79c17c253f1a28270dc3768c4b
   rubocop-disable_syntax (0.2.0) sha256=1e61645773b3fc2f74e995ec65f605f7db59437c274fdfd4f385f60bf86af73e
   rubocop-factory_bot (2.28.0) sha256=4b17fc02124444173317e131759d195b0d762844a71a29fe8139c1105d92f0cb
@@ -1329,11 +1335,11 @@ CHECKSUMS
   tomlrb (2.0.5) sha256=6e9a5e70a94a723842e770fcd14c49867703500d07cd03ebb6c343138a7b4477
   tsort (0.2.0) sha256=9650a793f6859a43b6641671278f79cfead60ac714148aabe4e3f0060480089f
   turbo-rails (2.0.23) sha256=ee0d90733aafff056cf51ff11e803d65e43cae258cc55f6492020ec1f9f9315f
-  typesense (5.0.0) sha256=acce2facffe0585f5897eeab1aaa6aaa6f2dcf560a73c87a9a1b4a3e4045069e
+  typesense (5.1.0) sha256=ca87bf268e357f7789baa1547e9c4e5104247951ba361261dad2735b3fb8a058
   typesense-rails (1.0.0.rc8) sha256=cc6145ecd30e4463aea5021f47a65284e9768566251bea6c1d493f0a58717564
   tzinfo (2.0.6) sha256=8daf828cc77bcf7d63b0e3bdb6caa47e2272dcfaf4fbfe46f8c3a9df087a829b
   tzinfo-data (1.2026.6) sha256=fefda3d5a0f26730d7464f2853ceb021cb2eb1f1f504da2108ea1ce5d5309670
-  unicode-display_width (3.2.0) sha256=0cdd96b5681a5949cdbc2c55e7b420facae74c4aaf9a9815eee1087cb1853c42
+  unicode-display_width (3.3.0) sha256=4b7aa66a4b11db50f6f7e98411215cd0dd10eaecb665d36eec5bcacb3fa0b613
   unicode-emoji (4.3.0) sha256=11c02fa73290378c066bb0562cd4c87d8e1b706fbbe0059ca12746a4244de8ce
   uri (1.1.2) sha256=89292e98eabbef6248b0a0ed5e7e398e152f83f17560023a6d94a7f492b169fb
   useragent (0.16.11) sha256=700e6413ad4bb954bb63547fa098dddf7b0ebe75b40cc6f93b8d54255b173844
