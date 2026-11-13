@@ -34,7 +34,7 @@ services:
       - "8108:8108"
 
   redis:
-    image: "docker.io/valkey/valkey:9.1"
+    image: "docker.io/valkey/valkey:9.2"
     container_name: "evemonk_redis"
     restart: "unless-stopped"
     volumes:
