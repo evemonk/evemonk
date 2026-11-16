@@ -64,7 +64,7 @@ jobs:
           TYPESENSE_ENABLE_CORS: "true"
 
       redis:
-        image: "valkey/valkey:9.1"
+        image: "valkey/valkey:9.2"
         # Set health checks to wait until redis has started
         options: >-
           --health-cmd "redis-cli ping"
